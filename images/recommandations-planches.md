@@ -19,6 +19,10 @@ nouvelle numérotation (six tomes).
    27-04 refaites sans main : « c'est pas ça que je voulais, je les voulais mais bien faites ») : la
    main, la tête ou le bras qui porte le geste reste, et se dessine bien — proportions justes, doigts
    de longueur normale, pouce en face, prise qui serre vraiment l'objet.
+   JP, 12 octobre au soir, sur la bibliothèque refaite : « la prise du dos de la main, le pouce est pas
+   à la bonne place, de profil non plus. Les têtes sont dégueulasses. » Trois essais de mains et de
+   têtes construites par calcul ont raté : elles doivent partir d'un vrai modèle (photo ou planche
+   ancienne décalquée), pas d'une construction géométrique.
 3. **Un mécanisme (piège, collet, montage) doit se comprendre au premier regard.** Le dessin remplit
    sa vue, à une échelle où on lit chaque pièce ; les objets se reconnaissent sans la légende (une
    roche est une roche, une perche une perche) ; l'animal ou la charge est montré en place ; on voit
