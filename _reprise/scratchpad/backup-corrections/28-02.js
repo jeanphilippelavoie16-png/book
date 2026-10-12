@@ -72,13 +72,55 @@ module.exports = (h) => {
     return { svg: out.join('\n'), dos: t => Q(fin + t, 0), Q };
   };
 
+  // ─── la tête d'un enfant de 4 ans, de profil ─────────────────────────────────────────
+  // Même repère que la bibliothèque (oreille en 0, 0, visage vers +x, haut vers −y), mais le crâne
+  // rond et grand, le visage court, le nez court et retroussé, le petit menton, les cheveux courts.
+  // M : local → page ; ep : échelle des traits.
+  const ENF = {
+    contour: [[-52, 58], [-84, 22], [-100, -40], [-86, -104], [-36, -142], [28, -142], [76, -114], [99, -68], [101, -34],
+      [97, -14], [101, -2], [111, 10], [111, 17], [103, 21], [104, 29], [100, 35], [103, 41], [98, 51], [88, 63], [66, 72], [44, 77]],
+    nuque: [-52, 58], gorge: [44, 77],
+    narine: [103.5, 16.5],
+  };
+  const teteEnfant = (M, coup = 1) => {
+    const out = [];
+    const c = ENF.contour.map(M);
+    const cou = [M(ENF.gorge), M([40, 140]), M([-46, 140]), M(ENF.nuque)];
+    out.push(h.path(cr(c) + ' ' + ligneD(cou).replace('M', 'L') + ' Z', BLANC));
+    out.push(h.path(cr(c), TR(2.4 * coup)));
+    out.push(h.path(cr([M(ENF.gorge), M([42, 110]), M([40, 140])]), TR(1.4 * coup)));
+    out.push(h.path(cr([M(ENF.nuque), M([-50, 100]), M([-46, 140])]), TR(1.4 * coup)));
+    // la ligne des cheveux courts : en haut du front, la tempe, la patte devant l'oreille, puis
+    // derrière l'oreille jusqu'à la nuque
+    out.push(h.path(cr([[99, -70], [86, -76], [62, -74], [40, -62], [26, -44], [20, -26]].map(M)), TR(0.7 * coup)));
+    out.push(h.path(cr([[-16, -22], [-30, -8], [-44, 20], [-52, 52]].map(M)), TR(0.7 * coup)));
+    for (const m of [[[86, -76], [80, -86]], [[62, -74], [58, -84]], [[40, -62], [34, -72]]])
+      out.push(h.path(ligneD(m.map(M)), TR(0.5 * coup)));
+    // l'oreille
+    out.push(h.path(cr([[4, -24], [-14, -28], [-20, 0], [-12, 18], [2, 20]].map(M)), TR(1.4 * coup)));
+    out.push(h.path(cr([[-3, -12], [-10, -2], [-4, 8]].map(M)), TR(0.7 * coup)));
+    // l'œil fermé (les cils vers la joue) et le sourcil
+    out.push(h.path(cr([[64, -30], [72, -25], [82, -28]].map(M)), TR(1.4 * coup)));
+    for (const [a, b] of [[[67, -27], [65, -22]], [[72, -25], [71, -20]], [[77, -26], [77, -21]]])
+      out.push(h.path(ligneD([M(a), M(b)]), TR(0.5 * coup)));
+    out.push(h.path(cr([[62, -46], [74, -50], [86, -46]].map(M)), TR(0.7 * coup)));
+    // l'aile du nez et l'ouverture de la narine, sous le bout
+    out.push(h.path(cr([[100, 4], [95, 10], [97, 17], [102, 19]].map(M)), TR(0.7 * coup)));
+    const n0 = M([99.5, 17]), n1 = M([107.5, 16]);
+    out.push(h.path(cr([M([99.5, 17]), M([103.5, 14.5]), M([107.5, 16]), M([103.5, 19]), M([99.5, 17])]), `fill="${NOIR}" stroke="${NOIR}" stroke-width="0.5"`));
+    // la bouche, la joue
+    out.push(h.path(cr([[100, 35], [94, 36], [90, 34]].map(M)), TR(0.7 * coup)));
+    out.push(h.path(cr([[70, 10], [80, 22], [78, 36]].map(M)), TR(0.5 * coup)));
+    return out.join('\n');
+  };
+
   // ─── l'enfant couché, vu d'en haut ───────────────────────────────────────────────────
   // Repère de la tête (celui de la bibliothèque) : l'oreille en 0, 0 ; le visage vers +x ; le
   // haut du crâne en y = −124 ; le cou coupé vers y = 126 (nuque) et 155 (gorge). Sur la vue, ce
   // y file vers la droite (vers les pieds) et ce x vers le bas (s = +1, le visage tourné vers le
   // bas de la page) ou vers le haut (s = −1).
-  const NARINE = [109, 24];                         // l'embout entre sous le bout du nez
-  const AXE = 60;                                   // la seringue part vers le menton et les pieds
+  const NARINE = ENF.narine;                        // l'embout entre dans l'ouverture de la narine
+  const AXE = 66;                                   // la seringue part vers le menton et les pieds
   // la couverture : son bord remonté aux épaules, le revers, deux plis sur les bras
   const BORD = [[-320, 250], [-210, 204], [-130, 162], [-62, 126], [0, 130], [62, 152], [130, 184], [210, 226], [320, 266]];
   const REVERS = BORD.map(([x, y]) => [x, y + 40]);
@@ -90,18 +132,31 @@ module.exports = (h) => {
   const scene = (z, E, s, cx, cy, id, avecTour) => {
     const T = p => [cx + E * p[1], cy + s * E * p[0]];
     const out = [];
+    // l'oreiller sous la tête : coins arrondis, deux plis
+    const X0 = -128, X1 = 132, Y0 = -180, Y1 = 62, r = 30;
+    const O = [[X0, Y0], [X1, Y0], [X1, Y1], [X0, Y1]];
+    const oreil = [[X0 + r, Y0], [X1 - r, Y0], [X1, Y0 + r], [X1, Y1 - r], [X1 - r, Y1], [X0 + r, Y1], [X0, Y1 - r], [X0, Y0 + r]].map(T);
+    const q = (a, c, b) => `L${f(a[0])} ${f(a[1])} Q${f(c[0])} ${f(c[1])} ${f(b[0])} ${f(b[1])}`;
+    const C = O.map(T);
+    const dO = `M${f(oreil[0][0])} ${f(oreil[0][1])} ` + q(oreil[1], C[1], oreil[2]) + ' ' + q(oreil[3], C[2], oreil[4]) + ' ' + q(oreil[5], C[3], oreil[6]) + ' ' + q(oreil[7], C[0], oreil[0]) + ' Z';
+    out.push(h.path(dO, BT(1.4)));
+    out.push(h.path(cr([[X0, 20], [X0 + 28, 12], [X0 + 46, 26]].map(T)), TR(0.7)));
+    out.push(h.path(cr([[X1, -140], [X1 - 22, -130], [X1 - 36, -142]].map(T)), TR(0.7)));
     // la seringue, puis la tête par-dessus : l'embout disparaît dans la narine
     const P = T(NARINE);
     const u = [Math.sin(AXE * RAD), s * Math.cos(AXE * RAD)];
     const sg = seringue(P, u, E * 0.95);
     out.push(sg.svg);
-    out.push(F.tete({ x: cx, y: cy, echelle: E, angle: -90, cote: s > 0 ? 'gauche' : 'droite' }));
+    out.push(teteEnfant(T, 1));
+    // l'embout repassé par-dessus le bord de la narine, pour qu'on le voie y entrer
+    out.push(h.path(ligneD([sg.Q(3, -1.9), sg.Q(EMB, -2.6), sg.Q(EMB, 2.6), sg.Q(3, 1.9)]), BT(1.4)));
     // la couverture, par-dessus le cou coupé ; elle file hors de la vue
     const loin = 900;
     const couv = [];
     couv.push(h.path(cr(BORD.map(T)) + ' ' + ligneD([T([300, loin]), T([-300, loin])]).replace('M', 'L') + ' Z', BLANC));
     couv.push(h.path(cr(BORD.map(T)), TR(1.4)));
-    couv.push(h.path(cr(REVERS.map(T)), TR(0.7)));
+    couv.push(h.path(cr(REVERS.map(T)), TR(1.4)));
+    for (const k of [1, 3, 5, 7]) couv.push(h.path(ligneD([T(BORD[k]), T(REVERS[k])]), TR(0.5)));
     for (const pl of PLIS) couv.push(h.path(cr(pl.map(T)), TR(0.5)));
     out.push(clip(id, 0, 0, z.l, z.h, couv.join('\n')));
     // la poussée du piston, dans l'axe, vers le nez
@@ -109,29 +164,21 @@ module.exports = (h) => {
     out.push(h.fleche(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`, h.a.arete));
     let tour = null;
     if (avecTour) {
-      // on a tourné la tête sur l'axe du corps : le nez, qui regardait vers le bas de la page,
-      // regarde maintenant vers le haut
-      const oc = T([0, -168]), rx = 30 * E, ry = 104 * E;
+      // un demi-cercle qui frôle le sommet du crâne : le nez passe d'un côté à l'autre
+      const oc = T([0, -30]), R = 128 * E;
       const pts = [];
-      for (let k = 0; k <= 30; k++) {
-        const th = (74 + k * (212 / 30)) * RAD;
-        pts.push([oc[0] + Math.cos(th) * rx, oc[1] + Math.sin(th) * ry * -s]);
+      for (let k = 0; k <= 24; k++) {
+        const th = (100 + k * (160 / 24)) * RAD;
+        pts.push([oc[0] + Math.cos(th) * R, oc[1] - s * Math.sin(th) * R]);
       }
       out.push(h.fleche(cr(pts), h.a.arete));
-      // la moitié de derrière, en tireté : c'est un tour autour de l'axe du corps
-      const arr = [];
-      for (let k = 0; k <= 16; k++) {
-        const th = (290 + k * (140 / 16)) * RAD;
-        arr.push([oc[0] + Math.cos(th) * rx, oc[1] + Math.sin(th) * ry * -s]);
-      }
-      out.push(h.path(cr(arr), h.a.cache));
-      tour = pts[15];
+      tour = pts[12];
     }
     return { svg: out.join('\n'), T, P, sg, tour };
   };
 
   // ─── il crache : le buste penché sur le bol ──────────────────────────────────────────
-  const BUSTE = { echelle: 0.6, angle: 12, regard: 30 };
+  const BUSTE = { echelle: 0.5, angle: 12, regard: 30 };
   const crache = z => {
     const tableY = z.h - 34;
     const bord = tableY - 34, bx = z.l * 0.68;
@@ -152,9 +199,9 @@ module.exports = (h) => {
     vues: {
       un: {
         titre: 'Couché sur le dos, la tête tournée, vu d’en haut',
-        dessin: z => scene(z, 0.9, 1, z.l * 0.3, z.h * 0.34, 'vue-un-couverture', false).svg,
+        dessin: z => scene(z, 0.64, 1, z.l * 0.3, z.h * 0.36, 'vue-un-couverture', false).svg,
         renvois: z => {
-          const v = scene(z, 0.9, 1, z.l * 0.3, z.h * 0.34, 'vue-un-couverture', false);
+          const v = scene(z, 0.64, 1, z.l * 0.3, z.h * 0.36, 'vue-un-couverture', false);
           return [
             { n: 1, rond: [z.l * 0.12, 16], cible: v.T([-40, -60]), texte: 'sur le dos, tête tournée sur le côté' },
             { n: 2, rond: [z.l * 0.16, z.h - 16], cible: [v.P[0], v.P[1] + 1.5], texte: 'l’embout dans la narine du haut' },
@@ -164,9 +211,9 @@ module.exports = (h) => {
       },
       deux: {
         titre: 'Puis l’autre côté',
-        dessin: z => scene(z, 0.55, -1, z.l * 0.36, z.h * 0.64, 'vue-deux-couverture', true).svg,
+        dessin: z => scene(z, 0.64, -1, z.l * 0.44, z.h * 0.6, 'vue-deux-couverture', true).svg,
         renvois: z => {
-          const v = scene(z, 0.55, -1, z.l * 0.36, z.h * 0.64, 'vue-deux-couverture', true);
+          const v = scene(z, 0.64, -1, z.l * 0.44, z.h * 0.6, 'vue-deux-couverture', true);
           return [
             { n: 4, rond: [16, 18], cible: v.tour, texte: 'tourner la tête : l’autre narine en haut' },
           ];
@@ -176,7 +223,13 @@ module.exports = (h) => {
         titre: 'Il se relève et crache',
         dessin: z => {
           const { tableY, bord, bx, b, m } = crache(z);
-          const out = [clip('vue-trois-buste', 0, 0, z.l, z.h, b.toString())];
+          // la tête d'enfant posée sur le repère de la tête du buste (même oreille, même pente)
+          const ang = (BUSTE.angle + BUSTE.regard) * RAD, e = BUSTE.echelle;
+          const rot = p => [e * (p[0] * Math.cos(ang) - p[1] * Math.sin(ang)), e * (p[0] * Math.sin(ang) + p[1] * Math.cos(ang))];
+          const r0 = rot([70, -32]), O = [b.oeil[0] - r0[0], b.oeil[1] - r0[1]];
+          const K = 1.12, M = p => { const q = rot([p[0] * K, p[1] * K]); return [O[0] + q[0], O[1] + q[1]]; };
+          const masque = h.path(cr([[-60, 70], [-92, 24], [-104, -40], [-90, -112], [-36, -150], [30, -150], [84, -116], [108, -60], [126, 14], [116, 50], [104, 80], [60, 90]].map(M), true), BLANC);
+          const out = [clip('vue-trois-buste', 0, 0, z.l, z.h, b.toString() + '\n' + masque + '\n' + teteEnfant(M, 1))];
           // la table devant lui, et le bol dessus, sous la bouche
           const rx = 32;
           out.push(h.rect(bx - 44, tableY, z.l - (bx - 44) - 2, 10, BT(1.4)));

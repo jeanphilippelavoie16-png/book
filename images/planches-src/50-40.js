@@ -1,5 +1,5 @@
 // Planche 50-40 — La queue et le gras du castor (chapitre 50, étapes 11 et 16).
-// Rangée 1 : la queue tenue par sa base au-dessus des braises, la peau écailleuse qui cloque et se
+// Rangée 1 : la queue tournée par sa base au-dessus des braises, la peau écailleuse qui cloque et se
 // fend ; puis la même queue posée à plat, une large plaque de peau levée d'un morceau, le gras à nu
 // dessous. Rangée 2 : en coupe, le dos dépouillé, la nappe de gras sous-cutané d'un seul tenant, la
 // main à plat qui glisse le pouce entre le gras et la viande et la lève sans couteau.
@@ -131,7 +131,9 @@ module.exports = (h) => {
     // la base ronde, tenue dans la main par-dessus
     const b = base(P, S);
     const grip = [b.c0[0] + (b.c1[0] - b.c0[0]) * 0.48, b.c0[1]];
-    out.push(F.main({ x: grip[0], y: grip[1], pose: 'prise', vue: 'dos', angle: 90, echelle: S * 0.92, diametre: 2 * b.r, bras: 40, objet: b.svg }).toString());
+    out.push(b.svg);
+    // le geste : on la tourne au-dessus des braises
+    { const [cx, cy] = b.c0; out.push(h.fleche(`M${f(cx - 18)} ${f(cy - 30)} A 22 22 0 0 1 ${f(cx + 18)} ${f(cy - 30)}`, A.arete)); }
     // les braises : des tisons de bois carbonisé, craquelés en damier, sur un lit de cendre
     const xa = P(0.04 * Lp, 0, 0)[0], xb = P(1.02 * Lp, 0, 0)[0];
     const cendre = [[xa, sol]];
@@ -251,26 +253,9 @@ module.exports = (h) => {
       h.path(dOf(v.bord.map(p => add(p, [0, 2.4]))), A.fin),
     ].join('\n');
     out.push(rabat);
-    // la main pince le bord : pouce dessus (côté vu), index replié dessous, poignet qui monte
     const [px, py] = v.prise, mk = S * 1.25;
-    const Q = (dx, dy) => [px + dx * mk, py + dy * mk];
-    const P2 = pts => dOf(lisse(pts.map(([a, b]) => Q(a, b)), false, 6));
-    // l'index replié sous le bord (derrière la plaque : on voit sa jointure qui dépasse à droite)
-    out.push(h.path(P2([[6, 2], [22, 4], [30, -6], [26, -18], [14, -22]]) , blanc(A.arete)));
-    // le dos de la main et l'avant-bras qui monte vers la droite
-    const dosM = [[-14, 0], [-16, -18], [-6, -34], [14, -44], [34, -58], [50, -84], [58, -110]];
-    const venM = [[30, -18], [40, -34], [56, -52], [72, -76], [82, -110]];
-    out.push(h.path(dOf([...lisse(dosM.map(([a, b]) => Q(a, b)), false, 6), ...lisse(venM.slice().reverse().map(([a, b]) => Q(a, b)), false, 6), Q(26, -18), Q(14, -22), Q(2, -14)], true), blanc('fill="none" stroke="none"')));
-    out.push(h.path(P2(dosM), A.arete));
-    out.push(h.path(P2([[26, -18], ...venM]), A.arete));
-    // les doigts repliés (majeur, annulaire) : jointures sur le dos
-    out.push(h.path(P2([[18, -26], [30, -22], [36, -30], [32, -40]]), A.detail));
-    out.push(h.path(P2([[22, -38], [34, -36], [40, -44]]), A.detail));
-    // le pouce couché sur le bord, l'ongle au bout, la pulpe contre la peau
-    out.push(h.path(dOf([...lisse([[-2, -26], [-12, -14], [-14, -2], [-6, 3], [4, 1], [10, -8], [8, -22]].map(([a, b]) => Q(a, b)), false, 6)], true), blanc(A.arete)));
-    out.push(h.path(P2([[-11, -6], [-9, -1], [-4, 0], [-3, -5]]), A.fin));
     // la traction : vers le haut, à côté du poignet
-    out.push(h.fleche(`M${f(px - 30 * mk)} ${f(py - 4 * mk)} L${f(px - 30 * mk)} ${f(py - 70 * mk)}`, A.arete));
+    out.push(h.fleche(`M${f(px)} ${f(py - 6 * mk)} L${f(px)} ${f(py - 70 * mk)}`, A.arete));
     return out.join('\n');
   };
 
@@ -331,25 +316,6 @@ module.exports = (h) => {
     out.push(h.path(dOf(nappe, true), blanc(A.arete)));
     out.push(h.path(dOf(nappe, true), motif('p5040-gras', 'fill="none" stroke="none"')));
     out.push(h.path(dOf(nappe, true), A.arete));
-    // la main, vue un peu de dessus : l'avant-bras monte à gauche, les doigts repliés sur le
-    // bout du rabat, le pouce tendu à plat sous le rabat, sur la viande, ongle au bout
-    const B = (pts, at, ferme = false) => h.path(dOf(lisse(pts, ferme, 6), ferme), at);
-    const tipX = xj - 6, tipY = Y(tipX) - 8;
-    // le pouce (sous le rabat, posé sur la viande) : du gras de la paume à l'ongle
-    const pouce = [[xj - 128, Y(xj - 128) - 30], [xj - 90, Y(xj - 90) - 16], [xj - 40, Y(xj - 40) - 14], [tipX - 4, tipY - 6], [tipX + 4, tipY], [tipX - 2, tipY + 6], [xj - 40, Y(xj - 40) - 1], [xj - 100, Y(xj - 100) - 2], [xj - 140, Y(xj - 140) - 8]];
-    out.push(B(pouce, blanc(A.arete), true));
-    out.push(B([[tipX - 16, tipY - 5], [tipX - 3, tipY - 5], [tipX + 2, tipY - 1], [tipX - 3, tipY + 1], [tipX - 16, tipY]], blanc(A.detail), true));
-    out.push(B([[xj - 62, Y(xj - 62) - 13], [xj - 58, Y(xj - 58) - 6], [xj - 62, Y(xj - 62) - 1]], A.fin));
-    // le dos de la main et l'avant-bras, au-dessus du rabat
-    const bx = xj - 112, by = Y(bx) - 52;                     // le bout du rabat
-    const main = [[bx - 160, 6], [bx - 90, by - 70], [bx - 40, by - 48], [bx + 10, by - 34], [bx + 34, by - 22], [bx + 40, by - 6],
-      [bx + 22, by + 14], [bx - 20, by + 30], [bx - 60, by + 34], [bx - 110, by + 4], [bx - 210, by - 40]];
-    out.push(B(main, blanc(A.arete)));
-    // les doigts repliés : trois jointures, les bouts qui reviennent sur le dessus du rabat
-    for (const [dx, dy] of [[24, -22], [30, -8], [26, 6]]) {
-      out.push(B([[bx - 6 + dx * 0.3, by + dy - 8], [bx + dx, by + dy - 6], [bx + dx + 10, by + dy + 2], [bx + dx + 2, by + dy + 9]], A.detail));
-    }
-    out.push(B([[bx - 50, by - 30], [bx - 30, by - 22], [bx - 10, by - 20]], A.fin));
     // la poussée : le pouce avance à plat, vers la nappe encore collée
     const fy = Y(xj) - 100;
     out.push(h.fleche(`M${f(xj - 80)} ${f(fy + 30)} L${f(xj - 10)} ${f(fy + 30)}`, A.arete));
@@ -360,7 +326,7 @@ module.exports = (h) => {
   return {
     ref: '50-40',
     titre: 'La queue et le gras du castor',
-    desc: 'En haut à gauche, la queue du castor tenue par sa base au-dessus des braises : sa peau écailleuse cloque et se fend. En haut à droite, la même queue à plat sur une planche : une large plaque de peau se lève d’un morceau, tirée par son bord, et laisse à nu le gras presque pur. En bas, en coupe sur le dos dépouillé, la nappe de gras sous-cutané d’un seul tenant, et la main à plat qui pousse le pouce entre le gras et la viande pour la lever sans couteau.',
+    desc: 'En haut à gauche, la queue du castor tournée par sa base au-dessus des braises : sa peau écailleuse cloque et se fend. En haut à droite, la même queue à plat sur une planche : une large plaque de peau se lève d’un morceau, tirée par son bord vers le haut, et laisse à nu le gras presque pur. En bas, en coupe sur le dos dépouillé, la nappe de gras sous-cutané d’un seul tenant, décollée au bout libre ; une flèche montre la poussée du pouce entre le gras et la viande pour la lever sans couteau.',
     format: 'pleine',
     disposition: [['braises', 'pele'], ['nappe']],
     hauteurs: [1.45, 1],

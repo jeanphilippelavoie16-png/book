@@ -132,34 +132,47 @@ module.exports = (h) => {
     const b = base(P, S);
     const grip = [b.c0[0] + (b.c1[0] - b.c0[0]) * 0.48, b.c0[1]];
     out.push(F.main({ x: grip[0], y: grip[1], pose: 'prise', vue: 'dos', angle: 90, echelle: S * 0.92, diametre: 2 * b.r, bras: 40, objet: b.svg }).toString());
-    // les braises : un lit de morceaux de charbon fendillés, quelques éclats noirs entre eux
-    const tas = [[0.2, 13, 9, 0], [0.33, 16, 11, 1], [0.47, 14, 10, 2], [0.6, 17, 11, 3], [0.74, 14, 10, 4], [0.87, 12, 9, 5],
-      [0.27, 10, 8, 6], [0.41, 12, 8, 7], [0.54, 10, 7, 8], [0.68, 12, 8, 9], [0.8, 10, 7, 10], [0.12, 9, 7, 11], [0.94, 8, 6, 12]];
-    const braises = [];
-    tas.forEach(([s, rx, ry, i]) => {
-      const cx = P(s * Lp, 0, 0)[0] + ((i * 37) % 7) - 3, rang = i > 5 ? 1 : 0;
-      const cy = sol - ry * 0.95 - rang * 11;
-      const pts = [];
-      for (let a = 0; a < 8; a++) {
-        const t = (a + (i % 3) * 0.3) / 8 * 2 * Math.PI, kk = 0.84 + 0.2 * (((i + 3) * (a + 5) * 7) % 10) / 10;
-        pts.push([cx + rx * kk * Math.cos(t), cy + ry * kk * Math.sin(t)]);
+    // les braises : des tisons de bois carbonisé, craquelés en damier, sur un lit de cendre
+    const xa = P(0.04 * Lp, 0, 0)[0], xb = P(1.02 * Lp, 0, 0)[0];
+    const cendre = [[xa, sol]];
+    for (let i = 0; i <= 12; i++) { const x = xa + (xb - xa) * i / 12; cendre.push([x, sol - 7 - 3 * Math.sin(i * 1.3) - (i > 0 && i < 12 ? 3 : -4)]); }
+    cendre.push([xb, sol]);
+    out.push(h.path(dOf(lisse(cendre.slice(1, -1), false, 6).concat([[xb, sol], [xa, sol]]), true), blanc(A.detail)));
+    for (let i = 0; i < 26; i++) { const x = xa + 8 + ((i * 53) % Math.round(xb - xa - 16)), y = sol - 2.5 - ((i * 7) % 5); out.push(h.cercle(x, y, 0.7, A.fin)); }
+    // un tison : bûche couchée, vue de biais ; damier de fentes ; un bout rond montre les cernes
+    const tison = (x, y, L, R, inc, bout) => {
+      const c = Math.cos(inc), sn = Math.sin(inc), T = (u, w) => [x + u * c - w * sn, y + u * sn + w * c];
+      const o = [];
+      const corps = [T(-2, -R * 0.6), T(1, -R), T(L * 0.4, -R * 1.05), T(L * 0.7, -R * 0.92), T(L, -R), T(L, R), T(L * 0.5, R * 1.04), T(1, R), T(-2, R * 0.5), T(-4, 0)];
+      o.push(h.path(dOf(corps, true), blanc(A.arete)));
+      const nx = Math.max(3, Math.round(L / 9));
+      for (let k = 1; k < 3; k++) { const w = -R + 2 * R * k / 3; o.push(h.path(dOf([T(2, w), T(L - 2, w)]), A.fin)); }
+      for (let r = 0; r < 3; r++) for (let i = 1; i < nx; i++) {
+        const u = L * (i + (r % 2) * 0.5 + 0.25 * Math.sin(i * 2.3 + r * 1.7 + x)) / nx; if (u > L - 3 || u < 3) continue;
+        o.push(h.path(dOf([T(u, -R + 2 * R * r / 3), T(u, -R + 2 * R * (r + 1) / 3)]), A.fin));
       }
-      braises.push({ pts, cx, cy, rx, ry, rang, i });
-    });
-    braises.sort((a, b) => b.rang - a.rang);
-    for (const br of braises) {
-      out.push(h.path(dOf(br.pts, true), blanc(A.arete)));
-      const { cx, cy, rx, ry, i } = br, sg = i % 2 ? 1 : -1;
-      out.push(h.path(`M${f(cx - rx * 0.55)} ${f(cy + sg * ry * 0.15)} L${f(cx - rx * 0.1)} ${f(cy - sg * ry * 0.1)} L${f(cx + rx * 0.2)} ${f(cy + sg * ry * 0.3)} L${f(cx + rx * 0.6)} ${f(cy)}`, A.fin));
-      if (i % 3 === 0) out.push(h.path(`M${f(cx - rx * 0.1)} ${f(cy - sg * ry * 0.1)} L${f(cx - rx * 0.2)} ${f(cy - ry * 0.65)}`, A.fin));
+      if (bout) {
+        o.push(h.ellipse(...T(L, 0), R * 0.7, R * 1.05, blanc(A.arete)));
+        o.push(h.ellipse(...T(L, 0), R * 0.4, R * 0.6, A.fin));
+        o.push(h.cercle(...T(L, 0), 1, A.fin));
+        for (const t of [0.6, 2.2, 3.8, 5.2]) o.push(h.path(dOf([T(L + R * 0.12 * Math.cos(t), R * 0.2 * Math.sin(t)), T(L + R * 0.6 * Math.cos(t), R * 0.95 * Math.sin(t))]), A.fin));
+      } else {
+        o.push(h.path(dOf([T(L, -R), T(L + 4, -R * 0.3), T(L + 1, R * 0.2), T(L + 5, R * 0.6), T(L, R)]), blanc(A.arete)));
+      }
+      return o.join('\n');
+    };
+    const L0 = xb - xa;
+    out.push(tison(xa + L0 * 0.08, sol - 22, L0 * 0.36, 7, -0.08, false));
+    out.push(tison(xa + L0 * 0.5, sol - 24, L0 * 0.36, 7.5, 0.06, true));
+    out.push(tison(xa + L0 * 0.16, sol - 13, L0 * 0.42, 8, 0.03, true));
+    out.push(tison(xa + L0 * 0.56, sol - 13, L0 * 0.32, 7, -0.05, false));
+    for (const [s, dx] of [[0.3, 0], [0.52, 3], [0.74, -2]]) {
+      const x = xa + L0 * s + dx;
+      out.push(h.path(dOf([[x - 6, sol - 4], [x - 2, sol - 9], [x + 5, sol - 8], [x + 6, sol - 4]], true), blanc(A.detail)));
+      out.push(h.path(dOf([[x - 2, sol - 4], [x, sol - 8]]), A.fin));
     }
-    for (const [s, dx] of [[0.26, 0], [0.4, 3], [0.53, -2], [0.66, 2], [0.8, -1]]) {
-      const x = P(s * Lp, 0, 0)[0] + dx;
-      out.push(h.path(dOf([[x - 3, sol - 1], [x - 1, sol - 4.5], [x + 3, sol - 3.5], [x + 3.5, sol - 0.5]], true), A.plein));
-    }
-    out.push(h.ligne(P(0.05 * Lp, 0, 0)[0], sol, P(1.02 * Lp, 0, 0)[0], sol, A.detail));
     // la chaleur qui monte
-    const hautBraises = sol - 42, basQueue = P(0.5 * Lp, demi(0.5 * Lp), 0)[1] + 10;
+    const hautBraises = sol - 44, basQueue = P(0.5 * Lp, demi(0.5 * Lp), 0)[1] + 10;
     for (const s of [0.32, 0.55, 0.78]) {
       const x = P(s * Lp, 0, 0)[0];
       out.push(h.fleche(`M${f(x)} ${f(hautBraises)} C${f(x - 7)} ${f(hautBraises - 12)} ${f(x + 7)} ${f(basQueue + 14)} ${f(x)} ${f(basQueue)}`, A.detail));
@@ -213,12 +226,15 @@ module.exports = (h) => {
     const v = vuePele(z), { S, P } = v;
     const out = [];
     // la planche à découper
-    const pl = [P(-LR - 30, -W * 0.72, 0), P(Lp + 34, -W * 0.72, 0), P(Lp + 34, W * 0.72, 0), P(-LR - 30, W * 0.72, 0)];
+    // dessus en parallélogramme (le bord loin décalé vers la droite), chant devant
+    const sk = 46 * S;
+    const pl = [add(P(-LR - 40, -W * 0.72, 0), [sk, 0]), add(P(Lp + 20, -W * 0.72, 0), [sk, 0]), add(P(Lp + 20, W * 0.72, 0), [-sk * 0.2, 0]), add(P(-LR - 40, W * 0.72, 0), [-sk * 0.2, 0])];
     const ep = 12 * S;
     out.push(h.path(dOf([pl[3], pl[2], add(pl[2], [0, ep]), add(pl[3], [0, ep])], true), blanc(A.arete)));
+    out.push(h.path(dOf([pl[2], pl[1], add(pl[1], [0, ep]), add(pl[2], [0, ep])], true), blanc(A.arete)));
     out.push(h.path(dOf(pl, true), blanc(A.arete)));
-    out.push(h.ligne(pl[0][0] + 20, pl[0][1] + 9, pl[1][0] - 60, pl[0][1] + 9, A.fin));
-    out.push(h.ligne(pl[3][0] + 50, pl[3][1] - 8, pl[2][0] - 16, pl[3][1] - 8, A.fin));
+    out.push(h.ligne(pl[3][0] + 40, pl[3][1] - 8, pl[2][0] - 20, pl[2][1] - 8, A.fin));
+    out.push(h.ligne(pl[0][0] + 20, pl[0][1] + 8, pl[1][0] - 70, pl[1][1] + 8, A.fin));
     // la queue
     out.push(queue(P, S, 'p5040-ecailleG').svg);
     out.push(base(P, S).svg);
@@ -234,9 +250,27 @@ module.exports = (h) => {
       h.path(dOf(v.rabat, true), blanc(A.arete)),
       h.path(dOf(v.bord.map(p => add(p, [0, 2.4]))), A.fin),
     ].join('\n');
-    out.push(F.main({ x: v.prise[0], y: v.prise[1], pose: 'pince', vue: 'profil', angle: 96, echelle: S * 0.95, bras: 40, objet: rabat }).toString());
-    // la traction
-    out.push(h.fleche(`M${f(v.prise[0] + 34)} ${f(v.prise[1] + 26)} Q${f(v.prise[0] + 44)} ${f(v.prise[1] - 4)} ${f(v.prise[0] + 40)} ${f(v.prise[1] - 30)}`, A.arete));
+    out.push(rabat);
+    // la main pince le bord : pouce dessus (côté vu), index replié dessous, poignet qui monte
+    const [px, py] = v.prise, mk = S * 1.25;
+    const Q = (dx, dy) => [px + dx * mk, py + dy * mk];
+    const P2 = pts => dOf(lisse(pts.map(([a, b]) => Q(a, b)), false, 6));
+    // l'index replié sous le bord (derrière la plaque : on voit sa jointure qui dépasse à droite)
+    out.push(h.path(P2([[6, 2], [22, 4], [30, -6], [26, -18], [14, -22]]) , blanc(A.arete)));
+    // le dos de la main et l'avant-bras qui monte vers la droite
+    const dosM = [[-14, 0], [-16, -18], [-6, -34], [14, -44], [34, -58], [50, -84], [58, -110]];
+    const venM = [[30, -18], [40, -34], [56, -52], [72, -76], [82, -110]];
+    out.push(h.path(dOf([...lisse(dosM.map(([a, b]) => Q(a, b)), false, 6), ...lisse(venM.slice().reverse().map(([a, b]) => Q(a, b)), false, 6), Q(26, -18), Q(14, -22), Q(2, -14)], true), blanc('fill="none" stroke="none"')));
+    out.push(h.path(P2(dosM), A.arete));
+    out.push(h.path(P2([[26, -18], ...venM]), A.arete));
+    // les doigts repliés (majeur, annulaire) : jointures sur le dos
+    out.push(h.path(P2([[18, -26], [30, -22], [36, -30], [32, -40]]), A.detail));
+    out.push(h.path(P2([[22, -38], [34, -36], [40, -44]]), A.detail));
+    // le pouce couché sur le bord, l'ongle au bout, la pulpe contre la peau
+    out.push(h.path(dOf([...lisse([[-2, -26], [-12, -14], [-14, -2], [-6, 3], [4, 1], [10, -8], [8, -22]].map(([a, b]) => Q(a, b)), false, 6)], true), blanc(A.arete)));
+    out.push(h.path(P2([[-11, -6], [-9, -1], [-4, 0], [-3, -5]]), A.fin));
+    // la traction : vers le haut, à côté du poignet
+    out.push(h.fleche(`M${f(px - 30 * mk)} ${f(py - 4 * mk)} L${f(px - 30 * mk)} ${f(py - 70 * mk)}`, A.arete));
     return out.join('\n');
   };
 
@@ -255,7 +289,7 @@ module.exports = (h) => {
     // dos de la main, pris sur la pose « appui / profil » à echelle 1 (bras 60, inclinaison 26)
     const M = ([dx, dy]) => [xm + e * (dx * Math.cos(th) - dy * Math.sin(th)), y0 + e * (dx * Math.sin(th) + dy * Math.cos(th))];
     const dosMain = [[142, -12], [100, -17], [60, -18], [30, -25], [0, -29], [-40, -46], [-70, -60]].map(M);
-    const pouce = M([122, -5]);
+    const pouce = [xj - 15, ym(xj - 6) - 9];
     return { x0, x1, yb, ym, tf, xj, tang, e, xm, y0, angle, dosMain, pouce, M };
   };
   const dessinNappe = z => {
@@ -279,11 +313,12 @@ module.exports = (h) => {
     }
     // la nappe : d'un seul tenant, collée à la viande à droite, décollée à gauche où elle monte
     // sur le dos de la main ; une seule bande, du bout libre à la coupe. La main passe devant.
-    const dm = v.dosMain;
+    // le rabat déjà levé : de la jointure, il monte vers la gauche et finit dans la main
+    const jx = xj + 8, Y = x => ym(x);
     const axe = lisse([
-      ...dm.slice().reverse().map(p => [p[0], p[1] - tf / 2 + 4]),
-      [xj + 8, ym(xj + 8) - tf / 2 - 4], [xj + 30, ym(xj + 30) - tf / 2],
-      ...Array.from({ length: 12 }, (_, i) => { const x = xj + 50 + (x1 - xj - 50) * (i + 1) / 12; return [x, ym(x) - tf / 2]; }),
+      [xj - 112, Y(xj - 112) - 52], [xj - 70, Y(xj - 70) - 46], [xj - 30, Y(xj - 30) - 38], [xj, Y(xj) - 30],
+      [jx + 12, Y(jx + 12) - tf / 2 - 6], [jx + 40, Y(jx + 40) - tf / 2],
+      ...Array.from({ length: 12 }, (_, i) => { const x = jx + 60 + (x1 - jx - 60) * (i + 1) / 12; return [x, ym(x) - tf / 2]; }),
     ], false, 6);
     const g = [], d = [];
     axe.forEach((p, i) => {
@@ -296,11 +331,29 @@ module.exports = (h) => {
     out.push(h.path(dOf(nappe, true), blanc(A.arete)));
     out.push(h.path(dOf(nappe, true), motif('p5040-gras', 'fill="none" stroke="none"')));
     out.push(h.path(dOf(nappe, true), A.arete));
-    // la main à plat sur la viande nue, le pouce devant, le bout des doigts dans la jointure
-    out.push(F.main({ x: v.xm, y: v.y0, pose: 'appui', vue: 'profil', angle: v.angle, echelle: v.e, bras: 60, inclinaison: 26 }).toString());
-    // la poussée : la main avance à plat, vers la nappe encore collée
-    const pa = v.M([20, -54]), pb = v.M([105, -46]);
-    out.push(h.fleche(`M${f(pa[0])} ${f(pa[1])} L${f(pb[0])} ${f(pb[1])}`, A.arete));
+    // la main, vue un peu de dessus : l'avant-bras monte à gauche, les doigts repliés sur le
+    // bout du rabat, le pouce tendu à plat sous le rabat, sur la viande, ongle au bout
+    const B = (pts, at, ferme = false) => h.path(dOf(lisse(pts, ferme, 6), ferme), at);
+    const tipX = xj - 6, tipY = Y(tipX) - 8;
+    // le pouce (sous le rabat, posé sur la viande) : du gras de la paume à l'ongle
+    const pouce = [[xj - 128, Y(xj - 128) - 30], [xj - 90, Y(xj - 90) - 16], [xj - 40, Y(xj - 40) - 14], [tipX - 4, tipY - 6], [tipX + 4, tipY], [tipX - 2, tipY + 6], [xj - 40, Y(xj - 40) - 1], [xj - 100, Y(xj - 100) - 2], [xj - 140, Y(xj - 140) - 8]];
+    out.push(B(pouce, blanc(A.arete), true));
+    out.push(B([[tipX - 16, tipY - 5], [tipX - 3, tipY - 5], [tipX + 2, tipY - 1], [tipX - 3, tipY + 1], [tipX - 16, tipY]], blanc(A.detail), true));
+    out.push(B([[xj - 62, Y(xj - 62) - 13], [xj - 58, Y(xj - 58) - 6], [xj - 62, Y(xj - 62) - 1]], A.fin));
+    // le dos de la main et l'avant-bras, au-dessus du rabat
+    const bx = xj - 112, by = Y(bx) - 52;                     // le bout du rabat
+    const main = [[bx - 160, 6], [bx - 90, by - 70], [bx - 40, by - 48], [bx + 10, by - 34], [bx + 34, by - 22], [bx + 40, by - 6],
+      [bx + 22, by + 14], [bx - 20, by + 30], [bx - 60, by + 34], [bx - 110, by + 4], [bx - 210, by - 40]];
+    out.push(B(main, blanc(A.arete)));
+    // les doigts repliés : trois jointures, les bouts qui reviennent sur le dessus du rabat
+    for (const [dx, dy] of [[24, -22], [30, -8], [26, 6]]) {
+      out.push(B([[bx - 6 + dx * 0.3, by + dy - 8], [bx + dx, by + dy - 6], [bx + dx + 10, by + dy + 2], [bx + dx + 2, by + dy + 9]], A.detail));
+    }
+    out.push(B([[bx - 50, by - 30], [bx - 30, by - 22], [bx - 10, by - 20]], A.fin));
+    // la poussée : le pouce avance à plat, vers la nappe encore collée
+    const fy = Y(xj) - 100;
+    out.push(h.fleche(`M${f(xj - 80)} ${f(fy + 30)} L${f(xj - 10)} ${f(fy + 30)}`, A.arete));
+
     return out.join(String.fromCharCode(10));
   };
 
