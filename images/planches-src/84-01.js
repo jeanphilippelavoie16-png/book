@@ -115,8 +115,8 @@ module.exports = (h) => {
     const chaude = tuyau([[486, 96], [486, 76], [538, 76], [538, 105]], { r: 6 });
     // les drains : siphon de l'évier, drain de plancher, et le renvoi vers la fosse
     const siphonEvier = tuyau([[554, 151], [554, 178], [568, 178], [568, 164], [580, 164], [580, 234]], { w: 9, r: 7, eau: 167.8, xMax: 573 });
-    const drainPlancher = tuyau([[520, 199], [520, 238], [536, 238], [536, 224], [552, 224], [600, 239]], { w: 9, r: 7, eau: 227.8, xMax: 541 });
-    const boyau = tuyau([[505, 181], [515, 181], [520, 192]], { w: 5, r: 6 });
+    const drainPlancher = tuyau([[502, 199], [502, 238], [518, 238], [518, 224], [532, 224], [600, 239]], { w: 9, r: 7, eau: 227.8, xMax: 523 });
+    const boyau = tuyau([[506, 181], [510, 186], [503, 192]], { w: 5, r: 6 });
 
     const tuyaux = poser([conduite, refoulement, mamelon, purge, alimentation, froideCE, chaude, drainPlancher, siphonEvier, boyau]);
 
@@ -153,8 +153,8 @@ module.exports = (h) => {
       h.rect(494, 178, 5, 6, blanc(h.a.arete)),
       h.rect(499, 176, 7, 10, blanc(h.a.arete)),
       // le drain de plancher
-      h.rect(513, 194, 14, 4, blanc(h.a.arete)),
-      h.ligne(517, 194, 517, 198, h.a.detail), h.ligne(520, 194, 520, 198, h.a.detail), h.ligne(523, 194, 523, 198, h.a.detail),
+      h.rect(495, 194, 14, 4, blanc(h.a.arete)),
+      h.ligne(499, 194, 499, 198, h.a.detail), h.ligne(502, 194, 502, 198, h.a.detail), h.ligne(505, 194, 505, 198, h.a.detail),
       // l'évier : comptoir, cuve, robinet mural
       h.rect(524, 128, 62, 6, blanc(h.a.arete)),
       h.path('M 540 134 L 540 144 Q 540 152 548 152 L 564 152 Q 572 152 572 144 L 572 134', blanc(h.a.arete)),
@@ -230,7 +230,8 @@ module.exports = (h) => {
     // la poussée vers le lac, qui ferme le clapet
     `<path d="M 74 16 L 74 102" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>`,
     h.fleche('M 74 16 L 74 104', h.a.arete),
-    // le fond du lac
+    // la roche sur laquelle pose la crépine, et le fond du lac
+    h.path('M 44 195 C 42 186 52 178 74 178 C 96 178 106 186 104 195 Z', h.a.hachure('pierre')),
     h.rect(0, 194, 148, 13, h.a.hachure('terre', 'aucun')),
     h.ligne(0, 194, 148, 194, h.a.arete),
   ].join('\n');

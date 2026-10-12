@@ -158,15 +158,15 @@ module.exports = (h) => {
     proche: { pose: 'prise', vue: 'dos', angle: 90 },
     loin: { pose: 'prise', vue: 'paume', cote: 'gauche', angle: -90 },
   };
-  const offPoing = k => F.main({ x: 0, y: 0, ...POING[k], diametre: DIAM, bras: 4 }).poignet;
-  const OFF1 = offPoing('proche'), OFF2 = offPoing('loin');
+  // Les poings sont dessinés ici (poing() plus bas) : le poignet au-dessus et en arrière du poing.
+  const OFF1 = [-14, -40], OFF2 = [-14, -40];
   // la main proche : le bras presque tendu, de l'épaule au poignet
   const W1y = Y_MANCHE + OFF1[1];
   const W1 = [EPAULE[0] + Math.sqrt(540 * 540 - (W1y - EPAULE[1]) ** 2), W1y];
   const G1 = [W1[0] - OFF1[0], Y_MANCHE];     // le poing proche
   const G2 = [G1[0] - 92, Y_MANCHE];          // le poing loin, collé contre, au bout du manche
   const W2 = plus(G2, OFF2);
-  const X_BOUT = G2[0] - 52;
+  const X_BOUT = G2[0] - 66;
   const XB = X_BOUT + LM;                     // l'axe du billot et de la bûche
   const K_IMPACT = [X_BOUT, Y_MANCHE];
   const C_MAINS = [(G1[0] + G2[0]) / 2, Y_MANCHE];
@@ -221,10 +221,19 @@ module.exports = (h) => {
     };
     out.push(pli(TTb([-74, 104]), TTb([-102, 58]), [[86, 52], [53, 33]], -1, 105),
       pli(TTb([86, -24]), TTb([97, -112]), [[76, 50], [47, 31]], 1, 70, TTb([74, 68])));
-    for (const [k, G] of [['loin', G2], ['proche', G1]]) {
-      const [x, y] = P(...G);
-      out.push(F.main({ x, y, ...POING[k], echelle: s, diametre: DIAM * s, bras: 4 }));
-    }
+    // les poings : un bloc arrondi refermé sur le manche, qui entre et ressort de chaque côté ;
+    // le pouce passe par-dessus, les doigts repliés sous le manche (trois traits entre quatre doigts)
+    const poing = G => {
+      const T = ([x, y]) => P(G[0] + x, G[1] + y);
+      const bord = [[-40, -14], [-38, -34], [-22, -44], [10, -42], [32, -34], [42, -16], [43, 12], [40, 34], [28, 47], [0, 50], [-24, 48], [-38, 36], [-42, 16]];
+      const o = [h.path(ser(lisse(bord, true), T), blanc(2.4))];
+      o.push(h.path(ser(lisse([[-34, -26], [-8, -27], [18, -22], [36, -12]]), T), A.arete));   // le pouce par-dessus
+      o.push(h.path(ser(lisse([[36, -12], [30, -6], [20, -9]]), T), A.arete));                 // son bout
+      for (const x of [-19, 1, 21]) o.push(h.path(ser(lisse([[x - 2, 18], [x + 1, 32], [x - 1, 46]]), T), A.arete));
+      o.push(h.path(ser(lisse([[-36, 18], [0, 20], [38, 18]]), T), A.detail));                 // le pli sous le manche
+      return o.join('\n');
+    };
+    out.push(poing(G2), poing(G1));
 
     // ── vu de dessus, aligné sous l'élévation ──
     const Q = (x, y) => P(x, Y_PLAN + y);
@@ -239,9 +248,10 @@ module.exports = (h) => {
       const a = plus([XB, 0], fois(d, r0)), b1 = plus(plus([XB, 0], fois(d, r1)), fois(n, l)), b2 = plus(plus([XB, 0], fois(d, r1)), fois(n, -l));
       return h.chemin([Q(...a), Q(...b1), Q(...b2)], A.plein, true);
     };
-    out.push(fente(180, 10, BUCHE.r, 6), fente(0, 14, BUCHE.r, 5), fente(115, 60, BUCHE.r, 3), fente(250, 70, BUCHE.r, 2.5));
-    // la trajectoire du coup qui traverse : entre les deux pieds
-    out.push(h.fleche(`M${XY(Q(XB - BUCHE.r - 12, 0))} L${XY(Q(120, 0))}`, A.cache));
+    out.push(fente(180, 12, BUCHE.r - 1, 13), fente(0, 14, BUCHE.r, 5), fente(115, 60, BUCHE.r, 3), fente(250, 70, BUCHE.r, 2.5));
+    // le plan du coup : un trait mixte sans pointe, du bord du billot jusque derrière les talons,
+    // entre les deux pieds (la fente reste seule dans la bûche)
+    out.push(h.ligne(...Q(XB - BILLOT.r - 14, 0), ...Q(-330, 0), `fill="none" stroke="${NOIR}" stroke-width="0.7" stroke-dasharray="14 3 2 3"`));
     // les bottes
     const botte = (cy, cote) => {
       const pts = BOTTE.map(([x, y]) => { const q = tourne([x, y * cote], 6 * cote); return Q(-80 + q[0], cy + q[1]); });

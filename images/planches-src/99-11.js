@@ -355,7 +355,12 @@ module.exports = (h) => {
     out.push(h.chemin(bandeAnse, blanc(A.arete), true));
     const e = 0.42;
     const m = F.main({ x: bx, y: yA + 2.5, pose: 'prise', vue: 'dos', angle: 90, diametre: 6, echelle: e, bras: Math.max(4, (yA - 2) / e - 88) });
-    out.push(m.toString());
+    // le bord de l'anse appuyé là où les doigts passent dessous
+    [anse(0), anse(5)].forEach(a => { const s = a.filter(q => Math.abs(q[0] - bx) < 24); if (s.length > 1) out.push(h.chemin(s, A.contour)); });
+    // l'avant-bras coupé net, les deux bords à la même hauteur
+    const yCoupe = m.bras[1] + 6, idBras = 'p9911-bras';
+    out.push(`<defs><clipPath id="${idBras}"><rect x="${f1(bx - 80)}" y="${f1(yCoupe)}" width="160" height="${f1(yR - yCoupe + 40)}"/></clipPath></defs>`);
+    out.push(`<g clip-path="url(#${idBras})">${m.toString()}</g>`);
     // secouer, brasser
     const yS = yR - 14;
     out.push(`<path d="M${P([bx - Wt / 2 - 58, yS])} L${P([bx - Wt / 2 - 8, yS])}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`);

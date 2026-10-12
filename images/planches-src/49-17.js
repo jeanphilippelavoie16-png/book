@@ -64,8 +64,8 @@ module.exports = (h) => {
   V1.E = [V1.xt + 78, V1.yc + 40];       // l'œil, en haut de la boucle, au-delà du bout
 
   // ── Vue 2 : de face ──
-  const V2 = { xc: 106, yb: 252, yt: 138, R: 32 };
-  V2.yl = V2.yt + 9;                     // centre de la boucle, un peu sous la tête
+  const V2 = { xc: 106, yb: 252, yt: 140, R: 16 };
+  V2.yl = V2.yt + 7;                     // centre de la boucle, un peu sous la tête
   V2.E = [V2.xc, V2.yl - V2.R];
   V2.T = [V2.xc - 40, V2.E[1] - 21];     // bout de la perche
   V2.S = [4, V2.T[1] + 22];
@@ -77,7 +77,7 @@ module.exports = (h) => {
   return {
     ref: '49-17',
     titre: 'La perche à collet',
-    desc: 'Le bout d’une hampe de bouleau fendu sur la longueur d’un doigt : le fil du collet est coincé à plat dans la fente, sort au bout, descend à un petit œil et forme la boucle coulissante qui pend sous le bout. De face, le tétras perché sur une branche basse, la tête haute ; la boucle pend devant sa tête, un peu basse, et une flèche montre la traction sèche vers l’arrière et vers le haut. De dessus, le chasseur à l’ouest de l’oiseau : la perche arrive de côté et passe en travers devant la tête sans être pointée sur l’oiseau ; la boucle glisse par-dessus la tête jusqu’au cou. L’encadré danger dit à quoi se reconnaît l’oiseau malade, qui ne se prend pas.',
+    desc: 'Le bout d’une hampe de bouleau fendu sur la longueur d’un doigt : le fil du collet est coincé à plat dans la fente, sort au bout, descend à un petit œil et forme la boucle coulissante qui pend sous le bout. De face, le tétras perché sur une branche basse, la tête haute ; la boucle pend devant sa tête, un peu basse, et une flèche montre la traction sèche vers l’arrière et vers le haut. De dessus, la perche arrive de l’ouest de côté et passe en travers devant la tête sans être pointée sur l’oiseau ; la boucle glisse par-dessus la tête jusqu’au cou. L’encadré danger dit à quoi se reconnaît l’oiseau malade, qui ne se prend pas.',
     format: 'pleine',
     disposition: [['bout', 'face'], ['dessus']],
     hauteurs: [3, 2],
@@ -126,17 +126,20 @@ module.exports = (h) => {
           // La queue, derrière la branche.
           out.push(h.path(`M ${xc - 15} ${yb - 6} L ${xc - 26} ${yb + 40} Q ${xc} ${yb + 48} ${xc + 26} ${yb + 40} L ${xc + 15} ${yb - 6} Z`, blanc(h.a.arete)));
           out.push(rameau([xtr, yb], [4, yb + 10], 11, 3));
-          // Le corps, du cou aux flancs, posé sur la branche.
-          out.push(h.path(`M ${xc - 9} ${yt + 8} C ${xc - 22} ${yt + 16} ${xc - 40} ${yt + 34} ${xc - 41} ${yb - 50} C ${xc - 42} ${yb - 22} ${xc - 34} ${yb - 2} ${xc - 20} ${yb + 2} L ${xc + 20} ${yb + 2} C ${xc + 34} ${yb - 2} ${xc + 42} ${yb - 22} ${xc + 41} ${yb - 50} C ${xc + 40} ${yt + 34} ${xc + 22} ${yt + 16} ${xc + 9} ${yt + 8} Z`, blanc(h.a.arete)));
-          // Les ailes repliées.
-          out.push(h.path(`M ${xc - 30} ${yt + 36} C ${xc - 34} ${yb - 60} ${xc - 34} ${yb - 30} ${xc - 26} ${yb - 6} M ${xc + 30} ${yt + 36} C ${xc + 34} ${yb - 60} ${xc + 34} ${yb - 30} ${xc + 26} ${yb - 6}`, h.a.detail));
-          // Les doigts sur la branche.
-          out.push(h.path([-13, 13].map((dx) => [-4, 0, 4].map((d) => `M ${xc + dx + d} ${yb - 2} q ${d * 0.3} 5 ${d * 0.2 - 1.5} 8`).join(' ')).join(' '), h.a.detail));
-          // La tête haute : les yeux, le bec.
-          out.push(h.cercle(xc, yt, 13, blanc(h.a.arete)));
-          out.push(h.cercle(xc - 5.5, yt - 2, 1.2, h.a.plein));
-          out.push(h.cercle(xc + 5.5, yt - 2, 1.2, h.a.plein));
-          out.push(h.path(`M ${xc - 2.5} ${yt + 2} L ${xc + 2.5} ${yt + 2} L ${xc} ${yt + 7} Z`, h.a.plein));
+          // Le corps : cou court, épaules, puis le ventre qui s'élargit vers le bas.
+          out.push(h.path(`M ${xc - 7} ${yt + 8} C ${xc - 9} ${yt + 18} ${xc - 22} ${yt + 26} ${xc - 31} ${yt + 44} C ${xc - 42} ${yt + 66} ${xc - 44} ${yb - 26} ${xc - 34} ${yb - 8} C ${xc - 28} ${yb} ${xc - 18} ${yb + 2} ${xc - 10} ${yb + 2} L ${xc + 10} ${yb + 2} C ${xc + 18} ${yb + 2} ${xc + 28} ${yb} ${xc + 34} ${yb - 8} C ${xc + 44} ${yb - 26} ${xc + 42} ${yt + 66} ${xc + 31} ${yt + 44} C ${xc + 22} ${yt + 26} ${xc + 9} ${yt + 18} ${xc + 7} ${yt + 8} Z`, blanc(h.a.arete)));
+          // Les ailes repliées sur les flancs, la pointe vers le bas.
+          [-1, 1].forEach((c) => out.push(h.path(`M ${xc + c * 24} ${yt + 34} C ${xc + c * 16} ${yt + 62} ${xc + c * 18} ${yb - 34} ${xc + c * 27} ${yb - 12} M ${xc + c * 21} ${yt + 70} q ${c * 6} 6 ${c * 12} 4 M ${xc + c * 20} ${yt + 84} q ${c * 7} 6 ${c * 14} 4`, h.a.detail)));
+          // Les pattes emplumées, et les doigts qui serrent la branche.
+          [-1, 1].forEach((c) => {
+            const x = xc + c * 11;
+            out.push(h.path(`M ${x - 6} ${yb - 12} q -2 6 0 10 q 3 3 6 0 q 3 3 6 0 q 2 -4 0 -10`, blanc(h.a.detail)));
+            out.push(h.path([-4, 0, 4].map((d) => `M ${x + d} ${yb + 1} q ${d * 0.4} 4 ${d * 0.3 - 1} 9`).join(' '), h.a.detail));
+          });
+          // La tête, petite, sur le cou : l'œil en amande de chaque côté, le bec court.
+          out.push(h.ellipse(xc, yt, 9, 10, blanc(h.a.arete)));
+          [-1, 1].forEach((c) => out.push(h.path(`M ${xc + c * 4} ${yt - 2} Q ${xc + c * 6} ${yt - 4.5} ${xc + c * 8} ${yt - 2} Q ${xc + c * 6} ${yt - 0.5} ${xc + c * 4} ${yt - 2} Z`, h.a.plein)));
+          out.push(h.path(`M ${xc - 2} ${yt + 3} L ${xc + 2} ${yt + 3} L ${xc} ${yt + 7} Z`, h.a.plein));
           // La perche, qui arrive de la gauche, et le collet.
           const p = perche(S, T, 9, 40, h.a.contour);
           out.push(p.svg);
@@ -179,25 +182,17 @@ module.exports = (h) => {
           out.push(h.path(`M ${xb - 3} ${yh + 6} L ${xb + 3} ${yh + 6} L ${xb} ${yh + 11} Z`, h.a.plein));
           // Où finit la boucle : autour du cou.
           out.push(h.ellipse(xb, yh - 7, R, 6, h.a.cache));
-          // Le chasseur, à l'ouest, face à l'est : épaules, bras, tête.
-          const xh = 58;
-          out.push(h.ellipse(xh, yP, 26, 50, blanc(h.a.detail)));
-          out.push(tube([xh + 4, yP - 38], [xh + 78, yP - 3], 14));
-          out.push(tube([xh + 4, yP + 38], [xh + 44, yP + 3], 14));
-          out.push(h.cercle(xh + 2, yP, 16, blanc(h.a.detail)));
-          out.push(h.path(`M ${xh + 17} ${yP - 5} L ${xh + 23} ${yP} L ${xh + 17} ${yP + 5}`, h.a.detail));
+          const xh = 0;
           // La boucle, pendue sous la perche, en travers devant le bec.
           out.push(h.ellipse(xb, yP, R, 6, h.a.arete));
           // Le fil, du bout de la perche à l'œil, au-dessus de la boucle.
           out.push(h.ligne(xt, yP, xb, yP, h.a.arete));
           // La perche, rompue : sa longueur est celle qu'il faut pour ne pas avancer d'un pas.
           const xr = 250;
-          out.push(h.rect(xh + 30, yP - 4.5, xr - 4 - (xh + 30), 9, blanc(h.a.arete)));
+          out.push(h.rect(20, yP - 4.5, xr - 24, 9, blanc(h.a.arete)));
+          out.push(h.path(`M 20 ${yP - 4.5} C 23 ${yP - 1.5} 17 ${yP + 1.5} 20 ${yP + 4.5}`, h.a.detail));
           out.push(h.rect(xr + 4, yP - 4.5, xt - xr - 4, 9, blanc(h.a.arete)));
           [xr - 4, xr + 4].forEach((x) => out.push(h.path(`M ${x} ${yP - 4.5} C ${x + 3} ${yP - 1.5} ${x - 3} ${yP + 1.5} ${x} ${yP + 4.5}`, h.a.detail)));
-          // Les mains sur la perche.
-          out.push(h.ellipse(xh + 44, yP, 7, 6, blanc(h.a.detail)));
-          out.push(h.ellipse(xh + 78, yP, 7, 6, blanc(h.a.detail)));
           // La perche glisse vers le nord : la boucle passe par-dessus la tête.
           out.push(h.fleche(`M ${xb + R + 8} ${yP + 3} C ${xb + R + 16} ${yP - 4} ${xb + R + 16} ${yP - 16} ${xb + R + 8} ${yP - 25}`));
           return out.join('\n');

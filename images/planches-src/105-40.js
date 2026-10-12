@@ -309,29 +309,32 @@ module.exports = (h) => {
       semis(boueIn, 2.2, 0.6, 5),
       h.path(lisseFerme(bord), A.contour),
       m,
-      h.fleche(`M${f1(xa + 34)},${f1(yF - 20)} Q${f1(xa + 80)},${f1(yF - 30)} ${f1(xa + 122)},${f1(yF - 50)}`),
+      // du talon (près de la mitre) à la pointe, sur la pierre, en suivant le fil
+      h.fleche(`M${f1(xb - 8)},${f1(yF - 10)} L${f1(xa + 70)},${f1(yF - 10)} Q${f1(xa + 20)},${f1(yF - 10)} ${f1(xa + 4)},${f1(yh - 4 * e - 4)}`),
     ].join('\n');
     return {
       svg,
       renvois: [
         { n: 8, rond: [14, cy + 30], cible: [cx - 55, cy + 18], texte: 'grès : il raye l’acier' },
         { n: 9, rond: [14, yh - 30], cible: [xa + 22, yF - 6], texte: 'boue grise : ne pas la rincer' },
-        { n: 10, rond: [xa + 146, yF - 52], cible: [xa + 124, yF - 50], texte: 'du talon à la pointe' },
+        { n: 10, rond: [xa + 100, yF - 52], cible: [xa + 100, yF - 10], texte: 'du talon à la pointe' },
       ],
     };
   }
 
   // ─── La tasse retournée : l'anneau non émaillé du pied ─────────────────────────────────
   function tasse(z) {
-    const cx = z.l * 0.46, cy = 78, rx = 44, ry = 17, yb = z.h - 20;
+    const cx = z.l * 0.46, cy = 78, rx = 44, ry = 17, yb = z.h - 30;
     const out = [];
     // le corps émaillé, lisse : deux reflets
-    const flanc = [[cx - rx, cy], ...ellipsePts(cx, yb, rx + 3, ry, 180, 0, 24), [cx + rx, cy]];
+    const flanc = [[cx - rx, cy], ...ellipsePts(cx, yb, rx + 4, ry, 180, 0, 24), [cx + rx, cy]];
     const corps = [...flanc, ...ellipsePts(cx, cy, rx, ry, 0, -180, 24)];
-    // l'anse, du côté droit
-    const anseExt = `M${f1(cx + rx + 1)},${f1(cy + 16)} C${f1(cx + rx + 30)},${f1(cy + 14)} ${f1(cx + rx + 32)},${f1(yb - 12)} ${f1(cx + rx + 3)},${f1(yb - 14)}`;
-    const anseInt = `M${f1(cx + rx + 1)},${f1(cy + 26)} C${f1(cx + rx + 20)},${f1(cy + 26)} ${f1(cx + rx + 21)},${f1(yb - 24)} ${f1(cx + rx + 2)},${f1(yb - 25)}`;
-    out.push(h.path(`${anseExt} L${f1(cx + rx + 2)},${f1(yb - 25)} C${f1(cx + rx + 21)},${f1(yb - 24)} ${f1(cx + rx + 20)},${f1(cy + 26)} ${f1(cx + rx + 1)},${f1(cy + 26)} Z`, A.blanc));
+    // la table, sous la lèvre
+    out.push(h.path(`M8,${f1(yb + ry)} L${f1(z.l - 8)},${f1(yb + ry)}`, A.arete));
+    // l'anse retournée : l'attache large en bas, vers la table
+    const anseExt = `M${f1(cx + rx + 1)},${f1(cy + 18)} C${f1(cx + rx + 16)},${f1(cy + 18)} ${f1(cx + rx + 36)},${f1(yb - 34)} ${f1(cx + rx + 3)},${f1(yb - 4)}`;
+    const anseInt = `M${f1(cx + rx + 1)},${f1(cy + 25)} C${f1(cx + rx + 10)},${f1(cy + 27)} ${f1(cx + rx + 22)},${f1(yb - 34)} ${f1(cx + rx + 2)},${f1(yb - 22)}`;
+    out.push(h.path(`${anseExt} L${f1(cx + rx + 2)},${f1(yb - 22)} C${f1(cx + rx + 22)},${f1(yb - 34)} ${f1(cx + rx + 10)},${f1(cy + 27)} ${f1(cx + rx + 1)},${f1(cy + 25)} Z`, A.blanc));
     out.push(h.path(anseExt, A.contour), h.path(anseInt, A.arete));
     out.push(h.path(D(corps, true), A.blanc));
     out.push(h.path(D(flanc), A.contour));
@@ -348,7 +351,8 @@ module.exports = (h) => {
     }
     out.push(h.path(d, A.plein));
     out.push(h.path(D(int, true), A.blanc), h.path(D(int, true), A.detail));
-    out.push(h.path(D(ellipsePts(cx, cy + 1.5, rx - 20, ry - 8, 200, 340, 20)), A.fin));
+    // la lèvre posée sur la table : un bourrelet
+    out.push(h.path(D(ellipsePts(cx, yb - 5, rx + 3.6, ry, 180, 0, 24)), A.fin));
     out.push(h.path(D(ext, true), A.contour));
     // la lame posée sur l'arrière de l'anneau, le fil vers soi
     const yFil = cy - ry * 0.55;

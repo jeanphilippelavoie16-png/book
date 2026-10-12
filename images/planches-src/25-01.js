@@ -1,6 +1,7 @@
 // Planche 25-01 — l'enveloppe croisée, avec deux couvertures et une bâche (ch. 3, §9 et étapes 7-9).
 module.exports = (h) => {
   const c = Math.SQRT1_2;
+  const BACHE = 'bâche dessous, bordée ensuite';
   const f = (n) => Math.round(n * 10) / 10;
 
   // ─── outils ────────────────────────────────────────────────────────────────
@@ -40,6 +41,22 @@ module.exports = (h) => {
     const Q = echant(P).map(M);
     const A = decale(Q, 3.5 * s), B = decale(Q, -3.5 * s).reverse();
     return h.path(dpoly(A.concat(B), true), remp);
+  };
+  // La laine en coupe : bande blanche, et une onde continue au milieu, du même noir que ses bords.
+  const bandeLaine = (M, s, P) => {
+    const Q = echant(P).map(M);
+    const A = decale(Q, 3.5 * s), B = decale(Q, -3.5 * s).reverse();
+    const W = [];
+    let L = 0;
+    Q.forEach((q, i) => {
+      if (i) L += Math.hypot(q[0] - Q[i - 1][0], q[1] - Q[i - 1][1]);
+      const a = Q[Math.max(0, i - 1)], b = Q[Math.min(Q.length - 1, i + 1)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], n = Math.hypot(dx, dy) || 1;
+      const e = 1.8 * s * Math.sin(2 * Math.PI * L / (9 * s));
+      W.push([q[0] - dy / n * e, q[1] + dx / n * e]);
+    });
+    return [h.path(dpoly(A.concat(B), true), blancArete),
+      h.path(dpoly(W), 'fill="none" stroke="#000000" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"')].join('\n');
   };
   const trait = (M, P, a) => h.path(dpoly(echant(P).map(M)), a);
   const proche = (M, P, q) => {                 // le point du trait le plus près de q : la cible d'un renvoi
@@ -160,7 +177,7 @@ module.exports = (h) => {
 
   // ─── les deux coupes : couches, du sol vers l'extérieur ─────────────────────
   const seche = (z) => {
-    const s = 0.95, cx = z.l / 2 + 24, yb = z.h - 80;
+    const s = 0.95, cx = z.l / 2 + 24, yb = z.h - 45;
     const M = (q) => [cx + s * q[0], yb + s * q[1]];
     const t = (d) => tour(d, 0);
     return {
@@ -176,7 +193,7 @@ module.exports = (h) => {
     };
   };
   const mouillee = (z) => {
-    const s = 0.8, cx = z.l / 2, yb = z.h - 80, dy = -0.5;
+    const s = 0.8, cx = z.l / 2, yb = z.h - 45, dy = -0.5;
     const M = (q) => [cx + s * q[0], yb + s * q[1]];
     const t = (d) => tour(d, dy);
     return {
@@ -199,7 +216,7 @@ module.exports = (h) => {
       + 'L’encadré danger rappelle que la chaleur ne va jamais sur les bras ni les jambes.',
     format: 'pleine',
     disposition: [['v1', 'v2', 'v3'], ['seche', 'mouillee']],
-    hauteurs: [1, 1],
+    hauteurs: [1, 0.8],
     largeurs: [[1, 1, 1], [3, 2]],
     vues: {
       v1: {
@@ -210,7 +227,9 @@ module.exports = (h) => {
             rectP(P, p, -117.5, -25, 235, 265, h.a.arete),
             rectP(P, p, -37.5, 18, 150, 200, blancArete),
             bandes(P, -37.5, 112.5, [40, 44, 192, 196]),
+            rectP(P, p, -112.5, 18, 150, 200, blancArete),
             rectP(P, p, -112.5, 18, 150, 200, laine),
+            h.ligne(...P(-37.5, 18), ...P(-37.5, 218), h.a.cache),
             bandes(P, -112.5, 37.5, [40, 44, 192, 196]),
             personne(P),
             tete(P, p),
@@ -221,7 +240,10 @@ module.exports = (h) => {
         },
         renvois: (z) => {
           const { P } = plan(z);
-          return [{ n: 2, rond: P(-80, -3), cible: P(-72, 18), texte: 'deuxième couverture décalée' }];
+          return [
+            { n: 1, rond: P(-75, 232), cible: P(-117.5, 232), texte: BACHE },
+            { n: 2, rond: P(-80, -3), cible: P(-72, 18), texte: 'laine, décalée' },
+          ];
         },
       },
       v2: {
@@ -284,7 +306,7 @@ module.exports = (h) => {
             trait(M, g.baIn, h.a.arete),
             trait(M, g.baOut, h.a.contour),
             bande(M, g.s, g.b1, blancArete),
-            bande(M, g.s, g.b2, laine),
+            bandeLaine(M, g.s, g.b2),
             corps(M, g.s, 0),
             h.cote(...M([-138, 0]), ...M([-138, 22]), 'une main', { cote: 'gauche' }),
           ].join('\n');
@@ -292,9 +314,11 @@ module.exports = (h) => {
         renvois: (z) => {
           const g = seche(z), M = g.M;
           return [
-            { n: 1, rond: M([146, -16]), cible: M([133, 8.5]), texte: 'sapin tassé, pointes en bas' },
-            { n: 6, rond: M([146, -82]), cible: proche(M, g.baOut, [140, -65]), texte: 'bâche bordée sous le paquet' },
-            { n: 7, rond: M([-150, -95]), cible: M([-56 - 0.917 * 13.5, -54 - 0.4 * 13.5]), texte: 'bouteilles dans un linge épais' },
+            { n: 6, rond: M([146, -16]), cible: M([133, 8.5]), texte: 'sapin tassé, pointes en bas' },
+            { n: 7, rond: M([-80, -158]), cible: proche(M, g.baOut, [-20, -152]), texte: 'bâche, dehors' },
+            { n: 8, rond: M([45, -165]), cible: proche(M, g.b1, [12, -139]), texte: 'première couverture, unie' },
+            { n: 9, rond: M([125, -148]), cible: proche(M, g.b2, [45, -112]), texte: 'laine, par-dessus' },
+            { n: 10, rond: M([-150, -95]), cible: M([-56 - 0.917 * 13.5, -54 - 0.4 * 13.5]), texte: 'bouteilles dans un linge' },
           ];
         },
       },
@@ -306,14 +330,14 @@ module.exports = (h) => {
             sol(M, -130, 130),
             lit(M, -124, 124),
             bande(M, g.s, g.b1, blancArete),
-            bande(M, g.s, g.b2, laine),
+            bandeLaine(M, g.s, g.b2),
             trait(M, g.ba, h.a.contour),
             corps(M, g.s, g.dy),
           ].join('\n');
         },
         renvois: (z) => {
           const g = mouillee(z), M = g.M;
-          return [{ n: 8, rond: M([-100, -150]), cible: proche(M, g.ba, [-48, -80]), texte: 'mouillée : bâche contre elle' }];
+          return [{ n: 11, rond: M([-100, -150]), cible: proche(M, g.ba, [-48, -80]), texte: 'mouillée : bâche contre elle' }];
         },
       },
     },

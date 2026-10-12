@@ -197,8 +197,9 @@ module.exports = (h) => {
   };
   // Gerbe dessinée : 600 mm du pied au bout des tiges, demi-largeurs 100 / 70 / 110 mm, épi 80 mm
   const G = { L: 600, pied: 100, lien: 70, haut: 110, epi: 80, epiW: 13 };
-  const gerbe3D = (P, s, Bw, Sw, graine) => {
+  const gerbe3D = (P, s, Bw, Sw, graine, yPied = null) => {
     const b = P(Bw), t = P(Sw);
+    if (yPied !== null) b.p = [b.p[0], yPied];
     return { D: b.D, svg: gerbe({ B: b.p, S: t.p, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, epiL: G.epi * s, epiW: G.epiW * s, n: 8, graine, lien: lienPetit(s, false) }) };
   };
   const sol = (z, y) => [h.rect(0, y, z.l, 9, h.a.hachure('terre', 'aucun')), h.ligne(0, y, z.l, y, h.a.arete)].join('\n');
@@ -223,19 +224,25 @@ module.exports = (h) => {
     champ.sort((a, b) => b.Y - a.Y).forEach(c => out.push(tige([c.X, c.Y, 0], [c.X + c.pen, c.Y, c.H], c.ang, 0.5)));
     // le chaume : touffes coupées à 80-100 mm
     const touffes = [];
-    for (let i = 0; i < 16; i++) touffes.push({ X: Xh + 70 + r() * 420, Y: r() * 190, H: 82 + r() * 16 });
-    touffes.push({ X: Xh + 575, Y: 5, H: 90 });
+    for (let i = 0; i < 16; i++) touffes.push({ X: Xh + 70 + r() * 420, Y: r() * 190, n: 3 + Math.floor(r() * 3) });
+    touffes.push({ X: Xh + 575, Y: 5, n: 4 });
+    // une touffe de chaume : 3 à 5 tiges droites, toutes coupées net à 90 mm, à plat
+    const HC = 90;
     const touffe = t => {
       let d = '';
-      for (const dx of [-6, 5]) {
-        const b = P([t.X + dx * 0.4, t.Y, 0]), c = P([t.X + dx, t.Y, t.H + (dx % 2) * 3]);
-        d += `M${pt(b)} L${pt(c)} `;
+      const xs = [];
+      for (let k = 0; k < t.n; k++) {
+        const dx = (k - (t.n - 1) / 2) * 7;
+        const b = P([t.X + dx, t.Y, 0]), c = P([t.X + dx, t.Y, HC]);
+        d += `M${pt(b)} L${pt(c)} `; xs.push(c);
       }
+      const a = xs[0], z2 = xs[xs.length - 1];
+      d += `M${pt([a[0] - 1.5, a[1]])} L${pt([z2[0] + 1.5, z2[1]])} `;
       return `<path d="${d}" ${TR(0.7)}/>`;
     };
     touffes.filter(t => t.Y > Yh).sort((a, b) => b.Y - a.Y).forEach(t => out.push(touffe(t)));
     // la faucille : lame en arc dans un plan un peu incliné, qui entoure le pied de la poignée
-    const Rb = 105, C = [Xh + Rb - 22, Yh], Zb = Y => 90 + (Y - Yh) * 0.55;
+    const Rb = 105, C = [Xh + Rb - 22, Yh], Zb = Y => 90 + (Y - Yh) * 0.12;
     const lame = (a0, a1) => {
       const int = [], ext = [];
       for (let a = a0; a <= a1 + 0.01; a += 5) {
@@ -265,6 +272,8 @@ module.exports = (h) => {
       poignee.push(`<path d="${lisse(pts)}" ${TR(0.7)}/>` + epi(pts[5][0], pts[5][1], (i - 3) * 7 + (r() - 0.5) * 12, 80 * s, 13 * s));
     }
     out.push(...poignee);
+    // le trait de coupe : là où le tranchant passe dans la poignée, au ras du dessus du chaume
+    { const a = P([Xh - 40, Yh, 90]), b = P([Xh + 45, Yh, 90]); out.push(`<path d="M${pt(a)} L${pt(b)}" ${TR(2.4)}/>`); }
     // la partie de la lame qui passe devant la poignée
     out.push(dessinLame(lame(195, 250)));
     touffes.filter(t => t.Y <= Yh).sort((a, b) => b.Y - a.Y).forEach(t => out.push(touffe(t)));
@@ -311,7 +320,7 @@ module.exports = (h) => {
   const AIR_CONE = [[-420, -560, 40], [-150, -440, 50], [0, -260, 80], [0, -90, 260], [0, 0, 470]];
   function vueCone(z) {
     const { s, P, yF, pluie } = geoCone(z);
-    const gs = [120, 60, 180, 0, -120, -60].map((a, i) => gerbe3D(P, s, [R0 * Math.cos(a * RAD), R0 * Math.sin(a * RAD), 0], [R1 * Math.cos(a * RAD), R1 * Math.sin(a * RAD), Ht], 11 + i * 3));
+    const gs = [120, 60, 180, 0, -120, -60].map((a, i) => gerbe3D(P, s, [R0 * Math.cos(a * RAD), R0 * Math.sin(a * RAD), 0], [R1 * Math.cos(a * RAD), R1 * Math.sin(a * RAD), Ht], 11 + i * 3, yF));
     const out = [sol(z, yF + 1)];
     gs.sort((a, b) => b.D - a.D).forEach(g => out.push(g.svg));
     // l'air entre par le bas, entre les pieds, et monte dedans
@@ -320,31 +329,35 @@ module.exports = (h) => {
     for (const [p0, p1] of pluie) out.push(h.fleche(`M${pt(p0)} L${pt(p1)}`));
     return out.join('\n');
   }
-  const PHI = 55, NP = 4, PAS = 210;
-  const AIR_R = [[-640, 0, 190], [(NP - 1) * PAS + 60, 0, 190]];
-  function geoRangee(z) {
-    const s = sMoy(z), o = { x: 0, y: 0, s, e: E, phi: PHI };
-    const P0 = proj(o);
-    // cadrage : tout ce qui se dessine, l'entrée d'air comprise
-    const xs = [P0(AIR_R[0]).p[0] - 4];
-    for (let i = 0; i < NP; i++) for (const sg of [-1, 1]) { const x = P0([i * PAS, sg * 270, 0]).p[0]; xs.push(x - G.pied * s, x + G.pied * s); }
-    const x0 = (z.l - (Math.max(...xs) - Math.min(...xs))) / 2 - Math.min(...xs);
-    const Dmin = -270 * Math.cos(PHI * RAD);
-    const yF = z.h - 11, y0 = yF + s * Dmin * Math.sin(E * RAD);
-    return { s, P: proj({ ...o, x: x0, y: y0 }), yF };
+  // la double rangée, en deux vues à la même échelle que le cône : de bout (le A) et de côté
+  const sR = z => Math.min(sMoy(z), 0.19);
+  const PIED_R = 270, HAUT_R = 40, PAS_C = 240, NP_C = 5, Z_AIR = 190;
+  function geoBout(z) {
+    const s = sR(z), yG = z.h - 11, cx = z.l / 2;
+    return { s, yG, cx, yTop: yG - Ht * s, yAir: yG - Z_AIR * s };
   }
-  function vueRangee(z) {
-    const { s, P, yF } = geoRangee(z);
-    const gs = [];
-    for (let i = 0; i < NP; i++) {
-      const X = i * PAS;
-      gs.push(gerbe3D(P, s, [X, -270, 0], [X, -40, Ht], 40 + i * 5));
-      gs.push(gerbe3D(P, s, [X, 270, 0], [X, 40, Ht], 43 + i * 5));
+  const gerbe2D = (s, B, S, graine, n = 8) => gerbe({ B, S, lPied: G.pied * s, lLien: G.lien * s, lHaut: G.haut * s, epiL: G.epi * s, epiW: G.epiW * s, n, graine, lien: lienPetit(s, false) });
+  function vueBout(z) {
+    const { s, yG, cx, yTop, yAir } = geoBout(z);
+    const out = [sol(z, yG)];
+    out.push(gerbe2D(s, [cx - PIED_R * s, yG], [cx + HAUT_R * s, yTop], 41));
+    out.push(gerbe2D(s, [cx + PIED_R * s, yG], [cx - HAUT_R * s, yTop], 44));
+    out.push(h.fleche(`M6 ${f1(yAir)} L${f1(z.l - 6)} ${f1(yAir)}`, h.a.cache));
+    return out.join('\n');
+  }
+  function geoCote(z) {
+    const s = sR(z), yG = z.h - 11, larg = (NP_C - 1) * PAS_C * s;
+    return { s, yG, x0: (z.l - larg) / 2 };
+  }
+  function vueCote(z) {
+    const { s, yG, x0 } = geoCote(z);
+    const out = [sol(z, yG)];
+    for (let i = 0; i < NP_C; i++) {
+      const x = x0 + i * PAS_C * s, d = 14 * s;
+      // la gerbe de derrière, un peu décalée, puis celle de devant : tous les pieds sur le sol
+      out.push(gerbe2D(s, [x + d, yG], [x + d, yG - Ht * s], 60 + i * 5, 6));
+      out.push(gerbe2D(s, [x - d, yG], [x - d, yG - Ht * s], 62 + i * 5, 6));
     }
-    const out = [sol(z, yF + 1)];
-    gs.sort((a, b) => b.D - a.D).forEach(g => out.push(g.svg));
-    const air = AIR_R.map(p => P(p).p);
-    out.push(h.fleche(lisse(air), h.a.cache));
     return out.join('\n');
   }
 
@@ -353,16 +366,16 @@ module.exports = (h) => {
     titre: 'Couper, lier, dresser en moyettes',
     desc: 'La coupe à la faucille, une poignée à la fois tenue dans l’autre main, à 80 à 100 mm du sol ; la gerbe liée d’un lien de paille tordue, en trois temps (joindre les deux bouts, les tordre ensemble, rentrer la torsade sous le lien) ; les gerbes dressées debout, épis en haut, appuyées en cône ou en double rangée pour que l’air passe dedans et que la pluie coule dessus.',
     format: 'pleine',
-    disposition: [['couper', 'gerbe'], ['l1', 'l2', 'l3'], ['cone', 'rangee']],
+    disposition: [['couper', 'gerbe'], ['l1', 'l2', 'l3'], ['cone', 'bout', 'cote']],
     hauteurs: [1.3, 0.8, 1.05],
-    largeurs: [[2.4, 1], [1, 1, 1], [1, 1.25]],
+    largeurs: [[2.4, 1], [1, 1, 1], [1, 0.75, 1.3]],
     vues: {
       couper: {
         titre: 'Couper, une poignée à la fois',
         dessin: vueCouper,
         renvois: z => {
           const { grip, P } = geoCouper(z);
-          const lame = P([Xh + 83 + 105 * Math.cos(150 * RAD) - 10, Yh + 105 * Math.sin(150 * RAD), 90 + 105 * Math.sin(150 * RAD) * 0.55]);
+          const lame = P([Xh + 83 + 117 * Math.cos(215 * RAD), Yh + 117 * Math.sin(215 * RAD), 90 + 117 * Math.sin(215 * RAD) * 0.12]);
           return [
             { n: 1, rond: [grip[0] + 70, grip[1] - 40], cible: [grip[0] + 16, grip[1] - 8], texte: 'une poignée serrée dans la main' },
             { n: 2, rond: [grip[0] - 70, z.h - 50], cible: lame, texte: 'la faucille, tirée vers soi' },
@@ -399,15 +412,18 @@ module.exports = (h) => {
           ];
         },
       },
-      rangee: {
-        titre: 'La moyette en double rangée',
-        dessin: vueRangee,
+      bout: {
+        titre: 'Double rangée, de bout',
+        dessin: vueBout,
         renvois: z => {
-          const { P } = geoRangee(z);
-          const haut = P([2 * PAS, 0, Ht + 10]).p;
-          return [{ n: 9, rond: [z.l - 16, 20], cible: haut, texte: 'deux rangées, épis contre épis' }];
+          const { cx, yTop, yAir } = geoBout(z);
+          return [
+            { n: 9, rond: [z.l - 16, 18], cible: [cx, yTop + 4], texte: 'épis contre épis' },
+            { n: 10, rond: [16, yAir - 30], cible: [10, yAir], texte: 'l’air passe dessous, de part en part' },
+          ];
         },
       },
+      cote: { titre: 'Double rangée, de côté', dessin: vueCote },
     },
   };
 };

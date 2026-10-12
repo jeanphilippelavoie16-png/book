@@ -189,7 +189,7 @@ module.exports = (h) => {
   const yB = 46;                                  // la coupe en travers
 
   const geomPlanche = z => {
-    const s = echelle1(z), oy = HAUT, sA = s * 1.75;
+    const s = echelle1(z), oy = HAUT, sA = s;          // la coupe rabattue à l'échelle de la face et de la rive
     const xF = 26 + 6 * s, xR = xF + 6 * s + 20, xS = xR + s + 12 + (wAt(50) + 0.1) * sA, xC = z.l - 16;
     return { s, oy, sA, xF, xR, xS, xC, yA: oy + s * 50 };
   };
@@ -227,7 +227,7 @@ module.exports = (h) => {
       return [
         { n: 1, rond: [12, oy + 4], cible: [xF - 1.3 * s, oy + 1.0 * s], texte: 'pointe arrondie' },
         { n: 2, rond: [12, oy + s * 78], cible: [xF - 0.62 * wAt(78) * s, oy + s * 78], texte: 'fendue droit dans le fil' },
-        { n: 3, rond: [xS + wAt(50) * sA - 8, yA - 34], cible: [xS + (wAt(50) - 0.3) * sA, yA - 0.72 * sA], texte: 'toutes les arêtes arrondies' },
+        { n: 3, rond: [xS + wAt(50) * sA - 4, yA - 34], cible: [xS + (wAt(50) - 0.2) * sA, yA - 0.6 * sA], texte: 'toutes les arêtes arrondies' },
         { n: 4, rond: [xC - 2, oy + s * 22], cible: [xC, oy + s * (CALE_H + 1)], texte: 'cale mince, même bille' },
       ];
     },
@@ -258,6 +258,13 @@ module.exports = (h) => {
       for (const [x, y] of [[4.7, 86.6], [5.75, 73.5], [-4.7, 86.6], [-5.75, 73.5]]) {
         const [px, py] = T([x, y]);
         o.push(h.cercle(px, py, 2.6, h.a.blanc), h.cercle(px, py, 2.6, h.a.detail), h.cercle(px, py, 1.1, h.a.plein));
+      }
+      // second rappel du renvoi 7, vers une broquette du bas (sous la pastille, même trait)
+      {
+        const [ax, ay] = [cx - 9 * s - 6, oy + s * 72], [bx, by] = T([-4.7, 86.6]);
+        o.push(`<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`,
+          `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`,
+          `<circle cx="${bx.toFixed(1)}" cy="${by.toFixed(1)}" r="1.8" fill="#000" stroke="#fff" stroke-width="0.7"/>`);
       }
       // la cale se retire vers le bas à mi-séchage
       const [fx, fy] = T([0, CALE_B + 1.2]);

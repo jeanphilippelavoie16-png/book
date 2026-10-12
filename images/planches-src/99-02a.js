@@ -26,13 +26,23 @@ module.exports = (h) => {
   const H = 100, R = 42, E = 20;          // hauteur du lien, rayon des pieds, bout qui dépasse
   const D0 = 3.6, D1 = 2.6;               // perche : gros bout, petit bout
   const T = 17, B = 1.6, G = 10;          // foin : épaisseur, ressaut d'une couche, jour sous le foin
-  const K = 2.35;                         // échelle, px par unité (réglée sur les zones)
+  const K = 2.35; const SW = 1;                         // échelle, px par unité (réglée sur les zones)
   const L3 = Math.hypot(R, H);
 
-  // une perche vue de côté : de p0 (gros bout) à p1 (petit bout), en coordonnées d'écran
+  // une perche vue de côté : de p0 (gros bout) à p1 (petit bout), en coordonnées d'écran ;
+  // bouts arrondis (le rondin vu de biais) et deux traits d'écorce le long du fût
   const perche = (p0, p1, d0 = D0 * K, d1 = D1 * K, ep = 1.4) => {
     const u = uni(sub(p1, p0)), n = [-u[1], u[0]];
-    return h.path(poly([add(p0, mul(n, d0 / 2)), add(p1, mul(n, d1 / 2)), add(p1, mul(n, -d1 / 2)), add(p0, mul(n, -d0 / 2))], true), blanc(ep));
+    const a = add(p0, mul(n, d0 / 2)), b = add(p1, mul(n, d1 / 2)), c = add(p1, mul(n, -d1 / 2)), d = add(p0, mul(n, -d0 / 2));
+    const pt = q => `${f1(q[0])} ${f1(q[1])}`;
+    const r1 = d1 / 2, r0 = d0 / 2;
+    const S = `M${pt(a)} L${pt(b)} A${f1(r1)} ${f1(r1 * 0.55)} 0 0 0 ${pt(c)} L${pt(d)} A${f1(r0)} ${f1(r0 * 0.55)} 0 0 0 ${pt(a)} Z`;
+    const L = Math.hypot(...sub(p1, p0));
+    const ec = (t0, t1, o) => h.path(poly([add(add(p0, mul(u, L * t0)), mul(n, o)), add(add(p0, mul(u, L * t1)), mul(n, o * 0.9))]), A.detail);
+    // le rond du bout : on écrase l'arc dans le sens de la perche
+    const ax = Math.atan2(n[1], n[0]) * 180 / Math.PI;
+    const S2 = S.replace(/A(\S+) (\S+) 0 0 0/g, (m, rx, ry) => `A${rx} ${ry} ${f1(ax)} 0 0`);
+    return [h.path(S2, blanc(ep)), ec(0.12, 0.34, d0 * 0.18), ec(0.55, 0.8, -d0 * 0.14)].join('\n');
   };
   // le lien : n tours de corde serrés autour du faisceau, centré en (x, y), largeur l, hauteur t
   // (écran) ; chaque tour est une bande aux bouts arrondis, un peu bombée vers le bas
@@ -44,15 +54,63 @@ module.exports = (h) => {
     }
     return out.join('\n');
   };
+  // la ligature, une seule corde, en coordonnées monde passées par P, k px par unité :
+  // départ en nœud de cabestan sur la perche de gauche, sous les tours ; cinq tours serrés autour
+  // des trois perches (on voit les passes de devant, celles de derrière sont cachées) ; deux tours
+  // de serrage dans chaque fourche, qui ceinturent les tours ; arrêt en deux demi-clés sur la perche
+  // de droite, sous les tours ; le bout libre qui pend.
+  const cx = (i, y) => PIEDS[i][0] + (DEC[i] - PIEDS[i][0]) * y / H;      // axe de la perche i, monde
+  const ligature = (P, k, ep = 1) => {
+    const F = h.formes, out = [];
+    const yb = H - 4.4, yh = H + 1.2, n = 5, hc = (yh - yb) / n, pente = hc * 0.45;
+    const r = D0 / 2;
+    const bande = (xa, ya, xb, yb2, t, w = 0.8) => {      // un tour vu de devant, bouts qui tournent derrière
+      const A0 = P([xa, ya + t / 2]), A1 = P([xa, ya - t / 2]), B0 = P([xb, yb2 + t / 2]), B1 = P([xb, yb2 - t / 2]);
+      const rr = Math.abs(A1[1] - A0[1]) / 2, mx = (A0[0] + B0[0]) / 2, bo = rr * 0.5;
+      return h.path(`M${f1(A0[0])} ${f1(A0[1])} Q${f1(mx)} ${f1((A0[1] + B0[1]) / 2 + bo)} ${f1(B0[0])} ${f1(B0[1])} A${f1(rr)} ${f1(rr)} 0 0 1 ${f1(B1[0])} ${f1(B1[1])} Q${f1(mx)} ${f1((A1[1] + B1[1]) / 2 + bo)} ${f1(A1[0])} ${f1(A1[1])} A${f1(rr)} ${f1(rr)} 0 0 1 ${f1(A0[0])} ${f1(A0[1])} Z`, blanc(w * ep));
+    };
+    const eC = Math.max(2.2, hc * 0.8 * k);               // épaisseur de corde à l'écran
+    // 1. le cabestan, perche de gauche, sous les tours : deux tours en biais, le bout court qui sort
+    const yc = yb - 2.6;
+    const xL = y => cx(0, y);
+    out.push(F.corde([P([xL(yc - 2.2) - r - 2.2, yc - 2.6]), P([xL(yc - 1.6) - r, yc - 1.4])], { ep: eC, debut: 'libre', fin: 'ouvert', trait: 'detail' }).svg);
+    out.push(bande(xL(yc - 1.2) - r, yc - 1.4, xL(yc - 0.4) + r, yc - 0.4, hc * 0.8));
+    out.push(bande(xL(yc) - r, yc + 0.2, xL(yc + 0.8) + r, yc + 1.2, hc * 0.8));
+    // le dormant monte du cabestan au premier tour
+    out.push(F.corde([P([xL(yc + 0.9) + r - 0.5, yc + 1.4]), P([xL(yb) + r * 0.2, yb + hc * 0.3])], { ep: eC, debut: 'ouvert', fin: 'ouvert', trait: 'detail' }).svg);
+    // 2. les cinq tours, qui montent un peu de gauche à droite (la corde avance d'un tour à chaque passe)
+    for (let j = 0; j < n; j++) {
+      const ya = yb + hc * (j + 0.5), y2 = ya + pente;
+      out.push(bande(cx(0, ya) - r - 0.2, ya, cx(1, y2) + r + 0.2, y2, hc));
+    }
+    // 3. les serrages : deux tours dans chaque fourche, par-dessus les tours
+    for (const fx of [(DEC[0] + DEC[2]) / 2, (DEC[1] + DEC[2]) / 2]) {
+      for (const dx of [-0.45, 0.45]) {
+        const x = fx + dx, a = P([x - 0.35, yh + 0.75]), b = P([x + 0.35, yb - 0.55]);
+        out.push(h.rect(f1(a[0]), f1(a[1]), f1(b[0] - a[0]), f1(b[1] - a[1]), `rx="${f1((b[0] - a[0]) / 2)}" ` + blanc(0.8 * ep)));
+      }
+    }
+    // 4. l'arrêt : de la fourche de droite à la perche de droite, deux demi-clés, le bout qui pend
+    const xR = y => cx(1, y);
+    out.push(F.corde([P([(DEC[1] + DEC[2]) / 2 + 0.45, yb - 0.6]), P([xR(yc + 0.6) - r * 0.6, yc + 1.3])], { ep: eC, debut: 'ouvert', fin: 'ouvert', trait: 'detail' }).svg);
+    out.push(bande(xR(yc + 0.8) - r, yc + 0.6, xR(yc) + r, yc - 0.2, hc * 0.8));
+    out.push(bande(xR(yc - 0.4) - r, yc - 0.8, xR(yc - 1.2) + r, yc - 1.6, hc * 0.8));
+    out.push(F.corde([P([xR(yc - 1.6) + r - 0.2, yc - 1.9]), P([xR(yc - 3) + r + 1.4, yc - 3.4]), P([xR(yc - 6) + r + 1.6, yc - 6.4])], { ep: eC, debut: 'ouvert', fin: 'libre', trait: 'detail' }).svg);
+    return out.join('\n');
+  };
   // une perche coupée par le cadre du détail : le bas se termine par une ligne de rupture
   const percheRompue = (p0, p1, d0, d1) => {
     const u = uni(sub(p1, p0)), n = [-u[1], u[0]];
     const a = add(p0, mul(n, d0 / 2)), b = add(p1, mul(n, d1 / 2)), c = add(p1, mul(n, -d1 / 2)), d = add(p0, mul(n, -d0 / 2));
     const m1 = add(add(p0, mul(n, d0 / 4)), mul(u, d0 * 0.35)), m2 = add(add(p0, mul(n, -d0 / 4)), mul(u, -d0 * 0.35));
+    const Lr = Math.hypot(...sub(p1, p0)), ax = Math.atan2(n[1], n[0]) * 180 / Math.PI;
+    const arc = (q0, q1) => `A${f1(d1 / 2)} ${f1(d1 * 0.28)} ${f1(ax)} 0 ${SW} ${f1(q1[0])} ${f1(q1[1])}`;
     const S = `M${f1(a[0])} ${f1(a[1])} C${f1(m1[0])} ${f1(m1[1])} ${f1(m2[0])} ${f1(m2[1])} ${f1(d[0])} ${f1(d[1])}`;
     return [
-      h.path(`${S} L${f1(c[0])} ${f1(c[1])} L${f1(b[0])} ${f1(b[1])} Z`, A.blanc),
-      h.path(poly([d, c, b, a]), A.arete),
+      h.path(`${S} L${f1(c[0])} ${f1(c[1])} ${arc(c, b)} Z`, A.blanc),
+      h.path(`M${f1(d[0])} ${f1(d[1])} L${f1(c[0])} ${f1(c[1])} ${arc(c, b)} L${f1(a[0])} ${f1(a[1])}`, A.arete),
+      h.path(poly([add(add(p0, mul(u, Lr * 0.15)), mul(n, d0 * 0.2)), add(add(p0, mul(u, Lr * 0.42)), mul(n, d0 * 0.17))]), A.detail),
+      h.path(poly([add(add(p0, mul(u, Lr * 0.5)), mul(n, -d0 * 0.16)), add(add(p0, mul(u, Lr * 0.78)), mul(n, -d1 * 0.15))]), A.detail),
       h.path(S, A.detail),
     ].join('\n');
   };
@@ -97,8 +155,7 @@ module.exports = (h) => {
       const bout = add(lienP, mul(dir, E * (lienP[1] - pied[1]) / (dir[1] * L3)));
       out.push(perche(P(pied), P(bout)));
     }
-    const [lx, ly] = P([0, H - 1.5]);
-    out.push(lien(lx, ly, (2.9 * D0 + 0.4) * K, 5.5 * K, 4));
+    out.push(ligature(P, K, 0.8));
     return out.join('\n');
   };
 
@@ -107,6 +164,7 @@ module.exports = (h) => {
     const cy = z.h / 2 + 0.25 * R * K;
     const P = ([x, y]) => [z.l / 2 + x * K, cy - y * K];
     const out = [];
+    out.push(h.path(poly(PIEDS.map(P), true), `fill="none" stroke="${NOIR}" stroke-width="0.6" stroke-dasharray="10 3 2 3"`));
     for (let i = 0; i < 3; i++) {
       const pied = PIEDS[i], dir = uni(mul(pied, -1));
       const c = [DEC[i] * 0.5 * (i === 2 ? 0 : 1), 0];
@@ -155,8 +213,7 @@ module.exports = (h) => {
       const dir = uni(sub(lienP, f.pied));
       out.push(perche(P(f.pied), P(add(lienP, mul(dir, E)))));
     }
-    const [lx, ly] = P([0, H - 1.5]);
-    out.push(lien(lx, ly, (2.9 * D0 + 0.4) * K, 5.5 * K, 4));
+    out.push(ligature(P, K, 0.8));
     // l'air : entre sous le bord du foin, monte dans le creux
     for (const sgn of [-1, 1]) {
       const a = P([sgn * (R + 10), 4]), b = P([sgn * (R - 8), 5]), c = P([sgn * 9, 14]), e = P([sgn * 6, 44]);
@@ -167,10 +224,10 @@ module.exports = (h) => {
 
   // ── détail : le sommet lié, trois fois plus grand ──
   const detail = z => {
-    const KD = K * 2.6, yc = z.h / 2 + 4;
+    const KD = K * 2.9, yc = z.h / 2 + 8;
     const P = ([x, y]) => [z.l / 2 + x * KD, yc - (y - H) * KD];
     const out = [];
-    const bas = H - 11;
+    const bas = H - 12.5;
     for (const i of [2, 0, 1]) {
       const pied = [PIEDS[i][0], 0], lienP = [DEC[i], H];
       const dir = uni(sub(lienP, pied));
@@ -179,15 +236,14 @@ module.exports = (h) => {
       const bout = add(lienP, mul(dir, E * (lienP[1] - pied[1]) / (dir[1] * L3)));
       out.push(percheRompue(P(p0), P(bout), D0 * KD * 0.93, D1 * KD));
     }
-    const [lx, ly] = P([0, H - 1.5]);
-    out.push(lien(lx, ly, (2.9 * D0 + 0.4) * KD, 5.5 * KD, 6));
+    out.push(ligature(P, KD, 1.4));
     return out.join('\n');
   };
 
   return {
     ref: '99-02a',
     titre: 'Le séchage du foin : le trépied chargé',
-    desc: 'Trois perches d’épinette liées ensemble au sommet, les pieds écartés en triangle. En élévation, le trépied monté, avant le foin : deux perches devant, une au fond. Vu de dessus, sous l’élévation : les trois pieds en triangle et les perches qui se rejoignent au lien. En coupe par deux perches, le trépied chargé : le foin posé en couches sur les perches, chaque couche recouvrant le haut de celle du dessous, une coiffe de foin par-dessus le lien ; le foin s’arrête au-dessus du sol, et le centre reste creux, ouvert dessous : l’air y entre sous le bord du foin et monte. En détail, le sommet : les trois perches côte à côte, liées de plusieurs tours serrés, qui se croisent juste au-dessus du lien.',
+    desc: 'Trois perches d’épinette liées ensemble au sommet, les pieds écartés en triangle. En élévation, le trépied monté, avant le foin : deux perches devant, une au fond. Vu de dessus, sous l’élévation : les trois pieds en triangle et les perches qui se rejoignent au lien. En coupe par deux perches, le trépied chargé : le foin posé en couches sur les perches, chaque couche recouvrant le haut de celle du dessous, une coiffe de foin par-dessus le lien ; le foin s’arrête au-dessus du sol, et le centre reste creux, ouvert dessous : l’air y entre sous le bord du foin et monte. En détail, le sommet : les trois perches côte à côte, liées d’une seule corde : un nœud de cabestan sur la perche de gauche, cinq tours serrés autour des trois, deux tours de serrage dans chaque fourche, l’arrêt en demi-clés sur la perche de droite et le bout libre qui pend ; elles se croisent juste au-dessus du lien.',
     format: 'pleine',
     disposition: [['elev', 'coupe'], ['plan', 'detail']],
     hauteurs: [3, 2],
@@ -229,7 +285,7 @@ module.exports = (h) => {
         titre: 'Le sommet',
         dessin: detail,
         renvois: z => {
-          const KD = K * 2.6, yc = z.h / 2 + 4;
+          const KD = K * 2.9, yc = z.h / 2 + 8;
           const p = [z.l / 2 + (1.5 * D0 + 0.3) * KD, yc + 1.5 * KD];
           return [{ n: 2, rond: [p[0] + 40, p[1] + 26], cible: [p[0] - 2, p[1]], texte: 'liées ensemble, plusieurs tours serrés' }];
         },

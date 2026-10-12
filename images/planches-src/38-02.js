@@ -96,7 +96,7 @@ module.exports = (h) => {
   return {
     ref: '38-02',
     titre: 'La marque de tombe',
-    desc: 'En haut, deux marques de tombe vues en mars, le terrain coupé. À gauche, un pieu de bois dur équarri, tête en pointe, planté dans le sol au bout de la butte de la tombe ; le nom et les dates sont gravés sur sa face, bien au-dessus de la couche de neige. À droite, une pierre plate debout, le pied enterré et calé de pierres tout autour, gravée elle aussi au-dessus de la neige. En bas à gauche, la tête du pieu de près : deux lettres déjà taillées en V, et un couteau posé la pointe au haut du trait suivant, qu’on tire vers le manche. En bas à droite, un trait de lettre en coupe, en trois gestes : la lame debout au milieu du trait ; puis en biais depuis un bord jusqu’au fond de la première coupe, et un copeau sort ; puis le même biais depuis l’autre bord, et il reste un V.',
+    desc: 'En haut, deux marques de tombe vues en mars, le terrain coupé. À gauche, un pieu de bois dur équarri, tête en pointe, planté dans le sol au bout de la butte de la tombe ; le nom et les dates sont gravés sur sa face, bien au-dessus de la couche de neige. À droite, une pierre plate debout, le pied enterré et calé de pierres tout autour, gravée elle aussi au-dessus de la neige. En bas à gauche, la tête du pieu de près : deux lettres déjà taillées en V, et un troisième trait taillé à moitié, la pointe du couteau dedans, le manche qui remonte à droite, le tranchant vers le bas qu’on tire vers le bas. En bas à droite, un trait de lettre en coupe, en trois gestes : la lame debout au milieu du trait ; puis en biais depuis un bord jusqu’au fond de la première coupe, et un copeau sort ; puis le même biais depuis l’autre bord, et il reste un V.',
     format: 'pleine',
     disposition: [['bois', 'pierre'], ['graver', 'coupes']],
     hauteurs: [3, 2],
@@ -129,8 +129,8 @@ module.exports = (h) => {
         dessin: z => [
           terrain(8, z.l - 36, null),
           h.path('M69,66 C70,56 78,50 92,48 C106,46 118,50 126,58 L134,60 C139,64 141,72 141,84 C143,130 145,184 146,234 C147,274 148,304 146,334 C128,341 92,340 69,336 C66,294 66,254 67,214 C68,164 67,114 69,66 Z', blancContour),
-          h.path('M78,160 L90,174 L88,188', h.a.fin), h.path('M130,210 L118,224', h.a.fin),
-          h.path('M80,254 L96,246 L104,264', h.a.fin), h.path('M134,284 L126,302', h.a.fin),
+          // grain de la pierre : un léger pointillé
+          ...[[84,168],[112,182],[96,206],[128,232],[80,240],[108,262],[90,290],[124,300],[100,318],[132,196]].map(([x,y]) => h.cercle(x, y, 0.8, h.a.fin)),
           inscrire(80, 78, 'acbef', 5, 8, 10),
           inscrire(80, 94, 'dga', 5, 8, 10),
           inscrire(80, 116, 'ebkgd', 5, 7, 10),
@@ -159,13 +159,16 @@ module.exports = (h) => {
             traitV(60, y0, 60, y1, w), traitV(90, y0, 90, y1, w), traitV(62, 74, 88, 110, w),
             traitV(125, y0, 112, y1, w), traitV(125, y0, 138, y1, w), traitV(119.5, 98, 130.5, 98, w),
             // le trait suivant : la pointe entre au haut du trait, le couteau descend vers le manche
-            couteau(160, y0 - 3, 0, 1, 1, 0),
-            h.fleche('M188,96 L188,152', h.a.arete),
+            // le trait suivant, taillé à moitié : la pointe dans le trait, le manche qui remonte
+            traitV(165, y0, 165, 92, w),
+            
+            couteau(165, 92, 0.8, -0.6, -0.6, -0.8),
+            h.fleche('M165,97 L165,122', h.a.arete),
           ].join(BR);
         },
         renvois: z => [
           { n: 7, rond: [16, 144], cible: [56, 106], texte: 'trait taillé en V' },
-          { n: 8, rond: [272, 86], cible: [170, 100], texte: 'lame tirée le long du trait' },
+          { n: 8, rond: [272, 140], cible: [167, 108], texte: 'lame tirée le long du trait' },
         ],
       },
       coupes: {

@@ -143,7 +143,7 @@ module.exports = (h) => {
     const renvois = [
       { n: 6, rond: [z.l * 0.05, z.h * 0.965], cible: [route.at(22).x, route.at(22).y + 2], texte: 'une goutte à chaque pas' },
       { n: 7, rond: [g7.x, z.h * 0.965], cible: [g7.x, g7.y + 3], texte: 'puis une tous les 9 à 14 m' },
-      { n: 8, rond: [C[0] - 44, z.h * 0.965], cible: [C[0] - 2, C[1] + 2], texte: 'virage à angle droit' },
+      { n: 8, rond: [C[0] - 44, z.h * 0.965], cible: [C[0], C[1]], texte: 'virage à angle droit' },
       { n: 9, rond: [C[0] - 70, C[1] - 52], cible: [C[0] - 25, C[1] - 27], texte: 'ruban aux arbres de la ligne' },
       { n: 10, rond: [C[0] + 124, C[1] - 12], cible: [C[0] + 86, C[1] - 17], texte: 'le chien dépasse, revient' },
       { n: 11, rond: [e.x + 50, e.y - 12], cible: [e.x + 7, e.y - 13], texte: 'le prix, au bout' },
@@ -181,36 +181,35 @@ module.exports = (h) => {
         titre: 'La traîne du foie',
         dessin: z => {
           graine = 3;
-          const g = f(z.h * 0.72), x = f(z.l * 0.42);
+          const g = f(z.h * 0.72), x = f(z.l * 0.68);
           const out = [];
           out.push(h.ligne(4, g, z.l - 4, g, h.a.arete));
-          // l'herbe couchée derrière, dans le sens de la traîne
-          for (let bx = 6; bx < x - 50; bx += 8 + alea() * 3) {
-            out.push(h.path(`M${f(bx)},${g} Q${f(bx + 9)},${f(g - 4)} ${f(bx + 19)},${f(g - 5 - alea() * 2)}`, h.a.detail));
-            out.push(h.path(`M${f(bx + 3)},${g} Q${f(bx + 10)},${f(g - 2)} ${f(bx + 17)},${f(g - 2.5)}`, h.a.fin));
+          // l'herbe couchée derrière, en bande, les brins à plat, pointes dans le sens de la traîne
+          for (let bx = 4; bx < x - 18; bx += 3 + alea() * 1.6) {
+            const l = 13 + alea() * 6, hh = 3.5 + alea() * 3;
+            out.push(h.path(`M${f(bx)},${g} Q${f(bx + l * 0.5)},${f(g - hh)} ${f(bx + l)},${f(g - hh * 0.7)}`, alea() < 0.5 ? h.a.detail : h.a.fin));
           }
           // l'herbe debout devant
-          for (let bx = x + 52; bx < z.l - 10; bx += 12 + alea() * 4) {
+          for (let bx = x + 34; bx < z.l - 10; bx += 12 + alea() * 4) {
             out.push(h.path(`M${f(bx)},${g} Q${f(bx - 2)},${f(g - 7)} ${f(bx - 4)},${f(g - 13)} M${f(bx + 1)},${g} Q${f(bx + 1)},${f(g - 9)} ${f(bx + 2)},${f(g - 15)} M${f(bx + 2)},${g} Q${f(bx + 5)},${f(g - 6)} ${f(bx + 8)},${f(g - 10)}`, h.a.fin));
           }
-          // le morceau de foie : épais et arrondi derrière, mince et tranchant devant
-          // le morceau de foie : une tranche épaisse, lisse, posée à plat ; on voit le dessus et le chant
-          const X = dx => f(x + dx), Y = dy => f(g - dy);
-          const foie = `M${X(-37)},${Y(2)} C${X(-42)},${Y(14)} ${X(-28)},${Y(24)} ${X(-10)},${Y(23)} C${X(8)},${Y(22)} ${X(28)},${Y(20)} ${X(37)},${Y(12)} C${X(40)},${Y(8)} ${X(36)},${Y(3)} ${X(30)},${Y(1)} L${X(-30)},${g} Q${X(-36)},${g} ${X(-37)},${Y(2)} Z`;
+          // le morceau de foie : plat, mou, irrégulier, deux lobes séparés par une échancrure
+          const X = dx => f(x + dx * 0.72), Y = dy => f(g - dy * 0.9);
+          const foie = `M${X(-34)},${Y(1)} C${X(-38)},${Y(6)} ${X(-30)},${Y(11)} ${X(-20)},${Y(10)} C${X(-12)},${Y(12)} ${X(-4)},${Y(11)} ${X(2)},${Y(8)} L${X(6)},${Y(4.5)} L${X(9)},${Y(8)} C${X(16)},${Y(12)} ${X(28)},${Y(10)} ${X(33)},${Y(5)} C${X(35)},${Y(2.5)} ${X(31)},${Y(0.5)} ${X(26)},${g} L${X(-28)},${g} Q${X(-33)},${g} ${X(-34)},${Y(1)} Z`;
           out.push(h.path(foie, blanc(h.a.contour)));
-          out.push(h.path(`M${X(-37)},${Y(7)} C${X(-30)},${Y(4)} ${X(-10)},${Y(7)} ${X(6)},${Y(7)} C${X(20)},${Y(7)} ${X(30)},${Y(6)} ${X(37.5)},${Y(11)}`, h.a.arete));
-          out.push(h.path(`M${X(-26)},${Y(16)} C${X(-14)},${Y(19)} ${X(4)},${Y(18.5)} ${X(18)},${Y(15)}`, h.a.fin));
-          // la ficelle : un tour autour de la tranche (sur le chant, puis sur le dessus), le nœud, le brin vers la main
-          out.push(h.path(`M${X(-6)},${g} L${X(-6)},${Y(7)} Q${X(-5)},${Y(15)} ${X(-2)},${Y(22)}`, h.a.arete));
-          out.push(h.cercle(X(-2), Y(22.5), 2.6, h.a.plein));
-          out.push(h.path(`M${X(-2)},${Y(22.5)} L${f(z.l - 6)},${f(z.h * 0.06)}`, h.a.arete));
+          // le reflet humide
+          out.push(h.path(`M${X(-22)},${Y(7.5)} Q${X(-17)},${Y(8.8)} ${X(-12)},${Y(8.5)} M${X(-8)},${Y(8)} L${X(-5)},${Y(7.6)} M${X(14)},${Y(8)} Q${X(18)},${Y(9)} ${X(22)},${Y(8)}`, h.a.fin));
+          // la ficelle : un tour autour du lobe de devant, le nœud dessus, le brin vers la main
+          out.push(h.path(`M${X(19)},${g} L${X(19)},${Y(10.5)}`, h.a.arete));
+          out.push(h.cercle(X(19), Y(11.5), 2.4, h.a.plein));
+          out.push(h.path(`M${X(19)},${Y(11.5)} L${f(z.l - 6)},${f(z.h * 0.06)}`, h.a.arete));
           // le sens de la traîne
-          out.push(h.path(`M${f(x - 44)},${f(g - 40)} L${f(x - 6)},${f(g - 40)}`, halo));
-          out.push(h.fleche(`M${f(x - 46)},${f(g - 40)} L${f(x - 4)},${f(g - 40)}`, h.a.arete));
+          out.push(h.path(`M${f(x - 30)},${f(g - 40)} L${f(x + 8)},${f(g - 40)}`, halo));
+          out.push(h.fleche(`M${f(x - 32)},${f(g - 40)} L${f(x + 10)},${f(g - 40)}`, h.a.arete));
           return out.join('\n');
         },
         renvois: z => [
-          { n: 1, rond: [z.l * 0.2, z.h * 0.93], cible: [z.l * 0.42 - 16, z.h * 0.72 - 8], texte: 'foie au bout d’une ficelle' },
+          { n: 1, rond: [z.l * 0.2, z.h * 0.93], cible: [z.l * 0.68 - 16, z.h * 0.72 - 6], texte: 'foie au bout d’une ficelle' },
         ],
       },
 

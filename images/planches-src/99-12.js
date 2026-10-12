@@ -231,6 +231,8 @@ function boutsLibres(h, x0, y, ep, e = 32) {
 function vueTresser(h, z) {
   const out = [], x0 = z.l / 2, { L, R, ep } = ECH, D = 26, yBas = 162, yS = 50, e = 38;
   const Tz = tresseCouloirs({ x: x0, D, yBas, hauteurs: [30, 30], ep, haut: sorties(x0, yS, e).reverse() });
+  // croisement 7 : le brin qui passe dessous ressort bien à gauche du brin de gauche, pas dans son prolongement
+  Tz.brins.forEach(b => { const i = b.pts.findIndex(q => q[2] === -1 && q[1] < yBas - 40); if (i >= 0) { b.pts[i][0] -= 3; b.pts[i + 1][0] -= 12; b.pts[i + 1][1] -= 10; } });
   const eps = [
     epi(h, { x: x0 - 30, y: 175, ang: 116, L, R }),
     epi(h, { x: x0 + 30, y: 175, ang: 64, L, R }),

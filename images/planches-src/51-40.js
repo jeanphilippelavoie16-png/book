@@ -42,9 +42,9 @@ module.exports = (h) => {
     [161, -43], [159, -53], [151, -63], [136, -72], [116, -80], [92, -89], [56, -105], [12, -121], [-34, -129],
     [-80, -119], [-113, -96], [-141, -72], [-164, -51], [-174, -40],
     [-163, -33], [-136, -40], [-116, -48],
-    [-118, -34], [-113, -18], [-114, -6], [-108, 0], [-74, 0], [-70, -6], [-78, -20], [-72, -36],
-    [-40, -37], [0, -35], [38, -37],
-    [54, -35], [58, -18], [61, -5], [58, 0], [86, 0], [88, -7], [83, -20], [88, -38],
+    [-118, -34], [-113, -18], [-112, -6], [-108, 0], [-74, 0], [-74, -5], [-84, -10], [-82, -22], [-72, -36],
+    [-40, -27], [0, -23], [38, -30],
+    [54, -35], [55, -20], [59, -8], [59, 0], [92, 0], [92, -4], [80, -8], [78, -20], [88, -38],
     [106, -42], [126, -36], [144, -34], [156, -36],
   ];
   const DOS = [[116, -80], [92, -89], [56, -105], [12, -121], [-34, -129], [-80, -119], [-113, -96], [-141, -72], [-164, -51], [-174, -40]];
@@ -80,7 +80,7 @@ module.exports = (h) => {
     // les pattes du côté loin, à peine décalées, derrière
     const loin = (pts) => h.path(lisse(pts.map(P), true), blanc(A.detail));
     out.push(loin([[-100, -30], [-96, -6], [-92, 0], [-62, 0], [-60, -6], [-68, -30]]));
-    out.push(loin([[64, -30], [68, -6], [66, 0], [94, 0], [95, -7], [90, -30]]));
+    out.push(loin([[64, -30], [66, -8], [66, 0], [98, 0], [98, -4], [86, -8], [88, -30]]));
     out.push(h.path(lisse(CORPS.map(P), true), blanc(A.detail)));
     // le contour appuyé des parties nues : queue dessous, pattes, ventre, poitrail, museau
     const iNu = CORPS.findIndex((p) => p[0] === -163);
@@ -88,9 +88,9 @@ module.exports = (h) => {
     out.push(h.path(lisse(nu.map(P)), A.arete));
     out.push(piquantsProfil(P));
     // griffes
-    const griffe = (b, t) => h.path(`M${f(P(b))} Q${f(P(add(b, [t * 0.6, -1])))} ${f(P(add(b, [t, 3])))}`, A.detail);
-    [[86, -3], [84, -1.5], [82, 0]].forEach((b) => out.push(griffe(b, 9)));
-    [[-74, -3], [-76, -1.5], [-78, 0]].forEach((b) => out.push(griffe(b, 8)));
+    const griffe = (b, t) => h.path(`M${f(P(b))} Q${f(P(add(b, [t * 0.7, -3])))} ${f(P(add(b, [t, 2])))}`, A.detail);
+    [[92, -3.5], [91, -2], [90, -0.5]].forEach((b) => out.push(griffe(b, 13)));
+    [[-74, -4], [-75, -2], [-76, -0.5]].forEach((b) => out.push(griffe(b, 11)));
     // la face : truffe, œil, bouche, oreille, moustaches
     out.push(h.path(lisse([[161, -43], [160, -52], [154, -54], [151, -47], [154, -41]].map(P), true), A.plein));
     out.push(h.cercle(...P([137, -60]), 2.8 * s, A.plein));
@@ -124,25 +124,35 @@ module.exports = (h) => {
       }
     }
     // pattes de devant, sous le poitrail, griffes vers le sol
-    const patte = (sx) => {
-      const Q = [[26, -30], [24, -8], [22, 0], [44, 0], [42, -8], [44, -30]].map(([x, y]) => [sx * x, y]);
-      const g = [26, 31, 36, 41].map((x) => h.path(`M${f(P([sx * x, -1]))} Q${f(P([sx * (x + 1), 3]))} ${f(P([sx * x, 7]))}`, A.detail));
+    // membre court replié : bras vers le bas (+y), poignet plié, pied tourné vers le côté, plante nue
+    const patte = (sx, x0, y0, pli) => {
+      const Q = [[0, 0], [3, 12], [2 + pli * 0.3, 20], [pli, 25], [pli + 3 * Math.sign(pli), 31], [pli * 0.4, 30], [-6, 22], [-10, 10], [-10, 0]]
+        .map(([x, y]) => [sx * (x0 + x), y0 + y]);
+      const bout = [sx * (x0 + pli + 3 * Math.sign(pli)), y0 + 31];
+      const g = [0, 2.5, 5].map((k) => {
+        const b = add(bout, [-sx * Math.sign(pli) * k, -k * 0.6]);
+        return h.path(`M${f(P(b))} Q${f(P(add(b, [sx * Math.sign(pli) * 5, 8])))} ${f(P(add(b, [sx * Math.sign(pli) * 1, 13])))}`, A.detail);
+      });
       return [h.path(lisse(Q.map(P), true), blanc(A.arete)), ...g].join('\n');
     };
     out.push(h.path(lisse(FACE_CORPS.map(P), true), blanc(A.detail)));
     out.push(pq.join('\n'));
     // le poitrail et le ventre, nus, au trait
     out.push(h.path(lisse([[-66, -30], [-60, -12], [-36, -3], [0, -1], [36, -3], [60, -12], [66, -30]].map(P)), A.arete));
-    out.push(patte(1), patte(-1));
+    out.push(patte(1, 42, -22, 10), patte(-1, 30, -26, -12));
     // la tête
-    const TETE = [[0, -84], [22, -78], [30, -60], [26, -42], [14, -28], [0, -24], [-14, -28], [-26, -42], [-30, -60], [-22, -78]];
-    [1, -1].forEach((sx) => out.push(h.path(lisse([[sx * 18, -79], [sx * 30, -86], [sx * 36, -74], [sx * 28, -68]].map(P), true), blanc(A.detail))));
+    // la tête : large au front, le museau long qui s'avance vers le ventre
+    const TETE = [[0, -86], [22, -82], [28, -66], [22, -48], [12, -30], [7, -18], [0, -15], [-7, -18], [-12, -30], [-22, -48], [-28, -66], [-22, -82]];
+    [1, -1].forEach((sx) => out.push(h.path(lisse([[sx * 20, -80], [sx * 25, -85], [sx * 28, -78]].map(P)), A.detail)));
     out.push(h.path(lisse(TETE.map(P), true), blanc(A.arete)));
-    out.push(h.ellipse(...P([0, -34]), 7.5 * s, 5.5 * s, A.plein));
-    out.push(h.cercle(...P([-13, -58]), 2.8 * s, A.plein), h.cercle(...P([13, -58]), 2.8 * s, A.plein));
-    out.push(h.path(`M${f(P([-7, -26.5]))} Q${f(P([0, -24]))} ${f(P([7, -26.5]))}`, A.fin));
-    // petits piquants du front
-    for (let x = -14; x <= 14; x += 5) out.push(h.path(`M${f(P([x, -80]))} L${f(P([x * 1.3, -90]))}`, A.fin));
+    out.push(h.ellipse(...P([0, -20]), 5.5 * s, 4 * s, A.plein));
+    out.push(h.cercle(...P([-12, -56]), 2.2 * s, A.plein), h.cercle(...P([12, -56]), 2.2 * s, A.plein));
+    // piquants du front et des joues, qui débordent du contour de la tête
+    const rt = hasard(17);
+    [[0, -86], [-8, -86], [8, -86], [-15, -85], [15, -85], [-21, -82], [21, -82], [-25, -75], [25, -75], [-28, -67], [28, -67], [-26, -58], [26, -58]].forEach((b) => {
+      const d = tourne(uni([b[0], b[1] + 55]), (rt() - 0.5) * 20);
+      out.push(h.path(`M${f(P(add(b, mul(d, -7))))} L${f(P(add(b, mul(d, 9 + rt() * 5))))}`, A.fin));
+    });
     return { svg: out.join('\n'), P };
   };
 
@@ -157,8 +167,8 @@ module.exports = (h) => {
       svg,
       renvois: [
         { n: 1, rond: P([150, -110]), cible: P([146, -52]), texte: 'museau nu' },
-        { n: 2, rond: add(P([112, -10]), [6, 0]), cible: P([86, -12]), texte: 'pattes nues' },
-        { n: 3, rond: P([12, -8]), cible: P([4, -37]), texte: 'dessous du corps nu' },
+        { n: 2, rond: add(P([118, -14]), [6, 0]), cible: P([78, 0]), texte: 'pattes nues' },
+        { n: 3, rond: P([26, -10]), cible: P([4, -24]), texte: 'dessous du corps nu' },
       ],
     };
   };
@@ -171,23 +181,23 @@ module.exports = (h) => {
     const s = Math.min((z.l - 80) / 160, (z.h - 30) / 186);
     const out = [h.ligne(6, sol, z.l - 6, sol, A.detail)];
     const xa = z.l - 10 - 90 * s, ya = sol - 76 * s;
-    // le bâton d'abord : la bête le cache là où il passe sous elle
-    const t0 = [xa - 10 * s, sol - 4], dirB = uni([-1, -0.66]);
-    const t1 = add(t0, mul(dirB, (t0[0] - 8) / 0.835));
-    const n = [-dirB[1], dirB[0]], e = 4.6;
-    out.push(h.chemin([add(t0, mul(n, e)), add(t1, mul(n, e)), add(t1, mul(n, -e)), add(t0, mul(n, -e))], blanc(A.arete), true));
     const a = porcFace(xa, ya, s, 90, sol);
     out.push(a.svg);
+    // le bâton passe sous le flanc du ventre, entre la bête et le sol, la pointe au-delà
+    const t0 = [xa - 44 * s, sol - 5], dirB = uni([-1, -0.3]);
+    const t1 = add(t0, mul(dirB, (t0[0] - 8) / Math.abs(dirB[0])));
+    const n = [-dirB[1], dirB[0]], e = 4.2;
+    out.push(h.chemin([add(t0, mul(n, e)), add(t1, mul(n, e)), add(t1, mul(n, -e)), add(t0, mul(n, -e))], blanc(A.arete), true));
     // on soulève le bâton : la bête roule sur le dos (flèche par-dessus, de gauche à droite)
     const c = [xa, ya], R = 108 * s;
     const pol = (deg) => add(c, [R * Math.cos(deg * Math.PI / 180), R * Math.sin(deg * Math.PI / 180)]);
     out.push(h.fleche(`M${f(pol(-158))} A${R.toFixed(1)} ${R.toFixed(1)} 0 0 1 ${f(pol(-40))}`));
-    const lv = lerp(t0, t1, 0.8);
+    const lv = lerp(t0, t1, 0.88);
     out.push(h.fleche(`M${f(add(lv, [-2, 12]))} L${f(add(lv, [-2, -18]))}`));
     return {
       svg: out.join('\n'),
       renvois: [
-        { n: 4, rond: add(lerp(t0, t1, 0.42), [14, 18]), cible: lerp(t0, t1, 0.42), texte: 'bâton glissé côté ventre' },
+        { n: 4, rond: add(lerp(t0, t1, 0.16), [-30, -46]), cible: lerp(t0, t1, 0.16), texte: 'bâton glissé côté ventre' },
       ],
     };
   };

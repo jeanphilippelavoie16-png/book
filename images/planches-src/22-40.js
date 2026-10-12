@@ -248,7 +248,7 @@ module.exports = (h) => {
     o.push(h.path(lis([[-40, -38], [-50, -16], [-44, 8], [-52, 36]], T), A.fin));
     // le couteau qui gratte la racine, en travers ; il tire vers le bout coupé
     o.push(couteau(pt(T, [24, -40]), [0, 1], 1, 70 * s, 13 * s, 52 * s));
-    const a0 = pt(T, [46, -58]), a1 = pt(T, [6, -58]);
+    const a0 = pt(T, [18, 0]), a1 = pt(T, [-14, 0]);
     o.push(h.fleche(`M ${a0.join(' ')} L ${a1.join(' ')}`, A.arete));
     // la brosse, sur le dessus, en va-et-vient
     const bx = 206, by = 0;
@@ -355,8 +355,9 @@ module.exports = (h) => {
     const papF = b1.slice(1, 4).map((p, i) => point(T(decale(b1, -1.6)[i + 1]), 0.7)).join(' ');
     const flapSvg = [h.path(flap, plein(A.arete)), h.path(envers, A.fin), h.path(papF, A.fin),
       h.path(lis([[160, -48], [178, -70], [204, -83]], T), A.fin)].join('\n');
-    const pc = pt(T, PINCE);
-    o.push(F.main({ x: pc[0], y: pc[1], pose: 'pince', vue: 'profil', echelle: 0.52 * s, bras: 30, angle: -6, objet: flapSvg }).toString());
+    o.push(flapSvg);
+    // le bord tiré, roulé sur lui-même
+    o.push(h.path(lis([[236, -88], [244, -95], [250, -93], [249, -87], [243, -86]], T), A.arete));
     const p0 = pt(T, [262, -100]), p1 = pt(T, [300, -122]);
     o.push(h.fleche(`M ${p0.join(' ')} L ${p1.join(' ')}`, A.arete));
     return o.join('\n');

@@ -44,6 +44,8 @@ module.exports = (h) => {
     const m = o.sansMain ? null : F.main({ x: cx, y: ys, pose: 'prise', vue: 'dos', angle: 90, echelle, bras: 40, diametre: 2 * rb, objet: bt });
     if (o.dessous) out.push(o.dessous);
     out.push(m || bt);
+    // le pouce passe derrière le bâton : le bâton repeint par-dessus, à droite des doigts
+    if (m) { const id = `pouce${Math.round(cx)}`; out.push(`<clipPath id="${id}"><rect x="${r1(cx + 18.5 * echelle * 2)}" y="${r1(ys - rb)}" width="40" height="${r1(3 * rb)}"/></clipPath><g clip-path="url(#${id})">${bt}</g>`); }
     // le tour de mèche par-devant et le bout qui pend
     xs.forEach(x => out.push(F.corde([[x - 2.5, ys - rb - 0.8], [x + 2.5, ys + rb + 0.8], [x + 4, ys + rb + 7]], { ep: 2.2, debut: 'ouvert', fin: 'libre' })));
     // les chandelles
@@ -223,11 +225,11 @@ module.exports = (h) => {
   };
 
   // ─── Vue 4 : regarnir la chandelle coulée ────────────────────────────────────────────
-  const regarnir = z => {
+  const regarnir = (z, rate = false) => {
     const sol = z.h - 10;
     const hc = Math.min(128, z.h - 44), w = 56;
     const yt = sol - hc, e = 2.2;
-    const cxs = [0.1, 0.3, 0.5, 0.7, 0.9].map(f => z.l * f);
+    const cxs = rate ? [0, 0, 0, 0, 62] : [0.13, 0.36, 0.59, 0.82].map(f => z.l * f);
     const yF = yt + 10;                                   // niveau de remplissage
     const yfond = sol - 6;                                // fond embouti, relevé du bord
     const out = [];
@@ -253,6 +255,8 @@ module.exports = (h) => {
     const vide = cx => `M${r1(cx)} ${r1(yF + 32)} C${r1(cx + 7)} ${r1(yF + 36)} ${r1(cx + 6)} ${r1(yF + 62)} ${r1(cx)} ${r1(yF + 70)} C${r1(cx - 6)} ${r1(yF + 62)} ${r1(cx - 7)} ${r1(yF + 36)} ${r1(cx)} ${r1(yF + 32)} Z`;
     const suifFige = cx => h.rect(cx - w / 2, yF, w, yfond - yF, A.hachure('neige', 'aucun'));
 
+    let pointe;
+    if (!rate) {
     // 1. couler : le suif liquide, la mèche tendue
     {
       const cx = cxs[0];
@@ -267,7 +271,6 @@ module.exports = (h) => {
       out.push(boite(cx), meche(cx), batonnet(cx));
     }
     // 3. percer le dessus
-    let pointe;
     {
       const cx = cxs[2];
       out.push(suifFige(cx), h.path(puits(cx), A.blanc), h.path(vide(cx), bD));
@@ -291,9 +294,11 @@ module.exports = (h) => {
       out.push(h.ligne(cx - w / 2, yF, cx + w / 2, yF, A.detail));
       out.push(boite(cx), meche(cx), batonnet(cx));
     }
-    // 5. non regarnie : démoulée, allumée, le vide sous la flamme
+    }
+    // 5. non regarnie : démoulée, allumée, le vide sous la flamme, à part derrière un filet
     let vide5;
-    {
+    if (rate) {
+      out.push(h.ligne(-11, -TITRE, -11, z.h, A.fin));
       const cx = cxs[4];
       const w5 = w, y5 = yF + 6;
       out.push(h.path(`M${r1(cx - w5 / 2)} ${r1(sol)} V${r1(y5)} Q${r1(cx)} ${r1(y5 + 12)} ${r1(cx + w5 / 2)} ${r1(y5)} V${r1(sol)} Z`, A.hachure('neige', 'aucun')));
@@ -306,7 +311,8 @@ module.exports = (h) => {
       out.push(h.path(`M${r1(cx)} ${r1(yf - 18)} C${r1(cx + 2)} ${r1(yf - 12)} ${r1(cx + 4)} ${r1(yf - 7)} ${r1(cx + 3)} ${r1(yf - 4)} C${r1(cx + 2)} ${r1(yf - 1)} ${r1(cx - 2)} ${r1(yf - 1)} ${r1(cx - 3)} ${r1(yf - 4)} C${r1(cx - 4)} ${r1(yf - 7)} ${r1(cx - 2)} ${r1(yf - 12)} ${r1(cx)} ${r1(yf - 18)} Z`, A.fin));
       vide5 = [cx + 4, yF + 50];
     }
-    out.push(h.ligne(0, sol, z.l, sol, A.arete));
+    out.push(h.ligne(rate ? 30 : 0, sol, rate ? z.l : z.l - 30, sol, A.arete));
+    if (rate) return { svg: out.join('\n'), renvois: [{ n: 14, rond: [cxs[4] + 40, yF + 50], cible: vide5, texte: 'non regarnie : vide au cœur' }] };
     return {
       svg: out.join('\n'),
       renvois: [
@@ -314,11 +320,11 @@ module.exports = (h) => {
         { n: 11, rond: [cxs[1] - 42, yF + 14], cible: [cxs[1] - 10, yF + 8], texte: 'le retrait creuse un puits' },
         { n: 12, rond: [cxs[2] + 40, Math.max(12, yt - 30)], cible: [pointe[0] + 3.5, yt - 30], texte: 'percer jusqu’au vide' },
         { n: 13, rond: [cxs[3] + 40, yF + 30], cible: [cxs[3] + 5, yF + 30], texte: 'remplir de nouveau' },
-        { n: 14, rond: [cxs[4] + 40, yF + 50], cible: vide5, texte: 'non regarnie : vide au cœur' },
       ],
     };
   };
 
+  const TITRE = 22;
   const vue = f => ({ dessin: z => f(z).svg, renvois: z => f(z).renvois });
 
   return {
@@ -330,15 +336,16 @@ module.exports = (h) => {
       + 'À côté, vu par le bout du manche : le bâton en équilibre sur le manche, une chandelle de chaque côté. '
       + 'En bas, cinq coupes d’une chandelle coulée dans une boîte de conserve : la mèche tendue entre un bâtonnet posé en travers et un nœud sous le fond, le puits et le vide que creuse le retrait, la broche qui perce le dessus jusqu’au vide, le suif neuf qui remplit, et la chandelle non regarnie qui brûle au-dessus de son vide.',
     format: 'pleine',
-    disposition: [['tremper', 'figer'], ['support', 'equilibre'], ['regarnir']],
+    disposition: [['tremper', 'figer'], ['support', 'equilibre'], ['regarnir', 'rate']],
     hauteurs: [1.55, 1.1, 0.95],
-    largeurs: [[3, 2], [3, 1], [1]],
+    largeurs: [[3, 2], [3, 1], [4, 1.3]],
     vues: {
       tremper: { titre: 'Tremper dans le suif', ...vue(tremper) },
       figer: { titre: 'Figer dans l’eau froide', ...vue(figer) },
       support: { titre: 'Entre les trempages : le support', ...vue(support) },
       equilibre: { titre: 'Par le bout du manche', ...vue(equilibre) },
       regarnir: { titre: 'La chandelle coulée : regarnir le puits', ...vue(regarnir) },
+      rate: { titre: 'Raté : non regarnie', ...vue(z => regarnir(z, true)) },
     },
   };
 };

@@ -168,10 +168,11 @@ module.exports = (h) => {
     const YO = yo(XA), YI = yi(XA);
     const bord = 370;
     // le sol en place, avec la rigole creusée entre les planches
-    const sol = [[-bord, 0], [-YO, 0], [-YO, BAS], [YO, BAS], [YO, 0], [bord, 0], [bord, 108], [-bord, 108]];
+    // le fond raclé : légèrement irrégulier, comme le sol en place
+    const fondR = [[-YI, BAS], [-YI * 0.55, BAS + 3], [-YI * 0.1, BAS - 2], [YI * 0.35, BAS + 2], [YI * 0.75, BAS - 1.5], [YI, BAS]];
+    const sol = [[-bord, 0], [-YO, 0], [-YO, BAS], ...fondR, [YO, BAS], [YO, 0], [bord, 0], [bord, 108], [-bord, 108]];
     out.push(h.chemin(Pl(sol), h.a.hachure('terre', 'aucun'), true));
     out.push(h.chemin(Pl([[-bord, 0], [-YO, 0]]), h.a.arete), h.chemin(Pl([[YO, 0], [bord, 0]]), h.a.arete));
-    out.push(h.ligne(...P(-YI, BAS), ...P(YI, BAS), h.a.arete));
     // la terre repoussée contre chaque planche
     for (const sg of [1, -1]) {
       const toe = YO + berme(XA);
@@ -189,7 +190,12 @@ module.exports = (h) => {
     // la roche, coupée, posée sur les deux chants
     const roche = [[-YI - 4, HAUT + 4], [-110, -86], [-20, -78], [90, -84], [YI + 4, HAUT + 4], [214, -156], [220, -226], [170, -290], [60, -322], [-60, -316], [-150, -290], [-205, -236], [-218, -168]];
     out.push(h.path(arrondi(Pl(roche), 0.14), blanc(h.a.contour)));
-    out.push(h.path(arrondi(Pl(roche), 0.14), h.a.hachure('pierre', 'contour')));
+    out.push(h.chemin(Pl([[-150, -290], [-96, -220], [-110, -150], [-60, -96]]), h.a.fin));
+    out.push(h.chemin(Pl([[-96, -220], [40, -236], [60, -322]]), h.a.fin));
+    out.push(h.chemin(Pl([[40, -236], [120, -180], [214, -156]]), h.a.fin));
+    out.push(h.chemin(Pl([[120, -180], [100, -110]]), h.a.fin));
+    // le fond de la rigole, après les planches pour qu'il passe dessous du même trait que le sol
+    out.push(h.path(lisse(Pl(fondR)), h.a.arete));
     return { svg: out.join('\n'), P, YO, YI };
   };
 

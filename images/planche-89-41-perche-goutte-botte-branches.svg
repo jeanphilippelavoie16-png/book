@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
 <title>Planche 89-41 — La perche en goutte et la botte de branches</title>
-<desc>En haut, la perche verte droite, cotée à environ 1500 mm, avec deux flèches qui ramènent ses deux bouts vers l’arrière. Au milieu à droite, vue de dessus, la raquette montée : la perche pliée en goutte, nez à droite, les deux bouts réunis côte à côte à gauche sous une ligature ; deux traverses en travers du milieu, ligaturées en croix sur la perche ; de la corde tendue en croisillons d’un flanc à l’autre ; la botte en tireté, la plante sur la traverse avant, le talon sur l’arrière, et deux cordes par traverse nouées sur le dessus du pied. À gauche, le détail des deux bouts : les tours de corde serrés autour des deux perches, le bout de départ couché dans le creux sous les premiers tours, le bout final tiré sous les derniers tours ; en bout, les deux perches coupées, cotées à environ 25 mm, et les tours qui les entourent ensemble. Dessous, de face et de côté à la même échelle : la perche à plat, les traverses posées dessus, la semelle sur les traverses, les cordes de la traverse avant par-dessus l’avant du pied, celles de l’arrière du talon au cou-de-pied ; la largeur de la goutte, environ 300 mm. En bas, deux vignettes : la botte de branches de résineux bien fournies, gros bouts en avant, ligaturés serré, la botte (chaussure) attachée dessus par deux cordes nouées sur le pied ; et une branche d’épinette noire pliée en boucle, ses deux bouts ligaturés à l’arrière, la botte ligaturée dessus par des cordes qui partent de la boucle.</desc>
+<desc>En haut, la perche verte droite, cotée à environ 1500 mm, avec deux flèches qui ramènent ses deux bouts vers l’arrière. Au milieu à droite, vue de dessus, la raquette montée : la perche pliée en goutte, nez à droite, les deux bouts réunis côte à côte à gauche sous une ligature ; deux traverses en travers du milieu, ligaturées en croix sur la perche ; de la corde tendue en croisillons d’un flanc à l’autre ; la botte en tireté, la plante sur la traverse avant, le talon sur l’arrière, et deux cordes par traverse nouées sur le dessus du pied. À gauche, le détail des deux bouts : les tours de corde serrés autour des deux perches, le bout de départ couché dans le creux sous les premiers tours, le bout final glissé sous les derniers tours et ressorti coupé court au bord, une flèche courbe au-dessus pour le sens des tours ; en bout, les deux perches coupées, cotées à environ 25 mm, et les tours qui les entourent ensemble. Dessous, de face et de côté à la même échelle : la perche à plat, les traverses posées dessus, la semelle sur les traverses, les cordes de la traverse avant par-dessus l’avant du pied, celles de l’arrière du talon au cou-de-pied ; la largeur de la goutte, environ 300 mm. En bas, deux vignettes : la botte de branches de résineux bien fournies, gros bouts en avant, ligaturés serré, la botte (chaussure) attachée dessus par deux cordes nouées sur le pied ; et une branche d’épinette noire pliée en boucle, ses deux bouts ligaturés à l’arrière, la botte ligaturée dessus par des cordes qui partent de la boucle.</desc>
 <defs>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
 </defs>
@@ -52,11 +52,13 @@
 <path d="M144.3 66 L151.3 66 L154.8 140 L147.8 140 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M134.5 103 L151.3 103" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M81.3 103 L109.3 103" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
-<path d="M112.4 99.5 L113.2 99.4 L114.2 99.3 L115.4 99.1 L116.8 99 L118.3 98.8 L119.9 98.6 L121.5 98.3 L123.2 98.1 L124.9 97.9 L126.6 97.7 L128.1 97.5 L129.6 97.3 L131 97.1 L132.2 97 L133.3 96.8 L134.1 96.7 L134.9 103.7 L134.1 103.8 L133.1 103.9 L131.9 104.1 L130.5 104.2 L129 104.4 L127.4 104.6 L125.8 104.9 L124.1 105.1 L122.4 105.3 L120.7 105.5 L119.2 105.7 L117.7 105.9 L116.3 106.1 L115.1 106.2 L114 106.4 L113.2 106.5 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M112.4 99.5 L113.2 99.4 L114.2 99.3 L115.4 99.1 L116.8 99 L118.3 98.8 L119.9 98.6 L121.5 98.3 L123.2 98.1 L124.9 97.9 L126.6 97.7 L128.1 97.5 L129.6 97.3 L131 97.1 L132.2 97 L133.3 96.8 L134.1 96.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M113.2 106.5 L114 106.4 L115.1 106.2 L116.3 106.1 L117.7 105.9 L119.2 105.7 L120.7 105.5 L122.4 105.3 L124.1 105.1 L125.8 104.9 L127.4 104.6 L129 104.4 L130.5 104.2 L131.9 104.1 L133.1 103.9 L134.1 103.8 L134.9 103.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M134.1 96.7 L134.9 103.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M134.8 102.3 L140.8 102.6 M134.5 100.2 L140.4 99.4 M134.2 98.1 L140 96.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M79.9 106.5 L79 106.5 L77.8 106.5 L76.4 106.5 L74.8 106.5 L73.1 106.5 L71.5 106.5 L70.1 106.5 L68.9 106.5 L68 106.5 L68 99.5 L68.9 99.5 L70.1 99.5 L71.5 99.5 L73.1 99.5 L74.8 99.5 L76.4 99.5 L77.8 99.5 L79 99.5 L79.9 99.5 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M79.9 106.5 L79 106.5 L77.8 106.5 L76.4 106.5 L74.8 106.5 L73.1 106.5 L71.5 106.5 L70.1 106.5 L68.9 106.5 L68 106.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M79.9 99.5 L79 99.5 L77.8 99.5 L76.4 99.5 L74.8 99.5 L73.1 99.5 L71.5 99.5 L70.1 99.5 L68.9 99.5 L68 99.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M79.9 106.5 L79.9 99.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M68 106.5 L68 99.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M79.9 100.9 L85.9 99.9 M79.9 103 L85.9 103 M79.9 105.1 L85.9 106.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M148.5 58.040000000000006 Q116.3 44.040000000000006 84.1 58.040000000000006" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M1.5 85.5 A24.5 24.5 0 0 1 50.5 85.5 L50.5 120.5 A24.5 24.5 0 0 1 1.5 120.5 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M1.5 85.5 A24.5 24.5 0 0 1 50.5 85.5 L50.5 120.5 A24.5 24.5 0 0 1 1.5 120.5 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M8.5 85.5 A17.5 17.5 0 0 1 43.5 85.5 L43.5 120.5 A17.5 17.5 0 0 1 8.5 120.5 Z" fill="#FFFFFF" stroke="none"/>
@@ -2916,11 +2918,11 @@
 <circle cx="202.5" cy="242.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="202.5" cy="183.5" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="ligature"/>
 <text x="202.5" y="187.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
-<line x1="158.5" y1="296.5" x2="163.3" y2="245.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="158.5" y1="296.5" x2="163.3" y2="245.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="163.3" cy="245.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="157.7" cy="305.5" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="ligature"/>
-<text x="157.7" y="309.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="112.9" y1="296.5" x2="112.9" y2="246.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="112.9" y1="296.5" x2="112.9" y2="246.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="112.9" cy="246.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="112.9" cy="305.5" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="ligature"/>
+<text x="112.9" y="309.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
 <line x1="581.9" y1="308.2" x2="520.3" y2="316.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="581.9" y1="308.2" x2="520.3" y2="316.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <circle cx="520.3" cy="316.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
@@ -2961,11 +2963,11 @@
 <circle cx="248.7" cy="619" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="248.7" cy="645.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="botte"/>
 <text x="248.7" y="649.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
-<line x1="417.8" y1="637.4" x2="503.8" y2="620.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="417.8" y1="637.4" x2="503.8" y2="620.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="503.8" cy="620.1" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="409" cy="639.2" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="boucle"/>
-<text x="409" y="643.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
+<line x1="414.8" y1="638.3" x2="437" y2="611.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="414.8" y1="638.3" x2="437" y2="611.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="437" cy="611.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="409" cy="645.2" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="boucle"/>
+<text x="409" y="649.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
 <text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 89-41 — La perche en goutte et la botte de branches.</text>
 <text x="56" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
 <text x="62" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">bouleau, saule ou érable, vert</text>

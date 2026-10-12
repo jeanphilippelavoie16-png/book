@@ -94,7 +94,10 @@ module.exports = (h) => {
           }
           o.push(cercle(W, RJ, h.a.contour), cercle(W, RJI, h.a.arete), cercle(W, 0.035, h.a.arete));
           // courroie du deuxième étage, dans la jante, et petite poulie de l'arbre
-          for (const [p, q] of tangentes(W, RC, A, RPP)) o.push(h.ligne(...P(...p), ...P(...q), h.a.arete));
+          // ce brin est plus près de la berge que la grande poulie : il passe devant sa face,
+          // en trait plein jusqu'à la petite poulie (liseré blanc pour couper le bord de la grande)
+          const HALO = h.a.arete.replace(/stroke="[^"]*"/, 'stroke="#FFFFFF"').replace('stroke-width="1.4"', 'stroke-width="5"');
+          for (const [p, q] of tangentes(W, RC, A, RPP)) o.push(h.ligne(...P(...p), ...P(...q), HALO), h.ligne(...P(...p), ...P(...q), h.a.arete));
           o.push(cercle(A, RPP, BL), cercle(A, 0.012, h.a.plein));
           // chaîne du premier étage, pignon, plateau
           for (const [p, q] of tangentes([0, 0], RPL, W, RPI)) o.push(h.ligne(...P(...p), ...P(...q), CHAINE));
@@ -217,15 +220,18 @@ module.exports = (h) => {
           o.push(boite(P, 226, 26, 284, 66, BL));
           for (const x of [240, 270]) o.push(boite(P, x - 4, 66, x + 4, 70, BLa));
           for (const x of [248, 255, 262]) o.push(h.cercle(...P(x, 60), 2.2, h.a.detail));
+          // bornes : − à gauche (fil négatif), + à droite (fil positif)
+          o.push(h.ligne(...P(236, 58), ...P(244, 58), h.a.arete));
+          o.push(h.ligne(...P(266, 58), ...P(274, 58), h.a.arete), h.ligne(...P(270, 54), ...P(270, 62), h.a.arete));
           return o.join('\n');
         },
         renvois: z => {
           const P = cadre(z, ...BAR);
           return [
-            { n: 9, rond: P(140, 30), cible: P(104, 36), texte: 'ampoules de phare en parallèle' },
-            { n: 10, rond: P(30, 40), cible: P(72.5, 56), texte: 'douilles au sec, verre dans l’eau' },
-            { n: 11, rond: P(70, 101), cible: P(46, 94), texte: 'branchée côté roue, avant la diode' },
-            { n: 12, rond: P(157, 74), cible: P(155, 90), texte: 'diode dans le fil positif' },
+            { n: 9, rond: P(140, 30), cible: P(104, 36), texte: 'ampoules de phare, verre dans l’eau' },
+            { n: 10, rond: P(70, 101), cible: P(46, 94), texte: 'branchée côté roue, avant la diode' },
+            { n: 11, rond: P(157, 74), cible: P(155, 90), texte: 'diode dans le fil positif' },
+            { n: 12, rond: P(214, 76), cible: P(198, 91), texte: 'fusible' },
           ];
         },
       },

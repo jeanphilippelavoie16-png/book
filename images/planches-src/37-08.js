@@ -157,7 +157,7 @@ module.exports = (h) => {
   return {
     ref: '37-08',
     titre: 'La cage à pierres dans la tente d’hiver',
-    desc: 'Le poêle de tôle de la tente d’hiver, posé sur quatre pieux verts plantés à travers la neige jusqu’au sol, porte au-dessus de lui une petite cage de treillis pleine de pierres. De côté, la neige coupée : une traverse de fer de chaque côté du poêle, couchée sur la tête des pieux et liée au fil de fer, d’un pieu à l’autre ; deux pattes de fer plié en U, debout sur les traverses, passent au-dessus du poêle et portent le fond de la cage, avec un jour d’air entre la cage et la tôle du dessus ; la cage s’arrête avant le tuyau, qui reste dégagé. Par le bout de la porte : les deux pieux, le poêle posé sur leur moitié intérieure, les traverses sur leur moitié extérieure, la patte en U, et la neige qui fond en creux sous le poêle, où rien ne s’appuie. Vu de dessus : le rond de neige nue autour du poêle et devant sa porte, le sapinage en écailles au-delà. De près, de côté, le poêle enlevé : la traverse liée sur la tête du pieu au fil de fer doublé et tordu, en croix, et la patte liée sur la traverse à côté du pieu.',
+    desc: 'Le poêle de tôle de la tente d’hiver, posé sur quatre pieux verts plantés à travers la neige jusqu’au sol, porte au-dessus de lui une petite cage de treillis pleine de pierres. De côté, la neige coupée : une traverse de fer de chaque côté du poêle, couchée sur la tête des pieux et liée au fil de fer, d’un pieu à l’autre ; deux pattes de fer plié en U, debout sur les traverses, passent au-dessus du poêle et portent le fond de la cage, avec un jour d’air entre la cage et la tôle du dessus ; la cage s’arrête avant le tuyau, qui reste dégagé. Par le bout de la porte : les deux pieux, le poêle posé sur leur moitié intérieure, les traverses sur leur moitié extérieure, la patte en U, et la neige qui fond en creux sous le poêle, où rien ne s’appuie. Vu de dessus : le rond de neige nue autour du poêle et devant sa porte, le sapinage en écailles au-delà. De près, de côté, le poêle enlevé : la traverse liée sur la tête du pieu au fil de fer doublé et tordu, en croix, et la patte debout sur la traverse à côté du pieu.',
     format: 'pleine',
     disposition: [['cote', 'bout'], ['plan', 'detail']],
     hauteurs: [16, 10],
@@ -338,30 +338,33 @@ module.exports = (h) => {
           // La ligature en croix : fil doublé, par-dessus la traverse, autour du pieu, et la queue tordue.
           const lx0 = xs - rs + 0.006, lx1 = xs + rs - 0.006, lh = zb + 2 * G.rt + 0.002, lb = zb - 0.05;
           const brin = (a, b, o) => h.ligne(X(a[0]) + o, Y(a[1]), X(b[0]) + o, Y(b[1]), fil);
+          const tir = 'fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2.5 2"';
           for (const o of [-1.4, 1.4]) {
             out.push(brin([lx0, lh], [lx1, lb], o));
             out.push(brin([lx1, lh], [lx0, lb], o));
+            // Chaque branche franchit l'arête du haut et repart derrière la traverse.
+            for (const [a, d] of [[lx0, -1], [lx1, 1]]) {
+              out.push(h.path(`M ${f(X(a) + o)} ${f(Y(lh))} Q ${f(X(a + d * 0.004) + o)} ${f(Y(lh) - 3)} ${f(X(a + d * 0.008) + o)} ${f(Y(lh))}`, fil));
+              out.push(h.path(`M ${f(X(a + d * 0.008) + o)} ${f(Y(lh))} L ${f(X(a + d * 0.012) + o)} ${f(Y(zb - 0.004))}`, tir));
+            }
           }
-          // Les tours autour du pieu : un peu bombés vers le bas, comme le fil qui fait le tour du bois.
-          for (const dz of [0.007, 0, -0.007]) {
-            const yy = Y(lb + dz);
+          // Les tours autour du pieu, en fil doublé : un peu bombés vers le bas.
+          for (const dz of [0.007, 0, -0.007]) for (const o of [-1.2, 1.2]) {
+            const yy = Y(lb + dz) + o;
             out.push(h.path(`M ${f(X(xs - rs) - 1.5)} ${f(yy - 1.5)} Q ${f(X(xs))} ${f(yy + 4)} ${f(X(xs + rs) + 1.5)} ${f(yy - 1.5)}`, fil));
           }
-          // La queue tordue : les deux brins roulés l'un sur l'autre.
-          const qx = X(xs + rs) + 1.5, qy = Y(lb) - 1.5, tw = [];
+          // La queue tordue : un bout vient de l'X, l'autre du dernier tour, roulés l'un sur l'autre.
+          const qx = X(xs + rs) + 5, qy = Y(lb) + 4, tw = [];
           for (let i = 0; i <= 12; i++) {
             const u = i / 12, px = qx + u * 16, py = qy + u * 16, o = 2.2 * Math.sin(u * Math.PI * 3);
             tw.push([px + o * 0.707, py - o * 0.707, px - o * 0.707, py + o * 0.707]);
           }
-          out.push(h.path('M ' + tw.map(t => `${f(t[0])} ${f(t[1])}`).join(' L '), fil));
-          out.push(h.path('M ' + tw.map(t => `${f(t[2])} ${f(t[3])}`).join(' L '), fil));
-          // La patte debout sur la traverse, à côté du pieu, liée en croix.
+          out.push(h.path(`M ${f(X(lx1) + 1.4)} ${f(Y(lb))} Q ${f(qx)} ${f(Y(lb))} ` + tw.map(t => `${f(t[0])} ${f(t[1])}`).join(' L '), fil));
+          const fy = Y(lb - 0.007) + 1.2 - 1.5;
+          out.push(h.path(`M ${f(X(xs + rs) + 1.5)} ${f(fy)} Q ${f(qx - 1)} ${f(fy + 1)} ` + tw.map(t => `${f(t[2])} ${f(t[3])}`).join(' L '), fil));
+          // La patte debout sur la traverse, à côté du pieu ; le fond de la cage la tient, sans ligature.
           const xp = G.xp[0], rr = 0.006;
           out.push(h.rect(X(xp - rr), Y(zb + 0.085), 2 * rr * k2, Y(zb + 2 * G.rt) - Y(zb + 0.085), blanc(h.a.arete)));
-          for (const o of [-1.4, 1.4]) {
-            out.push(brin([xp - 0.016, zb - 0.003], [xp + 0.016, zb + 0.045], o));
-            out.push(brin([xp + 0.016, zb - 0.003], [xp - 0.016, zb + 0.045], o));
-          }
           return out.join('\n');
         },
         renvois: z => {

@@ -82,16 +82,17 @@ module.exports = (h) => {
 
   // ─── Vue 1 : le chalumeau taillé, de côté et du bout, puis en place dans le tronc (2,2 px par mm) ───
   const K = 2.2, DIA = 11 * K, RC = DIA / 2, LCH = 70 * K, GW = 4 * K, GD = 4 * K;
-  const ENF = 26 * K, PROF = 40 * K;             // enfoncé : dessin seulement ; profondeur du trou : 4 cm environ
+  const ENF = 26 * K, PROF = 40 * K;
+  const KV = K * 1.5, DV = 11 * KV, RV = DV / 2, LV = 70 * KV, GWV = 4 * KV, GDV = 4 * KV;   // vues de côté et du bout, une fois et demie             // enfoncé : dessin seulement ; profondeur du trou : 4 cm environ
   const TA = (z) => {
-    const x0 = 60, x1 = x0 + LCH, ye = 26, yc = ye + RC, xb = x1 + 50;
+    const x0 = 12, x1 = x0 + LV, ye = 22, yc = ye + RV, xb = x1 + 22 + RV;
     const xs = x0 + ENF, yA = z.h - 46, Q = repere([xs, yA]);
     return { x0, x1, ye, yc, xb, xs, yA, Q };
   };
   const vueTaille = (z) => {
     const { x0, x1, ye, yc, xb, xs, yA, Q } = TA(z);
-    const yg = Math.sqrt(RC * RC - (GW / 2) ** 2);
-    const bout = `M${r1(xb + GW / 2)},${r1(yc - yg)} A${r1(RC)},${r1(RC)} 0 1 1 ${r1(xb - GW / 2)},${r1(yc - yg)} L${r1(xb - GW / 2)},${r1(yc - RC + GD - GW / 2)} A${r1(GW / 2)},${r1(GW / 2)} 0 0 0 ${r1(xb + GW / 2)},${r1(yc - RC + GD - GW / 2)} Z`;
+    const yg = Math.sqrt(RV * RV - (GWV / 2) ** 2);
+    const bout = `M${r1(xb + GWV / 2)},${r1(yc - yg)} A${r1(RV)},${r1(RV)} 0 1 1 ${r1(xb - GWV / 2)},${r1(yc - yg)} L${r1(xb - GWV / 2)},${r1(yc - RV + GDV - GWV / 2)} A${r1(GWV / 2)},${r1(GWV / 2)} 0 0 0 ${r1(xb + GWV / 2)},${r1(yc - RV + GDV - GWV / 2)} Z`;
     const tr = tronc(12, yA - 74, z.h - 6, xs, 8);
     const aIn = -ENF, aOut = LCH - ENF, rh = RC, gd = GD;
     const trou = [Q(2, -rh), Q(-PROF + 7, -rh), Q(-PROF, 0), Q(-PROF + 7, rh), Q(2, rh)].map(R1);
@@ -99,15 +100,14 @@ module.exports = (h) => {
     const bt = Q(aOut, rh), fond = Q(-PROF, 0), coteY = Q(-PROF, -rh)[1] - 14;
     return [
       // de côté, et du bout (rappels entre les deux)
-      h.ligne(x1 + 6, ye, xb - RC - 6, ye, h.a.fin), h.ligne(x1 + 6, ye + DIA, xb - RC - 6, ye + DIA, h.a.fin),
-      h.ligne(x1 + 6, ye + GD, xb - GW / 2 - 6, ye + GD, h.a.fin),
-      h.rect(x0, ye, LCH, DIA, B(h.a.contour)),
-      h.ligne(x0, ye + GD, x1, ye + GD, h.a.cache),
-      h.ligne(x0 + 22, ye + DIA * 0.66, x1 - 36, ye + DIA * 0.66, h.a.fin),
-      h.ligne(x0 + 60, ye + DIA * 0.84, x1 - 12, ye + DIA * 0.84, h.a.fin),
+      h.ligne(x1 + 6, ye, xb - RV - 6, ye, h.a.fin), h.ligne(x1 + 6, ye + DV, xb - RV - 6, ye + DV, h.a.fin),
+      h.ligne(x1 + 6, ye + GDV, xb - GWV / 2 - 6, ye + GDV, h.a.fin),
+      h.rect(x0, ye, LV, DV, B(h.a.contour)),
+      h.ligne(x0, ye + GDV, x1, ye + GDV, h.a.cache),
+      h.ligne(x0 + 33, ye + DV * 0.66, x1 - 54, ye + DV * 0.66, h.a.fin),
+      h.ligne(x0 + 90, ye + DV * 0.84, x1 - 18, ye + DV * 0.84, h.a.fin),
       h.path(bout, B(h.a.contour)),
-      h.cercle(xb + 1.5, yc + 3, 1, h.a.plein),
-      h.cote(xb - RC, ye + DIA + 14, xb + RC, ye + DIA + 14, 'Ø 8 ou 11 mm', { cote: 'dessous' }),
+      h.cote(xb - RV, ye + DV + 14, xb + RV, ye + DV + 14, 'Ø 8 ou 11 mm', { cote: 'dessous' }),
       // en place : le tronc coupé par l'axe du trou
       tr.fond,
       tr.bords,
@@ -333,11 +333,11 @@ module.exports = (h) => {
         titre: 'Le chalumeau, taillé et en place',
         dessin: vueTaille,
         renvois: z => {
-          const { x0, ye, xb, xs, yA, Q } = TA(z);
+          const { x0, ye, yc, xb, xs, yA, Q } = TA(z);
           const aOut = LCH - ENF;
           return [
-            { n: 1, rond: [xb + 38, 12], cible: [xb, ye + GD - 2], texte: 'gouttière sur le dessus' },
-            { n: 2, rond: [x0 + 112, ye + DIA + 28], cible: [x0 + 112, ye + DIA * 0.75], texte: 'goujon de bois dur' },
+            { n: 1, rond: [xb - RV - 14, 13], cible: [r1(xb - GWV / 2 - 1), r1(yc - Math.sqrt(RV * RV - (GWV / 2) ** 2) - 1)], texte: 'gouttière sur le dessus' },
+            { n: 2, rond: [x0 + 150, ye + DV + 26], cible: [x0 + 150, ye + DV * 0.75], texte: 'goujon de bois dur' },
             { n: 3, rond: [34, yA + 34], cible: Q(-PROF + 16, RC), texte: 'trou qui monte un peu' },
             { n: 4, rond: [xs + 76, yA - 44], cible: Q(aOut - 30, -RC + GD / 2), texte: 'la sève suit la gouttière' },
           ];

@@ -71,7 +71,7 @@
 <line x1="62" y1="50.5" x2="62" y2="123.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="56" y1="50.5" x2="68" y2="50.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="56" y1="123.5" x2="68" y2="123.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="37.6" y="91" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">25 cm</text>
+<text x="32.2" y="91" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">250 mm</text>
 </g>
 <text x="40" y="249" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">De côté, en marchant</text>
 <g transform="translate(40 257)" data-vue="pas">
@@ -101,39 +101,44 @@
 <path d="M346.3 48.1 L362.7 7 L322 -2.4 L307.1 39 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M362.7 7 L346.3 48.1 L307.1 39 L322 -2.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M352.3 110.1 L358.7 81.5 L365.5 108.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="327.1" y1="137.9" x2="321.6" y2="103.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="12 3 2 3"/>
 <path d="M559.5 130.1 A205.4 205.4 0 0 0 559.2 97.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <text x="40" y="482.6" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le raté : pivot trop en arrière</text>
 <g transform="translate(40 490.6)" data-vue="rate">
-<path d="M80.6 74 L95 76.3 L109.4 78.7 L123.8 81 L138.2 83.3 L152.6 85.7 L167 88 L181.4 90.3 L195.8 92.7 L210.2 95 L224.6 97.3 L239 99.7 L253.4 102 L267.8 104.3 L282.2 106.7 L296.6 109 L311 111.3 L325.4 113.7 L339.8 116 L354.2 118.3 L368.6 120.7 L383 123 L397.4 125.4 L411.8 127.7 L426.2 130 L440.6 132.4 L455 134.7 L469.4 137 L483.8 139.4 L498.2 141.7 L512.6 144 L527 146.4 L541.4 148.7 L555.8 151 L570.2 153.4 L569.6 157 L555.2 154.8 L540.8 152.5 L526.4 150.3 L511.9 148.1 L497.5 145.9 L483.1 143.6 L468.7 141.4 L454.3 139.2 L439.9 136.9 L425.4 134.7 L411 132.5 L396.6 130.2 L382.2 128 L367.8 125.8 L353.4 123.6 L338.9 121.3 L324.5 119.1 L310.1 116.9 L295.7 114.6 L281.3 112.4 L266.8 110.2 L252.4 107.9 L238 105.7 L223.6 103.5 L209.2 101.3 L194.8 99 L180.3 96.8 L165.9 94.6 L151.5 92.3 L137.1 90.1 L122.7 87.9 L108.3 85.7 L93.8 83.4 L79.4 81.2 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M80.6 74 L95 76.3 L109.4 78.7 L123.8 81 L138.2 83.3 L152.6 85.7 L167 88 L181.4 90.3 L195.8 92.7 L210.2 95 L224.6 97.3 L239 99.7 L253.4 102 L267.8 104.3 L282.2 106.7 L296.6 109 L311 111.3 L325.4 113.7 L339.8 116 L354.2 118.3 L368.6 120.7 L383 123 L397.4 125.4 L411.8 127.7 L426.2 130 L440.6 132.4 L455 134.7 L469.4 137 L483.8 139.4 L498.2 141.7 L512.6 144 L527 146.4 L541.4 148.7 L555.8 151 L570.2 153.4 L569.6 157 L555.2 154.8 L540.8 152.5 L526.4 150.3 L511.9 148.1 L497.5 145.9 L483.1 143.6 L468.7 141.4 L454.3 139.2 L439.9 136.9 L425.4 134.7 L411 132.5 L396.6 130.2 L382.2 128 L367.8 125.8 L353.4 123.6 L338.9 121.3 L324.5 119.1 L310.1 116.9 L295.7 114.6 L281.3 112.4 L266.8 110.2 L252.4 107.9 L238 105.7 L223.6 103.5 L209.2 101.3 L194.8 99 L180.3 96.8 L165.9 94.6 L151.5 92.3 L137.1 90.1 L122.7 87.9 L108.3 85.7 L93.8 83.4 L79.4 81.2 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M531.9 152.4 L536.4 146.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M539.1 153.5 L543.6 147.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M546.4 154.6 L550.8 149" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M553.6 155.7 L558 150.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="92.6" cy="72.5" r="3.4" fill="#FFFFFF" stroke="none"/>
-<circle cx="92.6" cy="72.5" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="167.5" cy="84.7" r="3.4" fill="#FFFFFF" stroke="none"/>
-<circle cx="167.5" cy="84.7" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="174.1" cy="85.8" r="3.4" fill="#FFFFFF" stroke="none"/>
-<circle cx="174.1" cy="85.8" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="228" cy="94.5" r="3.4" fill="#FFFFFF" stroke="none"/>
-<circle cx="228" cy="94.5" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="234.6" cy="95.6" r="3.4" fill="#FFFFFF" stroke="none"/>
-<circle cx="234.6" cy="95.6" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="241.2" cy="96.6" r="3.4" fill="#FFFFFF" stroke="none"/>
-<circle cx="241.2" cy="96.6" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M229.9 91.4 L254.4 95.3 L260.2 92.7 L262.7 86.3 L260 79 L252.1 72.5 L238.1 67.6 L229.8 58.1 L223 44.2 L226.9 18.1 L193.1 9 L183.4 39.7 L172.3 60.9 L170.8 71.9 L174.1 76.5 L201.8 83.9 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M229.9 91.4 L254.4 95.3 L260.2 92.7 L262.7 86.3 L260 79 L252.1 72.5 L238.1 67.6 L229.8 58.1 L223 44.2 L226.9 18.1 L193.1 9 L183.4 39.7 L172.3 60.9 L170.8 71.9 L174.1 76.5 L201.8 83.9 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M258.3 91.2 L230.7 86.8 L170.6 70.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M225.1 32.7 L239.2 6.3 L198.9 -4.5 L186.2 22.3 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M239.2 6.3 L225.1 32.7 L186.2 22.3 L198.9 -4.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M228 94.5 L242.9 69.2 L241.2 96.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M80.6 81 L95 83.3 L109.4 85.7 L123.8 88 L138.2 90.3 L152.6 92.7 L167 95 L181.4 97.3 L195.8 99.7 L210.2 102 L224.6 104.3 L239 106.7 L253.4 109 L267.8 111.3 L282.2 113.7 L296.6 116 L311 118.3 L325.4 120.7 L339.8 123 L354.2 125.3 L368.6 127.7 L383 130 L397.4 132.4 L411.8 134.7 L426.2 137 L440.6 139.4 L455 141.7 L469.4 144 L483.8 146.4 L498.2 148.7 L512.6 151 L527 153.4 L541.4 155.7 L555.8 158 L570.2 160.4 L569.6 164 L555.2 161.8 L540.8 159.5 L526.4 157.3 L511.9 155.1 L497.5 152.9 L483.1 150.6 L468.7 148.4 L454.3 146.2 L439.9 143.9 L425.4 141.7 L411 139.5 L396.6 137.2 L382.2 135 L367.8 132.8 L353.4 130.6 L338.9 128.3 L324.5 126.1 L310.1 123.9 L295.7 121.6 L281.3 119.4 L266.8 117.2 L252.4 114.9 L238 112.7 L223.6 110.5 L209.2 108.3 L194.8 106 L180.3 103.8 L165.9 101.6 L151.5 99.3 L137.1 97.1 L122.7 94.9 L108.3 92.7 L93.8 90.4 L79.4 88.2 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M80.6 81 L95 83.3 L109.4 85.7 L123.8 88 L138.2 90.3 L152.6 92.7 L167 95 L181.4 97.3 L195.8 99.7 L210.2 102 L224.6 104.3 L239 106.7 L253.4 109 L267.8 111.3 L282.2 113.7 L296.6 116 L311 118.3 L325.4 120.7 L339.8 123 L354.2 125.3 L368.6 127.7 L383 130 L397.4 132.4 L411.8 134.7 L426.2 137 L440.6 139.4 L455 141.7 L469.4 144 L483.8 146.4 L498.2 148.7 L512.6 151 L527 153.4 L541.4 155.7 L555.8 158 L570.2 160.4 L569.6 164 L555.2 161.8 L540.8 159.5 L526.4 157.3 L511.9 155.1 L497.5 152.9 L483.1 150.6 L468.7 148.4 L454.3 146.2 L439.9 143.9 L425.4 141.7 L411 139.5 L396.6 137.2 L382.2 135 L367.8 132.8 L353.4 130.6 L338.9 128.3 L324.5 126.1 L310.1 123.9 L295.7 121.6 L281.3 119.4 L266.8 117.2 L252.4 114.9 L238 112.7 L223.6 110.5 L209.2 108.3 L194.8 106 L180.3 103.8 L165.9 101.6 L151.5 99.3 L137.1 97.1 L122.7 94.9 L108.3 92.7 L93.8 90.4 L79.4 88.2 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M531.9 159.4 L536.4 153.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M539.1 160.5 L543.6 154.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M546.4 161.6 L550.8 156" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M553.6 162.7 L558 157.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.6" cy="79.5" r="3.4" fill="#FFFFFF" stroke="none"/>
+<circle cx="92.6" cy="79.5" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="167.5" cy="91.7" r="3.4" fill="#FFFFFF" stroke="none"/>
+<circle cx="167.5" cy="91.7" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="174.1" cy="92.8" r="3.4" fill="#FFFFFF" stroke="none"/>
+<circle cx="174.1" cy="92.8" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="228" cy="101.5" r="3.4" fill="#FFFFFF" stroke="none"/>
+<circle cx="228" cy="101.5" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="234.6" cy="102.6" r="3.4" fill="#FFFFFF" stroke="none"/>
+<circle cx="234.6" cy="102.6" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="241.2" cy="103.6" r="3.4" fill="#FFFFFF" stroke="none"/>
+<circle cx="241.2" cy="103.6" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M229.9 98.4 L254.4 102.3 L260.2 99.7 L262.7 93.3 L260 86 L252.1 79.5 L238.1 74.6 L229.8 65.1 L223 51.2 L226.9 25.1 L193.1 16 L183.4 46.7 L172.3 67.9 L170.8 78.9 L174.1 83.5 L201.8 90.9 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M229.9 98.4 L254.4 102.3 L260.2 99.7 L262.7 93.3 L260 86 L252.1 79.5 L238.1 74.6 L229.8 65.1 L223 51.2 L226.9 25.1 L193.1 16 L183.4 46.7 L172.3 67.9 L170.8 78.9 L174.1 83.5 L201.8 90.9 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M258.3 98.2 L230.7 93.8 L170.6 77.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M225.1 39.7 L240.7 7.6 L200.4 -3.2 L186.2 29.3 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M240.7 7.6 L225.1 39.7 L186.2 29.3 L200.4 -3.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M228 101.5 L242.9 76.2 L241.2 103.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="322.2" y1="140.7" x2="327.7" y2="106.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="12 3 2 3"/>
 <rect x="4" y="150" width="592" height="24" fill="#FFFFFF" stroke="none"/>
 <rect x="4" y="150" width="592" height="24" fill="url(#h-neige)" stroke="none"/>
 <line x1="4" y1="150" x2="596" y2="150" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M560.9 72.0 A333.7 333.7 0 0 1 561.3 124.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M278.7 91.3 L359.4 104.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M426.2 137 L440.6 139.4 L455 141.7 L469.4 144 L483.8 146.4 L498.2 148.7 L512.6 151 L527 153.4 L541.4 155.7 L555.8 158 L570.2 160.4 L569.6 164 L555.2 161.8 L540.8 159.5 L526.4 157.3 L511.9 155.1 L497.5 152.9 L483.1 150.6 L468.7 148.4 L454.3 146.2 L439.9 143.9 L425.4 141.7 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M458.2 150 L468.2 146 L478.2 144 L488.2 146 L498.2 150 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M458.2 150 L468.2 146 L478.2 144 L488.2 146 L498.2 150" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M480.2 80.0 L480.2 136.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M278.7 98.3 L359.4 111.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <line x1="602.2" y1="95.7" x2="594.1" y2="128.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="602.2" y1="95.7" x2="594.1" y2="128.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
@@ -185,16 +190,16 @@
 <circle cx="597.5" cy="338.8" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="599.3" cy="302.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="pas"/>
 <text x="599.3" y="306.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">10</text>
-<line x1="547.3" y1="605.7" x2="593.9" y2="637.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="547.3" y1="605.7" x2="593.9" y2="637.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="593.9" cy="637.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="539.9" cy="600.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rate"/>
-<text x="539.9" y="604.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
-<line x1="359" y1="567.3" x2="359" y2="586.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="359" y1="567.3" x2="359" y2="586.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="359" cy="586.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="359" cy="558.3" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rate"/>
-<text x="359" y="562.3" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
+<line x1="625.7" y1="598.6" x2="598.4" y2="651" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="625.7" y1="598.6" x2="598.4" y2="651" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="598.4" cy="651" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="629.9" cy="590.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rate"/>
+<text x="629.9" y="594.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
+<line x1="359" y1="574.3" x2="359" y2="593.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="359" y1="574.3" x2="359" y2="593.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="359" cy="593.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="359" cy="565.3" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="rate"/>
+<text x="359" y="569.3" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
 <text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 89-06 — La raquette de trois perches.</text>
 <text x="56" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
 <text x="62" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">pointes nouées ensemble</text>

@@ -103,7 +103,7 @@ module.exports = (h) => {
     const w = Math.min(70, (xs1 - xs0) * 0.3), ht = Math.min(46, ytop - 18);
     const cxA = xs1 - 4 - w / 2;                    // le chaudron, écarté
     const px0 = xs0 + 12, px1 = px0 + 16;           // le tuyau
-    return { xs0, xs1, ytop, ybot, xc, w, ht, cxA, px0, px1, yeau: ytop - 4 - 6 };
+    return { xs0, xs1, ytop, ybot, xc, w, ht, cxA, px0, px1, yeau: ytop - 4 - 12 };
   };
 
   const gFin = z => {
@@ -167,7 +167,10 @@ module.exports = (h) => {
           }
           // les cubes
           for (const x of xc) out.push(...boite(x, yc, s, s, dxc, dyc));
-          out.push(h.cote(xc[0] - 6, yc, xc[0] - 6, yc - s, '1 à 2 cm', { cote: 'gauche' }));
+          // cote de l'épaisseur du cube avant : lignes d'attache aux arêtes haut et bas
+          const xk = xc[0] - 12;
+          out.push(h.ligne(xc[0] - 2, yc, xk - 4, yc, h.a.fin), h.ligne(xc[0] - 2, yc - s, xk - 4, yc - s, h.a.fin));
+          out.push(h.cote(xk, yc, xk, yc - s, '10–20', { cote: 'gauche' }));
           return out.join('\n');
         },
         renvois: z => {
@@ -210,7 +213,6 @@ module.exports = (h) => {
           out.push(h.ligne(c.xi0, g.yeau, c.xi1, g.yeau, h.a.detail));
           const cubes = [[-22, 0, 0.1], [-11, 1, -0.2], [0, 0, 0.3], [11, 1, 0], [22, 0, -0.3], [-16, -9, 0.4], [-5, -10, 0], [6, -9, -0.25], [17, -10, 0.2], [-10, -19, 0.1], [3, -19, -0.35], [14, -19, 0.3]];
           for (const [dx, dy, a] of cubes) if (Math.abs(dx) < (c.xi1 - c.xi0) / 2 - 5) out.push(cube(cxA + dx, g.yeau - 1 + dy, 9, a));
-          for (const [dx, dy] of [[-27, 2], [27, 3], [-2, 3]]) out.push(h.cercle(cxA + dx, g.yeau + dy, 1.5, blanc(h.a.fin)));
           out.push(...c.murs);
           // on le glisse hors du centre
           out.push(h.fleche(`M ${xc} ${ytop - ht - 14} L ${c.x0 - 6} ${ytop - ht - 14}`, h.a.arete));
@@ -219,7 +221,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = gFondre(z);
           return [
-            { n: 2, rond: [z.l - 14, g.ytop + 20], cible: [g.cxA + g.w / 2 - 12, g.yeau + 3], texte: 'fond d’eau pour les premières minutes' },
+            { n: 2, rond: [z.l - 14, g.ytop + 20], cible: [g.cxA + g.w / 2 - 12, g.yeau + 7], texte: 'fond d’eau pour les premières minutes' },
             { n: 3, rond: [(g.px1 + g.xc - g.w / 2) / 2 + 2, 14], cible: [g.xc + 10, g.ytop - g.ht - 14], texte: 'dès que ça fume, écarter du centre' },
           ];
         },
@@ -236,7 +238,7 @@ module.exports = (h) => {
           const fond = [[-40, 0], [-31, -1], [-22, 0], [-13, -1], [-4, 0], [5, -1], [14, 0], [23, -1], [32, 0], [41, -1], [-26, -7], [-8, -7], [10, -7], [28, -7]];
           fond.forEach(([dx, dy], i) => { if (Math.abs(dx) < (c.xi1 - c.xi0) / 2 - 5) out.push(creton(g.cx + dx, c.yf - 3.5 + dy, 1, i)); });
           const yd = (g.ys + c.yf) / 2;
-          out.push(creton(g.cx - 16, yd - 4, 1, 7), creton(g.cx + 20, yd + 2, 1, 9));
+          out.push(creton(g.cx - 16, yd - 4, 1, 9), creton(g.cx + 20, yd + 2, 1, 9));
           out.push(h.fleche(`M ${g.cx - 16} ${yd + 1} L ${g.cx - 16} ${yd + 9}`, h.a.detail));
           out.push(h.fleche(`M ${g.cx + 20} ${yd + 7} L ${g.cx + 20} ${yd + 15}`, h.a.detail));
           // un léger frémissement
@@ -247,7 +249,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = gFin(z);
           return [
-            { n: 4, rond: [14, 14], cible: [g.cx - 16, (g.ys + g.yb - 4) / 2 - 4], texte: 'cretons dorés qui descendent : c’est fini' },
+            { n: 4, rond: [14, 14], cible: [g.cx - 20.5, (g.ys + g.yb - 4) / 2 - 5], texte: 'cretons dorés qui descendent : c’est fini' },
           ];
         },
       },
@@ -391,12 +393,20 @@ module.exports = (h) => {
           out.push(h.rect(P.xi0, yEau, lm, P.yf - yEau, h.a.hachure('eau', 'aucun')));
           out.push(h.ligne(P.xi0, yEau, P.xi1, yEau, h.a.detail));
           out.push(...P.murs);
+          // seconde ligne de rappel du renvoi 11, vers la bande marbrée (même trait que le compositeur)
+          {
+            const [rx, ry] = [14, g.yb - 14], [tx, ty] = [P.xi0 + lm * 0.3, yEau - 8];
+            const d = Math.hypot(tx - rx, ty - ry), sx = rx + 9 * (tx - rx) / d, sy = ry + 9 * (ty - ry) / d;
+            out.push(`<line x1="${sx}" y1="${sy}" x2="${tx}" y2="${ty}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`);
+            out.push(`<line x1="${sx}" y1="${sy}" x2="${tx}" y2="${ty}" fill="none" stroke="#000000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`);
+            out.push(`<circle cx="${tx}" cy="${ty}" r="1.8" fill="#000000" stroke="#FFFFFF" stroke-width="0.7"/>`);
+          }
           return out.join('\n');
         },
         renvois: z => {
           const g = gRate(z);
           return [
-            { n: 11, rond: [14, g.yb - 14], cible: [g.cx - g.w / 2 + 14, g.yb - 12], texte: 'couche liquide sous le gras : eau restée' },
+            { n: 11, rond: [14, g.yb - 14], cible: [g.cx - g.w / 2 + 14, g.yb - 12], texte: 'gras marbré, liquide dessous : eau restée' },
           ];
         },
       },

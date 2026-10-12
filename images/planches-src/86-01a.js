@@ -68,6 +68,12 @@ const clipBas = (poly, lv) => {
   return o;
 };
 
+// la coupe par l'axe partage l'échelle et les hauteurs de la vue de face : même étendue
+// (1,54 × 1,44 m) décalée de C, l'axe à la hauteur du moyeu, l'eau de fuite au même niveau
+const AX = [-0.7, 0.84], AY = [C[1] - 0.74, C[1] + 0.7];
+const cadreAxe = z => cadre(z, AX[0], AX[1], AY[0], AY[1]);
+const FA = AY[0] + 0.012;                   // fond de la fosse, coupé au bas du cadre
+
 module.exports = (h) => {
   const BL = h.a.contour.replace('fill="none"', 'fill="#FFFFFF"');
   const BLa = h.a.arete.replace('fill="none"', 'fill="#FFFFFF"');
@@ -134,7 +140,7 @@ module.exports = (h) => {
           o.push(h.fleche(`M${P(6.25, -0.15)} L${P(6.95, -0.15)}`));
           o.push(flecheArc(arc(P, C[0], C[1], R + 0.09, 55, 112)));
           // la roue : environ un mètre
-          o.push(h.cote(...P(C[0] + R + 0.38, C[1] - R), ...P(C[0] + R + 0.38, C[1] + R), '≈ 1 m', { cote: 'droite' }));
+          o.push(h.cote(...P(C[0] + R + 0.38, C[1] - R), ...P(C[0] + R + 0.38, C[1] + R), '≈ 1000', { cote: 'droite' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -249,6 +255,12 @@ module.exports = (h) => {
           for (const x of [0.25, 0.31, 0.37]) o.push(h.ligne(...P(x, -0.36), ...P(x, -0.62), h.a.cache));
           // sens de rotation
           o.push(flecheArc(arc(P, 0, 0, R + 0.08, 215, 262)));
+          // traits de rappel vers la coupe par l'axe, à droite (même échelle, mêmes hauteurs)
+          const sA = P.s, oxA = z.l + 22 + (z.l - (AX[1] - AX[0]) * sA) / 2 - AX[0] * sA;
+          for (const y of [R, 0]) {
+            const [xa, ya] = P(y ? 0.3 : R + 0.03, y);
+            o.push(h.ligne(xa, ya, oxA + (-0.09 - 0.03) * sA, ya, h.a.fin));
+          }
           return o.join('\n');
         },
         renvois: z => {
@@ -266,13 +278,13 @@ module.exports = (h) => {
       axe: {
         titre: 'Coupe par l’axe',
         dessin: z => {
-          const P = cadre(z, -0.46, 0.6, -0.38, 1.3), o = [];
+          const P = cadreAxe(z), o = [];
           const W0 = 0.19;                       // murs de la fosse
           const E = 0.09, T = 0.012;             // demi-écart des disques, demi-épaisseur
           // terre, eau de fuite
-          o.push(poly(P, [[-0.46, BERGE], [-W0, BERGE], [-W0, FOND], [W0, FOND], [W0, BERGE], [0.6, BERGE], [0.6, -0.38], [-0.46, -0.38]], TERRE));
-          o.push(poly(P, [[-W0, 0], [W0, 0], [W0, FOND], [-W0, FOND]], EAU));
-          o.push(trait(P, [[-0.46, BERGE], [-W0, BERGE], [-W0, FOND], [W0, FOND], [W0, BERGE], [0.6, BERGE]], h.a.arete));
+          o.push(poly(P, [[-0.46, BERGE], [-W0, BERGE], [-W0, FA], [W0, FA], [W0, BERGE], [0.6, BERGE], [0.6, AY[0]], [-0.46, AY[0]]], TERRE));
+          o.push(poly(P, [[-W0, 0], [W0, 0], [W0, FA], [-W0, FA]], EAU));
+          o.push(trait(P, [[-0.46, BERGE], [-W0, BERGE], [-W0, FA], [W0, FA], [W0, BERGE], [0.6, BERGE]], h.a.arete));
           o.push(trait(P, [[-W0, 0], [W0, 0]], h.a.detail));
           // poteaux et roulements
           for (const zc of [-0.25, 0.25]) {
@@ -301,7 +313,7 @@ module.exports = (h) => {
           return o.join('\n');
         },
         renvois: z => {
-          const P = cadre(z, -0.46, 0.6, -0.38, 1.3);
+          const P = cadreAxe(z);
           return [
             { n: 10, rond: P(-0.36, 1.05), cible: P(-0.09, 1.0), texte: 'deux disques de contreplaqué' },
             { n: 11, rond: P(0.33, 1.08), cible: P(0.28, C[1] + 0.05), texte: 'roulement sur poteau, de chaque côté' },

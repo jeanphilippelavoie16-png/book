@@ -1,6 +1,6 @@
 // Planche 89-02 — Les contours à recopier (ch. 89, §5-B, §5-E et §9)
 // Trois raquettes vues de dessus, pointe en haut, à la même échelle : la patte d'ours de
-// dépannage, la queue de castor (seule cotée : 30 × 107 cm, traverses à 38 à 41 cm), et la
+// dépannage, la queue de castor (seule cotée : 300 × 1070 mm, traverses à 380 à 410 mm), et la
 // raquette de planche, taillée au même contour que la queue de castor.
 // Toutes les mesures du dessin sont en cm, converties en px par K, le même pour les trois vues.
 
@@ -137,18 +137,18 @@ module.exports = (h) => {
   return {
     ref: '89-02',
     titre: 'Les contours à recopier',
-    desc: 'Trois raquettes vues de dessus, la pointe en haut, à la même échelle. À gauche, la patte d’ours de dépannage : une seule perche pliée en ovale, les deux bouts qui se chevauchent à l’arrière et sont ligaturés, une seule traverse devant les orteils ; le devant de la traverse reste ouvert, l’arrière est lacé de passes croisées en diagonale, avec le trou des orteils ouvert juste derrière la traverse. Au centre, le cadre de la queue de castor, ovale à queue courte, cotée 30 cm de large et 107 cm de long : le milieu du bâton au nez, les deux bouts superposés et ligaturés à la queue, deux traverses espacées de 38 à 41 cm. À droite, la raquette de planche : une planche mince taillée au même contour, la queue arrondie, sans traverse ni laçage, un trou découpé pour les orteils et une fente de chaque côté pour l’attache.',
+    desc: 'Trois raquettes vues de dessus, la pointe en haut, à la même échelle. À gauche, la patte d’ours de dépannage : une seule perche pliée en ovale, les deux bouts qui se chevauchent à l’arrière et sont ligaturés, une seule traverse devant les orteils ; le devant de la traverse reste ouvert, l’arrière est lacé de passes croisées en diagonale, avec le trou des orteils ouvert juste derrière la traverse. Au centre, le cadre de la queue de castor, ovale à queue courte, cotée 300 mm de large et 1070 mm de long : le milieu du bâton au nez, les deux bouts superposés et ligaturés à la queue, deux traverses espacées de 380 à 410 mm. À droite, la raquette de planche : une planche mince taillée au même contour, la queue arrondie (la silhouette de la queue de castor en tireté, nez sur nez), sans traverse ni laçage, un trou découpé pour les orteils et une fente de chaque côté pour l’attache.',
     format: 'pleine',
     disposition: [['patte', 'castor', 'planche']],
     largeurs: [[146, 236, 170]],
     vues: {
       // ── Patte d'ours de dépannage ──────────────────────────────────────────────────
       patte: {
-        titre: 'Patte d’ours de dépannage',
+        titre: ' ',             // titre réel centré sur le dessin, plus bas
         dessin: z => {
           const { K, pt, pts } = vue(z, cxPatte(z));
           const e = PO.ep / 2;
-          const out = [];
+          const out = [h.texte(cxPatte(z), -8, 'Patte d’ours de dépannage', { corps: 13, italique: true })];
           // laçage : passes croisées en diagonale, seulement derrière la traverse, trou des orteils ouvert
           const yT = PO_T + LT / 2;
           const trou = (x, y) => y < yT + 5 && Math.hypot(x, y - yT) < 5;
@@ -198,10 +198,10 @@ module.exports = (h) => {
       },
       // ── Queue de castor ────────────────────────────────────────────────────────────
       castor: {
-        titre: 'Queue de castor',
+        titre: ' ',
         dessin: z => {
           const { K, pt, pts } = vue(z, cxCastor(z));
-          const out = [];
+          const out = [h.texte(cxCastor(z), -8, 'Queue de castor', { corps: 13, italique: true })];
           const G = { ext: miroir(CASTOR.ext), int: miroir(CASTOR.int) };
           // traverses
           for (const yt of [T1, T2]) {
@@ -225,12 +225,12 @@ module.exports = (h) => {
           const yC = r1(Y0 - 14), yLarge = pt([0, 36])[1];
           const [xg] = pt([-LARGE / 2, 0]), [xd] = pt([LARGE / 2, 0]);
           out.push(h.ligne(xg, yLarge - 5, xg, yC - 4, h.a.fin), h.ligne(xd, yLarge - 5, xd, yC - 4, h.a.fin));
-          out.push(h.cote(xg, yC, xd, yC, '30 cm'));
+          out.push(h.cote(xg, yC, xd, yC, '300 mm'));
           const xL = r1(pt([-LARGE / 2, 0])[0] - 16), [, yN] = pt([0, 0]), [, yQ] = pt([0, LONG]);
           out.push(h.ligne(pt([0, 0])[0] - 3, yN, xL - 5, yN, h.a.fin), h.ligne(pt([-0.7, 0])[0] - 3, yQ, xL - 5, yQ, h.a.fin));
-          out.push(h.cote(xL, yN, xL, yQ, '107 cm', { cote: 'gauche' }));
+          out.push(h.cote(xL, yN, xL, yQ, '1070 mm', { cote: 'gauche' }));
           const xT = pt([-5.5, 0])[0];
-          out.push(h.cote(xT, pt([0, T1])[1], xT, pt([0, T2])[1], '38 à 41 cm', { cote: 'droite' }));
+          out.push(h.cote(xT, pt([0, T1])[1], xT, pt([0, T2])[1], '380 à 410 mm', { cote: 'droite' }));
           return out.join('\n');
         },
         renvois: z => {
@@ -245,11 +245,11 @@ module.exports = (h) => {
       },
       // ── Raquette de planche ────────────────────────────────────────────────────────
       planche: {
-        titre: 'Raquette de planche',
+        titre: ' ',
         dessin: z => {
           const { K, pt, pts } = vue(z, cxPlanche(z));
           const C = contourPlanche();
-          const out = [h.chemin(pts(C), h.a.blanc, true)];
+          const out = [h.texte(cxPlanche(z), -8, 'Raquette de planche', { corps: 13, italique: true }), h.chemin(pts(C), h.a.blanc, true)];
           // fil du bois, en long
           const fente = (x, y, m = 0) => Math.abs(Math.abs(x) - FENTE.x) < FENTE.l / 2 + m && y > FENTE.y1 - m && y < FENTE.y2 + m;
           for (const x0 of [-11.5, -7.2, -2.6, 2.1, 6.4, 10.8]) {
@@ -262,6 +262,8 @@ module.exports = (h) => {
           out.push(h.chemin(pts(cheminTrou()), h.a.arete, true));
           for (const s of [-1, 1]) out.push(h.rect(...pt([s * FENTE.x - FENTE.l / 2, FENTE.y1]), r1(K * FENTE.l), r1(K * (FENTE.y2 - FENTE.y1)), h.a.plein));
           out.push(h.chemin(pts(C), h.a.contour, true));
+          // la silhouette de la queue de castor, nez sur nez, qu'on suit puis qu'on arrondit
+          out.push(h.chemin(pts(silhouetteCastor()), h.a.cache));
           return out.join('\n');
         },
         renvois: z => {
@@ -269,7 +271,7 @@ module.exports = (h) => {
           return [
             { n: 10, rond: [r1(z.l - 12), r1(pt([0, 22])[1])], cible: pt([3, TROU.y1 + 1.5]), texte: 'trou découpé pour les orteils' },
             { n: 11, rond: [r1(z.l - 12), r1(pt([0, 50])[1])], cible: pt([FENTE.x, 42]), texte: 'fente de chaque côté, pour l’attache' },
-            { n: 12, rond: [r1(z.l - 12), r1(pt([0, 72])[1])], cible: pt([8, 72]), texte: 'planche mince et raide, au même contour' },
+            { n: 12, rond: [r1(z.l - 12), r1(pt([0, 72])[1])], cible: pt([8, 72]), texte: 'planche mince, même contour, queue ronde' },
           ];
         },
       },

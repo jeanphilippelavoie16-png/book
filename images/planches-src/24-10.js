@@ -221,6 +221,36 @@ module.exports = (h) => {
   const XB = -116;                           // la coupe B, dans le second tour de l'attelle de pouce
   const TOURS_POUCE = [-148, -116];
 
+
+  // ─── retouche des doigts vus du dos : les fentes s'arrêtent à la ligne des jointures ─────────
+  // Dans formes.main (appui/dos), deux doigts voisins se touchent presque : leurs bords
+  // convergent en une longue épine. On blanchit ces bords sur la première phalange et on les
+  // redessine : une petite commissure arrondie juste au-delà des jointures, puis les deux bords
+  // qui rejoignent le dessin d'origine.
+  const DGD = [['index', [0, -27.5], -2.5, 43, 19, 16.2], ['majeur', [4.5, -8.8], -0.3, 46, 19.5, 16.8],
+    ['annulaire', [1, 9.6], 2.2, 43, 18, 15.6], ['auriculaire', [-9, 26.8], 5.5, 34, 16, 13.6]];
+  const bordD = (i, side, x) => {
+    const [, P, a, L, e0, e1] = DGD[i], u = dirA(a), s = (x - P[0]) / u[0];
+    const w = 1.07 * (e0 + (e1 - e0) * s / L) / 2;
+    return add(add(P, mul(u, s)), mul([u[1], -u[0]], side * w));
+  };
+  const commissures = (g) => {
+    const out = [], e = g.e;
+    for (let i = 0; i < 3; i++) {
+      const xC = i === 2 ? 14 : 20, xJ = i === 2 ? 40 : 48, xM0 = xC - 9, xM1 = xC + 4;
+      const pas = (j, x0, x1) => Array.from({ length: 9 }, (_, k) => bordD(j, 0, x0 + (x1 - x0) * k / 8));
+      out.push(poly([...pas(i, xM0, xJ), ...pas(i + 1, xJ, xM0)].map(g.V), `fill="${B}" stroke="none"`));
+      const ym = (bordD(i, -1, xC)[1] + bordD(i + 1, 1, xC)[1]) / 2, gp = 1.1;
+      const A = [xC, ym - gp], Bp = [xC, ym + gp];
+      const aJ = bordD(i, -1, xJ), bJ = bordD(i + 1, 1, xJ);
+      const VA = g.V(A), VB = g.V(Bp), r = f(gp * e);
+      const ca = courbe([aJ, lerp(aJ, A, 0.5), A].map(g.V));
+      const cb = courbe([Bp, lerp(Bp, bJ, 0.5), bJ].map(g.V), false);
+      out.push(`<path d="${ca} A${r} ${r} 0 0 ${g.V([0, 1])[1] < g.V([0, 0])[1] ? 0 : 1} ${f(VB[0])} ${f(VB[1])} ${cb.replace(/^L[^C]*/, '')}" fill="none" stroke="${N}" stroke-width="1.4" stroke-linecap="round"/>`);
+    }
+    return out.join('\n');
+  };
+
   return {
     ref: '24-10',
     titre: 'Les attelles de pouce et de poignet',
@@ -236,6 +266,7 @@ module.exports = (h) => {
         dessin: z => {
           const g = geoDos(z), e = g.e, out = [];
           out.push(h.formes.main({ x: g.ox, y: g.oy, pose: 'appui', vue: 'dos', cote: 'gauche', angle: 180, echelle: e, bras: BRAS }));
+          out.push(commissures(g));
           const tr = ecorcePouce.troncons.map(t => t.map(g.V));
           out.push(`<path d="${forme(tr)}" ${blancTrait('arete')}/>`);
           // le sens des lenticelles : en travers du membre qu'elle entoure
@@ -309,6 +340,7 @@ module.exports = (h) => {
           const ouvert = (at) => h.chemin(chaine(coins, g), at);
           out.push(poly(chaine(coins, g), h.a.blanc), ouvert(h.a.arete));
           out.push(h.formes.main({ x: g.ox, y: g.oy, pose: 'appui', vue: 'dos', cote: 'gauche', angle: 180, echelle: e, bras: BRAS }));
+          out.push(commissures(g));
           out.push(ouvert(h.a.cache));
           TOURS.forEach(xm => out.push(tourBande(g, xm - LARG / 2, LARG, -L.demi - 1.6, L.demi + 1.6, 2.5)));
           // le tour de la paume : il passe entre le pouce et l'index
@@ -362,6 +394,12 @@ module.exports = (h) => {
           out.push(poly(latte, h.a.blanc), h.chemin(latte, h.a.arete));
           [2.6, 5.4].forEach((y, i) => out.push(h.path(courbe(chaine([[x0 + 4, y], [x0 + 60, y + 0.4 * (i ? -1 : 1)], [x0 + 120, y], [x1 - 6 - 20 * i, y + 0.3]], g)), h.a.fin)));
           out.push(h.formes.main({ x: g.X0, y: g.y0, pose: 'appui', vue: 'profil', echelle: e, bras: BRAS, inclinaison: -2 }));
+          // retouches de lecture : le bout de l'index arrondi, les deux plis de flexion du pouce
+          // (sous la jointure du bout et à la base), le trait des jointures à la base des doigts
+          out.push(`<path d="${courbe([[118, -12.5], [125, -12.3], [129.6, -8.4], [128.6, -3.4], [122, -0.9], [118, -1]].map(g.V))}" fill="${B}" stroke="${N}" stroke-width="1.4" stroke-linejoin="round"/>`);
+          out.push(h.path(courbe([[36.5, -0.8], [35.6, -3], [35.2, -5]].map(g.V)), h.a.detail));
+          out.push(h.path(courbe([[10, -0.6], [8.6, -3.2], [8.2, -5.6]].map(g.V)), h.a.detail));
+          out.push(h.path(courbe([[39, -21.6], [41, -19.4], [41.6, -16.8]].map(g.V)), h.a.detail));
           // le dessus de l'avant-bras (même tube que formes.js) : pour faire passer la bande dessus
           const dessus = x => {
             if (x >= -50) { const t = Math.min(1, (x + 50) / 90); return -43 + 19.8 * t; }

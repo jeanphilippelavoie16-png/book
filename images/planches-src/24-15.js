@@ -92,7 +92,8 @@ module.exports = (h) => {
   const cadreDessus = z => { const c = cadre(z, [-19, 29], [-6.5, sq(44)]); return { s: c.s, V: p => c.V([p[0], sq(p[1])]) }; };
 
   // Vue 1 — bien coupé : droit, coins carrés, le coin dépasse le bout du bourrelet
-  const vueBon = z => pied(cadreDessus(z).V);
+  const ONGLE_BON = [[-7.6, 3.0], [8.9, 3.0], [8.8, 12], ...ARC, [-9.3, 12], [-8.9, 7.0]];
+  const vueBon = z => pied(cadreDessus(z).V, { ongle: ONGLE_BON });
 
   // Vue 2 — mal coupé : coins en arrondi, court ; la chair bombe dans le coin ; le bord repousse dedans
   const ONGLE_COURT = [...cr([[-9.3, 16.0], [-8.9, 13.2], [-7.0, 11.2], [-3.4, 10.3], [0, 10.2], [3.4, 10.3], [6.6, 11.2], [8.4, 13.2], [8.8, 16.0]]),
@@ -214,14 +215,14 @@ module.exports = (h) => {
     const { V } = cadreCote(z);
     const out = [];
     // premier passage : glissé au bord de l'ongle, tiré vers le bas jusque sous l'orteil
-    out.push(chemin([[-6.3, 1.95], [-11.7, 1.72], [-15.0, 19.0], [-9.6, 18.55]], V, TOILE, true));
-    // le tour qui tient : revenu par-dessus, derrière l'ongle, et redescendu sur le flanc
-    out.push(chemin([[-25.6, -2.34], [-31.0, -3.4], [-34.4, 12.5], [-29.0, 12.5]], V, TOILE, true));
+    out.push(chemin([[-6.3, 1.95], [-11.7, 1.72], [-32.5, 11.2], [-30.0, 15.6]], V, TOILE, true));
+    // le tour qui tient : un tour complet, du dessus jusque sous l'orteil, par-dessus le bout de la bande
+    const tour = [[-25.6, -2.34], [-31.0, -3.4], [-34.0, 19.8], [-28.4, 18.8]];
+    out.push(chemin(tour, V, A.blanc, true), chemin(tour, V, TOILE, true));
     out.push(chemin(PROFIL, V, A.contour));
-    out.push(chemin(cr([[-27.8, -2.4], [-27.3, 0.8]]), V, A.fin), chemin(cr([[-29.8, -2.8], [-29.4, 0.4]]), V, A.fin));
     out.push(chemin(PLI_COTE, V, A.detail));
     out.push(chemin(ONGLE_COTE, V, blancArete, true));
-    out.push(fleche([[-12.6, 21.4], [-13.9, 27.6]], V));        // tirer vers le bas
+    out.push(fleche([[-13.0, 9.6], [-21.0, 13.8]], V));         // tirer dans l'axe de la bande, vers la base
     return out.join('\n');
   }
 
@@ -286,7 +287,7 @@ module.exports = (h) => {
         dessin: vueBon,
         renvois: z => { const { V } = cadreDessus(z); return [
           { n: 1, ...R(V, [6.5, -3.4], [3, 3.0]), texte: 'coupé droit, coins carrés' },
-          { n: 2, ...R(V, [-15.9, -1.8], [-9.4, 3.0]), texte: 'le coin dépasse la peau' },
+          { n: 2, ...R(V, [-15.9, -1.8], [-7.6, 3.0]), texte: 'le coin dépasse la peau' },
         ]; },
       },
       rate: {
@@ -326,7 +327,7 @@ module.exports = (h) => {
         titre: 'Le ruban posé, vu de côté',
         dessin: vueRubanCote,
         renvois: z => { const { V } = cadreCote(z); return [
-          { n: 12, ...R(V, [-3, -8.5], [-8.6, 5.5]), texte: 'glissé au bord, tiré en bas' },
+          { n: 12, ...R(V, [-3, -8.5], [-12.5, 3.6]), texte: 'glissé au bord, tiré en bas' },
           { n: 13, ...R(V, [-43, -12.0], [-31.4, 5.0]), texte: 'un tour autour de l’orteil' },
         ]; },
       },

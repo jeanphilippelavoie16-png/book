@@ -21,7 +21,7 @@ module.exports = (h) => {
   const XL = -10, XR = 283, ZB = -54;               // terre montrée autour
   const PE = 181, CY0 = 45, CY1 = 136;              // plan : fosse est-ouest, coffre est-ouest
   const TX = 170;                                   // le thermomètre
-  const ZT = 97, ZBAS = -66, YH = -8, YB = 206;      // étendue des deux vues
+  const ZT = 97, ZBAS = -66, YH = -15, YB = 218;      // étendue des deux vues
   const XG = -18, XD = 291;                         // colonnes de cotes
 
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -55,6 +55,22 @@ module.exports = (h) => {
     const pts = [];
     for (let x = x0; x <= x1 + 0.01; x += 6) pts.push(p(x, zz + 0.9 * Math.sin(x / 7)));
     return h.chemin(pts, A.detail);
+  };
+
+  // une cote à traits d'arrêt longs et fond blanc sous le chiffre, pour la poser sur une trame
+  const coteF = (x1, y1, x2, y2, t, o = {}) => {
+    const vert = Math.abs(y2 - y1) > Math.abs(x2 - x1), w = h.largeur(t, 12) + 6;
+    const out = [];
+    if (vert) {
+      const cx = (x1 + x2) / 2 + (o.cote === 'gauche' ? -(8 + w / 2 - 3) : 8 + w / 2 - 3), cy = (y1 + y2) / 2;
+      out.push(h.rect(cx - w / 2, cy - 9, w, 16, 'fill="#FFFFFF" stroke="none"'));
+      out.push(h.ligne(x1 - 9, y1, x1 + 9, y1, A.detail), h.ligne(x2 - 9, y2, x2 + 9, y2, A.detail));
+    } else {
+      const cx = (x1 + x2) / 2, cy = (y1 + y2) / 2 + (o.cote === 'dessous' ? 11 : -9);
+      out.push(h.rect(cx - w / 2, cy - 9, w, 16, 'fill="#FFFFFF" stroke="none"'));
+    }
+    out.push(h.cote(x1, y1, x2, y2, t, o));
+    return out.join('\n');
   };
 
   const fleche = (a, b) => [
@@ -119,8 +135,8 @@ module.exports = (h) => {
     o.push(h.cote(...p(XD, -PD + GR), ...p(XD, BT), '600 à 750', { cote: 'droite' }));
     o.push(h.cote(...p(XD, FT), ...p(XD, BK), '150 min.', { cote: 'droite' }));
     o.push(h.cote(...p(RF, FT + 5), ...p(CX0, FT + 5), '300 à 380'));
-    o.push(h.cote(...p(CX0 + 14, BT), ...p(CX0 + 14, FI), '100 à 150', { cote: 'droite' }));
-    o.push(h.cote(...p(CX0 + 14, FI), ...p(CX0 + 14, TE), '130 à 150', { cote: 'droite' }));
+    o.push(coteF(...p(CX0 + 14, BT), ...p(CX0 + 14, FI), '100 à 150', { cote: 'droite' }));
+    o.push(coteF(...p(CX0 + 14, FI), ...p(CX0 + 14, TE), '130 à 150', { cote: 'droite' }));
     o.push(h.cote(...p(TX + 7, TE), ...p(TX + 7, TE - 8), '80', { cote: 'droite' }));
     return o.join('\n');
   };
@@ -149,10 +165,16 @@ module.exports = (h) => {
     // rappels et cotes
     const rap = (a, b) => h.ligne(...q(...a), ...q(...b), A.fin);
     o.push(rap([CX1, CY0], [XD + 3, CY0]), rap([CX1, CY1], [XD + 3, CY1]));
-    o.push(rap([CX0, CY1], [CX0, YB - 7]), rap([CX1, CY1], [CX1, YB - 7]));
+    o.push(rap([CX0, CY1], [CX0, YB - 19]), rap([CX1, CY1], [CX1, YB - 19]));
+    o.push(rap([CX0 + EP, CY1 - EP], [CX0 + EP, YB - 7]), rap([CX1 - EP, CY1 - EP], [CX1 - EP, YB - 7]));
     o.push(h.cote(...q(XD, CY0), ...q(XD, CY1), '910 (3 pi)', { cote: 'droite' }));
-    o.push(h.cote(...q(CX0, YB - 10), ...q(CX1, YB - 10), '1830 (6 pi)', { cote: 'dessous' }));
-    o.push(h.cote(...q(CX0 + EP, 112), ...q(CX1 - EP, 112), '1730 (5 pi 8 po)'));
+    o.push(coteF(...q(CX0, YB - 22), ...q(CX1, YB - 22), '1830 (6 pi)', { cote: 'dessous' }));
+    o.push(coteF(...q(CX0 + EP, YB - 10), ...q(CX1 - EP, YB - 10), '1730 (5 pi 8 po)', { cote: 'dessous' }));
+    // l'écart entre le coffre et le bord de la fosse, sur un côté long et un côté court
+    o.push(rap([0, 0], [0, -10]), rap([CX0, CY0], [CX0, -10]));
+    o.push(h.cote(...q(0, -7), ...q(CX0, -7), 'env. 450'));
+    o.push(rap([PW, 0], [XD + 3, 0]));
+    o.push(h.cote(...q(XD, 0), ...q(XD, CY0), 'env. 450', { cote: 'droite' }));
     return o.join('\n');
   };
 
@@ -175,7 +197,7 @@ module.exports = (h) => {
             { n: 3, rond: p(140, 90), cible: p(140, TE - 5) },
             { n: 4, rond: p(-8, 44), cible: p(24, 44) },
             { n: 5, rond: p(-8, 16), cible: p(34, 8) },
-            { n: 6, rond: p(118, -60), cible: p(118, -40.5) },
+            { n: 6, rond: p(118, -56), cible: p(118, -40.5) },
           ].map((r, i) => ({ ...r, texte: [
             'vieille fenêtre, posée sur le coffre',
             'thermomètre à sonde, planté dans le terreau',

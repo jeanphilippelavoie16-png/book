@@ -50,7 +50,7 @@ module.exports = (h) => {
 
   // ─── Le sommet, de près.
   const sommet = z => {
-    const sd = 190, cx = Math.round(z.l / 2), yQ = Math.round(z.h / 2 - 30);
+    const sd = 270, cx = Math.round(z.l / 2), yQ = Math.round(z.h / 2 - 30);
     const dO = RO / TA * sd, dB = Math.floor((z.l / 2 - 14) / TA), dT = -0.4 * (H / LP) * sd, dL = 11;
     // Q : croisement des perches du dessus, sur lesquelles pose la toile ; le trépied lié croise dL plus bas.
     const S = (th, d, dy = 0) => [cx + (d - dy) * TA * Math.cos(rad(th)), yQ + d + K * (d - dy) * TA * Math.sin(rad(th))];
@@ -60,25 +60,36 @@ module.exports = (h) => {
   // ─── Le joint, en coupe dans le mur de gauche : dehors en haut à gauche, dedans en bas à droite.
   const joint = z => {
     const al = Math.atan(TA), u = [Math.sin(al), -Math.cos(al)], n = [-Math.cos(al), -Math.sin(al)];
-    const A = [22, z.h - 20];
-    const Ls = Math.min(222, (z.l - 30) / u[0]);
-    const Pt = (s, o) => [A[0] + s * u[0] + o * n[0], A[1] + s * u[1] + o * n[1]];
-    return { Ls, Pt, JB: 0.39 * Ls, JH: 0.61 * Ls, W: 6, O1: 8.5, O2: 13.5, D: 4.5 };
+    const k = 1.6, Ls = Math.min((z.l - 50) / u[0], (z.h - 40) / -u[1]);
+    const C = [z.l / 2 + 4, z.h / 2 + 4];
+    const Pt = (s, o) => [C[0] + (s - Ls / 2) * u[0] + o * n[0], C[1] + (s - Ls / 2) * u[1] + o * n[1]];
+    const JW = 0.22 * 222 * k;
+    return { Ls, Pt, JB: Ls / 2 - JW / 2, JH: Ls / 2 + JW / 2, W: 6 * k, O1: 6 * k + 1.5, T: 4.5, O2: 6 * k + 9, D: 7, k };
   };
   const goutte = (x, y) => h.path(`M ${f(x)} ${f(y - 5)} Q ${f(x + 3)} ${f(y + 1)} ${f(x)} ${f(y + 2.2)} Q ${f(x - 3)} ${f(y + 1)} ${f(x)} ${f(y - 5)} Z`, h.a.plein);
+  // Brisure : le dessin est coupé là, perche et bâches comprises.
+  const brisure = (g, s, o0, o1) => { const o = []; const N = 8; for (let i = 0; i <= N; i++) o.push(g.Pt(s + (i % 2 ? 3 : -3), o0 + (o1 - o0) * i / N)); return o; };
   const perchePleine = (g) => {
     const { Pt, Ls, W } = g;
     return [
       h.chemin([Pt(0, -W), Pt(Ls, -W), Pt(Ls, W), Pt(0, W)], h.a.hachure('bois', 'aucun'), true),
       h.chemin([Pt(0, -W), Pt(Ls, -W)], h.a.arete),
       h.chemin([Pt(0, W), Pt(Ls, W)], h.a.arete),
-      h.chemin([Pt(0, -W), Pt(-2, 0), Pt(0, W)], h.a.detail),
-      h.chemin([Pt(Ls, -W), Pt(Ls + 2, 0), Pt(Ls, W)], h.a.detail),
     ].join('\n');
+  };
+  const bris = g => [h.chemin(brisure(g, 0, -g.W - 2, g.O2 + g.T + 2), h.a.detail), h.chemin(brisure(g, g.Ls, -g.W - 2, g.O2 + g.T + 2), h.a.detail)].join('\n');
+  // Une bâche : deux traits d'épaisseur ; pointillé léger si c'est celle du haut.
+  const bache = (g, pts, haut) => {
+    const A = pts.map(([s, o]) => g.Pt(s, o)), B = pts.map(([s, o]) => g.Pt(s, o + g.T)).reverse();
+    const out = [h.chemin([...A, ...B], 'fill="#ffffff" stroke="none"', true), h.chemin(A, h.a.arete), h.chemin([...B].reverse(), h.a.arete)];
+    if (haut) out.push(h.chemin(pts.map(([s, o]) => g.Pt(s, o + g.T / 2)), 'fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-dasharray="0.8 2.6" stroke-linecap="round"'));
+    const [sl, ol] = pts[pts.length - 1];
+    out.push(h.chemin([g.Pt(sl, ol), g.Pt(sl, ol + g.T)], h.a.arete));
+    return out.join('\n');
   };
   const pluie = g => {
     const { Pt, Ls } = g;
-    return [[0.66, 36], [0.78, 50], [0.9, 34], [0.56, 50]].map(([a, o]) => goutte(...Pt(a * Ls, o))).join('\n');
+    return [[0.66, 46], [0.78, 62], [0.9, 44], [0.56, 62]].map(([a, o]) => goutte(...Pt(a * Ls, o))).join('\n');
   };
 
   return {
@@ -88,7 +99,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['sommet', 'coupe'], ['elev', 'bon', 'rate']],
     hauteurs: [1.2, 1],
-    largeurs: [[1, 2.4], [1.4, 1, 1]],
+    largeurs: [[1.25, 2.4], [1.2, 1, 1]],
     vues: {
       // ─────────────────────────────────────────────────────────────────────────────────
       elev: {
@@ -154,11 +165,17 @@ module.exports = (h) => {
           const sap = (x0, x1) => { const o = []; for (let x = x0; x <= x1 - 4; x += 3.4) o.push([x, yg], [x + 3.4, yg - 6]); return h.chemin(o, h.a.fin); };
           out.push(sap(xL + 5, cx - 0.45 * s), sap(cx + 0.45 * s, xR - 0.14 * Rp));
           // Le foyer : billes vertes en deux couches, pierres sèches, petite flamme.
-          for (let i = -2; i <= 2; i++) out.push(h.cercle(cx + i * 8, yg - 4, 4, h.a.arete.replace('fill="none"', 'fill="#ffffff"')));
-          out.push(h.rect(cx - 21, yg - 15, 42, 7, h.a.hachure('bois', 'arete')));
-          for (const sx of [-13, 13]) out.push(h.ellipse(cx + sx, yg - 19.5, 6, 4.5, h.a.arete.replace('fill="none"', 'fill="#ffffff"')));
-          const flamme = (x, hf, w) => h.path(`M ${f(x - w)} ${f(yg - 15)} Q ${f(x - w)} ${f(yg - 15 - hf * 0.55)} ${f(x)} ${f(yg - 15 - hf)} Q ${f(x + w)} ${f(yg - 15 - hf * 0.55)} ${f(x + w)} ${f(yg - 15)} Z`, h.a.arete.replace('fill="none"', 'fill="#ffffff"'));
-          out.push(flamme(cx - 3, 12, 4), flamme(cx + 4, 11, 3.5), flamme(cx, 17, 4.5));
+          const blancA = h.a.arete.replace('fill="none"', 'fill="#ffffff"');
+          for (let i = -2; i <= 2; i++) { out.push(h.cercle(cx + i * 8, yg - 4, 4, blancA)); out.push(h.cercle(cx + i * 8, yg - 4, 2.6, h.a.fin)); }
+          // Le lit de cailloux arrondis, au contour irrégulier, posé sur les billes.
+          const caillou = (x, y, rx, ry, k) => { const o = []; for (let i = 0; i < 12; i++) { const a = i / 12 * 2 * Math.PI, r = 1 + 0.12 * Math.sin(3 * a + k); o.push([x + rx * r * Math.cos(a), y + ry * r * Math.sin(a)]); }
+            return h.chemin(o, blancA, true); };
+          [[-17, 3.6, 2.6, 0], [-9.5, 3.2, 2.4, 1], [-2.5, 3.6, 2.5, 2], [4.5, 3.3, 2.6, 3], [11.5, 3.7, 2.4, 4], [18, 3.2, 2.5, 5]].forEach(([dx, rx, ry, k]) => out.push(caillou(cx + dx, yg - 10.5, rx, ry, k)));
+          [[-13, 2.8, 2, 6], [13, 2.8, 2, 7]].forEach(([dx, rx, ry, k]) => out.push(caillou(cx + dx, yg - 14.2, rx, ry, k)));
+          // Deux bûches vues du bout, de part et d'autre de la flamme.
+          for (const sx of [-12, 12]) { out.push(h.cercle(cx + sx, yg - 19.5, 4.6, blancA)); out.push(h.cercle(cx + sx, yg - 19.5, 3, h.a.fin)); }
+          const flamme = (x, hf, w) => h.path(`M ${f(x - w)} ${f(yg - 16)} Q ${f(x - w)} ${f(yg - 16 - hf * 0.55)} ${f(x)} ${f(yg - 16 - hf)} Q ${f(x + w)} ${f(yg - 16 - hf * 0.55)} ${f(x + w)} ${f(yg - 16)} Z`, h.a.arete.replace('fill="none"', 'fill="#ffffff"'));
+          out.push(flamme(cx - 3, 12, 3.5), flamme(cx + 3, 11, 3.2), flamme(cx, 17, 4));
           // Le dormeur, dans son sac, la tête au mur et les pieds au feu.
           const xh = xL + 0.41 * s, xf = cx - 0.54 * s, yb = yg - 6;
           const Lb = xf - xh, X = k => f(xh + k * Lb);
@@ -220,8 +237,10 @@ module.exports = (h) => {
           out.push(h.rect(cx - 6, yL - 5, 12, 10, h.a.arete.replace('fill="none"', 'fill="#ffffff"')));
           for (const dy of [-2.5, 0, 2.5]) out.push(h.ligne(cx - 6, yL + dy, cx + 6, yL + dy, h.a.detail));
           // L'ouverture.
-          const rx = dO * TA, yc = yQ + dO + K * rx + 7;
-          out.push(h.cote(cx - rx, yc, cx + rx, yc, '30 à 50 cm', { cote: 'dessous' }));
+          const rx = dO * TA, yE = yQ + dO, yc = Math.max(...casse.map(p => p[1])) + 14;
+          for (const sx of [-1, 1]) out.push(h.ligne(cx + sx * rx, yE + 3, cx + sx * rx, yc + 6, h.a.detail));
+          out.push(h.rect(cx - rx - 4, yc - 4, 2 * rx + 8, 24, 'fill="#ffffff" stroke="none"'));
+          out.push(h.cote(cx - rx, yc, cx + rx, yc, '300–500', { cote: 'dessous' }));
           return out.join('\n');
         },
         renvois: z => {
@@ -238,37 +257,41 @@ module.exports = (h) => {
         dessin: z => {
           const g = joint(z), { Pt, Ls, JB, JH, W, O1, O2, D } = g, out = [];
           out.push(perchePleine(g));
-          // La bâche du bas, contre la perche ; celle du haut par-dessus le joint.
-          out.push(h.chemin([Pt(0, O1), Pt(JH, O1)], h.a.contour));
-          out.push(h.chemin([Pt(Ls, O1), Pt(JH + 7, O1), Pt(JH, O2), Pt(JB, O2)], h.a.contour));
-          // Le cordon : il traverse la bâche du bas, fait le tour de la perche, noué en dedans.
-          const c = 0.5 * (JB + JH);
-          out.push(h.chemin([Pt(c - 6, O1), Pt(c + 3, -W)], h.a.detail));
-          out.push(h.chemin([Pt(c + 1, O1), Pt(c + 10, -W)], h.a.detail));
-          out.push(h.cercle(...Pt(c + 7, -W - 3), 2.8, h.a.plein));
+          const T = g.T, c = 0.5 * (JB + JH);
+          // Le cordon : une boucle qui traverse la bâche du bas et fait le tour de la perche ; derrière en tireté.
+          out.push(h.chemin([Pt(c + 4, O1 + T), Pt(c + 10, -W - 2)], 'fill="none" stroke="#1A1A1A" stroke-width="1.1" stroke-dasharray="3 2.2" stroke-linecap="round"'));
+          out.push(bache(g, [[0, O1], [JH, O1]], false));
+          out.push(h.chemin([Pt(c + 4, O1 + T), Pt(c - 4, O1 + T), Pt(c + 2, -W - 2)], 'fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"'));
+          // Le nœud, côté intérieur, et ses deux bouts.
+          out.push(h.cercle(...Pt(c + 6, -W - 3.5), 3.2, h.a.plein));
+          out.push(h.chemin([Pt(c + 5, -W - 5), Pt(c, -W - 13)], h.a.arete), h.chemin([Pt(c + 7, -W - 5), Pt(c + 13, -W - 12)], h.a.arete));
+          // La bâche du haut par-dessus : elle couvre le trou du cordon.
+          out.push(bache(g, [[Ls, O1], [JH + 10, O1], [JH, O2], [JB, O2]], true));
+          out.push(bris(g));
           // L'eau coule sur la bâche du haut, saute le joint et continue dehors.
           out.push(pluie(g));
-          out.push(h.fleche(`M ${Pt(Ls - 12, O1 + D).map(f).join(' ')} L ${Pt(JH + 8, O1 + D).map(f).join(' ')} L ${Pt(JH, O2 + D).map(f).join(' ')} L ${Pt(JB + 2, O2 + D).map(f).join(' ')} L ${Pt(JB - 8, O1 + D).map(f).join(' ')} L ${Pt(14, O1 + D).map(f).join(' ')}`, h.a.cache));
+          out.push(h.fleche(`M ${Pt(Ls - 18, O1 + D).map(f).join(' ')} L ${Pt(JH + 8, O1 + D).map(f).join(' ')} L ${Pt(JH, O2 + D).map(f).join(' ')} L ${Pt(JB + 2, O2 + D).map(f).join(' ')} L ${Pt(JB - 8, O1 + D).map(f).join(' ')} L ${Pt(14, O1 + D).map(f).join(' ')}`, h.a.cache));
           return out.join('\n');
         },
         renvois: z => {
-          const { Pt, JB, JH, W } = joint(z), c = 0.5 * (JB + JH);
+          const { Pt, JB, JH, W } = joint(z), c = 0.5 * (JB + JH) + 6;
           return [
-            { n: 12, rond: Pt(c - 22, -44).map(Math.round), cible: Pt(c + 7, -W - 3.5), texte: 'cordon noué en dedans, autour de la perche' },
+            { n: 12, rond: Pt(c - 30, -W - 40).map(Math.round), cible: Pt(c, -W - 3.5), texte: 'cordon noué en dedans, autour de la perche' },
           ];
         },
       },
       rate: {
         titre: 'Dans l’autre ordre',
         dessin: z => {
-          const g = joint(z), { Pt, Ls, JB, JH, W, O1, O2, D } = g, out = [];
+          const g = joint(z), { Pt, Ls, JB, JH, W, O1, O2, D, T } = g, out = [];
           out.push(perchePleine(g));
           // La bâche du haut contre la perche ; celle du bas par-dessus : son bord fait une lèvre.
-          out.push(h.chemin([Pt(Ls, O1), Pt(JB, O1)], h.a.contour));
-          out.push(h.chemin([Pt(0, O1), Pt(JB - 7, O1), Pt(JB, O2), Pt(JH, O2)], h.a.contour));
+          out.push(bache(g, [[0, O1], [JB - 10, O1], [JB, O2], [JH, O2]], false));
+          out.push(bache(g, [[Ls, O1], [JB, O1]], true));
+          out.push(bris(g));
           // L'eau entre dans le joint, descend entre les deux bâches et tombe dans la tente.
           out.push(pluie(g));
-          out.push(h.fleche(`M ${Pt(Ls - 12, O1 + D).map(f).join(' ')} L ${Pt(JH + 8, O1 + D).map(f).join(' ')} L ${Pt(JH - 2, (O1 + O2) / 2).map(f).join(' ')} L ${Pt(JB + 4, (O1 + O2) / 2).map(f).join(' ')}`, h.a.cache));
+          out.push(h.fleche(`M ${Pt(Ls - 18, O1 + D).map(f).join(' ')} L ${Pt(JH + 8, O1 + D).map(f).join(' ')} L ${Pt(JH - 2, O1 + T + 1.8).map(f).join(' ')} L ${Pt(JB + 4, O1 + T + 1.8).map(f).join(' ')}`, h.a.cache));
           const [gx, gy] = Pt(JB - 4, -W - 1);
           for (const dy of [12, 25, 38]) out.push(goutte(gx, gy + dy));
           return out.join('\n');

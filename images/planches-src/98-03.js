@@ -200,14 +200,21 @@ ${contenu}
     });
     return { sous: sous.join('\n'), dessus: dessus.join('\n') };
   };
-  // La terre de l'entre-rang qui monte sur le rang, des deux côtés.
+  // Une flèche de mouvement en trait fin, pointe ouverte : elle ne double pas la surface du sol.
+  const flecheFine = (a, q, b) => {
+    const pts = bez(a, q, b, 16), [x1, y1] = pts[pts.length - 1], [x0, y0] = pts[pts.length - 3];
+    const L = Math.hypot(x1 - x0, y1 - y0) || 1, ux = (x1 - x0) / L, uy = (y1 - y0) / L, e = 6.5, w = 3.6;
+    const g = [x1 - ux * e - uy * w, y1 - uy * e + ux * w], d = [x1 - ux * e + uy * w, y1 - uy * e - ux * w];
+    return ouvert(pts, HALO.replace('3.4', '2.6')) + ouvert(pts, h.a.fin) + ouvert([g, [x1, y1], d], h.a.fin);
+  };
+  // La terre de l'entre-rang qui monte sur le rang, des deux côtés, bien au-dessus du sol.
+  const ptsFleche = (p, c) => [[c * (p.tx + 35), p.fd - 60], [c * p.tx * 0.6, p.cy - 95], [c * (p.hw + 40), surf(p, p.hw + 40) - 55]];
   const fleches = (V, p) => [-1, 1].map((c) => {
-    const a = [X(V, c * (p.tx + 35)), Y(V, p.fd - 22)], q = [X(V, c * p.tx * 0.62), Y(V, p.cy - 30)];
-    const b = [X(V, c * (p.hw + 45)), Y(V, surf(p, p.hw + 45) - 16)];
-    return h.fleche(`M ${f(a[0])} ${f(a[1])} Q ${f(q[0])} ${f(q[1])} ${f(b[0])} ${f(b[1])}`);
+    const [a, q, b] = ptsFleche(p, c).map(([x, y]) => [X(V, x), Y(V, y)]);
+    return flecheFine(a, q, b);
   }).join('\n');
   const milieuFleche = (V, p, c) => {
-    const a = [c * (p.tx + 35), p.fd - 22], q = [c * p.tx * 0.62, p.cy - 30], b = [c * (p.hw + 45), surf(p, p.hw + 45) - 16];
+    const [a, q, b] = ptsFleche(p, c);
     return [X(V, 0.25 * a[0] + 0.5 * q[0] + 0.25 * b[0]), Y(V, 0.25 * a[1] + 0.5 * q[1] + 0.25 * b[1])];
   };
 
@@ -238,7 +245,7 @@ ${contenu}
   // Le raté : une butte restée basse, un tubercule qui sort au flanc.
   const rateV = (z) => ({ k: 0.33, cx: 30, y0: z.h - 50 });
   const RT = { x: 150, y: -8, rx: 36, ry: 24, rot: 37 };
-  const RF = { a: [300, 15], q: [255, -80], b: [182, -48] };
+  const RF = { a: [310, -30], q: [262, -150], b: [190, -105] };
 
   return {
     ref: '98-03',
@@ -262,7 +269,7 @@ ${contenu}
           const V = etape(z);
           return [
             { n: 1, rond: [24, Y(V, 150)], cible: [X(V, -24), Y(V, 138)], texte: 'morceau de 40 à 60 g, deux yeux' },
-            { n: 2, rond: [24, V.y0 - 40], cible: [X(V, -60), Y(V, 45)], texte: 'sol froid et mouillé : 5 à 10 cm' },
+            { n: 2, rond: [24, V.y0 - 40], cible: [X(V, -60), Y(V, 45)], texte: 'sol froid et mouillé : 50 à 100' },
           ];
         },
       },
@@ -315,12 +322,13 @@ ${contenu}
           const yA = 32, pas = 280 * k, xCote = 176;
           const rangs = [-1, 0].map((j) => X(V, j * S));
           rangs.forEach((x) => {
-            // La crête, les pieds de talus, et les hachures de talus, longues et courtes, qui
-            // partent du haut du talus.
+            // Bord de crête et pied de talus au même x que dans la coupe (même échelle, même axe) :
+            // la crête s'arrête où la pente se voit, le pied où la pente finit. Hachures du bord
+            // de crête jusqu'au pied, longues et courtes en alternance.
             [-1, 1].forEach((c) => {
-              const xc = x + c * p.hw * k, xt = x + c * p.tx * k;
+              const xc = x + c * (p.hw + 0.12 * (p.tx - p.hw)) * k, xt = x + c * p.tx * k;
               out.push(ouvert([[xc, 0], [xc, z.h]], h.a.detail), ouvert([[xt, 0], [xt, z.h]], h.a.fin));
-              for (let y = 2, i = 0; y < z.h; y += 5, i++) out.push(ouvert([[xc, y], [xc + (xt - xc) * (i % 2 ? 0.16 : 0.36), y]], h.a.fin));
+              for (let y = 2, i = 0; y < z.h; y += 5, i++) out.push(ouvert([[xc, y], [xc + (xt - xc) * (i % 2 ? 0.55 : 1), y]], h.a.fin));
             });
           });
           out.push(ouvert([[xCote - 5, yA + pas], [rangs[1], yA + pas]], h.a.fin));
@@ -361,7 +369,7 @@ ${contenu}
           out.push(pl.dessus);
           // Rebutter : la terre de l'entre-rang par-dessus.
           const [a, q, b] = [RF.a, RF.q, RF.b].map(([x, y]) => [X(V, x), Y(V, y)]);
-          out.push(h.fleche(`M ${f(a[0])} ${f(a[1])} Q ${f(q[0])} ${f(q[1])} ${f(b[0])} ${f(b[1])}`));
+          out.push(flecheFine(a, q, b));
           return cadre('rate', z, out.join('\n'));
         },
         renvois: (z) => {

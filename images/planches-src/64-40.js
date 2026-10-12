@@ -58,7 +58,7 @@ module.exports = (h) => {
 
   // Le couteau, vu de côté : la pointe en `pointe`, `dir` va de la pointe vers le manche.
   // e = +1 : le tranchant du côté gauche du sens (y vers le bas), -1 : à droite.
-  const couteau = ({ pointe, dir, lame, larg, manche, epM, e = 1 }) => {
+  const couteau = ({ pointe, dir, lame, larg, manche, epM, e = 1, dos = 0 }) => {
     const n = [-dir[1] * e, dir[0] * e];
     const P = (u, v) => [pointe[0] + dir[0] * u + n[0] * v, pointe[1] + dir[1] * u + n[1] * v];
     const L = lame, w = larg;
@@ -69,8 +69,10 @@ module.exports = (h) => {
     const mancheD = `M ${pt(P(b1, -r * 0.9))} L ${pt(P(m1 - r, -r))} Q ${pt(P(m1, -r))} ${pt(P(m1, 0))} Q ${pt(P(m1, r))} ${pt(P(m1 - r, r))}`
       + ` L ${pt(P(b1, r * 0.9))} Z`;
     const rivets = [0.3, 0.72].map(t => { const c = P(b1 + manche * t, 0); return h.cercle(c[0], c[1], Math.max(0.9, epM * 0.11), h.a.fin); });
-    const fil = h.path(`M ${pt(P(0.34 * L, 0.22 * w))} L ${pt(P(L, 0.22 * w))}`, h.a.fin);
-    return [h.path(mancheD, blanc('arete')), ...rivets, h.path(garde, blanc('arete')), h.path(lameD, blanc('arete')), fil].join('\n');
+    const fv = dos ? -dos * 0.2 * w : 0.22 * w;
+    const fil = h.path(`M ${pt(P(0.3 * L, fv))} L ${pt(P(L, fv))}`, h.a.fin);
+    const dosL = dos ? h.path(`M ${pt(P(0.2 * L, dos * 0.5 * w))} L ${pt(P(L, dos * 0.5 * w))}`, h.a.contour) : '';
+    return [h.path(mancheD, blanc('arete')), ...rivets, h.path(garde, blanc('arete')), h.path(lameD, blanc('arete')), fil, dosL].join('\n');
   };
 
   // ════════════════════════════════════════════════════════════════════════════════════
@@ -87,7 +89,7 @@ module.exports = (h) => {
   const BOSSE = [[38, 100], [34, 72], [26, 47], [14, 32], [0, 28]];
   const POITRAIL = [[95, 368], [89, 386], [70, 406], [38, 421], [0, 426]];
   const PIV = [38, 100];
-  const ECART = -12;          // la patte écartée : le quartier pivote sous la bosse
+  const ECART = -22;          // la patte écartée : le quartier pivote sous la bosse
   const TC = 0.46;            // où en est la coupe le long de l'omoplate
 
   const ribO = dense(RIB_O), ribI = dense(RIB_I), scapI = dense(SCAP);
@@ -133,7 +135,7 @@ module.exports = (h) => {
     const bande = [...ribO, ...riboL.slice(0, -1).reverse(), ...ribiL, ...ribI.slice(0, -1).reverse()];
     out.push(h.path(trace(bande.map(V), true), h.a.hachure('bois')));
     // la vertèbre et son épine, qui fait la bosse
-    const vert = [[-4.5, 142], [-3.4, 60], [0, 53], [3.4, 60], [4.5, 142], [10, 145], [15, 148], [20, 151], [20.5, 157], [16, 160], [14.5, 163],
+    const vert = [[-4.5, 142], [-4.6, 66], [-4, 59.5], [-2.5, 55.5], [0, 54.2], [2.5, 55.5], [4, 59.5], [4.6, 66], [4.5, 142], [10, 145], [15, 148], [20, 151], [20.5, 157], [16, 160], [14.5, 163],
       [16, 172], [12, 181], [5, 186], [-5, 186], [-12, 181], [-16, 172], [-14.5, 163], [-16, 160], [-20.5, 157], [-20, 151], [-15, 148], [-10, 145]];
     out.push(h.path(trace(vert.map(V), true), h.a.hachure('bois')));
     const cv = V([0, 154]);
@@ -177,7 +179,8 @@ module.exports = (h) => {
     const nOut = [fr.t[1], -fr.t[0]];
     const tip = [fr.p[0] + nOut[0] * 4.5, fr.p[1] + nOut[1] * 4.5];
     const dir = unit(tip, surLigne(ribO, sr0 + TC * (sr1 - sr0) + 40).p.map((v, i) => v + nOut[i] * 9));
-    out.push(couteau({ pointe: Dt(tip), dir, lame: 48 * s, larg: 8.5 * s, manche: 42 * s, epM: 10 * s, e: -1 }));
+    const nK = [dir[1], -dir[0]], dos = (nK[0] * nOut[0] + nK[1] * nOut[1]) > 0 ? -1 : 1;   // le dos côté côtes
+    out.push(couteau({ pointe: Dt(tip), dir, lame: 48 * s, larg: 8.5 * s, manche: 42 * s, epM: 10 * s, e: -1, dos }));
 
     // le chemin de la lame : on monte le long des côtes jusqu'au-dessus de la pointe de l'omoplate
     const chemin = [];
@@ -205,7 +208,7 @@ module.exports = (h) => {
       { n: 1, rond: V([-212, 205]), cible: G(midScap), texte: 'l’omoplate : aucun os ne la retient' },
       { n: 2, rond: V([-42, 222]), cible: G(mf), texte: 'l’écharpe de muscles, seule attache' },
       { n: 3, rond: V([-42, 296]), cible: G([97, 296]), texte: 'le gril costal' },
-      { n: 4, rond: V([226, 330]), cible: Dq([138, 400]), texte: 'la patte écartée ouvre l’aisselle' },
+      { n: 4, rond: V([262, 300]), cible: Dq([138, 400]), texte: 'la patte écartée ouvre l’aisselle' },
       { n: 5, rond: V([45, 262]), cible: lameMil, texte: 'lame à plat, tranchant vers l’omoplate' },
       { n: 6, rond: V([96, 62]), cible: Dt([36, 108]), texte: 'fin de coupe, sous la bosse du garrot' },
     ];
@@ -285,7 +288,7 @@ module.exports = (h) => {
     const brasTour = [...brasArr.map(M), ...ent.slice(1).map(M), M([-20, -30]), ...brasAv.slice().reverse().map(M), ...haut.slice(1, -1)];
     out.push(h.path(trace(brasTour, true), fond));
     out.push(h.path(trace(brasAv.map(M)), h.a.contour), h.path(trace(brasArr.map(M)), h.a.contour));
-    out.push(h.path(trace(ent.map(M)), h.a.arete), h.path(trace(haut), h.a.detail));
+    out.push(h.path(trace(haut), h.a.detail));
     // le jarret, plié autour du devant du joint
     const jAv = dense(jarretAv), jArr = dense(jarretArr);
     const P = p => M(plie(p));

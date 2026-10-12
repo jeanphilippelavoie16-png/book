@@ -54,9 +54,11 @@ module.exports = (h) => {
   // mouille pas ; il coule vers le bas de mur, et la bouche du boyau (287, au sol) est bien plus basse
   // que le fond du baril. Baril ouvert : l'air entre à mesure que l'eau sort.
   const G = 292;
+  // La vue est agrandie de K autour du point (300, 300) pour remplir la bande sous le titre.
+  const K = 1.12, T = ([x, y]) => [n1(300 + (x - 300) * K), n1(300 + (y - 300) * K)];
   const chalet = z => {
     const o = [];
-    o.push(h.rect(0, G, z.l, 8, h.a.hachure('terre', 'aucun')), h.ligne(0, G, z.l, G, h.a.arete));
+    const sol = h.rect(0, 300 - 8 * K, z.l, 8 * K, h.a.hachure('terre', 'aucun')) + '\n' + h.ligne(0, 300 - 8 * K, z.l, 300 - 8 * K, h.a.arete);
     // toit
     o.push(h.rect(40, 78, 400, 44, h.a.blanc), h.ligne(40, 84, 440, 84, h.a.detail));
     for (let y = 91; y < 121; y += 7) o.push(h.ligne(40, y, 440, y, h.a.fin));
@@ -115,7 +117,7 @@ module.exports = (h) => {
     o.push(...boyau('M515,195 L496,195 Q489,195 489,202 L489,280 Q489,287 482,287 L410,287'));
     [[404, 284.5], [399, 288], [394, 285.5]].forEach(([x, y]) => o.push(goutte(x, y)));
     o.push(h.fleche('M478,277 L446,277', h.a.arete));
-    return o.join('\n');
+    return sol + `\n<g transform="translate(${n1(300 - 300 * K)},${n1(300 - 300 * K)}) scale(${K})">\n` + o.join('\n') + '\n</g>';
   };
 
   // ── Le bord du toit, en coupe ──────────────────────────────────────────────
@@ -192,11 +194,6 @@ module.exports = (h) => {
     o.push(h.chemin([[44, 144], [72, 144], [80, 147], [80, 150], [44, 150]], h.a.hachure('bois'), true));
     o.push(h.rect(53, 46, 12, 6, wf(h.a.arete)), h.rect(53, 138, 12, 6, wf(h.a.arete)));
     o.push(h.ligne(57, 52, 57, 138, h.a.arete), h.ligne(61, 52, 61, 138, h.a.arete));
-    // rideau
-    o.push(h.cercle(28, 34, 2, h.a.arete), h.ligne(30, 34, 40, 34, h.a.detail));
-    let d = 'M28,37';
-    for (let y = 43, k = 0; y <= 150; y += 6, k++) d += ` Q${k % 2 ? 24 : 32},${y - 3} 28,${y}`;
-    o.push(h.path(d, h.a.detail));
     // chambranles
     o.push(h.rect(76, 26, 8, 20, h.a.hachure('bois')), h.rect(76, 150, 8, 16, h.a.hachure('bois')));
     // tôle
@@ -224,19 +221,19 @@ module.exports = (h) => {
         titre: 'Le chalet, de face',
         dessin: chalet,
         renvois: z => [
-          { n: 1, rond: [458, 104], cible: [418, 133], texte: 'jute trempé sur la gouttière' },
-          { n: 2, rond: [22, 244], cible: [98, 267], texte: 'jute trempé sur la galerie' },
-          { n: 3, rond: [458, 164], cible: [399, 180], texte: 'tôle vissée sur la vitre' },
-          { n: 4, rond: [584, 166], cible: [530, 180], texte: 'baril plein, en hauteur' },
-          { n: 5, rond: [458, 216], cible: [491, 199], texte: 'boyau piqué au fond' },
-          { n: 6, rond: [458, 254], cible: [392, 284], texte: 'filet continu au pied du mur' },
+          { n: 1, rond: T([458, 104]), cible: T([418, 133]), texte: 'jute trempé sur la gouttière' },
+          { n: 2, rond: [20, 222], cible: T([98, 267]), texte: 'jute trempé sur la galerie' },
+          { n: 3, rond: T([458, 164]), cible: T([399, 180]), texte: 'tôle vissée sur la vitre' },
+          { n: 4, rond: [578, 112], cible: T([530, 180]), texte: 'baril plein, en hauteur' },
+          { n: 5, rond: T([458, 216]), cible: T([491, 199]), texte: 'boyau piqué au fond' },
+          { n: 6, rond: T([458, 254]), cible: T([392, 284]), texte: 'filet continu au pied du mur' },
         ],
       },
       bord: {
         titre: 'Le bord du toit, en coupe',
         dessin: bord,
         renvois: z => [
-          { n: 7, rond: [196, 104], cible: [198.5, 158], texte: 'jute dans la gouttière vidée' },
+          { n: 7, rond: [202, 124], cible: [172, 161.5], texte: 'jute dans la gouttière vidée' },
           { n: 8, rond: [142, 184], cible: [110, 159.3], texte: 'maille de métal sous l’évent' },
         ],
       },

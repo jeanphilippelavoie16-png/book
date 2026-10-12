@@ -59,15 +59,15 @@
 <path d="M46.2 134.3 L84.3 134.3 L84.3 117 L46.2 117 Z" fill="url(#h-isolant)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M146.7 134.3 L184.8 134.3 L184.8 117 L146.7 117 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M146.7 134.3 L184.8 134.3 L184.8 117 L146.7 117 Z" fill="url(#h-isolant)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M56.6 117 L77.4 117 L77.4 114.9 L56.6 114.9 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M153.6 117 L174.4 117 L174.4 114.9 L153.6 114.9 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M35.8 114.9 L195.2 114.9 L195.2 107.3 L35.8 107.3 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M35.8 114.9 L195.2 114.9 L195.2 107.3 L35.8 107.3 Z" fill="url(#h-grillage)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
-<path d="M19.2 134.3 L24.4 134.3 L33.7 107.3 L197.3 107.3 L206.6 134.3 L211.8 134.3 L211.8 131.9 L208.7 131.9 L199 104.9 L32 104.9 L22.3 131.9 L19.2 131.9 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M54.9 70.2 L54.9 100.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M75.6 70.2 L75.6 100.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M155.4 70.2 L155.4 100.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M176.1 70.2 L176.1 100.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M56.6 117 L77.4 117 L77.4 113.2 L56.6 113.2 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M153.6 117 L174.4 117 L174.4 113.2 L153.6 113.2 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M35.8 113.2 L195.2 113.2 L195.2 105.6 L35.8 105.6 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M35.8 113.2 L195.2 113.2 L195.2 105.6 L35.8 105.6 Z" fill="url(#h-grillage)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M19.2 134.3 L24.4 134.3 L33.7 105.6 L197.3 105.6 L206.6 134.3 L211.8 134.3 L211.8 131.9 L208.7 131.9 L199 103.1 L32 103.1 L22.3 131.9 L19.2 131.9 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M54.9 68.5 L54.9 99" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M75.6 68.5 L75.6 99" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M155.4 68.5 L155.4 99" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M176.1 68.5 L176.1 99" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <text x="40" y="316.9" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Grosse : percer au bord</text>
 <g transform="translate(40 324.9)" data-vue="percer">
@@ -141,21 +141,21 @@
 <circle cx="266.6" cy="125.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="275.5" cy="236.4" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="talon"/>
 <text x="275.5" y="240.4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
-<line x1="335.7" y1="220.8" x2="302.9" y2="167.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="335.7" y1="220.8" x2="302.9" y2="167.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="302.9" cy="167.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="340.4" cy="228.4" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="talon"/>
-<text x="340.4" y="232.4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
-<line x1="538.2" y1="121.7" x2="538.2" y2="154" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="538.2" y1="121.7" x2="538.2" y2="154" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="538.2" cy="154" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="538.2" cy="112.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
-<text x="538.2" y="116.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
-<line x1="445.2" y1="117.7" x2="463.7" y2="130.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="445.2" y1="117.7" x2="463.7" y2="130.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="463.7" cy="130.1" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="437.7" cy="112.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
-<text x="437.7" y="116.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<line x1="572.8" y1="120" x2="572.8" y2="161.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="572.8" y1="120" x2="572.8" y2="161.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="572.8" cy="161.1" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="572.8" cy="111" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="572.8" y="115" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="616.8" y1="133.8" x2="613" y2="164.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="616.8" y1="133.8" x2="613" y2="164.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="613" cy="164.9" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="617.9" cy="124.9" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="617.9" y="128.9" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<line x1="445.2" y1="116" x2="463.7" y2="128.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="445.2" y1="116" x2="463.7" y2="128.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="463.7" cy="128.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="437.7" cy="111" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="437.7" y="115" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
 <line x1="175.5" y1="353.1" x2="207" y2="349.8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="175.5" y1="353.1" x2="207" y2="349.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <circle cx="207" cy="349.8" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
@@ -181,11 +181,11 @@
 <circle cx="512.3" cy="542.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="613.5" cy="562.3" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="peau"/>
 <text x="613.5" y="566.3" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">11</text>
-<line x1="388.3" y1="518" x2="456.3" y2="531.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="388.3" y1="518" x2="456.3" y2="531.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="456.3" cy="531.3" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="379.5" cy="516.3" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="peau"/>
-<text x="379.5" y="520.3" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
+<line x1="607.4" y1="514.1" x2="573.3" y2="530.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="607.4" y1="514.1" x2="573.3" y2="530.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="573.3" cy="530.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="615.5" cy="510.3" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="peau"/>
+<text x="615.5" y="514.3" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">12</text>
 <rect x="40" y="610" width="600" height="59" fill="none" stroke="#9B2C1E" stroke-width="2"/>
 <text x="54" y="633.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — une ampoule chaude, pleine de pus vert ou jaune, rouge autour, est infectée : elle se soigne</text>
 <text x="54" y="651.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">comme une plaie infectée, au chapitre 26.</text>
@@ -213,5 +213,5 @@
 <text x="368" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">11</text>
 <text x="374" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">peau du dessus laissée sur la chair vive</text>
 <text x="368" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">12</text>
-<text x="374" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">eau et savon, vaseline, pansement</text>
+<text x="374" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">vaseline et pansement, sur la peau lavée</text>
 </svg>

@@ -34,6 +34,18 @@ function corde(h, P, a, b, e = 2.1) {
   return o.join('\n');
 }
 
+// un bout de broche tordu : deux brins fins qui s'enroulent l'un sur l'autre, n tours
+function torsade(h, P, a, b, amp = 1.3, n = 3.5) {
+  // chaque demi-tour, un brin passe en biais par-dessus l'autre : 2n traits obliques jointifs
+  const [x1, y1] = a, [x2, y2] = b, L = Math.hypot(x2 - x1, y2 - y1);
+  const ux = (x2 - x1) / L, uy = (y2 - y1) / L, nx = -uy, ny = ux, k = Math.round(2 * n), d = L / k, o = [];
+  for (let i = 0; i < k; i++) {
+    const t0 = i * d, t1 = t0 + d * 1.25;
+    o.push(`M${pt(P, x1 + ux * t0 + nx * amp, y1 + uy * t0 + ny * amp)} Q${pt(P, x1 + ux * (t0 + d * 0.9) + nx * amp, y1 + uy * (t0 + d * 0.9) + ny * amp)} ${pt(P, x1 + ux * t1 - nx * amp, y1 + uy * t1 - ny * amp)}`);
+  }
+  return h.path(o.join(' '), h.a.detail);
+}
+
 // un maillon de chaîne vu à plat ou de chant, orienté selon l'angle a
 function maillon(h, P, cx, cy, a, rx, ry) {
   const pts = [];
@@ -69,7 +81,7 @@ module.exports = (h) => {
       const y = 99.5 + k * 4;
       o.push(h.path(trace(P, [['M', cx - 11.5, y], ['L', cx + 11.5, y + 2.6]]), h.a.arete));
     }
-    o.push(h.path(trace(P, [['M', cx + 11.5, 108], ['L', cx + 15, 105.5], ['L', cx + 17.5, 109.5], ['L', cx + 20.5, 106.5], ['L', cx + 23, 110]]), h.a.detail));
+    o.push(torsade(h, P, [cx + 11.5, 107.5], [cx + 26, 109], 1.6));
     return o.join('\n');
   };
   const C1 = 55, C2 = 168, C3 = 278, R = 50, RC = 44;
@@ -166,7 +178,7 @@ module.exports = (h) => {
           const FX = 58;
           o.push(h.ligne(...P(FX - 36, 36), ...P(FX - 36, 222), h.a.cache));
           o.push(h.ligne(...P(FX + 36, 36), ...P(FX + 36, 222), h.a.cache));
-          o.push(corde(h, P, [FX, 0], [FX, 64]), corde(h, P, [FX, 196], [FX, 260]));
+          o.push(corde(h, P, [FX, 0], [FX, 260]));
           const lit = yb => {
             const l = [h.chemin([P(FX - 4, yb - 3), P(FX - 33, yb + 44), P(FX, yb + 58), P(FX + 33, yb + 44), P(FX + 4, yb - 3)], h.a.blanc, true)];
             for (let i = 0; i < 7; i++) {
@@ -181,11 +193,22 @@ module.exports = (h) => {
               }
               l.push(h.path(cmds[0], h.a.arete), h.path(cmds.slice(1).join(' '), h.a.fin));
             }
-            for (let k = 0; k < 3; k++)
-              l.push(h.path(trace(P, [['M', FX - 7, yb + k * 3], ['L', FX + 7, yb + 1.8 + k * 3]]), h.a.arete));
             return l.join('\n');
           };
-          o.push(lit(140), lit(102), lit(64));
+          // la ligature : les talons serrés contre la corde, quatre tours de ficelle en biais, un nœud
+          const ligature = yb => {
+            const l = [h.rect(...P(FX - 6, yb - 10), 12 * P.s, 21 * P.s, h.a.blanc)];
+            for (const dx of [-5, -3.2, -1.4, 1.4, 3.2, 5]) l.push(h.ligne(...P(FX + dx * 0.9, yb - 10), ...P(FX + dx, yb + 11), h.a.detail));
+            l.push(h.ligne(...P(FX - 6.2, yb - 10), ...P(FX + 6.2, yb - 10), h.a.fin));
+            for (let k = 0; k < 4; k++) {
+              const y = yb - 4 + k * 3.4;
+              l.push(h.path(trace(P, [['M', FX - 6.4, y], ['L', FX + 6.4, y + 1.6]]), h.a.arete));
+            }
+            l.push(h.cercle(...P(FX + 7.6, yb + 4.6), 1.6 * P.s, h.a.plein));
+            l.push(h.path(trace(P, [['M', FX + 8.6, yb + 4.6], ['L', FX + 13, yb + 3], ['M', FX + 8.4, yb + 5.6], ['L', FX + 12, yb + 10]]), h.a.detail));
+            return l.join('\n');
+          };
+          o.push(lit(168), lit(106), lit(44), ligature(168), ligature(106), ligature(44));
           // la chaîne dans une poche de jute
           const SX = 165;
           o.push(corde(h, P, [SX, 0], [SX, 62]));
@@ -214,10 +237,10 @@ module.exports = (h) => {
           return o.join('\n');
         },
         renvois: z => {
-          const P = rep(z, 220, 260);
+          const P = rep(z, 220, 260), FX = 58;
           return [
-            { n: 7, rond: P(112, 118), cible: P(84, 136), texte: 'branches de sapin baumier' },
-            { n: 8, rond: P(20, 44), cible: P(52, 65), texte: 'ligaturées sur la corde' },
+            { n: 7, rond: P(112, 122), cible: P(85, 145), texte: 'branches de sapin baumier' },
+            { n: 8, rond: P(18, 26), cible: P(FX - 5, 42.5), texte: 'ligaturées sur la corde' },
             { n: 9, rond: P(214, 132), cible: P(183, 168), texte: 'chaîne dans un sac de jute' },
             { n: 10, rond: P(206, 40), cible: P(172, 68), texte: 'goulot ficelé sur la corde' },
           ];
@@ -248,7 +271,7 @@ module.exports = (h) => {
               for (const x0 of [135, 199]) {
                 for (let k = 0; k < 4; k++)
                   o.push(h.path(trace(P, [['M', x0 + k * 3.6, yc - 18.5], ['L', x0 + 3 + k * 3.6, yc + 18.5]]), h.a.arete));
-                o.push(h.path(trace(P, [['M', x0 + 6, yc - 18.5], ['L', x0 + 4, yc - 22], ['L', x0 + 8, yc - 25], ['L', x0 + 5, yc - 28], ['L', x0 + 8.5, yc - 31]]), h.a.detail));
+                o.push(torsade(h, P, [x0 + 6, yc - 18.5], [x0 + 7, yc - 33], 1.6));
               }
             }
           }

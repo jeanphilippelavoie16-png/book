@@ -128,7 +128,6 @@ module.exports = (h) => {
           const X = x => 22 + (x - 55) * 0.76;
           const o = [];
           o.push(h.path('M26 18 L82 18 Q87 18 87 24 L87 56 Q87 62 82 62 L26 62 Q21 62 21 56 L21 24 Q21 18 26 18 Z', A.arete));
-          [[27, 26], [31, 36], [26, 47], [33, 54], [36, 28]].forEach(([x, y]) => o.push(h.cercle(x, y, 2, A.detail)));
           o.push(h.chemin([[41, 12], [70, 10.5], [91, 13], [92.5, 40], [91, 67], [62, 69.5], [42, 68], [40, 40]], bA, true));
           o.push(h.chemin([[30, 22], [63, 16], [68, 55], [34, 61]], bA, true));
           const x0 = X(152), pas = 43 * 0.76, l = 36 * 0.76;
@@ -158,7 +157,8 @@ module.exports = (h) => {
           h.chemin([[48, 30], [48, 64], [52, 70], [108, 70], [112, 64], [112, 30]], A.arete),
           h.ligne(4, 30, 19, 30, A.contour), h.ligne(141, 30, 156, 30, A.contour),
           h.chemin([[19, 30.3], [141, 30.3], [142.5, 24], [139, 18.5], [92, 17.4], [42, 18.2], [21, 19.6], [18, 25]], A.hachure('pierre'), true),
-          h.cote(48, 52, 112, 52, 'une pelle'),
+          h.ligne(48, 71, 48, 89, A.fin), h.ligne(112, 71, 112, 89, A.fin),
+          h.cote(48, 86, 112, 86, 'une pelle', { cote: 'dessous' }),
         ].join('\n'),
         renvois: z => [],
       },
@@ -208,8 +208,12 @@ module.exports = (h) => {
           o.push(paroi(50, 52, 184, 153, -5), paroi(240, 52, 184, 153, 5));
           o.push(h.ligne(50, 52, 240, 52, A.arete), h.cercle(50, 52, 3.2, A.plein), h.cercle(240, 52, 3.2, A.plein));
           // crochets taillés dans des fourches, sur les bâtons 2 et 3
-          const crochet = sx => branche([[sx - 14, 50], [sx - 11, 38], [sx, 31], [sx + 11, 38], [sx + 12, 55], [sx + 10, 93]], 5);
-          o.push(crochet(140), crochet(192));
+          const crochet = sx => [
+            branche([[sx + 1, 24], [sx + 4, 30], [sx + 11, 46], [sx + 12, 62], [sx + 11, 93]], 5),
+            branche([[sx + 3, 30], [sx - 5, 33], [sx - 11, 40]], 4.2),
+            h.ellipse(sx - 11, 40, 1.8, 2.4, A.fin),
+            h.ligne(sx + 9.5, 66, sx + 14, 67.5, A.detail), h.ligne(sx + 9.5, 78, sx + 13.5, 79, A.detail),
+          ].join('\n');
           o.push(viande(151, 88, 30, 80), viande(203, 86, 28, 72));
           // thermomètre pendu au premier bâton
           o.push(h.path('M88 98 L88 56 Q77 54 78.5 43 Q80.5 34 88 34.2', A.detail));
@@ -221,8 +225,9 @@ module.exports = (h) => {
           o.push(h.ligne(88, 110, 95, 106, A.detail), h.cercle(88, 110, 1.4, A.plein));
           // bâtons de feuillu écorcés, vus en bout
           [88, 140, 192].forEach(x => o.push(h.cercle(x, 44, 8, bA), h.cercle(x, 44, 4.5, A.fin), h.cercle(x, 44, 1, A.plein)));
+          o.push(crochet(140), crochet(192));
           // tôle posée sur les crochets, décalée
-          o.push(h.rect(110, 25.5, 160, 3, bA));
+          o.push(h.rect(110, 16, 160, 3, bA));
           // fumée
           o.push(h.fleche('M62 180 L62 6', A.cache));
           return o.join('\n');
@@ -231,7 +236,7 @@ module.exports = (h) => {
           { n: 10, rond: [96, 12], cible: [95.6, 39.6], texte: 'bâtons de feuillu écorcés' },
           { n: 11, rond: [116, 68], cible: [148.9, 68], texte: 'crochet : fourche de bouleau' },
           { n: 12, rond: [104, 150], cible: [96.5, 118.5], texte: 'thermomètre avec la viande' },
-          { n: 13, rond: [265, 58], cible: [258, 28.8], texte: 'tôle de travers : la sortie' },
+          { n: 13, rond: [265, 58], cible: [258, 19.3], texte: 'tôle de travers : la sortie' },
         ],
       },
     },

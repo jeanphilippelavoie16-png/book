@@ -93,6 +93,9 @@ module.exports = (h) => {
       h.rect(xPo, 14, 12, yF - 14, h.a.hachure('bois')),
       h.chemin(bande([[D[0] - 6, D[1] + rm + 11], [xPo, D[1] + rm + 52]], 3), h.a.hachure('bois'), true),
       h.rect(D[0] - 32, D[1] + rm + 4, xPo - (D[0] - 32), 7, h.a.hachure('bois')),
+      // les deux pieds en A qui portent l'axe, posés de part et d'autre de la fosse
+      h.chemin(bande([[c[0], c[1]], [fosse[0] - 12, yF]], 4), h.a.hachure('bois'), true),
+      h.chemin(bande([[c[0], c[1]], [fosse[1] + 12, yF]], 4), h.a.hachure('bois'), true),
       // le disque, les manches boulonnés, les cuillers
       h.cercle(c[0], c[1], Rd, blanc(h.a.contour)),
       ...angles.map(a => manche(c, Rp, rc, a, 14, 4.2, 3.6, p => h.cercle(p[0], p[1], 1.1, h.a.plein)).svg),
@@ -116,6 +119,7 @@ module.exports = (h) => {
       h.rect(D[0] - 24, D[1] + rm + 1, 48, 3, blanc(h.a.arete)),
       h.cercle(c[0], c[1], r1, blanc(h.a.arete)),
       h.cercle(c[0], c[1], r1 - 3.5, h.a.detail),
+      h.rect(c[0] - 14, c[1] - 7, 28, 14, h.a.hachure('bois')),
       h.cercle(c[0], c[1], 8, blanc(h.a.arete)),
       h.cercle(c[0], c[1], 3.5, h.a.plein),
       h.cercle(D[0], D[1], r2, blanc(h.a.arete)),
@@ -201,6 +205,8 @@ module.exports = (h) => {
       h.chemin(P([[0, ys - 10], [112, ys - 10], [112, ys + 6], [0, ys + 6]]), h.a.arete),
       h.ligne(0, Y(ys - 1), 112, Y(ys - 1), h.a.detail),
       h.ligne(112, Y(ys), 128, Y(ys), h.a.detail),
+      // la lame d'eau qui passe par-dessus la crête et descend le parement aval
+      h.chemin(P([[112, 53.5], [149, 53.5], [181, 85.5], [178, 86], [148, 57], [112, 57]]), h.a.hachure('eau', 'detail'), true),
       // la neige sur le terrain, le terrain, la ligne de gel
       h.chemin(P(terrain.concat(sous(terrain, -9).reverse())), h.a.hachure('neige', 'aucun'), true),
       h.chemin(P(sous(terrain, -9)), h.a.fin),
@@ -236,6 +242,8 @@ module.exports = (h) => {
       h.chemin([[452, yjw - 3.5], [460, yjw - 1.2], [460, yjw + 1.2], [452, yjw + 3.5]], blanc(h.a.arete), true),
       h.ligne(460, yjw, cw[0] + 2.5, yjw, h.a.arete),
       // la roue, la dynamo sur sa tablette, la courroie
+      h.chemin(bande([cw, [fosse[0] - 6, Y(156)]], 1.8), h.a.hachure('bois'), true),
+      h.chemin(bande([cw, [fosse[1] + 6, Y(156)]], 1.8), h.a.hachure('bois'), true),
       h.cercle(cw[0], cw[1], Rpw - rcw - 0.6, blanc(h.a.arete)),
       ...Array.from({ length: 12 }, (_, k) => cuiller(cw, Rpw, rcw, 90 + k * 30, h.a.detail)),
       h.rect(500, Dw[1] + 6.5, 18, 3, blanc(h.a.detail)),
@@ -244,7 +252,7 @@ module.exports = (h) => {
       ...brins(cw, 7, Dw, 2.5, 0).map(b => h.ligne(b[0][0], b[0][1], b[1][0], b[1][1], h.a.detail)),
       // l'eau : elle entre, passe le barrage, tombe de la roue, retourne au ruisseau
       h.fleche(`M4 ${Y(84)} L30 ${Y(86)}`),
-      h.fleche(`M98 ${Y(70)} Q114 ${Y(58)} 128 ${Y(53)} L148 ${Y(52)} L172 ${Y(74)}`),
+      h.fleche(`M98 ${Y(66)} Q110 ${Y(50)} 126 ${Y(47)} L151 ${Y(47)} L184 ${Y(80)}`),
       h.fleche(`M${cw[0] - 2} ${yjw + 4} Q${cw[0] - 8} ${yjw + 20} ${cw[0] - 6} ${Y(181)}`),
       h.fleche(`M558 ${Y(200)} L584 ${Y(201)}`),
     ];
@@ -253,7 +261,7 @@ module.exports = (h) => {
       renvois: [
         { n: 7, rond: [22, 20], cible: [40, Y(96)], texte: 'Trou d’eau qui ne gèle pas jusqu’au fond' },
         { n: 8, rond: [76, 20], cible: [72, Y(96)], texte: 'Prise sous la glace, derrière une grille' },
-        { n: 9, rond: [150, 20], cible: [140, Y(52)], texte: 'Le reste passe : jamais tout le ruisseau' },
+        { n: 9, rond: [150, 20], cible: [164, Y(70)], texte: 'Le reste passe : jamais tout le ruisseau' },
         { n: 10, rond: [300, 56], cible: [300, Y(152)], texte: 'Conduite enfouie sous la ligne de gel (tireté)' },
         { n: 11, rond: [478, 22], cible: [cw[0], cw[1] - 12], texte: 'Roue et dynamo dans un petit abri' },
       ],

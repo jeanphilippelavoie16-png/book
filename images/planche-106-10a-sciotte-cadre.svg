@@ -38,8 +38,16 @@
 <line x1="258" y1="63.5" x2="270" y2="63.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M34 78 L70 78" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M494 78 L458 78" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M70 302 L34 302" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M458 302 L494 302" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M70 284 L34 284" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M458 284 L494 284" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<line x1="86" y1="308" x2="86" y2="334" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 3 2 3"/>
+<path d="M86 308 L72 308" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M86 334 L72 334" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<text x="64" y="324" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">A</text>
+<line x1="68" y1="171" x2="104" y2="171" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 3 2 3"/>
+<path d="M68 171 L68 184" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M104 171 L104 184" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<text x="56" y="175" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">B</text>
 <line x1="454" y1="46" x2="518" y2="46" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="454" y1="328" x2="518" y2="328" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="512" y1="46" x2="512" y2="328" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -47,7 +55,7 @@
 <line x1="506" y1="328" x2="518" y2="328" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="556.2" y="191" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">un avant-bras</text>
 </g>
-<text x="40" y="458.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le pied, coupé en travers au clou</text>
+<text x="40" y="458.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le pied, coupé en travers au clou — A</text>
 <g transform="translate(40 466.8)" data-vue="pied">
 <path d="M107 161 L107 22 L114.1 26 L121.2 18 L128.3 26 L135.4 18 L142.6 26 L149.7 18 L156.8 26 L163.9 18 L171 22 L171 161 L143 161 L143 49 L135 49 L135 161 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
 <rect x="137.5" y="77" width="3" height="106" fill="#1A1A1A" stroke="none"/>
@@ -55,7 +63,7 @@
 <rect x="94" y="113" width="3.5" height="16" fill="#1A1A1A" stroke="none"/>
 <path d="M181 119 L188 121 L181 123 Z" fill="#1A1A1A" stroke="none"/>
 </g>
-<text x="351" y="458.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">À mi-hauteur, de dessus</text>
+<text x="351" y="458.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">À mi-hauteur, de dessus — B</text>
 <g transform="translate(351 466.8)" data-vue="trav">
 <path d="M44 66 L144 66 L148 73.3 L140 80.5 L148 87.8 L140 95 L148 102.3 L140 109.5 L148 116.8 L144 124 L44 124 L44 112 L74 112 L74 78 L44 78 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M166 66 L271 66 L275 73.3 L267 80.5 L275 87.8 L267 95 L275 102.3 L267 109.5 L275 116.8 L271 124 L166 124 L170 116.8 L162 109.5 L170 102.3 L162 95 L170 87.8 L162 80.5 L170 73.3 L166 66 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -76,9 +84,9 @@
 <circle cx="268" cy="238" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="268" cy="273" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="face"/>
 <text x="268" y="277" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
-<line x1="155.8" y1="397.5" x2="128" y2="368" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="155.8" y1="397.5" x2="128" y2="368" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="128" cy="368" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="156.1" y1="397.2" x2="128.6" y2="366" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="156.1" y1="397.2" x2="128.6" y2="366" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="128.6" cy="366" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="162" cy="404" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="face"/>
 <text x="162" y="408" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
 <line x1="204" y1="81" x2="204" y2="106" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
@@ -91,11 +99,11 @@
 <circle cx="307" cy="82" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="348" cy="72" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="face"/>
 <text x="348" y="76" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
-<line x1="517.1" y1="320.9" x2="520" y2="346" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="517.1" y1="320.9" x2="520" y2="346" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="520" cy="346" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
-<circle cx="516" cy="312" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="face"/>
-<text x="516" y="316" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<line x1="517.1" y1="302.9" x2="520" y2="328" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="517.1" y1="302.9" x2="520" y2="328" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="520" cy="328" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="516" cy="294" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="face"/>
+<text x="516" y="298" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
 <line x1="246.3" y1="512.1" x2="181" y2="529.8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="246.3" y1="512.1" x2="181" y2="529.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <circle cx="181" cy="529.8" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>

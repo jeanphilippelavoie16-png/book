@@ -204,11 +204,11 @@ module.exports = (h) => {
       h.ligne(x0, M.ys + M.e + 3, x0, yf - 3, pointille),
       h.ligne(cx + 3.5, M.ys + M.e + 3, cx + 3.5, yf - 3, pointille),
       // la même ficelle, portée du milieu à chaque encoche de bout
-      h.ligne(xg, yr, cx - 1.5, yr, h.a.detail),
-      h.ligne(cx + 1.5, yr, xd, yr, h.a.detail),
-      ...[xg, cx - 1.5, cx + 1.5, xd].map(x => h.cercle(x, yr, 1.5, h.a.plein)),
-      h.ligne(xg, M.ys + p + 3, xg, yr - 4, pointille),
-      h.ligne(xd, M.ys + p + 3, xd, yr - 4, pointille),
+      // un brin plein du milieu à l'encoche de gauche, le même brin en tireté vers la droite
+      h.ligne(xg, yr, cx, yr, h.a.detail),
+      h.ligne(cx, yr, xd, yr, h.a.detail + ' stroke-dasharray="5 3"'),
+      h.ligne(xg, M.ys + p + 3, xg, yr, pointille),
+      h.ligne(xd, M.ys + p + 3, xd, yr, pointille),
       h.fleche(`M ${f(cx - 120)} ${f(yr - 7)} Q ${f(cx)} ${f(yr - 19)} ${f(cx + 120)} ${f(yr - 7)}`, h.a.detail),
     ].join('\n');
   };
@@ -261,6 +261,9 @@ module.exports = (h) => {
       tasse(rep(xd - 3 - 3.4, topD - 32, -110)),
       // la première part, mise de côté dans un bol sur la table
       h.rect(table.x, table.y, 62, 6, h.a.hachure('bois')),
+      h.rect(table.x, table.y, 62, 6, h.a.arete),
+      h.rect(table.x + 50, table.y + 6, 6, z.h - table.y - 6, h.a.blanc),
+      h.rect(table.x + 50, table.y + 6, 6, z.h - table.y - 6, h.a.arete),
       bol(rep(table.x + 32, table.y - 3.5 - 22 * 0.66, 0), 22, { tas: true }),
       h.fleche(`M ${f(xd + c.pd.rx + 6)} ${f(c.yr - 16)} Q ${f(table.x + 38)} ${f(c.yr - 22)} ${f(table.x + 36)} ${f(table.y - 32)}`, h.a.arete),
     ].join('\n');

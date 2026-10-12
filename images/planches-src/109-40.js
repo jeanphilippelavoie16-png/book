@@ -17,7 +17,22 @@
 // donc de l'avant, au bâton. Le levier, lui, est perpendiculaire à la lisse du pignon qu'il
 // soulève : il est dans le plan du dessin, et l'homme de profil avec lui.
 module.exports = (h) => {
-  const F = h.formes, A = h.a;
+  const A = h.a;
+  // Le personnage penché sur le levier : une copie locale de formes.js avec une posture « pese »
+  // (bassin qui tourne avec le tronc : dos droit de la nuque au bassin ; genoux un peu fléchis,
+  // hanche plus basse) et une fesse moins saillante. formes.js lui-même n'est pas touché.
+  const F = (() => {
+    const fs = require('fs'), path = require('path');
+    let src = fs.readFileSync(path.join(__dirname, '..', '..', '.claude/skills/planches/scripts/formes.js'), 'utf8');
+    src = src.replace("dos: [[-74, 104], [-102, 58], [-121, -8], [-108, -92],", "dos: [[-74, 104], [-90, 58], [-100, -8], [-98, -92],");
+    src = src.replace("  const POSTURES = {", `  const POSTURES = {
+    pese: { H: [0, -895], penche: 40, regard: 0, bassin: 0.5,
+      proche: { K: [120, -495], A: [0, -85], pied: 0 }, loin: { K: [95, -495], A: [-34, -85], pied: 0 },
+      mains: { proche: [[28, -868], [0.1, 1]], loin: [[-6, -872], [0.06, 1]] }, coude: -1 },`);
+    const m = { exports: {} };
+    new Function('module', 'exports', 'require', src)(m, m.exports, require);
+    return m.exports(h);
+  })();
   const BL = '#FFFFFF';
   const FOND = `fill="${BL}" stroke="none"`;
   const blanc = t => A[t].replace('fill="none"', `fill="${BL}"`);
@@ -185,15 +200,15 @@ module.exports = (h) => {
     const pousse = 260, dSol = -380;
     const xj = -105, dj = 100;
     const pts = [[xg - 10, yb, 0], [xg, yb + 520, 0], [0, yb + 520, prof], [prof * KC + 20, yb, prof], [0, 0, dSol], [0, -60, dSol],
-      [C.x + W / 2, 4.5 * T + 270, C.d - pousse - 580]];
+      [C.x + W / 2, 4.5 * T, C.d - pousse - 640]];
     const { s, R } = cadrer(z, pts, [12, 10, 4, 6]);
     const out = [sol(R, z, dSol)];
     const P = pile(R, C, ['d', 'x', 'd', 'x', 'd'], [pousse, 0]);
     out.push(P.svg);
     // le bâton qui pousse la cale de gauche du dessus
     const yB = 4.5 * T, xB = C.x + W / 2, dB = C.d - pousse;
-    const b0 = R([xB, yB, dB]), b1 = R([xB, yB + 270, dB - 580]);
-    const fa = R([xB, yB + 270 * 0.8 - 125, dB - 580 * 0.8]), fb = R([xB, yB + 270 * 0.3 - 125, dB - 580 * 0.3]);
+    const b0 = R([xB, yB, dB]), b1 = R([xB, yB, dB - 640]);   // dans l'axe de la cale, au centre de son bout
+    const fa = add(R([xB, yB, dB - 640 * 0.85]), [0, 12 + 17 * s]), fb = add(R([xB, yB, dB - 640 * 0.3]), [0, 12 + 17 * s]);
     const baton = [barre(b0, b1, 34 * s, 'franc', 'rompu', blanc('arete')), h.fleche(`M${pt(fa)} L${pt(fb)}`)].join(' ');
     // le madrier sous le socle, le vérin
     out.push(boite(R, [xj - 125, xj + 125, 0, 50, dj - 290, dj + 250], 'd'));
@@ -318,14 +333,14 @@ module.exports = (h) => {
     const m1 = at(1450), m2 = at(1690);
     const xp = m2[0] + 420;
     const pts = [[xg - 10, yb, 0], [xg, yb + 520, 0], [0, yb + 520, prof], [0, 0, dSol], [0, -60, dSol],
-      [C.x + W / 2, 2.5 * T + 270, C.d - pousse - 580], [xp + 330, 0, dL], [xp - 200, 1560, dL]];
+      [C.x + W / 2, 2.5 * T, C.d - pousse - 640], [xp + 330, 0, dL], [xp - 200, 1560, dL]];
     const { s, R } = cadrer(z, pts, [8, 6, 4, 6]);
     const out = [sol(R, z, dSol)];
     const P = pile(R, C, ['d', 'x', 'd'], [pousse, 0]);
     out.push(P.svg);
     const yB = 2.5 * T, xB = C.x + W / 2, dB = C.d - pousse;
-    const b0 = R([xB, yB, dB]), b1 = R([xB, yB + 270, dB - 580]);
-    const fa = R([xB, yB + 270 * 0.8 + 115, dB - 580 * 0.8]), fb = R([xB, yB + 270 * 0.3 + 115, dB - 580 * 0.3]);
+    const b0 = R([xB, yB, dB]), b1 = R([xB, yB, dB - 640]);
+    const fa = add(R([xB, yB, dB - 640 * 0.85]), [0, 12 + 17 * s]), fb = add(R([xB, yB, dB - 640 * 0.3]), [0, 12 + 17 * s]);
     const baton = [barre(b0, b1, 34 * s, 'franc', 'rompu', blanc('arete')), h.fleche(`M${pt(fa)} L${pt(fb)}`)].join(' ');
     // la pile d'appui et sa cale
     const PA = pile(R, Ap, ['d', 'x']);
@@ -345,7 +360,7 @@ module.exports = (h) => {
     // l'homme, penché sur le bout du levier
     const pied = R([xp, 0, dL]);
     const w1 = R([m1[0] + 45, m1[1] + rL + 95, dL]), w2 = R([m2[0] + 45, m2[1] + rL + 95, dL]);
-    const homme = F.personnage({ x: pied[0], y: pied[1], pose: 'debout', echelle: s, cote: 'gauche', penche: 40, regard: 22,
+    const homme = F.personnage({ x: pied[0], y: pied[1], pose: 'pese', echelle: s, cote: 'gauche', penche: 40, regard: 22,
       mains: { loin: w1, proche: w2 } });
     out.push(homme);
     const g = { s, R, C, P, PA, blocB, yb, b0, b1, at, dL, piv, homme, svg: out.join('\n'), L0, L1 };

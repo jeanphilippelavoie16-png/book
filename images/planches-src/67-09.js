@@ -156,7 +156,7 @@ module.exports = (h) => {
             o.push(h.cercle(x, g.ky, 2.4, h.a.plein));
           });
           // piquet de devant, par-dessus la latte ; clou dans l'encoche
-          o.push(...piquet(g.cx, g.bt - 8, g.hy + 4.5, g.bb, 8, 5.5));
+          { const t = 40 * Math.PI / 180, vb = g.hy + 4.6 / Math.sin(t); o.push(...piquet(g.cx, vb - 7 / Math.tan(t), vb, g.bb, 8, 7)); }
           o.push(h.cercle(g.cx, g.hy, 4.6, h.a.blanc));
           o.push(h.cercle(g.cx, g.hy, 4.6, h.a.arete));
           o.push(h.cercle(g.cx, g.hy, 1.3, h.a.plein));
@@ -216,6 +216,8 @@ module.exports = (h) => {
           const pt = (t) => [g.cx + g.R * Math.cos(t), g.hy + g.R * Math.sin(t)];
           const [ax, ay] = pt(a0 - da), [bx, by] = pt(a0 + da);
           o.push(h.path(`M ${f(ax)} ${f(ay)} A ${f(g.R)} ${f(g.R)} 0 0 1 ${f(bx)} ${f(by)}`, h.a.cache));
+          // la même ficelle, pivotée autour du trou jusqu'à l'entaille de droite
+          o.push(h.path(`M ${f(g.cx + g.hr)} ${f(g.hy + 0.2)} L ${f(g.xr)} ${f(g.bt + g.p)}`, h.a.cache));
           return o.join('\n');
         },
         renvois: (z) => {
@@ -240,7 +242,7 @@ module.exports = (h) => {
           o.push(h.rect(rub - 6, g.bt - 1.5, 12, g.e + 3, h.a.detail));
           [-3, 2].forEach(d => o.push(h.path(`M ${f(rub + d - 3)} ${f(g.bt + g.e + 1.5)} L ${f(rub + d + 2)} ${f(g.bt - 1.5)}`, h.a.fin)));
           [g.xl, g.xr].forEach(x => o.push(h.ligne(x, g.bt + g.p, x, g.ky, h.a.detail)));
-          o.push(...piquet(g.cx, g.bt - 6, g.hy + 3.5, g.bb, 6, 4));
+          { const t = 40 * Math.PI / 180, vb = g.hy + 3.6 / Math.sin(t); o.push(...piquet(g.cx, vb - 5 / Math.tan(t), vb, g.bb, 6, 5)); }
           o.push(h.cercle(g.cx, g.hy, 3.6, h.a.blanc));
           o.push(h.cercle(g.cx, g.hy, 3.6, h.a.arete));
           o.push(h.cercle(g.cx, g.hy, 1, h.a.plein));

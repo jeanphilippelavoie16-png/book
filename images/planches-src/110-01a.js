@@ -50,7 +50,7 @@ const enveloppe = pts => {
 // profonde que le tenon ; cheville traversant les deux joues.
 const G = 70;                                  // écart de l'éclaté
 const XT = 90 + G, XE = XT + 60;               // bout du tenon, épaulement
-const ptsMT = [...coins(0, 90, 0, 90, 0, 210), ...coins(XT, 340, 15, 75, 60, 160), ...coins(59, 71, 125, 215, 104, 116)];
+const ptsMT = [...coins(0, 90, 0, 90, 0, 210), ...coins(XT, 340, 15, 75, 50, 170), ...coins(59, 71, 125, 215, 104, 116)];
 const repMT = z => cadre(ptsMT, [40, 8, z.l - 52, z.h - 16]);
 
 const repFace = z => {
@@ -69,7 +69,7 @@ const GM = 120;                                // levée du mi-bois éclaté (à
 const miE = [...coins(0, 150, 0, 44, 0, 40), ...coins(53, 97, -53, 97, GM, GM + 40)];
 const miM = [...coins(0, 150, 0, 44, 0, 40), ...coins(53, 97, -53, 97, 0, 40)];
 const repMi = z => {
-  const rE = [4, 6, 165, z.h - 12], rM = [190, 60, z.l - 194, z.h - 70];
+  const rE = [4, 6, z.l * 0.47, z.h - 12], rM = [z.l * 0.53, 60, z.l * 0.47 - 4, z.h - 70];
   const s = Math.min(echelle(miE, rE), echelle(miM, rM));
   return [cadre(miE, rE, s), cadre(miM, rM, s)];
 };
@@ -104,9 +104,9 @@ module.exports = (h) => {
     titre: 'La mortaise et le tenon, le mi-bois',
     desc: 'Mortaise et tenon chevillé en vue éclatée : montant percé d’une mortaise, traverse avec son tenon et ses épaulements, trou du tenon décalé vers l’épaulement pour le chevillage à tire, cheville fendue. À côté, la face du montant avec le tracé au trusquin et la file de trous au vilebrequin. Dessous, une coupe à hauteur de cheville montrant le tenon serré entre les joues, l’épaulement en appui et le fond de mortaise plus creux que le tenon ; et un mi-bois en croix, éclaté puis monté. Encadré danger : un assemblage qui porte cède sans prévenir, en glissant le long du fil.',
     format: 'pleine',
-    disposition: [['mt', 'face'], ['coupe', 'mibois']],
+    disposition: [['mt', 'face'], ['coupe', 'tire', 'mibois']],
     hauteurs: [3, 2],
-    largeurs: [[3, 1], [2, 3]],
+    largeurs: [[3, 1], [2, 0.9, 2.6]],
     vues: {
       // ── la face du montant : tracer, percer ──
       face: {
@@ -114,8 +114,8 @@ module.exports = (h) => {
         dessin: z => {
           const F = repFace(z), s = F.s, o = [];
           const brisure = zz => h.path(`M${F(0, zz)} C${F(30, zz + 6)} ${F(60, zz - 6)} ${F(90, zz)}`, h.a.arete);
-          for (const y of [8, 18, 73, 83]) o.push(h.ligne(...F(y, 191), ...F(y, 29), h.a.detail));
-          for (const zc of [83.5, 110, 136.5]) o.push(h.cercle(...F(45, zc), 14 * s, h.a.plein));
+          for (const y of [8, 18, 73, 83]) { const pt = []; for (let zz = 191; zz >= 29; zz -= 3) pt.push(F(y + 1.2 * Math.sin(zz / 9 + y), zz)); o.push(h.chemin(pt, h.a.fin + ' stroke-dasharray="14 4"')); }
+          for (const zc of [83.5, 110, 136.5]) o.push(h.cercle(...F(45, zc), 14 * s - 2, h.a.plein));
           o.push(h.ligne(...F(31, 62), ...F(31, 158), h.a.detail), h.ligne(...F(59, 62), ...F(59, 158), h.a.detail));
           o.push(h.ligne(...F(25, 68), ...F(65, 68), h.a.detail), h.ligne(...F(25, 152), ...F(65, 152), h.a.detail));
           o.push(h.ligne(...F(0, 195), ...F(0, 25), h.a.contour), h.ligne(...F(90, 195), ...F(90, 25), h.a.contour));
@@ -151,10 +151,10 @@ module.exports = (h) => {
               ...[88, 132].map(zz => t3(P, [XT + 3, 59, zz], [XE - 2, 59, zz])),
               trou(P, [XE - 22.5, 59, 110], 6, 'xz'),   // 2,5 plus près de l'épaulement que le trou du montant : chevillage à tire
             ].join('\n')],
-            [boite(XE, 340, 15, 75, 60, 160), [
-              ...[80, 104, 140].map(zz => t3(P, [XE + 3, 75, zz], [337, 75, zz])),
-              ...[30, 57].map(y => t3(P, [XE + 3, y, 160], [337, y, 160])),
-              cernes(P, (a, b) => [340, a, b], [112, 38], [44, 68, 92], q => q[1] > 18 && q[1] < 72 && q[2] > 63 && q[2] < 157),
+            [boite(XE, 340, 15, 75, 50, 170), [
+              ...[72, 100, 146].map(zz => t3(P, [XE + 3, 75, zz], [337, 75, zz])),
+              ...[30, 57].map(y => t3(P, [XE + 3, y, 170], [337, y, 170])),
+              cernes(P, (a, b) => [340, a, b], [112, 38], [44, 68, 92], q => q[1] > 18 && q[1] < 72 && q[2] > 53 && q[2] < 167),
             ].join('\n')],
           ]);
           const chev = cheville(P, [[[65, 125, 110], 3.5], [[65, 141, 110], 6], [[65, 215, 110], 6]], 'xz',
@@ -166,7 +166,7 @@ module.exports = (h) => {
           return [
             { n: 4, rond: P.uv(116, -128), cible: P(90, 31, 128), texte: 'parois dressées au ciseau' },
             { n: 5, rond: P.uv(153, -128), cible: P(XT + 18, 31, 150), texte: 'tenon libre dans sa largeur' },
-            { n: 6, rond: P.uv(128, 64), cible: P(XE, 75, 76), texte: 'épaulements tout autour' },
+            { n: 6, rond: P.uv(128, 64), cible: P(XE, 66, 150), texte: 'épaulements tout autour' },
             { n: 7, rond: P.uv(98, 40), cible: P(XE - 26.5, 59, 105.5), texte: 'trou décalé côté épaulement' },
             { n: 8, rond: P.uv(-78, 18), cible: P(59, 215, 110), texte: 'cheville de bouleau, fendue' },
           ];
@@ -186,6 +186,9 @@ module.exports = (h) => {
           o.push(h.chemin([C(90, 15), C(180, 15), C(180, 75), C(90, 75)], h.a.contour));
           o.push(h.rect(...C(60, 0), 10 * s, 90 * s, BLANC));
           for (const x of [63, 67]) o.push(h.ligne(...C(x, 3), ...C(x, 87), h.a.detail));
+          o.push(h.fleche(`M${C(36, 45)} L${C(54, 45)}`, h.a.arete));
+          o.push(h.ligne(...C(0, 31), ...C(-12, 31), h.a.fin), h.ligne(...C(0, 59), ...C(-12, 59), h.a.fin));
+          o.push(h.cote(...C(-8, 31), ...C(-8, 59), '⅓ ép.', { cote: 'gauche' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -194,9 +197,30 @@ module.exports = (h) => {
           return [
             { n: 9, rond: [a[0] - 22, a[1] + 56], cible: a, texte: 'tenon serré entre les joues' },
             { n: 10, rond: [b[0] + 34, b[1] - 52], cible: b, texte: 'c’est l’épaulement qui porte' },
-            { n: 11, rond: [C(0, 45)[0] - 22, c[1]], cible: c, texte: 'fond plus creux que le tenon' },
+            { n: 11, rond: [C(12, 0)[0], C(0, 0)[1] - 22], cible: c, texte: 'fond plus creux que le tenon' },
             { n: 12, rond: [d[0] + 26, d[1] + 34], cible: d, texte: 'cheville coupée à fleur' },
           ];
+        },
+      },
+
+      // ── avant de cheviller : le trou du tenon décalé vers l'épaulement (décalage exagéré) ──
+      tire: {
+        titre: 'Avant de cheviller',
+        dessin: z => {
+          const s = Math.min((z.l - 16) / 46, (z.h - 50) / 90), x0 = 8 - 42 * s, y0 = 12;
+          const T = (x, y) => [x0 + x * s, y0 + y * s];
+          const o = [], r = 6, d = 6;
+          const bande = (ya, yb, xc, at) => [
+            h.chemin([T(42, ya), T(xc - r, ya), T(xc - r, yb), T(42, yb)], at, true),
+            h.chemin([T(xc + r, ya), T(88, ya), T(88, yb), T(xc + r, yb)], at, true)];
+          o.push(...bande(0, 31, 65, h.a.hachure('bois')), ...bande(59, 90, 65, h.a.hachure('bois')));
+          o.push(...bande(31, 59, 65 + d, BLANC));
+          for (const [ya, yb, xc] of [[0, 31, 65], [31, 59, 65 + d], [59, 90, 65]])
+            o.push(h.ligne(...T(xc - r, ya), ...T(xc - r, yb), h.a.contour), h.ligne(...T(xc + r, ya), ...T(xc + r, yb), h.a.contour));
+          o.push(h.ligne(...T(65, -4), ...T(65, 94), AXE), h.ligne(...T(65 + d, 27), ...T(65 + d, 63), AXE));
+          o.push(h.fleche(`M${T(48, 45)} L${T(58, 45)}`, h.a.arete));
+          o.push(h.cote(...T(65, 94), ...T(65 + d, 94), '1,5 à 3 mm', { cote: 'dessous' }));
+          return o.join('\n');
         },
       },
 

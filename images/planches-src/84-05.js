@@ -106,9 +106,39 @@ module.exports = (h) => {
       out.push(h.ellipse(qn[0], qn[1], 4.2 * s, 2.6 * s, W(A.detail)), h.cercle(qn[0], qn[1], 0.8, A.plein));
       return out.join('\n');
     };
-    o.push(baton(-214, 184, Y_MOYEN + 13, 20, 1, 21));
-    o.push(baton(-188, 214, Y_MOYEN + 6, 20, -1, 8));
-    o.push(baton(-206, 198, Y_MOYEN, 19, 1, 14));
+    // trois pièces fendues, couchées en travers, vues de côté : celle de devant entière, les deux
+    // de derrière qui dépassent un peu au-dessus ; arête de fente droite, fil du bois en long
+    const fendue = (x1, x2, yb, ht, graine, devant) => {
+      const g = alea(graine), haut = [], bas = [];
+      for (let k = 0; k <= 8; k++) {
+        const x = x1 + (x2 - x1) * k / 8;
+        haut.push(T(x, yb + ht - (k % 3 === 1 ? 2 : 0) + (g() - 0.5) * 1.5));
+        bas.unshift(T(x, yb + (g() - 0.5) * 1.2));
+      }
+      const out = [poly(haut.concat(bas), W(A.arete))];
+      if (devant) {
+        // l'arête de la fente : la face fendue (dessus) et le flanc d'écorce (dessous)
+        out.push(h.chemin([T(x1 + 2, yb + ht * 0.42), T((x1 + x2) / 2, yb + ht * 0.46), T(x2 - 2, yb + ht * 0.4)], A.detail));
+        for (let i = 0; i < 4; i++) {
+          const xa = x1 + 20 + (x2 - x1 - 120) * g(), y = yb + ht * (0.55 + 0.35 * g()), lg = 50 + 50 * g();
+          out.push(h.chemin([T(xa, y), T(xa + lg, y + (g() - 0.5) * 2)], A.fin));
+        }
+        for (let i = 0; i < 6; i++) {
+          const xa = x1 + 14 + (x2 - x1 - 50) * g(), y = yb + ht * (0.08 + 0.28 * g()), lg = 12 + 14 * g();
+          out.push(h.chemin([T(xa, y), T(xa + lg, y)], A.fin));
+        }
+      } else {
+        for (let i = 0; i < 2; i++) {
+          const xa = x1 + 30 + (x2 - x1 - 120) * g(), y = yb + ht * (0.7 + 0.2 * g());
+          out.push(h.chemin([T(xa, y), T(xa + 60, y)], A.fin));
+        }
+      }
+      return out.join('\n');
+    };
+    const yb0 = Y_BUCHE + LOG.r - 2;
+    o.push(fendue(-170, 214, yb0, 66, 21, false));
+    o.push(fendue(-216, 150, yb0, 56, 8, false));
+    o.push(fendue(-196, 196, yb0, 42, 14, true));
 
     // le menu, en long, vu par le bout : des éclisses fendues, pointes et quartiers, en désordre
     {
@@ -263,15 +293,22 @@ module.exports = (h) => {
           const xx = x + 10 + (lg - 22) * g(), t = 2.1 + 1.6 * g(), yy = y + r * Math.cos(t), z2 = zz + r * Math.sin(t);
           out.push(h.chemin([Q(xx, yy, z2), Q(xx + 9 + 6 * g(), yy, z2)], A.detail));
         }
-        const sp = [];
-        for (let i = 0; i <= 44; i++) {
-          const t = -0.4 + (i / 44) * 3.3 * Math.PI, rr = r * (1 - 0.75 * i / 44);
+        // le bout : la feuille roulée en spirale, le bord extérieur qui rebique ; la lisière en long
+        const t0 = -0.4, sp = [];
+        for (let i = 0; i <= 50; i++) {
+          const t = t0 + (i / 50) * 4.2 * Math.PI, rr = r * (1 - 0.72 * i / 50);
           sp.push(Q(x + lg, y + rr * Math.cos(t), zz + rr * Math.sin(t)));
         }
-        out.push(poly(b1, W(A.arete)), h.chemin(sp, A.fin));
+        const yl = y + r * Math.cos(t0), zl = zz + r * Math.sin(t0);
+        const lev = [Math.cos(t0 - 1.3), Math.sin(t0 - 1.3)];
+        const lv = Q(x + lg + 4, yl + r * 0.55 * lev[0], zl + r * 0.55 * lev[1]);
+        const lv0 = Q(x + 6, yl + r * 0.3 * lev[0], zl + r * 0.3 * lev[1]);
+        out.push(poly(b1, W(A.arete)));
+        out.push(poly([Q(x + 2, yl, zl), Q(x + lg, yl, zl), lv, lv0], W(A.detail)));
+        out.push(h.chemin(sp, A.detail));
         return out.join('\n');
       };
-      o.push(roule(118, 150, 104, 22, 150, 17), roule(132, 142, 62, 20, 140, 41));
+      o.push(roule(96, 178, 104, 28, 112, 17), roule(110, 166, 58, 26, 104, 41));
 
       // les éclisses, debout dans le coin de devant, à gauche
       const eclisse = (x, zz, lx, lz, top, pente) => {
@@ -292,6 +329,9 @@ module.exports = (h) => {
       o.push(poly([Q(BX, 0, 0), Q(BX, 0, BZ), Q(BX, BY, BZ), Q(BX, BY, 0)], W(A.contour)));
       o.push(poly([Q(0, 0, 0), Q(BX, 0, 0), Q(BX, BY, 0), Q(0, BY, 0)], W(A.contour)));
       o.push(h.chemin([Q(0, BY - 12, 0), Q(BX, BY - 12, 0), Q(BX, BY - 12, BZ)], A.fin));   // le bourrelet du bord
+      // la flèche qui rabat le couvercle vers l'avant
+      { const a = Q(BX + 46, BY + 160, BZ), c = Q(BX + 56, BY + 210, -50), b = Q(BX + 46, BY + 24, -10);
+        o.push(h.fleche(`M ${pt(a)} Q ${pt(c)} ${pt(b)}`)); }
       // le moraillon de la façade
       { const a = Q(BX / 2 - 10, BY - 4, 0), b = Q(BX / 2 + 10, BY - 40, 0); o.push(h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], W(A.arete))); const c = Q(BX / 2, BY - 30, 0); o.push(h.cercle(c[0], c[1], 1.6, A.plein)); }
 
@@ -363,7 +403,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: [xd, T(0, 4)[1]], cible: T(200, 12), texte: 'cendre brassée, sans braise, froide à la main' },
             { n: 2, rond: [xd, T(0, 64)[1]], cible: T(170, Y_BUCHE - 10), texte: 'deux ou trois grosses bûches au fond, serrées' },
-            { n: 3, rond: [xd, T(0, 150)[1]], cible: T(192, Y_MOYEN - 6), texte: 'le moyen' },
+            { n: 3, rond: [xd, T(0, 150)[1]], cible: T(180, Y_MOYEN - 6), texte: 'le moyen' },
             { n: 4, rond: [xd, T(0, 206)[1]], cible: T(140, Y_MENU), texte: 'le menu' },
             { n: 5, rond: [xd, T(0, 268)[1]], cible: T(80, Y_HAUT + 30), texte: 'papier et allumage secs, au sommet' },
             { n: 6, rond: [xd, T(0, Y_CLE + 40)[1]], cible: T(0, Y_CLE + 36), texte: 'la clé du tuyau, laissée ouverte' },
@@ -378,7 +418,7 @@ module.exports = (h) => {
           return [
             { n: 7, rond: [xd, Q(0, 60, 0)[1]], cible: Q(BX - 30, 60, 0), texte: 'boîte de métal fermée, contre la souris' },
             { n: 8, rond: [xd, Q(0, 214, 150)[1] - 20], cible: Q(BX - 60, 190, 126), texte: 'le papier journal' },
-            { n: 9, rond: [xd, Q(0, 150, 104)[1] + 6], cible: Q(250, 164, 104), texte: 'l’écorce de bouleau à papier' },
+            { n: 9, rond: [xd, Q(0, 178, 104)[1] + 6], cible: Q(200, 200, 104), texte: 'l’écorce de bouleau à papier' },
             { n: 10, rond: [Q(0, 0, 0)[0] + 8, Q(0, 262, 40)[1] - 8], cible: Q(48, 236, 40), texte: 'les éclisses de réserve' },
             { n: 11, rond: [xd, J(0, 90)[1]], cible: J(40, 80), texte: 'pot de verre à couvercle : allumettes, briquet' },
           ];

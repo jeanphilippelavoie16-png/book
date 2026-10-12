@@ -88,7 +88,12 @@ module.exports = (h) => {
       const xa = y => lb + (lh - lb) * (base - y) / Hg;   // demi-largeur à la hauteur y
       const e = 3;
       // la glace
-      out.push(h.chemin([[c - xa(surf) + e, surf], [c + xa(surf) - e, surf], [c + lb - e, base - e], [c - lb + e, base - e]], sans('eau'), true));
+      out.push(h.chemin([[c - xa(surf) + e, surf], [c + xa(surf) - e, surf], [c + lb - e, base - e], [c - lb + e, base - e]], A.blanc, true));
+      // glace : quelques fissures fines et obliques
+      [[-14, 0.18, 10], [6, 0.32, 9], [-6, 0.55, 11], [12, 0.7, 8], [-16, 0.82, 7]].forEach(([dx, f, l]) => {
+        const y = surf + (base - e - surf) * f;
+        out.push(h.ligne(c + dx, y, c + dx + l * 0.7, y - l * 0.6, A.fin));
+      });
       out.push(h.ligne(c - xa(surf) + e, surf, c + xa(surf) - e, surf, A.detail));
       // la pièce, vue sur la tranche
       const py = fond ? base - e - 3.5 : surf - 3.5;
@@ -111,8 +116,8 @@ module.exports = (h) => {
   // ─── Vue 3 : trois états d'un paquet sondé, et la pile où chacun s'en va ──────────────────
   const tri = z => {
     const cx = [z.l / 6, z.l / 2, 5 * z.l / 6];
-    const dialY = 30, R = 13;
-    const pY = 66, pH = 50, pL = 128;
+    const dialY = 38, R = 34;
+    const pY = 82, pH = 46, pL = 128;
     const sol = z.h - 16;
     const out = [];
 
@@ -121,10 +126,11 @@ module.exports = (h) => {
       out.push(h.rect(c - 1.6, dialY + R, 3.2, basY - dialY - R - 5, bD));
       out.push(h.chemin([[c - 1.6, basY - 5], [c, basY], [c + 1.6, basY - 5]], A.plein, true));
       out.push(h.cercle(c, dialY, R, bA), h.cercle(c, dialY, R - 3, A.fin));
-      out.push(h.ligne(c, dialY - R + 3, c, dialY - R + 7, A.arete));
-      out.push(h.texte(c, dialY - R - 5, '4 °C'));
+      out.push(h.rect(c - 1.6, dialY - R + 3, 3.2, 14, A.plein));
+      out.push(h.texte(c, dialY - R + 34, '4 °C'));
+      if (angle === null) return;
       const a = angle * Math.PI / 180;           // 0 = midi, positif = sens horaire
-      out.push(h.ligne(c, dialY, c + Math.sin(a) * (R - 5), dialY - Math.cos(a) * (R - 5), A.arete));
+      out.push(h.ligne(c, dialY, c + Math.sin(a) * (R - 10), dialY - Math.cos(a) * (R - 10), A.arete));
       out.push(h.cercle(c, dialY, 1.6, A.plein));
     };
     // le paquet en coupe : papier, puis la viande dessous
@@ -135,12 +141,12 @@ module.exports = (h) => {
         out.push(rr(c - pL / 2 + 20, pY + 14, pL - 40, pH - 28, 8, A.hachure('grillage', 'detail')));
       }
     };
-    paquet(cx[0], true); sonde(cx[0], pY + 14, -95);
-    paquet(cx[1], false); sonde(cx[1], pY + pH / 2, -40);
-    paquet(cx[2], false); sonde(cx[2], pY + pH / 2, 55);
+    paquet(cx[0], true); sonde(cx[0], pY + 14, null);
+    paquet(cx[1], false); sonde(cx[1], pY + pH / 2, -60);
+    paquet(cx[2], false); sonde(cx[2], pY + pH / 2, 60);
 
     // chaque paquet descend à sa pile
-    cx.forEach(c => out.push(h.fleche(`M${r1(c)} ${pY + pH + 8} L${r1(c)} ${pY + pH + 32}`)));
+    cx.forEach(c => out.push(h.fleche(`M${r1(c)} ${pY + pH + 4} L${r1(c)} ${pY + pH + 22}`)));
 
     // le sol de neige, dehors
     out.push(h.rect(0, sol, z.l, z.h - sol, sans('neige')), h.ligne(0, sol, z.l, sol, A.arete));
@@ -179,9 +185,9 @@ module.exports = (h) => {
     return {
       svg: out.join('\n'),
       renvois: [
-        { n: 7, rond: [cx[0] + ecart * 0.78, dialY], cible: [cx[0] + 26, pY + pH / 2], texte: 'la sonde bute sur un cœur dur : pile A' },
-        { n: 8, rond: [cx[1] + ecart * 0.78, dialY], cible: [cx[1] + 30, pY + pH / 2], texte: 'mou, 4 °C ou moins : pile B' },
-        { n: 9, rond: [cx[2] + ecart * 0.78, dialY], cible: [cx[2] + 30, pY + pH / 2], texte: 'mou, plus de 4 °C : pile C' },
+        { n: 7, rond: [cx[0] + ecart * 0.78, dialY + R - 6], cible: [cx[0] + 26, pY + pH / 2], texte: 'la sonde bute sur un cœur dur : pile A' },
+        { n: 8, rond: [cx[1] + ecart * 0.78, dialY + R - 6], cible: [cx[1] + 30, pY + pH / 2], texte: 'mou, 4 °C ou moins : pile B' },
+        { n: 9, rond: [cx[2] + ecart * 0.78, dialY + R - 6], cible: [cx[2] + 30, pY + pH / 2], texte: 'mou, plus de 4 °C : pile C' },
         { n: 10, rond: [cx[0] + ecart * 0.82, sol - 82], cible: [cx[0] + 30, sol - 58], texte: 'bac couvert de neige : recongeler' },
         { n: 11, rond: [cx[1] + ecart * 0.82, sol - 82], cible: [cx[1] + 58, tb.haut + 4], texte: 'table à l’ombre : transformer aujourd’hui' },
         { n: 12, rond: [cx[2] + ecart * 0.82, sol - 82], cible: [cx[2] + 22, sol - 36], texte: 'chaudière fermée, loin du bâtiment : jeter' },

@@ -53,11 +53,9 @@ module.exports = (h) => {
     // le filet d'eau, du bord du bouchon aux mains
     out.push(h.path('M 191,105 Q 194.5,112 195.2,122 L 195.2,199', h.a.detail));
     out.push(h.path('M 193.2,104.2 Q 197,111.5 197.6,122 L 197.6,199.5', h.a.detail));
-    // les mains en coupe sous le filet, les avant-bras vers la personne
-    out.push(h.path(`M 178,193 Q 176,204 189,208 L 226,212 Q 240,214 252,211 L ${z.l - 1},181 L ${z.l - 1},150 L 254,188 ` +
-      'Q 246,191 238,190 L 226,186 Q 216,181 210,185 Q 206,190 212,199 L 200,200 Q 187,199.5 178,193 Z', h.a.blanc));
-    out.push(h.path(`M 178,193 Q 176,204 189,208 L 226,212 Q 240,214 252,211 L ${z.l - 1},181`, h.a.arete));
-    out.push(h.path(`M 178,193 Q 187,199.5 200,200 L 212,199 Q 206,190 210,185 Q 216,181 226,186 L 238,190 Q 246,191 254,188 L ${z.l - 1},150`, h.a.arete));
+    // la main sous le filet : de profil, côté pouce, paume vers le haut en creux, l'avant-bras vers la personne
+    out.push(h.formes.main({ x: 206, y: 184, pose: 'boule', vue: 'profil', cote: 'gauche', diametre: 26, serre: 0.25,
+      echelle: 0.42, angle: 25, bras: 140 }));
     // la branche en bout, sous l'avant de la botte
     out.push(h.cercle(br[0], br[1], 9, h.a.hachure('bois')));
     // la botte

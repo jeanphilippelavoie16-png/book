@@ -255,8 +255,12 @@ function vueLigature(h, z) {
   // en caché : le départ sous les tours, et la fin tirée sous les derniers tours
   out.push(h.chemin([P([uD - 12, 0]), P([uD, 0])], h.a.cache));
   const uF1 = LIG.u0, uF2 = LIG.u0 + 4 * c;
+  // la fin : glissée sous les quatre derniers tours (à gauche), ressort au bord, coupée court
   out.push(h.chemin([P([uF1, 0]), P([uF2, 0])], h.a.cache));
-  out.push(h.formes.corde([P([uF2 + 0.5 * c, 0]), P([uF2 + 3.6 * c, -2])], { ep: c * sd, debut: 'ouvert', fin: 'libre', trait: 'detail' }));
+  out.push(h.formes.corde([P([uF1 - 0.2 * c, 0]), P([uF1 - 1.9 * c, 0])], { ep: c * sd, debut: 'libre', fin: 'coupe', trait: 'detail' }));
+  // le sens des tours : du départ (droite) vers la fin (gauche)
+  const yf = R.Y(-2 * RP - 1.4) - 8;
+  out.push(h.fleche(`M${R.X(uD - 2)} ${yf} Q${R.X((uD + uF1) / 2)} ${yf - 14} ${R.X(uF1 + 2)} ${yf}`, h.a.arete));
   // en bout : les deux perches coupées, les tours autour des deux
   const xe = R.xe, r = RP * sd, ro = (RP + c) * sd, y1 = R.Y(-RP), y2 = R.Y(RP);
   const stade = rr => `M${xe - rr} ${y1} A${rr} ${rr} 0 0 1 ${xe + rr} ${y1} L${xe + rr} ${y2} A${rr} ${rr} 0 0 1 ${xe - rr} ${y2} Z`;
@@ -360,7 +364,7 @@ function vueBoucle(h, z) {
 module.exports = (h) => ({
   ref: '89-41',
   titre: 'La perche en goutte et la botte de branches',
-  desc: 'En haut, la perche verte droite, cotée à environ 1500 mm, avec deux flèches qui ramènent ses deux bouts vers l’arrière. Au milieu à droite, vue de dessus, la raquette montée : la perche pliée en goutte, nez à droite, les deux bouts réunis côte à côte à gauche sous une ligature ; deux traverses en travers du milieu, ligaturées en croix sur la perche ; de la corde tendue en croisillons d’un flanc à l’autre ; la botte en tireté, la plante sur la traverse avant, le talon sur l’arrière, et deux cordes par traverse nouées sur le dessus du pied. À gauche, le détail des deux bouts : les tours de corde serrés autour des deux perches, le bout de départ couché dans le creux sous les premiers tours, le bout final tiré sous les derniers tours ; en bout, les deux perches coupées, cotées à environ 25 mm, et les tours qui les entourent ensemble. Dessous, de face et de côté à la même échelle : la perche à plat, les traverses posées dessus, la semelle sur les traverses, les cordes de la traverse avant par-dessus l’avant du pied, celles de l’arrière du talon au cou-de-pied ; la largeur de la goutte, environ 300 mm. En bas, deux vignettes : la botte de branches de résineux bien fournies, gros bouts en avant, ligaturés serré, la botte (chaussure) attachée dessus par deux cordes nouées sur le pied ; et une branche d’épinette noire pliée en boucle, ses deux bouts ligaturés à l’arrière, la botte ligaturée dessus par des cordes qui partent de la boucle.',
+  desc: 'En haut, la perche verte droite, cotée à environ 1500 mm, avec deux flèches qui ramènent ses deux bouts vers l’arrière. Au milieu à droite, vue de dessus, la raquette montée : la perche pliée en goutte, nez à droite, les deux bouts réunis côte à côte à gauche sous une ligature ; deux traverses en travers du milieu, ligaturées en croix sur la perche ; de la corde tendue en croisillons d’un flanc à l’autre ; la botte en tireté, la plante sur la traverse avant, le talon sur l’arrière, et deux cordes par traverse nouées sur le dessus du pied. À gauche, le détail des deux bouts : les tours de corde serrés autour des deux perches, le bout de départ couché dans le creux sous les premiers tours, le bout final glissé sous les derniers tours et ressorti coupé court au bord, une flèche courbe au-dessus pour le sens des tours ; en bout, les deux perches coupées, cotées à environ 25 mm, et les tours qui les entourent ensemble. Dessous, de face et de côté à la même échelle : la perche à plat, les traverses posées dessus, la semelle sur les traverses, les cordes de la traverse avant par-dessus l’avant du pied, celles de l’arrière du talon au cou-de-pied ; la largeur de la goutte, environ 300 mm. En bas, deux vignettes : la botte de branches de résineux bien fournies, gros bouts en avant, ligaturés serré, la botte (chaussure) attachée dessus par deux cordes nouées sur le pied ; et une branche d’épinette noire pliée en boucle, ses deux bouts ligaturés à l’arrière, la botte ligaturée dessus par des cordes qui partent de la boucle.',
   format: 'pleine',
   disposition: [['perche'], ['ligature', 'plan'], ['face', 'cote'], ['botte', 'boucle']],
   hauteurs: [0.62, 1.76, 1.2, 1.29],
@@ -381,7 +385,7 @@ module.exports = (h) => ({
         const { R, uD, uF2 } = vueLigature(h, z);
         return [
           { n: 2, rond: [R.X(uD + 8), R.Y(-2 * RP) - 26], cible: [R.X(uD + 8), R.Y(0) - 2], texte: 'bout de départ couché sous les tours' },
-          { n: 3, rond: [R.X(uF2 + 6), R.Y(2 * RP) + 26], cible: [R.X(uF2 + 2 * CORDE), R.Y(0) + 1], texte: 'bout final tiré sous les derniers tours' },
+          { n: 3, rond: [R.X(LIG.u0 - 6), R.Y(2 * RP) + 26], cible: [R.X(LIG.u0 - 6), R.Y(0) + 2], texte: 'bout final tiré sous les derniers tours' },
         ];
       },
     },
@@ -430,9 +434,9 @@ module.exports = (h) => ({
       dessin: z => vueBoucle(h, z).svg,
       renvois: z => {
         const { R, cordes } = vueBoucle(h, z);
-        const c = cordes[3][1];
+        const c = [130, GB.larg(130) + 1];
         return [
-          { n: 12, rond: R.P([60, 95]), cible: R.P(c), texte: 'boucle ligaturée sous la botte' },
+          { n: 12, rond: R.P([60, 110]), cible: R.P(c), texte: 'boucle ligaturée sous la botte' },
         ];
       },
     },

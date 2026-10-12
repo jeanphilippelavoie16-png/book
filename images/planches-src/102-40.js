@@ -120,7 +120,7 @@ module.exports = (h) => {
   const cadreCote = z => {
     const G = z.h - 12, xT = z.l - 30;
     const hTop = G - mm(2250), hBas = G - mm(250);
-    const T = [xT - mm(150) - 4.5, hTop], B = [T[0] - mm(560), hBas];   // traverse du haut contre l'arbre
+    const T = [xT - mm(150) - 4.5, hTop], B = [T[0] - mm(1100), hBas];   // traverse du haut contre l'arbre
     const u = [T[0] - B[0], T[1] - B[1]], L = Math.hypot(...u), ux = u[0] / L, uy = u[1] / L;
     const nx = -uy, ny = ux;                          // normale vers l'arbre (+x)
     const P = t => [B[0] + ux * t, B[1] + uy * t];
@@ -129,7 +129,7 @@ module.exports = (h) => {
     const pied = P(-(G - hBas) / -uy);
     out.push(perche([pied[0], G], P(L + 18), 8));
     // la peau par la tranche, lacée aux deux traverses, poussée en V par le bout du bâton
-    const hHaut = P(L - 22), hBas2 = P(24), mid = P(L * 0.5), pousse = 26;
+    const hHaut = P(L - 22), hBas2 = P(24), mid = P(L * 0.38), pousse = 18;
     // bâton presque à l'horizontale, qui descend un peu vers les mains
     const dl = Math.hypot(1, 0.14), dir = [-1 / dl, 0.14 / dl];
     const apex = [mid[0] - dir[0] * pousse, mid[1] - dir[1] * pousse];
@@ -208,10 +208,10 @@ module.exports = (h) => {
 
   // ─── l'arête d'une planche plantée ─────────────────────────────────────────────────────
   const planche = z => {
-    const G = z.h - 12, xp = z.l - 40, ep = 4.5, hautP = G - mm(950);
+    const G = z.h - 12, xp = z.l - 40, ep = 7, hautP = G - mm(950);
     const out = [sol(4, z.l - 4, G)];
     // la planche vue par le bout ; le bout enterré en tireté
-    out.push(h.path(`M${pt([xp - ep / 2, G])} L${pt([xp - ep / 2, hautP + 2])} Q${pt([xp - ep / 2, hautP])} ${pt([xp, hautP])} Q${pt([xp + ep / 2, hautP])} ${pt([xp + ep / 2, hautP + 2])} L${pt([xp + ep / 2, G])} Z`, W(A.arete)));
+    out.push(h.path(`M${pt([xp - ep / 2, G])} L${pt([xp - ep / 2, hautP + ep / 2])} A${ep / 2},${ep / 2} 0 0 1 ${pt([xp + ep / 2, hautP + ep / 2])} L${pt([xp + ep / 2, G])} Z`, A.hachure('bois', 'arete')));
     out.push(h.path(`M${pt([xp - ep / 2, G])} L${pt([xp - ep / 2, z.h])} M${pt([xp + ep / 2, G])} L${pt([xp + ep / 2, z.h])}`, A.cache));
     const trait = `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`;
     // les mains tirent la peau vers soi, par-dessus l'arête
@@ -220,7 +220,7 @@ module.exports = (h) => {
       mains: { proche: [mP[0] - 3, mP[1]], loin: [mP[0] + 3, mP[1] - 3] } });
     const hp = pers.mains.proche;
     const rb = ep / 2 + bord / 2;
-    const peauD = `M${pt(hp)} L${pt([xp - rb, hautP + 1])} A${rb},${rb} 0 0 1 ${pt([xp + rb, hautP + 1])} C${pt([xp + rb + 4, hautP + 18])} ${pt([xp + rb + 12, hautP + 38])} ${pt([xp + rb + 10, hautP + 58])}`;
+    const peauD = `M${pt(hp)} L${pt([xp - rb, hautP + ep / 2])} A${rb},${rb} 0 0 1 ${pt([xp + rb, hautP + ep / 2])} C${pt([xp + rb + 4, hautP + 18])} ${pt([xp + rb + 12, hautP + 38])} ${pt([xp + rb + 10, hautP + 58])}`;
     const pend = `M${pt(hp)} C${pt([hp[0] + 2, hp[1] + 14])} ${pt([hp[0] + 5, hp[1] + 26])} ${pt([hp[0] + 3, hp[1] + 38])}`;
     out.push(h.path(pend, trait), h.path(peauD, trait), pers);
     const v = [hp[0] - (xp - rb), hp[1] - hautP], l = Math.hypot(...v), u = [v[0] / l, v[1] / l];
@@ -282,7 +282,7 @@ module.exports = (h) => {
       cadreCote: { titre: 'Le cadre, de côté',
         dessin: z => vue('cadreCote')(z).svg,
         renvois: z => { const c = vue('cadreCote')(z); return [
-          { n: 3, rond: [c.bout[0] + 6, c.bout[1] - 34], cible: [c.bout[0] - 10, c.bout[1] - 2], texte: 'pousser au bâton à bout rond' },
+          { n: 3, rond: [c.main1[0] - 4, c.main1[1] - 40], cible: [c.bout[0] - 1, c.bout[1] - 3], texte: 'pousser au bâton à bout rond' },
         ]; } },
       cordeFace: { titre: 'Le câble tendu, de face',
         dessin: z => vue('cordeFace')(z).svg,

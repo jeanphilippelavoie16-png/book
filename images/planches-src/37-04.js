@@ -295,20 +295,33 @@ module.exports = (h) => {
     const g = geo(z), G = g.G, o = [], id = p => p;
     o.push(h.rect(0, G, z.l, 7, h.a.hachure('terre', 'aucun')), h.ligne(0, G, z.l, G, h.a.arete));
     o.push(foyer(g, id, 1));
+    // l'homme, loin en arrière, vu de profil : les deux poings fermés sur la perche,
+    // le proche à la hanche au bout de la perche, le lointain une largeur d'épaules plus loin
+    const G1 = g.G1, x0 = g.px, Fp = G1.slice(), Fl = [G1[0] + 30 * U[0], G1[1] + 30 * U[1]];
+    const corps = ferme([[x0 + 7, G - 182], [x0 + 13, G - 170], [x0 + 15, G - 150], [x0 + 14, G - 128], [x0 + 12, G - 104],
+      [x0 + 14, G - 80], [x0 + 13, G - 55], [x0 + 12, G - 20], [x0 + 11, G - 5], [x0 + 25, G - 2.5], [x0 + 25, G], [x0 - 6, G],
+      [x0 - 6.5, G - 6], [x0 - 4, G - 30], [x0 - 2.5, G - 55], [x0 - 6, G - 85], [x0 - 11, G - 103], [x0 - 9, G - 126],
+      [x0 - 10, G - 150], [x0 - 9, G - 167], [x0 - 2, G - 181]], 0.6);
+    const tete = ferme([[x0 + 4, G - 208], [x0 + 13, G - 202], [x0 + 15, G - 195], [x0 + 18, G - 191], [x0 + 14, G - 188],
+      [x0 + 12, G - 182], [x0 + 3, G - 181], [x0 - 6, G - 187], [x0 - 8, G - 197], [x0 - 4, G - 206]], 0.7);
+    const bras = (pts) => { const d = ouvert(pts, 0.8);
+      return `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="11.4" stroke-linecap="round" stroke-linejoin="round"/>\n` +
+        `<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="8.6" stroke-linecap="round" stroke-linejoin="round"/>`; };
+    // poing fermé autour de la perche, vu du dos de la main : quatre doigts repliés dessus, le pouce dessous
+    const poing = (c, a) => { const q = (u, v) => P([c[0] + u * U[0] + v * V[0], c[1] + u * U[1] + v * V[1]]);
+      const o2 = [h.path(`M ${q(-6, -7)} Q ${q(0, -9.5)} ${q(6, -7)} Q ${q(8, 0)} ${q(5.5, 5.5)} Q ${q(0, 7.5)} ${q(-5.5, 5.5)} Q ${q(-8, 0)} ${q(-6, -7)} Z`, W(h.a.arete))];
+      for (const u of [-3, 0, 3]) o2.push(h.path(`M ${q(u, -7.5)} L ${q(u, -2)}`, h.a.fin));
+      o2.push(h.path(`M ${q(-5, 1)} Q ${q(0, 4.5)} ${q(5, 3)}`, h.a.detail));
+      return o2.join('\n'); };
+    const Ep = [x0 + 2, G - 170], El = [x0 - 1, G - 168];
+    o.push(bras([El, [x0 + 20, G - 140], [Fl[0] - 6 * U[0], Fl[1] + 2]]));
+    o.push(h.path(corps, W(h.a.arete)), h.path(tete, W(h.a.arete)));
+    o.push(h.path(`M ${P([x0 - 4, G - 55])} Q ${P([x0 + 2, G - 30])} ${P([x0 + 1, G - 6])}`, h.a.detail));
     // la perche et la louche
     o.push(louche(g, id, 1, false));
-    // l'homme, loin en arrière, les deux mains sur la perche à la hanche
-    const G1 = g.G1, G2 = [G1[0] + 32 * U[0], G1[1] + 32 * U[1]];
-    let w = { proche: G2.slice(), loin: G1.slice() }, pers;
-    for (let i = 0; i < 10; i++) {
-      pers = h.formes.personnage({ x: g.px, y: G, pose: 'debout', echelle: S, penche: 3, regard: 12, mains: w });
-      for (const k of ['proche', 'loin']) {
-        const Wr = pers.poignets[k], F = pers.mains[k], cible = k === 'proche' ? G2 : G1;
-        const cm = [Wr[0] + (F[0] - Wr[0]) * 0.42, Wr[1] + (F[1] - Wr[1]) * 0.42];
-        w[k] = [w[k][0] + cible[0] - cm[0], w[k][1] + cible[1] - cm[1]];
-      }
-    }
-    o.push(String(pers));
+    o.push(poing(Fl));
+    o.push(bras([Ep, [x0 + 1, G - 140], [Fp[0] - 5, Fp[1] + 1]]));
+    o.push(poing(Fp));
     // loupe sur la louche : le manche lié sous la perche, le bol qui verse
     loupe(o, g.M, g.loupe, g.k, 'k3704-louche', T => louche(g, T, g.k, true));
     return o.join('\n');

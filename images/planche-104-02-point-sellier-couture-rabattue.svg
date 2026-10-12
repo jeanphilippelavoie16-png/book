@@ -8,34 +8,37 @@
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le point sellier, coupé le long de la couture</text>
 <g transform="translate(40 46)" data-vue="sellier">
-<path d="M26 191 L26 165 L46 165 L46 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M62 191 L62 165 L96 165 L96 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M26 191 L26 165 L51 165 L51 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M57 191 L57 165 L96 165 L96 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M112 191 L112 165 L146 165 L146 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M162 191 L162 165 L196 165 L196 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M212 191 L212 165 L246 165 L246 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M262 191 L262 165 L296 165 L296 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M312 191 L312 165 L346 165 L346 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M362 191 L362 165 L419 165 L423 174.1 L415 181.9 L419 191 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M10 217 L6 207.9 L14 200.1 L10 191 L46 191 L46 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M62 217 L62 191 L96 191 L96 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M10 217 L6 207.9 L14 200.1 L10 191 L51 191 L51 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M57 217 L57 191 L96 191 L96 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M112 217 L112 191 L146 191 L146 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M162 217 L162 191 L196 191 L196 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M212 217 L212 191 L246 191 L246 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M262 217 L262 191 L296 191 L296 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M312 217 L312 191 L346 191 L346 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M362 217 L362 191 L419 191 L423 200.1 L415 207.9 L419 217 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M 54.0 191.0 L 54.0 219.0 L 99.0 219.0 L 109.0 163.0 L 149.0 163.0 L 159.0 219.0 L 199.0 219.0 L 209.0 163.0 L 249.0 163.0 L 259.0 219.0 L 278.0 283.0 L 282.0 296.4" fill="none" stroke="#1A1A1A" stroke-width="4.8" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 54.0 191.0 L 54.0 219.0 L 99.0 219.0 L 109.0 163.0 L 149.0 163.0 L 159.0 219.0 L 199.0 219.0 L 209.0 163.0 L 249.0 163.0 L 259.0 219.0 L 278.0 283.0 L 282.0 296.4" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 54.0 191.0 L 54.0 219.0 L 99.0 219.0 L 109.0 163.0 L 149.0 163.0 L 159.0 219.0 L 199.0 219.0 L 209.0 163.0 L 249.0 163.0 L 259.0 219.0 L 287.3 284.8" fill="none" stroke="#1A1A1A" stroke-width="4.8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 54.0 191.0 L 54.0 219.0 L 99.0 219.0 L 109.0 163.0 L 149.0 163.0 L 159.0 219.0 L 199.0 219.0 L 209.0 163.0 L 249.0 163.0 L 259.0 219.0 L 287.3 284.8" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="101.8" y1="178.7" x2="106.2" y2="203.3" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round" stroke-linecap="butt"/>
 <line x1="151.8" y1="178.7" x2="156.2" y2="203.3" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round" stroke-linecap="butt"/>
 <line x1="201.8" y1="178.7" x2="206.2" y2="203.3" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M 54.0 191.0 L 54.0 163.0 L 99.0 163.0 L 109.0 219.0 L 149.0 219.0 L 159.0 163.0 L 199.0 163.0 L 209.0 219.0 L 246.0 297.0 L 252.0 309.6" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 54.0 191.0 L 54.0 163.0 L 99.0 163.0 L 109.0 219.0 L 149.0 219.0 L 159.0 163.0 L 199.0 163.0 L 209.0 219.0 L 246.6 287.5" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 277.4 285.9 L 385.8 306.3 L 403.8 307.8 Q 407.0 307.2 404.3 305.5 L 386.9 300.4 L 278.6 280.1 Q 274.1 282.3 277.4 285.9 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 277.4 285.9 L 385.8 306.3 L 403.8 307.8 Q 407.0 307.2 404.3 305.5 L 386.9 300.4 L 278.6 280.1 Q 274.1 282.3 277.4 285.9 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 282.7 284.8 L 291.6 286.5 L 291.9 284.7 L 283.1 283.0 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M 282.7 284.8 L 291.6 286.5 L 291.9 284.7 L 283.1 283.0 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
 <path d="M 249.0 297.2 L 263.7 75.2 L 263.1 57.1 Q 262.1 54.0 260.7 56.9 L 257.7 74.8 L 243.0 296.8 Q 245.7 301.0 249.0 297.2 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 249.0 297.2 L 263.7 75.2 L 263.1 57.1 Q 262.1 54.0 260.7 56.9 L 257.7 74.8 L 243.0 296.8 Q 245.7 301.0 249.0 297.2 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 247.2 292.1 L 247.8 283.1 L 246.0 283.0 L 245.4 292.0 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M 247.2 292.1 L 247.8 283.1 L 246.0 283.0 L 245.4 292.0 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M 286.9 287.2 L 279.5 299.6" fill="none" stroke="#1A1A1A" stroke-width="4.8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 286.9 287.2 L 279.5 299.6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 249.1 287.7 L 262.3 293.6" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
 <text x="495.5" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Serrer</text>
 <g transform="translate(495.5 46)" data-vue="serrage">
@@ -66,9 +69,9 @@
 <line x1="119" y1="85" x2="119" y2="133" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="171" y1="85" x2="171" y2="133" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
-<line x1="71.8" y1="161.1" x2="93" y2="206" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="71.8" y1="161.1" x2="93" y2="206" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="93" cy="206" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="70.7" y1="161.6" x2="94" y2="237" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="70.7" y1="161.6" x2="94" y2="237" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="94" cy="237" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="68" cy="153" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="sellier"/>
 <text x="68" y="157" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
 <line x1="371.1" y1="155.5" x2="344" y2="235" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>

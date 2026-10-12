@@ -144,11 +144,22 @@ module.exports = (h) => {
           out.push(h.ligne(xc - 6, yN + 1.5, xc + 6, yN + 1.5, h.a.detail));
 
           // Le mouvement : têtes vers l'intérieur, pieds vers l'extérieur.
-          const yFh = yN + 16, yFp = yB - 26;
+          const yFh = yN + 16, yFp = yB - 44;
           out.push(h.fleche(`M${xL - 44} ${yFh} L${xL - 8} ${yFh}`));
           out.push(h.fleche(`M${xR + 44} ${yFh} L${xR + 8} ${yFh}`));
           out.push(h.fleche(`M${xL - 8} ${yFp} L${xL - 44} ${yFp}`));
           out.push(h.fleche(`M${xR + 8} ${yFp} L${xR + 44} ${yFp}`));
+
+          // Traits de coupe : A au clou du pied gauche, B en travers du montant au-dessus de la traverse.
+          const mixte = h.a.contour + ' stroke-dasharray="9 3 2 3"';
+          const xA = xL + w / 2;
+          out.push(h.ligne(xA, yClou - 12, xA, yClou + 14, mixte));
+          out.push(h.fleche(`M${xA} ${yClou - 12} L${xA - 14} ${yClou - 12}`), h.fleche(`M${xA} ${yClou + 14} L${xA - 14} ${yClou + 14}`));
+          out.push(h.texte(xA - 22, yClou + 4, 'A', { ancre: 'middle' }));
+          const yBc = yM - 16;
+          out.push(h.ligne(xL - 10, yBc, xL + w + 10, yBc, mixte));
+          out.push(h.fleche(`M${xL - 10} ${yBc} L${xL - 10} ${yBc + 13}`), h.fleche(`M${xL + w + 10} ${yBc} L${xL + w + 10} ${yBc + 13}`));
+          out.push(h.texte(xL - 22, yBc + 4, 'B', { ancre: 'middle' }));
 
           // Cote : le montant fait la longueur de l'avant-bras.
           const xk = xR + 62;
@@ -163,16 +174,16 @@ module.exports = (h) => {
           return [
             { n: 1, rond: [xL - 34, yU], cible: [xL + w / 2, yU], texte: 'montant de bois franc' },
             { n: 2, rond: [xL + 150, yM + 40], cible: [xL + 150, yM + 5], texte: 'traverse encochée, le pivot' },
-            { n: 3, rond: [xL + 44, yB + 30], cible: [xL + w / 2 + 2, yClou + 2], texte: 'lame goupillée au pied' },
+            { n: 3, rond: [xL + 44, yB + 30], cible: [xL + w / 2 + 2.6, yClou], texte: 'lame goupillée au pied' },
             { n: 4, rond: [xL + 86, yT - 20], cible: [xL + 86, yN - 2], texte: 'corde en plusieurs tours' },
             { n: 5, rond: [xc + 44, yT - 20], cible: [xc + 3, yN - 26], texte: 'bâton qu’on tourne' },
-            { n: 6, rond: [xR + 26, yB - 62], cible: [xR + 30, yB - 28], texte: 'pieds écartés : lame tendue' },
+            { n: 6, rond: [xR + 26, yB - 80], cible: [xR + 30, yB - 46], texte: 'pieds écartés : lame tendue' },
           ];
         },
       },
 
       pied: {
-        titre: 'Le pied, coupé en travers au clou',
+        titre: 'Le pied, coupé en travers au clou — A',
         dessin: (z) => {
           const { cx, t, s, yB, yH, Ks, Kb, yClou } = geoPied(z);
           const out = [];
@@ -202,7 +213,7 @@ module.exports = (h) => {
       },
 
       trav: {
-        titre: 'À mi-hauteur, de dessus',
+        titre: 'À mi-hauteur, de dessus — B',
         dessin: (z) => {
           const { ux, uw, ut, prof, cz, xb1, xb2, xfin, xs, demi } = geoTrav(z);
           const out = [];

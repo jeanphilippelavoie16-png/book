@@ -97,7 +97,13 @@ module.exports = (h) => {
     caches.push(h.ligne(xL, yg + gw * 0.62, X(0) - 1, yg + 1, h.a.cache));
     // le fil remonte dans la maille suivante, par derrière, jusqu'à l'aiguille
     const xn = X(kc + 1);
-    const fil = F.corde([[xn - 1, yg + 3], [xn, yg - 6], [xn + 3, yg - gw * 0.5], [xn + 8, yg - gw * 0.9]], VIEUX);
+    // il passe derrière le fond de la boucle qui pend, et sort devant, dans la boucle
+    caches.push(h.ligne(xn, yg + 1, xn + 1, yg - 8, h.a.cache));
+    const fil = F.corde([[xn + 1, yg - 8], [xn + 3, yg - gw * 0.5], [xn + 8, yg - gw * 0.9]], VIEUX);
+    // le sens du fil : il descend devant, remonte derrière
+    const xk = X(kc);
+    caches.push(h.fleche(`M ${P(xk + 9, yg + 5)} L ${P(xk + a / 2 + 4, yg + gw - 9)}`, h.a.fin),
+      h.fleche(`M ${P(xn - a / 2 + 9, yg + gw - 6)} L ${P(xn - 6, yg + 9)}`, h.a.fin));
     out.push(...net, fil);
     out.push(F.moule({ x: (xL - 4 + xf) / 2, y: yg, longueur: xf - xL + 4, largeur: gw }));
     out.push(...dessus, ...caches);
@@ -120,7 +126,7 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [X(kc - 1) - a * 0.5, yg - gw * 1.5], cible: [X(kc - 1), yg], texte: 'un nœud par maille' },
       { n: 2, rond: [X(kc - 3) + a * 0.3, yg + gw + 15], cible: [X(kc - 3) + a * 0.3, yg + gw * 0.6], texte: 'devant, dessous, derrière' },
-      { n: 3, rond: [X(kc + 2), yg - gw * 1.5], cible: [X(kc + 1) + 2, yg - gw * 0.35], texte: 'la maille suivante' },
+      { n: 3, rond: [X(kc + 2), yg - gw * 1.5], cible: [X(kc + 1) + 2.5, yg - gw * 0.42], texte: 'la maille suivante' },
       { n: 4, rond: [xs + tm / 2, yg + gw + 16], cible: [xs + tm / 2 + 2, yg + gw * 0.5], texte: 'latte à la largeur de maille' },
     ];
   };
@@ -207,6 +213,51 @@ module.exports = (h) => {
       const A = [X(0), Y(4)], B = [X(1), Y(5)], C = [X(2) - 2, Y(4) + 4];
       out.push(F.corde([A, [A[0] + (B[0] - A[0]) * 0.5, A[1] + (B[1] - A[1]) * 0.5], B, [B[0] + 4, B[1] - 6], C], NEUF));
       out.push(aiguilleTalon(C[0], C[1], -58, gT(z).a * 1.7));
+      // le chemin du fil : rang 2-3 de gauche à droite, rang 3-4 de droite à gauche, rang 4-5 de gauche à droite
+      const fl = [];
+      for (const b of L) {
+        if (!b.trou || !fait(b)) continue;
+        const m = Math.min(b.p[1], b.q[1]);
+        let [A2, B2] = b.P[0] < b.Q[0] ? [b.P, b.Q] : [b.Q, b.P];
+        if (m % 2) [A2, B2] = [B2, A2];
+        const d = [B2[0] - A2[0], B2[1] - A2[1]], l = Math.hypot(...d), u = [d[0] / l, d[1] / l], nn = [u[1], -u[0]];
+        const o = 6, M = [(A2[0] + B2[0]) / 2 + nn[0] * o, (A2[1] + B2[1]) / 2 + nn[1] * o];
+        fl.push(h.fleche(`M ${P(M[0] - u[0] * 6, M[1] - u[1] * 6)} L ${P(M[0] + u[0] * 6, M[1] + u[1] * 6)}`, h.a.fin));
+      }
+      // les demi-tours aux bords
+      const a2 = gT(z).a, v2 = gT(z).v;
+      fl.push(h.fleche(`M ${P(X(3) - 2, Y(2.6))} Q ${P(X(3) + a2 * 0.45, Y(3))} ${P(X(3) - 2, Y(3.4))}`, h.a.fin));
+      fl.push(h.fleche(`M ${P(X(-3) + 2, Y(3.6))} Q ${P(X(-3) - a2 * 0.45, Y(4))} ${P(X(-3) + 2, Y(4.4))}`, h.a.fin));
+      out.push(...fl);
+      // détail grossi trois fois : le fil neuf noué sur un nœud du contour
+      const J = [X(-3), Y(3)], R0 = 8;
+      const D = [z.l - 58, Y(8.7)], R = 52, k3 = 0.8;
+      const T = (x, y, zz) => zz == null ? [D[0] + x * k3, D[1] + y * k3] : [D[0] + x * k3, D[1] + y * k3, zz];
+      out.push(h.cercle(J[0], J[1], R0, h.a.fin));
+      const dv = [D[0] - J[0], D[1] - J[1]], dl = Math.hypot(...dv);
+      out.push(h.ligne(J[0] + dv[0] / dl * R0, J[1] + dv[1] / dl * R0, D[0] - dv[0] / dl * R, D[1] - dv[1] / dl * R, h.a.fin));
+      out.push(h.cercle(D[0], D[1], R, h.a.blanc));
+      const cordesD = F.cordes([
+        { pts: [T(-42, -44), T(-4, 8)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
+        { pts: [T(42, -44), T(4, 8)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
+        { pts: [T(-2, 12), T(-22, 48)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
+        { pts: [T(28, 48, -1), T(10, 22, -1), T(0, 2, -1), T(0, -12, 1), T(20, -20, 1), T(38, -24, 0), T(16, -35, -1), T(-16, -35, -1),
+          T(-38, -24, 0), T(-18, -17, 1), T(6, -15, -1), T(14, -4, 1), T(36, 40, 1)], ep: 6, debut: 'ouvert', fin: 'ouvert' },
+      ]);
+      // le fil neuf en gris : ses fonds sont les derniers peints
+      const nNeuf = (cordesD.croisements || []).filter(c => c.dessus !== 3).length + 1;
+      let svgD = String(cordesD);
+      const FONDB = 'fill="#FFFFFF" stroke="none"';
+      const idx = []; let q = -1; while ((q = svgD.indexOf(FONDB, q + 1)) >= 0) idx.push(q);
+      // gris = fond blanc et pointillé serré par-dessus
+      const GRIS = h.a.hachure('grillage', 'aucun');
+      for (const i of idx.slice(-nNeuf).reverse()) {
+        const deb = svgD.lastIndexOf('<path d="', i), dd = svgD.slice(deb + 9, i - 2), fin = svgD.indexOf('/>', i) + 2;
+        svgD = svgD.slice(0, fin) + `<path d="${dd}" ${GRIS}/>` + svgD.slice(fin);
+      }
+      out.push(svgD);
+      out.push(noeud(D[0], D[1] + 10 * k3, 4.5));
+      out.push(h.cercle(D[0], D[1], R, h.a.detail));
     }
     return out.join('\n');
   };

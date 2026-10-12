@@ -111,27 +111,34 @@ module.exports = (h) => {
     }
     return [h.chemin(pts, h.a.blanc, true), h.chemin(pts, h.a.hachure('gravier', 'arete'), true)].join('\n');
   };
-  // la pelle, de profil, qui lève une pelletée
+  // la pelle, de profil : lame à plat au fond (bx = pointe, by = fond), douille, manche qui remonte
   const pelle = (bx, by, deg) => {
-    const a = deg * Math.PI / 180;
-    const P = ([dx, dy]) => [bx + dx * Math.cos(a) - dy * Math.sin(a), by + dx * Math.sin(a) + dy * Math.cos(a)];
-    const pts = (l) => l.map(P);
+    const L = 34;                                   // lame : environ 1/4 du manche (130)
+    const lame = [[bx, by - 1], [bx + L, by - 1]];  // dessous de la lame, posé sur le fond
+    const plaque = [[bx - 2, by - 3.5], [bx, by - 1], [bx + L * 0.5, by + 0.2], [bx + L, by - 1], [bx + L + 2, by - 9],
+      [bx + L, by - 7], [bx + L * 0.5, by - 2.4], [bx + 1, by - 3.2]];
     const charge = [];
-    for (let i = 0; i <= 10; i++) { const t = i / 10; charge.push([3 + 30 * t, -1.5 - 9 * Math.pow(Math.sin(Math.PI * t), 0.8)]); }
+    for (let i = 0; i <= 10; i++) { const t = i / 10; charge.push([bx + 2 + (L - 3) * t, by - 2.6 - 9 * Math.pow(Math.sin(Math.PI * t), 0.8)]); }
+    const a = deg * Math.PI / 180, ox = bx + L + 1, oy = by - 8;   // départ de la douille, au talon
+    const P = ([dx, dy]) => [ox + dx * Math.cos(a) - dy * Math.sin(a), oy + dx * Math.sin(a) + dy * Math.cos(a)];
+    const pts = (l) => l.map(P);
     return [
-      h.chemin(pts(charge), h.a.blanc, true),
-      h.chemin(pts(charge), h.a.hachure('gravier', 'detail'), true),
-      h.chemin(pts([[0, -1.2], [36, -2.2], [46, -2.4], [46, 2.4], [36, 2.2], [0, 1.4]]), h.a.plein, true),
-      h.chemin(pts([[46, -2.3], [124, -2.3], [124, 2.3], [46, 2.3]]), h.a.blanc, true),
-      h.chemin(pts([[46, -2.3], [124, -2.3], [124, 2.3], [46, 2.3]]), h.a.arete, true),
-      h.chemin(pts([[124, -2.3], [132, -8], [140, -8], [140, 8], [132, 8], [124, 2.3]]), h.a.arete),
+      h.chemin(charge, h.a.blanc, true),
+      h.chemin(charge, h.a.hachure('gravier', 'detail'), true),
+      h.chemin(plaque, h.a.blanc, true), h.chemin(plaque, h.a.arete, true),
+      h.chemin(pts([[0, -3.6], [14, -2.6], [14, 2.6], [0, 3.6]]), h.a.blanc, true),
+      h.chemin(pts([[0, -3.6], [14, -2.6], [14, 2.6], [0, 3.6]]), h.a.arete, true),
+      h.ligne(...P([5, -3.2]), ...P([5, 3.2]), h.a.fin),
+      h.chemin(pts([[14, -2.2], [120, -2.2], [120, 2.2], [14, 2.2]]), h.a.blanc, true),
+      h.chemin(pts([[14, -2.2], [120, -2.2], [120, 2.2], [14, 2.2]]), h.a.arete, true),
+      h.chemin(pts([[120, -2.2], [128, -8], [136, -8], [136, 8], [128, 8], [120, 2.2]]), h.a.arete),
     ].join('\n');
   };
 
   return {
     ref: '31-08',
     titre: 'Creuser un sol gelé au feu',
-    desc: 'Quatre coupes du même trou en février, puis une cinquième du trou creusé d’avance en septembre, vu en hiver. On dégage la neige jusqu’au sol ; on y fait un feu vif, qui dégèle une épaisseur de terre sous lui ; on repousse les braises sur le bord et on sort la couche dégelée à la pelle, la terre en tas sur la neige ; on refait le feu au fond du trou et on recommence. En bas, le trou creusé en septembre, 1,2 m de profondeur, couvert d’une perche d’un bord à l’autre, de branches en travers et de neige tassée par-dessus.',
+    desc: 'Quatre coupes du même trou en février, puis une cinquième du trou creusé d’avance en septembre, vu en hiver. On dégage la neige jusqu’au sol ; on y fait un feu vif, qui dégèle une épaisseur de terre sous lui ; on repousse les braises sur le bord et on sort la couche dégelée à la pelle, la terre en tas sur la neige ; on refait le feu au fond du trou et on recommence. En bas, le trou creusé en septembre, 1200 mm de profondeur, couvert d’une perche d’un bord à l’autre, de branches en travers et de neige tassée par-dessus.',
     format: 'pleine',
     disposition: [['neige', 'feu'], ['gratter', 'refaire'], ['septembre']],
     hauteurs: [1, 1, 1.15],
@@ -173,7 +180,9 @@ module.exports = (h) => {
             sol(z, g, 1), neige(z, g),
             braises(g.xn1 + 2, g.xa - 3, g.GS),
             tas(z.l * 0.865, z.l - 3, g.GS - S, 15),
-            pelle(g.cx - 34, fond - 2, -26),
+            tas(g.cx - 60, g.cx - 45, fond, 6),
+            pelle(g.cx - 46, fond, -32),
+            h.fleche(`M ${R(g.cx - 24)} ${R(fond - 16)} Q ${R(g.cx + 30)} ${R(g.GS - 78)} ${R(z.l * 0.9)} ${R(g.GS - S - 22)}`, h.a.arete),
           ].join('\n');
         },
         renvois: (z) => {
@@ -181,7 +190,7 @@ module.exports = (h) => {
           const fond = g.GS + g.d1;
           return [
             { n: 5, rond: [g.xn1 + 12, g.GS - 42], cible: [(g.xn1 + g.xa) / 2, g.GS - 6], texte: 'braises repoussées' },
-            { n: 6, rond: [g.cx - 40, fond + 32], cible: [g.cx - 20, fond - 4], texte: 'couche dégelée grattée' },
+            { n: 6, rond: [g.cx - 40, fond + 32], cible: [g.cx - 30, fond - 5], texte: 'couche dégelée grattée' },
             { n: 7, rond: [z.l - 20, g.GS - S - 42], cible: [z.l * 0.93, g.GS - S - 10], texte: 'terre sortie' },
           ];
         },
@@ -229,14 +238,19 @@ module.exports = (h) => {
           out.push(h.chemin(dessus, h.a.arete));
           // branchages : une perche posée d'un bord à l'autre, des branches en travers par-dessus (vues par le bout)
           out.push(h.rect(xa - 26, yB, D + 52, GS - yB, h.a.blanc));
-          out.push(h.rect(xa - 24, GS - 4.5, D + 48, 4.5, h.a.blanc), h.rect(xa - 24, GS - 4.5, D + 48, 4.5, h.a.arete));
+          // perche ronde, bouts arrondis, qui porte sur le sol au-delà des deux bords
+          const perche = `M ${R(xa - 22)} ${R(GS - 5)} L ${R(xb + 22)} ${R(GS - 5)} A 2.5 2.5 0 0 1 ${R(xb + 22)} ${R(GS)} L ${R(xa - 22)} ${R(GS)} A 2.5 2.5 0 0 1 ${R(xa - 22)} ${R(GS - 5)} Z`;
+          out.push(h.path(perche, h.a.blanc), h.path(perche, h.a.arete), h.ligne(xa - 18, GS - 3.6, xb + 18, GS - 3.6, h.a.fin));
           const nb = 13, r = 3.6;
           for (let i = 0; i < nb; i++) {
-            const x = xa - 18 + (D + 36) * i / (nb - 1), y = GS - 4.5 - r;
+            const x = xa - 18 + (D + 36) * i / (nb - 1), y = GS - 5 - r;
             out.push(h.cercle(x, y, r, h.a.blanc), h.cercle(x, y, r, h.a.detail));
           }
           // cote de profondeur, dans le vide du trou
-          out.push(h.cote(xb - 26, GS, xb - 26, GS + D, '1,2 m', { cote: 'gauche' }));
+          const xc = xb + 44;
+          out.push(h.ligne(xb + 28, GS, xc + 6, GS, h.a.fin), h.ligne(xb + 4, GS + D, xc + 6, GS + D, h.a.fin));
+          out.push(h.fleche(`M ${R(xc)} ${R(GS + D / 2)} L ${R(xc)} ${R(GS + 1)}`, h.a.detail), h.fleche(`M ${R(xc)} ${R(GS + D / 2)} L ${R(xc)} ${R(GS + D - 1)}`, h.a.detail));
+          out.push(h.texte(xc + 8, GS + D / 2 + 4, '1200', { ancre: 'start', lisere: true }));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -246,7 +260,8 @@ module.exports = (h) => {
           return [
             { n: 9, rond: [xa - 60, GS + D * 0.6], cible: [xa + 2, GS + D * 0.6], texte: 'trou creusé en septembre' },
             { n: 10, rond: [xb + 70, GS + 16], cible: [xb + 18, GS - 2.5], texte: 'branchages en travers' },
-            { n: 11, rond: [cx + D * 1.0, 15], cible: [cx + D * 0.28, GS - S - 6], texte: 'neige tassée par-dessus' },
+            { n: 11, rond: [xa - 60, GS + 22], cible: [xa - 14, GS - 2.5], texte: 'perche d’un bord à l’autre' },
+            { n: 12, rond: [cx + D * 1.0, 15], cible: [cx + D * 0.28, GS - S - 6], texte: 'neige tassée par-dessus' },
           ];
         },
       },

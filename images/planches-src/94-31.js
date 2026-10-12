@@ -129,10 +129,14 @@ module.exports = (h) => {
       h.chemin(trace, h.a.detail, true),
       h.chemin(rim, h.a.arete, true),
       paroi(bl, cu, 0.5, 60, 0.29, 44, 0.16, 18, 0.05, 1.64, h.a.plein),
-      paroi(bl, cu, 0.5, 60, 0.29, 44, 0.16, 18, 1.64, Math.PI - 0.05, h.a.hachure('bois', 'detail')),
+      paroi(bl, cu, 0.5, 60, 0.29, 44, 0.16, 18, 1.64, Math.PI - 0.05, B(h.a.detail)),
+      // fil du bois dans la zone déjà grattée
+      ...[[0.27, 2.4, 6], [0.24, 2.0, 11], [0.21, 2.8, 14]].map(([b, th, dh]) => h.chemin(bl.creux(cu, 0.5, 52, b, dh, th - 0.35, th + 0.3, 12), h.a.detail)),
       h.chemin(bl.creux(cu, 0.5, 44, 0.16, 18, 0.12, Math.PI - 0.12), h.a.detail),
       ...eclats,
       couteau(tip[0], tip[1], -0.62, 72, 62),
+      // sens du raclage : parallèle à la lame, vers la zone grattée
+      h.fleche(`M${r1(tip[0] + 70)},${r1(tip[1] - 92)} L${r1(tip[0] + 70 - 40 * Math.cos(0.62))},${r1(tip[1] - 92 + 40 * Math.sin(0.62))}`, h.a.arete),
     ].join('\n');
   };
 
@@ -162,7 +166,7 @@ module.exports = (h) => {
     const dir = [-0.74, -0.67], nl = [0.67, -0.74], Lp = 200;
     const H = [pB[0] + dir[0] * Lp, pB[1] - 4 + dir[1] * Lp];
     const bord = (off0, off1) => [[H[0] + nl[0] * off0, H[1] + nl[1] * off0], [pB[0] + nl[0] * off1, pB[1] - 4 + nl[1] * off1]];
-    const o1 = bord(9, rs + 7), i1 = bord(3, rs + 1), o2 = bord(-9, -rs - 7), i2 = bord(-3, -rs - 1);
+    const o1 = bord(9, 17), i1 = bord(3, 11), o2 = bord(-9, -17), i2 = bord(-3, -11);
     const tour = (r) => { const a = []; for (let i = 0; i <= 14; i++) { const th = i / 14 * Math.PI; a.push([r1(H[0] + nl[0] * r * Math.cos(th) + dir[0] * r * Math.sin(th)), r1(H[1] + nl[1] * r * Math.cos(th) + dir[1] * r * Math.sin(th))]); } return a; };
     const pinceSvg = h.chemin([o1[1], o1[0], ...tour(9).slice(1, -1), o2[0], o2[1], i2[1], i2[0], ...tour(3).slice(1, -1).reverse(), i1[0], i1[1]].map(p => [r1(p[0]), r1(p[1])]), B(h.a.arete), true);
     const noeud = (k, cote) => { const p = [H[0] + (pB[0] - H[0]) * k + nl[0] * 9 * cote, H[1] + (pB[1] - 4 - H[1]) * k + nl[1] * 9 * cote]; return h.ligne(r1(p[0]), r1(p[1]), r1(p[0] + nl[0] * 7 * cote + dir[0] * 5), r1(p[1] + nl[1] * 7 * cote + dir[1] * 5), h.a.arete); };

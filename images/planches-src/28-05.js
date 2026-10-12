@@ -119,6 +119,31 @@ module.exports = (h) => {
     // (l'avant-bras continue hors de la vue : il est coupé net au bas de la vue)
     out.push(`<clipPath id="z2805-vueA"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`);
     out.push(`<g clip-path="url(#z2805-vueA)">${h.formes.main({ x: XA + 146, y: YA, pose: 'prise', vue: 'dos', echelle: EA, diametre: 2 * POT.R * EA, angle: -90, bras: 60 })}</g>`);
+    out.push(ongles());
+    return out.join('\n');
+  };
+
+  // les ongles au bout des doigts et du pouce, et le bout des doigts qui plonge au bord du pot :
+  // même repère que la main de formes.js (prise / dos), recalculé ici
+  const ongles = () => {
+    const RAD = Math.PI / 180, R = POT.R, e = EA, ang = -90;
+    const tr = (a, d) => { const c = Math.cos(d * RAD), s = Math.sin(d * RAD); return [a[0] * c - a[1] * s, a[0] * s + a[1] * c]; };
+    const pre = Math.atan(-0.22) / RAD, c0 = tr([12 - 0.05 * R, 0], pre);
+    const T = p => { const q = tr(p, pre), r = tr([(q[0] - c0[0]) * e, (q[1] - c0[1]) * e], ang); return [XA + 146 + r[0], YA + r[1]]; };
+    const doigts = [[[-9, 28.5], [17 + 0.3 * R, 29], 13.6], [[0, 11], [27 + 0.3 * R, 11.5], 15.6], [[3, -7.5], [31 + 0.3 * R, -7.5], 16.8], [[0, -26.5], [27 + 0.3 * R, -26], 16.2]];
+    const out = [];
+    const ongle = (a, b, w, s1, s2, pli) => {
+      const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
+      const at = (s, t) => T([b[0] - u[0] * s + n[0] * t, b[1] - u[1] * s + n[1] * t]);
+      const hw = w * 0.3, sm = s2 + 3.2;
+      // l'ongle : deux côtés, la lunule arrondie vers la main
+      out.push(h.path(`M${P(at(s1, hw))} L${P(at(s2, hw))} C${P(at(sm, hw))} ${P(at(sm, -hw))} ${P(at(s2, -hw))} L${P(at(s1, -hw))}`, h.a.fin));
+      // le pli de la dernière jointure : le bout plonge vers le bas, par-dessus le bord du pot
+      if (pli) out.push(h.path(`M${P(at(pli, w * 0.36))} Q${P(at(pli - 3, 0))} ${P(at(pli, -w * 0.36))}`, h.a.fin));
+    };
+    for (const [a, b, w] of doigts) ongle(a, b, w, 2.2, 9.5, 16);
+    // le pouce : le dernier segment de la chaîne du pouce
+    ongle([-8, -45], [14 + 0.3 * R, -41], 15, 3, 11, 0);
     return out.join('\n');
   };
 
@@ -179,16 +204,17 @@ module.exports = (h) => {
   const pied = (fx, fy) => {
     const T = ([x, y]) => [fx + x, fy + y];
     const plante = [[-27, -38], [-25, -22], [-18, -2], [-16, 18], [-18, 38], [-15, 56], [-6, 64], [6, 64], [15, 56], [17, 36], [19, 12], [24, -8], [28, -24], [26, -36], [18, -42], [6, -44], [-8, -46], [-20, -45]].map(T);
-    const dedans = [[-22, -36], [-20, -22], [-13, -2], [-11, 18], [-13, 38], [-11, 52], [-4, 58], [5, 58], [11, 52], [12, 36], [14, 12], [19, -8], [23, -24], [21, -33], [14, -38], [5, -39], [-8, -41], [-17, -40]].map(T);
+    const dedans = [[-19, -33], [-17, -21], [-10, -2], [-8, 18], [-10, 37], [-8, 49], [-3, 54], [4, 54], [8, 49], [9, 35], [11, 12], [15, -8], [19, -23], [17, -30], [12, -34], [5, -35], [-8, -37], [-15, -36]].map(T);
+    const dedansR = dedans.map(([x, y]) => [fx + (x - fx) * 0.8, fy + 6 + (y - fy - 6) * 0.86]);
     const orteils = [[-15, -53, 9.5, 12.5], [0, -56, 6.2, 8.2], [11, -53, 5.6, 7.4], [20.5, -48, 5, 6.6], [28.5, -41.5, 4.4, 5.6]];
     const out = [];
     for (const [x, y, rx, ry] of orteils) {
       out.push(h.ellipse(fx + x, fy + y, rx, ry, PEAU));
-      out.push(h.ellipse(fx + x, fy + y + 1.2, rx - 2.4, ry - 2.6, h.a.blanc));
+      out.push(h.ellipse(fx + x, fy + y + ry * 0.38, rx * 0.5, ry * 0.42, h.a.blanc));
       out.push(h.ellipse(fx + x, fy + y, rx, ry, h.a.arete));
     }
     out.push(h.path(lisse(plante, true), PEAU));
-    out.push(h.path(lisse(dedans, true), h.a.blanc));
+    out.push(h.path(lisse(dedansR, true), h.a.blanc));
     out.push(h.path(lisse(plante, true), h.a.arete));
     const pts = [[-6, -28, 1.5], [8, -30, 1.3], [16, -18, 1.6], [-2, -14, 1.2], [10, -6, 1.4], [-4, 6, 1.5], [6, 20, 1.3], [-3, 34, 1.6], [7, 42, 1.2], [-1, 50, 1.4], [14, 30, 1.3], [-14, -26, 1.2]];
     out.push(points(pts.map(([x, y, r]) => [fx + x, fy + y, r])));

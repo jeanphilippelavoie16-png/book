@@ -107,6 +107,11 @@
 <path d="M440 60.5 L440 68.5 L445 71.5 L435 73.5 L440 76.5 L440 84.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 276 48.5 L 280 48.5 L 280 43.5 L 297 64.5 L 276 64.5 Z" fill="#1A1A1A" stroke="none"/>
 <path d="M 276 96.5 L 280 96.5 L 280 101.5 L 297 80.5 L 276 80.5 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M 205 26.5 L 205 118.5" fill="none" stroke="#000" stroke-width="0.7" stroke-dasharray="14 3 2 3"/>
+<line x1="205" y1="23.5" x2="205" y2="29.5" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 205 26.5 L 225 26.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<line x1="205" y1="115.5" x2="205" y2="121.5" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 205 118.5 L 225 118.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <circle cx="530" cy="72.5" r="30" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <circle cx="530" cy="72.5" r="24" fill="#FFFFFF" stroke="none"/>
 <circle cx="530" cy="72.5" r="24" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>

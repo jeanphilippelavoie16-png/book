@@ -285,18 +285,21 @@ module.exports = (h) => {
     // l'adulte couché sur le dos, la tête à gauche
     const xF = 1900, o = R([xF, 675]);
     out.push(F.personnage({ x: o[0], y: o[1], pose: 'debout', echelle: E, angle: -90, penche: 0, regard: 0 }));
+    // le profil, en courbe lisse : front, nez, bouche fermée, menton
+    const prof = [[222, 744], [240, 764], [278, 792], [322, 804], [348, 810], [358, 818], [364, 806], [376, 799], [390, 792], [400, 782], [420, 774], [448, 780], [478, 792], [500, 796]];
+    out.push(h.path(lisse([...prof, [500, 760], [445, 728], [222, 728]].map(R), true), 'fill="#FFFFFF" stroke="none"'));
+    out.push(h.path(lisse(prof.map(R)), A.arete));
     // la couverture, repliée sur la poitrine
-    const couv = [[640, 345], [640, 560], [650, 810], [760, 838], [1000, 822], [1300, 796], [1600, 786], [1760, 800], [1860, 900], [1960, 896], [2030, 810], [2065, 620], [2060, 350], [1500, 330], [1000, 345]];
+    const couv = [[640, 560], [650, 810], [760, 838], [1000, 822], [1300, 796], [1600, 786], [1760, 800], [1860, 900], [1960, 896], [2030, 810], [2065, 620], [2060, 560], [1500, 556], [1000, 560]];
     out.push(h.path(lisse(couv.map(R), true), W(A.arete)));
-    out.push(h.path(lisse([[735, 834], [735, 600], [742, 350]].map(R)), A.detail));
     // l'enfant, penché, les deux mains sur l'épaule
     const kid = enfant({ x: R([980, 0])[0], y: R([0, 0])[1], E, taille: 1150, k: 1.3, cote: 'gauche', penche: 30, regard: 16,
-      mains: { proche: R([588, 776]), loin: R([546, 790]) } });
+      mains: { proche: R([620, 790]), loin: R([590, 800]) } });
     out.push(kid.pers, kid.tete);
     const bouche = kid.Hv([104, 46]);
     out.push(ondes([bouche[0] - 3, bouche[1] - 2], 166, [7, 12, 17], 24));
     // secouer : la flèche aller-retour au-dessus des mains
-    const m = R([530, 880]);
+    const m = R([560, 890]);
     out.push(h.fleche(`M${pt(m)} L${pt(add(m, [-9, 0]))}`, A.arete), h.fleche(`M${pt(m)} L${pt(add(m, [9, 0]))}`, A.arete));
     return { svg: out.join('\n'), R, E };
   };
@@ -394,7 +397,7 @@ module.exports = (h) => {
         renvois: z => {
           const { R } = reveil(z);
           return [
-            { n: 7, rond: R([150, 1150]), cible: R([445, 762]) },
+            { n: 7, rond: R([150, 1150]), cible: R([530, 790]) },
           ];
         },
       },

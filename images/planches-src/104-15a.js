@@ -49,6 +49,7 @@ const COTE = [[0, -250], [4, -200], [6, -140], [4, -90], [-4, -50], [-10, -24], 
 const I_BAS0 = 7, I_BAS1 = 12;                      // le bord bas du côté, cousu autour de la semelle
 
 // ── Vue 1 : la botte à plat ─────────────────────────────────────────────────────────────────
+const f1 = v => v.toFixed(1);
 function botte(z) {
   const s = Math.min((z.l - 34) / (301 + 396), (z.h - 44) / (216 + 88 + 22));
   const ox = 8 + 16 * s, oy = z.h / 2 + 6;                      // talon de la pièce de dessous
@@ -113,6 +114,14 @@ module.exports = (h) => ({
         // les mêmes repères sur la pièce de dessous : là où tombent les coins de l'empeigne
         const rd = [3, 11].map(i => { const [x, y] = DESSOUS[i], sy = Math.sign(y); return seg(g.T([x, y - sy * 9]), g.T([x, y + sy * 9])); });
         out.push(h.path(rd.join(' '), h.a.arete));
+        // second renvoi (6) sur le repère du bas de la pièce de dessous, dessiné comme les pastilles
+        const [xb, yb] = DESSOUS[11], cb = g.T([xb, yb + Math.sign(yb) * 9]), pb = [cb[0] + 34, cb[1] + 26];
+        const db = Math.hypot(cb[0] - pb[0], cb[1] - pb[1]), sb = [pb[0] + 9 * (cb[0] - pb[0]) / db, pb[1] + 9 * (cb[1] - pb[1]) / db];
+        out.push(`<line x1="${f1(sb[0])}" y1="${f1(sb[1])}" x2="${f1(cb[0])}" y2="${f1(cb[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`);
+        out.push(`<line x1="${f1(sb[0])}" y1="${f1(sb[1])}" x2="${f1(cb[0])}" y2="${f1(cb[1])}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>`);
+        out.push(`<circle cx="${f1(cb[0])}" cy="${f1(cb[1])}" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>`);
+        out.push(`<circle cx="${f1(pb[0])}" cy="${f1(pb[1])}" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>`);
+        out.push(h.texte(pb[0], pb[1] + 4, '6', { ancre: 'middle', corps: 12 }));
         return out.join('\n');
       },
       renvois: z => {

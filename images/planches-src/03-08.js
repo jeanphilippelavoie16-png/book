@@ -115,18 +115,21 @@ module.exports = (h) => {
     out.push(h.path(`M ${r1(lx - 4)},${r1(ly + 4)} Q ${r1((lx + qx) / 2)},${r1(ly + 1)} ${r1(qx)},${r1(qy + 4)}`, h.a.detail));
     out.push(h.cercle(qx, qy, rr, blanc(h.a.arete)));
     out.push(h.path(`M ${r1(qx)},${r1(qy + 5)} A 5 5 0 1 1 ${r1(qx + 5)},${r1(qy)} A 3 3 0 0 0 ${r1(qx + 2)},${r1(qy - 2)}`, h.a.detail));
-    const xa = x0 + ep + 12, [ax1, ay1] = O(xa, yH - 2, pr - rr - 3), [ax2, ay2] = O(xa, yH - 2, ep + 10);
-    out.push(h.fleche(`M ${r1(ax1)},${r1(ay1)} L ${r1(ax2)},${r1(ay2)}`));
     const rouleau = O(x0 + W - ep - rr - 24, yH - rr, pr);
     // la marmite : son couvercle affleure, ou dépasse d'un tiroir trop bas
     const [cx, cy] = O(x0 + W / 2, yH, D / 2), rx = W * 0.19, ry = rx * 0.36;
     if (depasse) {
-      out.push(h.path(`M ${r1(cx - rx)},${r1(cy - depasse)} L ${r1(cx - rx)},${r1(cy)} A ${r1(rx)} ${r1(ry)} 0 0 0 ${r1(cx + rx)},${r1(cy)} L ${r1(cx + rx)},${r1(cy - depasse)} Z`, blanc(h.a.contour)));
       // le bourrage remonté contre le flanc de la marmite, devant
       const g = cx - rx - 14, d = cx + rx + 14, yb = cy + 2;
       const dessus = `M ${r1(d)},${r1(yb)} Q ${r1(cx)},${r1(cy + ry - depasse - 2)} ${r1(g)},${r1(yb)}`;
       out.push(h.path(`M ${r1(g)},${r1(yb)} Q ${r1(cx)},${r1(cy + ry + 12)} ${r1(d)},${r1(yb)} ` + dessus.slice(dessus.indexOf('Q')) + ' Z', h.a.hachure('isolant', 'aucun')));
-      out.push(h.path(dessus, h.a.detail));
+      // le corps de la marmite s'arrête à la surface du bourrage : elle est enfoncée dans le nid
+      const ycrb = cy + ry - depasse - 2, yq = u => (1 - u) * (1 - u) * yb + 2 * u * (1 - u) * ycrb + u * u * yb;
+      const u0 = (cx - rx - g) / (d - g), sb = [];
+      for (let i = 0; i <= 16; i++) { const u = 1 - u0 - (1 - 2 * u0) * i / 16; sb.push([g + (d - g) * u, yq(u)]); }
+      out.push(h.path(`M ${r1(cx - rx)},${r1(cy - depasse)} L ${pts(sb.slice().reverse())} L ${r1(cx + rx)},${r1(cy - depasse)} Z`, blanc(h.a.contour)));
+      const bord = (a, b) => { const q = []; for (let i = 0; i <= 6; i++) { const u = a + (b - a) * i / 6; q.push([g + (d - g) * u, yq(u)]); } return q; };
+      out.push(h.chemin(bord(0, u0), h.a.detail), h.chemin(bord(1 - u0, 1), h.a.detail));
     }
     const yc = cy - depasse;
     for (const d of [-1, 1]) out.push(h.path(`M ${r1(cx + d * rx)},${r1(yc + 1)} C ${r1(cx + d * (rx + 9))},${r1(yc + 1)} ${r1(cx + d * (rx + 9))},${r1(yc + 8)} ${r1(cx + d * rx)},${r1(yc + 8)}`, h.a.arete));
@@ -134,6 +137,11 @@ module.exports = (h) => {
     out.push(h.ellipse(cx, yc - 2, rx - 5, ry - 2, h.a.detail));
     out.push(h.rect(cx - 5, yc - 8, 10, 5, blanc(h.a.arete)));
     out.push(h.ellipse(cx, yc - 8, 5, 1.8, blanc(h.a.arete)));
+    // la couverture se tire de l'arrière vers l'avant, par-dessus le couvercle
+    const xa = x0 + W / 2 - rx * 0.6, [ax1, ay1] = O(xa, yH - 2, pr - rr - 2), [ax2, ay2] = O(xa, yH, -24);
+    const df = `M ${r1(ax1)},${r1(ay1)} L ${r1(ax2)},${r1(ay2)}`;
+    out.push(`<path d="${df}" fill="none" stroke="#fff" stroke-width="5"/>`);
+    out.push(h.fleche(df));
     return { svg: out.join('\n'), yH, cx, cy: yc, rouleau };
   };
 
@@ -156,8 +164,8 @@ module.exports = (h) => {
           const G = z.h - 10, b = boiteCoupe(30, G, 1, 0.09);
           const c4 = b.couv(0.72);
           return [
-            { n: 1, rond: [14, (b.potB + b.yiB) / 2], cible: [b.cx - 30, (b.potB + b.yiB) / 2], texte: 'lit épais dessous : jamais le fond nu' },
-            { n: 2, rond: [z.l - 16, G - 100], cible: [b.xiR - 22, G - 100], texte: 'laine, foin, journal froissé ou linge, tassés autour' },
+            { n: 1, rond: [14, b.potB + (b.yiB - b.potB) * 0.62], cible: [b.cx - 30, b.potB + (b.yiB - b.potB) * 0.62], texte: 'lit épais dessous : jamais le fond nu' },
+            { n: 2, rond: [z.l - 16, G - 100], cible: [b.xiR - 22, G - 100], texte: 'laine, foin, journal ou linge, bien tassés' },
             { n: 3, rond: [14, G - 115], cible: [b.cx - 40, G - 115], texte: 'marmite pleine, à plein bouillon, couvercle mis' },
             { n: 4, rond: [z.l - 16, c4[1]], cible: c4, texte: 'couverture pliée par-dessus le couvercle' },
           ];
@@ -250,6 +258,13 @@ module.exports = (h) => {
           out.push(h.ligne(x0 + 4, G - H + 7, x0 + W - 4, G - H + 7, h.a.detail));
           return out.join('\n');
         },
+        renvois: z => {
+          const G = z.h - 6, W = 170, H = 62, D = 92, x0 = (z.l - W - D * 0.5) / 2;
+          const c = contenant(x0, G, W, H, D, 8, 0, 6);
+          return [
+            { n: 6, rond: [z.l - 12, c.rouleau[1]], cible: c.rouleau, texte: 'couverture roulée, à tirer par-dessus' },
+          ];
+        },
       },
       tiroir: {
         titre: 'Dans un tiroir',
@@ -267,7 +282,7 @@ module.exports = (h) => {
           const G = z.h - 6, W = 180, H = 50, D = 100, x0 = (z.l - W - D * 0.5) / 2;
           const c = contenant(x0, G, W, H, D, 5, 12, 0);
           return [
-            { n: 6, rond: [z.l - 12, c.rouleau[1]], cible: c.rouleau, texte: 'pas de couvercle : la couverture roulée se tire dessus' },
+            { n: 7, rond: [z.l - 12, c.rouleau[1]], cible: c.rouleau, texte: 'sans couvercle : la couverture en tient lieu' },
           ];
         },
       },

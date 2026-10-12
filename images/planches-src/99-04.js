@@ -84,7 +84,12 @@ module.exports = (h) => {
           // l'homme debout sur la planche, les deux mains refermées sur la tige (les poignets juste
           // avant elle : la main passe devant et la cache là où elle la tient)
           out.push(F.personnage({ x: X(-0.42), y: g.ypl, pose: 'debout', echelle: s / 1000, penche: 22, regard: 30,
-            mains: { proche: [xc - 0.13 * s, g.ypl - 0.95 * s], loin: [xc - 0.13 * s, g.ypl - 1.16 * s] } }));
+            mains: { proche: [xc - TIGE / 2 - 9, g.ypl - 0.95 * s], loin: [xc - TIGE / 2 - 9, g.ypl - 1.16 * s] } }));
+          // les poings : un ovale fermé autour de la tige, sans doigts
+          for (const yp of [g.ypl - 0.95 * s, g.ypl - 1.16 * s]) {
+            out.push(h.ellipse(xc - 0.5, yp, 4.5, 6, A.blanc));
+            out.push(h.ellipse(xc - 0.5, yp, 4.5, 6, A.arete));
+          }
           // le geste : enfoncer
           out.push(h.fleche(`M${xc + 14} ${g.ypl - 1.3 * s} L${xc + 14} ${g.ypl - 0.62 * s}`, A.contour));
           return out.join('\n');
@@ -119,19 +124,31 @@ module.exports = (h) => {
       },
       dos: {
         titre: 'Retirée : d’abord le dos de la main',
+        // La main vue par la tranche, côté petit doigt : le dos (à droite) touche la tige aux
+        // jointures, les doigts allongés et joints, le pouce replié le long de l'index (derrière).
         dessin: z => {
-          const xr = z.l * 0.4, yh = z.h * 0.46, D = 20;
-          const m = F.main({ x: xr + 34, y: yh, pose: 'appui', vue: 'dos', bras: 56 });
+          const xr = z.l * 0.58, yh = z.h * 0.46, D = 20, xL = xr - D / 2;
           const bas = z.h - 18;
+          const k = 0.72, P = pts => pts.map(([x, y]) => [xL + k * x, yh + k * y]);
+          const main = P([[-56, 124], [-46, 92], [-30, 62], [-12, 30], [-1, 2], [-3, -30], [-9, -62], [-14, -84],
+            [-22, -90], [-30, -84], [-30, -50], [-34, -14], [-46, 22], [-62, 58], [-84, 104], [-92, 124]]);
+          const dMain = lisse(main) + ' Z';
+          const pouce = P([[-50, 40], [-40, 10], [-32, -16], [-30, -34]]);
+          const ongle = P([[-24, -86], [-28, -76]]);
+          const pli = P([[-33, -22], [-25, -16]]);
           return [
-            m,
             h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour')),
+            h.path(dMain, A.blanc), h.path(lisse(main), A.contour),
+            h.path(lisse(pouce), A.detail), h.path(lisse(pli), A.detail),
+            // toucher, retirer : perpendiculaire à la tige
+            h.fleche(`M${xL - 64} ${yh - 36} L${xL - 38} ${yh - 36}`, A.arete),
+            h.fleche(`M${xL - 42} ${yh - 22} L${xL - 68} ${yh - 22}`, A.arete),
           ].join('\n');
         },
         renvois: z => {
-          const xr = z.l * 0.4, yh = z.h * 0.46;
+          const xr = z.l * 0.58, yh = z.h * 0.46;
           return [
-            { n: 6, rond: [xr + 62, z.h - 22], cible: [xr + 11, yh + 8], texte: 'dos de la main, brièvement' },
+            { n: 6, rond: [xr + 70, z.h * 0.7], cible: [xr - 10, yh + 2], texte: 'dos de la main, brièvement' },
           ];
         },
       },

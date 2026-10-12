@@ -111,7 +111,7 @@ module.exports = (h) => {
     const yL = mB + 34, ep = 6;                      // dessus du cuir, épaisseur d'une couche
     const w = 4, tip = yL + 2 * ep + 13;
     out.push(h.path(`M ${f1(hx - w)} ${f1(mB)} L ${f1(hx - w)} ${f1(tip - 12)} L ${f1(hx)} ${f1(tip)} L ${f1(hx + w)} ${f1(tip - 12)} L ${f1(hx + w)} ${f1(mB)} Z`, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`));
-    out.push(h.ligne(hx, mB + 2, hx, tip - 2, h.a.fin));
+    out.push(h.ligne(hx, (mB + tip) / 2, hx, tip - 1, h.a.detail));
     // les deux épaisseurs de cuir, vues par la tranche ; la lame passe dedans
     const x0 = 8, x1 = z.l - 8;
     [0, 1].forEach(k => {
@@ -124,10 +124,27 @@ module.exports = (h) => {
     const lig = [];
     for (let k = 0; k < 4; k++) { const y = mB - 3 - k * 3.2; lig.push(h.path(`M ${f1(hx - D / 2)} ${f1(y + 1)} Q ${f1(hx)} ${f1(y - 1.6)} ${f1(hx + D / 2)} ${f1(y + 1)}`, h.a.detail)); }
     const m = F.main({ x: hx, y: hy, pose: 'prise', vue: 'dos', diametre: D, echelle: e, bras: 55, objet: manche });
-    out.push(m, lig.join('\n'));
+    // l'avant-bras redessiné : le dessus continue le pouce en courbe, le bras s'affine vers le coude
+    const R = D / 2 / e, pre = Math.atan(-0.22) * 180 / Math.PI;
+    const rot = ([x, y]) => { const c = Math.cos(pre * Math.PI / 180), s = Math.sin(pre * Math.PI / 180); return [x * c - y * s, x * s + y * c]; };
+    const c0 = rot([12 - 0.05 * R, 0]);
+    const T = p => { const q = rot(p); return [hx + e * (q[0] - c0[0]), hy + e * (q[1] - c0[1])]; };
+    const cub = (a, b, c, d, n = 14) => Array.from({ length: n + 1 }, (_, i) => { const t = i / n, u = 1 - t; return [0, 1].map(k => u * u * u * a[k] + 3 * u * u * t * b[k] + 3 * u * t * t * c[k] + t * t * t * d[k]); });
+    const xc = -86, xe = -158;
+    const haut = cub([-84.9, -26.8], [-104, -17.3], [-135, -20], [xe, -21]).map(T);
+    const bas = cub([xc - 1, 29.3], [-110, 30], [-140, 25], [xe, 21]).map(T);
+    const cache = [[xc, -70], [xc, 60], [-240, 60], [-240, -70]].map(T);
+    out.push(m, h.chemin(cache, 'fill="#FFFFFF" stroke="none"', true));
+    out.push(h.chemin(haut.concat(bas.slice().reverse()), 'fill="#FFFFFF" stroke="none"', true));
+    out.push(h.chemin(haut, h.a.arete), h.chemin(bas, h.a.arete));
+    out.push(lig.join('\n'));
+    // la coupe de la lame : un losange, relié à la lame par le trait de coupe
+    const yc = mB + 7, xq = hx - 30;
+    out.push(h.ligne(hx - w - 2, yc, xq + 9, yc, h.a.cache));
+    out.push(h.chemin([[xq - 8, yc], [xq, yc - 4], [xq + 8, yc], [xq, yc + 4]], h.a.hachure('metal', 'arete'), true));
     // le geste : on pousse droit dans le cuir
     out.push(h.fleche(`M ${f1(hx + 30)} ${f1(mB - 8)} L ${f1(hx + 30)} ${f1(yL - 6)}`));
-    tenir.pts = { lame: [hx - w - 1, mB + 16] };
+    tenir.pts = { lame: [hx - w - 1, mB + 20] };
     return out.join('\n');
   };
 
@@ -161,16 +178,16 @@ module.exports = (h) => {
 
   // ── Rangée 2 : trois vignettes cadrées pareil ───────────────────────────────────────────
   const vignette = (type) => z => {
-    const out = [], yS = z.h * 0.5, xA = z.l * 0.30, xB = z.l * 0.66, epF = 9;
+    const out = [], yS = z.h * 0.5, xA = z.l * 0.30, xB = z.l * 0.66, epF = 18;
     out.push(h.ligne(xB, yS, z.l - 8, yS, h.a.fin));
     [xA, xB].forEach(x => {
-      if (type === 'axe') out.push(fente(x, yS, 30, 2.4));
-      if (type === 'travers') out.push(fente(x, yS, 30, 5.5, 90));
-      if (type === 'ronde') out.push(h.cercle(x, yS, 8.5, h.a.plein));
+      if (type === 'axe') out.push(fente(x, yS, 60, 4.8));
+      if (type === 'travers') out.push(fente(x, yS, 60, 11, 90));
+      if (type === 'ronde') out.push(h.cercle(x, yS, 17, h.a.plein));
     });
     out.push(fils([
-      { pts: [[8, yS + 1], [(8 + xA) / 2, yS + 0.4], [xA, yS - 0.8]], ep: epF, debut: 'fixe', fin: 'coupe' },
-      { pts: [[xA, yS + 1], [(xA + xB) / 2, yS + 0.3], [xB, yS - 0.8]], ep: epF, debut: 'coupe', fin: 'coupe' },
+      { pts: [[8, yS + 2], [(8 + xA) / 2, yS + 0.8], [xA, yS - 1.6]], ep: epF, debut: 'fixe', fin: 'coupe' },
+      { pts: [[xA, yS + 2], [(xA + xB) / 2, yS + 0.6], [xB, yS - 1.6]], ep: epF, debut: 'coupe', fin: 'coupe' },
     ]));
     vignette.pts = vignette.pts || {};
     vignette.pts[type] = { xB, yS };
@@ -211,7 +228,7 @@ module.exports = (h) => {
     };
     out.push(pointArriere(off(7.5), 6, 1.6, 2.4));
     out.push(pointArriere([[g.L[0][0] - 7.5, g.L[0][1] + 4], [g.L[1][0] - 7.5, g.L[1][1] + 7.5], [g.L[2][0] - 4, g.L[2][1] + 7.5]], 6, 1.6, 2.4));
-    endroit.pts = { tear: [g.L[0][0], g.L[0][1] + 20], bord: [x + 6, y + ht * 0.45], surp: [g.L[1][0] + 30, g.L[1][1] - 7.5] };
+    endroit.pts = { tear: [g.L[0][0] - 5.5, g.L[0][1] + 24], bord: [x + 6, y + ht * 0.45], surp: [g.L[1][0] + 30, g.L[1][1] - 7.5] };
     return out.join('\n');
   };
   const coin = z => {
@@ -234,14 +251,14 @@ module.exports = (h) => {
     desc: 'En haut, la main pousse l’alêne à travers deux épaisseurs de cuir ; vue de dessus, la couture faite, deux fentes percées d’avance dans l’axe de la ligne, la lame en losange couchée dans la ligne, puis la ligne tracée qui attend. Au milieu, la fente dans l’axe se referme sous le fil ; en travers ou au poinçon rond, le trou reste ouvert. En bas, la déchirure en L : une pièce à coins arrondis posée à l’intérieur, cousue au point arrière tout autour, la déchirure surpiquée sans en rapprocher les bords ; à côté, le coin carré qui redéchire par la pointe.',
     format: 'pleine',
     disposition: [['tenir', 'dessus'], ['axe', 'travers', 'ronde'], ['envers', 'endroit', 'coin']],
-    hauteurs: [2.2, 0.9, 2],
+    hauteurs: [2.05, 1.1, 1.8],
     largeurs: [[1, 1.7], [1, 1, 1], [1.2, 1.2, 1]],
     vues: {
       tenir: {
         titre: 'Percer',
         dessin: tenir,
         renvois: z => (tenir(z), [
-          { n: 1, rond: [tenir.pts.lame[0] - 40, tenir.pts.lame[1] + 4], cible: tenir.pts.lame, texte: 'lame limée en losange' },
+          { n: 1, rond: [tenir.pts.lame[0] - 48, tenir.pts.lame[1] + 6], cible: tenir.pts.lame, texte: 'lame limée en losange' },
         ]),
       },
       dessus: {
@@ -261,7 +278,7 @@ module.exports = (h) => {
         titre: 'Lame dans l’axe',
         dessin: vignette('axe'),
         renvois: z => (vignette('axe')(z), [
-          { n: 6, rond: [z.l - 14, 14], cible: [vignette.pts.axe.xB + 10, vignette.pts.axe.yS - 1], texte: 'la fente se referme sur le fil' },
+          { n: 6, rond: [z.l - 14, 14], cible: [vignette.pts.axe.xB + 16, vignette.pts.axe.yS - 1], texte: 'la fente se referme sur le fil' },
         ]),
       },
       travers: { titre: 'Raté : lame en travers', dessin: vignette('travers') },
@@ -269,7 +286,7 @@ module.exports = (h) => {
         titre: 'Raté : alêne ronde',
         dessin: vignette('ronde'),
         renvois: z => (vignette('ronde')(z), [
-          { n: 7, rond: [z.l - 14, 14], cible: [vignette.pts.ronde.xB + 5, vignette.pts.ronde.yS - 6], texte: 'le trou rond reste ouvert' },
+          { n: 7, rond: [z.l - 14, 14], cible: [vignette.pts.ronde.xB + 10, vignette.pts.ronde.yS - 12], texte: 'le trou rond reste ouvert' },
         ]),
       },
       envers: {

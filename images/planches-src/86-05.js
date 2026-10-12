@@ -177,34 +177,37 @@ module.exports = (h) => {
     const { s, P } = c;
     // Accroupi sur la berge, au penché naturel de la pose : le poignet à 340 devant les pieds et
     // 140 au-dessus du sol, le coude plié, les doigts à la surface de l'eau.
-    const haut = F.personnage({ x: P(1180, 988)[0], y: P(1180, 988)[1], pose: 'accroupi', cote: 'gauche', echelle: s, regard: 24,
-      mains: { proche: P(840, 850) } });
-    const bas = F.personnage({ x: P(4990, 2585)[0], y: P(4990, 2585)[1], pose: 'debout', cote: 'gauche', echelle: s, regard: -4,
+    // Personne en haut : seule la main qui tient le bout du boyau juste au-dessus de l'eau.
+    const haut = null;
+    // Debout dans l'eau du bas, les bottes sous la surface.
+    const bas = F.personnage({ x: P(4990, 2690)[0], y: P(4990, 2690)[1], pose: 'debout', cote: 'gauche', echelle: s, regard: -4,
       mains: { proche: P(4830, 1250) } });
-    return { ...c, haut, bas };
+    return { ...c, haut, bas, poing: P(1000, 930) };
   }
   function dessinTroncon(z) {
-    const { s, P, Q, haut, bas } = geoTroncon(z);
+    const { s, P, Q, bas, poing } = geoTroncon(z);
     const o = [];
     o.push(eau(Q, SURF_T, 2900));
     o.push(terre(Q, LIT_T, BHT + Y0T, 200));
     // Le sol de la berge, sous chacun.
-    o.push(sol(Q, 1060, 1480, 988), sol(Q, 4760, 5250, 2585));
+    o.push(sol(Q, 1060, 1560, 988));
     // Le niveau de l'eau de la prise, jusqu'au bout levé.
     o.push(h.chemin(Q([[1500, 1000], [XB + 120, 1000]]), A.cache));
     // Le boyau : de la main d'en haut (le bout dans l'eau), couché sur la berge, levé en bas.
-    const mh = haut.mains.proche, ph = haut.poignets.proche, dh = uni([mh[0] - ph[0], mh[1] - ph[1]]);
-    // Le boyau sort du poing côté poignet, se courbe jusqu'au sol au bord de la prise, suit la
-    // berge puis descend le long du ruisseau.
-    const boyau = [add(mh, dh, 60 * s), mh, ph, P(890, 880), P(950, 955), P(985, 970), P(1080, 972), P(1300, 972), P(1420, 972), P(1600, 1150), P(1980, 1300), P(2150, 1480), P(2600, 1690), P(3050, 1860), P(3200, 2080), P(3700, 2260), P(4250, 2440), P(4560, 2530), P(XB - 40, 2400), P(XB, 2100), P(XB, 1000)];
+    const yS0 = P(0, 1000)[1];
+    const boyau = [[poing[0], yS0 + 14 * s], [poing[0], poing[1] - 110 * s], [poing[0] + 60 * s, poing[1] - 150 * s], P(1110, 860), P(1160, 960), P(1220, 975), P(1420, 975), P(1500, 975), P(1600, 1150), P(1980, 1300), P(2150, 1480), P(2600, 1690), P(3050, 1860), P(3200, 2080), P(3700, 2260), P(4250, 2440), P(4560, 2530), P(XB - 40, 2400), P(XB, 2100), P(XB, 1000)];
     o.push(F.corde(boyau, { ep: 2.8, debut: 'ouvert', fin: 'ouvert' }).toString());
     // L'eau de la prise repasse sur le bout du boyau : il est dessous.
     const yS = P(0, 1000)[1];
     o.push(h.ligne(boyau[0][0] - 6, yS, boyau[0][0] + 6, yS, A.arete));
-    o.push(haut.toString(), bas.toString());
+    o.push(bas.toString());
+    const ep = 2.8;
+    o.push(F.main({ x: poing[0], y: poing[1], pose: 'prise', vue: 'dos', cote: 'gauche', diametre: ep * 2.4, echelle: s * 2.2, bras: 60,
+      objet: F.corde(boyau.slice(0, 3), { ep, debut: 'ouvert', fin: 'ouvert' }).toString() }).toString());
+    // L'eau du bas repasse sur les bottes.
+    o.push(eau(Q, [[4830, 2600], [5160, 2600]], 2720), terre(Q, LIT_T, BHT + Y0T, 200));
     // Du poing au sol puis le long de la berge : le boyau passe du côté proche, devant les pieds.
-    o.push(F.corde(boyau.slice(2, 8), { ep: 2.8, debut: 'ouvert', fin: 'ouvert' }).toString());
-    // La cote : du bout levé à l'eau, à cet endroit.
+        // La cote : du bout levé à l'eau, à cet endroit.
     o.push(h.chemin(Q([[XB - 380, 1000], [XB - 60, 1000]]), A.cache));
     o.push(h.cote(...P(XB - 300, 1000), ...P(XB - 300, 2600), 'h1', { cote: 'gauche' }));
     return o.join('\n');
@@ -343,9 +346,9 @@ module.exports = (h) => {
         titre: 'La hauteur de chute, au boyau : un tronçon',
         dessin: dessinTroncon,
         renvois: z => {
-          const { P, haut } = geoTroncon(z);
+          const { P, poing } = geoTroncon(z);
           return [
-            { n: 5, rond: P(300, 500), cible: [haut.mains.proche[0] - 3, P(0, 1000)[1]], texte: 'bout tenu à la surface de la prise' },
+            { n: 5, rond: P(300, 500), cible: [poing[0] - 3, P(0, 1000)[1]], texte: 'bout tenu à la surface de la prise' },
             { n: 6, rond: P(2700, 1250), cible: P(2600, 1690), texte: 'boyau transparent plein d’eau' },
             { n: 7, rond: P(3600, 700), cible: P(XB, 1400), texte: 'levé jusqu’à ce que l’eau ne coule plus' },
             { n: 8, rond: P(3950, 1300), cible: P(XB - 300, 1900), texte: 'chute du tronçon, jusqu’à l’eau à cet endroit' },

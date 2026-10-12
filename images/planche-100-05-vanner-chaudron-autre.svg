@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="413" viewBox="0 0 680 413" role="img">
 <title>Planche 100-05 — Vanner d’un chaudron à l’autre</title>
-<desc>Deux vues de côté. À gauche, dans une porte ouverte : le courant d’air traverse la porte, un chaudron tenu au rebord est versé de haut dans un second chaudron posé au sol ; la graine tombe presque droit dedans, les débris légers partent sous le vent et retombent plus loin. À droite, sans vent : deux personnes agitent une couverture qui pousse l’air sur le filet, et tout le poste est sur une toile.</desc>
+<desc>Deux vues de côté. À gauche, dans une porte ouverte : le courant d’air traverse la porte, un chaudron incliné est versé lentement de haut dans un second chaudron posé au sol ; la graine tombe presque droit dedans, les débris légers partent sous le vent et retombent plus loin. À droite, sans vent : une couverture tenue par ses deux coins du haut est balancée et qui pousse l’air sur le filet, et tout le poste est sur une toile.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
@@ -93,46 +93,32 @@
 <path d="M147.2 88.1 L140.9 111.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="142.6" cy="99.5" r="2.4" fill="#FFFFFF" stroke="none"/>
 <circle cx="142.6" cy="99.5" r="2.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M144.5 78.7 L117.7 0 L127.7 0 L154.5 78.7 Z" fill="#FFFFFF" stroke="none"/>
-<line x1="144.5" y1="78.7" x2="117.7" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="154.5" y1="78.7" x2="127.7" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 147 76.7 H 152 Q 156 76.7 156 80.7 V 87.7 Q 156 91.7 152 91.7 H 147 Q 143 91.7 143 87.7 V 80.7 Q 143 76.7 147 76.7 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M 147 76.7 H 152 Q 156 76.7 156 80.7 V 87.7 Q 156 91.7 152 91.7 H 147 Q 143 91.7 143 87.7 V 80.7 Q 143 76.7 147 76.7 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="151" y1="80.4" x2="156" y2="80.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="151" y1="84.2" x2="156" y2="84.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="151" y1="87.9" x2="156" y2="87.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 145 81.7 Q 149 79.7 151 83.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 137.5 107.7 Q 141.5 75.7 165.5 73.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <text x="408.8" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sans vent : une couverture</text>
 <g transform="translate(408.8 46)" data-vue="couverture">
 <rect x="0" y="226" width="231" height="16" fill="url(#h-terre)" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
-<path d="M4 226 L4 223.5 L228 223.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 4 217 Q 6 222 12 222 L 219 222 Q 225 222 228 217 L 228 220 Q 224 226 219 226 L 12 226 Q 5 226 4 220 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 4 217 Q 6 222 12 222 L 219 222 Q 225 222 228 217 L 228 220 Q 224 226 219 226 L 12 226 Q 5 226 4 220 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="69.3" y1="222" x2="74.3" y2="226" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="138.6" y1="222" x2="143.6" y2="226" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="0" y1="226" x2="231" y2="226" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 16 86.4 Q 35.8 90.4 55.6 76.4 Q 51.2 139.8 80.2 182 C 67 195.3 53.8 181.7 40.6 192 Q 11.6 149.8 16 86.4 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M 20.8 92.2 Q 16.4 153.8 52.5 187" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 35.8 88.4 Q 31.4 150 61.2 184.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 50.8 84.6 Q 46.4 146.2 69.9 182.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 16 86.4 Q 35.8 90.4 55.6 76.4 Q 51.2 139.8 80.2 182 C 67 195.3 53.8 181.7 40.6 192 Q 11.6 149.8 16 86.4 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 79.2 178 C 67 191.3 53.8 177.7 41.6 188" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 21.3 196 Q 38.9 208 58.2 200" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M11 76.4 L3.6 0 L13.6 0 L21 76.4 Z" fill="#FFFFFF" stroke="none"/>
-<line x1="11" y1="76.4" x2="3.6" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="21" y1="76.4" x2="13.6" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 13.5 74.4 H 18.5 Q 22.5 74.4 22.5 78.4 V 85.4 Q 22.5 89.4 18.5 89.4 H 13.5 Q 9.5 89.4 9.5 85.4 V 78.4 Q 9.5 74.4 13.5 74.4 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M 13.5 74.4 H 18.5 Q 22.5 74.4 22.5 78.4 V 85.4 Q 22.5 89.4 18.5 89.4 H 13.5 Q 9.5 89.4 9.5 85.4 V 78.4 Q 9.5 74.4 13.5 74.4 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="17.5" y1="78.2" x2="22.5" y2="78.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="17.5" y1="81.9" x2="22.5" y2="81.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="17.5" y1="85.7" x2="22.5" y2="85.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 11.5 79.4 Q 15.5 77.4 17.5 81.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M50.6 66.4 L44.2 0 L54.2 0 L60.6 66.4 Z" fill="#FFFFFF" stroke="none"/>
-<line x1="50.6" y1="66.4" x2="44.2" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="60.6" y1="66.4" x2="54.2" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 53.1 64.4 H 58.1 Q 62.1 64.4 62.1 68.4 V 75.4 Q 62.1 79.4 58.1 79.4 H 53.1 Q 49.1 79.4 49.1 75.4 V 68.4 Q 49.1 64.4 53.1 64.4 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M 53.1 64.4 H 58.1 Q 62.1 64.4 62.1 68.4 V 75.4 Q 62.1 79.4 58.1 79.4 H 53.1 Q 49.1 79.4 49.1 75.4 V 68.4 Q 49.1 64.4 53.1 64.4 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="57.1" y1="68.2" x2="62.1" y2="68.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="57.1" y1="71.9" x2="62.1" y2="71.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="57.1" y1="75.7" x2="62.1" y2="75.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 51.1 69.4 Q 55.1 67.4 57.1 71.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 21.9 92.9 Q 29.3 126.2 35.3 139.5 T 48.6 186" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 31 90.6 Q 38.2 124 44.2 137.2 T 57.3 183.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 40.6 88.2 Q 46.9 121.8 52.9 135 T 65.2 181.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 49.7 85.9 Q 55.4 119.7 61.4 132.9 T 73.1 179.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 16 86.4 Q 35.8 90.4 55.6 76.4 Q 51.2 139.8 80.2 182 C 67 195.3 53.8 181.7 40.6 192 Q 11.6 149.8 16 86.4 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 16 87.4 Q 13.6 93.4 12 100.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 16 87.4 Q 16 93.4 16 100.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 16 87.4 Q 18.4 93.4 20 100.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 55.6 77.4 Q 53.2 83.4 51.6 90.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 55.6 77.4 Q 55.6 83.4 55.6 90.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 55.6 77.4 Q 58 83.4 59.6 90.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="16" cy="86.4" r="2.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="55.6" cy="76.4" r="2.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 38.9 210 Q 47.7 216 58.2 206" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 38.9 210 Q 30.1 216 19.5 206" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M 90.2 147.1 L 122.8 147.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M 90.2 180 L 122.8 180" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M124.6 204.9 L125.9 219.7 L127 224.1 L129.4 226 L146.2 226 L148.6 224.1 L149.7 219.7 L151 204.9 Z" fill="#FFFFFF" stroke="none"/>
@@ -203,15 +189,7 @@
 <path d="M138.6 88.1 L132.3 111.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="134" cy="99.5" r="2.4" fill="#FFFFFF" stroke="none"/>
 <circle cx="134" cy="99.5" r="2.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M135.9 78.7 L109.1 0 L119.1 0 L145.9 78.7 Z" fill="#FFFFFF" stroke="none"/>
-<line x1="135.9" y1="78.7" x2="109.1" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="145.9" y1="78.7" x2="119.1" y2="0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 138.4 76.7 H 143.4 Q 147.4 76.7 147.4 80.7 V 87.7 Q 147.4 91.7 143.4 91.7 H 138.4 Q 134.4 91.7 134.4 87.7 V 80.7 Q 134.4 76.7 138.4 76.7 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M 138.4 76.7 H 143.4 Q 147.4 76.7 147.4 80.7 V 87.7 Q 147.4 91.7 143.4 91.7 H 138.4 Q 134.4 91.7 134.4 87.7 V 80.7 Q 134.4 76.7 138.4 76.7 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="142.4" y1="80.4" x2="147.4" y2="80.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="142.4" y1="84.2" x2="147.4" y2="84.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="142.4" y1="87.9" x2="147.4" y2="87.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 136.4 81.7 Q 140.4 79.7 142.4 83.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 128.9 107.7 Q 132.9 75.7 156.9 73.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <line x1="151.8" y1="108.9" x2="170.6" y2="131.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="151.8" y1="108.9" x2="170.6" y2="131.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
@@ -243,9 +221,9 @@
 <circle cx="451.2" cy="172" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="497" cy="82.4" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="couverture"/>
 <text x="497" y="86.4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
-<line x1="617.8" y1="251" x2="617.8" y2="268.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="617.8" y1="251" x2="617.8" y2="268.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="617.8" cy="268.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="617.8" y1="251" x2="617.8" y2="270" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="617.8" y1="251" x2="617.8" y2="270" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="617.8" cy="270" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="617.8" cy="242" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="couverture"/>
 <text x="617.8" y="246" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
 <text x="40" y="319" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 100-05 — Vanner d’un chaudron à l’autre.</text>
@@ -260,7 +238,7 @@
 <text x="362" y="344" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
 <text x="368" y="344" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">chaudron qui reçoit la graine</text>
 <text x="362" y="361" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
-<text x="368" y="361" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">couverture tenue à deux, agitée</text>
+<text x="368" y="361" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">couverture tenue par deux coins, agitée</text>
 <text x="362" y="378" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">7</text>
 <text x="368" y="378" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">toile sous tout le poste</text>
 </svg>

@@ -44,7 +44,14 @@ module.exports = (h) => {
     const T = (u, v) => [x + u * c - v * s, y + u * s + v * c];
     return h.path(`M${P(T(0, -ep))} Q${P(T(lg * 0.55, -ep * 1.1))} ${P(T(lg, 0))} Q${P(T(lg * 0.55, ep * 1.1))} ${P(T(0, ep))} Z`, sombre);
   };
-  const TE = 0.56;   // l'échelle des deux têtes et de la main
+  const TE = 0.56;
+  // l'œil de profil et la ligne de la mâchoire jusque sous l'oreille (comme dans 27-03)
+  const visage = T => [
+    h.path(`M${P(T([77, -37]))} Q${P(T([70, -35]))} ${P(T([65, -32]))} Q${P(T([70, -28]))} ${P(T([77, -27]))}`, A.detail),
+    h.path(`M${P(T([62, -41]))} Q${P(T([72, -45]))} ${P(T([82, -41]))}`, A.detail),
+    `<circle cx="${f1(T([71.5, -32])[0])}" cy="${f1(T([71.5, -32])[1])}" r="1.3" fill="${NOIR}"/>`,
+    h.path(`M${P(T([66, 97]))} Q${P(T([34, 84]))} ${P(T([7, 32]))}`, A.detail),
+  ].join('\n');   // l'échelle des deux têtes et de la main
   // pseudo-hasard stable
   let graine = 7;
   const hasard = () => { graine = (graine * 9301 + 49297) % 233280; return graine / 233280; };
@@ -140,7 +147,7 @@ module.exports = (h) => {
           const u = [-(0.952 * c - 0.305 * s), -(0.952 * s + 0.305 * c)];   // du pincé vers le nez
           const B = T([138, 50]);
           const Pp = [B[0] - u[0] * 30, B[1] - u[1] * 30];
-          const Q = [Pp[0] - u[0] * 26, Pp[1] - u[1] * 26];
+          const Q = [Pp[0] - u[0] * 30, Pp[1] - u[1] * 30];
           const nx = -u[1], ny = u[0];
           const pts = Array.from({ length: 13 }, (_, i) => {
             const t = i / 12;
@@ -156,7 +163,10 @@ module.exports = (h) => {
           [[-1, -0.3, 9, -1.1], [0.2, 1, 12, 1.2], [-0.6, 0.2, 16, -0.2], [-0.1, 0.6, 7, 0.5]].forEach(([b0, b1, lg, bt]) =>
             rameau.push(h.path(`M${P(Pt(-0.5, b0 * r))} L${P(Pt(lg, bt * r))} L${P(Pt(-0.5, b1 * r))} Z`, bois)));
           rameau.push(h.path(`M${P(Pt(-1, -r))} L${P(Pt(2.5, -r * 0.7))} L${P(Pt(0.5, -r * 0.2))} L${P(Pt(2, r * 0.4))} L${P(Pt(-0.5, r * 0.8))} L${P(Pt(-3, 0))} Z`, sombre));
-          out.push(F.main({ x: Pp[0], y: Pp[1], pose: 'pince', vue: 'profil', cote: 'gauche', angle: th, echelle: e, bras: 22, objet: rameau.join('\n') }));
+          // la main vue de dos : les doigts repliés autour du rameau, qui sort du poing en haut et en bas
+          const angM = Math.atan2(u[0], -u[1]) * 180 / Math.PI;
+          out.push(F.main({ x: Pp[0], y: Pp[1], pose: 'prise', vue: 'dos', angle: angM, echelle: e, diametre: 2 * r + 0.8, bras: 40, objet: rameau.join('\n') }));
+          out.push(visage(T));
           return out.join('\n');
         },
         renvois: z => {
@@ -170,7 +180,7 @@ module.exports = (h) => {
         dessin: z => {
           const e = TE, E = [z.l * 0.3, z.h * 0.34];
           const T = (p) => [E[0] + p[0] * e, E[1] + p[1] * e];
-          const out = [F.tete({ x: E[0], y: E[1], echelle: e })];
+          const out = [F.tete({ x: E[0], y: E[1], echelle: e }), visage(T)];
           // la pousse entière : le bout coupé entre les lèvres ; le bout mince,
           // avec ses bourgeons, vers l'avant
           const C = T([103, 47]), D = [z.l - 6, C[1] + z.h * 0.3];

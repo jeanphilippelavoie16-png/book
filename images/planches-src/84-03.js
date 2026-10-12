@@ -87,7 +87,7 @@ module.exports = (h) => {
     st: { x0: 950, x1: 1650, y0: 500, y1: 1100, z1: 1300, d0: 640, d1: 1000 },   // le poêle ; d0-d1 : sa porte
     px: 1300, pd: 150,                                                          // l'axe et le diamètre du tuyau
     porte: { z0: 1900, z1: 2700, y1: 2350 },                                   // la porte du chalet, au pignon
-    xi: 2050, xe: 7600,                                                        // où sont les deux adultes
+    xi: 2050, xe: 6900, zs: 2300,                                                        // où sont les deux adultes
   };
   C.pTop = C.hr + 480;
   C.pente = (C.hr - C.he) / (C.W / 2);
@@ -102,9 +102,9 @@ module.exports = (h) => {
     const pi = F.personnage({ x: P(C.xi, C.fl)[0], y: P(C.xi, C.fl)[1], pose: 'genou', cote: 'gauche', echelle: s, penche: 22, regard: 10,
       mains: { proche: P(C.st.x1 + 150, C.st.y0 + 250) } });
     // la tête levée vers le chapeau
-    const oeil0 = P(C.xe - 150, 1620), ch = P(C.px, C.pTop + 120);
+    const oeil0 = P(C.xe - 150, 1620, C.zs), ch = P(C.px, C.pTop + 120);
     const ang = Math.atan2(oeil0[1] - ch[1], oeil0[0] - ch[0]) * 180 / Math.PI;
-    const pe = F.personnage({ x: P(C.xe, 0)[0], y: P(C.xe, 0)[1], pose: 'debout', cote: 'gauche', echelle: s, regard: -Math.min(40, ang + 6) });
+    const pe = F.personnage({ x: P(C.xe, 0, C.zs)[0], y: P(C.xe, 0, C.zs)[1], pose: 'debout', cote: 'gauche', echelle: s, regard: -Math.min(40, ang + 6) });
     return { pi, pe };
   };
 
@@ -138,10 +138,15 @@ module.exports = (h) => {
     const pl = px - pd / 2, pr = px + pd / 2, yc = y1 + 330;
     o.push(poly([P(pl, y1), P(pr, y1), P(pr, yu(zc)), P(pl, yu(zc))], BL));
     o.push(h.ligne(...P(pl, y1), ...P(pl, yu(zc)), h.a.arete), h.ligne(...P(pr, y1), ...P(pr, yu(zc)), h.a.arete));
-    o.push(h.ligne(...P(pr, yc), ...P(pr + 90, yc), h.a.arete), h.ligne(...P(pr + 90, yc - 90), ...P(pr + 90, yc + 90), h.a.contour));
+    // le disque, de chant (ouvert), au tireté dans le tuyau ; la tige ; la poignée doublée, dans l'axe du tuyau
+    o.push(h.cercle(...P(px, yc), r1((pd / 2 - 20) * s), h.a.cache));
+    o.push(h.ligne(...P(pr, yc), ...P(pr + 70, yc), h.a.arete));
+    const qg = [P(pr + 70, yc - 160), P(pr + 115, yc - 160), P(pr + 115, yc + 160), P(pr + 70, yc + 160)];
+    o.push(h.chemin(qg, BL, true), h.chemin(qg, h.a.arete, true));
     // les deux adultes
     const { pi, pe } = perso(z, P);
-    o.push(pi);
+    // le dessous de la cuisse levée s'arrête sur le devant de la cuisse agenouillée, jonction arrondie
+    o.push(String(pi).replace('L203.7 262.5', 'L198.6 262.2 Q200.6 262.3 200.6 264'));
     const pw = pi.poignets.proche, pf = pi.mains.proche;
     const T0 = [r1(pw[0] + (pf[0] - pw[0]) * 0.5), r1(pw[1] + (pf[1] - pw[1]) * 0.5)];
     const T1 = P(px + 60, y1 - 150);
@@ -183,7 +188,9 @@ module.exports = (h) => {
     o.push(c.svg, filet(cx - pd * s / 2 - 1, c.yg + 3, -1, 19, 0.8), filet(cx + pd * s / 2 + 1, c.yg + 3, 1, 21, 0.8));
     // la fumée de la torche, aspirée dans le tuyau
     o.push(h.fleche(`M${P(px, y1 + 60).join(' ')} L${P(px, yT - 100).join(' ')}`, h.a.cache));
-    // l'autre adulte, dehors, au bout du pignon
+    // l'autre adulte, dehors, au bout du pignon, debout sur le sentier pelleté devant la porte
+    const sent = [P(L, 0, porte.z0 - 100), P(C.xe + 700, 0, porte.z0 - 100), P(C.xe + 700, 0, porte.z1 + 100), P(L, 0, porte.z1 + 100)];
+    o.push(h.chemin(sent, BL, true), h.chemin(sent, h.a.fin, true));
     o.push(pe);
     return o.join('\n');
   };

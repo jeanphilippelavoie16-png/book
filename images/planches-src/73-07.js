@@ -49,7 +49,7 @@ module.exports = (h) => {
   // ── Géométrie du lac ──
   const gl = (z) => {
     const k = Math.min(1, (z.l - 20) / 352, (z.h - 8) / 214);
-    const bu = 58, bv = 50, t = 30, wE = -0.14 * t;
+    const bu = 58, bv = 50, t = 30, wE = -24;
     const U0 = -24, U1 = 3 * bu + 22, V1 = 3 * bv + 14;
     const P = obl(12 + k * (70), z.h - 10 - k * 32, k);
     return { k, bu, bv, t, wE, U0, U1, V1, P };
@@ -135,16 +135,21 @@ module.exports = (h) => {
           // l'eau de fonte : à travers le fond, le long de la pente du fond, dans le drain, dehors
           const xm = xL + W * 0.34;
           const yM = (x) => yFL + (yFR - yFL) * (x - xL) / W - 5;
-          out.push(h.fleche(`M ${xm} ${yGlB + 4} L ${xm} ${yM(xm) - 2} L ${xR - 2} ${yM(xR - 2)} L ${sortB[0] - 6} ${drain(sortB[0] - 6, d / 2)} L ${sortB[0] + 18} ${drain(sortB[0] - 6, d / 2) + 16}`, h.a.cache));
-          out.push(h.fleche(`M ${xg1 + e / 2} ${yGlH + 30} L ${xg1 + e / 2} ${yGlB + 10}`, h.a.cache));
+          const TF = 'fill="none" stroke="#1A1A1A" stroke-width="1.1" stroke-dasharray="5 3.5" stroke-linecap="round" stroke-linejoin="round"';
+          const HALO = 'fill="none" stroke="#FFFFFF" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round"';
+          const dF = `M ${xm} ${yGlB + 4} L ${xm} ${yM(xm) - 2} L ${xR - 2} ${yM(xR - 2)} L ${sortB[0] - 6} ${drain(sortB[0] - 6, d / 2)} L ${sortB[0] + 18} ${drain(sortB[0] - 6, d / 2) + 16}`;
+          const dV = `M ${xg1 + e / 2} ${yGlH + 30} L ${xg1 + e / 2} ${yGlB + 10}`;
+          out.push(h.path(dF, HALO), h.fleche(dF, TF));
+          out.push(h.path(dV, HALO), h.fleche(dV, TF));
+
           // cotes : 30 cm et 1,8 m en travers, au-dessus du couvercle
-          out.push(h.cote(xL, yG - 24, xg0, yG - 24, '30 cm'));
-          out.push(h.cote(xg0, yG - 48, xg1, yG - 48, '1,8 m'));
+          out.push(h.cote(xL, yG - 24, xg0, yG - 24, '300'));
+          out.push(h.cote(xg0, yG - 48, xg1, yG - 48, '1800'));
           // cotes verticales, côté pente : chapeau, glace, dessous
           const xv = xR + 14;
-          out.push(h.cote(xv, yG, xv, yGlH, '30 cm', { cote: 'droite' }));
-          out.push(h.cote(xv, yGlH, xv, yGlB, '1,8 m', { cote: 'droite' }));
-          out.push(h.cote(xv, yGlB, xv, yBr, '30 cm', { cote: 'droite' }));
+          out.push(h.cote(xv, yG, xv, yGlH, '300', { cote: 'droite' }));
+          out.push(h.cote(xv, yGlH, xv, yGlB, '1800', { cote: 'droite' }));
+          out.push(h.cote(xv, yGlB, xv, yBr, '300', { cote: 'droite' }));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -188,7 +193,7 @@ module.exports = (h) => {
           // travers à la tarière : trous rapprochés
           for (let u = 4; u <= 3 * bu - 3; u += 9.3) out.push(h.ellipse(...P(u, 2 * bv), 3.3 * k, 1.9 * k, blanc(h.a.detail)));
           // le bloc libre, qui flotte devant
-          const f0 = 6, f1 = bu - 6, g0 = vf + 8, g1 = -10, wt = 0;
+          const f0 = 6, f1 = bu - 6, g0 = vf + 8, g1 = -10, wt = wE + 3;
           out.push(h.chemin([P(f0, g0, wt), P(f1, g0, wt), P(f1, g1, wt), P(f0, g1, wt)], blanc(h.a.arete), true));
           out.push(h.chemin([P(f0, g0, wt), P(f1, g0, wt), P(f1, g0, wE), P(f0, g0, wE)], blanc(h.a.arete), true));
           out.push(h.chemin([P(f1, g0, wt), P(f1, g1, wt), P(f1, g1, wE), P(f1, g0, wE)], blanc(h.a.arete), true));
@@ -198,7 +203,7 @@ module.exports = (h) => {
           const a1 = P(1.5 * bu + 8, bv + 52, 92), a2 = P(1.5 * bu + 8, bv + 84, 62);
           out.push(h.fleche(`M ${a1[0]} ${a1[1]} Q ${a2[0] + 2} ${a1[1] - 4} ${a2[0]} ${a2[1]}`, h.a.arete));
           // le bloc poussé vers l'eau
-          const b1 = P(1.5 * bu + 4, 0.55 * bv, 2), b2 = P(1.5 * bu + 4, -0.3 * bv, 2);
+          const b1 = P(1.5 * bu, 0.5 * bv, 0), b2 = P(0.7 * bu, 0.5 * bv, 0);
           out.push(h.fleche(`M ${b1[0]} ${b1[1]} L ${b2[0]} ${b2[1]}`, h.a.arete));
           return out.join('\n');
         },

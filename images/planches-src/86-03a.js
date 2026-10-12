@@ -62,7 +62,8 @@ module.exports = (h) => {
           o.push(seg(E, [-0.08, HG], [-5, 0.1], h.a.detail));
           o.push(seg(E, [0.08, HG], [GP, 0.5], h.a.detail));
           // portée des pales (disque vu par la tranche)
-          o.push(seg(E, [XR, HUB - R], [XR, HUB - 0.55 * R], h.a.cache));
+          o.push(seg(E, [XR - 0.2, HUB - R], [XR - 0.2, HUB + R], h.a.cache));
+          o.push(seg(E, [XR - 0.2, HUB - R], [-0.08, HUB - R], h.a.fin + ' stroke-dasharray="3 2"'));
           // mât
           o.push(rct(E, -0.08, 0.42, 0.08, H, BLANC));
           o.push(h.cercle(...E(0, 0.45), 1.6, h.a.plein));
@@ -93,7 +94,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const E = repE(z);
-          const a = E(0.1, HG), b = E(2.2, 0.43), c = E(0, 0.45), d = E(-0.5, 1.28), e = E(XR, HUB - 0.9 * R);
+          const a = E(0.1, HG), b = E(2.2, 0.43), c = E(0, 0.45), d = E(-0.5, 1.28), e = E(XR - 0.2, HUB - R);
           return [
             { n: 1, rond: [e[0] - 30, e[1] + 6], cible: e, texte: 'portée des pales' },
             { n: 2, rond: [a[0] + 34, a[1] - 10], cible: a, texte: 'haubans pris sous les pales' },
@@ -201,7 +202,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const P = repP(z);
-          const a = P(1.8 + 0.62 * 1.9 + 3.2, 0.4), b = P(15.4, 1.1 - 0.9), c = P(9.85, 0.35), d = P(25.4, 0.2 - 0.95 + 0.02), e = P(25.4 + 0.2, 0.2);
+          const a = P(1.8 + 0.62 * 1.9 + 3.2, 0.4), b = P(15.4, 1.1 - 0.9), c = P(10.15, 0.35), d = P(25.4, 0.2 - 0.95 + 0.02), e = P(25.4 + 0.2, 0.2);
           return [
             { n: 12, rond: [a[0] + 12, a[1] + 58], cible: a, texte: 'tuyau fendu en long' },
             { n: 13, rond: [b[0] + 20, b[1] + 46], cible: b, texte: 'large au pied, fine au bout' },

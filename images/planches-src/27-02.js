@@ -29,13 +29,13 @@ module.exports = (h) => {
   // ─── Vue de face : sept dents du haut ; X vers la droite ──────────────────────────────
   // Les cinq de l'attelle vont de latD à canG ; la replantée est cenG, au milieu.
   const DENTS = [
-    { id: 'canD', w: 4.5, ym: 0.3, yi: 10.2, type: 'can', mes: 'd' },
+    { id: 'canD', w: 5.4, ym: 0.0, yi: 10.2, type: 'can', mes: 'd' },
     { id: 'latD', w: 6.0, ym: 0.8, yi: 9.8, type: 'lat', mes: 'd' },
     { id: 'cenD', w: 8.5, ym: 0.0, yi: 10.5, type: 'cen', mes: 'd' },
     { id: 'cenG', w: 8.5, ym: 0.0, yi: 10.5, type: 'cen', mes: 'g' },
     { id: 'latG', w: 6.0, ym: 0.8, yi: 9.8, type: 'lat', mes: 'g' },
     { id: 'canG', w: 4.5, ym: 0.3, yi: 10.2, type: 'can', mes: 'g' },
-    { id: 'pm', w: 3.8, ym: 0.9, yi: 8.9, type: 'pm', mes: 'g' },
+    { id: 'pm', w: 4.8, ym: 0.6, yi: 8.9, type: 'pm', mes: 'g' },
   ];
   let xx = 0;
   DENTS.forEach(d => { d.x0 = xx; d.x1 = xx + d.w; d.xc = xx + d.w / 2; xx += d.w; });
@@ -55,11 +55,13 @@ module.exports = (h) => {
 
   const dent = (g, d) => {
     const { Ps } = g, x0 = d.x0, x1 = d.x1, w = d.w, haut = d.ym - 1.2;
-    if (d.type === 'can' || d.type === 'pm') {
-      const tipX = x0 + w * (d.mes === 'g' ? 0.42 : 0.58);
-      const yg = d.yi - (d.type === 'pm' ? 2.1 : (d.mes === 'g' ? 1.6 : 2.2));
-      const yd = d.yi - (d.type === 'pm' ? 2.2 : (d.mes === 'g' ? 2.2 : 1.6));
-      return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.12, (YP + yg) / 2)} ${Ps(x0 + 0.2, yg)} Q${Ps(x0 + (tipX - x0) * 0.45, d.yi - 0.2)} ${Ps(tipX, d.yi)} Q${Ps(x1 - (x1 - tipX) * 0.45, d.yi - 0.2)} ${Ps(x1 - 0.2, yd)} Q${Ps(x1 + 0.12, (YP + yd) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, plein(h.a.arete));
+    if (d.type === 'can') {                         // canine : épaules, deux pentes droites, pointe mousse
+      const tipX = x0 + w * (d.mes === 'g' ? 0.45 : 0.55), ys = d.yi - 3.2;
+      return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.15, (YP + ys) / 2)} ${Ps(x0 + 0.1, ys)} L${Ps(tipX - 0.7, d.yi - 0.35)} Q${Ps(tipX, d.yi + 0.15)} ${Ps(tipX + 0.7, d.yi - 0.35)} L${Ps(x1 - 0.1, ys)} Q${Ps(x1 + 0.15, (YP + ys) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, plein(h.a.arete));
+    }
+    if (d.type === 'pm') {                          // prémolaire : une cuspide basse et ronde, pentes douces
+      const tipX = x0 + w * 0.5, ys = d.yi - 2.0;
+      return h.path(`M${Ps(x0 + 0.15, haut)} L${Ps(x0 + 0.15, YP)} Q${Ps(x0 - 0.1, (YP + ys) / 2)} ${Ps(x0 + 0.1, ys)} Q${Ps(x0 + 0.9, d.yi - 0.9)} ${Ps(tipX - 1.0, d.yi - 0.25)} Q${Ps(tipX, d.yi + 0.25)} ${Ps(tipX + 1.0, d.yi - 0.25)} Q${Ps(x1 - 0.9, d.yi - 0.9)} ${Ps(x1 - 0.1, ys)} Q${Ps(x1 + 0.1, (YP + ys) / 2)} ${Ps(x1 - 0.15, YP)} L${Ps(x1 - 0.15, haut)} Z`, plein(h.a.arete));
     }
     const rm = d.type === 'cen' ? 0.55 : 1.1, rd = d.type === 'cen' ? 1.4 : 2.0, monte = d.type === 'lat' ? 0.5 : 0.15;
     const rg = d.mes === 'g' ? rm : rd, rr = d.mes === 'g' ? rd : rm;
@@ -128,9 +130,9 @@ module.exports = (h) => {
 
   // ─── Coupe : la dent replantée vue de côté, derrière le plan de coupe ────────────────
   // u : du collet vers le bord (vers le bas) ; v : de la lèvre (−, à gauche) au palais (+).
-  const LABIAL = [[-3.4, -3.2], [-2, -3.4], [0, -3.5], [1.2, -3.85], [3, -3.8], [5, -3.4], [7, -2.6], [9, -1.6], [10.1, -0.85]];
-  const BORD = [[10.45, -0.35], [10.4, 0.3]];
-  const PALAT = [[9.8, 0.65], [8, 1.0], [6, 1.6], [4.2, 2.6], [2.8, 3.6], [1.6, 3.95], [0.6, 3.8], [0, 3.5], [-2, 3.35], [-3.4, 3.1]];
+  const LABIAL = [[-3.4, -3.0], [-2, -3.15], [0, -3.3], [1.5, -3.35], [3, -3.3], [5, -3.2], [7, -3.1], [9, -2.9], [10.1, -2.75]];
+  const BORD = [[10.5, -2.6], [10.55, -1.8]];          // bord tranchant mince
+  const PALAT = [[10.2, -1.5], [9, -1.0], [7.5, -0.4], [6, 0.4], [4.6, 1.5], [3.4, 2.9], [2.4, 3.7], [1.4, 3.85], [0.5, 3.6], [0, 3.4], [-2, 3.2], [-3.4, 3.0]];  // face arrière creuse, cingulum en haut
   const PAPILLE = [[1.3, -4.05], [2.4, -3.4], [3.05, -2.3], [3.3, -0.9], [3.25, 0.6], [3.05, 2.0], [2.5, 3.3], [1.4, 4.2]];
   const GENC_LAB = [[-3.4, -4.85], [-1, -4.7], [0, -4.55], [0.7, -4.45], [1.05, -4.28]];
   const GENC_PAL = [[0.7, 4.6], [0, 4.85], [-1.2, 5.3], [-2.4, 6.1], [-3.4, 7.1]];
@@ -139,20 +141,21 @@ module.exports = (h) => {
     for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; out.push([c[0] + ru * Math.cos(a), c[1] + rv * Math.sin(a)]); }
     return out;
   };
-  const C1 = [3.1, -5.25], C2 = [3.1, 4.9];           // le boudin avant, le boudin arrière
+  const C1 = [3.0, -5.7], C2 = [3.0, 5.4];           // le boudin avant, le boudin arrière
   const CIRE = [
     [1.25, -4.4],
-    ...ell(C1, 1.75, 1.55, 0.93 * Math.PI, 2 * Math.PI + 0.3, 30),
-    [4.85, -3.9], [4.8, -2], [4.75, 0], [4.8, 2], [4.85, 3.7],
-    ...ell(C2, 1.7, 1.5, -0.3, 1.15 * Math.PI, 30),
+    ...ell(C1, 2.2, 2.3, 0.93 * Math.PI, 2 * Math.PI + 0.62, 36),
+    [4.4, -2.8], [4.3, -1.4], [4.25, 0], [4.3, 1.4], [4.4, 2.6],      // le pont, mince
+    ...ell(C2, 2.2, 2.3, -0.62, 1.12 * Math.PI, 36),
     ...PAPILLE.slice().reverse(),
   ];
-  const OUTIL = { u: 4.0, r: 1.0, v0: -15.4, v1: -6.55 }; // la pointe mousse, dans l'axe de la poussée
-  const FL = { u: 6.3, v0: -12.4, v1: -8.6 };
-  const V0 = -16.6, V1 = 9.8;                          // étendue en largeur, pastilles comprises
+  const OUTIL = { u: 4.0, r: 1.0, v0: -16.6, v1: -7.9 }; // la pointe mousse, dans l'axe de la poussée
+  const FL = { u: 6.6, v0: -13.6, v1: -9.8 };
+  const V0 = -17.6, V1 = 10.4;                          // étendue en largeur, pastilles comprises
   const repCoupe = z => {
-    const ox = (z.l - (V1 - V0) * S) / 2 - V0 * S, oy = oyDe(z);
-    return (u, v) => [ox + v * S, oy + u * S];
+    const SC = Math.min(S * 1.5, z.l / (V1 - V0));   // la coupe, agrandie
+    const ox = (z.l - (V1 - V0) * SC) / 2 - V0 * SC, oy = z.h / 2 - 2.6 * SC;
+    return (u, v) => [ox + v * SC, oy + u * SC];
   };
 
   return {
@@ -161,7 +164,7 @@ module.exports = (h) => {
     desc: 'De face : un boudin de cire d’abeille pressé contre la face avant de cinq dents du haut, au ras de la gencive, la dent replantée au milieu, et la cire poussée entre chaque paire de dents ; un trait de coupe passe entre la dent replantée et sa voisine. En coupe à cet endroit : la dent vue de côté, le boudin avant côté lèvre, le boudin arrière côté palais au même niveau, et le pont de cire qui les joint en passant entre les dents, poussé avec une pointe mousse.',
     format: 'demi',
     disposition: [['face', 'coupe']],
-    largeurs: [[5, 3]],
+    largeurs: [[4, 3]],
     vues: {
       face: {
         titre: 'De face',
@@ -205,7 +208,7 @@ module.exports = (h) => {
           const bout = cassure(T(o.u - o.r, o.v0), T(o.u + o.r, o.v0), 0.1 * S, 1);
           const fa = T(FL.u, FL.v0), fb = T(FL.u, FL.v1);
           return [
-            h.chemin(dentPts, plein(h.a.arete), true),
+            h.chemin(dentPts, plein(h.a.fin), true),
             h.chemin(genc, h.a.blanc, true),
             h.chemin(genc, gencive, true),
             h.chemin(pts(LABIAL.filter(p => p[0] <= 1.4)), h.a.cache),
@@ -224,10 +227,10 @@ module.exports = (h) => {
         renvois: z => {
           const T = repCoupe(z);
           return [
-            { n: 4, rond: T(-1.8, -10.2), cible: T(2.7, -5.8), texte: 'boudin avant, côté lèvre' },
-            { n: 5, rond: T(5.8, 8.6), cible: T(3.4, 5.5), texte: 'boudin arrière, côté palais, au même niveau' },
-            { n: 6, rond: T(8.8, 5.0), cible: T(4.1, 1.0), texte: 'le pont de cire tient la dent' },
-            { n: 7, rond: T(8.6, -15.4), cible: T(4.3, -13.8), texte: 'pointe mousse : pousser jusqu’au boudin arrière' },
+            { n: 4, rond: T(-2.6, -11.2), cible: T(2.4, -6.8), texte: 'boudin avant, côté lèvre' },
+            { n: 5, rond: T(5.8, 8.6), cible: T(3.6, 6.4), texte: 'boudin arrière, côté palais, au même niveau' },
+            { n: 6, rond: T(9.4, 4.6), cible: T(3.85, 1.0), texte: 'le pont de cire tient la dent' },
+            { n: 7, rond: T(8.8, -16.2), cible: T(4.3, -14.8), texte: 'pointe mousse : pousser jusqu’au boudin arrière' },
           ];
         },
       },

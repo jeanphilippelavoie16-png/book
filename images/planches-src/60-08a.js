@@ -118,7 +118,7 @@ module.exports = (h) => {
       { n: 1, rond: [m2[0] - 8, m2[1] - 26], cible: [m2[0] - 1, m2[1] - 3], texte: 'le V ouvert vers l’amont' },
       { n: 2, rond: [pc[0] - 4, pc[1] + 30], cible: [pc[0], pc[1] + 1], texte: 'le poisson longe la paroi' },
       { n: 3, rond: [C[0] + Rc + 30, cy + Rc + 6], cible: [C[0] + Rc * Math.cos(a) + 2, cy + Rc * Math.sin(a) + 2], texte: 'chambre au sommet du V' },
-      { n: 4, rond: [xm + 90, yT(xm + 90) + 22], cible: [xm + 70, yT(xm + 70) + 1], texte: 'un chenal où tout passe' },
+      { n: 4, rond: [C[0] + Rc + 112, cy - 2], cible: [C[0] + Rc + 40, cy],  texte: 'un chenal où tout passe' },
     ];
   };
 
@@ -200,30 +200,40 @@ module.exports = (h) => {
     const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
     const bord = `M ${P(xc - w / 2, yT)} L ${P(xc - w / 2, yP)} Q ${P(xc - w / 2, yP + 34)} ${P(xc, yK)} ` +
       `Q ${P(xc + w / 2, yP + 34)} ${P(xc + w / 2, yP)} L ${P(xc + w / 2, yT)}`;
-    out.push(h.path(bord + ' Z', h.a.blanc));
-    // le charbon : écailles noires, plus serrées vers la pointe
-    const yC = yP - 12;
-    for (let y = yC, r = 0; y < yK - 5; y += 4.4, r++) {
-      const hwy = Math.min(hw(y), hw(y + 3.4)) - 0.8;
-      if (hwy < 1.2) continue;
-      let x = xc - hwy + (r % 2) * 1.6;
-      while (x < xc + hwy - 0.8) {
-        const cw = Math.min(2.4 + rnd() * 2.6, xc + hwy - x);
-        if (cw > 0.8 && !(r < 2 && rnd() < 0.45)) out.push(h.rect(x, y, cw, 3.3, h.a.plein));
-        x += cw + 1.1;
+    const A = [xc - w / 2, yP], B = [xc + w / 2, yP - 6], Tp = [xc + 1, yK];
+    const F1 = [xc - 3, yP + 12], F2 = [xc + 5, yP + 3];
+    const pointe = [A, Tp, B];
+    out.push(h.path(`M ${P(xc - w / 2, yT)} L ${P(...A)} L ${P(...Tp)} L ${P(...B)} L ${P(xc + w / 2, yT)} Z`, h.a.blanc));
+    // le bois brûlé : aplat noir sur le dernier tiers, taches qui s'éclaircissent vers le fût
+    const yN = yK - (yK - yP) * 0.36, yE = yK - (yK - yP) * 0.62;
+    const xg = y => A[0] + (Tp[0] - A[0]) * (y - A[1]) / (Tp[1] - A[1]);
+    const xd = y => B[0] + (Tp[0] - B[0]) * (y - B[1]) / (Tp[1] - B[1]);
+    let dn = `M ${P(xg(yN), yN)}`;
+    for (let k = 1; k <= 6; k++) { const x = xg(yN) + (xd(yN) - xg(yN)) * k / 6; dn += ` L ${P(x, yN + (k % 2 ? -2.5 : 1.5))}`; }
+    dn += ` L ${P(...Tp)} Z`;
+    out.push(h.path(dn, 'fill="#000" stroke="#000" stroke-width="0.8" stroke-linejoin="round"'));
+    for (let y = yE; y < yN - 1; y += 3.2) {
+      const t = (y - yE) / (yN - yE);
+      for (let x = xg(y) + 1.5; x < xd(y) - 1.5; x += 2.2 + rnd() * 2) if (rnd() < 0.15 + 0.75 * t) {
+        const r = 0.5 + t * 1.1 + rnd() * 0.5; out.push(h.ellipse(x, y, r * 1.3, r * 0.8, h.a.plein));
       }
+    }
+    // gerçures blanches
+    for (const [y0, x0, l] of [[yN + 5, -4, 7], [yN + 11, 1, 6], [yN + 17, -2, 4], [yN + 23, 0, 3], [yN + 8, 3, 3]]) {
+      const x = xc + x0;
+      out.push(h.path(`M ${P(x - l / 2, y0)} L ${P(x - l / 6, y0 + 1.2)} L ${P(x + l / 6, y0 - 0.8)} L ${P(x + l / 2, y0 + 0.6)}`, 'fill="none" stroke="#fff" stroke-width="0.9"'));
     }
     // l'écorce sur le fût
     for (const dx of [-5, 1, 6]) {
       let d = `M ${P(xc + dx, yT + 8)}`;
-      for (let y = yT + 20; y < yC - 6; y += 12) d += ` L ${P(xc + dx + (y % 24 ? 0.8 : -0.8), y)}`;
+      for (let y = yT + 20; y < yP - 14; y += 12) d += ` L ${P(xc + dx + (y % 24 ? 0.8 : -0.8), y)}`;
       out.push(h.path(d, h.a.fin));
     }
-    out.push(h.path(bord, h.a.contour));
+    out.push(h.path(`M ${P(xc - w / 2, yT)} L ${P(...A)} L ${P(...Tp)} L ${P(...B)} L ${P(xc + w / 2, yT)}`, h.a.contour));
     out.push(h.ellipse(xc, yT, w / 2, 3.6, BLANC_A));
-    // les facettes du biseau
-    out.push(h.path(`M ${P(xc - w / 2, yP)} Q ${P(xc - w / 4, yP + 9)} ${P(xc + 1, yP + 3)} Q ${P(xc + w / 4, yP + 10)} ${P(xc + w / 2, yP)}`, h.a.arete));
-    out.push(h.path(`M ${P(xc + 1, yP + 3)} Q ${P(xc + 2, yP + 40)} ${P(xc, yK)}`, h.a.arete));
+    // les facettes de hache : arêtes nettes
+    out.push(h.path(`M ${P(...A)} L ${P(...F1)} L ${P(...F2)} L ${P(...B)}`, h.a.arete));
+    out.push(h.path(`M ${P(...F1)} L ${P(...Tp)} M ${P(...F2)} L ${P(...Tp)}`, h.a.arete));
     // 2. La pointe dans la braise, le piquet posé sur une pierre
     const L = Math.hypot(T[0] - K[0], T[1] - K[1]);
     const u = [(K[0] - T[0]) / L, (K[1] - T[1]) / L], nn = [-u[1], u[0]];
@@ -232,29 +242,38 @@ module.exports = (h) => {
     const pierre = [];
     for (let k = 0; k < 10; k++) { const a = Math.PI + k * Math.PI / 9; pierre.push([xs + 17 * Math.cos(a) * (1 + 0.08 * Math.sin(3 * a)), yg + 23 * Math.sin(a) * (0.92 + 0.08 * Math.cos(2 * a))]); }
     out.push(h.chemin(pierre, h.a.hachure('pierre', 'arete'), true));
+    const braise = (x, y, r, noir) => {
+      const pts = [];
+      for (let k = 0; k < 7; k++) { const a = k * 2 * Math.PI / 7 + rnd() * 0.4; const rr = r * (0.75 + rnd() * 0.35); pts.push([x + rr * 1.3 * Math.cos(a), y + rr * 0.7 * Math.sin(a)]); }
+      pts.push(pts[0]);
+      const d = lisse(pts) + ' Z';
+      if (noir) return h.path(d, 'fill="#000" stroke="#999" stroke-width="1.6"') + '\n' + h.path(d, 'fill="none" stroke="#000" stroke-width="0.5"');
+      return h.path(d, 'fill="#fff" stroke="#000" stroke-width="1.1"') + '\n' +
+        h.path(`M ${P(x - r * 0.6, y - r * 0.1)} L ${P(x - r * 0.1, y + r * 0.2)} L ${P(x + r * 0.4, y - r * 0.15)}`, h.a.fin);
+    };
+    out.push(h.ligne(z.l * 0.4, yg, z.l - 4, yg, h.a.arete));
+    // rang arrière
+    [[-30, 6, 1], [-14, 7, 0], [4, 6, 1], [20, 7, 0], [34, 5, 1]].forEach(([dx, r, n]) => out.push(braise(xk + dx, yg - 13, r, n)));
+    // le piquet, son bout noirci dans la braise
     out.push(h.chemin([at(0, -w2 / 2), at(L - lp, -w2 / 2), [K[0], K[1]], at(L - lp, w2 / 2), at(0, w2 / 2)], BLANC_A, true));
+    out.push(h.chemin([at(L - lp - 4, -w2 / 2), at(L - lp, -w2 / 2), [K[0], K[1]], at(L - lp, w2 / 2), at(L - lp - 4, w2 / 2)], 'fill="#000" stroke="#000" stroke-width="1"', true));
     const bout = [];
     for (let k = 0; k < 16; k++) { const a = k * Math.PI / 8; bout.push(at(3.2 * Math.cos(a), (w2 / 2) * Math.sin(a))); }
     out.push(h.chemin(bout, BLANC_A, true));
-    // le sol et la braise
-    out.push(h.ligne(z.l * 0.4, yg, z.l - 4, yg, h.a.arete));
-    const morceau = (x, y, r, noir) => {
-      const pts = [];
-      for (let k = 0; k < 6; k++) { const a = k * Math.PI / 3 + rnd() * 0.5; const rr = r * (0.7 + rnd() * 0.4); pts.push([x + rr * Math.cos(a), y + rr * Math.sin(a) * 0.75]); }
-      return h.chemin(pts, noir ? 'fill="#000" stroke="#000" stroke-width="0.7"' : 'fill="#fff" stroke="#000" stroke-width="0.7"', true);
-    };
-    const rangs = [[yg - 4, 9, 10], [yg - 11, 7, 10], [yg - 18, 4, 10]];
-    rangs.forEach(([y, nb, pas], r) => {
-      const x0 = xk - (nb - 1) * pas / 2 - 2;
-      for (let i = 0; i < nb; i++) out.push(morceau(x0 + i * pas + (r % 2) * 3, y, 5.6, (i + r) % 3 === 0));
-    });
+    // rang avant
+    [[-36, 6, 0], [-22, 7, 1], [-6, 8, 0], [11, 7, 1], [27, 7, 0], [40, 5, 1]].forEach(([dx, r, n]) => out.push(braise(xk + dx, yg - 5, r, n)));
+    // la chaleur
+    for (const dx of [-30, -2, 26]) {
+      const x = xk + dx, y = yg - 24;
+      out.push(h.path(`M ${P(x, y)} q 4 -5 0 -10 t 0 -10`, h.a.detail));
+    }
     return out.join('\n');
   };
   const piquetRenvois = z => {
     const { xc, w, yP, yg, xk } = gPq(z);
     return [
-      { n: 10, rond: [xc + w / 2 + 26, yP - 20], cible: [xc + w / 4 + 1, yP + 6], texte: 'pointe taillée en biseau' },
-      { n: 11, rond: [xk - 34, yg - 44], cible: [xk - 10, yg - 18], texte: 'pointe durcie au feu' },
+      { n: 10, rond: [xc + w / 2 + 26, yP - 20], cible: [xc + 4, yP + 20], texte: 'pointe taillée en biseau' },
+      { n: 11, rond: [xk - 44, yg - 52], cible: [xk - 18, yg - 15], texte: 'pointe durcie au feu' },
     ];
   };
 
@@ -317,18 +336,19 @@ module.exports = (h) => {
     // un brin neuf posé sur le dessus, pas encore tassé ; le maillet
     const kN = K;
     out.push(bande(xs[0] - 12, xs[3] + 12, rowY(kN) - 5, kN));
-    const xm = (xs[1] + xs[2]) / 2, yh = rowY(kN) - 5 - 4;
-    out.push(h.rect(xm - 13, yh - 30, 26, 30, BLANC_A));
-    out.push(h.ellipse(xm, yh - 30, 13, 3, BLANC_A));
-    out.push(h.path(`M ${P(xm + 13, yh - 19)} L ${P(xm + 70, yh - 30)} L ${P(xm + 71, yh - 24)} L ${P(xm + 13, yh - 13)}`, BLANC_A));
-    out.push(h.fleche(`M ${P(xm - 22, yh - 30)} L ${P(xm - 22, yh - 4)}`, h.a.arete));
+    const xm = (xs[1] + xs[2]) / 2, yh = rowY(kN) - 5 + 0.7;
+    // tête couchée à plat sur la branche, entre deux piquets, manche qui monte
+    out.push(h.path(`M ${P(xm - 7, yh - 3)} L ${P(xm + 34, yh - 52)} L ${P(xm + 39, yh - 48)} L ${P(xm + 2, yh - 3)}`, BLANC_A));
+    out.push(h.rect(xm - 15, yh - 18, 30, 18, BLANC_A));
+    out.push(h.ellipse(xm - 15, yh - 9, 3, 9, BLANC_A));
+    out.push(h.fleche(`M ${P(xm - 6, yh - 44)} L ${P(xm - 6, yh - 22)}`, h.a.arete));
     return out.join('\n');
   };
   const clayonnageRenvois = z => {
     const { yb, dy, xs, N, xhc, yF, rowY, sp } = gCl(z);
     const xm = (xs[1] + xs[2]) / 2;
     return [
-      { n: 12, rond: [xs[3] + 34, 30], cible: [xs[3] + 7, rowY(gCl(z).K) - 5 + 4], texte: 'tassées au maillet' },
+      { n: 12, rond: [xs[3] + 34, 24], cible: [(xs[2] + xs[3]) / 2, rowY(gCl(z).K) - 5 + 4], texte: 'tassées au maillet' },
       { n: 13, rond: [xs[5] + sp / 2 + 20, 20], cible: [xs[5] + sp / 2, rowY(gCl(z).K - 3) + 4], texte: 'une dessus, une dessous' },
       { n: 14, rond: [(xs[N - 1] + xs[N]) / 2, 22], cible: [(xs[N - 1] + xs[N]) / 2, rowY(gCl(z).Kr) - 12], texte: 'piquets à une main d’écart' },
       { n: 15, rond: [xs[2] + 24, z.h - 10], cible: [xs[2] + 2, yF(xs[2]) + 14], texte: 'enfoncé, tient à la poussée' },

@@ -168,12 +168,12 @@ module.exports = (h) => {
   // chaudron : chacun a sa flèche d'un quart de tour, sur le devant, en sens contraire.
   const k = 0.28;                                                     // aplatissement des ellipses
   const gT = z => {
-    const Rr = Math.round(Math.min((z.l - 74) / 2, (z.h - 80) / 1.62));
+    const Rr = Math.round(Math.min((z.l - 74) / 2, (z.h - 112) / 1.62));
     const cx = z.l / 2 - 4, yGr = z.h - 14 - Math.round(rCouronne * Rr * k);
-    const Hb = Math.round(Rr * 0.78), dh = Math.round(Rr * 0.17);
-    const yBot = yGr - 13;                                              // soulevé au-dessus de sa couronne
+    const Hb = Math.round(Rr * 0.78), dh = Math.round(Rr * 0.24);
+    const yBot = yGr - 33;                                              // soulevé au-dessus de sa couronne
     const yR = yBot - Hb;
-    const gL = 28, yLr = yR - gL;                                       // le couvercle, soulevé à plat
+    const gL = 40, yLr = yR - gL;                                       // le couvercle, soulevé à plat
     return { Rr, cx, yGr, Hb, dh, yBot, yR, yLr };
   };
   const arcEllipse = (cx, cy, a, b, t0, t1) => {
@@ -200,7 +200,7 @@ module.exports = (h) => {
     out.push(h.ellipse(cx, yR, Rr - 5, (Rr - 5) * k, h.a.detail));
 
     // le couvercle, soulevé à plat : sa tranche, son dôme (silhouette calculée, h = dh·(1 − r²))
-    out.push(h.path(`M ${f(cx - Rr)} ${f(yLr)} L ${f(cx - Rr)} ${f(yLr + 4)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yLr + 4)} L ${f(cx + Rr)} ${f(yLr)} Z`, blancArete));
+    out.push(h.path(`M ${f(cx - Rr)} ${f(yLr)} L ${f(cx - Rr)} ${f(yLr + 8)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yLr + 8)} L ${f(cx + Rr)} ${f(yLr)} Z`, blancArete));
     const sil = [];
     for (let i = 0; i <= 40; i++) {
       const X = -1 + 2 * i / 40, lim = Math.sqrt(Math.max(0, 1 - X * X));
@@ -213,6 +213,10 @@ module.exports = (h) => {
     }
     const dome = 'M ' + sil.map(p => `${f(p[0])} ${f(p[1])}`).join(' L ') + ` A ${f(Rr)} ${f(Rr * k)} 0 0 1 ${f(cx - Rr)} ${f(yLr)} Z`;
     out.push(h.path(dome, blancArete));
+    // le bombé : la section du dôme dans le plan du devant
+    const mer = [];
+    for (let i = 0; i <= 40; i++) { const X = -0.96 + 1.92 * i / 40; mer.push([cx + X * Rr, yLr + 2 - dh * (1 - X * X) * 0.92]); }
+    out.push(h.chemin(mer, h.a.detail));
     // la tôle, à plat sur le sommet du dôme ; elle tourne avec le couvercle : de biais en plan
     const yTo = yLr - dh, eT = 2;
     const th = 30 * Math.PI / 180, ct = Math.cos(th), st = Math.sin(th);
@@ -242,8 +246,8 @@ module.exports = (h) => {
     out.push(fl(arcEllipse(cx, yM, aC, aC * k, 135, 45)));
     // le couvercle : un quart de tour dans l'autre sens, l'avant va de droite à gauche ; la
     // flèche passe dans le jour entre le couvercle soulevé et le chaudron
-    const yL = yLr + 14, aL = Rr + 10;
-    out.push(fl(arcEllipse(cx, yL, aL, aL * k, 45, 135)));
+    const yL = yLr + 2, aL = Rr + 8;
+    out.push(fl(arcEllipse(cx, yL, aL, aL * k, 60, 125)));
     return out.join('\n');
   };
 
@@ -253,7 +257,7 @@ module.exports = (h) => {
     desc: 'Le chaudron de fonte cuit le pain dehors, sur un lit de braise de bouleau abrité du vent par un mur de neige tassée. En coupe : le chaudron posé sur une couronne de braise, sous son bord, le centre vide ; la miche sur le fond fariné ; le couvercle bombé ; une tôle plate posée sur le dôme, qui porte la braise étalée en damier. Vus d’en haut : la couronne dessous, huit braises ; le damier sur la tôle, vingt-quatre, trois fois plus. De trois quarts, toutes les 10 à 15 minutes : le chaudron, soulevé au-dessus de sa couronne, fait un quart de tour ; puis le couvercle, soulevé à plat avec sa tôle et sa braise, fait un quart de tour dans l’autre sens.',
     format: 'pleine',
     disposition: [['coupe'], ['dessous', 'dessus', 'tours']],
-    hauteurs: [8, 8],
+    hauteurs: [8, 6],
     largeurs: [[1], [1, 1, 1.35]],
     vues: {
       coupe: {
@@ -293,11 +297,11 @@ module.exports = (h) => {
         titre: 'Toutes les 10 à 15 minutes',
         dessin: tours,
         renvois: z => {
-          const g = gT(z), aC = g.Rr + 10, yM = g.yR + g.Hb * 0.62, aL = g.Rr + 10, yL = g.yLr + 14;
+          const g = gT(z), aC = g.Rr + 10, yM = g.yR + g.Hb * 0.62, aL = g.Rr + 8, yL = g.yLr + 2;
           const c = Math.cos(Math.PI / 4), sn = Math.sin(Math.PI / 4);
           return [
             { n: 9, rond: [14, yM + aC * k + 20], cible: [g.cx - aC * c - 2, yM + aC * k * sn + 3], texte: 'soulever le chaudron, un quart de tour' },
-            { n: 10, rond: [14, g.yLr + 14], cible: [g.cx - aL * c - 3, yL + aL * k * sn - 1], texte: 'puis le couvercle, à plat, en sens inverse' },
+            { n: 10, rond: [14, g.yLr + 40], cible: [g.cx + aL * Math.cos(Math.PI*0.62), yL + aL * k * Math.sin(Math.PI*0.62) + 1], texte: 'puis le couvercle, à plat, en sens inverse' },
           ];
         },
       },

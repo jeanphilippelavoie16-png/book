@@ -114,12 +114,12 @@ module.exports = (h) => {
   const gEpi = (z) => {
     const cx = z.l * 0.46, tw = Math.min(72, z.l * 0.42);
     const W = { x: cx + 2, y: Math.round(z.h * 0.33), hw: 13, hh: Math.min(42, z.h * 0.21) };
-    const c = [[W.x - 8, W.y + W.hh * 0.55, W.y + W.hh + 14], [W.x + 6, W.y + W.hh * 0.8, W.y + W.hh + 28], [W.x + 11, W.y + W.hh * 0.1, W.y + W.hh * 0.62]];
+    const c = [[W.x - 9, W.y + W.hh + 2, W.y + W.hh + 16], [W.x + 5, W.y + W.hh + 4, W.y + W.hh + 30], [W.x + 15, W.y + W.hh * 0.4, W.y + W.hh * 0.95]];
     return { cx, tw, xL: cx - tw / 2, xR: cx + tw / 2, W, c };
   };
   const gBr = (z) => {
-    const G = Math.round(z.h * 0.78), x1 = z.l * 0.37, x2 = z.l * 0.66;
-    return { G, x1, x2, ec: { cx: x2 + 26, lh: 52, ht: 13 } };
+    const G = Math.round(z.h * 0.78), x1 = z.l * 0.44, x2 = z.l * 0.63;
+    return { G, x1, x2, ec: { cx: x2 + 36, lh: 52, ht: 13 } };
   };
   const gRep = (z) => {
     const G = z.h - 6, w = 46, H = Math.min(72, z.h - 60);
@@ -201,18 +201,25 @@ module.exports = (h) => {
               out.push(h.path(`M ${R(x - 4.5)} ${R(y)} Q ${R(x)} ${R(y - 4)} ${R(x + 4.5)} ${R(y)}`, h.a.fin));
             }
           }
-          const lens = (hw, hh) => lisse([[W.x, W.y - hh], [W.x + hw * 0.8, W.y - hh * 0.5], [W.x + hw, W.y + hh * 0.05], [W.x + hw * 0.75, W.y + hh * 0.55],
-            [W.x, W.y + hh], [W.x - hw * 0.8, W.y + hh * 0.5], [W.x - hw, W.y], [W.x - hw * 0.8, W.y - hh * 0.55]]);
-          out.push(forme(lens(W.hw + 5, W.hh + 6), h.a.arete));        // bourrelet de la vieille blessure
-          out.push(forme(lens(W.hw, W.hh), h.a.detail));               // bois à nu
-          [-5, 0, 5].forEach((dx) => out.push(h.path(`M ${R(W.x + dx)} ${R(W.y - W.hh * 0.75)} Q ${R(W.x + dx * 1.3)} ${R(W.y)} ${R(W.x + dx)} ${R(W.y + W.hh * 0.75)}`, h.a.fin)));
-          // grumeaux durcis sur le bord
-          [[-W.hw - 3, -W.hh * 0.3, 3], [W.hw + 2, -W.hh * 0.55, 2.6], [-W.hw * 0.4, W.hh + 3, 2.8]].forEach(([dx, dy, r]) =>
-            out.push(h.cercle(W.x + dx, W.y + dy, r, h.a.blanc), h.cercle(W.x + dx, W.y + dy, r, h.a.detail)));
-          // coulées : un col étroit qui finit en goutte
-          g.c.forEach(([x, y0, y1]) => {
-            out.push(forme(lisse([[x - 2, y0], [x - 2.2, y1 - 9], [x - 4.8, y1 - 3], [x - 3.2, y1 + 2.5], [x, y1 + 4], [x + 3.2, y1 + 2.5], [x + 4.8, y1 - 3], [x + 2.2, y1 - 9], [x + 2, y0]]), h.a.detail));
-            out.push(h.path(`M ${R(x - 2.4)} ${R(y1 - 2)} Q ${R(x - 2.2)} ${R(y1 + 1)} ${R(x - 0.6)} ${R(y1 + 2)}`, h.a.fin));
+          // la plaie : bois nu au contour irrégulier, bourrelet de gomme bosselé autour
+          const ovale = (hw, hh, n, jit, gr) => { const r = alea(gr); return Array.from({ length: n }, (_, i) => {
+            const t = 2 * Math.PI * i / n, k = 1 + (r() - 0.5) * jit; return [W.x + hw * k * Math.sin(t), W.y - hh * k * Math.cos(t)]; }); };
+          const bour = ovale(W.hw + 6, W.hh + 6, 22, 0.22, 31);
+          out.push(forme(lisse(bour), h.a.arete));
+          const nu = ovale(W.hw, W.hh, 11, 0.16, 17);
+          out.push(forme(lisse(nu), h.a.detail));
+          // fil vertical du bois
+          [-8, -4, 0, 4, 8].forEach((dx, i) => { const f = 1 - (dx / (W.hw + 1)) ** 2, hy = W.hh * Math.sqrt(Math.max(0, f)) * 0.8;
+            out.push(h.path(`M ${R(W.x + dx)} ${R(W.y - hy)} Q ${R(W.x + dx + (i % 2 ? 1.2 : -1.2))} ${R(W.y)} ${R(W.x + dx)} ${R(W.y + hy)}`, h.a.fin)); });
+          // bosses de la gomme sur le bourrelet
+          bour.forEach(([x, y], i) => { if (i % 3) return; const dx = x - W.x, dy = y - W.y, d = Math.hypot(dx, dy);
+            out.push(h.path(`M ${R(x - dx / d * 3 - dy / d * 2.5)} ${R(y - dy / d * 3 + dx / d * 2.5)} Q ${R(x)} ${R(y)} ${R(x - dx / d * 3 + dy / d * 2.5)} ${R(y - dy / d * 3 - dx / d * 2.5)}`, h.a.fin)); });
+          // coulées : des gouttes irrégulières qui partent du bourrelet, de longueurs inégales
+          g.c.forEach(([x, y0, y1], j) => {
+            const w = [2.6, 2.2, 1.8][j];
+            out.push(forme(lisse([[x - w, y0], [x - w * 0.7, (y0 + y1) / 2 - 4], [x - w * 1.2, (y0 + y1) / 2 + 3], [x - w * 0.8, y1 - 6], [x - w * 1.9, y1 - 1], [x - w * 0.6, y1 + 3.5],
+              [x + w * 0.9, y1 + 3], [x + w * 1.8, y1 - 2], [x + w * 0.9, y1 - 7], [x + w, (y0 + y1) / 2], [x + w * 1.1, y0]]), h.a.detail));
+            out.push(h.path(`M ${R(x - w * 1.2)} ${R(y1 - 2)} Q ${R(x - w)} ${R(y1 + 1)} ${R(x)} ${R(y1 + 2)}`, h.a.fin));
           });
           const [kx, , ky] = g.c[1];
           out.push(couteau(kx + 1, ky + 8, 16));
@@ -231,25 +238,33 @@ module.exports = (h) => {
         dessin: (z) => {
           const { G, x1, x2, ec } = gBr(z), out = [];
           out.push(h.ligne(0, G, z.l, G, h.a.arete));
-          // le feu, repoussé à l'écart
-          const fx = z.l * 0.09;
-          out.push(flamme(fx + 1, G - 14, 16, 36), flamme(fx + 21, G - 16, 14, 30), flamme(fx + 11, G - 28, 18, 46));
+          // le feu, repoussé loin de la pierre, coupé au bord de la vue
+          const fx = -16;
+          const feu = [flamme(fx + 1, G - 14, 16, 36), flamme(fx + 21, G - 16, 14, 30), flamme(fx + 11, G - 28, 18, 46)];
           [[fx, G - 9], [fx + 20, G - 9], [fx + 10, G - 25]].forEach(([x, y]) =>
-            out.push(h.cercle(x, y, 8.6, h.a.blanc), h.cercle(x, y, 8.6, h.a.arete), h.cercle(x, y, 4, h.a.fin)));
+            feu.push(h.cercle(x, y, 8.6, h.a.blanc), h.cercle(x, y, 8.6, h.a.arete), h.cercle(x, y, 4, h.a.fin)));
+          out.push(`<defs><clipPath id="coupe-feu-94-34"><rect x="0" y="-60" width="${R(z.l)}" height="${R(z.h + 60)}"/></clipPath></defs><g clip-path="url(#coupe-feu-94-34)">\n${feu.join('\n')}\n</g>`);
           // la pierre plate
-          const pierre = [[x1, G], [x1 - 3, G - 10], [x1 + 2, G - 19], [x1 + 14, G - 22], [x2 - 12, G - 23], [x2 + 2, G - 21], [x2 + 4, G - 12], [x2 + 1, G]];
+          const pierre = [[x1, G], [x1 - 3, G - 10], [x1 + 2, G - 19], [x1 + 12, G - 22], [x2 - 10, G - 23], [x2 + 2, G - 21], [x2 + 4, G - 12], [x2 + 1, G]];
           out.push(h.chemin(pierre, h.a.blanc, true), h.chemin(pierre, h.a.hachure('pierre', 'aucun'), true), h.chemin(pierre, h.a.contour, true));
-          // les braises jusque contre la pierre
-          out.push(braises(z.l * 0.03, x1 + 12, G, 13, 7));
-          // la gomme qui fond et qu'on pousse vers le bord
-          out.push(forme(lisse([[x1 + 8, G - 22], [x1 + 10, G - 30], [x1 + 18, G - 34], [x1 + 26, G - 30], [x1 + 28, G - 22.5]]), h.a.detail));
-          out.push(forme(lisse([[x1 + 31, G - 22.5], [x1 + 33, G - 29], [x1 + 40, G - 31], [x1 + 45, G - 22.8]]), h.a.detail));
-          out.push(forme(`M ${R(x1 + 44)} ${R(G - 22.8)} Q ${R((x1 + x2) / 2 + 12)} ${R(G - 28)} ${R(x2 - 14)} ${R(G - 23.2)} Z`, h.a.detail));
-          out.push(forme(lisse([[x2 - 11, G - 23], [x2 - 8, G - 27.5], [x2 - 1, G - 26], [x2 + 3, G - 22], [x2 + 3.5, G - 18], [x2 + 2, G - 21.5]]), h.a.detail));
-          
-          out.push(baton(x2 - 12, G - 26, -50, 62, 4.5));
+          // seul le tas de braises touche la pierre
+          out.push(braises(z.l * 0.2, x1 + 12, G, 13, 7));
+          // la gomme qui fond : base à plat, le bas foncé (fondu), poussée vers le bord droit
+          const W = x2 - x1, m = (xa, xb, ht) => {
+            const d = lisse([[xa, G - 22.5], [xa + 1, G - 22.5 - ht * 0.7], [(xa + xb) / 2, G - 22.5 - ht], [xb - 1, G - 22.5 - ht * 0.6], [xb, G - 22.5]]);
+            return forme(d, h.a.detail) + '\n' + h.path(`M ${R(xa)} ${R(G - 22.5)} Q ${R(xa + 0.5)} ${R(G - 26)} ${R(xa + 3)} ${R(G - 26.5)} L ${R(xb - 3)} ${R(G - 26.5)} Q ${R(xb - 0.5)} ${R(G - 26)} ${R(xb)} ${R(G - 22.5)} Z`, h.a.plein);
+          };
+          out.push(m(x1 + 5, x1 + W * 0.3, 9), m(x1 + W * 0.33, x1 + W * 0.55, 7));
+          // la nappe fondue, qui va au bord et passe par-dessus
+          const ec2 = ec.cx - ec.lh / 2 + 10, yE = G - ec.ht + 2;
+          out.push(h.path(`M ${R(x1 + W * 0.56)} ${R(G - 22.6)} Q ${R(x1 + W * 0.6)} ${R(G - 26)} ${R(x1 + W * 0.7)} ${R(G - 25.5)} L ${R(x2 - 2)} ${R(G - 24)} Q ${R(x2 + 4)} ${R(G - 23)} ${R(x2 + 5)} ${R(G - 18)}`
+            + ` C ${R(x2 + 6)} ${R(G - 14)} ${R(ec2 - 1)} ${R(G - 16)} ${R(ec2 - 0.6)} ${R(yE)} L ${R(ec2 + 1.4)} ${R(yE)} C ${R(ec2 + 1.4)} ${R(G - 18)} ${R(x2 + 8)} ${R(G - 19)} ${R(x2 + 6.5)} ${R(G - 23)}`
+            + ` Q ${R(x2 + 4)} ${R(G - 27.5)} ${R(x2 - 3)} ${R(G - 27.5)} L ${R(x1 + W * 0.7)} ${R(G - 27.5)} Q ${R(x1 + W * 0.6)} ${R(G - 28)} ${R(x1 + W * 0.56)} ${R(G - 22.6)} Z`, h.a.plein));
+          out.push(goutte(ec2 + 0.4, yE + 3, 1.6, h.a.plein));
+          // le bâton couché qui pousse la gomme vers le bord
+          out.push(baton(x1 + W * 0.66, G - 29, -155, 42, 4.5));
+          out.push(h.fleche(`M ${R(x1 + W * 0.62)} ${R(G - 38)} L ${R(x2 - 4)} ${R(G - 38)}`, h.a.detail));
           out.push(ecuelle(ec.cx, G, ec.lh, ec.ht));
-          out.push(goutte(x2 + 8, G - 18, 2.2));
           return out.join('\n');
         },
         renvois: (z) => {

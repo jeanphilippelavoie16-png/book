@@ -1,0 +1,212 @@
+// Planche 89-06 — La raquette de trois perches (ch. 89, « La raquette de sortie »)
+//
+// Tout vient du passage du chapitre : trois perches de la taille de la personne, gros bouts en
+// arrière, pointes nouées ; un bâton en travers des gros bouts ; trois bâtons jointifs un peu en
+// avant du milieu (plancher de pivot) ; deux bâtons où le talon retombe ; la botte attachée au
+// plancher seulement. Six bâtons d'environ 25 cm : seule cote de la planche.
+// Le dessin est fait à l'échelle d'une perche de 170 cm, mais la longueur n'est pas cotée : le
+// chapitre dit « aussi longue que la personne est grande », pas un chiffre.
+
+const LONG = 170;                           // longueur de dessin (cm), jamais écrite
+const r = u => 1.25 - 0.62 * u / LONG;      // rayon de la perche : pouce au gros bout, petit doigt à la pointe
+const RB = 1.15;                            // rayon d'un bâton
+const ARR = 4;                              // bâton arrière, sur les gros bouts
+const PIV = [95, 97.3, 99.6];               // plancher de pivot : trois bâtons jointifs
+const TAL = [74, 76.3];                     // deux bâtons sous le talon
+const MIL = LONG / 2;
+const DEG = Math.PI / 180;
+
+const echelle = z => { const x0 = 80; return { x0, s: (z.l - x0 - 24) / LONG }; };
+
+// ─── vue de dessus ──────────────────────────────────────────────────────────────────────
+function plan(z) {
+  const { x0, s } = echelle(z);
+  const yc = z.h / 2 + 4;
+  const X = u => x0 + u * s, Y = v => yc + v * s;
+  const c = (i, u) => i * (11 - 10.1 * u / LONG);   // axe de la perche i (-1, 0, 1)
+  return { X, Y, c, s, yc, P: (u, v) => [X(u), Y(v)] };
+}
+
+function perchePlan(h, G, i) {
+  const us = []; for (let u = 0; u <= LONG; u += 5) us.push(u);
+  const pts = [...us.map(u => G.P(u, G.c(i, u) - r(u))), ...us.slice().reverse().map(u => G.P(u, G.c(i, u) + r(u)))];
+  return h.chemin(pts, h.a.blanc, true) + '\n' + h.chemin(pts, h.a.arete, true);
+}
+
+function batonPlan(h, G, uc) {
+  const x = G.X(uc - RB), y = G.Y(-12.5), l = 2 * RB * G.s, ht = 25 * G.s;
+  const ligs = [-1, 0, 1].map(i => {
+    const v = G.c(i, uc), du = RB + 0.5, dv = r(uc) + 0.5;
+    // la ligature en croix sur le croisement : de la corde, pas une hachure
+    return h.chemin([G.P(uc - du, v - dv), G.P(uc + du, v + dv)], h.a.fin) + '\n'
+      + h.chemin([G.P(uc + du, v - dv), G.P(uc - du, v + dv)], h.a.fin);
+  });
+  return [h.rect(x, y, l, ht, h.a.blanc), h.rect(x, y, l, ht, h.a.arete), ...ligs].join('\n');
+}
+
+// semelle de la botte, vue de dessus (u, v en cm)
+const BOTTE_PLAN = [[71, 0], [72, -3.6], [78, -4.3], [88, -5.2], [95, -5.6], [101, -5], [104, -2.6], [104.8, 0],
+  [104, 2.6], [101, 5], [95, 5.6], [88, 5.2], [78, 4.3], [72, 3.6]];
+
+// ─── de côté ────────────────────────────────────────────────────────────────────────────
+// t : pente de la raquette en degrés (positive : pointe en haut). ub : endroit de la plante du pied.
+// phi : talon levé, en degrés. Le repère local de la botte a l'origine sous la plante, y vers le haut.
+function profil(z, { t, ub, phi, pose }) {
+  const { x0, s } = echelle(z);
+  const ys = z.h - 26;
+  const a = [Math.cos(t * DEG), -Math.sin(t * DEG)], n = [-Math.sin(t * DEG), -Math.cos(t * DEG)];
+  let O;
+  if (pose === 'queue') {            // le gros bout posé sur la neige
+    O = [x0 + s * r(0) * n[0], ys + s * r(0) * n[1]];
+  } else {                           // la pointe enfoncée dans la neige
+    O = [x0, 0];
+    const yPointe = O[1] + s * (LONG * a[1] - r(LONG) * n[1]);
+    O[1] += ys + 7 - yPointe;
+  }
+  const Pt = (u, w) => [O[0] + s * (u * a[0] + w * n[0]), O[1] + s * (u * a[1] + w * n[1])];
+  const B = Pt(ub, r(ub) + 2 * RB);
+  const loc = (x, y) => [B[0] + s * (x * a[0] + y * n[0]), B[1] + s * (x * a[1] + y * n[1])];
+  const f = phi * DEG;
+  const rot = (x, y) => loc(x * Math.cos(f) + y * Math.sin(f), -x * Math.sin(f) + y * Math.cos(f));
+  return { s, ys, Pt, loc, rot, t, ub, x0 };
+}
+
+function raquetteProfil(h, G) {
+  const us = []; for (let u = 0; u <= LONG; u += 5) us.push(u);
+  const pts = [...us.map(u => G.Pt(u, r(u))), ...us.slice().reverse().map(u => G.Pt(u, -r(u)))];
+  const out = [h.chemin(pts, h.a.blanc, true), h.chemin(pts, h.a.arete, true)];
+  // pointes nouées
+  for (const u of [157, 159.5, 162, 164.5]) {
+    const p1 = G.Pt(u, -r(u) - 0.4), p2 = G.Pt(u + 1.2, r(u) + 0.4);
+    out.push(h.chemin([p1, p2], h.a.detail));        // tour de corde, pas une hachure
+  }
+  // bâtons en travers, vus en bout
+  for (const uc of [ARR, ...G.talons, ...G.pivots]) {
+    const [cx, cy] = G.Pt(uc, r(uc) + RB);
+    out.push(h.cercle(cx, cy, RB * G.s, h.a.blanc), h.cercle(cx, cy, RB * G.s, h.a.arete));
+  }
+  return out.join('\n');
+}
+
+function botteProfil(h, G) {
+  const avant = [[0, 0], [8.5, 0], [10.3, 1.2], [10.8, 3.5], [9.5, 5.8], [6.5, 7.6], [1.5, 8.5]].map(p => G.loc(...p));
+  const arriere = [[-3, 11], [-6.5, 15], [-7.5, 24], [-19.5, 24], [-20, 13], [-21.8, 5], [-21.3, 1.2], [-19.8, 0], [-10, 0]]
+    .map(p => G.rot(...p));
+  const botte = [...avant, ...arriere];
+  const out = [h.chemin(botte, h.a.blanc, true), h.chemin(botte, h.a.arete, true)];
+  // semelle
+  out.push(h.chemin([G.loc(9.6, 1.6), G.loc(0, 1.6), G.rot(-21.5, 1.6)], h.a.detail));
+  // jambe de pantalon par-dessus la tige
+  let Lg = 26;
+  while (G.rot(-4.5, Lg)[1] > 8 && Lg < 200) Lg += 1;
+  const jambe = [G.rot(-6.8, 19), G.rot(-4.5, Lg), G.rot(-18.8, Lg), G.rot(-20.6, 19)];
+  out.push(h.chemin(jambe, h.a.blanc, true));
+  out.push(h.chemin([jambe[1], jambe[0], jambe[3], jambe[2]], h.a.arete));
+  // l'attache : par-dessus l'avant du pied, autour du plancher de pivot, rien au talon
+  const [p0, , p2] = G.pivots.map(u => G.Pt(u, r(u) + RB));
+  const dessus = G.loc(3.2, 8.2);
+  out.push(h.chemin([p0, dessus, p2], h.a.detail));
+  return out.join('\n');
+}
+
+function neige(h, z, G, cacher) {
+  const out = [];
+  if (cacher) out.push(h.rect(4, G.ys, z.l - 8, z.h - G.ys - 2, h.a.blanc));
+  out.push(h.rect(4, G.ys, z.l - 8, z.h - G.ys - 2, h.a.hachure('neige', 'aucun')));
+  out.push(h.ligne(4, G.ys, z.l - 4, G.ys, h.a.arete));
+  return out.join('\n');
+}
+
+// arc de rotation autour du pivot, de l'angle b1 à b2 (degrés, sens trigo), au rayon R
+function arc(h, K, R, b1, b2) {
+  const p = b => [K[0] + R * Math.cos(b * DEG), K[1] - R * Math.sin(b * DEG)];
+  const [x1, y1] = p(b1), [x2, y2] = p(b2);
+  return h.fleche(`M${x1.toFixed(1)} ${y1.toFixed(1)} A${R.toFixed(1)} ${R.toFixed(1)} 0 0 ${b2 > b1 ? 0 : 1} ${x2.toFixed(1)} ${y2.toFixed(1)}`, h.a.detail);
+}
+
+const BON = { t: 9, ub: 95.5, phi: 22, pose: 'queue', pivots: PIV, talons: TAL };
+const RATE = { t: -9, ub: 51.5, phi: 6, pose: 'pointe', pivots: [51, 53.3, 55.6], talons: [30, 32.3] };
+
+function vueProfil(h, z, cfg) {
+  const G = Object.assign(profil(z, cfg), { pivots: cfg.pivots, talons: cfg.talons });
+  const out = [];
+  if (cfg.pose === 'queue') out.push(neige(h, z, G, false));
+  out.push(raquetteProfil(h, G), botteProfil(h, G));
+  const K = G.Pt(cfg.ub, 0), T = G.Pt(LONG, 0);
+  const Rt = Math.hypot(T[0] - K[0], T[1] - K[1]);
+  if (cfg.pose === 'queue') {
+    out.push(arc(h, K, Rt - 12, cfg.t - 13, cfg.t - 4));
+  } else {
+    out.push(neige(h, z, G, true));
+    out.push(arc(h, K, Rt - 12, cfg.t + 14, cfg.t + 5));
+    const f1 = G.Pt(68, 6), f2 = G.Pt(96, 6);
+    out.push(h.fleche(`M${f1[0].toFixed(1)} ${f1[1].toFixed(1)} L${f2[0].toFixed(1)} ${f2[1].toFixed(1)}`, h.a.arete));
+  }
+  return { svg: out.join('\n'), G, K, T, Rt };
+}
+
+module.exports = (h) => ({
+  ref: '89-06',
+  titre: 'La raquette de trois perches',
+  desc: 'En haut, vue de dessus : trois perches couchées côte à côte, gros bouts à gauche, écartés et ligaturés sur un bâton en travers ; à droite, les trois pointes réunies et nouées. Un peu en avant du milieu, marqué d’un trait mixte, trois bâtons jointifs en travers forment le plancher de pivot ; derrière, deux bâtons là où le talon retombe. La botte, en tireté, a l’avant du pied sur le plancher et le talon sur les deux bâtons. Au milieu, de côté, en marchant : une corde passe autour du plancher et par-dessus l’avant du pied, rien au talon ; la botte lève le talon, le pied pivote sur le plancher, le gros bout de la raquette reste sur la neige et la pointe se lève d’elle-même. En bas, le raté : la botte attachée derrière le milieu, la raquette bascule du nez et la pointe plonge dans la neige ; une flèche montre l’attache à avancer.',
+  format: 'pleine',
+  disposition: [['plan'], ['pas'], ['rate']],
+  hauteurs: [1, 1.12, 1.05],
+  vues: {
+    plan: {
+      titre: 'Vue de dessus',
+      dessin: z => {
+        const G = plan(z);
+        const botte = BOTTE_PLAN.map(([u, v]) => G.P(u, v));
+        return [
+          h.ligne(G.X(MIL), G.Y(-17), G.X(MIL), G.Y(17), h.a.fin + ' stroke-dasharray="12 3 2 3"'),
+          perchePlan(h, G, -1), perchePlan(h, G, 1), perchePlan(h, G, 0),
+          ...[157, 159.5, 162, 164.5].map(u => h.ligne(G.X(u), G.Y(-2.5), G.X(u + 1.2), G.Y(2.5), h.a.detail)),
+          ...[ARR, ...TAL, ...PIV].map(uc => batonPlan(h, G, uc)),
+          h.chemin(botte, h.a.cache, true),
+          h.cote(G.X(0) - 18, G.Y(-12.5), G.X(0) - 18, G.Y(12.5), '25 cm', { cote: 'gauche' }),
+        ].join('\n');
+      },
+      renvois: z => {
+        const G = plan(z);
+        return [
+          { n: 1, rond: [G.X(166), G.yc - 46], cible: G.P(162.5, -1.6), texte: 'pointes nouées ensemble' },
+          { n: 2, rond: [G.X(130), G.yc - 46], cible: G.P(130, G.c(-1, 130)), texte: 'perches de la taille du marcheur' },
+          { n: 3, rond: [G.X(ARR) + 22, G.yc - 50], cible: G.P(ARR, -11.5), texte: 'bâton sur les gros bouts' },
+          { n: 4, rond: [G.X(MIL) - 20, G.yc - 50], cible: G.P(MIL, -15.5), texte: 'milieu de la raquette' },
+          { n: 5, rond: [G.X(99.6) + 16, G.yc + 50], cible: G.P(99.6, 11.8), texte: 'plancher de pivot, jointifs' },
+          { n: 6, rond: [G.X(75) - 14, G.yc + 50], cible: G.P(TAL[0], 11.8), texte: 'deux bâtons sous le talon' },
+        ];
+      },
+    },
+    pas: {
+      titre: 'De côté, en marchant',
+      dessin: z => vueProfil(h, z, BON).svg,
+      renvois: z => {
+        const { G, T } = vueProfil(h, z, BON);
+        const talon = G.rot(-20.5, 0), bt = G.Pt(TAL[1], r(TAL[1]) + 2 * RB);
+        const gap = [(talon[0] + bt[0]) / 2, (talon[1] + bt[1]) / 2];
+        const queue = G.Pt(3, -r(3));
+        const corde = G.loc(3.2, 8.2);
+        return [
+          { n: 7, rond: [corde[0] + 26, corde[1] - 40], cible: corde, texte: 'attache au plancher seulement' },
+          { n: 8, rond: [gap[0] - 60, gap[1] - 24], cible: gap, texte: 'talon libre' },
+          { n: 9, rond: [queue[0] + 30, queue[1] - 44], cible: [queue[0] + 4, queue[1] - 2], texte: 'l’arrière reste sur la neige' },
+          { n: 10, rond: [T[0] - 10, T[1] - 36], cible: G.Pt(166, r(166)), texte: 'la pointe se lève seule' },
+        ];
+      },
+    },
+    rate: {
+      titre: 'Le raté : pivot trop en arrière',
+      dessin: z => vueProfil(h, z, RATE).svg,
+      renvois: z => {
+        const { G, T } = vueProfil(h, z, RATE);
+        const f = G.Pt(82, 6);
+        return [
+          { n: 11, rond: [T[0] - 70, G.ys - 40], cible: [T[0] - 16, G.ys - 3], texte: 'le nez plonge dans la neige' },
+          { n: 12, rond: [f[0], f[1] - 30], cible: [f[0], f[1] - 2], texte: 'avancer l’attache' },
+        ];
+      },
+    },
+  },
+});

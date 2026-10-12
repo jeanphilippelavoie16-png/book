@@ -52,13 +52,19 @@ const FENTE = [...LEVRE_H, [170, -70], [170, 70], ...LEVRE_B.slice().reverse()];
 // la main gauche, paume en l'air : majeur en haut, index en bas, pouce en bas
 const MAJEUR = doigt([15, -9], [-64, -28], 17, 15);
 const INDEX = doigt([15, 9.5], [-57, 26], 16, 14);
-const PAUME_H = lisse([[15, -17.5], [22, -26], [34, -30], [50, -29.5], [72, -25], [104, -21], [152, -20]]);
+const PAUME_H = lisse([[15, -17.5], [22, -26], [34, -30], [50, -29.5], [72, -25], [104, -21], [152, -20], [180, -20]]);
 // le bord bas de la paume passe par la base du pouce : il continue en bord du pouce, sans bout libre
-const PAUME_B = lisse([[152, 21], [118, 25], [94, 29.4], [81.4, 31.9], [62, 28], [44, 22.5], [15, 17.5]]);
+const PAUME_B = lisse([[180, 21], [152, 21], [118, 25], [94, 29.4], [81.4, 31.9], [62, 28], [44, 22.5], [15, 17.5]]);
 const PAUME = PAUME_H.concat(PAUME_B);
 const POUCE = doigt([80, 23], [36, 30], 18, 15);
-const REPLIS = [   // annulaire et auriculaire repliés dans la paume
-  lisse([[17, -18.5], [30, -21.5], [44, -22], [58, -27.5]]),
+const REPLIS = [   // annulaire et auriculaire repliés dans la paume : deux boucles accrochées au bord
+  lisse([[20, -24.6], [30, -21], [44, -21.5], [58, -27.5]]),
+  lisse([[44, -29.6], [56, -23.5], [70, -23], [82, -24]]),
+];
+// les jointures de l'index et du majeur, à la base des doigts : petits arcs qui vont d'un bord à l'autre
+const JOINT = [
+  lisse([[16, -17.2], [21, -9], [16, -0.8]]),
+  lisse([[16, 1.6], [21, 9.5], [16, 17.4]]),
 ];
 // le couteau vu de dessus : le dos de la lame en bas, le fil tourné vers l'œil
 const LAME_P = [[-38, 0], [-30, -1.3], [0, -1.8], [56, -1.8], [56, 1.8], [0, 1.8], [-30, 1.3]];   // pointe au même x que dans la vue de côté
@@ -114,9 +120,12 @@ const F_DESSOUS = traverse(EP), F_DESSUS = traverse(0);
 const MAIN_HAUT = lisse([[-66, 20], [-65.6, 16.4], [-62.6, 13.3], [-54, 12.2], [-30, 12], [-5, 12], [12, 11.5], [26, 9.5],
   [42, 7], [62, 3], [90, -1.5], [120, -4.5], [148, -6.5]]);
 const MAIN_C = MAIN_HAUT
-  .concat(lisse([[148, 23], [120, 28], [90, 33], [62, 37], [36, 36], [18, 30.5], [2, 28.5], [-12, 29], [-24, 27.8],
+  .concat(lisse([[148, 23], [120, 28], [90, 33], [62, 37], [44, 38.4], [34, 37.6], [27, 33.2], [18, 30.5], [2, 28.5], [-12, 29], [-24, 27.8],
     [-38, 28], [-50, 26.8], [-58, 26.3], [-63.2, 25], [-65.6, 23.5], [-66, 20]]));
-const MAIN_N = MAIN_HAUT.length;                // points du dessus de la main
+const MAIN_N = MAIN_HAUT.length;
+// le pouce, côté spectateur, couché le long du bord de la main, le bout vers les doigts
+const POUCE_C = lisse([[122, 29.2], [104, 18.5], [80, 15], [52, 14.6], [32, 15.2], [25.5, 17.6], [24, 21],
+  [26, 24.6], [33, 26.6], [56, 28.6], [76, 32], [88, 33.4]]);   // les deux bouts posés sur le bord de la main                // points du dessus de la main
 const PLIS_C = [
   lisse([[-60.5, 25], [-55, 26.8], [-48, 26.9]]),              // ongle, du côté du dos
   lisse([[-36, 12.4], [-35, 15]]), lisse([[-11, 12.4], [-10, 15.5]]),   // plis de la pulpe
@@ -152,14 +161,13 @@ module.exports = (h) => {
           // le pouce par-dessus le bord de la paume ; son bord intérieur part en pli, pas en bout coupé
           const [p0, p1] = POUCE.contour;
           const pli = [p0[0] + (p1[0] - p0[0]) * 0.45, p0[1] + (p1[1] - p0[1]) * 0.45];
+          // la main en un seul contour fermé : chaque morceau tracé gras, puis tous remplis de blanc par-dessus
+          const morceaux = [D(M(PAUME), true), D(M(POUCE.contour), true), ...[MAJEUR, INDEX].map(d => D(M(d.contour), true))];
+          const gras = h.a.arete.replace('stroke-width="1.4"', 'stroke-width="2.8"');
           const main = [
-            h.path(D(M(PAUME), true), h.a.blanc),
-            h.path(D(M(PAUME_H)) + ' ' + D(M(PAUME_B)), h.a.arete),
-            h.path(D(M(POUCE.contour)) + ' Z', h.a.blanc),
-            h.path(D(M([pli, ...POUCE.contour.slice(1)])), h.a.arete),
-            ...[MAJEUR, INDEX].map(d => h.path(D(M(d.contour)) + ' Z', h.a.blanc)),
-            ...[MAJEUR, INDEX].map(d => h.path(D(M(d.contour)), h.a.arete)),
-            h.path([...MAJEUR.plis, ...INDEX.plis, ...REPLIS].map(p => D(M(p))).join(' '), h.a.detail),
+            ...morceaux.map(d => h.path(d, gras)),
+            ...morceaux.map(d => h.path(d, h.a.blanc)),
+            h.path([...MAJEUR.plis, ...INDEX.plis, ...REPLIS, ...JOINT].map(p => D(M(p))).join(' '), h.a.detail),
           ];
           const cache = [PAUME_H, PAUME_B, POUCE.contour, MAJEUR.contour, INDEX.contour]
             .map(p => h.path(D(M(p)), h.a.cache)).concat([h.path(D(M(LAME_P), true), h.a.cache)]);
@@ -207,6 +215,9 @@ ${h.path(D(M(BISEAU)), h.a.detail)}</g>`,
             h.path(mainD, h.a.blanc),
             h.path(D(M(MAIN_C.slice(0, MAIN_N))) + ' ' + D(M(MAIN_C.slice(MAIN_N))), h.a.arete),
             h.path(PLIS_C.map(p => D(M(p))).join(' '), h.a.detail),
+            h.path(D(M(POUCE_C), true), h.a.blanc),
+            h.path(D(M(POUCE_C)), h.a.arete),
+            h.path(D(M(MAIN_C.slice(MAIN_N))), h.a.arete),   // le bord de la main repasse sous le pouce
             `<g clip-path="url(#zmain)">${h.path(D(M(LAME), true), h.a.cache)}</g>`,
             h.path(D(M(GARDE), true), blanc(h.a.arete)),
             h.path(D(M(MANCHE)) + ' Z', blanc(h.a.arete)),

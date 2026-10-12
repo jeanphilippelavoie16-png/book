@@ -74,7 +74,6 @@ module.exports = (h) => {
           s.push(h.chemin([[470, Y(110)], [470, Y(288)], [474, Y(288)], [474, Y(300)], [126, Y(300)]], h.a.contour));
           // pondoir : joue du fond (au-delà de la coupe), pied jusqu'au plancher, litière, œuf,
           // fond, rebord, toit en pente. Assez haut pour qu'une poule y entre et s'y couche.
-          s.push(poly([[148, Y(157)], [212, Y(168.5)], [212, Y(222)], [148, Y(222)]], h.a.detail));
           s.push(h.rect(198, Y(229), 7, 59, h.a.blanc));
           s.push(h.rect(198, Y(229), 7, 59, h.a.hachure('bois')));
           s.push(h.rect(148, Y(212), 57, 10, h.a.hachure('paille', 'detail')));
@@ -96,7 +95,7 @@ module.exports = (h) => {
           { n: 2, rond: [92, Y(225)], cible: [139, Y(225)], texte: 'isolant enfermé entre deux parois' },
           { n: 3, rond: [545, Y(140)], cible: [473, Y(106)], texte: 'trappe réglable, au-dessus des têtes' },
           { n: 4, rond: [352, Y(236)], cible: [385, Y(201)], texte: 'perchoir plat, pattes sous le ventre' },
-          { n: 5, rond: [262, Y(160)], cible: [219, Y(166)], texte: 'pondoir surélevé, dans le coin sombre' },
+          { n: 5, rond: [262, Y(160)], cible: [186, Y(214)], texte: 'pondoir surélevé, dans le coin sombre' },
           { n: 6, rond: [180, Y(245)], cible: [180, Y(262)], texte: 'litière sèche et épaisse' },
         ],
       },
@@ -114,6 +113,10 @@ module.exports = (h) => {
           s.push(h.rect(82, 74, 88, 58, h.a.blanc));
           s.push(h.rect(82, 74, 88, 58, h.a.hachure('bois')));
           s.push(h.rect(87, 93, 7, 20, blanc(h.a.arete)));
+          // elle glisse dans l'axe des coulisses
+          s.push(h.rect(104, 96, 58, 14, h.a.blanc));
+          s.push(h.fleche('M 133,103 L 107,103', h.a.arete));
+          s.push(h.fleche('M 133,103 L 159,103', h.a.arete));
           for (const y of [66, 126]) {
             s.push(h.rect(26, y, 146, 14, blanc(h.a.arete)));
             for (const x of [34, 64, 120, 150, 164]) s.push(h.cercle(x, y + 7, 1.4, h.a.plein));

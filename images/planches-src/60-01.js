@@ -54,14 +54,12 @@ module.exports = (h) => {
       out.push(h.cercle(X(i), y0 - R(i), 3.4, h.a.plein));
       out.push(h.cercle(X(i), y0 + R(i), 3.4, h.a.plein));
     }
-    // la pointe fermée au nœud coulant
+    // la pointe froncée et liée de deux tours
     out.push(h.ligne(xp + 1, y0 - 7, xp + 1, y0 + 7, h.a.arete));
     out.push(h.ligne(xp + 5, y0 - 7, xp + 5, y0 + 7, h.a.arete));
     out.push(h.chemin([[xp + 6, y0 - 3], [xp + 20, y0 - 10]], h.a.detail));
     out.push(h.chemin([[xp + 6, y0], [xp + 21, y0 + 1]], h.a.detail));
     out.push(h.chemin([[xp + 6, y0 + 3], [xp + 19, y0 + 11]], h.a.detail));
-    out.push(h.ellipse(xp + 3, y0 - 14, 5, 7, h.a.arete));
-    out.push(h.path(`M ${f(xp + 3)} ${f(y0 + 7)} q 4 12 18 16`, h.a.arete));
     // trajet du poisson : entre par le premier entonnoir, sort à la pointe, revient longer la paroi
     const e = ent[0];
     const mur = t => [X(0) + t * (e.xt - X(0)), y0 + R0 + t * (e.rt - R0)];
@@ -87,13 +85,13 @@ module.exports = (h) => {
       { n: 2, rond: [p2[0] + 10, 11], cible: [p2[0], p2[1] + 1] },
       { n: 3, rond: [e1.xt + 34, 11], cible: [e1.xt + 1, y0 - e1.rt - 1] },
       { n: 4, rond: [p4[0] + 14, 11], cible: [p4[0], p4[1] + 1] },
-      { n: 5, rond: [xp + 36, y0 - 26], cible: [xp + 8, y0 - 15] },
+      { n: 5, rond: [xp + 36, y0 - 26], cible: [xp + 3, y0 - 8] },
     ].map((r, i) => ({ ...r, texte: [
       'cerceaux de saule vert',
       'le plus large à l’entrée',
       'pointe bien en dedans',
       'les suivants, plus serrés',
-      'pointe au nœud coulant',
+      'pointe froncée et liée',
     ][i] }));
   };
 
@@ -140,7 +138,7 @@ module.exports = (h) => {
     const r0 = x2 + 22, r1 = x3 - 34;           // la plaque de roche
     const rw = r1 - r0;
     const fond = [[0, hb - 3], [x1, hb - 2], [x2 * 0.6, hb + 1], [x2, hb], [r0, hb + 2],
-      [r0 + rw * 0.12, hb - 12], [r0 + rw * 0.3, hb + 4], [r0 + rw * 0.5, hb - 15],
+      [r0 + rw * 0.12, hb - 12], [r0 + rw * 0.3, hb - 9], [r0 + rw * 0.5, hb - 15],
       [r0 + rw * 0.7, hb + 3], [r0 + rw * 0.86, hb - 9], [r1, hb + 1], [x3, hb - 1], [z.l, hb - 2]];
     return { ys, hb, x1, x2, x3, r0, r1, rw, fond, yt: ys + 5 };
   };
@@ -152,6 +150,7 @@ module.exports = (h) => {
     const mou1 = fond.filter(([x]) => x <= r0), roc = fond.filter(([x]) => x >= r0 && x <= r1), mou2 = fond.filter(([x]) => x >= r1);
     out.push(h.chemin([...mou1, [r0, z.h], [0, z.h]], h.a.hachure('terre', 'aucun'), true));
     out.push(h.chemin([...mou2, [z.l, z.h], [r1, z.h]], h.a.hachure('terre', 'aucun'), true));
+    out.push(h.chemin([...roc, [r1, z.h], [r0, z.h]], 'fill="#fff" stroke="none"', true));
     out.push(h.chemin([...roc, [r1, z.h], [r0, z.h]], h.a.hachure('pierre', 'aucun'), true));
     out.push(h.chemin(fond, h.a.arete));
     // le pied suit le fond meuble, mais passe en ligne droite sur la roche

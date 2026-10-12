@@ -37,7 +37,9 @@ module.exports = (h) => {
     const u = [essai.bras[0] - essai.poignet[0], essai.bras[1] - essai.poignet[1]];
     const B0 = add(essai.poignet, mul(u, RECUL * E / Math.hypot(u[0], u[1])));
     const x = B[0] - B0[0], y = B[1] - B0[1];
-    const m = F.main({ x, y, pose: 'prise', vue: 'profil', diametre: DIAM * E, echelle: E, bras: RECUL + 6, angle: a });
+    const m0 = F.main({ x, y, pose: 'prise', vue: 'profil', diametre: DIAM * E, echelle: E, bras: RECUL + 6, angle: a });
+    // les petites marques de pli (traits fins d'un seul segment) se lisent comme des crochets : on les ôte
+    const m = Object.assign(String(m0).replace(/<path d="M[-\d. ]+ L[-\d. ]+" [^>]*stroke-width="0\.5"[^>]*\/>\n?/g, ''), { trou: m0.trou, poignet: m0.poignet, bras: m0.bras });
     const n = rot([1, 0], a / 2), d = rot([0, 1], a / 2), L = 900;
     const demi = s => [add(B, mul(d, L)), add(add(B, mul(d, L)), mul(n, s * L)), add(add(B, mul(d, -L)), mul(n, s * L)), add(B, mul(d, -L))];
     const idM = `p2412-${++nclip}`, idA = `p2412-${++nclip}`;
@@ -60,7 +62,16 @@ module.exports = (h) => {
     const bal = a > 0 ? 1 : 0;
     const arrondi = `<path d="M${P(p1)} L${P(o1)} L${P(oc)} L${P(o2)} L${P(p2)} A${f1(r)} ${f1(r)} 0 0 ${1 - bal} ${P(p1)} Z" ${BLANC}/>` +
       `<path d="M${P(p1)} A${f1(r)} ${f1(r)} 0 0 ${bal} ${P(p2)}" ${h.a.contour}/>`;
-    const svg = [defs, avantBras, `<g clip-path="url(#${idM})">${m}</g>`, arrondi, boite([m.trou.x, m.trou.y], m.trou.r)].join('\n');
+    // le creux entre la boîte et les doigts : blanchi, pour que les coins des phalanges ne
+    // fassent pas de crochets ; puis trois traits fins qui séparent les doigts repliés, en
+    // travers de la bande des doigts, du bord extérieur du poing jusqu'à la boîte
+    const ct = [m.trou.x, m.trou.y], rt = m.trou.r;
+    const creux = h.cercle(ct[0], ct[1], rt + 5.6 * E, BLANC);
+    const sep = [-24, 4, 32].map(t => {
+      const u = rot([1, 0], t + a);
+      return `<path d="M${P(add(ct, mul(u, rt + 6 * E)))} L${P(add(ct, mul(u, rt + 16 * E)))}" ${h.a.detail}/>`;
+    }).join('\n');
+    const svg = [defs, avantBras, `<g clip-path="url(#${idM})">${m}</g>`, arrondi, creux, boite(ct, rt), sep].join('\n');
     return { svg, m, yT, yV };
   }
 
@@ -146,13 +157,12 @@ module.exports = (h) => {
         },
       },
       descendre: {
-        titre: 'Redescendre lentement, en 4 temps',
+        titre: 'Redescendre en 4 temps — trois séries de dix par jour',
         dessin: z => descendre(z).svg,
         renvois: z => {
           const v = descendre(z), B = v.B;
           return [
             { n: 5, rond: [z.l - 18, 26], cible: add(B, rot([148 * E, 0], -2)), texte: 'c’est la descente qui soigne' },
-            { n: 6, rond: [30, 28], cible: [B[0] - 90 * E, B[1] - DT * E], texte: 'trois séries de dix par jour' },
           ];
         },
       },
@@ -162,7 +172,7 @@ module.exports = (h) => {
         renvois: z => {
           const v = dedans(z), B = v.B;
           return [
-            { n: 7, rond: [B[0] - 50, 26], cible: add(B, rot([148 * E, 0], -45)), texte: 'monter en 2, redescendre en 4' },
+            { n: 6, rond: [B[0] - 50, 26], cible: add(B, rot([148 * E, 0], -45)), texte: 'monter en 2, redescendre en 4' },
           ];
         },
       },
@@ -172,8 +182,8 @@ module.exports = (h) => {
         renvois: z => {
           const v = et(z);
           return [
-            { n: 8, rond: [40, v.W[1] + 75], cible: [v.W[0] - 100, v.W[1] + 10], texte: 'le bras tendu, paume en bas' },
-            { n: 9, rond: [z.l - 18, v.W[1] + 30], cible: v.pt(52), texte: 'l’autre main pousse ici' },
+            { n: 7, rond: [40, v.W[1] + 75], cible: [v.W[0] - 100, v.W[1] + 10], texte: 'le bras tendu, paume en bas' },
+            { n: 8, rond: [z.l - 18, v.W[1] + 30], cible: v.pt(52), texte: 'l’autre main pousse ici' },
           ];
         },
       },

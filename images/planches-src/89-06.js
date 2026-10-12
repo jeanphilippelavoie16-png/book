@@ -61,7 +61,7 @@ function profil(z, { t, ub, phi, pose }) {
   } else {                           // la pointe enfoncée dans la neige
     O = [x0, 0];
     const yPointe = O[1] + s * (LONG * a[1] - r(LONG) * n[1]);
-    O[1] += ys + 7 - yPointe;
+    O[1] += ys + 14 - yPointe;
   }
   const Pt = (u, w) => [O[0] + s * (u * a[0] + w * n[0]), O[1] + s * (u * a[1] + w * n[1])];
   const B = Pt(ub, r(ub) + 2 * RB);
@@ -124,6 +124,9 @@ function arc(h, K, R, b1, b2) {
   return h.fleche(`M${x1.toFixed(1)} ${y1.toFixed(1)} A${R.toFixed(1)} ${R.toFixed(1)} 0 0 ${b2 > b1 ? 0 : 1} ${x2.toFixed(1)} ${y2.toFixed(1)}`, h.a.detail);
 }
 
+// abscisse où l'axe de la raquette traverse la surface de la neige
+function entree(G) { let u = 100; while (u < LONG && G.Pt(u, -r(u))[1] < G.ys) u += 0.5; return G.Pt(u, -r(u))[0]; }
+
 const BON = { t: 9, ub: 95.5, phi: 22, pose: 'queue', pivots: PIV, talons: TAL };
 const RATE = { t: -9, ub: 51.5, phi: 6, pose: 'pointe', pivots: [51, 53.3, 55.6], talons: [30, 32.3] };
 
@@ -132,13 +135,23 @@ function vueProfil(h, z, cfg) {
   const out = [];
   if (cfg.pose === 'queue') out.push(neige(h, z, G, false));
   out.push(raquetteProfil(h, G), botteProfil(h, G));
+  // milieu de la raquette : trait mixte court, perpendiculaire
+  const m1 = G.Pt(MIL, -6), m2 = G.Pt(MIL, 6);
+  out.push(h.ligne(m1[0], m1[1], m2[0], m2[1], h.a.fin + ' stroke-dasharray="12 3 2 3"'));
   const K = G.Pt(cfg.ub, 0), T = G.Pt(LONG, 0);
   const Rt = Math.hypot(T[0] - K[0], T[1] - K[1]);
   if (cfg.pose === 'queue') {
     out.push(arc(h, K, Rt - 12, cfg.t - 13, cfg.t - 4));
   } else {
     out.push(neige(h, z, G, true));
-    out.push(arc(h, K, Rt - 12, cfg.t + 14, cfg.t + 5));
+    // bourrelet là où la pointe entre dans la neige
+    const xe = entree(G);
+    // la partie enfouie, en caché
+    const us = []; for (let u = 120; u <= LONG; u += 5) us.push(u);
+    out.push(h.chemin([...us.map(u => G.Pt(u, r(u))), ...us.slice().reverse().map(u => G.Pt(u, -r(u)))], h.a.cache, true));
+    out.push(h.chemin([[xe - 22, G.ys], [xe - 12, G.ys - 4], [xe - 2, G.ys - 6], [xe + 8, G.ys - 4], [xe + 18, G.ys]], h.a.blanc, true));
+    out.push(h.chemin([[xe - 22, G.ys], [xe - 12, G.ys - 4], [xe - 2, G.ys - 6], [xe + 8, G.ys - 4], [xe + 18, G.ys]], h.a.arete));
+    out.push(h.fleche(`M${xe.toFixed(1)} ${(G.ys - 70).toFixed(1)} L${xe.toFixed(1)} ${(G.ys - 14).toFixed(1)}`, h.a.detail));
     const f1 = G.Pt(68, 6), f2 = G.Pt(96, 6);
     out.push(h.fleche(`M${f1[0].toFixed(1)} ${f1[1].toFixed(1)} L${f2[0].toFixed(1)} ${f2[1].toFixed(1)}`, h.a.arete));
   }
@@ -164,7 +177,7 @@ module.exports = (h) => ({
           ...[157, 159.5, 162, 164.5].map(u => h.ligne(G.X(u), G.Y(-2.5), G.X(u + 1.2), G.Y(2.5), h.a.detail)),
           ...[ARR, ...TAL, ...PIV].map(uc => batonPlan(h, G, uc)),
           h.chemin(botte, h.a.cache, true),
-          h.cote(G.X(0) - 18, G.Y(-12.5), G.X(0) - 18, G.Y(12.5), '25 cm', { cote: 'gauche' }),
+          h.cote(G.X(0) - 18, G.Y(-12.5), G.X(0) - 18, G.Y(12.5), '250 mm', { cote: 'gauche' }),
         ].join('\n');
       },
       renvois: z => {
@@ -203,7 +216,7 @@ module.exports = (h) => ({
         const { G, T } = vueProfil(h, z, RATE);
         const f = G.Pt(82, 6);
         return [
-          { n: 11, rond: [T[0] - 70, G.ys - 40], cible: [T[0] - 16, G.ys - 3], texte: 'le nez plonge dans la neige' },
+          { n: 11, rond: [T[0] + 20, G.ys - 50], cible: G.Pt(LONG - 4, 0), texte: 'le nez plonge dans la neige' },
           { n: 12, rond: [f[0], f[1] - 30], cible: [f[0], f[1] - 2], texte: 'avancer l’attache' },
         ];
       },

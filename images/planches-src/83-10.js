@@ -79,6 +79,8 @@ module.exports = (h) => {
     return o.join('\n');
   };
 
+  const SP = 1.12;   // la vue du bout de la porte, grossie
+  const sp = (z, x, y) => [Math.round(z.l / 2 + (x - z.l / 2) * SP), Math.round(z.h + (y - z.h) * SP)];
   // ── Le bout de la porte ───────────────────────────────────────────────────────────
   const porte = z => {
     const o = [];
@@ -89,8 +91,8 @@ module.exports = (h) => {
     o.push(h.rect(cx - 101, yBt, 202, yF - yBt, A.hachure('gravier', 'aucun')), h.ligne(cx - 101, yBt, cx + 101, yBt, A.detail));
     o.push(h.rect(cx - 106, yBt - 4, 5, yF - yBt + 4, W(A.arete)), h.rect(cx + 101, yBt - 4, 5, yF - yBt + 4, W(A.arete)));
     // le tuyau, au bout opposé, qui dépasse derrière
-    o.push(h.ligne(cx - 20, 10, cx - 20, cy - R - 6, A.arete), h.ligne(cx + 20, 10, cx + 20, cy - R - 6, A.arete));
-    o.push(h.path(`M${cx - 23} 11 L${cx - 8} 6 L${cx + 8} 14 L${cx + 23} 9`, A.detail));
+    o.push(h.ligne(cx - 20, 22, cx - 20, cy - R - 6, A.arete), h.ligne(cx + 20, 22, cx + 20, cy - R - 6, A.arete));
+    o.push(h.path(`M${cx - 23} 23 L${cx - 8} 18 L${cx + 8} 26 L${cx + 23} 21`, A.detail));
     // le bout du baril : bourrelet et fond
     o.push(h.cercle(cx, cy, R, W(A.contour)), h.cercle(cx, cy, R - 6, A.detail));
     // plaque de cuisson sur le dessus
@@ -116,7 +118,13 @@ module.exports = (h) => {
     o.push(h.path(`M${cx - 20} ${yb - 3.5} L${cx + 49} ${yb - 1.5} L${cx + 49} ${yb + 1.5} L${cx - 20} ${yb + 3.5} Z`, W(A.arete)));
     o.push(h.path(`M${cx - 20} ${yb - 3.5} L${cx - 27} ${yb + 8} L${cx - 22} ${yb + 10} L${cx - 16} ${yb + 3.5}`, W(A.arete)));
     o.push(h.cercle(cx, yb, 3, W(A.arete)), h.cercle(cx, yb, 1, A.plein));
-    o.push(h.rect(cx + 32, yb - 8, 12, 16, W(A.arete)), h.cercle(cx + 38, yb - 5.5, 1.4, A.plein), h.cercle(cx + 38, yb + 5.5, 1.4, A.plein));
+    // la came : une rampe boulonnée au baril, mince à l'entrée (en haut), épaisse au bout (en bas) ;
+    // la barre descend en tournant et se coince à mi-rampe
+    o.push(h.path(`M${cx + 31} ${yb - 17} L${cx + 35} ${yb - 17} L${cx + 46} ${yb + 14} L${cx + 31} ${yb + 14} Z`, W(A.arete)));
+    o.push(h.ligne(cx + 33, yb - 17, cx + 33, yb + 14, A.fin));
+    o.push(h.cercle(cx + 38, yb + 9, 1.4, A.plein), h.cercle(cx + 36, yb - 11, 1.2, A.plein));
+    // le geste : on rabat la barre vers le bas, elle monte sur la rampe et serre la porte
+    o.push(h.fleche(`M${cx + 14} ${yb - 15} A 20 20 0 0 1 ${cx + 20} ${yb + 5}`, A.arete));
     // l'arrivée d'air : le gros bouchon, plaque coulissante sur un boulon
     const bx = cx + 40, by = cy + 19;
     o.push(h.cercle(bx, by, 7.5, W(A.arete)), h.cercle(bx, by, 4.5, A.plein));
@@ -124,7 +132,7 @@ module.exports = (h) => {
     o.push(h.cercle(bx + 18, by, 2.2, W(A.arete)));
     // l'autre bouchon, fermé
     o.push(h.cercle(cx + 40, cy - 40, 6, W(A.arete)), h.cercle(cx + 40, cy - 40, 3.5, A.detail), h.ligne(cx + 37, cy - 40, cx + 43, cy - 40, A.detail));
-    return o.join('\n');
+    return `<g transform="translate(${cx} ${z.h}) scale(${SP}) translate(${-cx} ${-z.h})">` + o.join('\n') + '</g>';
   };
 
   // ── Le collet en étoile ───────────────────────────────────────────────────────────
@@ -167,7 +175,7 @@ module.exports = (h) => {
     o.push(h.chemin([[40, z.h], [40, t2], [146, t2], [146, 4]], A.contour));
     o.push(h.path(`M14 ${t1} L40 ${t2} M120 ${t1} L146 ${t2}`, A.detail));
     o.push(h.path(`M117 6 L128 2 L138 9 L149 5`, A.detail));
-    return o.join('\n');
+    return `<g transform="scale(0.9 1)">` + o.join('\n') + '</g>';
   };
 
   return {
@@ -177,7 +185,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['coupe'], ['porte', 'collet', 'fenetre']],
     hauteurs: [5, 4],
-    largeurs: [[1], [3, 2, 2]],
+    largeurs: [[1], [4, 2, 2]],
     vues: {
       coupe: {
         titre: 'En coupe sur la longueur',
@@ -197,12 +205,12 @@ module.exports = (h) => {
         renvois: z => {
           const cx = Math.round(z.l / 2), cy = z.h - 20 - 92;
           return [
-            { n: 7, rond: [z.l - 12, 22], cible: [cx + 12, cy - 30], texte: 'découpée au ciseau à froid' },
-            { n: 8, rond: [14, 60], cible: [cx - 36, cy - 30], texte: 'charnières boulonnées' },
-            { n: 9, rond: [z.l - 12, 95], cible: [cx + 38, cy - 1], texte: 'barre de fermeture à came' },
-            { n: 10, rond: [60, 16], cible: [cx - 8, cy - 43.5], texte: 'jeu comblé à l’argile' },
-            { n: 11, rond: [z.l - 12, 150], cible: [cx + 62, cy + 22], texte: 'arrivée d’air à glissière' },
-            { n: 12, rond: [z.l - 12, 50], cible: [cx + 44, cy - 44], texte: 'l’autre bouchon, bouché' },
+            { n: 7, rond: [z.l - 12, 16], cible: sp(z, cx + 12, cy - 30), texte: 'découpée au ciseau à froid' },
+            { n: 8, rond: [14, 70], cible: sp(z, cx - 38, cy - 30), texte: 'charnières boulonnées' },
+            { n: 9, rond: [z.l - 12, 100], cible: sp(z, cx + 40, cy + 2), texte: 'barre de fermeture à came' },
+            { n: 10, rond: [24, 22], cible: sp(z, cx - 8, cy - 43.5), texte: 'jeu comblé à l’argile' },
+            { n: 11, rond: [z.l - 12, 150], cible: sp(z, cx + 62, cy + 22), texte: 'arrivée d’air à glissière' },
+            { n: 12, rond: [z.l - 12, 52], cible: sp(z, cx + 44, cy - 44), texte: 'l’autre bouchon, bouché' },
           ];
         },
       },
@@ -219,8 +227,8 @@ module.exports = (h) => {
         titre: 'Par une fenêtre condamnée',
         dessin: fenetre,
         renvois: z => [
-          { n: 16, rond: [60, 170], cible: [87, 158], texte: 'tôle à la place de la vitre' },
-          { n: 17, rond: [56, 40], cible: [87, 80], texte: 'large jeu d’air autour' },
+          { n: 16, rond: [54, 170], cible: [78, 158], texte: 'tôle à la place de la vitre' },
+          { n: 17, rond: [50, 40], cible: [78, 80], texte: 'large jeu d’air autour' },
         ],
       },
     },

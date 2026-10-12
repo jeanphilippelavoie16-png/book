@@ -114,9 +114,12 @@ module.exports = (h) => {
       // L'écorce.
       o.push(h.path(`M ${P(...pt(R - 5, a0 + 0.03))} A ${R - 5} ${R - 5} 0 0 1 ${P(...pt(R - 5, a1 - 0.03))}`, h.a.detail));
       // Le quartier refendu en baguettes : une fente sur le rayon, une le long d'un cerne.
-      o.push(h.ligne(...pt(0.2 * R, am), ...pt(R, am), h.a.arete));
-      o.push(h.path(`M ${P(...pt(0.5 * R, a0))} A ${f(0.5 * R)} ${f(0.5 * R)} 0 0 1 ${P(...pt(0.5 * R, a1))}`, h.a.arete));
+      // Chaque fente est ouverte d'un jour blanc, bordé de deux traits, comme entre les quartiers.
+      const fentes = `M ${P(...pt(0.2 * R, am))} L ${P(...pt(R + 1, am))} ` +
+        `M ${P(...pt(0.5 * R, a0 - 0.02))} A ${f(0.5 * R)} ${f(0.5 * R)} 0 0 1 ${P(...pt(0.5 * R, a1 + 0.02))}`;
       o.push(h.path(sect, h.a.contour));
+      o.push(`<path d="${fentes}" fill="none" stroke="#1A1A1A" stroke-width="5.8"/>`);
+      o.push(`<path d="${fentes}" fill="none" stroke="#FFFFFF" stroke-width="3.8"/>`);
     }
     return o.join('\n');
   }
@@ -152,7 +155,6 @@ module.exports = (h) => {
       }
     });
     // Mortaise traversante : au-delà du plan de coupe, on voit la joue du fond, fil continu.
-    if (perce) [[ys + 45, 1], [ys + 60, -1]].forEach(([y, s]) => o.push(fil(ml + 2, y, mr - 2, y, s * 0.5, h.a.fin)));
     // L'eau restée au fond de la mortaise borgne.
     const yw = ys + TL - 7;
     if (!perce) {
@@ -181,13 +183,14 @@ module.exports = (h) => {
     [[xg - 12, yt - 12], [xg + 2, yt + 6], [xg - 8, yt + 26], [cx + PW + 20, yt - 4], [cx + PW + 30, yt + 20], [cx + PW + 14, yt + 40]]
       .forEach(([x, y]) => o.push(goutte(x, y)));
     [-1, 1].forEach(c => {
-      o.push(h.fleche(`M ${cx + c * (PW + 6)} ${yt + 50} V ${ys - 12}`, h.a.cache));
-      const xj = cx + c * (TW + J / 2);
+      // Une seule flèche par côté : le long du poteau, le long du joint épaulement-lisse, dans le jeu.
+      const xj = cx + c * (TW + J / 2), xo = cx + c * (PW + 6), yj = ys + 4;
+      const ch = `M ${xo} ${yt + 50} V ${yj - 4} Q ${xo} ${yj} ${xo - c * 4} ${yj} H ${xj + c * 4} Q ${xj} ${yj} ${xj} ${yj + 4}`;
       if (perce) {
-        o.push(h.fleche(`M ${xj} ${ys + 2} V ${ys + HS + 8}`, h.a.cache));
+        o.push(h.fleche(`${ch} V ${ys + HS + 8}`, h.a.cache));
         [[xj, ys + HS + 24], [xj + c, ys + HS + 42]].forEach(([x, y]) => o.push(goutte(x, y)));
       } else {
-        o.push(h.fleche(`M ${xj} ${ys + 2} V ${yw - 4}`, h.a.cache));
+        o.push(h.fleche(`${ch} V ${yw + 6}`, h.a.cache));
       }
     });
     return o.join('\n');

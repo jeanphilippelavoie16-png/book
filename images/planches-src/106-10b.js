@@ -152,7 +152,7 @@ module.exports = (h) => {
           const { P, th, cx, yt, a } = geoFil(z);
           return [
             { n: 3, rond: [cx - a / 2 - 18, yt - a * R3 - 20], cible: [cx - 8, yt - a * R3 + 18], texte: 'tiers-point dans le creux' },
-            { n: 4, rond: [cx + P / 2 + 30, yt - 8], cible: [cx + P / 4 + 2, yt - th / 2 + 2], texte: 'une face sur chaque dent' },
+            { n: 4, rond: [cx + 2 * P + 4, yt - th - 16], cible: [cx + P / 4 + 2, yt - th / 2 + 2], texte: 'une face sur chaque dent' },
           ];
         },
       },

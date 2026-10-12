@@ -61,7 +61,7 @@ module.exports = (h) => {
           o.push(rct(T, -11.8, -0.45, 7.8, 0, h.a.hachure('terre', 'fin')));
           o.push(seg(T, [-11.8, 0], [7.8, 0], h.a.arete));
           // ancrages
-          for (const x of [AX, GP + 0.5]) o.push(seg(T, [x, 0.12], [x, -0.4], h.a.arete));
+          for (const x of [AX, GP]) o.push(seg(T, [x, 0.12], [x, -0.4], h.a.arete));
           // le mât debout, en tireté
           o.push(rct(T, -0.08, 0.55, 0.08, 10.55, h.a.cache));
           o.push(rct(T, 0.08, 0.48, GP, 0.62, h.a.cache));
@@ -133,7 +133,7 @@ module.exports = (h) => {
           o.push(rct(P, -10, -0.14, 0, 0.14, BLANC));
           o.push(rct(P, -10.6, -0.3, -9.7, 0.3, BLANCD));
           o.push(rct(P, -0.2, -0.3, 0.45, 0.3, BLANCD));
-          for (const q of [[0, 5], [0, -5], [AX, 0], [GP + 0.5, 0], [WX, 0]]) o.push(h.cercle(...P(...q), 3, h.a.plein));
+          for (const q of [[0, 5], [0, -5], [AX, 0], [GP, 0], [WX, 0]]) o.push(h.cercle(...P(...q), 3, h.a.plein));
           return o.join('\n');
         },
         renvois: z => {
@@ -187,7 +187,7 @@ module.exports = (h) => {
           const PV = [5.5, 5], L = [2.6, 5], R = [8.4, 5], TB = [10.3, 6.6];
           // planche
           o.push(rct(F, 0, 0, 11, 8, BLANC));
-          for (const y of [1.4, 2.9, 6.9]) o.push(h.path(d(F, [[0.4, y], [4, y + 0.12], [7.5, y - 0.1], [10.6, y + 0.05]]), h.a.fin));
+          for (const y of [1.4, 6.9]) o.push(h.path(d(F, [[0.4, y], [4, y + 0.12], [7.5, y - 0.1], [10.6, y + 0.05]]), h.a.fin));
           for (const q of [[0.4, 0.4], [10.6, 0.4], [0.4, 7.6], [10.6, 7.6]]) o.push(h.cercle(...F(...q), 1.8, h.a.plein));
           // câble du mât : les deux fils du moteur
           o.push(seg(F, [5.5, 9.6], [5.5, 8.8], h.a.contour));
@@ -210,17 +210,22 @@ module.exports = (h) => {
           o.push(h.cercle(...F(...PV), 0.3 * F.s, BLANC), h.cercle(...F(...PV), 0.1 * F.s, h.a.plein));
           // le mouvement : par le bas, d'un plot à l'autre
           o.push(h.fleche(d(F, arc(PV, 2.2, Math.PI + 0.35, 2 * Math.PI - 0.35)), h.a.arete));
+          // second rappel du renvoi 16, vers l'autre fil
+          { const k = F(1.6, -0.8), q = F(10.6, -0.8), r0 = [k[0] + 36, k[1] + 4];
+            o.push(`<line x1="${f(r0[0])}" y1="${f(r0[1])}" x2="${f(q[0])}" y2="${f(q[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`);
+            o.push(`<line x1="${f(r0[0])}" y1="${f(r0[1])}" x2="${f(q[0])}" y2="${f(q[1])}" fill="none" stroke="#000000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`);
+            o.push(`<circle cx="${f(q[0])}" cy="${f(q[1])}" r="1.8" fill="#000000" stroke="#FFFFFF" stroke-width="0.7"/>`); }
           return o.join('\n');
         },
         renvois: z => {
           const F = repF(z);
-          const a = F(5.5, 9.3), b = F(4.2, 5.12), c = F(5.5, 2.8), e = F(9.4, 5.9), g = F(1.6, 5.0), k = F(1.6, -0.8);
+          const a = F(5.5, 9.3), b = F(4.2, 5.12), c = F(5.5, 2.8), e = F(8.4, 5.42), l = F(2.6, 5.42), g = F(1.6, 5.0), k = F(1.6, -0.8);
           return [
             { n: 11, rond: [a[0] - 40, a[1] + 2], cible: a, texte: 'les deux fils du moteur' },
-            { n: 12, rond: [b[0] - 4, b[1] - 34], cible: b, texte: 'lame sur un boulon' },
+            { n: 12, rond: [b[0] - 4, b[1] - 34], cible: b, texte: 'lame à poignée de bois' },
             { n: 13, rond: [c[0], c[1] + 30], cible: c, texte: 'quitte la ligne avant le pont' },
-            { n: 14, rond: [e[0] + 6, e[1] - 34], cible: e, texte: 'pont entre les deux fils' },
-            { n: 15, rond: [g[0] - 2, g[1] - 44], cible: g, texte: 'poignée de bois' },
+            { n: 14, rond: [e[0] + 6, e[1] - 34], cible: e, texte: 'plot du frein, ponté au fil' },
+            { n: 15, rond: [l[0] + 14, l[1] + 44], cible: l, texte: 'plot de la ligne (marche)' },
             { n: 16, rond: [k[0] + 36, k[1] + 4], cible: k, texte: 'vers diode et délestage' },
           ];
         },

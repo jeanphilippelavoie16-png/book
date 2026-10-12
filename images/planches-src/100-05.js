@@ -114,7 +114,8 @@ module.exports = (h) => {
     const a = ang * Math.PI / 180, ca = Math.cos(a), sa = Math.sin(a);
     const xr = -W / 2 - 2.5, yr = -5;                                // coin du rebord, le plus haut
     const rx = px + xr * ca - yr * sa, ry = py + xr * sa + yr * ca;
-    o.push(...poing(rx - 2, ry + 3, -0.35));
+    // pas de mains : une flèche courbe dit qu'on bascule lentement
+    o.push(h.fleche(`M ${f(rx - 14)} ${f(ry + 22)} Q ${f(rx - 10)} ${f(ry - 10)} ${f(rx + 14)} ${f(ry - 12)}`, h.a.detail));
     return { o, traj, px, py, xC };
   };
 
@@ -122,9 +123,9 @@ module.exports = (h) => {
     ref: '100-05',
     titre: 'Vanner d’un chaudron à l’autre',
     desc: 'Deux vues de côté. À gauche, dans une porte ouverte : le courant d’air traverse la porte, '
-      + 'un chaudron tenu au rebord est versé de haut dans un second chaudron posé au sol ; la graine '
+      + 'un chaudron incliné est versé lentement de haut dans un second chaudron posé au sol ; la graine '
       + 'tombe presque droit dedans, les débris légers partent sous le vent et retombent plus loin. '
-      + 'À droite, sans vent : deux personnes agitent une couverture qui pousse l’air sur le filet, '
+      + 'À droite, sans vent : une couverture tenue par ses deux coins du haut est balancée et qui pousse l’air sur le filet, '
       + 'et tout le poste est sur une toile.',
     format: 'demi',
     disposition: [['porte', 'couverture']],
@@ -189,7 +190,9 @@ module.exports = (h) => {
           const o = [];
           // sol et toile
           o.push(h.rect(0, G, z.l, z.h - G, h.a.hachure('terre', 'detail')));
-          o.push(h.chemin(P([[4, G], [4, G - 2.5], [z.l - 3, G - 2.5]]), h.a.arete));
+          o.push(h.path(`M 4 ${G - 9} Q 6 ${G - 4} 12 ${G - 4} L ${f(z.l - 12)} ${G - 4} Q ${f(z.l - 6)} ${G - 4} ${f(z.l - 3)} ${G - 9} L ${f(z.l - 3)} ${G - 6} Q ${f(z.l - 7)} ${G} ${f(z.l - 12)} ${G} L 12 ${G} Q 5 ${G} 4 ${G - 6} Z`, h.a.blanc));
+          o.push(h.path(`M 4 ${G - 9} Q 6 ${G - 4} 12 ${G - 4} L ${f(z.l - 12)} ${G - 4} Q ${f(z.l - 6)} ${G - 4} ${f(z.l - 3)} ${G - 9} L ${f(z.l - 3)} ${G - 6} Q ${f(z.l - 7)} ${G} ${f(z.l - 12)} ${G} L 12 ${G} Q 5 ${G} 4 ${G - 6} Z`, h.a.arete));
+          [0.3, 0.6].forEach((k) => o.push(h.ligne(f(k * z.l), G - 4, f(k * z.l + 5), G, h.a.detail)));
           o.push(h.ligne(0, G, z.l, G, h.a.arete));
           // couverture tenue par ses deux coins du haut, balancée vers le filet
           const yh = G - 1.7 * u;
@@ -204,19 +207,21 @@ module.exports = (h) => {
             `C ${f(w1[0])} ${f(w1[1])} ${f(w2[0])} ${f(w2[1])} ${f(D[0])} ${f(D[1])} Q ${f(kA[0])} ${f(kA[1])} ${f(A[0])} ${f(A[1])} Z`;
           o.push(h.path(face, h.a.blanc));
           // plis de l'étoffe, qui partent des mains et s'ouvrent vers l'ourlet
-          [[0.12, 0.3], [0.5, 0.52], [0.88, 0.74]].forEach(([k, k2]) => {
-            const x0 = A[0] + k * (B[0] - A[0]), y0 = A[1] + k * (B[1] - A[1]) + 7;
-            const x1 = D[0] + k2 * (C[0] - D[0]), y1 = D[1] + k2 * (C[1] - D[1]) - 2;
-            o.push(h.path(`M ${f(x0)} ${f(y0)} Q ${f(x0 - 0.05 * u)} ${f(y0 + 0.7 * u)} ${f(x1)} ${f(y1)}`, h.a.detail));
+          [[0.15, 0.2], [0.38, 0.42], [0.62, 0.62], [0.85, 0.82]].forEach(([k, k2]) => {
+            const x0 = A[0] + k * (B[0] - A[0]), y0 = A[1] + k * (B[1] - A[1]) + 8;
+            const x1 = D[0] + k2 * (C[0] - D[0]), y1 = D[1] + k2 * (C[1] - D[1]) - 4;
+            const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+            o.push(h.path(`M ${f(x0)} ${f(y0)} Q ${f(mx - 6)} ${f(my - 0.15 * u)} ${f(mx)} ${f(my)} T ${f(x1)} ${f(y1)}`, h.a.detail));
           });
-          o.push(h.path(face, h.a.contour));
-          // ourlet
-          o.push(h.path(`M ${f(C[0] - 1)} ${f(C[1] - 4)} C ${f(w1[0])} ${f(w1[1] - 4)} ${f(w2[0])} ${f(w2[1] - 4)} ${f(D[0] + 1)} ${f(D[1] - 4)}`, h.a.fin));
+          o.push(h.path(face, h.a.arete));
+          // coins pincés : le tissu se fronce en éventail sous chaque coin tenu
+          [A, B].forEach(([x, y]) => [-4, 0, 4].forEach((d) => o.push(h.path(`M ${f(x)} ${f(y + 1)} Q ${f(x + d * 0.6)} ${f(y + 7)} ${f(x + d)} ${f(y + 14)}`, h.a.detail))));
+          // petits nœuds de tissu aux coins
+          [A, B].forEach(([x, y]) => o.push(h.cercle(f(x), f(y), 2.6, h.a.arete)));
           // le balancement : l'ourlet part en arrière, revient vers le filet
-          o.push(h.fleche(`M ${f(D[0] - 0.22 * u)} ${f(D[1] + 4)} Q ${f(D[0] - 0.02 * u)} ${f(D[1] + 16)} ${f(D[0] + 0.2 * u)} ${f(D[1] + 8)}`, h.a.detail));
-          // les deux mains, deux personnes
-          o.push(...poing(A[0], A[1], -0.1));
-          o.push(...poing(B[0], B[1], -0.1));
+          const m0 = [D[0] - 0.02 * u, D[1] + 18];
+          o.push(h.fleche(`M ${f(m0[0])} ${f(m0[1])} Q ${f(m0[0] + 0.1 * u)} ${f(m0[1] + 6)} ${f(m0[0] + 0.22 * u)} ${f(m0[1] - 4)}`, h.a.detail));
+          o.push(h.fleche(`M ${f(m0[0])} ${f(m0[1])} Q ${f(m0[0] - 0.1 * u)} ${f(m0[1] + 6)} ${f(m0[0] - 0.22 * u)} ${f(m0[1] - 4)}`, h.a.detail));
           // le courant
           [yL + 0.35 * (yR - yL), yL + 0.72 * (yR - yL)].forEach((y) => o.push(h.fleche(`M ${f(C[0] + 10)} ${f(y)} L ${f(xL - 12)} ${f(y)}`, h.a.detail)));
           const v = verse(g, z.l - 8, [0.85, 0.62, 0.42], 23);
@@ -230,8 +235,8 @@ module.exports = (h) => {
           const yh = G - 1.7 * u;
           const A = [xh, yh + 10];
           return [
-            { n: 6, rond: [f(xh + 0.82 * u), f(yh - 40)], cible: [f(A[0] + 0.3 * u), f(A[1] + 0.45 * u)], texte: 'couverture tenue à deux, agitée' },
-            { n: 7, rond: [f(z.l - 22), f(G - 30)], cible: [f(z.l - 22), f(G - 3.5)], texte: 'toile sous tout le poste' },
+            { n: 6, rond: [f(xh + 0.82 * u), f(yh - 40)], cible: [f(A[0] + 0.3 * u), f(A[1] + 0.45 * u)], texte: 'couverture tenue par deux coins, agitée' },
+            { n: 7, rond: [f(z.l - 22), f(G - 30)], cible: [f(z.l - 22), f(G - 2)], texte: 'toile sous tout le poste' },
           ];
         },
       },

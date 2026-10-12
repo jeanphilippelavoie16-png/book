@@ -119,6 +119,8 @@ module.exports = (h) => {
       const w = (d - g) / nb;
       for (let i = 0; i < nb; i++) out.push(caillou(g + w * (i + 0.5), y, w - 2, ht));
     }
+    // le plancher lié à la patte amont et à la patte aval
+    out.push(ligature(xa, yp, 11, 3), ligature(xb, yp, 11, 3));
     return out.join('\n');
   };
   const chevaletRenvois = z => {
@@ -190,6 +192,7 @@ module.exports = (h) => {
         const nb = Math.max(1, Math.round((d - g) / 18)), w = (d - g) / nb;
         for (let i = 0; i < nb; i++) out.push(caillou(g + w * (i + 0.5), y, w - 2, ht));
       }
+      out.push(ligature(xg(xc, yp), yp, 11, 3), ligature(xd(xc, yp), yp, 11, 3));
       // la troisième perche, qui vient vers nous
       out.push(perche([xc + 2, yT], [xc + 10, yR(xc + 10) + 3], 9, 6, 0, BLANC_C));
     }
@@ -257,7 +260,7 @@ module.exports = (h) => {
 
   // ─── Le muret de pierres, en coupe ───
   const gMur = z => {
-    const yb = z.h - 34, xc = z.l / 2 + 6, k = 1.4;
+    const yb = z.h - 34, xc = z.l / 2 + 6, k = 1.66;
     const assises = [
       { ht: 28, pierres: [[-48, 44], [0, 48], [47, 42]] },
       { ht: 23, pierres: [[-34, 36], [3, 36], [37, 30]] },

@@ -170,7 +170,7 @@ module.exports = (h) => {
             h.ellipse(nx, nh, 5.5, 1.8, blanc),
             // la rondelle, en petit
             h.chemin(T.rond(cw, Rw), h.a.arete, true),
-            h.chemin(T.rond(cw, 8.5), h.a.arete, true),
+            h.chemin(T.rond(cw, 5), h.a.plein, true),
             h.chemin(T.rond(pw, 2.2), h.a.plein, true),
             h.ligne(f1[0], f1[1], f2[0], f2[1], h.a.cache),
           ].join('\n');
@@ -180,8 +180,8 @@ module.exports = (h) => {
           return [
             { n: 5, rond: [100, 62], cible: [cx + 22.7, yt + 44], texte: 'carré découpé dans une conserve' },
             { n: 6, rond: [z.l - 10, 124], cible: [r(T.passage[0] + 2.4), r(T.passage[1] + 1.4)], texte: 'passage : à peine plus que le fil' },
-            { n: 7, rond: [82, 196], cible: [r(T.arret[0] - 4.6), r(T.arret[1] + 2.4)], texte: 'arrêt : trou ordinaire' },
-            { n: 8, rond: [146, z.h - 11], cible: [r(pli[0] + 1.2), pli[1]], texte: 'plier d’équerre sur la ligne, pas à plat' },
+            { n: 8, rond: [r(T.rondelle[0] - 34), 14], cible: [r(T.rondelle[0] - 20), r(T.rondelle[1] - 6)], texte: 'ou rondelle : arrêt au centre, trou fin au bord' },
+            { n: 7, rond: [146, z.h - 11], cible: [r(pli[0] + 1.2), pli[1]], texte: 'plier d’équerre sur la ligne, pas à plat' },
           ];
         },
       },
@@ -191,35 +191,40 @@ module.exports = (h) => {
       monte: {
         titre: 'Monté',
         dessin: z => {
-          const V = verrou(140, 52, 1, 70, 145, 34);
-          return [V.svg, h.fleche(`M ${V.xr} 28 L ${V.xr} 8`)].join('\n');   // vers l'attache
+          const V = verrou(132, 66, 2, 22, 132, 40);
+          const yc = z.h - 30, zz = [];   // arrachement : la boucle continue plus bas
+          for (let x = 0; x <= z.l; x += 12) zz.push(`${x} ${yc + ((x / 12) % 2 ? 5 : -5)}`);
+          return [V.svg,
+            h.path(`M 0 ${yc} L ${zz.join(' L ')} L ${z.l} ${z.h} L 0 ${z.h} Z`, 'fill="#fff" stroke="none"'),
+            h.path(`M ${zz.join(' L ')}`, h.a.detail),
+            h.fleche(`M ${V.xr} 34 L ${V.xr} 8`)].join('\n');   // vers l'attache
         },
         renvois: z => {
-          const V = verrou(140, 52, 1, 70, 145, 34);
+          const V = verrou(132, 66, 2, 22, 132, 40);
           return [
             { n: 9, rond: [80, 24], cible: [r(V.ex - V.w - 4.2), r(V.y0 + V.w)], texte: 'bout arrêté dehors, tours serrés' },
-            { n: 10, rond: [z.l - 12, 124], cible: [r(V.hx + 4), r(V.hy + V.w / 2 + 1.8)], texte: 'la boucle entre par l’intérieur' },
+            { n: 10, rond: [z.l - 12, 160], cible: [r(V.hx + 4), r(V.hy + V.w / 2 + 1.8)], texte: 'la boucle entre par l’intérieur' },
           ];
         },
       },
       essai: {
         titre: 'L’essai',
         dessin: z => {
-          const A = verrou(44, 70, 0.55, 14, 84, 20), B = verrou(z.l - 34, 70, 0.55, 24, 112, 20);
+          const A = verrou(44, 70, 0.55, 14, 84, 20), B = verrou(z.l - 34, 70, 0.55, 14, 84, 20);
           const xa = A.xr + 9, ya = A.yr - 4, xb = B.xr + 9, yb = B.yr - 4;
           return [
             A.svg, B.svg,
             h.fleche(`M ${xa} ${ya} L ${xa} ${ya - 30}`),          // la boucle se ferme : le fil file par le verrou
             h.fleche(`M ${xb} ${yb - 32} L ${xb} ${yb - 3}`),      // tirée pour se rouvrir : le fil revient…
-            h.ligne(xb - 6, yb, xb + 6, yb, h.a.contour),          // …et bute au verrou
+            h.ligne(r(B.hx + 2.5), r(B.hy - 7), r(B.hx + 2.5), r(B.hy + 7), h.a.contour),  // …et bute au trou de passage
           ].join('\n');
         },
         renvois: z => {
-          const A = verrou(44, 70, 0.55, 14, 84, 20), B = verrou(z.l - 34, 70, 0.55, 24, 112, 20);
+          const A = verrou(44, 70, 0.55, 14, 84, 20), B = verrou(z.l - 34, 70, 0.55, 14, 84, 20);
           const xb = B.xr + 9, yb = B.yr - 4;
           return [
             { n: 11, rond: [A.xr + 11, 128], cible: [r(A.Cx + A.dx / 2), r(A.Cy + A.a + A.dy / 2 + 1.8)], texte: 'se ferme : ça glisse' },
-            { n: 12, rond: [z.l - 14, 130], cible: [r(xb + 3), r(yb + 1.8)], texte: 'rouvrir : ça bloque, sinon repasser à l’envers' },
+            { n: 12, rond: [z.l - 14, 130], cible: [r(B.hx + 2.5), r(B.hy + 7)], texte: 'rouvrir : ça bloque, sinon repasser à l’envers' },
           ];
         },
       },

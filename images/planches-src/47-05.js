@@ -63,7 +63,18 @@ module.exports = (h) => {
     const out = [];
     // la main sur le bâtonnet, entre les deux pattes
     const bat = baton(P, [-145, 0], [145, 0], 6, 30);
-    out.push(F.main({ x: ox, y: oy, pose: 'prise', vue: 'dos', angle: 90, diametre: 12 * s, echelle: s, bras: 50, objet: bat }));
+    // la main gantée : la même prise, un peu plus forte (le gant épaissit les doigts), sans ongle
+    // ni pli (les traits de détail sautent), et le revers du gant qui remonte au-dessus du poignet
+    const sg = s * 1.1;
+    const m = F.main({ x: ox, y: oy, pose: 'prise', vue: 'dos', angle: 90, diametre: 12 * s, echelle: sg, bras: 50, objet: bat });
+    out.push(String(m.svg || m).replace(/<path [^>]*stroke-width="0\.5"[^>]*\/>\n?/g, ''));
+    {
+      const w = m.poignet, b = m.bras, L = Math.hypot(b[0] - w[0], b[1] - w[1]);
+      const u = [(b[0] - w[0]) / L, (b[1] - w[1]) / L], n = [-u[1], u[0]];
+      const C = (t, k) => [r1(w[0] + u[0] * t * sg + n[0] * k * sg), r1(w[1] + u[1] * t * sg + n[1] * k * sg)];
+      out.push(h.chemin([C(-6, -36), C(-6, 37), C(34, 43), C(34, -42)], blanc(h.a.contour), true));
+      out.push(h.path(`M ${C(2, -37).join(' ')} L ${C(2, 38).join(' ')}`, h.a.fin));
+    }
     // les pattes de devant, derrière la tête
     out.push(h.path(lisse(Pl(pattesAvD), true), blanc(h.a.arete)));
     out.push(h.path(lisse(Pl(miroir(pattesAvD)), true), blanc(h.a.arete)));
@@ -138,8 +149,8 @@ module.exports = (h) => {
   // De côté, la poitrine à droite, le dos à gauche ; le cou épais, la collerette sombre sous la
   // boucle, l'aile repliée qui couvre le flanc, la queue en éventail à demi fermé et sa bande noire.
   const tete = [[-11, -6], [-17, -20], [-16, -34], [-22, -51], [-7, -47], [7, -43], [19, -35], [26, -26], [23, -14], [13, -5]];
-  const corps = [[-9, 2], [-14, 24], [-26, 52], [-36, 96], [-40, 146], [-36, 190], [-26, 218], [-12, 230], [10, 230], [28, 214], [44, 180], [54, 132], [50, 84], [36, 46], [18, 20], [10, 2]];
-  const aile = [[-20, 42], [4, 76], [14, 124], [10, 172], [-4, 214], [-16, 246], [-28, 226], [-38, 190], [-42, 146], [-38, 96], [-28, 56]];
+  const corps = [[-9, 2], [-14, 24], [-24, 52], [-30, 96], [-32, 146], [-30, 190], [-22, 218], [-10, 230], [12, 230], [32, 212], [52, 178], [64, 130], [60, 84], [42, 44], [20, 18], [10, 2]];
+  const aile = [[-16, 46], [10, 80], [24, 126], [18, 174], [2, 214], [-12, 250], [-24, 228], [-32, 188], [-35, 142], [-32, 94], [-25, 60]];
   const queue = [[-12, 222], [-26, 280], [-38, 340], [-31, 360], [-8, 368], [16, 366], [28, 352], [24, 290], [10, 222]];
   const oiseau = (P, dx, id) => {
     const Q = pts => pts.map(([x, y]) => P(x + dx, y));
@@ -171,9 +182,9 @@ module.exports = (h) => {
     out.push(h.cercle(...e, r1(3.4 * u1), blanc(h.a.detail)), h.cercle(e[0] + r1(0.6 * u1), e[1], r1(1.7 * u1), h.a.plein));
     return out.join('\n');
   };
-  const X3 = [0, 165, 330];
+  const X3 = [0, 165, 330], DY = 52;
   const vueOiseaux = z => {
-    const s = Math.min((z.l - 10) / 560, (z.h - 4) / 490);
+    const s = Math.min((z.l - 10) / 560, (z.h - 4) / 540);
     const ox = z.l / 2 - 165 * s, oy = 94 * s;
     const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
     const Pl = pts => pts.map(p => P(...p));
@@ -193,11 +204,13 @@ module.exports = (h) => {
     // la corde en travers du devant du sac, nouée aux deux coins
     out.push(F.corde(Pl([[-100, -58], [30, -50], [165, -48], [300, -50], [430, -58]]), { ep: 4.2 * s, debut: 'fixe', fin: 'fixe' }));
     X3.forEach((dx, i) => {
-      // le brin : de son nœud sur la corde au nœud coulant serré sous la tête (derrière la tête)
-      out.push(F.corde(Pl([[dx - 16, -50], [dx - 17, -26], [dx - 11, -3]]), { ep: 3.6 * s, debut: 'fixe', fin: 'fixe' }));
-      out.push(oiseau(P, dx, i));
-      out.push(F.corde(Pl([[dx - 12, -4], [dx - 1, 3], [dx + 10, 0]]), { ep: 3.6 * s, debut: 'fixe', fin: 'fixe' }));
-      out.push(h.cercle(...P(dx - 16, -51), r1(4.2 * s), blanc(h.a.arete)));
+      // l'oiseau descend d'une hauteur de tête sous la corde : le brin se voit, à côté de la tête,
+      // du nœud sur la corde jusqu'à la boucle serrée autour du cou, sous la tête
+      const Pb = (x, y) => P(x, y + DY);
+      out.push(oiseau(Pb, dx, i));
+      out.push(F.corde(Pl([[dx - 34, -50], [dx - 33, -10], [dx - 24, DY - 6]]), { ep: 3.6 * s, debut: 'fixe', fin: 'fixe' }));
+      out.push(F.corde(Pl([[dx - 24, DY - 6], [dx - 12, DY + 1], [dx + 4, DY + 3], [dx + 16, DY - 1]]), { ep: 3.6 * s, debut: 'fixe', fin: 'fixe' }));
+      out.push(h.cercle(...P(dx - 34, -51), r1(4.2 * s), blanc(h.a.arete)));
     });
     return { svg: out.join('\n'), P };
   };
@@ -242,8 +255,8 @@ module.exports = (h) => {
         renvois: z => {
           const P = vueOiseaux(z).P;
           return [
-            { n: 8, rond: [P(-160, 0)[0], P(0, -10)[1]], cible: P(-13, -3), texte: 'pendu par le cou, à son brin' },
-            { n: 9, rond: [P(247, 0)[0], P(0, 290)[1]], cible: P(247, 240), texte: 'un vide entre deux oiseaux' },
+            { n: 8, rond: [P(-160, 0)[0], P(0, 40)[1]], cible: P(-14, 52), texte: 'pendu par le cou, à son brin' },
+            { n: 9, rond: [P(247, 0)[0], P(0, 330)[1]], cible: P(247, 280), texte: 'un vide entre deux oiseaux' },
             { n: 10, rond: [P(495, 0)[0], P(0, -40)[1]], cible: P(437, -40), texte: 'le sac reste ouvert' },
           ];
         },

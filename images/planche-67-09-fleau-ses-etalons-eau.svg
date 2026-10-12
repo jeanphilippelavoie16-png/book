@@ -56,9 +56,9 @@
 <path d="M 383.0 86.6 L 406.0 118.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 383.0 86.6 L 383.0 112.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="383" cy="86.6" r="2.4" fill="#1A1A1A" stroke="none"/>
-<path d="M208.5 171 L208.5 42 L211 42 L216.5 59.5 L222 42 L224.5 42 L224.5 171 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M208.5 171 L208.5 42 L211 42 L216.5 59.5 L222 42 L224.5 42 L224.5 171" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="213.7" y1="73.5" x2="214.1" y2="165" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M208.5 171 L208.5 53.8 L209.5 53.8 L216.5 62.2 L223.5 53.8 L224.5 53.8 L224.5 171 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M208.5 171 L208.5 53.8 L209.5 53.8 L216.5 62.2 L223.5 53.8 L224.5 53.8 L224.5 171" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="213.7" y1="76.2" x2="214.1" y2="165" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="216.5" cy="55" r="4.6" fill="#FFFFFF" stroke="none"/>
 <circle cx="216.5" cy="55" r="4.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="216.5" cy="55" r="1.3" fill="#1A1A1A" stroke="none"/>
@@ -87,6 +87,7 @@
 <circle cx="300" cy="40" r="4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 296.0 40.2 L 52.0 49.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 547.5 21.7 A 248.2 248.2 0 0 1 545.5 76.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M 304.0 40.2 L 548.0 49.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 </g>
 <text x="40" y="448.1" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Un étalon de 2 kg</text>
 <g transform="translate(40 456.1)" data-vue="etalon">
@@ -107,9 +108,9 @@
 <path d="M 360.0 39.5 L 365.0 24.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="118" y1="32" x2="118" y2="48" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="434" y1="32" x2="434" y2="48" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M270 170 L270 20 L272 20 L276 33.5 L280 20 L282 20 L282 170 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M270 170 L270 20 L272 20 L276 33.5 L280 20 L282 20 L282 170" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="273.9" y1="47.5" x2="274.2" y2="164" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M270 170 L270 29.6 L271 29.6 L276 35.6 L281 29.6 L282 29.6 L282 170 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M270 170 L270 29.6 L271 29.6 L276 35.6 L281 29.6 L282 29.6 L282 170" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="273.9" y1="49.6" x2="274.2" y2="164" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="276" cy="30" r="3.6" fill="#FFFFFF" stroke="none"/>
 <circle cx="276" cy="30" r="3.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="276" cy="30" r="1" fill="#1A1A1A" stroke="none"/>

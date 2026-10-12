@@ -4,7 +4,6 @@
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
-<pattern id="h-pierre" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M1 3 L5 1 L9 3 L8 7 L3 8 Z M10 9 L13 7" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
@@ -78,10 +77,9 @@
 </g>
 <text x="40" y="528.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">En coupe A–A</text>
 <g transform="translate(40 536.3)" data-vue="coupe">
-<path d="M27.6 108.3 L78.7 108.3 L78.7 127.2 L210.3 127.2 L210.3 108.3 L261.4 108.3 L261.4 142.4 L27.6 142.4 Z" fill="url(#h-terre)" stroke="none"/>
+<path d="M27.6 108.3 L78.7 108.3 L78.7 127.2 L86.9 127.2 L112.8 128.2 L138.7 126.6 L164.7 127.8 L187.7 126.7 L202.1 127.2 L210.3 127.2 L210.3 108.3 L261.4 108.3 L261.4 142.4 L27.6 142.4 Z" fill="url(#h-terre)" stroke="none"/>
 <path d="M27.6 108.3 L78.7 108.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M210.3 108.3 L261.4 108.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="86.9" y1="127.2" x2="202.1" y2="127.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 210.3 108.3 C 210.3 106.1 209.2 97.3 210.3 94.9 C 211.5 92.5 214.6 93.4 217.2 93.7 C 219.8 94 223.3 95.4 226.1 96.8 C 228.9 98.2 232 100.3 234 101.9 C 236.1 103.5 237 105.3 238.4 106.4 C 239.8 107.5 241.6 108 242.2 108.3 Z" fill="url(#h-terre)" stroke="none"/>
 <path d="M 210.3 94.9 C 211.5 94.7 214.6 93.4 217.2 93.7 C 219.8 94 223.3 95.4 226.1 96.8 C 228.9 98.2 232 100.3 234 101.9 C 236.1 103.5 237 105.3 238.4 106.4 C 239.8 107.5 241.6 108 242.2 108.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="210.3" y1="108.3" x2="242.2" y2="108.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
@@ -93,7 +91,11 @@
 <rect x="78.7" y="70.3" width="8.1" height="56.9" fill="#fff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="78.7" y="70.3" width="8.1" height="56.9" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
 <path d="M 84.2 69.3 Q 85.6 71.6 89 72.9 L 106.4 79.8 Q 109.8 81.1 113.8 81.4 L 134.2 83.3 Q 138.2 83.6 143.1 83.3 L 168 82 Q 172.9 81.7 177.2 80.3 L 199.1 73 Q 203.4 71.6 204.6 69.8 L 210.9 60.8 Q 212.1 59 212.4 55.9 L 213.7 40 Q 214 36.9 211.8 34.1 L 200.4 19.4 Q 198.2 16.6 193.3 15.2 L 168.4 7.9 Q 163.5 6.5 158.2 6.8 L 130.8 8.1 Q 125.5 8.4 121.5 9.5 L 101.1 15.5 Q 97.1 16.6 94.7 19 L 82.1 31.3 Q 79.7 33.7 79.1 36.7 L 76.2 52.2 Q 75.6 55.2 77 57.5 Z" fill="#fff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 84.2 69.3 Q 85.6 71.6 89 72.9 L 106.4 79.8 Q 109.8 81.1 113.8 81.4 L 134.2 83.3 Q 138.2 83.6 143.1 83.3 L 168 82 Q 172.9 81.7 177.2 80.3 L 199.1 73 Q 203.4 71.6 204.6 69.8 L 210.9 60.8 Q 212.1 59 212.4 55.9 L 213.7 40 Q 214 36.9 211.8 34.1 L 200.4 19.4 Q 198.2 16.6 193.3 15.2 L 168.4 7.9 Q 163.5 6.5 158.2 6.8 L 130.8 8.1 Q 125.5 8.4 121.5 9.5 L 101.1 15.5 Q 97.1 16.6 94.7 19 L 82.1 31.3 Q 79.7 33.7 79.1 36.7 L 76.2 52.2 Q 75.6 55.2 77 57.5 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M97.1 16.6 L114.2 38.8 L109.8 60.9 L125.5 77.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M114.2 38.8 L157.1 33.7 L163.5 6.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M157.1 33.7 L182.4 51.4 L212.1 59" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M182.4 51.4 L176.1 73.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 86.9 127.2 C 91.2 127.4 104.2 128.3 112.8 128.2 C 121.4 128.1 130 126.7 138.7 126.6 C 147.4 126.5 156.5 127.8 164.7 127.8 C 172.9 127.8 181.5 126.8 187.7 126.7 C 193.9 126.6 199.7 127.1 202.1 127.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
 <text x="351" y="528.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La pointe, de dessus</text>
 <g transform="translate(351 536.3)" data-vue="pointe">

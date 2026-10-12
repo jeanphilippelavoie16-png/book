@@ -85,7 +85,8 @@ module.exports = (h) => {
           // la boucle de corde pend de la tête (vue par la tranche), le cran du crochet assis dessus
           const xk = cx - 3, yk = yt + 26, [kx, ky, kr] = corde(xk, yk, 8), [ax, ay] = creux(xk, hy + 10);
           out.push(crochet(xk, yk, hy + 10, 8));
-          out.push(h.ligne(cx, yt + 8, kx, ky, h.a.arete), h.cercle(kx, ky, kr, h.a.plein));
+          // un anneau de corde allongé pend de la ligature ; son bas passe dans le cran
+          out.push(h.formes.corde([[cx - 2, yt + 6], [kx - 5, (yt + ky) / 2], [kx - 2.5, ky + kr], [kx + 2.5, ky + kr], [kx + 5, (yt + ky) / 2], [cx + 2, yt + 6]], { ep: 3.2, debut: 'fixe', fin: 'fixe' }));
           out.push(chaudron(ax, g - FOND, 76, 46, ax, ay, true));
           out.push(perche(cx - 128, g, cx, yt, 26, 10, 7));
           out.push(perche(cx + 128, g, cx, yt, 26, 10, 7));
@@ -113,10 +114,51 @@ module.exports = (h) => {
           out.push(perche(f3x, f3y, cx, cy, 56, 20, 18));
           out.push(perche(f1x, f1y, cx, cy, 58, 21, 18));
           out.push(perche(f2x, f2y, cx, cy, 58, 21, 18));
-          // la ligature : tours serrés, puis serrage entre les perches
-          out.push(h.rect(cx - 30, cy - 12, 60, 26, W(h.a.arete)));
-          for (let y = cy - 8; y <= cy + 10; y += 4.5) out.push(h.path(`M ${cx - 30} ${y} Q ${cx} ${y + 4} ${cx + 30} ${y}`, h.a.detail));
-          for (const x of [cx - 12, cx + 12]) for (const dx of [-2.5, 0, 2.5]) out.push(h.ligne(x + dx, cy - 16, x + dx, cy + 18, h.a.arete));
+          // la ligature : tours serrés (devant les perches, retour derrière aux deux bords),
+          // partis d'un cabestan sur la perche de gauche ; serrage entre les perches, fini d'un
+          // cabestan sur la perche de droite
+          const C = (pts, o = {}) => h.formes.corde(pts, { ep: 5.5, debut: 'fixe', fin: 'fixe', ...o });
+          const ys = [cy - 10, cy - 3.5, cy + 3, cy + 9.5];
+          const along = (dx, dy, s) => { const n = Math.hypot(dx, dy); return [cx + dx / n * s, cy + dy / n * s]; };
+          // retours derrière, aux bords (dessinés d'abord : le devant passe dessus)
+          for (const y of ys) {
+            out.push(C([[cx + 30, y + 1.5], [cx + 35, y + 4.5], [cx + 30, y + 7.5]], { ep: 5 }));
+            out.push(C([[cx - 30, y - 5], [cx - 35, y - 2], [cx - 30, y + 1]], { ep: 5 }));
+          }
+          // cabestan de départ, perche de gauche
+          const cab = (dx, dy, s, sens) => {
+            const n = Math.hypot(dx, dy), ux = dx / n, uy = dy / n, px = -uy, py = ux;
+            const [ax, ay] = along(dx, dy, s), [bx, by] = along(dx, dy, s + 8);
+            const r = 12.5;
+            return { a: [ax, ay], b: [bx, by], u: [ux, uy], p: [px, py], r };
+          };
+          const k1 = cab(-0.42, 0.91, 62), k2 = cab(0.42, 0.91, 62);
+          const tourCab = (k, side) => {
+            const [ax, ay] = k.a, [bx, by] = k.b, [px, py] = k.p, r = k.r * side;
+            return [
+              // les deux tours devant la perche, et la croix entre eux
+              C([[ax - px * r, ay - py * r], [ax + px * r, ay + py * r]], { ep: 5 }),
+              C([[ax + px * r, ay + py * r], [bx - px * r, by - py * r]], { ep: 5 }),
+              C([[bx - px * r, by - py * r], [bx + px * r, by + py * r]], { ep: 5 }),
+            ].join('\n');
+          };
+          // dormant : du cabestan gauche monte au premier tour
+          out.push(C([[k1.a[0] - k1.p[0] * k1.r, k1.a[1] - k1.p[1] * k1.r], [cx - 40, cy + 10], [cx - 34, ys[0] - 2], [cx - 30, ys[0] - 5]], { ep: 5 }));
+          out.push(tourCab(k1, 1));
+          // bout libre du départ, qui dépasse sous le nœud
+          out.push(C([[k1.b[0] + k1.p[0] * k1.r, k1.b[1] + k1.p[1] * k1.r], [k1.b[0] + k1.p[0] * 20 - 2, k1.b[1] + k1.p[1] * 20 + 22]], { ep: 5, fin: 'libre' }));
+          // tours horizontaux, devant
+          for (const y of ys) out.push(C([[cx - 30, y + 1], [cx, y + 3], [cx + 30, y + 1.5]]));
+          // serrage : deux tours qui descendent dans l'écart, ceinturent les tours et remontent
+          for (const x of [cx - 9, cx - 2]) {
+            out.push(C([[x, cy - 16], [x - 0.5, cy], [x, cy + 17]], { ep: 5 }));
+          }
+          out.push(C([[cx - 9, cy - 16], [cx - 5.5, cy - 20], [cx - 2, cy - 16]], { ep: 5 }));
+          out.push(C([[cx - 9, cy + 17], [cx - 5.5, cy + 21], [cx - 2, cy + 17]], { ep: 5 }));
+          // du serrage au cabestan de fin, perche de droite
+          out.push(C([[cx - 2, cy + 17], [cx + 14, cy + 34], [k2.a[0] + k2.p[0] * k2.r, k2.a[1] + k2.p[1] * k2.r]], { ep: 5 }));
+          out.push(tourCab(k2, -1));
+          out.push(C([[k2.b[0] - k2.p[0] * k2.r, k2.b[1] - k2.p[1] * k2.r], [k2.b[0] - k2.p[0] * 20 + 2, k2.b[1] - k2.p[1] * 20 + 22]], { ep: 5, fin: 'libre' }));
           // des crochets de rechange, un par hauteur de feu
           const y0 = 40;
           [[z.l - 80, 70], [z.l - 50, 115], [z.l - 20, 160]].forEach(([x, l]) => out.push(crochet(x, y0, y0 + l, 10)));
@@ -126,7 +168,7 @@ module.exports = (h) => {
           const cx = 92, cy = 96;
           return [
             { n: 5, rond: [cx - 64, cy - 30], cible: [cx - 24, cy - 4], texte: 'tours serrés sur les trois' },
-            { n: 6, rond: [cx + 58, cy + 42], cible: [cx + 12, cy + 16], texte: 'serrage entre les perches' },
+            { n: 6, rond: [cx + 58, cy - 34], cible: [cx - 5, cy - 18], texte: 'serrage entre les perches' },
             { n: 7, rond: [z.l - 34, 18], cible: [z.l - 18, 54], texte: 'cran côté crochet, sur la boucle' },
             { n: 8, rond: [z.l - 50, 40 + 115 + 40], cible: [z.l - 50, 40 + 115], texte: 'un crochet par hauteur' },
           ];

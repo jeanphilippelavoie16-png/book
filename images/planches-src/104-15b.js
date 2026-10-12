@@ -84,7 +84,7 @@ function lin(z, s) {
 // Repère local : centre du pied, y négatif vers le haut. Épaisseurs depuis la peau.
 const PIED = [[-47, 6], [-44, -8], [-32, -19], [-12, -24], [10, -22], [30, -15], [44, -5], [48, 8], [42, 17],
   [20, 21], [-10, 22], [-36, 19]];
-const E_MINCE = 2, E_EPAISSE = 7, E_DOUBL = 16, E_BOTTE0 = 19.5, E_BOTTE1 = 22;
+const E_MINCE = 4.5, E_EPAISSE = 10, E_DOUBL = 17.5, E_BOTTE0 = 21, E_BOTTE1 = 23.5;
 function coupe(z) {
   const s = Math.min((z.h - 14) / 108, 1.9);
   const cx = z.l / 2, cy = 6 + 48 * s;
@@ -214,6 +214,14 @@ module.exports = (h) => ({
         out.push(h.path(g.anneau(E_EPAISSE, E_DOUBL), h.a.hachure('isolant') + ' fill-rule="evenodd"'));
         // chaussette épaisse, chaussette mince, pied
         out.push(h.path(g.anneau(E_MINCE, E_EPAISSE), `${h.a.blanc} fill-rule="evenodd"`));
+        // le pied : hachure fine à 45°, espacée
+        out.push(h.chemin(g.off(0), h.a.hachure('metal', 'aucun'), true));
+        // chaussette mince : gris plein uni
+        out.push(h.path(g.anneau(0, E_MINCE), 'fill="#9A9A9A" stroke="none" fill-rule="evenodd"'));
+        // chaussette épaisse : petites boucles serrées de tricot
+        { const mil = equi([...g.off((E_MINCE + E_EPAISSE) / 2), g.off((E_MINCE + E_EPAISSE) / 2)[0]], 150);
+          const r = (E_EPAISSE - E_MINCE) * g.s * 0.28;
+          out.push(mil.slice(0, -1).map(P => h.cercle(P.p[0], P.p[1], r, h.a.fin)).join('\n')); }
         out.push(h.chemin(g.off(E_EPAISSE), h.a.detail, true));
         out.push(h.chemin(g.off(E_MINCE), h.a.detail, true));
         out.push(h.chemin(g.off(0), h.a.detail, true));
@@ -223,18 +231,13 @@ module.exports = (h) => ({
           const q = [g.P(E_DOUBL - 4.5)(k - 5), g.P(E_DOUBL + 0.9)(k - 5), g.P(E_DOUBL + 0.9)(k + 5), g.P(E_DOUBL - 4.5)(k + 5)];
           out.push(h.path('M' + pts(q), h.a.arete));
         }
-        // coutures de la botte : la couture froncée, pièce de dessous et empeigne bord à bord
-        for (const k of g.coutBotte) {
-          out.push(h.path(seg(g.P(E_BOTTE0 - 0.6)(k), g.P(E_BOTTE1 + 0.6)(k)), 'fill="none" stroke="#FFFFFF" stroke-width="1.8"'));
-          const q = [g.P(E_BOTTE1 - 1.2)(k - 4), g.P(E_BOTTE1 + 1.1)(k - 4), g.P(E_BOTTE1 + 1.1)(k + 4), g.P(E_BOTTE1 - 1.2)(k + 4)];
-          out.push(h.path('M' + pts(q), h.a.arete));
-        }
         return out.join('\n');
       },
       renvois: z => {
         const g = coupe(z);
+        const pa = g.N * 0 + Math.round(g.N * 0.0), pb = Math.round(g.N * 0.2);
         const bt = g.T([69, 4]), db = g.T([58, 10]), cd = g.P(E_DOUBL)(g.coutDoubl[0]);
-        const ep = g.T([-50, -2]), mi = g.T([-16, -26]);
+        const ep = g.off((E_MINCE + E_EPAISSE) / 2)[pa], mi = g.off(E_MINCE * 0.35)[pb], pd = g.T([4, -2]);
         return [
           { n: 8, rond: [bt[0] + 70, bt[1] - 30], cible: [bt[0] + 1, bt[1] - 1], texte: 'botte : coupe le vent et l’abrasion' },
           { n: 9, rond: [db[0] + 90, db[1] + 16], cible: [db[0], db[1]], texte: 'doublure : la pièce qui isole' },

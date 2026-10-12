@@ -129,9 +129,15 @@ module.exports = (h) => {
     o.push(h.rect(xa, yc - r - 3, xe - xa, 2 * r + 6, h.a.blanc));
     o.push(h.rect(xa, yc - r - 3, xe - xa, 3, h.a.plein), h.rect(xa, yc + r, xe - xa, 3, h.a.plein));
     // l'eau de fonte sur le fond, qui entre dans le manchon jusqu'à la cheville
-    const ew = 6, tq = xo - 10;
-    o.push(h.rect(8, Fi - ew, tq - 8, ew, h.a.hachure('eau', 'aucun')));
-    o.push(h.ligne(8, Fi - ew, tq, Fi - ew, h.a.fin));
+    const ew = 12, tq = xo - 10;
+    o.push(h.rect(8, Fi - ew, tq - 8, ew, h.a.blanc));
+    for (let yy = Fi - ew + 3; yy < Fi - 0.5; yy += 3) o.push(h.ligne(8, yy, tq, yy, h.a.fin));
+    o.push(h.ligne(8, Fi - ew, tq, Fi - ew, h.a.arete));
+    // l'eau coule dans le manchon jusqu'à la cheville
+    const ye = Fi - ew / 2 - 1.5;
+    o.push(h.rect(xw + 8, r1(ye - 2.5), 26, 5, h.a.blanc));
+    o.push(h.ligne(xw + 8, r1(ye), xw + 26, r1(ye), h.a.arete));
+    o.push(ferme([[xw + 24, ye - 4], [xw + 34, ye], [xw + 24, ye + 4]], h.a.plein));
     // silhouettes coupées
     o.push(ouvert([[xa, y0], [xa, yc - r - 3]], h.a.contour));
     o.push(ouvert([[8, Fi], [xa, Fi]], h.a.contour));
@@ -218,8 +224,12 @@ module.exports = (h) => {
     o.push(quad(P(0, 0, zl), P(Lo, 0, zl), P(Lo, 0, zt), P(0, 0, zt), blanc(h.a.arete)));
     o.push(quad(P(Lo, 0, zl), P(Lo, Do, zl), P(Lo, Do, zt), P(Lo, 0, zt), blanc(h.a.arete)));
     const w = ti + t;
-    for (const [xa, xb, y] of [[0, w, w], [Lo - w, Lo, w], [0, w, Do - w], [Lo - w, Lo, Do - w]])
-      o.push(ouvert([P(xa, y, zt), P(xb, y, zt)], h.a.fin));
+    // l'épaisseur du cadre, vue par le trou : chants intérieurs du fond et de gauche
+    o.push(ouvert([P(w, w, zl), P(w, Do - w, zl), P(Lo - w, Do - w, zl)], h.a.arete));
+    o.push(ouvert([P(w, Do - w, zt), P(w, Do - w, zl)], h.a.fin));
+    // quatre lattes assemblées : un joint à chaque coin
+    for (const [xa, xb, ya, yb] of [[0, w, 0, w], [Lo, Lo - w, 0, w], [0, w, Do, Do - w], [Lo, Lo - w, Do, Do - w]])
+      o.push(ouvert([P(xa, ya, zt), P(xb, yb, zt)], h.a.fin));
     o.push(silhouette(0, 0, zl, Lo, Do, t));
     // le couvercle : plus grand de tout le débord, aussi épais que la paroi
     const Lc = Lo + 2 * ov, Dc = Do + 2 * ov, Hc = 2 * t + gg, zc1 = zc + Hc;
@@ -243,11 +253,12 @@ module.exports = (h) => {
   };
 
   const renvoisEclate = z => {
-    const { ti, Li, Ho, Hi, zi, P } = geoEclate(z);
-    const a = P(24, 0, Ho * 0.5), b = P(ti + 20, ti, zi + Hi * 0.5);
+    const { t, ti, Li, Ho, Hi, zi, zl, P } = geoEclate(z);
+    const a = P(24, 0, Ho * 0.5), b = P(ti + 20, ti, zi + Hi * 0.5), c = P(40, 0, zl + t / 2);
     return [
       { n: 7, rond: [14, a[1]], cible: a, texte: 'caisse extérieure, fond bourré' },
       { n: 8, rond: [14, b[1]], cible: b, texte: 'caisse intérieure posée dessus' },
+      { n: 9, rond: [14, c[1]], cible: c, texte: 'cadre de lattes sur les chants' },
     ];
   };
 
@@ -291,9 +302,9 @@ module.exports = (h) => {
   const renvoisBord = z => {
     const { p, ov, X0, xi, xc, T, lb, lt, xr } = geoBord(z);
     return [
-      { n: 9, rond: [r1((xc + z.l) / 2 + 4), r1(T + 40)], cible: [xc - 3, r1(lb + p / 2)], texte: 'latte clouée sur les chants' },
-      { n: 10, rond: [r1((xi + xr) / 2), r1(lt - 30)], cible: [r1((xi + xr) / 2), r1(lt + p + 20)], texte: 'couvercle bourré comme la paroi' },
-      { n: 11, rond: [16, r1(lb + 30)], cible: [X0 - ov / 2, lb], texte: 'débord sur tout le pourtour' },
+      { n: 10, rond: [r1((xc + z.l) / 2 + 4), r1(T + 40)], cible: [xc - 3, r1(lb + p / 2)], texte: 'latte clouée sur les chants' },
+      { n: 11, rond: [r1((xi + xr) / 2), r1(lt - 30)], cible: [r1((xi + xr) / 2), r1(lt + p + 20)], texte: 'couvercle bourré comme la paroi' },
+      { n: 12, rond: [16, r1(lb + 30)], cible: [X0 - ov / 2, lb], texte: 'débord sur tout le pourtour' },
     ];
   };
 

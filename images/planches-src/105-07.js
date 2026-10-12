@@ -31,14 +31,13 @@ module.exports = (h) => ({
       ].join('\n'),
       renvois: z => [
         { n: 1, rond: [200, 110], cible: Rp(P(85, -7.2)), texte: 'lime poussée, sans pression au retour' },
-        { n: 2, rond: [160, 152], cible: proche(boucles().pts.slice(0, 30).map(Rp), [160, 152]), texte: 'petits cercles, d’un coin à l’autre' },
+        { n: 2, rond: [160, 152], cible: proche(boucles().pts.slice(200, 280).map(Rp), [160, 152]), texte: 'petits cercles, d’un coin à l’autre' },
       ],
     },
     bombe: {
       titre: 'Bombé',
       dessin: z => [
-        h.rect(6, 110, 146, 94, h.a.hachure('bois', 'detail')),
-        h.chemin([[50, 110], [108, 110], [79, 142]], h.a.blanc, true),
+        fibres('cb', BOIS_B),
         h.path('M6,110 L50,110 L74,134 M84,134 L108,110 L152,110', h.a.arete),
         h.path('M77,142 L79,170 L81,142', h.a.arete),
         h.path(BOMBE, h.a.blanc),
@@ -50,13 +49,13 @@ module.exports = (h) => ({
       ].join('\n'),
       renvois: z => [
         { n: 3, rond: [138, 40], cible: [97.5, 74.6], texte: 'pente continue, sans épaule' },
-        { n: 4, rond: [138, 95], cible: [104, 114], texte: 'le bois s’ouvre, la hache ressort' },
+        { n: 4, rond: [138, 95], cible: [96, 122], texte: 'le bois s’ouvre, la hache ressort' },
       ],
     },
     creux: {
       titre: 'Creusé à la meule',
       dessin: z => [
-        h.rect(6, 102, 146, 102, h.a.hachure('bois', 'detail')),
+        fibres('cc', 'M6,102 L152,102 L152,204 L6,204 Z'),
         h.path('M6,102 L152,102', h.a.arete),
         h.ellipse(79, 167, 15, 9, h.a.blanc),
         h.ellipse(79, 167, 15, 9, h.a.arete),
@@ -108,10 +107,10 @@ function boucles() {
     (1 - t) ** 2 * 80 + 2 * t * (1 - t) * 122 + t * t * 186,
     (1 - t) ** 2 * 187 + 2 * t * (1 - t) * 208 + t * t * 179,
   ];
-  const n = 120, tours = 3, r = 9, t1 = 0.42;
+  const n = 360, tours = 8, r = 6.5;
   const pts = [];
   for (let i = 0; i <= n; i++) {
-    const [bx, by] = bande(t1 * i / n);
+    const [bx, by] = bande(0.07 + 0.86 * (1 - i / n));
     const th = Math.PI / 2 + 2 * Math.PI * tours * (1 - i / n);
     pts.push([+(bx + r * Math.cos(th)).toFixed(1), +(by + r * Math.sin(th)).toFixed(1)]);
   }
@@ -123,3 +122,11 @@ const BOMBE = 'M58,4 L100,4 L100,14 C100,70 96,112 79,142 C62,112 58,70 58,14 Z'
 const CREUX = 'M58,4 L100,4 L100,14 L93,96 Q84,110 83,150 L81,154.5 L79.5,152 L77.5,155 L76,150 Q75,110 65,96 L58,14 Z';
 const RUPTURE = 'M53,14 C62,8 70,20 79,14 C88,8 96,20 105,14 L105,0 L53,0 Z';
 const VAGUE = 'M55,14 C62,8 70,20 79,14 C88,8 96,20 103,14';
+
+// Bois en coupe : fibres verticales ondulées (la fente suit le fil), autres que l'acier à 45°.
+const BOIS_B = 'M6,110 L50,110 L74,134 L77,142 L79,170 L81,142 L84,134 L108,110 L152,110 L152,204 L6,204 Z';
+function fibres(id, d) {
+  let f = '';
+  for (let x = 9; x < 152; x += 6) f += `M${x},96 C${x + 2},130 ${x - 2},165 ${x},206 `;
+  return `<defs><clipPath id="${id}"><path d="${d}" fill="none"/></clipPath></defs><path d="${f}" fill="none" stroke="#1A1A1A" stroke-width="0.6" clip-path="url(#${id})"/>`;
+}

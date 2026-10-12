@@ -157,12 +157,14 @@ module.exports = (h) => {
     }
     o.push(h.chemin(charge, blanc(A.detail), true), h.chemin(charge, A.hachure('isolant', 'detail'), true));
     // ce qui tombe, et où ça va
-    const c0 = pt(-22, 9), cible = P(64, 44, fond + 12);
-    o.push(h.fleche(`M${c0[0]} ${c0[1] + 4} Q${(c0[0] + cible[0]) / 2 - 2} ${c0[1] + 8} ${cible[0] + 4} ${cible[1]}`, A.arete));
-    for (const [a, b] of [[-27, 3], [-26, 11], [-31, 7]]) {
-      const c = pt(a, b);
-      o.push(h.chemin([[c[0], c[1] + 6], [c[0] + 3, c[1] + 7.5]], A.detail));
+    // des brins qui tombent du bout des dents jusqu'au lit, et une flèche fine qui suit la chute
+    const chute = 24 * S;                                  // du bout des dents à la surface du lit, à l’écran
+    for (const [b, d] of [[-12, 0.3], [-4, 0.62], [4, 0.42], [12, 0.78]]) {
+      const c = pt(-37, b), y = c[1] + 3 * S + d * (chute - 6 * S), x = c[0] + 2 * S * Math.sin(b);
+      o.push(h.path(`M${x - 3} ${y} q2 -3 4 0 t4 1`, A.detail));
     }
+    const t0 = pt(-37, 0);
+    o.push(h.fleche(`M${t0[0] + 6} ${t0[1] + 5 * S} Q${t0[0] + 12} ${t0[1] + 20 * S} ${t0[0] + 8} ${t0[1] + chute - 2 * S}`, A.detail));
     return o.join('\n');
   };
 
@@ -176,6 +178,11 @@ module.exports = (h) => {
     // le coffre : l'intérieur du côté est, du devant, le fumier remis dedans
     const I0 = CX0 + EP, I1 = CX1 - EP, YI = HC - EP;
     o.push(face(P, [[I0, YI, FI], [I1, YI, FI], [I1, YI, glace(I1)], [I0, YI, glace(I0)]], null, 'arete'));
+    // les joints des madriers sur la face intérieure du côté ouest
+    for (const zj of [52, 60, 68]) {
+      const xs = Math.max(I0, CX0 + (zj - FT) * (CX1 - CX0) / (BK - FT) + 2);
+      o.push(h.chemin([P(xs, YI, zj), P(I1, YI, zj)], A.detail));
+    }
     o.push(face(P, [[I0, 0, FI], [I0, YI, FI], [I0, YI, glace(I0)], [I0, 0, FT]], null, 'arete'));
     o.push(face(P, [[I0, 0, FI], [I1, 0, FI], [I1, YI, FI], [I0, YI, FI]], 'isolant'));
     // les poteaux de coin, côté est
@@ -218,7 +225,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: P(40, 0, -60), cible: P(40, 0, -41) },
             { n: 2, rond: P(-4, 0, 30), cible: P(10, 0, 1.2) },
-            { n: 3, rond: P(40, 0, 30), cible: P(46, 0, 7) },
+            { n: 3, rond: P(40, 0, 30), cible: P(130, 68, 11) },
           ].map((r, i) => ({ ...r, texte: ['gros gravier au fond de la fosse', 'planches en travers de la fosse', 'feuilles par-dessus, pour l’hiver'][i] }));
         },
       },
@@ -232,7 +239,7 @@ module.exports = (h) => {
           const b = P(196, 44, -1);
           return [
             { n: 4, rond: [charge[0] - 80, charge[1] - 20], cible: charge },
-            { n: 5, rond: [b[0] + 66 * S, b[1] - 20 * S], cible: [b[0] + 13 * S, b[1] - 18 * S] },
+            { n: 5, rond: [b[0] + 72 * S, b[1] - 22 * S], cible: [b[0] + 40 * S, b[1] + 1 * S] },
           ].map((r, i) => ({ ...r, texte: ['fumier chaud, secoué à la fourche', 'chaque lit tassé avant le suivant'][i] }));
         },
       },

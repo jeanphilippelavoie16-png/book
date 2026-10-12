@@ -58,10 +58,10 @@ module.exports = (h) => {
   const xB = (z, i) => 70 + i * pasB(z);
   const L1 = [78, 86, 72, 90, 82, 76, 88, 80, 74, 84], L2 = [12, 9, 15, 10, 13, 8, 14, 11, 16, 9];
   const gaps = [1, 5, 8];                                            // où l'air passe, fléché
-  const echB = z => Math.min(1, (z.h - W - 10) / 106);
+  const echB = z => Math.min(1, (z.h - W - 10) / 122);
   const lanierePendue = (x, l1, l2, k, e) => {
-    const w = 18, a = x - w / 2, b = x + w / 2, y1 = W + l1 * e, y2 = W + (l1 + l2) * e, s = j(k, 1) * 3;
-    const derriere = h.chemin([[a + 1, y1 - 4], [b - 1, y1 - 4], [b - 1 + j(k, 2), y2 + s * 0.5], [a + 1 + j(k, 3), y2 - s * 0.5]], bA, true);
+    const w = 18, a = x - w / 2, b = x + w / 2, y1 = W + l1 * e, y2 = W + (l1 + Math.max(l2, l1 * 0.28 + l2 * 0.4)) * e, s = j(k, 1) * 3;
+    const derriere = h.chemin([[a, y1 - 4], [b, y1 - 4], [b + j(k, 2) * 0.6, y2 + s * 0.5], [a + j(k, 3) * 0.6, y2 - s * 0.5]], bA, true);
     const devant = h.path(`M${r1(a)} ${W + 4} Q${r1(a)} ${W - 5} ${r1(x)} ${W - 5} Q${r1(b)} ${W - 5} ${r1(b)} ${W + 4}`
       + ` L${r1(b + j(k, 4) * 0.8)} ${r1(y1 + s)} L${r1(a + j(k, 5) * 0.8)} ${r1(y1 - s)} Z`, bA);
     const fibre = h.ligne(x - 3 + j(k, 6), W + 8, x - 2 + j(k, 7), y1 - 10, A.fin);
@@ -75,9 +75,9 @@ module.exports = (h) => {
   const pointArc = (cx, cy, r, deg) => [cx + r * Math.cos(deg * Math.PI / 180), cy + r * Math.sin(deg * Math.PI / 180)];
 
   // ── la lanière fendue, vue en bout ─────────────────────────────────────────────────
-  const SW = 72, ST = 16, DX = 72, DY = -84;
+  const SW = 80, ST = 42, DX = 52, DY = -50;
   const fendue = (z, scellee) => {
-    const x1 = 16, x2 = x1 + SW, Y0 = z.h - 34, o = [];
+    const x1 = 16, x2 = x1 + SW, Y0 = z.h - ST - 12, o = [];
     // bord long ondulé, du bout coupé (v = 0) au bout du fond (v = 1)
     const bord = (x, k) => [0.2, 0.4, 0.6, 0.8].map((v, i) => [x + DX * v + j(k, i) * 1.8, Y0 + DY * v + j(k, i + 4) * 0.8]);
     const fond = [[x1 + DX, Y0 + DY], [x1 + DX + SW * 0.35, Y0 + DY - 1.5], [x1 + DX + SW * 0.7, Y0 + DY + 1], [x2 + DX, Y0 + DY]];
@@ -86,12 +86,20 @@ module.exports = (h) => {
     const dBas = d.map(([x, y]) => [x, y + ST]);
     o.push(h.chemin([[x2, Y0], ...d, [x2 + DX, Y0 + DY], [x2 + DX + 0.6, Y0 + DY + ST * 0.6], ...dBas.slice().reverse().map(([x, y], i) => [x, y + (i % 2) * 0.8]), [x2, Y0 + ST]], bA, true)); // flanc
     o.push(h.rect(x1, Y0, SW, ST, bC));                                                         // la tranche fendue
+    const m = scellee ? 2.6 : 0;
+    // fibres fines d'un bord à l'autre
+    for (let i = 1; i < 9; i++) { const y = Y0 + m + i * (ST - 2 * m) / 9; o.push(h.ligne(x1 + m + 1, r1(y + j(i, 1) * 0.4), x2 - m - 1, r1(y + j(i, 2) * 0.4), A.fin)); }
     if (scellee) {
-      o.push(h.path(`M${x1 + 3} ${Y0 + 3} L${x2 - 3} ${Y0 + 3} L${x2 - 3} ${Y0 + ST - 3} L${x1 + 3} ${Y0 + ST - 3} Z`, A.detail));
-      const cy = Y0 + ST / 2;
-      const tache = `M${x1 + 8} ${cy} Q${x1 + 9} ${cy - 3.6} ${x1 + 26} ${cy - 3.8} Q${x1 + 46} ${cy - 4.2} ${x2 - 11} ${cy - 3.2}`
-        + ` Q${x2 - 6} ${cy} ${x2 - 11} ${cy + 3.4} Q${x1 + 42} ${cy + 4.2} ${x1 + 23} ${cy + 3.8} Q${x1 + 9} ${cy + 3.3} ${x1 + 8} ${cy} Z`;
-      o.push(h.path(tache, A.hachure('eau', 'detail')), h.path(tache, A.detail));
+      // croûte : bordure noire pleine tout le tour
+      o.push(h.path(`M${x1} ${Y0} L${x2} ${Y0} L${x2} ${Y0 + ST} L${x1} ${Y0 + ST} Z M${x1 + m} ${Y0 + m} L${x1 + m} ${Y0 + ST - m} L${x2 - m} ${Y0 + ST - m} L${x2 - m} ${Y0 + m} Z`, A.plein));
+      // centre humide : lentille en pointillé serré
+      const cy = Y0 + ST / 2, cx = (x1 + x2) / 2, rx = SW * 0.33, ry = ST * 0.24;
+      const len = `M${cx - rx} ${cy} Q${cx} ${cy - ry * 2} ${cx + rx} ${cy} Q${cx} ${cy + ry * 2} ${cx - rx} ${cy} Z`;
+      o.push(h.path(len, bD));
+      for (let yy = cy - ry + 1; yy <= cy + ry - 1; yy += 2.2) {
+        const f = 1 - Math.pow((yy - cy) / ry, 2), half = rx * Math.max(0, f) * 0.92;
+        for (let xx = cx - half + 1; xx <= cx + half - 1; xx += 2.2) o.push(h.cercle(r1(xx + ((Math.round(yy * 10)) % 2) * 0.5), r1(yy), 0.55, A.plein));
+      }
     }
     return { svg: o.join('\n'), x1, x2, Y0 };
   };
@@ -186,7 +194,7 @@ module.exports = (h) => {
         dessin: z => fendue(z, false).svg,
         renvois: z => {
           const { x1, Y0 } = fendue(z, false);
-          return [{ n: 9, rond: [x1 + SW + 40, z.h - 12], cible: [x1 + SW * 0.6, Y0 + ST / 2], texte: 'aucune tache humide au centre' }];
+          return [{ n: 9, rond: [x1 + SW + 30, z.h - 14], cible: [x1 + SW * 0.6, Y0 + ST / 2], texte: 'aucune tache humide au centre' }];
         },
       },
       scellee: {
@@ -195,8 +203,8 @@ module.exports = (h) => {
         renvois: z => {
           const { x1, Y0 } = fendue(z, true);
           return [
-            { n: 10, rond: [14, Y0 - 34], cible: [x1 + 1.5, Y0 + 5], texte: 'croûte dure : surface scellée' },
-            { n: 11, rond: [x1 + SW + 40, z.h - 12], cible: [x1 + SW * 0.6, Y0 + ST / 2], texte: 'centre humide : au séchoir' },
+            { n: 10, rond: [12, Y0 - 22], cible: [x1 + 1.3, Y0 + 8], texte: 'croûte dure : surface scellée' },
+            { n: 11, rond: [x1 + SW + 30, z.h - 14], cible: [x1 + SW * 0.55, Y0 + ST / 2], texte: 'centre humide : au séchoir' },
           ];
         },
       },

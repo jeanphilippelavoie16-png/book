@@ -68,7 +68,7 @@ module.exports = (h) => {
   };
 
   // ─── Le bain : la main gelée pend dans l'eau ───────────────────────────────
-  const C = { g: 150, d: 350, r: 125, b: 300, s: 145, t0: 110, t1: 480 };
+  const C = { g: 150, d: 350, r: 125, b: 340, s: 145, t0: 110, t1: 480 };
   const a = 10 * Math.PI / 180, sa = Math.sin(a), ca = Math.cos(a);
   const XW = 236, YW = 165;                         // le poignet, sous la surface
   const mainG = ([v, u]) => [XW + u * sa + v * ca, YW + u * ca - v * sa];
@@ -76,11 +76,11 @@ module.exports = (h) => {
   const MAIN = [
     [26, UH], [2, UH], [-1, UH - 6], [-5, UH + 6], [-8, UH], [-26, UH],
     [-24, -110], [-21, -60], [-18, -12], [-19, 4],
-    [-24, 16], [-31, 28], [-37, 42], [-39, 54], [-36, 62], [-31, 60], [-29, 50], [-26, 40],
-    [-25.5, 52], [-25, 80], [-24.5, 92], [-21, 98], [-16, 97], [-13.5, 92],
-    [-11, 99], [-6, 105], [-1, 103], [0.5, 96],
-    [2, 100], [6.5, 102], [11, 99], [12.5, 93],
-    [14, 90], [18, 92], [22, 88], [24, 80], [25, 62], [24, 40], [21, 18], [18, 4], [18, -12],
+    [-24, 14], [-32, 30], [-38, 48], [-40, 62], [-37, 70], [-32, 68], [-29, 56], [-27, 46],
+    [-26, 60], [-25.5, 80], [-25, 112], [-23.5, 123], [-20, 129], [-15.5, 128], [-13, 121],
+    [-11, 131], [-6, 136], [-1, 134], [0.8, 126],
+    [2.5, 127], [7, 129], [11, 126], [12.6, 119],
+    [14.5, 113], [18, 114], [21.5, 110], [23.5, 101], [25, 80], [25, 58], [23, 36], [20, 16], [18, 4], [18, -12],
     [21, -60], [24, -110],
   ];
   // Le bris de l'avant-bras reste en angles vifs ; le reste est lissé.
@@ -95,14 +95,14 @@ module.exports = (h) => {
   const BEC = [338, 106];
   const T = [BEC[0] - (-82 * ct - (-62) * st), BEC[1] - (-82 * st + (-62) * ct)];
   const bouil = ([x, y]) => [T[0] + x * ct - y * st, T[1] + x * st + y * ct];
-  const CORPS = [[-44, 0], [-43, -28], [-37, -54], [-26, -68], [26, -68], [37, -54], [43, -28], [44, 0]];
+  const CORPS = [[-44, 0], [-42, -30], [-36, -56], [-24, -68], [24, -68], [36, -56], [42, -30], [44, 0]];
   const BEC_F = [[-40, -36], [-60, -52], [-78, -66], [-86, -58], [-64, -30], [-43, -8]];
   const ANSE = cr([[-30, -62], [-28, -90], [0, -104], [28, -90], [30, -62]], false)
     .concat(cr([[22, -66], [20, -85], [0, -96], [-20, -85], [-22, -66]], false));
   const vueBain = {
     titre: 'Le bain',
     dessin: (z) => {
-      const M = cadre(z, 600, 330), P = M.P;
+      const M = cadre(z, 600, 370), P = M.P;
       const th = thermo(M, 158, 60, 200, 38);
       const Mp = (Q) => Q.map(M);
       const out = [chaudron(M, C)];
@@ -113,25 +113,27 @@ module.exports = (h) => {
       // la bouilloire : bec, corps, couvercle, anse
       out.push(h.path(dpoly(Mp(BEC_F.map(bouil)), true), blancA));
       out.push(h.path(dpoly(Mp(cr(CORPS, false).map(bouil)), true), blancA));
-      out.push(h.path(dpoly(Mp([[-20, -68], [-15, -76], [15, -76], [20, -68]].map(bouil))), h.a.detail));
+      out.push(h.path(dpoly(Mp([[-44, 0], [44, 0]].map(bouil))), h.a.contour));
+      out.push(h.path(dpoly(Mp(cr([[-22, -67], [-12, -75], [0, -77], [12, -75], [22, -67]], false).map(bouil)), true), blancA));
+      out.push(h.path(dpoly(Mp([[-4, -76.5], [-4, -84], [4, -84], [4, -76.5]].map(bouil)), true), blancA));
       out.push(h.path(dpoly(Mp(ANSE.map(bouil)), true), blancA));
       // le thermomètre pincé au bord gauche, bulbe à hauteur de la main
       out.push(th.svg);
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
       // la main et l'avant-bras
       out.push(h.path(dpoly(Mp(courbeMain().map(mainG)), true), blancA));
-      [[-13.5, 92, 62], [0.5, 96, 58], [12.5, 93, 60]].forEach(([v, u0, u1]) =>
+      [[-13, 121, 86], [0.8, 126, 84], [12.6, 119, 86]].forEach(([v, u0, u1]) =>
         out.push(h.ligne(...M(mainG([v, u0])), ...M(mainG([v, u1])), h.a.detail)));
       out.push(h.path(dpoly(Mp(cr([[-23, 28], [-26, 40]], false).map(mainG))), h.a.detail));
       return out.join('\n');
     },
     renvois: (z) => {
-      const M = cadre(z, 600, 330);
+      const M = cadre(z, 600, 370);
       return [
         { n: 1, rond: M([96, 196]), cible: M([154, 196]), texte: 'thermomètre : 37 à 39 °C' },
-        { n: 2, rond: M([96, 230]), cible: M(mainG([-6, 105])), texte: 'ne touche ni fond ni parois' },
-        { n: 3, rond: M([96, 264]), cible: M([150, 264]), texte: 'chaudron ou glacière de camp' },
-        { n: 4, rond: M([292, 64]), cible: M(mainG([8, 40])), texte: 'souple, rouge-violacé, 30 min' },
+        { n: 2, rond: M([96, 230]), cible: M(mainG([-6, 136])), texte: 'ne touche ni fond ni parois' },
+        { n: 3, rond: M([96, 300]), cible: M([150, 300]), texte: 'chaudron ou glacière de camp' },
+        { n: 4, rond: M([292, 64]), cible: M(mainG([8, 55])), texte: 'souple, rouge-violacé, 30 min' },
         { n: 5, rond: M([408, 186]), cible: M([319, 138]), texte: 'versée à côté, jamais dessus' },
         { n: 6, rond: M([408, 250]), cible: M([344, 240]), texte: 'brasser en versant' },
       ];
@@ -223,7 +225,7 @@ module.exports = (h) => {
       return [
         chaudron(M, Cp),
         h.path(dpoly(Mp(courbeProfil().map(brasS)), true), blancA),
-        h.path(dpoly(Mp(cr([[6, 5], [26, 4], [48, 5], [58, 8], [54, 9.5]], false).map(brasS))), h.a.detail),
+        h.path(dpoly(Mp(cr([[34, 11], [48, 12.5], [62, 11], [70, 8], [66, 5], [52, 5], [36, 7]], true).map(brasS)), true), blancA),
         h.path(dpoly(Mp(cr([[52, -1], [70, 0], [88, 1]], false).map(brasS))), h.a.detail),
       ].join('\n');
     },
@@ -231,7 +233,7 @@ module.exports = (h) => {
       const M = cadre(z, 300, 200);
       return [
         { n: 9, rond: M([262, 136]), cible: M(brasS([0, 12])), texte: 'poignet : tiède et neutre' },
-        { n: 10, rond: M([28, 130]), cible: M(brasS([35, -10])), texte: 'main saine 30 s sans effort' },
+        { n: 10, rond: M([28, 130]), cible: M(brasS([74, -3])), texte: 'main saine 30 s sans effort' },
       ];
     },
   };

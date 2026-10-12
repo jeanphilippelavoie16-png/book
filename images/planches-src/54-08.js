@@ -20,7 +20,7 @@ module.exports = (h) => {
   const cx = W * 0.42, cy = D * 0.5;       // la chaudière
   const rb = 0.14, rt = 0.17, hb = 0.25;
   const th = 1.83;                         // ouverture de la porte (rad)
-  const dx = 0.5;                          // la tablette, tirée hors du cadre
+  const dx = 0.85;                         // la tablette, tirée hors du cadre
   const dw = D - 2 * t, sn = Math.sin(th), cs = Math.cos(th);
 
   // ── Axonométrie : x vers la droite-avant, y vers la gauche-avant, z vers le haut ─────
@@ -55,7 +55,15 @@ module.exports = (h) => {
       h.chemin([pt(0, z0), pt(dw, z0), pt(dw, z1), pt(0, z1)], blanc(h.a.arete), true),
       grille(pt, td, dw - td, z0 + td, z1 - td),
       h.chemin([pt(td, z0 + td), pt(dw - td, z0 + td), pt(dw - td, z1 - td), pt(td, z1 - td)], h.a.arete, true),
-      ...[0.2, H - 0.2].map(zc => h.chemin([P(W, 0, zc - 0.04), pt(0.12, zc - 0.04), pt(0.12, zc + 0.04), P(W, 0, zc + 0.04)], h.a.plein, true)),
+      // chaque lanière : une boucle plate autour du montant, puis autour du montant de la porte
+      ...[0.2, H - 0.2].map(zc => { const w = 0.045, ep = 0.014; return [
+        h.chemin([P(W, 0, zc - w), P(W, t, zc - w), P(W, t, zc + w), P(W, 0, zc + w)], blanc(h.a.contour), true),
+        h.chemin([P(W, t, zc - w), P(W, t, zc + w)], h.a.arete),
+        h.chemin([P(W + ep, -ep, zc - w), P(W + ep, -ep, zc + w)], h.a.arete),
+        h.chemin([pt(0, zc - w), pt(td + 0.05, zc - w), pt(td + 0.05, zc + w), pt(0, zc + w)], blanc(h.a.contour), true),
+        h.chemin([pt(td + 0.05 + ep, zc - w + ep), pt(td + 0.05 + ep, zc + w + ep), pt(td + 0.05, zc + w)], h.a.arete),
+        h.chemin([P(W, 0, zc - w), pt(0, zc - w)], h.a.contour), h.chemin([P(W, 0, zc + w), pt(0, zc + w)], h.a.contour),
+      ].join('\n'); }),
     ].join('\n');
   };
 
@@ -199,7 +207,7 @@ module.exports = (h) => {
     out.push(ch.svg, coinIso(P, s, ch));
     // le vent, qui arrive sur la face grillagée
     for (const [y, zz] of vents) {
-      const [x1, y1] = P(W + 0.8, y, zz), [x2, y2] = P(W + 0.24, y, zz);
+      const [x1, y1] = P(W + 0.8, y, zz), [x2, y2] = P(W + (y < 0.3 ? 0.36 : 0.24), y, zz);
       out.push(h.fleche(`M ${f(x1)} ${f(y1)} L ${f(x2)} ${f(y2)}`));
     }
     // la ramure, par-dessus
@@ -309,7 +317,7 @@ module.exports = (h) => {
     const [rx, rz] = paroi(1), R = 0.013 + ep;
     for (let a = 0; a <= Math.PI; a += Math.PI / 10) out.push([rx + R * Math.cos(a), rz + R * Math.sin(a)]);
     for (let k = 0.96; k >= 0.08; k -= 0.12) out.push(dehors(k, -0.013 - ep));
-    out.push([cx + rb - 0.02 - ep, zF + 0.012 + ep], [cx - 0.03, zF + 0.012 + ep]);
+    out.push([cx + rb - 0.02 - ep, zF + 0.012 + ep], [cx - 0.085, zF + 0.012 + ep]);
     return out;
   };
   const dessinD = z => {
@@ -362,7 +370,7 @@ module.exports = (h) => {
             { n: 1, rond: [16, z.h * 0.72], cible: q([W * 0.3, D, H * 0.45]), texte: 'grillage fin sur les quatre côtés' },
             { n: 2, rond: [16, 22], cible: q([W * 0.2, D * 0.4, H + tr]), texte: 'toit de planches, qui porte la chaudière' },
             { n: 3, rond: [z.l - 16, z.h - 18], cible: q([W - t + dx - 0.12, D * 0.6, zt + 0.05]), texte: 'tablette à claire-voie, sur deux tasseaux' },
-            { n: 4, rond: [z.l - 16, 22], cible: ptPorte(P)(dw * 0.6, H * 0.6).map(f), texte: 'porte grillagée, pendue à des lanières de cuir' },
+            { n: 4, rond: [z.l - 16, 22], cible: ptPorte(P)(0.06, H - 0.2).map(f), texte: 'porte grillagée, pendue à des lanières de cuir' },
           ];
         },
       },

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="413" viewBox="0 0 680 413" role="img">
 <title>Planche 107-09 — Souder avec deux batteries</title>
-<desc>Vue de côté, au trait. À gauche, deux batteries d’auto posées à plat par terre et montées en série : un câble court relie la borne − de la première à la borne + de la seconde, et seules ces deux bornes portent leur signe. Il reste une borne libre à chaque bout du banc. Celle de la première batterie passe par-dessus les deux batteries et va à la pince-étau ; celle de la seconde va au serre-joint. Les deux câbles sont dessinés en double trait, en courbes lâches, et une coupure (deux traits obliques) sur le sol et sur chaque câble marque la distance non représentée entre les batteries et le travail. Au centre, un serre-joint en C mord le bout de la tôle de gauche : le câble de masse passe devant le dos du C, et son bout dénudé est pris entre le patin de la vis et la tôle, avec les brins qui dépassent des deux côtés du patin. Une loupe, en bas à droite, grossit ce point 2,25 fois. Les deux tôles, chanfreinées, sont bout à bout sur une bûche couchée. Le porte-électrode est une pince-étau aux poignées gainées de cuir, tenue du côté des batteries ; l’électrode est mordue au bout de ses mâchoires et touche le joint, avec des traits d’arc du côté opposé. La pince d’un câble de survoltage mord le corps métallique de la pince-étau, près des mâchoires, loin du cuir. L’échelle est donnée par la batterie et la pince-étau.</desc>
+<desc>Vue de côté, au trait. À gauche, deux batteries d’auto posées à plat par terre et montées en série : un câble court relie la borne − de la première à la borne + de la seconde, et chaque borne porte son signe gravé sous elle, sur la face du bac : − à gauche, + à droite sur chaque batterie. Il reste une borne libre à chaque bout du banc. Celle de la première batterie passe par-dessus les deux batteries et va à la pince-étau ; celle de la seconde va au serre-joint. Les deux câbles sont dessinés en double trait, en courbes lâches, et une coupure (deux traits obliques) sur le sol et sur chaque câble marque la distance non représentée entre les batteries et le travail. Au centre, un serre-joint en C mord le bout de la tôle de gauche : le câble de masse passe devant le dos du C, et son bout dénudé est pris entre le patin de la vis et la tôle, avec les brins qui dépassent des deux côtés du patin. Une loupe, en bas à droite, grossit ce point 2,25 fois. Les deux tôles, chanfreinées, sont bout à bout sur une bûche couchée. Le porte-électrode est une pince-étau de profil, tenue du côté des batteries : deux mâchoires courbes, vis de réglage au bout de la poignée fixe, levier de déverrouillage sous la poignée mobile, poignées gainées de cuir. L’électrode est mordue en travers par son bout nu et part vers le joint à environ 60° de l’axe des poignées ; des traits d’arc marquent la pointe. La pince d’un câble de survoltage mord le corps métallique de la pince-étau, près des mâchoires, loin du cuir. Une seconde loupe, sous le serre-joint, grossit les mâchoires 2,25 fois : le bout nu de l’électrode serré entre les dents, et la pince crocodile mordue sur le métal. L’échelle est donnée par la batterie et la pince-étau.</desc>
 <defs>
 <pattern id="sol" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
 <path d="M0 0 L0 6" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
@@ -28,8 +28,6 @@
 <path d="M202 152 L202 144 L214 144 L214 152" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M262 152 L262 144 L274 144 L274 152" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M222 152 C224 141 252 141 254 152" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M128 178 L136 178" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M204 178 L212 178 M208 174 L208 182" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M67 144 L67 136 L77 136 L77 144" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M127 144 L127 136 L137 136 L137 144" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M203 144 L203 136 L213 136 L213 144" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -60,19 +58,31 @@
 <path d="M401 127 L431 127 L431 131 L401 131 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M413.5 131 L413.5 140 M418.5 131 L418.5 140 M413.5 149 L413.5 166 M418.5 149 L418.5 166" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M409 166 L423 166 L423 172 L409 172 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M542.12 179.68 L525.02 132.7 M545.88 178.32 L528.78 131.33 M542.12 179.68 L545.88 178.32" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M528.57 131.4 L524.14 119.13 L521.5 112.7 L514.56 93.94 L521.24 91.49 L525.67 103.75 L526.91 105.06 L528.06 106.52 L529.13 108.11 L530.27 110.17 L531.1 111.98 L531.93 114.24 L532.49 116.17 L532.92 118.13 L533.2 120.08 L533.26 122.41 L533.06 124.5 L532.62 126.35 L531.94 127.96 L531.03 129.34 L529.9 130.49 L528.57 131.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M525.23 132.63 L520.77 120.46 L517.86 116.15 L514.47 111.58 L510.65 106.05 L506.38 99.53 L501.77 92.2 L496.64 95.69 L505.62 112.07 L508.57 113.66 L509.11 116.07" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M513.77 125.77 L515.26 127.71 L516.49 129.03 L517.77 130.15 L519.39 131.29 L521.03 132.1 L522.35 132.51 L523.32 132.68 L523.97 132.72 L525.23 132.63" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M513.71 94.29 L500.72 58.53 L509.17 55.5 L522.19 91.16 Z" fill="url(#cuir)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M502.72 91.88 C497.79 84.08 491.46 75.71 484.76 67.54 L479.48 71.82 C485.77 79.96 491.87 88.36 495.98 96.11 Z" fill="url(#cuir)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M506.33 56.47 L504.27 50.85 L501.43 51.82 L503.46 57.53 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M506.63 50.04 L503.82 42.51 L496.32 45.22 L499.13 52.76 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<!-- porte-électrode : pince-étau -->
+<path d="M 528.05 124.97 L 538.67 113.46 L 562.47 78.35 L 566.98 81.66 L 542.73 117.67 L 533.87 125.59 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 541.93 108.38 L 561.15 79.92 L 566.73 83.54 L 547.15 112.04 Z" fill="url(#cuir)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 542.76 119.91 L 560.89 99.83 L 563.15 102.04 L 545.01 122.12 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 517.68 116.58 L 548.43 60.37 L 552.92 62.56 L 523.95 117.41 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 524.33 102.02 L 546.48 61.64 L 553.13 64.89 L 531.34 105.44 Z" fill="url(#cuir)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 549.69 60.98 L 554.07 52 M 551.67 61.95 L 556.05 52.96" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 551.02 50.51 L 554.96 42.42 L 563.5 46.58 L 559.56 54.67 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 552.11 48.26 L 560.65 52.42 M 553.21 46.01 L 561.75 50.18 M 554.3 43.77 L 562.84 47.93" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 517.91 140.06 C 521.49 140.69 526.39 138.63 529.92 133.68 L 533.87 125.59 L 528.05 124.97 C 524.97 130.15 522.33 134.42 519.22 137.36 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 515.21 138.74 C 512.51 136.31 511.11 131.18 512.85 125.35 L 517.68 116.58 L 523.95 117.41 C 519.99 124.38 517.37 130.89 516.53 136.04 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 521.72 149.79 L 540.51 177.65 L 544.49 174.96 L 525.7 147.11 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 512.65 134.2 L 522.72 149.12 L 524.7 147.78 L 514.64 132.85 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 541.5 176.97 L 542.62 178.63 L 544.61 177.29 L 543.49 175.63" fill="none" stroke="#1A1A1A" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+
+<circle cx="863.17" cy="-283.17" r="1.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M515.53 123.53 L512.74 124.55 L504.22 123.7 L502.1 124.05 L499.18 125.67 L472.01 125.83 L469.78 123.91 L470.62 121.02 L497.03 121.51 L500.06 121.66 L504.59 122.04 L512.98 123.48 L515.04 123.42 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M515.95 121.57 L513.86 119.47 L505.77 116.67 L503.99 115.46 L502.02 112.77 L477.43 101.22 L474.59 102.03 L474.14 105 L498.32 115.65 L501.14 116.78 L505.41 118.33 L513.62 120.55 L515.47 121.47 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="499.92" cy="119.07" r="2.3" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
 
 <!-- détails et hachures -->
+<path d="M68 176 L76 176" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M128 176 L136 176 M132 172 L132 180" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M204 176 L212 176" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M264 176 L272 176 M268 172 L268 180" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M56 162 L148 162" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M192 162 L284 162" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="480" cy="202" rx="4.2" ry="11" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
@@ -87,7 +97,6 @@
 <path d="M399 164.6 C403.5 164.6 403 172 407.5 172 L431 172" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M399 167.4 C402.5 167.4 402 176 406.5 176 L431 176" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M431 172 L434.3 170.6 M431 173.33 L435 173.1 M431 174.67 L434.8 174.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M505.7 47.43 L498.16 50.24 M504.79 45.03 L497.29 47.74" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M550.66 175.34 L557.31 173.17 M549.2 172.82 L554.4 168.13 M546.85 171.11 L549.69 164.71" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 
 <!-- loupe du serre-joint, grossie 2,25 fois -->
@@ -118,20 +127,50 @@
 </g>
 <circle cx="540" cy="318" r="56.25" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
 
+<!-- loupe du porte-électrode, grossie 2,25 fois -->
+<clipPath id="loupe3"><circle cx="401" cy="310" r="55.55"/></clipPath>
+<g clip-path="url(#loupe3)">
+<rect x="344" y="253" width="114" height="114" fill="#FFFFFF"/>
+<path d="M 425.86 279.57 L 449.75 253.67 L 503.31 174.65 L 513.45 182.1 L 458.9 263.14 L 438.95 280.95 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 457.09 242.23 L 500.33 178.2 L 512.89 186.33 L 468.84 250.46 Z" fill="url(#cuir)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 458.95 268.17 L 499.76 222.99 L 504.84 227.97 L 464.03 273.15 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 402.53 260.68 L 471.72 134.21 L 481.83 139.14 L 416.63 262.55 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 417.5 227.93 L 467.32 137.07 L 482.28 144.37 L 433.27 235.62 Z" fill="url(#cuir)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 474.55 135.59 L 484.41 115.37 M 479 137.76 L 488.86 117.54" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 477.54 112.01 L 486.41 93.81 L 505.63 103.18 L 496.75 121.38 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 480 106.96 L 499.21 116.33 M 482.47 101.9 L 501.68 111.27 M 484.93 96.85 L 504.15 106.22" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 403.05 313.5 C 411.11 314.93 422.13 310.29 430.08 299.15 L 438.95 280.95 L 425.86 279.57 C 418.93 291.21 412.98 300.83 406.01 307.43 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 396.98 310.54 C 390.89 305.07 387.76 293.53 391.65 280.41 L 402.53 260.68 L 416.63 262.55 C 407.73 278.24 401.84 292.88 399.94 304.48 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 411.62 335.4 L 453.89 398.08 L 462.85 392.04 L 420.57 329.36 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 391.21 300.32 L 413.86 333.89 L 418.34 330.87 L 395.69 297.3 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 456.13 396.57 L 458.65 400.3 L 463.13 397.28 L 460.61 393.55" fill="none" stroke="#1A1A1A" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 399.91 301.96 L 398.16 297.35 L 401.66 295.3 L 400.31 290.89 L 403.41 288.64 M 408 305.91 L 412.72 304.45 L 412.18 300.43 L 416.49 298.78 L 416.35 294.96" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="1179.88" cy="-638.75" r="3.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-12.77 412.38 L8.15 412.35 L11.62 412.06 L14.92 411.36 L17.31 410.57 L19.56 409.58 L21.72 408.42 L23.76 407.06 L25.7 405.54 L27.54 403.87 L30.9 400.11 L33.89 395.86 L36.59 391.2 L39.45 385.26 L42.03 378.89 L44.42 372.12 L46.96 363.98 L56.59 329.1 L58.84 321.43 L61.27 313.89 L64.26 305.55 L67.12 298.57 L69.78 292.88 L73.31 286.17 L78.08 278.23 L83.12 271.03 L88.5 264.5 L93.56 259.31 L96.89 256.31 L99.66 254.06 L105.44 249.9 L109.24 247.56 L112.42 245.81 L119.1 242.63 L123.51 240.88 L127.2 239.6 L135.95 237.12 L144.34 235.34 L154.49 233.86 L165.45 232.89 L178.59 232.4 L188.53 232.49 L199.06 233.25 L206.1 234.11 L214.32 235.39 L222.49 236.97 L230.56 238.74 L247.39 243.06 L276.98 251.52 L286.77 254.16 L333.48 264.48" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-8.73 403.38 L7.88 403.38 L10.29 403.15 L13.05 402.52 L16.09 401.26 L18.95 399.42 L21.67 396.99 L24.67 393.43 L27.5 389.06 L30.13 384.02 L32.58 378.33 L35.24 371.18 L37.42 364.43 L39.51 357.3 L49.24 322.15 L52 313.22 L55.04 304.46 L57.54 298.07 L60.26 291.87 L63.3 285.79 L66.54 279.87 L71.69 271.57 L76.59 264.75 L79.81 260.79 L82.47 257.75 L88.09 252.09 L91.8 248.82 L94.89 246.37 L101.34 241.85 L108.23 237.84 L115.56 234.35 L123.37 231.38 L127.47 230.1 L132.73 228.64 L141.6 226.71 L152.22 225.06 L163.56 224 L177.08 223.42 L187.68 223.47 L198.75 224.19 L206.13 225.02 L214.66 226.32 L223.12 227.9 L231.44 229.72 L248.68 234.06 L279.41 242.86 L288.95 245.4 L335.41 255.71" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M333.48 264.48 L335.41 255.71" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M397.69 276.32 L391.42 278.61 L372.25 276.7 L367.48 277.49 L360.91 281.13 L299.77 281.49 L294.75 277.17 L296.64 270.67 L356.07 271.77 L362.88 272.11 L373.08 272.97 L391.96 276.21 L396.59 276.07 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M398.64 271.91 L393.94 267.18 L375.73 260.88 L371.73 258.16 L367.29 252.11 L311.97 226.12 L305.58 227.94 L304.56 234.63 L358.97 258.59 L365.31 261.13 L374.92 264.62 L393.39 269.61 L397.56 271.68 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="362.57" cy="266.28" r="5.17" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+</g>
+<circle cx="401" cy="310" r="56.25" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
 <!-- lignes de rappel -->
+<circle cx="517" cy="138.5" r="14" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<path d="M509.17 150.11 L487.3 182 M457.7 226 L432.45 263.37" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<path d="M592 64 L545 78" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <circle cx="412" cy="169" r="25" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <path d="M428.29 187.96 L452.81 216.5 M465.69 231.5 L503.35 275.33" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <path d="M170 189 L170 174.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 <path d="M609.21 291.62 L590.68 321.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<path d="M550.09 63.29 L514.79 68.42" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
 
 <!-- renvois -->
 <circle cx="170" cy="198" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
 <text x="170" y="202" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
 <circle cx="614" cy="284" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
 <text x="614" y="288" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
-<circle cx="559" cy="62" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
-<text x="559" y="66" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<circle cx="601" cy="62" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="601" y="66" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
 
 <!-- pied -->
 <text x="40" y="284" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 107-09 — Souder avec deux batteries.</text>

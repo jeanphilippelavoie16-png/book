@@ -188,17 +188,32 @@ module.exports = (h) => {
   };
 
   // ─── le détail : le nœud et le nœud double ─────────────────────────────────────────────
+  // Le détail, en grand : chaque corde est UN seul brin continu (la hachure ne s'interrompt
+  // nulle part) ; la hauteur z de chaque point décide du dessus/dessous aux trois croisements.
+  // Le nœud double : les deux nœuds simples se touchent, sans longueur de corde entre eux.
   const noeuds = z => {
-    const k = 12, ep = 8, xA = 14, xB = Math.round(z.l * 0.5) + 4;
-    const yB1 = z.h / 2 - 3.5 * k, yB2 = z.h / 2 + 3.5 * k;
-    return { k, ep, xA, xB, yA: yB1, yB1, yB2 };
+    const k = 12, ep = 5.5, xA = 14, xB = Math.round(z.l * 0.5) + 4, ecart = 6 * k;
+    const yB1 = z.h / 2 - ecart / 2, yB2 = z.h / 2 + ecart / 2;
+    return { k, ep, xA, xB, yA: z.h / 2, yB1, yB2, ecart };
+  };
+  const brinContinu = (cx, ys, k, haut, bas) => {
+    const pts = [[cx, haut, 0]];
+    ys.forEach((y, j) => {
+      const m = noeud(cx, y, k).flat();
+      // entre deux nœuds serrés : on saute le retour à la verticale
+      const a = j > 0 ? 1 : 0, b = j < ys.length - 1 ? m.length - 1 : m.length;
+      pts.push(...m.slice(a, b));
+    });
+    pts.push([cx, bas, 0]);
+    // points doublés aux raccords des morceaux
+    return pts.filter((p, i) => i === 0 || Math.hypot(p[0] - pts[i - 1][0], p[1] - pts[i - 1][1]) > 0.5);
   };
   const dessinNoeuds = z => {
     const N = noeuds(z), { k, ep, xA, xB } = N;
     const o = { ep, torons: true, debut: 'fixe', fin: 'fixe' };
     return [
-      F.cordes(corde(xA, [[xA, N.yA - 6.5 * k, 0]], [N.yA], k, N.yA + 6.5 * k, o)),
-      F.cordes(corde(xB, [[xB, N.yB1 - 6.5 * k, 0]], [N.yB1, N.yB2], k, N.yB2 + 6.5 * k, o)),
+      F.cordes([{ pts: brinContinu(xA, [N.yA], k, N.yA - 6.5 * k, N.yA + 6.5 * k), ...o }], { jeu: 2 }),
+      F.cordes([{ pts: brinContinu(xB, [N.yB1, N.yB2], k, N.yB1 - 6.5 * k, N.yB2 + 6.5 * k), ...o }], { jeu: 2 }),
     ].join('\n');
   };
 
@@ -262,7 +277,7 @@ module.exports = (h) => {
           const N = noeuds(z), { k, xA, xB } = N;
           return [
             { n: 11, rond: [xA + 5.4 * k, N.yA - 5.4 * k], cible: [xA + 3.2 * k, N.yA - 2.75 * k], texte: 'un nœud par jour' },
-            { n: 12, rond: [z.l - 14, N.yB2 + 6.2 * k], cible: [xB + 4.75 * k, N.yB2 + 1.3 * k], texte: 'un nœud double tous les sept jours' },
+            { n: 12, rond: [z.l - 14, (N.yB1 + N.yB2) / 2 + 3 * k], cible: [xB + 4.2 * k, (N.yB1 + N.yB2) / 2], texte: 'un nœud double tous les sept jours' },
           ];
         },
       },

@@ -62,22 +62,23 @@ module.exports = (h) => {
     return [h.path(tige, h.a.detail), h.path(aig.trim(), h.a.fin)];
   };
 
-  // les branches coupées en travers : bouts de tige et touffes d'aiguilles
+  // les branches coupées en travers : de courts rameaux, chacun garni de ses aiguilles
   const touffes = (x1, x2, y1, y2) => {
-    const out = [];
-    for (let y = y1 + 3; y <= y2 - 3; y += 6) {
-      for (let x = x1 + 4; x <= x2 - 3; x += 8) {
-        const cx = x + (rnd() - 0.5) * 3, cy = y + (rnd() - 0.5) * 3, p = rnd() * 60;
-        let d = '';
-        for (const k of [0, 60, 120]) {
-          const r = (p + k) * Math.PI / 180;
-          d += `M${f1(cx - 2.2 * Math.cos(r))},${f1(cy - 2.2 * Math.sin(r))} L${f1(cx + 2.2 * Math.cos(r))},${f1(cy + 2.2 * Math.sin(r))} `;
+    let d = '';
+    for (let y = y1 + 4; y <= y2 - 4; y += 6.5) {
+      for (let x = x1 + 5 + rnd() * 2; x <= x2 - 5; x += 9) {
+        const L = 7 + rnd() * 3, a = (rnd() - 0.5) * 1.4 + (rnd() < 0.5 ? 0 : Math.PI);
+        const ux = Math.cos(a), uy = Math.sin(a);
+        const cx = Math.min(Math.max(x, x1 + 4.5), x2 - 4.5), cy = y + (rnd() - 0.5) * 2;
+        const p0 = [cx - ux * L / 2, cy - uy * L / 2];
+        d += `M${f1(p0[0])},${f1(p0[1])} L${f1(cx + ux * L / 2)},${f1(cy + uy * L / 2)} `;
+        for (const t of [0.25, 0.5, 0.75]) {
+          const bx = p0[0] + ux * L * t, by = p0[1] + uy * L * t;
+          for (const sg of [1, -1]) { const g = a + sg * 0.9; d += `M${f1(bx)},${f1(by)} l${f1(Math.cos(g) * 2.4)},${f1(Math.sin(g) * 2.4)} `; }
         }
-        out.push(h.path(d.trim(), h.a.fin));
-        if (rnd() < 0.45) out.push(h.cercle(f1(cx), f1(cy), 1, deBlanc));
       }
     }
-    return out;
+    return [h.path(d.trim(), h.a.fin)];
   };
 
   // ── Le mur de la claie : mêmes hauteurs en coupe et de face ──
@@ -190,6 +191,10 @@ module.exports = (h) => {
             // la saumure versée au sommet
             ...chaudiere(117, 53.9, 120, 28, 20, 30),
             goutte(110.5, 69.5, 0.85),
+            // le chemin des gouttes, de branche en branche jusqu'à l'auge
+            h.path('M109,74 Q104,88 111,98 T106,120 T110,144', h.a.cache),
+            h.path('M114,74 Q121,86 115,100 T121,122 T116,146', h.a.cache),
+            h.path('M119,76 Q127,92 121,106 T126,128 T123,144', h.a.cache),
             // le vent qui traverse
             h.fleche('M46,112 L86,112', h.a.cache), h.fleche('M146,112 L188,112', h.a.cache),
             // ce qui retombe dans l'auge
@@ -302,7 +307,7 @@ module.exports = (h) => {
         },
         renvois: z => [
           { n: 12, rond: [16, 50], cible: [19, 76], texte: 'récipient large, à découvert' },
-          { n: 13, rond: [244, 108], cible: [140, 110], texte: 'feu doux dès les cristaux' },
+          { n: 13, rond: [162, 101], cible: [137, 109], texte: 'feu doux dès les cristaux' },
           { n: 14, rond: [242, 82], cible: [200, 64], texte: 'cueillis à l’écumoire' },
           { n: 15, rond: [70, 44], cible: [100, 88], texte: 'le fond amer se jette' },
           { n: 16, rond: [334, 28], cible: [320, 64], texte: 'égouttés sur une toile' },

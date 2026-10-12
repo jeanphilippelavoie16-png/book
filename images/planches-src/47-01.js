@@ -35,9 +35,9 @@ const posture = (H, penche, regard, piedP, piedL, mainL) => ({
 });
 const POSTURES = {
   // de côté : hanches basses, genoux pliés, penché vers la bête, le bras qui passe bas
-  lancerBas: posture([0, -700], 34, -24, [-130, -85], [210, -85], [[440, -840], [0.55, 0.8]]),
+  lancerBas: posture([0, -700], 34, -24, [-130, -85], [210, -85], [[250, -600], [0.45, 0.9]]),
   // par-dessus l'épaule : un pas en avant, le bras libre tendu vers la bête
-  lancerHaut: posture([0, -915], 6, -12, [-170, -85], [190, -85], [[560, -1330], [1, -0.1]]),
+  lancerHaut: posture([0, -945], -4, -14, [-170, -85], [190, -85], [[560, -1330], [1, -0.1]]),
 };
 function formesDuLanceur(h) {
   const cle = 'const POSTURES = {';
@@ -154,8 +154,8 @@ module.exports = (h) => {
     return [
       h.path(cr(pied(-1), true), blanc(0.7)), h.path(cr(pied(1), true), blanc(0.7)),
       h.path(cr(corps, true), blanc(1.4)), h.path(cr(tete, true), blanc(1.4)),
-      h.path(cr(feuille([-176, -13], [-10, -40], 40).map(t), true), blanc(0.7)),
-      h.path(cr(feuille([-176, 13], [-10, 40], 40).map(t), true), blanc(0.7)),
+      h.path(cr(feuille([-176, -16], [-6, -46], 58).map(t), true), blanc(0.7)),
+      h.path(cr(feuille([-176, 16], [-6, 46], 58).map(t), true), blanc(0.7)),
       h.cercle(...t([-204, -26]), Math.max(0.9, 11 * s), A.plein), h.cercle(...t([-204, 26]), Math.max(0.9, 11 * s), A.plein),
     ].join('\n');
   };
@@ -179,6 +179,20 @@ module.exports = (h) => {
       [-146, 22], [-112, 42], [-52, 40], [-10, 38], [40, 48], [96, 52], [136, 38]].map(p => add(c, tourne(mul(p, s), ang)));
     const talon = [[-62, -40], [-66, 0], [-62, 40]].map(p => add(c, tourne(mul(p, s), ang)));
     return [h.path(cr(pts, true), blanc(1.4)), h.path(cr(talon), A.fin)].join('\n');
+  };
+  // Le lanceur vu de dessus : la tête ronde, l'ovale des épaules, le bras droit tendu le long de
+  // l'arc qu'il balaie (au départ du geste, derrière lui) et le poing au bout.
+  const lanceurDessus = g => {
+    const c = [g.S[0], g.yCorps], a = 128 * RAD;
+    const M = add(g.S, [RB * 0.86 * Math.cos(a), RB * 0.86 * Math.sin(a)]);
+    const u = uni(sub(M, g.S)), n = [-u[1], u[0]], w = 45 * E;
+    const brasP = [add(g.S, mul(n, w)), add(M, mul(n, w * 0.85)), sub(M, mul(n, w * 0.85)), sub(g.S, mul(n, w))];
+    return [
+      h.path(poly(brasP), blanc(1.4)),
+      h.cercle(...add(M, mul(u, 50 * E)), 55 * E, blanc(1.4)),
+      `<ellipse cx="${f1(c[0])}" cy="${f1(c[1])}" rx="${f1(130 * E)}" ry="${f1(240 * E)}" ${blanc(1.4)}/>`,
+      h.cercle(c[0] + 25 * E, c[1], 95 * E, blanc(1.4)),
+    ].join('\n');
   };
   // La neige : un trait de sol et une bande pointillée dessous.
   const neige = (z, yG) => [h.rect(4, yG, z.l - 8, 9, A.hachure('neige', 'aucun')), h.ligne(4, yG, z.l - 4, yG, A.arete)].join('\n');
@@ -209,7 +223,7 @@ module.exports = (h) => {
   };
   const geoEpaule = z => {
     const yG = z.h - 16, xP = 20;
-    const pers = F.personnage({ x: xP, y: yG, pose: 'lancerHaut', echelle: E, mains: { proche: [xP + 480 * E, yG - 1900 * E] } });
+    const pers = F.personnage({ x: xP, y: yG, pose: 'lancerHaut', echelle: E, mains: { proche: [xP + 250 * E, yG - 1760 * E] } });
     const mp = pers.mains.proche.map(Number);
     const S = [xP + 35 * E, yG - 1389 * E];
     const xs = [0, 1, 2].map(i => mp[0] + LB * (0.5 + 0.83 * i));
@@ -351,9 +365,9 @@ module.exports = (h) => {
           const x1 = g.xH + LB * 0.32;
           out.push(h.ligne(g.mp[0], g.yRel - LB / 2, x1, g.yRel - LB / 2, pointille));
           out.push(h.ligne(g.mp[0], g.yRel + LB / 2, x1, g.yRel + LB / 2, pointille));
-          out.push(semelle([g.xP + (-130 + 74) * E, g.yCorps + 110 * E], 24, E), semelle([g.xP + (210 + 74) * E, g.yCorps - 110 * E], -6, E));
+          out.push(lanceurDessus(g));
           out.push(h.fleche(arc(g.S, RB, 128, g.aLache + 6, 0), A.arete));
-          out.push(lievreDessus([g.xH, g.yLievre], E));
+          out.push(lievreDessus([g.xH, g.yLievre], E * 1.5));
           out.push(h.fleche(`M${XY([g.mp[0] + 2, g.yRel])} L${XY([x1 - 4, g.yRel])}`, trajet));
           g.xs.forEach((x, i) => out.push(baton([x, g.yRel], LB, g.ang[i])));
           out.push(h.fleche(arc([g.xs[1], g.yRel], LB / 2 + 6, -35, -145, 0), A.detail));
@@ -372,7 +386,7 @@ module.exports = (h) => {
             const bas = Math.max(...place(BATON.contour, [x, g.yRel], LB, g.ang[i]).map(q => q[1]));
             out.push(h.ligne(x, Math.max(bas, g.yRel + LB / 2) + 4, x, g.hs[i] - 6, rappel));
           });
-          out.push(h.ligne(g.xH, g.yLievre + 12, g.xH, g.yG - 250 * E, rappel));
+          out.push(h.ligne(g.xH, g.yLievre + 16, g.xH, g.yG - 250 * E, rappel));
           return out.join('\n');
         },
         renvois: z => {
@@ -396,6 +410,12 @@ module.exports = (h) => {
           out.push(epinette(z, g));
           out.push(tetras([g.xG, g.yBr], E));
           out.push(g.pers.toString());
+          // la main fermée sur le bout du bâton, armé vers l'arrière au-dessus de la tête
+          const pg = g.pers.poignets.proche.map(Number), poing = add(pg, mul(uni(sub(g.mp, pg)), 70 * E));
+          const dB = uni([-1, -1.15]), cB = add(poing, mul(dB, LB * 0.47));
+          const angB = Math.atan2(dB[1], dB[0]) / RAD + 180 - 15;
+          out.push(h.formes.main({ x: poing[0], y: poing[1], pose: 'prise', vue: 'dos', echelle: E, angle: angB - 90 - 180, diametre: BATON.w * LB * 1.2, bras: 0,
+            objet: baton(cB, LB, angB) }));
           out.push(h.fleche(cr([[-220, -440], [-40, -700], [250, -760], [440, -610]].map(q => add(g.S, mul(q, E)))), A.arete));
           const pts = [[g.mp[0], g.mp[1]], ...g.xs.map((x, i) => [x, g.hs[i]]), [g.xG - 0.34 * LB, g.yG - 1880 * E]];
           out.push(h.fleche(cr(pts), trajet));

@@ -7,7 +7,7 @@
 // du dessous à la fourche, sans la remonter. Le raté : la bêche enfoncée jusque dans le gris, la
 // motte retournée met le gris par-dessus et enterre le noir.
 // Aucune épaisseur de couche ni profondeur dans le chapitre : aucune cote. Les trois vues gardent les
-// mêmes trames : quadrillé serré = noir, points = gris, rayures = rouille, rayures lâches = jaune.
+// mêmes trames : quadrillé serré = noir, points = gris, rayures = rouille, tirets courts horizontaux en quinconce = jaune.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = (v) => Math.round(v * 10) / 10;
@@ -24,7 +24,7 @@ module.exports = (h) => {
 <pattern id="p9602-noire" width="3.4" height="3.4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M1.7 0 L1.7 3.4 M0 1.7 L3.4 1.7" fill="none" stroke="${N}" stroke-width="0.5"/></pattern>
 <pattern id="p9602-grise" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2.5" r="0.7" fill="${N}" stroke="none"/><circle cx="6.6" cy="6.8" r="0.7" fill="${N}" stroke="none"/><circle cx="7.4" cy="1.4" r="0.5" fill="${N}" stroke="none"/></pattern>
 <pattern id="p9602-rouille" width="4.6" height="4.6" patternUnits="userSpaceOnUse" patternTransform="rotate(-40)">${ligneMotif(4.6)}</pattern>
-<pattern id="p9602-jaune" width="9.2" height="9.2" patternUnits="userSpaceOnUse" patternTransform="rotate(-40)">${ligneMotif(9.2)}</pattern>
+<pattern id="p9602-jaune" width="10" height="7" patternUnits="userSpaceOnUse"><path d="M1 1.75 L5 1.75 M6 5.25 L10 5.25 M0 5.25 L1 5.25" fill="none" stroke="${N}" stroke-width="0.6"/></pattern>
 </defs>`;
 
   const alea = (s) => () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
@@ -175,7 +175,7 @@ module.exports = (h) => {
   return {
     ref: '96-02',
     titre: 'Le trou d’essai et le premier bêchage',
-    desc: 'En coupe, le trou d’essai creusé jusqu’à la couche rouille : sous la mousse, la mince couche noire, la couche grise délavée, puis la couche rouille à la limite nette ; plus bas, la couleur tourne au jaune. Chaque couche a sa trame : quadrillé serré pour le noir, points pour le gris, rayures pour la rouille, rayures lâches pour le jaune. Dessous, deux bêchages côte à côte, au même sol et à la même échelle. Bien : la mousse levée d’abord ; la bêche n’entre que dans la couche noire, la motte retournée est noire et reste en haut ; la fourche plantée à travers, basculée d’avant en arrière, ameublit le gris sans le remonter. Raté : la bêche enfoncée de toute sa lame jusque dans le gris ; la motte retournée met le gris par-dessus et enterre le noir dessous.',
+    desc: 'En coupe, le trou d’essai creusé jusqu’à la couche rouille : sous la mousse, la mince couche noire, la couche grise délavée, puis la couche rouille à la limite nette ; plus bas, la couleur tourne au jaune. Chaque couche a sa trame : quadrillé serré pour le noir, points pour le gris, rayures pour la rouille, tirets courts en quinconce pour le jaune. Dessous, deux bêchages côte à côte, au même sol et à la même échelle. Bien : la mousse levée d’abord ; la bêche n’entre que dans la couche noire, la motte retournée est noire et reste en haut ; la fourche plantée à travers, basculée d’avant en arrière, ameublit le gris sans le remonter. Raté : la bêche enfoncée de toute sa lame jusque dans le gris ; la motte retournée met le gris par-dessus et enterre le noir dessous.',
     format: 'pleine',
     disposition: [['essai'], ['bien', 'rate']],
     hauteurs: [1, 1.45],
@@ -220,6 +220,12 @@ module.exports = (h) => {
         dessin: (z) => {
           const c = champ(z), out = [];
           out.push(enPlace(z, c, c.NB, 3));
+          // Une plaque de mousse levée, retournée sur le sol nu : coussins en bas, racines en l'air.
+          const M = c.ys - 10.9, pq = mousse(31, 53, c.ys - 10, 8, alea(11), [31, 53]);
+          out.push(`<g transform="translate(0 ${f(2 * M)}) scale(1 -1)">${pq}</g>`);
+          let rac = '';
+          for (let x = 33; x < 52; x += 2.6) rac += ` M ${f(x)} ${f(c.ys - 11.8)} l ${f(((x * 7) % 3) - 1.5)} -${f(2.5 + (x % 2))}`;
+          out.push(`<path d="${rac.trim()}" ${h.a.fin}/>`, ouvert([[31, c.ys - 11.8], [53, c.ys - 11.8]], h.a.detail));
           // Le bêché : le gris reste en place, ameubli ; les mottes de noir retournées par-dessus.
           out.push(bande(c.xw, z.l - 2, () => c.ys + c.NB, c.yR, FG));
           const rnd = alea(17);
@@ -246,7 +252,7 @@ module.exports = (h) => {
         renvois: (z) => {
           const c = champ(z), fx = c.xw + 2.5 * c.wk;
           return [
-            { n: 6, rond: [14, c.ys - 44], cible: [c.xm - 8, c.ys - 5], texte: 'mousse levée d’abord, en plaques' },
+            { n: 6, rond: [14, c.ys - 44], cible: [38, c.ys - 9], texte: 'mousse levée d’abord, en plaques' },
             { n: 7, rond: [34, c.ys - 90], cible: [c.xs - 4, c.ys + 8], texte: 'bêche enfoncée dans le noir seulement' },
             { n: 8, rond: [z.l - 12, c.ys - 50], cible: [z.l - 22, c.ys + 3], texte: 'motte retournée : le noir reste en haut' },
             { n: 9, rond: [z.l - 12, c.ys + c.NB + 20], cible: [fx + 13, c.ys + c.NB + 14], texte: 'le gris ameubli à la fourche, pas remonté' },

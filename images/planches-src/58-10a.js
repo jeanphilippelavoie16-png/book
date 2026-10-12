@@ -1,5 +1,5 @@
 // Planche 58-10a — le ciseau à glace (ch. 58, section 9-A, points 1, 2 et 5).
-// Aucune cote : le chapitre ne chiffre ni la barre, ni le tuyau, ni le biseau.
+// Aucune cote : ni le chapitre ni aucune source enregistrée ne chiffre la barre, le tuyau ou le biseau.
 // Même orientation partout : pointe à droite, biseau dessus, face plate dessous.
 
 module.exports = (h) => {
@@ -155,6 +155,13 @@ module.exports = (h) => {
           // la soudure ferme la bouche, dessus et dessous
           out.push(h.path(`M ${P([[MX - 4, cy - RI], [MX, cy - RI], [MX, cy - RO + 1], [MX + 17, cy - TB], [MX - 4, cy - TB]])} Z`, h.a.plein));
           out.push(h.path(`M ${P([[MX - 4, cy + RI], [MX, cy + RI], [MX, cy + RO - 1], [MX + 17, cy + TB], [MX - 4, cy + TB]])} Z`, h.a.plein));
+          // trait de coupe : où la vue en bout est prise, regard vers la droite
+          const XC = 205, mixte = 'fill="none" stroke="#000" stroke-width="0.7" stroke-dasharray="14 3 2 3"';
+          out.push(h.path(`M ${XC} ${f(cy - RO - 16)} L ${XC} ${f(cy + RO + 16)}`, mixte));
+          for (const yy of [cy - RO - 16, cy + RO + 16]) {
+            out.push(h.ligne(XC, yy - 3, XC, yy + 3, h.a.contour));
+            out.push(h.fleche(`M ${XC} ${f(yy)} L ${XC + 20} ${f(yy)}`));
+          }
           // vu en bout, juste en dedans de la bouche
           const cx = 530, hw = Math.sqrt(RI * RI - TB * TB);
           out.push(h.cercle(cx, cy, RO, h.a.hachure('metal')));

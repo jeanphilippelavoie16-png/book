@@ -252,15 +252,19 @@ module.exports = (h) => {
           const paroiH = `M${P(74, -16)} Q${P(Lf * 0.5, -11)} ${P(Lf - 70, -15)} L${P(Lf - 96, -7.5)} L${P(100, -7.5)} Z`;
           const paroiB = `M${P(74, 15)} Q${P(Lf * 0.5, 11)} ${P(Lf - 70, 15)} L${P(Lf - 96, 7.5)} L${P(100, 7.5)} Z`;
           const moelle = `M${P(100, -7.5)} L${P(Lf - 96, -7.5)} Q${P(Lf - 86, 0)} ${P(Lf - 96, 7.5)} L${P(100, 7.5)} Q${P(90, 0)} ${P(100, -7.5)} Z`;
-          const coupes = [58, 118, Lf * 0.5 + 4, Lf - 116, Lf - 50].map(u =>
-            h.ligne(x0 + u, cy - 36, x0 + u, cy + 36, h.a.cache));
-          // la vertèbre, de profil
-          const vx = xp0 + 62, vy = cy + 4;
-          const corpsV = `M${f(vx - 18)},${f(vy - 6)} Q${f(vx - 18)},${f(vy - 11)} ${f(vx - 12)},${f(vy - 11)} L${f(vx + 12)},${f(vy - 11)} ` +
-            `Q${f(vx + 18)},${f(vy - 11)} ${f(vx + 18)},${f(vy - 6)} L${f(vx + 18)},${f(vy + 6)} Q${f(vx + 18)},${f(vy + 11)} ${f(vx + 12)},${f(vy + 11)} ` +
-            `L${f(vx - 12)},${f(vy + 11)} Q${f(vx - 18)},${f(vy + 11)} ${f(vx - 18)},${f(vy + 6)} Z`;
-          const arc = [[vx - 13, vy - 11], [vx - 12, vy - 18], [vx - 21, vy - 22], [vx - 19, vy - 26], [vx - 6, vy - 23], [vx + 8, vy - 52],
-            [vx + 13, vy - 54], [vx + 17, vy - 50], [vx + 10, vy - 23], [vx + 18, vy - 20], [vx + 15, vy - 11]];
+          // où casser : petites fêlures en zigzag au contour, comme dans « Casser au plat »
+          const bords = [[58, -19, 17], [118, -13.5, 13], [Lf * 0.5 + 4, -11, 11], [Lf - 116, -13, 13], [Lf - 50, -18, 17]];
+          const zig = (u, e, sg) => h.path(`M${P(u - 1, e - sg * 3)} L${P(u + 2, e + sg * 2)} L${P(u - 2, e + sg * 4)} L${P(u + 1, e + sg * 6)}`, h.a.arete);
+          const coupes = bords.flatMap(([u, t, b]) => [zig(u, t, 1), zig(u, b, -1)]);
+          // la vertèbre, vue de bout : corps rond en bas, arc en anneau autour du canal,
+          // apophyse épineuse droite au-dessus, apophyses transverses de chaque côté
+          const vx = xp0 + 62, vy = cy + 10;
+          const corpsV = `M${f(vx)},${f(vy - 9)} C${f(vx + 8)},${f(vy - 13)} ${f(vx + 16)},${f(vy - 7)} ${f(vx + 15)},${f(vy + 2)} ` +
+            `C${f(vx + 14)},${f(vy + 11)} ${f(vx + 7)},${f(vy + 15)} ${f(vx)},${f(vy + 15)} C${f(vx - 7)},${f(vy + 15)} ${f(vx - 14)},${f(vy + 11)} ${f(vx - 15)},${f(vy + 2)} ` +
+            `C${f(vx - 16)},${f(vy - 7)} ${f(vx - 8)},${f(vy - 13)} ${f(vx)},${f(vy - 9)} Z`;
+          const ca = vy - 20;
+          const arc = [[vx - 11, vy - 8], [vx - 13, ca - 2], [vx - 28, ca - 5], [vx - 29, ca - 9], [vx - 12, ca - 10], [vx - 5, ca - 12],
+            [vx - 3, ca - 34], [vx + 3, ca - 34], [vx + 5, ca - 12], [vx + 12, ca - 10], [vx + 29, ca - 9], [vx + 28, ca - 5], [vx + 13, ca - 2], [vx + 11, vy - 8]];
           return [
             h.path(ext, h.a.blanc), h.path(ext, h.a.hachure('gravier', 'aucun')),
             h.path(paroiH, h.a.blanc), h.path(paroiH, h.a.hachure('bois', 'aucun')),
@@ -271,8 +275,8 @@ module.exports = (h) => {
             h.fleche(`M${f(x0 + Lf + 14)},${f(cy)} L${f(xp0 - 8)},${f(cy)}`, h.a.arete),
             // les morceaux courts
             h.chemin(arc, blanc(h.a.arete), true),
-            h.ellipse(vx + 3, vy - 16, 4.5, 2.6, h.a.detail),
-            h.path(corpsV, h.a.blanc), h.path(corpsV, h.a.hachure('gravier')),
+            h.path(corpsV, h.a.blanc), h.path(corpsV, h.a.hachure('gravier')), h.path(corpsV, h.a.arete),
+            h.ellipse(vx, ca, 6.5, 6, blanc(h.a.arete)),
             spongieux(xp0 + 124, cy + 2, 16, 12, [1, 0.9, 0.8, 1, 0.92, 0.86, 0.95], 0.4),
             spongieux(xp0 + 172, cy - 6, 17, 12, undefined, 1.2),
             troncon(xp0 + 24, cy + 26, 36, 10, -0.2),
@@ -286,7 +290,7 @@ module.exports = (h) => {
           return [
             { n: 7, rond: [x0 + Lf * 0.36, cy + 38], cible: [x0 + Lf * 0.36, cy + 3], texte: 'fût : la moelle, qui se voit' },
             { n: 8, rond: [x0 + Lf - 40, cy - 42], cible: [x0 + Lf - 14, cy - 12], texte: 'bout spongieux : gras caché' },
-            { n: 9, rond: [xp0 + 140, 18], cible: [xp0 + 74, cy], texte: 'vertèbres, bassin, sternum' },
+            { n: 9, rond: [xp0 + 140, 18], cible: [xp0 + 68, cy + 14], texte: 'vertèbres, bassin, sternum' },
           ];
         },
       },

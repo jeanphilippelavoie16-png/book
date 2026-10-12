@@ -162,16 +162,22 @@ module.exports = (h) => {
           h.rect(186, 325, 8, 4, h.a.plein),
 
           // le chauffe-eau
-          h.path('M296,306 Q322,294 348,306 L348,382 L296,382 Z', blancContour),
+          h.path('M296,306 Q322,294 348,306 L348,362 L296,362 Z', blancContour),
           h.rect(316, 294, 12, 6, blancArete),
-          h.rect(300, 382, 6, 6, h.a.arete), h.rect(338, 382, 6, 6, h.a.arete),
-          // le robinet de vidange, et le boyau jusqu'au drain
-          h.rect(348, 370, 9, 8, blancArete),
-          h.ligne(352, 370, 352, 364, h.a.detail),
-          h.path('M357,374 C370,374 370,385 382,385 L414,385 C422,385 428,388 430,398', h.a.contour),
-          goutte(430, 404 - 4),
-          // l'eau à boire, tirée avant : deux chaudières couvertes
-          chaudiere(222), chaudiere(258),
+          h.rect(300, 362, 6, 6, h.a.arete), h.rect(338, 362, 6, 6, h.a.arete),
+          h.rect(292, 368, 58, 20, h.a.hachure('pierre')),
+          // le robinet de vidange qui coule dans la chaudière ouverte
+          h.rect(348, 350, 9, 8, blancArete),
+          h.ligne(352, 350, 352, 344, h.a.detail),
+          h.rect(353, 358, 4, 4, blancArete),
+          h.ligne(355, 362, 355, 372, h.a.contour),
+          h.path('M354,370 L380,370 L378,388 L356,388 Z', h.a.hachure('eau', 'aucun')),
+          h.path('M352,364 L382,364 L379,388 L355,388 Z', h.a.arete),
+          // le boyau, posé pour l'étape d'après, son bout libre au plancher
+          h.path('M392,385 L414,385 C422,385 428,388 430,398', h.a.contour),
+          h.rect(388, 382, 5, 6, blancArete),
+          // l'autre chaudière, pleine et couverte
+          chaudiere(258),
 
           // la cuisine, devant les colonnes
           h.rect(430, 222, 98, 6, blancArete),
@@ -182,7 +188,7 @@ module.exports = (h) => {
           h.rect(458, 116, 70, 6, blancArete),
           h.path('M470,122 L470,128 Q470,134 478,134 L502,134 Q510,134 510,128 L510,122', blancArete),
           robinet(512, 116),
-          h.fleche('M478,113 C485,109 491,106 496,104', h.a.cache),
+          h.fleche('M496,113 L496,106', h.a.arete),
           // la toilette de l'étage, vue de face
           h.rect(402, 111, 36, 3, blancArete),
           h.rect(404, 114, 32, 16, blancArete),
@@ -191,9 +197,9 @@ module.exports = (h) => {
         renvois: z => [
           { n: 1, rond: [126, 334], cible: [147, 306], texte: 'entrée d’eau fermée' },
           { n: 2, rond: [224, 306], cible: [198, 314], texte: 'chauffe-eau hors tension' },
-          { n: 3, rond: [452, 84], cible: [494, 104], texte: 'robinet chaud ouvert à l’étage' },
-          { n: 4, rond: [276, 318], cible: [270, 344], texte: 'eau à boire tirée d’abord' },
-          { n: 5, rond: [398, 338], cible: [398, 385], texte: 'puis le boyau au drain' },
+          { n: 3, rond: [452, 84], cible: [503, 102], texte: 'robinet chaud ouvert à l’étage' },
+          { n: 4, rond: [392, 330], cible: [368, 366], texte: 'eau à boire tirée d’abord' },
+          { n: 5, rond: [446, 352], cible: [414, 385], texte: 'puis le boyau au drain' },
           { n: 6, rond: [452, 196], cible: [484, 208], texte: 'tous les robinets ouverts' },
         ],
       },
@@ -207,11 +213,11 @@ module.exports = (h) => {
             [[92, 148], [92, 164], [86, 174], [86, 186]],
           ]);
           const [g, d] = tube(voie, 8);
-          const plug = 'M34,136 C32,126 42,120 50,124 C58,120 68,130 62,140 C61,150 54,152 50,148 C42,149 36,146 34,136 Z';
+          const plug = 'M43,137 C43,130 52,129 56,133 C61,137 63,144 61,149 C58,153 51,151 48,147 C45,144 43,141 43,137 Z';
           return `<g transform="translate(0,${TY})">` + [
             h.rect(0, 186, 133, 8, h.a.hachure('bois')),
             // la porcelaine, avec le creux de la cuvette
-            h.path('M8,112 C8,134 20,148 38,152 C41,160 41,172 34,186 L100,186 C102,166 106,150 110,112 L70,112 C64,138 56,146 46,146 C30,146 16,134 16,112 Z', h.a.contour),
+            h.path('M8,112 C8,134 20,148 38,152 C41,160 41,172 34,186 L100,186 C102,166 106,150 110,112 L70,112 C64,138 56,146 46,146 C30,146 16,134 16,112 Z', h.a.hachure('metal', 'contour')),
             // la voie du siphon, taillée dans la porcelaine
             h.path(`M${P(g)} L${P([...d].reverse())} Z`, 'fill="#ffffff" stroke="none"'),
             h.path(`M${P(g)}`, h.a.arete), h.path(`M${P(d)}`, h.a.arete),
@@ -226,12 +232,12 @@ module.exports = (h) => {
             // l'éponge au fond du réservoir
             h.rect(99, 100, 11, 8, h.a.hachure('gravier')),
             // le chiffon ensaché dans le fond de la cuvette
-            bouchon(plug, 'M47,123 L43,116 L51,118 Z'),
+            bouchon(plug, 'M47,133 L43,126 L51,128 Z'),
           ].join('\n') + '</g>';
         },
         renvois: z => [
           { n: 7, rond: [40, 62 + TY], cible: [100, 104 + TY], texte: 'réservoir vidé, fond épongé' },
-          { n: 8, rond: [16, 172 + TY], cible: [38, 140 + TY], texte: 'cuvette épongée, puis bouchée' },
+          { n: 8, rond: [16, 172 + TY], cible: [52, 142 + TY], texte: 'cuvette épongée, puis bouchée' },
         ],
       },
 

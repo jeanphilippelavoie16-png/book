@@ -167,7 +167,7 @@ module.exports = (h) => {
   const echelleBas = () => S_BAS;   // l'aiguille entière tient dans la première étape
 
   // ─── la vue en coupe du coussinet ─────────────────────────────────────────────────────
-  const EP_ROND = 5, EP_RUBAN = 0.6, EP_TAMPON = 2.2, EP_COLLANT = 0.7;
+  const EP_ROND = 5, EP_RUBAN = 1.1, EP_TAMPON = 2.2, EP_COLLANT = 0.7;
   const geoCoupe = z => {
     const s = Math.min((z.l - 30) / 58, (z.h - 20) / 32);
     const ox = z.l / 2, oy = z.h / 2 + s * 5;
@@ -217,7 +217,6 @@ module.exports = (h) => {
             { n: 1, rond: [cx - r - 32, cy - r * 0.62], cible: [c[0] - 2 * sd, c[1] - 14.5 * sd], texte: 'rond de feutre, carton double ou cuir mince' },
             { n: 2, rond: [cx - r - 32, cy + r * 0.3], cible: [c[0] - 8.6 * sd, c[1] + 2.4 * sd], texte: 'trou de la taille de l’ampoule, au centre' },
             { n: 3, rond: [cx - r * 0.12, cy + r + 26], cible: [c[0] - 2 * sd, c[1] + 2.5 * sd], texte: 'l’ampoule, qu’on laisse fermée' },
-            { n: 4, rond: [cx + r * 0.72, cy + r + 18], cible: [c[0] + 14 * sd, c[1] + 21 * sd], texte: 'ruban qui tient le rond en place' },
           ];
         },
       },
@@ -250,7 +249,8 @@ module.exports = (h) => {
           const { V } = geoCoupe(z);
           const y2 = EP_ROND + EP_RUBAN + EP_TAMPON + EP_COLLANT;
           return [
-            { n: 5, rond: V([4, y2 + 11]), cible: V([4, y2 - 0.9]), texte: 'pansement par-dessus le tout' },
+            { n: 4, rond: V([14, y2 + 11]), cible: V([14, EP_ROND + EP_RUBAN / 2]), texte: 'ruban qui tient le rond en place' },
+            { n: 5, rond: V([27, y2 + 7]), cible: V([25.6, (EP_ROND + EP_RUBAN + EP_TAMPON) / 2 + 0.3]), texte: 'pansement par-dessus le tout' },
             { n: 6, rond: V([-25, y2 + 11]), cible: V([-17.5, y2 + 6]), texte: 'la botte n’appuie que sur l’anneau' },
           ];
         },
@@ -326,7 +326,7 @@ module.exports = (h) => {
           const a = AMP_G.a;
           return [
             { n: 11, rond: add(V([a + 7.5, 0]), [20, 22]), cible: V([0.3 * a, -0.35]), texte: 'peau du dessus laissée sur la chair vive' },
-            { n: 12, rond: add(V([-a - 7.5, 0]), [-18, -24]), cible: V([-0.7 * a, 1.6]), texte: 'eau et savon, vaseline, pansement' },
+            { n: 12, rond: add(V([a + 7.5, 0]), [22, -30]), cible: V([a + 3.9, (0.9 + EP_TAMPON) / 2 + 0.2]), texte: 'vaseline et pansement, sur la peau lavée' },
           ];
         },
       },

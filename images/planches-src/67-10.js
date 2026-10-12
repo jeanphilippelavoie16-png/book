@@ -73,9 +73,10 @@ module.exports = (h) => {
 
   // ─── Vue 1 : la romaine en usage ──────────────────────────────────────────────────────
   const U = (z) => {
-    const y = 46, x1 = 30, x2 = z.l - 8, px = 110, lx = 70, pas = 40;
-    const grad = []; for (let x = px + pas; x <= x2 - 20; x += pas) grad.push(x);
-    const cx = grad[6];
+    const y = 46, x1 = 30, x2 = z.l - 8, px = 110, lx = 70, pas = 110;
+    // mêmes abscisses que « Graduer » : 4, 8, 12 kg, puis 16 kg
+    const grad = []; for (let x = px + pas; x <= x2 - 14 && grad.length < 4; x += pas) grad.push(x);
+    const cx = grad[1];
     return { y, x1, x2, px, lx, pas, grad, cx };
   };
 
@@ -112,6 +113,8 @@ module.exports = (h) => {
           const enc = [[g.px, 2.5, 3], [g.lx, 2.5, 3], ...g.grad.map(x => [x, 2, 2.5])];
           const p = perche(g.x1, g.x2, g.y, 11, 7, enc, h.a.contour);
           o.push(p.svg);
+          // traits de chiffrage au couteau : un par 4 kg, à droite de chaque entaille
+          g.grad.forEach((x, i) => { for (let k = 0; k <= i; k++) o.push(h.ligne(x + 5 + k * 3, g.y + 2, x + 4 + k * 3, g.y + 8, h.a.detail)); });
           // lest au bout court : un caillou lié SOUS la perche. Posé dessus, il monterait le centre
           // de gravité au-dessus du pivot et la perche basculerait d'un bord au lieu de se stabiliser.
           const lb = p.bas(44);

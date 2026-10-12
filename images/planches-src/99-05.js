@@ -52,23 +52,23 @@ module.exports = (h) => {
     const e = Math.min((z.h - 10) / 1790, (z.l - 8) / 1250);
     const x0 = 6 + 170 * e, g = z.h - 4;
     const P = (x, y) => [x0 + x * e, g - y * e];
-    const pers = F.personnage({ x: x0, y: g, pose: 'debout', echelle: e, penche: 20, regard: 24,
-      mains: { proche: P(470, 790), loin: P(300, 880) } });
+    const pers = F.personnage({ x: x0, y: g, pose: 'debout', echelle: e, penche: 30, regard: 30,
+      mains: { proche: P(540, 700), loin: P(250, 960) } });
     const num = a => a.map(Number);
     // chaque poignée traverse le poing, en travers de la main : elle sort du manche derrière et
     // sous le poing, et dépasse de l'autre côté
     const poignee = (k, long) => {
       const w = num(pers.poignets[k]), m = num(pers.mains[k]);
       const a = [m[0] - w[0], m[1] - w[1]], la = Math.hypot(...a), u = [a[0] / la, a[1] / la];
-      const c = [w[0] + 0.6 * a[0], w[1] + 0.6 * a[1]], v = [u[1], -u[0]];   // v : en travers, vers l'avant
-      return { c, pied: [c[0] - long * e * v[0], c[1] - long * e * v[1]], bout: [c[0] + 38 * e * v[0], c[1] + 38 * e * v[1]] };
+      const c = [w[0] + 0.75 * a[0], w[1] + 0.75 * a[1]], v = [u[1], -u[0]];   // v : en travers, vers l'avant
+      return { c, u, pied: [c[0] - long * e * v[0], c[1] - long * e * v[1]], bout: [c[0] + 70 * e * v[0], c[1] + 70 * e * v[1]] };
     };
-    const gL = poignee('loin', 110), gP = poignee('proche', 130);
+    const gL = poignee('loin', 120), gP = poignee('proche', 120);
     const bL = gL.pied, bP = gP.pied, pP = gP.c;
     const dh = [bL[0] - bP[0], bL[1] - bP[1]], nh = Math.hypot(...dh);
-    const T = [bL[0] + dh[0] / nh * 22 * e, bL[1] + dh[1] / nh * 22 * e];   // bout du manche
+    const T = [bL[0] + dh[0] / nh * 18 * e, bL[1] + dh[1] / nh * 18 * e];   // bout du manche
     const K = P(800, 38);                                          // talon de la lame
-    const snath = [T, bL, bP, P(560, 560), P(700, 300), K];
+    const snath = [T, bL, bP, P(700, 330), K];
     return { e, P, pers, gL, gP, pP, bL, bP, T, K, snath, g, x0 };
   };
 
@@ -137,18 +137,23 @@ module.exports = (h) => {
           out.push(h.path(`M${pt(P(790, 36))} ${lisse([P(790, 36), P(900, 44), P(1000, 40), P(1066, 22)], false)} L${pt(P(1066, 16))} ${lisse([P(1066, 16), P(1000, 14), P(900, 16), P(790, 18)], false)} Z`, BL('arete')));
           // le manche et ses deux poignées
           out.push(h.path(bande(G.snath, 34 * e), BL('arete')));
-          out.push(h.path(bande([G.gL.pied, G.gL.bout], 26 * e), BL('arete')));
-          out.push(h.path(bande([G.gP.pied, G.gP.bout], 26 * e), BL('arete')));
+          out.push(h.path(bande([G.gL.pied, G.gL.bout], 40 * e), BL('arete')));
+          out.push(h.path(bande([G.gP.pied, G.gP.bout], 40 * e), BL('arete')));
           // l'anneau au talon
           out.push(h.path(`M${pt(P(760, 70))} L${pt(P(800, 92))} L${pt(P(830, 40))} L${pt(P(790, 20))} Z`, BL('detail')));
           out.push(String(G.pers));
+          // chaque poing fermé sur sa poignée : un ovale, la cheville qui en sort des deux côtés
+          [G.gL, G.gP].forEach(g => {
+            out.push(h.path(bande([g.pied, g.bout], 40 * e), BL('arete')));
+            out.push(h.path(ovale(g.c[0], g.c[1], 62 * e, 46 * e, Math.atan2(g.u[1], g.u[0]) / RAD), BL('arete')));
+          });
           return out.join('\n');
         },
         renvois: z => {
           const G = geoP(z), { P } = G;
           return [
             { n: 1, rond: [z.l - 14, P(0, 700)[1]], cible: P(640, 380), texte: 'le manche, une perche de bois dur' },
-            { n: 2, rond: [z.l - 14, P(0, 1150)[1]], cible: [G.pP[0] + 4, G.pP[1] - 2], texte: 'bras tendus, mains presque à même hauteur' },
+            { n: 2, rond: [z.l - 14, P(0, 1150)[1]], cible: G.gL.c, texte: 'bras tendus, mains presque à même hauteur' },
             { n: 3, rond: [z.l - 14, P(0, 230)[1]], cible: P(960, 30), texte: 'la lame à plat, parallèle au sol' },
           ];
         },
@@ -201,6 +206,10 @@ module.exports = (h) => {
           const a0 = 14 * RAD, a1 = 166 * RAD;
           const p0 = D(C[0] + Ra * Math.cos(a0), C[1] + Ra * Math.sin(a0)), p1 = D(C[0] + Ra * Math.cos(a1), C[1] + Ra * Math.sin(a1));
           out.push(h.fleche(`M${pt(p0)} A${f(Ra * e)} ${f(Ra * e)} 0 0 0 ${pt(p1)}`, h.a.arete));
+          // au bout du coup, l'herbe coupée tombe en rang contre l'herbe déjà fauchée
+          const q0 = D(C[0] + (Ra - 60) * Math.cos(160 * RAD), C[1] + (Ra - 60) * Math.sin(160 * RAD));
+          const q1 = D(xL + 60, C[1] - 260);
+          out.push(h.fleche(`M${pt(q0)} Q${pt(D(xL + 150, C[1] - 40))} ${pt(q1)}`, h.a.detail));
           return out.join('\n');
         },
         renvois: z => {

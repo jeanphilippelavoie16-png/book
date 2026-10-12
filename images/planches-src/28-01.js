@@ -86,7 +86,14 @@ module.exports = (h) => {
     const dos = [[ep[0] * 0.44, ep[1] * 0.44], [ep[1] * 0.44, ep[2] * 0.44], [ep[2] * 0.44, ep[3] * 0.44]];
     const ventre = [[ep[0] * 0.56, ep[1] * 0.54], [ep[1] * 0.54, ep[2] * 0.54], [ep[2] * 0.54, ep[3] * 0.52]];
     const t = I.tube({ pts, sens: -1, dos, ventre, coussin: [0.9 * k, 0.8 * k, 0.9 * k], bout: 'doigt', ongle: 'cote', base: 0, plis: true });
-    return I.peindre([t], p => p);
+    // l'ongle, sur le dos de la dernière phalange (le côté droit) : une lame posée sur le dos
+    const P = pts[2], Q = pts[3], Lg = Math.hypot(Q[0] - P[0], Q[1] - P[1]);
+    const u = [(Q[0] - P[0]) / Lg, (Q[1] - P[1]) / Lg];
+    let nn = [-u[1], u[0]]; if (nn[0] < 0) nn = [-nn[0], -nn[1]];
+    const w = s => (ep[2] + (ep[3] - ep[2]) * s) * 0.44;
+    const at = (s, d) => [P[0] + u[0] * s * Lg + nn[0] * (w(s) - d), P[1] + u[1] * s * Lg + nn[1] * (w(s) - d)];
+    const ong = `M ${f(at(0.3, 0)[0])} ${f(at(0.3, 0)[1])} Q ${f(at(0.32, 2.4 * k)[0])} ${f(at(0.32, 2.4 * k)[1])} ${f(at(0.42, 2.4 * k)[0])} ${f(at(0.42, 2.4 * k)[1])} L ${f(at(0.86, 2 * k)[0])} ${f(at(0.86, 2 * k)[1])} Q ${f(at(0.93, 1.6 * k)[0])} ${f(at(0.93, 1.6 * k)[1])} ${f(at(0.95, 0.3 * k)[0])} ${f(at(0.95, 0.3 * k)[1])}`;
+    return I.peindre([{ ...t, det: (t.det || []).filter((d, i) => i < t.det.length - 1) }], p => p) + `\n<path d="${ong}" ${A.detail}/>`;
   }
 
   // ─── la bouteille de plastique, bouchon percé : repère au trou, l'axe vers le haut ────
@@ -166,27 +173,50 @@ module.exports = (h) => {
       tenir: {
         titre: '2. Tenir la bosse, viser le centre mou',
         dessin: z => {
-          const k = 1.2, bx = z.l * 0.44, by = z.h * 0.5;
-          const bosse = [
-            h.ellipse(bx, by, 30 * k, 22 * k, blanc(A.arete)),
-            h.ellipse(bx, by, 11 * k, 7.5 * k, h.a.hachure('neige', 'aucun')),
-            h.ellipse(bx, by, 11 * k, 7.5 * k, A.cache),
-          ].join('\n');
-          const m = F.main({ x: bx, y: by, pose: 'boule', vue: 'profil', cote: 'gauche', diametre: 44 * k, echelle: k, serre: 0.55, bras: 40, objet: bosse });
-          const o = [m];
-          // le grand axe, et le trait : de la palmure vers le devant libre
-          o.push(`<path d="M ${f(bx + 24 * k)} ${f(by)} L ${f(bx - 40 * k)} ${f(by)}" ${A.fin} stroke-dasharray="8 3 2 3"/>`);
+          const k = 1.1, bx = z.l * 0.40, by = z.h * 0.52, o = [];
+          const T = p => [bx + p[0] * k, by + p[1] * k];
+          // la peau vue de dessus : un morceau, bords en trait de coupure
+          const x0 = 8, x1 = z.l - 8, y0 = by - 78 * k, y1 = by + 78 * k;
+          o.push(h.rect(x0, y0, x1 - x0, y1 - y0, A.blanc.replace('stroke="#000000"', 'stroke="none"')));
+          o.push(coupure(x0, y0, x1, y0), coupure(x0, y1, x1, y1), coupure(x0, y0, x0, y1), coupure(x1, y0, x1, y1));
+          // la bosse : son bord, un cerne de rougeur, le centre mou en tireté
+          o.push(h.ellipse(bx, by, 30 * k, 22 * k, A.arete));
+          o.push(h.ellipse(bx, by, 36 * k, 27 * k, A.fin + ' stroke-dasharray="1.5 3"'));
+          o.push(h.ellipse(bx, by, 11 * k, 7.5 * k, A.cache));
+          // la main droite à plat sur la peau, vue du dos, qui vient de la droite :
+          // l'index au-dessus de la bosse, le pouce dessous, les autres doigts repliés sous l'index
+          const W = (a, b, c, d) => [[a, b], [b, c], [c, d]];
+          const wI = W(9.5, 8.2, 7.2, 6.2), wP = W(12.5, 11.5, 10.5, 9);
+          const ptsI = [[80, -46], [18, -40], [-4, -37], [-22, -33]];
+          const ptsP = [[96, 4], [56, 34], [30, 40], [8, 38]];
+          const repl = [[[66, -28], [46, -25]], [[68, -14], [50, -12]], [[66, 0], [54, 1]]];
+          const paume = I.lisse([[58, -50], [110, -50], [150, -40], [(x1 - bx) / k, -36], [(x1 - bx) / k, 34], [140, 28], [110, 16], [96, 16], [74, 14], [56, 8], [40, -10], [42, -30]], true);
+          const pieces = [{ remp: paume, trait: [I.lisse([[80, -55], [110, -50], [150, -40], [(x1 - bx) / k, -36]]), I.lisse([[(x1 - bx) / k, 34], [140, 28], [110, 16], [96, 16], [74, 14]])], det: [] }];
+          for (const [i, r] of repl.entries()) pieces.push(I.tube({ pts: r, sens: 1, dos: [[8.2 - i * 0.5, 7.6 - i * 0.5]], ventre: [[8.2 - i * 0.5, 7.6 - i * 0.5]], bout: 'phalange', base: 14 }));
+          pieces.push(I.tube({ pts: ptsI, sens: 1, dos: wI, ventre: wI, coussin: [-0.15, -0.1, 0.15], bout: 'rond', ongle: 'dessus', base: 16, rides: [{ j: 1, n: 2, l: 0.5 }, { j: 2, n: 1, l: 0.45 }] }));
+          pieces.push(I.tube({ pts: ptsP, sens: 1, dos: wP, ventre: wP, coussin: [0, -0.3, 0.3], bout: 'rond', ongle: 'dessus', base: 16, rides: [{ j: 2, n: 2, l: 0.5 }] }));
+          pieces.push({ remp: null, trait: [I.lisse([[28, -49.2], [80, -55.4]])], det: [], silhouette: false });
+          o.push(I.peindre(pieces, T));
+          // la peau tendue : de petits plis devant les bouts des doigts, qui tirent vers l'extérieur
+          for (const [cx0, cy0, sy] of [[-30, -40, -1], [0, 46, 1]]) {
+            for (const [dx, dy, l] of [[-6, 0, 7], [0, 2, 9], [6, 0, 7]]) {
+              const p0 = T([cx0 + dx, cy0 + sy * dy]), p1 = T([cx0 + dx * 1.3, cy0 + sy * (dy + l)]);
+              o.push(`<path d="M ${f(p0[0])} ${f(p0[1])} L ${f(p1[0])} ${f(p1[1])}" ${A.fin}/>`);
+            }
+          }
+          // le grand axe, et le trait : sur la peau entre le pouce et l'index
+          o.push(`<path d="M ${f(bx + 26 * k)} ${f(by)} L ${f(bx - 42 * k)} ${f(by)}" ${A.fin} stroke-dasharray="8 3 2 3"/>`);
           o.push(h.fleche(`M ${f(bx + 11 * k)} ${f(by)} L ${f(bx - 11 * k)} ${f(by)}`, A.contour));
-          G.tenir = { bx, by, k, m };
+          G.tenir = { bx, by, k };
           return o.join('\n');
         },
         renvois: z => {
           const { bx, by, k } = (V.tenir.dessin(z), G.tenir);
           return [
-            { n: 4, rond: [bx - 58 * k, by - 50 * k], cible: [bx - 26 * k, by - 12 * k], texte: 'bord senti tout autour' },
-            { n: 5, rond: [bx - 20 * k, by + 58 * k], cible: [bx - 4 * k, by + 5 * k], texte: 'le centre mou' },
-            { n: 6, rond: [bx - 62 * k, by + 16 * k], cible: [bx - 12 * k, by], texte: 'le trait, dans le grand axe' },
-            { n: 7, rond: [z.l - 14, 16], cible: [bx + 34 * k, by - 40 * k], texte: 'l’autre main tient la bosse' },
+            { n: 4, rond: [24, by - 50 * k], cible: [bx - 29 * k, by - 6 * k], texte: 'bord senti tout autour' },
+            { n: 5, rond: [bx - 20 * k, by + 66 * k], cible: [bx - 4 * k, by + 5 * k], texte: 'le centre mou' },
+            { n: 6, rond: [24, by + 30 * k], cible: [bx - 12 * k, by], texte: 'le trait, dans le grand axe' },
+            { n: 7, rond: [z.l - 18, by - 68 * k], cible: [bx + 120 * k, by - 10 * k], texte: 'l’autre main tient la bosse' },
           ];
         },
       },

@@ -407,26 +407,27 @@ module.exports = (h) => {
     out.push(h.cercle(f(pq[0]), f(pq[1]), 2.2, h.a.fin));
     // le tireur, au bout du bâton, hors des axes
     // vu d'en haut : les épaules, la tête, deux bras coudés en dehors, les mains sur le bâton
-    const tp = add(M, nB, q.Ls + 19);
+    const tp = add(M, nB, q.Ls + 17);
+    // deux empreintes de bottes, pointes vers le bâton
+    const ovale = (c, la, lo) => { const e = []; for (let i = 0; i < 36; i++) { const t = rad(i * 10); e.push(add(add(c, b, la * Math.cos(t)), nB, lo * Math.sin(t))); } return poly(e) + ' Z'; };
     for (const s of [-1, 1]) {
-      const ep = add(add(tp, b, s * 11), nB, -2), cd = add(add(tp, b, s * 15), nB, -11);
-      const mn = add(add(M, nB, q.Ls - 3 - (s + 1) * 4), b, s * 3.2);
-      out.push(h.path(poly([ep, cd, mn]), h.a.arete));
-      out.push(h.cercle(f(mn[0]), f(mn[1]), 2.3, h.a.plein));
+      const c = add(tp, b, s * 6);
+      out.push(h.path(ovale(add(c, nB, -3), 3.4, 6), blanc('arete')));
+      out.push(h.path(ovale(add(c, nB, 6), 2.8, 2.8), blanc('arete')));
     }
-    const ep = [];
-    for (let i = 0; i < 36; i++) { const t = rad(i * 10); ep.push(add(add(tp, b, 14 * Math.cos(t)), nB, 6.5 * Math.sin(t))); }
-    out.push(h.path(poly(ep) + ' Z', blanc('contour')));
-    out.push(h.cercle(f(tp[0]), f(tp[1]), 5, blanc('arete')));
+    // renvoi 19 : un second trait vers l'autre prolongement
+    { const c3b = add(T2, nB, q.ri + q.g / 2), pa = add(c3b, neg(b), 52), r19 = [pa[0] - 30, pa[1] - 6];
+      const p1 = add(c2, neg(a), 40), d = norm([p1[0] - r19[0], p1[1] - r19[1]]);
+      out.push(`<line x1="${f(r19[0] + d[0] * 7)}" y1="${f(r19[1] + d[1] * 7)}" x2="${f(p1[0])}" y2="${f(p1[1])}" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`, h.cercle(f(p1[0]), f(p1[1]), 1.2, h.a.plein)); }
     // l'arbre tiré vient vers le renvoi
-    const f0 = add(add(T1, neg(a), q.R1 + 24), nA, 34);
+    const f0 = add(add(T1, neg(a), q.R1 - 4), nA, q.ro + 4);
     out.push(h.fleche(`M ${pt(f0)} L ${pt(add(f0, neg(a), 30))}`));
     return out.join('\n');
   };
   const renvoisPlan = z => {
     const q = G5(z), { T1, T2, T3, a, b, nA, nB, M } = q;
     const neg = v => [-v[0], -v[1]];
-    const tp = add(M, nB, q.Ls + 19);
+    const tp = add(M, nB, q.Ls + 17);
     const c3 = add(T2, nB, q.ri + q.g / 2), pa = add(c3, neg(b), 52);
     const st = add(M, nB, q.Ls * 0.5);
     return [
@@ -434,7 +435,7 @@ module.exports = (h) => {
       { n: 15, rond: [f(T2[0] - 44), f(T2[1] + 4)], cible: [f(T2[0] - q.R2 - 0.5), f(T2[1])], texte: 'arbre latéral : le renvoi' },
       { n: 16, rond: [f(T3[0] - 4), f(T3[1] + 46)], cible: [f(T3[0]), f(T3[1] + q.R3 + 0.5)], texte: 'ancrage' },
       { n: 17, rond: [f(M[0] - 40), f(M[1] - 34)], cible: [f(M[0] - 3), f(M[1] - 4)], texte: 'tourniquet, après le renvoi' },
-      { n: 18, rond: [f(tp[0] + 34), f(tp[1] + 4)], cible: [f(tp[0] + 10), f(tp[1])], texte: 'le tireur, hors des axes' },
+      { n: 18, rond: [f(tp[0] + 34), f(tp[1] + 4)], cible: [f(tp[0] + 9), f(tp[1])], texte: 'le tireur se tient ici' },
       { n: 19, rond: [f(pa[0] - 30), f(pa[1] - 6)], cible: [f(pa[0]), f(pa[1])], texte: 'axe des brins : personne' },
     ];
     void a; void st;

@@ -127,12 +127,12 @@ module.exports = (h) => {
     const T = rep(z.l * 0.5, 22 + 20.8 * k, k);
     return { k, T, d: 8 };                        // d : la dent qui entre, 8 mm plus bas que sa place
   };
-  // Vue 5 : la tête de profil, le linge mordu.
+  // Vue 5 : le bas du visage de profil (nez, lèvres, menton), recadré pour que le linge se lise.
+  // Repère local en mm : x vers l'avant (la droite), y vers le bas, origine au milieu de la bouche.
   const g5 = z => {
-    const e = Math.min((z.h - 10) / 285, (z.l - 10) / 240);
-    return { e, x: 6 + 91 * e, y: 4 + 126 * e };
+    const e = Math.min((z.h - 40) / 92, (z.l - 14) / 98);
+    return { e, T: rep(z.l - 10 - 36 * e, 6 + 50 * e, e) };
   };
-
   return {
     ref: '27-03',
     titre: 'Replanter une dent permanente',
@@ -232,24 +232,33 @@ module.exports = (h) => {
       linge: {
         titre: 'Mordre un linge plié',
         dessin: z => {
-          const { e, x, y } = g5(z);
-          const t = F.tete({ x, y, echelle: e });
-          const [bx, by] = t.bouche;
-          const P = (u, v) => [bx + u * e, by + v * e];
-          const pts = L => L.map(p => p.map(f).join(' ')).join(' L');
-          // le linge plié, pris entre les dents : il sort d'entre les lèvres et retombe un peu
-          const lin = [
-            h.path(`M${pts([P(-14, -4.6), P(8, -4.8), P(18, -3.8), P(25, -0.6)])} Q${P(31, 3.6).map(f).join(' ')} ${P(25.6, 8.6).map(f).join(' ')} ` +
-              `L${pts([P(17, 6.4), P(6, 5), P(-14, 4.8)])} Z`, bA),
-            h.path(lisse([P(0, -1.6), P(12, -1.6), P(20.5, -0.2), P(26.6, 3)]), A.fin),
-            h.path(lisse([P(0, 1.7), P(12, 1.9), P(20, 3.6), P(25.2, 5.9)]), A.fin),
-          ];
-          return [lin.join('\n'), t.toString()].join('\n');
+          const { e, T } = g5(z);
+          const P = L => L.map(T);
+          const out = [];
+          const Q = (c, p) => ` Q${T(c).map(f).join(' ')} ${T(p).map(f).join(' ')}`;
+          // le linge : un carré plié en trois, aplati, pincé entre les incisives ; le bord replié en avant,
+          // trois épaisseurs empilées
+          out.push(h.path(lisse(P([[-9, -4.4], [2, -5], [7, -8.4], [12, -9.6], [31, -9.6]])) + Q([36, -9.6], [36, -6.4]) + Q([36, -3.2], [32, -3.2]) +
+            Q([36.5, -3.2], [36.5, 0]) + Q([36.5, 3.2], [32, 3.2]) + Q([36, 3.2], [36, 6.4]) + Q([36, 9.6], [31, 9.6]) +
+            lisse(P([[31, 9.6], [12, 9.6], [7, 8.4], [2, 5], [-9, 4.4]])).replace(/^M[^C]*/, '') + ' Z', bA));
+          for (const s of [-1, 1]) out.push(h.path(lisse(P([[9, 2.2 * s], [16, 3.2 * s], [32, 3.2 * s]])), A.fin));
+          // le visage : nez, lèvre du haut, bouche entrouverte, lèvre du bas, menton, mâchoire jusque sous l'oreille
+          const haut = P([[-18, -50], [-6, -38], [3, -28], [5, -24], [1, -21], [-5, -20.5], [-6, -16], [-2, -13], [5, -10], [5.5, -7], [-3, -5.4]]);
+          const bas = P([[-3, 5.4], [5, 6.6], [5.5, 10.5], [-1, 15.5], [-6, 18.5], [-4, 24], [1, 31], [0, 38], [-9, 43], [-28, 42], [-44, 35], [-56, 24], [-62, 10], [-64, -4]]);
+          out.push(h.path(lisse(haut), A.contour), h.path(lisse(bas), A.contour));
+          // les incisives du haut et du bas, qui pincent le linge
+          out.push(h.path(lisse(P([[-9, -10], [-8.4, -4.2], [-2.2, -4.4], [-1.6, -10]])), bA));
+          out.push(h.path(lisse(P([[-10, 10], [-9.4, 4.2], [-3.6, 4.4], [-3, 10]])), bA));
+          out.push(h.path(lisse(haut), A.contour), h.path(lisse(P([[-3, 5.4], [5, 6.6], [5.5, 10.5], [-1, 15.5]])), A.contour));
+          // l'aile du nez, le pli de la joue
+          out.push(h.path(lisse(P([[-5, -20.8], [-11, -23], [-12, -28], [-7, -30]])), A.detail));
+          out.push(h.path(lisse(P([[-13, 9], [-20, 20], [-30, 27]])), A.fin));
+          return out.join('\n');
         },
         renvois: z => {
-          const { e, x, y } = g5(z);
-          const [bx, by] = h.formes.tete({ x, y, echelle: e }).bouche;
-          return [{ n: 7, rond: [Math.min(z.l - 14, bx + 22 * e), by + 30 * e + 20], cible: [bx + 22 * e, by + 5 * e], texte: 'un linge propre plié, mordu' }];
+          const { e, T } = g5(z);
+          const c = T([24, 9]);
+          return [{ n: 7, rond: [Math.min(z.l - 14, c[0]), c[1] + 20 * e + 14], cible: c, texte: 'un linge propre plié, mordu' }];
         },
       },
     },

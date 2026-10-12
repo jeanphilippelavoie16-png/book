@@ -44,7 +44,7 @@ module.exports = (h) => {
   // Hauteurs vues de côté : le devant et l'arrière. La cuisse et le mollet portent au sol, le
   // creux du genou et le tendon d'Achille en l'air.
   const TOP = [[-300, 158], [-220, 152], [-150, 145], [-80, 135], [-35, 127], [-12, 131], [12, 131], [40, 121], [68, 122], [100, 118], [160, 113], [240, 108], [320, 103], [390, 100], [415, 100]];
-  const BAS = [[-300, 2], [-200, 0], [-120, 3], [-60, 16], [-20, 28], [20, 30], [60, 18], [100, 4], [150, 0], [220, 2], [290, 14], [350, 28], [380, 33], [410, 36]];
+  const BAS = [[-300, 2], [-200, 0], [-120, 3], [-60, 9], [-20, 13], [20, 14], [60, 10], [100, 4], [150, 0], [220, 2], [290, 14], [350, 28], [380, 33], [410, 36]];
 
   // ─── Les perches ──────────────────────────────────────────────────────────────────────
   const X0 = -220, X1 = 370, R = 20;            // de la mi-cuisse à au-dessus de la cheville
@@ -109,14 +109,11 @@ module.exports = (h) => {
         out.push(h.chemin(pts, blanc(h.a.arete), true));
         out.push(h.ligne(X(xl - 11), Y(interp(TOP, xl - 11) + 1), X(xl - 11), Y(PC(xl) + 14), h.a.fin));
         out.push(h.ligne(X(xl + 12), Y(PC(xl) - 10), X(xl + 12), Y(interp(BAS, xl + 12) + 1), h.a.fin));
-        // le nœud plat vu de face : deux boucles prises l'une dans l'autre, les bouts couchés
-        // sur le lien, un vers le haut, un vers le bas
-        const cx = X(xl), cy = Y(PC(xl)), k = s;
-        const Q = (pts) => pts.map(([a, b]) => [cx + a * k, cy - b * k]);
-        out.push(h.chemin(Q([[-15, 6], [-7, 26], [3, 26], [-3, 6]]), blanc(h.a.arete), true));
-        out.push(h.chemin(Q([[15, -6], [7, -26], [-3, -26], [3, -6]]), blanc(h.a.arete), true));
-        out.push(h.path(`M${d(Q([[-2, 10]])).slice(1)} C${d(Q([[-22, 10]])).slice(1)} ${d(Q([[-22, -10]])).slice(1)} ${d(Q([[4, -10]])).slice(1)}`, blanc(h.a.arete)));
-        out.push(h.path(`M${d(Q([[2, -10]])).slice(1)} C${d(Q([[22, -10]])).slice(1)} ${d(Q([[22, 10]])).slice(1)} ${d(Q([[-4, 10]])).slice(1)}`, blanc(h.a.arete)));
+        // le nœud plat serré sur la face du dehors de la perche, ses deux bouts qui pendent
+        const kx = X(xl), ky = Y(PC(xl) + 4);
+        out.push(h.ellipse(kx, ky, 7 * s, 9 * s, h.a.plein));
+        const bout = (dx, lg) => `<path d="M${f(kx - 3 * s)} ${f(ky + 5 * s)} Q${f(kx + dx * 0.4 * s)} ${f(ky + lg * 0.5 * s)} ${f(kx + dx * s)} ${f(ky + lg * s)} L${f(kx + (dx + 6) * s)} ${f(ky + (lg - 1) * s)} Q${f(kx + (dx * 0.4 + 6) * s)} ${f(ky + lg * 0.5 * s)} ${f(kx + 3 * s)} ${f(ky + 5 * s)} Z" fill="#1A1A1A" stroke="none"/>`;
+        out.push(bout(-14, 30), bout(-2, 34));
       });
       return out.join('\n');
     },
@@ -222,12 +219,14 @@ module.exports = (h) => {
   const TIBIA = [[1, 110], [12, 103], [24, 93], [30, 86], [25, 78], [12, 74], [-4, 75], [-16, 80], [-22, 88], [-15, 99], [-6, 106]];
   const PERONE = [[-38, 71], [-30, 64], [-32, 54], [-41, 52], [-46, 61]];
 
-  const coupe = (x, jambe, os, avecLien) => ({
+  const coupe = (x, jambe0, os0, avecLien, dh = 0) => {
+  const jambe = jambe0.map(([u, hh]) => [u, hh + dh]), os = os0.map(o => o.map(([u, hh]) => [u, hh + dh]));
+  return {
     dessin: z => {
       const s = Math.min((z.l - 20) / 250, (z.h - 34) / 142), cx = z.l / 2, sol = z.h - 18;
       const P = (u, hh) => [cx + u * s, sol - hh * s];
       const out = [];
-      const pc = PC(x), cl = -(EL(x) + R), cm = EM(x) + R;
+      const pc = PC(x) + dh, cl = -(EL(x) + R), cm = EM(x) + R;
       out.push(h.rect(0, sol, z.l, 10, h.a.hachure('terre', 'aucun')), h.ligne(0, sol, z.l, sol, h.a.arete));
       const peau = lisse(jambe, true);
       // la peau d'un côté, à une hauteur donnée (pour écraser le rembourrage dessus)
@@ -245,7 +244,7 @@ module.exports = (h) => {
       // le lien, en coupe : une bande qui fait le tour des deux perches et de la jambe
       if (avecLien) {
         const coque = off => {
-          const pts = peau.map(([u, hh]) => { const dx = u, dy = hh - 64, l = Math.hypot(dx, dy); return [u + dx / l * off, hh + dy / l * off]; });
+          const pts = peau.map(([u, hh]) => { const dx = u, dy = hh - 64 - dh, l = Math.hypot(dx, dy); return [u + dx / l * off, hh + dy / l * off]; });
           for (let a = 0; a < 360; a += 6) { const c = Math.cos(a * Math.PI / 180), sn = Math.sin(a * Math.PI / 180); pts.push([cl + c * (R + off), pc + sn * (R + off)], [cm + c * (R + off), pc + sn * (R + off)]); }
           pts.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
           const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
@@ -285,9 +284,10 @@ module.exports = (h) => {
       }
       return out.join('\n');
     },
-  });
+  };
+  };
 
-  const coupeA = Object.assign(coupe(0, GENOU, [FEMUR, ROTULE], false), { titre: 'Coupe A, au genou' });
+  const coupeA = Object.assign(coupe(0, GENOU, [FEMUR, ROTULE], false, -17), { titre: 'Coupe A, au genou' });
   const coupeB = Object.assign(coupe(LIENS[1], MOLLET, [TIBIA, PERONE], true), { titre: 'Coupe B, au lien sous le genou' });
 
   return {

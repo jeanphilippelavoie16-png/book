@@ -37,7 +37,7 @@ module.exports = (h) => {
   const LB = 1480;                                // la barre, depuis l'axe
   const HC = 1550, YN = 1360;                     // hauteur du chicot ; l'élingue, sous l'épaulement
   const XE = -450, YE = 1360;                     // l'anneau où les brins de l'élingue prennent le câble
-  const XP = -4760, YP = 1300;                    // piquet et pivot du cliquet
+  const XP = -4380, YP = 1300;                    // piquet et pivot du cliquet
   const PB1 = 1220, PB2 = 1120;                   // plans des deux barres (plan)
   const PBOUT = 1350, PFOND = -1150;              // bouts du tambour (plan)
   const AXE = 520;                                // demi-largeur de l'axe à laisser vide (dessin)
@@ -99,7 +99,7 @@ module.exports = (h) => {
     const gauche = Ys.map(Y => [x(-r(Y)), y(Y)]);
     const droite = Ys.map(Y => [x(r(Y)), y(Y)]).reverse();
     // l'entaille, côté droit (opposé à la traction) : épaulement plat, face basse en biais
-    const nH = 1372, nB = 1202, nP = 100;
+    const nH = 1372, nB = nH - Math.max(200, 30 / s), nP = 130;
     const droiteEnt = [];
     droite.forEach(p => {
       const Y = (gy - p[1]) / s;
@@ -124,7 +124,20 @@ module.exports = (h) => {
     pts.push([x(XE), y(YE)]);
     out.push(h.chemin(pts, h.a.contour));
     // L'élingue : de l'anneau au flanc du chicot, puis en travers de la face, jusque dans l'entaille.
-    out.push(h.chemin([[x(XE + 40), y(YE)], [x(-r(YN)), y(YN)], [x(r(YN) - nP + 10), y(YN)]], h.a.contour));
+    // Double trait à intérieur blanc, plus fin que le contour, couché sous l'épaulement jusqu'au fond.
+    const EP = 4.2, Yb = nH - 3.4 / s;
+    const xFond = (r(nH) - nP) + (r(nB) - (r(nH) - nP)) * ((nH - Yb) / (nH - nB));
+    const pE = [[x(XE + 40), y(YE)], [x(-r(Yb)), y(Yb)], [x(xFond) - EP / 2, y(Yb)]];
+    const n = pE.length, G = [], Dd = [];
+    for (let i = 0; i < n; i++) {
+      const a = pE[Math.max(0, i - 1)], b = pE[Math.min(n - 1, i + 1)];
+      const L = Math.hypot(b[0] - a[0], b[1] - a[1]), nx = -(b[1] - a[1]) / L * EP / 2, ny = (b[0] - a[0]) / L * EP / 2;
+      G.push([pE[i][0] + nx, pE[i][1] + ny]); Dd.push([pE[i][0] - nx, pE[i][1] - ny]);
+    }
+    let dE = 'M ' + G.map(p => `${f(p[0])} ${f(p[1])}`).join(' L ');
+    dE += ` A ${f(EP / 2)} ${f(EP / 2)} 0 0 0 ${f(Dd[n - 1][0])} ${f(Dd[n - 1][1])}`;
+    dE += ' L ' + Dd.slice().reverse().map(p => `${f(p[0])} ${f(p[1])}`).join(' L ') + ' Z';
+    out.push(h.path(dE, blanc('detail')));
     out.push(h.cercle(x(XE), y(YE), 45 * s + 1.2, blanc('arete')));
 
     // La couverture à cheval sur le câble, à mi-portée.
@@ -154,14 +167,19 @@ module.exports = (h) => {
     out.push(h.cercle(x(XV), y(YV), RV * s, blanc('contour')));
     for (let i = 0; i < 6; i++) {
       const a = rad(-15 + i * 60);
-      out.push(h.cercle(x(XV + 100 * Math.cos(a)), y(YV + 100 * Math.sin(a)), 1.1, h.a.plein));
+      out.push(h.cercle(x(XV + 115 * Math.cos(a)), y(YV + 115 * Math.sin(a)), 1.1, h.a.plein));
     }
-    const chev = [XV + 100 * Math.cos(rad(-15)), YV + 100 * Math.sin(rad(-15))];
-    out.push(h.path(D([[x(XP + 60), gy], [x(XP + 60), y(YP + 40)], [x(XP - 60), y(YP + 70)], [x(XP - 60), gy]]), blanc('arete')));
+    const chev0 = [XV + 115 * Math.cos(rad(-15)), YV + 115 * Math.sin(rad(-15))];
+    const chev = [XV + 115 * Math.cos(rad(-15)), YV + 115 * Math.sin(rad(-15))];
+    // le piquet : tête arrondie, pied appointé enfoncé dans le sol
+    const WP = 60, HP = YP + 90;
+    out.push(h.path(`M ${f(x(XP - WP))} ${f(y(-260))} L ${f(x(XP - WP))} ${f(y(HP))} A ${f(WP * s)} ${f(WP * s)} 0 0 1 ${f(x(XP + WP))} ${f(y(HP))} L ${f(x(XP + WP))} ${f(y(-260))} L ${f(x(XP))} ${f(y(-480))} Z`, blanc('arete')));
     const pu = [chev[0] - XP, chev[1] - YP], pl = Math.hypot(...pu), pn = [-pu[1] / pl * 30, pu[0] / pl * 30];
+    { const k = (pl - 30) / pl; chev[0] = XP + pu[0] * k; chev[1] = YP + pu[1] * k; }
     out.push(h.path(D([[x(XP + pn[0]), y(YP + pn[1])], [x(chev[0] + pn[0]), y(chev[1] + pn[1])],
       [x(chev[0] - pn[0]), y(chev[1] - pn[1])], [x(XP - pn[0]), y(YP - pn[1])]]), blanc('arete')));
     out.push(h.cercle(x(XP), y(YP), 1.6, h.a.plein));
+    out.push(h.cercle(x(chev0[0]), y(chev0[1]), 2.2, h.a.plein));
 
     // Les gestes : la barre poussée vers le bas ; le chicot qui bascule vers le vindas.
     const arc = (cx, cy, R, a0, a1, sweep) => {
@@ -260,7 +278,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: [x(1150), y(1300)], cible: [x(r(900) - 20), y(900)], texte: 'le chicot, laissé haut à l’abattage' },
             { n: 2, rond: [x(1150), y(250)], cible: [x(900), y(-140)], texte: 'les racines tranchées tout autour' },
-            { n: 3, rond: [x(-900), y(2250)], cible: [x(-240), y(YN)], texte: 'le câble attaché haut sur le chicot' },
+            { n: 3, rond: [x(-900), y(2250)], cible: [x(-240), y(YN)], texte: 'attaché haut, l’élingue dans l’entaille (96-03b)' },
             { n: 4, rond: [x(XM), y(2500)], cible: [x(XM + 60), y(yc(XM) - 150)], texte: 'une couverture à cheval, à mi-portée' },
             { n: 5, rond: [x(-3800), y(2800)], cible: [x(XP - 20), y(YP + 150)], texte: 'le vindas, cliquet engagé (ch. 109)' },
           ];

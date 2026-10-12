@@ -22,14 +22,10 @@
 <path d="M 24.0 50.0 l -3 -2 M 24.0 50.0 l -3.2 1 M 24.0 57.0 l -3 -1 M 24.0 57.0 l -3 2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="24" y1="38" x2="24" y2="47" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
 <line x1="303.5" y1="38" x2="303.5" y2="47" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
-<line x1="50" y1="78" x2="298.5" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="301.5" y1="78" x2="550" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="50" cy="78" r="1.5" fill="#1A1A1A" stroke="none"/>
-<circle cx="298.5" cy="78" r="1.5" fill="#1A1A1A" stroke="none"/>
-<circle cx="301.5" cy="78" r="1.5" fill="#1A1A1A" stroke="none"/>
-<circle cx="550" cy="78" r="1.5" fill="#1A1A1A" stroke="none"/>
-<line x1="50" y1="34" x2="50" y2="74" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
-<line x1="550" y1="34" x2="550" y2="74" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
+<line x1="50" y1="78" x2="300" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="300" y1="78" x2="550" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3"/>
+<line x1="50" y1="34" x2="50" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
+<line x1="550" y1="34" x2="550" y2="78" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 2.5"/>
 <path d="M 180.0 71.0 Q 300.0 59.0 420.0 71.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <text x="40" y="171.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le fléau taré à vide</text>
@@ -289,6 +285,9 @@
 <path d="M 249.0 113.0 A 10.0 3.2 -110.0 1 0 242.2 94.2 A 10.0 3.2 -110.0 1 0 249.0 113.0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 249.1 111.4 A 5.5 1.8 -110.0 1 0 245.3 101.0 A 5.5 1.8 -110.0 1 0 249.1 111.4 Z" fill="url(#h-neige)" stroke="none"/>
 <rect x="284" y="237" width="62" height="6" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<rect x="284" y="237" width="62" height="6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="334" y="243" width="6" height="10" fill="#FFFFFF" stroke="none"/>
+<rect x="334" y="243" width="6" height="10" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 294.0 219.0 A 22.0 6.6 0.0 1 0 338.0 219.0 A 22.0 6.6 0.0 1 0 294.0 219.0 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M 294.0 219.0 A 22.0 6.6 0.0 1 0 338.0 219.0 A 22.0 6.6 0.0 1 0 294.0 219.0 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 297.5 221.0 Q 309.4 208.0 316.0 207.5 Q 322.6 208.0 334.5 221.0 Z" fill="url(#h-neige)" stroke="none"/>

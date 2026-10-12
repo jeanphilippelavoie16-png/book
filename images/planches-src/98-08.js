@@ -78,7 +78,7 @@ module.exports = (h) => {
     const P = ([x, y]) => [x0 + x * e, G + y * e];
     // la chaudière : repère à la gueule, l'axe vers le fond ; penchée de 105°
     const rt = 125, rb = 105, hb = 270, th = 105;
-    const Lp = [560, -1420];                            // le rebord bas de la gueule, à hauteur d'épaule
+    const Lp = [420, -1420];                            // le rebord bas de la gueule, à hauteur d'épaule
     const M = add(Lp, rot([-rt, 0], th));               // centre de la gueule
     const Q = p => P(add(M, rot(p, th)));               // du repère de la chaudière à la vue
     // le filet de grain : du rebord jusqu'au tas
@@ -86,6 +86,8 @@ module.exports = (h) => {
     const filet = s => [Lp[0] + 38 * Math.sqrt(s), Lp[1] + s * (yTas - Lp[1])];
     return { G, e, x0, P, rt, rb, hb, th, Lp, M, Q, filet, yTas };
   };
+  const MDEV = g => { const p = g.Q([-g.rt + 4, -3]); return { x: p[0], y: p[1], angle: 30 }; };
+  const MDER = g => { const p = g.Q([g.rb + 3, g.hb * 0.8]); return { x: p[0], y: p[1], angle: 195 }; };
   const vanner = z => {
     const g = vanGeo(z), { P, e, Q, rt, rb, hb, filet } = g, o = [];
     const r = alea(9808);
@@ -123,9 +125,53 @@ module.exports = (h) => {
       o.push(grain(p, 3.6, 1.8, 70 + 40 * r(), { plein: true }));
     }
     // le personnage, puis la chaudière, puis le bras proche par-dessus
-    const pers = F.personnage({ x: g.x0, y: g.G, pose: 'debout', echelle: e, penche: -4, regard: 14,
-      mains: { proche: P([330, -1500]), loin: P([200, -1400]) } });
-    o.push(pers);
+    // les deux mains : devant, les doigts repliés par-dessus le rebord haut de la gueule, le pouce
+    // dedans ; derrière, la paume sous le fond, vers le haut
+    // Chaque main se pose au poignet du bras du personnage, dans l'axe de son avant-bras (elle
+    // recouvre la main sommaire du personnage) ; on déplace la cible du poignet jusqu'à ce que la
+    // main tombe sur son objet : le rebord pour la main de devant, le fond pour celle de derrière.
+    const RAD = Math.PI / 180, dv = MDEV(g), dr = MDER(g);
+    const faire = (k, a) => k === 'loin'
+      ? F.main({ x: 0, y: 0, angle: a, pose: 'prise', vue: 'profil', echelle: e, diametre: 12 * e, bras: 60 })
+      : derriere(a);
+    // la main de derrière, paume en haut sous la paroi basse, près du fond : l'inclinaison qui met
+    // son avant-bras le plus près de celui du personnage
+    const derriere = a => {
+      let best = null;
+      for (let inc = 10; inc <= 85; inc += 5) {
+        const m = F.main({ x: 0, y: 0, angle: dr.angle, cote: 'gauche', pose: 'appui', vue: 'profil', echelle: e, bras: 60, inclinaison: inc });
+        const b = Math.atan2(m.poignet[1] - m.bras[1], m.poignet[0] - m.bras[0]) / RAD;
+        const d = Math.abs(((b - a) % 360 + 540) % 360 - 180);
+        if (!best || d < best.d) best = { d, m };
+      }
+      return best.m;
+    };
+    const but = { loin: [dv.x, dv.y], proche: [dr.x, dr.y] };
+    const w = { loin: P([250, -1520]), proche: P([150, -1250]) };
+    let pers, mains = {};
+    for (let it = 0; it < 12; it++) {
+      pers = F.personnage({ x: g.x0, y: g.G, pose: 'debout', echelle: e, penche: -4, regard: 14, mains: { proche: w.proche, loin: w.loin } });
+      for (const k of ['proche', 'loin']) {
+        const pw = pers.poignets[k], pm = pers.mains[k];
+        const a = Math.atan2(pm[1] - pw[1], pm[0] - pw[0]) / RAD;
+        const m0 = faire(k, a), dx = pw[0] - m0.poignet[0], dy = pw[1] - m0.poignet[1];
+        const t = [dx, dy];
+        mains[k] = { a, t };
+        w[k] = [w[k][0] + 0.7 * (but[k][0] - t[0]), w[k][1] + 0.7 * (but[k][1] - t[1])];
+      }
+    }
+    const placer = k => { const { a, t } = mains[k], m = faire(k, a); return `<g transform="translate(${f(t[0])} ${f(t[1])})">${m}</g>`; };
+    const mDev = placer('loin'), mDer = placer('proche');
+    // la main sommaire du personnage, au bout de chaque avant-bras, est masquée : la vraie main la remplace
+    const trous = ['proche', 'loin'].map(k => {
+      const pw = pers.poignets[k], a = mains[k].a * RAD, u = [Math.cos(a), Math.sin(a)], n = [-u[1], u[0]];
+      const L = 200 * e, l = 42 * e, d0 = 4 * e;
+      const c = [[d0, -l], [L, -l], [L, l], [d0, l]].map(([s1, s2]) => [pw[0] + u[0] * s1 + n[0] * s2, pw[1] + u[1] * s1 + n[1] * s2]);
+      return `<path d="${dL(c)} Z" fill="black"/>`;
+    }).join('');
+    const masque = `<defs><mask id="m9808" maskUnits="userSpaceOnUse" x="0" y="0" width="${f(z.l)}" height="${f(z.h)}"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="white"/>${trous}</mask></defs>`;
+    const masquer = svg => `<g mask="url(#m9808)">${svg}</g>`;
+    o.push(masque, masquer(pers));
     const corps = [Q([-rt, 0]), Q([rt, 0]), Q([rb, hb]), Q([-rb, hb])];
     o.push(h.chemin(corps, W(A.arete), true));
     // la gueule vue un peu en biais : le grain dedans, qui glisse vers le rebord bas
@@ -139,7 +185,9 @@ module.exports = (h) => {
     // les nervures et le fond de la chaudière
     for (const k of [0.12, 0.18]) o.push(h.path(dL([Q([-(rt - (rt - rb) * k), hb * k]), Q([rt - (rt - rb) * k, hb * k])]), A.detail));
     o.push(h.path(dL([Q([-rb * 1.01, hb]), Q([rb * 1.01, hb])]), A.arete));
-    o.push(brasProche(pers));
+    o.push(mDev);
+    o.push(masquer(brasProche(pers)));
+    o.push(mDer);
     // le vent, dans le dos, et la balle qu'il emporte
     for (const y of [-1600, -1080, -560]) {
       const a = P([-590, y]), b = P([-210, y]);
@@ -259,6 +307,9 @@ module.exports = (h) => {
     }
     return pts;
   };
+  const GRAIN8u = (U, V) => [U * 0.5, V * 0.48, 0];
+  const TROU7u = (U, V) => [Math.floor((U - 30) / 10) * 10, 144, 0];
+  const MAILLEu = U => { const d = Math.sqrt(3) * 10, i = Math.floor((U - 45 - d / 2) / d); return [i * d + d / 2 + d / 2, 135, 0]; };
   const tamis = z => {
     const g = tamGeo(z), { U, V, Hf, t } = g, o = [];
     const r = alea(4242);
@@ -270,11 +321,17 @@ module.exports = (h) => {
     for (const [u, v] of semis(r, 28, U, V, 14, 16)) o.push(casse(T3([u, v, 0]), 3.8, 3.6, r() * 360));
     // le second tamis : la tôle percée, et le bon grain dessus
     o.push(tole(T2, U, V));
-    for (const [u, v] of semis(r, 100, U, V, 14, 12)) o.push(grain(T2([u, v, 0]), 7.6, 3.4, r() * 180));
+    // le grain du renvoi 8 au milieu ; le coin arrière droit laissé sans grain pour voir la tôle (renvoi 7)
+    const g8 = GRAIN8u(U, V), t7 = TROU7u(U, V);
+    for (const [u, v] of semis(r, 100, U, V, 14, 12)) {
+      if (Math.hypot(u - g8[0], (v - g8[1]) * 0.6) < 12 || (u > t7[0] - 22 && v > t7[1] - 22)) continue;
+      o.push(grain(T2([u, v, 0]), 7.6, 3.4, r() * 180));
+    }
+    o.push(grain(T2(g8), 7.6, 3.4, 20));
     o.push(cadre(T2, U, V, Hf, t));
     // le premier tamis : le grillage de poulailler, les tiges et les épis entiers dessus
     o.push(grillage(T1, U, V));
-    const tiges = [[[22, 62], [104, 84]], [[64, 144], [150, 122]], [[146, 50], [214, 62]], [[170, 150], [222, 130]], [[24, 104], [66, 150]], [[176, 100], [226, 82]]];
+    const tiges = [[[22, 62], [104, 84]], [[64, 144], [150, 122]], [[146, 50], [214, 62]], [[150, 108], [196, 96]], [[24, 104], [66, 150]], [[176, 100], [226, 82]]];
     for (const [a, b] of tiges) o.push(tige(T1([a[0], a[1], 0]), T1([b[0], b[1], 0])));
     o.push(epi(T1([88, 58, 0]), -6), epi(T1([158, 120, 0]), 172));
     o.push(cadre(T1, U, V, Hf, t));
@@ -364,11 +421,12 @@ module.exports = (h) => {
         dessin: tamis,
         renvois: z => {
           const g = tamGeo(z), { U, V, Hf } = g, [T1, T2, T3] = g.O, xr = z.l - 12;
+          const MAILLE = MAILLEu(U), TROU7 = TROU7u(U, V), GRAIN8 = GRAIN8u(U, V);
           return [
-            { n: 5, rond: [xr, T1([U, V, Hf])[1] + 4], cible: T1([U, V * 0.6, Hf * 0.5]), texte: 'grillage de poulailler cloué sur des lattes' },
+            { n: 5, rond: [xr, T1([U, V, Hf])[1] + 4], cible: T1(MAILLE), texte: 'grillage de poulailler cloué sur des lattes' },
             { n: 6, rond: [xr, T1([U, 0, 0])[1] - 8], cible: T1([126, 124, 0]), texte: 'il retient les tiges et les épis entiers' },
-            { n: 7, rond: [xr, T2([U, V, Hf])[1] + 4], cible: T2([U, V * 0.6, Hf * 0.5]), texte: 'tôle ou fond de boîte percé au clou' },
-            { n: 8, rond: [xr, T2([U, 0, 0])[1] - 8], cible: T2([U - 36, 40, 0]), texte: 'il retient le bon grain' },
+            { n: 7, rond: [xr, T2([U, V, Hf])[1] + 4], cible: T2(TROU7), texte: 'tôle ou fond de boîte percé au clou' },
+            { n: 8, rond: [xr, T2([U, 0, 0])[1] - 8], cible: T2(GRAIN8), texte: 'il retient le bon grain' },
             { n: 9, rond: [xr, T3([U, V * 0.5, 0])[1]], cible: T3([U - 24, V * 0.5, 0]), texte: 'passent : poussière, graines, grain cassé' },
           ];
         },
