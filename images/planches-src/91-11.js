@@ -125,13 +125,18 @@ module.exports = (h) => {
 
     // dessus de la caisse, percé
     o.push(h.rect(p.xB, p.yBk, p.wB, p.dB, blanc(h.a.contour)));
-    o.push(h.rect(p.xO1, p.yO1, p.xO2 - p.xO1, p.yO2 - p.yO1, blanc(h.a.arete)));
+    // l'ouverture : en tireté sous la tôle, en trait plein là où elle est découverte
+    o.push(h.rect(p.xO1, p.yO1, p.xO2 - p.xO1, p.yO2 - p.yO1, h.a.cache));
     // la claie du haut, vue par la part ouverte
     for (let y = p.yO1 + 8; y < p.yO2 - 4; y += 10) {
       for (let x = p.xT1 + 7; x < p.xO2 - 4; x += 10) o.push(h.cercle(x, y, 3.8, h.a.detail));
     }
-    // tôle posée à moitié sur le trou ; elle glisse
-    o.push(h.rect(p.xO1 - 12, p.yO1 - 8, p.xT1 - p.xO1 + 12, p.yO2 - p.yO1 + 16, h.a.hachure('metal', 'arete')));
+    // tôle posée par-dessus, à moitié sur le trou ; elle glisse
+    const tx = p.xO1 - 12, ty = p.yO1 - 8, tw = p.xT1 - p.xO1 + 12, th = p.yO2 - p.yO1 + 16;
+    o.push(h.rect(tx, ty, tw, th, blanc(h.a.arete)));
+    o.push(h.rect(tx, ty, tw, th, h.a.hachure('metal', 'arete')));
+    o.push(h.path(`M ${p.xT1} ${p.yO1} L ${p.xO1} ${p.yO1} L ${p.xO1} ${p.yO2} L ${p.xT1} ${p.yO2}`, h.a.cache));
+    o.push(h.path(`M ${p.xT1} ${p.yO1} L ${p.xO2} ${p.yO1} L ${p.xO2} ${p.yO2} L ${p.xT1} ${p.yO2}`, h.a.arete));
     const yf = p.yBk - 16;
     o.push(h.path(`M ${p.xO1 - 10} ${yf} L ${p.xT1 + 14} ${yf}`, deuxBouts(h.a.arete)));
 
@@ -209,12 +214,12 @@ module.exports = (h) => {
       o.push(h.chemin(pts, blanc(h.a.arete), true));
       const yk = yc - Rs * 0.92 + 8;
       // plis courts et croisés, comme un raisin sec
-      [[-0.55, -0.15, 0.5, 0.2], [0.15, -0.35, 0.45, 0.25], [-0.3, 0.3, 0.55, -0.35], [0.35, 0.45, 0.4, 0.3], [-0.7, 0.35, 0.35, 0.5], [0.55, -0.05, 0.3, 1.2]].forEach(([u, v, L, r]) => {
+      [[-0.75, -0.3, 0.4, 0.2], [0.1, -0.45, 0.45, 0.25], [-0.45, 0.4, 0.5, -0.2], [0.3, 0.5, 0.35, 0.3], [-0.85, 0.2, 0.3, 0.9], [0.6, -0.2, 0.3, 1.2]].forEach(([u, v, L, r]) => {
         const x1 = x + u * Rs, y1 = yc + v * Rs, dx = Math.cos(r) * L * Rs, dy = Math.sin(r) * L * Rs;
         o.push(h.path(`M ${f(x1)} ${f(y1)} Q ${f(x1 + dx / 2 - dy * 0.25)} ${f(y1 + dy / 2 + dx * 0.25)} ${f(x1 + dx)} ${f(y1 + dy)}`, h.a.detail));
       });
-      // la fente, fermée et sèche
-      o.push(h.path(`M ${f(x - Rs * 0.28)} ${f(yc + Rs * 0.7)} L ${f(x + Rs * 0.2)} ${f(yc + Rs * 0.66)}`, h.a.arete));
+      // la même fente qu'au fruit pas prêt, au centre, fermée et sèche
+      o.push(h.path(`M ${f(x - Rs * 0.4)} ${yc} Q ${x} ${yc - 3} ${f(x + Rs * 0.4)} ${yc} Q ${x} ${yc + 3} ${f(x - Rs * 0.4)} ${yc} Z`, blanc(h.a.arete)));
       o.push(couronne(x, f(yk)));
     }
     // 2. pas prêt : rond, la fente pressée laisse une perle de jus
@@ -229,10 +234,14 @@ module.exports = (h) => {
     }
     // 3. séché trop chaud, coupé en deux : croûte dehors, humide au centre
     {
-      const x = xs[2], ri = R - 4.5;
-      o.push(h.path(`M ${x - R} ${yc} A ${R} ${R} 0 1 0 ${x + R} ${yc} A ${R} ${R} 0 1 0 ${x - R} ${yc} Z M ${x - ri} ${yc} A ${ri} ${ri} 0 1 1 ${x + ri} ${yc} A ${ri} ${ri} 0 1 1 ${x - ri} ${yc} Z`, `${h.a.plein} fill-rule="evenodd"`));
-      o.push(h.cercle(x, yc, ri, h.a.hachure('eau', 'fin')));
-      o.push(h.cercle(x, yc, R, h.a.arete));
+      const xm = xs[2], ri = R - 4.5, d = 6;
+      [[-1, 0], [1, 1]].forEach(([sg, sw]) => {
+        const x = xm + sg * d;
+        o.push(h.path(`M ${x} ${yc - R} A ${R} ${R} 0 0 ${sw} ${x} ${yc + R} Z`, h.a.plein));
+        o.push(h.path(`M ${x} ${yc - ri} A ${ri} ${ri} 0 0 ${sw} ${x} ${yc + ri} Z`, blanc(h.a.fin)));
+        o.push(h.path(`M ${x} ${yc - ri} A ${ri} ${ri} 0 0 ${sw} ${x} ${yc + ri} Z`, h.a.hachure('eau', 'fin')));
+        o.push(h.path(`M ${x} ${yc - R} A ${R} ${R} 0 0 ${sw} ${x} ${yc + R} Z`, h.a.arete));
+      });
     }
     return o.join('\n');
   };
@@ -289,9 +298,9 @@ module.exports = (h) => {
         renvois: z => {
           const t = test(z), yr = Math.max(14, t.yc - t.R - 26);
           return [
-            { n: 10, rond: [t.xs[0] + t.R * 0.9, yr], cible: [t.xs[0] + t.R * 0.52, t.yc - t.R * 0.5], texte: `sec${nb}: dur, la fente reste sèche` },
+            { n: 10, rond: [t.xs[0] + t.R * 0.9, yr], cible: [t.xs[0] + t.R * 0.15, t.yc - 1], texte: `sec${nb}: dur, la fente reste sèche` },
             { n: 11, rond: [t.xs[1] + t.R + 14, t.yc + t.R - 2], cible: [t.xs[1] + 7, t.yc + 14], texte: `perle de jus${nb}: retour au séchoir` },
-            { n: 12, rond: [t.xs[2] + t.R * 0.9, yr], cible: [t.xs[2] + 4, t.yc - 6], texte: `croûté dehors, humide dedans${nb}: trop chaud` },
+            { n: 12, rond: [t.xs[2] + t.R * 0.9, yr], cible: [t.xs[2] + 14, t.yc - 6], texte: `croûté dehors, humide dedans${nb}: trop chaud` },
           ];
         },
       },

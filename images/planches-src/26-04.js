@@ -82,11 +82,22 @@ module.exports = (h) => {
     ].join('\n');
   };
 
-  const noeud = (x, y) => [
-    h.ellipse(x, y, 12, 10, plein(h.a.arete)),
-    h.path(`M${x - 9},${y - 6} Q${x},${y + 2} ${x + 10},${y + 5}`, h.a.detail),
-    h.path(`M${x - 6},${y + 7} Q${x - 2},${y + 1} ${x + 3},${y - 8}`, h.a.detail),
+  // Nœud plat vu de face, dans la largeur de la bande : deux bouts qui se croisent, l'un passe
+  // par-dessus puis autour de l'autre. k = échelle (1 = bande du garrot, 0.5 = deuxième lien).
+  // dessous() = premier demi-nœud ; dessus() = second demi-nœud, qui croise par-dessus (et le bâton).
+  const ndDessous = (x, y, k) => [
+    bout(x - 14 * k, y - 3 * k, x + 12 * k, y + 5 * k, 7 * k, -2 * k),
+    bout(x + 14 * k, y - 3 * k, x - 12 * k, y + 5 * k, 7 * k, 2 * k),
   ].join('\n');
+  const ndDessus = (x, y, k, ouvert) => {
+    const e = ouvert ? 9 * k : 5 * k; // écart des deux brins de la boucle (laisse passer le bâton)
+    return [
+      bout(x - e, y + 6 * k, x - e - 1 * k, y - 7 * k, 6 * k, -3 * k),
+      bout(x + e, y + 6 * k, x + e + 1 * k, y - 7 * k, 6 * k, 3 * k),
+      bout(x - e - 3 * k, y - 8 * k, x + e + 3 * k, y - 8 * k, 6 * k, -3 * k),
+    ].join('\n');
+  };
+  const noeud = (x, y, k = 1) => ndDessous(x, y, k) + '\n' + ndDessus(x, y, k, false);
 
   const plis = (g, n) => {
     const out = [];
@@ -121,7 +132,7 @@ module.exports = (h) => {
             jambe(g, 0), plaie(g, true), bande(g, g.yb, 9, 0, false),
             bout(g.cx - 5, g.yb + 6, g.cx - 20, g.yb + 46, 8, -3),
             bout(g.cx + 5, g.yb + 6, g.cx + 15, g.yb + 50, 8, 3),
-            noeud(g.cx, g.yb + 1),
+            noeud(g.cx, g.yb + 1, 1.4),
           ].join('\n');
         },
         renvois: z => {
@@ -140,8 +151,9 @@ module.exports = (h) => {
             jambe(g, 2), plaie(g, true), bande(g, g.yb, 9, 2, false), plis(g, 3),
             bout(g.cx - 5, g.yb + 6, g.cx - 20, g.yb + 46, 8, -3),
             bout(g.cx + 5, g.yb + 6, g.cx + 15, g.yb + 50, 8, 3),
+            ndDessous(g.cx, g.yb, 1.4),
             baton(g.cx - 56, g.yb, g.cx + 56, g.yb, 9),
-            noeud(g.cx, g.yb),
+            ndDessus(g.cx, g.yb, 1.4, true),
             h.fleche(arc(g, -8, 58)),
             h.fleche(arc(g, 172, 238)),
           ].join('\n');
@@ -167,12 +179,13 @@ module.exports = (h) => {
             h.path(`M${g.cx + 36},${g.yb - 8} Q${g.cx + 22},${g.yb - 3} ${g.cx + 11},${g.yb + 1}`, h.a.detail),
             bout(g.cx - 5, g.yb + 8, g.cx - 22, g.yb + 40, 8, -4),
             bout(g.cx + 5, g.yb + 8, g.cx + 18, g.yb + 44, 8, 4),
+            ndDessous(g.cx, g.yb, 1.4),
             baton(g.cx, g.yb + 56, g.cx, g.yb - 56, 9),
-            noeud(g.cx, g.yb),
+            ndDessus(g.cx, g.yb, 1.4, true),
             bande(g, y2, 5, 0, false),
             bout(g.cx + 16, y2 + 3, g.cx + 24, y2 + 22, 6, 2),
             bout(g.cx + 18, y2 + 2, g.cx + 34, y2 + 16, 6, -2),
-            h.ellipse(g.cx + 16, y2 + 1, 6, 5, plein(h.a.arete)),
+            noeud(g.cx + 16, y2 + 1, 0.5),
           ].join('\n');
         },
         renvois: z => {

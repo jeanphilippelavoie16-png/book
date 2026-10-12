@@ -132,8 +132,8 @@ module.exports = (h) => {
   // ── 3. brosser : sur la pelle, à la branche de sapin, dehors ───────────────────────
   const geoBrosse = z => {
     const G = z.h - 24, cx = z.l / 2 - 10;
-    const pointe = [cx - 92, G - 56], talon = [cx + 44, G - 64];
-    const P = [cx - 26, G - 78], rp = [22, 14];
+    const pointe = [cx - 92, G - 5], talon = [cx + 44, G - 5];
+    const P = [cx - 26, G - 23], rp = [22, 14];
     const spray = [P[0] + 2, P[1] - rp[1] - 4];
     const main = [cx - 44, G - 196];
     return { G, cx, pointe, talon, P, rp, spray, main };
@@ -145,14 +145,17 @@ module.exports = (h) => {
     const lame = `M${f(pointe)} Q${f([pointe[0] + 4, pointe[1] + 4])} ${f([pointe[0] + 14, pointe[1] + 4])} L${f([talon[0] - 6, talon[1] + 4])} Q${f([talon[0] + 2, talon[1] + 3])} ${f([talon[0] + 2, talon[1] - 10])}`;
     out.push(h.path(lame, A.contour));
     out.push(h.path(`M${f([pointe[0] + 14, pointe[1] - 1])} L${f([talon[0] - 8, talon[1] - 4])}`, A.fin));
-    const m1 = [talon[0] + 2, talon[1] - 8], m2 = [z.l - 6, G - 168];
+    // le bout du manche appuyé sur une bûche couchée
+    const bu = [z.l - 34, G - 13];
+    const m1 = [talon[0] + 2, talon[1] - 8], m2 = [z.l - 14, G - 34];
+    out.push(h.cercle(bu[0], bu[1], 13, A.blanc), h.cercle(bu[0], bu[1], 13, A.hachure('bois', 'arete')), h.cercle(bu[0], bu[1], 4, A.fin));
     out.push(long(m1, m2, 5));
     // la pierre, et ce qui colle dessus : braises, charbon, cendre
     out.push(pierre(P[0], P[1] + 1, rp[0], rp[1], 5, 0.2));
     for (const [dx, dy, s] of [[-10, -12, 1], [3, -14, 0.8], [12, -10, 1.1], [-17, -4, 0.8]])
       out.push(h.path(`M${f([P[0] + dx, P[1] + dy])} l${2.5 * s},-${2.4 * s} l${3 * s},${0.8 * s} l-${0.6 * s},${2.6 * s} Z`, A.plein));
     // ce qui tombe : par-dessus la pointe, sur la neige
-    for (const [x, y, s] of [[pointe[0] - 8, G - 44, 1], [pointe[0] - 16, G - 28, 0.8], [pointe[0] - 6, G - 16, 1.1], [pointe[0] - 22, G - 8, 0.9]]) {
+    for (const [x, y, s] of [[pointe[0] - 8, G - 30, 1], [pointe[0] - 16, G - 20, 0.8], [pointe[0] - 6, G - 13, 1.1], [pointe[0] - 22, G - 8, 0.9]]) {
       out.push(h.path(`M${f([x, y])} l${2.5 * s},-${2.4 * s} l${3 * s},${0.8 * s} l-${0.6 * s},${2.6 * s} Z`, A.plein));
       out.push(h.path(`M${f([x + 1, y - 5])} l0,-7`, A.fin));
     }
@@ -189,8 +192,8 @@ module.exports = (h) => {
     const { G, cx, pointe, talon, P, spray, main } = geoBrosse(z);
     return [
       { n: 5, rond: [main[0] + 64, main[1] + 26], cible: [main[0] + 3, main[1] + 50], texte: 'branche verte de sapin' },
-      { n: 6, rond: [pointe[0] - 4, G - 96], cible: [pointe[0] - 12, G - 40], texte: 'braises et charbon, dehors' },
-      { n: 7, rond: [talon[0] + 20, talon[1] + 34], cible: [talon[0] - 20, talon[1] + 3], texte: 'pierre sur la pelle' },
+      { n: 6, rond: [pointe[0] - 4, G - 96], cible: [pointe[0] - 10, G - 30], texte: 'braises et charbon, dehors' },
+      { n: 7, rond: [talon[0] + 20, talon[1] - 60], cible: [talon[0] - 20, talon[1] + 3], texte: 'pierre sur la pelle' },
     ];
   };
 
@@ -221,15 +224,14 @@ module.exports = (h) => {
     for (const [i, p] of pts.entries()) out.push(h.path(`M${f(p)} l2.4,-2 l2.6,1 l-0.8,2.4 Z`, i % 3 ? blanc(A.fin) : A.plein));
     for (const [dx, dy, g] of [[-14, -10, 1], [10, -12, 2], [-4, 10, 3], [18, 8, 4]]) out.push(pierre(F[0] + dx, F[1] + dy, 9, 7, g, g));
     // le chemin de la pierre : du feu à la porte, puis au bac
-    const ch = [[F[0] + 44, cy], [F[0] + 90, cy - 10], [L[0] - R - 30, cy - 4], [L[0] - R + 8, cy], [L[0] - 0.18 * R - 6, cy]];
-    out.push(h.fleche(lisse(ch), A.arete));
+    out.push(h.fleche(`M${f([F[0] + 40, cy])} L${f([L[0] - 0.18 * R - 6, cy])}`, A.arete));
     return out.join('\n');
   };
   const siteRenvois = z => {
     const { cy, R, L, F } = geoSite(z);
     return [
       { n: 8, rond: [F[0] - 20, cy + 62], cible: [F[0] - 10, cy + 28], texte: 'feu des pierres, dehors' },
-      { n: 9, rond: [F[0] + 96, cy - 48], cible: [F[0] + 90, cy - 11], texte: 'brosser, puis porter' },
+      { n: 9, rond: [(F[0] + L[0] - R) / 2 + 10, cy - 48], cible: [(F[0] + 40 + L[0] - R - 6) / 2, cy], texte: 'brosser, puis porter' },
       { n: 10, rond: [L[0] + 12, cy + R + 22 > z.h - 10 ? z.h - 10 : cy + R + 22], cible: [L[0] + 4, cy + 0.18 * R - 1], texte: 'charger le bac, fermer' },
     ];
   };

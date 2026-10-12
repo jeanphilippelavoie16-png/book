@@ -59,8 +59,14 @@ module.exports = (h) => {
   const silhouette = `M${f(tourDehors[0][0])},${tourDehors[0][1]}` + courbe(tourDehors)
     + ` L${tourDedans[0][0]},${tourDedans[0][1]}` + courbe(tourDedans) + ' Z';
 
-  const levre = [[0, 112], [4, 126], [6, 144], [6.5, 160], [5, 174], [0, 186]];
+  const levre = [[0, 114], [5, 128], [8, 144], [9, 160], [7, 174], [0, 188]];
   const cavite = trait([...levre.map(p => X(p)), ...levre.slice(1, -1).reverse().map(p => X(p, -1))], true);
+  // Les côtes qui bordent l'ouverture, de chaque côté, et le bas des deux cuissots.
+  const cotes = [];
+  [[134, 6.5], [143, 8], [152, 8.8], [161, 9], [170, 7.8]].forEach(([y, x0]) => [1, -1].forEach(s => {
+    cotes.push(h.path(`M${f(C + s * x0)},${y} Q${f(C + s * (x0 + 5))},${y - 3} ${f(C + s * (x0 + 9))},${y + 1}`, h.a.fin));
+  }));
+  const cuissots = [1, -1].map(s => h.path(`M${f(C + s * 2)},${110} Q${f(C + s * 10)},${122} ${f(C + s * 21)},${120}`, h.a.fin));
 
   // Le palonnier : traverse les deux jarrets, une gorge à chaque bout.
   const py = 83, pb = 89, g = 40;
@@ -86,34 +92,37 @@ module.exports = (h) => {
   ];
   // Deux tours de la corde autour du pied du tronc.
   const ancrage = [
-    h.path('M62,192.5 Q47,197.5 33,193', h.a.arete),
-    h.path('M62,199.5 Q47,204.5 33,200', h.a.arete),
+    h.path('M62,190 Q47,195 33,190.5 L33,194 Q47,198.5 62,193.5 Z', blancArete),
+    h.path('M62,197.5 Q47,202.5 33,198 L33,201.5 Q47,206 62,201 Z', blancArete),
   ];
-  const sonde = X([13, 124]);
+  const sonde = X([18, 105]);
 
   const vueGreement = {
-    dessin: z => [
-      h.rect(0, 222, z.l, 8, h.a.hachure('terre', 'aucun')),
-      h.ligne(0, 222, z.l, 222, h.a.arete),
+    titre: 'Vu du ventre',
+    dessin: z => `<g transform="scale(${f(z.h / 230)})">` + [
+      h.rect(0, 222, z.l * 230 / z.h, 8, h.a.hachure('terre', 'aucun')),
+      h.ligne(0, 222, z.l * 230 / z.h, 222, h.a.arete),
       ...tronc,
       brin(1), brin(-1),
       baton,
       ...ancrage,
       ...branche,
       palonnier,
-      h.path(silhouette, h.a.plein),
-      h.path(cavite, h.a.blanc),
-      h.rect(C - 7, 157.8, 14, 4.4, blancArete),
-      h.ligne(sonde[0] - 3.5, sonde[1] - 3.5, sonde[0] + 3.5, sonde[1] + 3.5, blancTrait),
-      h.ligne(sonde[0] - 3.5, sonde[1] + 3.5, sonde[0] + 3.5, sonde[1] - 3.5, blancTrait),
+      h.path(silhouette, h.a.blanc),
+      h.path(silhouette, h.a.contour),
+      h.path(cavite, h.a.arete),
+      ...cotes, ...cuissots,
+      h.rect(C - 12.5, 157.8, 25, 4.4, blancArete),
+      h.ligne(sonde[0] - 3, sonde[1] - 3, sonde[0] + 3, sonde[1] + 3, h.a.arete),
+      h.ligne(sonde[0] - 3, sonde[1] + 3, sonde[0] + 3, sonde[1] - 3, h.a.arete),
       descente(1.6), descente(-1.6),
-    ].join('\n'),
+    ].join('\n') + '</g>',
     renvois: z => [
       { n: 1, rond: [14, 176], cible: [40, 196], texte: 'ancrage : deux tours au pied du tronc' },
       { n: 2, rond: [132, 200], cible: [f(G[0] - 14 * n[0]), f(G[1] - 14 * n[1])], texte: 'guindeau : bâton tordu, calé contre le tronc' },
       { n: 3, rond: [292, 160], cible: [C + 4, 160], texte: 'écarteur de bois vert en travers des côtes' },
-      { n: 4, rond: [292, 124], cible: sonde, texte: 'sonde : centre du cuissot, sans toucher l’os' },
-    ],
+      { n: 4, rond: [292, 104], cible: sonde, texte: 'sonde : centre du cuissot, sans toucher l’os' },
+    ].map(r => ({ ...r, rond: r.rond.map(v => f(v * z.h / 230)), cible: r.cible.map(v => f(v * z.h / 230)) })),
   };
 
   // ── Le jarret, de côté ────────────────────────────────────────────────────────────────
@@ -121,9 +130,9 @@ module.exports = (h) => {
   const avant = [[128, 32], [129, 48], [125, 66], [122, 96], [117, 136], [110, 178], [105, 208]];
   const arriere = [[194, 208], [188, 180], [175, 146], [162, 114], [159, 94], [161, 76], [159, 60], [151, 48], [150, 32]];
   const jambe = trait(avant) + ' L194,208' + courbe(arriere) + ' Z';
-  const passage = trait([[144, 78], [154, 100], [144, 122], [134, 100], [144, 78]], true);
+  const passage = trait([[147, 86], [152, 102], [149, 120], [142.5, 102], [147, 86]], true);
   // Le palonnier sort du passage vers le lecteur (vue cavalière), gorge près du bout.
-  const O = [144, 100], E = [46, 63];
+  const O = [147, 102], E = [46, 63];
   const Lp = Math.hypot(E[0] - O[0], E[1] - O[1]);
   const d = [(E[0] - O[0]) / Lp, (E[1] - O[1]) / Lp], m = [-d[1], d[0]];
   const r = 8.5;
@@ -144,10 +153,18 @@ module.exports = (h) => {
   const vueJarret = {
     titre: 'Le jarret, de côté',
     dessin: z => [
-      h.path(jambe, h.a.plein),
-      h.path(passage, h.a.blanc),
+      h.path(jambe, h.a.blanc),
+      h.path(jambe, h.a.contour),
+      // l'os : canon, articulation du jarret avec sa pointe vers l'arrière, tibia
+      h.path('M134,32 L135,60 Q127,66 129,76 Q131,82 136,84 L130,180', h.a.detail),
+      h.path('M146,32 L146,58 Q156,60 159,66 Q160,74 152,78 L140,84 L141,180', h.a.detail),
+      // le tendon d'Achille : bande le long de l'arrière, de la pointe du jarret vers la cuisse
+      h.path('M153,80 Q151,100 155,120 L167,152', h.a.detail),
+      h.path('M156,80 Q155,100 158.5,118 L171,150', h.a.fin),
+      h.path(passage, h.a.plein),
       h.path(entree, h.a.blanc),
-      h.path(entree, h.a.hachure('bois')),
+      h.path(entree, h.a.arete),
+      ...[-4, 0, 4].map(o => h.chemin([pt(6, o), pt(sg - 9, o * 0.9)], h.a.fin)),
       h.cercle(E[0], E[1], r, h.a.blanc),
       h.cercle(E[0], E[1], r, h.a.arete),
       h.cercle(E[0], E[1], 5, h.a.fin), h.cercle(E[0], E[1], 1.6, h.a.fin),
@@ -156,7 +173,7 @@ module.exports = (h) => {
     ].join('\n'),
     renvois: z => [
       { n: 5, rond: [22, 112], cible: [Gg[0], f(Gg[1] + 6)], texte: 'palonnier : bois vert gros comme un poignet, gorge aux bouts' },
-      { n: 6, rond: [212, 118], cible: [145, 114], texte: 'passage entre le tendon d’Achille et l’os' },
+      { n: 6, rond: [212, 118], cible: [148, 113], texte: 'passage entre le tendon d’Achille et l’os' },
     ],
   };
 

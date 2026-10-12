@@ -119,10 +119,15 @@ module.exports = (h) => {
     const bx = xb1 + 26, bl = 600 * s, bh = 400 * s, by = y1 + 5;
     o.push(h.rect(bx, by, bl, bh, W(A.arete) + ' rx="4"'), h.rect(bx + 5, by + 5, bl - 10, bh - 10, A.detail + ' rx="3"'));
     const sc = [bx + bl / 2, by + bh / 2];
-    o.push(h.path(lisse([[sc[0] - bl * 0.36, sc[1] - bh * 0.22], [sc[0] - bl * 0.05, sc[1] - bh * 0.34], [sc[0] + bl * 0.34, sc[1] - bh * 0.24],
-      [sc[0] + bl * 0.38, sc[1] + bh * 0.2], [sc[0] + bl * 0.02, sc[1] + bh * 0.33], [sc[0] - bl * 0.34, sc[1] + bh * 0.22]], true), W(A.detail)));
-    o.push(h.cercle(sc[0], sc[1], 3.2, W(A.detail)));
-    for (const [dx, dy] of [[-16, -7], [15, -8], [-14, 9], [16, 8]]) o.push(h.ligne(sc[0] + dx * 0.3, sc[1] + dy * 0.3, sc[0] + dx, sc[1] + dy, A.fin));
+    // le sac fermé : son bord rabattu sur le bord du bac, le col froncé en plis vers le nœud
+    o.push(h.path(lisse([[bx - 3, by - 2], [bx + bl * 0.3, by - 4], [bx + bl * 0.7, by - 2], [bx + bl + 3, by - 3], [bx + bl + 4, by + bh * 0.5],
+      [bx + bl + 3, by + bh + 3], [bx + bl * 0.5, by + bh + 4], [bx - 3, by + bh + 2], [bx - 4, by + bh * 0.5]], true), W(A.detail)));
+    o.push(h.rect(bx + 6, by + 6, bl - 12, bh - 12, A.fin + ' rx="3"'));
+    for (const [dx, dy] of [[-0.42, -0.36], [0, -0.4], [0.42, -0.36], [0.44, 0.34], [0, 0.4], [-0.44, 0.34], [-0.46, 0], [0.46, 0]])
+      o.push(h.path(lisse([[sc[0] + bl * dx, sc[1] + bh * dy], [sc[0] + bl * dx * 0.5 + 2 * Math.sign(dy || 1), sc[1] + bh * dy * 0.45 + 1.5 * Math.sign(dx || 1)], [sc[0] + bl * dx * 0.12, sc[1] + bh * dy * 0.12]]), A.fin));
+    o.push(h.cercle(sc[0], sc[1], 3.6, W(A.detail)));
+    o.push(h.path(lisse([[sc[0] + 3, sc[1] - 1], [sc[0] + 10, sc[1] - 6], [sc[0] + 16, sc[1] - 5]]), A.detail));
+    o.push(h.path(lisse([[sc[0] + 3, sc[1] + 2], [sc[0] + 11, sc[1] + 4], [sc[0] + 15, sc[1] + 9]]), A.detail));
     // les bottes laissées au pied du bac, tiges ouvertes vers le haut
     const bottePlan = (cx, cy) => [
       h.path(lisse([[cx - 7, cy + 20], [cx - 8, cy], [cx - 6, cy - 18], [cx, cy - 25], [cx + 6, cy - 18], [cx + 8, cy], [cx + 7, cy + 20], [cx, cy + 24]], true), W(A.arete)),
@@ -131,7 +136,14 @@ module.exports = (h) => {
     o.push(bottePlan(bxB - 10, byB), bottePlan(bxB + 10, byB));
     // le seau pour rincer, dehors ; le bassin pour les mains et le visage, en entrant
     const seau = [xe - 52, y2 - 40];
-    o.push(h.cercle(seau[0], seau[1], 150 * s, W(A.arete)), h.cercle(seau[0], seau[1], 150 * s - 4, A.detail), h.ligne(seau[0] - 150 * s, seau[1], seau[0] + 150 * s, seau[1], A.fin));
+    const rs = 150 * s;
+    o.push(h.path(`M${f1(seau[0] - rs - 3)} ${f1(seau[1])} A${f1(rs + 3)} ${f1(rs * 1.9)} 0 0 1 ${f1(seau[0] + rs + 3)} ${f1(seau[1])}`, A.detail));
+    o.push(h.cercle(seau[0], seau[1], rs, W(A.arete)), h.cercle(seau[0], seau[1], rs - 4, A.detail));
+    for (const dy of [-6, 0, 6]) o.push(h.path(lisse(onde(seau[0] - rs * 0.62, seau[1] + dy, seau[0] + rs * 0.62, seau[1] + dy, 1.2, 5)), A.fin));
+    o.push(h.cercle(seau[0] - rs - 3, seau[1], 2, A.plein), h.cercle(seau[0] + rs + 3, seau[1], 2, A.plein));
+    // le linge sur le bord
+    o.push(h.path(lisse([[seau[0] + rs * 0.35, seau[1] + rs * 0.7], [seau[0] + rs * 0.9, seau[1] + rs * 0.2], [seau[0] + rs + 9, seau[1] + rs * 0.55], [seau[0] + rs * 0.8, seau[1] + rs + 6], [seau[0] + rs * 0.3, seau[1] + rs + 2]], true), W(A.detail)));
+    o.push(h.ligne(seau[0] + rs * 0.6, seau[1] + rs * 0.6, seau[0] + rs + 2, seau[1] + rs * 0.7, A.fin));
     const bas = [xb2 + 62, y2 - 42];
     o.push(h.ellipse(bas[0], bas[1], 190 * s, 150 * s, W(A.arete)), h.ellipse(bas[0], bas[1], 190 * s - 5, 150 * s - 5, A.hachure('eau', 'detail')));
     // le chemin : dehors, porte, bord libre de la bâche 1, le bac, bord libre de la bâche 2, la maison
@@ -142,7 +154,7 @@ module.exports = (h) => {
       svg: o.join('\n'),
       r: [
         { n: 1, rond: [seau[0] + 4, y1 + 2], cible: [seau[0], seau[1] - 150 * s], texte: 'dehors : le costume s’essuie et se rince' },
-        { n: 2, rond: [xb1 - 30, y1 + 20], cible: [xb1 - 2, y1 + 48], texte: 'première bâche, refermée avant la deuxième' },
+        { n: 2, rond: [xb1 - 40, y2 - 40], cible: [xb1 - 2, y2 - 62], texte: 'première bâche, refermée avant la deuxième' },
         { n: 3, rond: [bx + bl + 24, by + 8], cible: [bx + bl - 3, by + bh * 0.5], texte: 'le costume ôté, fermé dans un sac, au bac' },
         { n: 4, rond: [bxB - 36, byB - 22], cible: [bxB - 16, byB - 6], texte: 'les bottes restent dans le sas' },
         { n: 5, rond: [xb2 + 30, y2 - 14], cible: [xb2 + 2, y2 - 48], texte: 'deuxième bâche : le costume ne la passe pas' },
@@ -182,6 +194,10 @@ module.exports = (h) => {
     const L = Math.hypot(mn[0] - pw[0], mn[1] - pw[1]), u = [(mn[0] - pw[0]) / L, (mn[1] - pw[1]) / L];
     o.push(ruban([pw[0] - u[0] * 12 * e, pw[1] - u[1] * 12 * e], u, 40 * e, 66 * e));
     // les lunettes, la sangle sous le capuchon
+    // le visage sous les lunettes : nez, lèvres, menton, en trois courbes
+    o.push(h.path(lisse([[108, -1604], [150, -1604], [166, -1578], [150, -1562], [152, -1540], [146, -1520], [126, -1494], [108, -1496]].map(TT), true), A.blanc));
+    o.push(h.path(lisse([[148, -1604], [162, -1582], [150, -1566]].map(TT)), A.arete));
+    o.push(h.path(lisse([[150, -1566], [153, -1538], [138, -1508], [112, -1500]].map(TT)), A.arete));
     o.push(lunettes(TT, false));
     const P = T;
     return {
@@ -211,8 +227,8 @@ module.exports = (h) => {
       return h.path(lisse(pts), A.arete);
     };
     o.push(bache(16, 1), bache(z.l - 16, -1));
-    // le personnage penché sur le bac, bottes aux pieds, lunettes au front
-    const pers = F.personnage({ x: x0, y: yF, pose: 'debout', echelle: e, penche: 34, mains: { proche: T([372, -870]), loin: T([342, -880]) } });
+    // le personnage droit, tête relevée et tournée de côté, bottes aux pieds, lunettes au front
+    const pers = F.personnage({ x: x0, y: yF, pose: 'debout', echelle: e, penche: 6, regard: -24, mains: { proche: T([560, -1230]), loin: T([548, -1238]) } });
     const TT = repereTete(pers);
     o.push(pers);
     o.push(botte(T, -34), botte(T, 0));
@@ -220,11 +236,11 @@ module.exports = (h) => {
     // le costume tenu à bout de bras, qui descend dans le sac ; le bas caché par le bac
     const mn = pers.mains.proche, ml = pers.mains.loin;
     const hx = (mn[0] + ml[0]) / 2, hy = Math.min(mn[1], ml[1]);
-    const bacG = 300, bacD = 860, bacH = 350;
-    const cost = [[hx - 7, hy - 3], [hx + 9, hy - 4], [hx + 15, hy + 7], ...[[560, -520], [640, -380], [650, -300]].map(T),
-      ...[[360, -300], [372, -400], [392, -520]].map(T), [hx - 13, hy + 8]];
+    const bacG = 420, bacD = 980, bacH = 350;
+    const cost = [[hx - 7, hy - 3], [hx + 9, hy - 4], [hx + 15, hy + 7], ...[[700, -760], [780, -480], [790, -300]].map(T),
+      ...[[480, -300], [470, -480], [500, -800]].map(T), [hx - 13, hy + 8]];
     o.push(h.path(lisse(cost, true), W(A.arete)));
-    for (const [a, b] of [[[hx + 2, hy + 6], T([450, -360])], [[hx + 7, hy + 6], T([530, -360])], [[hx - 4, hy + 8], T([400, -440])], [[hx + 12, hy + 12], T([600, -420])]])
+    for (const [a, b] of [[[hx + 2, hy + 6], T([580, -360])], [[hx + 7, hy + 6], T([660, -360])], [[hx - 4, hy + 8], T([520, -440])], [[hx + 12, hy + 12], T([740, -420])]])
       o.push(h.path(lisse([a, [(a[0] + b[0]) / 2 + 2, (a[1] + b[1]) / 2], b]), A.fin));
     // le bras proche par-dessus le costume
     o.push(brasProche(pers));
@@ -235,12 +251,12 @@ module.exports = (h) => {
       [bacD - 300, -bacH + 80], [bacG + 120, -bacH + 60], [bacG - 12, -bacH + 72]].map(T), true), W(A.detail)));
     for (const x of [bacG + 60, bacG + 210, bacD - 120]) o.push(h.ligne(...T([x, -bacH - 6]), ...T([x + 10, -bacH + 58]), A.fin));
     // lentement, vers le bas
-    const fx = T([760, 0])[0];
+    const fx = T([880, 0])[0];
     o.push(h.fleche(`M${f1(fx)} ${f1(hy + 4)} L${f1(fx)} ${f1(T([0, -bacH - 40])[1])}`, A.arete));
     return {
       svg: o.join('\n'),
       r: [
-        { n: 12, rond: [fx + 6, hy - 26], cible: T([515, -525]), texte: 'lentement, sans secouer, loin du visage' },
+        { n: 12, rond: [fx + 6, hy - 26], cible: T([640, -700]), texte: 'lentement, sans secouer, loin du visage' },
       ],
     };
   };
@@ -255,7 +271,7 @@ module.exports = (h) => {
   return {
     ref: '04-40',
     titre: 'Le sas au retour : ôter la couche du dehors',
-    desc: 'Encadré danger : le costume n’arrête que la poussière. En haut, le sas vu de dessus : l’entrée de la maison, la porte extérieure, deux bâches accrochées en chicane, la première fixée au mur du haut, la deuxième au mur du bas, de sorte qu’on passe chacune par son bord libre, du côté opposé ; le chemin en tireté va du seau de rinçage dehors, par la porte, par le bord libre de la première bâche, jusqu’au bac à vêtements où le costume est fermé dans un sac, laisse les bottes au pied du bac, passe la deuxième bâche et arrive au bassin où l’on se lave mains et visage. En bas à gauche, le costume de sortie porté : poncho fendu taillé dans un sac à ordures avec son capuchon, lunettes de ski, poignets et chevilles rubanés serré, bottes de caoutchouc. En bas à droite, le sas en coupe : une personne penchée entre les deux bâches descend lentement le costume, tenu à bout de bras, dans un sac ouvert rabattu sur le bord du bac.',
+    desc: 'Encadré danger : le costume n’arrête que la poussière. En haut, le sas vu de dessus : l’entrée de la maison, la porte extérieure, deux bâches accrochées en chicane, la première fixée au mur du haut, la deuxième au mur du bas, de sorte qu’on passe chacune par son bord libre, du côté opposé ; le chemin en tireté va du seau de rinçage dehors, par la porte, par le bord libre de la première bâche, jusqu’au bac à vêtements où le costume est fermé dans un sac, laisse les bottes au pied du bac, passe la deuxième bâche et arrive au bassin où l’on se lave mains et visage. En bas à gauche, le costume de sortie porté : poncho fendu taillé dans un sac à ordures avec son capuchon, lunettes de ski, poignets et chevilles rubanés serré, bottes de caoutchouc. En bas à droite, le sas en coupe : une personne debout, tête relevée, entre les deux bâches descend lentement le costume, tenu à bout de bras, dans un sac ouvert rabattu sur le bord du bac.',
     format: 'pleine',
     disposition: [['plan'], ['costume', 'geste']],
     hauteurs: [1.85, 3.4],

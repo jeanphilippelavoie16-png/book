@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="413" viewBox="0 0 680 413" role="img">
 <title>Planche 19-04 — Bouillir aux pierres, sans chaudron</title>
-<desc>Coupe d’une fosse doublée d’une peau fraîche et pleine d’eau, avec un feu allumé à l’écart. Une main tient deux bâtons verts en pince et lâche une pierre chaude dans l’eau ; une pierre refroidie est ressortie sur le bord. Le feu ne touche jamais la peau.</desc>
+<desc>Coupe d’une fosse doublée d’une peau fraîche et pleine d’eau, avec un feu allumé à l’écart. Deux bâtons verts en pince, bouts écartés, lâchent une pierre chaude dans l’eau ; une pierre refroidie est ressortie sur le bord. Le feu ne touche jamais la peau.</desc>
 <defs>
 <pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <pattern id="h-gravier" width="10" height="9" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.7" fill="none" stroke="#1A1A1A" stroke-width="0.5"/><circle cx="7.5" cy="7" r="1.3" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
@@ -46,19 +46,10 @@
 <circle cx="174" cy="105" r="10" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="174" cy="105" r="6.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="174" cy="105" r="2.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M196.8,50.0 L353.0,86.4 L352.9,90.5 L195.7,53.9 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M195.1,55.8 L347.3,109.7 L345.2,113.3 L194.0,59.6 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M152.6,37.1 L353.0,86.4 L352.9,90.5 L151.5,41.0 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M150.9,42.9 L347.3,109.7 L345.2,113.3 L149.8,46.7 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M363.2,103.1 Q362.2,106.8 357.4,107.9 Q352.7,109.1 348.8,107.3 Q345.0,105.6 343.2,102.2 Q341.4,98.8 345.0,96.2 Q348.6,93.6 353.0,94.1 Q357.4,94.6 360.8,97.0 Q364.3,99.3 363.2,103.1 Z" fill="#FFFFFF" stroke="none"/><path d="M363.2,103.1 Q362.2,106.8 357.4,107.9 Q352.7,109.1 348.8,107.3 Q345.0,105.6 343.2,102.2 Q341.4,98.8 345.0,96.2 Q348.6,93.6 353.0,94.1 Q357.4,94.6 360.8,97.0 Q364.3,99.3 363.2,103.1 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M353.0,113.0 L353.0,132.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M232.2 43.6 L214.7 13 L216 12.3 L212 0 L177.5 0 L196.4 27.7 L197.7 27 L215.2 57.6 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M232.2 43.6 L214.7 13" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M215.2 57.6 L197.7 27" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M214.7 13 L216 12.3 L212 0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M197.7 27 L196.4 27.7 L177.5 0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M216 12.3 L196.4 27.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M217.3,47.7 C225.7,43.9 239.1,47.9 245.0,52.7 Q251.1,56.6 248.5,62.1 Q250.5,65.8 247.5,69.1 Q249.5,72.8 245.5,75.8 Q246.3,80.2 240.7,81.7 C232.8,83.5 217.2,80.0 210.9,72.9 C208.5,67.0 212.4,53.6 217.3,47.7 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M248.5,62.1 L241.8,60.1 M247.5,69.1 L239.8,66.8 M245.5,75.8 L238.1,72.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M220.3,51.7 C228.5,52.0 237.1,54.6 242.0,59.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
 <line x1="540" y1="235.2" x2="504.8" y2="194.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="540" y1="235.2" x2="504.8" y2="194.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

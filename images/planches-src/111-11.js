@@ -62,22 +62,25 @@ module.exports = (h) => {
     return h.chemin([[a[0] + n[0], a[1] + n[1]], [b[0] + n[0], b[1] + n[1]], [b[0] - n[0], b[1] - n[1]], [a[0] - n[0], a[1] - n[1]]], blanc(h.a.arete), true);
   };
 
-  const morceaux = (g, exclus) => {
-    const r = alea(88011), out = [];
+  const remplir = (poly, x0, x1, y0, y1, exclus, graine = 88011) => {
+    const r = alea(graine), out = [];
     let rang = 0;
-    const bord = g.charbon.concat([g.charbon[0]]);
-    for (let y = g.yG - 11; y < g.yG + g.D; y += 7.6, rang++) {
-      for (let x = g.cx - g.W / 2; x < g.cx + g.W / 2 + 4; x += 8.4) {
+    const bord = poly.concat([poly[0]]);
+    for (let y = y0; y < y1; y += 7.6, rang++) {
+      for (let x = x0; x < x1; x += 8.4) {
         const p = [x + (rang % 2) * 4.2 + (r() - 0.5) * 3, y + (r() - 0.5) * 2.4];
         const rr = 2.8 + r() * 1.2, a0 = r() * 6.28;
         const pts = [0, 1, 2, 3, 4].map(k => { const a = a0 + k * 1.2566 + (r() - 0.5) * 0.5, q = rr * (0.75 + r() * 0.35); return [p[0] + q * Math.cos(a), p[1] + q * Math.sin(a)]; });
-        if (!dansPoly(p, g.charbon) || distPoly(p, bord) < rr + 1.6) continue;
+        if (!dansPoly(p, poly) || distPoly(p, bord) < rr + 1.6) continue;
         if (exclus(p, rr)) continue;
         out.push(h.chemin(pts, h.a.fin, true));
       }
     }
     return out;
   };
+  const morceaux = (g, exclus) => remplir(g.charbon, g.cx - g.W / 2, g.cx + g.W / 2 + 4, g.yG - 11, g.yG + g.D, exclus);
+  // liseré blanc de 2 à 3 px sous un trajet d'air qui traverse le charbon
+  const lisere = d => h.path(d, 'fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"');
 
   const fosse = (z, g, exclus) => [
     h.chemin([[0, g.yG], ...g.outT, [z.l, g.yG], [z.l, z.h - 2], [0, z.h - 2]], h.a.hachure('terre', 'aucun'), true),
@@ -148,11 +151,12 @@ module.exports = (h) => {
         dessin: z => {
           const g = trou(z), airs = airBon(g);
           const { E, M, rt, barre } = g;
-          const exclus = (p, rr) => pres(p, rr, [[E, M], [barre.a, barre.b]], rt + 1) || airs.some(a => distPoly(p, a) < rr + 1.8);
+          const exclus = (p, rr) => pres(p, rr, [[E, M]], rt + 1.5) || pres(p, rr, [[barre.a, barre.b]], barre.r + 1.5);
           return [
             ...fosse(z, g, exclus),
             tube(E, M, rt),
             h.fleche(dOf([le(E, M, 0.06), le(E, M, 0.9)]), h.a.cache),
+            ...airs.map(a => lisere(dOf(a))),
             ...airs.map(a => h.fleche(dOf(a), h.a.cache)),
             dessinBarre(g),
           ].join('\n');
@@ -246,15 +250,23 @@ module.exports = (h) => {
           const dessusT = ech(sA, sB, 0, 40), dessousT = ech(sA, sB, s1, 40);
           out.push(h.chemin([...dessusT, ...dessousT.reverse()], h.a.hachure('neige', 'aucun'), true));
           const n = Math.round((sB - sA) / 25), Ls = (sB - sA) / n;
-          for (let j = 0; j < n; j++) {
-            const a = sA + j * Ls + 0.9, c = sA + (j + 1) * Ls - 0.9;
-            out.push(h.chemin([...ech(a, c, s1, 6), ...ech(a, c, s2, 6).reverse()], h.a.hachure('pierre', 'arete'), true));
+          // dalles couchées, chacune chevauche la suivante d'un quart de sa longueur
+          const Ld = Ls * 1.25;
+          for (let j = n - 1; j >= 0; j--) {
+            const a = Math.max(sA, sA + j * Ls - 0.125 * Ls), c = Math.min(sB, a + Ld);
+            const e = j % 2 ? 0.8 : 0;
+            out.push(h.chemin([...ech(a, c, s1 + e, 6), ...ech(a, c, s2 - 0.8 + e, 6).reverse()], blanc(h.a.contour), true));
           }
           out.push(h.chemin(ech(sA, sB, 0, 40), h.a.contour));
           out.push(h.chemin([at(sA, 0), at(sA, s1)], h.a.arete), h.chemin([at(sB, 0), at(sB, s1)], h.a.arete));
-          out.push(h.ligne(cx, yG - 12, cx, z.h - 2, axe));
           const mid = (s2 + s3) / 2;
-          const air = [[6, yG - 18], [bouche[0] + 4, yG - 12], ...ech(tot * 0.03, tot - b * 0.16, mid, 40), [cx - b * 0.1, yG + D + 6], [cx - b * 0.1, yG + D - 28]];
+          const air = [[6, yG - 18], [bouche[0] + 4, yG - 12], ...ech(tot * 0.03, tot - b * 0.16, mid, 40), [cx - b * 0.1, yG + D + 6], [cx - b * 0.1, yG + D - 92]];
+          const lit = [...ech(0, tot, 0, 60), [cx, yG + D], [cx, yG]];
+          const montee = [[cx - b * 0.1, yG + D + 6], [cx - b * 0.1, yG + D - 92]];
+          out.push(...remplir(lit, cx - g.W / 2, cx + 4, yG + 2, yG + D, (p, rr) => pres(p, rr, [montee], 0.5), 88012));
+          out.push(h.chemin(ech(sB, tot, 0, 12), h.a.contour));
+          out.push(h.ligne(cx, yG - 12, cx, z.h - 2, axe));
+          out.push(lisere(dOf(montee)));
           out.push(h.fleche(dOf(air), h.a.cache));
           out.push(h.ligne(cx - 6, yG, cx + 22, yG, h.a.fin), h.ligne(cx + 4, yG + D, cx + 22, yG + D, h.a.fin));
           out.push(h.cote(cx + 16, yG, cx + 16, yG + D, 'un avant-bras'));

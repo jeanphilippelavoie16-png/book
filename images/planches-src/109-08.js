@@ -67,7 +67,7 @@ module.exports = (h) => {
     out.push(h.rect(x0, ya - Re, xe - x0, 2 * Re, blanc('contour')));
     for (const [a, b, y] of [[104, 134, -9], [112, 138, 7], [166, 200, -6], [172, 196, 10], [304, 372, -8], [318, 366, 6], [398, 416, -5], [454, 466, 8]])
       out.push(h.ligne(a, ya + y, b, ya + y, h.a.fin));
-    out.push(h.ligne(x0 - 16, ya, xe - 3, ya, axe));
+    out.push(h.ligne(x0 - 22, ya, xe - 3, ya, axe));
     // le bout de la corde, pris sous le premier tour
     out.push(piece([q.xt0 - 2, ya + 1], [q.xt0 + 22, ya + 12], 7, blanc('arete'), false, false));
     out.push(h.ligne(q.xt0 + 17, ya + 7, q.xt0 + 14.5, ya + 12.5, h.a.fin));
@@ -94,7 +94,7 @@ module.exports = (h) => {
     out.push(poteau(q, q.p1), poteau(q, q.p2));
     // cote : le rayon du billot, depuis l'axe
     out.push(h.ligne(x0 - 3, ya - Re, x0 - 14, ya - Re, h.a.fin));
-    out.push(h.cote(x0 - 9, ya, x0 - 9, ya - Re, '150 mm', { cote: 'gauche' }));
+    out.push(h.cote(x0 - 9, ya, x0 - 9, ya - Re, 'R 150 mm', { cote: 'gauche' }));
     return out.join('\n');
   };
   const renvoisElevation = z => {
@@ -112,12 +112,13 @@ module.exports = (h) => {
   // Les bras des barres : k = 0 à gauche un peu vers le bas, puis de quart en quart.
   const bras = (al, k) => { const a = rad(180 - al - 90 * k); return [Math.cos(a), Math.sin(a)]; };
   const M = z => {
-    const gy = z.h - 18, Rs = 110, cy = gy - 118, cx = 188, r = 11, al = 15;
-    const H = [cx - 104, cy + 24];                   // les mains, sur le bout de la barre
-    const S = [cx - 142.7, cy + 14];                 // l'épaule
-    const hanche = [cx - 150.7, cy + 50];
-    const tete = [cx - 136.7, cy - 1];
-    const pa = [cx - 134, gy - 4], pr = [cx - 170, gy - 4];   // chevilles avant et arrière
+    const gy = z.h - 18, Rs = 110, cy = gy - 118, cx = 188, r = 11, al = 25;
+    const b0 = bras(al, 0), H = [cx + b0[0] * Rs, cy + b0[1] * Rs];   // les mains, sur le bout de la barre, à hauteur de hanche
+    const pe = [Math.sin(rad(25)), -Math.cos(rad(25))];              // le tronc penché de 25°
+    const S = [cx - 130, cy + 8];                    // l'épaule, au-dessus du bout de barre, hors du cercle
+    const hanche = add(S, pe, -40);
+    const tete = add(S, pe, 15);
+    const pa = [cx - 136, gy - 4], pr = [cx - 168, gy - 4];   // chevilles avant et arrière
     return { gy, Rs, cy, cx, r, al, H, S, hanche, tete, pa, pr };
   };
   // Le cliquet à l'échelle de la vue 3 : bout de planche T, sens u, pivot à 88.
@@ -143,17 +144,24 @@ module.exports = (h) => {
     out.push(piece([pv[0], gy + 12], [pv[0], cy + 9], 7, blanc('arete'), false, false));
     out.push(h.cercle(pv[0], pv[1], 1.4, blanc('detail')));
     // cote : la barre, depuis l'axe
-    out.push(h.cote(cx, cy, cx + Rs, cy, '1,5 m', { cote: 'dessous' }));
+    {
+      const b2 = bras(q.al, 2), nb = [-b2[1], b2[0]], o = 15;
+      const a0 = add([cx, cy], nb, o), a1 = add(add([cx, cy], b2, Rs), nb, o);
+      out.push(h.ligne(a0[0], a0[1], a1[0], a1[1], h.a.detail));
+      for (const p of [a0, a1]) out.push(h.ligne(p[0] - nb[0] * 6, p[1] - nb[1] * 6, p[0] + nb[0] * 6, p[1] + nb[1] * 6, h.a.detail));
+      const m = add([(a0[0] + a1[0]) / 2, (a0[1] + a1[1]) / 2], nb, 13);
+      out.push(h.texte(m[0], m[1] + 4, '1,5 m', { lisere: true }));
+    }
     // on pousse vers le bas
     const P = a => `${f(cx + 88 * Math.cos(rad(a)))} ${f(cy + 88 * Math.sin(rad(a)))}`;
     out.push(h.fleche(`M ${P(157)} A 88 88 0 0 0 ${P(124)}`));
     // l'homme, hors du cercle
     const { H, S, hanche, tete, pa, pr } = q;
-    const gr = plie(hanche, pr, 35, 34, -1), ga = plie(hanche, pa, 35, 33, -1), cd = plie(S, H, 21, 21, -1);
+    const gr = plie(hanche, pr, 35, 34, -1), ga = plie(hanche, pa, 35, 33, -1), cd = plie(S, H, 25, 25, -1);
     out.push(capsule(hanche, gr, 12.5), capsule(gr, pr, 10), capsule([pr[0] - 3, gy - 3], [pr[0] + 11, gy - 3], 6));
     out.push(capsule(hanche, S, 18));
     out.push(capsule(hanche, ga, 12.5), capsule(ga, pa, 10), capsule([pa[0] - 3, gy - 3], [pa[0] + 11, gy - 3], 6));
-    out.push(capsule(add(S, [2, -4]), tete, 7), h.cercle(tete[0], tete[1], 8.5, blanc('arete')));
+    out.push(capsule(S, tete, 7), h.cercle(tete[0], tete[1], 8.5, blanc('arete')));
     out.push(capsule(S, cd, 7.5), capsule(cd, H, 6.5), h.cercle(H[0], H[1], 3.6, blanc('arete')));
     return out.join('\n');
   };

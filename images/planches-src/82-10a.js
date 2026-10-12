@@ -48,6 +48,7 @@ module.exports = (h) => {
       [334, 142, 378], [348, 166, 386]].forEach(([x1, y, x2]) => o.push(g.L(x1, y, x2, y, h.a.fin)));
     // la tôle roulée dessus, et le joint agrafé sur toute la longueur, en haut
     o.push(g.R(60, cy - r - 3, 270, 2 * r + 6, W('contour')));
+    [cy + r - 14, cy + r - 8, cy + r - 3].forEach(y => o.push(g.L(64, y, 326, y, h.a.fin)));
     o.push(g.R(60, cy - r - 10, 270, 7, W('arete')), g.L(60, cy - r - 6.5, 330, cy - r - 6.5, h.a.fin));
     // le marteau qui rabat le joint
     o.push(g.P(g.D(['M', 214, 11], ['L', 322, 3], ['L', 324, 11], ['L', 214, 20], ['Z']), W('arete')));
@@ -94,7 +95,9 @@ module.exports = (h) => {
       return r;
     };
     ox = 300;
-    o.push(g.R(ox + 4, bas + 2, 142, 34, h.a.hachure('bois', 'arete')));
+    // le dessus de la bille en coupe : grand arc bombé, cernes fins, sans hachure
+    o.push(g.P(g.D(['M', ox + 4, 116], ['L', ox + 4, bas + 7], ['Q', ox + 75, bas - 3, ox + 146, bas + 7], ['L', ox + 146, 116]), W('arete')));
+    [9, 18, 27].forEach(d => o.push(g.P(g.D(['M', ox + 4 + d, bas + 7 + d], ['Q', ox + 75, bas - 3 + d, ox + 146 - d, bas + 7 + d]), h.a.fin)));
     o.push(...rabattu(ox));
     o.push(g.P(g.D(['M', ox + 92, 22], ['L', ox + 136, 18], ['L', ox + 137, 25], ['L', ox + 92, 29], ['Z']), W('arete')));
     o.push(g.R(ox + 64, 12, 28, 30, W('arete')));
@@ -189,7 +192,7 @@ module.exports = (h) => {
           return [
             { n: 3, rond: g.p(20, 22), cible: g.p(48, 53), texte: 'un crochet plié dessus, l’autre dessous' },
             { n: 4, rond: g.p(172, 22), cible: g.p(222, 58), texte: 'la tôle roulée, les crochets accrochés' },
-            { n: 5, rond: g.p(290, 100), cible: g.p(330, 94), texte: 'rabattus à plat au marteau, sur la bille' },
+            { n: 5, rond: g.p(290, 100), cible: g.p(382, 67), texte: 'rabattus à plat au marteau, sur la bille' },
             { n: 6, rond: g.p(582, 30), cible: g.p(532, 55), texte: 'rivet ou vis, la bille sortie' },
           ];
         },

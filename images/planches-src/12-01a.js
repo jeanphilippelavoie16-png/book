@@ -5,7 +5,7 @@
 // à gauche, l'entrée d'air basse, une boîte sous la jupe, jamais renchaussée.
 // En long, par le faîte, la porte à gauche, le fond à droite : plancher foulé, lit de neige au fond
 // avec sa perche, sapinage en écailles, rond de neige nue autour du poêle, faîte sur ses chevalets,
-// renchaussement sur la jupe (au moins 0,5 m, seule cote : ch. 12, 5C point 6).
+// renchaussement sur la jupe (au moins 500 mm, seule cote : ch. 12, 5C point 6).
 // Aucune autre dimension n'est dans le chapitre : les proportions sont celles d'une tente de
 // prospecteur, sans cote.
 
@@ -75,9 +75,14 @@ module.exports = (h) => {
   // Un corps mort en coupe : bout de bois dans une petite fosse rebouchée de neige foulée.
   const corpsMort = (x, y, k) => {
     const r = G.rp * k, fl = 0.16 * k;
+    const R = 0.09 * k, yt = y - 0.25 * k + 0.5, yb = y + R + 2;
     return [
-      h.path(`M ${f(x - fl)} ${f(y - 0.25 * k + 0.5)} L ${f(x - fl * 0.7)} ${f(y + r + 2)} L ${f(x + fl * 0.7)} ${f(y + r + 2)} L ${f(x + fl)} ${f(y - 0.25 * k + 0.5)}`, h.a.fin),
-      h.cercle(x, y, r, h.a.hachure('bois')),
+      h.rect(x - fl, yt, 2 * fl, yb - yt, h.a.hachure('neige', 'aucun')),
+      h.path(`M ${f(x - fl)} ${f(yt)} L ${f(x - fl)} ${f(yb)} L ${f(x + fl)} ${f(yb)} L ${f(x + fl)} ${f(yt)}`, h.a.detail),
+      h.cercle(x, y, R, blanc(h.a.arete)),
+      h.cercle(x, y, R * 0.65, h.a.fin),
+      h.cercle(x, y, R * 0.3, h.a.fin),
+      h.cercle(x, y, R + 1.2, h.a.detail),
     ].join('\n');
   };
 
@@ -126,10 +131,10 @@ module.exports = (h) => {
           // Côté du vent : pas de renchaussement ici. La jupe couchée sur la boîte de conserve.
           // La boîte, ouverte aux deux bouts, en coupe : la jupe couchée dessus s'arrête avant
           // la bouche, qui reste dégagée dehors.
-          const c0 = -G.W - 0.3, c1 = -G.W + 0.08, cd = 0.15;
+          const c0 = -G.W - 0.3, c1 = -G.W + 0.08, cd = 0.2;
           out.push(h.rect(X(c0), Y(cd), (c1 - c0) * k, cd * k, h.a.blanc));
-          out.push(h.ligne(X(c0), Y(cd), X(c1), Y(cd), h.a.arete));
-          out.push(h.ligne(X(c0), Y(0) - 0.7, X(c1), Y(0) - 0.7, h.a.arete));
+          out.push(h.ligne(X(c0), Y(cd), X(c1), Y(cd), h.a.contour));
+          out.push(h.ligne(X(c0), Y(0) - 1, X(c1), Y(0) - 1, h.a.contour));
           out.push(h.ligne(X(-G.W), Y(cd) - 1.6, X(c0 + 0.1), Y(cd) - 1.6, h.a.contour));
           // La toile : murs, traverses, faîte.
           const u = [1 / Math.hypot(1, pente), -pente / Math.hypot(1, pente)];   // le long du pan droit, vers le bas
@@ -147,9 +152,16 @@ module.exports = (h) => {
           for (const lx of [po.l0 + 0.06, po.l1 - 0.06]) out.push(h.rect(X(lx) - 0.04 * k, Y(po.b), 0.08 * k, (po.b + G.D + 0.04) * k, h.a.hachure('bois')));
           // Le poêle, coupé : lit de sable au fond, deux bûches.
           out.push(h.rect(X(po.l0), Y(po.t), (po.l1 - po.l0) * k, (po.t - po.b) * k, blanc(h.a.contour)));
-          out.push(h.rect(X(po.l0) + 1.2, Y(po.b + 0.09), (po.l1 - po.l0) * k - 2.4, 0.09 * k - 1.2, h.a.hachure('gravier', 'aucun')));
-          out.push(h.cercle(X(0.56), Y(po.b + 0.15), 0.055 * k, h.a.hachure('bois', 'detail')));
-          out.push(h.cercle(X(0.72), Y(po.b + 0.16), 0.06 * k, h.a.hachure('bois', 'detail')));
+          const hs = 0.1;
+          out.push(h.rect(X(po.l0) + 1.2, Y(po.b + hs), (po.l1 - po.l0) * k - 2.4, hs * k - 1.2, h.a.hachure('gravier', 'aucun')));
+          out.push(h.ligne(X(po.l0) + 1.2, Y(po.b + hs), X(po.l1) - 1.2, Y(po.b + hs), h.a.detail));
+          for (const [lx, rb] of [[0.55, 0.075], [0.74, 0.08]]) {
+            const yb = Y(po.b + hs + rb);
+            out.push(h.cercle(X(lx), yb, rb * k, blanc(h.a.arete)));
+            out.push(h.cercle(X(lx), yb, rb * k * 0.82, h.a.fin));
+            out.push(h.cercle(X(lx), yb, rb * k * 0.5, h.a.fin));
+            out.push(h.cercle(X(lx), yb, rb * k * 0.2, h.a.fin));
+          }
           // Haubans (derrière le tuyau).
           const rt = G.tuyau / 2 * k;
           out.push(h.ligne(X(G.lp) - rt, Y(G.hb), X(HG.l), Y(HG.y), h.a.detail));
@@ -173,19 +185,19 @@ module.exports = (h) => {
           out.push(pareEt(X(G.lp), Y(2.98), Y(G.haut), k));
           // Le vent, et l'air qui entre par la boîte jusqu'au poêle.
           out.push(h.fleche(`M ${f(X(-3.0))} ${f(Y(0.2))} L ${f(X(-2.1))} ${f(Y(0.2))}`));
-          out.push(h.fleche(`M ${f(X(c0 - 0.05))} ${f(Y(cd / 2))} L ${f(X(-1.25))} ${f(Y(cd / 2))} Q ${f(X(-1.05))} ${f(Y(cd / 2))} ${f(X(-0.95))} ${f(Y(0.24))} L ${f(X(0.25))} ${f(Y(0.24))}`, h.a.cache));
+          out.push(h.fleche(`M ${f(X(c0 + 0.03))} ${f(Y(cd / 2))} L ${f(X(-1.25))} ${f(Y(cd / 2))} Q ${f(X(-1.05))} ${f(Y(cd / 2))} ${f(X(-0.95))} ${f(Y(0.24))} L ${f(X(0.25))} ${f(Y(0.24))}`, h.a.cache));
           return out.join('\n');
         },
         renvois: z => {
           const { k, X, Y } = T(z), po = G.poele;
           const yc = toit(G.lp), u = [1 / Math.hypot(1, pente), -pente / Math.hypot(1, pente)];
           return [
-            { n: 1, rond: [X(1.2), Y(-0.3)], cible: [X(po.l1 - 0.06) + 3, Y(-0.3)], texte: 'quatre pieux verts, plantés jusqu’au sol' },
-            { n: 2, rond: [X(1.2), Y(0.36)], cible: [X(po.l1) - 5, Y(po.b + 0.05)], texte: 'lit de sable, épais d’une main' },
-            { n: 3, rond: [X(1.15), Y(0.98)], cible: [X(G.lp + 0.065) + 0.1 * k + 4, Y(0.92)], texte: 'clé dans la première section' },
-            { n: 4, rond: [X(0.12), Y(1.3)], cible: [X(G.lp - 0.24 * u[0]), Y(yc - 0.24 * u[1]) + 1], texte: 'collerette de tôle cousue dans la toile' },
-            { n: 5, rond: [X(1.25), Y(3.1)], cible: [X(G.lp) + 0.1 * k + 1, Y(3.1)], texte: 'pare-étincelles, plus haut que le faîte' },
-            { n: 6, rond: [X(-2.0), Y(0.7)], cible: [X(-1.72), Y(0.07)], texte: 'entrée d’air basse, au vent, sous la jupe' },
+            { n: 1, rond: [X(1.2), Y(0.36)], cible: [X(po.l1) - 5, Y(po.b + 0.05)], texte: 'lit de sable, épais d’une main' },
+            { n: 2, rond: [X(1.15), Y(0.98)], cible: [X(G.lp + 0.065) + 0.1 * k + 4, Y(0.92)], texte: 'clé dans la première section' },
+            { n: 3, rond: [X(0.12), Y(1.3)], cible: [X(G.lp - 0.24 * u[0]), Y(yc - 0.24 * u[1]) + 1], texte: 'collerette cousue ; tuyau au-dessus du faîte' },
+            { n: 4, rond: [X(1.25), Y(3.1)], cible: [X(G.lp) + 0.1 * k + 1, Y(3.1)], texte: 'pare-étincelles, mailles de 10 mm au plus' },
+            { n: 5, rond: [X(-2.0), Y(0.7)], cible: [X(-1.72), Y(0.07)], texte: 'entrée d’air basse, au vent, sous la jupe' },
+            { n: 6, rond: [X(HG.l + 0.45), Y(0.75)], cible: [X(HG.l) + 0.09 * k, Y(HG.y) - 0.09 * k], texte: 'hauban de fil de fer sur un corps mort enfoui' },
           ];
         },
       },
@@ -206,7 +218,7 @@ module.exports = (h) => {
           // Renchaussement au fond : la jupe couchée à plat, la neige pelletée et tapée.
           out.push(h.path(`M ${f(S(Lg))} ${f(Y(0))} L ${f(S(Lg))} ${f(Y(0.55))} L ${f(S(Lg + 0.18))} ${f(Y(0.55))} Q ${f(S(Lg + 0.45))} ${f(Y(0.5))} ${f(S(Lg + 0.7))} ${f(Y(0))} Z`, h.a.hachure('neige')));
           out.push(h.ligne(S(Lg), Y(0) - 1, S(Lg + 0.42), Y(0) - 1, h.a.contour));
-          out.push(h.cote(S(Lg + 0.95), Y(0), S(Lg + 0.95), Y(0.5), '0,5 m', { cote: 'droite' }));
+          out.push(h.cote(S(Lg + 0.78), Y(0), S(Lg + 0.78), Y(0.5), '500', { cote: 'droite' }));
           // Au-delà de la coupe : la traverse du côté sous le vent sur ses piquets fourchus.
           const yt = Y(G.He - G.rp);
           out.push(h.rect(S(0.03), yt - rp, (Lg - 0.06) * k, 2 * rp, blanc(h.a.detail)));
@@ -242,12 +254,12 @@ module.exports = (h) => {
         renvois: z => {
           const { k, S, Y } = Lo(z);
           return [
-            { n: 7, rond: [S(2.55), Y(-0.33)], cible: [S(1.95), Y(-0.12)], texte: 'plancher foulé en bottes, égalisé en raquettes' },
-            { n: 8, rond: [S(3.45), Y(-0.33)], cible: [S(3.3), Y(0.28)], texte: 'lit de neige à hauteur des genoux' },
-            { n: 9, rond: [S(2.0), Y(1.0)], cible: [S(Lg / 2 + 0.07), Y(0.55)], texte: 'perche couchée au bord du lit' },
+            { n: 7, rond: [S(0.12), Y(-0.3)], cible: [S(P.s0 + 0.06) - 0.04 * k - 1, Y(-0.25)], texte: 'quatre pieux verts, plantés jusqu’au sol' },
+            { n: 8, rond: [S(2.55), Y(-0.33)], cible: [S(1.95), Y(-0.12)], texte: 'plancher foulé en bottes, égalisé en raquettes' },
+            { n: 9, rond: [S(3.45), Y(-0.33)], cible: [S(3.3), Y(0.28)], texte: 'lit de neige aux genoux, perche au bord' },
             { n: 10, rond: [S(3.4), Y(1.05)], cible: [S(3.4), Y(0.6)], texte: 'sapinage en écailles, du fond vers la porte' },
             { n: 11, rond: [S(1.45), Y(0.5)], cible: [S(1.45), Y(0.03)], texte: 'rond de neige nue autour du poêle' },
-            { n: 12, rond: [S(Lg + 0.95), Y(1.05)], cible: [S(Lg + 0.3), Y(0.35)], texte: 'neige pelletée et tapée sur la jupe' },
+            { n: 12, rond: [S(Lg + 0.95), Y(1.05)], cible: [S(Lg + 0.3), Y(0.35)], texte: 'neige tapée sur la jupe, au moins 500 mm' },
           ];
         },
       },

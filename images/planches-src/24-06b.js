@@ -71,10 +71,10 @@ module.exports = (h) => {
     [L - 95, 9], [L - 60, 0.5], [L - 27, 0]];
   const ext = lisse(bordExt), int = lisse(bordInt);
   const silhouette = [...miroir(ext), ...miroir(int).reverse(), ...int, ...ext.slice().reverse()];
-  const coussinPts = lisse([[L - 82, -30], [L - 76, -29], [L - 70, -27], [L - 56, -38], [L - 32, -40], [L - 10, -30], [L, 0],
-    [L - 10, 30], [L - 32, 40], [L - 56, 38], [L - 70, 27], [L - 76, 29], [L - 82, 30]]);
-  const coussinDedans = lisse([[L - 82, -24], [L - 70, -23.5], [L - 56, -23], [L - 40, -22], [L - 26, -15], [L - 24, 0],
-    [L - 26, 15], [L - 40, 22], [L - 56, 23], [L - 70, 23.5], [L - 82, 24]]);
+  const coussinPts = lisse([[L - 84, -31], [L - 80, -28.5], [L - 76, -27], [L - 70, -25], [L - 63, -33], [L - 56, -38], [L - 32, -40], [L - 10, -30], [L, 0],
+    [L - 10, 30], [L - 32, 40], [L - 56, 38], [L - 63, 33], [L - 70, 25], [L - 76, 27], [L - 80, 28.5], [L - 84, 31]]);
+  const coussinDedans = lisse([[L - 84, -23.5], [L - 77, -23.5], [L - 70, -23.5], [L - 56, -23], [L - 40, -22], [L - 26, -15], [L - 24, 0],
+    [L - 26, 15], [L - 40, 22], [L - 56, 23], [L - 70, 23.5], [L - 77, 23.5], [L - 84, 23.5]]);
   const VM = 65;   // le milieu d'une branche, à la traverse
 
   // la béquille, dessinée par M(u, v) → [x, y] de la vue ; e : unités de vue par mm
@@ -103,9 +103,9 @@ module.exports = (h) => {
     if (o.traverse !== false) {
       out.push(h.path(dP(Mp([[uC - 11, -100], [uC + 11, -100], [uC + 11, 100], [uC - 11, 100]]), true), blanc(at)));
       if (o.ligatures !== false) for (const s of [1, -1]) {
-        const vm = s * VM, du = 14, dv = 15;
-        out.push(h.path(dP(Mp([[uC - du, vm - dv], [uC + du, vm - dv], [uC + du, vm + dv], [uC - du, vm + dv]]), true), blanc(det)));
-        out.push(h.path(dP(Mp([[uC - du, vm - dv + 4], [uC + du, vm + dv - 4]])), det), h.path(dP(Mp([[uC - du, vm + dv - 4], [uC + du, vm - dv + 4]])), det));
+        const vm = s * VM;
+        for (const dir of [1, -1]) for (const k of [-4.5, 0, 4.5])
+          out.push(tour(M(uC - 15 + k, vm - dir * 15), M(uC + 15 + k, vm + dir * 15), Math.max(0.9, 3.4 * e)));
       }
     }
     if (o.coussin !== false) {
@@ -113,7 +113,7 @@ module.exports = (h) => {
       out.push(h.path(dP(Mp(lisse([[L - 62, -30], [L - 38, -32], [L - 16, -22], [L - 7, 0]], 6))), A.fin));
       out.push(h.path(dP(Mp(lisse([[L - 62, 30], [L - 40, 31], [L - 20, 24]], 6))), A.fin));
       for (const v of [-18, -6, 6, 18]) out.push(h.path(dP(Mp([[L - 66, v * 1.1], [L - 56, v * 1.5]])), A.fin));
-      out.push(h.path(dP(Mp([[L - 72.5, -29], [L - 67.5, -29], [L - 67.5, 29], [L - 72.5, 29]]), true), blanc(det)));
+      for (const du of [-1.6, 1.6]) out.push(tour(M(L - 70 + du - 1, -27), M(L - 70 + du + 1, 27), Math.max(0.9, 2.6 * e)));
     }
     return out.join(NL);
   }
@@ -196,6 +196,17 @@ module.exports = (h) => {
               });
               out.push(h.path(dP(Vp(pli)), A.fin));
             }
+            // les bords du linge pincés par le lien : la même trame ondulée, amincie sous le lien
+            for (const sg of [1, -1]) for (const w of [0.35, 0.7]) {
+              const pts = [];
+              for (let k = 0; k <= 24; k++) {
+                const u = L - 84 + k * 21 / 24;
+                const vo = u < L - 70 ? 28.5 - (u - (L - 84)) * 0.25 : 25 + (u - (L - 70)) * 1.1;
+                const vv = 23.5 + (vo - 23.5) * w + Math.sin(k * 1.6) * 0.5 * (vo - 23.5) / 5;
+                pts.push([u, sg * vv]);
+              }
+              out.push(h.path(dP(Vp(pts)), A.fin));
+            }
             for (const sg of [1, -1]) { const c = V(L - 70, sg * 30.2); out.push(h.cercle(c[0], c[1], 2.8 * s, noir)); }
             return out.join(NL);
           },
@@ -234,6 +245,22 @@ module.exports = (h) => {
               for (const dir of [1, -1]) for (const k of [-4.5, 0, 4.5]) {
                 out.push(tour(V(uC - 17 + k, vm - dir * 17), V(uC + 17 + k, vm + dir * 17), 4 * s));
               }
+            }
+            // sur la croisée du haut : tours arrière en tireté, départ et arrêt
+            {
+              const vm = VM, ti = A.fin + ' stroke-dasharray="3 2.5"';
+              for (const k of [-4.5, 0, 4.5]) {
+                out.push(h.path(dP([V(uC + 17 + k, vm + 17), V(uC + 11, vm + 21 + k), V(uC - 17 + k, vm + 17)]), ti));
+                out.push(h.path(dP([V(uC + 17 + k, vm - 17), V(uC + 11, vm - 21 + k), V(uC - 17 + k, vm - 17)]), ti));
+              }
+              // départ : tour mort et demi-clé sur la traverse, sous la branche
+              for (const dv of [-31, -26.5]) out.push(tour(V(uC - 14, vm + dv), V(uC + 14, vm + dv + 1.5), 4 * s));
+              out.push(String(F.corde([V(uC - 14, vm - 22), V(uC - 22, vm - 25), V(uC - 30, vm - 31), V(uC - 33, vm - 40)], { ep: 4 * s, debut: 'ouvert', fin: 'libre', trait: 'detail' })));
+              out.push(String(F.corde([V(uC + 14, vm - 25), V(uC + 6, vm - 22), V(uC - 14, vm - 21)], { ep: 4 * s, debut: 'ouvert', fin: 'ouvert', trait: 'detail' })));
+              // arrêt : le bout final noué sur les tours, au-dessus de la branche
+              const nd = V(uC + 21, vm + 22);
+              out.push(h.cercle(nd[0], nd[1], 3.2 * s, blanc(A.detail)));
+              out.push(String(F.corde([V(uC + 23, vm + 24), V(uC + 30, vm + 30), V(uC + 33, vm + 39)], { ep: 4 * s, debut: 'ouvert', fin: 'libre', trait: 'detail' })));
             }
             return out.join(NL);
           },

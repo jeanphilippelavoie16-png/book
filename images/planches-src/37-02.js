@@ -153,7 +153,7 @@ module.exports = (h) => {
       const cells = k % 2 === 0 ? [120, 130, 130, 120] : [170, 160, 170];
       let al = pileL[0];
       cells.forEach((w, i) => {
-        o.push(pierre(X(al + w / 2), Y(hb + ht / 2), (w / 2 - 5) * s, (ht / 2 - 4) * s, 300 + k * 10 + i, 5, 0.05));
+        o.push(pierre(X(al + w / 2), Y(hb + ht / 2), (w / 2 - 5) * s, (ht / 2 - 4) * s, 300 + k * 10 + i, 5, 0.05, W(A.fin)));   // arrière-plan : trait fin
         al += w;
       });
       hb += ht;
@@ -241,27 +241,25 @@ module.exports = (h) => {
     // la barre, couchée d'une pile à l'autre : l'armature et ses nervures, cassée aux deux bouts
     const bx1 = 8, bx2 = z.l - 8, by1 = Y(hPile + dB), by2 = Y(hPile);
     o.push(h.rect(bx1, by1, bx2 - bx1, by2 - by1, W(A.arete)));
-    for (let x = bx1 + 7; x < bx2 - 6; x += 11) o.push(h.ligne(x, by1 + 2, x + 7, by2 - 2, A.fin));
     for (const x of [bx1, bx2]) o.push(h.path(`M${x + 3} ${f(by1 - 4)} L${x - 3} ${f(by1 + (by2 - by1) * 0.4)} L${x + 3} ${f(by1 + (by2 - by1) * 0.6)} L${x - 3} ${f(by2 + 4)}`, A.detail));
     // le fer debout, devant la barre, coupé en haut
     const fx1 = X(aFer - 6), fx2 = X(aFer + 6), fy2 = by2, fy1 = 16;
     o.push(h.rect(fx1, fy1, fx2 - fx1, fy2 - fy1, W(A.arete)));
-    for (let y = fy1 + 8; y < fy2 - 4; y += 11) o.push(h.ligne(fx1 + 2, y + 6, fx2 - 2, y, A.fin));
     o.push(h.path(`M${f(fx1 - 4)} ${fy1 + 3} L${f(fx1 + 8)} ${fy1 - 3} L${f(fx2 - 8)} ${fy1 + 5} L${f(fx2 + 4)} ${fy1 - 1}`, A.detail));
-    // la ligature, fil doublé. Le fil part du bas à gauche, monte en diagonale devant le croisement,
-    // passe derrière le fer en haut à droite, redescend derrière la barre et ressort dessous, à droite ;
-    // il remonte en diagonale par-dessus la première jusqu'en haut à gauche, repasse derrière le fer
-    // et sous la barre, et ressort au pied du fer. Les deux bouts se rejoignent et se tordent ensemble.
-    const p0 = [fx1 - 22, by2 + 24];                 // où les deux bouts se rejoignent
-    const u1 = [fx2 + 1, by1 - 14];
-    const l2 = [fx2 + 14, by2 + 5], u2 = [fx1 - 1, by1 - 14];
-    const e2 = [fx1 + 7, by2 + 3];
-    const k = 2.1;
-    for (const q of [-k, k]) o.push(tube(P([[e2[0] + q, e2[1]], [p0[0] + 4 + q * 0.6, p0[1] - 1 + q * 0.6]])));
-    for (const q of [-k, k]) { const [a, b] = par(p0, u1, q); o.push(tube(P([a, b]))); }
-    for (const q of [-k, k]) { const [a, b] = par(l2, u2, q); o.push(tube(P([a, b]))); }
+    // la ligature, fil doublé. Départ au coin bas-gauche ; devant, en diagonale jusqu'en haut à droite ;
+    // derrière la barre, descend au coin bas-droit ; devant, en diagonale par-dessus la première jusqu'en
+    // haut à gauche ; derrière la barre, redescend au coin bas-gauche. Les deux bouts sortent au même coin.
+    const g = 15, TL = [fx1 - g, by1 - g], TR = [fx2 + g, by1 - g], BR = [fx2 + g, by2 + g], BL = [fx1 - g, by2 + g];
+    const k = 2.1, tir = `fill="none" stroke="${NOIR}" stroke-width="1.1" stroke-dasharray="3 2.2"`;
+    // passes de derrière : tiretés courts, de part et d'autre du fer
+    for (const [p, q] of [[TR, BR], [TL, BL]]) for (const d of [-k, k]) o.push(h.path(P([[p[0] + d, p[1]], [q[0] + d, q[1]]]), tir));
+    // première passe de devant, puis la seconde par-dessus au croisement
+    for (const q of [-k, k]) { const [a, b] = par([BL[0] + 3, BL[1]], TR, q); o.push(tube(P([a, b]))); }
+    for (const q of [-k, k]) { const [a, b] = par(BR, TL, q); o.push(tube(P([a, b]))); }
+    // le bout qui revient de derrière, au coin bas-gauche
+    for (const q of [-k, k]) o.push(tube(P([[TL[0] + q, BL[1] - 3], [BL[0] - 4 + q, BL[1] + 6]])));
     // la queue : les deux bouts tordus ensemble à la pince, coupés court
-    o.push(h.formes.corde([[p0[0] + 2, p0[1] - 2], [p0[0] - 36, p0[1] + 46]], { ep: 9, torons: true, debut: 'ouvert', fin: 'coupe' }));
+    o.push(h.formes.corde([[BL[0] - 2, BL[1] + 6], [BL[0] - 34, BL[1] + 44]], { ep: 9, torons: true, debut: 'ouvert', fin: 'coupe' }));
     return o.join('\n');
   };
 
@@ -318,8 +316,8 @@ module.exports = (h) => {
         renvois: z => {
           const X = a => xR + (a - aFer) * sd, Y = hh => yR - (hh - hBarre) * sd;
           return [
-            { n: 12, rond: [z.l - 24, 30], cible: [191, 121], texte: 'ligature en croix, fil doublé' },
-            { n: 13, rond: [40, z.h - 16], cible: [113, 172], texte: 'bouts tordus à la pince' },
+            { n: 12, rond: [z.l - 24, 30], cible: [X(aFer) + 20, Y(hBarre) - 20], texte: 'ligature en croix, fil doublé' },
+            { n: 13, rond: [40, z.h - 16], cible: [X(aFer - 6) - 30, Y(hPile) + 34], texte: 'bouts tordus à la pince' },
             { n: 14, rond: [60, 30], cible: [156, 78], texte: 'rien de galvanisé' },
           ];
         },

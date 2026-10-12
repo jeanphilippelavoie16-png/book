@@ -46,12 +46,18 @@ module.exports = (h) => {
   // un homme debout qui tient la caisse par les côtés ; le bras loin est caché derrière le proche
   const profil = (z, o) => {
     const G = z.h - 12, x0 = z.l * 0.34;
-    const bx = x0 + mm(o.arriere), by = G - mm(1235), bl = mm(300), bh = mm(300);
+    const bx = x0 + mm(o.arriere), bl = mm(300), bh = mm(300);
     const poignet = [x0 + mm(o.poignet[0]), G - mm(o.poignet[1])];
     const pers = F.personnage({ x: x0, y: G, pose: 'debout', echelle: E, penche: o.penche, regard: o.regard,
       mains: { proche: poignet, loin: [poignet[0] - 1, poignet[1] - 1] } });
     const main = milieu(pers.poignets.proche, pers.mains.proche, 0.55);
-    return { svg: [sol(4, z.l - 4, G), caisse(bx, by, bl, bh), pers].join('\n'), G, x0, bx, by, bl, bh, main };
+    const by = pers.mains.proche[1] + 1.5 - bh;   // la planche du bas posée sur les doigts
+    // les doigts repliés sous la planche du bas, au coin de la caisse
+    const bout = pers.mains.proche, yb = by + bh;
+    const doigts = h.path(`M${pt([bout[0] - 3, yb - 3])} C${pt([bout[0] + 4, yb - 1])} ${pt([bout[0] + 5, yb + 3])} ${pt([bout[0] - 4, yb + 3.5])}`, A.arete);
+    // fil à plomb : de la cheville à la hauteur des mains
+    const plomb = h.ligne(x0, G - 2, x0, main[1], A.fin + ' stroke-dasharray="3 2.5"');
+    return { svg: [sol(4, z.l - 4, G), caisse(bx, by, bl, bh), pers, doigts, plomb].join('\n'), G, x0, bx, by, bl, bh, main };
   };
   const V = {
     ventre: { arriere: 96, poignet: [178, 1085], penche: 2, regard: 6 },
@@ -73,36 +79,36 @@ module.exports = (h) => {
   const pieds = (c, ang, at) => [botte(ici(c, [112, 0], ang), ang + 8, true, at), botte(ici(c, [-112, 0], ang), ang - 8, false, at)].join('\n');
   // la caisse, les bras, les épaules et la tête vus de dessus, peints en blanc : ils cachent les
   // pieds ; ce qui dépasse se voit en trait plein, le reste se redessine en tireté par-dessus
-  const corps = (c, ang) => {
+  const corps = (c, ang, trait = A.fin) => {
     const T = p => ici(c, p, ang);
     const out = [];
     const bw = 170, b0 = -112, b1 = -412;
-    out.push(h.chemin([[-bw, b0], [bw, b0], [bw, b1], [-bw, b1]].map(T), W(A.arete), true));
+    out.push(h.chemin([[-bw, b0], [bw, b0], [bw, b1], [-bw, b1]].map(T), W(trait), true));
     for (const y of [-212, -312]) out.push(h.chemin([[-bw + 30, y], [bw - 30, y]].map(T), A.fin));
     for (const x of [-bw + 30, bw - 30]) out.push(h.chemin([[x, b0], [x, b1]].map(T), A.detail));
     // les avant-bras le long des côtés de la caisse, la main à plat sur le côté
     const BRAS = [[196, -96], [206, -180], [198, -248], [178, -266], [171, -300], [171, -382], [177, -396], [185, -384],
       [197, -300], [224, -262], [250, -180], [262, -96], [240, -40]];
-    for (const sg of [-1, 1]) out.push(h.path(lisse(BRAS.map(p => T([sg * p[0], p[1]])), true), W(A.arete)));
+    for (const sg of [-1, 1]) out.push(h.path(lisse(BRAS.map(p => T([sg * p[0], p[1]])), true), W(trait)));
     const ep = [];
     for (let k = 0; k < 36; k++) {
       const t = k / 36 * 2 * Math.PI, cs = Math.cos(t), sn = Math.sin(t), n = 2.6;
       ep.push([238 * Math.sign(cs) * Math.pow(Math.abs(cs), 2 / n), 10 + 118 * Math.sign(sn) * Math.pow(Math.abs(sn), 2 / n)]);
     }
-    out.push(h.path(lisse(ep.map(T), true), W(A.arete)));
+    out.push(h.path(lisse(ep.map(T), true), W(trait)));
     const P = [];
     for (let k = 0; k < 28; k++) { const t = k / 28 * 2 * Math.PI; P.push([74 * Math.cos(t), -8 + 96 * Math.sin(t)]); }
-    out.push(h.path(lisse([[-12, -100], [-3, -120], [3, -120], [12, -100]].map(T), false), W(A.arete)), h.path(lisse(P.map(T), true), W(A.arete)));
+    out.push(h.path(lisse([[-12, -100], [-3, -120], [3, -120], [12, -100]].map(T), false), W(trait)), h.path(lisse(P.map(T), true), W(trait)));
     return out.join('\n');
   };
-  const POINTS = A.detail + ' stroke-dasharray="0.1 2.6"';   // la place des pieds avant le tour
+  const POINTS = A.cache;   // la place des pieds avant le tour
   // un arc fléché autour de c, de a0 à a1 degrés (0 = vers le haut, sens horaire), rayon r en mm
   const arc = (c, r, a0, a1) => {
     const P = []; for (let k = 0; k <= 18; k++) P.push(pol(c, r, a0 + (a1 - a0) * k / 18));
     return h.fleche('M' + P.map(pt).join(' L'));
   };
   const centre = z => [z.l * 0.40, z.h * 0.60];
-  const ARC_BON = [300, -85, -15], ARC_RATE = [460, -25, 52];
+  const ARC_BON = [285, 18, 72], ARC_RATE = [460, -25, 52];
 
   return {
     ref: '24-01',
@@ -137,13 +143,13 @@ module.exports = (h) => {
         titre: 'Bon : les pieds tournent',
         dessin: z => {
           const c = centre(z);
-          return [pieds(c, 0, POINTS), pieds(c, 90, W(A.arete)), corps(c, 90), pieds(c, 90, A.cache), arc(c, ...ARC_BON)].join('\n');
+          return [corps(c, 90), pieds(c, 0, POINTS), pieds(c, 90, A.arete), arc(c, ...ARC_BON)].join('\n');
         },
         renvois: z => {
           const c = centre(z);
           return [
             { n: 4, rond: ici(c, [-250, 250], 0), cible: ici(c, [-20, 157], 0), texte: 'les pieds tournent, pas à pas' },
-            { n: 5, rond: ici(c, [-330, 90], 0), cible: ici(c, [-155, 10], 0), texte: 'les pieds avant le tour' },
+            { n: 5, rond: ici(c, [-330, -60], 0), cible: ici(c, [-150, -150], 0), texte: 'les pieds avant le tour' },
           ];
         },
       },
@@ -151,12 +157,12 @@ module.exports = (h) => {
         titre: 'Raté : le tronc tourne',
         dessin: z => {
           const c = centre(z);
-          return [pieds(c, 0, W(A.arete)), corps(c, 90), pieds(c, 0, A.cache), arc(c, ...ARC_RATE)].join('\n');
+          return [corps(c, 90), pieds(c, 0, A.arete), arc(c, ...ARC_RATE)].join('\n');
         },
         renvois: z => {
           const c = centre(z);
           return [
-            { n: 6, rond: ici(c, [-300, -70], 0), cible: ici(c, [-160, -160], 0), texte: 'les pieds plantés' },
+            { n: 6, rond: ici(c, [-330, -60], 0), cible: ici(c, [-150, -150], 0), texte: 'les pieds plantés' },
             { n: 7, rond: pol(c, 470, -48), cible: pol(c, 460, -12), texte: 'le tronc tourne d’un quart de tour' },
           ];
         },

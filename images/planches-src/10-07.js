@@ -99,11 +99,13 @@ module.exports = (h) => {
     return bouts;
   };
   const sol = (x0, x1, y) => [h.rect(x0, y, x1 - x0, 8, h.a.hachure('terre', 'aucun')), h.ligne(x0, y, x1, y, h.a.arete)];
-  const buche = (x, y, r) => [h.cercle(x, y, r, h.a.blanc), h.cercle(x, y, r, h.a.hachure('bois'))];
+  const buche = (x, y, r) => [h.cercle(x, y, r, h.a.blanc), h.cercle(x, y, r, h.a.arete), h.cercle(x, y, r * 0.62, h.a.fin), h.cercle(x, y, r * 0.28, h.a.fin)];
+  // Un bâton vu en long, posé en travers d'un rebord à l'autre.
+  const baton = (x0, x1, y, e) => [h.rect(x0, y, x1 - x0, e, h.a.blanc), h.rect(x0, y, x1 - x0, e, h.a.hachure('bois')), h.rect(x0, y, x1 - x0, e, h.a.arete)];
   const goutte = (x, y) => h.ellipse(x, y, 1.4, 2.2, h.a.plein);
 
   // ── La coupe ───────────────────────────────────────────────────────────────
-  // Baril de x 92 à 232, du bord (y 74) au fond (y 276), posé sur deux bûches ; sol à y 294.
+  // Baril de x 92 à 232, du bord (y 74) au fond (y 276), posé sur deux blocs de bois ; sol à y 294.
   // Du fond vers le haut : pierre (250-276), gravier (232-250), sable (142-232), film à 142,
   // eau jusqu'à 98. Le boyau sort au bas, remonte et finit à y 128, bouche ouverte plus haut que le
   // sable (142) : il ne redescend pas, sinon il siphonne le baril et le lit s'assèche.
@@ -113,7 +115,7 @@ module.exports = (h) => {
 
   const coupe = z => [
     ...sol(8, 338, 294),
-    ...buche(118, 285, 9), ...buche(206, 285, 9),
+    ...baton(102, 134, 276.5, 17.5), ...baton(190, 222, 276.5, 17.5),
     // l'eau au-dessus du sable
     h.rect(X0, 98, X1 - X0, 42, h.a.hachure('eau', 'aucun')),
     h.ligne(92, 98, 232, 98, h.a.arete),
@@ -130,9 +132,10 @@ module.exports = (h) => {
     // le film vivant
     film(X0, X1, 142),
     // l'assiette percée posée sous l'arrivée
-    h.path('M124,130 Q130,140 138,140', h.a.arete),
-    ...fondPerce(138, 182, 140, [149, 160, 171], h.a.arete),
-    h.path('M182,140 Q190,140 196,130', h.a.arete),
+    h.path('M124,124 Q130,134 138,134', h.a.arete),
+    ...fondPerce(138, 182, 134, [149, 160, 171], h.a.arete),
+    goutte(149, 138.5), goutte(160, 138.5), goutte(171, 138.5),
+    h.path('M182,134 Q190,134 196,124', h.a.arete),
     // le baril et ses deux cercles de roulement
     h.chemin([[92, 72], [92, 276], [232, 276], [232, 72]], h.a.contour),
     ...[141, 209].flatMap(y => [
@@ -147,7 +150,7 @@ module.exports = (h) => {
     h.rect(273.5, 268, 61, 24, h.a.hachure('eau', 'aucun')),
     h.ligne(273.2, 268, 334.8, 268, h.a.detail),
     h.chemin([[272, 244], [276, 293.5], [332, 293.5], [336, 244]], h.a.arete),
-    ...buche(285, 241, 3), ...buche(323, 241, 3),
+    ...baton(268, 340, 239.5, 4.5),
     ...charbon([[276, 204], [332, 204], [328.6, 236.5], [279.4, 236.5]], 5, 6.2, 2.4),
     h.ligne(274, 190, 279, 238, h.a.arete), h.ligne(334, 190, 329, 238, h.a.arete),
     ...fondPerce(279, 329, 238, [292, 304, 316], h.a.arete),
@@ -155,8 +158,8 @@ module.exports = (h) => {
     // l'arrivée : un seau qu'on penche doucement sur l'assiette
     h.path('M156.5,59 C158,72 158.5,86 158.5,98', h.a.detail),
     h.path('M160,58.5 C161.5,72 162,86 162,98', h.a.detail),
-    h.path('M160,102 L160,129', halo),
-    h.fleche('M160,101 L160,130', h.a.cache),
+    h.path('M160,102 L160,123', halo),
+    h.fleche('M160,101 L160,124', h.a.cache),
     h.chemin(sousLigne(seauVerse, 58), h.a.hachure('eau', 'aucun'), true),
     h.ligne(sousLigne(seauVerse, 58).reduce((m, p) => Math.min(m, p[0]), 999), 58, 158, 58, h.a.detail),
     h.chemin(seauVerse, h.a.contour),
@@ -171,7 +174,7 @@ module.exports = (h) => {
     h.ligne(52.6, 252, 177.4, 252, h.a.detail),
     h.chemin([[48, 206], [56, 293.5], [174, 293.5], [182, 206]], h.a.contour),
     // deux bâtons en travers du bord
-    ...buche(76, 201.5, 4.5), ...buche(154, 201.5, 4.5),
+    ...baton(40, 190, 197.5, 8),
     // le seau et son charbon
     ...charbon([[57.5, 112], [172.5, 112], [162, 195.5], [68, 195.5]], 11, 11, 4.3),
     h.ligne(55, 90, 67, 197, h.a.contour), h.ligne(175, 90, 163, 197, h.a.contour),
@@ -224,11 +227,12 @@ module.exports = (h) => {
     h.ligne(70, 102, 204, 102, h.a.arete),
     // l'ancien dessus, parti dans la gratte
     h.ligne(124, 80, 204, 80, h.a.cache),
-    h.cote(196, 80, 196, 102, '2 à 3 cm', { cote: 'gauche' }),
+    h.cote(196, 80, 196, 102, '20 à 30 mm', { cote: 'gauche' }),
     // la gratte, pleine de ce qu'elle a levé
-    ...pointille([[73, 101], [114, 101], [114, 86], [100, 84], [84, 88]], 52, 12),
+    ...pointille([[76, 97], [114, 97], [114, 86], [100, 84], [84, 88]], 52, 12),
     h.path('M75,93 Q82,88 92,86 L96,88 Q86,90 77,96 Z', h.a.plein),
     h.path('M70,102 L112,102 Q120,102 120,94 L120,78 L154,44', h.a.contour),
+    h.path('M70,102 L75.5,98.5 L112,98.5 Q116.5,98.5 116.5,94 L116.5,80', h.a.contour),
     h.fleche('M62,62 L24,62', h.a.arete),
     // coupures du dessin
     h.path('M16,180 L60,180 L64,175 L70,185 L74,180 L204,180', h.a.fin),
@@ -238,7 +242,7 @@ module.exports = (h) => {
   return {
     ref: '10-07',
     titre: 'Le filtre à sable en baril',
-    desc: 'Coupe d’un baril debout posé sur deux bûches : du fond vers le haut, une main de grosse pierre, du gravier, une couche épaisse de sable lavé, le film vivant à sa surface, et de l’eau par-dessus ; une assiette percée sur le sable, sous le seau qu’on penche doucement. Un bout de boyau part du bas, remonte le long du baril et finit, bouche en bas, plus haut que le sable, pour que le lit reste noyé ; l’eau en tombe dans un second seau percé plein de charbon de poêle concassé, posé sur deux bâtons en travers d’une chaudière. À droite, ce second seau en grand. En bas, le lavage du sable : on brasse, on laisse tomber, on vide l’eau trouble, jusqu’à ce qu’elle sorte claire ; et le dessus du lit qu’on gratte à plat sur 2 à 3 cm quand le débit tombe, sans brasser le dessous. Encadré danger : le sable et le charbon clarifient l’eau, ils ne la désinfectent pas.',
+    desc: 'Coupe d’un baril debout posé sur deux blocs de bois : du fond vers le haut, une main de grosse pierre, du gravier, une couche épaisse de sable lavé, le film vivant à sa surface, et de l’eau par-dessus ; une assiette percée sur le sable, sous le seau qu’on penche doucement. Un bout de boyau part du bas, remonte le long du baril et finit, bouche en bas, plus haut que le sable, pour que le lit reste noyé ; l’eau en tombe dans un second seau percé plein de charbon de poêle concassé, posé sur deux bâtons en travers d’une chaudière. À droite, ce second seau en grand. En bas, le lavage du sable : on brasse, on laisse tomber, on vide l’eau trouble, jusqu’à ce qu’elle sorte claire ; et le dessus du lit qu’on gratte à plat sur 20 à 30 mm quand le débit tombe, sans brasser le dessous. Encadré danger : le sable et le charbon clarifient l’eau, ils ne la désinfectent pas.',
     format: 'pleine',
     disposition: [['coupe', 'charbon'], ['lavage', 'grattage']],
     hauteurs: [3, 2],
@@ -248,7 +252,7 @@ module.exports = (h) => {
         titre: 'En coupe',
         dessin: coupe,
         renvois: z => [
-          { n: 1, rond: [48, 112], cible: [131, 139], texte: 'eau versée doucement sur une assiette percée' },
+          { n: 1, rond: [48, 112], cible: [131, 133], texte: 'eau versée doucement sur une assiette percée' },
           { n: 2, rond: [48, 150], cible: [104, 142], texte: 'film vivant à la surface du sable' },
           { n: 3, rond: [48, 192], cible: [112, 192], texte: 'sable lavé, en couche épaisse' },
           { n: 4, rond: [48, 238], cible: [104, 241], texte: 'gravier' },

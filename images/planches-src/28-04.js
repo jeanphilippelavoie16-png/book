@@ -83,8 +83,11 @@ module.exports = (h) => {
     // les bouts du linge qui dépassent des poings, lâches
     for (const s of [1, -1]) {
       const x = s > 0 ? xR : xL, X = d => x + s * d;
-      out.push(h.path(`M${X(8)} ${yc - 9} C${X(22)} ${yc - 16}, ${X(30)} ${yc - 12}, ${X(34)} ${yc - 6} C${X(38)} ${yc + 8}, ${X(34)} ${yc + 26}, ${X(30)} ${yc + 36} C${X(24)} ${yc + 30}, ${X(16)} ${yc + 22}, ${X(8)} ${yc + 9} Z`, blanc(A.arete)));
-      out.push(h.path(`M${X(20)} ${yc - 12} C${X(26)} ${yc + 4}, ${X(28)} ${yc + 18}, ${X(30)} ${yc + 34}`, A.fin));
+      const bout = courbe([[X(8), yc - 9], [X(22), yc - 14], [X(32), yc - 8], [X(36), yc + 10], [X(37), yc + 30], [X(33), yc + 40], [X(28), yc + 36],
+        [X(24), yc + 42], [X(18), yc + 34], [X(13), yc + 37], [X(10), yc + 22], [X(8), yc + 9]], true, 6);
+      out.push(h.path(trace(bout, true), blanc(A.arete)), h.path(trace(bout, true), sansTrait(A.hachure('eau', 'detail'))));
+      out.push(h.path(`M${X(20)} ${yc - 11} C${X(24)} ${yc + 6}, ${X(26)} ${yc + 22}, ${X(28)} ${yc + 35}`, A.fin));
+      out.push(h.path(`M${X(13)} ${yc + 2} C${X(15)} ${yc + 14}, ${X(17)} ${yc + 26}, ${X(18)} ${yc + 33}`, A.fin));
     }
     // le linge tordu : plus mince au milieu, les plis en spirale
     const hw = x => 5.5 + 4 * Math.pow(Math.abs((x - xm) / (xR - xm)), 1.5);
@@ -192,18 +195,19 @@ module.exports = (h) => {
     const xm = z.l / 2 - 6, yS = z.h - 46, xa = xm - 14;
     const peau = []; for (let x = 0; x <= z.l + 0.01; x += 3) peau.push([x, yS + 0.00032 * (x - xm) * (x - xm) - 6 * cloche((x - xa) / 22)]);
     // le linge mouillé : sur la peau, par-dessus la bosse
-    const lm = peau.filter(p => p[0] >= xa - 48 && p[0] <= xa + 52);
-    const lmDessus = decale(lm, 6.5);
-    const profil = x => (x >= xa - 48 && x <= xa + 52) ? yA(lmDessus, x) : yA(peau, x);
+    const lg = xm - (176 + 17) / 2 - 4 - 9, ld = lg + 176 + 17;
+    const lm = peau.filter(p => p[0] >= lg && p[0] <= ld);
+    const lmDessus = decale(lm, 9);
+    const profil = x => (x >= lg && x <= ld) ? yA(lmDessus, x) : yA(peau, x);
     // le rouleau : la bouteille couchée dans l'axe de la cuisse, deux tours de linge sec autour
     const L = 176, r = 24, ep = 9, s1 = -7, s2 = L + 6, u0 = xm - (L + 17) / 2 - 4;
     let appuiMin = Infinity;
     for (let s = s1; s <= s2; s += 2) appuiMin = Math.min(appuiMin, profil(u0 + s));
-    const O = [u0, appuiMin - r - ep + 2];
+    const O = [u0, appuiMin - r - ep];
     const T = (s, v) => [O[0] + s, O[1] + v];
     // la serviette : de la peau à la peau, par-dessus le rouleau et le bouchon
-    const xG = u0 + s1 - 34, xD = u0 + L + 17 + 11 + 36, rc = r * 0.52;
-    const servIn = courbe([[xG - 22, yA(peau, xG - 22)], [xG, yA(peau, xG) - 0.5], [xG + 18, yA(peau, xG + 18) - 12], T(s1 - 4, -r - ep - 1),
+    const xG = u0 + s1 - r - ep - 26, xD = u0 + L + 17 + 11 + 36, rc = r * 0.52;
+    const servIn = courbe([[xG - 22, yA(peau, xG - 22)], [xG, yA(peau, xG) - 0.5], [xG + 12, yA(peau, xG + 12) - 12], T(s1 - r - ep - 3, 0), T(s1 - 4, -r - ep - 1),
       T(60, -r - ep - 0.5), T(120, -r - ep - 0.5), T(s2 + 3, -r - ep - 1), T(L + 17 + 14, -rc - 3), [xD - 16, yA(peau, xD - 16) - 4], [xD, yA(peau, xD)], [xD + 22, yA(peau, xD + 22)]], false, 10);
     const serv = decale(servIn, 12);
     return { xa, peau, lm, lmDessus, profil, T, L, r, ep, s1, s2, rc, servIn, serv };
@@ -227,6 +231,12 @@ module.exports = (h) => {
     out.push(h.path(trace([...dessous, ...appui.slice().reverse()], true), A.hachure('grillage', 'arete')));
     out.push(h.path(trace([T(s1, -r - ep), T(s2, -r - ep), T(s2, -r), T(s1, -r)], true), A.hachure('grillage', 'arete')));
     out.push(h.path(trace([T(s1, -r - ep / 2), T(s2, -r - ep / 2)]), A.detail));
+    // le rouleau se referme autour du fond de la bouteille
+    const arc = (R, a0, a1) => { const q = []; for (let k = 0; k <= 16; k++) { const t = a0 + (a1 - a0) * k / 16; q.push(T(s1 + R * Math.cos(t), R * Math.sin(t))); } return q; };
+    out.push(h.path(trace([...arc(r + ep, -Math.PI / 2, -3 * Math.PI / 2), ...arc(r, -3 * Math.PI / 2, -Math.PI / 2)], true), A.hachure('grillage', 'arete')));
+    // second trait du renvoi 5, vers la bande du dessous
+    { const c = T(24, r + ep / 2); out.push(`<line x1="28" y1="74" x2="${f(c[0])}" y2="${f(c[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/><line x1="28" y1="74" x2="${f(c[0])}" y2="${f(c[1])}" fill="none" stroke="#000000" stroke-width="0.5" stroke-dasharray="3 2.5"/><circle cx="${f(c[0])}" cy="${f(c[1])}" r="1.8" fill="#000000" stroke="#FFFFFF" stroke-width="0.7"/>`);  }
+    out.push(h.path(trace(arc(r + ep / 2, -Math.PI / 2, -3 * Math.PI / 2)), A.detail));
     out.push(h.path(trace(dessous.map(p => [p[0], (p[1] + profil(p[0])) / 2])), A.detail));
     // la bouteille, coupée en long : la paroi de métal en noir, l'eau chaude dedans, le bouchon
     const w = 2.6, rc = g.rc;
@@ -302,9 +312,9 @@ module.exports = (h) => {
           const g = geo(z), T = g.T, sv = g.serv[Math.round(g.serv.length * 0.42)];
           return [
             { n: 4, rond: [sv[0] - 60, 18], cible: add(sv, [0, 6]), texte: 'Serviette par-dessus le tout' },
-            { n: 5, rond: [22, 70], cible: T(10, -g.r - g.ep / 2), texte: 'Linge sec roulé autour' },
+            { n: 5, rond: [22, 70], cible: T(10, -g.r - g.ep / 2), texte: 'Linge sec roulé autour, dessus et dessous' },
             { n: 6, rond: [z.l - 22, 64], cible: T(g.L - 50, 8), texte: 'Bouteille d’eau chaude' },
-            { n: 7, rond: [z.l - 70, z.h - 30], cible: [g.xa + 44, g.profil(g.xa + 44) - 3], texte: 'Linge mouillé sur l’abcès' },
+            { n: 7, rond: [z.l - 70, z.h - 30], cible: [g.xa + 44, g.profil(g.xa + 44) + 4], texte: 'Linge mouillé sur l’abcès' },
             { n: 8, rond: [70, z.h - 30], cible: [g.xa - 10, yA(g.peau, g.xa) + 16], texte: 'Abcès' },
           ];
         },

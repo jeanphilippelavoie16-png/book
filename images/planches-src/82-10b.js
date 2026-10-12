@@ -73,6 +73,11 @@ module.exports = (h) => {
       .forEach(([x, y, l, ht]) => o.push(g.R(x, y, l, ht, h.a.cache)));
     // la porte, ses pentures, sa poignée
     o.push(g.R(70, 105, 120, 120, W('contour')), g.R(82, 117, 96, 96, h.a.fin));
+    // la rainure et son bourrelet, tout le tour de la porte, au tireté fin
+    o.push(g.R(74, 109, 112, 112, h.a.cache), g.R(77, 112, 106, 106, h.a.cache));
+    // où est prise la coupe : trait mixte au milieu du bord haut, flèches aux bouts
+    o.push(g.L(130, 93, 130, 125, h.a.detail.replace('/>', '').replace(/"\s*$/, '"') + ' stroke-dasharray="8 2.5 1.5 2.5"'));
+    o.push(g.F(g.D(['M', 130, 93], ['L', 121, 93])), g.F(g.D(['M', 130, 125], ['L', 121, 125])));
     o.push(g.R(63, 118, 8, 16, W('arete')), g.R(63, 196, 8, 16, W('arete')));
     o.push(g.R(177, 162, 6, 28, W('arete')), g.C(180, 165, 4, W('arete')));
     // la feuille pincée côté poignée, tirée ; sa partie cachée sous la porte au tireté
@@ -97,8 +102,9 @@ module.exports = (h) => {
       if (fuit) o.push(g.P(g.D(['M', ox + 60, 96], ['L', ox + 70, 101], ['L', ox + 65, 108], ['L', ox + 78, 114]), W('detail')),
         g.P(g.D(['M', ox + 72, 84], ['L', ox + 76, 92]), h.a.detail));
       // la feuille le long de la devanture, qui sort par le haut
-      o.push(g.L(ox + 42, fuit ? 150 : 190, ox + 42, 6, h.a.arete));
-      o.push(g.F(g.D(['M', ox + 52, 34], ['L', ox + 52, 6])));
+      o.push(g.L(ox + 42, fuit ? 105 : 190, ox + 42, fuit ? 2 : 6, h.a.arete));
+      if (fuit) o.push(g.F(g.D(['M', ox + 52, 70], ['L', ox + 52, 4])));
+      else o.push(g.F(g.D(['M', ox + 52, 34], ['L', ox + 52, 22])), g.L(ox + 45, 19, ox + 59, 19, h.a.contour));
     };
     joint(0, false);
     joint(160, true);
@@ -153,7 +159,7 @@ module.exports = (h) => {
           const g = gF(z);
           return [
             { n: 6, rond: g.p(136, 176), cible: g.p(64, 120), texte: 'la pâte serre la feuille : ça tient' },
-            { n: 7, rond: g.p(290, 176), cible: g.p(209, 112), texte: 'craquée : la feuille sort sans résistance' },
+            { n: 7, rond: g.p(290, 176), cible: g.p(225, 108), texte: 'craquée : la feuille sort sans résistance' },
           ];
         },
       },

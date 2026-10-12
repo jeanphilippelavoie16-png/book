@@ -49,10 +49,11 @@ module.exports = (h) => {
   // ── La fournée d'essai ─────────────────────────────────────────────────────────────
   const geoE = (z) => {
     const yP = z.h - 60;                    // dessus de la plaque du poêle
-    const xc = 150;                         // coin du poêle
-    const b0 = 92, b1 = 128, bH = yP - 44;  // la boîte d'essai
-    const yM = bH + 26;                     // niveau du mélange
-    const r1x0 = z.l - 118, r2x0 = z.l - 58, rw = 40, rB = z.h - 20, rH = rB - 48, rL = rH + 14;
+    const xc = 140;                         // coin du poêle
+    const bw = 54;                          // les trois boîtes, même taille
+    const b1 = xc - 9, b0 = b1 - bw, bH = yP - 60;  // la boîte d'essai, contre le bord de la plaque
+    const yM = bH + 34;                     // niveau du mélange
+    const rw = bw, r2x0 = z.l - 4 - rw, r1x0 = r2x0 - rw - 10, rB = z.h - 20, rH = rB - 66, rL = rH + 22;
     return { yP, xc, b0, b1, bH, yM, r1x0, r2x0, rw, rB, rH, rL };
   };
 
@@ -121,7 +122,7 @@ module.exports = (h) => {
           out.push(pot(g.b0, g.b1, g.bH, g.yP, g.yM, 'isolant'));
           // le bâton qui brasse
           out.push(h.chemin(P([[g.b0 + 6, g.yP - 8], [g.b0 + 2, g.yP - 11], [g.b0 - 26, 14], [g.b0 - 22, 12], [g.b0 + 9, g.yP - 9]]), blanc('arete'), true));
-          out.push(h.fleche(`M ${f(g.b0 + 8)} ${f(g.yM + 6)} A 12 4 0 1 0 ${f(g.b1 - 8)} ${f(g.yM + 6)}`, h.a.detail));
+          out.push(h.fleche(`M ${f(g.b0 + 8)} ${f(g.yM + 6)} A 18 5 0 1 0 ${f(g.b1 - 8)} ${f(g.yM + 6)}`, h.a.detail));
           // les gouttes de lessive, d'une cuillère
           const sx = g.b1 + 6, sy = g.bH - 26;
           out.push(h.path(`M ${sx - 14} ${sy - 3} C ${sx - 14} ${sy + 7} ${sx + 2} ${sy + 7} ${sx + 4} ${sy} Z`, blanc('arete')));
@@ -132,21 +133,28 @@ module.exports = (h) => {
           out.push(h.ligne(g.r1x0 - 14, g.rB, z.l, g.rB, h.a.arete));
           out.push(pot(g.r1x0, g.r1x0 + g.rw, g.rH, g.rB, g.rL, 'isolant'));
           out.push(h.path(`M ${g.r1x0 + 4} ${g.rL} Q ${r1c - 8} ${g.rL - 10} ${r1c} ${g.rL - 6} Q ${r1c + 8} ${g.rL - 12} ${g.r1x0 + g.rw - 4} ${g.rL}`, h.a.arete));
-          out.push(pot(g.r2x0, g.r2x0 + g.rw, g.rH, g.rB, g.rL + 14, 'eau'));
-          out.push(h.rect(g.r2x0 + 3.7, g.rL, g.rw - 7.4, 14, blanc('detail')));
+          out.push(pot(g.r2x0, g.r2x0 + g.rw, g.rH, g.rB, g.rL + 20, 'eau'));
+          // la couche de gras du dessus : même trame que la pâte de la boîte 7
+          out.push(h.rect(g.r2x0 + 3.7, g.rL, g.rw - 7.4, 20, h.a.hachure('isolant', 'aucun')));
           out.push(h.ligne(g.r2x0 + 3.7, g.rL, g.r2x0 + g.rw - 3.7, g.rL, h.a.detail));
+          out.push(h.ligne(g.r2x0 + 3.2, g.rL + 20, g.r2x0 + g.rw - 3.2, g.rL + 20, h.a.arete));
+          // second fil du renvoi 8, vers la lessive dessous
+          const p8 = [g.r2x0 + g.rw - 12, g.rH - 22], c8 = [g.r2x0 + g.rw / 2 + 10, g.rL + 34];
+          out.push(`<line x1="${f(p8[0])}" y1="${f(p8[1])}" x2="${f(c8[0])}" y2="${f(c8[1])}" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>`);
+          out.push(`<line x1="${f(p8[0])}" y1="${f(p8[1])}" x2="${f(c8[0])}" y2="${f(c8[1])}" fill="none" stroke="#1a1a1a" stroke-width="0.5" stroke-dasharray="3 2.5"/>`);
+          out.push(`<circle cx="${f(c8[0])}" cy="${f(c8[1])}" r="1.8" fill="#1a1a1a" stroke="#ffffff" stroke-width="0.7"/>`);
           return out.join('\n');
         },
         renvois: z => {
           const g = geoE(z);
           const sx = g.b1 + 6, sy = g.bH - 26;
           return [
-            { n: 3, rond: [g.xc + 22, g.yP + 30], cible: [g.xc - 3, g.yP + 4], texte: 'une boîte, au coin du poêle' },
+            { n: 3, rond: [g.b1 + 30, g.yP + 34], cible: [g.b1 - 1, g.yP - 8], texte: 'une boîte, au coin du poêle' },
             { n: 4, rond: [g.b1 + 30, g.yP - 12], cible: [g.b1 - 8, g.yM + 8], texte: 'une cuillerée de gras fondu' },
             { n: 5, rond: [sx + 18, sy + 20], cible: [sx - 13, sy + 22], texte: 'quelques gouttes de lessive' },
             { n: 6, rond: [22, 30], cible: [g.b0 - 20, 22], texte: 'brassé au bâton' },
             { n: 7, rond: [g.r1x0 + 6, g.rH - 22], cible: [g.r1x0 + g.rw / 2, g.rL + 4], texte: 'en pâte : la lessive travaille' },
-            { n: 8, rond: [g.r2x0 + g.rw - 4, g.rH - 22], cible: [g.r2x0 + g.rw / 2, g.rL + 14], texte: 'deux liquides : trop faible' },
+            { n: 8, rond: [g.r2x0 + g.rw - 12, g.rH - 22], cible: [g.r2x0 + g.rw / 2 - 10, g.rL + 10], texte: 'deux liquides : trop faible' },
           ];
         },
       },

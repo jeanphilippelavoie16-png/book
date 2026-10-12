@@ -129,6 +129,9 @@ module.exports = (h) => {
           const { P } = cadre(z, BB_A);
           return [
             ...sol(P, -52, 140),
+            // le tuteur du fond, derrière la masse
+            ...plein(P, piquet(40, 8), h.a.arete),
+            h.chemin(P(pierre), h.a.blanc, true),
             h.chemin(P(pierre), h.a.hachure('pierre', 'contour'), true),
             ...plein(P, montant(), h.a.arete),
             ...plein(P, traverse, h.a.arete),
@@ -143,6 +146,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: T([66, 14]), cible: T([72, 55]), texte: 'masse : tue du premier coup' },
             { n: 2, rond: T([82, 90]), cible: T([59, 73]), texte: 'appât sous la masse' },
+            { n: 3, rond: T([10, 12]), cible: T([28, 18]), texte: 'tuteur, un de chaque côté' },
           ];
         },
       },
@@ -162,11 +166,11 @@ module.exports = (h) => {
         renvois: z => {
           const { T } = cadre(z, BB_B);
           return [
-            { n: 3, rond: T([-17, 30]), cible: T([0, 41.2]), texte: 'biseau dans l’entaille' },
-            { n: 4, rond: T([13, 46]), cible: T([9.6, 29.8]), texte: 'la traverse porte la masse' },
-            { n: 5, rond: T([-43, 81]), cible: T([-39.3, 69]), texte: 'le pied bute dans l’encoche' },
-            { n: 6, rond: T([-14, 81]), cible: T([1, 71]), texte: 'méplats ajustés tout juste' },
-            { n: 7, rond: T([15, 89]), cible: T([12, 80]), texte: 'tiré vers le bas, tout lâche' },
+            { n: 4, rond: T([-17, 30]), cible: T([0, 41.2]), texte: 'biseau dans l’entaille' },
+            { n: 5, rond: T([13, 46]), cible: T([9.6, 29.8]), texte: 'la traverse porte la masse' },
+            { n: 6, rond: T([-43, 81]), cible: T([-39.3, 69]), texte: 'le pied bute dans l’encoche' },
+            { n: 7, rond: T([-14, 81]), cible: T([1, 71]), texte: 'méplats ajustés tout juste' },
+            { n: 8, rond: T([15, 89]), cible: T([12, 80]), texte: 'tiré vers le bas, tout lâche' },
           ];
         },
       },
@@ -188,11 +192,10 @@ module.exports = (h) => {
         renvois: z => {
           const { T } = cadre(z, BB_C);
           return [
-            { n: 8, rond: T([73, Y1]), cible: T([63.4, Y1]), texte: 'montant : biseau et méplat' },
-            { n: 9, rond: T([pV[0] + 6, Y2 + 8.5]), cible: T([pV[0], pV[1] + 0.6]), texte: 'traverse : entaille en haut' },
-            { n: 10, rond: T([xl - XG + 1, Y3 + 9.5]), cible: T([xl - XG + 1.2, Y3 - 1.8]), texte: 'languette : encoche, méplat' },
-            { n: 11, rond: T([16, Y1 - 10]), cible: T([16, Y1 - 1.8]), texte: 'le premier jeu sert de gabarit' },
-            { n: 12, rond: T([80, Y3 + 9.5]), cible: T([80, Y3 + 1.8]), texte: 'le bois sec casse' },
+            { n: 9, rond: T([73, Y1]), cible: T([63.4, Y1]), texte: 'montant : biseau et méplat' },
+            { n: 10, rond: T([pV[0] + 6, Y2 + 8.5]), cible: T([pV[0], pV[1] + 0.6]), texte: 'traverse : entaille en haut' },
+            { n: 11, rond: T([xl - XG + 1, Y3 + 9.5]), cible: T([xl - XG + 1.2, Y3 - 1.8]), texte: 'languette : encoche, méplat' },
+            { n: 12, rond: T([80, Y3 + 9.5]), cible: T([80, Y3 + 1.8]), texte: 'bois vert' },
           ];
         },
       },
@@ -216,6 +219,8 @@ module.exports = (h) => {
             h.chemin(P(dalle), h.a.hachure('pierre', 'contour'), true),
             ...plein(P, piquet(-51, 10), h.a.contour),
             ...plein(P, piquet(51, 10), h.a.contour),
+            // l'appât écrasé qui déborde sous le bord de la dalle
+            ...plein(P, [[-9, SOL], [-8, 97.6], [-4, 96.6], [1, 96.9], [6, 96.4], [9.5, 97.8], [10, SOL]], h.a.contour),
           ].join('\n');
         },
         renvois: z => {

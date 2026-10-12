@@ -63,7 +63,7 @@ module.exports = (h) => {
     ref: '19-04',
     titre: 'Bouillir aux pierres, sans chaudron',
     desc: 'Coupe d’une fosse doublée d’une peau fraîche et pleine d’eau, avec un feu allumé à l’écart. ' +
-      'Une main tient deux bâtons verts en pince et lâche une pierre chaude dans l’eau ; une pierre refroidie ' +
+      'Deux bâtons verts en pince, bouts écartés, lâchent une pierre chaude dans l’eau ; une pierre refroidie ' +
       'est ressortie sur le bord. Le feu ne touche jamais la peau.',
     format: 'demi',
     disposition: [['coupe']],
@@ -108,8 +108,8 @@ module.exports = (h) => {
           // Pince et main.
           // Tout est dessiné dans le repère du poing (x le long des bâtons), puis porté au monde.
           const tp = d => d.replace(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g, (_, x, y) => monde(+x, +y).map(f).join(','));
-          const bois1 = tp(`M-34,-5 L${f(Lp - 4)},-14 L${f(Lp - 3)},-10 L-34,-1 Z`);
-          const bois2 = tp(`M-34,1 L${f(Lp - 3)},10 L${f(Lp - 4)},14 L-34,5 Z`);
+          const bois1 = tp(`M-80,-5 L${f(Lp - 4)},-14 L${f(Lp - 3)},-10 L-80,-1 Z`);
+          const bois2 = tp(`M-80,1 L${f(Lp - 3)},10 L${f(Lp - 4)},14 L-80,5 Z`);
           const poing = tp('M-15,-13 C-8,-19 6,-19 13,-16 Q20,-14 19,-8 Q22,-5 20,-1 Q23,2 20,6 Q22,10 17,13 ' +
             'C10,17 -6,18 -14,13 C-18,8 -18,-6 -15,-13 Z');
           const doigts = tp('M19,-8 L12,-8 M20,-1 L12,-1 M20,6 L12,5');
@@ -156,13 +156,6 @@ module.exports = (h) => {
             h.path(bois1, blanc(h.a.arete)), h.path(bois2, blanc(h.a.arete)),
             pierre(S[0], S[1], 12, 9, [1, 0.9, 0.84, 1, 0.9, 0.8, 0.96], 0.7),
             h.fleche(`M${f(S[0])},${f(S[1] + 12)} L${f(S[0])},${f(wl - 3)}`, h.a.arete),
-            h.chemin(bras, h.a.blanc, true),
-            h.chemin([A, Ac], h.a.arete), h.chemin([B, Bc], h.a.arete),
-            h.chemin([Ac, Am, hautDe(Am, 3)], h.a.arete), h.chemin([Bc, Bm, hautDe(Bm, -3)], h.a.arete),
-            h.chemin([Am, Bm], h.a.arete),
-            h.path(poing, blanc(h.a.arete)),
-            h.path(doigts, h.a.detail),
-            h.path(pouce, h.a.detail),
           ].join('\n');
         },
         renvois: z => {

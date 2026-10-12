@@ -94,14 +94,15 @@ module.exports = (h) => {
     out.push(h.path(dP(Mp([[uR - 6, -80], [uR + 6, -80], [uR + 6, 80], [uR - 6, 80]]), true), blanc(at)));
     // la traverse
     out.push(h.path(dP(Mp([[uC - 11, -100], [uC + 11, -100], [uC + 11, 100], [uC - 11, 100]]), true), blanc(at)));
+    // les liens de la traverse : tours croisés sur chaque branche
     for (const s of [1, -1]) {
-      const vm = s * 65, du = 14, dv = 15;
-      out.push(h.path(dP(Mp([[uC - du, vm - dv], [uC + du, vm - dv], [uC + du, vm + dv], [uC - du, vm + dv]]), true), blanc(det)));
-      out.push(h.path(dP(Mp([[uC - du, vm - dv + 4], [uC + du, vm + dv - 4]])), det), h.path(dP(Mp([[uC - du, vm + dv - 4], [uC + du, vm - dv + 4]])), det));
+      const vm = s * 65;
+      for (const dir of [1, -1]) for (const k of [-5, 0, 5])
+        out.push(String(F.corde([M(uC - 15 + k, vm - dir * 15), M(uC + 15 + k, vm + dir * 15)], { ep: 3.4, debut: 'ouvert', fin: 'ouvert', trait: 'detail' })));
     }
     // le rembourrage
     out.push(h.path(dP(Mp(coussinPts), true), blanc(at)));
-    out.push(h.path(dP(Mp([[L - 72.5, -29], [L - 67.5, -29], [L - 67.5, 29], [L - 72.5, 29]]), true), blanc(det)));
+    for (const du of [-1.6, 1.6]) out.push(String(F.corde([M(L - 71 + du, -27), M(L - 69 + du, 27)], { ep: 2.6, debut: 'ouvert', fin: 'ouvert', trait: 'detail' })));
     return out.join(NL);
   }
 
@@ -245,12 +246,14 @@ module.exports = (h) => {
             const R = p => tourne([-xT + p[0], dHaut + p[1]], c0, INCL);
             const perche = [[-10, 82], [10, 82], [11 + 0, DCOUPE - dHaut + 40], [-10, DCOUPE - dHaut + 40]].map(R);
             out.push(decoupe(h.path(dP(Vp(perche), true), blanc(A.arete)), [[[-1000, 0], [1000, 0], [1000, DCOUPE], [-1000, DCOUPE]].map(V)], false));
-            const tampon = lisse([[-15, 85], [-13, 77], [-11, 70], [-21, 56], [-22, 28], [-14, 7], [0, 0], [14, 7], [22, 28], [21, 56],
-              [11, 70], [13, 77], [15, 85]]).map(R);
+            // le rembourrage : bloc de linge plié, 44 de large, serré dessous par trois tours de lien
+            const tampon = lisse([[-12, 86], [-10, 80], [-8, 74], [-16, 68], [-21, 60], [-22, 40], [-22, 18], [-19, 6], [-10, 1], [0, 0], [10, 1], [19, 6], [22, 18],
+              [22, 40], [21, 60], [16, 68], [8, 74], [10, 80], [12, 86]]).map(R);
             out.push(h.path(dP(Vp(tampon), true), blanc(A.arete)));
-            out.push(h.path(dP(Vp(lisse([[-11, 62], [-14, 36], [-6, 12]], 6).map(R))), A.fin));
-            out.push(h.path(dP(Vp(lisse([[10, 62], [13, 38], [6, 14]], 6).map(R))), A.fin));
-            out.push(h.path(dP(Vp([[-12, 67.5], [12, 67.5], [12, 72.5], [-12, 72.5]].map(R)), true), blanc(A.detail)));
+            for (const y of [22, 44]) out.push(h.path(dP(Vp(lisse([[-21, y + 1], [-10, y - 2], [2, y + 1.5], [12, y - 1.5], [21, y + 1]], 5).map(R))), A.fin));
+            out.push(h.path(dP(Vp(lisse([[-17, 64], [-8, 70], [-3, 74]], 5).map(R))), A.fin));
+            out.push(h.path(dP(Vp(lisse([[17, 64], [8, 70], [3, 74]], 5).map(R))), A.fin));
+            for (const y of [73, 76.5, 80]) out.push(String(F.corde(Vp([[-11.5, y - 1], [11.5, y + 1]].map(R)), { ep: 3 * s, debut: 'ouvert', fin: 'ouvert', trait: 'detail' })));
             // la cote : du creux au haut du rembourrage
             const top = R([0, 0]);
             const xq = V([-30, 0])[0];
@@ -277,7 +280,7 @@ module.exports = (h) => {
         const geo = z => {
           const s = (z.h - 12) / 890;
           const cy = z.h - 6 - 140 * s;
-          const xs = [z.l * 0.17, z.l * 0.5, z.l * 0.83];
+          const xs = [z.l * 0.15, z.l * 0.5, z.l * 0.85];
           return { s, cy, xs };
         };
         return {
@@ -312,7 +315,10 @@ module.exports = (h) => {
             // 3 : on tourne en pivotant sur le bon pied
             x = xs[2];
             const piv = [0, -80];
+            out.push(pied(x, [-240, -300], -1, { blesse: true }), anneau(x, [190, -340]));
             out.push(pied(x, [0, -300], 1, { fantome: true }), pied(x, [0, -300], 1, { angle: 55, pivot: piv }));
+            // filets entre les trois temps
+            for (const xf of [(xs[0] + xs[1]) / 2, (xs[1] + xs[2]) / 2]) out.push(h.ligne(xf, cy - s * 700, xf, cy + s * 130, A.fin));
             const cp = [0, -380], r = 150;
             const arc = [];
             for (let k = 0; k <= 16; k++) { const a = (-100 + 62 * k / 16) * Math.PI / 180; arc.push([x + s * (cp[0] + r * Math.cos(a)), cy + s * (cp[1] + r * Math.sin(a))]); }
@@ -324,7 +330,7 @@ module.exports = (h) => {
             return [
               { n: 6, rond: [Math.round(xs[0] - s * 330), Math.round(cy - s * 330)], cible: [xs[0] - s * 95, cy - s * 330], texte: 'pied blessé et béquille avancent ensemble' },
               { n: 7, rond: [Math.round(xs[1] - s * 300), Math.round(cy - s * 600)], cible: [xs[1] + s * 40, cy - s * 600], texte: 'puis le bon pied passe devant' },
-              { n: 8, rond: [Math.round(xs[2] - s * 300), Math.round(cy - s * 380)], cible: [xs[2] - s * 45, cy - s * 380], texte: 'on tourne en pivotant sur le bon pied' },
+              { n: 8, rond: [Math.round(xs[2] - s * 120), Math.round(cy - s * 640)], cible: [xs[2] - s * 45, cy - s * 380], texte: 'on tourne en pivotant sur le bon pied' },
             ];
           },
         };

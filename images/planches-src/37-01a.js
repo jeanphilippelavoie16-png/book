@@ -66,14 +66,20 @@ module.exports = (h) => {
 
     // ── la truie et sa cage (ch. 83 ; cage : planche b)
     const xa = 2350, xb = 3230, tB = 700, tT = 1270;          // le baril couché
-    const tP = 1320, tG = 1345;                                // dessus des piles, fond de la cage
+    const tP = 1400, tG = 1425;                                // dessus des piles, fond de la cage
     // caisson de sable
     o.push(R(2250, 450, 3330, 600, A.hachure('gravier', 'aucun')), L(2270, 600, 3310, 600, A.detail));
     o.push(R(2250, 450, 2270, 615, W(A.arete)), R(3310, 450, 3330, 615, W(A.arete)));
     // la pile du fond, derrière le baril : vue dessous et dessus, cachée entre les deux
-    o.push(R(2680, 600, 3220, tB, A.hachure('pierre', 'arete')));
-    o.push(R(2680, tT, 3220, tP, A.hachure('pierre', 'arete')));
-    o.push(L(2680, tB, 2680, tT, A.cache), L(3220, tB, 3220, tT, A.cache));
+    // bord droit en retrait du bout du baril, pour que les deux arêtes cachées se lisent
+    const bande = (t1, t2, g) => {
+      const r = [R(2660, t1, 3130, t2, W(A.arete))], ry = (t2 - t1) / 2 - 6, rx = 52;
+      let k = g;
+      for (let x = 2660 + rx + 4; x < 3130 - rx + 4; x += 2 * rx + 10) r.push(caillou(X(x), Y((t1 + t2) / 2), rx * S, ry * S, k++));
+      return r.join('\n');
+    };
+    o.push(bande(600, tB, 80), bande(tT, tP, 90));
+    o.push(L(2660, tB, 2660, tT, A.cache), L(3130, tB, 3130, tT, A.cache));
     // pattes
     for (const x of [2430, 3150]) o.push(R(x - 25, 600, x + 25, tB, W(A.arete)));
     // coque coupée : dessus, dessous, bouts, cerceaux ; lit de sable dedans
@@ -87,16 +93,16 @@ module.exports = (h) => {
       o.push(h.path(`M${f(X(x - 45))} ${f(Y(tB))} Q${f(X(x))} ${f(Y(tB - 30))} ${f(X(x + 45))} ${f(Y(tB))}`, A.arete));
     }
     // barres de fer coupées, posées sur la pile ; fers debout ; fond de treillis
-    for (const x of [2760, 3140]) o.push(R(x - 10, tP, x + 10, 1730, W(A.arete)));
-    for (const x of [2760, 2950, 3140]) o.push(R(x - 13, tP, x + 13, tG, A.plein));
+    for (const x of [2720, 3070]) o.push(R(x - 10, tP, x + 10, 1810, W(A.arete)));
+    for (const x of [2720, 2895, 3070]) o.push(R(x - 13, tP, x + 13, tG, A.plein));
     o.push(L(2715, tG, 3185, tG, A.arete));
     // les pierres : grosses en bas, petites en haut
     const pierres = [
-      [2805, 1405, 72, 58], [2950, 1402, 70, 56], [3095, 1405, 70, 58],
-      [2865, 1510, 60, 50], [3020, 1512, 62, 52],
-      [2800, 1520, 42, 44], [3120, 1515, 45, 46],
-      [2940, 1605, 55, 45], [2830, 1605, 42, 38], [3060, 1605, 44, 40],
-      [2945, 1680, 44, 36],
+      [2805, 1485, 72, 58], [2950, 1482, 70, 56], [3095, 1485, 70, 58],
+      [2865, 1590, 60, 50], [3020, 1592, 62, 52],
+      [2800, 1600, 42, 44], [3120, 1595, 45, 46],
+      [2940, 1685, 55, 45], [2830, 1685, 42, 38], [3060, 1685, 44, 40],
+      [2945, 1760, 44, 36],
     ];
     pierres.forEach(([x, t, rx, ry], i) => o.push(caillou(X(x), Y(t), rx * S, ry * S, i + 3)));
 
@@ -135,12 +141,20 @@ module.exports = (h) => {
 
     // l'air : entre bas près du poêle, monte sur les pierres, sort en haut à l'opposé
     o.push(h.fleche(`M${f(X(3700))} ${f(Y(560))} C${f(X(3450))} ${f(Y(560))} ${f(X(3420))} ${f(Y(900))} ${f(X(3270))} ${f(Y(930))}`, A.cache));
-    o.push(h.fleche(`M${f(X(2950))} ${f(Y(1790))} L${f(X(2950))} ${f(Y(2250))} Q${f(X(2950))} ${f(Y(2400))} ${f(X(3150))} ${f(Y(2400))} L${f(X(4950))} ${f(Y(2400))} Q${f(X(5100))} ${f(Y(2400))} ${f(X(5150))} ${f(Y(2325))} L${f(X(5480))} ${f(Y(2325))}`, A.cache));
+    o.push(h.fleche(`M${f(X(2950))} ${f(Y(1870))} L${f(X(2950))} ${f(Y(2250))} Q${f(X(2950))} ${f(Y(2400))} ${f(X(3150))} ${f(Y(2400))} L${f(X(4950))} ${f(Y(2400))} Q${f(X(5100))} ${f(Y(2400))} ${f(X(5150))} ${f(Y(2325))} L${f(X(5480))} ${f(Y(2325))}`, A.cache));
     return o.join('\n');
   };
 
   // ── En plan ──────────────────────────────────────────────────────────────────────────────
   const YMIN = -330;
+  // cote à flèches pleines aux deux bouts, chiffre dessus (ou dessous)
+  const coteF = (x1, x2, y, s, dessous) => {
+    const t = 5, w = 2.2;
+    return [h.ligne(x1, y, x2, y, A.detail),
+      h.path(`M${f(x1)} ${f(y)} L${f(x1 + t)} ${f(y - w)} L${f(x1 + t)} ${f(y + w)} Z`, A.plein),
+      h.path(`M${f(x2)} ${f(y)} L${f(x2 - t)} ${f(y - w)} L${f(x2 - t)} ${f(y + w)} Z`, A.plein),
+      h.texte((x1 + x2) / 2, y + (dessous ? 15 : -5), s, { lisere: true })].join('\n');
+  };
   const plan = z => {
     const X = x => ox(z) + (x - XMIN) * S;
     const Y = y => (z.h - 2680 * S) / 2 + (y - YMIN) * S;
@@ -158,16 +172,16 @@ module.exports = (h) => {
     // caisson de sable, piles, baril, barres, cage, pierres
     o.push(R(2250, 100, 3330, 1290, A.hachure('gravier', 'arete')), R(2270, 120, 3310, 1270, A.detail));
     const pile = (y1, y2, g) => {
-      const r = [R(2680, y1, 3220, y2, W(A.arete))];
+      const r = [R(2660, y1, 3130, y2, W(A.arete))];
       let k = g;
-      for (const yy of [y1 + 62, y2 - 62]) for (let x = 2745; x < 3220; x += 120) r.push(caillou(X(x + ((k % 2) ? 20 : 0)), Y(yy), 56 * S, 52 * S, k++));
+      for (const yy of [y1 + 62, y2 - 62]) for (let x = 2725; x < 3110; x += 120) r.push(caillou(X(x + ((k % 2) ? 20 : 0)), Y(yy), 56 * S, 52 * S, k++));
       return r.join('\n');
     };
     o.push(pile(130, 380, 20), pile(1010, 1260, 40));
     o.push(R(2350, 410, 3230, 980, W(A.contour)));
     for (const x of [2643, 2937]) o.push(L(x, 410, x, 980, A.detail));
     o.push(R(3230, 575, 3255, 815, A.plein));                                // porte du foyer
-    for (const x of [2760, 2950, 3140]) o.push(R(x - 13, 150, x + 13, 1240, A.plein));
+    for (const x of [2720, 2895, 3070]) o.push(R(x - 13, 150, x + 13, 1240, A.plein));
     o.push(R(2715, 425, 3185, 965, W(A.arete)));
     const dessus = [
       [2790, 490, 62], [2935, 480, 66], [3085, 495, 62],
@@ -181,8 +195,8 @@ module.exports = (h) => {
     o.push(h.cercle(X(2450), Y(695), 75 * S, W(A.contour)));
     // carré libre devant la porte du foyer, et sa cote
     o.push(R(3260, 195, 4240, 1195, pointille));
-    o.push(L(3260, 1195, 3260, 1340, A.fin), L(4240, 1195, 4240, 1340, A.fin));
-    o.push(h.cote(X(3260), Y(1320), X(4240), Y(1320), '≈ 1000', { cote: 'dessous' }));
+    o.push(L(3260, 1195, 3260, 1270, A.fin), L(4240, 1195, 4240, 1270, A.fin));
+    o.push(coteF(X(3260), X(4240), Y(1195), '≈ 1000', true));
     // rampe de fer entre la truie et le passage
     o.push(R(2100, 1362, 3330, 1398, W(A.arete)));
     for (const x of [2130, 2730, 3300]) o.push(h.cercle(X(x), Y(1380), 2.2, A.plein));
@@ -205,7 +219,8 @@ module.exports = (h) => {
     o.push(h.fleche(`M${f(X(3630))} ${f(Y(-320))} L${f(X(3630))} ${f(Y(160))}`, A.cache));
     // avertisseur de CO et sa distance au poêle
     o.push(R(150, 470, 195, 610, W(A.arete)));
-    o.push(h.cote(X(195), Y(540), X(2350), Y(540), '≥ 2000'));
+    o.push(L(172, 610, 172, 770, A.fin), L(2350, 980, 2350, 770, A.fin));
+    o.push(coteF(X(172), X(2350), Y(720), '≥ 2000', false));
     // portes ouvertes vers l'extérieur : vantail et arc
     o.push(R(-700, 2050, 0, 2090, W(A.arete)));
     o.push(h.path(`M${f(X(-700))} ${f(Y(2050))} A${f(700 * S)} ${f(700 * S)} 0 0 1 ${f(X(0))} ${f(Y(1350))}`, A.fin));
@@ -234,7 +249,7 @@ module.exports = (h) => {
           const X = x => ox(z) + (x - XMIN) * S, Y = t => z.h - 6 - (t + 100) * S;
           return [
             { n: 1, rond: [X(2950), Y(3370)], cible: [X(2575), Y(3370)], texte: 'pare-étincelles, mailles de 1 cm au plus' },
-            { n: 2, rond: [X(3450), Y(1950)], cible: [X(3080), Y(1620)], texte: 'cage à pierres portée par deux piles' },
+            { n: 2, rond: [X(3450), Y(1950)], cible: [X(3000), Y(1335)], texte: 'cage à pierres portée par deux piles' },
             { n: 3, rond: [X(3750), Y(1150)], cible: [X(3252), Y(1060)], texte: 'truie couchée sur un caisson de sable' },
             { n: 4, rond: [X(5450), Y(1980)], cible: [X(5225), Y(2300)], texte: 'sortie d’air haute, loin du poêle' },
             { n: 5, rond: [X(4400), Y(1700)], cible: [X(4660), Y(1400)], texte: 'deux bancs ; celui du bas, aux enfants' },
@@ -252,7 +267,7 @@ module.exports = (h) => {
             { n: 8, rond: [X(1500), Y(1720)], cible: [X(1600), Y(2075)], texte: 'porte vers l’extérieur, sans loquet' },
             { n: 9, rond: [X(2700), Y(1780)], cible: [X(2700), Y(1395)], texte: 'rampe de fer entre truie et passage' },
             { n: 10, rond: [X(1650), Y(1000)], cible: [X(2098), Y(900)], texte: 'écran de tôle, jeu d’air derrière' },
-            { n: 11, rond: [X(4080), Y(1800)], cible: [X(4130), Y(1195)], texte: 'libre devant la porte du foyer' },
+            { n: 11, rond: [X(4080), Y(1750)], cible: [X(4240), Y(900)], texte: 'libre devant la porte du foyer' },
             { n: 12, rond: [X(520), Y(920)], cible: [X(190), Y(600)], texte: 'avertisseur de CO, au vestiaire' },
           ];
         },

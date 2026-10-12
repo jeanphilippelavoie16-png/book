@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
 <title>Planche 70-01 — Le fumoir à froid : le feu est ailleurs, la fumée arrive refroidie</title>
-<desc>Coupe de principe, vue de côté. À gauche, un trou à feu creusé dans le sol, profond jusqu'au genou, trois bûches au fond, fermé d'une tôle posée à plat : l'air n'entre que par une entaille sur le côté. De là part une tranchée en pente légère montante, fermée sur toute sa course par une tôle recouverte de terre tassée ; au-dessus du trou, la terre descend en talus jusqu'au bout de la tôle. La tranchée remonte par un coude court dans le plancher de la chambre ; une flèche y montre le sens de la fumée. La chambre de planches, haute et étroite, reçoit la fumée en bas et la rend en haut par une sortie que ferme en partie un registre coulissant. Trois poissons pendus par la queue à un bâton posé sur deux taquets ne se touchent pas et ne touchent pas la paroi, et un thermomètre traverse la paroi à leur hauteur.</desc>
+<desc>Coupe de principe, vue de côté. À gauche, un trou à feu creusé dans le sol, profond jusqu’au genou, trois bûches au fond, fermé d’une tôle posée à plat : l’air n’entre que par une entaille sur le côté. De là part une tranchée en pente légère montante, fermée sur toute sa course par une tôle recouverte de terre tassée ; au-dessus du trou, la terre descend en talus jusqu’au bout de la tôle. La tranchée remonte par un coude court dans le plancher de la chambre ; une flèche y montre le sens de la fumée. La chambre de planches, haute et étroite, reçoit la fumée en bas et la rend en haut par une sortie que ferme en partie un registre coulissant. Trois poissons pendus par la queue à un bâton posé sur deux taquets ne se touchent pas et ne touchent pas la paroi, et un thermomètre traverse la paroi à leur hauteur.</desc>
 <defs>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 <path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -8,7 +8,7 @@
 <pattern id="hachure-terre" width="8.5" height="8.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
 <path d="M4.25 0 L4.25 8.5" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
 </pattern>
-<pattern id="hachure-bois" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<pattern id="hachure-bois" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
 <path d="M2.5 0 L2.5 5" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
 </pattern>
 </defs>
@@ -16,7 +16,7 @@
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 
 <!-- pleins coupes : la forme porte sa hachure, elle ne peut pas deborder -->
-<path d="M40 506 L40 382.8 L82 377.76 L82 458 L150 458 L150 450 L500 406 L500 336 L640 336 L640 506 Z" fill="url(#hachure-terre)" stroke="none"/>
+<path d="M40 506 L40 382.8 L56 381.1 L82 396 L82 458 L150 458 L150 450 L500 406 L500 336 L640 336 L640 506 Z" fill="url(#hachure-terre)" stroke="none"/>
 <path d="M151 402.87 Q178 366.24 205 363 L430 336 L468 336 L468 363 Z" fill="url(#hachure-terre)" stroke="none"/>
 <path d="M518 114 L440 114 L440 336 L468 336 L468 327 L449 327 L449 123 L518 123 Z" fill="url(#hachure-bois)" stroke="none"/>
 <path d="M552 114 L585 114 L585 336 L500 336 L500 327 L576 327 L576 123 L552 123 Z" fill="url(#hachure-bois)" stroke="none"/>
@@ -26,7 +26,7 @@
 <path d="M552 114 L585 114 L585 336 L500 336" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
 
 <!-- couche 2 : contours internes -->
-<path d="M40 382.8 L82 377.76 L82 458 L150 458 L150 450 L500 406 L500 327" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M40 382.8 L56 381.1 L82 396 L82 458 L150 458 L150 450 L500 406 L500 327" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M151 402.87 Q178 366.24 205 363 L430 336 L440 336" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M585 336 L640 336" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
 <path d="M468 327 L468 363" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
@@ -87,14 +87,20 @@
 <circle cx="622" cy="166" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
 <text x="622" y="170" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
 
+<!-- amorce d entree d air : entaille basse dans la paroi gauche, sous le bord de la tole, ouverte cote vent -->
+<path d="M44 362 Q60 378 84 391" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" marker-end="url(#fl)"/>
+<line x1="49.8" y1="338.4" x2="62" y2="379" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="47" cy="330" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="47" y="334" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
+
 <!-- couche 6 : encadre danger (scripts/encadre.js), pied de planche -->
 <rect x="40" y="546" width="600" height="59" fill="none" stroke="#9B2C1E" stroke-width="2"/>
-<text x="54" y="569.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — on n'entre pas dans une chambre qui fume : le monoxyde ne se voit pas, ne se sent pas</text>
+<text x="54" y="569.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — on n’entre pas dans une chambre qui fume : le monoxyde ne se voit pas, ne se sent pas</text>
 <text x="54" y="587.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">et ne pique pas les yeux.</text>
 
 <text x="40" y="636" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 70-01 — Le fumoir à froid : le feu est ailleurs, la fumée arrive refroidie.</text>
 <text x="40" y="660" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
-<text x="56" y="660" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">trou à feu jusqu'au genou, fermé d'une tôle</text>
+<text x="56" y="660" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">trou à feu jusqu’au genou, fermé d’une tôle</text>
 <text x="40" y="678" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
 <text x="56" y="678" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">tranchée couverte : la terre refroidit</text>
 <text x="40" y="696" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
@@ -105,4 +111,6 @@
 <text x="56" y="732" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">pièces espacées, loin de la paroi</text>
 <text x="40" y="750" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
 <text x="56" y="750" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">thermomètre à hauteur des pièces</text>
+<text x="40" y="768" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">7</text>
+<text x="56" y="768" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">amorce d’air, côté vent : la seule entrée</text>
 </svg>

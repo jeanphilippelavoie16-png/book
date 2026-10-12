@@ -12,7 +12,7 @@ module.exports = (h) => {
   return {
     ref: '70-01b',
     titre: 'Le fumoir à froid, vu de dessus et en détail',
-    desc: "Trois vues du même fumoir que la coupe de la page précédente. Vu de dessus : le trou à feu rond, large comme une chaudière, fermé d'une tôle carrée posée à plat, sous laquelle on devine en tireté le rebord et les trois bûches ; seule une entaille d'entrée d'air, ouverte de côté face au vent, passe sous la tôle ; de lui part une butte de terre allongée, en talus, sous laquelle la tranchée court en tireté jusque sous le plancher de la chambre ; un filet de fumée s'échappe d'un point du talus ; la chambre carrée en planches, toit fermé, porte une tôle glissée à moitié sur la sortie du haut. La tranchée en travers : un vide carré creusé dans le sol, aussi profond que large, d'un avant-bras ; une tôle posée à plat sur ses deux bords ; de la terre tassée en butte par-dessus. La chambre, toit enlevé : quatre parois de planches, un taquet le long de chaque côté, trois bâtons ligaturés sur les taquets, trois pièces pendues à chaque bâton sans se toucher ni toucher la paroi, et en dessous, en tireté, le trou du plancher par où arrive la fumée.",
+    desc: "Trois vues du même fumoir que la coupe de la page précédente. Vu de dessus : le trou à feu rond, large comme une chaudière, fermé d'une tôle carrée posée à plat, sous laquelle on devine en tireté le rebord et les trois bûches ; seule une entaille d’entrée d’air, ouverte de côté face au vent, passe sous la tôle ; de lui part une butte de terre allongée, en talus, sous laquelle la tranchée court en tireté jusque sous le plancher de la chambre ; un filet de fumée s'échappe d'un point du talus ; la chambre carrée en planches, toit fermé, porte une tôle glissée à moitié sur la sortie du haut. La tranchée en travers : un vide carré creusé dans le sol, aussi profond que large, d'un avant-bras ; une tôle posée à plat sur ses deux bords ; de la terre tassée en butte par-dessus. La chambre, toit enlevé : quatre parois de planches, un taquet le long de chaque côté, trois bâtons ligaturés sur les taquets, trois pièces pendues à chaque bâton sans se toucher ni toucher la paroi, et en dessous, en tireté, le trou du plancher par où arrive la fumée.",
     format: 'pleine',
     disposition: [['plan'], ['travers', 'chambre']],
     hauteurs: [1, 1.12],
@@ -41,7 +41,7 @@ module.exports = (h) => {
           // la fumée suit la tranchée, cachée sous la butte (la tranchée est tracée en dernier)
           o.push(h.fleche(d(P, [[232, 0], [352, 0]])));
 
-          // trou à feu fermé d'une tôle : l'air n'entre que par l'entaille, la fumée n'a que la
+          // trou à feu fermé d’une tôle : l'air n'entre que par l'entaille, la fumée n'a que la
           // tranchée. Ouvert, le trou tire droit en l'air et la chambre ne reçoit presque rien.
           o.push(h.rect(X(76), Y(-40), 80 * s, 80 * s, h.a.blanc), h.rect(X(76), Y(-40), 80 * s, 80 * s, h.a.contour));
           const r = 34 * s;
@@ -61,6 +61,12 @@ module.exports = (h) => {
           o.push(h.ligne(X(82), Y(-4), X(82), Y(-56), h.a.fin));
           o.push(h.ligne(X(150), Y(-4), X(150), Y(-56), h.a.fin));
           o.push(h.cote(X(82), Y(-50), X(150), Y(-50), 'une chaudière', { cote: 'dessus' }));
+
+          // trait de coupe mixte en travers de la butte : repère la vue « La tranchée en travers »,
+          // flèches vers le trou à feu (sens de vue)
+          o.push(h.ligne(X(290), Y(-82), X(290), Y(82), 'fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-dasharray="14 3 2 3"'));
+          o.push(h.path(d(P, [[290, -82], [290, -74]]) + ' ' + d(P, [[290, 74], [290, 82]]), h.a.arete));
+          o.push(h.fleche(d(P, [[290, -82], [272, -82]])), h.fleche(d(P, [[290, 82], [272, 82]])));
 
           // fuite : un filet de fumée sort du talus
           o.push(h.fleche(`M${f(X(330))} ${f(Y(-44))} c7.5 -6 -5 -12.5 2.5 -20 c7.5 -6 -5 -12.5 2.5 -20`));
@@ -86,8 +92,8 @@ module.exports = (h) => {
           const s = 1.05, ox = (z.l - 503 * s) / 2, oy = 116;
           const X = (x) => ox + (x - 82) * s, Y = (y) => oy + y * s;
           return [
-            { n: 1, rond: [22, Y(58)], cible: [X(96), Y(40) + 1.5], texte: "trou à feu fermé d'une tôle" },
-            { n: 2, rond: [X(160), Y(100)], cible: [X(125) + 1.5, Y(72)], texte: "entaille d'entrée d'air, face au vent" },
+            { n: 1, rond: [22, Y(58)], cible: [X(96), Y(40) + 1.5], texte: "trou à feu fermé d’une tôle" },
+            { n: 2, rond: [X(160), Y(100)], cible: [X(125) + 1.5, Y(72)], texte: "entaille d’entrée d’air, face au vent" },
             { n: 3, rond: [X(468), Y(100)], cible: [X(468), Y(22) + 1.5], texte: 'la tranchée finit sous le plancher' },
             { n: 4, rond: [X(509), Y(-94)], cible: [X(509), Y(-24) - 1.5], texte: 'registre : tôle glissée sur la sortie' },
             { n: 5, rond: [X(372), Y(-94)], cible: [X(330) + 6, Y(-44) - 39], texte: 'fumée qui fuit : remettre de la terre' },
@@ -118,16 +124,23 @@ module.exports = (h) => {
           o.push(h.rect(T(-32, -3)[0], T(-32, -3)[1], 64 * s, 3 * s, h.a.arete));
           // le vide où passe la fumée
           o.push(h.path(d(T, [[-22, 0], [-22, 44], [22, 44], [22, 0]]), h.a.contour));
-          o.push(h.cote(T(-22, 8)[0], T(-22, 8)[1], T(22, 8)[0], T(22, 8)[1], 'un avant-bras', { cote: 'dessous' }));
+          // cotes : largeur sous le fond, profondeur du fond au dessous de la tôle
+          o.push(h.ligne(T(-22, 46)[0], T(-22, 46)[1], T(-22, 58)[0], T(-22, 58)[1], h.a.fin));
+          o.push(h.ligne(T(22, 46)[0], T(22, 46)[1], T(22, 58)[0], T(22, 58)[1], h.a.fin));
+          o.push(h.fleche(d(T, [[0, 54], [-21.5, 54]]), h.a.detail), h.fleche(d(T, [[0, 54], [21.5, 54]]), h.a.detail));
+          o.push(h.texte(T(0, 54)[0], T(0, 54)[1] + 16, 'un avant-bras', { lisere: true }));
+          o.push(h.ligne(T(24, 0)[0], T(24, 0)[1], T(36, 0)[0], T(36, 0)[1], h.a.fin));
+          o.push(h.ligne(T(24, 44)[0], T(24, 44)[1], T(36, 44)[0], T(36, 44)[1], h.a.fin));
+          o.push(h.fleche(d(T, [[32, 22], [32, 0.5]]), h.a.detail), h.fleche(d(T, [[32, 22], [32, 43.5]]), h.a.detail));
+          o.push(h.texte(T(36, 22)[0] + 4, T(36, 22)[1] + 4, 'un avant-bras', { ancre: 'start', lisere: true }));
           return o.join('\n');
         },
         renvois: (z) => {
           const s = 2, cx = z.l / 2, gy = z.h * 0.42;
           const T = (x, y) => [cx + x * s, gy + y * s];
           return [
-            { n: 6, rond: [T(0, 29)[0], T(0, 29)[1]], cible: [T(0, 44)[0], T(0, 44)[1] - 1.5], texte: 'aussi profond que large' },
-            { n: 7, rond: [T(-58, -40)[0], T(-58, -40)[1]], cible: [T(-30, -3)[0], T(-30, -3)[1] - 1] , texte: 'tôle, écorce ou pierres plates' },
-            { n: 8, rond: [T(56, -42)[0], T(56, -42)[1]], cible: [T(36, -30)[0], T(36, -30)[1] - 1.5], texte: 'terre tassée : scelle et refroidit' },
+            { n: 6, rond: [T(-58, -40)[0], T(-58, -40)[1]], cible: [T(-30, -3)[0], T(-30, -3)[1] - 1] , texte: 'tôle, écorce ou pierres plates' },
+            { n: 7, rond: [T(56, -42)[0], T(56, -42)[1]], cible: [T(36, -30)[0], T(36, -30)[1] - 1.5], texte: 'terre tassée : scelle et refroidit' },
           ];
         },
       },
@@ -176,10 +189,10 @@ module.exports = (h) => {
           const C = (x, y) => [ox + (x - 440) * s, oy + y * s];
           const top = C(0, -72.5)[1], bas = C(0, 72.5)[1];
           return [
-            { n: 9, rond: [16, C(0, 20)[1]], cible: [C(468, 0)[0], C(0, 20)[1]], texte: 'trou du plancher, sur la tranchée' },
-            { n: 10, rond: [C(528, 0)[0], top - 20], cible: [C(528, 0)[0], C(0, -41.5)[1] - 1], texte: 'bâton de bois franc écorcé' },
-            { n: 11, rond: [16, top - 14], cible: [C(450.5, 0)[0], C(0, -43.5)[1]], texte: 'ligaturé à la babiche posée mouillée' },
-            { n: 12, rond: [C(512, 0)[0], bas + 20], cible: [C(512, 0)[0], C(0, 44.5)[1] + 1.5], texte: 'chaque pièce libre de tous côtés' },
+            { n: 8, rond: [16, C(0, 20)[1]], cible: [C(468, 0)[0], C(0, 20)[1]], texte: 'trou du plancher, sur la tranchée' },
+            { n: 9, rond: [C(528, 0)[0], top - 20], cible: [C(528, 0)[0], C(0, -41.5)[1] - 1], texte: 'bâton de bois franc écorcé' },
+            { n: 10, rond: [16, top - 14], cible: [C(450.5, 0)[0], C(0, -43.5)[1]], texte: 'ligaturé à la babiche posée mouillée' },
+            { n: 11, rond: [C(512, 0)[0], bas + 20], cible: [C(512, 0)[0], C(0, 44.5)[1] + 1.5], texte: 'chaque pièce libre de tous côtés' },
           ];
         },
       },

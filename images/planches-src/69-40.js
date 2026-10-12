@@ -193,7 +193,7 @@ module.exports = (h) => {
     out.push(h.path(lisseD(FEM, tr), A.cache));
 
     // la coupe en travers : prise derrière le couteau, là où la fente est déjà faite
-    const xs = 175;
+    const xs = 362;                                       // dans la fente : entre l'entrée du couteau et le bout de la flèche
     const c1 = P([xs, -16]), c2 = P([xs, 304]);
     out.push(h.ligne(c1[0], c1[1], c2[0], c2[1], mixte));
     for (const c of [c1, c2]) {
@@ -233,7 +233,7 @@ module.exports = (h) => {
       svg: out.join('\n'),
       renvois: [
         { n: 6, rond: Q([200, -80]), cible: Q(at(tSurf + 16, 5)), texte: 'couteau mince, la pointe jusqu’à l’os' },
-        { n: 7, rond: Q([560, 262]), cible: Q([380, 83]), texte: 'la fente suit l’os sur sa longueur' },
+        { n: 7, rond: Q([560, 262]), cible: Q([330, 80]), texte: 'la fente suit l’os sur sa longueur' },
       ],
     };
   };
@@ -302,11 +302,12 @@ module.exports = (h) => {
     // la fente de couteau, et la saumure qui n'avance que de quelques centimètres autour du fond
     const yf = 38;
     out.push(semis([0, yf], [0, yf + 1], 30, tr, polyDal));
-    out.push(h.chemin([[-6, -1], [6, -1], [1, yf], [-1, yf]].map(P), A.blanc, true));
-    out.push(h.chemin([[-6, -1], [-1, yf], [1, yf], [6, -1]].map(P), A.arete));
+    const fV = [[-13, 0], [13, 0], [1.2, yf], [-1.2, yf]];       // la fente en V, ouverte dans le dessus
+    out.push(h.chemin(fV.map(P), A.blanc, true));
+    out.push(h.chemin([fV[0], fV[3], fV[2], fV[1]].map(P), A.arete));
     // la seringue, verticale : l'embout conique au fond de la fente
     const bx = 17, yBas = -3, yHaut = -112;
-    out.push(h.chemin([[-5.5, yBas], [5.5, yBas], [2, yf - 3], [-2, yf - 3]].map(P), bA, true));
+    out.push(h.chemin([[-4.5, yBas], [4.5, yBas], [1, yf - 1], [-1, yf - 1]].map(P), bA, true));
     out.push(h.path(`M${Q2(P([-bx, yHaut]))} L${Q2(P([-bx, yBas - 6]))} Q${Q2(P([-bx, yBas]))} ${Q2(P([-bx + 7, yBas]))} L${Q2(P([bx - 7, yBas]))} Q${Q2(P([bx, yBas]))} ${Q2(P([bx, yBas - 6]))} L${Q2(P([bx, yHaut]))} Z`, bA));
     // la saumure dans le cylindre, sous le joint du piston
     const yj = -62;
@@ -331,7 +332,7 @@ module.exports = (h) => {
       svg: out.join('\n'),
       renvois: [
         { n: 9, rond: Q([-68, -100]), cible: Q([-bx, -86]), texte: 'grosse seringue sans aiguille' },
-        { n: 10, rond: Q([-68, -36]), cible: Q([-3, 24]), texte: 'le bout au fond d’une fente de couteau' },
+        { n: 10, rond: Q([-68, -36]), cible: Q([-1.6, yf - 1]), texte: 'le bout au fond d’une fente de couteau' },
         { n: 11, rond: Q([64, 118]), cible: Q([22, 52]), texte: 'saumure : quelques centimètres, pas plus' },
       ],
     };

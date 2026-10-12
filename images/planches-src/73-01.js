@@ -77,7 +77,7 @@ module.exports = (h) => {
             out.push(h.cercle(p + 5, yC + 4, 1.3, h.a.plein), h.cercle(p + 11, yC + 4, 1.3, h.a.plein));
           }
           // lambourde, vue derrière le plan de coupe
-          out.push(h.rect(x0 - 14, yF + 14, W + 28, 11, blanc(h.a.arete)));
+          out.push(h.rect(x0 - 14, yF + 14, W + 28, 11, blanc(h.a.fin)));
           // grillage : parois et dessous
           out.push(maille([[x0 - 3, yS + 2], [x0 - 3, yF + 11], [x1 + 3, yF + 11], [x1 + 3, yN + 2]]));
           // parois coupées
@@ -86,6 +86,7 @@ module.exports = (h) => {
           // lattes coupées
           for (let r = 18; r + 15 <= W - t - 1; r += 22) out.push(h.rect(x0 + r, yF, 15, 8, h.a.hachure('bois', 'arete')));
           // l'air monte entre les poteaux, devant la lambourde, et passe entre les lattes jusque sous la charge
+          for (const r of [80.5, 124.5, 168.5]) out.push(h.rect(x0 + r - 2.5, yF + 13.5, 5, 12, h.a.blanc));
           for (const r of [80.5, 124.5, 168.5]) out.push(h.fleche(`M ${x0 + r} ${yF + 88} L ${x0 + r} ${yF + 3}`, h.a.cache));
           // couvercle, grillage dessus, bâche pâle
           const pA = [x0 - 12, lid(x0 - 12)], pB = [x1 + 2, lid(x1 + 2)];
@@ -97,10 +98,16 @@ module.exports = (h) => {
           out.push(h.cercle(x1 + 7, pB[1] - 5, 1.1, h.a.blanc), h.cercle(x1 + 7, pB[1] + 14, 1.1, h.a.blanc));
           // moraillon et cadenas, côté sud : la patte part du couvercle, se rabat sur la paroi,
           // le crampon cloué dans la paroi passe dans sa fente et le cadenas s'y accroche
-          out.push(h.rect(x0 - 8, lid(x0 - 8), 5, 44, blanc(h.a.arete)));
-          out.push(h.path(`M ${x0 - 3} ${yS + 35} h -10 v 5 h 10`, h.a.arete));
-          out.push(h.path(`M ${x0 - 14} ${yS + 46} v -5 a 3 3 0 0 1 6 0 v 5`, h.a.arete));
-          out.push(h.rect(x0 - 16, yS + 46, 10, 9, blanc(h.a.arete)));
+          // patte : clouée sur le couvercle, elle descend contre la paroi
+          out.push(h.rect(x0 - 20, lid(x0 - 20) - 9, 20, 5, blanc(h.a.arete)));
+          out.push(h.rect(x0 - 5, lid(x0 - 5) - 9, 5, 66, blanc(h.a.arete)));
+          // fente de la patte, le crampon cloué dans la paroi la traverse
+          out.push(h.rect(x0 - 4, yS + 38, 3, 12, h.a.plein));
+          out.push(h.path(`M ${x0 + 4} ${yS + 39} H ${x0 - 12} a 5 5 0 0 0 0 10 H ${x0 + 4}`, h.a.arete));
+          // cadenas : anse en U dans le crampon, corps dessous
+          out.push(h.path(`M ${x0 - 18} ${yS + 66} V ${yS + 48} a 6 6 0 0 1 12 0 V ${yS + 66}`, h.a.arete));
+          out.push(h.rect(x0 - 23, yS + 62, 22, 20, blanc(h.a.arete)));
+          out.push(h.cercle(x0 - 12, yS + 70, 2, h.a.plein), h.ligne(x0 - 12, yS + 70, x0 - 12, yS + 76, h.a.arete));
           // thermomètre min-max contre la paroi sud, à mi-hauteur de la pile
           out.push(h.rect(x0 + t, yF - 52, 9, 38, blanc(h.a.arete)));
           out.push(h.path(`M ${x0 + t + 3} ${yF - 47} V ${yF - 22} a 1.5 1.5 0 0 0 3 0 V ${yF - 47}`, h.a.detail));
@@ -122,7 +129,7 @@ module.exports = (h) => {
             { n: 3, rond: [L - 16, yF + 38], cible: [x1 + 4, yF + 12], texte: 'grillage, dessous compris' },
             { n: 4, rond: [L - 16, yN + 5], cible: [x1 + 10, yN + 5], texte: 'charnière : cuir cloué large' },
             { n: 5, rond: [16, yS - 28], cible: [x0 - 17, yS - 2], texte: 'bâche pâle sur le couvercle' },
-            { n: 6, rond: [x0 + 30, yF - 90], cible: [x0 + t + 10, yF - 51], texte: 'min-max à hauteur de pile' },
+            { n: 6, rond: [16, yS + 72], cible: [x0 - 23, yS + 72], texte: 'moraillon et cadenas' },
           ];
         },
       },
@@ -161,9 +168,10 @@ module.exports = (h) => {
         renvois: (z) => {
           const { bx0, bx1, y1 } = gp(z);
           return [
-            { n: 7, rond: [bx1 + 38, y1 - 155], cible: [bx0 + 128, y1 - 155], texte: 'frais : une couche, espacés' },
-            { n: 8, rond: [bx1 + 38, y1 - 44], cible: [bx0 + 132, y1 - 40], texte: 'empilés une fois gelés durs' },
-            { n: 9, rond: [bx1 + 38, y1 - 92], cible: [bx0 + 119, y1 - 80], texte: 'tasse gelée, pièce dessus' },
+            { n: 7, rond: [bx1 + 38, y1 - 10], cible: [bx0 + 76, y1 - 12], texte: 'min-max à hauteur de pile' },
+            { n: 8, rond: [bx1 + 38, y1 - 155], cible: [bx0 + 128, y1 - 155], texte: 'frais : une couche, espacés' },
+            { n: 9, rond: [bx1 + 38, y1 - 44], cible: [bx0 + 132, y1 - 40], texte: 'empilés une fois gelés durs' },
+            { n: 10, rond: [bx1 + 38, y1 - 92], cible: [bx0 + 119, y1 - 80], texte: 'tasse gelée, pièce dessus' },
           ];
         },
       },
@@ -201,10 +209,10 @@ module.exports = (h) => {
         renvois: (z) => {
           const { L, H, pc, pr, yb, bh } = gk(z);
           return [
-            { n: 10, rond: [L - 16, H - 50], cible: [pr + 1, H - 50], texte: 'poteau écorcé, bois lisse' },
-            { n: 11, rond: [80, 198], cible: [80, 170.6], texte: 'boîte fendue, déroulée' },
-            { n: 12, rond: [L - 16, yb + 12], cible: [pc + 19, yb + 13], texte: 'clouée en bande autour' },
-            { n: 13, rond: [L - 16, yb + bh + 36], cible: [pr + 13, yb + bh + 15], texte: 'rebord évasé vers le bas' },
+            { n: 11, rond: [L - 16, H - 50], cible: [pr + 1, H - 50], texte: 'poteau écorcé, bois lisse' },
+            { n: 12, rond: [80, 198], cible: [80, 170.6], texte: 'boîte fendue, déroulée' },
+            { n: 13, rond: [L - 16, yb + 12], cible: [pc + 19, yb + 13], texte: 'clouée en bande autour' },
+            { n: 14, rond: [L - 16, yb + bh + 36], cible: [pr + 13, yb + bh + 15], texte: 'rebord évasé vers le bas' },
           ];
         },
       },
@@ -225,17 +233,23 @@ module.exports = (h) => {
             h.ligne(x + 2, y + 13, x + 62, y + 13, h.a.detail),
             h.ligne(x + 2, y + 27, x + 62, y + 27, h.a.detail),
           ].join('\n');
-          for (const x of [64, 122, 180]) out.push(tole(x, 136));
-          for (const x of [35, 93, 151, 209]) out.push(tole(x, 104));
-          for (const x of [35, 93, 151, 209]) for (const dx of [10, 32, 54]) out.push(h.cercle(x + dx, 109, 1.8, h.a.plein));
+          // rangs posés du bas vers le haut, chacun décalé couvre les clous du précédent
+          const rangs = [140, 110, 80, 50, 22];
+          rangs.forEach((y, i) => {
+            const xs = i % 2 ? [29, 87, 145, 203] : [58, 116, 174];
+            for (const x of xs) out.push(tole(x, y));
+            for (const x of xs) for (const dx of [10, 32, 54]) out.push(h.cercle(x + dx, y + 5, 1.8, h.a.plein));
+          });
+          // contour du trou, sous la tôle
+          out.push(h.path('M 82 60 L 96 44 L 118 50 L 150 38 L 184 46 L 212 42 L 228 62 L 226 120 L 228 164 L 84 166 L 78 120 Z', h.a.cache));
           return out.join('\n');
         },
         renvois: (z) => {
           const L = z.l;
           return [
-            { n: 14, rond: [34, 180], cible: [63, 164], texte: 'boîte fendue, aplatie' },
-            { n: 15, rond: [L - 34, 72], cible: [242, 107], texte: 'clous le long du bord haut' },
-            { n: 16, rond: [30, 152], cible: [64, 145], texte: 'rang du dessus sur les clous' },
+            { n: 15, rond: [34, 196], cible: [60, 176], texte: 'boîte fendue, aplatie' },
+            { n: 16, rond: [L - 16, 14], cible: [258, 27], texte: 'clous le long du bord haut' },
+            { n: 17, rond: [30, 100], cible: [58, 118], texte: 'rang du dessus sur les clous' },
           ];
         },
       },
