@@ -80,7 +80,7 @@ module.exports = (h) => {
   const volee = (b, P, dir, graine, L) => {
     const u = [Math.cos(dir * RAD), Math.sin(dir * RAD)], g = [u[1], -u[0]];   // g : la gauche
     const pt = (av, ga) => [P[0] + u[0] * av + g[0] * ga, P[1] + u[1] * av + g[1] * ga];
-    const seau = pt(L * 0.95, L * 0.6);
+    const seau = pt(-L * 0.1, L * 1.4);
     const epaule = pt(0, -L * 0.35);
     const R = L * 1.9, arc = [];
     for (let a = -56; a <= 50; a += 4) {
@@ -93,7 +93,11 @@ module.exports = (h) => {
       const x = epaule[0] + Math.cos(a) * rr, y = epaule[1] + Math.sin(a) * rr;
       if (y > b.yh + 3 && y < b.yb - 3 && x > b.x0 + 3 && x < b.x1 - 3) grains.push(grain(x, y, r() * 180));
     }
-    return { seau, arc, epaule, svg: [grains.join('\n'), seauDessus(seau[0], seau[1], L * 0.42, dir),
+    const C = pt(-L * 0.05, 0), ang = dir;
+    const epaules = `<ellipse cx="${f(C[0])}" cy="${f(C[1])}" rx="${f(L * 0.42)}" ry="${f(L * 0.95)}" transform="rotate(${f(ang)} ${f(C[0])} ${f(C[1])})" ${A.blanc}/>` +
+      `<ellipse cx="${f(C[0])}" cy="${f(C[1])}" rx="${f(L * 0.42)}" ry="${f(L * 0.95)}" transform="rotate(${f(ang)} ${f(C[0])} ${f(C[1])})" ${A.contour}/>`;
+    const T = pt(L * 0.32, 0), tete = h.cercle(T[0], T[1], L * 0.28, A.blanc) + h.cercle(T[0], T[1], L * 0.28, A.contour);
+    return { seau, arc, epaule, svg: [grains.join('\n'), epaules, tete, seauDessus(seau[0], seau[1], L * 0.3, dir),
       h.fleche('M ' + arc.map(P2).join(' L '), A.arete)].join('\n') };
   };
 
@@ -104,7 +108,7 @@ module.exports = (h) => {
     // le seau, contre le ventre (mm, repère au sol entre les pieds)
     const hautS = -1100, basS = -840, avS = 104, arS = 104 + 260;
     const s1 = V([avS, hautS]), s2 = V([arS, hautS]), s3 = V([arS - 16, basS]), s4 = V([avS + 16, basS]);
-    const anse = h.path(`M ${P2(V([avS + 6, hautS + 30]))} Q ${P2(V([(avS + arS) / 2, hautS + 150]))} ${P2(V([arS - 6, hautS + 30]))}`, A.detail);
+    const anse = h.path(`M ${P2(V([avS + 6, hautS + 30]))} Q ${P2(V([(avS + arS) / 2, hautS - 170]))} ${P2(V([arS - 6, hautS + 30]))}`, A.detail);
     const seau = [
       h.chemin([s1, s2, s3, s4], A.blanc, true), anse,
       h.chemin([s1, s2, s3, s4], A.contour, true),
@@ -113,7 +117,20 @@ module.exports = (h) => {
     ].join('\n');
     const p = F.personnage({ x, y: y0, pose: 'debout', echelle: e,
       mains: { proche: V([400, -1070]), loin: V([196, -1092]) } });
-    const main = p.mains.proche;
+    const main = p.mains.proche, pg = p.poignets.proche;
+    // la main ouverte, paume vers le bas, doigts en éventail, au bout du bras qui balaie
+    const am = Math.atan2(main[1] - pg[1], main[0] - pg[0]), dm = Math.hypot(main[0] - pg[0], main[1] - pg[1]) / 190;
+    const mainO = F.main({ x: pg[0] + Math.cos(am) * 92 * dm, y: pg[1] + Math.sin(am) * 92 * dm, pose: 'appui', vue: 'dos',
+      echelle: dm, angle: am / RAD, bras: 30 });
+    // la courroie : de l'anse relevée à l'épaule opposée, en travers de la poitrine
+    const ap = V([(avS + arS) / 2, hautS - 120]), ep2 = V([-60, -1440]);
+    const courroie = [h.ligne(ap[0], ap[1], ep2[0], ep2[1], A.contour), h.ligne(ap[0] + 2.2, ap[1] + 1, ep2[0] + 2.2, ep2[1] + 1, A.contour)].join('\n');
+    // le médaillon, grossi : la main pleine fermée, puis la même qui s'ouvre
+    const mx = z.l - 46, my = 44, mR = 42;
+    const med = [h.cercle(mx, my, mR, A.blanc), h.cercle(mx, my, mR, A.arete),
+      F.main({ x: mx - 14, y: my - 12, pose: 'boule', vue: 'profil', echelle: 0.16, diametre: 10, angle: 0, bras: 15 }),
+      F.main({ x: mx + 4, y: my + 14, pose: 'appui', vue: 'dos', echelle: 0.16, angle: 30, bras: 15 }),
+      h.fleche(`M ${f(mx + 4)} ${f(my - 22)} Q ${f(mx + 20)} ${f(my - 16)} ${f(mx + 22)} ${f(my - 4)}`, A.detail)].join('\n');
     // le grain qui quitte la main ouverte, en éventail, et tombe devant
     const r = alea(9805), vol = [];
     for (let i = 0; i < 60; i++) {
@@ -124,14 +141,14 @@ module.exports = (h) => {
       vol.push(grain(xa, y, Math.atan2(y - main[1], xa - main[0]) / RAD, 1.25));
     }
     for (let i = 0; i < 16; i++) vol.push(grain(main[0] + 30 + r() * (z.l - 16 - main[0] - 30), y0 - 1.5, r() * 30 - 15, 1.1));
-    return { svg: [h.ligne(6, y0, z.l - 6, y0, A.arete), seau, p, vol.join('\n')].join('\n'),
+    return { svg: [h.ligne(6, y0, z.l - 6, y0, A.arete), p, seau, courroie, mainO, vol.join('\n'), med].join('\n'), med: [mx, my, mR],
       seau: V([(avS + arS) / 2 + 40, (hautS + basS) / 2 + 40]), main,
       eventail: [main[0] + (z.l - main[0]) * 0.6, main[1] + (y0 - main[1]) * 0.55] };
   };
 
   // ── le carré, vu de dessus ─────────────────────────────────────────────────────────────
   const carre = (z) => {
-    const c = Math.min(z.l - 56, z.h - 64), x0 = (z.l - c) / 2 + 6, y0 = 22, n = 4, w = c / n;
+    const c = Math.min(z.l - 56, z.h - 64), x0 = (z.l - c) / 2 + 6, y0 = 44, n = 4, w = c / n;
     const out = [h.ligne(x0, y0, x0 + c, y0, A.fin), h.ligne(x0, y0 + c, x0 + c, y0 + c, A.fin)];
     for (let i = 0; i <= n; i++) {
       const xi = x0 + w * i;
@@ -145,7 +162,7 @@ module.exports = (h) => {
   // ── le contenant, en coupe ─────────────────────────────────────────────────────────────
   const dose = (z) => {
     const lh = Math.min(z.l - 44, 104), hb = Math.min(z.h - 60, 128), cx = z.l / 2 - 4, yb = z.h - 14, yt = yb - hb;
-    const ep = 5, ret = 10;                                // épaisseur de paroi, retrait du fond
+    const ep = 8, ret = 10;                                // épaisseur de paroi, retrait du fond
     const gh = [cx - lh / 2, yt], dh = [cx + lh / 2, yt], gb = [cx - lh / 2 + ret, yb], db = [cx + lh / 2 - ret, yb];
     const niv = yt + hb * 0.3;                             // le niveau marqué
     const xg = y => gh[0] + (gb[0] - gh[0]) * (y - yt) / hb, xd = y => dh[0] + (db[0] - dh[0]) * (y - yt) / hb;
@@ -155,8 +172,9 @@ module.exports = (h) => {
       for (let x = xg(y) + ep + 1.5; x < xd(y) - ep - 1.5; x += 4.2) gr.push(grain(x + r() * 2, y + r() * 2, r() * 180, 1.15));
     const paroi = (a, b, s) => h.chemin([a, b, [b[0] + s * ep, b[1]], [a[0] + s * ep, a[1]]], A.plein, true);
     // l'encoche au couteau dans la paroi de droite, au niveau
-    const xe = xd(niv) - ep;
-    const encoche = h.chemin([[xe - 0.5, niv - 5], [xe + 3.2, niv], [xe - 0.5, niv + 5]], A.blanc, true);
+    const xe = xd(niv) - ep, xf = xg(niv) + ep;
+    const encoche = h.chemin([[xe - 0.5, niv - 5], [xe + 6, niv], [xe - 0.5, niv + 5]], A.blanc, true) +
+      h.chemin([[xf + 0.5, niv - 5], [xf - 6, niv], [xf + 0.5, niv + 5]], A.blanc, true);
     const anse = h.path(`M ${P2([gh[0] + 2, yt + 8])} Q ${P2([cx, yt - 58])} ${P2([dh[0] - 2, yt + 8])}`, A.detail);
     const out = [gr.join('\n'), h.ligne(xg(niv) + ep, niv, xd(niv) - ep, niv, A.fin), anse,
       paroi(gh, gb, 1), paroi(dh, db, -1),
@@ -180,7 +198,7 @@ module.exports = (h) => {
         dessin: z => geste(z).svg,
         renvois: z => { const g = geste(z); return [
           { n: 1, rond: [g.seau[0] + 22, g.seau[1] + 62], cible: g.seau, texte: 'le contenant de semence' },
-          { n: 2, rond: [g.main[0] + 4, g.main[1] - 52], cible: [g.main[0] - 3, g.main[1] - 4], texte: 'la main pleine s’ouvre' },
+          { n: 2, rond: [g.main[0] - 6, g.main[1] + 34], cible: [g.main[0] - 3, g.main[1] - 4], texte: 'la main pleine s’ouvre' },
           { n: 3, rond: [z.l - 14, g.eventail[1] - 50], cible: g.eventail, texte: 'le grain part en éventail' },
         ]; },
       },
@@ -188,7 +206,7 @@ module.exports = (h) => {
         titre: 'Le carré en bandes',
         dessin: z => carre(z).svg,
         renvois: z => { const c = carre(z); return [
-          { n: 4, rond: [c.x0 + c.w + 22, c.y0 - 9], cible: [c.x0 + c.w + 3, c.y0 - 7], texte: 'piquet' },
+          { n: 4, rond: [c.x0 + c.w, c.y0 - 31], cible: [c.x0 + c.w, c.y0 - 11], texte: 'piquet' },
           { n: 5, rond: [c.x0 + 2.5 * c.w, c.y0 + c.c * 0.28], cible: [c.x0 + 3 * c.w, c.y0 + c.c * 0.28], texte: 'cordeau tendu' },
           { n: 6, rond: [12, c.y0 + c.c * 0.6], cible: [c.x0 + 0.5 * c.w, c.y0 + c.c * 0.6], texte: 'une bande' },
           { n: 7, rond: [12, c.ys + 4], cible: [c.x0 + 0.5 * c.w - 9, c.ys], texte: 'sa semence, pesée à part' },
@@ -199,7 +217,7 @@ module.exports = (h) => {
         dessin: z => dose(z).svg,
         renvois: z => { const d = dose(z); return [
           { n: 8, rond: [14, d.yb - 60], cible: [d.cx - 18, d.yb - 40], texte: 'la semence d’une bande' },
-          { n: 9, rond: [z.l - 12, d.niv - 40], cible: [d.xe + 2.2, d.niv - 5.5], texte: 'niveau marqué au couteau' },
+          { n: 9, rond: [z.l - 12, d.niv - 40], cible: [d.xe + 3, d.niv - 2], texte: 'niveau marqué au couteau' },
         ]; },
       },
       sens: {

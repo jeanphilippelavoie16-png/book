@@ -23,6 +23,7 @@ module.exports = (h) => {
 
   const DEFS = `<defs>
 <pattern id="h9540b-vert" width="13" height="11" patternUnits="userSpaceOnUse"><path d="M0.8 4.2 Q3.8 -0.2 7 3.8 M6.6 10 Q9.6 5.6 12.6 9.6" fill="none" stroke="${NOIR}" stroke-width="0.9" stroke-linecap="round"/><ellipse cx="3" cy="8.6" rx="1.5" ry="0.9" fill="${NOIR}"/><ellipse cx="10.2" cy="2.4" rx="1.3" ry="0.8" fill="${NOIR}"/></pattern>
+<pattern id="h9540b-brun" width="22" height="16" patternUnits="userSpaceOnUse"><path d="M1.5 4 Q4 1.2 6.8 3.6 M12 10.5 Q14.8 7.8 17.6 10.4 M14.5 2.6 L19.5 3.4 M3 12.8 L7.6 11.6 M9 6.6 L10.6 9.4 M18.8 14 L21 12.4" fill="none" stroke="${NOIR}" stroke-width="0.6" stroke-linecap="round"/></pattern>
 </defs>`;
 
   // ─── Feuille : un limbe en amande, en coordonnées d'écran ───
@@ -124,7 +125,7 @@ module.exports = (h) => {
   };
 
   // ════ Le composteur : projection oblique et perches en volume (comme la 95-40a) ════
-  const kc = 0.6 * Math.cos(60 * Math.PI / 180), ks = 0.6 * Math.sin(60 * Math.PI / 180);
+  const kc = 0.6 * Math.cos(20 * Math.PI / 180), ks = 0.6 * Math.sin(20 * Math.PI / 180);   // fuite basse, comme la 95-40a : le bout d'une perche de côté tombe entre deux perches avant
   const hull = (pts) => {
     const P = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
     const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
@@ -187,7 +188,7 @@ module.exports = (h) => {
     .sort((a, b) => a.prof - b.prof)
     .map((x) => x.pe);
 
-  const WC = 90, RP = 7, OP = 13, NRC = 7, GAP = 30, TOLE = 15, ONDE = 8, AMP = 2;
+  const WC = 90, RP = 7, OP = 13, NRC = 7, GAP = 14, TOLE = 15, ONDE = 8, AMP = 2;
   const ZT = NRC * RP;                                    // dessus du dernier rang : la tôle y porte
   const DY = WC + 2 * OP + GAP;                           // le deuxième bac, derrière le premier
   const PIERRES = [[12, 0.62], [WC - 12, 0.62]];            // x, fraction de y : sur les deux appuis
@@ -241,7 +242,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['b1', 'b2', 'b3', 'rate'], ['compo', 'coupe']],
     hauteurs: [1, 1.2],
-    largeurs: [[1, 1, 1, 1], [1.1, 1]],
+    largeurs: [[1, 1, 1, 1], [1.4, 1]],
     vues: {
       b1: {
         titre: 'Premier buttage',
@@ -320,9 +321,15 @@ module.exports = (h) => {
           // Le sol, sous le bac et autour.
           out.push(h.rect(q(-TOLE - 4, 0)[0], q(0, 0)[1], s * (WC + 2 * TOLE + 8), s * 11, h.a.hachure('terre', 'aucun')));
           // Le mur du fond, derrière : ses perches en long, qui dépassent aux deux coins.
+          // Seuls dépassent, de part et d'autre, leurs bouts : un tronçon arrondi derrière chaque
+          // jonction de deux perches coupées.
           for (let k = 0; k < NRC; k += 2) {
             const zb = k === 0 ? 0 : k * RP - RP, zh = k * RP + RP;
-            out.push(h.rect(q(-OP, 0)[0], q(0, zh)[1], s * (WC + 2 * OP), s * (zh - zb), blanc(h.a.arete)));
+            [[0, -OP], [WC, WC + OP]].forEach(([xi, xe]) => {
+              const sg = Math.sign(xe - xi), a = q(xi, zb), b = q(xe - sg * RP * 0.5, zb), c = q(xe - sg * RP * 0.5, zh), d = q(xi, zh);
+              const m = q(xe + sg * RP * 0.35, (zb + zh) / 2);
+              out.push(h.path(`M${pt(d)} L${pt(c)} Q${pt([m[0], c[1]])} ${pt(m)} Q${pt([m[0], b[1]])} ${pt(b)} L${pt(a)}`, blanc(h.a.arete)));
+            });
           }
           // Les couches : brun, vert enfoui, brun, vert enfoui, brun par-dessus.
           COUCHES.forEach(([mat, z0, z1], i) => {
@@ -333,7 +340,7 @@ module.exports = (h) => {
             }
             const forme = bas.concat(haut.reverse());
             out.push(poly(forme, h.a.blanc));
-            out.push(poly(forme, mat === 'brun' ? h.a.hachure('paille', 'aucun') : motif('h9540b-vert')));
+            out.push(poly(forme, mat === 'brun' ? motif('h9540b-brun') : motif('h9540b-vert')));
             out.push(h.chemin(haut.slice().reverse(), i === COUCHES.length - 1 ? h.a.arete : h.a.detail));
             if (i === 0) out.push(h.chemin(bas, h.a.detail));
           });

@@ -16,7 +16,7 @@ module.exports = (h) => ({
           ...[-1, 1].map(s => lanière(h, F.lan(s))),
           // la pièce : noircie au devant
           h.path(F.p(CORPS), h.a.blanc),
-          h.path(F.p(CORPS), h.a.hachure('bois', 'fin')),
+          h.path(F.p(CORPS), h.a.hachure('grillage', 'fin')),
           h.path(F.p(FENTE), h.a.plein),
           h.path(F.p(VISIERE_FACE), h.a.arete),
           h.path(F.p(CORPS), h.a.contour),
@@ -45,6 +45,10 @@ module.exports = (h) => ({
         return [
           // la tête, en silhouette
           h.ellipse(D.cx, D.cyT, 56, 66, h.a.fin),
+          // oreilles, sous la lanière
+          ...[-1, 1].map(s => h.path(`M${D.cx + s * 55},${D.cyT - 12} C${D.cx + s * 76},${D.cyT - 18} ${D.cx + s * 77},${D.cyT + 12} ${D.cx + s * 54},${D.cyT + 10}`, h.a.fin)),
+          // le nez, qui avance dans l'encoche sous la pièce
+          h.path(`M${D.cx - 11},${D.cyT - 62} L${D.cx},${D.cyT - 84} L${D.cx + 11},${D.cyT - 62}`, h.a.fin),
           // lanières autour de la tête, nœud derrière
           ...[-1, 1].map(s => lanière(h, D.lan(s), 4)),
           ...[-1, 1].map(s => lanière(h, D.bout(s), 4)),
@@ -57,12 +61,13 @@ module.exports = (h) => ({
           h.path(D.arc(74, 84, -40, 40), h.a.contour),
           // le creux de l'intérieur, caché sous le dessus
           h.path(D.ligne(78.5, -33, 33), h.a.cache),
+          h.path(`M${D.cx - 10},${D.cyT - 66} L${D.cx},${D.cyT - 84} L${D.cx + 10},${D.cyT - 66}`, h.a.cache),
         ].join('\n');
       },
       renvois: z => {
         const D = dessus(z);
         return [
-          { n: 5, rond: [16, 22], cible: D.pol(79, -22), texte: 'bois un peu courbé, épouse le visage' },
+          { n: 5, rond: [16, 22], cible: D.pol(82, -22), texte: 'bois un peu courbé, épouse le visage' },
           { n: 6, rond: [z.l - 16, 222], cible: [D.cx + 5, D.yN + 2], texte: 'lanières nouées derrière la tête' },
         ];
       },
@@ -159,7 +164,7 @@ function dessus(z) {
 // ─── En coupe ────────────────────────────────────────────────────────────────────────────
 // Visage tourné vers la droite ; l'œil en (56,120). Le devant de la pièce en x = 84.
 const PROFIL = 'M55,44 C60,62 64,76 67,88 C68,94 64,102 61,107 M61,133 C66,138 69,144 69,150 C69,164 67,176 64,188';
-const OEIL = 'M61,107 C64,111 66,115 66,120 C66,125 64,129 61,133 M61,108 C57,110 55,114 55,120 C55,126 57,130 61,132';
+const OEIL = 'M61,107 C64,111 66,115 66,120 C66,125 64,129 61,133';
 const CILS = 'M63,109 L68,106 M64.5,112 L70,110.5 M65.5,115 L71,114.5 M63.5,131 L67.5,133.5';
 const HAUT = 'M70,76 L80,76 Q84,76 84,80 L84,101 L100,106 L100,111 L86,114 L84,116 L75.5,116 C75.5,104 72,96 68,94 L68,78 Q68,76 70,76 Z';
 const BAS = 'M75.5,124 L84,124 L84,152 Q84,155 81,155 L70,155 Q68,155 68,153 L68,146 C72,144 75.5,136 75.5,124 Z';

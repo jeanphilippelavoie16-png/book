@@ -22,6 +22,7 @@ module.exports = (h) => {
   const DEFS = `<defs>
 <pattern id="h9540a-enrichie" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.95" fill="${NOIR}"/><circle cx="6.6" cy="4.4" r="0.6" fill="${NOIR}"/><circle cx="2.8" cy="7.3" r="0.6" fill="${NOIR}"/><line x1="5.6" y1="8" x2="8.2" y2="8" stroke="${NOIR}" stroke-width="0.5"/></pattern>
 <pattern id="h9540a-surface" width="13" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.6" fill="${NOIR}"/><circle cx="8.5" cy="6" r="0.5" fill="${NOIR}"/></pattern>
+<pattern id="h9540a-paille" width="16" height="9" patternUnits="userSpaceOnUse"><path d="M0.5 2.2 L7 1.2 M4.5 3.4 L12.5 4.6 M9 1.4 L15.5 2.4 M1.5 6.6 L8.5 7.6 M6 8.2 L13 6.8 M11.5 5.6 L15.6 6.4 M2.5 4.6 L5.5 3.8" fill="none" stroke="${NOIR}" stroke-width="0.6" stroke-linecap="round"/></pattern>
 </defs>`;
 
   // ─── Une pousse : tige et deux ou quatre feuilles, en coordonnées d'écran ───
@@ -39,7 +40,7 @@ module.exports = (h) => {
   };
 
   // ─── Projection oblique et perches en volume ───
-  const kc = 0.6 * Math.cos(40 * Math.PI / 180), ks = 0.6 * Math.sin(40 * Math.PI / 180);
+  const kc = 0.6 * Math.cos(20 * Math.PI / 180), ks = 0.6 * Math.sin(20 * Math.PI / 180);   // fuite basse : le bout d'une perche de côté tombe entre deux perches avant, pas sur l'une d'elles
   const hull = (pts) => {
     const P = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
     const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
@@ -248,9 +249,8 @@ module.exports = (h) => {
             { n: 1, rond: [q(30, 0)[0], yr], cible: q(40, -4), texte: 'à plat : compost mêlé en surface' },
             { n: 2, rond: [q(96, 0)[0], yr], cible: q(106, -9), texte: 'sentier creusé à la bêche' },
             { n: 3, rond: [q(160, 0)[0], yr], cible: q(162, 4), texte: 'billon : terre du sentier, cendre, compost' },
-            { n: 4, rond: [q(226, 0)[0], yr], cible: q(221, 0), texte: 'niveau du sol avant de creuser' },
-            { n: 5, rond: [q(286, 0)[0], yr], cible: q(302, 9), texte: 'un tiers de compost, deux tiers de terreau' },
-            { n: 6, rond: [q(XT, 0)[0] - 10, yr + 26], cible: [q(BAC[1] - RB, 2 * RB)[0] + RB * s * 0.7, q(0, 2 * RB)[1] - RB * s * 0.7], texte: 'perches d’épinette écorcées, empilées' },
+            { n: 4, rond: [q(286, 0)[0], yr], cible: q(302, 9), texte: 'un tiers de compost, deux tiers de terreau' },
+            { n: 5, rond: [q(XT, 0)[0] - 10, yr + 26], cible: [q(BAC[1] - RB, 2 * RB)[0] + RB * s * 0.7, q(0, 2 * RB)[1] - RB * s * 0.7], texte: 'perches d’épinette écorcées, empilées' },
           ];
         },
       },
@@ -283,9 +283,9 @@ module.exports = (h) => {
         },
         renvois: (z) => {
           const { p } = repB(z);
-          const c = p(LB + OB, 0, 2 * RB);
+          const c = p(0, -OB, 3 * RB);
           return [
-            { n: 7, rond: [c[0] + 46, c[1] + 20], cible: [c[0] + 2, c[1] + 2], texte: 'rangs croisés aux coins, les bouts dépassent' },
+            { n: 6, rond: [c[0] - 40, c[1] - 34], cible: [c[0] - 2, c[1] - 2], texte: 'rangs croisés aux coins, les bouts dépassent' },
           ];
         },
       },
@@ -303,8 +303,8 @@ module.exports = (h) => {
           const am = [[0, 0], [LC, 0]].concat(fond.slice().reverse()).map(([x, zz]) => q(x, zz));
           out.push(poly(am, motif('h9540a-enrichie')));
           // Les deux paillis.
-          out.push(poly([q(0, 0), q(LC, 0), q(LC, 2), q(0, 2)], h.a.hachure('paille', 'aucun')));
-          out.push(poly([q(0, 2), q(LC, 2), q(LC, 5), q(0, 5)], h.a.hachure('paille', 'aucun')));
+          out.push(poly([q(0, 0), q(LC, 0), q(LC, 2), q(0, 2)], h.a.blanc), poly([q(0, 0), q(LC, 0), q(LC, 2), q(0, 2)], motif('h9540a-paille')));
+          out.push(poly([q(0, 2), q(LC, 2), q(LC, 5), q(0, 5)], h.a.blanc), poly([q(0, 2), q(LC, 2), q(LC, 5), q(0, 5)], motif('h9540a-paille')));
           // Les racines, dans la terre amendée.
           const x0 = LC / 2;
           const racine = (pts2) => h.path(`M${pts2.map((pp) => pt(q(pp[0], pp[1]))).join(' L')}`, h.a.fin);
@@ -335,8 +335,9 @@ module.exports = (h) => {
         renvois: (z) => {
           const { q } = repC(z);
           return [
-            { n: 8, rond: [q(3, 0)[0], q(0, 10)[1]], cible: q(4, 3.5), texte: 'paillis, posé après la levée' },
-            { n: 9, rond: [q(3, 0)[0], q(0, -3)[1] + 1], cible: q(6.5, -3.5), texte: '2 cm de compost mêlés à la terre' },
+            { n: 7, rond: [q(3, 0)[0], q(0, 1)[1] + 4], cible: q(8.5, 1), texte: 'paillis, premier lit' },
+            { n: 8, rond: [q(3, 0)[0], q(0, 10)[1]], cible: q(4, 3.5), texte: 'paillis ajouté après la levée' },
+            { n: 9, rond: [q(3, 0)[0], q(0, -4.5)[1] + 4], cible: q(6.5, -3.5), texte: '2 cm de compost mêlés à la terre' },
             { n: 10, rond: [q(3, 0)[0], q(0, -12)[1]], cible: q(7, -12), texte: 'sol en place' },
           ];
         },

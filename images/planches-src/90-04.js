@@ -211,8 +211,9 @@ module.exports = (h) => {
   function vueE(z) {
     const s = 1.15, sx = Math.round(z.l * 0.26), Yf = Math.round(z.h * 0.5);
     const o = [];
-    const yH = Yf - Math.round(29 * s) - 24, yF = Yf + Math.round(27 * s);
-    o.push(languetteFace(sx, yH, yF + 20, Yf, 6.5, true));
+    // Le poing serre la partie gommée ; seul le bout d'écorce nue dépasse au-dessus du pouce.
+    const yP = Yf - Math.round(29 * s), yH = yP - 16, yF = Yf + Math.round(27 * s);
+    o.push(languetteFace(sx, yH, yF, yP + 2, 6.5, true));
     o.push(poing(rep(sx, Yf, s), 70));
     return o.join('\n');
   }
@@ -259,7 +260,8 @@ module.exports = (h) => {
     }
     o.push(pouce(T, colle));
     // Le va-et-vient du frottement.
-    const ya = ty - 8, xa = tx - 64, xb = tx - 20;
+    // Juste au-dessus du bout du pouce, parallèle à la languette.
+    const ya = ty - 7, xa = tx - 38, xb = tx - 4;
     o.push(h.fleche(`M ${xa + 14} ${ya} H ${xb}`, h.a.detail));
     o.push(h.fleche(`M ${xb - 14} ${ya} H ${xa}`, h.a.detail));
     return o.join('\n');

@@ -35,7 +35,7 @@ module.exports = (h) => {
 
   const DEFS = `<defs>
 <pattern id="${P}-varech" width="40" height="18" patternUnits="userSpaceOnUse"><path d="M0 4 C8 1 14 8 22 5 S34 2 40 4 M0 12.5 C6 15.5 16 9.5 24 13 S34 15.5 40 12.5 M27 8.5 C31 7 35 10 39 8.2 M3 8.6 C7 7.4 10 10 13 8.8" fill="none" stroke="${NOIR}" stroke-width="0.7" stroke-linecap="round"/><ellipse cx="17" cy="6.6" rx="1.6" ry="1.1" fill="#FFFFFF" stroke="${NOIR}" stroke-width="0.5"/><ellipse cx="31" cy="14.4" rx="1.6" ry="1.1" fill="#FFFFFF" stroke="${NOIR}" stroke-width="0.5"/><ellipse cx="8" cy="13.6" rx="1.3" ry="0.9" fill="#FFFFFF" stroke="${NOIR}" stroke-width="0.5"/></pattern>
-<pattern id="${P}-motte" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="${NOIR}" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="${NOIR}" stroke-width="0.5"/></pattern>
+<pattern id="${P}-motte" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="${NOIR}" stroke-width="0.4"/><line x1="0" y1="0" x2="6" y2="0" stroke="${NOIR}" stroke-width="0.4"/></pattern>
 <pattern id="${P}-dessus" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="0.75" fill="${NOIR}"/><circle cx="7" cy="8" r="0.75" fill="${NOIR}"/><circle cx="7.5" cy="2.5" r="0.45" fill="${NOIR}"/><circle cx="2.5" cy="8" r="0.45" fill="${NOIR}"/></pattern>
 <pattern id="${P}-gazon" width="22" height="19" patternUnits="userSpaceOnUse"><path d="M2 8 Q2.2 5.5 1 3.5 M4 8.2 Q4 5.6 4.6 3 M6 8 Q6.3 6 7.8 4.4 M11 15.5 Q11.2 13 10 11 M13 15.7 Q13 13.1 13.6 10.5 M15 15.5 Q15.3 13.5 16.8 11.9" fill="none" stroke="${NOIR}" stroke-width="0.5" stroke-linecap="round"/></pattern>
 <pattern id="${P}-fond" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="3" cy="4" r="0.5" fill="${NOIR}"/><circle cx="10" cy="11" r="0.5" fill="${NOIR}"/></pattern>
@@ -56,7 +56,7 @@ module.exports = (h) => {
   const B = (x) => {                               // dessous des mottes : les racines de l'herbe renversée
     const u = Math.abs(x);
     if (u > 480) return 22 * (500 - u) / 20;
-    return u > 440 ? V(x) + 10 : 80 + bosse(x);
+    return u > 440 ? V(x) + 10 : 106 + bosse(x);
   };
   const V = (x) => {                               // dessus du varech
     const u = Math.abs(x);
@@ -85,11 +85,15 @@ module.exports = (h) => {
       o.push(poly(m, BLANC), poly(m, motif('motte')), poly(m, h.a.detail));
     }
     // l'herbe des mottes, pendue en dessous
-    pas(-490, 490, 9).forEach((x, i) => {
-      if (SEMIS.some((xp) => Math.abs(x - xp) < 34)) return;
+    pas(-490, 490, 6).forEach((x, i) => {
       const z0 = B(x);
-      if (z0 < 16) return;
-      o.push(h.ligne(...Q(x, z0), ...Q(x + (i % 2 ? 3 : -3), z0 - 12), h.a.fin));
+      // ce qu'il y a dessous : le dessus du morceau, ou le varech
+      let bas = V(x);
+      SEMIS.forEach((xp) => { const u = (x - xp) / RX; if (Math.abs(u) < 1) bas = Math.max(bas, ZC + RY * Math.sqrt(1 - u * u) + 2); });
+      const lon = Math.min(36, z0 - bas);
+      if (lon < 6) return;
+      const d = i % 2 ? 4 : -4;
+      o.push(h.path(`M${pt(Q(x, z0))} Q${pt(Q(x + d * 0.3, z0 - lon * 0.6))} ${pt(Q(x + d, z0 - lon))}`, h.a.detail));
     });
     o.push(h.chemin(pas(-500, 500, 8).map((x) => Q(x, T(x))), h.a.arete));
     return o.join('\n');
@@ -152,6 +156,10 @@ module.exports = (h) => {
           o.push(h.rect(g0[0], g0[1], g1[0] - g0[0], g1[1] - g0[1], h.a.cache));
           pas(775, 945, 20).forEach((x, i) => o.push(h.ligne(...q(x, 0), ...q(x + (i % 2 ? 4 : -4), 14), h.a.fin)));
           o.push(h.fleche(`M${pt(q(870, 30))} Q${pt(q(760, 480))} ${pt(q(432, 184))}`));
+          // au sommet de l'arc, la même motte tournée d'un quart de tour : l'herbe passe sur le côté
+          const mx = 705, mz = 294, m0 = q(mx - 62, mz + 100), m1 = q(mx + 62, mz - 100);
+          o.push(h.rect(m0[0], m0[1], m1[0] - m0[0], m1[1] - m0[1], 'fill="#FFFFFF" ' + h.a.fin.replace('fill="none" ', '')));
+          pas(mz - 88, mz + 88, 20).forEach((zz, i) => o.push(h.ligne(...q(mx - 62, zz), ...q(mx - 76, zz + (i % 2 ? 4 : -4)), h.a.fin)));
           return o.join('\n');
         },
         renvois: (z) => {
@@ -228,10 +236,13 @@ module.exports = (h) => {
           // l'écart des morceaux, dans les deux sens
           const e1 = p(120, 580), e2 = p(360, 580), yE = p(0, 660)[1];
           o.push(h.ligne(e1[0], e1[1] + 7, e1[0], yE + 6, h.a.fin), h.ligne(e2[0], e2[1] + 7, e2[0], yE + 6, h.a.fin));
+          { const w = h.largeur('230 à 250 mm', 12) + 8, xm = (e1[0] + e2[0]) / 2; o.push(h.rect(xm - w / 2, yE + 3, w, 16, BLANC)); }
           o.push(h.cote(e1[0], yE, e2[0], yE, '230 à 250 mm', { cote: 'dessous' }));
           const v1 = p(-360, 340), v2 = p(-360, 580), xE = p(-450, 0)[0];
           o.push(h.ligne(v1[0] - 8.5, v1[1], xE - 6, v1[1], h.a.fin), h.ligne(v2[0] - 8.5, v2[1], xE - 6, v2[1], h.a.fin));
-          o.push(h.cote(xE, v1[1], xE, v2[1], '230 à 250 mm', { cote: 'gauche' }));
+          o.push(h.cote(xE, v1[1], xE, v2[1], '', { cote: 'gauche' }));
+          { const w = h.largeur('230 à 250 mm', 12), xt = xE - 16 - w / 2, ym = (v1[1] + v2[1]) / 2;
+            o.push(h.rect(xt - w / 2 - 4, ym - 9, w + 8, 17, BLANC), h.texte(xt, ym + 4, '230 à 250 mm', { lisere: true })); }
           return o.join('\n');
         },
         renvois: (z) => {

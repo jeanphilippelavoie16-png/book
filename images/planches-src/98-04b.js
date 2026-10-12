@@ -31,7 +31,7 @@ module.exports = (h) => {
 
   const DEFS = `<defs>
 <pattern id="${P}-varech" width="40" height="18" patternUnits="userSpaceOnUse"><path d="M0 4 C8 1 14 8 22 5 S34 2 40 4 M0 12.5 C6 15.5 16 9.5 24 13 S34 15.5 40 12.5 M27 8.5 C31 7 35 10 39 8.2 M3 8.6 C7 7.4 10 10 13 8.8" fill="none" stroke="${NOIR}" stroke-width="0.7" stroke-linecap="round"/><ellipse cx="17" cy="6.6" rx="1.6" ry="1.1" fill="#FFFFFF" stroke="${NOIR}" stroke-width="0.5"/><ellipse cx="31" cy="14.4" rx="1.6" ry="1.1" fill="#FFFFFF" stroke="${NOIR}" stroke-width="0.5"/><ellipse cx="8" cy="13.6" rx="1.3" ry="0.9" fill="#FFFFFF" stroke="${NOIR}" stroke-width="0.5"/></pattern>
-<pattern id="${P}-motte" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="${NOIR}" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="${NOIR}" stroke-width="0.5"/></pattern>
+<pattern id="${P}-motte" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="${NOIR}" stroke-width="0.4"/><line x1="0" y1="0" x2="6" y2="0" stroke="${NOIR}" stroke-width="0.4"/></pattern>
 <pattern id="${P}-recharge" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.7" fill="${NOIR}"/><circle cx="5" cy="4.5" r="0.7" fill="${NOIR}"/><circle cx="2.5" cy="5.8" r="0.4" fill="${NOIR}"/></pattern>
 </defs>`;
 
@@ -185,6 +185,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: q(830, -160), cible: q(760, -380), texte: 'tranchée creusée plus creux, à la bêche' },
             { n: 2, rond: q(-870, 250), cible: q(...surFleche(0.5, FL_G)), texte: 'terre des tranchées, jetée par-dessus' },
+            { n: 9, rond: q(1075, -140), cible: q(925, -250), texte: 'fond de la tranchée au plantage' },
           ];
         },
       },
@@ -233,8 +234,9 @@ module.exports = (h) => {
             const bas = dome(x) !== null ? dome(x) + 2 : 76;
             const lon = Math.min(22, Bd(x) - bas);
             if (lon < 5) return;
-            const b0 = Bd(x);
-            o.push(h.path(`M${pt(q(x, b0))} Q${pt(q(x - 2, b0 - lon * 0.6))} ${pt(q(x - 6 - (i % 3) * 2, b0 - lon + (i % 2) * 3))}`, h.a.detail));
+            const b0 = Bd(x), tip = q(x - 3 - (i % 3) * 1.5, b0 - lon + (i % 2) * 3);
+            // base épaisse contre la terre de la motte, pointe vers le bas
+            o.push(poly([q(x - 2, b0), q(x + 2, b0), tip], plein(h.a.fin)));
           });
           // la recharge, et le chiendent qu'elle étouffe
           const rch = pas(X0 - 10, X1 + 10, 6).map((x) => q(x, R(x))).concat(pas(X1 + 10, X0 - 10, 6).map((x) => q(x, T(x))));
@@ -258,6 +260,12 @@ module.exports = (h) => {
           const xc = ca[0] - 14, zt = q(X0, T(X0))[1], zr = q(X0, R(X0))[1];
           o.push(h.ligne(ca[0] - 2, zt, xc - 6, zt, h.a.fin), h.ligne(ca[0] - 2, zr, xc - 6, zr, h.a.fin));
           o.push(h.cote(xc, zr, xc, zt, '50 à 80 mm', { cote: 'gauche' }));
+          // second rappel du renvoi 5, vers l'herbe renversée sous la motte
+          { const a = [q(240, 0)[0] + 32, q(0, 168)[1]], b = q(215, 88), d = Math.hypot(b[0] - a[0], b[1] - a[1]);
+            const sx = a[0] + (b[0] - a[0]) * 10 / d, sy = a[1] + (b[1] - a[1]) * 10 / d;
+            o.push(`<line x1="${f1(sx)}" y1="${f1(sy)}" x2="${f1(b[0])}" y2="${f1(b[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`,
+              `<line x1="${f1(sx)}" y1="${f1(sy)}" x2="${f1(b[0])}" y2="${f1(b[1])}" fill="none" stroke="${NOIR}" stroke-width="0.5" stroke-dasharray="3 2.5"/>`,
+              `<circle cx="${f1(b[0])}" cy="${f1(b[1])}" r="1.8" fill="${NOIR}" stroke="#FFFFFF" stroke-width="0.7"/>`); }
           return o.join('\n');
         },
         renvois: (z) => {
@@ -267,8 +275,8 @@ module.exports = (h) => {
             { n: 3, rond: r(283), cible: q(160, 250), texte: 'recharge, sur toute la planche' },
             { n: 4, rond: r(236), cible: q(212, 226), texte: 'chiendent étouffé sous la recharge' },
             { n: 5, rond: r(168), cible: q(185, 165), texte: 'motte à l’envers, herbe dessous' },
-            { n: 6, rond: r(112), cible: q(142, 96), texte: 'morceau de semence et son germe' },
-            { n: 7, rond: r(52), cible: q(214, 48), texte: 'varech ou fumier composté' },
+            { n: 6, rond: r(64), cible: q(142, 96), texte: 'morceau de semence et son germe' },
+            { n: 7, rond: r(34), cible: q(214, 48), texte: 'varech ou fumier composté' },
             { n: 8, rond: r(8), cible: q(222, 10), texte: 'gazon non retourné' },
           ];
         },

@@ -94,7 +94,7 @@ module.exports = (h) => {
       + 'raide, posé sur un billot et tenu par le bout, martelé au maillet de bouleau jusqu’à s’ouvrir en pinceau '
       + 'de filaments qui retombent. Les deux ratés du séchage : la lanière en tire-bouchon, et la lanière cuite, '
       + 'cornée aux bords, cassée net. Enfin la lanière tendue en va-et-vient entre deux arbres, serrée par un '
-      + 'garrot dont le bout s’appuie au sol. Encadré danger : l’alcali du bain et les yeux.',
+      + 'garrot : un bâton passé entre les deux brins et tourné, son bout arrêté contre un piquet court. Encadré danger : l’alcali du bain et les yeux.',
     format: 'pleine',
     disposition: [['poste', 'plaques'], ['defibrer', 'rates'], ['etirer']],
     hauteurs: [1.25, 0.95, 0.62],
@@ -265,7 +265,7 @@ module.exports = (h) => {
           const { P } = repereDet(z);
           return [
             { n: 4, rond: [16, z.h * 0.2], cible: P(-30, 40), texte: 'racloir émoussé, poussé dans le sens du poil' },
-            { n: 5, rond: [z.l * 0.6, z.h - 12], cible: P(6, 22), texte: 'le poil part en plaques, sans forcer' },
+            { n: 5, rond: [z.l * 0.86, z.h * 0.2], cible: P(14, 26), texte: 'le poil part en plaques, sans forcer' },
           ];
         },
       },
@@ -307,7 +307,7 @@ module.exports = (h) => {
           }
           out.push(h.chemin([V(-425, 0), V(-20, 0), V(-20, eT), V(-425, eT)], blanc(A.arete), true));
           // la main gauche pince le bout sec qui dépasse du billot
-          out.push(F.main({ x: V(-398, eT / 2)[0], y: V(-398, eT / 2)[1], pose: 'pince', vue: 'profil', echelle: s, bras: 60, angle: -6,
+          out.push(F.main({ x: V(-398, eT / 2)[0], y: V(-398, eT / 2)[1], pose: 'boule', vue: 'profil', diametre: eT * s * 1.4, serre: 1.3, echelle: s, bras: 60, angle: 20,
             objet: h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true) }));
 
           // le maillet taillé dans une bûche de bouleau, levé ; le poing droit sur le manche
@@ -419,30 +419,53 @@ module.exports = (h) => {
             return r.join('\n');
           };
           out.push(arbre(xL), arbre(xR));
-          // à chaque arbre, les tours de la lanière passent sur le devant du tronc et repartent derrière
-          const tours = cote => {
-            const xc = cote < 0 ? xL : xR, brins = [];
-            [-5, 0, 5].forEach(o => {
-              const dep = xc - cote * (rT + 22), bord = xc + cote * rT;
-              brins.push({ pts: [[dep, yb + o * 0.2], [xc - cote * (rT + 6), yb + o * 0.75], [xc, yb + o + 1.2], [bord, yb + o + 2.2]], ep: 2.6, debut: 'ouvert', fin: 'ouvert' });
-            });
-            return F.cordes(brins, { jeu: 0 });
-          };
-          out.push(tours(-1), tours(1));
-          // le faisceau, tordu par le garrot, d'un arbre au bâton et du bâton à l'autre arbre
-          out.push(F.corde([[xL + rT + 14, yb], [xm - 3, yb]], { ep: 8, torons: true, debut: 'ouvert', fin: 'ouvert' }));
-          out.push(F.corde([[xm + 3, yb], [xR - rT - 14, yb]], { ep: 8, torons: true, debut: 'ouvert', fin: 'ouvert' }));
-          // le garrot : un bâton passé entre les brins, tourné, le bout calé au sol
-          out.push(h.path(`M${f1(xm - 3)} ${f1(yb - 30)} L${f1(xm - 3.5)} ${f1(gy)} L${f1(xm + 3.5)} ${f1(gy)} L${f1(xm + 3)} ${f1(yb - 30)} Q${f1(xm)} ${f1(yb - 33)} ${f1(xm - 3)} ${f1(yb - 30)} Z`, blanc(A.arete)));
-          // le sens du tour, autour de l'axe du faisceau
-          out.push(h.fleche(`M${f1(xm + 7)} ${f1(yb - 24)} A10 24 0 0 1 ${f1(xm + 9)} ${f1(yb + 20)}`, A.arete));
+          // la lanière : deux brins parallèles, bien séparés, qui font chacun le tour d'un arbre
+          // (le brin du haut passe devant le tronc et revient par derrière en brin du bas)
+          const sep = 11, bande = (pts, w = 3.6) => h.path(D(pts), 'fill="none" stroke="#000" stroke-width="' + (w + 1.6) + '" stroke-linejoin="round"')
+            + h.path(D(pts), 'fill="none" stroke="#FFF" stroke-width="' + w + '" stroke-linejoin="round"');
+          const tw = 46, nX = 3;     // la longueur tordue de chaque côté du bâton, le nombre de croisements
+          const brinsDroits = (x0, x1) => [-1, 1].map(sg => [[x0, yb + sg * sep], [x1, yb + sg * sep]]);
+          // les tours aux arbres
+          [[xL, 1], [xR, -1]].forEach(([xc, c]) => {
+            const pres = xc + c * rT, loin = xc - c * rT;
+            out.push(bande([[pres, yb + sep], [pres - c * 2, yb + sep]]));          // le brin du bas sort de derrière
+            out.push(bande(lisse([[pres + c * 1, yb - sep], [xc, yb - sep + 5], [loin + c * 1, yb + sep - 1]], 6)));   // le haut passe devant
+          });
+          // les brins droits, des arbres jusqu'à la torsion
+          [[xL + rT, xm - 4 - tw], [xm + 4 + tw, xR - rT]].forEach(([x0, x1]) => brinsDroits(x0, x1).forEach(q => out.push(bande(q))));
+          // la torsion : de chaque côté du bâton, les deux brins tordus l'un sur l'autre
+          [[xm - 4 - tw, xm - 4], [xm + 4, xm + 4 + tw]].forEach(([x0, x1], cotI) => {
+            const per = (x1 - x0) / nX;
+            const y = (x, sg) => {
+              const t = (x - x0) / per;
+              const amp = sep * (cotI === 0 ? 1 - 0.55 * (x - x0) / tw : 0.45 + 0.55 * (x - x0) / tw);
+              return yb + sg * amp * Math.cos(Math.PI * t);
+            };
+            for (let k = 0; k < nX; k++) {
+              const a0 = x0 + k * per, a1 = a0 + per;
+              const seg = sg => { const q = []; for (let i = 0; i <= 10; i++) { const x = a0 + (a1 - a0) * i / 10; q.push([x, y(x, sg)]); } return q; };
+              const dessus = k % 2 === 0 ? 1 : -1;
+              out.push(bande(seg(-dessus)), bande(seg(dessus)));
+            }
+          });
+          // le garrot : un bâton court passé entre les deux brins, sans toucher le sol ; son bout bas
+          // arrêté contre un piquet court planté
+          const sb = [xm + 9, yb + 38], st = [xm - 6, yb - 30];
+          const ps = 10;   // le piquet
+          out.push(h.path(`M${f1(sb[0] + 3)} ${f1(gy)} L${f1(sb[0] + 3)} ${f1(yb + 30)} L${f1(sb[0] + 3 + ps / 2)} ${f1(yb + 26)} L${f1(sb[0] + 3 + ps)} ${f1(yb + 30)} L${f1(sb[0] + 3 + ps)} ${f1(gy)} Z`, blanc(A.arete)));
+          const ax = [sb[0] - st[0], sb[1] - st[1]], L = Math.hypot(ax[0], ax[1]), nb = [-ax[1] / L * 3.2, ax[0] / L * 3.2];
+          out.push(h.path(D([[st[0] + nb[0], st[1] + nb[1]], [sb[0] + nb[0], sb[1] + nb[1]], [sb[0] - nb[0], sb[1] - nb[1]], [st[0] - nb[0], st[1] - nb[1]]]) + ' Z', blanc(A.arete)));
+          // le brin du dessus repasse devant le bâton
+          out.push(bande([[xm - 7, yb - 1.5], [xm + 7, yb + 1.5]]));
+          // le sens du tour, autour de l'axe des brins
+          out.push(h.fleche(`M${f1(xm - 26)} ${f1(yb - 30)} A12 26 0 0 0 ${f1(xm - 28)} ${f1(yb + 22)}`, A.arete));
           return out.join('\n');
         },
         renvois: z => {
           const yb = z.h * 0.42;
           return [
-            { n: 11, rond: [z.l * 0.27, z.h - 14], cible: [z.l * 0.27, yb + 3], texte: 'va-et-vient entre deux arbres, à l’ombre' },
-            { n: 12, rond: [z.l * 0.5 + 38, z.h - 14], cible: [z.l * 0.5 + 2.5, z.h - 20], texte: 'garrot : un bâton tourné entre les brins' },
+            { n: 11, rond: [z.l * 0.27, z.h - 14], cible: [z.l * 0.27, yb + 7], texte: 'va-et-vient entre deux arbres, à l’ombre' },
+            { n: 12, rond: [z.l * 0.5 + 44, z.h * 0.12], cible: [z.l * 0.5 - 3, z.h * 0.42 - 22], texte: 'garrot : un bâton tourné entre les brins' },
           ];
         },
       },

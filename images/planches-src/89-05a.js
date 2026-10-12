@@ -38,9 +38,9 @@ module.exports = (h) => {
           // cotes : largeur à la tête et au talon
           const [xa] = P.pt(G.maxX, 0), [xt] = P.pt(0, 0);
           o.push(h.ligne(xa - 3, P.pt(0, -95)[1], xa - 20, P.pt(0, -95)[1], h.a.fin), h.ligne(xa - 3, P.pt(0, 95)[1], xa - 20, P.pt(0, 95)[1], h.a.fin));
-          o.push(h.cote(xa - 16, P.pt(0, -95)[1], xa - 16, P.pt(0, 95)[1], '19 cm', { cote: 'gauche' }));
+          o.push(h.cote(xa - 16, P.pt(0, -95)[1], xa - 16, P.pt(0, 95)[1], '190 mm', { cote: 'gauche' }));
           o.push(h.ligne(xt + 3, P.pt(0, -100)[1], xt + 20, P.pt(0, -100)[1], h.a.fin), h.ligne(xt + 3, P.pt(0, 100)[1], xt + 20, P.pt(0, 100)[1], h.a.fin));
-          o.push(h.cote(xt + 16, P.pt(0, -100)[1], xt + 16, P.pt(0, 100)[1], '20 cm', { cote: 'droite' }));
+          o.push(h.cote(xt + 16, P.pt(0, -100)[1], xt + 16, P.pt(0, 100)[1], '200 mm', { cote: 'droite' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -76,11 +76,11 @@ module.exports = (h) => {
           const yb = E.pt([0, 0])[1];
           const [xh] = E.pt([G.bout.x, 0]), yh = E.pt([0, G.bout.y])[1];
           o.push(h.ligne(xh - 4, yh, 40, yh, h.a.fin), h.ligne(E.pt([G.maxX, 0])[0] - 3, yb, 40, yb, h.a.fin));
-          o.push(h.cote(44, yh, 44, yb, '32 cm', { cote: 'gauche' }));
+          o.push(h.cote(44, yh, 44, yb, '320 mm', { cote: 'gauche' }));
           const [x0] = E.pt([0, 0]), [x19] = E.pt([1900, 0]), [xm] = E.pt([G.maxX, 0]);
           o.push(h.ligne(x0, yb + 4, x0, yb + 44, h.a.fin), h.ligne(x19, yb + 4, x19, yb + 20, h.a.fin), h.ligne(xm, yb + 4, xm, yb + 44, h.a.fin));
-          o.push(h.cote(x19, yb + 14, x0, yb + 14, '1,9 m', { cote: 'dessous' }));
-          o.push(h.cote(xm, yb + 38, x0, yb + 38, '2,35 m', { cote: 'dessous' }));
+          o.push(h.cote(x19, yb + 14, x0, yb + 14, '1900 mm', { cote: 'dessous' }));
+          o.push(h.cote(xm, yb + 38, x0, yb + 38, '2350 mm', { cote: 'dessous' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -117,7 +117,7 @@ module.exports = (h) => {
             o.push(h.cercle(...C.pt([x, 24]), 2.2, h.a.plein));
             o.push(h.cercle(...C.pt([x, -11]), 2.2, h.a.plein));
           });
-          o.push(h.cote(...C.pt([-150, -21]), ...C.pt([150, -21]), '30 cm', { cote: 'dessous' }));
+          o.push(h.cote(...C.pt([-150, -21]), ...C.pt([150, -21]), '300 mm', { cote: 'dessous' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -155,6 +155,12 @@ module.exports = (h) => {
           // la ficelle : monte par un trou, passe sur la traverse, redescend, revient dans la rainure
           const f = [[-22, -11.75], [-22, 0.3], [-17.1, 23.25], [17.1, 23.25], [22, 0.3], [22, -11.75]];
           o.push(bande(h, f.map(L.pt), 2.5 * L.k, true));
+          // cotes : traverse 32 × 22, planche 13
+          o.push(h.ligne(...L.pt([-16, 23.5]), ...L.pt([-16, 33]), h.a.fin), h.ligne(...L.pt([16, 23.5]), ...L.pt([16, 33]), h.a.fin));
+          o.push(h.cote(...L.pt([-16, 30]), ...L.pt([16, 30]), '32 mm', { cote: 'dessus' }));
+          o.push(h.ligne(...L.pt([24, 22]), ...L.pt([56, 22]), h.a.fin), h.ligne(...L.pt([47, 0]), ...L.pt([56, 0]), h.a.fin), h.ligne(...L.pt([47, -13]), ...L.pt([56, -13]), h.a.fin));
+          o.push(h.cote(...L.pt([53, 22]), ...L.pt([53, 0]), '22 mm', { cote: 'droite' }));
+          o.push(h.cote(...L.pt([53, 0]), ...L.pt([53, -13]), '13 mm', { cote: 'droite' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -214,7 +220,7 @@ function plan(z, G) {
   const pt = (x, y) => [r1(X0 + S * (G.maxX - x)), r1(yc + S * y)];
   // la corde de côté : 14 mm en dedans du bord, de la traverse où part la courbe jusque derrière la dernière
   const corde = () => {
-    const xa = XS[3] + 18, xb = XS[0] - 18, xs = pas(xb, xa, 30);
+    const xa = XS[3] + 34, xb = XS[0] - 45, xs = pas(xb, xa, 30);
     return [...xs.map(x => pt(x, -w(x) / 2 + 25)), ...[...xs].reverse().map(x => pt(x, w(x) / 2 - 25))];
   };
   return { pt, s: S, corde };
@@ -248,7 +254,7 @@ function trav(z) {
   return { k, pt: p => [r1(cx + k * p[0]), r1(y0 - k * p[1])] };
 }
 function long(z) {
-  const k = 2.35, cx = z.l / 2, y0 = z.h / 2 - 12;
+  const k = 1.8, cx = z.l / 2 - 26, y0 = z.h / 2 - 12;
   return { k, pt: p => [r1(cx + k * p[0]), r1(y0 - k * p[1])] };
 }
 // ligne brisée d'un bout coupé, de (x, ya) à (x, yb)
