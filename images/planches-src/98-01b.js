@@ -41,21 +41,12 @@ module.exports = (h) => {
     const V = (x, y) => [X(x), yS + y * K];
     const Gr = [240, -885], Gf = [339, -818];       // prises voulues (mm) : main arrière au ventre, main avant
     // la main arrière est le bras proche (coude plié, devant le corps) ; la main avant, le bras loin, tendu
-    let cibles = { proche: V(...Gr), loin: V(...Gf) }, p = null;
-    for (let i = 0; i < 4; i++) {
-      p = F.personnage({ x: X(0), y: yS, pose: 'debout', echelle: K, penche: 30, regard: 26, mains: cibles });
-      const creux = c => [p.poignets[c][0] + 0.42 * (p.mains[c][0] - p.poignets[c][0]), p.poignets[c][1] + 0.42 * (p.mains[c][1] - p.poignets[c][1])];
-      const cr = creux('proche'), cf = creux('loin');
-      const vr = V(...Gr), vf = V(...Gf);
-      cibles = { proche: [cibles.proche[0] + vr[0] - cr[0], cibles.proche[1] + vr[1] - cr[1]], loin: [cibles.loin[0] + vf[0] - cf[0], cibles.loin[1] + vf[1] - cf[1]] };
-    }
-    p = F.personnage({ x: X(0), y: yS, pose: 'debout', echelle: K, penche: 30, regard: 26, mains: cibles });
     const u = [Gf[0] - Gr[0], Gf[1] - Gr[1]], n = Math.hypot(...u); u[0] /= n; u[1] /= n;
     const bout = [Gr[0] - 50 * u[0], Gr[1] - 50 * u[1]];              // le bout du manche, derrière la main arrière
     const J = [bout[0] + LM * u[0], bout[1] + LM * u[1]];              // le bout avant du manche (mm)
     const B0 = J[0] + G * 0.9;                                         // le bout du battoir, à plat
     const yB = J[1];                                                   // l'axe du battoir
-    return { p, u, bout, J, B0, yB, V };
+    return { u, bout, J, B0, yB, V, Gr, Gf };
   }
   const geo = (() => {
     const b = batteur(0);
@@ -153,7 +144,7 @@ module.exports = (h) => {
   return {
     ref: '98-01b',
     titre: 'Le fléau : battre sur la toile',
-    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur penché tient le manche à deux mains, le battoir est tombé à plat sur les épis ; une gerbe de chaque rangée, couchée sur la toile, les épis qui se croisent au milieu ; la flèche suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
+    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur, en pictogramme penché, tient le manche à deux mains, la main arrière au bout du manche, le battoir est tombé à plat sur les épis ; une gerbe de chaque rangée, couchée sur la toile, les épis qui se croisent au milieu ; la flèche suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
     format: 'pleine',
     disposition: [['coup'], ['plan']],
     hauteurs: [1720, 1180],
@@ -173,14 +164,16 @@ module.exports = (h) => {
           out.push(baton(B0, [1, 0], LB * K, RB * K));
           out.push(h.chemin([J, B0], A.arete));
           const pM = V(...b.bout);
-          out.push(baton(pM, u, LM * K, RM * K));
-          // le batteur
-          out.push(b.p.toString());
-          // la main avant (bras loin) est derrière le manche : le manche repasse devant elle
-          const gf = V(b.bout[0] + b.u[0] * 170, b.bout[1] + b.u[1] * 170), rr = RM * K, nn = [-u[1], u[0]];
-          const q = (t, e) => [gf[0] + u[0] * t + nn[0] * e, gf[1] + u[1] * t + nn[1] * e];
-          out.push(h.path(pl([q(-11, -rr), q(11, -rr), q(11, rr), q(-11, rr)]) + ' Z', 'fill="#FFFFFF" stroke="none"'));
-          out.push(h.chemin([q(-11.6, -rr), q(11.6, -rr)], A.arete), h.chemin([q(-11.6, rr), q(11.6, rr)], A.arete));
+          const manche = baton(pM, u, LM * K, RM * K);
+          // le batteur en pictogramme (règle 9) : tête ronde sans visage, membres en bandes, pas de main
+          const bande = (pts, ep) => { const d = pl(pts.map(q => V(...q))); return h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="${f1(ep * K + 3)}" stroke-linecap="round" stroke-linejoin="round"`) + '\n' + h.path(d, `fill="none" stroke="#3A3A3A" stroke-width="${f1(ep * K)}" stroke-linecap="round" stroke-linejoin="round"`); };
+          const Hh = [40, -900], Sh = [312, -1372], Tc = [400, -1525];
+          const brasL = bande([Sh, [345, -1095], b.Gf], 85), brasP = bande([Sh, [292, -1110], b.Gr], 85);
+          out.push(bande([[230, -22], [70, -45], [60, -480], Hh], 120), bande([[200, -22], [40, -45], [40, -480], Hh], 120));
+          out.push(bande([Hh, Sh], 165));
+          const tc = V(...Tc); out.push(h.cercle(tc[0], tc[1], 112 * K, 'fill="#3A3A3A" stroke="#FFFFFF" stroke-width="1.5"'));
+          out.push(brasL);
+          out.push(manche, brasP);
           // la tête du battoir descend autour de l'attache et tombe à plat
           const Rr = LB * K * 0.93, a0 = -58 * Math.PI / 180, a1 = -10 * Math.PI / 180;
           const p0 = [B0[0] + Rr * Math.cos(a0), B0[1] + Rr * Math.sin(a0)], p1 = [B0[0] + Rr * Math.cos(a1), B0[1] + Rr * Math.sin(a1)];

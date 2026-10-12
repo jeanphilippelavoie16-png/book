@@ -318,7 +318,7 @@ module.exports = (h) => {
     out.push(h.path(dOf(nappe, true), A.arete));
     // la poussée : le pouce avance à plat, vers la nappe encore collée
     const fy = Y(xj) - 100;
-    out.push(h.fleche(`M${f(xj - 80)} ${f(fy + 30)} L${f(xj - 10)} ${f(fy + 30)}`, A.arete));
+    out.push(h.fleche(`M${f(xj - 100)} ${f(Y(xj - 100) - 14)} L${f(xj - 12)} ${f(Y(xj - 12) - 8)}`, A.arete));
 
     return out.join(String.fromCharCode(10));
   };

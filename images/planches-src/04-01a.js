@@ -1,5 +1,5 @@
 // Planche 04-01a — La pièce d'abri chargée (chapitre 6, variante « Sans sous-sol et sans caveau »)
-// Cotes : 200 mm (mur de bois rond, étape 2) · 2/3 (sacs remplis aux deux tiers, variante).
+// Cotes : 2/3 (sacs remplis aux deux tiers, variante).
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -73,9 +73,6 @@ module.exports = (h) => {
     o.push(h.path('M297 272 C300 259, 318 259, 335 262 C352 264, 364 263, 370 272 Z', W(A.arete)));
     o.push(h.cercle(291, 266, 5.5, W(A.arete)));
 
-    // cote : le mur de bois rond
-    o.push(h.ligne(401, 160, 421, 160, A.detail), h.ligne(410, 154, 410, 166, A.detail), h.ligne(421, 154, 421, 166, A.detail));
-    o.push(h.texte(398, 164, '200 mm', { ancre: 'end', lisere: true }));
     return `<g transform="translate(0,-21)">\n${o.join('\n')}\n</g>`;
   };
 

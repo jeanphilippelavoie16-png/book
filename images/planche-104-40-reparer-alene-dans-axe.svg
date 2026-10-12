@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
 <title>Planche 104-40 — Réparer : l’alêne dans l’axe, la pièce à coins ronds</title>
-<desc>En haut, la main pousse l’alêne à travers deux épaisseurs de cuir ; vue de dessus, la couture faite, deux fentes percées d’avance dans l’axe de la ligne, la lame en losange couchée dans la ligne, puis la ligne tracée qui attend. Au milieu, la fente dans l’axe se referme sous le fil ; en travers ou au poinçon rond, le trou reste ouvert. En bas, la déchirure en L : une pièce à coins arrondis posée à l’intérieur, cousue au point arrière tout autour, la déchirure surpiquée sans en rapprocher les bords ; à côté, le coin carré qui redéchire par la pointe.</desc>
+<desc>En haut, on pousse l’alêne par le manche à travers deux épaisseurs de cuir ; vue de dessus, la couture faite, deux fentes percées d’avance dans l’axe de la ligne, la lame en losange couchée dans la ligne, puis la ligne tracée qui attend. Au milieu, la fente dans l’axe se referme sous le fil ; en travers ou au poinçon rond, le trou reste ouvert. En bas, la déchirure en L : une pièce à coins arrondis posée à l’intérieur, cousue au point arrière tout autour, la déchirure surpiquée sans en rapprocher les bords ; à côté, le coin carré qui redéchire par la pointe.</desc>
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
@@ -20,44 +20,14 @@
 <line x1="8" y1="204.9" x2="206" y2="204.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M8 189.9 L6.9 191.4 L6.4 192.9 L6.9 194.4 L8 195.9 L9.1 197.4 L9.6 198.9 L9.1 200.4 L8 201.9 L6.9 203.4 L6.4 204.9 L6.9 206.4 L8 207.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M206 189.9 L204.9 191.4 L204.4 192.9 L204.9 194.4 L206 195.9 L207.1 197.4 L207.6 198.9 L207.1 200.4 L206 201.9 L204.9 203.4 L204.4 204.9 L204.9 206.4 L206 207.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<g data-forme="main-prise-dos">
 <path d="M 128.6 158.9 L 128.6 43.4 Q 128.6 30.8 141.2 30.8 Q 153.8 30.8 153.8 43.4 L 153.8 158.9 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M-24.5 99 C-17.1 98 10.2 94 20.3 92.9 C30.5 91.7 33.7 92.3 36.4 92.2" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M130.6 139.6 C127.4 140.5 119.8 143.6 111.3 144.9 C102.9 146.2 90.6 146.7 79.7 147.6 C68.8 148.4 60.7 146.8 45.9 150.2 C31 153.5 -0.2 164.8 -9.4 167.7" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M125.1 123.6 Q140.2 120.1 155.7 118.3 C161.9 117 164.9 131.8 158.7 133.1 Q144.7 137.1 130.5 139.7" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M130.2 102.6 Q145.8 99 161.8 97 C168.9 95.6 172.3 112.5 165.2 113.9 Q149.7 118.3 133.9 121.1" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M128.7 82.2 Q144.9 78.3 161.4 76.1 C168.9 74.4 172.9 92.4 165.3 94.1 Q149.4 99 133.1 102.2" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M121.6 63.6 Q137.3 60.1 153.3 58.3 C160.6 56.8 164.2 74.3 156.8 75.8 Q141.4 80.3 125.6 83.2" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M36.4 92.2 L73.6 63.5 C75.4 62 73.4 63.3 75.5 62.3 L106.8 47.3 C107.3 47 110 46.3 110.6 46.3 L137.9 46.7 C149.9 46 148.6 62.3 138.9 62.9 Q127.2 66.4 115.3 66.5 Q108.9 71.1 101.3 73.4 L89.7 82.8" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M-24.5 99 C-15 97.8 22.8 92.8 33 91.7 C43.1 90.6 28.3 94.4 36.4 92.2 C44.5 90.1 69.3 83.2 81.8 78.8 C94.2 74.4 103 67.7 111.2 65.9 C119.4 64.1 126.2 62.6 131 68 C135.8 73.4 137.7 87.3 139.8 98.3 C141.9 109.3 144.9 127.2 143.4 134.1 C141.8 141 135.9 137.8 130.6 139.6 C125.3 141.4 119.8 143.6 111.3 144.9 C102.9 146.2 90.6 146.7 79.7 147.6 C68.8 148.4 60.7 146.8 45.9 150.2 C31 153.5 -0.2 164.8 -9.4 167.7 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M-24.5 99 C-17.1 98 10.2 94 20.3 92.9 C30.5 91.7 33.7 92.3 36.4 92.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M130.6 139.6 C127.4 140.5 119.8 143.6 111.3 144.9 C102.9 146.2 90.6 146.7 79.7 147.6 C68.8 148.4 60.7 146.8 45.9 150.2 C31 153.5 -0.2 164.8 -9.4 167.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M110.7 126.5 L125.1 123.6 Q140.2 120.1 155.7 118.3 C161.9 117 164.9 131.8 158.7 133.1 Q143.7 137.4 128.4 140.1 L114 143 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M125.1 123.6 Q140.2 120.1 155.7 118.3 C161.9 117 164.9 131.8 158.7 133.1 Q144.7 137.1 130.5 139.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M115.7 105.5 L130.2 102.6 Q145.8 99 161.8 97 C168.9 95.6 172.3 112.5 165.2 113.9 Q149.7 118.3 133.9 121.1 L119.5 124 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M130.2 102.6 Q145.8 99 161.8 97 C168.9 95.6 172.3 112.5 165.2 113.9 Q149.7 118.3 133.9 121.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M114.4 85.4 L128.7 82.2 Q144.9 78.3 161.4 76.1 C168.9 74.4 172.9 92.4 165.3 94.1 Q149.4 99 133.1 102.2 L118.8 105.4 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M128.7 82.2 Q144.9 78.3 161.4 76.1 C168.9 74.4 172.9 92.4 165.3 94.1 Q149.4 99 133.1 102.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M107.2 66.5 L121.6 63.6 Q137.3 60.1 153.3 58.3 C160.6 56.8 164.2 74.3 156.8 75.8 Q141.4 80.3 125.6 83.2 L111.1 86.1 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M121.6 63.6 Q137.3 60.1 153.3 58.3 C160.6 56.8 164.2 74.3 156.8 75.8 Q141.4 80.3 125.6 83.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M23.4 102.8 L36.4 92.2 L73.6 63.5 C75.4 62 73.4 63.3 75.5 62.3 L106.8 47.3 C107.3 47 110 46.3 110.6 46.3 L137.9 46.7 C149.9 46 148.6 62.3 138.9 62.9 Q127.2 66.4 115.3 66.5 Q108.9 71.1 101.3 73.4 L52.9 112.6 L39.9 123.2 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M36.4 92.2 L73.6 63.5 C75.4 62 73.4 63.3 75.5 62.3 L106.8 47.3 C107.3 47 110 46.3 110.6 46.3 L137.9 46.7 C149.9 46 148.6 62.3 138.9 62.9 Q127.2 66.4 115.3 66.5 Q108.9 71.1 101.3 73.4 L89.7 82.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M121.5 46.4 C124.4 48.9 134.7 48.8 142.6 47.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M129.4 126.9 Q125.5 132.1 131.2 135.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M134.6 106.4 Q130.8 112.1 136.6 115.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M133.4 86.4 Q129.7 92.5 135.6 96.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M126.1 67.7 Q122.3 73.7 128.2 77.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-</g>
-<path d="M25.6 48.2 L54.9 181.5 L-103 216.2 L-132.4 82.9 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M36.4 92.2 L32.5 95.1 L28.1 97.7 L23.4 100 L18.4 102.1 L13.1 104 L7.6 105.7 L2 107.2 L-3.7 108.5 L-9.5 109.8 L-15.2 110.9 L-21 111.9 L-26.6 112.9 L-32 113.8 L-37.2 114.7 L-27.7 157.8 L-23.4 157.7 L-18.7 157.7 L-13.8 157.5 L-8.6 157.3 L-3.2 157 L2.4 156.7 L8.1 156.2 L13.8 155.7 L19.6 155.1 L25.3 154.3 L30.9 153.5 L36.4 152.5 L41.8 151.4 L46.9 150.2 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M36.4 92.2 L32.5 95.1 L28.1 97.7 L23.4 100 L18.4 102.1 L13.1 104 L7.6 105.7 L2 107.2 L-3.7 108.5 L-9.5 109.8 L-15.2 110.9 L-21 111.9 L-26.6 112.9 L-32 113.8 L-37.2 114.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M46.9 150.2 L41.8 151.4 L36.4 152.5 L30.9 153.5 L25.3 154.3 L19.6 155.1 L13.8 155.7 L8.1 156.2 L2.4 156.7 L-3.2 157 L-8.6 157.3 L-13.8 157.5 L-18.7 157.7 L-23.4 157.7 L-27.7 157.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 128.6 156.9 Q 141.2 154.3 153.8 156.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 128.6 153.7 Q 141.2 151.1 153.8 153.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 128.6 150.5 Q 141.2 147.9 153.8 150.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 128.6 147.3 Q 141.2 144.7 153.8 147.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="135.2" y1="165.9" x2="120.2" y2="165.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M103.2 165.9 L111.2 161.9 L119.2 165.9 L111.2 169.9 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M 141.2 -9.2 L 141.2 24.8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M 171.2 150.9 L 171.2 186.9" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <text x="276.1" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Vu de dessus</text>

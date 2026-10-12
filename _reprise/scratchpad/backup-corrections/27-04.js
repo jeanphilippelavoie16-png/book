@@ -171,7 +171,7 @@ module.exports = (h) => {
   // le ciment : du plancher jusqu'à la surface d'origine ; bosse : de combien il dépasse au centre
   const ciment = (bosse = 0) => {
     const surf = molPts.slice(E1 * NS, E2 * NS + 1).map(([x, y]) => {
-      const b = bosse * Math.max(0, Math.min(1, (x + 12) / 8, (40 - x) / 16));
+      const b = bosse * Math.max(0, 1 - ((x - 10) / 17) ** 2);
       return [x, y - b];
     });
     return [...PLANCHER, ...surf.reverse()];
@@ -245,12 +245,37 @@ module.exports = (h) => {
     return `${clip}\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
   };
 
-  // ═══ les mains ══════════════════════════════════════════════════════════════════════════
-  // la main en pince ; (bx, by) : le creux entre le bout de l'index et le bout du pouce, où la
-  // boulette se roule
-  const geoMain = z => {
-    const e = (z.h - 10) / 108, x = z.l - 78, y = z.h - 6 - 20 * e;
-    return { x, y, e, bx: x + 13 * e, by: y - 7 * e };
+  // ═══ les bouts de doigts ═══════════════════════════════════════════════════════════════
+  // Gros plan de côté : l'index dessus (l'ongle en haut), le pouce dessous (l'ongle en bas),
+  // les pulpes face à face. Doigt local : le bout à (0, 0), le doigt vers -x, le dos à -w/2,
+  // la pulpe à +w/2 ; son point le plus bombé de pulpe : PB.
+  const doigt = (w, L) => {
+    const C = lisse([[-L, -w * 0.5], [-w * 1.6, -w * 0.52], [-w * 0.7, -w * 0.46], [-w * 0.18, -w * 0.26], [0, w * 0.06],
+      [-w * 0.2, w * 0.42], [-w * 0.75, w * 0.58], [-w * 1.5, w * 0.52], [-L, w * 0.5]], false, 8);
+    const ongle = lisse([[-w * 1.15, -w * 0.5], [-w * 1.05, -w * 0.34], [-w * 0.55, -w * 0.3], [-w * 0.2, -w * 0.24]], false, 6);
+    const lunule = lisse([[-w * 1.06, -w * 0.47], [-w * 0.93, -w * 0.38], [-w * 0.86, -w * 0.48]], false, 4);
+    const pliP = lisse([[-w * 1.95, w * 0.52], [-w * 1.85, w * 0.3], [-w * 1.88, w * 0.12]], false, 4);
+    const pliP2 = lisse([[-w * 2.1, w * 0.51], [-w * 2.02, w * 0.36]], false, 2);
+    const pliD = lisse([[-w * 2.0, -w * 0.5], [-w * 1.9, -w * 0.4], [-w * 1.8, -w * 0.5]], false, 4);
+    const pliD2 = lisse([[-w * 2.15, -w * 0.5], [-w * 2.05, -w * 0.42], [-w * 1.95, -w * 0.49]], false, 4);
+    return { C, traits: [[ongle, A.arete], [lunule, A.fin], [pliP, A.detail], [pliP2, A.fin], [pliD, A.fin], [pliD2, A.fin]], PB: [-w * 0.45, w * 0.53] };
+  };
+  // pose un doigt : dessous = pouce (retourné), ang en degrés, son point de pulpe PB en (px, py)
+  const poseDoigt = (D, dessous, ang, px, py) => {
+    const fy = dessous ? ([x, y]) => [x, -y] : (p => p);
+    const [qx, qy] = pose([fy(D.PB)], ang, 1, 0, 0)[0];
+    const T = pts => pose(pts.map(fy), ang, 1, px - qx, py - qy);
+    return [ferme(T(D.C), A.blanc), ouvert(T(D.C), A.contour), ...D.traits.map(([t, st]) => ouvert(T(t), st))].join('\n');
+  };
+  const geoDoigts = z => {
+    const w = Math.min(z.h * 0.24, z.l * 0.2), R = w * 0.36;
+    return { w, R, L: z.l * 0.7, bx: z.l * 0.66, by: z.h * 0.52 };
+  };
+  const paire = (z, ecart) => {
+    const { w, L, bx, by } = geoDoigts(z), D = doigt(w, L);
+    const id = 'doigts-' + Math.round(ecart * 10);
+    return `<clipPath id="${id}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n` +
+      [poseDoigt(D, false, 9, bx + 2, by - ecart), poseDoigt(D, true, -9, bx + 2, by + ecart)].join('\n') + '\n</g>';
   };
 
   return {
@@ -304,28 +329,37 @@ module.exports = (h) => {
       bonne: {
         titre: 'Rouler une boulette entre les doigts',
         dessin: z => {
-          const { x, y, e, bx, by } = geoMain(z), R = 7.5 * e, k = R + 7;
+          const { R, bx, by } = geoDoigts(z), k = R * 2.1;
           const arc = [];
-          for (let a = -75; a <= 75; a += 7.5) arc.push([bx + k * Math.cos(a * Math.PI / 180), by + k * Math.sin(a * Math.PI / 180)]);
-          return [
-            F.main({ x, y, pose: 'pince', vue: 'profil', echelle: e, bras: 6, objet: boulette(bx, by, R) }).toString(),
-            h.path(d(arc), `${A.arete} marker-start="url(#fl)"`).replace('/>', ' marker-end="url(#fl)"/>'),
-          ].join('\n');
+          for (let a = -45; a <= 45; a += 5) arc.push([bx + k * Math.cos(a * Math.PI / 180), by + k * Math.sin(a * Math.PI / 180)]);
+          return [paire(z, R), boulette(bx, by, R), fl(arc)].join('\n');
         },
         renvois: z => {
-          const { bx, by } = geoMain(z);
-          return [{ n: 6, rond: [bx + 48, by - 34], cible: [bx + 2, by + 4], texte: 'roule sans coller : prête' }];
+          const { R, bx, by } = geoDoigts(z);
+          return [{ n: 6, rond: [z.l - 14, by - R - 44], cible: [bx + R * 0.4, by - R * 0.3], texte: 'roule sans coller : prête' }];
         },
       },
       colle: {
         titre: 'Elle colle',
         dessin: z => {
-          const { x, y, e, bx, by } = geoMain(z);
-          return F.main({ x, y, pose: 'pince', vue: 'profil', echelle: e, bras: 6, objet: collante(bx, by, 7.5 * e) }).toString();
+          const { w, R, bx, by } = geoDoigts(z), e = R * 1.9;
+          const yH = by - e, yB = by + e;          // les deux pulpes
+          // un reste de pâte collé sur chaque pulpe
+          const reste = (y0, sg) => ferme(lisse([[bx - R * 1.5, y0], [bx - R * 0.9, y0 + sg * R * 0.55], [bx + R * 0.1, y0 + sg * R * 0.7], [bx + R * 1.2, y0 + sg * R * 0.35], [bx + R * 1.5, y0 - sg * 1]], false, 5), blanc(A.arete));
+          // un fil de pâte : large aux pulpes, mince au milieu
+          const fil = (x0, x1, wa, wm) => {
+            const xm = (x0 + x1) / 2 + 1.5;
+            const g = lisse([[x0 - wa, yH + R * 0.4], [xm - wm, by], [x1 - wa, yB - R * 0.4]], false, 6);
+            const dr = lisse([[x1 + wa, yB - R * 0.4], [xm + wm, by], [x0 + wa, yH + R * 0.4]], false, 6);
+            return ferme([...g, ...dr], blanc(A.detail));
+          };
+          return [paire(z, e),
+            fil(bx - R * 0.9, bx - R * 1.0, R * 0.32, R * 0.08), fil(bx + R * 0.05, bx + R * 0.15, R * 0.36, R * 0.1), fil(bx + R * 0.95, bx + R * 0.85, R * 0.28, R * 0.07),
+            reste(yH - 0.5, 1), reste(yB + 0.5, -1)].join('\n');
         },
         renvois: z => {
-          const { bx, by } = geoMain(z);
-          return [{ n: 7, rond: [bx + 48, by - 34], cible: [bx + 6, by + 2], texte: 'colle : ajouter de la poudre' }];
+          const { R, bx, by } = geoDoigts(z);
+          return [{ n: 7, rond: [z.l - 14, by + 4], cible: [bx + R * 0.95, by], texte: 'colle : ajouter de la poudre' }];
         },
       },
       parois: {
@@ -369,10 +403,10 @@ module.exports = (h) => {
       },
       haut: {
         titre: 'Trop haut',
-        dessin: z => morsure(z, 7, 'morsure-trop-haut'),
+        dessin: z => morsure(z, 30, 'morsure-trop-haut'),
         renvois: z => {
           const { T } = geoMorsure(z);
-          return [{ n: 11, rond: T([-40, -40]), cible: T([6, 4]), texte: 'gratter avant qu’il durcisse' }];
+          return [{ n: 11, rond: T([-40, -40]), cible: T([12, -14]), texte: 'gratter avant qu’il durcisse' }];
         },
       },
     },

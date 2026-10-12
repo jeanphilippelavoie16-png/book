@@ -119,7 +119,7 @@ module.exports = (h) => {
   // haut du crâne en y = −124 ; le cou coupé vers y = 126 (nuque) et 155 (gorge). Sur la vue, ce
   // y file vers la droite (vers les pieds) et ce x vers le bas (s = +1, le visage tourné vers le
   // bas de la page) ou vers le haut (s = −1).
-  const NARINE = ENF.narine;                        // l'embout entre dans l'ouverture de la narine
+  const NARINE = [5 + Math.cos(25 * RAD) * 110, -32 + Math.sin(25 * RAD) * 110];                          // l'embout entre dans l'ouverture de la narine
   const AXE = 66;                                   // la seringue part vers le menton et les pieds
   // la couverture : son bord remonté aux épaules, le revers, deux plis sur les bras
   const BORD = [[-320, 250], [-210, 204], [-130, 162], [-62, 126], [0, 130], [62, 152], [130, 184], [210, 226], [320, 266]];
@@ -129,6 +129,18 @@ module.exports = (h) => {
     [[150, 272], [160, 350], [156, 460]],
     [[-40, 250], [-10, 330], [-30, 460]],
   ];
+  // Règle 9 : pas de visage. La tête est le pictogramme de la règle 8 : un rond plein sans
+  // visage et le cou en bande ; la narine est l'endroit du rond où l'embout entre.
+  const TC = [5, -32], TR_ = 108;
+  const teteRonde = (M) => {
+    const ptsC = []; for (let k = 0; k < 36; k++) { const a = k * 10 * RAD; ptsC.push(M([TC[0] + Math.cos(a) * TR_, TC[1] + Math.sin(a) * TR_])); }
+    const cou = [[-40, 40], [40, 40], [40, 150], [-40, 150]].map(M);
+    // le nez en simple bosse (pas de visage) : il dit de quel côté la tête est tournée
+    const P = (a, r) => M([TC[0] + Math.cos(a * RAD) * r, TC[1] + Math.sin(a * RAD) * r]);
+    const pn = [P(8, TR_ - 4), P(16, TR_ + 14), P(24, TR_ + 12), P(30, TR_ - 4)];
+    const nez = h.path(cr(pn) + ' Z', BLANC) + '\n' + h.path(cr(pn), TR(2.4));
+    return h.path(ligneD(cou) + ' Z', BT(2.4)) + '\n' + h.path(cr(ptsC, true), BT(2.4));
+  };
   const scene = (z, E, s, cx, cy, id, avecTour) => {
     const T = p => [cx + E * p[1], cy + s * E * p[0]];
     const out = [];
@@ -147,9 +159,7 @@ module.exports = (h) => {
     const u = [Math.sin(AXE * RAD), s * Math.cos(AXE * RAD)];
     const sg = seringue(P, u, E * 0.95);
     out.push(sg.svg);
-    out.push(teteEnfant(T, 1));
-    // l'embout repassé par-dessus le bord de la narine, pour qu'on le voie y entrer
-    out.push(h.path(ligneD([sg.Q(3, -1.9), sg.Q(EMB, -2.6), sg.Q(EMB, 2.6), sg.Q(3, 1.9)]), BT(1.4)));
+    out.push(teteRonde(T));
     // la couverture, par-dessus le cou coupé ; elle file hors de la vue
     const loin = 900;
     const couv = [];
@@ -178,16 +188,16 @@ module.exports = (h) => {
   };
 
   // ─── il crache : le buste penché sur le bol ──────────────────────────────────────────
-  const BUSTE = { echelle: 0.5, angle: 12, regard: 30 };
+  // Pictogramme (règle 8) : tête ronde sans visage, tronc et bras en bandes, assis penché.
   const crache = z => {
     const tableY = z.h - 34;
     const bord = tableY - 34, bx = z.l * 0.68;
-    const m0 = F.buste({ x: 0, y: 0, ...BUSTE }).bouche;
-    const mx = bx - 6, my = bord - 58;
-    const b = F.buste({ x: mx - m0[0], y: my - m0[1], ...BUSTE });
-    return { tableY, bord, bx, b, m: b.bouche };
+    const R = 22;
+    const tete = [bx - 18, bord - 62];               // la tête au-dessus du bol, penchée
+    const m = [tete[0] + 8, tete[1] + R];             // le bas du rond, vers le bol
+    const epaule = [tete[0] - 30, tete[1] + 30], hanche = [tete[0] - 92, tableY + 6];
+    return { tableY, bord, bx, R, tete, m, epaule, hanche };
   };
-
   return {
     ref: '28-02',
     titre: 'Rincer le nez d’un enfant de 4 ans',
@@ -222,14 +232,12 @@ module.exports = (h) => {
       trois: {
         titre: 'Il se relève et crache',
         dessin: z => {
-          const { tableY, bord, bx, b, m } = crache(z);
-          // la tête d'enfant posée sur le repère de la tête du buste (même oreille, même pente)
-          const ang = (BUSTE.angle + BUSTE.regard) * RAD, e = BUSTE.echelle;
-          const rot = p => [e * (p[0] * Math.cos(ang) - p[1] * Math.sin(ang)), e * (p[0] * Math.sin(ang) + p[1] * Math.cos(ang))];
-          const r0 = rot([70, -32]), O = [b.oeil[0] - r0[0], b.oeil[1] - r0[1]];
-          const K = 1.12, M = p => { const q = rot([p[0] * K, p[1] * K]); return [O[0] + q[0], O[1] + q[1]]; };
-          const masque = h.path(cr([[-60, 70], [-92, 24], [-104, -40], [-90, -112], [-36, -150], [30, -150], [84, -116], [108, -60], [126, 14], [116, 50], [104, 80], [60, 90]].map(M), true), BLANC);
-          const out = [clip('vue-trois-buste', 0, 0, z.l, z.h, b.toString() + '\n' + masque + '\n' + teteEnfant(M, 1))];
+          const { tableY, bord, bx, R, tete, m, epaule, hanche } = crache(z);
+          const bande = (p, q, w) => h.path(`M${f(p[0])} ${f(p[1])} L${f(q[0])} ${f(q[1])}`, `fill="none" stroke="${NOIR}" stroke-width="${w + 4.8}" stroke-linecap="round"`) + '\n' + h.path(`M${f(p[0])} ${f(p[1])} L${f(q[0])} ${f(q[1])}`, `fill="none" stroke="#FFFFFF" stroke-width="${w}" stroke-linecap="round"`);
+          const out = [];
+          out.push(bande(hanche, epaule, 30));
+          out.push(bande([epaule[0] + 4, epaule[1] + 4], [bx - 40, tableY - 4], 13));
+          out.push(h.ellipse(tete[0], tete[1], R, R, BT(2.4)));
           // la table devant lui, et le bol dessus, sous la bouche
           const rx = 32;
           out.push(h.rect(bx - 44, tableY, z.l - (bx - 44) - 2, 10, BT(1.4)));

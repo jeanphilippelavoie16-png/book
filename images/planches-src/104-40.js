@@ -123,26 +123,15 @@ module.exports = (h) => {
     // la ligature de babiche au bas du manche
     const lig = [];
     for (let k = 0; k < 4; k++) { const y = mB - 3 - k * 3.2; lig.push(h.path(`M ${f1(hx - D / 2)} ${f1(y + 1)} Q ${f1(hx)} ${f1(y - 1.6)} ${f1(hx + D / 2)} ${f1(y + 1)}`, h.a.detail)); }
-    const m = F.main({ x: hx, y: hy, pose: 'prise', vue: 'dos', diametre: D, echelle: e, bras: 55, objet: manche });
-    // l'avant-bras redessiné : le dessus continue le pouce en courbe, le bras s'affine vers le coude
-    const R = D / 2 / e, pre = Math.atan(-0.22) * 180 / Math.PI;
-    const rot = ([x, y]) => { const c = Math.cos(pre * Math.PI / 180), s = Math.sin(pre * Math.PI / 180); return [x * c - y * s, x * s + y * c]; };
-    const c0 = rot([12 - 0.05 * R, 0]);
-    const T = p => { const q = rot(p); return [hx + e * (q[0] - c0[0]), hy + e * (q[1] - c0[1])]; };
-    const cub = (a, b, c, d, n = 14) => Array.from({ length: n + 1 }, (_, i) => { const t = i / n, u = 1 - t; return [0, 1].map(k => u * u * u * a[k] + 3 * u * u * t * b[k] + 3 * u * t * t * c[k] + t * t * t * d[k]); });
-    const xc = -86, xe = -158;
-    const haut = cub([-84.9, -26.8], [-104, -17.3], [-135, -20], [xe, -21]).map(T);
-    const bas = cub([xc - 1, 29.3], [-110, 30], [-140, 25], [xe, 21]).map(T);
-    const cache = [[xc, -70], [xc, 60], [-240, 60], [-240, -70]].map(T);
-    out.push(m, h.chemin(cache, 'fill="#FFFFFF" stroke="none"', true));
-    out.push(h.chemin(haut.concat(bas.slice().reverse()), 'fill="#FFFFFF" stroke="none"', true));
-    out.push(h.chemin(haut, h.a.arete), h.chemin(bas, h.a.arete));
+    // règle 9 : le manche seul, sans main ; la flèche dit qu'on pousse
+    out.push(manche);
     out.push(lig.join('\n'));
     // la coupe de la lame : un losange, relié à la lame par le trait de coupe
     const yc = mB + 7, xq = hx - 30;
     out.push(h.ligne(hx - w - 2, yc, xq + 9, yc, h.a.cache));
     out.push(h.chemin([[xq - 8, yc], [xq, yc - 4], [xq + 8, yc], [xq, yc + 4]], h.a.hachure('metal', 'arete'), true));
     // le geste : on pousse droit dans le cuir
+    out.push(h.fleche(`M ${f1(hx)} ${f1(mT - 40)} L ${f1(hx)} ${f1(mT - 6)}`));
     out.push(h.fleche(`M ${f1(hx + 30)} ${f1(mB - 8)} L ${f1(hx + 30)} ${f1(yL - 6)}`));
     tenir.pts = { lame: [hx - w - 1, mB + 20] };
     return out.join('\n');
@@ -248,7 +237,7 @@ module.exports = (h) => {
   return {
     ref: '104-40',
     titre: 'Réparer : l’alêne dans l’axe, la pièce à coins ronds',
-    desc: 'En haut, la main pousse l’alêne à travers deux épaisseurs de cuir ; vue de dessus, la couture faite, deux fentes percées d’avance dans l’axe de la ligne, la lame en losange couchée dans la ligne, puis la ligne tracée qui attend. Au milieu, la fente dans l’axe se referme sous le fil ; en travers ou au poinçon rond, le trou reste ouvert. En bas, la déchirure en L : une pièce à coins arrondis posée à l’intérieur, cousue au point arrière tout autour, la déchirure surpiquée sans en rapprocher les bords ; à côté, le coin carré qui redéchire par la pointe.',
+    desc: 'En haut, on pousse l’alêne par le manche à travers deux épaisseurs de cuir ; vue de dessus, la couture faite, deux fentes percées d’avance dans l’axe de la ligne, la lame en losange couchée dans la ligne, puis la ligne tracée qui attend. Au milieu, la fente dans l’axe se referme sous le fil ; en travers ou au poinçon rond, le trou reste ouvert. En bas, la déchirure en L : une pièce à coins arrondis posée à l’intérieur, cousue au point arrière tout autour, la déchirure surpiquée sans en rapprocher les bords ; à côté, le coin carré qui redéchire par la pointe.',
     format: 'pleine',
     disposition: [['tenir', 'dessus'], ['axe', 'travers', 'ronde'], ['envers', 'endroit', 'coin']],
     hauteurs: [2.05, 1.1, 1.8],

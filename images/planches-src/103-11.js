@@ -151,9 +151,6 @@ module.exports = (h) => {
             spires(h, s0, 4, p, yc, Rw),
             bout.cache,
             r.devant,
-            h.ligne(sN + 76, yb - p / 2, xq + 4, yb - p / 2, h.a.fin),
-            h.ligne(sN + 87, yb + p / 2, xq + 4, yb + p / 2, h.a.fin),
-            h.cote(xq, yb - p / 2, xq, yb + p / 2, '5 à 10 mm', { cote: 'droite' }),
           ].join('\n');
         },
         renvois: z => {

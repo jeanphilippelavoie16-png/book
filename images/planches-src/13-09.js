@@ -241,25 +241,11 @@ module.exports = (h) => {
 
   const scene = (T, k, frappe, id) => {
     const out = [];
-    out.push(mainPierre(T, k, pierreSVG(T, k)));
-    const cadre = poly([[-62, -50], [40, -50], [40, 60], [-62, 60]].map(T)) + ' Z';
-    out.push(`<clipPath id="${id}"><path d="${cadre} ${trouIndex(T, k)}" clip-rule="evenodd" fill="none"/></clipPath>`);
-
-    out.push(`<g clip-path="url(#${id})">
-${pierreSVG(T, k)}
-</g>`);
-    // le bord du doigt et de la paume, là où il passe devant la pierre, garde son trait de silhouette
-    out.push(`<clipPath id="${id}-p"><path d="${cheminPierre(T)}" fill="none"/></clipPath>`);
-    out.push(`<g clip-path="url(#${id}-p)"><g clip-path="url(#${id})"><path d="${trouIndex(T, k)}" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/></g></g>`);
-    const devant = poly([[-26, -10], [60, -10], [60, 70], [-12, 70], [-17, 46]].map(T)) + ' Z';
-    out.push(`<clipPath id="${id}-s"><path d="${devant}" fill="none"/></clipPath>`);
-        out.push(`<g clip-path="url(#${id}-s)">
-${doigtsSous(T)}
-</g>`);
+    out.push(pierreSVG(T, k));                    // règle 9 : plus de main, l'objet dans sa position
     const ty = frappe ? TY_FRAPPE : TY_AVANT;
     const M = T([TX, ty]);
     const TU = p => T([TX + p[0], ty + p[1]]);
-    out.push(mainAcier({ x: M[0], y: M[1], k, Rv: 7, objet: h.chemin(profilU().map(TU), A.plein, true) }));
+    out.push(h.chemin(profilU().map(TU), A.plein, true));
     if (!frappe) {
       // la course de la face qui frappe : elle descend au ras de l'arête et continue
       out.push(h.path(`M ${pt(TU([U.xo, U.yb - U.ro]))} L ${pt(T([E[0], 44]))}`, A.cache));
@@ -298,7 +284,7 @@ ${doigtsSous(T)}
   return {
     ref: '13-09',
     titre: 'Le briquet à pierre',
-    desc: 'Le geste, vu de côté : à droite, la main de la pierre tient un caillou de grève cassé dans le creux du pouce et des doigts, le pouce couché dessus, l’index devant, les trois autres doigts repliés dessous, leurs bouts contre la face du dessous ; le nez de la pierre sort vers la gauche et finit en arête vive. L’amadou carbonisé, un carré plat de tissu noirci au bord arrière effiloché, est pincé entre le pouce et le dessus de la pierre et arrive au ras de l’arête. À gauche, la main de l’acier est fermée, les doigts passés dans l’acier cintré en U : le fond du U couvre le devant des doigts, les bras reviennent le long de l’index et de l’auriculaire, le pouce tient le bras du haut. La face extérieure du fond du U descend en rasant l’arête. De près, au point de frappe : l’acier contre l’arête, les paillettes qui partent, trois qui retombent sur l’amadou. En bas, l’acier : en haut un bout de vieille lime gardé tel quel, dessous le même cintré en U ; et la pierre : un galet dont la cassure fraîche fait une arête coupante, et l’essai qui la juge, l’arête qui raye un éclat de verre.',
+    desc: 'Le geste, vu de côté, sans les mains : à droite, un caillou de grève cassé, le nez tourné vers la gauche qui finit en arête vive ; l’amadou carbonisé, un carré plat de tissu noirci, posé sur le dessus et arrivant au ras de l’arête. À gauche, l’acier cintré en U, la face extérieure du fond tournée vers la pierre ; un tireté montre qu’elle descend en rasant l’arête, une flèche le sens du coup, vers le bas. De près, au point de frappe : l’acier contre l’arête, les paillettes qui partent, trois qui retombent sur l’amadou. En bas, l’acier : un bout de vieille lime gardé tel quel, dessous le même cintré en U ; et la pierre : un galet dont la cassure fraîche fait une arête coupante, et l’essai qui la juge, l’arête qui raye un éclat de verre.',
     format: 'pleine',
     disposition: [['geste'], ['detail', 'acier', 'pierre']],
     hauteurs: [1, 1.08],
@@ -313,7 +299,7 @@ ${doigtsSous(T)}
         renvois: z => {
           const { T } = fenetre(z, ...FG);
           return [
-            { n: 1, rond: T([-22, -112]), cible: T([TX + U.xo - 2.5, TY_AVANT - 10]), texte: 'acier en U, les doigts passés dedans' },
+            { n: 1, rond: T([-22, -112]), cible: T([TX + U.xo - 2.5, TY_AVANT - 10]), texte: 'acier en U, la face du dehors frappe' },
             { n: 2, rond: T([-118, 22]), cible: T([-68, 8]), texte: 'frapper vers le bas, en rasant l’arête' },
             { n: 3, rond: T([-26, -74]), cible: T([-49, -20.6]), texte: 'la pierre, l’arête tournée vers l’acier' },
           ];
@@ -328,7 +314,7 @@ ${doigtsSous(T)}
         renvois: z => {
           const { T } = fenetre(z, ...FD);
           return [
-            { n: 4, rond: [z.l - 18, T([0, -38])[1]], cible: T([-38, yDessus(-38) - 1.5]), texte: 'amadou carbonisé, pincé sous le pouce' },
+            { n: 4, rond: [z.l - 18, T([0, -38])[1]], cible: T([-38, yDessus(-38) - 1.5]), texte: 'amadou carbonisé, au ras de l’arête' },
             { n: 5, rond: [z.l * 0.42, 16], cible: T(surAmadou(-45.5)), texte: 'la paillette brûle en tombant sur l’amadou' },
           ];
         },

@@ -73,22 +73,13 @@ module.exports = (h) => {
   const XW = 236, YW = 165;                         // le poignet, sous la surface
   const mainG = ([v, u]) => [XW + u * sa + v * ca, YW + u * ca - v * sa];
   const UH = -150;                                  // l'avant-bras sort du cadre, coupé
-  const MAIN = [
-    [26, UH], [2, UH], [-1, UH - 6], [-5, UH + 6], [-8, UH], [-26, UH],
-    [-24, -110], [-21, -60], [-18, -12], [-19, 4],
-    [-24, 14], [-32, 30], [-38, 48], [-40, 62], [-37, 70], [-32, 68], [-29, 56], [-27, 46],
-    [-26, 60], [-25.5, 80], [-25, 112], [-23.5, 123], [-20, 129], [-15.5, 128], [-13, 121],
-    [-11, 131], [-6, 136], [-1, 134], [0.8, 126],
-    [2.5, 127], [7, 129], [11, 126], [12.6, 119],
-    [14.5, 113], [18, 114], [21.5, 110], [23.5, 101], [25, 80], [25, 58], [23, 36], [20, 16], [18, 4], [18, -12],
-    [21, -60], [24, -110],
-  ];
-  // Le bris de l'avant-bras reste en angles vifs ; le reste est lissé.
-  const courbeMain = () => {
-    const brisure = MAIN.slice(0, 6);
-    const lisse = cr(MAIN.slice(5).concat([[26, UH]]), false);
-    return brisure.concat(lisse);
+  // Règle 9 : le membre en bande arrondie du pictogramme, sans doigts ; le bout arrondi pend dans l'eau.
+  const bande = (u0, u1, r) => {
+    const Q = [[r, u0], [r, u1 - r]];
+    for (let i = 1; i < 12; i++) { const an = i * Math.PI / 12; Q.push([r * Math.cos(an), u1 - r + r * Math.sin(an)]); }
+    return Q.concat([[-r, u1 - r], [-r, u0]]);
   };
+  const courbeMain = () => bande(UH, 136, 22);
 
   // La bouilloire, penchée, bec au-dessus du bord droit.
   const t = -50 * Math.PI / 180, ct = Math.cos(t), st = Math.sin(t);
@@ -122,9 +113,6 @@ module.exports = (h) => {
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
       // la main et l'avant-bras
       out.push(h.path(dpoly(Mp(courbeMain().map(mainG)), true), blancA));
-      [[-13, 121, 86], [0.8, 126, 84], [12.6, 119, 86]].forEach(([v, u0, u1]) =>
-        out.push(h.ligne(...M(mainG([v, u0])), ...M(mainG([v, u1])), h.a.detail)));
-      out.push(h.path(dpoly(Mp(cr([[-23, 28], [-26, 40]], false).map(mainG))), h.a.detail));
       return out.join('\n');
     },
     renvois: (z) => {
@@ -210,12 +198,8 @@ module.exports = (h) => {
   const WP = [172, 102];
   const brasS = ([u, v]) => [WP[0] + u * d[0] + v * nrm[0], WP[1] + u * d[1] + v * nrm[1]];
   const UP = -125;
-  const PROFIL = [
-    [UP, 18], [UP, 3], [UP - 6, 0], [UP + 6, -5], [UP, -8], [UP, -16],
-    [-70, -14], [-10, -11], [15, -12.5], [42, -11], [52, -8], [80, -6], [89, -3],
-    [91, 1], [88, 5], [70, 6], [54, 8], [44, 13], [28, 14], [10, 13], [0, 12], [-10, 12], [-70, 15],
-  ];
-  const courbeProfil = () => PROFIL.slice(0, 6).concat(cr(PROFIL.slice(5).concat([[UP, 18]]), false));
+  // la bande arrondie du pictogramme, bout dans l'eau
+  const courbeProfil = () => bande(UP, 90, 12).map(([v, u]) => [u, v]);
 
   const vuePoignet = {
     titre: 'Sans thermomètre',
@@ -225,15 +209,13 @@ module.exports = (h) => {
       return [
         chaudron(M, Cp),
         h.path(dpoly(Mp(courbeProfil().map(brasS)), true), blancA),
-        h.path(dpoly(Mp(cr([[34, 11], [48, 12.5], [62, 11], [70, 8], [66, 5], [52, 5], [36, 7]], true).map(brasS)), true), blancA),
-        h.path(dpoly(Mp(cr([[52, -1], [70, 0], [88, 1]], false).map(brasS))), h.a.detail),
       ].join('\n');
     },
     renvois: (z) => {
       const M = cadre(z, 300, 200);
       return [
-        { n: 9, rond: M([262, 136]), cible: M(brasS([0, 12])), texte: 'poignet : tiède et neutre' },
-        { n: 10, rond: M([28, 130]), cible: M(brasS([74, -3])), texte: 'main saine 30 s sans effort' },
+        { n: 9, rond: M([262, 136]), cible: M(brasS([0, 11])), texte: 'poignet : tiède et neutre' },
+        { n: 10, rond: M([28, 130]), cible: M(brasS([74, 0])), texte: 'main saine 30 s sans effort' },
       ];
     },
   };

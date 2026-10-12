@@ -19,7 +19,7 @@ module.exports = (h) => {
   // ── le toit
   const yb = x => 154 + 0.048 * x;          // dessus de l'isolant, assise de l'écorce
   const argT = x => 74 + 0.09 * x;          // dessus de l'argile
-  const argB = x => argT(x) + 9;
+  const argB = x => argT(x) + 27;
   const neige = [[0, 52], [40, 49], [90, 55], [140, 58], [190, 61], [240, 66], [290, 72], [346, 82]];
   const toit = () => {
     const o = [];
@@ -45,8 +45,8 @@ module.exports = (h) => {
     }
     o.push(h.fleche('M254 166 L254 184', A.cache));
     // argile compactée en pente, sous la neige
-    o.push(h.chemin([[0, argT(0)], [346, argT(346)], [346, argB(346)], [0, argB(0)]], A.blanc, true));
-    o.push(h.ligne(0, argT(0) + 4.5, 346, argT(346) + 4.5, A.fin));
+    // gris plein clair, sans trame : ne se confond ni avec la terre (tirets) ni avec la neige (points)
+    o.push(h.chemin([[0, argT(0)], [346, argT(346)], [346, argB(346)], [0, argB(0)]], 'fill="#D4D4D4" stroke="none"', true));
     o.push(h.ligne(0, argB(0), 346, argB(346), A.arete));
     // neige
     o.push(h.chemin([...neige, [346, argT(346)], [0, argT(0)]], A.hachure('neige', 'aucun'), true));
@@ -155,7 +155,7 @@ module.exports = (h) => {
         renvois: z => [
           { n: 3, rond: [292, 244], cible: [226.6, 244], texte: 'isolant sec en couches croisées' },
           { n: 4, rond: [298, 176], cible: [255, 158], texte: 'écorce en bardeaux, qui égoutte' },
-          { n: 5, rond: [326, 138], cible: [322, 112.4], texte: 'argile compactée en pente' },
+          { n: 5, rond: [326, 138], cible: [322, 118], texte: 'argile compactée en pente' },
           { n: 6, rond: [150, 22], cible: [150, 70], texte: 'neige pelletée sur le toit' },
         ],
       },
