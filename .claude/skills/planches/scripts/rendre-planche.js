@@ -18,6 +18,8 @@ const EDGES = [
   'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
   'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
   'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
+  '/usr/bin/chromium',
 ];
 
 const src = process.argv[2];
@@ -49,7 +51,7 @@ const dormir = ms => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0
 
 try {
   execFileSync(edge, [
-    '--headless=new', '--disable-gpu', '--no-first-run', '--hide-scrollbars',
+    '--headless=new', '--disable-gpu', '--no-sandbox', '--no-first-run', '--hide-scrollbars',
     '--no-default-browser-check', `--user-data-dir=${profil}`,
     '--force-device-scale-factor=2',      // rendu à 2x : les traits de 0,5 restent lisibles
     `--window-size=${Math.round(W)},${Math.round(H)}`,
