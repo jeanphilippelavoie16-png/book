@@ -15,6 +15,10 @@ nouvelle numérotation (six tomes).
    replient autour de l'objet, le pouce en face), ou pas de main du tout : l'objet dans sa position et
    la flèche du geste. Même chose pour une tête ou un corps : une silhouette propre et bien
    proportionnée, ou rien. Un personnage raté ruine une planche même quand le geste est juste.
+   **Enlever la main n'est pas la réponse** (JP, 12 octobre, sur 50-40, 28-02, 25-40, 13-09, 104-40,
+   27-04 refaites sans main : « c'est pas ça que je voulais, je les voulais mais bien faites ») : la
+   main, la tête ou le bras qui porte le geste reste, et se dessine bien — proportions justes, doigts
+   de longueur normale, pouce en face, prise qui serre vraiment l'objet.
 3. **Un mécanisme (piège, collet, montage) doit se comprendre au premier regard.** Le dessin remplit
    sa vue, à une échelle où on lit chaque pièce ; les objets se reconnaissent sans la légende (une
    roche est une roche, une perche une perche) ; l'animal ou la charge est montré en place ; on voit
@@ -42,12 +46,6 @@ nouvelle numérotation (six tomes).
    il montre la **position**, rien d'autre ; (b) **le gros plan** sur la seule région qui compte (les
    mains et le bassin, le pied et la cheville), sans le reste du corps. Jamais de ventre, de seins ou de
    visage détaillés. Une grossesse se dit par un ventre arrondi simple dans le pictogramme.
-9. **Plus de main ni de visage dessinés, nulle part** (JP, 12 octobre, après la passe qualité :
-   50-40 « les mains men wtf », 28-02 « tête wtf », 25-40, 13-09, 27-04 les doigts, 104-40 le bras).
-   Même refaites avec la bibliothèque, elles ratent. À la place : **l'objet dans sa position et la
-   flèche du geste** ; si un outil est tenu, le manche seul et une flèche ; si le corps compte, le
-   **pictogramme** de la règle 8 (tête ronde sans visage, membres en bandes), jamais une main à
-   doigts, un bras anatomique ni un visage.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en
