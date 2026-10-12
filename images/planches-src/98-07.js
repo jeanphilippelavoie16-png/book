@@ -58,7 +58,7 @@ module.exports = (h) => {
   const Pd = 55, Pg = 48, Pn = 10, PL = 1400, Td = 140;   // perche, écart, nombre, longueur ; traverse
   const PW = Pn * Pd + (Pn - 1) * Pg;                        // largeur du lit
   const PX = i => Pd / 2 + i * (Pd + Pg);
-  const PZ = Td + Pd / 2;                                    // l’axe des perches, posées sur les traverses
+  const PZ = Td + Pd / 2, PY0 = 180;   // les perches commencent au-dessus de la traverse avant                                    // l’axe des perches, posées sur les traverses
   const TY = [180, 1220], TX = [-190, PW + 190];
   const TOILE = [-300, PW + 300, -240, 1640];
   const TAS = { xc: PW / 2, yc: 1060, ax: 400, ay: 330, zb: Td + Pd - 12, ht: 150 };   // le tas de paille
@@ -103,7 +103,7 @@ module.exports = (h) => {
     // les deux traverses, couchées sur la toile en travers des perches : celle du fond d’abord
     for (const ty of [TY[1], TY[0]]) out.push(rondin(P, [TX[0], ty, Td / 2], [TX[1], ty, Td / 2], Td / 2, 'X', [[0.02, 0.1, 130], [0.9, 0.97, 150]]));
     // les perches, de la gauche vers la droite (la droite est plus près de l’œil)
-    for (let i = 0; i < Pn; i++) out.push(rondin(P, [PX(i), 0, PZ], [PX(i), PL, PZ], Pd / 2, 'Y', [[0.08, 0.3, 70]]));
+    for (let i = 0; i < Pn; i++) out.push(rondin(P, [PX(i), PY0, PZ], [PX(i), PL, PZ], Pd / 2, 'Y', [[0.08, 0.3, 70]]));
     // la paille jetée sur la moitié du fond : un tas mou, des tiges couchées dans tous les sens, des épis
     const rp = alea(11), nuage = [];
     for (let i = 0; i <= 8; i++) for (let k = 0; k < 36; k++) {
@@ -138,7 +138,7 @@ module.exports = (h) => {
   };
   const renvoisAire = z => {
     const { P } = geoAire(z);
-    const c1 = P(-230, -130, 0), c2 = P(-120, TY[0] - 30, Td / 2 + 30), c3 = P(PX(7) - 22, 0, PZ + 8);
+    const c1 = P(-230, -130, 0), c2 = P(-120, TY[0] - 30, Td / 2 + 30), c3 = P(PX(7) - 22, PY0, PZ + 8);
     return [
       { n: 1, rond: [f(c1[0] - 34), f(c1[1] + 4 > z.h - 12 ? z.h - 12 : c1[1] + 4)], cible: c1.map(f), texte: 'toile, ou aire raclée et balayée' },
       { n: 2, rond: [f(c2[0] - 44), f(c2[1] - 30)], cible: c2.map(f), texte: 'traverse qui surélève les perches' },
@@ -162,6 +162,9 @@ module.exports = (h) => {
     out.push(h.rect(g0[0], g0[1], g1[0] - g0[0], g1[1] - g0[1], h.a.hachure('terre', 'aucun')));
     out.push(h.chemin([P(-135, 0), P(PW + 135, 0)], h.a.detail));
     out.push(h.chemin([P(-100, 0), P(-88, 5), P(PW + 88, 5), P(PW + 100, 0)], h.a.arete));
+    // la traverse du fond, derrière le plan de coupe, en trait fin : un rondin couché sur la toile
+    { const a = P(-118, Td), b = P(PW + 118, 5), rr = (a[1] - b[1]) / 2 * -1;
+      out.push(h.path(`M${f(a[0] + 8)} ${f(a[1])} L${f(b[0] - 8)} ${f(a[1])} Q${f(b[0])} ${f(a[1])} ${f(b[0])} ${f(a[1] + 8)} L${f(b[0])} ${f(b[1])} L${f(a[0])} ${f(b[1])} L${f(a[0])} ${f(a[1] + 8)} Q${f(a[0])} ${f(a[1])} ${f(a[0] + 8)} ${f(a[1])} Z`, blanc('detail'))); void rr; }
     // la paille couchée sur les perches (avant les perches : elles passent devant son bas)
     const haut = [];
     for (let x = -20; x <= PAILLE_X[1] - 25; x += 55) haut.push(P(x, 283 + (r() - 0.5) * 22));
