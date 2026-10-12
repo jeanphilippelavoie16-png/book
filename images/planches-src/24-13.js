@@ -3,24 +3,27 @@
 // tôt »). Le chapitre ne donne aucune mesure : aucune cote. Les proportions du dessin (planche
 // 600 × 300 × 25, bûche de 150 de diamètre) ne sont que des proportions, rien ne s'imprime.
 //
-// Le personnage debout sur un pied n'existe pas dans formes.js : la posture « unPied » est ajoutée
+// Le pictogramme debout sur un pied n'existe pas dans formes.js : la pose « unPied » est ajoutée
 // à la volée à une copie en mémoire de la bibliothèque (le fichier n'est pas touché), pour garder
-// les mêmes proportions et le même trait que les autres personnages.
+// les mêmes proportions et le même trait que les autres personnages. La main du mur est la main
+// « appui » de profil de formes.js, tournée contre le mur (JP, 12 octobre : « pas de main »).
 'use strict';
 const fs = require('fs');
 const path = require('path');
 
 module.exports = (h) => {
   // ─── le personnage sur un pied ────────────────────────────────────────────────────────
+  // Le pictogramme de formes.js (règle 8) n'a pas de pose sur un pied : « unPied » est ajoutée à
+  // une copie en mémoire de la bibliothèque (le fichier n'est pas touché), avec une ancre « pied »
+  // qui pose le personnage sur la cheville de la jambe qui porte.
   const src = fs.readFileSync(path.join(__dirname, '..', '..', '.claude', 'skills', 'planches', 'scripts', 'formes.js'), 'utf8');
-  const marque = 'const POSTURES = {';
-  if (!src.includes(marque)) throw new Error('formes.js : POSTURES introuvable');
-  // la jambe proche porte ; la loin plie au genou, le pied levé derrière, pointe vers le bas
-  const POSE = `unPied: { H: [0, -950], penche: 3, regard: 8,
-      proche: { K: [12, -515], A: [0, -85], pied: 0 }, loin: { K: [70, -518], A: [-334, -371], pied: 95 },
-      mains: { proche: [[28, -868], [0.1, 1]], loin: [[-6, -872], [0.06, 1]] }, coude: -1 },\n`;
+  const marque = 'const POSES_P = {', ancre = '(jp.A[0] + jl.A[0]) / 2';
+  if (!src.includes(marque) || !src.includes(ancre)) throw new Error('formes.js : POSES_P ou l’ancre des pieds introuvable');
+  // la jambe proche porte ; la loin plie au genou, le pied levé derrière, la pointe vers le bas
+  const POSE = `unPied: { t: 3, regard: 4, ancre: 'pied', proche: [2, 2, 0], loin: [-4, -72, 100], bras: { proche: [20, 60], loin: [8, 24] } },\n`;
   const mod = { exports: {} };
-  new Function('module', 'exports', 'require', src.replace(marque, marque + '\n' + POSE))(mod, mod.exports, require);
+  new Function('module', 'exports', 'require', src.replace(marque, marque + '\n' + POSE)
+    .replace(ancre, `(P.ancre === 'pied' ? jp.A[0] : ${ancre})`))(mod, mod.exports, require);
   const F = mod.exports(h);
 
   // ─── la planche et la demi-bûche (mm) ─────────────────────────────────────────────────
@@ -112,12 +115,14 @@ module.exports = (h) => {
   const geoBas = (z, sorte) => {
     const e = Math.min((z.h - 30) / 1950, (z.l - 10) / 1110);
     const gy = z.h - 14;
-    const x0 = 6 + 430 * e;
+    const x0 = 6 + 470 * e;
     const haut = sorte === 'couv' ? (BL - 14) : sorte === 'planche' ? (R + T) : 0;
     const y0 = gy - haut * e;
-    const pers = F.personnage({ x: x0, y: y0, pose: 'unPied', echelle: e, mains: { proche: [x0 + 330 * e, y0 - 1190 * e] } });
-    const mx = pers.mains.proche[0];
-    const murX = mx + 60 * e;
+    // le mur à portée de bras ; la main droite à plat sur le mur, les doigts vers le haut, à
+    // hauteur de poitrine : elle ne pousse pas, elle est là au cas où
+    const murX = x0 + 430 * e;
+    const pers = F.personnage({ x: x0, y: y0, pose: 'unPied', echelle: e,
+      prises: { proche: { x: murX, y: y0 - 1180 * e, pose: 'appui', vue: 'profil', angle: -90, bras: 30, echelle: 2.1 * e, trait: 'fort' } } });
     return { e, gy, x0, y0, pers, murX, murL: 120 * e };
   };
   const station = sorte => z => {
@@ -159,7 +164,7 @@ module.exports = (h) => {
     const g = geoBas(z, 'mur'), { e, gy, x0 } = g, m = g.pers.mains.proche;
     return [
       { n: 4, rond: [x0 + 330 * e, gy - 26], cible: [x0 + 150 * e, gy - 5], texte: 'le pied blessé, seul au sol' },
-      { n: 5, rond: [m[0] - 22, m[1] + 44], cible: [m[0] - 4, m[1] + 3], texte: 'une main prête, près du mur' },
+      { n: 5, rond: [m.trou.x - 26, m.trou.y - 80], cible: [m.trou.x - 9, m.trou.y - 2], texte: 'une main à plat sur le mur, prête' },
     ];
   };
   const renvoisCouv = z => {
@@ -172,7 +177,7 @@ module.exports = (h) => {
   return {
     ref: '24-13',
     titre: 'La planche d’équilibre sur demi-bûche',
-    desc: 'Une planche posée à plat sur une bûche fendue en deux, face plate au sol, vue de côté et par le bout : elle bascule d’un côté à l’autre sans rouler. Puis la progression, debout sur le pied blessé, une main prête près du mur : au sol, sur une couverture pliée, puis sur la planche.',
+    desc: 'Une planche posée à plat sur une bûche fendue en deux, face plate au sol, vue de côté et par le bout : elle bascule d’un côté à l’autre sans rouler. Puis la progression, debout sur le pied blessé, une main à plat sur le mur : au sol, sur une couverture pliée, puis sur la planche.',
     format: 'pleine',
     disposition: [['face', 'bout'], ['mur', 'couv', 'planche']],
     hauteurs: [1.25, 2],

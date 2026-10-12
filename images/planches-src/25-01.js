@@ -139,20 +139,37 @@ module.exports = (h) => {
   };
   const rectP = (P, p, x, y, w, ht, a) => h.rect(...P(x, y), w * p, ht * p, a);
   const bandes = (P, x0, x1, ys) => ys.map((y) => h.ligne(...P(x0, y), ...P(x1, y), h.a.detail)).join('\n');
+  // Le pictogramme (règle 8) : bandes arrondies d'épaisseur égale, tête ronde sans visage, en cm.
+  const F = h.formes._interne;
+  const NOIR = '#1A1A1A';
+  const silh = 'fill="none" stroke="' + NOIR + '" stroke-width="2.4" stroke-linejoin="round"';
+  const fond = 'fill="#FFFFFF" stroke="none"';
+  const tr14 = 'fill="none" stroke="' + NOIR + '" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"';
+  const peindre = (P, cmdsList) => {
+    const T = (q) => P(q[0], q[1]);
+    const d = cmdsList.map((c) => F.ser(c, T));
+    return [...d.map((x) => h.path(x, silh)), ...d.flatMap((x) => [h.path(x, fond), h.path(x, tr14)])].join('\n');
+  };
+  const rond = (C, r) => F.capsule(C, [C[0], C[1] + 0.01], r);
+  // La tête, vue d'en haut : un rond, la tuque sur le crâne (vers le haut de la page), son revers.
   const tete = (P, p) => {
-    const [X, Y] = P(0, 5);
-    const rx = 8.5 * p, ry = 11 * p, yb = Y - 0.15 * ry;   // yb : le revers de la tuque
-    const cap = [];
-    for (let i = 0; i <= 20; i++) {
-      const th = Math.PI + i / 20 * Math.PI;
-      cap.push([X + (rx + 0.8) * Math.cos(th), yb + (ry * 0.85 + 0.8) * Math.sin(th)]);
+    const C = [0, 4.5], r = 12;
+    const T = (q) => P(q[0], q[1]);
+    const yb = C[1] - 2.5;                                    // le bas du revers
+    const arc = [];
+    for (let i = 0; i <= 24; i++) {
+      const th = Math.PI + i / 24 * Math.PI, y = C[1] + (r + 0.6) * Math.sin(th);
+      arc.push([C[0] + (r + 0.6) * Math.cos(th), Math.min(y, yb)]);
     }
+    const xb = Math.sqrt((r + 0.6) ** 2 - (yb - C[1]) ** 2);
+    const cap = [[-xb, yb], ...arc.filter((q) => q[1] < yb - 0.01), [xb, yb]];
+    const yr = yb - 3.4, xr = Math.sqrt((r + 0.6) ** 2 - (yr - C[1]) ** 2);
     return [
-      h.ellipse(X, Y, rx, ry, blancArete),
-      h.path(dpoly(cap, true), blancArete),
-      ...[-0.5, 0, 0.5].map((k) => h.ligne(X + k * rx, yb - 1.8, X + k * rx * 0.8, yb - ry * 0.6, h.a.detail)),
-      h.rect(X - rx - 1.2, yb - 1.4, 2 * rx + 2.4, 2.8, blancArete),
-      h.cercle(X, yb - ry * 0.85 - 3, 2.6, h.a.plein),
+      peindre(P, [rond(C, r)]),
+      h.path(dpoly(cap.map(T), true), blancArete),
+      h.path(dpoly([[-xr - 0.4, yr], [xr + 0.4, yr]].map(T)), h.a.detail),
+      ...[-0.55, -0.2, 0.2, 0.55].map((k) => h.ligne(...P(k * r, yr - 1.2), ...P(k * r * 0.85, C[1] - r * 0.72), h.a.detail)),
+      h.cercle(...P(0, C[1] - r - 2.2), 2.4 * p * 1.1, h.a.plein),
     ].join('\n');
   };
   const paquet = (P) => {
@@ -161,18 +178,21 @@ module.exports = (h) => {
       + ` Q${q(-18, 181)} ${q(0, 181)} Q${q(18, 181)} ${q(23, 168)} Q${q(28, 152)} ${q(28, 120)}`
       + ` L${q(28, 30)} Q${q(28, 17)} ${q(16, 17)} Z`;
   };
-  // La personne couchée sur le dos, vue de dessus, bras le long du corps.
+  // La personne couchée sur le dos, vue de dessus, bras le long du corps : le pictogramme.
+  // Mesures d'un adulte de 175 cm : bras 30 + avant-bras 25,5 + main ; cuisse 43, jambe 42.
   const personne = (P) => {
-    const G = [[-5, 15], [-14, 18.5], [-21, 22], [-24.5, 30], [-25.5, 55], [-25, 82], [-24, 95], [-20.5, 99.5], [-17.5, 96],
-      [-16.5, 104], [-15, 128], [-12, 152], [-11, 165], [-12.5, 173], [-7, 177], [-2, 174], [0, 170]];
-    const D = G.slice(0, -1).reverse().map(([x, y]) => [-x, y]);
-    const tout = echant(G.concat(D)).map((q) => P(...q));
-    return [
-      h.path(dpoly(tout, true), h.a.contour.replace('fill="none"', 'fill="#FFFFFF"')),
-      h.path(dpoly([[-17.5, 30], [-18, 62], [-17.5, 94]].map((q) => P(...q))), h.a.detail),
-      h.path(dpoly([[17.5, 30], [18, 62], [17.5, 94]].map((q) => P(...q))), h.a.detail),
-      h.ligne(...P(0, 106), ...P(0, 168), h.a.detail),
-    ].join('\n');
+    const cote = (k) => [
+      F.capsule([k * 10.5, 163], [k * 13.5, 172.5], 4),            // le pied, pointes en l'air
+      F.capsule([k * 10, 119], [k * 10.5, 161], 6.1),               // la jambe
+    ];
+    const cuisse = (k) => F.capsule([k * 9, 76], [k * 10, 119], 6.1);
+    const R = [[0, 20], [11, 20.3], [17.2, 22.2], [19.2, 27], [18.6, 40], [16.4, 55], [16.6, 66], [17.6, 76], [15.4, 83], [8, 85.6], [0, 85]];
+    const torse = F.lisse([...R, ...R.slice(1, -1).reverse().map(([x, y]) => [-x, y])], true);
+    const bras = (k) => [
+      F.capsule([k * 21.6, 27.5], [k * 23.2, 56], 4.6),             // le bras
+      F.capsule([k * 23.2, 56], [k * 23.6, 97], 4.6),               // l'avant-bras et la main
+    ];
+    return peindre(P, [...cote(-1), ...cote(1), cuisse(-1), cuisse(1), torse, ...bras(-1), ...bras(1)]);
   };
 
   // ─── les deux coupes : couches, du sol vers l'extérieur ─────────────────────

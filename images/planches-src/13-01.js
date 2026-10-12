@@ -20,6 +20,7 @@ module.exports = (h) => {
     }
     return ferme ? d + ' Z' : d;
   };
+  const MAIN_E = 0.62, MAIN_A = 100;
   const dep = (x, y, pts) => pts.map(([u, v]) => [x + u, y + v]);
 
   // Graine fixe pour la poussière : le dessin est le même à chaque composition.
@@ -31,7 +32,7 @@ module.exports = (h) => {
     const G = z.h - 30, ep = 16, top = G - ep;
     const F = z.l - 370;
     const L = Math.min(230, top - 115);
-    const fTop = top - L, P = fTop - 13;
+    const fTop = top - L, P = fTop - 14;
     const yb = top - Math.round(0.45 * L);
     const xl = F - 55, xr = F + 330, B = 30;
     return { G, ep, top, F, L, fTop, P, yb, xl, xr, B, x0: F - 150, x1: F + 170, ox: 30, oy: -13 };
@@ -112,14 +113,15 @@ module.exports = (h) => {
           // la poussière noire dans l'encoche et à sa bouche
           out.push(h.path(`M ${F - 8} ${top + 7} L ${F + 8} ${top + 7} L ${F + 8} ${G - 2} Q ${F + 16} ${G - 1} ${F + 20} ${G + 3} L ${F - 20} ${G + 3} Q ${F - 16} ${G - 1} ${F - 8} ${G - 2} Z`, h.a.plein));
 
-          // Le palier : un nœud de bois dur.
-          const palierSvg = h.path(lisse(dep(F, P, [[-33, 2], [-30, -9], [-18, -15], [0, -16], [18, -14], [30, -8], [34, 3], [26, 12], [8, 14], [-10, 14], [-26, 11]]), true), blanc(h.a.contour));
-          out.push(palierSvg);
+          // Le palier : un nœud de bois dur, rond dans la main.
+          const RP = 21;
+          const palierSvg = h.path(lisse(dep(F, P, [[-21, 1], [-18, -11], [-8, -20], [4, -21], [15, -15], [21, -4], [20, 8], [14, 16], [3, 21], [-9, 19], [-18, 12]]), true), blanc(h.a.contour));
           // le haut du foret, caché dans le creux
-          out.push(h.path(`M ${F - 9} ${P + 13} L ${F - 9} ${P + 5} Q ${F - 9} ${P - 4} ${F} ${P - 4} Q ${F + 9} ${P - 4} ${F + 9} ${P + 5} L ${F + 9} ${P + 13}`, h.a.cache));
+          const cacheSvg = h.path(`M ${F - 9} ${P + 21} L ${F - 9} ${P + 8} Q ${F - 9} ${P - 1} ${F} ${P - 1} Q ${F + 9} ${P - 1} ${F + 9} ${P + 8} L ${F + 9} ${P + 21}`, h.a.cache);
 
-          // La main gauche sur le palier : la paume dessus, les doigts qui l'enserrent, l'avant-bras qui monte.
-          out.push(h.formes.main({ x: F + 14, y: P - 14, pose: 'appui', vue: 'profil', echelle: 0.44, inclinaison: 84, bras: 150 }).svg);
+          // La main gauche referme le palier : la paume dessus, le pouce d'un côté, l'index et le
+          // majeur de l'autre, le dessous libre pour le foret ; l'avant-bras monte.
+          out.push(h.formes.main({ x: F, y: P, pose: 'boule', vue: 'profil', diametre: 2 * RP, echelle: MAIN_E, angle: MAIN_A, bras: 55, serre: 1, objet: palierSvg + '\n' + cacheSvg }).svg);
 
           // Le va-et-vient de l'arc.
           const ya = yb - 55;

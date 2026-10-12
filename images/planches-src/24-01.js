@@ -43,25 +43,24 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // un homme debout qui tient la caisse par les côtés ; le bras loin est caché derrière le proche
+  // un homme debout qui porte la caisse sur ses paumes, les doigts à plat sous le fond ; la main
+  // loin, pareille de l'autre côté de la caisse, est cachée derrière la proche
   const profil = (z, o) => {
     const G = z.h - 12, x0 = z.l * 0.34;
-    const bx = x0 + mm(o.arriere), bl = mm(300), bh = mm(300);
-    const poignet = [x0 + mm(o.poignet[0]), G - mm(o.poignet[1])];
+    const bl = mm(300), bh = mm(300);
+    const bx = x0 + mm(o.arriere), by = G - mm(o.fond) - bh;
+    const gx = x0 + mm(o.paume), gy = by + bh;              // le milieu de la paume, sous le fond
+    const prise = d => ({ x: gx + d, y: gy, pose: 'appui', vue: 'profil', cote: 'gauche', angle: 180, bras: 70, trait: 'fort', echelle: E * 1.15, inclinaison: o.inc });
     const pers = F.personnage({ x: x0, y: G, pose: 'debout', echelle: E, penche: o.penche, regard: o.regard,
-      mains: { proche: poignet, loin: [poignet[0] - 1, poignet[1] - 1] } });
-    const main = milieu(pers.poignets.proche, pers.mains.proche, 0.55);
-    const by = pers.mains.proche[1] + 1.5 - bh;   // la planche du bas posée sur les doigts
-    // les doigts repliés sous la planche du bas, au coin de la caisse
-    const bout = pers.mains.proche, yb = by + bh;
-    const doigts = h.path(`M${pt([bout[0] - 3, yb - 3])} C${pt([bout[0] + 4, yb - 1])} ${pt([bout[0] + 5, yb + 3])} ${pt([bout[0] - 4, yb + 3.5])}`, A.arete);
+      prises: { proche: prise(0), loin: prise(-0.8) } });
+    const main = [gx, gy + mm(12)];
     // fil à plomb : de la cheville à la hauteur des mains
-    const plomb = h.ligne(x0, G - 2, x0, main[1], A.fin + ' stroke-dasharray="3 2.5"');
-    return { svg: [sol(4, z.l - 4, G), caisse(bx, by, bl, bh), pers, doigts, plomb].join('\n'), G, x0, bx, by, bl, bh, main };
+    const plomb = h.ligne(x0, G - 2, x0, gy, A.fin + ' stroke-dasharray="3 2.5"');
+    return { svg: [sol(4, z.l - 4, G), plomb, caisse(bx, by, bl, bh), pers].join('\n'), G, x0, bx, by, bl, bh, main, pers };
   };
   const V = {
-    ventre: { arriere: 96, poignet: [178, 1085], penche: 2, regard: 6 },
-    bras: { arriere: 350, poignet: [430, 1150], penche: -5, regard: 4 },
+    ventre: { arriere: 96, fond: 1040, paume: 225, penche: 2, regard: 6 },
+    bras: { arriere: 440, fond: 1300, paume: 600, inc: -6, penche: -5, regard: 4 },
   };
 
   // ─── Vu de dessus ──────────────────────────────────────────────────────────────────────
@@ -113,7 +112,7 @@ module.exports = (h) => {
   return {
     ref: '24-01',
     titre: 'Lever près, lever sans tourner',
-    desc: 'De profil, le même homme tient la même caisse serrée contre le ventre, puis à bout de bras. Vu de dessus, pour porter la caisse de côté : les pieds tournent avec elle, pas à pas ; le raté garde les pieds plantés et tourne le tronc d’un quart de tour.',
+    desc: 'De profil, le même homme porte la même caisse sur ses deux paumes, les doigts à plat sous le fond : serrée contre le ventre, puis à bout de bras. Vu de dessus, pour porter la caisse de côté : les pieds tournent avec elle, pas à pas ; le raté garde les pieds plantés et tourne le tronc d’un quart de tour.',
     format: 'pleine',
     disposition: [['ventre', 'bras'], ['pieds', 'tronc']],
     hauteurs: [3, 2],

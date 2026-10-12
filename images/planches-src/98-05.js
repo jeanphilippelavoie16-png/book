@@ -80,8 +80,8 @@ module.exports = (h) => {
   const volee = (b, P, dir, graine, L) => {
     const u = [Math.cos(dir * RAD), Math.sin(dir * RAD)], g = [u[1], -u[0]];   // g : la gauche
     const pt = (av, ga) => [P[0] + u[0] * av + g[0] * ga, P[1] + u[1] * av + g[1] * ga];
-    const seau = pt(-L * 0.1, L * 1.4);
-    const epaule = pt(0, -L * 0.35);
+    const seau = pt(L * 1.0, L * 0.5);
+    const epaule = pt(0, -L * 0.62);
     const R = L * 1.9, arc = [];
     for (let a = -56; a <= 50; a += 4) {
       const d = [Math.cos((dir + a) * RAD), Math.sin((dir + a) * RAD)];
@@ -93,11 +93,22 @@ module.exports = (h) => {
       const x = epaule[0] + Math.cos(a) * rr, y = epaule[1] + Math.sin(a) * rr;
       if (y > b.yh + 3 && y < b.yb - 3 && x > b.x0 + 3 && x < b.x1 - 3) grains.push(grain(x, y, r() * 180));
     }
-    const C = pt(-L * 0.05, 0), ang = dir;
-    const epaules = `<ellipse cx="${f(C[0])}" cy="${f(C[1])}" rx="${f(L * 0.42)}" ry="${f(L * 0.95)}" transform="rotate(${f(ang)} ${f(C[0])} ${f(C[1])})" ${A.blanc}/>` +
-      `<ellipse cx="${f(C[0])}" cy="${f(C[1])}" rx="${f(L * 0.42)}" ry="${f(L * 0.95)}" transform="rotate(${f(ang)} ${f(C[0])} ${f(C[1])})" ${A.contour}/>`;
-    const T = pt(L * 0.32, 0), tete = h.cercle(T[0], T[1], L * 0.28, A.blanc) + h.cercle(T[0], T[1], L * 0.28, A.contour);
-    return { seau, arc, epaule, svg: [grains.join('\n'), epaules, tete, seauDessus(seau[0], seau[1], L * 0.3, dir),
+    // le semeur vu de dessus, en pictogramme : les épaules en bande, la tête ronde par-dessus,
+    // le bras gauche qui tient le bord du contenant, le bras droit tendu sur l'arc, la main au bout
+    const bandeP = (q1, q2, w) => {
+      const d = Math.hypot(q2[0] - q1[0], q2[1] - q1[1]) || 1, ux = (q2[0] - q1[0]) / d, uy = (q2[1] - q1[1]) / d, r = w / 2;
+      const a1 = [q1[0] - uy * r, q1[1] + ux * r], a2 = [q2[0] - uy * r, q2[1] + ux * r], b2 = [q2[0] + uy * r, q2[1] - ux * r], b1 = [q1[0] + uy * r, q1[1] - ux * r];
+      const dd = `M ${P2(a1)} L ${P2(a2)} A ${f(r)} ${f(r)} 0 0 0 ${P2(b2)} L ${P2(b1)} A ${f(r)} ${f(r)} 0 0 0 ${P2(a1)} Z`;
+      return `<path d="${dd}" ${A.blanc}/><path d="${dd}" ${A.arete}/>`;
+    };
+    const eG = pt(-L * 0.08, L * 0.62), eD = pt(-L * 0.08, -L * 0.62);
+    const aMain = (dir + 12) * RAD, mainD = [epaule[0] + Math.cos(aMain) * L * 1.75, epaule[1] + Math.sin(aMain) * L * 1.75];
+    const bordS = [seau[0] + (eG[0] - seau[0]) * 0.55, seau[1] + (eG[1] - seau[1]) * 0.55];
+    const corps = [bandeP(eG, bordS, L * 0.3), bandeP(eD, mainD, L * 0.3),
+      h.cercle(mainD[0], mainD[1], L * 0.22, A.blanc), h.cercle(mainD[0], mainD[1], L * 0.22, A.arete), bandeP(eG, eD, L * 0.72)].join('\n');
+    const T = pt(L * 0.04, 0), tete = h.cercle(T[0], T[1], L * 0.36, A.blanc) + h.cercle(T[0], T[1], L * 0.36, A.arete);
+    const epaules = '';
+    return { seau, arc, epaule, svg: [grains.join('\n'), seauDessus(seau[0], seau[1], L * 0.45, dir), corps, tete,
       h.fleche('M ' + arc.map(P2).join(' L '), A.arete)].join('\n') };
   };
 
@@ -106,7 +117,7 @@ module.exports = (h) => {
     const y0 = z.h - 8, x = z.l * 0.2, e = (z.h - 18) / 1760;
     const V = (p) => [x + p[0] * e, y0 + p[1] * e];
     // le seau, contre le ventre (mm, repère au sol entre les pieds)
-    const hautS = -1100, basS = -840, avS = 104, arS = 104 + 260;
+    const hautS = -960, basS = -720, avS = 104, arS = 104 + 260;
     const s1 = V([avS, hautS]), s2 = V([arS, hautS]), s3 = V([arS - 16, basS]), s4 = V([avS + 16, basS]);
     const anse = h.path(`M ${P2(V([avS + 6, hautS + 30]))} Q ${P2(V([(avS + arS) / 2, hautS - 170]))} ${P2(V([arS - 6, hautS + 30]))}`, A.detail);
     const seau = [
@@ -115,22 +126,29 @@ module.exports = (h) => {
       h.ligne(...V([avS + 2, hautS + 24]), ...V([arS - 2, hautS + 24]), A.detail),
       h.ligne(...V([avS + 12, basS - 36]), ...V([arS - 12, basS - 36]), A.fin),
     ].join('\n');
+    // la main proche, ouverte, paume vers le bas, doigts allongés : le bras qui balaie la va chercher
+    const mainC = V([540, -1060]);
     const p = F.personnage({ x, y: y0, pose: 'debout', echelle: e,
-      mains: { proche: V([400, -1070]), loin: V([196, -1092]) } });
-    const main = p.mains.proche, pg = p.poignets.proche;
-    // la main ouverte, paume vers le bas, doigts en éventail, au bout du bras qui balaie
-    const am = Math.atan2(main[1] - pg[1], main[0] - pg[0]), dm = Math.hypot(main[0] - pg[0], main[1] - pg[1]) / 190;
-    const mainO = F.main({ x: pg[0] + Math.cos(am) * 92 * dm, y: pg[1] + Math.sin(am) * 92 * dm, pose: 'appui', vue: 'dos',
-      echelle: dm, angle: am / RAD, bras: 30 });
+      mains: { loin: V([150, -940]) },
+      prises: { proche: { x: mainC[0], y: mainC[1], pose: 'appui', vue: 'dos', angle: 18, bras: 40 } } });
+    const main = [mainC[0] + 26 * e * 5, mainC[1] + 6 * e * 5];
     // la courroie : de l'anse relevée à l'épaule opposée, en travers de la poitrine
     const ap = V([(avS + arS) / 2, hautS - 120]), ep2 = V([-60, -1440]);
     const courroie = [h.ligne(ap[0], ap[1], ep2[0], ep2[1], A.contour), h.ligne(ap[0] + 2.2, ap[1] + 1, ep2[0] + 2.2, ep2[1] + 1, A.contour)].join('\n');
-    // le médaillon, grossi : la main pleine fermée, puis la même qui s'ouvre
-    const mx = z.l - 46, my = 44, mR = 42;
+    // le médaillon, grossi : la main pleine fermée sur le grain, puis la même qui s'ouvre
+    const mR = Math.min(50, z.l * 0.22), mx = z.l - mR - 4, my = mR + 4;
+    const rg = alea(9811), poing = [];
+    const rP = 17 * mR / 250;
+    for (let i = 0; i < 40 && poing.length < 9; i++) { const gx = (rg() - 0.5) * 2 * rP, gy = (rg() - 0.5) * 2 * rP;
+      if (Math.hypot(gx, gy) < rP - 1.4) poing.push(grain(mx + mR * 0.05 + gx, my - mR * 0.4 + gy, rg() * 180, 0.9)); }
+    const ouv = [];
+    for (let i = 0; i < 9; i++) { const t = rg(); ouv.push(grain(mx + mR * 0.22 + t * mR * 0.25 + rg() * 3, my + mR * 0.42 + t * mR * 0.38 + rg() * 3, 60 + rg() * 60, 1.1)); }
     const med = [h.cercle(mx, my, mR, A.blanc), h.cercle(mx, my, mR, A.arete),
-      F.main({ x: mx - 14, y: my - 12, pose: 'boule', vue: 'profil', echelle: 0.16, diametre: 10, angle: 0, bras: 15 }),
-      F.main({ x: mx + 4, y: my + 14, pose: 'appui', vue: 'dos', echelle: 0.16, angle: 30, bras: 15 }),
-      h.fleche(`M ${f(mx + 4)} ${f(my - 22)} Q ${f(mx + 20)} ${f(my - 16)} ${f(mx + 22)} ${f(my - 4)}`, A.detail)].join('\n');
+      F.main({ x: mx + mR * 0.05, y: my - mR * 0.4, pose: 'prise', vue: 'profil', echelle: mR / 250, diametre: 34 * mR / 250, angle: 0, bras: 40 }),
+      poing.join(''),
+      F.main({ x: mx - mR * 0.15, y: my + mR * 0.3, pose: 'appui', vue: 'dos', echelle: mR / 250, angle: 22, bras: 40 }),
+      ouv.join('\n'),
+      h.fleche(`M ${f(mx + mR * 0.55)} ${f(my - mR * 0.5)} Q ${f(mx + mR * 0.78)} ${f(my - mR * 0.2)} ${f(mx + mR * 0.6)} ${f(my + mR * 0.12)}`, A.detail)].join('\n');
     // le grain qui quitte la main ouverte, en éventail, et tombe devant
     const r = alea(9805), vol = [];
     for (let i = 0; i < 60; i++) {
@@ -141,7 +159,13 @@ module.exports = (h) => {
       vol.push(grain(xa, y, Math.atan2(y - main[1], xa - main[0]) / RAD, 1.25));
     }
     for (let i = 0; i < 16; i++) vol.push(grain(main[0] + 30 + r() * (z.l - 16 - main[0] - 30), y0 - 1.5, r() * 30 - 15, 1.1));
-    return { svg: [h.ligne(6, y0, z.l - 6, y0, A.arete), p, seau, courroie, mainO, vol.join('\n'), med].join('\n'), med: [mx, my, mR],
+    // le bras proche passe devant le contenant : la même figure, redessinée dans une bande autour du bras
+    const Sv = p.epaules.proche, Wv = p.poignets.proche, ub = [Wv[0] - Sv[0], Wv[1] - Sv[1]], lb = Math.hypot(ub[0], ub[1]);
+    const nb = [-ub[1] / lb * 58 * e, ub[0] / lb * 58 * e];
+    const bandeB = [[Sv[0] + nb[0] - ub[0] / lb * 40 * e, Sv[1] + nb[1] - ub[1] / lb * 40 * e], [Wv[0] + nb[0], Wv[1] + nb[1]], [Wv[0] - nb[0], Wv[1] - nb[1]], [Sv[0] - nb[0] - ub[0] / lb * 40 * e, Sv[1] - nb[1] - ub[1] / lb * 40 * e]];
+    const clip = `<clipPath id="bras-98-05"><path d="M ${bandeB.map(P2).join(' L ')} Z" fill="#FFFFFF" stroke="none"/></clipPath>`;
+    const devant = `${clip}<g clip-path="url(#bras-98-05)">${p}</g>`;
+    return { svg: [h.ligne(6, y0, z.l - 6, y0, A.arete), p, seau, courroie, devant, vol.join('\n'), med].join('\n'), med: [mx, my, mR],
       seau: V([(avS + arS) / 2 + 40, (hautS + basS) / 2 + 40]), main,
       eventail: [main[0] + (z.l - main[0]) * 0.6, main[1] + (y0 - main[1]) * 0.55] };
   };
@@ -227,7 +251,7 @@ module.exports = (h) => {
           const n = Math.floor((P[0] - b.x0 - 16) / (L * 1.45)) + 1;
           return [b.svg,
             semis(b, b.x0 + 4, P[0] - L * 0.6, densite1, 9808),
-            pas(P[0] - (n - 1) * L * 1.45, b.c, P[0], b.c, n, L),
+            pas(P[0] - (n - 1) * L * 1.45, b.c, P[0] - L * 1.45, b.c, n - 1, L),
             v.svg,
             h.fleche(`M ${f(P[0] + L * 5.6)} ${f(b.c)} L ${f(P[0] + L * 8)} ${f(b.c)}`, A.arete)].join('\n');
         },
@@ -254,7 +278,7 @@ module.exports = (h) => {
             if (k < 6 && k !== 1) out.push(h.ligne(xs(k), yz, xs(k + 1), yz, A.cache));
           }
           out.push(h.ligne(xs(1), y1, xs(2) - 8, y1, A.cache), h.ligne(xs(2), y2, xs(3), y2, A.cache));
-          out.push(pas(P[0], P[1] + L * 0.5, P[0], P[1] - L * 0.3, 2, L), v.svg);
+          out.push(v.svg);
           return out.join('\n');
         },
         renvois: z => { const b = bande(z), s = (z.l - 44) / 6, xs = k => 22 + s * k; return [

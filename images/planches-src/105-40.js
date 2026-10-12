@@ -278,17 +278,22 @@ module.exports = (h) => {
   function galet(z) {
     const e = 0.75, xh = Math.min(z.l - 70, 262), yh = 82;
     const cx = xh - 112, cy = yh + 12;
+    // tout le dessin tourne de ROT autour du centre du galet : la lame en biais sur la pierre,
+    // l'avant-bras qui vient d'en bas à droite, comme on voit sa propre main droite
+    const ROT = -22, TG = 4;
+    const rc = Math.cos(ROT * RAD), rs = Math.sin(ROT * RAD);
+    const R = ([x, y]) => [cx + (x - cx) * rc - (y - cy) * rs, cy + (x - cx) * rs + (y - cy) * rc];
     // le galet : un ovale irrégulier, un peu tourné
     const bord = [];
     const rayons = [1, 0.97, 1.02, 0.95, 0.99, 1.03, 0.96, 1.01, 0.98, 1.02, 0.97, 1];
     for (let i = 0; i < 12; i++) {
-      const a = i * 30 * RAD, r = rayons[i], t = -8 * RAD;
+      const a = i * 30 * RAD, r = rayons[i], t = TG * RAD;
       const px = 98 * r * Math.cos(a), py = 40 * r * Math.sin(a);
       bord.push([cx + px * Math.cos(t) - py * Math.sin(t), cy + px * Math.sin(t) + py * Math.cos(t)]);
     }
     const bordPts = [];
     for (let i = 0; i < 72; i++) {
-      const a = i * 5 * RAD, k = Math.floor(i / 6), f = (i % 6) / 6, r = rayons[k] * (1 - f) + rayons[(k + 1) % 12] * f, t = -8 * RAD;
+      const a = i * 5 * RAD, k = Math.floor(i / 6), f = (i % 6) / 6, r = rayons[k] * (1 - f) + rayons[(k + 1) % 12] * f, t = TG * RAD;
       const px = 98 * r * Math.cos(a), py = 40 * r * Math.sin(a);
       bordPts.push([cx + px * Math.cos(t) - py * Math.sin(t), cy + px * Math.sin(t) + py * Math.cos(t)]);
     }
@@ -300,8 +305,8 @@ module.exports = (h) => {
     const boueIn = [];
     for (let i = 0; i <= 16; i++) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF - 1.5 - 11 * Math.sin(Math.PI * t) ** 0.7 - 2 * Math.sin(9 * t)]); }
     for (let i = 16; i >= 0; i--) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF + 3]); }
-    const m = F.main({ x: xh, y: yh, pose: 'prise', vue: 'dos', angle: -90, echelle: e, diametre: 24 * e, bras: 34, objet: kn.svg });
-    const svg = [
+    const m = F.main({ x: xh, y: yh, pose: 'prise', vue: 'dos', angle: -90, echelle: e, diametre: 24 * e, bras: 90, objet: kn.svg });
+    const svg = [`<g transform="rotate(${ROT} ${f1(cx)} ${f1(cy)})">`,
       h.path(lisseFerme(bord), A.blanc),
       semis(bordPts, 7, 0.55, 11),
       h.path(D(dedans), A.fin),
@@ -311,13 +316,14 @@ module.exports = (h) => {
       m,
       // du talon (près de la mitre) à la pointe, sur la pierre, en suivant le fil
       h.fleche(`M${f1(xb - 8)},${f1(yF - 10)} L${f1(xa + 70)},${f1(yF - 10)} Q${f1(xa + 20)},${f1(yF - 10)} ${f1(xa + 4)},${f1(yh - 4 * e - 4)}`),
+      '</g>',
     ].join('\n');
     return {
       svg,
       renvois: [
-        { n: 8, rond: [14, cy + 30], cible: [cx - 55, cy + 18], texte: 'grès : il raye l’acier' },
-        { n: 9, rond: [14, yh - 30], cible: [xa + 22, yF - 6], texte: 'boue grise : ne pas la rincer' },
-        { n: 10, rond: [xa + 100, yF - 52], cible: [xa + 100, yF - 10], texte: 'du talon à la pointe' },
+        { n: 8, rond: [14, cy + 30], cible: R([cx - 55, cy + 18]), texte: 'grès : il raye l’acier' },
+        { n: 9, rond: [14, yh - 30], cible: R([xa + 22, yF - 6]), texte: 'boue grise : ne pas la rincer' },
+        { n: 10, rond: [cx - 20, 14], cible: R([xa + 100, yF - 10]), texte: 'du talon à la pointe' },
       ],
     };
   }

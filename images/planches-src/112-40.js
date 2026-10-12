@@ -41,11 +41,10 @@ module.exports = (h) => {
     xs.forEach(x => out.push(F.corde([[x, yc0 + 4], [x, ys]], { ep: 2.2, debut: 'ouvert', fin: 'ouvert' })));
     // le bâton, tenu par la main
     const bt = baton(cx - o.demi, cx + o.demi, ys, rb);
-    const m = o.sansMain ? null : F.main({ x: cx, y: ys, pose: 'prise', vue: 'dos', angle: 90, echelle, bras: 40, diametre: 2 * rb, objet: bt });
+    const m = o.sansMain ? null : F.main({ x: cx, y: ys, pose: 'prise', vue: 'dos', angle: 90, echelle, bras: o.bras || 60, diametre: 2 * rb, objet: bt });
     if (o.dessous) out.push(o.dessous);
     out.push(m || bt);
-    // le pouce passe derrière le bâton : le bâton repeint par-dessus, à droite des doigts
-    if (m) { const id = `pouce${Math.round(cx)}`; out.push(`<clipPath id="${id}"><rect x="${r1(cx + 18.5 * echelle * 2)}" y="${r1(ys - rb)}" width="40" height="${r1(3 * rb)}"/></clipPath><g clip-path="url(#${id})">${bt}</g>`); }
+    // le pouce fait le tour du bâton et vient se poser sur l'index : la main le peint elle-même
     // le tour de mèche par-devant et le bout qui pend
     xs.forEach(x => out.push(F.corde([[x - 2.5, ys - rb - 0.8], [x + 2.5, ys + rb + 0.8], [x + 4, ys + rb + 7]], { ep: 2.2, debut: 'ouvert', fin: 'libre' })));
     // les chandelles
@@ -87,7 +86,7 @@ module.exports = (h) => {
     // la paire, plongée jusqu'au fond
     const haut = yL + 1 - ys;                            // la mèche n'a pris le suif que sous la surface
     const long = yi1 - 26 - (ys + haut);
-    const p = paire(cx, ys, { ecart: 70, long, lh: 9, lb: 13, echelle: 0.5, demi: 84, haut });
+    const p = paire(cx, ys, { ecart: 84, long, lh: 9, lb: 13, echelle: 0.6, bras: Math.max(20, ys / 0.6 - 118), demi: 80, rb: 7.5, haut });
     out.push(p.svg);
     // le geste
     const xu = cx + W / 2 + 22;
@@ -95,7 +94,7 @@ module.exports = (h) => {
     return {
       svg: out.join('\n'),
       renvois: [
-        { n: 1, rond: [cx - W / 2 - 40, ys - 44], cible: [p.xs[0] - 4, p.yc0 + 14], texte: 'deux mèches bien espacées' },
+        { n: 1, rond: [cx - W / 2 - 40, ys + 4], cible: [p.xs[0] - 1.5, ys + p.rb + 4], texte: 'deux mèches bien espacées' },
         { n: 2, rond: [cx - W / 2 - 40, p.yc1 + 9], cible: [p.xs[0] - 5, p.yc1 + 9], texte: 'un écrou lesté au bout' },
         { n: 3, rond: [cx - W / 2 - 40, yL + 40], cible: [xi0 + 8, yL + 42], texte: 'suif tout juste fondu' },
         { n: 4, rond: [xu + 15, top - 58], cible: [xu + 1, top - 24], texte: 'plonger, ressortir d’un trait' },
@@ -119,7 +118,7 @@ module.exports = (h) => {
     out.push(h.chemin([[cx - Wh / 2, top], [cx - Wb / 2, sol], [cx + Wb / 2, sol], [cx + Wh / 2, top]], A.contour));
     const haut = 32;
     const long = sol - 3 - 26 - (ys + haut);
-    const p = paire(cx, ys, { ecart: 70, long, lh: 9, lb: 13, echelle: 0.5, demi: 84, haut });
+    const p = paire(cx, ys, { ecart: 84, long, lh: 9, lb: 13, echelle: 0.6, bras: Math.max(20, ys / 0.6 - 118), demi: 80, rb: 7.5, haut });
     out.push(p.svg);
     return {
       svg: out.join('\n'),

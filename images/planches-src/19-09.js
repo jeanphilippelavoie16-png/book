@@ -35,7 +35,10 @@ module.exports = (h) => {
   };
   const pierre = (cx, cy, rx, ry, k, rot) => {
     const d = bloc(cx, cy, rx, ry, k, rot);
-    return h.path(d, h.a.blanc) + h.path(d, h.a.hachure('pierre'));
+    // une roche : contour franc et trois fissures, pas de motif
+    const fis = [[-0.5, -0.35, -0.15, 0.1], [0.25, -0.55, 0.45, -0.1], [-0.15, 0.35, 0.3, 0.5]]
+      .map(([a1, b1, a2, b2]) => h.path(`M${f(cx + a1 * rx)},${f(cy + b1 * ry)} Q${f(cx + (a1 + a2) / 2 * rx + 3)},${f(cy + (b1 + b2) / 2 * ry)} ${f(cx + a2 * rx)},${f(cy + b2 * ry)}`, h.a.detail));
+    return [h.path(d, blanc(h.a.arete)), ...fis].join('\n');
   };
   // Tronçon de fût, vu de biais : le bout droit montre la paroi et la moelle.
   const troncon = (cx, cy, L, r, ang) => {
@@ -155,12 +158,19 @@ module.exports = (h) => {
         titre: 'Casser au plat',
         dessin: z => {
           const { W, rx, ry, G, cx, c, yt, e, s, cyb, px, py, T } = geoA(z);
-          const tete = 'M-11,0 L11,0 L11,-28 L8,-38 L24,-78 Q0,-90 -24,-78 L-8,-38 L-11,-28 Z'
+          const tete = 'M-12,0 L12,0 L12,-30 Q13,-52 27,-76 Q0,-88 -27,-76 Q-13,-52 -12,-30 Z'
             .replace(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g, (_, x, y) => T(+x, +y).map(f).join(','));
-          const biseau = `M${T(20, -69).map(f)} Q${T(0, -80).map(f)} ${T(-20, -69).map(f)}`;
-          const ey = py - 17 * c, xe = W - 10, pente = -0.12, ye = ey + (xe - px) * pente;
-          const manche = [[px - 17 * c, ey - 5.5 * c], [xe - 16, ye - 5 * c], [xe - 4, ye - 7.5 * c], [xe, ye - 5], [xe, ye + 5],
-            [xe - 4, ye + 7.5 * c], [xe - 16, ye + 5 * c], [px - 17 * c, ey + 5.5 * c]];
+          const biseau = `M${T(22, -68).map(f)} Q${T(0, -79).map(f)} ${T(-22, -68).map(f)}`;
+          const oeil = `M${T(-12, -30).map(f)} L${T(12, -30).map(f)}`;
+          const ey = py - 17 * c, xe = W - 18, pente = -0.12, ye = ey + (xe - px) * pente;
+          const nM = 30, Lm = xe - px;
+          const demi = t => (5.6 - 1.2 * Math.sin(Math.PI * Math.min(1, t / 0.86)) + (t > 0.86 ? 2.6 * Math.sin(Math.PI * (t - 0.86) / 0.28) : 0)) * c;
+          const axe = t => [px + t * Lm, ey + t * Lm * pente - 3 * c * Math.sin(Math.PI * t)];
+          const haut = Array.from({ length: nM + 1 }, (_, i) => { const t = i / nM, q = axe(t); return [q[0], q[1] - demi(t)]; });
+          const bas = Array.from({ length: nM + 1 }, (_, i) => { const t = 1 - i / nM, q = axe(t); return [q[0], q[1] + demi(t)]; });
+          const rb = demi(1), qb = axe(1);
+          const cap = Array.from({ length: 9 }, (_, i) => { const t = -Math.PI / 2 + Math.PI * (i + 1) / 10; return [qb[0] + rb * 0.7 * Math.cos(t), qb[1] + rb * Math.sin(t)]; });
+          const manche = [...haut, ...cap, ...bas];
           const corps = `M${f(cx - rx)},${f(yt)} L${f(cx - rx)},${f(G)} A${f(rx)},${f(ry)} 0 0 0 ${f(cx + rx)},${f(G)} L${f(cx + rx)},${f(yt)} Z`;
           const ecorce = [-0.82, -0.45, -0.05, 0.38, 0.74].map(k => {
             const x = cx + k * rx, dy = ry * Math.sqrt(1 - k * k);
@@ -183,6 +193,7 @@ module.exports = (h) => {
             h.chemin(manche, blanc(h.a.arete), true),
             h.path(tete, blanc(h.a.contour)),
             h.path(biseau, h.a.detail),
+            h.path(oeil, h.a.detail),
             h.fleche(`M${f(px - 42 * c)},${f(py - 94 * c)} Q${f(px - 58 * c)},${f(py - 60 * c)} ${f(px - 36 * c)},${f(py - 30 * c)}`, h.a.arete),
           ].join('\n');
         },
@@ -253,18 +264,21 @@ module.exports = (h) => {
           const paroiB = `M${P(74, 15)} Q${P(Lf * 0.5, 11)} ${P(Lf - 70, 15)} L${P(Lf - 96, 7.5)} L${P(100, 7.5)} Z`;
           const moelle = `M${P(100, -7.5)} L${P(Lf - 96, -7.5)} Q${P(Lf - 86, 0)} ${P(Lf - 96, 7.5)} L${P(100, 7.5)} Q${P(90, 0)} ${P(100, -7.5)} Z`;
           // où casser : petites fêlures en zigzag au contour, comme dans « Casser au plat »
-          const bords = [[58, -19, 17], [118, -13.5, 13], [Lf * 0.5 + 4, -11, 11], [Lf - 116, -13, 13], [Lf - 50, -18, 17]];
-          const zig = (u, e, sg) => h.path(`M${P(u - 1, e - sg * 3)} L${P(u + 2, e + sg * 2)} L${P(u - 2, e + sg * 4)} L${P(u + 1, e + sg * 6)}`, h.a.arete);
-          const coupes = bords.flatMap(([u, t, b]) => [zig(u, t, 1), zig(u, b, -1)]);
+          const bords = [[58, -24, 15], [118, -13.5, 13], [Lf * 0.5 + 4, -11, 11], [Lf - 116, -13, 13], [Lf - 50, -18, 17]];
+          // où casser : un petit coin plein de chaque côté du fût, pointé sur le contour
+          const coin = (u, e, sg) => h.chemin([[x0 + u - 3.5, cy + e - sg * 10], [x0 + u + 3.5, cy + e - sg * 10], [x0 + u, cy + e - sg * 4]], h.a.plein, true);
+          const coupes = bords.flatMap(([u, t, b]) => [coin(u, t, 1), coin(u, b, -1)]);
           // la vertèbre, vue de bout : corps rond en bas, arc en anneau autour du canal,
           // apophyse épineuse droite au-dessus, apophyses transverses de chaque côté
-          const vx = xp0 + 62, vy = cy + 10;
-          const corpsV = `M${f(vx)},${f(vy - 9)} C${f(vx + 8)},${f(vy - 13)} ${f(vx + 16)},${f(vy - 7)} ${f(vx + 15)},${f(vy + 2)} ` +
-            `C${f(vx + 14)},${f(vy + 11)} ${f(vx + 7)},${f(vy + 15)} ${f(vx)},${f(vy + 15)} C${f(vx - 7)},${f(vy + 15)} ${f(vx - 14)},${f(vy + 11)} ${f(vx - 15)},${f(vy + 2)} ` +
-            `C${f(vx - 16)},${f(vy - 7)} ${f(vx - 8)},${f(vy - 13)} ${f(vx)},${f(vy - 9)} Z`;
-          const ca = vy - 20;
-          const arc = [[vx - 11, vy - 8], [vx - 13, ca - 2], [vx - 28, ca - 5], [vx - 29, ca - 9], [vx - 12, ca - 10], [vx - 5, ca - 12],
-            [vx - 3, ca - 34], [vx + 3, ca - 34], [vx + 5, ca - 12], [vx + 12, ca - 10], [vx + 29, ca - 9], [vx + 28, ca - 5], [vx + 13, ca - 2], [vx + 11, vy - 8]];
+          const vx = xp0 + 62, vy = cy + 12;
+          const V = (x, y) => `${f(vx + x)},${f(vy + y)}`;
+          const corpsV = `M${V(0, -8)} C${V(9, -9)} ${V(15, -4)} ${V(15, 3)} C${V(15, 11)} ${V(8, 15)} ${V(0, 15)} ` +
+            `C${V(-8, 15)} ${V(-15, 11)} ${V(-15, 3)} C${V(-15, -4)} ${V(-9, -9)} ${V(0, -8)} Z`;
+          const ca = vy - 18;
+          const arcV = `M${V(-11, -5)} C${V(-14, -10)} ${V(-16, -14)} ${V(-20, -16)} L${V(-33, -21)} Q${V(-37, -24)} ${V(-33, -27)} ` +
+            `L${V(-15, -24)} C${V(-11, -29)} ${V(-6, -30)} ${V(-4, -32)} L${V(-2.5, -52)} Q${V(0, -55)} ${V(2.5, -52)} L${V(4, -32)} ` +
+            `C${V(6, -30)} ${V(11, -29)} ${V(15, -24)} L${V(33, -27)} Q${V(37, -24)} ${V(33, -21)} L${V(20, -16)} ` +
+            `C${V(16, -14)} ${V(14, -10)} ${V(11, -5)} Z`;
           return [
             h.path(ext, h.a.blanc), h.path(ext, h.a.hachure('gravier', 'aucun')),
             h.path(paroiH, h.a.blanc), h.path(paroiH, h.a.hachure('bois', 'aucun')),
@@ -274,9 +288,9 @@ module.exports = (h) => {
             ...coupes,
             h.fleche(`M${f(x0 + Lf + 14)},${f(cy)} L${f(xp0 - 8)},${f(cy)}`, h.a.arete),
             // les morceaux courts
-            h.chemin(arc, blanc(h.a.arete), true),
+            h.path(arcV, blanc(h.a.arete)),
             h.path(corpsV, h.a.blanc), h.path(corpsV, h.a.hachure('gravier')), h.path(corpsV, h.a.arete),
-            h.ellipse(vx, ca, 6.5, 6, blanc(h.a.arete)),
+            h.ellipse(vx, ca, 6, 5.5, blanc(h.a.arete)),
             spongieux(xp0 + 124, cy + 2, 16, 12, [1, 0.9, 0.8, 1, 0.92, 0.86, 0.95], 0.4),
             spongieux(xp0 + 172, cy - 6, 17, 12, undefined, 1.2),
             troncon(xp0 + 24, cy + 26, 36, 10, -0.2),
@@ -308,8 +322,8 @@ module.exports = (h) => {
             h.ligne(8, G, W - 8, G, h.a.arete),
             buche(cx - 14, G - 8, 8), buche(cx + 13, G - 8, 8),
             flamme(cx - 20, G - 14, 16, 26, 3), flamme(cx + 3, G - 15, 18, 31, -2), flamme(cx + 24, G - 14, 14, 22, -3),
-            pierre(cx - a * 0.8, G - 23, 20, 23, [1, 0.9, 0.84, 1, 0.9, 0.8, 0.96], 0.3),
-            pierre(cx + a * 0.8, G - 23, 19, 23, undefined, 1.1),
+            pierre(cx - a * 0.8, G - 24, 26, 24, [1, 0.94, 0.9, 1, 0.96, 0.92, 0.97], 0.3),
+            pierre(cx + a * 0.8, G - 24, 25, 24, [0.96, 1, 0.92, 0.95, 1, 0.9, 0.94], 1.1),
             h.chemin(ch.eau(yw), h.a.hachure('eau', 'aucun'), true),
             troncon(cx - a * 0.42, yb - 22, 34, 8, 0.2),
             spongieux(cx + a * 0.12, yb - 21, 15, 10, undefined, 0.5),
@@ -366,7 +380,7 @@ module.exports = (h) => {
             h.chemin(flanc, blanc(h.a.arete), true),
             h.chemin(ell(0.15, Math.PI - 0.15, th * 0.55, 24), h.a.fin, false),
             h.chemin(dessus, blanc(h.a.contour), true),
-            h.fleche(`M${f(bout[0] + 12)},${f(bout[1] + 10)} L${f(bout[0] + 12)},${f(bout[1] - 24)}`, h.a.arete),
+            (() => { const m = G2(rx * 0.72, -ry); return h.fleche(`M${f(m[0])},${f(m[1] - 4)} L${f(m[0])},${f(m[1] - 30)}`, h.a.arete); })(),
           ].join('\n');
         },
         renvois: z => {

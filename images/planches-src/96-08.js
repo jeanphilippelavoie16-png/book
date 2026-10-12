@@ -70,17 +70,18 @@ module.exports = (h) => {
     const u = [Math.cos(ang * RAD), Math.sin(ang * RAD)], nn = perp(u);
     const f = t => add(add(b, mul(u, L * t)), mul(nn, cote * L * 0.05 * Math.sin(Math.PI * t)));
     const out = [h.path(lisse([0, 0.25, 0.5, 0.75, 1].map(t => P(...f(t)))), tr(0.9))];
-    const lf = L * 0.36, wf = lf * 0.22;
+    // huit à douze paires de petites folioles étroites, presque à angle droit, serrées en échelle
+    const lf = L * 0.17, wf = lf * 0.2;
     for (let i = 0; i < n; i++) {
-      const t = 0.14 + 0.78 * i / (n - 1), B = f(t), tg = uni(sub(f(t + 0.01), f(t - 0.01)));
-      const l = lf * (1 - 0.25 * i / (n - 1));
+      const t = 0.1 + 0.84 * i / (n - 1), B = f(t), tg = uni(sub(f(t + 0.01), f(t - 0.01)));
+      const l = lf * (1 - 0.3 * Math.abs(i - (n - 1) * 0.35) / n);
       for (const sg of [1, -1]) {
-        const dir = tourne(tg, sg * 62), T = add(B, mul(dir, l)), M = mul(add(B, T), 0.5), q = perp(dir);
-        out.push(h.path(`M ${pt(P(...B))} Q ${pt(P(...add(M, mul(q, wf))))} ${pt(P(...T))} Q ${pt(P(...sub(M, mul(q, wf))))} ${pt(P(...B))} Z`, tr(0.7, '#fff')));
+        const dir = tourne(tg, sg * 58), T = add(B, mul(dir, l)), M = mul(add(B, T), 0.5), q = perp(dir);
+        out.push(h.path(`M ${pt(P(...B))} Q ${pt(P(...add(M, mul(q, wf))))} ${pt(P(...T))} Q ${pt(P(...sub(M, mul(q, wf))))} ${pt(P(...B))} Z`, tr(0.6, '#fff')));
       }
     }
     const fin = f(1), a = Math.atan2(u[1], u[0]) / RAD;
-    out.push(vrille(P, fin, a, L / 3, nb, acc));
+    out.push(vrille(P, fin, a, L * 0.42, nb, acc));
     return out.join('\n');
   };
   // Les tiges, relatives au collet ; quatre feuilles en tout, une ou deux par tige.
@@ -99,7 +100,7 @@ module.exports = (h) => {
         const tg = uni(sub(pts[Math.min(i + 1, pts.length - 1)], pts[i - 1]));
         const cote = (i + k) % 2 ? 1 : -1;
         const a = Math.atan2(tg[1], tg[0]) / RAD + cote * 50;
-        out.push(feuille(P, pts[i], a, L, 4, -cote, acc, (i + k) % 2 ? 3 : 2));
+        out.push(feuille(P, pts[i], a, L, 8, -cote, acc, (i + k) % 2 ? 3 : 2));
       }
     });
     return out.join('\n');
@@ -231,7 +232,7 @@ module.exports = (h) => {
             for (const i of [[3], [2, 4], [3]][k]) {
               const tg = uni(sub(t[Math.min(i + 1, t.length - 1)], t[i - 1]));
               const cote = (i + k) % 2 ? 1 : -1;
-              feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, 120, 4, -cote, null, (i + k) % 2 ? 3 : 2));
+              feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, 120, 8, -cote, null, (i + k) % 2 ? 3 : 2));
             }
           });
           const m = F.main({ x: P(0, 0)[0], y: P(0, 0)[1], pose: 'prise', vue: 'dos', diametre: 14 * s, echelle: s, bras: 40 });
@@ -277,30 +278,34 @@ module.exports = (h) => {
           out.push(h.path(`M ${pt(D2(...haut[haut.length - 1]))} Q ${pt(D2(-2.5, yR(-3)))} ${pt(D2(...bas[0]))}`, A.detail));
           // à droite, en perspective : un nodule détaché, couché sur la planche, pointé vers l'œil ;
           // le couteau posé en travers, au milieu (plan z = 0)
-          const xn = 8, rn = 1.3, zB = 4, zF = -4, xl = (z.l - Q(0, 0, 0)[0]) / k - 0.5;
+          const xn = 13, rn = 1.6, zB = 4.5, zF = -4.5, xl = (z.l - Q(0, 0, 0)[0]) / k - 0.5;
           // la planche : son arête avant et son arête gauche qui fuit
-          out.push(h.ligne(...Q(1.5, rn, -8), ...Q(xl, rn, -8), A.arete));
-          out.push(h.ligne(...Q(1.5, rn, -8), ...Q(1.5, rn, 5), A.arete));
-          for (const [zz, x0, x1] of [[-5.5, 16, 27], [2.5, 13, 23]]) out.push(h.ligne(...Q(x0, rn, zz), ...Q(x1, rn, zz), A.fin));
+          // la planche à découper a son épaisseur : chant avant et chant gauche, en bois
+          const ep = 2.6;
+          const xf = xl + AX * 8;   // le chant avant file jusqu'au bord de la vue, comme le dessus
+          out.push(h.chemin([Q(4, rn, -8), Q(xf, rn, -8), Q(xf, rn + ep, -8), Q(4, rn + ep, -8)], A.hachure('bois', 'aucun'), true));
+          out.push(h.chemin([Q(xf, rn, -8), Q(4, rn, -8), Q(4, rn + ep, -8), Q(xf, rn + ep, -8)], A.arete));
+          out.push(h.ligne(...Q(4, rn, -8), ...Q(4, rn, 5), A.arete), h.ligne(...Q(4, rn, 5), ...Q(xl, rn, 5), A.detail));
+          for (const [zz, x0, x1] of [[-6, 21, 32], [2.5, 22, 30]]) out.push(h.ligne(...Q(x0, rn, zz), ...Q(x1, rn, zz), A.fin));
           // le nodule entier, couché ; un anneau tireté marque la coupe, au milieu
           out.push(union([capsule(Q(xn, 0, zB), Q(xn, 0, zF), rn * 0.85 * k, rn * k * 0.94)], 2.4));
           out.push(h.cercle(...Q(xn, 0, 0), rn * k, A.cache));
           // la lame, levée juste au-dessus, le tranchant en travers
           const yT = -rn - 2.2;
-          const dos = [[3, yT], [5, yT - 2.8], [9, yT - 6.2], [15, yT - 8.8], [25, yT - 10.4], [xl, yT - 10.8]];
+          const dos = [[6, yT], [5, yT - 2.8], [9, yT - 6.2], [15, yT - 8.8], [25, yT - 10.4], [xl, yT - 10.8]];
           out.push(h.path(lisse(dos.map(p => Q(p[0], p[1], 0))) + ` L ${pt(Q(xl, yT, 0))} Z`, 'fill="#fff" stroke="none"'));
           out.push(h.path(lisse(dos.map(p => Q(p[0], p[1], 0))), A.contour));
-          out.push(h.ligne(...Q(3, yT, 0), ...Q(xl, yT, 0), A.contour));
-          out.push(h.path(lisse([[7.5, yT - 1.7], [16, yT - 2.6], [xl, yT - 2.9]].map(p => Q(p[0], p[1], 0))), A.fin));
+          out.push(h.ligne(...Q(6, yT, 0), ...Q(xl, yT, 0), A.contour));
+          out.push(h.path(lisse([[10.5, yT - 1.7], [19, yT - 2.6], [xl, yT - 2.9]].map(p => Q(p[0], p[1], 0))), A.fin));
           // le geste : appuyer
-          out.push(h.fleche(`M ${pt(Q(13, yT - 15, 0))} L ${pt(Q(13, yT - 9.8, 0))}`, A.arete));
+          out.push(h.fleche(`M ${pt(Q(16, yT - 15, 0))} L ${pt(Q(16, yT - 9.8, 0))}`, A.arete));
           return out.join('\n');
         },
         renvois: z => {
           const { Q, D2 } = repereC(z);
           return [
             { n: 4, rond: [14, z.h - 12], cible: D2(-19.2, 3.6), texte: 'nodule : un doigt, souvent ramifié' },
-            { n: 5, rond: [z.l * 0.62, z.h - 12], cible: Q(8, 1.3, 0), texte: 'en travers, par le milieu' },
+            { n: 5, rond: [z.l * 0.62, z.h - 12], cible: Q(13, 1.6, 0), texte: 'en travers, par le milieu' },
           ];
         },
       },

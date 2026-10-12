@@ -58,9 +58,9 @@ const EPP = 14;      // l'épaisseur de la peau sur le dessus de la bille
 const UR = 640;      // où travaille le racloir, le long de la bille
 const UP = 1500;     // jusqu'où la peau couvre la bille
 const UF = 330;      // la fourche
-const XCH = -640;    // la chaudière
+const XCH = -520;    // la chaudière
 const reperePoste = z => {
-  const s = Math.min((z.h - 8) / 1780, z.l / 3300), gy = z.h - 5, ox = z.l * 0.25;
+  const s = Math.min((z.h - 8) / 1780, z.l / 2950), gy = z.h - 5, ox = z.l * 0.23;
   return { s, gy, ox, V: p => [ox + p[0] * s, gy - p[1] * s] };
 };
 
@@ -97,8 +97,8 @@ module.exports = (h) => {
       + 'garrot : un bâton passé entre les deux brins et tourné, son bout arrêté contre un piquet court. Encadré danger : l’alcali du bain et les yeux.',
     format: 'pleine',
     disposition: [['poste', 'plaques'], ['defibrer', 'rates'], ['etirer']],
-    hauteurs: [1.25, 0.95, 0.62],
-    largeurs: [[1.6, 1], [1.3, 1], [1]],
+    hauteurs: [1.4, 0.9, 0.6],
+    largeurs: [[1.8, 1], [1.3, 1], [1]],
     vues: {
       // ──────────────────────────────────────────────────────────────────────────────
       poste: {
@@ -181,21 +181,18 @@ module.exports = (h) => {
           // l'homme : penché, le ventre sur le bout de la bille, les deux mains sur le racloir
           const tR = haut(UR);                          // où le fil de la lame touche la peau
           const pg = V([tR[0] - 32, tR[1] + 50]);       // la poignée proche, derrière et au-dessus du fil
-          const homme = cible => F.personnage({ x: ox, y: gy, pose: 'debout', echelle: s, penche: 44, regard: 30,
-            mains: { proche: cible, loin: [cible[0] - 1.2, cible[1] - 1.2] } });
-          // le poignet se place pour que la poignée tombe au creux du poing
-          let cible = pg, pers = homme(cible);
-          for (let k = 0; k < 3; k++) {
-            const W = pers.poignets.proche, E = pers.mains.proche;
-            const creux = [W[0] + (E[0] - W[0]) * 0.5, W[1] + (E[1] - W[1]) * 0.5];
-            cible = [cible[0] + pg[0] - creux[0], cible[1] + pg[1] - creux[1]];
-            pers = homme(cible);
-          }
+          // la main proche serre le bout de la poignée, vue par le bout (le manche dans le poing) ;
+          // la main loin tient l'autre bout, cachée derrière
+          const rP = 3.8;
+          const pers = F.personnage({ x: ox, y: gy, pose: 'debout', echelle: s, penche: 44, regard: 30,
+            prises: { proche: { x: pg[0], y: pg[1], pose: 'prise', vue: 'profil', diametre: 2 * rP, echelle: s * 1.5, trait: 'fort' },
+              loin: { x: pg[0] - 0.8, y: pg[1] - 0.8, pose: 'prise', vue: 'profil', diametre: 2 * rP, echelle: s * 1.5, trait: 'fort' } },
+            });
           // la lame du racloir, vue par le bout : le haut vers l'homme, le fil devant
           const tRv = V(tR);
           out.push(h.chemin([pg, tRv], A.contour));
           out.push(pers);
-          out.push(h.cercle(pg[0], pg[1], 3.2, A.hachure('bois', 'arete')));
+          out.push(h.cercle(pg[0], pg[1], rP, A.hachure('bois', 'arete')));
           // le sens de la poussée, le long de la bille
           const f0 = V(bille(UR + 90, BR + EPP + 95)), f2 = V(bille(UR + 430, BR + EPP + 95));
           out.push(h.fleche(`M${f1(f0[0])} ${f1(f0[1])} L${f1(f2[0])} ${f1(f2[1])}`, A.arete));
@@ -307,7 +304,8 @@ module.exports = (h) => {
           }
           out.push(h.chemin([V(-425, 0), V(-20, 0), V(-20, eT), V(-425, eT)], blanc(A.arete), true));
           // la main gauche pince le bout sec qui dépasse du billot
-          out.push(F.main({ x: V(-398, eT / 2)[0], y: V(-398, eT / 2)[1], pose: 'boule', vue: 'profil', diametre: eT * s * 1.4, serre: 1.3, echelle: s, bras: 60, angle: 20,
+          // le bout, serré entre le pouce et l'index : la pince de profil
+          out.push(F.main({ x: V(-392, eT / 2)[0], y: V(-392, eT / 2)[1], pose: 'pince', vue: 'profil', echelle: s, bras: 40, angle: 8,
             objet: h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true) }));
 
           // le maillet taillé dans une bûche de bouleau, levé ; le poing droit sur le manche

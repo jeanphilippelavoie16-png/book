@@ -40,13 +40,15 @@ module.exports = (h) => {
     o.push(h.chemin([[81, 67], [193.4, 308.1]], A.cache));              // battant tiré
     o.push(h.fleche('M101.9 306.1 A240 240 0 0 0 167 291.1', A.arete));
     o.push(h.fleche('M125 130 L175 130', A.cache));
-    // celui qui tire, assis sur une caisse, face au battant
-    o.push(h.rect(272, 305, 38, 40, W(A.arete)));
-    o.push(h.path('M80 333 Q175 328 243 266', A.arete));
+    // celui qui tire, assis sur une caisse, face au battant : le pictogramme, la main proche serre la corde
+    // la corde arrive dans le poing dans l'axe du manche, le bout ressort au-dessus du pouce
+    const corde = [h.path('M80 333 Q180 320 246 226', A.arete),
+      h.path('M246 226 L253 216', A.arete)].join('\n');
+    const p = h.formes.personnage({ x: 286, y: 345, pose: 'assis', cote: 'gauche', echelle: 0.13, mains: { loin: [258, 262] },
+      prises: { proche: { x: 246, y: 226, pose: 'prise', vue: 'dos', diametre: 4, angle: 35, objet: corde } } });
+    o.push(h.rect(p.siege[0] - 22, p.siege[1], 44, 345 - p.siege[1], W(A.arete)));
     o.push(h.cercle(79, 333, 3, A.plein));
-    o.push(tube(290, 296, 284, 234, 13), h.cercle(280, 207, 12, W(A.arete)));
-    o.push(tube(288, 297, 248, 294, 9), tube(246, 296, 242, 336, 7), tube(242, 340, 229, 340, 5));
-    o.push(tube(282, 238, 268, 266, 6), tube(268, 266, 250, 265, 5.5), h.cercle(247, 265, 5, W(A.arete)));
+    o.push(p.toString());
     return `<g transform="translate(0,-12)">\n${o.join('\n')}\n</g>`;
   };
 
@@ -117,7 +119,7 @@ module.exports = (h) => {
         titre: 'En coupe',
         dessin: coupe,
         renvois: z => [
-          { n: 5, rond: [205, 318], cible: [207.3, 281.4], texte: 'assis, on tire puis on relâche' },
+          { n: 5, rond: [196, 218], cible: [203.3, 263.1], texte: 'assis, on tire puis on relâche' },
           { n: 6, rond: [30, 228], cible: [77.5, 228], texte: 'relâché, il retombe contre la latte' },
         ],
       },

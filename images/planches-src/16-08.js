@@ -1,4 +1,24 @@
 module.exports = (h) => {
+  // Les porteurs de la descente, en pictogramme (règle 8), à l'échelle du blessé (1,75 m ≈ 119).
+  // Devant : face à l'aval, entre les brancards, il se penche en arrière contre la charge ; bras
+  // tendus le long du corps, il serre le bout des brancards comme les mancherons d'une brouette.
+  // La main se pose là où le bras tendu tombe d'équerre sur le brancard (cercle de Thalès entre
+  // l'épaule et le pied du brancard). Derrière : face au traîneau, penché vers l'amont, la corde
+  // dans les deux poings.
+  const E_P = 0.068;
+  const geoDescente = z => {
+    const pente = (z.h - 17 - 148) / z.l, ys = x => z.h - 17 - pente * x;
+    const th = Math.atan(pente), c = Math.cos(th), s = Math.sin(th);
+    const x0 = 148, y0 = ys(148);
+    const T = (a, n) => [x0 + a * c - n * s, y0 - a * s - n * c];
+    const b0 = T(47, 3);
+    const av = { x: 34, y: ys(34), pose: 'portage', echelle: E_P, cote: 'gauche', angle: -th / Math.PI * 180, penche: -36, regard: -6 };
+    const S = h.formes.personnage(av).epaules.proche;
+    const C = [(S[0] + b0[0]) / 2, (S[1] + b0[1]) / 2], R = Math.hypot(b0[0] - S[0], b0[1] - S[1]) / 2;
+    const aD = Math.atan2(b0[1] - S[1], b0[0] - S[0]), al = Math.acos(42 / (2 * R));
+    const main = [S[0] + 42 * Math.cos(aD + al), S[1] + 42 * Math.sin(aD + al)];
+    return { pente, ys, th, T, b0, av, main, r0: T(165, 4) };
+  };
   const W = at => at.replace('fill="none"', 'fill="#ffffff"');
   const f = v => v.toFixed(1);
   const P = pts => pts.map(p => `${f(p[0])},${f(p[1])}`);
@@ -218,20 +238,11 @@ module.exports = (h) => {
           const th = Math.atan(pente), c = Math.cos(th), s = Math.sin(th);
           const x0 = 148, y0 = ys(148);
           const T = (a, n) => [x0 + a * c - n * s, y0 - a * s - n * c];
+          // les deux porteurs en pictogramme, à la même échelle que le blessé (1,75 m ≈ 119)
+          const G = geoDescente(z), main = G.main;
           // neige
           o.push(h.chemin([[0, ys(0)], [z.l, ys(z.l)], [z.l, z.h], [0, z.h]], h.a.hachure('neige', 'aucun'), true));
           o.push(h.ligne(0, ys(0), z.l, ys(z.l), h.a.arete));
-
-          // homme devant, face à la pente, penché vers l'arrière
-          const main = [58, 157];
-          o.push(silhouette([
-            [[[38, 160], [27, 191], [20, ys(20) - 4]], 5.5],
-            [[[38, 160], [47, 188], [48, ys(48) - 4]], 5.5],
-            [[[22, ys(20) - 3], [11, ys(20) - 2]], 3.5],
-            [[[50, ys(48) - 3], [39, ys(48) - 2]], 3.5],
-            [[[38, 160], [46, 113]], 9],
-            [[[45, 117], [52, 139], main], 4.5],
-          ], [49, 99, 9.5]));
 
           // le traîneau
           o.push(h.chemin([T(0, 0), T(165, 0), T(165, 7), T(0, 7)], W(h.a.contour), true));
@@ -262,36 +273,35 @@ module.exports = (h) => {
             o.push(h.chemin([T(a - 2, n0), T(a + 2, n0), T(a + 2, n1), T(a - 2, n1)], W(h.a.detail), true));
             o.push(h.chemin([T(a, n0), T(a, n1)], h.a.detail));
           }
-          // la main par-dessus le brancard
-          o.push(h.cercle(main[0], main[1], 4.5, W(h.a.arete)));
+          // homme devant, entre les brancards, les poings fermés sur leur bout
+          const angB = Math.atan2(main[1] - b0[1], main[0] - b0[0]) / Math.PI * 180 + 90;
+          const prise = dx => ({ x: main[0] + dx, y: main[1], pose: 'prise', vue: 'dos', diametre: 5.5, angle: angB });
+          o.push(String(h.formes.personnage(Object.assign({}, G.av, { prises: { proche: prise(0), loin: prise(1.5) } }))));
 
-          // homme derrière, à la corde, penché vers le haut de la pente
-          const mainF = [386, 94];
-          const r0 = T(165, 4);
-          const mil = [(r0[0] + mainF[0]) / 2, (r0[1] + mainF[1]) / 2 + 12];
-          o.push(h.path(`M${P([r0])} Q${P([mil])} ${P([mainF])}`, h.a.contour));
-          o.push(silhouette([
-            [[[404, 100], [389, 129], [382, ys(382) - 4]], 5.5],
-            [[[404, 100], [410, 126], [410, ys(410) - 4]], 5.5],
-            [[[384, ys(382) - 3], [373, ys(382) - 2]], 3.5],
-            [[[412, ys(410) - 3], [401, ys(410) - 2]], 3.5],
-            [[[404, 100], [416, 55]], 9],
-            [[[412, 60], [398, 80], mainF], 4.5],
-          ], [420, 41, 9.5]));
-          o.push(h.path(`M${P([mainF])} Q396,102 392,118`, h.a.contour));
+          // homme derrière, face au traîneau, penché vers l'amont : la corde dans les deux poings
+          const r0 = G.r0;
+          const arr = { x: 412, y: ys(412), pose: 'portage', echelle: E_P, cote: 'gauche', angle: -th / Math.PI * 180, penche: -42, regard: 10 };
+          // la corde monte droit du traîneau aux poings, devant la poitrine ; elle passe dans les
+          // deux poings serrés l'un derrière l'autre, le bout libre pend derrière
+          const Sa = h.formes.personnage(arr).epaules.proche;
+          const dC = [Sa[0] - r0[0], Sa[1] - r0[1]], lC = Math.hypot(...dC), ua = [dC[0] / lC, dC[1] / lC];
+          const angP = Math.atan2(ua[1], ua[0]) / Math.PI * 180 + 90;
+          const tp = [Sa[0] - ua[0] * 34, Sa[1] - ua[1] * 34 + 6], tl = [tp[0] + ua[0] * 9, tp[1] + ua[1] * 9];
+          const pp = { pose: 'prise', vue: 'dos', diametre: 2.6, angle: angP };
+          const pF = h.formes.personnage(Object.assign({}, arr, { prises: { proche: Object.assign({ x: tp[0], y: tp[1] }, pp), loin: Object.assign({ x: tl[0], y: tl[1] }, pp) } }));
+          const sor = [tl[0] + ua[0] * 7, tl[1] + ua[1] * 7];
+          const mil = [(r0[0] + tp[0]) / 2 + 3, (r0[1] + tp[1]) / 2 + 5];
+          o.push(h.path(`M${P([r0])} Q${P([mil])} ${P([tp])} L${P([sor])} Q${P([[sor[0] + ua[0] * 6, sor[1] + ua[1] * 6]])} ${P([[sor[0] + 6, sor[1] + 4]])} T${P([[sor[0] + 8, sor[1] + 24]])}`, h.a.contour));
+          o.push(String(pF));
           return o.join('\n');
         },
         renvois: z => {
-          const pente = (z.h - 17 - 148) / z.l;
-          const th = Math.atan(pente), c = Math.cos(th), s = Math.sin(th);
-          const x0 = 148, y0 = z.h - 17 - pente * 148;
-          const T = (a, n) => [x0 + a * c - n * s, y0 - a * s - n * c];
-          const b0 = T(47, 3), main = [58, 157], u = (-25 - 47) / (-81.3 - 47);
-          const r0 = T(165, 4), mainF = [386, 94];
+          const G = geoDescente(z), T = G.T, b0 = G.b0, main = G.main, u = 0.5;
+          const r0 = G.r0, mainF = [376, 104];
           return [
             { n: 9, rond: [250, 88], cible: T(118, 46), texte: 'poitrine, bassin, cuisses' },
             { n: 10, rond: [118, 118], cible: [b0[0] + (main[0] - b0[0]) * u, b0[1] + (main[1] - b0[1]) * u], texte: 'brancards : ils retiennent' },
-            { n: 11, rond: [322, 70], cible: [(r0[0] + mainF[0]) / 2, (r0[1] + mainF[1]) / 2 + 6], texte: 'derrière, à la corde : le frein' },
+            { n: 11, rond: [322, 70], cible: [(r0[0] + mainF[0]) / 2 + 2, (r0[1] + mainF[1]) / 2 + 8], texte: 'derrière, à la corde : le frein' },
           ];
         },
       },

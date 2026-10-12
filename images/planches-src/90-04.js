@@ -2,7 +2,8 @@
 // §5-B, étapes 6, 8 et 9).
 // Aucune cote : le chapitre ne donne ni la taille de la languette ni la durée des trempes.
 // La gomme, au charbon, est noire : elle est en aplat noir partout.
-// Les mains sont au trait fin, sans détail : l'objet, c'est la languette.
+// Les mains viennent de la bibliothèque h.formes (prise vue du dos, pince de profil) :
+// les doigts se replient autour de la languette, le pouce en face (JP : « mains »).
 
 module.exports = (h) => {
   const BL = h.a.blanc.match(/fill="([^"]+)"/)[1];
@@ -22,44 +23,11 @@ module.exports = (h) => {
     return `${op} ${o.join(' ')}`;
   }).join(' ');
 
-  // Un poing vu du côté du pouce, qui serre une languette. Repère local : la languette passe
-  // en x = 0 (largeur ±6), le pouce est en haut (y < 0), l'avant-bras part vers +x.
-  function poing(T, bras = 95) {
-    const B = bras;
-    const main = [['M', -8, -21], ['Q', -16, -15, -10, -8], ['Q', -16, -2, -10, 4], ['Q', -15, 10, -9, 15],
-      ['Q', -13, 21, -6, 25], ['Q', 7, 31, 21, 26], ['Q', 31, 22, 39, 19], ['L', B, 19],
-      ['Q', B + 6, 10, B, 2], ['Q', B - 6, -6, B, -15], ['L', 39, -15], ['Q', 27, -20, 17, -25],
-      ['Q', 5, -29, -8, -21], ['Z']];
-    const pouce = [['M', 25, -17], ['C', 13, -14, 1, -14, -7, -17], ['Q', -13, -20, -10, -25],
-      ['C', -1, -30, 13, -30, 27, -26]];
-    const o = [];
-    const dm = P(T, main);
-    o.push(h.path(dm, h.a.blanc), h.path(dm, h.a.arete));
-    const dp = P(T, pouce);
-    o.push(h.path(dp + ' Z', h.a.blanc), h.path(dp, h.a.arete));
-    [[['M', -10, -8], ['Q', -4, -7, 1, -9]], [['M', -10, 4], ['Q', -4, 5, 1, 3]],
-      [['M', -9, 15], ['Q', -3, 16, 1, 14]], [['M', 4, -13], ['Q', 9, 4, 7, 22]],
-      [['M', -8, -23], ['Q', -4, -21, -1, -25.5]]]
-      .forEach(c => o.push(h.path(P(T, c), h.a.detail)));
-    return o.join('\n');
-  }
-
-  // Un pouce seul, vu de côté. Repère local : le bout en (0, 0), l'axe vers +x, l'ongle en
-  // haut (y < 0), la pulpe en bas (y > 0). colle : la gomme reste sur la pulpe.
-  function pouce(T, colle) {
-    const L = 84;
-    const bord = [['M', L, -12], ['L', 24, -12], ['C', 6, -12, -2, -6, 0, 3], ['C', 2, 11, 12, 13, 26, 12], ['L', L, 12]];
-    const casse = [['M', L, 12], ['Q', L + 6, 4, L, 0], ['Q', L - 6, -4, L, -12]];
-    const o = [];
-    o.push(h.path(P(T, bord.concat(casse.slice(1))) + ' Z', h.a.blanc));
-    if (colle) o.push(h.path(P(T, [['M', 0.5, 5], ['C', 3, 11.5, 12, 13.5, 23, 12.6], ['L', 22, 9],
-      ['C', 16, 10, 12, 8, 8, 9.5], ['C', 5, 9, 3, 7, 0.5, 5], ['Z']]), h.a.plein));
-    o.push(h.path(P(T, bord), h.a.arete));
-    o.push(h.path(P(T, casse), h.a.detail));
-    o.push(h.path(P(T, [['M', 3, -7], ['Q', 10, -11, 20, -10.5], ['L', 21, -12]]), h.a.detail));
-    o.push(h.path(P(T, [['M', 40, 12], ['Q', 38, 8, 41, 4]]), h.a.detail));
-    return o.join('\n');
-  }
+  // Le poing qui serre la languette, vu du dos : x, y au milieu de la prise. gauche : l'avant-bras
+  // part vers la droite (main gauche) ; angle : -90 pour une languette couchée, l'avant-bras en bas.
+  const poing = (x, y, e, { gauche = false, angle = 0, bras = 30 } = {}) => h.formes.main({
+    x, y, pose: 'prise', vue: 'dos', cote: gauche ? 'gauche' : 'droite', angle, echelle: e,
+    diametre: 12, bras }).toString();
 
   // Languette vue de face, verticale : bout déchiré en haut, gomme noire de yG au bout.
   // yG = null : pas de gomme. w : demi-largeur.
@@ -124,7 +92,7 @@ module.exports = (h) => {
     o.push(h.ligne(cx - cw - 3, yt - 3, cx - cw, yt - 3, h.a.contour));
     o.push(h.ligne(cx + cw, yt - 3, cx + cw + 3, yt - 3, h.a.contour));
     // La main.
-    o.push(poing(rep(sx, Yf, 1), 92));
+    o.push(poing(sx, Yf, 0.6, { gauche: true, bras: 50 }));
     return o.join('\n');
   }
 
@@ -149,7 +117,7 @@ module.exports = (h) => {
     // Rides à la surface.
     [[-1, 12], [1, 12], [-1, 22], [1, 22]].forEach(([s, r]) => o.push(h.path(
       `M ${f(sx + s * 9)} ${wl - 1} Q ${f(sx + s * (9 + r / 2))} ${wl - 4} ${f(sx + s * (9 + r))} ${wl - 1}`, h.a.detail)));
-    o.push(poing(rep(sx, Yf, 1), 92));
+    o.push(poing(sx, Yf, 0.6, { gauche: true, bras: 50 }));
     return o.join('\n');
   }
 
@@ -202,19 +170,19 @@ module.exports = (h) => {
           [f(p.x + p.nx * out - tx * w), f(p.y + p.ny * out - ty * w)]], h.a.blanc, true));
       });
     }
-    o.push(poing(rep(G.xl, G.y0, G.s, true), 64));
-    o.push(poing(rep(G.xr, G.y0, G.s, false), 64));
+    o.push(poing(G.xl, G.y0, 0.5, { bras: 20 }));
+    o.push(poing(G.xr, G.y0, 0.5, { gauche: true, bras: 20 }));
     return o.join('\n');
   }
 
   // ─── E : tenir dans la main ──────────────────────────────────────────────────────────
   function vueE(z) {
-    const s = 1.15, sx = Math.round(z.l * 0.26), Yf = Math.round(z.h * 0.5);
+    const s = 0.62, sx = Math.round(z.l * 0.28), Yf = Math.round(z.h * 0.5);
     const o = [];
     // Le poing serre la partie gommée ; seul le bout d'écorce nue dépasse au-dessus du pouce.
-    const yP = Yf - Math.round(29 * s), yH = yP - 16, yF = Yf + Math.round(27 * s);
-    o.push(languetteFace(sx, yH, yF, yP + 2, 6.5, true));
-    o.push(poing(rep(sx, Yf, s), 70));
+    const yP = Yf - Math.round(40 * s), yH = yP - 18, yF = Yf + Math.round(44 * s);
+    o.push(languetteFace(sx, yH, yF, yP + 2, 6, true));
+    o.push(poing(sx, Yf, s, { gauche: true, bras: 30 }));
     return o.join('\n');
   }
 
@@ -223,7 +191,7 @@ module.exports = (h) => {
   // dans le poing, le pouce de l'autre main frotte la gomme puis se lève.
   function geomFrot(z) {
     const ys = Math.round(z.h * 0.62), xp = 34, xc = 74, xe = z.l - 8, tx = Math.round(z.l * 0.6);
-    return { ys, xp, xc, xe, tx, ty: ys - EB - EG - 20 };
+    return { ys, xp, xc, xe, tx, ty: ys - EB - EG - 12 };
   }
   function vueFrot(z, colle) {
     const { ys, xp, xc, xe, tx, ty } = geomFrot(z);
@@ -245,23 +213,21 @@ module.exports = (h) => {
     } else {
       o.push(h.rect(xc, ys - EB - EG, xe - xc, EG, h.a.plein));
     }
-    // Le poing tient le bout sec ; le pouce vers la gomme, l'avant-bras vers le bas.
-    o.push(poing(rep(xp + 12, ys, 0.8, false, Math.PI / 2), 58));
-    // Le pouce de l'autre main, levé au-dessus de la gomme.
-    const ang = -40 * Math.PI / 180;
-    const T = rep(tx, ty, 1, false, ang);
+    // Le poing tient le bout sec, l'avant-bras vers le bas.
+    o.push(poing(xp + 14, ys, 0.48, { angle: -90, bras: 30 }));
+    // L'autre main, de profil, le bout du pouce contre le bout de l'index : c'est la pulpe du
+    // pouce qui frotte la gomme, puis se lève.
     if (colle) {
-      // Les fils de gomme, de la pulpe à la languette.
-      [[2, 7, -5, -3], [7, 10.5, -2, -1.5], [12, 12.2, 1, 1], [18, 12.8, 4, 2.5]].forEach(([lx, ly, dx, b]) => {
-        const [px, py] = T(lx, ly);
-        const qx = px + dx, qy = ys - EB - EG + 0.5, mx = (px + qx) / 2 + b, my = (py + qy) / 2;
-        o.push(h.path(`M ${f(px - 1.4)} ${f(py)} Q ${f(mx - 0.4)} ${f(my)} ${f(qx - 2.2)} ${f(qy)} L ${f(qx + 2.2)} ${f(qy)} Q ${f(mx + 0.4)} ${f(my)} ${f(px + 1.4)} ${f(py)} Z`, h.a.plein));
+      // Les fils de gomme, de la pulpe du pouce à la languette.
+      [[-5, -6, -2], [-1.5, -2, -1], [2, 2, 1], [5.5, 6, 2]].forEach(([dx, qx, b]) => {
+        const px = tx + dx, py = ty + 1, qy = ys - EB - EG + 0.5, X = tx + qx, mx = (px + X) / 2 + b, my = (py + qy) / 2;
+        o.push(h.path(`M ${f(px - 1.2)} ${f(py)} Q ${f(mx - 0.4)} ${f(my)} ${f(X - 2)} ${f(qy)} L ${f(X + 2)} ${f(qy)} Q ${f(mx + 0.4)} ${f(my)} ${f(px + 1.2)} ${f(py)} Z`, h.a.plein));
       });
     }
-    o.push(pouce(T, colle));
-    // Le va-et-vient du frottement.
-    // Juste au-dessus du bout du pouce, parallèle à la languette.
-    const ya = ty - 7, xa = tx - 38, xb = tx - 4;
+    o.push(h.formes.main({ x: tx, y: ty, pose: 'pince', vue: 'profil', cote: 'gauche', angle: -30, echelle: 0.47, bras: 22 }).toString());
+    if (colle) o.push(h.ellipse(tx, ty + 1.5, 4, 1.8, h.a.plein));   // la gomme restée sur la pulpe
+    // Le va-et-vient du frottement, à gauche des doigts, parallèle à la languette.
+    const ya = ty + 2, xa = tx - 44, xb = tx - 12;
     o.push(h.fleche(`M ${xa + 14} ${ya} H ${xb}`, h.a.detail));
     o.push(h.fleche(`M ${xb - 14} ${ya} H ${xa}`, h.a.detail));
     return o.join('\n');
@@ -331,7 +297,7 @@ module.exports = (h) => {
         renvois: z => {
           const G = geomFrot(z);
           return [
-            { n: 7, rond: [G.tx - 14, G.ys + 34], cible: [G.tx + 11, G.ys - 15], texte: 'colle : ajouter de la gomme ou recuire' },
+            { n: 7, rond: [G.tx - 14, G.ys + 34], cible: [G.tx + 2, G.ys - EB - EG - 5], texte: 'colle : ajouter de la gomme ou recuire' },
           ];
         },
       },
@@ -341,7 +307,7 @@ module.exports = (h) => {
         renvois: z => {
           const G = geomFrot(z);
           return [
-            { n: 8, rond: [G.tx - 14, G.ys + 34], cible: [G.tx + 9, G.ty + 5], texte: 'rien au doigt : prête' },
+            { n: 8, rond: [G.tx - 14, G.ys + 34], cible: [G.tx, G.ty + 2], texte: 'rien au doigt : prête' },
           ];
         },
       },

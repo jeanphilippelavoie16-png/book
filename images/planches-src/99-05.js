@@ -52,26 +52,28 @@ module.exports = (h) => {
     const e = Math.min((z.h - 10) / 1790, (z.l - 8) / 1250);
     const x0 = 6 + 170 * e, g = z.h - 4;
     const P = (x, y) => [x0 + x * e, g - y * e];
-    const pers = F.personnage({ x: x0, y: g, pose: 'debout', echelle: e, penche: 30, regard: 30,
-      mains: { proche: P(540, 700), loin: P(250, 960) } });
-    const num = a => a.map(Number);
-    // chaque poignée traverse le poing, en travers de la main : elle sort du manche derrière et
-    // sous le poing, et dépasse de l'autre côté
-    const poignee = (k, long) => {
-      const w = num(pers.poignets[k]), m = num(pers.mains[k]);
-      const a = [m[0] - w[0], m[1] - w[1]], la = Math.hypot(...a), u = [a[0] / la, a[1] / la];
-      const c = [w[0] + 0.75 * a[0], w[1] + 0.75 * a[1]], v = [u[1], -u[0]];   // v : en travers, vers l'avant
-      return { c, u, pied: [c[0] - long * e * v[0], c[1] - long * e * v[1]], bout: [c[0] + 70 * e * v[0], c[1] + 70 * e * v[1]] };
+    // les deux poignées : des chevilles plantées dans le manche, chacune serrée dans un poing vu du
+    // dos de la main. L'avant-bras file de l'épaule vers le poing : les bras tendus, la cheville en
+    // travers du poing, qui sort du manche sous la main.
+    const S = [190, 1395];                                          // l'épaule
+    const nib = (cx, cy) => {
+      const a = Math.atan2(S[1] - cy, cx - S[0]);                   // l'avant-bras, en radians, vers le bas
+      const ax = [Math.sin(a), Math.cos(a)];                        // l'axe de la cheville (mm, vers le haut)
+      return { c: P(cx, cy), ang: a / RAD, pied: P(cx - 105 * ax[0], cy - 105 * ax[1]), bout: P(cx + 62 * ax[0], cy + 62 * ax[1]) };
     };
-    const gL = poignee('loin', 120), gP = poignee('proche', 120);
-    const bL = gL.pied, bP = gP.pied, pP = gP.c;
-    const dh = [bL[0] - bP[0], bL[1] - bP[1]], nh = Math.hypot(...dh);
-    const T = [bL[0] + dh[0] / nh * 18 * e, bL[1] + dh[1] / nh * 18 * e];   // bout du manche
-    const K = P(800, 38);                                          // talon de la lame
-    const snath = [T, bL, bP, P(700, 330), K];
-    return { e, P, pers, gL, gP, pP, bL, bP, T, K, snath, g, x0 };
+    const gL = nib(425, 850), gP = nib(610, 900);
+    const dh = [gL.pied[0] - gP.pied[0], gL.pied[1] - gP.pied[1]], nh = Math.hypot(...dh);
+    const T = [gL.pied[0] + dh[0] / nh * 110 * e, gL.pied[1] + dh[1] / nh * 110 * e];   // bout du manche
+    const K = P(820, 40);                                          // talon de la lame
+    const snath = [T, gL.pied, gP.pied, P(740, 520), P(785, 250), K];
+    const em = 1.3 * e, diam = 38 * e;
+    const cheville = g => h.path(bande([g.pied, g.bout], diam), BL('arete'));
+    const prise = g => ({ x: g.c[0], y: g.c[1], pose: 'prise', vue: 'dos', echelle: em, diametre: diam,
+      angle: g.ang, objet: cheville(g) });
+    const pers = F.personnage({ x: x0, y: g, pose: 'debout', echelle: e, penche: 24, regard: 20,
+      prises: { proche: prise(gP), loin: prise(gL) } });
+    return { e, P, pers, gL, gP, T, K, snath, g, x0, cheville };
   };
-
   // ─── Vu de dessus : le coup et l'andain ─────────────────────────────────────────────
   // mm : x vers la droite du faucheur, y vers l'avant ; les pieds en 0 0
   const geoD = z => {
@@ -134,26 +136,19 @@ module.exports = (h) => {
           const G = geoP(z), { e, P } = G, out = [];
           out.push(h.ligne(2, G.g, z.l - 2, G.g, h.a.arete));
           // la lame, couchée à plat sur le sol, la pointe vers l'autre côté du faucheur
-          out.push(h.path(`M${pt(P(790, 36))} ${lisse([P(790, 36), P(900, 44), P(1000, 40), P(1066, 22)], false)} L${pt(P(1066, 16))} ${lisse([P(1066, 16), P(1000, 14), P(900, 16), P(790, 18)], false)} Z`, BL('arete')));
-          // le manche et ses deux poignées
+          out.push(h.path(`M${pt(P(810, 36))} ${lisse([P(810, 36), P(900, 44), P(1000, 40), P(1066, 22)], false)} L${pt(P(1066, 16))} ${lisse([P(1066, 16), P(1000, 14), P(900, 16), P(810, 18)], false)} Z`, BL('arete')));
+          // le manche ; les poignées sont peintes avec les mains
           out.push(h.path(bande(G.snath, 34 * e), BL('arete')));
-          out.push(h.path(bande([G.gL.pied, G.gL.bout], 40 * e), BL('arete')));
-          out.push(h.path(bande([G.gP.pied, G.gP.bout], 40 * e), BL('arete')));
           // l'anneau au talon
-          out.push(h.path(`M${pt(P(760, 70))} L${pt(P(800, 92))} L${pt(P(830, 40))} L${pt(P(790, 20))} Z`, BL('detail')));
+          out.push(h.path(`M${pt(P(780, 70))} L${pt(P(820, 92))} L${pt(P(850, 40))} L${pt(P(810, 20))} Z`, BL('detail')));
           out.push(String(G.pers));
-          // chaque poing fermé sur sa poignée : un ovale, la cheville qui en sort des deux côtés
-          [G.gL, G.gP].forEach(g => {
-            out.push(h.path(bande([g.pied, g.bout], 40 * e), BL('arete')));
-            out.push(h.path(ovale(g.c[0], g.c[1], 62 * e, 46 * e, Math.atan2(g.u[1], g.u[0]) / RAD), BL('arete')));
-          });
           return out.join('\n');
         },
         renvois: z => {
           const G = geoP(z), { P } = G;
           return [
-            { n: 1, rond: [z.l - 14, P(0, 700)[1]], cible: P(640, 380), texte: 'le manche, une perche de bois dur' },
-            { n: 2, rond: [z.l - 14, P(0, 1150)[1]], cible: G.gL.c, texte: 'bras tendus, mains presque à même hauteur' },
+            { n: 1, rond: [z.l - 14, P(0, 700)[1]], cible: P(735, 420), texte: 'le manche, une perche de bois dur' },
+            { n: 2, rond: [z.l - 14, P(0, 1080)[1]], cible: G.gP.c, texte: 'bras tendus, mains presque à même hauteur' },
             { n: 3, rond: [z.l - 14, P(0, 230)[1]], cible: P(960, 30), texte: 'la lame à plat, parallèle au sol' },
           ];
         },
@@ -254,14 +249,14 @@ module.exports = (h) => {
           // la main et la pierre avancent ensemble, du talon vers la pointe
           out.push(h.fleche(`M${pt(A(330, 128))} L${pt(A(640, 104))}`, h.a.arete));
           // la main gauche, par le dos, juste derrière la pierre
-          out.push(String(F.main({ x: A(250, 88)[0], y: A(250, 88)[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: 90, echelle: e, diametre: 16 * e, bras: 90 })));
+          out.push(String(F.main({ x: A(240, 74)[0], y: A(240, 74)[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: 125, echelle: 1.15 * e, diametre: 26 * e, bras: 150 })));
           return out.join('\n');
         },
         renvois: z => {
           const G = geoA(z), { A } = G;
           return [
             { n: 7, rond: A(-52, -150), cible: A(-4, G.sol + 16), texte: 'le bout du manche posé par terre' },
-            { n: 8, rond: A(160, -70), cible: A(238, 40), texte: 'main gauche au dos, juste derrière la pierre' },
+            { n: 8, rond: A(330, -120), cible: A(262, 40), texte: 'main gauche au dos, juste derrière la pierre' },
             { n: 9, rond: A(610, -40), cible: A(520, 50), texte: 'pierre mouillée, du dos au fil, en travers' },
             { n: 10, rond: A(745, 118), cible: A(650, 104), texte: 'petits coups, du talon vers la pointe' },
           ];

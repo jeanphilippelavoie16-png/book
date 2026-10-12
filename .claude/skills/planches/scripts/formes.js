@@ -7,8 +7,12 @@
 // -fil.js les montrent en grand.
 //
 //   main({ x, y, pose, vue, cote, echelle, angle, diametre, bras, objet, trait, serre, inclinaison })
-//   personnage({ x, y, pose, echelle, cote, angle, penche, regard, mains, trait })
-//   tete({ x, y, echelle, angle, cote, trait }) · buste({ x, y, echelle, angle, cote, regard, trait })
+//   personnage({ x, y, pose, echelle, cote, angle, penche, regard, mains, prises, age, rendu, enceinte, trait })
+//              le pictogramme (règle 8) : debout · penche · accroupi · assis · assis-sol · couche ·
+//              genoux · genou · portage · tire ; age 'adulte' · 'enfant'
+//   tete({ x, y, echelle, angle, cote, trait, age, cheveux, sourcil, cou })   age 'adulte' · 'enfant' · 'bebe'
+//   buste({ x, y, echelle, angle, cote, regard, trait, age, cheveux, col, main, mainLoin, coupe })
+//              main : les options d'une main() que le bras va chercher, l'avant-bras bord à bord
 //   corde(pts, { ep, debut, fin, fleche, torons, passages, jeu, trait }) · cordes([brin, …], options)
 //   aiguilleFilet({ x, y, longueur, angle, chargee }) · moule({ x, y, longueur, largeur, angle })
 //   maille({ x, y, echelle, ep, fleche, jeu, trait })
@@ -33,7 +37,7 @@
 // trait: 'fort' monte d'un cran (silhouette ~1,9, intérieur 1,4, plis 0,7).
 //
 // Unités internes : des millimètres d'adulte ; echelle = unités de vue par mm. À echelle 1, une
-// main fait 190 du poignet au bout du majeur ; un personnage debout, 1750.
+// main fait 190 du poignet au bout du majeur ; un personnage debout, 1750 (l'enfant, 1100).
 
 'use strict';
 
@@ -235,7 +239,7 @@ module.exports = function formes(h) {
     for (const p of pieces) if (p.silhouette !== false) for (const t of p.trait) out.push(`<path d="${ser(t, T)}" ${trait(2.4)}/>`);
     pieces.forEach((p, i) => {
       if (objet && couche > 0 && i === couche) out.push(objet);
-      if (p.remp) out.push(`<path d="${ser(p.remp, T)}" ${FOND}/>`);
+      if (p.remp) out.push(`<path d="${ser(p.remp, T)}" ${p.noir ? `fill="${NOIR}" stroke="none"` : FOND}/>`);
       for (const t of p.trait) out.push(`<path d="${ser(t, T)}" ${trait(p.ep || eI)}/>`);
       for (const d of p.det || []) out.push(`<path d="${ser(d, T)}" ${trait(p.epDet || eD)}/>`);
     });
@@ -681,8 +685,9 @@ module.exports = function formes(h) {
       [-20, 38.5], [-56, 36.5], [Wx, 30.5], [cut, 32]];
     pieces.push(plaque(P, [[0, 2], [4, 6], [10, 14]]));
     const sW = 24;
-    g.forEach((d, i) => pieces.push(doigt2(d.pts, d.w, { ouvre: { dos: i === 0 ? 4 : sW, ventre: i === 3 ? 6 : sW }, ongle: 'dessus' })));
-    pieces.push(doigt2(ptsP, wP, { ouvre: { dos: 0, ventre: 52 }, ongle: 'dessus', base: 16 }));
+    const ongle = o.paume ? null : 'dessus';
+    g.forEach((d, i) => pieces.push(doigt2(d.pts, d.w, { ouvre: { dos: i === 0 ? 4 : sW, ventre: i === 3 ? 6 : sW }, ongle })));
+    pieces.push(doigt2(ptsP, wP, { ouvre: { dos: 0, ventre: 52 }, ongle, base: 16 }));
     // les palmures entre les doigts : un petit creux, du bord d'un doigt à celui du voisin
     const webs = [];
     for (let i = 0; i < 3; i++) {
@@ -692,10 +697,27 @@ module.exports = function formes(h) {
       webs.push([['M', pa], ['Q', fw, pb]]);
     }
     pieces.push({ remp: null, trait: webs, det: [], silhouette: false });
-    // les têtes des métacarpiens, à peine marquées
-    const nodes = g.slice(0, 3).map(d => { const p = add(d.pts[0], [-1, 0]), w = d.w[0] * 0.3; return [['M', add(p, [-1.5, -w])], ['Q', add(p, [2, 0]), add(p, [-1.5, w])]]; });
-    pieces.push(traits(nodes, 0.5));
-    return { pieces, trou: { x: 0, y: 0, r: 0 }, poignet: [Wx, 0], bras: [cut, 0] };
+    if (o.paume) {
+      // vue de la paume (même silhouette, la main de l'autre côté) : les trois grands plis de la
+      // paume, et les plis de flexion en travers des doigts, à la base et à chaque jointure
+      const plis = [lisseC([[-15, -35], [-36, -23], [-62, -15], [-86, -11]]), lisseC([[-15, -33], [-27, -12], [-38, 8], [-47, 22]]),
+        lisseC([[-30, 35.5], [-20, 21], [-13, 5], [-9, -12]])];
+      const travers = [];
+      for (const d of [...g, { pts: ptsP, w: wP, pouce: true }]) {
+        const marques = d.pouce ? [d.pts[2]] : [lerp(d.pts[0], d.pts[1], 0.12), d.pts[1], d.pts[2]];
+        marques.forEach((m, j) => {
+          const i = d.pouce ? 2 : Math.max(0, j), u = uni(sub(d.pts[Math.min(i + 1, d.pts.length - 1)], d.pts[Math.max(i - (j ? 1 : 0), 0)])), nn = gau(u), w = d.w[i] * 0.55;
+          travers.push([['M', add(m, mul(nn, w))], ['Q', add(m, mul(u, 1.2)), sub(m, mul(nn, w))]]);
+        });
+      }
+      pieces.push(traits(plis, 0.7));
+      pieces.push(traits(travers, 0.5));
+    } else {
+      // les têtes des métacarpiens, à peine marquées
+      const nodes = g.slice(0, 3).map(d => { const p = add(d.pts[0], [-1, 0]), w = d.w[0] * 0.3; return [['M', add(p, [-1.5, -w])], ['Q', add(p, [2, 0]), add(p, [-1.5, w])]]; });
+      pieces.push(traits(nodes, 0.5));
+    }
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: 0, y: 0, r: 0 }, poignet: [Wx, 0], bras: [cut, 0] };
   }
 
   // ── profil : la prise, le manche vu par le bout ──
@@ -729,7 +751,7 @@ module.exports = function formes(h) {
     pieces.push(doigt2(ptsI, wI, { sens: 1, ouvre: { dos: 0, ventre: 300 }, base: 4 }));
     pieces.push(doigt2(ptsT, wT, { sens: 1, ouvre: { dos: 40, ventre: 4 }, ongle: 'cote', base: 14 }));
     pieces.push({ remp: [...lisse(arcPts(R, 0, 360, 12), true)], trait: [], det: [], silhouette: false });
-    return { pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F, couche: 99 };
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F, couche: 99 };
   }
 
   // ── profil : la boule tenue dans le « C » du pouce et des doigts ──
@@ -762,7 +784,7 @@ module.exports = function formes(h) {
     pieces.push(plaque(P, [[0, 1], [7, 9]]));
     pieces.push(doigt2(ptsI, wI, { sens: -1, ouvre: { dos: 0, ventre: 300 }, base: 4 }));
     pieces.push(doigt2(ptsT, wT, { sens: 1, ouvre: { dos: 0, ventre: 46 }, ongle: 'cote', base: 4 }));
-    return { pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F };
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F };
   }
 
   // ── profil : la pince, le bout du pouce contre le bout de l'index ──
@@ -791,7 +813,7 @@ module.exports = function formes(h) {
     pieces.push(plaque(P, [[0, 3], [4, 6], [7, 9]]));
     pieces.push(doigt2(ptsI, wI, { ouvre: { dos: 0, ventre: 40 }, ongle: 'cote', base: 4 }));
     pieces.push(doigt2(ptsT, wT, { ouvre: { dos: 40, ventre: 0 }, ongle: 'cote', base: 4 }));
-    return { pieces, trou: { x: Q[0], y: Q[1], r: 0 }, poignet: W, bras: F, couche: pieces.length - 2 };
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: Q[0], y: Q[1], r: 0 }, poignet: W, bras: F, couche: pieces.length - 2 };
   }
 
   // ── profil : la paume à plat qui appuie (la surface est la ligne y = 0) ──
@@ -812,7 +834,51 @@ module.exports = function formes(h) {
     pieces.push(plaque(P, [[0, 3], [6, 10]]));
     pieces.push(doigt2(ptsI, wI, { ouvre: { dos: 0, ventre: 0 }, ongle: 'cote', base: 4 }));
     pieces.push(doigt2(ptsT, wT, { ouvre: { dos: 44, ventre: 0 }, ongle: 'cote', base: 10 }));
-    return { pieces, trou: { x: 0, y: 0, r: 0 }, poignet: W, bras: F };
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: 0, y: 0, r: 0 }, poignet: W, bras: F };
+  }
+
+  // ── profil : la main relâchée qui pend (vue du côté du pouce) ──
+  // Le poignet droit dans l'axe de l'avant-bras, les doigts serrés et un peu repliés en cascade
+  // (l'index le moins, l'auriculaire le plus : leurs bouts dépassent sous l'index), le pouce couché
+  // devant, son bout sous la première phalange de l'index. Doigts vers +x, dos de la main vers -y.
+  // trou : le milieu de la paume.
+  function pendProfil2(o) {
+    const W = [-92, 0], F = [W[0] - o.bras, 0];
+    const doigt = (nom, P0, a, fl) => ({ pts: chaine2(nom, P0, dirA(a), fl), w: D2[nom].w });
+    const iI = doigt('index', [0, -3], 9, [10, 13, 8]);
+    const iM = doigt('majeur', [3, -1.5], 12, [14, 15, 9]);
+    const iA = doigt('annulaire', [1, 0.5], 15, [18, 17, 10]);
+    const iO = doigt('auriculaire', [-5, 2.5], 19, [22, 19, 11]);
+    const ptsT = plie([-78, 9], dirA(14), [44, 31, 25 - 8.6], [0, -8, -12], 1), wT = [12.8, 11, 9.8, 8.6];
+    const P = [[F[0], -21], [W[0], -19.2], [-48, -16], [-6, -12.6], [8, -4], [8, 8], [-14, 16], [-60, 20], [W[0], 20.5], [F[0], 21.5]];
+    const pieces = [];
+    [iO, iA, iM].forEach(d => pieces.push(doigt2(d.pts, d.w, { base: 4, ouvre: { dos: 30, ventre: 20 } })));
+    pieces.push(plaque(P, [[0, 3], [7, 9]]));
+    pieces.push(doigt2(iI.pts, iI.w, { ouvre: { dos: 0, ventre: 12 }, ongle: 'cote', base: 6 }));
+    pieces.push(doigt2(ptsT, wT, { ouvre: { dos: 30, ventre: 0 }, ongle: 'cote', base: 10 }));
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: -40, y: 0, r: 0 }, poignet: W, bras: F };
+  }
+
+  // ── dos : la main relâchée qui pend, vue du dos (doigts vers la droite, pouce en haut) ──
+  // Les doigts serrés côte à côte, presque parallèles ; le pouce rentré le long de l'index, un peu
+  // derrière lui (côté paume), vu de côté, son bout à la hauteur de la première jointure de l'index.
+  // Le bord du pouce file du poignet sans cassure. trou : le milieu du dos de la main.
+  function pendDos2(o) {
+    const Wx = -94, cut = Wx - o.bras, pieces = [];
+    const g = [['index', [0, -26], 2.5, 0.95], ['majeur', [4, -8.7], 0.5, 0.95], ['annulaire', [1, 8.7], -1.5, 0.95], ['auriculaire', [-9, 25], -3.5, 0.95]]
+      .map(([nom, P0, a, k]) => ({ nom, w: D2[nom].w.map(v => v * 0.96), pts: chaine2(nom, P0, dirA(a), [0, 2, 2], 1, k) }));
+    const ptsP = plie([-80, -18.8], dirA(-16), [47, 32, 25 - 8.6], [0, 8, 6], 1);
+    const wP = [12.5, 11, 9.8, 8.6];
+    const iHaut = s => bord2(g[0].pts, g[0].w, 1, 1, s), aBas = s => bord2(g[3].pts, g[3].w, 1, -1, s);
+    // le pouce, derrière : son bord extérieur fait la silhouette, du poignet au bout
+    pieces.push(doigt2(ptsP, wP, { ouvre: { dos: 0, ventre: 62 }, ongle: 'cote', base: 3 }));
+    const P = [[cut, -29], [Wx, -29.5], [-60, -32], [-30, -35.5], iHaut(2), [20, -28], [24, 0], [18, 26], aBas(6),
+      [-20, 38], [-56, 36], [Wx, 30.5], [cut, 31.5]];
+    pieces.push(plaque(P, [[0, 4], [8, 12]]));
+    g.slice().reverse().forEach((d, j) => { const i = 3 - j; pieces.push(doigt2(d.pts, d.w, { ouvre: { dos: i === 0 ? 2 : 20, ventre: i === 3 ? 6 : 20 }, ongle: 'dessus' })); });
+    const nodes = g.slice(0, 3).map(d => { const p = add(d.pts[0], [-1, 0]), w = d.w[0] * 0.3; return [['M', add(p, [-1.5, -w])], ['Q', add(p, [2, 0]), add(p, [-1.5, w])]]; });
+    pieces.push(traits(nodes, 0.5));
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: -40, y: 0, r: 0 }, poignet: [Wx, 0], bras: [cut, 0] };
   }
 
   // ── dos : la prise vue du dos de la main (le manche passe derrière le poing) ──
@@ -833,7 +899,7 @@ module.exports = function formes(h) {
     const nodes = g.map(d => { const p = add(d.pts[0], [4, 0]), w = d.w[0] * 0.42; return [['M', add(p, [0, -w])], ['Q', add(p, [-4.5, 0]), add(p, [0, w])]]; });
     pieces.push(traits(nodes, 0.5));
     pieces.push(doigt2(ptsP, wP, { sens: 1, ouvre: { dos: 0, ventre: 40 }, ongle: 'dessus', base: 4 }));
-    return { pieces, trou: { x: xh, y: 0, r: R }, poignet: [Wx, 0], bras: [cut, 0] };
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: xh, y: 0, r: R }, poignet: [Wx, 0], bras: [cut, 0] };
   }
 
   // ── paume : la prise vue du côté de la paume (les doigts passent devant le manche) ──
@@ -857,7 +923,7 @@ module.exports = function formes(h) {
     g.forEach(d => pieces.push(doigt2(d.pts, d.w, { baseRonde: true })));
     // la deuxième jointure, à droite du manche : le bout arrondi de la première phalange
     pieces.push(doigt2(ptsP, wP, { ouvre: { dos: 40, ventre: 0 }, base: 16 }));
-    return { pieces, trou: { x: xh, y: 0, r: R }, poignet: [Wx, 0], bras: [cut, 0] };
+    return { coupe: [P[0], P[P.length - 1]], pieces, trou: { x: xh, y: 0, r: R }, poignet: [Wx, 0], bras: [cut, 0] };
   }
 
   const POSES = {
@@ -868,6 +934,9 @@ module.exports = function formes(h) {
     'pince/profil': (R, o) => pinceProfil2(o),
     'appui/profil': (R, o) => appuiProfil2(o),
     'appui/dos': (R, o) => appuiDos2(o),
+    'ouverte/paume': (R, o) => appuiDos2({ ...o, paume: true }),
+    'pend/profil': (R, o) => pendProfil2(o),
+    'pend/dos': (R, o) => pendDos2(o),
   };
 
 
@@ -879,6 +948,9 @@ module.exports = function formes(h) {
   //             'pince' : 'profil' (le bout du pouce contre le bout de l'index, l'anneau entre les deux)
   //             'boule' : 'profil' (la pierre dans le « C » : le pouce dessus, les doigts dessous)
   //             'appui' : 'profil' (la paume à plat sur la surface y = 0) · 'dos' (vue de dessus)
+  //             'ouverte' : 'paume' (la main ouverte vue de la paume, doigts vers la droite ; pouce en
+  //                       haut pour une main gauche, donc cote 'gauche' pour une main droite ; x, y aux jointures)
+  //             'pend'  : 'profil' · 'dos' (la main relâchée qui pend, doigts serrés ; x, y au milieu de la main)
   //   cote      'droite' (défaut) · 'gauche' : la même main en miroir
   //   echelle   unités de vue par mm (1 : une main de 190 du poignet au bout du majeur)
   //   angle     rotation en degrés, sens horaire, autour de (x, y)
@@ -904,10 +976,15 @@ module.exports = function formes(h) {
     const pt = p => T(p).map(f1);
     return forme(svg, {
       trou: { x: o.x || 0, y: o.y || 0, r: g.trou.r ? f1(R * e) : 0, axe: axe.map(v => Math.round(v * 1000) / 1000) },
-      poignet: pt(g.poignet), bras: pt(g.bras),
+      poignet: pt(g.poignet), bras: pt(g.bras), coupe: g.coupe ? g.coupe.map(pt) : null,
     });
   }
 
+  // ─── l'ancien personnage (silhouette réaliste, rejetée par JP : règle 8) ─────────────
+  // Gardé tel quel pour les planches qui le découpent ou le retouchent par le texte de ce fichier
+  // (29-08, 24-02, 24-13, 37-07, 47-01, 109-40) : personnage() lui passe la main pour une pose
+  // qu'il ne connaît pas et que ces planches ajoutent à POSTURES. À refaire en pictogramme ; ne
+  // pas s'en servir dans une nouvelle planche.
   // ─── les personnages ──────────────────────────────────────────────────────────────────
   // De profil, le regard vers la droite (cote 'gauche' : vers la gauche). Une silhouette au trait,
   // sans visage ni vêtement : le crâne, le nez, la bouche, le menton et l'oreille suffisent.
@@ -985,7 +1062,7 @@ module.exports = function formes(h) {
   //            (le bras se plie tout seul ; une cible hors d'atteinte donne le bras tendu vers elle)
   // Rend : bouche, oeil, nez, hanche, mains { proche, loin } (le bout des doigts) et poignets, en
   // coordonnées de la vue.
-  function personnage(o = {}) {
+  function personnageAncien(o = {}) {
     const P = POSTURES[o.pose || 'debout'];
     if (!P) throw new Error(`personnage : pose « ${o.pose} » inconnue (connues : ${Object.keys(POSTURES).join(', ')})`);
     const e = o.echelle || 0.2, ox = o.x || 0, oy = o.y || 0, ang = o.angle || 0, mir = o.cote === 'gauche';
@@ -1042,7 +1119,7 @@ module.exports = function formes(h) {
 
   // tete({ x, y, echelle, angle, cote, trait }) : la tête seule, de profil, repère à l'oreille, avec le
   // haut du cou coupé net.
-  function tete(o = {}) {
+  function teteAncienne(o = {}) {
     const e = o.echelle || 1;
     const T = repere({ x: o.x || 0, y: o.y || 0, echelle: e, angle: o.angle || 0, miroir: o.cote === 'gauche' });
     const id = p => p;
@@ -1056,7 +1133,7 @@ module.exports = function formes(h) {
 
   // buste({ x, y, echelle, angle, cote, regard, trait }) : tête, cou, épaules et haut du tronc, coupé
   // sous la poitrine ; repère au milieu de la coupe. Le bras proche pend, coupé avec le tronc.
-  function buste(o = {}) {
+  function busteAncien(o = {}) {
     const e = o.echelle || 0.5, regard = o.regard || 0;
     const T = repere({ x: o.x || 0, y: o.y || 0, echelle: e, angle: o.angle || 0, miroir: o.cote === 'gauche' });
     const coupe = -300, TT = p => [p[0], p[1] - coupe];
@@ -1075,6 +1152,467 @@ module.exports = function formes(h) {
     const brasP = tube({ pts: [S, E], sens: -1, dos: [[50, 43]], ventre: [[50, 40]], bout: 'ouvert', baseRonde: true });
     const svg = `<g data-forme="buste">\n${peindre([tronc, cou, tetePiece(TH), brasP], T, o.trait === 'fort')}\n</g>`;
     return forme(svg, { bouche: T(TH(TETE.bouche)).map(f1), nez: T(TH(TETE.nez)).map(f1), oeil: T(TH(TETE.oeil)).map(f1) });
+  }
+
+
+  // ─── les têtes, les bustes, les personnages ───────────────────────────────────────────
+  // Deux registres, jamais mélangés dans une même figure :
+  //   tete, buste      le trait sobre de manuel, de profil : contour, oreille simple, œil en petit
+  //                    trait, cheveux en masse. Pour un geste vu de près (souffler, tenir, regarder).
+  //   personnage       le pictogramme des cartes de sécurité d'avion (règle 8) : tête ronde sans
+  //                    visage, tronc et membres en bandes d'épaisseur égale, articulations nettes.
+  //                    Il montre la POSITION, rien d'autre.
+  // Les bras qui finissent par une main de la bibliothèque passent par brasVersMain : le coude se
+  // place sur l'axe de l'avant-bras de la main, l'avant-bras rejoint le moignon de la main bord à
+  // bord, sans cassure.
+
+  // ── les têtes de profil, regard vers la droite, repère à l'oreille, en mm réels ──
+  // crane : de la nuque au sourcil ; nez : du sourcil au dessous du nez ; levres : du dessous du nez
+  // à la gorge. Chaque suite est lissée seule ; les jonctions sont des coins (le creux du nez, le
+  // dessous du nez). cheveux : la ligne d'implantation, du front à la nuque (le dessus suit le crâne).
+  const TETES = {
+    adulte: {
+      crane: [[-50, 64], [-74, 40], [-89, 0], [-89, -48], [-70, -94], [-31, -123], [18, -129], [60, -115], [86, -86], [96, -54], [98, -33]],
+      nez: [[98, -33], [96, -24], [103, -9], [111, 5], [114, 12], [111, 17], [102, 19]],
+      levres: [[102, 19], [103.5, 29], [100.5, 35.5], [102, 42], [97, 52], [100, 67], [96, 84], [80, 95], [54, 100]],
+      oreille: { c: [-2, -1], h: 58 }, oeil: [80, -24], bouche: [100.5, 35.5], atlas: [6, 34],
+      cheveux: { ep: 7, av: 7, ar: 1,      // av, ar : les indices du crâne où la masse commence et finit
+        courts: [[90, -80], [66, -82], [44, -66], [30, -44], [22, -34], [6, -41], [-14, -40], [-28, -24], [-34, 6], [-40, 38], [-56, 52]],
+        longs: { bas: [[-98, 30], [-100, 90], [-92, 150], [-74, 172], [-46, 166]],
+          ligne: [[90, -80], [66, -82], [44, -66], [30, -44], [22, -34], [6, -41], [-14, -40], [-28, -24], [-34, 10], [-42, 60], [-40, 120], [-46, 166]] },
+        meches: [[[60, -104], [20, -102], [-26, -84]], [[30, -118], [-14, -114], [-56, -86]]] },
+      cou: { gorge: [54, 100], nuque: [-50, 64], av: [48, 148], ar: [-47, 148] },
+    },
+    enfant: {   // 4 à 6 ans : le crâne gros et rond, le visage petit et bas, le nez court qui retrousse
+      crane: [[-46, 50], [-72, 30], [-90, -6], [-90, -56], [-68, -100], [-24, -124], [28, -124], [66, -102], [86, -68], [91, -36], [89, -16]],
+      nez: [[89, -16], [88, -10], [94, 0], [99, 9], [98, 13], [91, 15]],
+      levres: [[91, 15], [92.5, 22], [90, 27], [91.5, 32], [87, 39], [89, 50], [83, 62], [66, 70], [44, 73]],
+      oreille: { c: [-4, 2], h: 46 }, oeil: [74, -10], bouche: [90, 27], atlas: [4, 26],
+      cheveux: { ep: 7, av: 7, ar: 1,
+        courts: [[84, -76], [62, -78], [42, -62], [28, -40], [20, -26], [6, -28], [-12, -28], [-26, -14], [-32, 14], [-38, 34], [-50, 42]],
+        longs: { bas: [[-96, 20], [-98, 70], [-90, 118], [-72, 136], [-44, 130]],
+          ligne: [[84, -76], [62, -78], [42, -62], [28, -40], [20, -26], [6, -28], [-12, -28], [-26, -14], [-32, 16], [-40, 60], [-38, 100], [-44, 130]] },
+        meches: [[[54, -106], [14, -104], [-30, -86]], [[24, -120], [-18, -114], [-58, -90]]] },
+      cou: { gorge: [44, 73], nuque: [-46, 50], av: [40, 108], ar: [-42, 108] },
+    },
+    bebe: {     // la tête ronde, le front qui bombe, le visage tassé dans le bas, presque pas de menton
+      crane: [[-42, 40], [-70, 22], [-88, -12], [-86, -60], [-58, -100], [-10, -114], [38, -104], [70, -76], [84, -40], [84, -8]],
+      nez: [[84, -8], [86, 2], [90, 10], [88, 15], [83, 16]],
+      levres: [[83, 16], [84.5, 23], [82, 27], [83, 31.5], [79, 37], [79.5, 45], [70, 54], [46, 58]],
+      oreille: { c: [-8, 6], h: 38 }, oeil: [68, 2], bouche: [82, 27], atlas: [2, 22],
+      cheveux: null,
+      cou: { gorge: [46, 58], nuque: [-42, 40], av: [42, 78], ar: [-40, 78] },
+    },
+  };
+  const cmdsMap = (c, TT) => c.map(k => [k[0], ...k.slice(1).map(TT)]);
+  // Décale une suite de points de d vers l'extérieur (loin du point C).
+  // d : un nombre, ou une fonction (i, n) → décalage du point i sur n.
+  const decale = (pts, d, C) => pts.map((p, i) => {
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)];
+    let n = gau(uni(sub(b, a))); if (dot(n, sub(p, C)) < 0) n = mul(n, -1);
+    return add(p, mul(n, typeof d === 'function' ? d(i, pts.length) : d));
+  });
+  // Les pièces d'une tête, dans le repère TT (tête → repère de peinture).
+  //   o.age 'adulte' · 'enfant' · 'bebe' ; o.cheveux 'courts' (défaut, rien pour le bébé) · 'longs' · false
+  //   o.sourcil true : un trait léger au-dessus de l'œil (adulte seulement, défaut : non)
+  function tetePieces(o, TT) {
+    const age = o.age || 'adulte', D = TETES[age];
+    if (!D) throw new Error(`tete : âge « ${o.age} » inconnu (connus : ${Object.keys(TETES).join(', ')})`);
+    const contour = suite(lisseC(D.crane), lisseC(D.nez), lisseC(D.levres));
+    const C = [0, -20];
+    const tete = { remp: [...cmdsMap(contour, TT), ['L', TT(add(D.cou.gorge, [-20, 30]))], ['L', TT(add(D.cou.nuque, [10, 30]))], ['Z']], trait: [cmdsMap(contour, TT)], det: [], epDet: 0.7 };
+    // l'œil : un petit trait de paupière ; la bouche : la commissure, courte
+    const E = D.oeil, k = age === 'adulte' ? 1 : 0.85;
+    const pupille = { remp: null, trait: [], det: [], noir: true, silhouette: false };
+    tete.det.push(cmdsMap([['M', add(E, [-9 * k, -1 * k])], ['Q', add(E, [-1, -7 * k]), add(E, [7 * k, 0])]], TT));
+    const pu = add(E, [-1.5 * k, 0.6]), rp = 1.9 * k;       // la pupille : un point sous la paupière
+    pupille.remp = cmdsMap([['M', add(pu, [rp, 0])], ['C', add(pu, [rp, rp * 1.1]), add(pu, [-rp, rp * 1.1]), add(pu, [-rp, 0])], ['C', add(pu, [-rp, -rp * 1.1]), add(pu, [rp, -rp * 1.1]), add(pu, [rp, 0])], ['Z']], TT);
+    tete.det.push(cmdsMap([['M', D.bouche], ['L', add(D.bouche, [-6 * k, 0.6])]], TT));
+    if (o.sourcil && age === 'adulte') tete.det.push(cmdsMap([['M', add(E, [-12, -15])], ['Q', add(E, [-2, -20]), add(E, [9, -15])]], TT));
+    const pieces = [tete, pupille];
+    // les cheveux : une masse simple, le dessus qui suit le crâne, la ligne d'implantation au trait
+    // fin, deux mèches pour dire que c'est des cheveux
+    const ch = o.cheveux == null ? (D.cheveux ? 'courts' : false) : o.cheveux;
+    if (ch && D.cheveux) {
+      const Hc = D.cheveux, longs = ch === 'longs';
+      const lig = longs ? Hc.longs.ligne : Hc.courts;
+      // l'épaisseur monte depuis la nuque et retombe au front : la masse se fond dans le crâne
+      const ramp = longs ? (i, n) => Hc.ep * Math.min(1, 0.6 + (n - 1 - i) / 2) : (i, n) => Hc.ep * Math.min(1, i / 2, 0.6 + (n - 1 - i) / 2);
+      let dessus = decale(D.crane.slice(Hc.ar, Hc.av + 1), ramp, C);
+      if (longs) dessus = [...Hc.longs.bas.slice().reverse(), ...dessus.slice(2)];
+      else dessus = dessus.slice(1).length ? [lig[lig.length - 1], ...dessus.slice(1)] : dessus;
+      const bord = [...dessus, lig[0]];
+      const out = lisseC(bord), inn = lisseC(lig.slice().reverse());
+      const det = [cmdsMap(lisseC(lig), TT), ...Hc.meches.map(m => cmdsMap(lisseC(m), TT))];
+      pieces.push({ remp: cmdsMap([...out, ...inn.slice(1), ['Z']], TT), trait: [cmdsMap(out, TT)], det, epDet: 0.7 });
+    }
+    // l'oreille : un « C » ouvert vers l'avant, un pli à l'intérieur ; devant les cheveux
+    const { c: Oc, h: Oh } = D.oreille, r = Oh / 2;
+    const ore = [add(Oc, [5, -r]), add(Oc, [-10, -r * 0.95]), add(Oc, [-r * 0.62, -r * 0.3]), add(Oc, [-r * 0.5, r * 0.45]), add(Oc, [-4, r]), add(Oc, [5, r * 0.82])];
+    const oc = lisseC(ore);
+    pieces.push({ remp: cmdsMap([...oc, ['Z']], TT), trait: [cmdsMap(oc, TT)], det: [cmdsMap(lisseC([add(Oc, [2, -r * 0.55]), add(Oc, [-r * 0.32, -r * 0.1]), add(Oc, [-2, r * 0.45])]), TT)], ep: 0.7, silhouette: false });
+    return { pieces, D };
+  }
+
+  // tete({ x, y, echelle, angle, cote, trait, age, cheveux, sourcil, cou }) : la tête seule, de
+  // profil, repère à l'oreille, le cou coupé net (cou: false : sans cou).
+  // Rend : bouche, nez, oeil, menton, sommet, nuque, en coordonnées de la vue.
+  function tete(o = {}) {
+    const e = o.echelle || 1;
+    const T = repere({ x: o.x || 0, y: o.y || 0, echelle: e, angle: o.angle || 0, miroir: o.cote === 'gauche' });
+    const id = p => p;
+    const { pieces, D } = tetePieces(o, id);
+    const out = [];
+    if (o.cou !== false) {
+      const { gorge: g, nuque: n, av, ar } = D.cou;
+      const lg = lisseC([g, lerp(g, av, 0.5), av]), ln = lisseC([n, lerp(n, ar, 0.5), ar]);
+      out.push({ remp: [...lg, ['L', ar], ...lisseC([ar, lerp(n, ar, 0.5), n]).slice(1), ['Z']], trait: [lg, ln], det: [] });
+    }
+    out.push(...pieces);
+    const svg = `<g data-forme="tete-${o.age || 'adulte'}">\n${peindre(out, T, o.trait === 'fort')}\n</g>`;
+    const v = p => T(p).map(f1);
+    const nz = D.nez.reduce((m, p) => (p[0] > m[0] ? p : m));
+    return forme(svg, { bouche: v(D.bouche), nez: v(nz), oeil: v(D.oeil), menton: v(D.levres[D.levres.length - 3]),
+      sommet: v(D.crane.reduce((m, p) => (p[1] < m[1] ? p : m))), nuque: v(D.cou.nuque) });
+  }
+
+  // ── le bras qui finit par une main de la bibliothèque ──
+  // S : l'épaule, en coordonnées de la vue ; mo : les options de main() (x, y, pose, vue, angle…) ;
+  // L1, L2 : bras et avant-bras (coude → poignet), en unités de vue ; sg : +1 regard vers la droite.
+  // Le coude se pose sur l'axe de l'avant-bras de la main, à la distance L1 de l'épaule. Sans
+  // angle donné, la main tourne jusqu'à ce que l'avant-bras ait sa longueur, que le coude plie dans
+  // le bon sens et que le bras tombe de l'épaule sans se lever plus qu'il ne faut (appui de profil :
+  // la main reste à plat, c'est l'inclinaison de l'avant-bras qui cherche).
+  // Rend { m (la main), E (le coude), B (le milieu de la coupe du poignet), d (l'axe), a, b }.
+  function brasVersMain(S, mo, L1, L2, sg) {
+    const essai = (ang, inc) => {
+      const m = main(Object.assign({}, mo, { angle: ang }, inc == null ? {} : { inclinaison: inc }));
+      const [a, b] = m.coupe, B = lerp(a, b, 0.5);
+      const d = uni(sub(m.poignet, m.bras)), t0 = L2 - lon(sub(m.poignet, B));
+      const w = sub(B, S), wd = dot(w, d), disc = wd * wd - dot(w, w) + L1 * L1;
+      let t = null, err;
+      if (disc >= 0) {
+        const r = [wd - Math.sqrt(disc), wd + Math.sqrt(disc)].filter(v => v > 0.4 * t0);
+        if (r.length) t = r.reduce((x, y) => (Math.abs(y - t0) < Math.abs(x - t0) ? y : x));
+      }
+      if (t == null) { t = t0; err = 10 + Math.abs(lon(sub(sub(B, mul(d, t0)), S)) - L1) / L1; }
+      else err = 1.5 * Math.abs(t - t0) / t0;
+      const E = sub(B, mul(d, t));
+      // le coude plie toujours du même côté : l'avant-bras tourne vers l'avant
+      const pli = crx(sub(E, S), sub(B, E)) * sg;
+      if (pli > 0.12 * L1 * t) err += 2 + pli / (L1 * t);
+      // le bras part vers le bas et un peu vers l'avant, comme un bras qui travaille
+      const pref = [sg * Math.sin(25 * RAD), Math.cos(25 * RAD)];
+      err += 0.35 * Math.abs(angleDe(pref, sub(E, S))) / 90;
+      // jamais le coude au-dessus de l'épaule sans raison : la main assez basse ne lève pas le coude
+      const hautE = (S[1] - E[1]) / L1;
+      if (hautE > 0.2) err += 1 + hautE;
+      return { m, E, B, d, a, b, err, ang };
+    };
+    if (mo.pose === 'appui' && (mo.vue || 'profil') === 'profil' && mo.inclinaison == null) {
+      let best = null;
+      for (let inc = 10; inc <= 85; inc += 1) { const r = essai(mo.angle || 0, inc); if (!best || r.err < best.err) best = r; }
+      if (best.err >= 10) console.warn(`formes : la main (${f1(mo.x)}, ${f1(mo.y)}) est hors d'atteinte de l'épaule : rapproche-la`);
+      return best;
+    }
+    const avertit = r => { if (r.err >= 10) console.warn(`formes : la main (${f1(mo.x)}, ${f1(mo.y)}) est hors d'atteinte de l'épaule : rapproche-la`); return r; };
+    if (mo.angle != null) return avertit(essai(mo.angle));
+    let best = null;
+    for (let ang = -180; ang < 180; ang += 4) { const r = essai(ang); if (!best || r.err < best.err) best = r; }
+    for (let ang = best.ang - 4; ang <= best.ang + 4; ang += 0.5) { const r = essai(ang); if (r.err < best.err) best = r; }
+    return avertit(best);
+  }
+  // Le bras d'un buste, au trait : le bras de l'épaule au coude, rond aux deux bouts ; l'avant-bras
+  // par-dessus, rond au coude, le gras de l'avant-bras près du coude, ses deux bords qui finissent
+  // sur ceux du moignon de la main (a, b), dans l'axe : la main le prolonge sans cassure.
+  //   rS, rE : demi-largeurs du bras à l'épaule et au coude (mm)
+  function brasPieces(S, E, B, a, b, rS = 50, rE = 41) {
+    const haut = tube({ pts: [S, E], sens: 1, dos: [[rS, rE]], ventre: [[rS - 2, rE]], bout: 'rond', baseRonde: true });
+    const d = uni(sub(B, E)), n = gau(d), L = lon(sub(B, E));
+    const [ap, am] = dot(sub(a, B), n) > 0 ? [a, b] : [b, a];
+    const wp = dot(sub(ap, B), n), wm = -dot(sub(am, B), n);
+    const at = (s, w) => add(add(E, mul(d, s)), mul(n, w));
+    const r0 = rE - 1;
+    const cote = sgn => {
+      const wf = sgn > 0 ? wp : wm;
+      return [0.18, 0.4, 0.62, 0.82].map(f => at(f * L, sgn * (r0 + (sgn > 0 ? 3 : 1.5) * Math.sin(Math.PI * Math.min(1, f / 0.5)) * (f < 0.5 ? 1 : 0) + (wf - r0) * Math.pow(Math.max(0, (f - 0.15) / 0.85), 1.3))));
+    };
+    const cap = [at(0, r0), at(-r0 * 0.72, r0 * 0.72), at(-r0, 0), at(-r0 * 0.72, -r0 * 0.72), at(0, -r0)];
+    const pts = [ap, ...cote(1).reverse(), ...cap, ...cote(-1), am];
+    const c = lisseC(pts);
+    return [haut, { remp: [...c, ['Z']], trait: [c], det: [] }];
+  }
+
+  // buste({ x, y, echelle, angle, cote, regard, trait, age, cheveux, col, main, mainLoin, coupe }) :
+  // tête, cou, épaules et haut du tronc, coupé sous la poitrine ; repère au milieu de la coupe.
+  //   coupe     où couper, en mm sous l'oreille (adulte : 380 sans main, 560 avec ; enfant : 260, 380)
+  //   main      sans : le bras proche pend, coupé avec le tronc. Avec { x, y, pose, vue, … } (les
+  //             options de main(), en coordonnées de la vue, echelle par défaut celle du buste) : le
+  //             bras proche va de l'épaule à cette main, l'avant-bras rejoint son poignet. Ce qui du
+  //             bras passe sous la coupe est coupé avec le tronc.
+  //   mainLoin  la même chose pour le bras loin, peint derrière le tronc.
+  //   col       true (défaut) : l'encolure du vêtement, un trait à la base du cou.
+  // Rend : bouche, nez, oeil, epaule, coude, mains { proche, loin } (les résultats de main()).
+  const BUSTE = {
+    adulte: { coupe: 380, dos: [[-50, 64], [-55, 98], [-68, 130], [-92, 160], [-112, 198], [-123, 250], [-126, 310], [-124, 380]],
+      face: [[54, 100], [47, 128], [45, 156], [56, 176], [84, 196], [106, 228], [117, 274], [118, 330], [114, 380]],
+      epaule: [-18, 214], rS: 54, rE: 42, col: [[-60, 128], [-24, 152], [14, 170], [46, 168]], L: [300, 255] },
+    enfant: { coupe: 260, dos: [[-46, 50], [-50, 74], [-60, 96], [-76, 116], [-88, 144], [-94, 180], [-94, 220], [-92, 260]],
+      face: [[44, 73], [39, 92], [38, 112], [48, 126], [66, 142], [80, 166], [86, 200], [86, 260]],
+      epaule: [-14, 154], rS: 38, rE: 30, col: [[-52, 92], [-20, 110], [10, 122], [38, 120]], L: [185, 165] },
+  };
+  let nClip = 0;
+  function buste(o = {}) {
+    const age = o.age === 'bebe' ? 'enfant' : (o.age || 'adulte');
+    const B = Object.assign({}, BUSTE[age]);
+    // la coupe : sous la poitrine ; plus bas quand un bras travaille, pour que le coude se voie
+    const kc = age === 'adulte' ? 1 : 0.68;
+    B.coupe = o.coupe || ((o.main || o.mainLoin) ? Math.round(560 * kc) : B.coupe);
+    if (B.coupe > B.dos[B.dos.length - 1][1]) {
+      const yd = B.dos[B.dos.length - 1], yf = B.face[B.face.length - 1];
+      B.dos = [...B.dos, [yd[0] + 2, B.coupe]]; B.face = [...B.face, [yf[0] - 4, B.coupe]];
+    }
+    const e = o.echelle || 0.5, regard = o.regard || 0, mir = o.cote === 'gauche', sg = mir ? -1 : 1;
+    const ox = o.x || 0, oy = o.y || 0, ang = o.angle || 0;
+    const c0 = [-4, B.coupe];
+    const T0 = repere({ x: ox, y: oy, echelle: e, angle: ang, miroir: mir });
+    const T = p => T0(sub(p, c0));
+    const Tinv = q => { let p = tourne(sub(q, [ox, oy]), -ang); p = mul(p, 1 / e); if (mir) p = [-p[0], p[1]]; return add(p, c0); };
+    const D = TETES[age];
+    const at = D.atlas, TH = p => add(at, tourne(sub(p, at), regard));
+    const { pieces: tp } = tetePieces(Object.assign({}, o, { age }), TH);
+    // le tronc : le dos et le devant, de la nuque et de la gorge jusqu'à la coupe
+    const dos = [TH(B.dos[0]), ...B.dos.slice(1)], face = [TH(B.face[0]), ...B.face.slice(1)];
+    const ld = lisseC(dos), lf = lisseC(face);
+    const tronc = { remp: [...ld, ['L', face[face.length - 1]], ...lisseC(face.slice().reverse()).slice(1), ['Z']], trait: [ld, lf], det: [], epDet: 0.7 };
+    if (o.col !== false) tronc.det.push(lisseC(B.col));
+    const S = B.epaule, res = { proche: null, loin: null };
+    let coude = null;
+    // ce qui passe sous la coupe est coupé, comme le tronc
+    const id = `buste-coupe-${++nClip}`;
+    const clip = `<clipPath id="${id}"><polygon points="${[[-3000, -3000], [3000, -3000], [3000, B.coupe], [-3000, B.coupe]].map(p => T(p).map(f1).join(',')).join(' ')}"/></clipPath>`;
+    const brasMain = (mo, Sb) => {
+      const r = brasVersMain(T(Sb), Object.assign({ echelle: e, cote: o.cote }, mo), B.L[0] * e, B.L[1] * e, sg);
+      return { pieces: brasPieces(Sb, Tinv(r.E), Tinv(r.B), Tinv(r.a), Tinv(r.b), B.rS, B.rE), r };
+    };
+    const fort = o.trait === 'fort';
+    const peint = (lot, coupe = false) => { const s = peindre(lot, T, fort); return coupe ? `<g clip-path="url(#${id})">\n${s}\n</g>` : s; };
+    const out = [`<defs>${clip}</defs>`];
+    if (o.mainLoin) {
+      const { pieces, r } = brasMain(o.mainLoin, add(S, [12, -8]));
+      out.push(peint(pieces, true), r.m.svg); res.loin = r.m;
+    }
+    out.push(peint([tronc, ...tp]));
+    if (o.main) {
+      const { pieces, r } = brasMain(o.main, S);
+      out.push(peint(pieces, true), r.m.svg); res.proche = r.m; coude = r.E.map(f1);
+    } else {
+      // le bras qui pend, coupé avec le tronc
+      // (le bras s'amincit de l'épaule au coude ; la coupe le prend où elle passe)
+      const Lb = B.L[0] * 1.15, Eb = [S[0] + Lb * 0.05, S[1] + Lb];
+      out.push(peint([tube({ pts: [S, Eb], sens: 1, dos: [[B.rS, B.rE * 0.92]], ventre: [[B.rS * 0.94, B.rE * 0.92]], bout: 'ouvert', baseRonde: true })], true));
+    }
+    const svg = `<g data-forme="buste-${age}">\n${out.join('\n')}\n</g>`;
+    const v = p => T(p).map(f1);
+    return forme(svg, { bouche: v(TH(D.bouche)), nez: v(TH(D.nez.reduce((m, p) => (p[0] > m[0] ? p : m)))), oeil: v(TH(D.oeil)),
+      epaule: v(S), coude, mains: res });
+  }
+
+  // ── le personnage : le pictogramme ──
+  // Mesures par âge, en mm : hauteur, tête (diamètre), tronc (de la hanche à l'épaule) et son
+  // épaisseur, cuisse, jambe (genou → cheville), hauteur de cheville, pied, bras, avant-bras (coude →
+  // poignet), main ; bandes du bras et de la jambe. Debout, la tête fait le septième de la hauteur
+  // (le cinquième et demi chez l'enfant), le bout des doigts tombe à mi-cuisse.
+  const CORPS = {
+    adulte: { H: 1750, tete: 245, tronc: 500, ep: 285, cuisse: 430, jambe: 420, cheville: 80, pied: 255, bras: 300, avBras: 255, main: 185, bB: 92, bJ: 122, cou: 26 },
+    enfant: { H: 1100, tete: 196, tronc: 310, ep: 190, cuisse: 262, jambe: 240, cheville: 52, pied: 165, bras: 182, avBras: 160, main: 112, bB: 66, bJ: 84, cou: 18 },
+  };
+  // Les poses : penché du tronc t (degrés vers l'avant depuis la verticale ; -90 : couché sur le
+  // dos, la tête à gauche), regard (la tête, + vers le bas) ; pour chaque jambe l'angle de la cuisse
+  // et de la jambe depuis la verticale descendante (+ vers l'avant) et celui du pied (0 : à plat vers
+  // l'avant, + les orteils vers le bas) ; pour chaque bras, bras et avant-bras de même. ancre : le
+  // point au sol qui se pose en (x, y) — 'pieds' (entre les chevilles), 'genou' (le genou proche),
+  // 'hanche' (sous la hanche).
+  const POSES_P = {
+    debout:   { t: 2, regard: 0, ancre: 'pieds', proche: [3, 3, 0], loin: [-3, -3, 0], bras: { proche: [5, 10], loin: [-4, 3] } },
+    penche:   { t: 58, regard: 18, ancre: 'pieds', proche: [-14, 3, 0], loin: [-18, -1, 0], bras: { proche: [22, 34], loin: [12, 22] } },
+    accroupi: { t: 30, regard: 10, ancre: 'pieds', proche: [104, -20, 0], loin: [100, -24, 0], bras: { proche: [38, 76], loin: [32, 70] } },
+    assis:    { t: 4, regard: 6, ancre: 'hanche', proche: [90, 2, 0], loin: [86, -2, 0], bras: { proche: [14, 82], loin: [10, 76] } },
+    'assis-sol': { t: 14, regard: 8, ancre: 'hanche', proche: [88, 88, -78], loin: [84, 84, -80], bras: { proche: [-35, -40], loin: [-40, -44] } },
+    couche:   { t: -90, regard: 0, ancre: 'hanche', proche: [90, 90, -88], loin: [88, 88, -86], bras: { proche: [82, 86], loin: [80, 84] } },
+    // couché sur le dos, les genoux pliés, les pieds à plat (soins, accouchement)
+    'couche-genoux': { t: -90, regard: 0, ancre: 'hanche', proche: [135, 29, 0], loin: [131, 33, 0], bras: { proche: [82, 86], loin: [80, 84] } },
+    // couché sur le dos, les cuisses ramenées vers les épaules, les jambes du bas en l'air (29-08)
+    'couche-replie': { t: -90, regard: 0, ancre: 'hanche', proche: [200, 68, -62], loin: [197, 65, -65], bras: { proche: [100, 160], loin: [96, 156] } },
+    // à quatre pattes : les genoux sous les hanches, les mains au sol sous les épaules (29-08)
+    'quatre-pattes': { t: 76, regard: 40, ancre: 'genou', proche: [2, -90, 180], loin: [0, -90, 180], bras: { proche: [12, 12], loin: [10, 10] } },
+    genoux:   { t: 8, regard: 10, ancre: 'genou', proche: [4, -90, 180], loin: [2, -90, 180], bras: { proche: [16, 34], loin: [10, 26] } },
+    genou:    { t: 6, regard: 10, ancre: 'genou', proche: [86, 0, 0], loin: [2, -90, 180], bras: { proche: [22, 70], loin: [8, 30] } },
+    // tire : à demi accroupi, les genoux pliés, le dos droit penché, pour tirer une charge en reculant
+    tire:     { t: 40, regard: 10, ancre: 'pieds', proche: [66, -20, 0], loin: [58, -28, 0], bras: { proche: [40, 70], loin: [36, 64] } },
+    portage:  { t: 16, regard: -4, ancre: 'pieds', proche: [24, 6, 0], loin: [-16, -32, 24], bras: { proche: [18, 42], loin: [-14, 6] } },
+  };
+  POSES_P.couché = POSES_P.couche; POSES_P['penché'] = POSES_P.penche; POSES_P['à genoux'] = POSES_P.genoux;
+  const vBas = a => [Math.sin(a * RAD), Math.cos(a * RAD)];      // direction depuis la verticale descendante
+  // une bande : capsule de P à Q, rayon r (quatre quarts de cercle en cubiques)
+  const KC = 0.5523;
+  function capsule(P, Q, r, ouvert = false) {
+    const u = uni(sub(Q, P)), n = gau(u);
+    const A1 = add(P, mul(n, r)), A2 = add(Q, mul(n, r)), B2 = sub(Q, mul(n, r)), B1 = sub(P, mul(n, r));
+    const Qt = add(Q, mul(u, r)), Pt = sub(P, mul(u, r));
+    const bout = (A, M, B, c, uu, nn) => [['C', add(A, mul(uu, KC * r)), add(M, mul(nn, KC * r)), M], ['C', sub(M, mul(nn, KC * r)), add(B, mul(uu, KC * r)), B]];
+    const c = [['M', A1], ['L', A2], ...bout(A2, Qt, B2, Q, u, n), ['L', B1], ...bout(B1, Pt, A1, P, mul(u, -1), mul(n, -1))];
+    return [...c, ['Z']];
+  }
+  const cercle = (C, r) => { const p = a => add(C, mul(dirA(a), r)), q = a => mul(dirA(a + 90), KC * r);
+    return [['M', p(0)], ...[0, 90, 180, 270].map(a => ['C', add(p(a), q(a)), sub(p(a + 90), q(a + 90)), p(a + 90)]), ['Z']]; };
+  // l'avant-bras qui finit sur le moignon d'une main : le coude rond, les bords droits jusqu'à a, b
+  function avantBrasVers(E, r, a, b, B) {
+    const d = uni(sub(B, E)), n = gau(d);
+    const [ap, am] = dot(sub(a, B), n) > 0 ? [a, b] : [b, a];
+    const Ep = add(E, mul(n, r)), Em = sub(E, mul(n, r)), Et = sub(E, mul(d, r));
+    const md = mul(d, -1), mn = mul(n, -1);
+    const tr = [['M', ap], ['L', Ep], ['C', add(Ep, mul(md, KC * r)), add(Et, mul(n, KC * r)), Et], ['C', add(Et, mul(mn, KC * r)), add(Em, mul(md, KC * r)), Em], ['L', am]];
+    return { remp: [...tr, ['Z']], trait: [tr], det: [] };
+  }
+
+  // personnage({ x, y, pose, echelle, cote, angle, penche, regard, mains, prises, age, rendu,
+  //              enceinte, trait })
+  //   x, y      le point au sol sous le personnage : debout, penché, accroupi, portage : entre les
+  //             pieds ; à genoux, un genou : sous le genou proche ; assis, assis-sol, couché : sous
+  //             la hanche (assis : sur une chaise, les pieds au sol ; le siège n'est pas dessiné)
+  //   pose      'debout' · 'penche' · 'accroupi' · 'assis' · 'assis-sol' · 'couche' (sur le dos) ·
+  //             'genoux' (les deux genoux au sol) · 'genou' (un genou au sol) · 'portage' (penché en
+  //             marche, une charge au dos : rend dos, le point où l'appuyer)
+  //   echelle   unités de vue par mm (0,2 : 350 de haut debout)
+  //   age       'adulte' (défaut, 1750 mm) · 'enfant' (5 ans, 1100 mm)
+  //   penche    inclinaison du tronc en degrés vers l'avant ; regard : la tête, + vers le bas
+  //   mains     { proche: [x, y], loin: [x, y] } : où poser les poignets, en coordonnées de la vue
+  //             (le bras se plie tout seul ; hors d'atteinte, il se tend vers la cible)
+  //   prises    { proche: { x, y, pose, vue, … }, loin: … } : au lieu de la moufle du pictogramme, une
+  //             main de la bibliothèque (options de main(), en coordonnées de la vue, echelle par
+  //             défaut celle du personnage) ; le bras va la chercher, l'avant-bras rejoint son poignet
+  //   rendu     'trait' (défaut : blanc cerné) · 'plein' (aplat noir, un blanc entre les pièces)
+  //   enceinte  true : un ventre arrondi simple
+  //   coupe     true : la coupe par le milieu du corps, sans la jambe ni le bras proches
+  // Rend : tete { x, y, r }, bouche, oeil, nez (des points sur le rond de la tête, pour placer une
+  // flèche de souffle), hanche, epaules, genoux, mains { proche, loin } (le bout des doigts, ou le
+  // résultat de main() pour une prise), poignets, siege (assis : sous la fesse), dos (portage).
+  function personnage(o = {}) {
+    const P = POSES_P[o.pose || 'debout'];
+    if (!P && POSTURES[o.pose]) return personnageAncien(o);     // une pose ajoutée par une planche à l'ancienne
+    if (!P) throw new Error(`personnage : pose « ${o.pose} » inconnue (connues : ${Object.keys(POSES_P).filter(k => /^[a-z-]+$/.test(k)).join(', ')})`);
+    const C = CORPS[o.age === 'bebe' ? 'enfant' : (o.age || 'adulte')];
+    const e = o.echelle || 0.2, ox = o.x || 0, oy = o.y || 0, ang = o.angle || 0, mir = o.cote === 'gauche', sg = mir ? -1 : 1;
+    const t = o.penche == null ? P.t : o.penche, regard = o.regard == null ? P.regard : o.regard;
+    const U = [Math.sin(t * RAD), -Math.cos(t * RAD)], Fw = [Math.cos(t * RAD), Math.sin(t * RAD)];
+    const rB = C.bB / 2, rJ = C.bJ / 2, ep = C.ep;
+    // le squelette, hanche en (0, 0)
+    const H0 = [0, 0];
+    const loc = (f, u) => add(H0, add(mul(Fw, f), mul(U, u)));
+    const jambeS = ([a1, a2, ap], dx) => {
+      const Hh = add(H0, mul(Fw, dx)), K = add(Hh, mul(vBas(a1), C.cuisse)), A = add(K, mul(vBas(a2), C.jambe));
+      const f = dirA(ap), d = [-f[1], f[0]];        // d : le dessous du pied (la semelle)
+      const hc = C.cheville, rp = hc / 2;
+      // à genoux, le cou-de-pied à plat au sol dans l'axe de la jambe ; sinon la semelle sous la cheville
+      const off = f[0] < -0.8 ? 0 : hc - rp, recul = f[0] < -0.8 ? 0.05 : 0.2;
+      const talon = add(add(A, mul(d, off)), mul(f, -recul * C.pied + rp)), orteil = add(add(A, mul(d, off)), mul(f, (1 - recul) * C.pied - rp));
+      return { Hh, K, A, talon, orteil, rp, sole: [add(talon, mul(d, rp)), add(orteil, mul(d, rp))] };
+    };
+    const jp = jambeS(P.proche, 6), jl = jambeS(P.loin, -6);
+    const Sp = loc(-0.06 * ep, C.tronc), Sl = loc(-0.02 * ep, C.tronc + 8);
+    // le tronc : un bloc arrondi, la fesse sous la hanche, l'épaule ronde en haut
+    const v = o.enceinte ? 1 : 0, Lt = C.tronc;
+    const tr = [[-0.5, 0.94], [-0.52, 0.5], [-0.5, 0.06], [-0.38, -0.26 * ep / Lt], [-0.08, -0.36 * ep / Lt], [0.24, -0.31 * ep / Lt], [0.46, -0.1 * ep / Lt],
+      [0.5 + 0.12 * v, 0.12], [0.5 + 0.34 * v, 0.24], [0.5 + 0.42 * v, 0.37], [0.5 + 0.32 * v, 0.52], [0.5 + 0.08 * v, 0.64], [0.5, 0.76], [0.46, 0.97], [0.3, 1.0 + 0.12 * ep / Lt], [0, 1.0 + 0.16 * ep / Lt], [-0.3, 1.0 + 0.14 * ep / Lt], [-0.47, 1.0 + 0.05 * ep / Lt]]
+      .map(([f, u]) => loc(f * ep, u * Lt));
+    const tronc = { remp: lisseC(tr, true), trait: [lisseC(tr, true)], det: [] };
+    // la tête : un rond, posé au-dessus du tronc avec un blanc pour le cou
+    const N = loc(0.04 * ep, Lt + 0.1 * ep);
+    const Ct = add(N, tourne(mul(U, C.cou + 0.06 * ep + C.tete / 2), regard));
+    const Ct2 = add(Ct, mul(tourne(Fw, regard), 0.08 * ep));
+    const teteP = { remp: cercle(Ct2, C.tete / 2), trait: [cercle(Ct2, C.tete / 2)], det: [] };
+    // les poses donnent les bras par angles ; mains et prises en coordonnées de la vue
+    let T = null, Tinv = null;
+    const brasS = (k, S) => {
+      const [a1, a2] = P.bras[k];
+      const E = add(S, mul(vBas(a1), C.bras)), W = add(E, mul(vBas(a2), C.avBras));
+      return { S, E, W, F: add(W, mul(vBas(a2), C.main * 0.9)) };
+    };
+    const ikBras = (S, cible) => {
+      const sols = [1, -1].map(s => ik2(S, C.bras, C.avBras, cible, s));
+      // le coude plie vers l'arrière : l'avant-bras tourne vers l'avant
+      const bon = sols.find(([, E, W]) => crx(sub(E, S), sub(W, E)) <= 0.01) || sols[0];
+      const [, E, W] = bon, d = uni(sub(W, E));
+      return { S, E, W, F: add(W, mul(d, C.main * 0.9)) };
+    };
+    // ancrage au sol : le point le plus bas se pose sur y = 0, l'ancre en x
+    const bas = [jp.sole[0], jp.sole[1], jl.sole[0], jl.sole[1], add(jp.K, [0, rJ]), add(jl.K, [0, rJ]), ...tr, add(Ct2, [0, C.tete / 2])];
+    const yMax = Math.max(...bas.map(p => p[1]));
+    const xA = P.ancre === 'genou' ? jp.K[0] : P.ancre === 'hanche' ? 0 : (jp.A[0] + jl.A[0]) / 2;
+    const O = [xA, yMax];
+    T = (() => { const R = repere({ x: ox, y: oy, echelle: e, angle: ang, miroir: mir }); return p => R(sub(p, O)); })();
+    Tinv = q => { let p = tourne(sub(q, [ox, oy]), -ang); p = mul(p, 1 / e); if (mir) p = [-p[0], p[1]]; return add(p, O); };
+    const bras = {}, mainsM = {};
+    for (const k of ['proche', 'loin']) {
+      const S = k === 'proche' ? Sp : Sl;
+      if (o.prises && o.prises[k]) {
+        const r = brasVersMain(T(S), Object.assign({ echelle: e, cote: o.cote }, o.prises[k]), C.bras * e, C.avBras * e, sg);
+        const E = Tinv(r.E);
+        bras[k] = { S, E, W: Tinv(r.m.poignet), F: Tinv(r.m.poignet), prise: r };
+        mainsM[k] = r.m;
+      } else if (o.mains && o.mains[k]) bras[k] = ikBras(S, Tinv(o.mains[k]));
+      else bras[k] = brasS(k, S);
+    }
+    const piecesBras = k => {
+      const b = bras[k], out = [{ remp: capsule(b.S, b.E, rB), trait: [capsule(b.S, b.E, rB)], det: [] }];
+      if (b.prise) {
+        const r = b.prise;
+        out.push(avantBrasVers(b.E, rB * 0.94, Tinv(r.a), Tinv(r.b), Tinv(r.B)), r.m.svg);
+      } else out.push({ remp: capsule(b.E, b.F, rB), trait: [capsule(b.E, b.F, rB)], det: [] });
+      return out;
+    };
+    const piecesJambe = j => [
+      { remp: capsule(j.talon, j.orteil, j.rp), trait: [capsule(j.talon, j.orteil, j.rp)], det: [] },
+      { remp: capsule(j.K, j.A, rJ), trait: [capsule(j.K, j.A, rJ)], det: [] },
+      { remp: capsule(j.Hh, j.K, rJ), trait: [capsule(j.Hh, j.K, rJ)], det: [] },
+    ];
+    // de la plus lointaine à la plus proche ; la cuisse proche passe devant le tronc, le pied
+    // derrière la jambe, la jambe derrière la cuisse (le genou rond se lit)
+    const jpP = piecesJambe(jp);
+    // coupe : true — la coupe par le milieu du corps : la jambe et le bras proches sont enlevés
+    // jambes: 'derriere' — la jambe proche passe derrière le tronc (les cuisses écartées de chaque
+    // côté d'un ventre de grossesse : le ventre reste entier)
+    const pieces = o.coupe ? [...piecesBras('loin'), ...piecesJambe(jl), tronc, teteP]
+      : o.jambes === 'derriere' ? [...piecesBras('loin'), ...piecesJambe(jl), jpP[0], jpP[1], jpP[2], tronc, teteP, ...piecesBras('proche')]
+      : [...piecesBras('loin'), ...piecesJambe(jl), tronc, teteP, jpP[0], jpP[1], jpP[2], ...piecesBras('proche')];
+    const fort = o.trait === 'fort';
+    let corps;
+    if (o.rendu === 'plein') {
+      corps = pieces.map(p => typeof p === 'string' ? p
+        : `<path d="${ser(p.remp, T)}" fill="${BLANC}" stroke="${BLANC}" stroke-width="2.4" stroke-linejoin="round"/>\n<path d="${ser(p.remp, T)}" fill="${NOIR}" stroke="none"/>`).join('\n');
+    } else {
+      // trait : toutes les silhouettes en 2,4 dessous, puis chaque pièce son blanc et son trait 1,4
+      const out = [];
+      for (const p of pieces) if (typeof p !== 'string' && p.silhouette !== false) for (const tt of p.trait) out.push(`<path d="${ser(tt, T)}" ${trait(2.4)}/>`);
+      for (const p of pieces) {
+        if (typeof p === 'string') { out.push(p); continue; }
+        out.push(`<path d="${ser(p.remp, T)}" ${FOND}/>`);
+        for (const tt of p.trait) out.push(`<path d="${ser(tt, T)}" ${trait(fort ? 2 : 1.4)}/>`);
+      }
+      corps = out.join('\n');
+    }
+    const svg = `<g data-forme="personnage-${o.pose || 'debout'}">\n${corps}\n</g>`;
+    const vv = p => T(p).map(f1);
+    const rT = C.tete / 2, dT = tourne(Fw, regard), uT = tourne(U, regard);
+    const surTete = (f, u) => vv(add(Ct2, add(mul(dT, f * rT), mul(uT, u * rT))));
+    const fin = k => (mainsM[k] || vv(bras[k].F));
+    const info = { tete: { x: vv(Ct2)[0], y: vv(Ct2)[1], r: f1(rT * e) }, bouche: surTete(0.97, -0.3), nez: surTete(1, -0.05), oeil: surTete(0.72, 0.18),
+      hanche: vv(H0), epaules: { proche: vv(Sp), loin: vv(Sl) }, genoux: { proche: vv(jp.K), loin: vv(jl.K) },
+      mains: { proche: fin('proche'), loin: fin('loin') }, poignets: { proche: vv(bras.proche.W), loin: vv(bras.loin.W) } };
+    if (o.pose === 'assis') info.siege = vv(loc(-0.05 * ep, -0.36 * ep));
+    if (o.pose === 'portage') info.dos = vv(loc(-0.5 * ep, Lt * 0.7));
+    return forme(svg, info);
   }
 
   // ─── le fil et la corde ───────────────────────────────────────────────────────────────
@@ -1307,5 +1845,5 @@ module.exports = function formes(h) {
   }
 
   return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille,
-    _interne: { tube, peindre, repere, lisse, ser, forme, enroule, plie, ik2, tangente, pointBord, suite, cubPts, arcPts, mainProfil } };
+    _interne: { tube, peindre, repere, lisse, ser, forme, enroule, plie, ik2, tangente, pointBord, suite, cubPts, arcPts, mainProfil, personnageAncien, brasVersMain, capsule } };
 };

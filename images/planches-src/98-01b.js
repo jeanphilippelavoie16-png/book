@@ -27,27 +27,36 @@ module.exports = (h) => {
 
   // ── proportions du dessin, en mm (aucune n'est cotée) ──
   const K = 0.17;                                   // px par mm, les deux vues
-  const X0 = 546;                                   // mm à gauche des pieds
+  // le manche : sa pente (degrés sous l'horizontale), la main arrière (mm devant les chevilles),
+  // l'écart des deux mains sur le manche ; la hauteur de la main arrière se déduit pour que le
+  // battoir tombe à plat sur une couche de gerbes de la même épaisseur, et la vue se recale pour
+  // que la couche reste à la même place sur la page
+  const AM = 21, GRX = 300, EC = 160;
+  const X0 = 546 - ((GRX + 1300 * Math.cos(AM * Math.PI / 180)) - 1316.4);   // mm à gauche des pieds
   const LM = 1350, LB = 750, RM = 18, RB = 25, G = 139;
   const LG = 850, RECOUV = 120;                     // gerbe : longueur ; les épis dépassent le milieu de tant
   const PY = [0, 1020], GW = 200, YM = 455;          // plan : longueur de toile montrée, largeur d'une gerbe, axe du fléau
   const GYB = [110, 340, 570, 800], GYA = [225, 455, 685, 915];      // les gerbes des deux rangées, en quinconce
 
   const X = x => (x + X0) * K;
-  const MAIN_ROT = 0, MAIN_COTE = 'droite';
+  const MAIN_ROT = -20, MAIN_COTE = 'droite', PENCHE = 50, POSE = 'debout', REGARD = 20;   // MAIN_ROT : le poignet cassé, l'avant-bras qui tombe de l'épaule
 
   // ── le batteur, le manche et le battoir : calculés une fois, pour les deux vues ──
   // Les poignets sont placés pour que le creux de chaque main tombe sur la ligne du manche.
   function batteur(yS) {
     const V = (x, y) => [X(x), yS + y * K];
-    const Gr = [240, -885], Gf = [339, -818];       // prises voulues (mm) : main arrière au ventre, main avant
-    // la main arrière est le bras proche (coude plié, devant le corps) ; la main avant, le bras loin, tendu
+    // le batteur est plié sur le coup, les bras qui tombent des épaules : la main arrière près du
+    // bout du manche, la main avant plus bas sur le manche ; le manche descend de AM degrés
+    const am = AM * Math.PI / 180, Gr = [GRX, -156.6 - 1300 * Math.sin(am)];
+    const Gf = [Gr[0] + Math.cos(am), Gr[1] + Math.sin(am)];
+    // la main arrière est la main proche ; la main avant, la main loin
     const u = [Gf[0] - Gr[0], Gf[1] - Gr[1]], n = Math.hypot(...u); u[0] /= n; u[1] /= n;
     const bout = [Gr[0] - 50 * u[0], Gr[1] - 50 * u[1]];              // le bout du manche, derrière la main arrière
     const J = [bout[0] + LM * u[0], bout[1] + LM * u[1]];              // le bout avant du manche (mm)
     const B0 = J[0] + G * 0.9;                                         // le bout du battoir, à plat
     const yB = J[1];                                                   // l'axe du battoir
-    return { u, bout, J, B0, yB, V, Gr, Gf };
+    const Gl = [Gr[0] + EC * u[0], Gr[1] + EC * u[1]];              // la main avant, écartée de la main arrière
+    return { u, bout, J, B0, yB, V, Gr, Gf: Gl };
   }
   const geo = (() => {
     const b = batteur(0);
@@ -145,7 +154,7 @@ module.exports = (h) => {
   return {
     ref: '98-01b',
     titre: 'Le fléau : battre sur la toile',
-    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur, en pictogramme penché, tient le manche à deux mains, les deux poings refermés dessus, la main arrière au bout du manche, le battoir est tombé à plat sur les épis ; une gerbe de chaque rangée, couchée sur la toile, les épis qui se croisent au milieu ; la flèche suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
+    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur, en pictogramme plié sur le coup, les bras qui tombent des épaules, tient le manche à deux mains, les deux poings refermés dessus et écartés, la main arrière près du bout du manche ; le battoir est tombé à plat sur les épis ; une gerbe de chaque rangée, couchée sur la toile, les épis qui se croisent au milieu ; la flèche suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
     format: 'pleine',
     disposition: [['coup'], ['plan']],
     hauteurs: [1720, 1180],
@@ -166,20 +175,16 @@ module.exports = (h) => {
           out.push(h.chemin([J, B0], A.arete));
           const pM = V(...b.bout);
           const manche = baton(pM, u, LM * K, RM * K);
-          // le batteur en pictogramme (règle 8) : tête ronde sans visage, membres en bandes ; les
-          // mains, elles, sont dessinées (formes.main) : deux poings refermés sur le manche
-          const bandePx = (pts, ep) => { const d = pl(pts); return h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="${f1(ep * K + 3)}" stroke-linecap="round" stroke-linejoin="round"`) + '\n' + h.path(d, `fill="none" stroke="#3A3A3A" stroke-width="${f1(ep * K)}" stroke-linecap="round" stroke-linejoin="round"`); };
-          const bande = (pts, ep) => bandePx(pts.map(q => V(...q)), ep);
-          const Hh = [40, -900], Sh = [312, -1372], Tc = [400, -1525];
+          // le batteur : le pictogramme de formes.js (règle 8), penché sur le coup ; les deux mains
+          // de la bibliothèque, refermées sur le manche, le bras va chercher chaque main. Le manche
+          // se peint dans la main proche (il passe devant le corps), puis la main loin se repeint
+          // par-dessus pour que ses doigts se referment sur lui.
           const angM = Math.atan2(u[0], -u[1]) * 180 / Math.PI + MAIN_ROT;
-          const mainA = (G) => { const g = V(...G); return F.main({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', cote: MAIN_COTE, echelle: K, diametre: 2 * RM * K, angle: angM, bras: 70 }); };
-          const mL = mainA(b.Gf), mP = mainA(b.Gr);
-          const brasL = bandePx([V(...Sh), V(345, -1095), mL.bras], 85), brasP = bandePx([V(...Sh), V(292, -1110), mP.bras], 85);
-          out.push(bande([[230, -22], [70, -45], [60, -480], Hh], 120), bande([[200, -22], [40, -45], [40, -480], Hh], 120));
-          out.push(bande([Hh, Sh], 165));
-          const tc = V(...Tc); out.push(h.cercle(tc[0], tc[1], 112 * K, 'fill="#3A3A3A" stroke="#FFFFFF" stroke-width="1.5"'));
-          out.push(brasL);
-          out.push(manche, mL, brasP, mP);
+          const prise = (G, extra = {}) => { const g = V(...G); return Object.assign({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', cote: MAIN_COTE, diametre: 2 * RM * K, angle: angM, bras: 70 }, extra); };
+          const pers = F.personnage({ x: X(0), y: yS, pose: POSE, echelle: K, penche: PENCHE, regard: REGARD,
+            prises: { proche: prise(b.Gr, { objet: manche }), loin: prise(b.Gf) } });
+          out.push(String(pers));
+          out.push(String(F.main(Object.assign(prise(b.Gf), { echelle: K }))));
           // la tête du battoir descend autour de l'attache et tombe à plat
           const Rr = LB * K * 0.93, a0 = -58 * Math.PI / 180, a1 = -10 * Math.PI / 180;
           const p0 = [B0[0] + Rr * Math.cos(a0), B0[1] + Rr * Math.sin(a0)], p1 = [B0[0] + Rr * Math.cos(a1), B0[1] + Rr * Math.sin(a1)];

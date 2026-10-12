@@ -100,44 +100,36 @@ module.exports = (h) => {
   }
   const etrave = sg => bez([212 * sg, 30], [236 * sg, 29.5], [249 * sg, 8], [241 * sg, -15]);
   const echant = (f, a, b, n) => Array.from({ length: n + 1 }, (_, i) => { const u = a + (b - a) * i / n; return [u, f(u)]; });
-  const FEN = [-8, 27];          // la fenêtre ouverte dans le flanc proche
+  const FEN = [-5, 29];          // la fenêtre ouverte dans le flanc proche
   const ENC = [-6, 5.5];         // l'entaille dans le plat-bord proche, qui montre la traverse
 
-  // Le porteur, de profil, face au nez du canot.
-  const JAMBE_LOIN = [[-3, 90], [-7, 70], [-10, 50], [-14, 30], [-19.5, 11]];
-  const PIED_LOIN = [[-23, 12.5], [-17, 13], [-9, 5], [-4.5, 1.8], [-5, 0.3], [-12.5, 0.3], [-20, 4.5], [-23.5, 8.5]];
-  const CORPS = [[32, 0.6], [22, 0.4], [13, 0.4], [11.5, 4], [12.8, 11], [11.5, 22], [11.2, 32], [9.5, 47], [5.5, 62],
-    [1, 76], [-4, 84], [-10.5, 89], [-12, 97], [-10.5, 105], [-12, 116], [-14, 128], [-13.5, 138], [-11.2, 144.6],
-    [-8.3, 145.3], [-6.4, 146.4], [-5.8, 150], [-6, 155], [-1, 153.5], [2, 151.5], [4.2, 150], [4.6, 145], [5.5, 141.5],
-    [10, 137], [12, 130], [11.5, 121], [10, 112], [10.5, 104], [11, 96], [12, 88], [15.5, 74], [18.5, 60], [19.5, 48],
-    [20.5, 38], [20.8, 26], [21, 13], [24, 8], [30, 3.5], [32.8, 1.8]];
-  const TETE = [[-6.5, 155], [-9, 160], [-9.8, 166], [-8, 172], [-3.5, 175.8], [2, 176.5], [6.5, 174.8], [9.3, 171],
-    [10.4, 166.5], [10.6, 163.5], [11.3, 162], [12.4, 159.7], [10.9, 158.6], [11, 156.8], [10.6, 155.6], [10.4, 153.6],
-    [8.6, 151.4], [5, 150.6], [1, 152.5], [-2.5, 155]];
-  const BANDE_PROFIL = [[10.8, 165.1], [10.5, 168.5], [9.5, 171.4], [7.8, 173.5], [4.5, 172.6], [1.6, 171], [0.9, 168.6],
-    [1.2, 165.6], [4.5, 164.6], [8, 164.5]];
-  // Le bras proche : épaule, coude, poignet, jointures, bout des doigts repliés. Le poing monte
-  // devant le plat-bord et se recourbe par-dessus (le plat-bord proche va de y ≈ 142,4 à 145,7
-  // à cet endroit). Demi-épaisseurs en cm, au début et à la fin de chaque segment.
-  const BRAS_PTS = [[-2.5, 139], [-23.9, 119.3], [-36.3, 140.2], [-38.4, 146.6], [-35.2, 148.6]];
-  const BRAS_W = [[5, 4.3], [4.1, 3], [3, 4.1], [4.1, 3.3]];
-  const MAIN = [-37, 144.5];
-
+  // Le porteur : le pictogramme de la bibliothèque (règle 8), en marche, face au nez du canot.
+  // Sa main proche saisit le plat-bord proche, derrière lui, sur le bout qui baisse.
+  const MAIN = [-24, 143.4];
+  const XPERS = -14;                // le sol sous le porteur, entre les pieds (cm)
+  function porteur(z) {
+    const { s, P, C } = geomPorte(z);
+    const m = P(...MAIN);
+    return h.formes.personnage({ x: P(XPERS, 0)[0], y: P(XPERS, 0)[1], pose: 'portage', penche: 6, regard: -6, echelle: s / 10,
+      prises: { proche: { x: m[0], y: m[1], pose: 'prise', vue: 'dos', angle: -104, diametre: 3.3 * s },
+        loin: { x: m[0] + 3 * s, y: m[1] - 0.6 * s, pose: 'prise', vue: 'dos', angle: -104, diametre: 3.3 * s } } });
+  }
   function porte(z) {
     const { P, C } = geomPorte(z);
     const o = [];
     const Pm = pts => pts.map(p => P(...p));
     const Cm = pts => pts.map(p => C(...p));
     o.push(h.ligne(...P(-60, 0), ...P(60, 0), h.a.fin));
-    // Jambe du côté loin, puis le corps, puis la tête.
-    o.push(poly(Pm(membre(JAMBE_LOIN, [15, 12.5, 10, 9.5, 6]))));
-    o.push(forme(Pm(PIED_LOIN)));
-    o.push(forme(Pm(CORPS)));
-    o.push(forme(Pm(TETE)));
-    o.push(h.ellipse(...P(-1.5, 162), 1.8 * geomPorte(z).s, 3 * geomPorte(z).s, h.a.detail));
-    // Courroie de front et son cordon, noué à la traverse du centre.
-    o.push(forme(Pm(BANDE_PROFIL)));
-    o.push(h.path(`M ${pt(P(1.1, 167.4))} Q ${pt(P(-3, 158))} ${pt(C(0.4, 3.3))}`, h.a.arete));
+    // Le porteur, puis la courroie sur son front et le cordon noué à la traverse du centre.
+    const pers = porteur(z), t = pers.tete;
+    o.push(pers.toString());
+    // La courroie : une bande noire qui couvre le front et file sur la tempe ; le cordon part de son
+    // bout, devant l'oreille, et descend à la traverse.
+    const sur = (deg, k = 1) => [t.x + t.r * k * Math.cos(deg * Math.PI / 180), t.y + t.r * k * Math.sin(deg * Math.PI / 180)];
+    const haut = [-46, -38, -30, -22, -14].map(d => sur(d, 1.07));
+    const bt = [t.x - 0.02 * t.r, t.y - 0.42 * t.r], hw = 0.17 * t.r;
+    o.push(h.path(`M ${pt(sur(-46, 1.07))} ${cr(haut).replace(/^M [^C]*/, '')} L ${pt(sur(-14, 0.95))} L ${pt([bt[0], bt[1] + hw])} A ${r1(hw)} ${r1(hw)} 0 0 1 ${pt([bt[0], bt[1] - hw])} L ${pt(sur(-46, 0.95))} Z`, h.a.plein));
+    o.push(h.path(`M ${pt(bt)} Q ${pt([bt[0] - 0.6 * t.r, bt[1] + 0.9 * t.r])} ${pt(C(0.4, 3.3))}`, h.a.arete));
     // La traverse du centre, vue en bout.
     o.push(h.chemin(Cm([[-3.25, 0.8], [3.25, 0.8], [3.25, 3.3], [-3.25, 3.3]]), h.a.plein, true));
     // Le flanc proche, ouvert d'une fenêtre sur la tête.
@@ -168,13 +160,11 @@ module.exports = (h) => {
     o.push(h.path(cr(Cm(zig([FEN[1] + 0.5, vQuille(FEN[1])], [FEN[1], vBordHaut(FEN[1])], 3, 1.6))), h.a.detail));
     o.push(h.chemin(Cm(entA), h.a.detail));
     o.push(h.chemin(Cm(entB), h.a.detail));
-    // Le bras proche, lancé vers l'arrière : un seul tube à bouts ronds, du trait du corps, plié
-    // au coude ; le poing fermé monte devant le plat-bord et se recourbe par-dessus.
-    const F = h.formes._interne;
-    const bras = F.tube({ pts: BRAS_PTS, sens: 1, dos: BRAS_W, ventre: BRAS_W, bout: 'rond', baseRonde: true });
-    const Tb = p => P(...p);
-    o.push(`<path d="${F.ser(bras.remp, Tb)}" ${aBlanc}/>`);
-    bras.trait.forEach(t => o.push(`<path d="${F.ser(t, Tb)}" ${h.a.arete}/>`));
+    // La main proche, par-dessus le plat-bord qu'elle serre : le porteur une seconde fois, découpé
+    // autour de la main, au-dessus du dessous du plat-bord.
+    const m = P(...MAIN), yb = C(MAIN[0] - XT, vBord(MAIN[0] - XT))[1] + 0.6;
+    o.push(`<clipPath id="main-90-03"><rect x="${r1(m[0] - 20)}" y="${r1(m[1] - 20)}" width="34" height="${r1(yb - m[1] + 20)}"/></clipPath>`);
+    o.push(`<g clip-path="url(#main-90-03)">${pers.toString()}</g>`);
     return o.join('\n');
   }
 
@@ -188,17 +178,17 @@ module.exports = (h) => {
     const P = (x, y) => [ox + x * s, oy - (y - 117.5) * s];
     return { s, P };
   }
-  const BUSTE = {
-    hausse: [[22.3, 118.5], [23, 127], [22.6, 134], [21.4, 139.8], [19, 143.5], [15, 145.2], [10, 145.6], [6.6, 146], [5.5, 149], [5.1, 153]],
-    relache: [[22.3, 118.5], [22.9, 124], [22.3, 130], [20.4, 134], [17, 136.6], [12.5, 138.5], [8.5, 139.1], [6.2, 140.2], [5.3, 145], [5.1, 153]],
-  };
-  const TETE_FACE = [[0, 175.3], [5.5, 173.8], [7.8, 169.5], [8.1, 164], [7.4, 158.5], [5.6, 154.2], [2.8, 152.2], [0, 151.8],
-    [-2.8, 152.2], [-5.6, 154.2], [-7.4, 158.5], [-8.1, 164], [-7.8, 169.5], [-5.5, 173.8]];
+  // Le porteur de face : le pictogramme de la règle 8 (tête ronde sans visage, cou court, tronc en
+  // bloc arrondi, bras en bandes d'épaisseur égale), aux mesures de h.formes.personnage (tête de
+  // 24,5 cm, bras de 9,2 cm de large). Haussées, le haut des épaules touche le dessous de la
+  // traverse ; relâchées, il descend sous elle.
+  const TETE_R = 12.25, TETE_Y = 163.5;
+  const EPAULE = { hausse: 145.3, relache: 140.8 };
   function paramsFace(mode) {
     const R = mode === 'relache';
     const yG = 144.5 + (R ? -1.5 : 0);        // relâchées, le canot descend jusqu'à ce que les cordons se tendent
     const tb = yG + 0.8, tt = yG + 3.3;
-    const depart = x => [x * 8.1, 169.1];
+    const depart = x => [x * 11.05, 168.85];
     const arrivee = x => [x * 35.5, tt + 0.3];
     const creux = 4;
     const milieu = x => { const a = depart(x), b = arrivee(x); return [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2 - (R ? 0 : creux)]; };
@@ -215,42 +205,41 @@ module.exports = (h) => {
     const membr = sg => [[42.2 * sg, yG + 3.4], [44.2 * sg, yG + 7.5], [45.2 * sg, yG + 12.5], [44.5 * sg, yG + 19], [41.2 * sg, yG + 25.8], [34 * sg, yG + 31.2], [20 * sg, yG + 33.8]];
     o.push(h.path(cr(Pm([...membr(-1), [0, yG + 34.1], ...membr(1).reverse()])), h.a.detail));
     o.push(h.path(cr(Pm([...coque(-1), [0, yG + 35.8], ...coque(1).reverse()])), h.a.contour));
-    // Le buste, tronqué.
-    const bord = BUSTE[mode];
-    const tour = [...miroir(bord).reverse(), ...bord];
-    const bas = zig([22.3, 118.5], [-22.3, 118.5], 6, 0.9);
-    o.push(h.path(cr(Pm(tour)) + ' ' + bas.slice(1).map(p => `L ${pt(P(...p))}`).join(' ') + ' Z', aBlanc));
-    o.push(h.path(cr(Pm(tour)), h.a.arete));
-    o.push(h.chemin(Pm(bas), h.a.detail));
-    [1, -1].forEach(sg => o.push(h.path(cr(Pm([[15.5 * sg, 119], [15.8 * sg, 125], [17.2 * sg, R ? 128.5 : 131.5]])), h.a.detail)));
     // La traverse du centre, posée derrière la nuque.
     o.push(poly(Pm([[-40.6, tb], [40.6, tb], [40.6, tt], [-40.6, tt]])));
-    // Le cou, devant la traverse.
-    const couBas = tb - 0.3;
-    const cou = [[-6.1, couBas], [-5.4, 149], [-5.1, 153], [5.1, 153], [5.4, 149], [6.1, couBas]];
-    o.push(h.chemin(Pm(cou), aBlanc, true));
-    o.push(h.chemin(Pm(cou.slice(0, 3)), h.a.arete));
-    o.push(h.chemin(Pm(cou.slice(3)), h.a.arete));
-    // La tête, les oreilles.
-    o.push(forme(Pm(TETE_FACE)));
-    [1, -1].forEach(sg => o.push(h.path(`M ${pt(P(7.7 * sg, 164))} C ${pt(P(10.2 * sg, 164.8))} ${pt(P(10.2 * sg, 158.2))} ${pt(P(7.2 * sg, 158.2))}`, h.a.detail)));
+    // Le porteur, coupé sous la poitrine : le tronc, les bras qui pendent de chaque côté, le cou
+    // court devant la traverse, puis la tête ronde, sans visage.
+    const yS = EPAULE[mode], yC = 118.5, rB = 4.6, xB = 19;
+    // une seule silhouette : du cou, l'épaule ronde, puis le dehors du bras jusqu'à la coupe ; le
+    // dessous du bras (l'aisselle) se dit par un trait qui descend du creux de l'épaule
+    const dehors = [[0, yS + 0.5], [5.4, yS + 0.4], [11, yS + 0.1], [16.5, yS - 0.4], [20.6, yS - 1.6], [23, yS - 4.2], [23.7, yS - 9], [23.8, yS - 16], [23.6, yC]];
+    const tour = [...dehors.slice(1).map(([x, y]) => [-x, y]).reverse(), ...dehors];
+    o.push(h.path(cr(Pm(tour)) + ' Z', aBlanc));
+    o.push(h.path(cr(Pm(tour)), h.a.arete));
+    [1, -1].forEach(sg => o.push(h.path(cr(Pm([[sg * 14.6, yS - 6.5], [sg * 14.3, yS - 10], [sg * 14.4, yS - 18], [sg * 14.6, yC]])), h.a.arete)));
+    const basP = Pm(zig([24.4, yC], [-24.4, yC], 8, 0.9));
+    o.push(h.chemin([...basP, [basP[basP.length - 1][0], basP[0][1] + 9], [basP[0][0], basP[0][1] + 9]], aBlanc, true));
+    o.push(h.chemin(basP, h.a.detail));
+    const yCou = TETE_Y - TETE_R + 1.2;
+    o.push(h.chemin(Pm([[-5.2, yS - 1.2], [-5, yCou], [5, yCou], [5.2, yS - 1.2]]), aBlanc, true));
+    o.push(h.ligne(...P(-5.2, yS - 0.6), ...P(-5, yCou), h.a.arete));
+    o.push(h.ligne(...P(5.2, yS - 0.6), ...P(5, yCou), h.a.arete));
+    o.push(h.cercle(...P(0, TETE_Y), TETE_R * s, aBlanc));
+    o.push(h.cercle(...P(0, TETE_Y), TETE_R * s, h.a.arete));
     // L'écorce de bouleau : une feuille mince posée sur le front, qui dépasse un peu au-dessus et
     // au-dessous de la courroie. Puis la courroie par-dessus : une bande plate de largeur
     // constante, sur le haut du front, dont les bouts suivent le tour de la tête jusqu'aux tempes.
     const ecorce = [[-6, 165.6], [0, 165.3], [6, 165.6], [6.3, 166.3], [6.3, 172.1], [5.8, 172.8], [0, 172.6], [-5.8, 172.8], [-6.3, 172.1], [-6.3, 166.3]];
     o.push(h.chemin(Pm(ecorce), aBlanc, true));
     o.push(h.chemin(Pm(ecorce), h.a.detail, true));
-    const bande = [[-8.3, 166.8], [-4, 166.6], [0, 166.5], [4, 166.6], [8.3, 166.8], [8.1, 168.5], [7.7, 170.1], [7.1, 171.4],
-      [4, 171.2], [0, 171.1], [-4, 171.2], [-7.1, 171.4], [-7.7, 170.1], [-8.1, 168.5]];
+    // la bande suit le tour de la tête d'une tempe à l'autre
+    const yH = 171.3, yL = 166.4, bordX = y => Math.sqrt(TETE_R * TETE_R - (y - TETE_Y) ** 2);
+    const ys = [yH, 170.1, 168.85, 167.6, yL];
+    const ks = [-1, -0.5, 0, 0.5, 1];
+    const bande = [...ks.map(k => [k * bordX(yH), yH]), ...ys.slice(1, -1).map(y => [bordX(y), y]),
+      ...ks.slice().reverse().map(k => [k * bordX(yL), yL]), ...ys.slice(1, -1).reverse().map(y => [-bordX(y), y])];
     o.push(h.chemin(Pm(bande), aBlanc, true));
     o.push(h.chemin(Pm(bande), h.a.arete, true));
-    // Le visage, à peine : sourcils, yeux, nez, bouche — pour situer le front.
-    [1, -1].forEach(sg => {
-      o.push(h.path(`M ${pt(P(sg * 1.6, 163.4))} Q ${pt(P(sg * 3.4, 164.3))} ${pt(P(sg * 5.4, 163.5))}`, h.a.detail));
-      o.push(h.ligne(...P(sg * 2.3, 161.7), ...P(sg * 4.5, 161.7), h.a.detail));
-    });
-    o.push(h.path(`M ${pt(P(0.2, 161.6))} L ${pt(P(0.6, 158))} Q ${pt(P(0, 157.4))} ${pt(P(-0.9, 157.8))}`, h.a.detail));
-    o.push(h.ligne(...P(-1.8, 155.6), ...P(1.8, 155.6), h.a.detail));
     // Les cordons : des tempes jusqu'à la traverse, près du plat-bord, où ils sont noués.
     [1, -1].forEach(sg => {
       const a = depart(sg), b = arrivee(sg);
@@ -269,7 +258,7 @@ module.exports = (h) => {
       o.push(h.rect(...P(ex, yG + 3.0), 2.1 * s, 2.7 * s, h.a.hachure('bois')));
     });
     // Le geste des épaules.
-    o.push(h.fleche(R ? `M ${pt(P(-29, 137))} L ${pt(P(-29, 125))}` : `M ${pt(P(-29, 125))} L ${pt(P(-29, 137))}`));
+    o.push(h.fleche(R ? `M ${pt(P(-30, 137))} L ${pt(P(-30, 125))}` : `M ${pt(P(-30, 125))} L ${pt(P(-30, 137))}`));
     return o.join('\n');
   }
 
@@ -488,7 +477,7 @@ module.exports = (h) => {
     desc: 'Un porteur marche seul, le canot retourné sur les épaules, nez levé, la traverse du centre contre la nuque et les mains lancées vers l’arrière sur le plat-bord ; une fenêtre dans le flanc montre la courroie passée sur le front et son cordon noué à la traverse. De face, coupé devant le visage : épaules haussées, la traverse repose sur les épaules et les cordons pendent, lâches ; épaules relâchées, la traverse quitte les épaules et le canot pend au front par les cordons tendus. De l’écorce de bouleau est glissée sous la courroie. Sans courroie : deux pagaies couchées sur trois traverses, à environ 300 mm l’une de l’autre, liées en croix sur celle du centre ; la boucle de la lanière passera sur le front. Une loupe grossit trois fois le bout de la traverse du centre : la marche de l’épaulement, à 50 à 100 mm du plat-bord ; la lanière qui en fait un tour complet derrière lui (dessus en plein, dessous en tireté) et monte en boucle vers le nez ; son bout qui file sur la traverse jusqu’à la ligature en croix de la pagaie. La courroie à plat : une pièce de cuir épais d’environ 100 × 460 mm, amincie vers les bouts, et deux courroies souples de 50 à 64 mm de large sur environ 3000 mm, cousues au point sellier.',
     format: 'pleine',
     disposition: [['porte'], ['hausse', 'relache'], ['pagaies', 'gabarit']],
-    hauteurs: [1.1, 1.1, 0.95],
+    hauteurs: [1.45, 1.0, 0.9],
     largeurs: [[1], [1, 1], [321, 257]],
     vues: {
       porte: {
@@ -496,9 +485,10 @@ module.exports = (h) => {
         dessin: z => porte(z),
         renvois: z => {
           const { P, C } = geomPorte(z);
+          const t = porteur(z).tete;
           return [
             { n: 1, rond: P(-40, 196), cible: C(-1.5, 2), texte: 'traverse du centre' },
-            { n: 2, rond: P(28, 199), cible: P(9.2, 170), texte: 'courroie de front' },
+            { n: 2, rond: P(28, 199), cible: [t.x + 0.55 * t.r, t.y - 0.45 * t.r], texte: 'courroie de front' },
             { n: 3, rond: P(-75, 118), cible: P(...MAIN), texte: 'mains sur le bout qui baisse' },
           ];
         },

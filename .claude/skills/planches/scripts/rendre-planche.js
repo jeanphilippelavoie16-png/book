@@ -54,7 +54,7 @@ try {
     '--headless=new', '--disable-gpu', '--no-sandbox', '--no-first-run', '--hide-scrollbars',
     '--no-default-browser-check', `--user-data-dir=${profil}`,
     '--force-device-scale-factor=2',      // rendu à 2x : les traits de 0,5 restent lisibles
-    `--window-size=${Math.round(W)},${Math.round(H)}`,
+    `--window-size=${Math.round(W)},${Math.round(H) + (process.platform === 'linux' ? 120 : 0)}`,
     `--screenshot=${sortie}`,
     url,
   ], { stdio: 'ignore', timeout: 90000 });
@@ -72,6 +72,15 @@ for (let t = 0; t < 60 && !ok; t++) {
   } else dormir(500);
 }
 try { fs.rmSync(profil, { recursive: true, force: true }); } catch (e) {}
+
+// Sous Linux, Chromium sans fenêtre rend une fenêtre plus courte que --window-size (il coupait
+// le bas de la page) : on la demande plus haute, puis on recadre à la taille de la planche.
+if (ok && process.platform === 'linux') {
+  try {
+    execFileSync('python3', ['-c', 'import sys;from PIL import Image;im=Image.open(sys.argv[1]);im.crop((0,0,int(sys.argv[2]),int(sys.argv[3]))).save(sys.argv[1])',
+      sortie, String(Math.round(W) * 2), String(Math.round(H) * 2)]);
+  } catch (e) { console.error('recadrage impossible : ' + e.message); }
+}
 
 if (!ok) { console.error('aucun PNG produit en 30 s'); process.exit(4); }
 console.log(sortie);

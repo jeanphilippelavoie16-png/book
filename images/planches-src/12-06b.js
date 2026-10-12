@@ -95,12 +95,21 @@ module.exports = (h) => {
             brins.push(`M ${f(x)} ${f(y)} Q ${f(x + 7)} ${f(y - 9)} ${f(x + 14)} ${f(y)}`);
           }
           out.push(h.path(brins.join(' '), h.a.detail));
-          // Deux dormeurs dans leurs sacs, serrés : un adulte, un enfant.
-          const yl = G - lit;
-          out.push(h.ellipse(cx - 0.2 * k, yl - 0.15 * k, 0.24 * k, 0.15 * k, blanc(h.a.arete)));
-          out.push(h.ellipse(cx - 0.2 * k, yl - 0.15 * k, 0.15 * k, 0.08 * k, h.a.fin));
-          out.push(h.ellipse(cx + 0.28 * k, yl - 0.11 * k, 0.18 * k, 0.11 * k, blanc(h.a.arete)));
-          out.push(h.ellipse(cx + 0.28 * k, yl - 0.11 * k, 0.11 * k, 0.06 * k, h.a.fin));
+          // Deux dormeurs couchés sur le dos, serrés, vus par la tête (pictogramme, règle 8) : les
+          // épaules en bande arrondie, la tête ronde devant, posée sur le sapinage. Un adulte, un enfant.
+          const yl = G - lit, e = 0.104 * k / 100;
+          const dormeur = (x, C) => {
+            const l = C.epaules * e, hT = C.ep * e, r = C.tete * e / 2, rb = C.bras * e / 2;
+            const bras = s => h.cercle(x + s * (l / 2 + rb + 0.8), yl - rb, rb, blanc(h.a.arete));
+            return [bras(-1), bras(1),
+              h.path(`M ${f(x - l / 2)} ${f(yl)} L ${f(x - l / 2)} ${f(yl - hT * 0.55)} Q ${f(x - l / 2)} ${f(yl - hT)} ${f(x - l / 2 + hT * 0.45)} ${f(yl - hT)} L ${f(x + l / 2 - hT * 0.45)} ${f(yl - hT)} Q ${f(x + l / 2)} ${f(yl - hT)} ${f(x + l / 2)} ${f(yl - hT * 0.55)} L ${f(x + l / 2)} ${f(yl)} Z`, blanc(h.a.arete)),
+              h.cercle(x, yl - r - 0.5, r, blanc(h.a.arete))].join('\n');
+          };
+          const ad = { epaules: 400, ep: 210, tete: 245, bras: 92 }, en = { epaules: 260, ep: 150, tete: 196, bras: 66 };
+          const lg = C => (C.epaules + 2 * C.bras) * e + 1.6;
+          const marge = (xR - xL - lg(ad) - lg(en) - 2) / 2;
+          out.push(dormeur(xL + marge + lg(ad) / 2, ad));
+          out.push(dormeur(xR - marge - lg(en) / 2, en));
           // La perche, en travers, portée par la neige des deux bords.
           out.push(h.rect(xp0, S - dp, xp1 - xp0, dp, blanc(h.a.arete)));
           // La bâche sur la perche, puis la neige : grosse sur les bords, mince sur le dessus.
@@ -167,10 +176,11 @@ module.exports = (h) => {
           ];
           // Le lit : sapinage en écailles, du fond jusqu'au bord de l'entrée.
           out.push(ecailles(xa + 2, xc, G, 0.42 * k, lit * 0.8, 0.17 * k));
-          // Le dormeur, les pieds sous l'ouverture, la tête du côté de l'entrée.
-          const yl = G - lit, hs = 0.26 * k, xs1 = xc - 0.08 * k, xs0 = xs1 - 1.8 * k;
-          out.push(h.path(`M ${f(xs1 - hs / 2)} ${f(yl - hs)} L ${f(xs0 + 8)} ${f(yl - hs * 0.75)} Q ${f(xs0)} ${f(yl - hs * 0.7)} ${f(xs0)} ${f(yl - hs * 0.35)} Q ${f(xs0)} ${f(yl)} ${f(xs0 + 8)} ${f(yl)} L ${f(xs1 - hs / 2)} ${f(yl)} A ${f(hs / 2)} ${f(hs / 2)} 0 0 0 ${f(xs1 - hs / 2)} ${f(yl - hs)} Z`, blanc(h.a.arete)));
-          out.push(h.cercle(xs1 - hs / 2, yl - hs / 2, hs * 0.3, h.a.detail));
+          // Le dormeur couché sur le dos (pictogramme, règle 8), la tête du côté de l'entrée, les
+          // pieds sous l'ouverture.
+          const yl = G - lit, hs = 0.26 * k, xs1 = xc - 0.08 * k;
+          const e = 1.98 * k / 1750;
+          out.push(h.formes.personnage({ pose: 'couche', cote: 'gauche', echelle: e, x: xs1 - 790 * e, y: yl + 2 }).svg);
           // Les perches, vues en bout, sur la neige du bord d'en face ; la bâche ; la neige.
           perches.forEach(x => out.push(h.cercle(x, S - r, r, blanc(h.a.arete))));
           const yB = S - 2 * r - 1;

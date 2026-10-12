@@ -104,28 +104,14 @@ const bord = (pts, x, cote, w = W) => {
   return [c[i][0] + n[0] * (w / 2 + 0.6), c[i][1] + n[1] * (w / 2 + 0.6)];
 };
 
-// La main gauche qui pince le pli : pouce dessus, index dessous, trois doigts repliés
-// (repère relatif au pli, avant l'échelle K).
-const MAIN = [[-92, -55], [-70, -49], [-45, -43], [-20, -37], [3, -31], [14, -24], [12, -16], [-4, -12.9],
-  [-26, -13], [-39, -7], [-42, 3], [-33, 12.9], [-12, 12.9], [6, 13.5], [15, 20.5], [9, 28.5], [-4, 29.5],
-  [-1, 35], [-5, 42], [-16, 44.5], [-17, 50], [-23, 56], [-34, 57.5], [-37, 62], [-45, 66], [-56, 66.5],
-  [-72, 68], [-92, 72]];
-const main = (h, P) => {
-  const c = lisse(MAIN.map(P), 8);
-  const creux = (a, b, e) => `M${P(a).join(',')} Q${P(b).join(',')} ${P(e).join(',')}`;
-  return [
-    h.path(D(c) + ' Z', h.a.blanc),
-    h.path(D(c), h.a.arete),
-    h.path([
-      creux([-5, -31.5], [8, -32.5], [13.5, -23.5]),   // ongle du pouce
-      creux([-5, -31.5], [5, -27.5], [13.5, -23.5]),
-      creux([-25, -36.5], [-21, -33], [-23, -29]),     // pli du pouce
-      creux([-19, 13.5], [-16, 18], [-19, 23]),        // pli de l'index
-      creux([-4, 29.5], [-14, 27], [-26, 28]),         // séparation des doigts
-      creux([-16, 44.5], [-25, 42], [-34, 43]),
-      creux([-34, 57.5], [-42, 55], [-50, 56]),
-    ].join(' '), h.a.detail),
-  ].join('\n');
+// La main gauche qui pince le pli entre la pulpe du pouce et celle de l'index, vue de profil
+// (h.formes.main, pince / profil) : les brins passent entre les deux pulpes, la boucle du pli
+// cachée sous les doigts.
+const PINCE = { x: -19, y: 3, echelle: 0.8, angle: -18 };
+const main = (h, P, objet) => {
+  const [x, y] = P([PINCE.x, PINCE.y]);
+  return h.formes.main({ x, y, pose: 'pince', vue: 'profil', cote: 'droite',
+    echelle: PINCE.echelle * K, angle: PINCE.angle, bras: 5, objet });
 };
 
 // Anneau de rotation autour d'un brin : moitié arrière en caché, moitié avant fléchée.
@@ -151,7 +137,7 @@ const corde = (h, x0, x1, yc, R, p, s) => {
 
 // ─── la planche ──────────────────────────────────────────────────────────────────────
 module.exports = (h) => {
-  const F = { x: 135, y: 92 };
+  const F = { x: 167, y: 92 };
   const P = ([x, y]) => [F.x + K * x, F.y + K * y];
   const Ps = pts => pts.map(P);
   const pli = U(-18, 7);
@@ -188,8 +174,10 @@ module.exports = (h) => {
           const r = anneau(h, ...P([110, A1y(110)]), 8 * K, 19 * K, 'monte');
           return [
             r.derriere,
-            brin(h, Ps(B1), { fibres: [[0.02, 0.92]] }),
-            brin(h, Ps(A1), { fibres: [[0, 0.1], [0.46, 0.94]], torsade: [0.11, 0.46] }),
+            [
+              brin(h, Ps(B1), { fibres: [[0.02, 0.92]] }),
+              brin(h, Ps(A1), { fibres: [[0, 0.1], [0.46, 0.94]], torsade: [0.11, 0.46] }),
+            ].join('\n'),
             main(h, P),
             r.devant,
           ].join('\n');
@@ -206,8 +194,10 @@ module.exports = (h) => {
           const r = anneau(h, ...P([105, 0]), 11 * K, 34 * K, 'descend');
           return [
             r.derriere,
-            brin(h, Ps(B2), { fibres: [[0.02, 0.92]] }),
-            brin(h, Ps(A2), { fibres: [[0, 0.1], [0.5, 0.94]], torsade: [0.11, 0.5] }),
+            [
+              brin(h, Ps(B2), { fibres: [[0.02, 0.92]] }),
+              brin(h, Ps(A2), { fibres: [[0, 0.1], [0.5, 0.94]], torsade: [0.11, 0.5] }),
+            ].join('\n'),
             main(h, P),
             r.devant,
           ].join('\n');

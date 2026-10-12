@@ -30,14 +30,69 @@ module.exports = (h) => {
     return [h.rect(x1, y, x2 - x1, ep, blanc(h.a.detail)), h.path(d, h.a.fin)].join('\n');
   };
 
+  // ── Les corps : le pictogramme de la règle 8, en cm (bandes arrondies, tête ronde sans visage) ──
+  // Une capsule de P à Q, rayon r : la bande d'un bras, d'une jambe.
+  const capsule = (P, Q, r) => {
+    const dx = Q[0] - P[0], dy = Q[1] - P[1], L = Math.hypot(dx, dy) || 1;
+    const nx = -dy / L * r, ny = dx / L * r;
+    return `M ${r1(P[0] + nx)},${r1(P[1] + ny)} L ${r1(Q[0] + nx)},${r1(Q[1] + ny)} ` +
+      `A ${r1(r)},${r1(r)} 0 0 0 ${r1(Q[0] - nx)},${r1(Q[1] - ny)} L ${r1(P[0] - nx)},${r1(P[1] - ny)} ` +
+      `A ${r1(r)},${r1(r)} 0 0 0 ${r1(P[0] + nx)},${r1(P[1] + ny)} Z`;
+  };
+  const rond = (cx, cy, r) => `M ${r1(cx - r)},${r1(cy)} A ${r1(r)},${r1(r)} 0 1 0 ${r1(cx + r)},${r1(cy)} A ${r1(r)},${r1(r)} 0 1 0 ${r1(cx - r)},${r1(cy)} Z`;
+  // Peint comme la bibliothèque : toutes les silhouettes en 2,4 dessous, puis chaque pièce son blanc
+  // et son trait 1,4 : le contour extérieur sort fort, les recouvrements restent fins.
+  const NOIR = '#1A1A1A';
+  const peindre = ds => [
+    ...ds.map(d => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"/>`),
+    ...ds.map(d => `<path d="${d}" fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"/>`),
+  ].join('\n');
+  // Mesures du pictogramme, en cm : adulte (175 cm) et enfant de 5 ans (110 cm).
+  const MES = {
+    adulte: { tete: 10.5, cou: 2, epaule: 34, hanche: 30, tronc: 50, bras: 8.5, lBras: 72, jambe: 11, ecart: 7.5, lJambe: 85, pied: 6, prof: 22 },
+    enfant: { tete: 8.5, cou: 1.5, epaule: 23, hanche: 20, tronc: 31, bras: 6, lBras: 44, jambe: 7.5, ecart: 5, lJambe: 50, pied: 4, prof: 15 },
+  };
+  // Couché sur le dos, vu de dessus : la tête en haut, les bras le long du corps, les pieds levés.
+  // P(x, y) passe des cm du corps (x au milieu, y = 0 au sommet du crâne) au repère de la vue.
+  const dessusCorps = (P, age, s) => {
+    const m = MES[age], yS = 2 * m.tete + m.cou, yH = yS + m.tronc, yK = yH + m.lJambe;
+    const rb = m.bras / 2, rj = m.jambe / 2, xb = m.epaule / 2 + rb - 1.2;
+    const pp = (x, y) => P(x, y).map(r1).join(',');
+    const ds = [];
+    // jambes et pieds (le pied levé se voit de dessus en un court ovale, orteils vers le haut)
+    for (const sg of [-1, 1]) {
+      ds.push(capsule(P(sg * m.ecart, yH - rj), P(sg * (m.ecart + 0.6), yK), rj * s));
+      ds.push(capsule(P(sg * (m.ecart + 0.6), yK - 0.5), P(sg * (m.ecart + 2.2), yK + m.pied), rj * 0.92 * s));
+    }
+    // bras le long du corps, la main en bout de bande
+    for (const sg of [-1, 1]) ds.push(capsule(P(sg * xb, yS + rb), P(sg * (xb + 1.2), yS + m.lBras - rb), rb * s));
+    // le tronc : épaules arrondies, taille, hanches
+    const e = m.epaule / 2, hh = m.hanche / 2, t = m.tronc;
+    ds.push(`M ${pp(-e + 5, yS)} L ${pp(e - 5, yS)} Q ${pp(e, yS)} ${pp(e, yS + 6)} L ${pp(e - 2.5, yS + t * 0.62)} ` +
+      `Q ${pp(hh + 0.5, yS + t * 0.8)} ${pp(hh, yH - 3)} Q ${pp(hh, yH + 1)} ${pp(hh - 4, yH + 1)} L ${pp(-hh + 4, yH + 1)} ` +
+      `Q ${pp(-hh, yH + 1)} ${pp(-hh, yH - 3)} Q ${pp(-hh - 0.5, yS + t * 0.8)} ${pp(-e + 2.5, yS + t * 0.62)} ` +
+      `L ${pp(-e, yS + 6)} Q ${pp(-e, yS)} ${pp(-e + 5, yS)} Z`);
+    // la tête, sur un cou court
+    const [cx, cy] = P(0, m.tete);
+    ds.push(rond(cx, cy, m.tete * s));
+    return peindre(ds);
+  };
+  // Couché sur le dos, coupé en travers à la poitrine : le tronc et les deux bras posés à côté.
+  // Rend les pièces { cx, a, b } (demi-largeur, demi-hauteur), le dessous sur le lit.
+  const sectionCorps = (c, age) => {
+    const m = MES[age], a = m.epaule / 2, rb = m.bras / 2;
+    return [{ c, a, b: m.prof / 2 }, { c: c - a - rb + 0.8, a: rb, b: rb }, { c: c + a + rb - 0.8, a: rb, b: rb }];
+  };
+
   // ── La coupe en travers de l'abri, vue depuis le pied des dormeurs ──
   const geoCoupe = z => {
     const G = z.h - 16;
-    const s = Math.min((z.l - 8) / 262, (G - 36) / 100);
-    const ox = (z.l - 262 * s) / 2;
+    const s = Math.min((z.l - 8) / 278, (G - 36) / 100);
+    const ox = (z.l - 278 * s) / 2;
     const X = c => ox + c * s, Y = c => G - c * s;
     const ep = 5, C = G - 2 * ep, K = C - 12 * s, B = K - 3;
-    const corps = [[56, 22, 10], [94, 14, 7], [124, 14, 7], [162, 22, 10]];   // centre, demi-largeur, demi-hauteur
+    const dormeurs = [[59, 'adulte'], [101, 'enfant'], [139, 'enfant'], [181, 'adulte']];
+    const corps = dormeurs.flatMap(([c, age]) => sectionCorps(c, age).map(p => [p.c, p.a, p.b]));
     const dessus = x => {
       let y = B;
       for (const [c, rx, ry] of corps) {
@@ -47,12 +102,12 @@ module.exports = (h) => {
       return y;
     };
     // le drap : du coin de la table au haut du dossier, avec son ventre
-    const drapY = c => { const t = (c - 124) / 119.5; return 78.6 + 14.2 * t - 20 * t * (1 - t); };
-    return { G, s, X, Y, ep, C, K, B, corps, dessus, drapY };
+    const drapY = c => { const t = (c - 124) / 135.5; return 78.6 + 14.2 * t - 20 * t * (1 - t); };
+    return { G, s, X, Y, ep, C, K, B, corps, dormeurs, dessus, drapY };
   };
 
   const coupe = z => {
-    const { G, s, X, Y, ep, C, K, B, corps, dessus, drapY } = geoCoupe(z);
+    const { G, s, X, Y, ep, C, K, B, corps, dormeurs, dessus, drapY } = geoCoupe(z);
     const out = [];
     // plancher et mur
     out.push(h.rect(0, G, z.l, 14, h.a.hachure('bois', 'aucun')));
@@ -61,32 +116,50 @@ module.exports = (h) => {
     // matelas debout contre le mur
     out.push(h.rect(X(14) + 0.5, Y(100), 18 * s - 1, 100 * s, h.a.hachure('isolant') + ' rx="4"'));
     // cartons, coussins, couverture du dessous
-    out.push(carton(X(32), X(250), C, ep));
-    out.push(carton(X(32), X(250), C + ep, ep));
-    for (const [a, b] of [[33, 85], [85, 137], [137, 186]])
+    out.push(carton(X(32), X(266), C, ep));
+    out.push(carton(X(32), X(266), C + ep, ep));
+    for (const [a, b] of [[33, 92], [92, 151], [151, 210]])
       out.push(h.rect(X(a) + 0.6, K, (b - a) * s - 1.2, C - K, blanc(h.a.arete) + ' rx="6"'));
-    out.push(h.rect(X(33), B, 153 * s, 3, blanc(h.a.detail)));
+    out.push(h.rect(X(33), B, 177 * s, 3, blanc(h.a.detail)));
     // pattes de la table, au fond, au-dessus de la couverture
     for (const a of [36, 118]) {
       const yb = Math.max(dessus(X(a)), dessus(X(a + 4))) - 1;
       out.push(h.rect(X(a), Y(75), 4 * s, yb - Y(75), blanc(h.a.arete)));
     }
-    // les quatre dormeurs, en coupe
-    for (const [c, rx, ry] of corps) out.push(h.ellipse(X(c), B - ry * s, rx * s, ry * s, blanc(h.a.arete)));
+    // au fond, les têtes sur l'oreiller (un manteau roulé) dépassent de la couverture
+    for (const [c, age] of dormeurs) {
+      const m = MES[age], yo = B - (age === 'adulte' ? 9 : 7) * s;
+      out.push(h.rect(X(c - m.epaule / 2 - 2), yo, (m.epaule + 4) * s, B - yo, blanc(h.a.detail) + ' rx="4"'));
+      out.push(peindre([rond(X(c), yo - m.tete * s * 0.95, m.tete * s)]));
+    }
+    // les quatre dormeurs, coupés à la poitrine : le tronc, un bras de chaque côté
+    for (const [c, age] of dormeurs) {
+      const ds = sectionCorps(c, age).map(p => {
+        const cx = X(p.c), a = p.a * s, b = p.b * s, cy = B - b;
+        return `M ${r1(cx - a)},${r1(cy)} A ${r1(a)},${r1(b)} 0 1 0 ${r1(cx + a)},${r1(cy)} A ${r1(a)},${r1(b)} 0 1 0 ${r1(cx - a)},${r1(cy)} Z`;
+      });
+      out.push(peindre([ds[1], ds[2], ds[0]]));
+    }
     // une même couverture sur les quatre
-    const pc = [];
-    for (let x = X(33); x <= X(186); x += 1.5) pc.push([x, dessus(x) - 2.4]);
+    // le tissu ne descend pas dans les creux étroits entre deux corps : il passe d'un sommet à
+    // l'autre (fermeture du profil sur une largeur de main)
+    const xs = [], ys = [];
+    for (let x = X(20); x <= X(222); x += 1.5) { xs.push(x); ys.push(x < X(33) || x > X(209) ? B : dessus(x)); }
+    const w = Math.round(5 * s / 1.5), n = xs.length;
+    const haut = ys.map((_, i) => Math.min(...ys.slice(Math.max(0, i - w), Math.min(n, i + w + 1))));
+    const ferme = haut.map((_, i) => Math.max(...haut.slice(Math.max(0, i - w), Math.min(n, i + w + 1))));
+    const pc = xs.map((x, i) => [x, Math.min(ys[i], ferme[i]) - 2.4]).filter(([x]) => x >= X(33) - 0.1 && x <= X(209) + 0.1);
     out.push(h.path(bande(pc, 4), blanc(h.a.arete)));
     // la chaise, dossier au bout, qui tient le drap
-    out.push(h.rect(X(203.5), Y(42.5), 3 * s, Y(0) - Y(42.5) - 2 * ep, blanc(h.a.arete)));
-    out.push(h.rect(X(240.5), Y(92), 3 * s, Y(0) - Y(92) - 2 * ep, blanc(h.a.arete)));
-    out.push(h.rect(X(202), Y(45), 42 * s, 2.5 * s, blanc(h.a.arete)));
-    out.push(h.rect(X(206.5), Y(15), 34 * s, 1.6 * s, blanc(h.a.detail)));
+    out.push(h.rect(X(219.5), Y(42.5), 3 * s, Y(0) - Y(42.5) - 2 * ep, blanc(h.a.arete)));
+    out.push(h.rect(X(256.5), Y(92), 3 * s, Y(0) - Y(92) - 2 * ep, blanc(h.a.arete)));
+    out.push(h.rect(X(218), Y(45), 42 * s, 2.5 * s, blanc(h.a.arete)));
+    out.push(h.rect(X(222.5), Y(15), 34 * s, 1.6 * s, blanc(h.a.detail)));
     // le drap : de la table au dossier, puis au plancher
     // le bord du drap reste sur la table, pris sous la couverture
     const pd = [[X(98), Y(79.6)], [X(123), Y(79.6)], [X(124.4), Y(79.2)]];
-    for (let c = 126; c <= 243.5; c += 2) pd.push([X(c), Y(drapY(c))]);
-    for (const [c, v] of [[245.5, 92.2], [246.6, 88], [247.5, 60], [249, 30], [250.5, 8], [251.4, 2.6], [252.6, 0.7], [262, 0.7]])
+    for (let c = 126; c <= 259.5; c += 2) pd.push([X(c), Y(drapY(c))]);
+    for (const [c, v] of [[261.5, 92.2], [262.6, 88], [263.5, 60], [265, 30], [266.5, 8], [267.4, 2.6], [268.6, 0.7], [278, 0.7]])
       pd.push([X(c), Y(v)]);
     out.push(h.path(poly(pd), h.a.arete));
     // le dessus de la table, en coupe
@@ -100,8 +173,8 @@ module.exports = (h) => {
 
   // ── Vu de dessus : la rangée des dormeurs ──
   const geoPlan = z => {
-    const s = Math.min((z.l - 6) / 254, (z.h - 4) / 228);
-    const ox = (z.l - 254 * s) / 2 + 14 * s, oy = (z.h - 228 * s) / 2;
+    const s = Math.min((z.l - 6) / 270, (z.h - 4) / 228);
+    const ox = (z.l - 270 * s) / 2 + 14 * s, oy = (z.h - 228 * s) / 2;
     return { s, X: c => ox + c * s, Y: c => oy + c * s };
   };
 
@@ -112,29 +185,19 @@ module.exports = (h) => {
     out.push(R(-14, 0, 0, 228, h.a.hachure('bois')));
     out.push(R(0, 10, 18, 200, h.a.hachure('isolant') + ' rx="3"'));
     // le bord des tissus au plancher : l'abri fermé
-    out.push(R(18, 4, 240, 208, h.a.contour + ' rx="4"'));
+    out.push(R(18, 4, 256, 208, h.a.contour + ' rx="4"'));
     // la literie, sous les corps
-    out.push(R(19, 10, 172, 204, h.a.detail));
-    // corps : tête, épaules, hanches, pieds
-    const corps = (c, r, yT, w1, yS, w2, yH, w3, yF) => {
-      const P = (x, y) => `${r1(X(x))},${r1(Y(y))}`;
-      const d = `M ${P(c - w1 / 2 + 4, yS)} L ${P(c + w1 / 2 - 4, yS)} Q ${P(c + w1 / 2, yS)} ${P(c + w1 / 2, yS + 5)} ` +
-        `L ${P(c + w2 / 2, yH)} L ${P(c + w3 / 2, yF - 5)} Q ${P(c + w3 / 2, yF)} ${P(c, yF)} ` +
-        `Q ${P(c - w3 / 2, yF)} ${P(c - w3 / 2, yF - 5)} L ${P(c - w2 / 2, yH)} L ${P(c - w1 / 2, yS + 5)} ` +
-        `Q ${P(c - w1 / 2, yS)} ${P(c - w1 / 2 + 4, yS)} Z`;
-      return [h.path(d, blanc(h.a.arete)), h.cercle(X(c), Y(yT), r * s, blanc(h.a.arete))].join('\n');
-    };
-    out.push(corps(42, 10, 22, 44, 34, 38, 110, 24, 196));
-    out.push(corps(80, 7.5, 29, 26, 38, 22, 90, 15, 138));
-    out.push(corps(110, 7.5, 29, 26, 38, 22, 90, 15, 138));
-    out.push(corps(148, 10, 22, 44, 34, 38, 110, 24, 196));
+    out.push(R(19, 8, 196, 204, h.a.detail));
+    // les quatre dormeurs sur le dos, vus de dessus : les adultes aux bouts, les enfants au milieu
+    for (const [c, age] of [[45, 'adulte'], [87, 'enfant'], [125, 'enfant'], [167, 'adulte']])
+      out.push(dessusCorps((x, y) => [X(c + x), Y(12 + y)], age, s));
     // la table, au-dessus : pattes et contour du dessus
     for (const [a, b] of [[22, 14], [104, 14], [22, 192], [104, 192]]) out.push(R(a, b, a + 4, b + 4, h.a.plein));
     out.push(R(20, 12, 110, 200, h.a.cache));
     // les deux chaises, dossier vers le dehors
     for (const b of [40, 130]) {
-      out.push(R(188, b, 230, b + 42, blanc(h.a.arete) + ' rx="2"'));
-      out.push(R(226, b - 1, 232, b + 43, blanc(h.a.arete)));
+      out.push(R(204, b, 246, b + 42, blanc(h.a.arete) + ' rx="2"'));
+      out.push(R(242, b - 1, 248, b + 43, blanc(h.a.arete)));
     }
     return out.join('\n');
   };
@@ -144,17 +207,22 @@ module.exports = (h) => {
     const G = z.h - 18, e = 13;
     const S = G - 2 * e - 52, L = S - 7;
     const fin = z.l - 60;
-    const rx = 52, ry = 30, cx = 92, cy = L - ry;
+    const rx = 40, ry = 26, cx = 92, cy = L - ry, rb = 10.5;
+    // le tronc coupé à la poitrine, un bras de chaque côté
+    const pieces = [[cx, rx, ry], [cx - rx - rb + 2, rb, rb], [cx + rx + rb - 2, rb, rb]];
     const nappe = (d, x) => {
-      const a = rx + d, b = ry + d, u = Math.abs(x - cx);
-      const t = u <= a ? cy - b * Math.sqrt(1 - (u / a) ** 2) : cy + (u - a) * 1.6;
-      return Math.min(t, L - d * 0.8);
+      let t = L - d * 0.8;
+      for (const [pc, pa, pb] of pieces) {
+        const a = pa + d, b = pb + d, u = Math.abs(x - pc), py = L - pb;
+        t = Math.min(t, u <= a ? py - b * Math.sqrt(1 - (u / a) ** 2) : py + (u - a) * 1.6);
+      }
+      return t;
     };
-    return { G, e, S, L, fin, rx, ry, cx, cy, nappe };
+    return { G, e, S, L, fin, rx, ry, cx, cy, pieces, nappe };
   };
 
   const couches = z => {
-    const { G, e, S, L, fin, rx, ry, cx, cy, nappe } = geoCouches(z);
+    const { G, e, S, L, fin, rx, ry, cx, cy, pieces, nappe } = geoCouches(z);
     const out = [];
     out.push(h.rect(0, G, z.l, 18, h.a.hachure('bois', 'aucun')));
     out.push(h.ligne(0, G, z.l, G, h.a.arete));
@@ -182,8 +250,10 @@ module.exports = (h) => {
     }
     // couverture du dessous
     out.push(h.rect(0, L, fin, 7, blanc(h.a.arete)));
-    // le corps, en coupe
-    out.push(h.ellipse(cx, cy, rx, ry, blanc(h.a.arete)));
+    // le corps, en coupe : le tronc et les deux bras
+    const ds = pieces.map(([pc, pa, pb]) => { const py = L - pb;
+      return `M ${r1(pc - pa)},${r1(py)} A ${pa},${pb} 0 1 0 ${r1(pc + pa)},${r1(py)} A ${pa},${pb} 0 1 0 ${r1(pc - pa)},${r1(py)} Z`; });
+    out.push(peindre([ds[1], ds[2], ds[0]]));
     // par-dessus : couverture, journal froissé, couverture
     const xe = fin - 6;
     const nap = (d1, d2) => {
@@ -211,12 +281,12 @@ module.exports = (h) => {
   };
 
   // ── La comparaison : ce qui est sous le corps ──
+  // le dormeur sur le dos, de profil : le pictogramme de la bibliothèque, la tête à gauche
   const dormeur = (x0, base, Lb) => {
-    const k = Lb / 205, T = (u, v) => `${r1(x0 + u * k)},${r1(base + v * k)}`;
-    const d = `M ${T(19, 0)} L ${T(19, -8)} Q ${T(21, -16)} ${T(31, -18)} L ${T(62, -21)} Q ${T(80, -23)} ${T(97, -19)} ` +
-      `L ${T(118, -17)} Q ${T(140, -15)} ${T(158, -13)} L ${T(186, -9)} Q ${T(192, -9)} ${T(195, -12)} ` +
-      `L ${T(197, -21)} Q ${T(201, -23)} ${T(203, -19)} L ${T(203, -4)} Q ${T(203, 0)} ${T(199, 0)} Z`;
-    return [h.path(d, blanc(h.a.arete)), h.cercle(x0 + 10 * k, base - 9.5 * k, 9.5 * k, blanc(h.a.arete))].join('\n');
+    const e = Lb / 1750;
+    const essai = h.formes.personnage({ x: 0, y: base, pose: 'couche', echelle: e });
+    const dx = x0 - (essai.tete.x - essai.tete.r);
+    return h.formes.personnage({ x: dx, y: base, pose: 'couche', echelle: e }).toString();
   };
   const epaisseur = (a, b) => x => {
     const e = 5, c = 1.6, r = 8;
@@ -244,10 +314,10 @@ module.exports = (h) => {
   return {
     ref: '03-09',
     titre: 'L’abri dans la pièce : la tente de table et le lit en couches',
-    desc: 'En coupe : contre le mur, un matelas debout ; une couverture part du haut du matelas et couvre la table ; un drap, pris sous la couverture sur la table, continue jusqu’au dossier d’une chaise, puis descend au plancher. Dessous, sur des cartons et des coussins de divan, les quatre dormeurs sous une même couverture. Vu de dessus : un adulte contre le matelas, les deux enfants au milieu, l’autre adulte côté drap ; aux deux bouts, couverture et drap descendent jusqu’au plancher. De près : cartons, branches de sapin, couverture, le corps, puis couverture, journal froissé et couverture. En bas : un dormeur sur quatre couvertures écrasées à même le plancher, la chaleur qui part dans le bois ; un autre sur deux cartons et une couverture.',
+    desc: 'En coupe : contre le mur, un matelas debout ; une couverture part du haut du matelas et couvre la table ; un drap, pris sous la couverture sur la table, continue jusqu’au dossier d’une chaise, puis descend au plancher. Dessous, sur des cartons et des coussins de divan, les quatre dormeurs, coupés à la poitrine (le tronc et un bras de chaque côté, la tête qui dépasse au fond), sous une même couverture. Vu de dessus, en pictogrammes couchés sur le dos : un adulte contre le matelas, les deux enfants au milieu, l’autre adulte côté drap ; aux deux bouts, couverture et drap descendent jusqu’au plancher. De près : cartons, branches de sapin, couverture, le corps, puis couverture, journal froissé et couverture. En bas : un dormeur sur quatre couvertures écrasées à même le plancher, la chaleur qui part dans le bois ; un autre sur deux cartons et une couverture.',
     format: 'pleine',
     disposition: [['coupe'], ['plan', 'couches'], ['rate', 'bon']],
-    hauteurs: [5.2, 5.2, 1.6],
+    hauteurs: [5, 5, 2],
     largeurs: [[1], [4, 3], [1, 1]],
     vues: {
       coupe: {
@@ -259,8 +329,8 @@ module.exports = (h) => {
             { n: 1, rond: [X(23), Y(100) - 22], cible: [X(23), Y(92)], texte: 'matelas debout contre le mur' },
             { n: 2, rond: [X(80), Y(95)], cible: [X(84), Y(80.2)], texte: 'couverture par-dessus la table' },
             { n: 3, rond: [X(186), Y(101)], cible: [X(180), Y(drapY(180))], texte: 'drap tendu jusqu’au dossier et au plancher' },
-            { n: 4, rond: [X(143), Y(58)], cible: [X(158), dessus(X(158)) - 3], texte: 'une même couverture pour les quatre' },
-            { n: 5, rond: [X(195), Y(26)], cible: [X(184), (K + C) / 2], texte: 'coussins de divan' },
+            { n: 4, rond: [X(150), Y(58)], cible: [X(166), dessus(X(166)) - 3], texte: 'une même couverture pour les quatre' },
+            { n: 5, rond: [X(214), Y(30)], cible: [X(200), (K + C) / 2], texte: 'coussins de divan' },
           ];
         },
       },
@@ -270,9 +340,9 @@ module.exports = (h) => {
         renvois: z => {
           const { X, Y } = geoPlan(z);
           return [
-            { n: 6, rond: [X(210), Y(106)], cible: [X(158), Y(106)], texte: 'un adulte à chaque bout de la rangée' },
-            { n: 7, rond: [X(95), Y(168)], cible: [X(80), Y(118)], texte: 'les enfants au milieu' },
-            { n: 8, rond: [X(150), Y(220)], cible: [X(186), Y(208)], texte: 'les deux bouts fermés jusqu’au plancher' },
+            { n: 6, rond: [X(225), Y(106)], cible: [X(176), Y(72)], texte: 'un adulte à chaque bout de la rangée' },
+            { n: 7, rond: [X(106), Y(160)], cible: [X(87), Y(98)], texte: 'les enfants au milieu' },
+            { n: 8, rond: [X(170), Y(216)], cible: [X(205), Y(208)], texte: 'les deux bouts fermés jusqu’au plancher' },
           ];
         },
       },

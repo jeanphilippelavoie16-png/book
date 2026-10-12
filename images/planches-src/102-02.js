@@ -35,6 +35,9 @@ module.exports = (h) => {
   const A = [230, 144], v = [0.9006, 0.4343], w = [0.4343, -0.9006], r = 12;
   const P = (d, e) => [A[0] + v[0] * d + w[0] * e, A[1] + v[1] * d + w[1] * e];
   const G = 294;
+  const X_PIEDS = 156, E_HOMME = 0.18, PENCHE = 57;
+  // le couteau : posé sur la peau à KD le long de la poutre, la lame penchée vers celui qui pousse
+  const KD = 118, KB = [A[0] + v[0] * KD + w[0] * 9, A[1] + v[1] * KD + w[1] * 9], KH = [KB[0] - 11.5, KB[1] - 24];
   // bord bas de la peau pendante, et ses poils
   const bordPeau = [[221, 194], [233, 199], [245, 206], [258, 208], [270, 213], [283, 224], [295, 230],
     [308, 231], [320, 237], [333, 243], [345, 244], [358, 252], [370, 256], [383, 257], [395, 260], [404, 259], [412, 256]];
@@ -68,23 +71,18 @@ module.exports = (h) => {
     // d'autre, sans quoi la bille ronde roule du piquet au premier coup de travers
     h.chemin([[269.2, 212], [269.1, 188], [263.5, 163], [268.5, 163], [274, 179], [279.5, 163],
       [284.5, 163], [278.9, 188], [278.8, 216]], h.a.cache),
-    // les jambes, sous le tronc
-    h.path(membre([[186, 142], [174, 218], [160, 284]], [27, 19, 13]), W(h.a.arete)),
-    h.chemin([[153, 280], [167, 280], [170, 287], [186, 289], [188, G], [150, G], [150, 286]], W(h.a.arete), true),
-    h.path(membre([[192, 148], [214, 216], [212, 284]], [27, 19, 13]), W(h.a.arete)),
-    h.chemin([[205, 280], [219, 280], [222, 287], [238, 289], [240, G], [202, G], [202, 286]], W(h.a.arete), true),
-    // le tronc, appuyé du ventre sur le bout de la poutre
-    h.path(membre([[186, 146], [216, 117], [247, 88]], [46, 46, 40]), W(h.a.arete)),
-    // la tête, penchée sur l'ouvrage
-    h.path(membre([[246, 86], [256, 76], [265, 66]], [16, 14, 13]), W(h.a.arete)),
-    h.ellipse(272, 58, 14, 16, W(h.a.arete)),
-    h.chemin([[284.2, 62], [289, 68.5], [282.5, 70.5]], h.a.arete),
-    // le couteau (vu par le bout) et le bras de devant
-    h.path(membre([[326, 173], [314.5, 147.5]], [7, 7], 'rond', 'plat'), h.a.hachure('metal', 'contour')),
-    h.path(membre([[249, 90], [282, 120], [306, 141]], [15, 12, 10]), W(h.a.arete)),
-    h.ellipse(312, 146, 9, 8, W(h.a.arete)),
+    // la lame vue par le bout, puis l'homme penché par-dessus : pictogramme (règle 8), les deux
+    // poings fermés sur les poignées (la poignée de derrière cachée par celle de devant)
+    h.path(membre([KB, KH], [7, 7], 'rond', 'plat'), h.a.hachure('metal', 'contour')),
+    (() => {
+      const M = { x: KH[0], y: KH[1], pose: 'prise', vue: 'profil', diametre: 9, echelle: 0.22 };
+      const p = h.formes.personnage({ x: X_PIEDS, y: G, pose: 'penche', echelle: E_HOMME, penche: PENCHE, regard: 22,
+        prises: { proche: M, loin: Object.assign({}, M, { x: KH[0] - 2, y: KH[1] - 2 }) } });
+      const t = p.mains.proche.trou;
+      return p + h.cercle(t.x, t.y, t.r, W(h.a.arete));
+    })(),
     // le sens de la poussée
-    h.fleche('M343,163 L397,189', h.a.arete),
+    h.fleche(`M${KH[0] + 34},${KH[1] + 2} L${KH[0] + 88},${KH[1] + 28}`, h.a.arete),
   ].join('\n') + '</g>';
 
   const T = (x, y) => [x + DX, y];
@@ -101,9 +99,11 @@ module.exports = (h) => {
     // les poignées aux deux bouts
     h.path(membre([[28, 92], [64, 92]], [16, 16], 'rond', 'plat'), W(h.a.arete)),
     h.path(membre([[260, 92], [224, 92]], [16, 16], 'rond', 'plat'), W(h.a.arete)),
-    // on appuie vers le bas sur chaque poignée
-    h.fleche('M38,62 L38,82', h.a.arete),
-    h.fleche('M250,62 L250,82', h.a.arete),
+    // un poing fermé sur chaque poignée, qui appuie vers le bas
+    h.formes.main({ x: 44, y: 92, pose: 'prise', vue: 'dos', diametre: 16, echelle: 0.42, angle: 90, cote: 'droite', bras: 58 }),
+    h.formes.main({ x: 244, y: 92, pose: 'prise', vue: 'dos', diametre: 16, echelle: 0.42, angle: -90, cote: 'gauche', bras: 58 }),
+    h.fleche('M84,30 L84,54', h.a.arete),
+    h.fleche('M204,30 L204,54', h.a.arete),
   ].join('\n');
 
   // ─── vue 3 : la lame, en coupe le long de la poutre ─────────────────────
@@ -140,8 +140,8 @@ module.exports = (h) => {
           { n: 1, rond: T(520, 215), cible: T(...P(280, 12)), texte: 'tronc d’épinette écorcé, planté en biais' },
           { n: 2, rond: T(320, 272), cible: T(278.6, 262), texte: 'calé à hauteur de hanche' },
           { n: 3, rond: T(445, 175), cible: T(...P(190, 15)), texte: 'peau chair en l’air' },
-          { n: 4, rond: T(256, 126), cible: T(231, 133), texte: 'appuyée au ventre, poids du corps' },
-          { n: 5, rond: T(345, 128), cible: T(321, 162), texte: 'poussée à deux mains, corps par-dessus' },
+          { n: 4, rond: T(244, 172), cible: T(229, 140), texte: 'appuyée au ventre, poids du corps' },
+          { n: 5, rond: T(KB[0] + 22, KB[1] - 52), cible: T(KB[0] - 5, KB[1] - 10), texte: 'poussée à deux mains, corps par-dessus' },
         ],
       },
       prise: {
@@ -150,7 +150,7 @@ module.exports = (h) => {
         renvois: z => [
           { n: 6, rond: [144, 218], cible: [144, 176], texte: 'billot gros comme une cuisse' },
           { n: 7, rond: [212, 128], cible: [171, 107.8], texte: 'la courbe présente la peau' },
-          { n: 8, rond: [40, 130], cible: [40, 100], texte: 'poignées aux deux bouts' },
+          { n: 8, rond: [22, 128], cible: [24, 94], texte: 'poignées aux deux bouts' },
         ],
       },
       angle: {

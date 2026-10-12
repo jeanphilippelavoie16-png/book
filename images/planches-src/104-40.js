@@ -102,7 +102,7 @@ module.exports = (h) => {
   const tenir = z => {
     const e = 1.05, D = 24 * e;                     // manche de bois franc
     const hx = z.l * 0.66, hy = z.h - 128;         // le centre du poing
-    const mT = hy - 64 * e, mB = hy + 58 * e;        // bouts du manche
+    const mT = hy - 40 * e, mB = hy + 64 * e;        // bouts du manche : le bout rond dans le talon de la main
     const manche = [
       h.path(`M ${f1(hx - D / 2)} ${f1(mB)} L ${f1(hx - D / 2)} ${f1(mT + D / 2)} Q ${f1(hx - D / 2)} ${f1(mT)} ${f1(hx)} ${f1(mT)} Q ${f1(hx + D / 2)} ${f1(mT)} ${f1(hx + D / 2)} ${f1(mT + D / 2)} L ${f1(hx + D / 2)} ${f1(mB)} Z`, h.a.hachure('bois', 'arete')),
     ].join('\n');
@@ -123,17 +123,17 @@ module.exports = (h) => {
     // la ligature de babiche au bas du manche
     const lig = [];
     for (let k = 0; k < 4; k++) { const y = mB - 3 - k * 3.2; lig.push(h.path(`M ${f1(hx - D / 2)} ${f1(y + 1)} Q ${f1(hx)} ${f1(y - 1.6)} ${f1(hx + D / 2)} ${f1(y + 1)}`, h.a.detail)); }
-    // le manche, puis la main qui le serre (vue du dos, les doigts enroulés, le pouce en face)
+    // le manche, puis la main qui le serre en poignard : le bout du manche dans le talon de la
+    // main, l'auriculaire en haut, le pouce et l'index en bas, vers la lame (vue du dos)
     out.push(manche);
     out.push(lig.join('\n'));
-    out.push(F.main({ x: hx, y: hy - 6, pose: 'prise', vue: 'dos', diametre: D, bras: 60, echelle: 0.82 }));
+    out.push(F.main({ x: hx, y: hy, pose: 'prise', vue: 'dos', cote: 'gauche', angle: 180, diametre: D, bras: 30, echelle: 1 }));
     // la coupe de la lame : un losange, relié à la lame par le trait de coupe
     const yc = mB + 7, xq = hx - 30;
     out.push(h.ligne(hx - w - 2, yc, xq + 9, yc, h.a.cache));
     out.push(h.chemin([[xq - 8, yc], [xq, yc - 4], [xq + 8, yc], [xq, yc + 4]], h.a.hachure('metal', 'arete'), true));
     // le geste : on pousse droit dans le cuir
-    out.push(h.fleche(`M ${f1(hx)} ${f1(mT - 40)} L ${f1(hx)} ${f1(mT - 6)}`));
-    out.push(h.fleche(`M ${f1(hx + 30)} ${f1(mB - 8)} L ${f1(hx + 30)} ${f1(yL - 6)}`));
+    out.push(h.fleche(`M ${f1(hx)} ${f1(mT - 44)} L ${f1(hx)} ${f1(mT - 8)}`));
     tenir.pts = { lame: [hx - w - 1, mB + 20] };
     return out.join('\n');
   };

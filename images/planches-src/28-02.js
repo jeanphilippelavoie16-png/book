@@ -10,7 +10,8 @@
 // haut (la bibliothèque n'a que des profils) : il est sous la couverture, remontée aux épaules,
 // et c'est elle qui dit « couché ». La seringue n'est pas tenue : sa position et la flèche du
 // piston suffisent (une main qui pince un piston est le point faible de la bibliothèque).
-// Dernière vue : le buste de la bibliothèque, penché sur un bol posé sur la table.
+// Dernière vue : le pictogramme d'enfant de la bibliothèque (personnage, règle 8), assis sur un
+// tabouret, penché sur un bol posé sur la table (JP, 12 octobre : le « petit bonhomme » refait).
 //
 // Aucune mesure de seringue ni de corps dans le chapitre : aucune cote.
 
@@ -187,16 +188,20 @@ module.exports = (h) => {
     return { svg: out.join('\n'), T, P, sg, tour };
   };
 
-  // ─── il crache : le buste penché sur le bol ──────────────────────────────────────────
-  // Pictogramme (règle 8) : tête ronde sans visage, tronc et bras en bandes, assis penché.
+  // ─── il crache : assis, penché sur le bol posé sur la table ──────────────────────────
+  // Le pictogramme de la bibliothèque (règle 8), enfant de 5 ans, assis sur un tabouret, le tronc
+  // penché au-dessus du bol, les deux mains posées au bord de la table. La table et le tabouret sont
+  // à la taille d'un enfant ; la tête tombe au-dessus du bol.
   const crache = z => {
-    const tableY = z.h - 34;
-    const bord = tableY - 34, bx = z.l * 0.68;
-    const R = 22;
-    const tete = [bx - 18, bord - 62];               // la tête au-dessus du bol, penchée
-    const m = [tete[0] + 8, tete[1] + R];             // le bas du rond, vers le bol
-    const epaule = [tete[0] - 30, tete[1] + 30], hanche = [tete[0] - 92, tableY + 6];
-    return { tableY, bord, bx, R, tete, m, epaule, hanche };
+    const E = 0.27, solY = z.h - 14;
+    const hx = 46;                                     // sous la hanche
+    const mm = v => v * E;
+    const tableY = solY - mm(420), tx0 = hx + mm(170);   // le dessus de la table, son bord proche
+    const pose = { x: hx, y: solY, pose: 'assis', age: 'enfant', echelle: E, penche: 20, regard: 42,
+      mains: { proche: [tx0 + 6, tableY - 9], loin: [tx0 + 1, tableY - 9] } };
+    const p = F.personnage(pose);
+    const rx = 25, bx = p.bouche[0] + 26, bord = tableY - 17;
+    return { E, solY, hx, tableY, tx0, pose, p, bx, rx, bord, m: p.bouche };
   };
   return {
     ref: '28-02',
@@ -232,29 +237,35 @@ module.exports = (h) => {
       trois: {
         titre: 'Il se relève et crache',
         dessin: z => {
-          const { tableY, bord, bx, R, tete, m, epaule, hanche } = crache(z);
-          const bande = (p, q, w) => h.path(`M${f(p[0])} ${f(p[1])} L${f(q[0])} ${f(q[1])}`, `fill="none" stroke="${NOIR}" stroke-width="${w + 4.8}" stroke-linecap="round"`) + '\n' + h.path(`M${f(p[0])} ${f(p[1])} L${f(q[0])} ${f(q[1])}`, `fill="none" stroke="#FFFFFF" stroke-width="${w}" stroke-linecap="round"`);
+          const { E, solY, hx, tableY, tx0, p, bx, rx, bord, m } = crache(z);
           const out = [];
-          out.push(bande(hanche, epaule, 30));
-          out.push(bande([epaule[0] + 4, epaule[1] + 4], [bx - 40, tableY - 4], 13));
-          out.push(h.ellipse(tete[0], tete[1], R, R, BT(2.4)));
-          // la table devant lui, et le bol dessus, sous la bouche
-          const rx = 32;
-          out.push(h.rect(bx - 44, tableY, z.l - (bx - 44) - 2, 10, BT(1.4)));
+          const mm = v => v * E;
+          // le sol
+          out.push(h.ligne(4, solY, z.l - 4, solY, h.a.arete));
+          // la table, sous les mains et au-dessus des cuisses ; elle sort de la vue à droite
+          const tx1 = z.l + 4, epT = mm(30);
+          out.push(h.rect(tx0, tableY, tx1 - tx0, epT, BT(1.4)));
+          out.push(h.rect(tx0 + mm(330), tableY + epT, mm(45), solY - tableY - epT, BT(1.4)));
+          // le tabouret sous la hanche
+          const sy = solY - mm(292);
+          out.push(h.rect(hx - mm(150), sy + mm(25), mm(36), solY - sy - mm(25), BT(1.4)));
+          out.push(h.rect(hx + mm(80), sy + mm(25), mm(36), solY - sy - mm(25), BT(1.4)));
+          out.push(h.rect(hx - mm(170), sy, mm(310), mm(25), BT(1.4)));
+          // l'enfant
+          out.push(p);
+          // le bol sur la table, sous la bouche
           out.push(h.path(`M${f(bx - rx)} ${f(bord)} C${f(bx - rx + 2)} ${f(tableY - 4)} ${f(bx - 12)} ${f(tableY)} ${f(bx)} ${f(tableY)} C${f(bx + 12)} ${f(tableY)} ${f(bx + rx - 2)} ${f(tableY - 4)} ${f(bx + rx)} ${f(bord)} Z`, BT(1.4)));
-          out.push(h.ellipse(bx, bord, rx, 6, BT(1.4)));
+          out.push(h.ellipse(bx, bord, rx, 5, BT(1.4)));
           // ce qu'il crache tombe dans le bol
           const goutte = (x, y, r) => h.path(`M${f(x)} ${f(y - 2.4 * r)} C${f(x + 0.4 * r)} ${f(y - 1.2 * r)} ${f(x + r)} ${f(y - 0.6 * r)} ${f(x + r)} ${f(y)} A${f(r)} ${f(r)} 0 0 1 ${f(x - r)} ${f(y)} C${f(x - r)} ${f(y - 0.6 * r)} ${f(x - 0.4 * r)} ${f(y - 1.2 * r)} ${f(x)} ${f(y - 2.4 * r)} Z`, BT(0.7));
-          const y0 = m[1] + 14, y1 = bord - 2;
-          [0.15, 0.5, 0.85].forEach((t, i) => out.push(goutte(m[0] + 1, y0 + (y1 - y0) * t, i === 1 ? 3 : 2.6)));
-          const fx = m[0] + 20;
-          out.push(h.fleche(`M${f(fx)} ${f(y0 - 2)} L${f(fx)} ${f(y1 - 8)}`, h.a.detail));
+          const y0 = m[1] + 8, y1 = bord - 1;
+          [0.25, 0.85].forEach((t, i) => out.push(goutte(m[0] + 4 + 14 * t, y0 + (y1 - y0) * t, i ? 3 : 2.6)));
           return out.join('\n');
         },
         renvois: z => {
           const { bord, m } = crache(z);
           return [
-            { n: 5, rond: [z.l - 16, 18], cible: [m[0] + 1, bord - 20], texte: 'il crache ; on lui essuie le nez' },
+            { n: 5, rond: [z.l - 16, 18], cible: [m[0] + 2, (m[1] + bord) / 2 + 4], texte: 'il crache ; on lui essuie le nez' },
           ];
         },
       },

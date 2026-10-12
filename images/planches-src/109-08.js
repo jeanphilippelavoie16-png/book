@@ -114,12 +114,9 @@ module.exports = (h) => {
   const M = z => {
     const gy = z.h - 18, Rs = 110, cy = gy - 118, cx = 188, r = 11, al = 25;
     const b0 = bras(al, 0), H = [cx + b0[0] * Rs, cy + b0[1] * Rs];   // les mains, sur le bout de la barre, à hauteur de hanche
-    const pe = [Math.sin(rad(25)), -Math.cos(rad(25))];              // le tronc penché de 25°
-    const S = [cx - 130, cy + 8];                    // l'épaule, au-dessus du bout de barre, hors du cercle
-    const hanche = add(S, pe, -40);
-    const tete = add(S, pe, 15);
-    const pa = [cx - 136, gy - 4], pr = [cx - 168, gy - 4];   // chevilles avant et arrière
-    return { gy, Rs, cy, cx, r, al, H, S, hanche, tete, pa, pr };
+    // l'homme : 1,5 m de barre = Rs, d'où l'échelle ; debout hors du cercle, les bras tendus sur la barre
+    const ech = Rs / 1500, px = H[0] - 29, pen = 4;
+    return { gy, Rs, cy, cx, r, al, H, b0, ech, px, pen };
   };
   // Le cliquet à l'échelle de la vue 3 : bout de planche T, sens u, pivot à 88.
   const U = [0.6, 0.8], NN = [0.8, -0.6], T3 = [37.2, -8.6];
@@ -155,14 +152,11 @@ module.exports = (h) => {
     // on pousse vers le bas
     const P = a => `${f(cx + 88 * Math.cos(rad(a)))} ${f(cy + 88 * Math.sin(rad(a)))}`;
     out.push(h.fleche(`M ${P(157)} A 88 88 0 0 0 ${P(124)}`));
-    // l'homme, hors du cercle
-    const { H, S, hanche, tete, pa, pr } = q;
-    const gr = plie(hanche, pr, 35, 34, -1), ga = plie(hanche, pa, 35, 33, -1), cd = plie(S, H, 25, 25, -1);
-    out.push(capsule(hanche, gr, 12.5), capsule(gr, pr, 10), capsule([pr[0] - 3, gy - 3], [pr[0] + 11, gy - 3], 6));
-    out.push(capsule(hanche, S, 18));
-    out.push(capsule(hanche, ga, 12.5), capsule(ga, pa, 10), capsule([pa[0] - 3, gy - 3], [pa[0] + 11, gy - 3], 6));
-    out.push(capsule(S, tete, 7), h.cercle(tete[0], tete[1], 8.5, blanc('arete')));
-    out.push(capsule(S, cd, 7.5), capsule(cd, H, 6.5), h.cercle(H[0], H[1], 3.6, blanc('arete')));
+    // l'homme, hors du cercle : le pictogramme (règle 8), les deux mains serrées sur le bout de la barre
+    const { H, b0 } = q, ax = [-b0[0], -b0[1]], angB = Math.atan2(ax[0], -ax[1]) * 180 / Math.PI;
+    const mainB = (d, da) => ({ x: H[0] + ax[0] * d, y: H[1] + ax[1] * d, pose: 'prise', vue: 'dos', diametre: 6.5, echelle: 0.095, angle: angB + da });
+    out.push(h.formes.personnage({ x: q.px, y: gy, pose: 'debout', penche: q.pen, regard: 6, echelle: q.ech,
+      prises: { proche: mainB(7, -10), loin: mainB(16, -24) } }));
     return out.join('\n');
   };
   const renvoisManoeuvre = z => {
@@ -170,7 +164,7 @@ module.exports = (h) => {
     return [
       { n: 6, rond: [cx - 62, cy - 24], cible: [f(cx + b0[0] * 72), f(cy + b0[1] * 72 - 3)], texte: 'barre : pousser vers le bas' },
       { n: 7, rond: [cx - 120, cy - 92], cible: [f(cx + q.Rs * Math.cos(ang)), f(cy + q.Rs * Math.sin(ang))], texte: 'cercle balayé par la barre' },
-      { n: 8, rond: [cx - 166, cy - 12], cible: [cx - 148, cy + 30], texte: 'le corps hors du cercle' },
+      { n: 8, rond: [cx - 166, cy - 12], cible: [f(q.px - 4), q.gy - 88], texte: 'le corps hors du cercle' },
       { n: 9, rond: [cx + 116, cy - 62], cible: [cx + 125, cy - q.r - 4.5], texte: 'corde vers la charge' },
     ];
   };

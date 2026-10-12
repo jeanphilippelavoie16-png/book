@@ -61,6 +61,7 @@ module.exports = (h) => {
   const haut = x => { const t = (x - xc) / (Lp / 2); return 100 + (t < 0 ? 48 : 30) * t * t; };  // le dessus en cuvette
   const mL = 200, mH = 85;                           // la molette, vue par le bout
   const xm = 590, xg = 250;                          // molette poussée, molette tirée
+  const PENCHE = 52;                                 // le tronc penché vers l'avant (degrés)
 
   // ─── vue 1 : de côté ────────────────────────────────────────────────────────────────────
   const geoC = z => {
@@ -81,28 +82,6 @@ module.exports = (h) => {
       return lisse([P(c - 60, haut(c - 60)), P(c - m2 + 4, haut(c - m2) + 10), P(c - m2, b + 44), P(c - m2 + 14, b + mH - 7),
         P(c, b + mH), P(c + m2 - 14, b + mH - 7), P(c + m2, b + 44), P(c + m2 - 4, haut(c + m2) + 10), P(c + 60, haut(c + 60))]);
     };
-
-    // le personnage à genoux : on cherche le penché qui amène le poignet sur la molette
-    const topM = haut(xm) + mH - 1;
-    const ancre = [xm - 40, topM];                 // sous le milieu de la paume (mm)
-    const W = [ancre[0] - 50, ancre[1] + 26];      // le poignet de la main qui appuie (mm)
-    let lean = 40;
-    for (let l = 30; l <= 72; l += 0.5) {
-      const r = l * Math.PI / 180;
-      const S = [-45 + (-14 * Math.cos(r) + 470 * Math.sin(r)), -495 + (-14 * Math.sin(r) - 470 * Math.cos(r))];
-      if (Math.hypot(W[0] - S[0], -W[1] - S[1]) <= 540) { lean = l; break; }
-    }
-    let inc = 60, pers, m;
-    for (let k = 0; k < 4; k++) {
-      m = F.main({ x: X(ancre[0]), y: Y(ancre[1]), pose: 'appui', vue: 'profil', echelle: e, inclinaison: inc, bras: 20 });
-      pers = F.personnage({ x: xk, y: y0, pose: 'genoux', echelle: e, penche: lean, regard: 22,
-        mains: { proche: m.poignet, loin: [m.poignet[0] - 2, m.poignet[1] - 1.5] } });
-      const d = [pers.mains.proche[0] - pers.poignets.proche[0], pers.mains.proche[1] - pers.poignets.proche[1]];
-      inc = Math.atan2(d[1], d[0]) * 180 / Math.PI;
-    }
-    const ecart = Math.hypot(pers.poignets.proche[0] - m.poignet[0], pers.poignets.proche[1] - m.poignet[1]);
-    if (ecart > 1) console.error(`88-05 : le poignet manque la molette de ${ecart.toFixed(1)} (penché ${lean})`);
-    out.push(pers.toString());
 
     // la pierre dormante, en cuvette, plus haute au bout du genou
     const dessus = [];
@@ -131,7 +110,14 @@ module.exports = (h) => {
     // la molette tirée (en tireté) et la molette poussée, et la main qui appuie dessus
     out.push(h.path(molette(xg), A.cache));
     out.push(pierre(molette(xm)));
-    out.push(m.toString());
+
+    // le personnage à genoux, penché par-dessus la molette, les bras tendus : le poids du corps
+    // passe par les deux paumes à plat sur le dessus de la molette (la main loin, juste derrière)
+    const topM = haut(xm) + mH - 1;
+    const prise = dx => ({ x: X(xm - 40 + dx), y: Y(topM), pose: 'appui', vue: 'profil', bras: 40 });
+    const pers = F.personnage({ x: xk, y: y0, pose: 'genoux', echelle: e, penche: PENCHE, regard: 26,
+      prises: { proche: prise(0), loin: prise(-22) } });
+    out.push(pers.toString());
     // le va-et-vient
     const yF = Y(haut((xg + xm) / 2) + 44);
     out.push(double(X(xg + mL / 2 + 8), yF, X(xm - mL / 2 - 8), yF));
@@ -177,9 +163,11 @@ module.exports = (h) => {
     };
     out.push(h.path(molP(xg), A.cache));
     out.push(pierre(molP(xm)));
-    // les deux mains à plat sur la molette, les doigts par-dessus le bord avant
-    out.push(F.main({ x: X(xm - 4), y: Y(122), pose: 'appui', vue: 'dos', echelle: e, bras: 75 }).toString());
-    out.push(F.main({ x: X(xm - 4), y: Y(-122), pose: 'appui', vue: 'dos', echelle: e, bras: 75, cote: 'gauche', angle: 180 }).toString());
+    // les deux mains à plat sur la molette ; les avant-bras filent jusqu'au bord de la vue, vers le
+    // personnage à genoux derrière la pierre
+    const BRAS_D = Math.round((xm - 4 - 95 - (xa - 30)) );
+    out.push(F.main({ x: X(xm - 4), y: Y(122), pose: 'appui', vue: 'dos', echelle: e, bras: BRAS_D }).toString());
+    out.push(F.main({ x: X(xm - 4), y: Y(-122), pose: 'appui', vue: 'dos', echelle: e, bras: BRAS_D, cote: 'gauche', angle: 180 }).toString());
     // le va-et-vient
     out.push(double(X(xg), Y(272), X(xm), Y(272)));
     return out.join('\n');

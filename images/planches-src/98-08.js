@@ -7,9 +7,13 @@
 // poussière, les petites graines et le grain cassé ; le bon grain reste entre les deux.
 // Cotes : aucune. Le chapitre ne donne ni la taille des tamis, ni celle du trou, ni la hauteur du
 // cadre : le trou se règle sur le grain, pas sur une mesure.
-// Géométrie de dessin, jamais imprimée : personnage de 1750 (formes.js), épaule à 1420 ; chaudière
-// de 250 à la gueule, 270 de haut, penchée de 105° ; le rebord bas de la gueule à la hauteur de
-// l'épaule, à 560 devant les pieds.
+// Géométrie de dessin, jamais imprimée : le pictogramme de 1750 (formes.js), épaule à 1430 ;
+// chaudière de 250 à la gueule, 270 de haut, penchée de 105° ; le rebord bas de la gueule à la
+// hauteur de l'épaule, à 620 devant les pieds. Les mains viennent de formes.js : le poing proche
+// sur la poignée de bois de l'anse, le poing loin sur le jonc du coin bas du fond. Une vue en gros
+// (« Les deux mains ») reprend la chaudière et les deux poings, tournés comme sur le personnage.
+// Reprise du 12 octobre (JP : « corps et main ») : le pictogramme remplace l'ancienne silhouette,
+// les bras vont chercher les mains de la bibliothèque, et la vue en gros montre la prise.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const BLANC = '#FFFFFF';
@@ -17,6 +21,7 @@ module.exports = (h) => {
   const W = at => at.replace('fill="none"', `fill="${BLANC}"`);
   const rappel = A.fin + ' stroke-dasharray="2 3"';
   const alea = g => { let s = g; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; };
+  const RAD = Math.PI / 180;
   const rot = (p, deg) => { const t = deg * Math.PI / 180, c = Math.cos(t), s = Math.sin(t); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c]; };
   const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
   const dL = pts => pts.map((p, i) => `${i ? 'L' : 'M'}${f(p[0])} ${f(p[1])}`).join(' ');
@@ -30,12 +35,14 @@ module.exports = (h) => {
     }
     return s + (ferme ? ' Z' : '');
   };
-  // le bras proche d'un personnage, repeint par-dessus ce qu'il tient (même découpe que 04-40)
+  // le bras proche d'un personnage à prises (sa silhouette, l'épaule, l'avant-bras et la main),
+  // repeint par-dessus ce qu'il tient
   const brasProche = pers => {
     const L = String(pers).split('\n');
-    const i0 = L.findIndex(l => l.includes('stroke="none"'));
-    let iF = -1; L.forEach((l, i) => { if (l.includes('stroke="none"')) iF = i; });
-    return [L[i0 - 1], ...L.slice(iF, L.length - 1)].join('\n');
+    const iFond = L.findIndex(l => l.includes('stroke="none"'));
+    const sil = L.slice(0, iFond).filter(l => l.includes('stroke-width="2.4"')).slice(-2);
+    let iG = -1; L.forEach((l, i) => { if (l.startsWith('<g data-forme="main-')) iG = i; });
+    return [...sil, ...L.slice(iG - 4, L.length - 1)].join('\n');
   };
 
   // ── les petites choses : grain, grain cassé, balle, graine ──
@@ -73,12 +80,12 @@ module.exports = (h) => {
   // ═══ Vue 1 : vanner au vent ═══════════════════════════════════════════════════════════
   const vanGeo = z => {
     const G = z.h - 12;
-    const e = Math.min((G - 14) / 1800, (z.l - 16) / 3200);
+    const e = Math.min((G - 14) / 1800, (z.l - 16) / 2700);
     const x0 = 600 * e + 8;
     const P = ([x, y]) => [x0 + x * e, G + y * e];
     // la chaudière : repère à la gueule, l'axe vers le fond ; penchée de 105°
     const rt = 125, rb = 105, hb = 270, th = 105;
-    const Lp = [420, -1420];                            // le rebord bas de la gueule, à hauteur d'épaule
+    const Lp = [620, -1380];                            // le rebord bas de la gueule, à hauteur d'épaule
     const M = add(Lp, rot([-rt, 0], th));               // centre de la gueule
     const Q = p => P(add(M, rot(p, th)));               // du repère de la chaudière à la vue
     // le filet de grain : du rebord jusqu'au tas
@@ -86,8 +93,55 @@ module.exports = (h) => {
     const filet = s => [Lp[0] + 38 * Math.sqrt(s), Lp[1] + s * (yTas - Lp[1])];
     return { G, e, x0, P, rt, rb, hb, th, Lp, M, Q, filet, yTas };
   };
-  const MDEV = g => { const p = g.Q([-g.rt + 4, -3]); return { x: p[0], y: p[1], angle: 30 }; };
-  const MDER = g => { const p = g.Q([g.rb + 3, g.hb * 0.8]); return { x: p[0], y: p[1], angle: 195 }; };
+  // l'anse : de l'oreille, sur le flanc à 40 sous le rebord, levée et rabattue vers le fond
+  // jusqu'au fil du dessus, vu par le bout
+  const OREILLE = [0, 40], ANSE = [-140, 135];
+  // Les deux mains de la bibliothèque, que les bras vont chercher : la main proche, le poing fermé
+  // sur la poignée de bois de l'anse (vue par le bout : les doigts par-dessus, le pouce en face),
+  // qui porte ; la main loin, le poing fermé sur le jonc du fond, au coin bas (le coin dans le
+  // poing), qui soulève et fait pencher.
+  const D_POIGNEE = 28;
+  const FOND = g => [g.rb - 4, g.hb - 4];
+  const PRISE = (x, y, ech, angle) => Object.assign({ x, y, pose: 'prise', vue: 'profil', diametre: D_POIGNEE * ech, echelle: ech, bras: 70 }, angle == null ? {} : { angle });
+  const COIN = (x, y, ech, angle) => PRISE(x, y, ech, angle);
+  const ANG = { anse: -28 };
+  const personnageVanne = g => {
+    const pa = g.Q(ANSE), pf = g.Q(FOND(g));
+    return F.personnage({ x: g.x0, y: g.G, pose: 'debout', echelle: g.e, penche: 4, regard: 16,
+      prises: { proche: PRISE(pa[0], pa[1], g.e, ANG.anse), loin: COIN(pf[0], pf[1], g.e) } });
+  };
+  const poignee = (m, ech) => h.cercle(m.trou.x, m.trou.y, D_POIGNEE / 2 * ech, A.hachure('bois', ech > 0.3 ? 'arete' : 'detail'));
+  // la chaudière penchée, dans son repère Q (u en travers de la gueule, v de la gueule vers le fond)
+  const chaudiere = (Q, rt, rb, hb, r, gros = false) => {
+    const o = [];
+    const corps = [Q([-rt, 0]), Q([rt, 0]), Q([rb, hb]), Q([-rb, hb])];
+    o.push(h.chemin(corps, W(A.arete), true));
+    // la gueule vue un peu en biais : le grain dedans, qui glisse vers le rebord bas
+    const gueule = [];
+    for (let i = 0; i < 24; i++) { const t = i / 24 * 2 * Math.PI; gueule.push(Q([rt * Math.cos(t), 30 * Math.sin(t)])); }
+    o.push(h.path(lisse(gueule, true), W(A.arete)));
+    const gr = gros ? [9, 4.2] : [3.6, 1.8];
+    for (let i = 0; i < (gros ? 30 : 16); i++) {
+      const u = 0.35 + 0.6 * r(), v = (r() - 0.5) * 34 * (1 - u * u);
+      o.push(grain(Q([u * rt * 0.95, v]), gr[0], gr[1], r() * 180, { plein: !gros }));
+    }
+    // les nervures et le fond
+    for (const k of [0.12, 0.18]) o.push(h.path(dL([Q([-(rt - (rt - rb) * k), hb * k]), Q([rt - (rt - rb) * k, hb * k])]), A.detail));
+    o.push(h.path(dL([Q([-rb * 1.01, hb]), Q([rb * 1.01, hb])]), A.arete));
+    // l'anse : l'oreille rivée au flanc, le fil levé jusqu'à la main, son dessus vu par le bout
+    const or = Q(OREILLE), an = Q(ANSE), ech = Math.hypot(Q([1, 0])[0] - Q([0, 0])[0], Q([1, 0])[1] - Q([0, 0])[1]);
+    o.push(h.cercle(or[0], or[1], 9 * ech, W(A.detail)));
+    o.push(h.path(dL([or, an]), ech > 0.3 ? A.contour : A.arete));
+    o.push(h.cercle(or[0], or[1], 2.5 * ech, A.plein));
+    return o.join('\n');
+  };
+  // la main loin d'un personnage à prises (le premier groupe de main), repeinte par-dessus
+  const mainLoin = pers => {
+    const L = String(pers).split('\n');
+    const i0 = L.findIndex(l => l.startsWith('<g data-forme="main-'));
+    let i1 = i0; while (L[i1] !== '</g>') i1++;
+    return L.slice(i0, i1 + 1).join('\n');
+  };
   const vanner = z => {
     const g = vanGeo(z), { P, e, Q, rt, rb, hb, filet } = g, o = [];
     const r = alea(9808);
@@ -124,70 +178,11 @@ module.exports = (h) => {
       const p = P([c[0] + (r() - 0.5) * lg, c[1]]);
       o.push(grain(p, 3.6, 1.8, 70 + 40 * r(), { plein: true }));
     }
-    // le personnage, puis la chaudière, puis le bras proche par-dessus
-    // les deux mains : devant, les doigts repliés par-dessus le rebord haut de la gueule, le pouce
-    // dedans ; derrière, la paume sous le fond, vers le haut
-    // Chaque main se pose au poignet du bras du personnage, dans l'axe de son avant-bras (elle
-    // recouvre la main sommaire du personnage) ; on déplace la cible du poignet jusqu'à ce que la
-    // main tombe sur son objet : le rebord pour la main de devant, le fond pour celle de derrière.
-    const RAD = Math.PI / 180, dv = MDEV(g), dr = MDER(g);
-    const faire = (k, a) => k === 'loin'
-      ? F.main({ x: 0, y: 0, angle: a, pose: 'prise', vue: 'profil', echelle: e, diametre: 12 * e, bras: 60 })
-      : derriere(a);
-    // la main de derrière, paume en haut sous la paroi basse, près du fond : l'inclinaison qui met
-    // son avant-bras le plus près de celui du personnage
-    const derriere = a => {
-      let best = null;
-      for (let inc = 10; inc <= 85; inc += 5) {
-        const m = F.main({ x: 0, y: 0, angle: dr.angle, cote: 'gauche', pose: 'appui', vue: 'profil', echelle: e, bras: 60, inclinaison: inc });
-        const b = Math.atan2(m.poignet[1] - m.bras[1], m.poignet[0] - m.bras[0]) / RAD;
-        const d = Math.abs(((b - a) % 360 + 540) % 360 - 180);
-        if (!best || d < best.d) best = { d, m };
-      }
-      return best.m;
-    };
-    const but = { loin: [dv.x, dv.y], proche: [dr.x, dr.y] };
-    const w = { loin: P([250, -1520]), proche: P([150, -1250]) };
-    let pers, mains = {};
-    for (let it = 0; it < 12; it++) {
-      pers = F.personnage({ x: g.x0, y: g.G, pose: 'debout', echelle: e, penche: -4, regard: 14, mains: { proche: w.proche, loin: w.loin } });
-      for (const k of ['proche', 'loin']) {
-        const pw = pers.poignets[k], pm = pers.mains[k];
-        const a = Math.atan2(pm[1] - pw[1], pm[0] - pw[0]) / RAD;
-        const m0 = faire(k, a), dx = pw[0] - m0.poignet[0], dy = pw[1] - m0.poignet[1];
-        const t = [dx, dy];
-        mains[k] = { a, t };
-        w[k] = [w[k][0] + 0.7 * (but[k][0] - t[0]), w[k][1] + 0.7 * (but[k][1] - t[1])];
-      }
-    }
-    const placer = k => { const { a, t } = mains[k], m = faire(k, a); return `<g transform="translate(${f(t[0])} ${f(t[1])})">${m}</g>`; };
-    const mDev = placer('loin'), mDer = placer('proche');
-    // la main sommaire du personnage, au bout de chaque avant-bras, est masquée : la vraie main la remplace
-    const trous = ['proche', 'loin'].map(k => {
-      const pw = pers.poignets[k], a = mains[k].a * RAD, u = [Math.cos(a), Math.sin(a)], n = [-u[1], u[0]];
-      const L = 200 * e, l = 42 * e, d0 = 4 * e;
-      const c = [[d0, -l], [L, -l], [L, l], [d0, l]].map(([s1, s2]) => [pw[0] + u[0] * s1 + n[0] * s2, pw[1] + u[1] * s1 + n[1] * s2]);
-      return `<path d="${dL(c)} Z" fill="black"/>`;
-    }).join('');
-    const masque = `<defs><mask id="m9808" maskUnits="userSpaceOnUse" x="0" y="0" width="${f(z.l)}" height="${f(z.h)}"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="white"/>${trous}</mask></defs>`;
-    const masquer = svg => `<g mask="url(#m9808)">${svg}</g>`;
-    o.push(masque, masquer(pers));
-    const corps = [Q([-rt, 0]), Q([rt, 0]), Q([rb, hb]), Q([-rb, hb])];
-    o.push(h.chemin(corps, W(A.arete), true));
-    // la gueule vue un peu en biais : le grain dedans, qui glisse vers le rebord bas
-    const gueule = [];
-    for (let i = 0; i < 24; i++) { const t = i / 24 * 2 * Math.PI; gueule.push(Q([rt * Math.cos(t), 30 * Math.sin(t)])); }
-    o.push(h.path(lisse(gueule, true), W(A.arete)));
-    for (let i = 0; i < 16; i++) {
-      const u = 0.35 + 0.6 * r(), v = (r() - 0.5) * 34 * (1 - u * u);
-      o.push(grain(Q([u * rt * 0.95, v]), 3.6, 1.8, r() * 180, { plein: true }));
-    }
-    // les nervures et le fond de la chaudière
-    for (const k of [0.12, 0.18]) o.push(h.path(dL([Q([-(rt - (rt - rb) * k), hb * k]), Q([rt - (rt - rb) * k, hb * k])]), A.detail));
-    o.push(h.path(dL([Q([-rb * 1.01, hb]), Q([rb * 1.01, hb])]), A.arete));
-    o.push(mDev);
-    o.push(masquer(brasProche(pers)));
-    o.push(mDer);
+    // le personnage, la chaudière, puis par-dessus le bras proche et la main loin.
+    const pers = personnageVanne(g);
+    o.push(String(pers));
+    o.push(chaudiere(Q, rt, rb, hb, r));
+    o.push(mainLoin(pers), brasProche(pers), poignee(pers.mains.proche, e));
     // le vent, dans le dos, et la balle qu'il emporte
     for (const y of [-1600, -1080, -560]) {
       const a = P([-590, y]), b = P([-210, y]);
@@ -195,6 +190,35 @@ module.exports = (h) => {
     }
     const fa = P([820, -1300]), fb = P([1350, -1150]), fc = P([1900, -760]);
     o.push(h.fleche(`M${f(fa[0])} ${f(fa[1])} Q${f(fb[0])} ${f(fb[1])} ${f(fc[0])} ${f(fc[1])}`, A.detail));
+    return o.join('\n');
+  };
+
+  // ═══ Vue 1 bis : les deux mains sur la chaudière, en gros ═══════════════════════════════
+  // La même chaudière et les mêmes mains que sur le personnage, dans la même orientation, à une
+  // échelle où on voit les doigts : l'avant-bras coupé, dans l'axe qui remonte vers l'épaule.
+  const VANZ = { l: 429, h: 303 };   // les angles des bras ne dépendent pas de l'échelle
+  const mainsGeo = z => {
+    const ech = Math.min(z.l / 340, (z.h - 30) / 420);
+    const rt = 125, rb = 105, hb = 270, th = 105;
+    const c = [z.l * 0.6, z.h * 0.36];                        // le milieu de la chaudière
+    const Mm = add(c, rot([0, -hb / 2 * ech], th));          // centre de la gueule
+    const Q = p => add(Mm, rot([p[0] * ech, p[1] * ech], th));
+    return { ech, rt, rb, hb, th, Q };
+  };
+  const mainsGros = z => {
+    const m = mainsGeo(z), { ech, Q, rt } = m, o = [], r = alea(9809);
+    const pers = personnageVanne(vanGeo(VANZ)), pa = Q(ANSE), pf = Q(FOND(m));
+    // le filet de grain qui part du rebord bas
+    const Lb = Q([rt, 0]);
+    for (let i = 0; i < 40; i++) {
+      const s = r(), y = Lb[1] + 4 + s * (z.h - Lb[1] - 6), x = Lb[0] + 3 + 8 * Math.sqrt(s) + (r() - 0.5) * (4 + 8 * s);
+      o.push(grain([x, y], 9, 4.2, 75 + 30 * r(), { plein: true }));
+    }
+    o.push(chaudiere(Q, m.rt, m.rb, m.hb, r, true));
+    const ax = pers.mains.loin.trou.axe, angC = Math.atan2(ax[0], -ax[1]) / RAD;   // l'angle que le bras a donné au poing
+    o.push(F.main(Object.assign(COIN(pf[0], pf[1], ech, angC), { bras: 130 })));
+    const mA = F.main(Object.assign(PRISE(pa[0], pa[1], ech, ANG.anse), { bras: 130 }));
+    o.push(mA, poignee(mA, ech));
     return o.join('\n');
   };
 
@@ -398,9 +422,9 @@ module.exports = (h) => {
     titre: 'Vanner et tamiser le grain',
     desc: 'Vanner au vent : le grain versé de la hauteur de l’épaule sur une toile, le vent dans le dos emporte la balle loin, le grain tombe en tas. Puis les deux tamis, écartés : le grillage de poulailler cloué sur un cadre de lattes retient tiges et épis, la tôle percée au clou retient le bon grain, et dessous tombent poussière, petites graines et grain cassé. En détail, la tôle en coupe et vue de dessus : le trou fait au clou, le grain entier qui le couvre et reste, le grain cassé qui passe.',
     format: 'pleine',
-    disposition: [['vanner'], ['tamis', 'trou']],
-    hauteurs: [0.92, 1.1],
-    largeurs: [[1], [1.72, 1]],
+    disposition: [['vanner', 'mains'], ['tamis', 'trou']],
+    hauteurs: [1.1, 1],
+    largeurs: [[2.9, 1], [1.72, 1]],
     vues: {
       vanner: {
         titre: 'Vanner au vent',
@@ -416,6 +440,11 @@ module.exports = (h) => {
           ];
         },
       },
+      mains: {
+        titre: 'Les deux mains',
+        dessin: mainsGros,
+        renvois: () => [],
+      },
       tamis: {
         titre: 'Les deux tamis, écartés',
         dessin: tamis,
@@ -425,7 +454,7 @@ module.exports = (h) => {
           return [
             { n: 5, rond: [xr, T1([U, V, Hf])[1] + 4], cible: T1(MAILLE), texte: 'grillage de poulailler cloué sur des lattes' },
             { n: 6, rond: [xr, T1([U, 0, 0])[1] - 8], cible: T1([126, 124, 0]), texte: 'il retient les tiges et les épis entiers' },
-            { n: 7, rond: [xr, T2([U, V, Hf])[1] + 4], cible: T2(TROU7), texte: 'tôle ou fond de boîte percé au clou' },
+            { n: 7, rond: [xr, T2([U, V, Hf])[1] + 12], cible: T2(TROU7), texte: 'tôle ou fond de boîte percé au clou' },
             { n: 8, rond: [xr, T2([U, 0, 0])[1] - 8], cible: T2(GRAIN8), texte: 'il retient le bon grain' },
             { n: 9, rond: [xr, T3([U, V * 0.5, 0])[1]], cible: T3([U - 24, V * 0.5, 0]), texte: 'passent : poussière, graines, grain cassé' },
           ];

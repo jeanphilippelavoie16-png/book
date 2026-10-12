@@ -6,8 +6,12 @@
 // jet d'eau bouillie refroidie, bouteille souple percée au clou chauffé ; sans bouteille, un sac
 // de plastique épais percé d'un trou d'épingle et tordu pour faire pression.
 // Les mesures du dessin sont celles d'un corps d'adulte, en cm, mises à l'échelle s (px/cm).
-// Passe qualité (lot 06) : plus de personnage ; les mains viennent de h.formes (appui de profil,
-// prise vue du dos) ; la coupe de cuisse tramée, avec sa vignette de repère.
+// Passe qualité (lot 06) : les mains viennent de h.formes ; la coupe de cuisse tramée, avec sa vignette.
+// Reprise JP (12 octobre, « mains et pied ») : les deux mains à plat de profil, bras droits, se lisaient
+// comme deux pieds. Appuyer et le sang qui traverse passent en vue de dessus, les deux mains à plat
+// (appui vu du dos) croisées sur la compresse, et la vignette pictogramme donne la posture à genoux,
+// bras tendus ; le poing fait à la main de la plaie profonde devient la main de la bibliothèque
+// (doigts serrés, tendus dans la plaie) ; le pied, un moignon, est redessiné (talon, plante, orteils).
 module.exports = (h) => {
   const F = h.formes;
   const BL = h.a.blanc.split(' ')[0];
@@ -31,131 +35,152 @@ module.exports = (h) => {
 
   // ─── La jambe couchée sur le dos, vue de côté. u : cm depuis la hanche vers le pied.
   const HAUT = [[-10, 17.5], [0, 17.2], [12, 16.4], [26, 14.8], [36, 13], [42, 11.8], [46, 12.8], [50, 11.6], [56, 10.6], [68, 9.8], [78, 8.2], [83, 7.4]];
-  const BAS = [[-10, 0], [87, 0]];
+  // le dessous : le mollet posé au sol, le creux du tendon d'Achille qui se soulève, puis le talon
+  const BAS = [[-10, 0], [64, 0], [71, 0.5], [77, 1.4], [81, 1.7], [83.5, 1.4]];
   // le dessous de la cuisse : à plat sur le sol, puis le creux du genou qui se soulève
   const BASC = [[-10, 0], [36, 0], [41, 0.8], [46, 2], [51, 2.2], [57, 1.3], [64, 0.3], [70, 0]];
-  const PIED = [[84.3, 10], [85.3, 16], [86.3, 21], [87.4, 24.3], [89.5, 25.3], [91.6, 24.3], [92.6, 20.5], [93, 13], [92.7, 6], [91.8, 2], [90, 0.3], [88, 0]];
+  // Le pied, la personne couchée sur le dos : le talon posé au sol, la plante tournée vers le bout,
+  // les orteils en haut, un peu penchés vers l'extérieur comme un pied relâché. Du cou-de-pied
+  // (au bout du tibia) par le gros orteil, la plante, la voûte, jusqu'au talon. (u, v) en cm.
+  // Repère du pied : a le long de la plante, du talon vers les orteils, b vers le dessus du pied (cm).
+  // La plante penche de 65° sur le sol : le pied relâché, les orteils qui tombent vers le bout.
+  const PA = [0.423, 0.906], PB = [-0.906, 0.423], UH = 89.2;
+  const pp = ([a, b]) => [UH + a * PA[0] + b * PB[0], a * PA[1] + b * PB[1]];
+  const PIED_C = [[83, 7.4], ...[[7, 9.4], [9, 8.7], [12, 7.4], [16, 5.6], [20, 4.0], [23, 3.3], [25.2, 2.9], [26.3, 2.1], [26.7, 1.0], [26.3, 0.1],
+    [25, -0.2], [23, -0.2], [20, -0.4], [17, -0.5], [13.5, 0], [10, 0.25], [6.5, -0.1], [3.5, -0.45], [1.2, -0.3], [0, 0.4], [-0.9, 1.6], [-1.3, 3.0], [-1.1, 4.2]].map(pp), [83.5, 1.4]];
+  // passe par chaque point (Catmull-Rom), n pas par segment
+  const courbe = (P, n = 6) => {
+    const out = [];
+    for (let i = 0; i < P.length - 1; i++) {
+      const p0 = P[Math.max(0, i - 1)], p1 = P[i], p2 = P[i + 1], p3 = P[Math.min(P.length - 1, i + 2)];
+      for (let k = 0; k < n; k++) {
+        const t = k / n, t2 = t * t, t3 = t2 * t;
+        out.push([0, 1].map(j => 0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t3)));
+      }
+    }
+    out.push(P[P.length - 1]);
+    return out;
+  };
+  const PIED = courbe(PIED_C).slice(1);
   const profilJambe = (X, Y, u0) => {
     const p = [];
     for (let u = u0; u < 83; u += 1) p.push([X(u), Y(lisse(HAUT, u))]);
-    p.push([X(83), Y(7.4)]);
     for (const [u, v] of PIED) p.push([X(u), Y(v)]);
-    for (let u = 87; u >= u0; u -= 1) p.push([X(u), Y(lisse(BAS, u))]);
+    for (let u = 83; u >= u0; u -= 1) p.push([X(u), Y(lisse(BAS, u))]);
     return p;
+  };
+  // les traits du pied : la malléole (l'os rond de la cheville), le pli du cou-de-pied, la base des
+  // orteils et l'ongle du gros orteil
+  const traitsPied = (X, Y, s, fin) => {
+    const P = q => { const [u, v] = pp(q); return `${f(X(u))},${f(Y(v))}`; };
+    return [
+      // la malléole : l'os rond qui saille sur le côté de la cheville
+      h.path(`M${P([4.2, 4.6])} Q${P([5.4, 7.4])} ${P([7.6, 6.6])} Q${P([8.6, 5.2])} ${P([7.6, 4.0])}`, fin ? h.a.fin : h.a.detail),
+      // le deuxième orteil, qui dépasse à peine derrière le gros
+      h.path(`M${P([24.2, -0.15])} Q${P([23.6, 0.9])} ${P([22.2, 1.4])}`, fin ? h.a.fin : h.a.detail),
+      fin ? '' : h.path(`M${P([24.0, 3.0])} Q${P([25.0, 2.4])} ${P([25.9, 2.1])}`, h.a.fin),
+      fin ? '' : h.path(`M${P([6.4, 9.3])} Q${P([7.4, 8.4])} ${P([8.6, 8.4])}`, h.a.fin),
+    ].join('\n');
   };
   const jambe = (z, u0, s, yg) => {
     const X = u => (u - u0) * s, Y = v => yg - v * s;
     const top = x => Y(lisse(HAUT, x / s + u0));
     const dessin = [
       sol(z, yg),
-      h.chemin(profilJambe(X, Y, u0), plein(h.a.contour)),
-      h.path(`M${f(X(88.2))},${f(Y(24.8))} l${f(0.2 * s)},${f(1.8 * s)}`, h.a.detail),
-      h.path(`M${f(X(90.2))},${f(Y(25))} l${f(0)},${f(1.8 * s)}`, h.a.detail),
+      h.chemin(profilJambe(X, Y, u0), plein(h.a.contour), true),
+      traitsPied(X, Y, s, false),
     ].join('\n');
     return { X, Y, top, dessin };
   };
-  // La cuisse seule, de la hanche au genou, posée sur le sol : le dessus, le dessous, le creux du genou.
-  const cuisse = (z, u0, s, yg) => {
-    const X = u => (u - u0) * s, Y = v => yg - v * s, U = x => u0 + x / s;
-    const top = x => Y(lisse(HAUT, U(x))), bot = x => Y(lisse(BASC, U(x)));
+  // ─── La cuisse vue de dessus, la personne couchée sur le dos : u cm depuis la hanche, demi-largeur.
+  // Le genou à droite, la rotule à peine marquée ; la jambe continue hors de la vue.
+  const LARG = [[-10, 9.6], [0, 9.3], [14, 8.7], [28, 7.7], [37, 6.6], [41, 5.9], [44.5, 6.1], [48, 5.7], [54, 5.3], [66, 5.0]];
+  const cuisseDessus = (z, u0, s, cy) => {
+    const X = u => (u - u0) * s, U = x => u0 + x / s, hw = x => lisse(LARG, U(x)) * s;
     const haut = [], bas = [];
-    for (let x = 0; x < z.l; x += 1.5) { haut.push([x, top(x)]); bas.push([x, bot(x)]); }
-    haut.push([z.l, top(z.l)]); bas.push([z.l, bot(z.l)]);
+    for (let x = -2; x < z.l + 3; x += 1.5) { haut.push([x, cy - hw(x)]); bas.push([x, cy + hw(x)]); }
     const dessin = [
-      sol(z, yg),
       h.chemin([...haut, ...bas.slice().reverse()], h.a.blanc, true),
-      h.chemin(haut, h.a.contour),
-      h.chemin(bas, h.a.contour),
+      h.chemin(haut, h.a.contour), h.chemin(bas, h.a.contour),
+      // le genou : la cuisse s'y rétrécit, puis la jambe repart
     ].join('\n');
-    return { X, Y, U, top, bot, dessin };
+    return { X, U, hw, cy, dessin };
   };
-
-  // Une compresse pliée posée sur la surface base(x), épaisseur e.
-  const compresse = (base, xa, xb, e, trempe) => {
-    const bas = [], haut = [];
-    for (let x = xa; x < xb; x += 2) { bas.push([x, base(x)]); haut.push([x, base(x) - e]); }
-    bas.push([xb, base(xb)]); haut.push([xb, base(xb) - e]);
-    const out = [h.chemin([...bas, ...haut.reverse()], plein(h.a.arete), true)];
-    if (trempe) {
-      const b2 = [], h2 = [], m = e * 0.12;
-      for (let x = xa + e * 0.8; x < xb - e * 0.8; x += 2) { b2.push([x, base(x) - m]); h2.push([x, base(x) - e + m + Math.abs(Math.sin(x * 0.7)) * e * 0.12]); }
-      out.push(h.chemin([...b2, ...h2.reverse()], h.a.plein, true));
-    } else {
-      const m = []; for (let x = xa + 3; x < xb - 3; x += 2) m.push([x, base(x) - e / 2]);
-      out.push(h.chemin(m, h.a.fin));
-    }
+  // Une compresse vue de dessus : un carré de gaze pliée, coins à peine arrondis, le pli marqué.
+  const tampon = (cx, cy, l, ht, at, pli) => {
+    const r = Math.min(l, ht) * 0.06, x0 = cx - l / 2, y0 = cy - ht / 2, x1 = cx + l / 2, y1 = cy + ht / 2;
+    const d = `M${f(x0 + r)},${f(y0)} L${f(x1 - r)},${f(y0)} Q${f(x1)},${f(y0)} ${f(x1)},${f(y0 + r)} L${f(x1)},${f(y1 - r)} Q${f(x1)},${f(y1)} ${f(x1 - r)},${f(y1)} L${f(x0 + r)},${f(y1)} Q${f(x0)},${f(y1)} ${f(x0)},${f(y1 - r)} L${f(x0)},${f(y0 + r)} Q${f(x0)},${f(y0)} ${f(x0 + r)},${f(y0)} Z`;
+    const out = [h.path(d, at)];
+    if (pli) out.push(h.ligne(x0 + 3, y0 + ht * 0.36, x1 - 3, y0 + ht * 0.36, h.a.fin));
     return out.join('\n');
   };
-
-  // ─── Les deux mains l'une sur l'autre, de profil, bras tendus à la verticale.
-  // La main du dessous à plat sur la surface (base), talon et doigts compris ; la main du dessus
-  // couchée sur son dos, ses doigts sur les doigts de la première. em : px par mm.
-  const deuxMains = (base, xo, em) => {
-    const xh = xo - 60 * em, xt = xo + 130 * em;
-    const ang = Math.atan2(base(xt) - base(xh), xt - xh) / RAD;
-    const yo = base(xh) + (xo - xh) * Math.tan(ang * RAD) + 0.4;
-    const Tb = repere(xo, yo, em, ang);
-    const o2 = Tb([20, -28]), a2 = ang + 8;
-    const bas = F.main({ x: xo, y: yo, pose: 'appui', vue: 'profil', echelle: em, angle: ang, inclinaison: 90 - ang, bras: 800 });
-    const haut = F.main({ x: o2[0], y: o2[1], pose: 'appui', vue: 'profil', echelle: em, angle: a2, inclinaison: 90 - a2, bras: 800 });
-    // les bords de chaque avant-bras, à hauteur y (bras vertical) : dos à droite, paume à gauche
-    const bords = (m, y) => { const d = Math.max(30, (m.poignet[1] - y) / em); return [m.poignet[0] - lisse(DEVANT, d) * em, m.poignet[0] + lisse(DOS, d) * em]; };
-    return { bas, haut, Tb, Th: repere(o2[0], o2[1], em, a2), ang, bords };
+  // Les deux mains à plat l'une sur l'autre, vues de dessus : la droite dessous, la paume sur la
+  // plaie (P), la gauche par-dessus, reculée vers le poignet pour que les doigts du dessous se voient.
+  // d0 : la direction des doigts (degrés) ; les avant-bras descendent vers celui qui appuie.
+  const deuxMains = (P, s) => {
+    const em = s / 10, dir = a => [Math.cos(a * RAD), Math.sin(a * RAD)];
+    // celui qui appuie est à genoux du côté de la hanche, tourné vers le pied (la vignette) : les
+    // doigts vont vers le genou. La droite dessous, son bras venu d'en bas à gauche ; la gauche
+    // par-dessus, son bras venu d'en haut à gauche : les deux mains se croisent sur la plaie
+    const d1 = -15, d2 = 17, u1 = dir(d1), u2 = dir(d2);
+    const O1 = [P[0] + u1[0] * 40 * em, P[1] + u1[1] * 40 * em];
+    const O2 = [P[0] + u2[0] * 30 * em, P[1] + u2[1] * 30 * em];
+    const bas = F.main({ x: O1[0], y: O1[1], pose: 'appui', vue: 'dos', echelle: em, angle: d1, bras: 460 });
+    const haut = F.main({ x: O2[0], y: O2[1], pose: 'appui', vue: 'dos', echelle: em, angle: 180 + d2, cote: 'gauche', bras: 460 });
+    const ici = (O, u, a, b) => [O[0] + (u[0] * a - u[1] * b) * em, O[1] + (u[1] * a + u[0] * b) * em];
+    return { bas, haut, O1, O2, u1, u2, em, ici, svg: [bas, haut].join('\n') };
   };
-  // Les plis sur le dos de l'index, aux deux articulations du doigt (repère de la main, mm).
-  const plisIndex = T => [[82, -16.4], [106.5, -14.4]].map(([x, y]) =>
-    h.path(`M${pt(T([x + 1.8, y + 0.2]))} Q${pt(T([x - 0.6, y + 2.6]))} ${pt(T([x - 0.4, y + 6.2]))}`, h.a.fin)).join('\n');
-  // Le bras tendu à la verticale, du haut du poignet jusqu'au bord de la vue : l'avant-bras qui
-  // s'épaissit vers le coude, le coude verrouillé (l'os qui saille derrière, le pli devant), le bras.
-  // Largeurs en mm depuis l'axe, selon la hauteur d au-dessus du poignet : devant (gauche), dos (droite).
-  const DEVANT = [[30, 24.2], [170, 33], [255, 30], [320, 33], [500, 35]];
-  const DOS = [[30, 22], [170, 28.5], [238, 27], [255, 30.5], [272, 27.5], [320, 29], [500, 30]];
-  const brasTendu = (m, em, yHaut = -4) => {
-    const [px, py] = m.poignet, G = [], D = [];
-    for (let d = 30; py - d * em > yHaut - 6; d += 6) {
-      const y = py - d * em;
-      G.push([px - lisse(DEVANT, d) * em, y]); D.push([px + lisse(DOS, d) * em, y]);
+  // La vignette de la posture (pictogramme) : à genoux à côté de la personne couchée, penché
+  // au-dessus de la cuisse, les deux bras tendus droit vers le bas, le poids du tronc dans les mains.
+  // La personne couchée sur le dos, en aplat ; celui qui appuie à genoux devant elle, à hauteur de
+  // la hanche, le tronc penché juste assez pour que ses épaules tombent à l'aplomb de ses mains.
+  const posture = (x, y, l, ht) => {
+    const yg = y + ht - 5, e = 0.07;
+    const c = F.personnage({ x: x + 64, y: yg, pose: 'couche', echelle: e, rendu: 'plein' });
+    const H = c.hanche, K = c.genoux.proche;
+    const M = [H[0] + (K[0] - H[0]) * 0.55, H[1] + (K[1] - H[1]) * 0.55 - 61 * e];   // le dessus de la cuisse
+    const L = (545 + 185 * 0.9) * e;                                                    // bras tendu, main comprise
+    let best = null;
+    for (let pc = 15; pc <= 70; pc += 1) {
+      const t = F.personnage({ x: 0, y: yg, pose: 'genoux', penche: pc, echelle: e });
+      const S = t.epaules.proche, err = Math.abs(S[1] + L - M[1]);
+      if (!best || err < best.err) best = { pc, err, dx: S[0] };
     }
-    const out = [h.chemin([...G, ...D.slice().reverse()], h.a.blanc, true), h.chemin(G, h.a.arete), h.chemin(D, h.a.arete)];
-    const yE = py - 255 * em;
-    if (yE > yHaut + 10) {
-      const xl = px - lisse(DEVANT, 255) * em;
-      out.push(h.path(`M${f(xl)},${f(yE + 4 * em)} Q${f(xl + 7 * em)},${f(yE + 1 * em)} ${f(xl + 13 * em)},${f(yE - 7 * em)}`, h.a.detail));
-    }
-    return out.join('\n');
+    const xa = M[0] - 25 * e - best.dx;
+    const W = [M[0], M[1] - 185 * 0.9 * e];
+    const g = F.personnage({ x: xa, y: yg, pose: 'genoux', penche: best.pc, regard: 35, echelle: e, mains: { proche: W, loin: [W[0] - 1.5, W[1] - 1] } });
+    const S = g.epaules.proche;
+    return { svg: [h.rect(x, y, l, ht, h.a.fin), h.ligne(x + 3, yg, x + l - 3, yg, h.a.detail), c, g,
+      h.fleche(`M${f(S[0])},${f(Math.max(y + 3, S[1] - 34))} L${f(S[0])},${f(S[1] - 13)}`, h.a.arete)].join('\n'),
+      bras: [(S[0] + W[0]) / 2, (S[1] + W[1]) / 2], W };
   };
-
-  // ─── A. Appuyer : la cuisse de la hanche au genou, les deux bras tendus qui descendent du haut.
+  // ─── A. Appuyer : vue de dessus, la cuisse de la hanche au genou, la compresse sur la plaie, les
+  // deux mains à plat l'une sur l'autre ; en haut, la posture qui met le poids dans les bras tendus.
   const geoA = z => {
-    const yg = z.h - 10, u0 = -1, s = z.l / 50, em = s / 10, e = 1.2 * s;
-    const C = cuisse(z, u0, s, yg);
-    const surf = x => C.top(x) - e;
-    const M = deuxMains(surf, C.X(23), em);
-    const [xg] = M.bords(M.bas, 0);
-    return { yg, s, em, e, C, surf, M, ca: C.X(14.5), cb: C.X(37.5), xf: xg - 13 };
+    const s = z.l / 50, u0 = -1, cy = z.h - 64;
+    const C = cuisseDessus(z, u0, s, cy);
+    const P = [C.X(22), cy + 0.3 * s];
+    const M = deuxMains(P, s);
+    return { s, C, P, M, cy, vg: { x: 2, y: 2, l: z.l - 4, h: 92 } };
   };
   const dessinA = z => {
-    const g = geoA(z), out = [g.C.dessin];
-    out.push(compresse(g.C.top, g.ca, g.cb, g.e, false));
-    out.push(g.M.bas, brasTendu(g.M.bas, g.em), plisIndex(g.M.Tb));
-    out.push(g.M.haut, brasTendu(g.M.haut, g.em), plisIndex(g.M.Th));
-    out.push(h.fleche(`M${f(g.xf)},8 L${f(g.xf)},${f(g.M.bas.poignet[1] - 60 * g.em)}`, h.a.arete));
+    const g = geoA(z), s = g.s, out = [];
+    const v = posture(g.vg.x, g.vg.y, g.vg.l, g.vg.h);
+    out.push(v.svg, g.C.dessin);
+    out.push(tampon(g.P[0] + 0.5 * s, g.P[1], 15 * s, 13.5 * s, plein(h.a.arete), true));
+    out.push(g.M.svg);
     return decoupe('a', z, out.join('\n'));
   };
 
-  // ─── B. Le sang traverse : gros plan, la cuisse posée au sol, deux compresses.
+  // ─── B. Le sang traverse : même vue, la première compresse trempée reste, une seule autre par-dessus.
   const geoB = z => {
-    const yg = z.h - 10, s = Math.min(5, z.l / 37), em = s / 10, e = 1.5 * s;
-    const u0 = 49 - z.l / s;                       // le genou au bord droit
-    const C = cuisse(z, u0, s, yg);
-    const c1 = [C.X(15.5), C.X(38.6)], c2 = [C.X(16.1), C.X(38.1)];
-    const surf = x => C.top(x) - 2 * e;
-    const M = deuxMains(surf, C.X(24), em);
-    const [, xd] = M.bords(M.haut, 0);
-    return { yg, s, em, e, C, c1, c2, surf, M, xf: xd + 16 };
+    const s = z.l / 50, u0 = -1, cy = z.h * 0.5;
+    const C = cuisseDessus(z, u0, s, cy);
+    const P = [C.X(22), cy + 0.3 * s];
+    const M = deuxMains(P, s);
+    return { s, C, P, M, cy };
   };
-  // Un filet de sang qui descend le flanc de la cuisse : mince, qui serpente, qui s'amincit ; une
-  // goutte au bout ; au sol, s'il y arrive, la flaque.
+  // Un filet de sang qui descend : mince, qui serpente, qui s'amincit ; une goutte au bout ; au sol, la flaque.
   const filet = (x0, y0, y1, amp, ph, w0, w1, flaque) => {
     const N = 28, G = [], D = [];
     for (let i = 0; i <= N; i++) {
@@ -166,21 +191,20 @@ module.exports = (h) => {
     const xe = (G[N][0] + D[N][0]) / 2, r = w1 * 2.1;
     const out = [h.chemin([...G, ...D.reverse()], h.a.plein, true),
       h.path(`M${f(xe - w1)},${f(y1 - 1)} Q${f(xe - r)},${f(y1 + r * 0.6)} ${f(xe)},${f(y1 + r * 1.1)} Q${f(xe + r)},${f(y1 + r * 0.6)} ${f(xe + w1)},${f(y1 - 1)} Z`, h.a.plein)];
-    if (flaque) out.push(h.path(`M${f(xe - flaque)},${f(y1 + r * 1.1 + 0.6)} Q${f(xe)},${f(y1 + r * 1.1 - flaque * 0.3)} ${f(xe + flaque)},${f(y1 + r * 1.1 + 0.6)} Z`, h.a.plein));
+    if (flaque) out.push(h.ellipse(xe, y1 + r * 1.1 + flaque * 0.5, flaque * 1.5, flaque * 0.8, h.a.plein));
     return out.join('\n');
   };
   const dessinB = z => {
-    const g = geoB(z), s = g.s, e = g.e, C = g.C, out = [C.dessin];
-    // le sang passé à travers la première compresse coule sur le flanc jusqu'au sol
-    const xa = g.c1[0] + 1.5, xb = g.c1[1] - 2, ya = C.top(xa) - 1.2, yb = C.top(xb) - 1.2;
-    out.push(filet(xa, ya, g.yg - 4.6, 1.1, 0.4, 1.6, 0.6, 2.6 * s));
-    out.push(filet(xa + 0.7 * s, ya + 1, ya + (g.yg - ya) * 0.4, 0.8, 2.1, 1.25, 0.5, 0));
-    out.push(filet(xb, yb, Math.min(C.bot(xb), g.yg) - 4.6, 0.9, 1.3, 1.6, 0.6, 2.4 * s));
-    out.push(filet(xb - 0.8 * s, yb + 1, yb + (C.bot(xb) - yb) * 0.5, 0.7, 3.2, 1.25, 0.5, 0));
-    out.push(compresse(C.top, g.c1[0], g.c1[1], e, true));
-    out.push(compresse(x => C.top(x) - e, g.c2[0], g.c2[1], e, false));
-    out.push(g.M.bas, brasTendu(g.M.bas, g.em), plisIndex(g.M.Tb), g.M.haut, brasTendu(g.M.haut, g.em), plisIndex(g.M.Th));
-    out.push(h.fleche(`M${f(g.xf)},8 L${f(g.xf)},${f(g.M.haut.poignet[1] - 30 * g.em)}`, h.a.contour));
+    const g = geoB(z), s = g.s, C = g.C, out = [C.dessin];
+    const [px, py] = g.P;
+    // la première, trempée : noire ; le sang passé coule sur la peau vers le côté et tombe au sol
+    for (const [dx, amp, ph, k] of [[-1.5, 0.6, 0.4, 2.2], [2.6, 0.5, 2.1, 3.2], [5.6, 0.6, 1.3, 1.4]]) {
+      const x0 = px + dx * s, y0 = py + 6.4 * s, y1 = py + C.hw(x0) + k * s;
+      out.push(filet(x0, y0, y1, amp, ph, 1.6, 0.6, 0));
+    }
+    out.push(tampon(px + 0.5 * s, py, 16 * s, 14.6 * s, h.a.plein, false));
+    out.push(tampon(px + 0.2 * s, py - 0.5 * s, 13.4 * s, 12 * s, plein(h.a.arete), true));
+    out.push(g.M.svg);
     return decoupe('b', z, out.join('\n'));
   };
 
@@ -196,9 +220,13 @@ module.exports = (h) => {
     const xf = ax(0.3) + 0.25 * s, K = [xf, yM - 3 * s];
     // la vignette : la jambe entière, en petit, avec le trait de coupe sur la cuisse
     const vg = { x: 2, y: 2, l: Math.min(z.l * 0.47, xf - 1.4 * s - 8) };
-    vg.sv = (vg.l - 8) / 104; vg.h = 27 * vg.sv + 12; vg.yg = vg.y + vg.h - 4;
+    vg.sv = (vg.l - 8) / 110.5; vg.h = 27 * vg.sv + 12; vg.yg = vg.y + vg.h - 4;
     vg.X = u => vg.x + 4 + (u + 10) * vg.sv; vg.Y = v => vg.yg - v * vg.sv;
-    return { s, yg, cx, cy, rx, ry, ytop, xm, yM, ax, ay, w, xf, K, femur: [cx + 1 * s, cy + 2 * s], vg };
+    // la main gantée, doigts serrés et tendus, le poignet droit : la paume de profil de la
+    // bibliothèque, tournée les doigts en bas ; le bout de l'index et du majeur pousse la gaze
+    const em = s / 10, yTip = ay(0.5);
+    const main = F.main({ x: xf - 10.5 * em, y: yTip - 136 * em, pose: 'appui', vue: 'profil', angle: 90, inclinaison: 22, echelle: em, bras: 340 });
+    return { s, em, yg, cx, cy, rx, ry, ytop, xm, yM, ax, ay, w, xf, K: [xf, yM - 3 * s], main, femur: [cx + 1 * s, cy + 2 * s], vg };
   };
   const dessinC = z => {
     const g = geoC(z), s = g.s, out = [sol(z, g.yg)];
@@ -207,6 +235,7 @@ module.exports = (h) => {
     out.push(h.rect(vg.x, vg.y, vg.l, vg.h, h.a.fin));
     out.push(h.ligne(vg.x + 3, vg.yg, vg.x + vg.l - 3, vg.yg, h.a.detail));
     out.push(h.chemin(profilJambe(vg.X, vg.Y, -10), plein(h.a.arete), true));
+    out.push(traitsPied(vg.X, vg.Y, vg.sv, true));
     const xc = vg.X(24), yh = vg.Y(lisse(HAUT, 24));
     out.push(h.path(`M${f(xc - 1.3)},${f(yh + 0.6)} Q${f(xc)},${f(yh - 0.9)} ${f(xc + 1.3)},${f(yh + 0.6)} Z`, h.a.plein));   // la plaie
     out.push(h.path(`M${f(xc)},${f(yh - 6)} L${f(xc)},${f(vg.yg + 2.5)}`, `fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-dasharray="4 2.2"`));
@@ -245,29 +274,17 @@ module.exports = (h) => {
     const b0 = bd[bd.length - 1], x1 = b0[0] - 1.6 * s, xq = b0[0] - 3.4 * s;
     out.push(h.path(`M${bd.map(pt).join(' L')} Q${f(b0[0])},${f(g.ytop(b0[0]) - 0.9 * s)} ${f(x1)},${f(g.ytop(x1) - 0.3 * s)} Q${f((x1 + xq) / 2)},${f(g.ytop((x1 + xq) / 2) - 0.35 * s)} ${f(xq)},${f(g.ytop(xq) - 0.3 * s)}`, h.a.arete));
     out.push(h.path(`M${f(xq - 0.2 * s)},${f(g.ytop(xq) - 0.9 * s)} L${f(xq + 0.2 * s)},${f(g.ytop(xq) + 0.3 * s)}`, h.a.fin));
-    // le doigt ganté, droit dans la plaie ; le poing et l'avant-bras montent à droite du doigt
-    const xf = g.xf, K = g.K, yT = g.ay(0.5), r = 0.9 * s;
-    const M = x => 2 * xf - x;                       // le poing passe à droite du doigt
-    out.push(h.path(`M${f(xf - r)},${f(K[1])} L${f(xf - r)},${f(yT - r)} A${f(r)} ${f(r)} 0 0 0 ${f(xf + r)},${f(yT - r)} L${f(xf + r)},${f(K[1])} Z`, plein(h.a.arete)));
+    // la main gantée qui pousse : le revers du gant sur l'avant-bras
+    const r = 0.9 * s, mn = g.main;
+    out.push(mn);
+    const ub = [mn.bras[0] - mn.poignet[0], mn.bras[1] - mn.poignet[1]], lb = Math.hypot(ub[0], ub[1]), uu = [ub[0] / lb, ub[1] / lb], nb = [-uu[1], uu[0]];
+    for (const dd of [18, 26]) {
+      const c = [mn.poignet[0] + uu[0] * dd * g.em, mn.poignet[1] + uu[1] * dd * g.em], w = 19.5 * g.em;
+      out.push(h.ligne(c[0] - nb[0] * w, c[1] - nb[1] * w, c[0] + nb[0] * w, c[1] + nb[1] * w, h.a.detail));
+    }
+    const xf = g.xf;
     out.push(h.path(`M${f(xf - r * 0.8)},${f(g.yM - 1.4 * s)} Q${f(xf)},${f(g.yM - 1.05 * s)} ${f(xf + r * 0.8)},${f(g.yM - 1.4 * s)}`, h.a.fin));
-    const yP = K[1] - 7 * s;            // poignet
-    const poing = [
-      `M${f(M(xf + r))},${f(K[1] + 0.2 * s)}`,
-      `Q${f(M(xf + 1.6 * s))},${f(K[1] - 3 * s)} ${f(M(xf + 1.4 * s))},${f(yP)}`,
-      `L${f(M(xf - 5.4 * s))},${f(yP)}`,
-      `Q${f(M(xf - 7.6 * s))},${f(K[1] - 3.5 * s)} ${f(M(xf - 6.6 * s))},${f(K[1] - 0.6 * s)}`,
-      `Q${f(M(xf - 5.9 * s))},${f(K[1] + 1.1 * s)} ${f(M(xf - 4.6 * s))},${f(K[1] + 0.2 * s)}`,
-      `Q${f(M(xf - 3.8 * s))},${f(K[1] + 1.2 * s)} ${f(M(xf - 2.7 * s))},${f(K[1] + 0.3 * s)}`,
-      `Q${f(M(xf - 1.9 * s))},${f(K[1] + 1.2 * s)} ${f(M(xf - r))},${f(K[1] + 0.4 * s)} Z`,
-    ].join(' ');
-    out.push(h.path(poing, plein(h.a.arete)));
-    for (const x of [-4.6, -2.7]) out.push(h.path(`M${f(M(xf + x * s))},${f(K[1] + 0.2 * s)} Q${f(M(xf + (x + 0.2) * s))},${f(K[1] - 0.6 * s)} ${f(M(xf + (x - 0.2) * s))},${f(K[1] - 1.8 * s)}`, h.a.detail));
-    out.push(h.path(`M${f(M(xf - 6.3 * s))},${f(K[1] - 2.2 * s)} Q${f(M(xf - 3.5 * s))},${f(K[1] - 3.4 * s)} ${f(M(xf - 1 * s))},${f(K[1] - 2.3 * s)}`, h.a.detail));
-    out.push(h.path(`M${f(M(xf - 6.8 * s))},0 L${f(M(xf - 5.4 * s))},${f(yP)} L${f(M(xf + 1.4 * s))},${f(yP)} L${f(M(xf + 0.4 * s))},0 Z`, h.a.blanc));
-    out.push(h.path(`M${f(M(xf - 6.8 * s))},0 L${f(M(xf - 5.4 * s))},${f(yP)}`, h.a.arete));
-    out.push(h.path(`M${f(M(xf + 0.4 * s))},0 L${f(M(xf + 1.4 * s))},${f(yP)}`, h.a.arete));
-    for (const dy of [0.7, 1.3]) out.push(h.ligne(M(xf + 1.3 * s), yP - dy * s, M(xf - 5.5 * s), yP - dy * s, h.a.detail));
-    return out.join('\n');
+    return decoupe('c', z, out.join('\n'));
   };
 
   // ─── D. Laver : bouteille souple pointe en bas, serrée au poing, jet sur la plaie.
@@ -280,7 +297,7 @@ module.exports = (h) => {
     return [o.x + q[0], o.y + q[1]];
   };
   const geoD = z => {
-    const yg = z.h - 10, u0 = -4, s = (z.l - 3) / 97;
+    const yg = z.h - 10, u0 = -4, s = (z.l - 3) / 104.5;
     const J = jambe(z, u0, s, yg);
     const xw = J.X(24), yw = J.top(xw);
     const aF = -18, axe = tourne([0, -1], aF), nrm = tourne([1, 0], aF), nd = [-axe[0], -axe[1]];
@@ -420,7 +437,7 @@ module.exports = (h) => {
   return {
     ref: '26-40',
     titre: 'Appuyer sur la plaie, puis la laver',
-    desc: 'Cinq gestes. Appuyer : la cuisse couchée, de la hanche au genou, une compresse sur la plaie ; les deux avant-bras tendus descendent droit du haut, coudes verrouillés, les deux mains à plat l’une sur l’autre, la paume du dessous sur la compresse, et tout le poids qui descend. Gros plan quand le sang traverse : la cuisse posée au sol, la première compresse trempée reste en place, une seule autre par-dessus, les mains à plat qui appuient plus fort ; le sang passé coule le long du flanc jusqu’au sol. Une plaie profonde de cuisse en coupe, repérée sur une petite jambe entière : la chair tramée, le fémur en hachure croisée, la gaze repliée en accordéon tassée jusqu’au fond au doigt ganté, son bout libre couché sur la peau. Laver : une bouteille souple tenue bouchon en bas, serrée au poing, les doigts repliés autour du corps et le pouce qui enfonce la paroi, le jet sur la plaie, l’eau sale qui descend le flanc jusqu’au sol. Sans bouteille : un sac de plastique plein d’eau tenu au poing par le cou tordu, le pouce refermé sur l’index, le jet qui sort d’un trou d’épingle dans le coin du bas et tombe sur la plaie de la cuisse.',
+    desc: 'Cinq gestes. Appuyer : en vignette, celui qui appuie à genoux à côté de la personne couchée, penché au-dessus de la cuisse, les deux bras tendus droit vers le bas ; dessous, la cuisse vue de dessus, de la hanche au genou, une compresse sur la plaie et les deux mains à plat croisées l’une sur l’autre, doigts vers le genou, la paume du dessous sur la compresse. Quand le sang traverse : même vue, la première compresse trempée, noire, reste en place, une seule autre par-dessus, les mains qui appuient plus fort ; le sang passé coule sur la peau vers le côté. Une plaie profonde de cuisse en coupe, repérée sur une petite jambe entière : la chair tramée, le fémur en hachure croisée, la gaze repliée en accordéon tassée jusqu’au fond par la main gantée, doigts serrés et tendus dans la plaie, son bout libre couché sur la peau. Laver : une bouteille souple tenue bouchon en bas, serrée au poing, les doigts repliés autour du corps et le pouce qui enfonce la paroi, le jet sur la plaie, l’eau sale qui descend le flanc jusqu’au sol. Sans bouteille : un sac de plastique plein d’eau tenu au poing par le cou tordu, le pouce refermé sur l’index, le jet qui sort d’un trou d’épingle dans le coin du bas et tombe sur la plaie de la cuisse.',
     format: 'pleine',
     disposition: [['appuyer', 'traverse', 'bourrer'], ['laver', 'sac']],
     largeurs: [[1, 1, 1], [3, 2]],
@@ -429,12 +446,11 @@ module.exports = (h) => {
         titre: 'Appuyer',
         dessin: dessinA,
         renvois: z => {
-          const g = geoA(z), em = g.em;
-          const talon = g.M.Tb([-40, 0]);
-          const [, xd] = g.M.bords(g.M.haut, 58);
+          const g = geoA(z), v = posture(g.vg.x, g.vg.y, g.vg.l, g.vg.h);
+          const paume = g.M.ici(g.M.O2, g.M.u2, -40, 0);
           return [
-            { n: 1, rond: [12, talon[1] - 34], cible: talon, texte: 'la paume sur la plaie même' },
-            { n: 2, rond: [z.l - 12, 24], cible: [xd, 58], texte: 'bras tendus : tout son poids' },
+            { n: 1, rond: [12, g.cy + 13 * g.s], cible: paume, texte: 'la paume sur la plaie même' },
+            { n: 2, rond: [z.l - 12, g.vg.y + g.vg.h + 14], cible: v.bras, texte: 'bras tendus : tout son poids' },
           ];
         },
       },
@@ -442,11 +458,11 @@ module.exports = (h) => {
         titre: 'Le sang traverse',
         dessin: dessinB,
         renvois: z => {
-          const g = geoB(z), s = g.s, C = g.C, x1 = g.c1[0] + 0.4 * s, x2 = g.c2[1] - 1.2 * s;
+          const g = geoB(z), s = g.s, [px, py] = g.P;
           return [
-            { n: 3, rond: [12, C.top(x1) - 9 * s], cible: [x1, C.top(x1) - g.e / 2], texte: 'la première reste en place' },
-            { n: 4, rond: [z.l - 12, C.top(x2) - 8 * s], cible: [x2, C.top(x2) - 1.5 * g.e], texte: 'une seule autre par-dessus' },
-            { n: 5, rond: [z.l - 12, 20], cible: [g.xf, 40], texte: 'appuyer plus fort' },
+            { n: 3, rond: [z.l - 12, py + 15 * s], cible: [px + 7.6 * s, py + 6.6 * s], texte: 'la première reste en place' },
+            { n: 4, rond: [z.l - 12, py - 14 * s], cible: [px + 6.2 * s, py - 5.8 * s], texte: 'une seule autre par-dessus' },
+            { n: 5, rond: [12, py - 14 * s], cible: g.M.ici(g.M.O2, g.M.u2, -45, 0), texte: 'appuyer plus fort' },
           ];
         },
       },
@@ -473,7 +489,7 @@ module.exports = (h) => {
             { n: 10, rond: [14, pj[1] + 1 * s], cible: pj, texte: 'le jet décolle, sans frotter' },
             { n: 11, rond: [14, pe[1] - 4 * s], cible: pe, texte: 'eau bouillie, puis refroidie' },
             { n: 12, rond: [14, 18], cible: g.pouce, texte: 'presser la bouteille souple' },
-            { n: 13, rond: [g.xw + 16 * s, g.yg - 20 * s], cible: [g.xw + 1.2 * s, g.yw + 6 * s], texte: 'tant qu’on voit de la saleté' },
+            { n: 13, rond: [g.xw + 19 * s, g.yg - 11 * s], cible: [g.xw + 1.2 * s, g.yw + 6 * s], texte: 'tant qu’on voit de la saleté' },
           ];
         },
       },

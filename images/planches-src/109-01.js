@@ -8,49 +8,71 @@ module.exports = (h) => {
   const mixte = h.a.detail + ' stroke-dasharray="14 3 2 3"';
 
   // ─── le palan ───
-  const R = 24;
-  const U1 = [100, 0], U2 = [196, 0], L1 = [52, 0], L2 = [148, 0];
+  // Deux moufles de bois (joues de bois franc, réas sur leur axe), la corde en bande, la main qui
+  // tient le brin menant. Repère propre : la perche en haut, la bille en bas.
+  const R = 24, RJ = 30, EP = 7;                    // corde : rayon de passage ; joue du réa ; épaisseur
+  const yU = 100, yL = 208, yB = 276;               // axes des réas fixes, des réas mobiles ; haut de la bille
+  const U1 = [100, yU], U2 = [196, yU], L1 = [52, yL], L2 = [148, yL];
+  const xMen = U2[0] + R, yMain = yL + 40;          // le brin menant, vertical ; la main
+  const BECKET = [28, yU + 22];
+  // un moufle : la joue de bois (stadium), sa langue percée, ses réas
+  const moufle = (x0, x1, yc, langue) => {
+    const h0 = 36, r = 30, out = [];
+    const t = langue.y < yc ? -1 : 1, lx = langue.x, ly = langue.y;
+    const bord = yc + t * h0;
+    const tongue = `M ${lx - 22} ${bord} L ${lx - 14} ${ly} Q ${lx} ${ly + t * 14} ${lx + 14} ${ly} L ${lx + 22} ${bord} Z`;
+    out.push(h.path(tongue, h.a.blanc), h.path(tongue, h.a.hachure('bois', 'contour')));
+    const joue = `M ${x0 + r} ${yc - h0} H ${x1 - r} Q ${x1} ${yc - h0} ${x1} ${yc - h0 + r} V ${yc + h0 - r} Q ${x1} ${yc + h0} ${x1 - r} ${yc + h0} H ${x0 + r} Q ${x0} ${yc + h0} ${x0} ${yc + h0 - r} V ${yc - h0 + r} Q ${x0} ${yc - h0} ${x0 + r} ${yc - h0} Z`;
+    out.push(h.path(joue, h.a.blanc), h.path(joue, h.a.hachure('bois', 'contour')));
+    out.push(h.ligne(lx - 21, bord, lx + 21, bord, `fill="none" stroke="${B}" stroke-width="2"`));
+    out.push(h.cercle(lx, ly + t * 2, 6, h.a.plein));
+    return out.join('\n');
+  };
+  const rea = (x, y) => [h.cercle(x, y, RJ, blanc('contour')), h.cercle(x, y, R - 4, h.a.detail),
+    h.cercle(x, y, 8, h.a.arete), h.cercle(x, y, 3, h.a.plein)].join('\n');
+  // la corde, échantillonnée serrée : droites et demi-tours autour des réas
+  const droite = (p, q, out) => { const n = Math.max(2, Math.ceil(Math.hypot(q[0] - p[0], q[1] - p[1]) / 8)); for (let i = 1; i <= n; i++) out.push([p[0] + (q[0] - p[0]) * i / n, p[1] + (q[1] - p[1]) * i / n]); };
+  const arc = (c, a0, a1, out) => { const n = Math.ceil(Math.abs(a1 - a0) / 10); for (let i = 1; i <= n; i++) { const t = (a0 + (a1 - a0) * i / n) * Math.PI / 180; out.push([c[0] + R * Math.cos(t), c[1] + R * Math.sin(t)]); } };
   const palan = z => {
-    const oy = 20;
-    const yU = oy + 92, yL = oy + 214;            // centres des réas fixes et mobiles
     const out = [];
-    // perche
-    out.push(h.rect(-4, oy, 290, 20, h.a.hachure('bois', 'contour')));
-    // estrope et œil du moufle fixe
-    out.push(h.path(`M 116 ${oy + 20} L 120 ${oy + 46} M 128 ${oy + 20} L 124 ${oy + 46}`, h.a.arete));
-    out.push(h.cercle(122, oy + 51, 6, h.a.arete));
-    out.push(h.ligne(122, oy + 57, 122, oy + 62, h.a.arete));
-    // moufle fixe
-    out.push(h.path(`M 22 ${oy + 62} H 222 Q 234 ${oy + 62} 234 ${oy + 74} V ${oy + 112} Q 234 ${oy + 124} 222 ${oy + 124} H 22 Q 10 ${oy + 124} 10 ${oy + 112} V ${oy + 74} Q 10 ${oy + 62} 22 ${oy + 62} Z`, blanc('contour')));
-    // moufle mobile
-    out.push(h.path(`M 26 ${yL - 30} H 174 Q 186 ${yL - 30} 186 ${yL - 18} V ${yL + 18} Q 186 ${yL + 30} 174 ${yL + 30} H 26 Q 14 ${yL + 30} 14 ${yL + 18} V ${yL - 18} Q 14 ${yL - 30} 26 ${yL - 30} Z`, blanc('contour')));
-    // réas
-    for (const [x, y] of [[U1[0], yU], [U2[0], yU], [L1[0], yL], [L2[0], yL]]) {
-      out.push(h.cercle(x, y, R + 3, blanc('contour')), h.cercle(x, y, R - 4, h.a.detail), h.cercle(x, y, 3.5, h.a.detail));
-    }
-    // ringot du bout mort, sous le moufle fixe
-    out.push(h.ligne(28, oy + 124, 28, oy + 132, h.a.arete), h.cercle(28, oy + 137, 5, h.a.arete));
-    // la corde : bout mort → sous L1 → sur U1 → sous L2 → sur U2 → brin menant
-    const a = 60 * Math.PI / 180, tx = U2[0] + R * Math.cos(-Math.PI / 6), ty = yU + R * Math.sin(-Math.PI / 6);
-    const fin = [tx + Math.cos(a) * 205, ty + Math.sin(a) * 205];
-    const d = `M 28 ${oy + 142} L 28 ${yL} A ${R} ${R} 0 0 0 76 ${yL} L 76 ${yU} A ${R} ${R} 0 0 1 124 ${yU} L 124 ${yL} A ${R} ${R} 0 0 0 172 ${yL} L 172 ${yU} A ${R} ${R} 0 0 1 ${tx.toFixed(1)} ${ty.toFixed(1)} L ${fin[0].toFixed(1)} ${fin[1].toFixed(1)}`;
-    out.push(h.path(d, h.a.contour));
-    // œil du moufle mobile, élingue, bille
-    const yB = yL + 62;
-    out.push(h.ligne(100, yL + 30, 100, yL + 36, h.a.arete), h.cercle(100, yL + 41, 5, h.a.arete));
-    out.push(h.path(`M 97 ${yL + 45} L 84 ${yB} M 103 ${yL + 45} L 116 ${yB}`, h.a.arete));
-    out.push(h.path(`M -2 ${yB} H 228 A 9 22 0 0 1 228 ${yB + 44} H -2 A 9 22 0 0 1 -2 ${yB} Z`, blanc('contour')));
-    out.push(h.ellipse(228, yB + 22, 9, 22, h.a.arete), h.ellipse(228, yB + 22, 4, 11, h.a.detail));
-    out.push(h.path(`M 20 ${yB + 12} h 40 M 140 ${yB + 30} h 50 M 150 ${yB + 10} h 30`, h.a.fin));
-    out.push(h.path(`M 84 ${yB} Q 80 ${yB + 22} 84 ${yB + 44} M 116 ${yB} Q 120 ${yB + 22} 116 ${yB + 44}`, h.a.arete));
-    // la main qui tire, sur le brin menant
-    const m = h.formes.main({ x: fin[0] - Math.cos(a) * 14, y: fin[1] - Math.sin(a) * 14, pose: 'prise', vue: 'dos', angle: -30, echelle: 0.42, diametre: 6 });
-    out.push(m);
-    // flèches du geste : on tire (parallèle au brin menant), la charge monte
-    const nx = Math.sin(a) * 16, ny = -Math.cos(a) * 16;
-    const p0 = [tx + Math.cos(a) * 70 + nx, ty + Math.sin(a) * 70 + ny], p1 = [tx + Math.cos(a) * 130 + nx, ty + Math.sin(a) * 130 + ny];
-    out.push(h.fleche(`M ${p0[0].toFixed(1)} ${p0[1].toFixed(1)} L ${p1[0].toFixed(1)} ${p1[1].toFixed(1)}`, h.a.contour));
-    out.push(h.fleche(`M -18 ${yB + 40} L -18 ${yB + 6}`, h.a.contour));
+    // perche : un rondin vu de côté, le bout coupé à droite
+    out.push(h.path(`M -6 10 H 282 A 6 12 0 0 1 282 34 H -6 A 6 12 0 0 1 -6 10 Z`, blanc('contour')));
+    out.push(h.ellipse(282, 22, 6, 12, h.a.arete), h.path('M 20 17 h 60 M 150 27 h 70 M 230 16 h 30', h.a.fin));
+    // moufles et réas
+    out.push(moufle(8, 234, yU, { x: 148, y: yU - 58 }));
+    out.push(moufle(16, 184, yL, { x: 100, y: yL + 58 }));
+    // estrope : la boucle de corde passée sur la perche, ses deux bouts dans le trou de la langue
+    out.push(h.formes.cordes([
+      { pts: [[146, 40], [138, 28], [134, 14], [140, 5], [148, 3], [156, 5], [162, 14], [158, 28], [150, 40]], ep: 6, debut: 'ouvert', fin: 'ouvert' },
+    ], { trait: 'arete' }));
+    out.push(h.cercle(BECKET[0], BECKET[1], 6, h.a.plein));
+    for (const c of [U1, U2, L1, L2]) out.push(rea(c[0], c[1]));
+    // la bille et son élingue
+    out.push(h.path(`M 0 ${yB} H 182 A 9 22 0 0 1 182 ${yB + 44} H 0 A 9 22 0 0 1 0 ${yB} Z`, blanc('contour')));
+    out.push(h.ellipse(182, yB + 22, 9, 22, h.a.arete), h.ellipse(182, yB + 22, 4, 11, h.a.detail));
+    out.push(h.path(`M 18 ${yB + 12} h 30 M 136 ${yB + 31} h 30 M 140 ${yB + 11} h 22`, h.a.fin));
+    out.push(h.formes.cordes([
+      { pts: [[98, yL + 62], [86, yL + 72], [78, yB], [74, yB + 22], [78, yB + 44]], ep: 6, debut: 'ouvert', fin: 'ouvert' },
+      { pts: [[102, yL + 62], [114, yL + 72], [122, yB], [126, yB + 22], [122, yB + 44]], ep: 6, debut: 'ouvert', fin: 'ouvert' },
+    ], { trait: 'arete' }));
+    // la corde : ringot → sous L1 → sur U1 → sous L2 → sur U2 → brin menant → la main → le bout libre
+    const P = [[BECKET[0], BECKET[1] + 8]];
+    droite(P[0], [L1[0] - R, yL], P); arc(L1, 180, 0, P);
+    droite([L1[0] + R, yL], [U1[0] - R, yU], P); arc(U1, 180, 360, P);
+    droite([U1[0] + R, yU], [L2[0] - R, yL], P); arc(L2, 180, 0, P);
+    droite([L2[0] + R, yL], [U2[0] - R, yU], P); arc(U2, 180, 360, P);
+    droite([xMen, yU], [xMen, yMain + 40], P);
+    P.push([xMen - 2, yMain + 58], [xMen - 10, yMain + 72], [xMen - 22, yMain + 80]);
+    out.push(h.formes.corde(P, { ep: EP, debut: 'coupe', fin: 'libre', trait: 'arete' }));
+    // le nœud d'arrêt du bout mort, au-dessus du ringot
+    out.push(h.path(`M ${BECKET[0] - 6} ${BECKET[1] - 4} Q ${BECKET[0] - 9} ${BECKET[1] - 18} ${BECKET[0]} ${BECKET[1] - 19} Q ${BECKET[0] + 9} ${BECKET[1] - 18} ${BECKET[0] + 6} ${BECKET[1] - 4} Z`, blanc('arete')));
+    out.push(h.path(`M ${BECKET[0] - 5} ${BECKET[1] - 12} Q ${BECKET[0]} ${BECKET[1] - 8} ${BECKET[0] + 5} ${BECKET[1] - 13}`, h.a.detail));
+    out.push(h.rect(BECKET[0] - EP / 2, BECKET[1] - 4, EP, 12, blanc('arete')));
+    // la main qui tient le brin menant : vue du dos, le pouce vers nous, l'avant-bras vers la droite
+    out.push(h.formes.main({ x: xMen, y: yMain, pose: 'prise', vue: 'dos', cote: 'gauche', echelle: 0.5, diametre: EP, bras: 70 }));
+    // flèches du geste : on tire vers le bas, la charge monte
+    out.push(h.fleche(`M ${xMen + 22} ${yU + 50} L ${xMen + 22} ${yU + 96}`, h.a.contour));
+    out.push(h.fleche(`M -18 ${yB + 40} L -18 ${yB + 4}`, h.a.contour));
     return out.join('\n');
   };
 
@@ -61,12 +83,26 @@ module.exports = (h) => {
   const rappels = (x0, x1) => [Y.haut, yReaH, Y.axe, yReaB].map(y => h.ligne(x0, y, x1, y, h.a.fin)).join('\n');
 
   const face = z => {
-    const cx = z.l - 64, out = [];
-    out.push(rappels(cx + 50, z.l));
-    out.push(h.ligne(cx, Y.oeil + 8, cx, Y.haut, h.a.arete), h.cercle(cx, Y.oeil, 8, h.a.arete));
-    out.push(h.path(`M ${cx - 46} ${Y.haut + 12} Q ${cx - 46} ${Y.haut} ${cx - 34} ${Y.haut} H ${cx + 34} Q ${cx + 46} ${Y.haut} ${cx + 46} ${Y.haut + 12} V ${Y.bas - 12} Q ${cx + 46} ${Y.bas} ${cx + 34} ${Y.bas} H ${cx - 34} Q ${cx - 46} ${Y.bas} ${cx - 46} ${Y.bas - 12} Z`, blanc('contour')));
-    out.push(h.cercle(cx, Y.axe, RE, h.a.cache), h.cercle(cx, Y.axe, RF, h.a.cache));
-    out.push(h.cercle(cx, Y.axe, 7, h.a.arete), h.cercle(cx, Y.haut + 12, 4, h.a.detail));
+    const cx = z.l - 68, W = 60, rc = 34, out = [];
+    out.push(rappels(cx + W + 4, z.l));
+    // les deux brins de la corde, qui sortent par le bas entre les joues
+    const xr = RF + dC / 2;
+    out.push(h.formes.cordes([
+      { pts: [[cx - xr, Y.bas - 30], [cx - xr, Y.bas + 8], [cx - xr, Y.bas + 30]], ep: dC, debut: 'ouvert', fin: 'fixe' },
+      { pts: [[cx + xr, Y.bas - 30], [cx + xr, Y.bas + 8], [cx + xr, Y.bas + 30]], ep: dC, debut: 'ouvert', fin: 'fixe' },
+    ], { trait: 'arete' }));
+    // l'œil forgé et sa tige
+    out.push(h.cercle(cx, Y.oeil, 8, h.a.arete), h.rect(cx - 3, Y.oeil + 8, 6, Y.haut - Y.oeil - 8, blanc('arete')));
+    // la joue avant
+    out.push(h.path(`M ${cx - W} ${Y.haut + rc} Q ${cx - W} ${Y.haut} ${cx - W + rc} ${Y.haut} H ${cx + W - rc} Q ${cx + W} ${Y.haut} ${cx + W} ${Y.haut + rc} V ${Y.bas - rc} Q ${cx + W} ${Y.bas} ${cx + W - rc} ${Y.bas} H ${cx - W + rc} Q ${cx - W} ${Y.bas} ${cx - W} ${Y.bas - rc} Z`, blanc('contour')));
+    // derrière la joue : l'entretoise du haut, la tige de l'œil et son écrou, le réa, la corde dans la gorge
+    out.push(h.rect(cx - W + 24, Y.haut + 2, 2 * W - 48, 20, h.a.cache));
+    out.push(h.path(`M ${cx - 3} ${Y.haut} V ${Y.haut + 28} M ${cx + 3} ${Y.haut} V ${Y.haut + 28} M ${cx - 7} ${Y.haut + 28} H ${cx + 7} V ${Y.haut + 34} H ${cx - 7} Z`, h.a.cache));
+    out.push(h.cercle(cx, Y.axe, RE, h.a.cache));
+    const ro = xr + dC / 2, ri = xr - dC / 2;
+    out.push(h.path(`M ${cx - ro} ${Y.bas} V ${Y.axe} A ${ro} ${ro} 0 0 1 ${cx + ro} ${Y.axe} V ${Y.bas} M ${cx - ri} ${Y.bas} V ${Y.axe} M ${cx + ri} ${Y.bas} V ${Y.axe}`, h.a.cache));
+    // la tête de l'axe d'acier, sur la joue
+    out.push(h.cercle(cx, Y.axe, 9, h.a.arete), h.cercle(cx, Y.axe, 4, h.a.detail));
     // trait de coupe A-A
     out.push(h.ligne(cx, 12, cx, Y.bas + 22, mixte));
     out.push(h.ligne(cx, 12, cx, 20, h.a.contour), h.ligne(cx, Y.bas + 14, cx, Y.bas + 22, h.a.contour));
@@ -78,14 +114,16 @@ module.exports = (h) => {
     const cx = 82, e = 14, j = 2, wR = 30, out = [];
     out.push(rappels(-46, cx - wR / 2 - j - e - 28));
     const xg = cx - wR / 2 - j - e, xd = cx + wR / 2 + j;
-    // œil vu par la tranche, entretoise du haut
-    out.push(h.rect(cx - 3, Y.oeil - 8, 6, 16, h.a.arete), h.ligne(cx, Y.oeil + 8, cx, Y.haut, h.a.arete));
-    out.push(h.rect(xg + e, Y.haut + 8, xd - xg - e, 8, h.a.hachure('metal', 'arete')));
+    // l'œil vu par la tranche, sa tige à travers l'entretoise de bois, l'écrou dessous
+    out.push(h.rect(cx - 3, Y.oeil - 8, 6, 16, h.a.arete));
+    out.push(h.rect(xg + e, Y.haut, xd - xg - e, 22, h.a.hachure('bois', 'arete')));
+    out.push(h.rect(cx - 3, Y.oeil + 8, 6, Y.haut + 28 - Y.oeil - 8, h.a.hachure('metal', 'arete')));
+    out.push(h.rect(cx - 8, Y.haut + 28, 16, 6, h.a.hachure('metal', 'arete')));
     // joues
     out.push(h.rect(xg, Y.haut, e, Y.bas - Y.haut, h.a.hachure('bois', 'contour')));
     out.push(h.rect(xd, Y.haut, e, Y.bas - Y.haut, h.a.hachure('bois', 'contour')));
     // réa coupé, gorge ronde en haut et en bas
-    const g = (wR / 2) - 0.5, rg = dC / 2 + 1, yh = yReaH, yb = yReaB, x0 = cx - wR / 2, x1 = cx + wR / 2;
+    const rg = dC / 2 + 1, yh = yReaH, yb = yReaB, x0 = cx - wR / 2, x1 = cx + wR / 2;
     const yhG = Y.axe - RF, ybG = Y.axe + RF;
     out.push(h.path(`M ${x0} ${yh} H ${cx - rg} A ${rg} ${rg} 0 0 0 ${cx + rg} ${yh} H ${x1} V ${yb} H ${cx + rg} A ${rg} ${rg} 0 0 0 ${cx - rg} ${yb} H ${x0} Z`, h.a.hachure('bois', 'contour')));
     // corde logée dans la gorge du haut
@@ -105,7 +143,7 @@ module.exports = (h) => {
   };
 
   // mise à l'échelle des vues dessinées en unités propres
-  const SP = 0.97, DXP = 150, SF = 1.05;
+  const SP = 0.97, DXP = 140, SF = 1.05;
   const enG = (k, dx, dy, fn) => z => `<g transform="translate(${dx} ${dy}) scale(${k})">\n${fn({ l: z.l / k, h: z.h / k })}\n</g>`;
   const pts = (k, dx, dy, fn) => z => fn({ l: z.l / k, h: z.h / k }).map(r => ({ ...r, rond: [r.rond[0] * k + dx, r.rond[1] * k + dy], cible: [r.cible[0] * k + dx, r.cible[1] * k + dy] }));
 
@@ -113,7 +151,7 @@ module.exports = (h) => {
     ref: '109-01',
     fichier: 'planche-109-01-mouflage.svg',
     titre: 'Palan de corde à quatre brins',
-    desc: "Palan de corde fabriqué, quatre brins, pendu à une perche par une estrope. En haut, le moufle fixe : deux réas, un œil au-dessus et un ringot en dessous, à gauche, où le bout mort est frappé. En bas, le moufle mobile : deux réas, un œil en dessous qui porte une bille par une élingue. La corde part du ringot, passe sous le premier réa mobile, par-dessus le premier réa fixe, sous le second réa mobile, par-dessus le second réa fixe, et ressort en brin menant, en oblique jusqu'à la main qui tire. Une flèche le long du brin menant dit qu'on tire vers le bas à droite ; une flèche verticale à gauche de la bille dit que la charge monte. À droite, une poulie simple à fabriquer, en deux vues à la même échelle reliées par des traits de rappel : de face, les joues, l'œil en haut, l'axe, le réa en tireté derrière la joue avant, et un trait de coupe vertical A-A par l'axe ; puis la coupe A-A : deux joues de bois franc, le réa de merisier ou de bouleau jaune entre elles, l'axe d'acier qui traverse les trois, une gorge ronde en haut où loge la corde, cotée d, et une gorge vide en bas. Le diamètre du réa au fond de gorge est coté : au moins six fois d.",
+    desc: "Palan de corde fabriqué, quatre brins, pendu à un rondin par une estrope de corde passée dans le trou de la langue du moufle fixe. Chaque moufle est une joue de bois franc arrondie qui porte deux réas sur leur axe. En haut, le moufle fixe, avec un ringot à gauche où le bout mort est arrêté par un nœud. En bas, le moufle mobile, sa langue percée en dessous où passe l'élingue qui serre la bille. La corde, dessinée en bande, part du ringot, passe sous le premier réa mobile, par-dessus le premier réa fixe, sous le second réa mobile, par-dessus le second réa fixe, et descend en brin menant, tout droit, jusqu'à la main : une main gauche vue du dos, les doigts refermés autour de la corde, le pouce par-dessus, l'avant-bras qui part vers la droite ; sous le poing, le bout libre pend. Une flèche le long du brin menant dit qu'on tire vers le bas ; une flèche verticale à gauche de la bille dit que la charge monte. Sous le palan, une poulie simple à fabriquer, en deux vues à la même échelle reliées par des traits de rappel : de face, la joue avant arrondie, l'œil forgé en haut et sa tige, la tête de l'axe au centre, et en tireté derrière la joue l'entretoise du haut, l'écrou de la tige, le réa et la corde qui passe par-dessus et ressort en deux brins par le bas ; un trait de coupe vertical A-A par l'axe ; puis la coupe A-A : deux joues de bois franc, l'entretoise de bois entre elles en haut, traversée par la tige de l'œil, le réa de merisier ou de bouleau jaune, l'axe d'acier qui traverse les trois, une gorge ronde en haut où loge la corde, cotée d, et une gorge vide en bas. Le diamètre du réa au fond de gorge est coté : au moins six fois d.",
     format: 'pleine',
     disposition: [['palan'], ['face', 'coupe']],
     hauteurs: [10, 9],
@@ -121,12 +159,12 @@ module.exports = (h) => {
       palan: {
         dessin: enG(SP, DXP, 0, palan),
         renvois: pts(SP, DXP, 0, z => [
-          { n: 1, rond: [0, 157], cible: [24, 157], texte: 'bout mort, frappé au moufle fixe' },
-          { n: 2, rond: [0, 258], cible: [30, 244], texte: 'sous le premier réa mobile' },
-          { n: 3, rond: [40, 34], cible: [80, 92], texte: 'par-dessus le premier réa fixe' },
-          { n: 4, rond: [214, 270], cible: [168, 244], texte: 'sous le second réa mobile' },
-          { n: 5, rond: [262, 64], cible: [212, 88], texte: 'par-dessus le second réa fixe' },
-          { n: 6, rond: [312, 170], cible: [270, 190], texte: 'brin menant, on tire ici' },
+          { n: 1, rond: [-24, 124], cible: [22, 112], texte: 'bout mort, arrêté au ringot du moufle fixe' },
+          { n: 2, rond: [-12, 250], cible: [44, 230], texte: 'sous le premier réa mobile' },
+          { n: 3, rond: [48, 56], cible: [90, 78], texte: 'par-dessus le premier réa fixe' },
+          { n: 4, rond: [168, 256], cible: [152, 232], texte: 'sous le second réa mobile' },
+          { n: 5, rond: [262, 56], cible: [210, 80], texte: 'par-dessus le second réa fixe' },
+          { n: 6, rond: [290, 196], cible: [223, 212], texte: 'brin menant, on tire ici' },
         ]),
       },
       face: { titre: 'De face', dessin: enG(SF, 0, 0, face) },

@@ -40,10 +40,25 @@ const trait = (a, b) => `M${a[0].toFixed(1)},${a[1].toFixed(1)} L${b[0].toFixed(
 
 // ── Vue 1 : le patron à plat ───────────────────────────────────────────────────────────────
 // Repère local : talon à l'origine, bout vers la droite, gros orteil vers le haut.
-const PIED = [[0, 2], [4, -16], [18, -27], [45, -30], [90, -27], [130, -34], [165, -42], [192, -43], [212, -41],
-  [226, -36], [234, -26], [235, -16], [231, -8], [224, -4], [218, -2], [224, 2], [224, 8], [218, 11], [213, 11],
-  [217, 16], [215, 21], [210, 23], [205, 22], [208, 27], [204, 32], [198, 33], [194, 32], [195, 37], [190, 42],
-  [180, 46], [168, 48], [130, 44], [80, 36], [40, 31], [14, 24]];
+// Le pied tracé debout, vu de dessus : talon étroit et rond, voûte à peine creusée côté gros
+// orteil, avant-pied large, le gros orteil long et large, puis quatre orteils qui raccourcissent
+// et rétrécissent jusqu'au petit, chacun séparé du suivant par un creux où le crayon rentre.
+// Le corps du pied, du bord extérieur (sous le petit orteil) au bord intérieur (sous le gros), par le talon.
+const PIED = [[193, 46], [176, 47.5], [150, 47], [130, 45], [96, 41], [62, 35], [34, 29], [16, 22], [5, 12], [1, 0],
+  [4, -11], [13, -19], [28, -24], [54, -26], [84, -24], [112, -29], [142, -38], [168, -44], [190, -46], [205, -45]];
+// Les orteils, du gros au petit : un cercle chacun [cx, cy, r], l'arc pris de a1 à a2 (degrés) par le bout.
+const ORTEILS = [[224, -27, 17, -100, 95], [224, -1.5, 8.5, -115, 105], [217, 13.5, 7, -115, 105],
+  [208, 26.5, 6.3, -115, 105], [197, 38.5, 6, -115, 100]];
+function piedD(T, s) {
+  const f = ([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`;
+  const corps = cr(PIED, false, 10).map(T);
+  let d = 'M' + corps.map(f).join(' L');
+  for (const [cx, cy, r, a1, a2] of ORTEILS) {
+    const P = a => T([cx + r * Math.cos(a * Math.PI / 180), cy + r * Math.sin(a * Math.PI / 180)]);
+    d += ` L${f(P(a1))} A${(r * s).toFixed(1)},${(r * s).toFixed(1)} 0 1 1 ${f(P(a2))}`;
+  }
+  return d + ' Z';
+}
 // Pièce de dessous : de l'angle haut du talon, autour du bout, jusqu'à l'angle bas ; le talon est coupé droit.
 const DESSOUS = [[-16, -84], [40, -88], [92, -92], [140, -97], [196, -98], [244, -80], [274, -46], [285, -2],
   [276, 42], [250, 78], [204, 100], [140, 104], [82, 98], [26, 92], [-16, 88]];
@@ -61,7 +76,7 @@ function patron(z) {
   const n = 14;
   const dessous = cr(DESSOUS, false, n).map(T);
   const bordLong = dessous.slice(I_A * n, I_B * n + 1);
-  const pied = cr(PIED, true, 10).map(T);
+  const pied = piedD(T, s);
   const emp = cr(EMPEIGNE, false, n).map(E);
   return { s, ox, oy, ex, ey, T, E, dessous, bordLong, pied, emp,
     repL: equi(bordLong, NSEG), repC: equi(emp, NSEG) };
@@ -182,7 +197,7 @@ module.exports = (h) => ({
         const g = patron(z);
         const out = [];
         out.push(h.chemin(g.dessous, h.a.contour, true));
-        out.push(h.chemin(g.pied, h.a.cache, true));
+        out.push(h.path(g.pied, h.a.detail));
         out.push(h.chemin(g.emp, h.a.contour, true));
         // repères : même nombre d'intervalles sur le bord long et sur le bord de l'empeigne
         // Aux deux coins de l'empeigne, un repère perpendiculaire se confondrait avec le bord
@@ -201,7 +216,7 @@ module.exports = (h) => ({
       },
       renvois: z => {
         const g = patron(z);
-        const pied = g.T([45, -30]);
+        const pied = g.T([54, -27]);
         const dessous = g.T([60, 91]);
         const empB = g.E([60, 42]);
         const long = g.repL[2].p;

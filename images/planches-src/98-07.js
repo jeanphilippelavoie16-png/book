@@ -61,12 +61,12 @@ module.exports = (h) => {
   const PZ = Td + Pd / 2, PY0 = 180;   // les perches commencent au-dessus de la traverse avant                                    // l’axe des perches, posées sur les traverses
   const TY = [180, 1220], TX = [-190, PW + 190];
   const TOILE = [-300, PW + 300, -240, 1640];
-  const TAS = { xc: PW / 2, yc: 1060, ax: 400, ay: 330, zb: Td + Pd - 12, ht: 150 };   // le tas de paille
-  const tasZ = (X, Y) => { const q = ((X - TAS.xc) / TAS.ax) ** 2 + ((Y - TAS.yc) / TAS.ay) ** 2; return TAS.zb + TAS.ht * Math.pow(Math.max(0, 1 - q), 0.6); };
+  const TAS = { xc: PW / 2, yc: 1030, ax: PW / 2 - 10, ay: 270, zb: Td + Pd - 14, ht: 60 };   // la couche de paille, sur toute la largeur du lit   // le tas de paille
+  const tasZ = (X, Y) => { const q = Math.abs((X - TAS.xc) / TAS.ax) ** 3 + Math.abs((Y - TAS.yc) / TAS.ay) ** 4; return TAS.zb + TAS.ht * Math.pow(Math.max(0, 1 - q), 0.3); };
 
   const geoAire = z => {
     const xmin = TOILE[0] + KX * TOILE[2], xmax = TOILE[1] + KX * TOILE[3];
-    const vmin = KY * TOILE[2], vmax = TAS.zb + TAS.ht + 40 + KY * TAS.yc;
+    const vmin = KY * TOILE[2], vmax = Td + Pd - 12 + 150 + 40 + KY * 1060;   // le cadrage d’avant, gardé
     const s = Math.min((z.l - 16) / (xmax - xmin), (z.h - 8) / (vmax - vmin));
     const Ox = z.l / 2 - s * (xmin + xmax) / 2, Oy = z.h / 2 + s * (vmin + vmax) / 2;
     return { s, P: (X, Y, Z) => [Ox + s * (X + KX * Y), Oy - s * (Z + KY * Y)] };
@@ -104,35 +104,35 @@ module.exports = (h) => {
     for (const ty of [TY[1], TY[0]]) out.push(rondin(P, [TX[0], ty, Td / 2], [TX[1], ty, Td / 2], Td / 2, 'X', [[0.02, 0.1, 130], [0.9, 0.97, 150]]));
     // les perches, de la gauche vers la droite (la droite est plus près de l’œil)
     for (let i = 0; i < Pn; i++) out.push(rondin(P, [PX(i), PY0, PZ], [PX(i), PL, PZ], Pd / 2, 'Y', [[0.08, 0.3, 70]]));
-    // la paille jetée sur la moitié du fond : un tas mou, des tiges couchées dans tous les sens, des épis
+    // la paille jetée sur la moitié du fond : une couche basse de tiges couchées à travers les perches,
+    // les épis au bout, des tiges qui débordent et retombent sur les perches
     const rp = alea(11), nuage = [];
     for (let i = 0; i <= 8; i++) for (let k = 0; k < 36; k++) {
-      const q = i / 8, t = 2 * Math.PI * k / 36, X = TAS.xc + TAS.ax * q * Math.cos(t), Y = TAS.yc + TAS.ay * q * Math.sin(t);
+      const q = i / 8, t = 2 * Math.PI * k / 36, c = Math.cos(t), sn = Math.sin(t), X = TAS.xc + TAS.ax * q * Math.sign(c) * Math.abs(c) ** (2 / 3), Y = TAS.yc + TAS.ay * q * Math.sign(sn) * Math.sqrt(Math.abs(sn));
       nuage.push(P(X, Y, tasZ(X, Y)));
     }
     const env = enveloppe(nuage), tas = [];
-    env.forEach((a, i) => { const b = env[(i + 1) % env.length], n = Math.max(1, Math.round(Math.hypot(b[0] - a[0], b[1] - a[1]) / 7)); for (let k = 0; k < n; k++) tas.push([a[0] + (b[0] - a[0]) * k / n + (rp() - 0.5) * 4, a[1] + (b[1] - a[1]) * k / n + (rp() - 0.5) * 4]); });
+    env.forEach((a, i) => { const b = env[(i + 1) % env.length], n = Math.max(1, Math.round(Math.hypot(b[0] - a[0], b[1] - a[1]) / 9)); for (let k = 0; k < n; k++) tas.push([a[0] + (b[0] - a[0]) * k / n + (rp() - 0.5) * 6, a[1] + (b[1] - a[1]) * k / n + (rp() - 0.5) * 6]); });
     out.push(h.path(courbe(tas, true), blanc('arete')));
-    const surf = (X, Y) => P(X, Y, tasZ(X, Y) + 3);
-    const dedans = (X, Y, m) => ((X - TAS.xc) / TAS.ax) ** 2 + ((Y - TAS.yc) / TAS.ay) ** 2 < m;
-    for (let k = 0, essais = 0; k < 46 && essais < 600; essais++) {
-      const X = TAS.xc + (rp() - 0.5) * 2 * TAS.ax, Y = TAS.yc + (rp() - 0.5) * 2 * TAS.ay, phi = rad((rp() - 0.5) * 110 + (rp() < 0.25 ? 90 : 0)), len = 200 + rp() * 330;
-      const Xa = X - Math.cos(phi) * len / 2, Ya = Y - Math.sin(phi) * len / 2, Xb = X + Math.cos(phi) * len / 2, Yb = Y + Math.sin(phi) * len / 2;
-      if (!dedans(Xa, Ya, 0.8) || !dedans(Xb, Yb, 0.8)) continue;
-      out.push(h.path(courbe([surf(Xa, Ya), surf(X, Y), surf(Xb, Yb)]), h.a.fin)); k++;
+    const qd = (X, Y) => Math.abs((X - TAS.xc) / TAS.ax) ** 3 + Math.abs((Y - TAS.yc) / TAS.ay) ** 4;
+    const surf = (X, Y) => qd(X, Y) < 1 ? P(X, Y, tasZ(X, Y) + 2) : P(X, Y, PZ + Pd / 2 + 4);
+    const Le = 80 * s, bouts = [];
+    for (let k = 0, essais = 0; k < 90 && essais < 1500; essais++) {
+      const X = TAS.xc + (rp() - 0.5) * 2 * TAS.ax, Y = TAS.yc + (rp() - 0.5) * 2 * TAS.ay;
+      if (qd(X, Y) > 0.7) continue;
+      const phi = rad((rp() - 0.5) * 30 + (rp() < 0.5 ? 180 : 0) + (rp() < 0.2 ? (rp() - 0.5) * 50 : 0)), len = 380 + rp() * 260;
+      const ca = Math.cos(phi), sa = Math.sin(phi);
+      const pts = [-0.5, -0.17, 0.17, 0.5].map(t => [X + ca * len * t, Y + sa * len * t]);
+      const fin = pts[3];
+      if (qd(...pts[0]) > 0.9 || qd(...pts[1]) > 0.9 || qd(...fin) > 1.7 || fin[0] < -15 || fin[0] > PW + 15) continue;
+      // une tige qui dépasse le bord retombe sur les perches ; sinon elle reste sur la couche
+      out.push(h.path(courbe(pts.map(q => surf(...q))), h.a.fin)); k++;
+      if (qd(...fin) > 0.6 && rp() < 0.6) bouts.push([fin, phi]);
     }
-    const Le = 85 * s;
-    for (let k = 0, essais = 0; k < 8 && essais < 200; essais++) {
-      const X = TAS.xc + (rp() - 0.5) * 1.6 * TAS.ax, Y = TAS.yc + (rp() - 0.5) * 1.6 * TAS.ay;
-      if (!dedans(X, Y, 0.55)) continue;
-      const phi = rad((rp() - 0.5) * 80 + (rp() < 0.5 ? 180 : 0)), a = surf(X, Y), b = surf(X + Math.cos(phi) * 60, Y + Math.sin(phi) * 60);
-      out.push(epi(a[0], a[1], Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI, Le, 0.7)); k++;
-    }
-    // des épis qui dépassent du bord du tas, pointés vers l’extérieur
-    for (const t of [165, 200, 235, 305, 345, 15]) {
-      const tr = rad(t), X = TAS.xc + TAS.ax * 0.9 * Math.cos(tr), Y = TAS.yc + TAS.ay * 0.9 * Math.sin(tr);
-      const a = P(X, Y, tasZ(X, Y) * 0.5 + TAS.zb * 0.5 + 10), b = P(X + Math.cos(tr) * 60, Y + Math.sin(tr) * 60, TAS.zb + 20);
-      out.push(epi(a[0], a[1], Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI, Le, 0.6));
+    // les épis, au bout des tiges, couchés dans leur sens
+    for (const [[X, Y], phi] of bouts.slice(0, 22)) {
+      const a = surf(X, Y), b = surf(X + Math.cos(phi) * 40, Y + Math.sin(phi) * 40);
+      out.push(epi(a[0], a[1], Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI, Le, 0.55));
     }
     return out.join('\n');
   };
@@ -306,7 +306,7 @@ module.exports = (h) => {
   return {
     ref: '98-07',
     titre: 'Battre sans fléau : les perches et le sac piétiné',
-    desc: 'Quatre vues. En perspective, une toile étendue au sol, deux traverses couchées dessus, et un lit de dix perches posées en travers des traverses, avec un jour entre chaque perche ; un tas de paille à épis jeté sur la moitié du fond. En coupe à travers les perches : un bâton tombe à plat sur la paille couchée sur les perches ; le grain passe entre les perches et s’amasse sur la toile, la paille reste dessus ; l’écart entre deux perches est coté de 25 à 50 mm. Le sac de toile noué, couché sur un plancher, en coupe : les tiges vers la bouche, les épis tassés au fond ; deux flèches appuient sur le bout des épis. Le même sac vu de dessus, sur les planches : deux empreintes de bottes sur ce bout du sac.',
+    desc: 'Quatre vues. En perspective, une toile étendue au sol, deux traverses couchées dessus, et un lit de dix perches posées en travers des traverses, avec un jour entre chaque perche ; une couche basse de paille à épis jetée en travers des perches, sur la moitié du fond, les bouts des perches qui en sortent derrière. En coupe à travers les perches : un bâton tombe à plat sur la paille couchée sur les perches ; le grain passe entre les perches et s’amasse sur la toile, la paille reste dessus ; l’écart entre deux perches est coté de 25 à 50 mm. Le sac de toile noué, couché sur un plancher, en coupe : les tiges vers la bouche, les épis tassés au fond ; deux flèches appuient sur le bout des épis. Le même sac vu de dessus, sur les planches : deux empreintes de bottes sur ce bout du sac.',
     format: 'pleine',
     disposition: [['aire'], ['coupe'], ['sacC', 'sacP']],
     hauteurs: [1.3, 1.05, 0.75],

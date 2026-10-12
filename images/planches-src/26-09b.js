@@ -26,24 +26,45 @@ module.exports = (h) => {
     return h.chemin(P, a);
   };
 
-  // Corps couché sur le dos, vu de dessus, tête à gauche. x0 : sommet du crâne ; H : taille.
-  const corpsDessus = (x0, cy, H, a) => {
-    const D = [
-      [0, 0], [0.012, 0.03], [0.055, 0.045], [0.105, 0.037], [0.13, 0.025], [0.155, 0.027],
-      [0.172, 0.07], [0.19, 0.112], [0.22, 0.128], [0.30, 0.127], [0.37, 0.124], [0.46, 0.12],
-      [0.53, 0.115], [0.575, 0.11], [0.60, 0.095], [0.585, 0.082], [0.62, 0.085], [0.75, 0.068],
-      [0.85, 0.06], [0.93, 0.048], [0.955, 0.068], [0.99, 0.064], [1.0, 0.042], [0.985, 0.02],
-      [0.94, 0.02], [0.75, 0.013], [0.60, 0.008], [0.545, 0],
-    ];
-    const P = [...D, ...D.slice(1, -1).reverse().map(([x, y]) => [x, -y])]
-      .map(([x, y]) => [x0 + x * H, cy + y * H]);
-    const ligne = pts => h.path(lisse(pts.map(([x, y]) => [x0 + x * H, cy + y * H]), false), h.a.detail);
-    return [
-      forme(P, a),
-      ligne([[0.225, 0.093], [0.34, 0.09], [0.47, 0.088], [0.56, 0.09]]),
-      ligne([[0.225, -0.093], [0.34, -0.09], [0.47, -0.088], [0.56, -0.09]]),
-      ligne([[0.135, -0.018], [0.142, 0], [0.135, 0.018]]),
-    ].join('\n');
+  // ─── le pictogramme (règle 8) : tête ronde sans visage, membres en bandes d'épaisseur égale ───
+  // Les mêmes proportions que h.formes.personnage (adulte de 1750 mm : tête 245, bras 92, jambe 122),
+  // vu de dessus puisque la bibliothèque ne dessine que de profil. Toutes les silhouettes à 2,4
+  // dessous, puis chaque pièce son blanc et son trait 1,4 : le contour sort net, les pièces qui se
+  // chevauchent se lisent.
+  const NOIR = '#1A1A1A';
+  const capsule = (P, Q, r) => {
+    const dx = Q[0] - P[0], dy = Q[1] - P[1], L = Math.hypot(dx, dy) || 1, u = [dx / L, dy / L], n = [-u[1], u[0]];
+    const pts = [];
+    for (let i = 0; i <= 12; i++) { const a = Math.PI / 2 - i * Math.PI / 12; pts.push([Q[0] + r * (u[0] * Math.cos(a) + n[0] * Math.sin(a)), Q[1] + r * (u[1] * Math.cos(a) + n[1] * Math.sin(a))]); }
+    for (let i = 0; i <= 12; i++) { const a = Math.PI / 2 - i * Math.PI / 12; pts.push([P[0] - r * (u[0] * Math.cos(a) + n[0] * Math.sin(a)), P[1] - r * (u[1] * Math.cos(a) + n[1] * Math.sin(a))]); }
+    return 'M' + pts.map(pt).join(' L') + ' Z';
+  };
+  const rond = (c, r) => `M${f(c[0] - r)},${f(c[1])} A${f(r)} ${f(r)} 0 1 0 ${f(c[0] + r)},${f(c[1])} A${f(r)} ${f(r)} 0 1 0 ${f(c[0] - r)},${f(c[1])} Z`;
+  const picto = D => [
+    ...D.map(d => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"/>`),
+    ...D.map(d => `<path d="${d}" fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"/>`),
+  ].join('\n');
+
+  // Couché sur le dos, vu de dessus, tête à gauche. x0 : sommet du crâne ; s : unités de vue par mm.
+  const corpsDessus = (x0, cy, s) => {
+    const q = (x, y) => [x0 + x * s, cy + y * s];
+    const D = [];
+    for (const k of [-1, 1]) {
+      // la jambe : cuisse, jambe, le pied qui tombe un peu en dehors
+      D.push(capsule(q(1290, k * 108), q(1650, k * 112), 54 * s));
+      D.push(capsule(q(1662, k * 116), q(1702, k * 136), 46 * s));
+      D.push(capsule(q(880, k * 98), q(1290, k * 108), 61 * s));
+    }
+    // le tronc : épaules rondes, taille un peu rentrée, bassin
+    const tr = [[262, 0], [270, -150], [300, -200], [380, -206], [560, -178], [700, -172], [860, -176], [925, -146], [956, -80], [964, 0]];
+    D.push(lisse([...tr, ...tr.slice(1, -1).reverse().map(([x, y]) => [x, -y])].map(([x, y]) => q(x, y)), true));
+    for (const k of [-1, 1]) {
+      // le bras le long du corps : bras, avant-bras, la main posée à plat
+      D.push(capsule(q(610, k * 252), q(1010, k * 258), 44 * s));
+      D.push(capsule(q(320, k * 246), q(610, k * 252), 46 * s));
+    }
+    D.push(rond(q(116, 0), 114 * s));
+    return picto(D);
   };
 
   // Un rouleau de linge vu de dessus : un cylindre couché, deux plis.
@@ -67,22 +88,24 @@ module.exports = (h) => {
   const ensemble = (k, T, tourne) => {
     const q = T;
     const out = [];
-    // épaules et bras, derrière la tête
-    out.push(forme([[-25, 0], [-26, -8], [-22, -17], [-12, -21], [0, -22], [12, -21], [22, -17], [26, -8], [25, 0]].map(([x, y]) => q(x, y)), plein(h.a.detail)));
-    out.push(h.path(`M${pt(q(-19, 0))} Q${pt(q(-20, -9))} ${pt(q(-17, -15))}`, h.a.detail));
-    out.push(h.path(`M${pt(q(19, 0))} Q${pt(q(20, -9))} ${pt(q(17, -15))}`, h.a.detail));
+    // le tronc derrière la tête et les bras le long du corps : un seul bloc du pictogramme
+    out.push(picto([
+      lisse([[-31, 0], [-31.8, -6.5], [-29.4, -12.4], [-21, -18.4], [-10, -21.4], [0, -22], [10, -21.4], [21, -18.4], [29.4, -12.4], [31.8, -6.5], [31, 0]].map(([x, y]) => q(x, y)), true),
+    ]));
+    // le pli entre le bras et la poitrine
+    for (const s of [-1, 1]) out.push(h.path(`M${pt(q(s * 23.4, -16.6))} Q${pt(q(s * 22, -8))} ${pt(q(s * 22.6, 0))}`, h.a.detail));
     // la porte, en travers
     out.push(h.chemin([q(-40.5, 0), q(40.5, 0), q(40.5, 4.5), q(-40.5, 4.5)].map(p => p.map(f)), h.a.hachure('bois', 'contour'), true));
-    // la tête vue par le crâne : nez en haut, oreilles de côté
-    out.push(forme([[-7.6, -9.5], [-6.8, -15.2], [-4, -18.4], [-1.4, -19.2], [0, -21.8], [1.4, -19.2], [4, -18.4], [6.8, -15.2], [7.6, -9.5], [8.4, -8], [7.2, -6.5], [6.6, -3], [3.5, -0.4], [0, 0], [-3.5, -0.4], [-6.6, -3], [-7.2, -6.5], [-8.4, -8]].map(([x, y]) => q(x, y)), plein(h.a.arete)));
+    // la tête vue par le crâne : le rond du pictogramme, posé sur la porte
+    out.push(picto([rond(q(0, -11.4), 11.4 * k)]));
     // les deux rouleaux serrés contre la tête
     for (const s of [-1, 1]) {
-      const c = q(s * 13.4, -5.6);
+      const c = q(s * 16.8, -5.6);
       out.push(h.cercle(c[0], c[1], 5.6 * k, plein(h.a.arete)));
       out.push(spirale(c[0], c[1], 1.2 * k, 5.2 * k, 2.2, Math.PI / 2 + (tourne ? Math.PI / 2 : 0), s, h.a.detail));
     }
     // la bande : par-dessus le front et les rouleaux, autour de la porte
-    const B = [[40.9, 1.2], [30, -4.6], [18.4, -10.2], [11, -15.6], [5, -18.5], [0, -19.4], [-5, -18.5], [-11, -15.6], [-18.4, -10.2], [-30, -4.6], [-40.9, 0.4], [-41.2, 4.8], [-38, 5.3], [0, 5.3], [38, 5.3], [41.2, 4.8]];
+    const B = [[40.9, 1.2], [30, -6], [22, -10], [16, -12.6], [9.4, -18.4], [4.4, -21.6], [0, -22.4], [-4.4, -21.6], [-9.4, -18.4], [-16, -12.6], [-22, -10], [-30, -6], [-40.9, 0.4], [-41.2, 4.8], [-38, 5.3], [0, 5.3], [38, 5.3], [41.2, 4.8]];
     out.push(h.path(lisse(B.map(([x, y]) => q(x, y)), true), h.a.contour));
     // le nœud, sur la tranche
     const n = q(-42.4, 2.2);
@@ -130,16 +153,16 @@ module.exports = (h) => {
           out.push(h.rect(f(x0 + 0.555 * Ld - 7), f(y0 + Wd - 5), 14, 5, h.a.hachure('metal', 'arete')));
           // linge roulé le long des jambes, glissé contre elles : la cuisse le recouvre, la sangle
           // des cuisses le tient
-          const rl = H * 0.03;
-          for (const s of [-1, 1]) out.push(rouleauDessus(X(0.64), X(0.93), cy + s * H * 0.1, rl));
+          const rl = H * 0.034;
+          for (const s of [-1, 1]) out.push(rouleauDessus(X(0.62), X(0.93), cy + s * H * 0.133, rl));
           // le blessé
-          out.push(corpsDessus(g.xc, cy, H, plein(h.a.arete)));
+          out.push(corpsDessus(g.xc, cy, H / 1750));
           // les deux rouleaux contre la tête
           const rt = H * 0.03;
-          for (const s of [-1, 1]) out.push(rouleauDessus(X(-0.01), X(0.14), cy + s * H * (0.046 + 0.03), rt));
+          for (const s of [-1, 1]) out.push(rouleauDessus(X(0.0), X(0.135), cy + s * H * 0.096, rt));
           // les sangles, qui font le tour de la porte, et leur nœud sur la tranche
-          for (const fr of [0.035, 0.3, 0.52, 0.665]) {
-            const x = X(fr), l = fr === 0.035 ? lb * 1.25 : lb;
+          for (const fr of [0.066, 0.3, 0.52, 0.665]) {
+            const x = X(fr), l = fr === 0.066 ? lb * 1.25 : lb;
             out.push(h.rect(f(x - l / 2), y0 - 3, f(l), Wd + 6, plein(h.a.contour)));
           }
           return out.join('\n');
@@ -150,9 +173,9 @@ module.exports = (h) => {
             { n: 1, rond: [f(X(0.3) + 22), yh], cible: [f(X(0.3)), f(y0 + 10)], texte: 'sangle en travers de la poitrine' },
             { n: 2, rond: [f(X(0.52) + 22), yh], cible: [f(X(0.52)), f(y0 + 10)], texte: 'sangle en travers du bassin' },
             { n: 3, rond: [f(X(0.665) + 22), yh], cible: [f(X(0.665)), f(y0 + 10)], texte: 'sangle en travers des cuisses' },
-            { n: 4, rond: [f(X(0.82)), yb], cible: [f(X(0.82)), f(cy + H * 0.1 + 3)], texte: 'linge roulé dans les vides' },
-            { n: 5, rond: [f(X(0.2)), yb], cible: [f(X(0.1)), f(cy + H * 0.076 + 2)], texte: 'rouleaux de vêtements serrés contre la tête' },
-            { n: 6, rond: [f(X(0.035) + 24), yh], cible: [f(X(0.035)), f(y0 + 10)], texte: 'bande large en travers du front' },
+            { n: 4, rond: [f(X(0.82)), yb], cible: [f(X(0.82)), f(cy + H * 0.133 + 3)], texte: 'linge roulé dans les vides' },
+            { n: 5, rond: [f(X(0.2)), yb], cible: [f(X(0.1)), f(cy + H * 0.096 + 2)], texte: 'rouleaux de vêtements serrés contre la tête' },
+            { n: 6, rond: [f(X(0.066) + 24), yh], cible: [f(X(0.066)), f(y0 + 10)], texte: 'bande large en travers du front' },
           ];
         },
       },

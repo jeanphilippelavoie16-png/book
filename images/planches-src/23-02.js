@@ -51,42 +51,32 @@ module.exports = (h) => {
   const plein = attrs => attrs.replace('fill="none"', FOND);
 
   // ── vue 1 : vider (600 × 118) ────────────────────────────────────────────────────────
-  const pince = [298, 62];
-  const plat = bez([22, 72], [110, 50], [215, 72], pince);
-  const gras = bez(pince, [370, 57], [450, 71], [520, 63], 60);
-  const rPlat = 3.5;
-  const rGras = t => { const m = Math.min(1, t / 0.14), s = m * m * (3 - 2 * m); return rPlat + s * (7.5 + 1.8 * Math.sin(t * 23)); };
+  const MC_COTE = 'gauche', MC_ANGLE = -90;
+  const pince = [300, 40], MAIN_ANGLE = -60;
+  const plat = bez([22, 48], [110, 30], [215, 48], pince);
+  const gras = bez(pince, [370, 35], [450, 49], [520, 41], 60);
+  const rPlat = 1.3, rRuban = t => 3 - 1.7 * Math.pow(Math.max(0, (t - 0.8) / 0.2), 2);
+  const rGras = t => { const m = Math.min(1, t / 0.14), s = m * m * (3 - 2 * m); return rPlat + s * (10 + 2 * Math.sin(t * 23)); };
   const boyauVide = () => {
-    const hautP = decale(plat, -rPlat), basP = decale(plat, rPlat);
+    const hautP = decale(plat, t => -rRuban(t)), basP = decale(plat, rRuban);
     const hautG = decale(gras, t => -rGras(t)), basG = decale(gras, rGras);
     const contour = suite(hautP, hautG).concat(basG.slice().reverse(), basP.slice().reverse());
     const rFin = rGras(1);
     return [
       h.path(D(contour, true), plein(h.a.contour)),
-      h.ellipse(520, 63, 3.5, f(rFin), plein(h.a.arete)),
+      h.ellipse(520, 41, 4.5, f(rFin), plein(h.a.arete)),
     ].join('\n');
   };
-  const main = [
-    // la main passe derrière le boyau : l'index dessus, le pouce dessous
-    // (le poignet sort par le haut de la vue : le tracé reste ouvert là)
-    h.path('M 150 0 C 175 12 215 16 244 22 C 262 25 276 28 288 38 C 297 45 303 51 301 55'
-      + ' C 299 58.5 292 58.5 284 57 C 272 55 258 52 246 54 C 238 56 236 62 240 66'
-      + ' C 252 69 278 66 294 66 C 303 66 308 70 305 75 C 301 81 290 84 276 86'
-      + ' C 258 89 240 96 222 96 C 196 96 176 82 160 60 C 150 44 118 20 105 0', plein(h.a.arete)),
-    // ongles et plis
-    h.path('M 286 40 C 291 41 296 46 297 50', h.a.detail),
-    h.path('M 291 80 C 297 79 302 77 304 74', h.a.detail),
-    h.path('M 268 27 C 265 33 265 38 268 44', h.a.detail),
-    h.path('M 270 68 C 267 73 267 79 270 85', h.a.detail),
-  ].join('\n');
+  // la main pince le boyau entre la pulpe de l'index et celle du pouce, et glisse vers le bout
+  const mainVide = () => boyauVide() + '\n' + h.formes.main({ x: pince[0], y: pince[1], pose: 'pince', vue: 'profil', echelle: 1.12, bras: 4, angle: MAIN_ANGLE });
   const crottes = [
     h.path('M 530 67 C 536 64 541 68 539 73 C 537 78 530 77 529 72 Z', h.a.arete),
     h.path('M 540 85 C 545 83 548 87 546 91 C 543 94 538 92 538 88 Z', h.a.arete),
     h.path('M 534 102 C 538 100 541 103 539 106 C 537 109 533 107 533 104 Z', h.a.arete),
-  ].join('\n');
+  ].join('\n').replace(/^/, '<g transform="translate(0 -22)">') + '</g>';
 
   // ── vue 2 : retourner, en coupe (600 × 237) ──────────────────────────────────────────
-  const y0 = 105, xP = 110, rB = 10, xB = 320, rI = 16, rE = 27;
+  const y0 = 92, xP = 110, rB = 10, xB = 320, rI = 16, rE = 27;
   const baton = [
     h.path(`M 15 ${y0 - rB} L ${xB} ${y0 - rB} A ${rB} ${rB} 0 0 1 ${xB} ${y0 + rB} L 15 ${y0 + rB}`, plein(h.a.arete)),
     h.path(`M 15 ${y0 - rB} C 11 ${y0 - 4} 19 ${y0 + 4} 15 ${y0 + rB}`, h.a.arete),
@@ -95,7 +85,7 @@ module.exports = (h) => {
   // couche intérieure : déjà retournée, muqueuse dehors ; elle coiffe le bout du bâton
   const interieur = suite(droite([xP, y0 - rI], [xB, y0 - rI], 40), arc(xB, y0, rI, -90, 90, 30), droite([xB, y0 + rI], [xP, y0 + rI], 40));
   // couche extérieure : encore à l'endroit, muqueuse dedans ; elle continue en boyau vide
-  const centre = suite(droite([xP, y0], [375, y0], 40), bez([375, y0], [450, y0], [505, 120], [545, 178], 50));
+  const centre = suite(droite([xP, y0], [375, y0], 40), bez([375, y0], [450, y0], [505, y0 + 12], [545, y0 + 60], 50));
   const rExt = t => { const x = t * (centre.length - 1) <= 40 ? 0 : (t * (centre.length - 1) - 40) / 50; return rE - 5 * x; };
   const extHaut = decale(centre, t => -rExt(t)), extBas = decale(centre, rExt);
   const pliHaut = arc(xP, y0 - (rE + rI) / 2, (rE - rI) / 2, -90, -270, 16);
@@ -145,6 +135,8 @@ module.exports = (h) => {
     h.ligne(f(xPointe), f(yk), f(xTalon), f(yk), h.a.contour),
   ].join('\n');
 
+  // la main tient le manche par-dessus, le poing fermé, le pouce couché vers la lame
+  const mainCouteau = () => h.formes.main({ x: xTalon + 44, y: yk - 9.5, pose: 'prise', vue: 'dos', cote: MC_COTE, angle: MC_ANGLE, diametre: 17.5, echelle: 0.62, bras: 30 });
   // ── vue 4 : saler (231 × 194) ───────────────────────────────────────────────────────
   const pot = [
     h.path('M 53 72 Q 115 62 177 72 L 177 174 L 53 174 Z', h.a.hachure('gravier', 'aucun')),
@@ -168,14 +160,14 @@ module.exports = (h) => {
     desc: 'On vide le boyau en le faisant glisser entre deux doigts ; on plie son bout sur le bout d’un bâton lisse et on pousse : le boyau passe dans le pli et se retourne, la muqueuse dehors. On la gratte au dos du couteau sur une planche mouillée jusqu’à ce que le boyau soit mince et translucide, puis on l’enterre dans le sel sec.',
     format: 'pleine',
     disposition: [['vider'], ['retourner'], ['gratter', 'saler']],
-    hauteurs: [1.3, 2.4, 2],
+    hauteurs: [1.6, 1.8, 1.95],
     largeurs: [[1], [1], [3, 2]],
     vues: {
       vider: {
         titre: 'Vider',
-        dessin: z => [main, boyauVide(), crottes, h.fleche('M 330 30 L 400 30')].join('\n'),
+        dessin: z => [mainVide(), crottes, h.fleche('M 380 85 L 460 85')].join('\n'),
         renvois: z => [
-          { n: 1, rond: [350, 100], cible: [305, 76], texte: 'deux doigts serrés qu’on fait glisser' },
+          { n: 1, rond: [400, 118], cible: [300, 54], texte: 'deux doigts serrés qu’on fait glisser' },
         ],
       },
       retourner: {
@@ -190,23 +182,23 @@ module.exports = (h) => {
           h.path(D(pliHaut), h.a.contour),
           h.path(D(pliBas), h.a.contour),
           h.path(D(arc(xB, y0, 12.8, -55, 55, 12)), h.a.detail),
-          h.fleche('M 22 72 L 82 72'),
-          h.fleche('M 300 56 L 205 56'),
+          h.fleche(`M 22 ${y0 - 33} L 82 ${y0 - 33}`),
+          h.fleche(`M 300 ${y0 - 49} L 205 ${y0 - 49}`),
         ].join('\n'),
         renvois: z => [
           { n: 2, rond: [362, y0], cible: [xB + rI + 1.2, y0], texte: 'bout plié, coiffé sur le bâton' },
-          { n: 3, rond: [60, 36], cible: [106.1, 79.6], texte: 'ici le boyau se retourne' },
-          { n: 4, rond: [230, 200], cible: [230, y0 + rI + 1.2], texte: 'muqueuse passée dehors' },
-          { n: 5, rond: [490, 40], cible: [+f(cibleReste[0]), +f(cibleReste[1] - 1.2)], texte: 'le reste suit tout seul' },
+          { n: 3, rond: [60, y0 - 58], cible: [106.1, +(y0 - 25.4).toFixed(1)], texte: 'ici le boyau se retourne' },
+          { n: 4, rond: [230, y0 + 58], cible: [230, y0 + rI + 1.2], texte: 'muqueuse passée dehors' },
+          { n: 5, rond: [490, y0 - 56], cible: [+f(cibleReste[0]), +f(cibleReste[1] - 1.2)], texte: 'le reste suit tout seul' },
         ],
       },
       gratter: {
         titre: 'Gratter',
-        dessin: z => [planche, boyauPlat, tas, couteau, h.fleche(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
+        dessin: z => [planche, boyauPlat, tas, couteau, mainCouteau(), h.fleche(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
         renvois: z => [
           { n: 6, rond: [240, 168], cible: [+f(xs + 30), +f(yk + 1.2)], texte: 'dos du couteau qui racle' },
           { n: 7, rond: [40, 70], cible: [130.2, 107], texte: 'planche mouillée' },
-          { n: 8, rond: [290, 30], cible: [+f(bord(0.82, 20)[0] + 0.7), +f(bord(0.82, 20)[1])], texte: 'raclé : mince et translucide' },
+          { n: 8, rond: [305, 26], cible: [+f(bord(0.9, 20)[0] + 0.7), +f(bord(0.9, 20)[1])], texte: 'raclé : mince et translucide' },
         ],
       },
       saler: {

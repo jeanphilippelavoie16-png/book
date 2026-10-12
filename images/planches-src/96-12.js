@@ -160,7 +160,7 @@ module.exports = (h) => ({
         const tige = [[x - ec, yh + 4], [x - ec / 3, yh - 1], [x + ec / 3, yh + 6], [x + ec, yh + 1],
           [x + ec, yp - 13], [x, yp], [x - ec, yp - 13]];
         const objet = h.chemin(tige, h.a.blanc, true) + '\n' + h.chemin(tige, h.a.arete, true);
-        const m = h.formes.main({ x, y: ym, pose: 'prise', vue: 'dos', diametre: 2 * ec, echelle: g.e, objet, bras: 70 });
+        const m = h.formes.main({ x, y: ym, pose: 'prise', vue: 'paume', cote: 'gauche', angle: 180, diametre: 2 * ec, echelle: g.e, objet, bras: 45 });
         return String(m);
       },
       renvois: z => {
@@ -187,6 +187,6 @@ function geo(z) {
 
 // La géométrie de la tige retirée.
 function geoTige(z) {
-  const e = 0.78;
-  return { e, x: z.l * 0.66, yh: 12, yp: z.h - 16, ec: 7, ym: z.h - 16 - 82 };
+  const e = 0.95;
+  return { e, x: z.l * 0.62, yh: 12, yp: z.h - 16, ec: 10, ym: z.h - 16 - 100 };
 }

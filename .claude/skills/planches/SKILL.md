@@ -370,6 +370,25 @@ point médian. Six renvois font six lignes courtes ; s'ils ne tiennent pas, c'es
 en a trop ou qu'ils sont trop longs, et la légende devient un paragraphe — ce que JP a
 reproché au 13. Deux colonnes alignées sont permises quand la place manque en hauteur.
 
+## Mains, têtes et corps : toujours par formes.js
+
+Toute main, tête, bras ou corps d'une planche passe par `h.formes` (`scripts/formes.js`),
+**jamais à main levée**. Une main en pince de homard, une tête d'enfant « wtf », un mannequin
+chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planche par planche.
+
+- **La main** : `h.formes.main({ pose, vue, … })`. Elle **reste et se dessine bien** : on ne
+  l'enlève pas pour ne pas avoir à la dessiner (JP, 12 octobre : « je les voulais mais bien
+  faites »). Le geste porté par une main se montre avec la main.
+- **La tête de profil** : `h.formes.tete({ age: 'adulte' | 'enfant' | 'bebe', cheveux })`, au
+  trait sobre de manuel. **Le buste** : `h.formes.buste({ main: { …options de main() } })` —
+  le bras va chercher la main, l'avant-bras rejoint son poignet sans cassure.
+- **Le corps entier** : `h.formes.personnage({ pose })`, le **pictogramme** de la règle 8
+  (tête ronde sans visage, bandes d'épaisseur égale) : debout, penche, accroupi, assis,
+  assis-sol, couche, genoux, genou, portage ; `age: 'enfant'`, `enceinte`, `rendu: 'plein'`.
+  Une main qui tient l'objet : `prises: { proche: { …options de main() } }`.
+- Il manque une pose, un âge, une prise ? **On l'ajoute à formes.js**, on la regarde en grand
+  sur les feuilles d'essai (`images/planches-src/_formes-essai-*.js`), puis on s'en sert.
+
 ## Les pièges qui reviennent
 
 Lis `references/svg-technique.md` avant le premier dessin ; ces trois-là valent d'être ici.

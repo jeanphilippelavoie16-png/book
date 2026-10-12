@@ -83,7 +83,7 @@ module.exports = (h) => {
   // ── 2. sortir : la pince de deux bâtons verts ──────────────────────────────────────
   const geoPince = z => {
     const G = z.h - 22, cx = z.l / 2 + 4, S = [cx, G - 74], rs = [20, 15];
-    const ang = 33, L = 150, lon = [-1, 1].map(s => {
+    const ang = 52, L = 138, lon = [-1, 1].map(s => {
       const u = [s * Math.sin(ang * RAD), -Math.cos(ang * RAD)];
       const bout = [S[0] + s * (rs[0] - 1), S[1] + 1];
       return { s, u, bout, haut: [bout[0] + u[0] * L, bout[1] + u[1] * L] };
@@ -114,10 +114,11 @@ module.exports = (h) => {
       out.push(h.path(`M${f([haut[0] + n[0] * r * 0.3 * cote - u[0] * 4, haut[1] + n[1] * r * 0.3 * cote - u[1] * 4])} L${f([bout[0] + n[0] * r * 0.3 * cote + u[0] * 30, bout[1] + n[1] * r * 0.3 * cote + u[1] * 30])}`, A.fin));
       out.push(h.ligne(...pInt, ...[pInt[0] + n[0] * 0.8 * cote, pInt[1] + n[1] * 0.8 * cote], A.fin));
     }
-    // les mains, une sur chaque bâton, aux deux tiers
+    // les mains, une sur chaque bâton, aux deux tiers : le poing fermé en travers du bâton, les
+    // doigts qui s'enroulent vers l'extérieur, l'avant-bras qui remonte vers le corps, hors de la vue
     for (const { s, u, bout } of lon) {
-      const g = [bout[0] + u[0] * L * 0.72, bout[1] + u[1] * L * 0.72];
-      out.push(h.formes.main({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', cote: s < 0 ? 'droite' : 'gauche', echelle: 0.42, diametre: 8.4, angle: -s * ang, bras: 55 }));
+      const g = [bout[0] + u[0] * L * 0.7, bout[1] + u[1] * L * 0.7];
+      out.push(h.formes.main({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', cote: s < 0 ? 'gauche' : 'droite', echelle: 0.46, diametre: 8.4, angle: s * ang, bras: 95 }));
     }
     // on serre, on lève
     out.push(h.fleche(`M${f([S[0], S[1] - rs[1] - 8])} L${f([S[0], S[1] - rs[1] - 44])}`, A.arete));
@@ -183,7 +184,7 @@ module.exports = (h) => {
       rameaux.push(h.path(ai, A.fin));
     }
     out.push(...rameaux);
-    out.push(h.formes.main({ x: main[0], y: main[1], pose: 'prise', vue: 'dos', cote: 'droite', echelle: 0.42, diametre: 6, angle: -8, bras: 60 }));
+    out.push(h.formes.main({ x: main[0], y: main[1], pose: 'prise', vue: 'dos', cote: 'droite', echelle: 0.46, diametre: 6, angle: -8, bras: 105 }));
     // deux ou trois coups, vers la pointe
     for (const dy of [-34, -20]) out.push(h.fleche(`M${f([spray[0] + 62, spray[1] + dy])} L${f([spray[0] + 34, spray[1] + dy + 4])}`, A.arete));
     return out.join('\n');

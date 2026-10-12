@@ -106,44 +106,22 @@ module.exports = (h) => {
   const BLANC_T = t => `fill="#FFFFFF" ${t.replace('fill="none" ', '')}`;
 
   // ─── A. le geste, vu de dessus ────────────────────────────────────────────────────────
-  const EA = 1.3, XA = 62, YA = 72;
+  // Le pot et la main à la même échelle (une main de 190 mm du poignet au bout du majeur, un pot
+  // de 86 mm de diamètre) : la paume à plat sur le pot, qui le couvre d'un bord à l'autre, les
+  // doigts qui débordent sur la peau au-delà ; le bras arrive d'en bas, coupé au bord de la vue.
+  const EA = 1.15, XA = 56, YA = 166;
   const geste = z => {
     const pot = potDessus(XA, YA, EA);
     const out = [DEFS];
-    // la tache sous le pot : des points et deux petites taches
-    out.push(h.path(tache(104, 88, 12, 9, 7), VIOLET));
-    out.push(h.path(tache(128, 50, 8, 6, 11), VIOLET));
-    out.push(points(semis(112, 80, 76, 74, 44, 3)));
+    const cx = XA + 100 * EA;
+    // la tache sous le pot et autour : des points et deux petites taches
+    out.push(h.path(tache(XA + 112 * EA, YA + 10, 10, 8, 7), VIOLET));
+    out.push(h.path(tache(XA + 104 * EA, YA - 28, 7, 5, 11), VIOLET));
+    out.push(points(semis(cx, YA, 70, 64, 34, 3)));
     out.push(pot.svg);
-    // la main posée sur le pot, les doigts qui passent par-dessus
-    // (l'avant-bras continue hors de la vue : il est coupé net au bas de la vue)
+    // la main droite, paume à plat sur le fond du pot, doigts vers le haut, pouce à gauche ; le col et le couvercle restent à découvert, la bande se lit entre la main et l'épaule
     out.push(`<clipPath id="z2805-vueA"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`);
-    out.push(`<g clip-path="url(#z2805-vueA)">${h.formes.main({ x: XA + 146, y: YA, pose: 'prise', vue: 'dos', echelle: EA, diametre: 2 * POT.R * EA, angle: -90, bras: 60 })}</g>`);
-    out.push(ongles());
-    return out.join('\n');
-  };
-
-  // les ongles au bout des doigts et du pouce, et le bout des doigts qui plonge au bord du pot :
-  // même repère que la main de formes.js (prise / dos), recalculé ici
-  const ongles = () => {
-    const RAD = Math.PI / 180, R = POT.R, e = EA, ang = -90;
-    const tr = (a, d) => { const c = Math.cos(d * RAD), s = Math.sin(d * RAD); return [a[0] * c - a[1] * s, a[0] * s + a[1] * c]; };
-    const pre = Math.atan(-0.22) / RAD, c0 = tr([12 - 0.05 * R, 0], pre);
-    const T = p => { const q = tr(p, pre), r = tr([(q[0] - c0[0]) * e, (q[1] - c0[1]) * e], ang); return [XA + 146 + r[0], YA + r[1]]; };
-    const doigts = [[[-9, 28.5], [17 + 0.3 * R, 29], 13.6], [[0, 11], [27 + 0.3 * R, 11.5], 15.6], [[3, -7.5], [31 + 0.3 * R, -7.5], 16.8], [[0, -26.5], [27 + 0.3 * R, -26], 16.2]];
-    const out = [];
-    const ongle = (a, b, w, s1, s2, pli) => {
-      const L = Math.hypot(b[0] - a[0], b[1] - a[1]), u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], n = [-u[1], u[0]];
-      const at = (s, t) => T([b[0] - u[0] * s + n[0] * t, b[1] - u[1] * s + n[1] * t]);
-      const hw = w * 0.3, sm = s2 + 3.2;
-      // l'ongle : deux côtés, la lunule arrondie vers la main
-      out.push(h.path(`M${P(at(s1, hw))} L${P(at(s2, hw))} C${P(at(sm, hw))} ${P(at(sm, -hw))} ${P(at(s2, -hw))} L${P(at(s1, -hw))}`, h.a.fin));
-      // le pli de la dernière jointure : le bout plonge vers le bas, par-dessus le bord du pot
-      if (pli) out.push(h.path(`M${P(at(pli, w * 0.36))} Q${P(at(pli - 3, 0))} ${P(at(pli, -w * 0.36))}`, h.a.fin));
-    };
-    for (const [a, b, w] of doigts) ongle(a, b, w, 2.2, 9.5, 16);
-    // le pouce : le dernier segment de la chaîne du pouce
-    ongle([-8, -45], [14 + 0.3 * R, -41], 15, 3, 11, 0);
+    out.push(`<g clip-path="url(#z2805-vueA)">${h.formes.main({ x: XA + 46 * EA, y: YA - POT.R * EA + 4, pose: 'appui', vue: 'dos', echelle: EA, angle: -90, bras: 90 })}</g>`);
     return out.join('\n');
   };
 
@@ -200,25 +178,47 @@ module.exports = (h) => {
   };
 
   // ─── E. sur une peau foncée ───────────────────────────────────────────────────────────
-  // la plante d'un pied vue de dessous : le gros orteil à gauche, la voûte en creux
-  const pied = (fx, fy) => {
-    const T = ([x, y]) => [fx + x, fy + y];
-    const plante = [[-27, -38], [-25, -22], [-18, -2], [-16, 18], [-18, 38], [-15, 56], [-6, 64], [6, 64], [15, 56], [17, 36], [19, 12], [24, -8], [28, -24], [26, -36], [18, -42], [6, -44], [-8, -46], [-20, -45]].map(T);
-    const dedans = [[-19, -33], [-17, -21], [-10, -2], [-8, 18], [-10, 37], [-8, 49], [-3, 54], [4, 54], [8, 49], [9, 35], [11, 12], [15, -8], [19, -23], [17, -30], [12, -34], [5, -35], [-8, -37], [-15, -36]].map(T);
-    const dedansR = dedans.map(([x, y]) => [fx + (x - fx) * 0.8, fy + 6 + (y - fy - 6) * 0.86]);
-    const orteils = [[-15, -53, 9.5, 12.5], [0, -56, 6.2, 8.2], [11, -53, 5.6, 7.4], [20.5, -48, 5, 6.6], [28.5, -41.5, 4.4, 5.6]];
-    const out = [];
-    for (const [x, y, rx, ry] of orteils) {
-      out.push(h.ellipse(fx + x, fy + y, rx, ry, PEAU));
-      out.push(h.ellipse(fx + x, fy + y + ry * 0.38, rx * 0.5, ry * 0.42, h.a.blanc));
-      out.push(h.ellipse(fx + x, fy + y, rx, ry, h.a.arete));
-    }
-    out.push(h.path(lisse(plante, true), PEAU));
-    out.push(h.path(lisse(dedansR, true), h.a.blanc));
-    out.push(h.path(lisse(plante, true), h.a.arete));
-    const pts = [[-6, -28, 1.5], [8, -30, 1.3], [16, -18, 1.6], [-2, -14, 1.2], [10, -6, 1.4], [-4, 6, 1.5], [6, 20, 1.3], [-3, 34, 1.6], [7, 42, 1.2], [-1, 50, 1.4], [14, 30, 1.3], [-14, -26, 1.2]];
-    out.push(points(pts.map(([x, y, r]) => [fx + x, fy + y, r])));
+  // la plante d'un pied gauche vue de dessous, orteils en haut : le gros orteil à gauche, les
+  // quatre autres de plus en plus petits sur une ligne qui descend vers le petit orteil ; le talon
+  // rond, la voûte qui rétrécit le pied côté gros orteil, la plante large sous les orteils.
+  // Proportions d'un pied d'adulte (265 mm de long, 100 à la plante, 65 au talon), echelle e.
+  // La peau foncée ne se voit qu'au bord, en liseré : la plante, pâle, prend tout le dessous.
+  const pied = (fx, fy, e) => {
+    const T = ([x, y]) => [fx + x * e, fy + y * e];
+    // les orteils, du petit au gros : centre du bout, demi-largeur, demi-hauteur visible
+    const orteils = [[46, -84, 7.5, 13], [31, -98, 8.6, 16], [15, -108, 9.2, 18], [-2, -113, 9.8, 19], [-30, -110, 17, 26]];
+    const pts = [];
+    const arc = (cx, cy, rx, ry, a0, a1, n = 9) => { for (let i = 0; i <= n; i++) { const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180; pts.push([cx + rx * Math.cos(a), cy + ry * Math.sin(a)]); } };
+    // le bord externe, du talon au petit orteil
+    for (const q of [[0, 132], [22, 126], [34, 108], [38, 80], [40, 50], [44, 20], [49, -10], [53, -40], [55, -62], [54, -76]]) pts.push(q);
+    // les orteils : le bout de chacun, puis le creux entre deux orteils
+    orteils.forEach(([cx, cy, rx, ry], i) => {
+      arc(cx, cy, rx, ry, i === 0 ? 30 : 5, i === 4 ? -175 : -175, 12);
+      const suiv = orteils[i + 1];
+      if (suiv) { const xm = (cx - rx + suiv[0] + suiv[2]) / 2, ym = Math.max(cy + ry, suiv[1] + suiv[3]) - 2; pts.push([xm + 1.5, ym - 4], [xm, ym], [xm - 1.5, ym - 4]); }
+    });
+    // le bord interne : la plante sous le gros orteil, la voûte, le talon
+    for (const q of [[-50, -94], [-53, -72], [-52, -56], [-48, -32], [-38, -2], [-30, 28], [-28, 58], [-32, 88], [-30, 112], [-20, 128]]) pts.push(q);
+    const contour = lisse(pts.map(T), true);
+    const out = [`<clipPath id="z2805-pied"><path fill="none" d="${contour}"/></clipPath>`];
+    out.push(h.path(contour, h.a.blanc));
+    // le liseré de peau foncée sur le bord, et sur les côtés des orteils
+    out.push(`<g clip-path="url(#z2805-pied)"><path d="${contour}" fill="none" stroke="url(#p2805-peau)" stroke-width="${f(10 * e * 2)}"/></g>`);
+    // le pli sous les orteils : il sépare la pulpe de chaque orteil de la plante
+    orteils.forEach(([cx, cy, rx, ry]) => out.push(h.path(`M${P(T([cx - rx * 0.85, cy + ry * 0.45]))} Q${P(T([cx, cy + ry * 0.95]))} ${P(T([cx + rx * 0.85, cy + ry * 0.45]))}`, h.a.fin)));
+    out.push(h.path(contour, h.a.arete));
+    // les points de sang, sur la plante pâle
+    const sang = [[-20, -66, 1.5], [6, -70, 1.3], [26, -60, 1.6], [-8, -46, 1.2], [14, -38, 1.4], [-14, -20, 1.5], [6, -6, 1.3], [-6, 20, 1.6], [12, 34, 1.2], [-2, 60, 1.4], [8, 90, 1.3], [-10, 100, 1.5], [22, 6, 1.2], [-28, -52, 1.2]];
+    out.push(points(sang.map(([x, y, r]) => { const q = T([x, y]); return [q[0], q[1], r]; })));
     return out.join('\n');
+  };
+  // la paume d'une main droite, doigts en haut, à la même échelle que le pied ; le liseré foncé
+  // au bord, des points dans le creux de la paume
+  const paume = (x, y, e) => {
+    const m = h.formes.main({ x, y, pose: 'ouverte', vue: 'paume', cote: 'gauche', echelle: e, angle: 90, bras: 20 });
+    const sang = [[-40, -8, 1.4], [-58, 4, 1.2], [-30, 14, 1.5], [-70, -14, 1.3], [-50, 22, 1.2], [-22, -4, 1.2]];
+    // repère de la main : jointures en (x, y), poignet à 94 mm plus bas ; les points dans la paume
+    return [m, points(sang.map(([dy, dx, r]) => [x - dx * e, y - dy * e, r]))].join('\n');
   };
   // l'œil, la paupière du bas tirée vers le bas
   const oeil = (cx, cy, rc) => {
@@ -288,7 +288,7 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  const foncee = z => [DEFS, pied(95, 76), oeil(300, 73, 62), bouche(505, 73, 62)].join('\n');
+  const foncee = z => [DEFS, pied(58, 73, 0.52), paume(160, 48, 0.52), oeil(300, 73, 62), bouche(505, 73, 62)].join('\n');
 
   return {
     ref: '28-05',
@@ -303,8 +303,8 @@ module.exports = (h) => {
         titre: 'Presser le flanc, vu de dessus',
         dessin: geste,
         renvois: z => [
-          { n: 1, rond: [22, 14], cible: [86, YA - POT.R * EA + 2.5], texte: 'pot Mason couché, paroi lisse' },
-          { n: 2, rond: [22, YA], cible: [80, YA], texte: 'la bande aplatie : on lit là' },
+          { n: 1, rond: [330, YA - 80], cible: [XA + 120 * EA, YA - POT.R * EA + 1.5], texte: 'pot Mason couché, paroi lisse' },
+          { n: 2, rond: [330, YA + 46], cible: [XA + 96 * EA, YA + 2], texte: 'la bande aplatie : on lit là' },
         ],
       },
       bout: {
@@ -334,7 +334,7 @@ module.exports = (h) => {
         titre: 'Sur une peau foncée, regarder où la peau est pâle',
         dessin: foncee,
         renvois: z => [
-          { n: 8, rond: [28, 70], cible: [92, 68], texte: 'plante du pied, et paume' },
+          { n: 8, rond: [112, 132], cible: [62, 112], texte: 'plante du pied, et paume' },
           { n: 9, rond: [214, 36], cible: [270, 76], texte: 'blanc de l’œil' },
           { n: 10, rond: [388, 128], cible: [312, 96], texte: 'intérieur de la paupière' },
           { n: 11, rond: [420, 30], cible: [497, 60], texte: 'palais' },

@@ -56,6 +56,20 @@ module.exports = (h) => {
     return [h.chemin([[a[0] + n[0], a[1] + n[1]], [b[0] + n[0], b[1] + n[1]], [b[0] - n[0], b[1] - n[1]], [a[0] - n[0], a[1] - n[1]]], W(A.arete), true),
       h.ligne(a[0] + n[0] * 0.3 + u[0] / L * 6, a[1] + n[1] * 0.3 + u[1] / L * 6, b[0] + n[0] * 0.3 - u[0] / L * 6, b[1] + n[1] * 0.3 - u[1] / L * 6, A.fin)].join('\n');
   };
+  const EM = E * 1.6;                  // les mains un peu plus grandes que nature, pour se lire
+  // une main qui serre une poignée de peau : le dos de la main vers nous, les doigts autour
+  const poing = (x, y, o = {}) => Object.assign({ x, y, pose: 'prise', vue: 'dos', diametre: 3.4, echelle: EM }, o);
+  // la poignée de peau dans le poing, dans l'axe de la prise : sort au-dessus et au-dessous de la main.
+  // vers : le bout qui part vers la cible ; queue : celui qui pend
+  const poignee = (m, cible) => {
+    const a = m.trou.axe, L = 8.5, c = [m.trou.x, m.trou.y];
+    const A1 = [c[0] + a[0] * L, c[1] + a[1] * L], B1 = [c[0] - a[0] * L, c[1] - a[1] * L];
+    const dA = Math.hypot(A1[0] - cible[0], A1[1] - cible[1]), dB = Math.hypot(B1[0] - cible[0], B1[1] - cible[1]);
+    const [vers, queue] = dA < dB ? [A1, B1] : [B1, A1];
+    const n = [-a[1] * 1.7, a[0] * 1.7];
+    const svg = h.chemin([[A1[0] + n[0], A1[1] + n[1]], [B1[0] + n[0], B1[1] + n[1]], [B1[0] - n[0], B1[1] - n[1]], [A1[0] - n[0], A1[1] - n[1]]], W(A.detail), true);
+    return { vers, queue, svg };
+  };
   const peau = at => W(at);             // la peau : blanche, contour franc
   const bord = 2.4;                     // la peau vue par la tranche
 
@@ -129,12 +143,12 @@ module.exports = (h) => {
     const pied = P(-(G - hBas) / -uy);
     out.push(perche([pied[0], G], P(L + 18), 8));
     // la peau par la tranche, lacée aux deux traverses, poussée en V par le bout du bâton
-    const hHaut = P(L - 22), hBas2 = P(24), mid = P(L * 0.38), pousse = 18;
+    const hHaut = P(L - 22), hBas2 = P(24), mid = P(L * 0.46), pousse = 18;
     // bâton presque à l'horizontale, qui descend un peu vers les mains
-    const dl = Math.hypot(1, 0.14), dir = [-1 / dl, 0.14 / dl];
+    const dl = Math.hypot(1, 0.55), dir = [-1 / dl, 0.55 / dl];   // perpendiculaire au cadre
     const apex = [mid[0] - dir[0] * pousse, mid[1] - dir[1] * pousse];
     const pe = [hHaut, [apex[0] - 3 * ux, apex[1] - 3 * uy], [apex[0] + 3 * ux, apex[1] + 3 * uy], hBas2];
-    const tipR = 3.2;
+    const tipR = 2.4;
     const bout = [apex[0] + dir[0] * (tipR + bord / 2), apex[1] + dir[1] * (tipR + bord / 2)];
     const queue = [bout[0] + dir[0] * mm(1150), bout[1] + dir[1] * mm(1150)];
     const bv = [queue[0] - bout[0], queue[1] - bout[1]], bl = Math.hypot(...bv), bu = [bv[0] / bl, bv[1] / bl], bn = [-bu[1] * tipR, bu[0] * tipR];
@@ -145,10 +159,13 @@ module.exports = (h) => {
     out.push(h.cercle(T[0], T[1], 4.5, A.hachure('bois', 'arete')), h.cercle(B[0], B[1], 4.5, A.hachure('bois', 'arete')));
     out.push(h.path(`M${pt(pe[0])} L${pt(pe[1])} Q${pt(apex)} ${pt(pe[2])} L${pt(pe[3])}`, `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`));
     // le personnage : les deux mains sur le bâton
-    const main1 = [bout[0] + bu[0] * mm(620), bout[1] + bu[1] * mm(620)];
+    const main1 = [bout[0] + bu[0] * mm(700), bout[1] + bu[1] * mm(700)];
     const main2 = [bout[0] + bu[0] * mm(980), bout[1] + bu[1] * mm(980)];
-    const pers = F.personnage({ x: main1[0] - mm(820), y: G, pose: 'debout', echelle: E, penche: 18, regard: 6,
-      mains: { loin: [main1[0] - 6, main1[1] + 2], proche: [main2[0] - 6, main2[1] + 2] } });
+    const aB = Math.atan2(-bu[0], bu[1]) * 180 / Math.PI;      // le manche de la main dans l'axe du bâton
+    const prise = p => ({ x: p[0], y: p[1], pose: 'prise', vue: 'dos', diametre: 2 * tipR, echelle: EM, angle: aB });
+    // le personnage, les deux mains sur le bâton, un pied en avant
+    const pers = F.personnage({ x: main1[0] - mm(770), y: G, pose: 'portage', echelle: E, penche: 20, regard: 4,
+      prises: { loin: prise(main1), proche: prise(main2) } });
     out.push(baton, pers);
     // le geste : pousser, relâcher
     const fl = [bout[0] + bu[0] * mm(330), bout[1] + bu[1] * mm(330) - 11];
@@ -185,17 +202,19 @@ module.exports = (h) => {
     const rb = rc + bord / 2 + 0.3;
     // les deux mains : la haute plus près, la basse plus bas
     const mH = [xc - mm(600), yC - mm(60)], mB = [xc - mm(480), yC + mm(400)];
-    const pers = F.personnage({ x: xc - mm(1130), y: G, pose: 'debout', echelle: E, penche: 10, regard: 8,
-      mains: { proche: [mH[0] - 4, mH[1] + 2], loin: [mB[0] - 4, mB[1] + 2] } });
-    const hp = pers.mains.proche, hl = pers.mains.loin;
+    const pers = F.personnage({ x: xc - mm(1260), y: G, pose: 'debout', echelle: E, penche: 12, regard: 8,
+      prises: { loin: poing(mH[0], mH[1]), proche: poing(mB[0], mB[1]) } });
+    const mp = pers.mains.loin, ml = pers.mains.proche;
+    const gH = poignee(mp, [xc, yC]), gB = poignee(ml, [xc, yC]);
+    const hp = gH.vers, hl = gB.vers, qH = gH.queue, qB = gB.queue;
     const trait = `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`;
     // la boucle : de la main haute par-dessus le câble, autour, et revient sous le câble à la main basse
     const haut = [xc, yC - rb], bas = [xc, yC + rb];
     const boucle = `M${pt(hp)} L${pt(haut)} A${rb},${rb} 0 0 1 ${pt(bas)} L${pt(hl)}`;
     // les bouts qui pendent sous les poings
-    const pendH = `M${pt(hp)} C${pt([hp[0] - 1, hp[1] + 14])} ${pt([hp[0] + 1, hp[1] + 28])} ${pt([hp[0] - 1, hp[1] + 40])}`;
-    const pendB = `M${pt(hl)} C${pt([hl[0] + 1, hl[1] + 12])} ${pt([hl[0] + 3, hl[1] + 22])} ${pt([hl[0] + 1, hl[1] + 32])}`;
-    out.push(h.path(boucle, trait));
+    const pendH = `M${pt(qH)} C${pt([qH[0] - 1, qH[1] + 10])} ${pt([qH[0] + 1, qH[1] + 20])} ${pt([qH[0] - 1, qH[1] + 30])}`;
+    const pendB = `M${pt(qB)} C${pt([qB[0] + 1, qB[1] + 8])} ${pt([qB[0] + 3, qB[1] + 16])} ${pt([qB[0] + 1, qB[1] + 24])}`;
+    out.push(h.path(boucle, trait), h.path(pendH, trait), h.path(pendB, trait), gH.svg, gB.svg);
     out.push(pers);
     out.push(h.cercle(xc, yC, rc, `fill="#1A1A1A" stroke="none"`));
     // le va-et-vient
@@ -216,13 +235,13 @@ module.exports = (h) => {
     const trait = `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`;
     // les mains tirent la peau vers soi, par-dessus l'arête
     const mP = [xp - mm(430), hautP + mm(260)];
-    const pers = F.personnage({ x: xp - mm(900), y: G, pose: 'debout', echelle: E, penche: -6, regard: 14,
-      mains: { proche: [mP[0] - 3, mP[1]], loin: [mP[0] + 3, mP[1] - 3] } });
-    const hp = pers.mains.proche;
-    const rb = ep / 2 + bord / 2;
+    const pers = F.personnage({ x: xp - mm(950), y: G, pose: 'portage', echelle: E, penche: -8, regard: 14,
+      prises: { proche: poing(mP[0], mP[1]), loin: poing(mP[0] + 3, mP[1] - 3) } });
+    const mp = pers.mains.proche, rb = ep / 2 + bord / 2;
+    const gP = poignee(mp, [xp, hautP]), gL = poignee(pers.mains.loin, [xp, hautP]), hp = gP.vers, q = gP.queue;
     const peauD = `M${pt(hp)} L${pt([xp - rb, hautP + ep / 2])} A${rb},${rb} 0 0 1 ${pt([xp + rb, hautP + ep / 2])} C${pt([xp + rb + 4, hautP + 18])} ${pt([xp + rb + 12, hautP + 38])} ${pt([xp + rb + 10, hautP + 58])}`;
-    const pend = `M${pt(hp)} C${pt([hp[0] + 2, hp[1] + 14])} ${pt([hp[0] + 5, hp[1] + 26])} ${pt([hp[0] + 3, hp[1] + 38])}`;
-    out.push(h.path(pend, trait), h.path(peauD, trait), pers);
+    const pend = `M${pt(q)} C${pt([q[0] + 2, q[1] + 10])} ${pt([q[0] + 4, q[1] + 20])} ${pt([q[0] + 3, q[1] + 30])}`;
+    out.push(gL.svg, h.path(pend, trait), h.path(peauD, trait), gP.svg, pers);
     const v = [hp[0] - (xp - rb), hp[1] - hautP], l = Math.hypot(...v), u = [v[0] / l, v[1] / l];
     const a = [xp - rb + u[0] * 6 - u[1] * 7, hautP + u[1] * 6 + u[0] * 7 - 2];
     out.push(h.fleche(`M${pt(a)} L${pt([a[0] + u[0] * 20, a[1] + u[1] * 20])}`));
@@ -234,14 +253,17 @@ module.exports = (h) => {
     const G = z.h - 12, cx = z.l / 2, y = G - mm(1000), demi = mm(800);
     const out = [sol(4, z.l - 4, G)];
     const trait = `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`;
-    const g = F.personnage({ x: cx - demi - mm(620), y: G, pose: 'debout', echelle: E, penche: -16, regard: 10,
-      mains: { proche: [cx - demi - 4, y + 2], loin: [cx - demi + 2, y] } });
-    const d2 = F.personnage({ x: cx + demi + mm(620), y: G, pose: 'debout', echelle: E, penche: -16, regard: 10, cote: 'gauche',
-      mains: { proche: [cx + demi + 4, y + 2], loin: [cx + demi - 2, y] } });
-    const pg = g.mains.proche, pd = d2.mains.proche;
-    out.push(h.path(`M${pt([pg[0] - 1, pg[1] + 2])} C${pt([pg[0] - 2, pg[1] + 16])} ${pt([pg[0] + 1, pg[1] + 26])} ${pt([pg[0] - 1, pg[1] + 36])}`, trait));
-    out.push(h.path(`M${pt([pd[0] + 1, pd[1] + 2])} C${pt([pd[0] + 2, pd[1] + 16])} ${pt([pd[0] - 1, pd[1] + 26])} ${pt([pd[0] + 1, pd[1] + 36])}`, trait));
-    out.push(h.path(`M${pt(pg)} L${pt(pd)}`, trait));
+    const g = F.personnage({ x: cx - demi - mm(620), y: G, pose: 'portage', echelle: E, penche: -14, regard: 10,
+      prises: { proche: poing(cx - demi - 4, y + 2), loin: poing(cx - demi + 2, y) } });
+    const d2 = F.personnage({ x: cx + demi + mm(620), y: G, pose: 'portage', echelle: E, penche: -14, regard: 10, cote: 'gauche',
+      prises: { proche: poing(cx + demi + 4, y + 2), loin: poing(cx + demi - 2, y) } });
+    const tg = poignee(g.mains.proche, [cx, y]), td = poignee(d2.mains.proche, [cx, y]);
+    const lg = poignee(g.mains.loin, [cx, y]), ld = poignee(d2.mains.loin, [cx, y]);
+    const pg = tg.vers, pd = td.vers, qg = tg.queue, qd = td.queue;
+    out.push(lg.svg, ld.svg);
+    out.push(h.path(`M${pt(qg)} C${pt([qg[0] - 2, qg[1] + 10])} ${pt([qg[0] + 1, qg[1] + 18])} ${pt([qg[0] - 1, qg[1] + 28])}`, trait));
+    out.push(h.path(`M${pt(qd)} C${pt([qd[0] + 2, qd[1] + 10])} ${pt([qd[0] - 1, qd[1] + 18])} ${pt([qd[0] + 1, qd[1] + 28])}`, trait));
+    out.push(h.path(`M${pt(pg)} Q${pt([cx, (pg[1] + pd[1]) / 2 + 1])} ${pt(pd)}`, trait), tg.svg, td.svg);
     out.push(g, d2);
     out.push(h.fleche(`M${pt([cx - 8, y - 9])} L${pt([cx - 40, y - 9])}`), h.fleche(`M${pt([cx + 8, y - 9])} L${pt([cx + 40, y - 9])}`));
     return { svg: out.join('\n'), cx, y, pg, pd };

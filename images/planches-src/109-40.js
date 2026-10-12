@@ -17,22 +17,11 @@
 // donc de l'avant, au bâton. Le levier, lui, est perpendiculaire à la lisse du pignon qu'il
 // soulève : il est dans le plan du dessin, et l'homme de profil avec lui.
 module.exports = (h) => {
+  const PENCHE = 45;               // le tronc penché sur la perche
   const A = h.a;
-  // Le personnage penché sur le levier : une copie locale de formes.js avec une posture « pese »
-  // (bassin qui tourne avec le tronc : dos droit de la nuque au bassin ; genoux un peu fléchis,
-  // hanche plus basse) et une fesse moins saillante. formes.js lui-même n'est pas touché.
-  const F = (() => {
-    const fs = require('fs'), path = require('path');
-    let src = fs.readFileSync(path.join(__dirname, '..', '..', '.claude/skills/planches/scripts/formes.js'), 'utf8');
-    src = src.replace("dos: [[-74, 104], [-102, 58], [-121, -8], [-108, -92],", "dos: [[-74, 104], [-90, 58], [-100, -8], [-98, -92],");
-    src = src.replace("  const POSTURES = {", `  const POSTURES = {
-    pese: { H: [0, -895], penche: 40, regard: 0, bassin: 0.5,
-      proche: { K: [120, -495], A: [0, -85], pied: 0 }, loin: { K: [95, -495], A: [-34, -85], pied: 0 },
-      mains: { proche: [[28, -868], [0.1, 1]], loin: [[-6, -872], [0.06, 1]] }, coude: -1 },`);
-    const m = { exports: {} };
-    new Function('module', 'exports', 'require', src)(m, m.exports, require);
-    return m.exports(h);
-  })();
+  // Le personnage penché sur le levier : le pictogramme de formes.js, les deux mains fermées
+  // sur la perche.
+  const F = h.formes;
   const BL = '#FFFFFF';
   const FOND = `fill="${BL}" stroke="none"`;
   const blanc = t => A[t].replace('fill="none"', `fill="${BL}"`);
@@ -329,9 +318,9 @@ module.exports = (h) => {
     const u = [Math.cos(th), Math.sin(th)];
     const piv = [eA[0] - rL * Math.sin(th), eA[1] + rL * Math.cos(th)];
     const at = k => [piv[0] + u[0] * k, piv[1] + u[1] * k];
-    const bout0 = at(-(piv[0] + 170) / u[0]), bout1 = at(1900);
-    const m1 = at(1450), m2 = at(1690);
-    const xp = m2[0] + 420;
+    const bout0 = at(-(piv[0] + 170) / u[0]), bout1 = at(2080);
+    const m1 = at(1700), m2 = at(1930);
+    const xp = m2[0] + 600;
     const pts = [[xg - 10, yb, 0], [xg, yb + 520, 0], [0, yb + 520, prof], [0, 0, dSol], [0, -60, dSol],
       [C.x + W / 2, 2.5 * T, C.d - pousse - 640], [xp + 330, 0, dL], [xp - 200, 1560, dL]];
     const { s, R } = cadrer(z, pts, [8, 6, 4, 6]);
@@ -348,7 +337,7 @@ module.exports = (h) => {
     // le levier, dans le plan d = dL
     const L0 = R([bout0[0], bout0[1], dL]), L1 = R([bout1[0], bout1[1], dL]);
     out.push(barre(L0, L1, 2 * rL * s, 'biseau', 'franc', blanc('arete')));
-    out.push(h.path(poly([R([...at(-60), dL]).map((v, i) => v + (i ? -0.25 : 0) * rL * s), R([...at(1700), dL]).map((v, i) => v + (i ? -0.25 : 0) * rL * s)], false), A.fin));
+    out.push(h.path(poly([R([...at(-60), dL]).map((v, i) => v + (i ? -0.25 : 0) * rL * s), R([...at(1880), dL]).map((v, i) => v + (i ? -0.25 : 0) * rL * s)], false), A.fin));
     // pousser vers le bas, entre l'appui et les mains
     const pf = at(1180);
     const n = [-u[1], u[0]];
@@ -359,9 +348,23 @@ module.exports = (h) => {
     out.push(Bt.svg, baton);
     // l'homme, penché sur le bout du levier
     const pied = R([xp, 0, dL]);
-    const w1 = R([m1[0] + 45, m1[1] + rL + 95, dL]), w2 = R([m2[0] + 45, m2[1] + rL + 95, dL]);
-    const homme = F.personnage({ x: pied[0], y: pied[1], pose: 'pese', echelle: s, cote: 'gauche', penche: 40, regard: 22,
-      mains: { loin: w1, proche: w2 } });
+    const g1 = R([m1[0], m1[1], dL]), g2 = R([m2[0], m2[1], dL]);
+    // chaque main tourne pour que l'avant-bras file droit vers l'épaule : le bras tendu pèse
+    const essai = F.personnage({ x: pied[0], y: pied[1], pose: 'penche', echelle: s, cote: 'gauche', penche: PENCHE, regard: 10 });
+    const m0 = F.main({ x: 0, y: 0, pose: 'prise', vue: 'dos', cote: 'gauche', echelle: s, diametre: 2 * rL * s * 1.05, angle: 0 });
+    const a0 = Math.atan2(m0.bras[1] - m0.poignet[1], m0.bras[0] - m0.poignet[0]);
+    const L1b = 300 * s, L2b = 255 * s + Math.hypot(m0.poignet[0], m0.poignet[1]);
+    const prise = (p, ep) => {
+      // le coude, par les deux longueurs du bras ; il part vers l'arrière (à droite) : on pèse
+      const dx = ep[0] - p[0], dy = ep[1] - p[1], D = Math.min(Math.hypot(dx, dy), (L1b + L2b) * 0.999);
+      const base = Math.atan2(dy, dx), c = (L2b * L2b + D * D - L1b * L1b) / (2 * L2b * D);
+      const b = Math.acos(Math.max(-1, Math.min(1, c)));
+      const cand = [base + b, base - b].map(a => [p[0] + L2b * Math.cos(a), p[1] + L2b * Math.sin(a), a]);
+      const E = cand[0][0] > cand[1][0] ? cand[0] : cand[1];
+      return { x: p[0], y: p[1], pose: 'prise', vue: 'dos', diametre: 2 * rL * s * 1.05, angle: (E[2] - a0) * 180 / Math.PI };
+    };
+    const homme = F.personnage({ x: pied[0], y: pied[1], pose: 'penche', echelle: s, cote: 'gauche', penche: PENCHE, regard: 10,
+      prises: { loin: prise(g1, essai.epaules.loin), proche: prise(g2, essai.epaules.proche) } });
     out.push(homme);
     const g = { s, R, C, P, PA, blocB, yb, b0, b1, at, dL, piv, homme, svg: out.join('\n'), L0, L1 };
     memo[cle] = g;

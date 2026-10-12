@@ -16,44 +16,22 @@ const tourne = (p, d) => { const c = Math.cos(d * RAD), s = Math.sin(d * RAD); r
 const plus = (a, b) => [a[0] + b[0], a[1] + b[1]], moins = (a, b) => [a[0] - b[0], a[1] - b[1]], fois = (a, k) => [a[0] * k, a[1] * k];
 
 // ─── la posture du fendeur à l'impact ─────────────────────────────────────────────────────
-// formes.js n'a que debout, accroupi, genoux et genou. On lui prête une posture au chargement,
-// sans toucher au fichier. Repère du personnage : mm, sol en y = 0, regard vers +x. Le genou se
-// calcule pour que cuisse (440) et jambe (430) gardent leur longueur : la hanche descend de 90 mm,
-// les genoux plient.
-const LEAN = 15, HANCHE = [-90, -860];
-const A_PROCHE = [0, -85];
-function genou(H, A, L1 = 440, L2 = 430) {
-  const d = Math.hypot(A[0] - H[0], A[1] - H[1]), u = [(A[0] - H[0]) / d, (A[1] - H[1]) / d];
-  const a = (L1 * L1 - L2 * L2 + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, L1 * L1 - a * a));
-  const b = plus(H, fois(u, a)), n = [-u[1], u[0]];
-  const k1 = plus(b, fois(n, hh)), k2 = moins(b, fois(n, hh));
-  return k1[0] > k2[0] ? k1 : k2;             // le genou vers l'avant
-}
-// Les pieds sont côte à côte (vue de dessus) : de profil, la jambe loin est exactement derrière la
-// proche, et cachée par elle (formes.js la décale de 10 mm ; ici, de rien).
-const GENOU = genou(HANCHE, A_PROCHE);
-const POSTURES = {
-  fendreImpact: { H: HANCHE, penche: LEAN, regard: 30,
-    proche: { K: GENOU, A: A_PROCHE, pied: 0 },
-    loin: { K: GENOU, A: A_PROCHE, pied: 0 },
-    mains: { proche: [[400, -930], [0.7, 0.7]], loin: [[300, -930], [0.7, 0.7]] }, coude: -1 },
+// Le fendeur est le pictogramme de la règle 8 (formes.js, personnage). Il n'a pas de pose « genoux
+// pliés, penché vers l'avant » : on lui en prête une au chargement, sans toucher au fichier. Angles
+// depuis la verticale descendante, + vers l'avant : la cuisse avance, la jambe revient, le tronc
+// penche ; les pieds côte à côte (de profil, la jambe loin est derrière la proche). Les bras vont
+// chercher les deux mains de la bibliothèque refermées sur le manche (prises).
+const POSES_EN_PLUS = {
+  fendre: { t: 14, regard: 32, ancre: 'pieds', proche: [24, -6, 0], loin: [21, -9, 0], bras: { proche: [40, 50], loin: [36, 46] } },
 };
-// l'épaule proche, comme formes.js la place (le tronc tourne en entier au-dessus de la taille)
-const EPAULE = plus(HANCHE, tourne([-14, -470], LEAN));
-
-// Le bras du personnage finit par une main-moufle de 185 mm dans l'axe de l'avant-bras : ici elle
-// est raccourcie à un moignon sous le poignet, et le poing vient de main() (prise vue du dos pour
-// la main proche, côté paume pour la main loin), refermé sur le manche.
 function formesDuFendeur(h) {
-  const cles = ['const POSTURES = {', 'mul(uni(dirMain || sub(Wr, E)), BRAS.L[2])', 'const Hl = add(H, [-10, 0]);'];
+  const cle = 'const POSES_P = {';
   let src = fs.readFileSync(path.join(__dirname, '..', '..', '.claude', 'skills', 'planches', 'scripts', 'formes.js'), 'utf8');
-  for (const c of cles) if (!src.includes(c)) throw new Error(`24-02 : formes.js n’a plus « ${c} » ; revoir la posture du fendeur`);
-  src = src.replace(cles[0], `${cles[0]} ...h.posturesEnPlus,`)
-    .replace(cles[1], 'mul(uni(dirMain || sub(Wr, E)), h.longueurMain || BRAS.L[2])')
-    .replace(cles[2], 'const Hl = add(H, h.decalageHanche || [-10, 0]);');
+  if (!src.includes(cle)) throw new Error(`24-02 : formes.js n’a plus « ${cle} » ; revoir la posture du fendeur`);
+  src = src.replace(cle, `${cle} ...h.posesEnPlus,`);
   const m = { exports: null };
   new Function('module', 'require', src)(m, require);
-  return m.exports(Object.assign(Object.create(h), { posturesEnPlus: POSTURES, longueurMain: 1, decalageHanche: [0, 0] }));
+  return m.exports(Object.assign(Object.create(h), { posesEnPlus: POSES_EN_PLUS }));
 }
 
 module.exports = (h) => {
@@ -153,19 +131,17 @@ module.exports = (h) => {
   const Y_BUCHE = -BILLOT.h, Y_DESSUS = -BILLOT.h - BUCHE.h;   // -380, -710
   const Y_MANCHE = Y_DESSUS - 141 + 16;       // à l'impact, le tranchant vient d'entrer
   const DIAM = 33;                            // le manche sous les poings
-  // Les poings : le décalage du trou au poignet, mesuré sur une main à l'échelle 1.
-  const POING = {
-    proche: { pose: 'prise', vue: 'dos', angle: 90 },
-    loin: { pose: 'prise', vue: 'paume', cote: 'gauche', angle: -90 },
-  };
-  // Les poings sont dessinés ici (poing() plus bas) : le poignet au-dessus et en arrière du poing.
-  const OFF1 = [-14, -40], OFF2 = [-14, -40];
-  // la main proche : le bras presque tendu, de l'épaule au poignet
-  const W1y = Y_MANCHE + OFF1[1];
-  const W1 = [EPAULE[0] + Math.sqrt(540 * 540 - (W1y - EPAULE[1]) ** 2), W1y];
-  const G1 = [W1[0] - OFF1[0], Y_MANCHE];     // le poing proche
-  const G2 = [G1[0] - 92, Y_MANCHE];          // le poing loin, collé contre, au bout du manche
-  const W2 = plus(G2, OFF2);
+  // Les deux mains au bout du manche : la proche vue du dos (le manche passe derrière le poing), la
+  // loin vue du côté de la paume, en miroir (ses doigts passent devant le manche). L'épaule se lit
+  // sur le pictogramme lui-même, posé à l'échelle 1 ; la main proche se place à AVANCE devant elle.
+  const PICTO = F.personnage({ x: 0, y: 0, pose: 'fendre', echelle: 1 });
+  const EPAULE = PICTO.epaules.proche, GENOU = PICTO.genoux.proche;
+  // Le bras presque tendu : la main proche à PORTEE de l'épaule ; la main tourne pour que son
+  // avant-bras file vers l'épaule (le poignet cassé vers le bas, comme à l'impact).
+  const PORTEE = 635;
+  const G1 = [EPAULE[0] + Math.sqrt(PORTEE ** 2 - (Y_MANCHE - EPAULE[1]) ** 2), Y_MANCHE];  // la main proche
+  const ANGLE_MAIN = Math.atan2(G1[1] - EPAULE[1], G1[0] - EPAULE[0]) / RAD;
+  const G2 = [G1[0] - 96, Y_MANCHE];          // la main loin, collée contre, au bout du manche
   const X_BOUT = G2[0] - 66;
   const XB = X_BOUT + LM;                     // l'axe du billot et de la bûche
   const K_IMPACT = [X_BOUT, Y_MANCHE];
@@ -199,41 +175,13 @@ module.exports = (h) => {
     // le coup qui descend droit sur la bûche
     const B = [[XB - 560, -1700], [XB - 130, -1700], [XB, -1440], [XB, Y_MANCHE - 80]].map(p => P(...p));
     out.push(h.fleche(`M${XY(B[0])} C${XY(B[1])} ${XY(B[2])} ${XY(B[3])}`, A.arete));
-    // le fendeur, puis ses deux poings refermés sur le manche
-    out.push(F.personnage({ x: P(0, 0)[0], y: P(0, 0)[1], pose: 'fendreImpact', echelle: s,
-      mains: { proche: P(...W1), loin: P(...W2) } }));
-    // l'aine et le pli de la fesse : formes.js laisse ouvert le haut d'une cuisse pliée vers l'avant ;
-    // on referme la silhouette, du tronc au bord de la cuisse, avec le même double trait. Devant, la
-    // cuisse sort en avant du ventre : le trait part plus haut sur le ventre, à sa tangente.
-    const { pointBord } = F._interne;
-    const TTb = p => plus(HANCHE, tourne(p, LEAN * 0.35));
-    const jambePts = [HANCHE, GENOU, A_PROCHE];
-    const uJ = (() => { const d = moins(GENOU, HANCHE), l = Math.hypot(...d); return [d[0] / l, d[1] / l]; })();
-    const pli = (b0, avant, bord, cote, sB, apres = b0) => {
-      const p1 = pointBord(jambePts, bord, 1, cote, sB);
-      const d0 = moins(apres, avant), l0 = Math.hypot(...d0), t0 = [d0[0] / l0, d0[1] / l0];
-      const L = Math.hypot(...moins(p1, b0)) / 3;
-      const c1 = plus(b0, fois(t0, L)), c2 = moins(p1, fois(uJ, L));
-      const d = `M${XY(P(...b0))} C${XY(P(...c1))} ${XY(P(...c2))} ${XY(P(...p1))}`;
-      return [h.path(d, `fill="none" stroke="${NOIR}" stroke-width="2.4" stroke-linecap="round"`),
-        h.path(`${d} L${XY(P(...HANCHE))} Z`, FOND),
-        h.path(d, `fill="none" stroke="${NOIR}" stroke-width="0.7" stroke-linecap="round"`)].join('\n');
-    };
-    out.push(pli(TTb([-74, 104]), TTb([-102, 58]), [[86, 52], [53, 33]], -1, 105),
-      pli(TTb([86, -24]), TTb([97, -112]), [[76, 50], [47, 31]], 1, 70, TTb([74, 68])));
-    // les poings : un bloc arrondi refermé sur le manche, qui entre et ressort de chaque côté ;
-    // le pouce passe par-dessus, les doigts repliés sous le manche (trois traits entre quatre doigts)
-    const poing = G => {
-      const T = ([x, y]) => P(G[0] + x, G[1] + y);
-      const bord = [[-40, -14], [-38, -34], [-22, -44], [10, -42], [32, -34], [42, -16], [43, 12], [40, 34], [28, 47], [0, 50], [-24, 48], [-38, 36], [-42, 16]];
-      const o = [h.path(ser(lisse(bord, true), T), blanc(2.4))];
-      o.push(h.path(ser(lisse([[-34, -26], [-8, -27], [18, -22], [36, -12]]), T), A.arete));   // le pouce par-dessus
-      o.push(h.path(ser(lisse([[36, -12], [30, -6], [20, -9]]), T), A.arete));                 // son bout
-      for (const x of [-19, 1, 21]) o.push(h.path(ser(lisse([[x - 2, 18], [x + 1, 32], [x - 1, 46]]), T), A.arete));
-      o.push(h.path(ser(lisse([[-36, 18], [0, 20], [38, 18]]), T), A.detail));                 // le pli sous le manche
-      return o.join('\n');
-    };
-    out.push(poing(G2), poing(G1));
+    // le fendeur : le pictogramme, les deux mains refermées sur le manche
+    const fendeur = F.personnage({ x: P(0, 0)[0], y: P(0, 0)[1], pose: 'fendre', echelle: s,
+      prises: {
+        proche: { x: P(...G1)[0], y: P(...G1)[1], pose: 'prise', vue: 'dos', angle: ANGLE_MAIN, diametre: DIAM * s, bras: 30 },
+        loin: { x: P(...G2)[0], y: P(...G2)[1], pose: 'prise', vue: 'paume', cote: 'gauche', angle: ANGLE_MAIN - 180, diametre: DIAM * s, bras: 30 },
+      } });
+    out.push(fendeur);
 
     // ── vu de dessus, aligné sous l'élévation ──
     const Q = (x, y) => P(x, Y_PLAN + y);
@@ -264,10 +212,9 @@ module.exports = (h) => {
   const renvoisImpact = z => {
     const { P } = cadre(z, ...BOITE_IMPACT);
     const Q = (x, y) => P(x, Y_PLAN + y);
-    const K = POSTURES.fendreImpact.proche.K;
     return [
       { n: 1, rond: P(XB + 200, -1150), cible: P(XB + 80, -560), texte: 'la bûche debout sur un billot' },
-      { n: 2, rond: P(K[0] + 290, -330), cible: P(K[0] + 45, K[1] + 20), texte: 'le poids descend, les genoux plient' },
+      { n: 2, rond: P(GENOU[0] + 290, -330), cible: P(GENOU[0] + 40, GENOU[1] + 10), texte: 'le poids descend, les genoux plient' },
       { n: 3, rond: P(XB - 330, -1150), cible: P(XB - 330, Y_MANCHE - 12), texte: 'à l’impact, le manche à l’horizontale' },
       { n: 4, rond: P(XB - 560, -170), cible: P(...ptArc(T1 - 2)), texte: 'le fer qui traverse finit dans le billot' },
       { n: 5, rond: Q(-240, -PIED_Y - 60), cible: Q(-40, -PIED_Y - 38), texte: 'pieds écartés, jambes hors de la trajectoire' },
@@ -333,15 +280,15 @@ module.exports = (h) => {
   // Origine au centre du dessus de la bûche ; le fendeur est à gauche, le fer à droite. Le manche
   // est interrompu au milieu pour que la main et le fer se voient en grand ; la bûche est coupée
   // sous le fer.
-  const COUPE = { de: 250, a: 660, jeu: 34 }, DEC = decalage(COUPE);
-  const BOITE_COINCE = [[-545, 195], [-400, 162]];
+  const COUPE = { de: 220, a: 690, jeu: 30 }, DEC = decalage(COUPE);
+  const BOITE_COINCE = [[-500, 200], [-345, 122]];
   const K_COINCE = [-LM, -111];                // le milieu du tranchant à 30 mm sous le dessus
   const PIVOT = [-62, 17];                     // le talon du tranchant, dans le bois
   const BASCULE = -12;                         // le manche qui descend sous la paume
-  const LEVE = 125;                            // la main, avant le coup
+  const LEVE = 100;                            // la main, avant le coup
   const vueCoince = (apres) => z => {
     const { s, P } = cadre(z, ...BOITE_COINCE);
-    const bu = rondin(P, s, 0, 0, 150, BUCHE.r, { ep: 2.4, coupe: true });
+    const bu = rondin(P, s, 0, 0, 110, BUCHE.r, { ep: 2.4, coupe: true });
     const out = [bu.fond];
     const u = tourne([1, 0], apres ? BASCULE : 0), v = tourne([0, 1], apres ? BASCULE : 0);
     const K0 = apres ? plus(PIVOT, tourne(moins(K_COINCE, PIVOT), BASCULE)) : K_COINCE;
@@ -349,12 +296,12 @@ module.exports = (h) => {
     out.push(bu.avant);
     out.push(h.ligne(bu.X - bu.rx * 0.9, bu.Yt, bu.X + bu.rx * 0.9, bu.Yt, A.detail));
     // la main ouverte : au-dessus du bout du manche, puis à plat dessus
-    const surf = ptHache(K0, u, v, DEC + 62, -23);
+    const surf = ptHache(K0, u, v, DEC + 55, -23);
     const lev = apres ? 0 : LEVE;
     const pm = plus(surf, fois(v, -lev));
     out.push(F.main({ x: P(...pm)[0], y: P(...pm)[1], pose: 'appui', vue: 'profil', echelle: s, angle: apres ? BASCULE : 0, bras: 105, trait: 'fort' }));
     if (!apres) {
-      const f0 = ptHache(K0, u, v, DEC + 110, -23 - lev + 22), f1_ = ptHache(K0, u, v, DEC + 110, -23 - 8);
+      const f0 = ptHache(K0, u, v, DEC + 100, -23 - lev + 22), f1_ = ptHache(K0, u, v, DEC + 100, -23 - 8);
       out.push(h.fleche(`M${XY(P(...f0))} L${XY(P(...f1_))}`, A.arete));
     } else {
       // le fer bascule sur son talon et sort du bois
@@ -370,7 +317,7 @@ module.exports = (h) => {
     const u = tourne([1, 0], apres ? BASCULE : 0), v = tourne([0, 1], apres ? BASCULE : 0);
     return apres
       ? [{ n: 9, rond: P(150, -330), cible: P(...plus(PIVOT, tourne([205, 0], -30))), texte: 'le fer bascule et sort du bois' }]
-      : [{ n: 8, rond: P(-150, -330), cible: P(...ptHache(K0, u, v, DEC + 150, -23 - LEVE - 12)), texte: 'la paume frappe, sans tenir le manche' }];
+      : [{ n: 8, rond: P(-150, -330), cible: P(...ptHache(K0, u, v, DEC + 130, -23 - LEVE - 12)), texte: 'la paume frappe, sans tenir le manche' }];
   };
 
   return {

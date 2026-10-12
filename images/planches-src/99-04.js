@@ -41,7 +41,7 @@ module.exports = (h) => {
     desc: 'Encadré danger : que faire quand la tige est trop chaude pour la main. Coupe d’un tas de foin sur son lit de pierres : debout sur une planche posée en travers du dessus, par-dessus une cavité brûlée, un homme enfonce une tige de fer jusqu’au cœur du tas. À côté, la tige seule, cotée. En bas, la tige retirée, touchée d’abord du dos de la main, puis empoignée.',
     format: 'pleine',
     disposition: [['coupe', 'tige'], ['dos', 'prise']],
-    hauteurs: [1.8, 1],
+    hauteurs: [2, 1],
     largeurs: [[4.2, 1], [1, 1]],
     vues: {
       coupe: {
@@ -81,15 +81,11 @@ module.exports = (h) => {
           // la tige, du haut au cœur du tas
           out.push(h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.blanc));
           out.push(h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.arete));
-          // l'homme debout sur la planche, les deux mains refermées sur la tige (les poignets juste
-          // avant elle : la main passe devant et la cache là où elle la tient)
-          out.push(F.personnage({ x: X(-0.42), y: g.ypl, pose: 'debout', echelle: s / 1000, penche: 22, regard: 30,
-            mains: { proche: [xc - TIGE / 2 - 9, g.ypl - 0.95 * s], loin: [xc - TIGE / 2 - 9, g.ypl - 1.16 * s] } }));
-          // les poings : un ovale fermé autour de la tige, sans doigts
-          for (const yp of [g.ypl - 0.95 * s, g.ypl - 1.16 * s]) {
-            out.push(h.ellipse(xc - 0.5, yp, 4.5, 6, A.blanc));
-            out.push(h.ellipse(xc - 0.5, yp, 4.5, 6, A.arete));
-          }
+          // l'homme debout sur la planche, penché sur la tige, les deux poings refermés dessus
+          // (mains de la bibliothèque, vues du dos : les doigts s'enroulent autour de la tige)
+          const pr = yp => ({ x: xc, y: yp, pose: 'prise', vue: 'dos', diametre: TIGE, trait: 'fort' });
+          out.push(F.personnage({ x: xc - 0.66 * s, y: g.ypl, pose: 'debout', echelle: s / 1000, penche: 24, regard: 35,
+            prises: { proche: pr(g.ypl - 0.95 * s), loin: pr(g.ypl - 1.15 * s) } }));
           // le geste : enfoncer
           out.push(h.fleche(`M${xc + 14} ${g.ypl - 1.3 * s} L${xc + 14} ${g.ypl - 0.62 * s}`, A.contour));
           return out.join('\n');
@@ -124,31 +120,23 @@ module.exports = (h) => {
       },
       dos: {
         titre: 'Retirée : d’abord le dos de la main',
-        // La main vue par la tranche, côté petit doigt : le dos (à droite) touche la tige aux
-        // jointures, les doigts allongés et joints, le pouce replié le long de l'index (derrière).
+        // La main droite de la bibliothèque, relâchée, vue de profil, tournée doigts en haut : le dos
+        // de la main (les jointures) vient contre la tige, les doigts se replient en s'en éloignant.
         dessin: z => {
-          const xr = z.l * 0.58, yh = z.h * 0.46, D = 20, xL = xr - D / 2;
+          const xr = z.l * 0.58, yh = z.h * 0.58, D = 20, xL = xr - D / 2;
           const bas = z.h - 18;
-          const k = 0.72, P = pts => pts.map(([x, y]) => [xL + k * x, yh + k * y]);
-          const main = P([[-56, 124], [-46, 92], [-30, 62], [-12, 30], [-1, 2], [-3, -30], [-9, -62], [-14, -84],
-            [-22, -90], [-30, -84], [-30, -50], [-34, -14], [-46, 22], [-62, 58], [-84, 104], [-92, 124]]);
-          const dMain = lisse(main) + ' Z';
-          const pouce = P([[-50, 40], [-40, 10], [-32, -16], [-30, -34]]);
-          const ongle = P([[-24, -86], [-28, -76]]);
-          const pli = P([[-33, -22], [-25, -16]]);
           return [
             h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour')),
-            h.path(dMain, A.blanc), h.path(lisse(main), A.contour),
-            h.path(lisse(pouce), A.detail), h.path(lisse(pli), A.detail),
+            F.main({ x: xL - 13, y: yh, pose: 'pend', vue: 'profil', cote: 'gauche', angle: 96, echelle: 0.6, bras: 64 }),
             // toucher, retirer : perpendiculaire à la tige
-            h.fleche(`M${xL - 64} ${yh - 36} L${xL - 38} ${yh - 36}`, A.arete),
-            h.fleche(`M${xL - 42} ${yh - 22} L${xL - 68} ${yh - 22}`, A.arete),
+            h.fleche(`M${xL - 92} ${yh + 6} L${xL - 64} ${yh + 6}`, A.arete),
+            h.fleche(`M${xL - 68} ${yh + 22} L${xL - 96} ${yh + 22}`, A.arete),
           ].join('\n');
         },
         renvois: z => {
-          const xr = z.l * 0.58, yh = z.h * 0.46;
+          const xr = z.l * 0.58, yh = z.h * 0.58;
           return [
-            { n: 6, rond: [xr + 70, z.h * 0.7], cible: [xr - 10, yh + 2], texte: 'dos de la main, brièvement' },
+            { n: 6, rond: [xr + 70, z.h * 0.7], cible: [xr - 11, yh - 12], texte: 'dos de la main, brièvement' },
           ];
         },
       },

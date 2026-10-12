@@ -206,11 +206,32 @@ module.exports = (h) => {
           out.push(h.ligne(xd - 2.5, yIg + 1, xd + 5, yOg - 24, h.a.arete));
           // Le bloc devant la porte.
           out.push(h.rect(bx, G - bh, 11, bh, h.a.hachure('neige', 'contour')));
-          // Sur le banc : le lit, puis le dormeur dans son sac, la tête au fond.
-          const x1 = xi + wr + 6, x2 = xbe - 7, yl = yb - 5;
-          out.push(h.rect(xi + wr + 3, yl, xbe - 5 - (xi + wr + 3), 5, blanc(h.a.detail)));
-          out.push(h.path(`M ${f(x1 + 12)} ${f(yl - 13)} L ${f(x2 - 6)} ${f(yl - 13)} Q ${f(x2)} ${f(yl - 13)} ${f(x2)} ${f(yl - 6)} Q ${f(x2)} ${f(yl)} ${f(x2 - 6)} ${f(yl)} L ${f(x1 + 12)} ${f(yl)} Z`, blanc(h.a.arete)));
-          out.push(h.cercle(x1 + 6, yl - 7, 6.5, blanc(h.a.arete)));
+          // Sur le banc : le lit, puis le dormeur sur le dos dans son sac momie, la tête au fond,
+          // sortie du capuchon. Repère du dormeur en mm : u le long du corps (0 à l'oreille),
+          // v au-dessus du lit.
+          const xl0 = xi + wr + 3, xl1 = xbe - 5, yl = yb - 5;
+          out.push(h.rect(xl0, yl, xl1 - xl0, 5, blanc(h.a.detail)));
+          const es = (xl1 - xl0 - 4) / 2140, X0 = xl0 + 2 + 160 * es;
+          const S = ([u, v]) => [X0 + u * es, yl - v * es];
+          const lisse = pts => {
+            const q = pts.map(S); let d = `M ${f(q[0][0])} ${f(q[0][1])}`;
+            for (let i = 0; i < q.length - 1; i++) {
+              const p0 = q[Math.max(0, i - 1)], p1 = q[i], p2 = q[i + 1], p3 = q[Math.min(q.length - 1, i + 2)];
+              d += ` C ${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
+            }
+            return d;
+          };
+          // le capuchon, derrière et sous la tête ; le pictogramme (tête au fond, à gauche) ; puis le
+          // corps du sac, qui le couvre du cou jusqu'au-delà des pieds
+          out.push(h.path(lisse([[170, 300], [60, 352], [-90, 336], [-168, 245], [-174, 120], [-122, 30], [-20, 0]]) + ` L ${f(S([150, 0])[0])} ${f(S([150, 0])[1])} Z`, blanc(h.a.arete)));
+          out.push(h.formes.personnage({ pose: 'couche', x: S([700, 0])[0], y: yl, echelle: es }));
+          const dessusSac = [[120, 40], [118, 200], [150, 290], [260, 325], [480, 326], [760, 304], [1050, 278], [1330, 250], [1450, 262], [1540, 335], [1610, 396], [1705, 392], [1772, 330], [1798, 190], [1788, 60], [1768, 0]];
+          out.push(h.path(lisse(dessusSac) + ` L ${f(S([120, 0])[0])} ${f(S([120, 0])[1])} Z`, blanc(h.a.arete)));
+          // les cloisons du duvet, en travers
+          for (const u of [440, 780, 1120]) {
+            const top = dessusSac.reduce((a, b) => Math.abs(b[0] - u) < Math.abs(a[0] - u) ? b : a)[1];
+            out.push(h.path(lisse([[u + 18, top - 10], [u, top * 0.5], [u + 18, 8]]), h.a.fin));
+          }
           // L'air : il entre par-dessus le bloc, par le bas, et sort par le trou du sommet.
           const ax = xg + 2.5;
           out.push(h.fleche(`M ${f(cx + R + 44)} ${f(G - bh - 6)} L ${f(bx + 4)} ${f(G - bh - 4)} Q ${f(xpo)} ${f(G - bh - 4)} ${f(xpi)} ${f(G - 25)} L ${f(cx + 80)} ${f(G - 25)} C ${f(cx + 45)} ${f(G - 27)} ${f(cx + 32)} ${f(yIg + 30)} ${f(ax)} ${f(yIg + 2)} L ${f(ax)} ${f(yOg - 18)}`, h.a.cache));

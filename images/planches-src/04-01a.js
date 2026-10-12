@@ -68,10 +68,9 @@ module.exports = (h) => {
     for (const cy of [222, 212, 202]) for (const cx of [316, 326, 336]) o.push(h.cercle(cx, cy, 5, W(A.arete)), h.cercle(cx, cy, 1.6, A.fin));
     o.push(bidon(344, 202));
     for (let i = 0; i < 5; i++) o.push(h.rect(366 + (i % 2), 227 - 4 * (i + 1), 20 - (i % 3), 4, W(A.detail)));
-    // un dormeur sous la table
+    // un dormeur sous la table : le pictogramme couché sur le dos, la tête à gauche
     o.push(rr(284, 272, 88, 6, 2, W(A.arete)));
-    o.push(h.path('M297 272 C300 259, 318 259, 335 262 C352 264, 364 263, 370 272 Z', W(A.arete)));
-    o.push(h.cercle(291, 266, 5.5, W(A.arete)));
+    o.push(h.formes.personnage({ x: 326, y: 272, pose: 'couche', echelle: 0.05, mains: { proche: [332, 266], loin: [331, 265] } }).toString());
 
     return `<g transform="translate(0,-21)">\n${o.join('\n')}\n</g>`;
   };
@@ -89,14 +88,8 @@ module.exports = (h) => {
       const xs = xout(Math.min(yl, 188.4)) + 1;
       for (let k = 0; k < 3; k++) o.push(rr(xs + 24 * k, yh + 0.5, 23.5, 13, 5, A.hachure('terre', 'arete')));
     }
-    // quelqu'un assis dessous, le dos au mur
-    const tube = (x1, y1, x2, y2, r) => {
-      const L = Math.hypot(x2 - x1, y2 - y1), nx = -(y2 - y1) / L * r, ny = (x2 - x1) / L * r;
-      return h.path(`M${x1 + nx} ${y1 + ny} L${x2 + nx} ${y2 + ny} A${r} ${r} 0 0 0 ${x2 - nx} ${y2 - ny} L${x1 - nx} ${y1 - ny} A${r} ${r} 0 0 0 ${x1 + nx} ${y1 + ny} Z`, W(A.arete));
-    };
-    o.push(tube(110, 184, 110, 147, 7), h.cercle(110, 132, 6.6, W(A.arete)));
-    o.push(tube(112, 185, 140, 164, 5), tube(140, 164, 160, 187, 3.9), tube(160, 189, 170, 189, 2.8));
-    o.push(tube(112, 150, 123, 170, 3.3), tube(123, 170, 137, 165, 3), h.cercle(139, 164, 2.8, W(A.arete)));
+    // quelqu'un assis dessous, le dos au mur : le pictogramme assis au sol
+    o.push(h.formes.personnage({ x: 113, y: yf, pose: 'assis-sol', echelle: 0.066, penche: -2, mains: { proche: [133, 177], loin: [131, 178] } }).toString());
     return `<g transform="translate(0,-6)">\n${o.join('\n')}\n</g>`;
   };
 

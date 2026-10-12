@@ -3,7 +3,7 @@
 // la tige, tige tirée vers soi, gerbe dans le creux) ; la boule refermée, tenue par le bas à une
 // longueur d'avant-bras du visage et soufflée ; le nid en flammes glissé sous le tipi.
 // Mains et tête : bibliothèque h.formes (prise/dos pour la tige et le couteau, boule/profil pour
-// le nid, tete de profil). Seuls les objets sont dessinés ici.
+// le nid, buste de profil dont le bras va à la main qui tient la boule). Seuls les objets sont dessinés ici.
 // Aucune cote : les calibres (sous 2 cm, 2 à 5 cm, moins de 15 cm) sont des bornes de tri, pas
 // des mesures de construction ; ils vont dans la légende, tels que le chapitre les donne.
 
@@ -224,16 +224,19 @@ module.exports = (h) => {
   };
 
   // ── Vue 3 : souffler ───────────────────────────────────────────────────────────────────
-  const R_BOULE = 48, AVANT_BRAS = 255;
+  // La personne en buste, de profil : la tête, les épaules, le bras proche qui va de l'épaule à la
+  // main qui tient la boule par le bas, à une longueur d'avant-bras devant la bouche.
+  const R_BOULE = 48, AVANT_BRAS = 255, COUPE = 520;
   const souffler = z => {
-    const e = Math.min(0.62, (z.l - 24) / 575, (z.h - 12) / 300);
-    const oreille = [16 + 92 * e, 12 + 124 * e + 4];
-    const t = FM.tete({ x: oreille[0], y: oreille[1], echelle: e });
-    const B = [t.bouche[0] + (AVANT_BRAS + R_BOULE) * e, t.bouche[1] - R_BOULE * 0.45 * e];
+    const e = Math.min(0.5, (z.h - 8) / (COUPE + 150), (z.l - 30) / (126 + 104 + AVANT_BRAS + 2 * R_BOULE + 60));
+    const oreille = [12 + 130 * e, z.h - 4 - COUPE * e];
+    const t0 = FM.tete({ x: oreille[0], y: oreille[1], echelle: e });
+    const B = [t0.bouche[0] + (AVANT_BRAS + R_BOULE) * e, t0.bouche[1] + 6 * e];
     const R = R_BOULE * e, y0 = B[1] - R * 0.8;
     const axe = y => B[0] + R * 0.35 + (y0 - y) * 0.18 + 5 * Math.sin((y0 - y) / 14);
     const larg = y => 1.5 + (y0 - y) * 0.16;
-    return { e, t, B, R, y0, axe, larg };
+    const t = { bouche: t0.bouche };
+    return { e, t, B, R, y0, axe, larg, oreille };
   };
 
   // ── Vue 4 : le nid sous le tipi ────────────────────────────────────────────────────────
@@ -253,8 +256,8 @@ module.exports = (h) => {
     desc: 'Quatre tas séparés, du plus fin au plus gros : l’amadou, le bois d’allumage sous 2 cm, celui de 2 à 5 cm, les bûches de moins de 15 cm. Le geste, de côté : le nid écharpé, creusé au centre, de la poudre au fond du creux ; la pointe de la tige posée au-dessus du bord du creux, à un doigt de la matière, la tige tenue dans un poing ; en travers de la tige, le dos d’un couteau à lame fixe tenu dans l’autre poing, presque d’équerre, immobile ; la tige tirée vers soi le long de son axe ; la gerbe qui part du dos du couteau et tombe dans le creux. Puis la boule refermée, tenue par le bas dans une main, à une longueur d’avant-bras du visage, soufflée en continu, la fumée qui monte. Enfin le nid en flammes glissé sous le tipi de bois fin, par l’ouverture tournée au vent, le bois de 2 à 5 cm qui attend à côté.',
     format: 'pleine',
     disposition: [['tas', 'geste'], ['souffler', 'deposer']],
-    hauteurs: [1.85, 1],
-    largeurs: [[1, 2.15], [1.3, 1]],
+    hauteurs: [1.6, 1.2],
+    largeurs: [[1, 2.15], [1.45, 1]],
     vues: {
       tas: {
         titre: 'Trier avant d’allumer',
@@ -356,12 +359,12 @@ module.exports = (h) => {
             return lisse(pts, false);
           });
           out.push(h.path(filets[0] + ' ' + filets[2], A.detail), h.path(filets[1], A.fin));
-          // la boule de fibres, refermée sans serrer, dans la main qui la tient par le bas
+          // la boule de fibres, refermée sans serrer, dans la main qui la tient par le bas ; le bras
+          // part de l'épaule de la personne, de profil, en buste
           const boule = touffe(B[0], B[1], R, R * 0.94, 8);
-          const bras = Math.max(40, (z.h - B[1]) / e - 60);
-          out.push(FM.main({ x: B[0], y: B[1], pose: 'boule', vue: 'profil', cote: 'gauche', angle: 52, diametre: 2 * R, echelle: e, bras, serre: 0.6, objet: boule }));
-          // la tête, de profil
-          out.push(t);
+          const b = FM.buste({ x: s.oreille[0] - 4 * e, y: s.oreille[1] + COUPE * e, echelle: e, coupe: COUPE,
+            main: { x: B[0], y: B[1], pose: 'boule', vue: 'profil', diametre: 2 * R, serre: 0.6, objet: boule } });
+          out.push(b.toString());
           // le souffle, en continu, de la bouche à la boule
           const L0 = t.bouche;
           out.push(h.fleche(`M ${f(L0[0] + 10)} ${f(L0[1] - 4)} L ${f(B[0] - R * 0.42 - 5)} ${f(B[1] - R * 0.91 - 4)}`, A.cache));
@@ -371,10 +374,10 @@ module.exports = (h) => {
         renvois: z => {
           const s = souffler(z), { t, B, R } = s, L0 = t.bouche;
           return [
-            { n: 11, rond: [B[0] - 8, B[1] - R - 24], cible: [B[0] - 1, B[1] - R * 0.55], texte: 'en boule, sans serrer' },
-            { n: 12, rond: [(L0[0] + B[0] - R) / 2, L0[1] - 26], cible: [(L0[0] + B[0] - R) / 2, L0[1] - 3], texte: 'souffler en continu' },
-            { n: 13, rond: [(L0[0] + B[0] - R) / 2, L0[1] + 34], cible: [(L0[0] + B[0] - R) / 2, L0[1] + 7], texte: 'à un avant-bras du visage' },
-            { n: 14, rond: [B[0] - 40, 16], cible: [s.axe(30) - s.larg(30) - 3, 30], texte: 'fumée mince, puis épaisse' },
+            { n: 11, rond: [B[0] + R + 30, B[1] + 4], cible: [B[0] + R * 0.4, B[1] - R * 0.2], texte: 'en boule, sans serrer' },
+            { n: 12, rond: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 34], cible: [(L0[0] + B[0] - R) / 2 - 6, L0[1] - 6], texte: 'souffler en continu' },
+            { n: 13, rond: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 40], cible: [(L0[0] + B[0] - R) / 2 + 4, L0[1] + 5], texte: 'à un avant-bras du visage' },
+            { n: 14, rond: [B[0] + R + 40, 18], cible: [s.axe(34) + s.larg(34) + 3, 34], texte: 'fumée mince, puis épaisse' },
           ];
         },
       },

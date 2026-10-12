@@ -7,7 +7,7 @@
 // lit sur le scieur, la bille à sa hanche.
 // Géométrie de dessin, jamais imprimée : perches de 80, bille de 260, jambes à 30° de la verticale,
 // croisée à 610, axe de la bille à 950 (la hanche du personnage de formes.js), X à 1000 l'un de
-// l'autre, trait de scie à 250 au-delà du second X ; du bout, le scieur à 780 de l'axe, la poignée à 505.
+// l'autre, trait de scie à 250 au-delà du second X ; du bout, le scieur à 910 de l’axe (le bras tombe de l’épaule, l’avant-bras va à la poignée), la poignée à 505, la main à 1040, la main du pictogramme agrandie 1,4 fois pour que son poignet ait la largeur de l’avant-bras.
 // Repère : x le long de la bille (vers le bout qu'on scie), y en travers (−y : le côté du scieur, de
 // la traverse et de la diagonale), z vers le haut ; en mm.
 module.exports = (h) => {
@@ -175,7 +175,7 @@ module.exports = (h) => {
   // ── les vues orthogonales : même échelle, même sol ──
   const H_TOTALE = 1800;
   // les deux vues de la rangée partagent l'échelle : la plus serrée des deux (largeurs données par --zones)
-  const echelle2 = z => Math.min((z.h - 12) / H_TOTALE, 351 / 2290, 226 / 1480);
+  const echelle2 = z => Math.min((z.h - 12) / H_TOTALE, 339 / 2290, 238 / 1610);
   const sol = z => z.h - 6;
 
   // de côté : on regarde depuis le côté du scieur, le bout qu'on scie à droite
@@ -243,12 +243,12 @@ module.exports = (h) => {
   };
 
   // du bout : on regarde le bout qu'on scie ; le scieur à gauche, face à la bille
-  const YMIN = -960, YMAX = 520;
+  const YMIN = -1090, YMAX = 520;
   const repBout = z => {
     const s = echelle2(z), gy = sol(z), ox = (z.l - (YMAX - YMIN) * s) / 2 - YMIN * s;
     return { s, gy, Y: y => ox + y * s, Z: zz => gy - zz * s };
   };
-  const YSC = -780;   // les pieds du scieur
+  const YSC = -910;   // les pieds du scieur : assez loin pour que le coude ne parte pas en arrière
   const dessinBout = z => {
     const { s, gy, Y, Z } = repBout(z), out = [];
     const q = p => [Y(p[1]), Z(p[2])];
@@ -275,16 +275,12 @@ module.exports = (h) => {
     // en dehors de la jambe du X, pour que la main ne se mêle pas au chevalet.
     // Le scieur, debout, le dos droit, la main proche fermée sur la poignée (main de la
     // bibliothèque, vue du dos) ; l'autre main, derrière elle, ne se voit pas.
-    const YP = -505, PG = [YP, 1000], g = [Y(PG[0]), Z(PG[1])], RAD = Math.PI / 180;
-    let ang = 30, mn, pers, u;
-    for (let it = 0; it < 6; it++) {
-      mn = h.formes.main({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', echelle: s, diametre: 30 * s, angle: ang, bras: 80 });
-      u = [Math.cos(ang * RAD), Math.sin(ang * RAD)];
-      const w = [mn.poignet[0] - u[0] * 45 * s, mn.poignet[1] - u[1] * 45 * s];
-      pers = h.formes.personnage({ x: Y(YSC), y: gy, pose: 'debout', echelle: s, penche: 4, mains: { proche: w, loin: [w[0] - 1.5, w[1] - 2] } });
-      const d = [pers.mains.proche[0] - pers.poignets.proche[0], pers.mains.proche[1] - pers.poignets.proche[1]];
-      ang = Math.atan2(d[1], d[0]) / RAD;
-    }
+    const YP = -505, PG = [YP, 1040], g = [Y(PG[0]), Z(PG[1])], RAD = Math.PI / 180;
+    // la main proche par prises : le bras du pictogramme va la chercher, l'avant-bras rejoint son
+    // poignet ; l'autre bras pend, derrière le tronc
+    const pers = h.formes.personnage({ x: Y(YSC), y: gy, pose: 'debout', echelle: s, penche: 4,
+      prises: { proche: { x: g[0], y: g[1], pose: 'prise', vue: 'dos', diametre: 38 * s * 1.4, echelle: s * 1.4, bras: 20 } } });
+    const mn = pers.mains.proche;
     // le montant de la poignée suit l'axe de la main ; en mm : a = (dy, dz) par mm de hauteur
     const ax = [mn.trou.axe[0], -mn.trou.axe[1]], surAxe = zz => [PG[0] + ax[0] / ax[1] * (zz - PG[1]), zz];
     const B0 = surAxe(ZK + 11), T0 = surAxe(ZK + 200);
@@ -296,9 +292,14 @@ module.exports = (h) => {
     const cadre = [B0, PG, T0, [-300, ZK + 318], [-110, ZK + 362], [120, ZK + 350], [300, ZK + 285], [392, ZK + 160], [408, ZK - 8]].map(([y, zz]) => [Y(y), Z(zz)]);
     out.push(bande(cadre, 24 * s, A.detail));
     // la poignée : plus grosse que le cadre, sous la main
-    const pg0 = surAxe(ZK + 24), pg1 = surAxe(PG[1] + 65);
-    out.push(bande([pg0, pg1].map(([y, zz]) => [Y(y), Z(zz)]), 34 * s, A.detail));
-    out.push(pers, mn);
+    // elle dépasse du poing en haut et en bas, pour qu'on voie ce que la main serre
+    const pg0 = surAxe(ZK + 6), pg1 = surAxe(PG[1] + 105);
+    {
+      const p0 = [Y(pg0[0]), Z(pg0[1])], p1 = [Y(pg1[0]), Z(pg1[1])], L = Math.hypot(p1[0] - p0[0], p1[1] - p0[1]);
+      const n = [-(p1[1] - p0[1]) / L * 19 * s, (p1[0] - p0[0]) / L * 19 * s];
+      out.push(h.chemin([[p0[0] + n[0], p0[1] + n[1]], [p1[0] + n[0], p1[1] + n[1]], [p1[0] - n[0], p1[1] - n[1]], [p0[0] - n[0], p0[1] - n[1]]], W(A.arete), true));
+    }
+    out.push(pers);
     // la bille, par le bout : elle cache la lame et le bas des mains
     out.push(h.cercle(Y(0), Z(ZB), RB * s, W(A.contour)));
     out.push(h.cercle(Y(0), Z(ZB), (RB - 9) * s, A.fin));
@@ -371,7 +372,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['axo', 'detail'], ['cote', 'bout']],
     hauteurs: [9, 10],
-    largeurs: [[13, 7], [2290, 1480]],
+    largeurs: [[13, 7], [2290, 1610]],
     vues: {
       axo: {
         titre: 'Le chevalet monté',

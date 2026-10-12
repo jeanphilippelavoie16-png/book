@@ -19,6 +19,11 @@
 // faisait un triangle sous le bras) ; le bras qui tient la cheville s'arrête au poignet, caché
 // derrière la cheville ; le personnage couché refait : dos à plat, tête au sol, cuisses contre
 // le ventre, tibias à peu près à plat, un bras en deux morceaux et une main fermée sur les tibias.
+//
+// Reprise JP (12 octobre, « pas de main ») : les mains qui font le geste sont dessinées, avec les
+// mains de formes.js (mainPosee) à la carrure du personnage : assis, la main fermée sur le bas du
+// tibia, dans l'axe du bras presque tendu ; debout, la main loin à plat au mur (de profil, le
+// poignet cassé) et la main proche fermée sur la cheville, vue du dos, devant la jambe.
 const fs = require('fs'), path = require('path');
 
 const RAD = Math.PI / 180;
@@ -46,6 +51,38 @@ function brasDeux(S, E, B, fin, bout = null) {
   const ventre = [BRAS.ventre[0], [BRAS.ventre[1][0], bout ? bout[1] : BRAS.ventre[1][1]]];
   return OUTILS.tube({ pts: [S, E, B], sens: -1, dos, ventre, coussin: BRAS.coussin.slice(0, 2), bout: fin, baseRonde: true });
 }
+// Une main de formes.js posée dans le repère d'une posture (mm) : cle 'prise/dos', 'appui/profil'… ;
+// R le rayon de l'objet tenu ; ancre : où va le trou (prise) ou le dessous de la paume (appui) ;
+// ang : la rotation, en degrés, sens horaire. Rend les pièces, le poignet et la coupe de la manche.
+const K_MAIN = 1.12;                               // la main à la carrure du personnage (bras de 80 mm au coude)
+function mainPosee(cle, R, opts, ancre, ang) {
+  const g = OUTILS.POSES[cle](R / K_MAIN, opts);
+  const pre = g.trou.pente ? Math.atan(g.trou.pente) / RAD : 0;
+  const c0 = tourne([g.trou.x, g.trou.y], pre);
+  const T = p => plus(ancre, tourne(fois(moins(tourne(p, pre), c0), K_MAIN), ang));
+  const bords = g.coupe ? g.coupe.map(T) : null;
+  return { T, poignet: T(g.poignet), coupe: T(g.bras), demi: bords ? Math.hypot(bords[0][0] - bords[1][0], bords[0][1] - bords[1][1]) / 2 : 30,
+    pieces: g.pieces.map(pc => bouge({ ...pc, ep: pc.ep || 0.7, epDet: pc.epDet || 0.5 }, T)) };
+}
+// Le bras qui va chercher une main posée : l'avant-bras dans l'axe de la manche, le coude où il tombe.
+function brasVers(S, m) {
+  const d = uni(moins(m.poignet, m.coupe));
+  const E = moins(m.poignet, fois(d, BRAS.L[1]));
+  return { E, piece: brasDeux(S, E, plus(m.coupe, fois(d, 4)), 'ouvert', [m.demi, m.demi]), ecart: Math.hypot(E[0] - S[0], E[1] - S[1]) - BRAS.L[0] };
+}
+// Le bras par la cinématique : le coude où il tombe, l'avant-bras jusqu'à la manche de la main
+function brasIK(S, m, coude) {
+  const [, E] = OUTILS.ik2(S, BRAS.L[0], BRAS.L[1], m.poignet, coude);
+  const d = uni(moins(m.poignet, m.coupe));
+  return { E, piece: brasDeux(S, E, plus(m.coupe, fois(d, 4)), 'ouvert', [m.demi, m.demi]) };
+}
+// Cherche le réglage x (entre a et b) qui donne au bras sa vraie longueur
+function cherche(f, a, b) {
+  let fa = f(a);
+  for (let i = 0; i < 40; i++) { const c = (a + b) / 2, fc = f(c); if ((fc < 0) === (fa < 0)) { a = c; fa = fc; } else b = c; }
+  return (a + b) / 2;
+}
+
 // une pièce passée d'un repère à l'autre
 const bouge = (pc, f) => {
   const m = cmds => cmds.map(c => [c[0], ...c.slice(1).map(f)]);
@@ -57,9 +94,8 @@ const bouge = (pc, f) => {
 // banc, le pied à plat au plancher (on n'en voit que la jambe, sous le banc). Le tronc penche
 // d'un bloc de 45° à partir des hanches (bassin 1 : tout le tronc tourne ensemble) et son dos est
 // une droite, du haut de la fesse à la base du cou ; le cou et la tête suivent la même ligne. Les
-// avant-bras reposent le long de la cuisse, les mains sur le genou : le coude revient contre la
-// hanche et le bras couvre le pli du ventre, sans laisser de pointe de vide sous le bras. Le bras
-// loin, caché derrière le proche, est retiré.
+// bras proche, presque tendu, descend vers le pied et la main se ferme sur le bas du tibia (mainsI).
+// Le bras loin, caché derrière le proche, est retiré.
 const BANC = 450;                                  // dessus du banc, mm (dessin seulement)
 const I = { lean: 45 };
 I.H = [0, -(BANC + 95)];
@@ -71,15 +107,36 @@ const DOS_DROIT = [[-74, 104], [-102, 58], [-121, -8], ...droite(I.dosA, I.dosB,
 const ISCHIOS = { H: I.H, penche: I.lean, regard: 27, cou: 53, assis: true, bassin: 1, troncDos: DOS_DROIT,
   proche: { K: I.K, A: I.A, pied: -86 }, loin: { K: I.Kl, A: I.Al, pied: 0 },
   mains: { proche: [[470, -600], [1, 0.06]], loin: [[470, -600], [1, 0.06]] }, coude: -1,
-  retouche: (pieces, c) => { pieces.splice(pieces.indexOf(c.bl), 1); } };
+  retouche: (pieces, c) => {
+    pieces.splice(pieces.indexOf(c.bl), 1);
+    pieces.splice(pieces.indexOf(c.bpr), 1, I.bras.piece, ...I.main.pieces);
+  } };
+// la main fermée sur le bas du tibia, vue du dos : le bras presque tendu descend de l'épaule, la
+// main dans l'axe de l'avant-bras ; les doigts passent par-dessus le tibia, en biais, et redescendent
+// sur son flanc
+I.S = plus(I.H, tourne([-14, -470], I.lean));
+function mainsI() {
+  const u = uni(moins(I.A, I.K));
+  const pose = t => {
+    let a = angle(u) + 60, m;
+    for (let i = 0; i < 30; i++) {                   // la manche dans l'axe épaule → poignet
+      m = mainPosee('prise/dos', 35, { bras: 24 }, plus(I.K, fois(u, t)), a);
+      const d = moins(m.poignet, I.S), c = moins(m.poignet, m.coupe);
+      a += (angle(d) - angle(c)) * 0.8;
+    }
+    return m;
+  };
+  const t = cherche(t => Math.hypot(...moins(pose(t).poignet, I.S)) - 0.975 * (BRAS.L[0] + BRAS.L[1]), 0, 420);
+  I.main = pose(t); I.t = t;
+  I.bras = brasIK(I.S, I.main, -1);
+}
 
 // ─── 2. L'avant de la cuisse : debout, face au mur ────────────────────────────────────────
 // Debout sur la jambe loin ; la cuisse proche verticale, son genou à côté de l'autre (de profil,
 // l'un cache l'autre) ; la jambe repliée vers l'arrière, le talon vers la fesse. La jambe repliée
 // se dessine en deux pièces (jambeRepliee) : le mollet passe derrière la cuisse au lieu de la
-// traverser. La main loin à plat au mur. Le bras proche, tendu vers l'arrière, s'arrête au
-// poignet : il passe derrière la cheville et le talon, qui cachent la main (le poignet est posé
-// dans le talon, à portée d'un bras tendu, et le bout arrondi reste dans le pied).
+// traverser. La main loin à plat au mur, le bras derrière le tronc. Le bras proche descend devant le
+// corps et la main se ferme sur la cheville, devant la jambe (brasQ).
 const MUR = 575;                                   // face du mur, mm devant la hanche
 const Q = { lean: 3 };
 Q.H = [0, -950];
@@ -93,14 +150,28 @@ const QUADRICEPS = { H: Q.H, penche: Q.lean, regard: 0, replie: true,
   proche: { K: Q.K, A: Q.A, pied: Q.pied }, loin: { K: [-4, -515], A: [-10, -85], pied: 0 },
   mains: { proche: [Q.W, [-0.4, 1]], loin: [Q.Wl, Q.Dl] }, coude: -1,
   retouche: (pieces, c) => {
-    // le bras proche en deux morceaux, tendu ; posé avant la jambe proche, qui passe devant lui
-    const b = brasDeux(c.S, Q.E, Q.Wr, 'rond');
-    pieces.splice(pieces.indexOf(c.bpr), 1);
-    pieces.splice(pieces.indexOf(c.jp[0]), 0, b);
+    // le bras loin et sa main au mur, derrière le tronc ; le bras proche et sa main sur la cheville,
+    // devant la jambe
+    pieces.splice(pieces.indexOf(c.bl), 1, Q.brasMur.piece, ...Q.mainMur.pieces);
+    pieces.splice(pieces.indexOf(c.bpr), 1, Q.brasCh.piece, ...Q.mainCh.pieces);
   } };
-// l'épaule proche (le tronc penché de 3°, l'épaule tourne en entier) ; le coude et le poignet
+// les épaules (le tronc penché de 3°, l'épaule tourne en entier)
 Q.S = plus(Q.H, tourne([-14, -470], Q.lean));
-const brasQ = () => { const [, E, W] = OUTILS.ik2(Q.S, BRAS.L[0], BRAS.L[1], Q.W, -1); Q.E = E; Q.Wr = W; };
+Q.Sl = plus(Q.S, [-8, -4]);
+const brasQ = () => {
+  // la main loin à plat au mur, les doigts en haut : le dessous de la paume sur la face du mur
+  const ancreMur = [MUR, -1452];
+  const mur = inc => mainPosee('appui/profil', 0, { bras: 24, inclinaison: inc }, ancreMur, -90);
+  const incM = cherche(i => brasVers(Q.Sl, mur(i)).ecart, 40, 130);
+  Q.mainMur = mur(incM); Q.brasMur = brasVers(Q.Sl, Q.mainMur);
+  Q.Wl = Q.mainMur.poignet;
+  // la main proche fermée sur la cheville, vue du dos : les doigts passent devant le tibia
+  const ancreCh = moins(Q.A, fois(Q.u, 62));
+  const ch = a => mainPosee('prise/dos', 30, { bras: 24 }, ancreCh, a);
+  const aC = cherche(a => brasVers(Q.S, ch(a)).ecart, 100, 170);
+  Q.mainCh = ch(aC); Q.brasCh = brasVers(Q.S, Q.mainCh);
+  Q.E = Q.brasCh.E; Q.Wr = Q.mainCh.poignet; Q.angCh = aC;
+};
 
 // ─── 3. Le bas du dos : couché sur le dos, les genoux à la poitrine ───────────────────────
 // Le personnage se construit debout, le tronc droit, puis tourne de -90° : la tête à gauche, le
@@ -197,7 +268,7 @@ function formesEtirees(h) {
   const F = m.exports(Object.assign(Object.create(h), { posturesEnPlus: POSTURES }));
   OUTILS = F._interne; BRAS = F._interne.BRAS;
   DOS.troncFace = F._interne.TRONC.face.slice(1);    // couché, l'aine dépasserait la fesse
-  brasQ();
+  brasQ(); mainsI();
   return F;
 }
 
@@ -220,7 +291,7 @@ module.exports = (h) => {
   return {
     ref: '37-07',
     titre: 'Trois étirements du soir, muscles chauds',
-    desc: 'Trois personnages de profil. Assis en long sur un banc, une jambe allongée dessus, le tronc penché en avant d’un bloc à partir des hanches, le dos droit, les avant-bras le long de la cuisse et les mains sur le genou. Debout face au mur, une main au mur, l’autre bras tendu vers l’arrière tient la cheville et amène le talon vers la fesse, les genoux côte à côte. Couché sur le dos, la tête au sol, les deux cuisses repliées contre le ventre, les genoux au-dessus de la poitrine ; l’avant-bras passe devant les tibias et la main se ferme dessus, juste sous le genou.',
+    desc: 'Trois personnages de profil. Assis en long sur un banc, une jambe allongée dessus, le tronc penché en avant d’un bloc à partir des hanches, le dos droit, le bras tendu et la main fermée sur le bas du tibia, les doigts par-dessus. Debout face au mur, une main à plat au mur, l’autre main fermée sur la cheville amène le talon vers la fesse, les genoux côte à côte. Couché sur le dos, la tête au sol, les deux cuisses repliées contre le ventre, les genoux au-dessus de la poitrine ; l’avant-bras passe devant les tibias et la main se ferme dessus, juste sous le genou.',
     format: 'pleine',
     disposition: [['ischios', 'quadriceps'], ['dos']],
     hauteurs: [2.35, 1],
@@ -251,9 +322,9 @@ module.exports = (h) => {
           const x0 = z.l / 2 - 330 * E, y0 = z.h - 8, V = repere(x0, y0);
           const dosPt = V(TTi(droite(I.dosA, I.dosB, [0.5])[0]));   // le milieu de la droite du dos
           const hanche = V(I.H);                          // l'articulation de la hanche, où le tronc bascule
-          const tibia = V([720, -553]);                   // le dessus du tibia allongé
+          const tibia = V([360, -557]);                   // le dessus de la cuisse allongée, devant le bras
           return [
-            { n: 1, rond: borne(z, [tibia[0] + 14, tibia[1] - 62]), cible: tibia, texte: 'une jambe allongée sur le banc' },
+            { n: 1, rond: borne(z, [tibia[0] + 78, tibia[1] - 80]), cible: tibia, texte: 'une jambe allongée sur le banc' },
             { n: 2, rond: borne(z, [hanche[0] - 60, hanche[1] + 2]), cible: hanche, texte: 'penché à partir des hanches' },
             { n: 3, rond: borne(z, [dosPt[0] - 58, dosPt[1] - 14]), cible: dosPt, texte: 'le dos reste droit' },
           ];
@@ -278,14 +349,13 @@ module.exports = (h) => {
         renvois: z => {
           const x0 = z.l / 2 - 70 * E, y0 = z.h - 8, V = repere(x0, y0);
           const mainMur = V(plus(Q.Wl, [22, -95]));
-          const uB = uni(moins(Q.Wr, Q.E));
-          const avantBras = V(moins(Q.Wr, fois(uB, 90)));   // l'avant-bras, là où il passe derrière la cheville
+          const avantBras = V(Q.mainCh.T([14, 4]));          // les doigts fermés sur la cheville
           const talon = V(plus(Q.A, tourne([-55, 26], Q.pied)));   // l'arrière du talon, tourné vers la fesse
           const genoux = V(plus(Q.K, [52, 0]));
           return [
             { n: 4, rond: borne(z, [mainMur[0] - 60, mainMur[1] - 40]), cible: [mainMur[0] - 6, mainMur[1]], texte: 'une main au mur' },
-            { n: 5, rond: borne(z, [avantBras[0] - 46, avantBras[1] - 50]), cible: avantBras, texte: 'l’autre main attrape la cheville' },
-            { n: 6, rond: borne(z, [talon[0] + 8, talon[1] + 50]), cible: talon, texte: 'le talon vers la fesse' },
+            { n: 5, rond: borne(z, [avantBras[0] - 70, avantBras[1] + 30]), cible: avantBras, texte: 'l’autre main attrape la cheville' },
+            { n: 6, rond: borne(z, [talon[0] - 8, talon[1] - 27]), cible: talon, texte: 'le talon vers la fesse' },
             { n: 7, rond: borne(z, [genoux[0] + 60, genoux[1] + 20]), cible: genoux, texte: 'genoux côte à côte' },
           ];
         },

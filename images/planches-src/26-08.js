@@ -133,7 +133,11 @@ module.exports = (h) => {
   // ─── Mouler et attacher ───────────────────────────────────────────────────────────────
   const M = { L: 346, y0: 0, y1: 294 };
   // la main : le poignet en x 86, à la hauteur de l'avant-bras ; les doigts dépassent le bout de l'écorce
-  const MAIN_M = mainDetendue({ x: 42.8, y: 227.5, echelle: 0.47, miroir: true, bras: 16, courbe: 0.5 });
+  // Échelle de la main : celle du bras (le poignet fait ~40 de haut, l'avant-bras ~210 de long),
+  // pour que la main ait sa vraie taille d'adulte, aux trois quarts de l'avant-bras.
+  const EM = 0.6, XW = 94;   // XW : le poignet, en x de la vue
+  const MAIN_M = mainDetendue({ x: XW - 92 * EM, y: 229, echelle: EM, miroir: true, bras: 22, courbe: 0.65 });
+  const POIGNET_M = [Math.round((XW + 8 * EM) * 10) / 10, Math.round((229 - 29.5 * EM) * 10) / 10];   // le haut du poignet
   // le trait de coupe A–A : en travers du lien de l'avant-bras près du poignet, regardé vers la main
   const XA = 114, YA = [186, 272];
   const traitCoupe = () => {
@@ -180,7 +184,7 @@ module.exports = (h) => {
       h.path(`M290,256 C250,262 180,252 120,246 L${MAIN_M.coupe[1].join(',')}`, h.a.contour),
       // la main gauche, vue du dos : doigts à demi fermés et étagés, le pouce le long de l'index
       MAIN_M.svg,
-      h.path(`M${MAIN_M.coupe[0].join(',')} L87.9,213.7`, h.a.contour),   // le trait de l'avant-bras jusqu'au poignet
+      h.path(`M${MAIN_M.coupe[0].join(',')} L${POIGNET_M.join(',')}`, h.a.contour),   // le trait de l'avant-bras jusqu'au poignet
       // le foyer de la fracture, entre les deux articulations
       h.path('M160,197 L165,203 L158,209 L164,215 L159,221 L163,227', h.a.arete),
       // le rembourrage qui dépasse de la gouttière : coude et poignet
@@ -237,7 +241,7 @@ module.exports = (h) => {
     h.rect(x - 3.5, y - 15, 7, 6, plein(h.a.arete)),
   ].join('\n');
   // la paume reste sous le pan : le bord du pan passe juste derrière les jointures
-  const MAIN_S = mainDetendue({ x: 249, y: 205, echelle: 0.47, bras: 0, courbe: 0.45 });
+  const MAIN_S = mainDetendue({ x: 249, y: 203, echelle: 0.62, bras: 0, courbe: 0.5 });
   const echarpe = z => {
     const o = boite(z, S.L, S.y0, S.y1);
     return g(o, [
@@ -308,7 +312,7 @@ module.exports = (h) => {
             { n: 5, rond: P(o, 78, 279), cible: P(o, 86, 248), texte: 'prend le poignet, en dessous' },
             { n: 6, rond: P(o, 214, 142), cible: P(o, 250, 214), texte: 'rembourré sur l’os saillant' },
             { n: 7, rond: P(o, 196, 80), cible: P(o, 244, 103), texte: 'attachée en trois points' },
-            { n: 8, rond: P(o, 18, 168), cible: P(o, 13, 220), texte: 'doigts dehors, à vérifier' },
+            { n: 8, rond: P(o, 22, 160), cible: P(o, ...MAIN_M.bouts[0]), texte: 'doigts dehors, à vérifier' },
           ];
         },
       },

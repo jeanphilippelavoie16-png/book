@@ -80,6 +80,11 @@ module.exports = (h) => {
     return Q.concat([[-r, u1 - r], [-r, u0]]);
   };
   const courbeMain = () => bande(UH, 136, 22);
+  // La main (formes.js, pend/dos) : MAIN_C, le milieu du dos de la main ; mainAxe(u, v), un point à
+  // u mm vers le bout des doigts et v mm vers le pouce, en coordonnées du cadre.
+  const SB = 0.9, MAIN_C = [238, 200];
+  const AX = [Math.cos(-80 * Math.PI / 180), -Math.sin(-80 * Math.PI / 180)];
+  const mainAxe = (u, v = 0) => [MAIN_C[0] + SB * (u * AX[0] + v * AX[1]), MAIN_C[1] + SB * (u * AX[1] - v * AX[0])];
 
   // La bouilloire, penchée, bec au-dessus du bord droit.
   const t = -50 * Math.PI / 180, ct = Math.cos(t), st = Math.sin(t);
@@ -111,18 +116,17 @@ module.exports = (h) => {
       // le thermomètre pincé au bord gauche, bulbe à hauteur de la main
       out.push(th.svg);
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
-      // la main et l'avant-bras
-      const SB = 0.68, cB = M(mainG([0, 94 * SB]));
-      out.push(h.formes.main({ x: cB[0], y: cB[1], pose: 'appui', vue: 'dos', angle: -100, cote: 'gauche', echelle: SB * M.k, bras: 260 }));
+      // la main et l'avant-bras : la main relâchée qui pend, doigts serrés, vue du dos
+      out.push(h.formes.main({ x: M(MAIN_C)[0], y: M(MAIN_C)[1], pose: 'pend', vue: 'dos', angle: -100, cote: 'gauche', echelle: SB * M.k, bras: 165 }));
       return out.join('\n');
     },
     renvois: (z) => {
       const M = cadre(z, 600, 370);
       return [
         { n: 1, rond: M([96, 196]), cible: M([154, 196]), texte: 'thermomètre : 37 à 39 °C' },
-        { n: 2, rond: M([96, 230]), cible: M(mainG([-6, 136])), texte: 'ne touche ni fond ni parois' },
+        { n: 2, rond: M([96, 230]), cible: M(mainAxe(130)), texte: 'ne touche ni fond ni parois' },
         { n: 3, rond: M([96, 300]), cible: M([150, 300]), texte: 'chaudron ou glacière de camp' },
-        { n: 4, rond: M([292, 64]), cible: M(mainG([8, 55])), texte: 'souple, rouge-violacé, 30 min' },
+        { n: 4, rond: M([292, 64]), cible: M(mainAxe(12, -8)), texte: 'souple, rouge-violacé, 30 min' },
         { n: 5, rond: M([408, 186]), cible: M([319, 138]), texte: 'versée à côté, jamais dessus' },
         { n: 6, rond: M([408, 250]), cible: M([344, 240]), texte: 'brasser en versant' },
       ];
@@ -209,7 +213,7 @@ module.exports = (h) => {
       const Mp = (Q) => Q.map(M);
       return [
         chaudron(M, Cp),
-        h.formes.main({ x: M(brasS([94 * 0.40, 0]))[0], y: M(brasS([94 * 0.40, 0]))[1], pose: 'appui', vue: 'dos', angle: 145, echelle: 0.40 * M.k, bras: 270 }),
+        h.formes.main({ x: M(brasS([54 * 0.42, 0]))[0], y: M(brasS([54 * 0.42, 0]))[1], pose: 'pend', vue: 'dos', angle: 145, echelle: 0.42 * M.k, bras: 270 }),
       ].join('\n');
     },
     renvois: (z) => {
