@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>37 — Le sauna et le bien-être — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"37"}
+</style>
+</head>
+<body class="vA vB vC t2 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 2 · Le corps</span><span>Chapitre</span></div><div class="open-title"><div class="num">37</div><h1>Le sauna et le bien-être</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Le sauna se bâtit au chalet, parce que c’est là que l’eau se charroie, que le bain coûte du bois et que l’hiver se compte en mois. La structure de cet hiver — lever fixe, sortie quotidienne, jour différent dans la semaine — est au <span class="ref">ch. 36</span> ; ce chapitre-ci donne ce que le corps y fait : se laver avec la chaleur d’un seul feu, dormir, prendre la lumière qui reste, se reposer. À la maison du village, la baignoire remplace le sauna pour tout ce qui touche le sommeil (le bain chaud de l’étape 60), et les sections 5-H, 5-I et 5-J s’appliquent telles quelles : une panne de trois jours ne demande pas de bâtir quoi que ce soit.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Chauffer le corps à fond une ou deux fois par semaine pour laver la famille avec un seul feu, mieux dormir et mieux manger, et caler le sommeil sur la lumière qui reste, tout l’hiver, sans jamais y laisser entrer le monoxyde, l’alcool ou quelqu’un seul.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">l’eau se charroie et se chauffe au bois. Le sauna fait suer ce que l’éponge ne décolle pas, et le lavage qui suit tient dans les quelques litres du bain à l’éponge (<span class="ref">ch. 31</span>, étape 38). Une chaleur lave quatre personnes, et c’est le lavage complet d’une à deux fois par semaine du <span class="ref">ch. 31</span> ;</p>
+<p class="li">quelqu’un d’abattu a perdu l’appétit. Une chaleur douce répétée a ramené la faim chez des gens légèrement déprimés (étape 61), et un appétit qui baisse, au chalet, se rabat sur le maigre, qui tue (<span class="ref">ch. 36</span>, section 8, point 4) ;</p>
+<p class="li">le coucher glisse et le sommeil est léger. Le corps s’endort quand il se refroidit, et un corps qui vient d’être chauffé se refroidit vite (section 3) ;</p>
+<p class="li">janvier et février pèsent. Le sauna devient le jour différent de la semaine du <span class="ref">ch. 36</span> (étape 16) : la chaleur, l’eau chaude, le linge propre, les enfants dans le coup ;</p>
+<p class="li">le dos et les cuisses sont raides après une semaine de bois. Un muscle chaud se laisse étirer ; un muscle froid résiste (étape 62). Raides, pas blessés : un muscle froissé ou une entorse des deux derniers jours ne va ni à la chaleur ni sous les mains (<span class="ref">ch. 24</span>, étapes 43 et 55).</p>
+<h4 class="choix">C’est le mauvais choix quand :</h4>
+<p class="li"><strong>quelqu’un a bu.</strong> En Finlande, où il y a un sauna pour deux à trois habitants, la moitié des gens morts au sauna avaient bu ; en Suède, 71 % de ceux dont le sang a été analysé. Le soir de fête du <span class="ref">ch. 36</span> est précisément le soir où on a le goût d’allumer le sauna, et c’est le mauvais ;</p>
+<p class="li"><strong>quelqu’un irait seul.</strong> Parmi les morts au sauna en Suède trouvés dans le sauna même, tous sauf deux étaient seuls. Personne ne voit l’évanouissement, personne ne sort le corps de la chaleur ;</p>
+<p class="li"><strong>un enfant fait de la fièvre.</strong> Le réflexe de « suer le rhume » est le mauvais : le sauna ne guérit ni un rhume ni une infection, et un enfant qui ne tient déjà pas sa température y monte encore (section 3) ;</p>
+<p class="li"><strong>il y a des maux de tête, des nausées ou des étourdissements dans le chalet.</strong> C’est le monoxyde de carbone tant qu’on n’a pas prouvé le contraire (<span class="ref">ch. 36</span>, section 8, point 2), et un sauna chauffé au bois en ajoute ;</p>
+<p class="li"><strong>une douleur à la poitrine n’est plus celle, courte et connue, de l’effort</strong><sup class="fnr" data-fn="37-1">1</sup>, ou un infarctus est récent, ou une valve du cœur rétrécie est déjà connue. Ce sont, avec l’alcool, les cas où le sauna est interdit à l’adulte ; le cœur malade mais stable, lui, le supporte d’ordinaire ;</p>
+<p class="li"><strong>une grossesse se complique.</strong> Une grossesse sans complication ne l’interdit pas : presque toutes les Finlandaises enceintes vont au sauna, et les malformations qu’on lui a prêtées ne se sont pas confirmées. La toxémie de grossesse (prééclampsie), elle, est l’exception : ses signes sont au <span class="ref">ch. 29</span> (section 7 et note 4). Au premier trimestre, les séances raccourcissent (étape 46).</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">La chaleur sèche se supporte parce que la sueur s’évapore.</strong> Un sauna ordinaire tourne entre 80 et 100 °C, avec un air sec — 10 à 20 % d’humidité —, pour des séances de 5 à 20 minutes répétées une à trois fois. Au repos, environ 10 % du sang pompé par le cœur passe par la peau ; au sauna, jusqu’à 70 %. Pour remplir ces vaisseaux ouverts sans que la pression tombe, le cœur accélère : sur 60 volontaires de 18 à 63 ans gardés 20 minutes à 80-90 °C, dans un air un peu plus humide que celui d’un sauna sec (30 à 40 %), le pouls moyen atteignait 143 à la vingtième minute, et dépassait 160 chez le tiers. La peau montait à 40 °C en moyenne, le centre du corps à 38,6 °C en moyenne et au-dessus de 39 °C chez un sur cinq. En moyenne, chacun a perdu près d’un demi-litre de sueur. Trois se sont évanouis, et les changements sont arrivés dans les premières minutes, <strong>sans signe annonciateur</strong>.</p>
+<p class="p0 ri"><strong class="runin">L’eau jetée sur les pierres retourne la mécanique.</strong> Elle monte l’humidité : la sueur cesse de s’évaporer, et la vapeur se condense sur la peau, qui reçoit alors la chaleur qu’elle essayait de perdre. L’humidité charge le cœur et réchauffe le corps <strong>à part</strong> de la température : à chaleur égale, une pièce plus humide est plus dure. Des Finlandais pour qui 80 à 110 °C est la routine n’ont pas tenu six minutes sous un demi-litre d’eau jeté sur le poêle toutes les 30 secondes (section 8, point 2) : ce n’est pas la chaleur qui avait changé, c’est l’eau. Au sauna, c’est la louche qui décide, pas le thermomètre.</p>
+<p class="p0 ri"><strong class="runin">Un enfant ne tient pas sa température, il la subit.</strong> Sa peau est grande pour sa masse, il a peu de gras dessous, il sue moins et il a besoin de beaucoup d’eau. Au sauna, sa température centrale monte dès qu’il entre et continue de monter jusqu’à ce qu’il sorte : il n’atteint jamais de palier. Et c’est <strong>à la sortie</strong> que sa pression tombe, pas dedans (section 8, point 4).</p>
+<p class="p0 ri"><strong class="runin">Le corps s’endort en se refroidissant.</strong> Après la chaleur, le sang reste à la peau des mains et des pieds, et le centre du corps perd sa chaleur par là. C’est cette baisse qui déclenche le sommeil : des pieds chauds aident à s’endormir. Un bain à 40-42,5 °C pris une à deux heures avant le coucher, même dix minutes, raccourcit le temps qu’on met à s’endormir. Le sauna chauffe le corps de la même façon, et la plupart des gens s’endorment mieux après ; quelques-uns, moins bien.</p>
+<p class="p0 ri"><strong class="runin">Sous les couvertures, c’est le lit qui compte, pas la chambre.</strong> Un sommeil normal se fait dans un creux de 32 à 34 °C sous les couvertures. Pour un adulte bien couvert, une chambre entre 3 et 17 °C ne change rien aux stades du sommeil. Mais le froid agit quand même sur le cœur pendant la nuit, <strong>sans réveiller personne</strong>, par le visage qui dépasse des couvertures et par l’air froid qu’on respire. Ce que le corps ne sent pas ne déclenche aucun geste : personne ne se lève pour remettre une bûche.</p>
+<p class="p0 ri"><strong class="runin">L’horloge du corps se règle à la lumière, et la lumière du dedans ne compte presque pas.</strong> La lumière du matin avance l’horloge ; celle du soir la retarde. Dehors, par ciel couvert, il fait de 1 000 à 30 000 lux selon l’heure et la saison ; en plein jour clair, 25 000 ; au soleil direct, 100 000. Une classe ou un bureau bien éclairés : 200 à 500 lux. Une chandelle : environ 1 lux à un mètre. Chaque heure de plus passée dehors avance le sommeil d’environ une demi-heure, et une marche d’une heure le matin soigne la dépression saisonnière à peu près aussi bien qu’une lampe de luminothérapie.</p>
+<p class="p0 ri"><strong class="runin">Le repos a des effets réels, mais plus petits qu’on le croit.</strong> L’étirement détend ; il ne prévient ni les courbatures ni les blessures. Le massage soulage le mal de dos, mais sur le coup seulement. Une chaleur douce répétée a ramené l’appétit. Chacun de ces effets vaut d’être pris, à condition de ne pas lui demander plus.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Poêle raccordé à un tuyau : poêle de sauna à bois de fabrication, ou la truie du <span class="ref">ch. 83</span> (section 9 du <span class="ref">ch. 83</span>)</td><td>1</td><td>Le poêle de tente du <span class="ref">ch. 12</span> avec une cage à pierres (section 9) ; sans tuyau du tout, le poêle de pierres sèches du sauna à fumée, ou des pierres chauffées dehors et portées sous une bâche (section 9)</td><td><span class="non">NON</span> <span class="negx">pour un sauna bâti</span></td></tr><tr><td class="c-item">Pierres de sauna, 10 à 15 cm</td><td>À titre de repère : un petit poêle de fabrication en porte une trentaine de kilos pour une pièce de 6 à 13 m³</td><td>Pierres de champ triées aux étapes 10 à 12 : foncées, denses, à grain fin, ramassées au sec</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Cage à pierres, portée par deux piles de pierres sèches (étape 6)</td><td>1</td><td>Barres et fers d’armature ligaturés au fil (<span class="ref">ch. 107</span>, section 9-D) ou soudés aux batteries d’auto (<span class="ref">ch. 107</span>, section 9-A) ; cerceaux d’un deuxième baril ; treillis d’acier plié en panier. Rien de galvanisé, ou décapé sur toute la zone qui chauffe</td><td><span class="non">NON</span> <span class="negx">avec une truie</span></td></tr><tr><td class="c-item">Pare-étincelles, mailles d’au plus 1 cm</td><td>1, au bout du tuyau</td><td>Treillis ou tôle perforée roulé et serré au chapeau (<span class="ref">ch. 82</span>)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Garde de fer entre la truie et le passage</td><td>1</td><td>Tuyau d’acier, fers d’armature soudés ou boulonnés</td><td><span class="non">NON</span> <span class="negx">avec une truie</span></td></tr><tr><td class="c-item">Écran de tôle monté avec un jeu d’air</td><td>Chaque mur que la truie voit</td><td>Tôle d’un baril ouvert à plat</td><td><span class="non">NON</span> <span class="negx">avec une truie</span></td></tr><tr><td class="c-item">Base incombustible sous le poêle</td><td>La surface du poêle, plus le devant</td><td>Caisson de sable, lit de pierres sèches, terre battue. <strong>Jamais une tôle posée sur un plancher de bois</strong> : la chaleur la traverse</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Avertisseur de monoxyde de carbone à piles, à affichage en ppm (celui du <span class="ref">ch. 12</span>)</td><td>1, apporté du chalet au chaud à chaque séance ; posé dans le vestiaire à 2 m ou plus du poêle, hors de la vapeur</td><td><strong>Aucune.</strong> Il ne va pas dans la pièce chaude : hors de 4,4 à 37,8 °C, sa pile et sa cellule sortent de la plage où on peut s’y fier (section 8, point 1). Il lit la pièce où on se rhabille et où les enfants refroidissent</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Porte qui s’ouvre vers l’extérieur, sans loquet</td><td>1</td><td>Rabat de couverture ou de bâche lesté d’une perche (section 9). Elle se tient fermée par un taquet à friction ou un ressort qui cède à l’épaule, jamais par ce qui verrouille</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Thermomètre de sauna, à hauteur de tête</td><td>1</td><td>Thermomètre à cadran qui monte au-delà de 100 °C, pendu près du plafond ; sans rien, la première minute se passe sans eau sur les pierres, et les séances raccourcissent</td><td>Oui</td></tr><tr><td class="c-item">Louche à long manche et chaudière d’eau tiède</td><td>1 et 1</td><td>Boîte de conserve clouée au bout d’un manche de bois</td><td>Oui</td></tr><tr><td class="c-item">Eau à boire, un gobelet par personne</td><td>Environ un demi-litre par adulte et par séance de 20 minutes (étape 32)</td><td>Neige fondue et bouillie ; tisane de sapin baumier ou d’épinette tiédie, <strong>jamais de cèdre (thuya, <em>Thuja occidentalis</em>)</strong>, dont la thuyone est toxique (étape 26)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Eau chaude et bassine pour se laver</td><td>Ce que demande le <span class="ref">ch. 31</span></td><td>La marmite posée sur le poêle même du sauna</td><td>Oui</td></tr><tr><td class="c-item">Contenant à cendres métallique, fond surélevé, couvercle</td><td>1</td><td>Celui du <span class="ref">ch. 82</span></td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Bancs de planches</td><td>Deux niveaux</td><td>Demi-billes fendues ; clous enfoncés sous la surface ou chevilles de bois (<span class="ref">ch. 110</span>) : un clou qui dépasse chauffe et marque la peau</td><td>Oui</td></tr><tr><td class="c-item">Balai de bouleau (vihta)</td><td>1 ou 2</td><td>Rien : c’est un plaisir, pas un besoin (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Sac de couchage d’hiver et tuque de nuit</td><td>1 par personne</td><td>Couvertures de laine en couches, autant dessous que dessus ; la roche du poêle ou la bouteille d’eau chaude au pied du lit (<span class="ref">ch. 06</span>, section 9)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Thermomètre de cuisson, 0 à 100 °C</td><td>1, celui du <span class="ref">ch. 25</span> ; il lit aussi l’air du vestiaire (étape 2)</td><td>Pour le bain, la main non blessée, le même geste que pour un biberon (<span class="ref">ch. 25</span>) : elle dit tiède ou brûlant, pas 41 °C. Pour le vestiaire, rien : sans chiffre, l’avertisseur reste dans une poche, sur un adulte (<span class="ref">ch. 84</span>)</td><td>Oui</td></tr></tbody></table>
+<p class="p0">Ce tableau ne porte que ce qui sert aux procédures de ce chapitre. Les quantités, les paliers d’achat et le partage entre la maison et le chalet sont au <span class="ref">ch. 00b</span>, le seul inventaire du livre.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Bâtir la pièce chaude, en été</h3>
+<p class="step"><span class="sn">1</span><strong>Bâtir le sauna à part, loin du chalet et du bûcher.</strong> En Finlande, environ 80 % des feux de juin et juillet dans les chalets partent du sauna : poêles et tuyaux mal entretenus, poêle monté trop près du bois, cendres chaudes mal rangées. La truie, dit le <span class="ref">ch. 83</span>, est un appareil pour un bâtiment qu’on accepte de perdre : le sauna est ce bâtiment-là. S’il brûle, il ne prend pas le chalet avec lui. La forêt, elle, est à côté : en été, un sauna qui brûle ou un tuyau qui crache des escarbilles l’allume, et un feu de forêt revient au chalet (<span class="ref">ch. 11</span>). D’où le pare-étincelles (étape 6), et les jours où le combustible est sec, la règle du <span class="ref">ch. 11</span> (section 5-B) : aucun feu sans pare-étincelles.</p>
+<p class="step pk-c"><span class="sn">2</span><strong>Petit, bas, et deux pièces.</strong> Plus la pièce chaude est grande, plus elle mange de bois, et une surface nue qui boit la chaleur en coûte encore : chaque mètre carré de brique, de béton, de carreau ou de vitre compte pour 1,2 m³ de plus à chauffer. La chaleur monte : un plafond bas la garde là où sont les têtes. Devant la pièce chaude, un <strong>vestiaire</strong>, avec un banc, l’eau à boire et l’avertisseur de CO. C’est là qu’on refroidit, qu’on se rhabille et qu’on sort un enfant. Il se chauffe par la pièce chaude : pendant la chauffe, la porte entre les deux reste entrouverte jusqu’à ce que l’air du vestiaire passe <strong>4,4 °C</strong> au thermomètre, et elle se rouvre entre les séances s’il redescend. C’est le seuil sous lequel l’avertisseur ne vaut plus rien (étape 25). Le vestiaire ne sert pas à se laver l’hiver : il n’est pas chauffé pour ça (étape 31).</p>
+<p class="step"><span class="sn">3</span><strong>Deux bancs.</strong> Celui du haut met la tête dans la chaleur ; celui du bas est plus doux, et c’est celui des enfants et de la personne qui commence. Planches rabotées, sans clou apparent.</p>
+<p class="step"><span class="sn">4</span><strong>La porte s’ouvre vers l’extérieur et n’a pas de loquet.</strong> Quelqu’un qui s’évanouit tombe contre la porte : ouverte vers l’intérieur, son corps la bloque, et elle enferme aussi ceux qui restent. La pièce chaude pousse son air vers le dehors par le haut, et une porte sans arrêt s’entrouvre : un taquet à friction, un ressort ou un contrepoids la tient fermée et cède à la poussée d’une épaule. Rien qui verrouille.</p>
+<p class="step"><span class="sn">5</span><strong>Le poêle se pose sur de l’incombustible, jamais sur une tôle clouée au plancher.</strong> Caisson de sable, lit de pierres sèches ou terre battue. Une plaque d’acier sur un plancher de bois ne suffit pas : elle passe la chaleur au bois qui est dessous. On garde un carré d’environ 1 m sur 1 m libre devant la porte du foyer, pour la personne qui charge.</p>
+<p class="step"><span class="sn">6</span><strong>La truie du <span class="ref">ch. 83</span> fait un poêle de sauna.</strong> On la monte comme il est dit là — porte au ciseau à froid, sortie en haut à l’autre bout, lit de sable dans le fond, tuyau d’acier noir, jamais galvanisé, coiffé du pare-étincelles du <span class="ref">ch. 82</span> —, avec quatre différences.</p>
+<p class="li l2"><strong>La cage à pierres porte sur ses propres appuis, jamais sur le baril.</strong> Le caisson de sable déborde assez de chaque côté du baril pour porter deux piles de pierres sèches éprouvées au feu (étape 14), une de chaque côté, un peu plus hautes que lui. Deux ou trois barres de fer posées d’une pile à l’autre passent au-dessus du baril ; le fond de treillis ou de fers croisés repose sur elles ; quatre fers debout, liés aux barres, tiennent le tas sur les côtés. Les piles portent le poids, les ligatures ne tiennent que les côtés. À froid, la main passe à plat entre le fond de la cage et la tôle : la chaleur monte de la tôle aux pierres par l’air, et la tôle du dessus, qui s’amincit à chaque feu, ne porte rien. Les pierres restent sur le baril, <strong>pas autour du tuyau</strong> : le tuyau d’une truie se démonte et se ramone souvent (<span class="ref">ch. 83</span>, section 9), et une section cachée sous les pierres ne se regarde plus. Ni treillis ni fil galvanisés, ou décapés sur toute la zone qui chauffe (<span class="ref">ch. 107</span>, section 5.3, étape 16) : c’est le point le plus chaud de la pièce où on respire à pleins poumons.</p>
+<p class="li l2"><strong>L’eau des pierres finit sur la tôle.</strong> Elle traverse le tas et tombe sur le dessus du baril à chaque séance : c’est là que la truie rouille et perce, sous les pierres, où on ne le voit pas. Un baril percé dans la pièce chaude lâche la flamme et le monoxyde là où la famille est assise. Au premier feu de la saison et à chaque remontage des pierres (étape 16), on vide la cage et on regarde le dessus : tôle qui s’écaille, cloques de rouille, trou, et pas de sauna avant d’avoir changé de baril.</p>
+<p class="li l2"><strong>Dans la pièce chaude, la main ne tranche plus.</strong> Au plus fort de la chauffe, l’air du haut est à 80 ou 90 °C, et on s’assoit sur du bois à cette chaleur : un mur qui cuit sous le rayonnement de la truie ne se distingue plus au toucher d’un mur qui est seulement à la chaleur du sauna. Chaque mur que la truie voit reçoit donc, dès la construction, un <strong>écran de tôle monté avec un jeu d’air</strong> derrière. La main garde deux usages : le plancher autour du caisson, où l’air reste froid, et la comparaison, à la même hauteur, du mur près du poêle avec un mur loin de lui ; celui qui est nettement plus chaud est trop près. Le bois qui brunit ou sent le roussi reste le signe (section 7).</p>
+<p class="li l2"><strong>La truie hors du passage, derrière une garde.</strong> On la place hors du chemin entre le banc et la porte, et une rampe de fer ou de tuyau d’acier, soudée ou boulonnée, la sépare du passage : on s’évanouit debout, en se levant, avant d’avoir pu s’asseoir, et la rampe arrête le corps avant la tôle. Couchée sur son caisson, la truie est à la hauteur du torse d’un enfant de 4 ans.</p>
+<p class="step pk-d"><span class="sn">7</span><strong>La ventilation : entrée d’air basse près du poêle, sortie haute à l’opposé.</strong> L’air frais arrive près du plancher à côté du poêle, qui le tire pour brûler et le chauffe en passant ; l’air usé part par une ouverture près du plafond, du côté le plus loin du poêle. Deux trappes de bois qu’on règle à la main. <strong>On ne ferme jamais les deux</strong> : un poêle sans air frais brûle mal, et un poêle qui brûle mal fait le CO (section 8, point 1).</p>
+<p class="step"><span class="sn">8</span><strong>Aucune flamme d’éclairage dans la pièce chaude.</strong> Une chandelle ou une lampe est un appareil de combustion sans cheminée (<span class="ref">ch. 85</span>). Une petite fenêtre, et la lampe de l’autre côté de la vitre.</p>
+<p class="step"><span class="sn">9</span><strong>Rien ne sèche au-dessus du poêle.</strong> Une mitaine qui tombe sur les pierres chaudes est un feu. Le linge sèche dans le vestiaire.</p>
+<h3 class="sub">B — Choisir et monter les pierres</h3>
+<p class="step"><span class="sn">10</span><strong>Ramasser au sec, en hauteur, loin de l’eau.</strong> Une pierre prise dans le lit d’un ruisseau ou sur la grève a les pores pleins d’eau ; au feu, cette eau devient de la vapeur sans issue et la pierre éclate en projetant ses éclats à hauteur de visage (<span class="ref">ch. 03</span>, <span class="ref">ch. 83</span>). C’est la même règle que pour les pierres à faire bouillir l’eau, et elle vaut encore plus ici, parce qu’on arrose les pierres de sauna chaque fois qu’on s’en sert.</p>
+<p class="step"><span class="sn">11</span><strong>Prendre du foncé, du lourd, du grain fin.</strong> Les pierres des poêles de fabrication sont des roches sombres et denses (péridotite, dolérite à olivine). Dans le bois, on cherche ce qui leur ressemble : une pierre foncée, lourde pour sa taille, au grain si fin qu’on ne distingue pas les cristaux, sans couches.</p>
+<p class="step"><span class="sn">12</span><strong>Rejeter quatre sortes de pierres.</strong> La <strong>feuilletée</strong>, qui se délite en plaques : elle s’ouvre au premier feu. La <strong>pâle et grenue</strong>, pleine de grains vitreux : c’est du quartz, qui prend du volume d’un coup vers 550-573 °C, à la chauffe comme au refroidissement, pendant que les grains voisins suivent à leur rythme, et la pierre se fend contre elle-même. Celle qui porte des <strong>paillettes ou des petits cubes dorés</strong> : c’est de la pyrite, et chauffée elle dégage du dioxyde de soufre — c’est avec elle qu’on fabrique ce gaz. Et la <strong>poreuse, friable</strong>, qui boit l’eau et s’effrite.</p>
+<p class="step"><span class="sn">13</span><strong>Taille : 10 à 15 cm.</strong> Assez grosses pour garder la chaleur, assez petites pour laisser passer l’air.</p>
+<p class="step"><span class="sn">14</span><strong>Éprouver chaque pierre au feu avant de la monter</strong>, dehors, en même temps que le premier feu du baril (étape 17) : les pierres dans le feu, tout le monde en arrière, personne penché dessus. On jette ce qui craque, se fend ou s’écaille. Une pierre qui tient un feu vif et une première eau a fait sa preuve ; celle qui éclate l’a fait dehors plutôt que dans la pièce où la famille est assise. Cette eau-là se jette de loin, parce que c’est elle qui fait éclater la pierre douteuse : une louche liée au bout d’une perche, ou une chaudière lancée en se tenant de côté, personne dans l’axe de la pierre.</p>
+<p class="step"><span class="sn">15</span><strong>Monter les grosses en bas, les petites en haut, de l’air entre toutes.</strong> Les pierres du bas chauffent les premières et passent la chaleur aux autres. Un tas serré étouffe le poêle et chauffe mal.</p>
+<p class="step"><span class="sn">16</span><strong>Une fois l’an au moins, défaire et remonter.</strong> Les pierres s’usent aux chocs de température, se fendent et tombent en miettes ; les miettes bouchent le passage de l’air. On jette ce qui s’est fendu et on complète.</p>
+<h3 class="sub">C — Le premier feu, dehors</h3>
+<p class="step"><span class="sn">17</span><strong>Chauffer le baril neuf une première fois dehors, au vent.</strong> Ce qui reste dans un baril — peinture, fond d’huile, enduit — brûle au premier feu, et c’est dehors qu’on veut respirer à côté. Même les poêles de fabrication se chauffent une première fois dehors, pour la peinture. <strong>Jamais un baril galvanisé</strong> : chauffé, le zinc part en fumée blanche et donne la fièvre des fondeurs, frissons, fièvre et courbatures le soir même (<span class="ref">ch. 107</span>). La même règle vaut pour la cage, le fil et le tuyau (étape 6).</p>
+<h3 class="sub">D — Chauffer</h3>
+<p class="step"><span class="sn">18</span><strong>Bois sec, jamais peint ni traité.</strong> Il encrasse le tuyau (<span class="ref">ch. 82</span>), et ce qui fuit du poêle passe dans l’air qu’on vient respirer à pleins poumons.</p>
+<p class="step"><span class="sn">19</span><strong>Au premier feu de la saison, partir doucement.</strong> Un gros feu d’un coup sur un poêle resté froid tout l’hiver abîme le poêle, le tuyau et le joint entre les deux. On part d’un petit feu et on monte.</p>
+<p class="step pk-c"><span class="sn">20</span><strong>Lire la chaleur au thermomètre, à hauteur de tête : 80 à 90 °C, jamais plus de 100.</strong> Le temps de chauffe dépend de la pièce, du froid dehors et du poêle : il se lit sur le cadran, pas sur l’horloge.</p>
+<p class="step"><span class="sn">21</span><strong>Charger avant d’entrer, pas pendant.</strong> Chaque ouverture de la porte du foyer lâche de la fumée et du monoxyde dans la pièce, et là où on l’a mesuré, au sauna à fumée, chaque charge fait un pic de monoxyde (section 9). Un poêle de sauna de fabrication part avec du bois de 8 à 12 cm et se recharge en bûches de 12 à 15 cm quand la braise baisse ; le tout petit bois de 2 à 5 cm, qui fait six fois moins de monoxyde, est la règle du sauna à fumée. La dernière charge se fait avant la séance, et on attend qu’elle soit bien prise, porte du foyer fermée, avant que les enfants entrent (étape 36).</p>
+<p class="step"><span class="sn">22</span><strong>Ne jamais étouffer le poêle pour « tenir » la chaleur.</strong> Fermer l’air sur une grosse charge est la manœuvre qui fabrique le CO (<span class="ref">ch. 83</span>, étape 22). Au sauna, on garde la chaleur dans les pierres, pas dans une charge étranglée.</p>
+<p class="step"><span class="sn">23</span><strong>Personne ne quitte le poêle pendant qu’il chauffe.</strong> C’est le moment où le sauna prend feu.</p>
+<h3 class="sub">E — La séance, pour un adulte</h3>
+<p class="step"><span class="sn">24</span><strong>Toujours à deux.</strong> Un adulte au moins qui ne boit pas et qui sort le dernier.</p>
+<p class="step pk-c"><span class="sn">25</span><strong>L’avertisseur arrive au chaud, et se pose seulement au-dessus de 4,4 °C.</strong> Il vit au chalet et voyage dans une poche intérieure : laissé l’hiver dans le sauna, sa cellule, qui contient de l’eau chez certains modèles, peut geler et rester abîmée pour de bon. On le pose dans le vestiaire une fois l’air au-dessus de 4,4 °C (étape 2) ; d’ici là, il reste sur l’adulte qui chauffe. Pas de séance tant que le vestiaire n’y est pas : sans lui, rien ne lit l’air où les enfants refroidissent. On le pose à 2 m ou plus du poêle, loin de la porte de la pièce chaude et du coin où on se lave : la vapeur le sort de sa plage ou le fait sonner pour rien, et un avertisseur qui sonne pour rien finit ignoré. Bouton d’essai, puis on <strong>lit l’affichage</strong> : 0 ppm. Le bouton prouve la pile, le circuit et la sirène, pas la cellule qui sent le CO (<span class="ref">ch. 12</span>, section 5-F, point 3).</p>
+<p class="step"><span class="sn">26</span><strong>Boire avant d’entrer.</strong> De l’eau, ou une tisane de sapin baumier (<em>Abies balsamea</em>) ou d’épinette tiédie. <strong>Jamais de cèdre (thuya, <em>Thuja occidentalis</em>)</strong> : sa thuyone est toxique, et c’est le sapin ou l’épinette qui donnent la vitamine C (<span class="ref">ch. 20</span>).</p>
+<p class="step pk-t"><span class="sn">27</span><strong>Première séance sèche, 5 à 20 minutes, assis.</strong> Pas d’eau sur les pierres la première minute : on sent d’abord ce que fait la pièce. On sort <strong>au premier</strong> mal de tête, étourdissement, nausée ou cœur qui cogne. Ces signes sont ceux de la chaleur <strong>et</strong> ceux du monoxyde : sortir veut dire sortir à l’air, pas s’asseoir sur le banc du bas.</p>
+<p class="step"><span class="sn">28</span><strong>L’eau sur les pierres : tiède, une louche à la fois, annoncée.</strong> Jamais quand quelqu’un est près du poêle : la vapeur part d’un coup et brûle la peau la plus proche. Jamais sur l’acier chaud, qui se déforme au choc, seulement sur les pierres. Eau propre et douce : l’eau du fleuve, salée, ronge le poêle en peu de temps.</p>
+<p class="step"><span class="sn">29</span><strong>Se lever lentement, et s’asseoir tout de suite dans le vestiaire.</strong> Le sang est à la peau ; debout, il descend dans les jambes et quitte la tête. C’est à ce moment qu’on tombe, et le poêle est à un pas : c’est pour ce moment-là qu’il a sa garde (étape 6).</p>
+<p class="step"><span class="sn">30</span><strong>Refroidir assis.</strong> Le vestiaire, l’air du dehors sur le pas de la porte, ou la neige pour qui veut s’y rouler : le froid resserre les vaisseaux de la peau et la pression remonte vite. Un adulte en santé l’encaisse ; un cœur malade, non. <strong>Pas de trou dans la glace</strong> : la première minute d’eau froide emballe la respiration (le 1-10-1 du <span class="ref">ch. 25</span>, étape 23), et une baignade de sauna n’est pas une raison de risquer la noyade.</p>
+<p class="step"><span class="sn">31</span><strong>Une à trois séances, puis se laver dans la pièce chaude qui baisse</strong>, une fois le feu mourant et la porte du foyer fermée, à l’eau chauffée sur le poêle, dans l’ordre du <span class="ref">ch. 31</span> (étape 38) : visage, tronc et bras, jambes, pieds, aisselles et aine en dernier. L’été, le vestiaire fait l’affaire ; l’hiver, jamais : on s’y assoit et on s’y rhabille, on ne s’y mouille pas (<span class="ref">ch. 31</span>, étape 40).</p>
+<p class="step"><span class="sn">32</span><strong>Boire ce qu’on a sué.</strong> Environ un demi-litre par séance de 20 minutes.</p>
+<p class="step pk-d"><span class="sn">33</span><strong>Se sécher et se rhabiller au chaud avant de traverser au chalet.</strong> Un corps mouillé à −30 °C perd sa chaleur par l’eau et par l’évaporation en même temps (<span class="ref">ch. 31</span>, section 8, point 6) ; la chaleur du sauna n’est pas une réserve.</p>
+<p class="step pk-t"><span class="sn">34</span><strong>On ne recharge plus, et on ne quitte pas le sauna tant qu’il reste des flammes</strong> : porte du foyer fermée, air ouvert, le feu meurt en braises. Les cendres vont au contenant métallique fermé du <span class="ref">ch. 82</span> et y restent <strong>au moins 7 jours</strong>, brassées, avant d’être vidées : des braises survivent des jours sous une cendre froide au toucher (<span class="ref">ch. 83</span>, étape 25).</p>
+<p class="step"><span class="sn">35</span><strong>Finir une à deux heures avant le coucher</strong> (étape 53).</p>
+<h3 class="sub">F — Les enfants de 4 et 6 ans</h3>
+<p class="step pk-d"><span class="sn">36</span><strong>Ils entrent une fois la dernière charge bien prise et la porte du foyer fermée, et le mieux est à la fin, quand la pièce baisse</strong> : sur le banc du bas, du côté opposé au poêle. Jamais pendant qu’on charge : chaque charge et chaque ouverture de porte lâchent du monoxyde dans la pièce (étape 21), et un enfant en prend autant qu’un adulte en y passant trois fois moins de temps (section 8, point 1). En Finlande, les bébés vont au sauna dès quelques mois, et ils y restent moins de cinq minutes.</p>
+<p class="step"><span class="sn">37</span><strong>Ils sortent quand ils veulent, sans négocier.</strong> Un petit enfant ne supporte pas longtemps une forte chaleur <strong>et il ne sait pas le dire</strong>. La porte du vestiaire lui reste ouverte, et il en sort à son idée, vers l’eau ou le vestiaire. Il entre dans la pièce chaude avec un adulte, comme tout le monde y entre à deux (étape 24).</p>
+<p class="step"><span class="sn">38</span><strong>Quelques minutes, et dehors au premier signe.</strong> Des pédiatres qui ont gardé des enfants dix minutes dans la chaleur d’un sauna ordinaire jugent que c’est déjà trop pour un bébé, et deux malaises sont survenus. Près d’un enfant sur cinq se plaint au sauna de mal de tête, d’étourdissement, d’avoir trop chaud ou du cœur qui bat fort : ce sont les signes qui font sortir.</p>
+<p class="step"><span class="sn">39</span><strong>Asseoir l’enfant dès qu’il sort.</strong> Sa pression baisse à la sortie, et son corps corrige plus lentement que celui d’un adulte : il peut avoir le vertige un moment. Assis dans le vestiaire, il ne tombe de nulle part.</p>
+<p class="step"><span class="sn">40</span><strong>Pas d’eau sur les pierres quand un enfant est sur le banc</strong>, ou alors tiède, une petite louche, lui loin du poêle. Les tout-petits se brûlent au sauna, à la vapeur comme au poêle.</p>
+<p class="step"><span class="sn">41</span><strong>Il boit en sortant.</strong> Dix minutes de chaleur font perdre en sueur 0,8 % de son poids à un enfant de 5 à 10 ans : 160 g d’eau pour un enfant de 20 kg.</p>
+<p class="step"><span class="sn">42</span><strong>Pas de sauna pour un enfant fiévreux</strong> (section 2). Un enfant à la peau qui démange (eczéma) peut y aller, mais la sueur augmente la démangeaison : on le rince tout de suite après.</p>
+<p class="step pk-d"><span class="sn">43</span><strong>Un enfant mou après le sauna sort à l’air avant qu’on cherche pourquoi</strong>, enveloppé dans une couverture, assis sur le pas de la porte ou dans le vestiaire porte grande ouverte. Chaleur ou monoxyde, la conduite est la même, et seul le monoxyde ne pardonne pas l’attente (section 8, point 1). Mouillé et nu, à −30 °C, il refroidit plus vite qu’un adulte (<span class="ref">ch. 25</span>, section 5-F ; <span class="ref">ch. 39</span>, étape 17). S’il ne répond pas et ne respire pas normalement, ou s’il halète<sup class="fnr" data-fn="37-2">2</sup>, c’est un arrêt du cœur : on comprime tout de suite (<span class="ref">ch. 26</span>, étape 11).</p>
+<h3 class="sub">G — Qui d’autre prend des précautions</h3>
+<p class="step"><span class="sn">44</span><strong>Médicament contre la pression :</strong> se lever en deux temps, s’asseoir d’abord ; ces médicaments rendent l’évanouissement de la sortie plus probable.</p>
+<p class="step"><span class="sn">45</span><strong>Cœur malade mais stable</strong> (angine qui vient toujours au même effort, infarctus ancien) : le sauna ordinaire est d’ordinaire supporté, mais ni l’eau froide ni la neige en sortant : c’est la remontée brusque de la pression qui est dangereuse pour un cœur faible.</p>
+<p class="step"><span class="sn">46</span><strong>Grossesse, premier trimestre :</strong> la température du corps ne devrait pas y dépasser 39 à 39,5 °C, et vingt minutes de sauna portent une personne sur cinq au-delà de 39 °C (section 3). Des séances plus courtes, sur le banc du bas, sans eau sur les pierres, et on sort au premier signe de chaleur.</p>
+<h3 class="sub">H — Le sommeil l’hiver</h3>
+<p class="step pk-t"><span class="sn">47</span><strong>Viser 7 à 9 heures pour un adulte, avec des heures de coucher et de lever régulières.</strong> Le lever fixe est l’étape 8 du <span class="ref">ch. 36</span> ; les durées des enfants sont au <span class="ref">ch. 40</span> (étape 29). Un hiver au chalet fait souvent dormir plus, et ce n’est pas une perte (<span class="ref">ch. 85</span>, « Déplacer la journée »).</p>
+<p class="step"><span class="sn">48</span><strong>Le soir, baisser la lumière</strong> après le souper (<span class="ref">ch. 36</span>, étape 9). La lumière du soir retarde l’horloge, et une veillée éclairée fort fait un lever difficile.</p>
+<p class="step"><span class="sn">49</span><strong>Chauffer le corps une à deux heures avant le coucher.</strong> Les soirs de sauna, c’est fait. Les autres soirs, un bain chaud à 40-42,5 °C, au thermomètre, dix minutes suffisent (étape 60).</p>
+<p class="step"><span class="sn">50</span><strong>Chauffer le lit, pas la chambre.</strong> Pour un adulte bien couvert, une chambre froide ne gâte pas le sommeil : c’est le creux sous les couvertures qui doit être chaud. La roche du poêle ou la bouteille d’eau chaude, enveloppée, <strong>au pied du lit</strong> (<span class="ref">ch. 06</span>, section 9) : des pieds chauds aident à s’endormir. Autant d’épaisseur sous soi que sur soi : le matelas froid vole la chaleur par en dessous.</p>
+<p class="step pk-c"><span class="sn">51</span><strong>La tuque la nuit, et la chambre au-dessus de 10 °C.</strong> La tête est la seule partie qui dépasse des couvertures, et la tuque y garde la chaleur. Elle ne protège pas le cœur : le froid agit sur lui par le visage et par l’air qu’on respire, pendant le sommeil, sans réveiller personne. C’est pour ça que, même avec un lit chaud, la chambre des adultes se garde <strong>au-dessus de 10 °C</strong> l’hiver. Les enfants, eux, suivent la cible du <span class="ref">ch. 39</span> : <strong>19 °C ou plus</strong> à la hauteur de leur lit, parce qu’un enfant de 4 ans ne reste pas sous ses couvertures.</p>
+<p class="step"><span class="sn">52</span><strong>Le poêle, la nuit, se décide au <span class="ref">ch. 83</span> (étape 22).</strong> Avec ce qui précède, le « matin froid » devient un choix honnête pour la chambre des adultes : un lit chaud, une tuque, et un feu qui meurt proprement valent mieux qu’une charge étouffée qui fait du CO pendant qu’on dort. Pour la chambre des enfants, la cible de 19 °C décide.</p>
+<p class="step"><span class="sn">53</span><strong>Les soirs de sauna, se coucher une à deux heures après la dernière séance.</strong> C’est le délai du bain chaud (étape 60) : le temps que la chaleur reparte par les mains et les pieds, et c’est cette baisse qui fait dormir (section 3).</p>
+<p class="step"><span class="sn">54</span><strong>Dormir plus sans se sentir reposé, se lever mal, manquer d’énergie, et que ça revienne chaque hiver :</strong> c’est le signe de la section 5-I, pas de la paresse. Dormir un peu plus l’hiver et se lever reposé ne l’est pas.</p>
+<h3 class="sub">I — La lumière de l’hiver</h3>
+<p class="step"><span class="sn">55</span><strong>Sortir dans l’heure qui suit le réveil, et y rester une heure si possible.</strong> C’est le geste le plus efficace du chapitre contre la déprime de l’hiver, et il ne coûte rien. Le bois, l’eau, le trou dans la glace, la marche avec les enfants (<span class="ref">ch. 40</span>, étape 20) comptent, pourvu que ce soit dehors et de jour. En janvier, le lever fixe du <span class="ref">ch. 36</span> vient souvent avant le jour : c’est la lumière qui agit, pas l’heure, et on sort dès qu’il fait clair. Les seuils de froid du <span class="ref">ch. 25</span> décident des jours où on ne sort pas.</p>
+<p class="step"><span class="sn">56</span><strong>Dedans, le matin, s’asseoir face à la fenêtre la plus claire.</strong> La table du déjeuner se pousse contre la fenêtre. La lumière d’une fenêtre baisse vite dès qu’on s’en éloigne : un mètre de plus, c’est beaucoup moins. C’est mieux que rien, et loin du dehors.</p>
+<p class="step"><span class="sn">57</span><strong>Reconnaître la forme saisonnière.</strong> Au Québec, une personne sur cinq sent les saisons sur son moral ; pour 2 à 3 % des gens, c’est une vraie dépression, et ce sont surtout des femmes, 70 à 80 % des cas. Elle commence à l’automne, culmine en janvier et février et s’efface au printemps, d’un hiver à l’autre. Ses signes propres : on manque d’énergie, <strong>on dort plus et on se lève mal</strong>, le sommeil ne repose pas. Le compte des deux semaines et la conduite du <span class="ref">ch. 36</span> (étapes 26 à 30) s’appliquent quand même ; la lumière s’y ajoute, elle ne les remplace pas.</p>
+<p class="step"><span class="sn">58</span><strong>Si le chalet a une lampe de luminothérapie et de quoi l’alimenter (<span class="ref">ch. 86</span>) :</strong> dès le réveil, environ 30 minutes, à une trentaine de centimètres, yeux ouverts. Elle peut fatiguer les yeux, agiter, donner mal à la tête ou mal au cœur ; alors on arrête. L’effet vient plus vite dans la forme saisonnière — une semaine de marches d’une heure le matin a sorti de la dépression la moitié de ceux qui l’ont essayée — ; dans une dépression qui n’est pas saisonnière, il prend deux à cinq semaines.</p>
+<p class="step"><span class="sn">59</span><strong>La vitamine D ne remplace pas la lumière, ni l’inverse.</strong> Les gouttes et leur dose sont au <span class="ref">ch. 21</span> ; le soleil de janvier ne comble rien là non plus.</p>
+<h3 class="sub">J — Le corps qui se repose</h3>
+<p class="step"><span class="sn">60</span><strong>Le bain chaud du soir.</strong> Eau à 40-42,5 °C au thermomètre de cuisson, dix minutes, une à deux heures avant le coucher : c’est la version maison du sauna pour le sommeil. À la maison, la baignoire. Au chalet, la cuve de lessive du <span class="ref">ch. 31</span> (60 à 80 L) fait un bain assis, l’eau à hauteur du ventre, dans une pièce chauffée, l’eau du poêle coupée d’eau froide jusqu’au chiffre. Sans cuve, la même eau versée lentement à la chaudière sur les épaules fait une douche chaude, qui marche aussi. On se lève en deux temps et on s’assoit sur le bord avant de sortir (étape 29). Au premier trimestre de grossesse, la limite de 39 °C de l’étape 46 vaut dans l’eau aussi, où la sueur ne refroidit plus rien : l’eau à 41 °C au plus, et dehors avant 10 minutes, ou avant 15 minutes dans une eau à 39 °C : c’est le temps le plus court qu’il a fallu pour porter une femme à près de 39 °C. Et dehors plus tôt au premier signe de chaleur. Pour les enfants, le lavage reste celui du <span class="ref">ch. 31</span> (étapes 38 et 40).</p>
+<p class="step"><span class="sn">61</span><strong>La chaleur douce pour celui qui a perdu l’appétit.</strong> Chez des gens légèrement déprimés qui avaient perdu l’appétit, 15 minutes dans une chaleur sèche de 60 °C, à l’infrarouge, puis 30 minutes couchés sous une couverture, cinq jours par semaine pendant quatre semaines, ont ramené la faim et la quantité mangée. Au chalet : le sauna qui refroidit, une fois la dernière charge prise et la porte du foyer fermée (étape 36), sur le banc du bas, puis la couverture dans le vestiaire tiède ou au lit. Sur 28 personnes seulement, et sans bois ni pierres : on s’en sert pour la faim, pas pour guérir la tête.</p>
+<p class="step"><span class="sn">62</span><strong>Étirer le soir, muscles chauds, jamais avant le bois.</strong> Un muscle réchauffé résiste moins ; un muscle étiré avant l’effort perd de la vitesse et de la force, jusqu’à 10 %, ce qui est le contraire de ce qu’on veut devant une bille à fendre. Un muscle froissé attend deux jours avant d’être étiré, et doucement (<span class="ref">ch. 24</span>, étape 55). Après le sauna ou à la fin de la journée de travail, trois étirements suffisent, ceux des muscles qui causent le plus d’ennuis :</p>
+<p class="li l2"><strong>l’arrière de la cuisse</strong> : assis sur le banc, une jambe allongée, pencher le tronc en avant à partir des hanches, le dos droit ;</p>
+<p class="li l2"><strong>l’avant de la cuisse</strong> : debout, une main au mur, attraper la cheville et amener le talon vers la fesse, genoux côte à côte ;</p>
+<p class="li l2"><strong>le bas du dos</strong> : couché sur le dos, ramener les deux genoux vers la poitrine avec les bras.</p>
+<p class="step"><span class="sn">63</span><strong>Comment tenir un étirement.</strong> Environ une seconde pour arriver au point où on sent une tension nette mais pas une douleur, puis tenir <strong>une trentaine de secondes</strong>. Jamais par à-coups : un muscle tiré d’un coup se contracte par réflexe, exactement ce qu’on veut éviter. L’étirement détend et défait la raideur d’une nuit ou d’une journée ; il <strong>n’empêche pas</strong> les courbatures du lendemain et n’a jamais prouvé qu’il prévenait les blessures.</p>
+<p class="step"><span class="sn">64</span><strong>Le massage du dos de celui qui a fait le bois.</strong> À plat ventre, sur un banc ou une couverture pliée ; les mains graissées d’un gras propre, à plat, de part et d’autre de la colonne, jamais sur les os eux-mêmes. Il soulage le mal de dos sur le coup, pas au-delà : c’est un soulagement, pas un traitement. Il arrive qu’il augmente la douleur ; alors on arrête. Jamais sur une entorse ou un muscle froissé des deux premiers jours : le massage, comme la chaleur, fait enfler (<span class="ref">ch. 24</span>, étapes 43 et 55). Un tour de rein passe d’abord par le tri du <span class="ref">ch. 24</span> (étape 20).</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:15.9%"><col style="width:15.9%"><col style="width:39.7%"><col style="width:28.5%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Au premier feu de la saison</td><td>Les pierres</td><td>Aucune fendue, écaillée ou en miettes ; air libre entre elles</td><td>Défaire, jeter, remonter (étape 16)</td></tr><tr><td class="c-item">Au premier feu de la saison</td><td>Le tuyau et la cage</td><td>Tuyau selon le <span class="ref">ch. 83</span>, pare-étincelles en place ; cage sur ses deux piles, la main passe à plat entre elle et la tôle ; aucune pierre autour du tuyau</td><td>Pas de sauna avant d’avoir corrigé</td></tr><tr><td class="c-item">Au premier feu de la saison et à chaque remontage des pierres</td><td>Le dessus du baril, cage vidée</td><td>Tôle saine : ni écailles, ni cloques de rouille, ni trou</td><td>Pas de sauna ; changer de baril</td></tr><tr><td class="c-item">Avant chaque séance</td><td>L’air du vestiaire et l’avertisseur de CO</td><td>Air au-dessus de 4,4 °C au thermomètre ; avertisseur arrivé au chaud, bouton d’essai qui sonne, affichage à 0 ppm</td><td>Porte de la pièce chaude entrouverte, attendre. Pas de séance avant ; l’avertisseur reste sur l’adulte qui chauffe</td></tr><tr><td class="c-item">Avant chaque séance</td><td>Qui entre</td><td>Au moins deux personnes ; personne qui a bu</td><td>La personne qui a bu n’entre pas ; personne n’entre seul</td></tr><tr><td class="c-item">Pendant la chauffe</td><td>La chaleur à hauteur de tête</td><td>80 à 90 °C ; <strong>jamais plus de 100 °C</strong></td><td>Ouvrir la porte et la trappe haute, attendre</td></tr><tr><td class="c-item">Pendant la chauffe</td><td>Le poêle</td><td>Air ouvert, flamme vive ; dernière charge bien prise et porte du foyer fermée avant qu’un enfant entre</td><td>Rouvrir l’air ; ne jamais étouffer (étape 22) ; les enfants attendent</td></tr><tr><td class="c-item">Pendant la chauffe</td><td>Les murs que la truie voit, et le plancher</td><td>Écran de tôle avec jeu d’air en place ; à la même hauteur, le mur près du poêle pas plus chaud au toucher qu’un mur loin de lui ; la main tient sur le plancher autour du caisson</td><td>Pas de sauna avant d’avoir éloigné le poêle ou monté l’écran</td></tr><tr><td class="c-item">Pendant une séance d’adulte</td><td>La durée</td><td>5 à 20 minutes, une à trois fois</td><td>Sortir</td></tr><tr><td class="c-item">Pendant une séance d’enfant</td><td>La durée et les signes</td><td>Quelques minutes ; dehors au premier mal de tête, étourdissement, chaleur, cœur qui cogne</td><td>Sortir, asseoir, faire boire</td></tr><tr><td class="c-item">À chaque sortie</td><td>La position</td><td>Assis dans la première minute</td><td>Coucher à plat qui pâlit ou voit noir</td></tr><tr><td class="c-item">Après une séance</td><td>Ce qu’on a bu</td><td>Environ 0,5 L par adulte et par 20 minutes ; 0,8 % du poids pour un enfant après 10 minutes</td><td>Boire avant le coucher</td></tr><tr><td class="c-item">Après le sauna</td><td>Les cendres</td><td>Dans le contenant métallique fermé ; <strong>au moins 7 jours</strong> avant de le vider, brassées</td><td>Attendre. Sept jours, pas « elles ont l’air froides » (<span class="ref">ch. 82</span>)</td></tr><tr><td class="c-item">Chaque soir</td><td>Le délai avant le coucher</td><td>Sauna ou bain chaud fini 1 à 2 h avant</td><td>Déplacer le sauna plus tôt dans la journée</td></tr><tr><td class="c-item">Chaque nuit</td><td>Le sommeil des adultes</td><td>7 à 9 h, lever à heure fixe</td><td>Revoir la lumière du soir et du matin</td></tr><tr><td class="c-item">Chaque nuit</td><td>La chambre des adultes</td><td>Au-dessus de 10 °C, tuque, lit chaud</td><td>Masse autour du poêle, ou une petite charge vive (<span class="ref">ch. 83</span>, étape 22)</td></tr><tr><td class="c-item">Chaque nuit</td><td>La chambre des enfants</td><td>19 °C ou plus à la hauteur du lit (<span class="ref">ch. 39</span>)</td><td>Rapprocher les lits de la pièce chaude</td></tr><tr><td class="c-item">Chaque matin</td><td>La lumière</td><td>Dehors dans l’heure du réveil, ou dès qu’il fait clair si on se lève à la noirceur ; idéalement une heure</td><td>La sortie devient une tâche assignée (<span class="ref">ch. 36</span>)</td></tr><tr><td class="c-item">Chaque année</td><td>Les pierres</td><td>Défaites et remontées au moins une fois</td><td>Étape 16</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:26.1%"><col style="width:27.9%"><col style="width:46.0%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Mal de tête, nausée, étourdissement chez plus d’une personne, ou qui reviennent à chaque sauna</td><td><strong>Monoxyde de carbone jusqu’à preuve du contraire</strong> : ce sont aussi les signes de la chaleur, et un sauna les a tous les deux</td><td>Tout le monde à l’air ; personne ne rentre. Chercher du côté de la porte du poêle, du tuyau, des joints, d’une braise qui couve (section 8, point 1)</td></tr><tr><td class="c-item">Un enfant mou, endormi ou « de mauvaise humeur » après le sauna</td><td>Monoxyde ou chaleur ; l’enfant prend autant de monoxyde qu’un adulte en trois fois moins de temps</td><td>À l’air d’abord, enveloppé dans une couverture, assis sur le pas de la porte ou dans le vestiaire porte grande ouverte (étape 43). Ensuite seulement on cherche</td></tr><tr><td class="c-item">Quelqu’un voit noir ou tombe en se levant ou en sortant</td><td>Évanouissement de chaleur : le sang est resté à la peau et aux jambes</td><td>Coucher à plat dans un endroit frais. Il revient vite. S’il ne répond pas et ne respire pas normalement, c’est la ligne suivante ; s’il respire mais reste confus, celle d’après</td></tr><tr><td class="c-item">Ne répond pas, ne respire pas normalement, ou halète<sup class="fnr" data-fn="37-2">2</sup></td><td><strong>Arrêt du cœur</strong>, pas un évanouissement : l’alcool et la chaleur dérèglent le cœur, et la mort subite est une des morts du sauna</td><td>Comprimer tout de suite (<span class="ref">ch. 26</span>, étape 11). Le refroidissement attend, ou un deuxième s’en charge pendant les compressions</td></tr><tr><td class="c-item">Peau chaude et sèche <strong>ou</strong> en nage, confusion, ne répond pas, convulsions</td><td><strong>Coup de chaleur</strong> : le centre du corps dépasse souvent 40 °C, et la vie est en jeu</td><td>Sortir de la chaleur vers le vestiaire ou le pas de la porte, déshabiller, mouiller peau et vêtements à l’eau fraîche, compresses froides ou neige dans un linge sur la tête, le cou, les aisselles et l’aine. Ne pas le forcer à boire. <strong>Arrêter de refroidir</strong> à 38,9 °C au thermomètre médical, par voie rectale (sous la langue ou l’aisselle, la lecture ne vaut rien après la chaleur) ; sans ce chiffre, quand il se met à frissonner, parce que le corps refait alors sa chaleur lui-même. Un retour à lui peut être passager : il ne suffit pas pour arrêter. Puis sécher et couvrir : à −30 °C, on passe du coup de chaleur à l’hypothermie (<span class="ref">ch. 25</span>). Section 8, point 2</td></tr><tr><td class="c-item">Crampes, faiblesse, grande soif, sueur qui coule, mal de tête après le sauna</td><td>Épuisement par la chaleur : l’eau et le sel sont partis dans la sueur</td><td>Au frais, faire boire, compresses fraîches</td></tr><tr><td class="c-item">Cloques après un jet de vapeur ou un contact avec le poêle</td><td>Brûlure</td><td>Eau fraîche, pas froide, au moins 20 minutes ; jamais de neige ni de gras (<span class="ref">ch. 26</span>, section 5-E)</td></tr><tr><td class="c-item">Une pierre claque, se fend ou lâche des éclats</td><td>Pierre d’eau, de quartz ou feuilletée</td><td>Sortir du sauna, laisser refroidir, jeter la pierre (étape 12)</td></tr><tr><td class="c-item">Le bois du mur le plus proche brunit, noircit, sent le roussi</td><td>Poêle trop proche : le bois chauffé souvent s’enflamme plus bas que du bois neuf (<span class="ref">ch. 83</span>)</td><td>Plus de sauna avant d’avoir éloigné le poêle ou monté un écran avec un jeu d’air</td></tr><tr><td class="c-item">Fumée dans la pièce chaude pendant la séance</td><td>Tirage renversé, porte de poêle qui fuit, tuyau bouché par le givre, pare-étincelles bouché, <strong>baril percé sous les pierres</strong></td><td>Tout le monde dehors. Ne pas rentrer avant d’avoir trouvé (<span class="ref">ch. 83</span>) ; vider la cage et regarder le dessus du baril (étape 6)</td></tr><tr><td class="c-item">On dort moins bien les soirs de sauna</td><td>Arrive à une petite minorité</td><td>Finir le sauna plus tôt (étape 35), ou le déplacer au jour</td></tr><tr><td class="c-item">On dort plus, on se lève mal, on manque d’énergie, de l’automne à février, et ça revient chaque hiver</td><td>Forme saisonnière</td><td>Étapes 55 à 58, et le compte du <span class="ref">ch. 36</span> (étape 29)</td></tr><tr><td class="c-item">Un étirement laisse une douleur le lendemain</td><td>Tiré trop loin, trop vite, ou à froid</td><td>Tension sans douleur, une seconde pour y arriver, muscle chaud (étape 63)</td></tr><tr><td class="c-item">Le massage augmente la douleur</td><td>Arrive à une minorité</td><td>Arrêter</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Dans la pièce chaude, rien ne mesure le monoxyde de carbone, et ses signes sont ceux de la chaleur.</strong> Le CO est un gaz sans couleur, sans odeur, sans goût, qui n’irrite rien. Il s’accroche à l’hémoglobine 200 à 250 fois plus fort que l’oxygène et prend sa place dans le sang : les tissus manquent d’air sans qu’on manque de souffle. Ses premiers signes — mal de tête, fatigue, nausée, étourdissement — sont exactement ceux qu’on attend d’un sauna, et personne ne sort pour un mal de tête qu’il croit normal. <strong>Aucun avertisseur ne va dans la pièce chaude</strong> : il est fait pour un air entre 4,4 et 37,8 °C qui ne condense pas ; sous 4,4 °C sa pile faiblit, et hors de cette plage on ne sait plus ce que sent sa cellule. Il va dans le vestiaire, et ce qu’il surveille, c’est la pièce où on refroidit. L’hiver, ce vestiaire est sous 4,4 °C tant que la pièce chaude ne l’a pas réchauffé : l’avertisseur y arrive au chaud, dans une poche intérieure, et ne s’y pose qu’une fois l’air au-dessus du seuil. Son bouton d’essai prouve la pile, le circuit et la sirène, pas la cellule : on lit l’affichage, on ne se fie pas au silence. Dans des bains de vapeur chauffés au bois où on l’a mesuré, l’air portait en moyenne plusieurs centaines de ppm de CO, et les baigneurs sortaient avec 12 à 14 % de leur hémoglobine bloquée en moyenne, jusqu’à 30 %. <strong>Les enfants y atteignaient le même taux que les adultes en y passant deux tiers de temps en moins</strong> : l’enfant qui sort le premier n’est pas le moins exposé. Le CO ne vient pas des pierres : il vient du feu, et des <strong>braises</strong> qu’on laisse avec elles. Un poêle étouffé, une porte de foyer ouverte pendant la séance, une braise qui couve sous les pierres d’un bain de vapeur, et la pièce se charge. Les règles : un poêle raccordé à son tuyau et qui brûle vif ; les charges avant la séance ; jamais d’étouffement ; pas une braise dans un bain de vapeur (section 9) ; les enfants dans la pièce seulement une fois la dernière charge prise ; l’avertisseur dans un vestiaire au-dessus de 4,4 °C, lu à chaque séance ; et <strong>au premier mal de tête, on sort à l’air, pas sur le banc du bas</strong>.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">La chaleur mouillée tue en minutes, sans prévenir.</strong> Au championnat de sauna de 2010, en Finlande, la pièce était à plus de 110 °C et on jetait un demi-litre d’eau sur le poêle toutes les 30 secondes. Au bout d’environ six minutes, un finaliste dans la soixantaine s’est effondré et il est mort ; l’autre a été hospitalisé, et des témoins les ont décrits tous deux brûlés au point de saigner. Pour beaucoup de Finlandais, 80 à 110 °C est la routine : ce qui a changé ce jour-là, c’est l’eau jetée sans arrêt, qui empêche la sueur de s’évaporer et qui se condense sur la peau. Même sans excès, sur 60 volontaires de 18 à 63 ans à 80-90 °C, trois se sont évanouis en 20 minutes, et les changements sont venus <strong>sans aucun signe annonciateur</strong>. Au-delà de 40 °C au centre du corps, avec confusion ou perte de connaissance, c’est le <strong>coup de chaleur</strong> : la vie est en jeu, et la seule chose qui compte est de refroidir tout de suite (section 7). Séances de 5 à 20 minutes ; jamais plus de 100 °C ; l’eau à la louche, pas à la chaudière ; et on ne dort jamais dans un sauna chaud.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">L’alcool et la solitude.</strong> La moitié des morts au sauna en Finlande avaient bu, et 71 % de ceux qui ont été analysés en Suède. L’alcool fait tomber la pression, dérègle le cœur, fait glisser sur le plancher et endort dans la chaleur. Et en Suède, presque tous ceux qu’on a trouvés morts dans le sauna même étaient seuls : un évanouissement dont personne n’est témoin reste dans la chaleur jusqu’à la fin. Pas de sauna après un verre, et jamais seul.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">C’est à la sortie qu’on tombe, et un enfant plus encore.</strong> La pression baisse quand on se lève et quand on quitte la chaleur, pas pendant qu’on est assis dedans. Chez les enfants de moins de 10 ans gardés dix minutes dans la chaleur d’un sauna, c’est <strong>juste après</strong> que la pression a chuté. L’évanouissement vient debout, avant qu’on ait pu s’asseoir, et une chute sur la tôle ou sur les pierres est une brûlure profonde. D’où la truie hors du passage, derrière sa garde de fer (étape 6), la porte qui s’ouvre vers l’extérieur, sans loquet, et le banc du vestiaire où tout le monde s’assoit en sortant.</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Le sauna est le bâtiment qui brûle.</strong> Environ 80 % des feux d’été dans les chalets de Finlande partent du sauna : poêles et tuyaux mal entretenus, poêles montés trop près du bois, cendres chaudes mal rangées, et du linge qui sèche au-dessus des pierres. Le sauna se bâtit loin du chalet et du bûcher (étape 1), son tuyau porte un pare-étincelles, on ne quitte pas le poêle pendant la chauffe, et les cendres attendent <strong>au moins 7 jours</strong> dans leur contenant fermé.</p>
+<p class="pt"><span class="pn">6</span><strong class="plead">Une pierre qui éclate tire ses éclats à hauteur de visage.</strong> Pierre ramassée dans l’eau, pierre de quartz ou feuilletée : au feu ou sous la première eau, elle se fend d’un coup. Sous la bâche, où on est assis au ras du bac, c’est le visage qui est dans l’axe. Chaque pierre s’éprouve dehors, au feu et à l’eau jetée de loin, avant d’entrer (étape 14).</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans poêle de fabrication, sans tuyau, sans cabane, sans thermomètre : un bain de chaleur se fait encore, parce que tout ce qu’il demande est une pièce qui garde l’air et des pierres qui gardent la chaleur. Chaque version en dessous est plus dangereuse que la précédente, et chacune dit pourquoi.</p>
+<h3 class="sub">Le bain de vapeur sous une bâche</h3>
+<p class="p0">C’est la version sans rien : des perches, une bâche, des pierres et un feu dehors.</p>
+<p class="p0 ri"><strong class="runin">Le principe.</strong> Les pierres chauffent dans un feu <strong>à l’extérieur</strong>, puis on les porte dans un abri fermé et on les arrose. Aucun feu dans l’abri, donc aucun tuyau à monter. La chaleur dure ce que durent les pierres.</p>
+<p class="p0 lab kh"><strong class="runin">L’abri.</strong></p>
+<p class="step"><span class="sn">1</span><strong>Choisir un replat à l’abri du vent, près du feu des pierres</strong>, assez près pour porter une pierre à la pelle sans courir, assez loin pour qu’une flammèche ne tombe pas sur la bâche. Loin des arbres morts et du bûcher.</p>
+<p class="step"><span class="sn">2</span><strong>L’armature : des perches vertes pliées en dôme</strong>, les bouts plantés dans la neige tapée ou la terre, attachés au sommet et croisés à mi-hauteur. Assez haut pour s’asseoir, pas plus : chaque volume de trop est de l’air à chauffer avec des pierres qui refroidissent. À défaut de perches qui plient, trois perches en trépied contre un arbre ou un appentis appuyé à un rocher.</p>
+<p class="step"><span class="sn">3</span><strong>La couverture : la bâche, puis par-dessus ce qui isole</strong> — une deuxième bâche, des couvertures de laine, des branches de sapin, de la neige pelletée contre le bas. Une bâche seule laisse partir la chaleur en quelques minutes ; doublée, elle la garde. Le bas se ferme à la neige tapée, comme le bas de la toile de la tente d’hiver (<span class="ref">ch. 12</span>) : c’est par là que l’air froid entre.</p>
+<p class="step"><span class="sn">4</span><strong>La porte : un rabat</strong> de bâche ou de couverture, lesté en bas d’une perche, qui se pousse de l’intérieur. Jamais attaché : quelqu’un qui se sent mal doit sortir d’un coup d’épaule.</p>
+<p class="step"><span class="sn">5</span><strong>Une petite ouverture en haut</strong>, du côté opposé à la porte, qu’on agrandit ou qu’on bouche d’un bout de bâche : l’air usé sort par là, l’air frais entre par le bas de la porte. C’est la ventilation de l’étape 7, en toile.</p>
+<p class="step"><span class="sn">6</span><strong>Le bac à pierres au centre, séparé des gens.</strong> Une vieille marmite de fonte, un demi-baril ou une grande poêle d’acier, jamais galvanisés (section 5-C), le tout posé sur un lit de pierres plates ; à défaut, un trou creusé jusqu’au sol et tapissé de pierres. Autour, <strong>une barrière de deux billes vertes</strong> couchées, qui marquent la limite qu’on ne franchit pas et qui arrêtent le pied qui glisse. La bâche ne touche jamais le bac ni les pierres : une bâche de plastique fond, coule et prend feu au contact d’une pierre qui sort d’un feu.</p>
+<p class="step"><span class="sn">7</span><strong>Le plancher : du sapinage épais, posé en écailles comme au <span class="ref">ch. 12</span> (section 5-E), gardé loin du bac.</strong> Le sapinage sec qui touche une pierre chaude s’enflamme ; on garde un rond de sol nu autour du bac, comme autour du poêle de la tente.</p>
+<p class="p0 lab kh"><strong class="runin">Les pierres.</strong></p>
+<p class="step"><span class="sn">8</span><strong>Les mêmes pierres qu’au sauna</strong> (étapes 10 à 14) : sèches, foncées, denses, éprouvées au feu <strong>avant</strong> le jour du bain. Une pierre inconnue qui éclate dans un abri de toile éclate à hauteur de figure de gens assis.</p>
+<p class="step"><span class="sn">9</span><strong>Les chauffer longtemps, au cœur du feu</strong>, empilées sur un lit de bûches, recouvertes de bois, le feu nourri jusqu’à ce qu’il tombe en braises. Elles sont prêtes quand une goutte d’eau jetée dessus ne s’étale pas mais danse en sifflant et disparaît.</p>
+<p class="step"><span class="sn">10</span><strong>Les sortir à la pelle, ou avec deux bâtons verts taillés en pince</strong>, comme les pierres à faire bouillir l’eau (<span class="ref">ch. 10</span>, section 9).</p>
+<p class="step"><span class="sn">11</span><strong>Brosser chaque pierre avant qu’elle entre.</strong> Une branche verte de sapin, deux ou trois coups dehors : on fait tomber les braises, le charbon et la cendre collés dessus. <strong>C’est l’étape qui empêche le monoxyde.</strong> Des pierres seules n’en font presque pas ; ce sont les braises et le charbon qu’on laisse avec elles qui en font, et l’eau jetée dessus ne le chasse pas tant qu’elles sont là. Pas une braise sous la bâche.</p>
+<p class="step"><span class="sn">12</span><strong>Charger le bac, fermer, attendre que l’air se réchauffe</strong> avant de jeter la première eau.</p>
+<p class="p0 lab kh"><strong class="runin">Le bain.</strong></p>
+<p class="step pk-d"><span class="sn">13</span><strong>Toujours à deux, jamais après un verre.</strong> Les règles de la section 8 valent ici plus qu’ailleurs : il n’y a ni porte qui s’ouvre toute seule, ni thermomètre, ni avertisseur possible sous la bâche.</p>
+<p class="step"><span class="sn">14</span><strong>L’eau à la louche, tiède, une à la fois, annoncée</strong>, personne penché au-dessus du bac. La vapeur monte d’un coup ; le visage au-dessus est le premier brûlé.</p>
+<p class="step"><span class="sn">15</span><strong>Des séances plus courtes qu’au sauna.</strong> Sans thermomètre, la mesure est le corps, et le corps se trompe dans la chaleur mouillée : on sort avant d’en avoir envie, et au premier mal de tête, étourdissement ou nausée.</p>
+<p class="step pk-d"><span class="sn">16</span><strong>Sortir vers le chaud, pas vers la neige.</strong> On sort à quatre pattes, on s’assoit, puis on traverse <strong>habillé</strong> au chalet ou dans la tente chauffée. La chaleur des pierres ne suit pas dehors, et un corps mouillé à −30 °C perd sa chaleur par l’eau et par l’air en même temps (<span class="ref">ch. 31</span>, section 8, point 6).</p>
+<p class="step"><span class="sn">17</span><strong>Les enfants de 4 et 6 ans</strong> entrent à la fin, quand les pierres ont baissé, une courte séance, assis de l’autre côté de la barrière de billes avec un adulte entre eux et le bac, et pas d’eau sur les pierres pendant qu’ils sont là. Un bac de pierres est au niveau d’un enfant assis, comme la truie du sauna l’est d’un enfant debout : d’où la barrière ici et la garde de fer là-bas (section 5-A, étape 6).</p>
+<p class="step"><span class="sn">18</span><strong>Après :</strong> les pierres restent dans le bac jusqu’au lendemain ; le feu dehors se noie ou se couvre de neige, et on vérifie qu’il ne couve pas avant de se coucher.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd.</strong> La mesure : ni thermomètre, ni avertisseur, ni porte, rien qui arrête une erreur avant le corps. La durée : la chaleur baisse dès que les pierres entrent, et relancer demande de ressortir, de rechauffer et de rebrosser. Le lavage : on sue, mais on se lave mieux au chalet, à l’eau chaude. La marge : chaque danger du sauna est présent, plus la bâche qui brûle et les pierres au ras du sol.</p>
+<h3 class="sub">Le sauna dans la tente d’hiver</h3>
+<p class="p0">La tente à poêle du <span class="ref">ch. 12</span> fait un sauna quand elle est de toile. On monte au-dessus du poêle de tôle une petite cage de fil de fer ou de treillis, ni l’un ni l’autre galvanisé, remplie de pierres éprouvées. Elle ne repose pas sur la tôle mince du dessus : ses pattes portent sur les pieux du <span class="ref">ch. 12</span> (section 5-D), ou sur deux traverses de fer liées d’un pieu à l’autre, <strong>jamais dans la neige</strong>, qui fond sous le poêle et la ferait pencher contre lui ou contre la toile. Les pierres restent sur le poêle, pas autour du tuyau. Toutes les règles du <span class="ref">ch. 12</span> s’appliquent, et certaines deviennent plus sévères :</p>
+<p class="li"><strong>quelqu’un de sec et habillé veille</strong> le poêle pendant qu’un autre sue, et le feu est mort avant que le dernier adulte se couche ;</p>
+<p class="li"><strong>l’avertisseur de CO de la tente quitte sa place pendant le sauna</strong> : la chaleur et la vapeur le sortent de sa plage, et c’est lui qui gardera la nuit. Il passe dans la poche intérieure de celui qui veille, contre le corps, et revient au coucher comme le veut le <span class="ref">ch. 12</span> (section 5-F, point 3) : bouton d’essai, affichage lu ;</p>
+<p class="li"><strong>pas d’eau jetée près de la toile</strong> : la vapeur se dépose sur la toile froide, y gèle la nuit et retombe en pluie au premier feu du matin, comme le givre d’haleine du <span class="ref">ch. 12</span> ; on arrose seulement les pierres, peu à la fois ;</p>
+<p class="li"><strong>une tente de nylon ne fait pas de sauna</strong> : le nylon fond là où la toile roussit ;</p>
+<p class="li">le rond de neige nue autour du poêle reste nu, sapinage loin.</p>
+<p>Ce qu’on perd : la tente est l’abri où on dort, et on y met de l’humidité qu’elle mettra des jours à perdre. C’est une chaleur d’occasion, pas un sauna de semaine.</p>
+<h3 class="sub">Le sauna à fumée, quand il n’y a pas de tuyau</h3>
+<p class="p0">C’est la forme la plus ancienne du sauna, et la seule cabane de sauna qui se bâtit sans une pièce de métal : un poêle de pierres sèches dans une cabane, la fumée qui sort par la porte et par une trappe sous le toit.</p>
+<p class="p0 ri"><strong class="runin">Le poêle.</strong> Un foyer étroit entre deux murets de grosses pierres sèches, et un toit de pierres qui le franchit ; par-dessus, le tas de pierres de sauna, les plus grosses en bas. Les vieux saunas finlandais montaient ce toit en voûte de pierres sans mortier, ce qui demande un savoir de maçon que ce livre n’enseigne pas. Le plus simple est une dalle plate, épaisse et dense, posée en travers du foyer comme un linteau, ou deux dalles appuyées l’une contre l’autre en toit. Plus le foyer est étroit, moins la dalle travaille : on le fait juste assez large pour les bûches refendues, et la dalle porte à plat sur toute l’épaisseur de chaque muret. Chaque pierre porteuse passe l’épreuve du feu et de l’eau de la section 5-B (étape 14), dehors, avant d’être montée : une dalle qui se fend fait tomber le tas dans le foyer. Si une pierre porteuse craque pendant une chauffe, on laisse mourir le feu, personne n’entre, et on défait le poêle à froid pour la remplacer. Le feu chauffe directement les pierres, et la fumée remplit la cabane avant de sortir. Les pierres et les murs emmagasinent la chaleur des heures durant.</p>
+<p class="p0 ri"><strong class="runin">La cabane</strong> est celle de la section 5-A (étapes 2 à 4), petite, basse, porte vers l’extérieur sans loquet, avec une trappe près du toit, du côté opposé à la porte.</p>
+<p class="p0 lab kh"><strong class="runin">La chauffe.</strong></p>
+<p class="step"><span class="sn">1</span><strong>La fumée sort d’abord par la porte ouverte, puis par la trappe haute.</strong> Elle doit sortir lentement, sans coup de vent, et sa couche doit rester le plus haut possible — au niveau du banc ou plus haut. On règle avec la trappe et la porte ; l’été, si le vent le permet, tout reste ouvert.</p>
+<p class="step"><span class="sn">2</span><strong>Bois sec, mélangé, coupé le plus petit possible : 2 à 5 cm.</strong> Le petit bois fait six fois moins de monoxyde que le gros. La dernière charge se fait en tout petit bois de peuplier faux-tremble (<em>Populus tremuloides</em>) ou d’aulne rugueux (<em>Alnus incana</em>) ; l’aulne n’a pas de gomme.</p>
+<p class="step pk-c"><span class="sn">3</span><strong>Viser une chaleur basse et égale : 60 à 80 °C.</strong> Un sauna à fumée trop chaud se gâte.</p>
+<p class="step"><span class="sn">4</span><strong>Chaque charge fait un pic de monoxyde</strong>, très haut au premier allumage, puis à chaque ajout.</p>
+<p class="p0 lab kh"><strong class="runin">Avant d’entrer.</strong></p>
+<p class="step"><span class="sn">5</span><strong>Attendre au moins une heure</strong>, porte et trappe ouvertes, que les braises s’éteignent et que la fumée parte.</p>
+<p class="step"><span class="sn">6</span><strong>Sortir le charbon et la cendre</strong> au contenant métallique. C’est l’étape qui décide : fermer la trappe sur des braises pour garder la chaleur fait monter le monoxyde très haut et l’y garde, et l’eau jetée sur les pierres <strong>ne le chasse pas</strong> tant qu’il reste des braises — elle les ranime. Une fois les braises sorties, l’eau sur les pierres n’en fait presque plus.</p>
+<p class="step"><span class="sn">7</span><strong>Fermer seulement ensuite</strong>, et entrer comme dans le sauna de la section 5-E.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd.</strong> Des heures de bois et de surveillance pour chaque bain. La propreté : la suie noircit tout, et on en ressort marqué si on s’appuie au mur. Et surtout la marge sur le monoxyde : c’est la version où il est le plus présent, et la seule protection est d’attendre et de sortir les braises. Personne n’entre « pour voir » avant l’heure. Les enfants de 4 et 6 ans n’y vont que lorsque les adultes y ont passé une première séance sans le moindre mal de tête.</p>
+<h3 class="sub">La cage et le baril, sans soudeuse</h3>
+<p class="p0">La cage à pierres de la truie se fait sans poste, parce que rien n’y pend à une ligature : les deux piles de pierres sèches de l’étape 6 portent tout, et les barres ne font que s’y poser. Le fond de treillis ou de fers croisés repose sur les barres, au-dessus du baril, sans le toucher. Les quatre fers debout qui tiennent le tas sur les côtés se lient aux barres et se cerclent à deux hauteurs de fil de fer doublé et tordu à la pince (<span class="ref">ch. 107</span>, section 9-D) ; une ligature tient mal en traction, et elle ne sert ici qu’à retenir les pierres de côté. Les cerceaux d’un deuxième baril, coupés au ciseau à froid, font les cercles. Avec des batteries d’auto montées en série (<span class="ref">ch. 107</span>, section 9-A), on soude au lieu de ligaturer. <strong>Ce qu’on perd</strong> : une cage ligaturée se relâche en chauffant ; on resserre le fil à froid avant chaque saison, et une pile de pierres qui a bougé se remonte avant le feu.</p>
+<h3 class="sub">Le balai de bouleau</h3>
+<p class="step"><span class="sn">1</span><strong>En été, par temps sec</strong>, couper des branches de bouleau à papier (<em>Betula papyrifera</em>) d’environ 50 cm, pleines de feuilles, sans en couper le bout. Pas de branches mouillées, pas de branches de cime trop minces, pas de branches pendantes trop molles.</p>
+<p class="step"><span class="sn">2</span><strong>Les réunir, le dessous pâle des feuilles vers l’extérieur</strong>, et lier le manche à deux endroits d’une pousse de saule (<em>Salix</em> spp.) d’un an, tordue pour l’assouplir, le bout repassé dans le manche.</p>
+<p class="step"><span class="sn">3</span><strong>Pour l’hiver</strong> : le suspendre dans un endroit frais, sombre et aéré pour le faire sécher, ou l’enfermer tout de suite dans un sac en chassant l’air et la geler dehors.</p>
+<p class="step"><span class="sn">4</span><strong>Avant de s’en servir</strong>, tremper un balai séché environ une heure et demie à deux heures dans de l’eau tiède ; entre deux coups, le garder dans une chaudière d’eau presque froide. <strong>Jamais dans l’eau chaude ni sur les pierres.</strong></p>
+<p class="step"><span class="sn">5</span>On s’en fouette doucement les jambes, le dos et les bras : ça remue l’air chaud contre la peau et ça sent la forêt d’été.</p>
+<h3 class="sub">Dormir au chaud sans chauffer la nuit</h3>
+<p class="p0">Quand le bois manque et que le poêle meurt à minuit, ce qu’on garde chaud, c’est le lit, pas la pièce :</p>
+<p class="li"><strong>autant sous soi que sur soi</strong> : couvertures pliées sous le corps, sapinage sous le matelas, ou le matelas monté sur des planches plutôt que posé au plancher froid ;</p>
+<p class="li"><strong>la roche du poêle ou la bouteille d’eau chaude</strong> au pied du lit, enveloppée (<span class="ref">ch. 06</span>, section 9) : des pieds chauds font s’endormir ;</p>
+<p class="li"><strong>la tuque</strong>, toute la nuit ;</p>
+<p class="li"><strong>les deux enfants dans le même lit</strong>, dans la pièce la plus chaude, près de la cible de 19 °C du <span class="ref">ch. 39</span> ; les adultes dorment dans la pièce plus froide, dans un lit chaud.</p>
+<p>Ce qu’on perd : la marge pour les enfants, qui se découvrent. Celle des adultes aussi, en partie : une chambre froide ne gâte pas leur sommeil, mais le froid agit sur leur cœur par le visage et l’air respiré sans les réveiller, et c’est pour ça qu’elle se garde au-dessus de 10 °C même dans un lit chaud (étape 51).</p>
+<h3 class="sub">La lumière, sans lampe de luminothérapie</h3>
+<p class="p0">Une lampe de luminothérapie donne environ 10 000 lux à une trentaine de centimètres. Une chandelle donne environ 11 lux à la même distance. Il en faudrait de l’ordre de <strong>900</strong> pour faire la même chose, et 900 chandelles dans une pièce sont 900 feux et 900 sources de monoxyde (<span class="ref">ch. 85</span>). La lumière qui soigne l’hiver ne se fabrique pas au chalet : elle est dehors, et elle est gratuite.</p>
+<p class="li"><strong>Sortir dans l’heure du réveil, ou dès qu’il fait clair, une heure si on peut</strong> (étape 55). Même sous un ciel bas de janvier, le dehors donne des centaines à des milliers de fois la lumière d’une pièce éclairée à la chandelle.</p>
+<p class="li"><strong>Déplacer la journée vers la lumière</strong> (<span class="ref">ch. 85</span>) : le travail fin et les repas de famille se font quand il fait jour, à la fenêtre ; la veillée se fait à la flamme basse.</p>
+<p class="li"><strong>Blanchir ce qui entoure la place du matin</strong> : un drap blanc au mur, une tôle polie. Ça ne fait pas une lampe de luminothérapie, ça rend la table du déjeuner moins sombre.</p>
+<p>Ce qu’on perd : les jours où le froid interdit de sortir (seuils du <span class="ref">ch. 25</span>). Ces jours-là, il n’y a pas de remplacement : la chaise à la fenêtre, et la sortie du lendemain.</p>
+<h3 class="sub">Le massage et l’étirement, avec rien</h3>
+<p class="p0">Le gras propre de la cuisine — suif ramolli dans les mains, graisse d’ours ou d’orignal fondue et refroidie — fait l’huile de massage ; la graisse rance va aux lampes (<span class="ref">ch. 85</span>), pas sur la peau. Les étirements de l’étape 62 ne demandent qu’un banc et le plancher. Ce qu’on perd : rien, sinon le temps de le faire.</p>
+<h3 class="sub">Ce qui ne se remplace pas</h3>
+<p class="p0 ri"><strong class="runin">L’avertisseur de CO du vestiaire.</strong> Il ne voit rien de la pièce chaude, il ne vaut rien sous 4,4 °C, et pourtant rien d’autre ne voit le monoxyde. Sans lui, ou avec lui dans un vestiaire froid, la prévention reste — poêle qui brûle vif, charges avant la séance, enfants après la dernière charge, braises sorties, sortie au premier mal de tête — et ne prévient de rien.</p>
+<p class="p0 ri"><strong class="runin">Une deuxième personne.</strong> Aucune variante ne remplace quelqu’un qui voit l’autre tomber.</p>
+<p class="p0 ri"><strong class="runin">La lumière du jour.</strong> Rien de ce qui brûle ou s’allume au chalet n’en approche.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="28-1"><span class="fnn">1</span>Chez l’enfant couché calme, torse nu : à chaque inspiration, le bas de la cage thoracique se creuse vers l’intérieur pendant que le haut du ventre se soulève. Ça compte seulement si c’est permanent et bien visible au repos ; un creux qui paraît quand l’enfant pleure ou mange, ou la peau qui se creuse seulement entre les côtes ou au-dessus de la clavicule, ne suffit pas. Chez l’adulte, c’est la peau qui se creuse entre les côtes ou au-dessus des clavicules.</p>
+<p class="fn" data-fn="28-2"><span class="fnn">2</span>Les narines s’ouvrent grand à chaque inspiration, comme chez quelqu’un qui vient de courir, alors que la personne est couchée au repos.</p>
+<p class="fn" data-fn="28-3"><span class="fnn">3</span>Un son court, répété, comme un petit grognement ou une plainte, à chaque expiration : l’enfant ferme à moitié sa gorge pour garder de l’air dans ses poumons.</p>
+<p class="fn" data-fn="28-4"><span class="fnn">4</span>Un son rauque et aigu qu’on entend quand la personne <strong>inspire</strong>, pas quand elle expire. Au repos, il veut dire que le passage de l’air dans la gorge est en train de se fermer.</p>
+<p class="fn" data-fn="28-5"><span class="fnn">5</span>Presser fermement le flanc d’un verre transparent sur la tache et regarder à travers. Une tache qui pâlit et disparaît sous la pression est une rougeur ordinaire. <strong>Une tache qui reste visible à travers le verre</strong> est du sang sorti sous la peau. Elle commence souvent en petits points rouges comme des piqûres d’épingle, puis s’étend en taches rouges ou violettes. Sur une peau foncée, on regarde les zones pâles : paumes, plantes des pieds, palais, blanc des yeux, intérieur des paupières. Tous les malades graves n’ont pas de taches : leur absence ne rassure pas.</p>
+<p class="fn" data-fn="28-6"><span class="fnn">6</span>La personne couchée ou assise, on lui demande d’amener le menton sur la poitrine, ou on soulève doucement sa tête pour le faire. Une nuque raide résiste : le geste est très douloureux, parfois impossible, alors que tourner la tête de côté l’est beaucoup moins. Le signe se cherche chez l’enfant plus vieux et l’adulte ; le tout-petit peut ne pas l’avoir.</p>
+<p class="fn" data-fn="28-7"><span class="fnn">7</span>Le bleu ou le gris se voit d’abord aux lèvres, à la langue, aux gencives et sous les ongles ; sur une peau foncée, aux paumes, aux lèvres, à la langue, aux gencives et autour des yeux. Il apparaît tard, quand il manque déjà beaucoup d’oxygène.</p>
+<p class="fn" data-fn="28-8"><span class="fnn">8</span>Une peau tachetée de violet, de gris et de pâle, comme du marbre ; sur une peau foncée, elle se voit mieux aux paumes et à la plante des pieds. Avec la fièvre et des mains et des pieds froids, c’est la circulation qui se ferme à la peau pour garder le sang au centre du corps (<span class="ref">ch. 26</span>, section 8).</p>
+<p class="fn" data-fn="28-9"><span class="fnn">9</span>Une fièvre qui dure au moins 5 jours et ne cède pas aux médicaments, le plus souvent chez un enfant de moins de 5 ans, avec plusieurs de ces signes : les yeux rouges <strong>sans écoulement</strong>, apparus au bout d’un ou deux jours ; les lèvres rouges, sèches et fendues, la langue rouge comme une fraise ; les paumes et la plante des pieds rouges ou violacées, les mains et les pieds enflés ; une éruption de taches rouges sur le tronc ; des ganglions enflés au cou. Vers le 10e jour, la peau du bout des doigts pèle.</p>
+<p class="fn" data-fn="28-10"><span class="fnn">10</span>Derrière l’oreille, sur l’os qu’on sent en arrière du pavillon : une bosse rouge, chaude, douloureuse au toucher, qui pousse le pavillon vers l’avant et le décolle de la tête. On compare avec l’autre côté, en regardant l’enfant de face puis de derrière. L’enfant est fatigué, irritable, entend moins de ce côté.</p>
+<p class="fn" data-fn="28-11"><span class="fnn">11</span>Des gestes brusques, sans but, que l’enfant ne contrôle pas, des mains d’abord, puis des pieds et du visage, avec des grimaces ; ils disparaissent pendant le sommeil. Dans les cas légers, l’enfant a seulement l’air maladroit et peine à s’habiller et à manger. Ils peuvent n’apparaître qu’une fois tous les autres signes disparus.</p>
+<p class="fn" data-fn="28-12"><span class="fnn">12</span>L’enfant a une forte fièvre apparue en moins d’une journée, il est anxieux, assis, penché en avant, la bouche ouverte, la salive qui coule parce qu’avaler fait trop mal. Il ne tousse pas et sa voix n’est pas rauque, ce qui le distingue du croup, où la toux aboie. Il refuse de se coucher : c’est sa façon de garder l’air ouvert.</p>
+<p class="fn" data-fn="28-13"><span class="fnn">13</span>Un mal de gorge qui s’aggrave au lieu de passer, plus fort d’un côté ; la voix étouffée, comme avec une patate chaude dans la bouche ; la bouche qui n’ouvre plus qu’à moitié parce que les mâchoires se contractent ; à la lampe, un côté du fond de la gorge bombe et pousse la luette — le petit bout de chair qui pend au milieu — vers l’autre côté.</p>
+<p class="fn" data-fn="28-14"><span class="fnn">14</span>On demande à la personne de suivre un doigt des yeux, à gauche, à droite, en haut, en bas. Dans l’infection de l’orbite, bouger l’œil fait mal, un œil suit moins bien que l’autre, elle voit le doigt en double ; vu de profil ou d’en haut, l’œil malade dépasse l’autre.</p>
+<p class="fn" data-fn="28-15"><span class="fnn">15</span>Aucune urine depuis plus de 8 heures ; pas de larmes quand il pleure ; les yeux enfoncés ; la bouche et la langue sèches ; une soif extrême, ou au contraire un enfant qui ne veut plus boire ; une respiration plus rapide ; étourdi ou confus ; une peau froide et bleutée qui, pincée doucement entre deux doigts, ne reprend pas sa place tout de suite.</p>
+<p class="fn" data-fn="28-16"><span class="fnn">16</span>Un vomi vert franc, ou jaune-vert comme de l’herbe écrasée : c’est de la bile. Chez un enfant, c’est un signe qui ne se discute pas, même si le reste a l’air d’une gastro ordinaire.</p>
+<p class="fn" data-fn="28-17"><span class="fnn">17</span>Des traînées rouges, chaudes et douloureuses partent de l’infection et remontent le long du bras ou de la jambe, vers l’aisselle ou l’aine, souvent avec fièvre et frissons : l’infection gagne les vaisseaux lymphatiques (<span class="ref">ch. 26</span>).</p>
+<p class="fn" data-fn="28-18"><span class="fnn">18</span>La peau craque sous le doigt quand on appuie, comme s’il y avait des bulles dessous : c’est du gaz que l’infection fabrique. Elle peut aussi virer au bronze, au violet ou au noir et se couvrir de cloques au liquide brun. La douleur est bien plus forte que ce que la peau laisse voir, puis la zone devient insensible (<span class="ref">ch. 26</span>).</p>
+<p class="fn" data-fn="28-19"><span class="fnn">19</span>Le triangle qui va des coins de la bouche jusqu’à la racine du nez, entre les yeux : le nez, la lèvre du haut, les ailes du nez, le creux à côté du nez. Les veines de cette zone se vident vers une grosse veine à la base du crâne, derrière les yeux.</p>
+<p class="fn" data-fn="37-1"><span class="fnn">1</span>Une douleur d’angine stable vient à un effort connu, toujours le même, reste courte et passe au repos. Celle qui interdit le sauna est prolongée et vient d’ordinaire au repos. Elle peut annoncer un infarctus : ce signe veut dire que la vie est en jeu, et la chaleur n’a rien à y faire.</p>
+<p class="fn" data-fn="37-2"><span class="fnn">2</span>Dans les premières minutes d’un arrêt du cœur, la personne inconsciente fait souvent encore des bouffées : des halètements bruyants, comme un ronflement, de plus en plus espacés, la bouche qui s’ouvre comme celle d’un poisson sorti de l’eau. Ce n’est pas une respiration, c’est le signe de l’arrêt.</p>
+</template>
+<script type="application/json" id="meta">{"num": "37", "title": "Le sauna et le bien-être", "tome": "Tome 2 · Le corps", "tnum": 2, "tfond": "#5C1A15", "tencre": "#F3ECE5", "lieu": "Chalet", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

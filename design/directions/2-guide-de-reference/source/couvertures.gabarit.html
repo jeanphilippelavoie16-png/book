@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>Couvertures — direction 2, grand guide de référence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=block" rel="stylesheet">
+<style>
+/* Couverture rigide ImageWrap, format 8 × 10 po : plat de 8,25 × 10,25 po.
+   Fond perdu montré : 0,125 po tout autour. Le rabat d'ImageWrap (la part qui
+   s'enroule sous les gardes) vient du calculateur Blurb : les fonds sont des
+   aplats, ils s'étirent sans rien changer à la composition. */
+:root{ --bl:.125in; --serif:'Source Serif 4', Georgia, serif; --sans:'Source Sans 3', Arial, sans-serif }
+@page front{ size:8.5in 10.5in; margin:0 }
+@page wrap{ size:17.75in 10.5in; margin:0 }
+html,body{ margin:0; padding:0 }
+body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; font-kerning:normal; text-rendering:geometricPrecision }
+.sheet-front{ page:front; position:relative; width:8.5in; height:10.5in; overflow:hidden; break-after:page }
+.sheet-wrap{ page:wrap; position:relative; width:calc(2 * var(--bl) + 16.5in + var(--tr)); height:10.5in; overflow:hidden; break-after:page }
+.sheet-front .front{ position:absolute; left:var(--bl); top:var(--bl) }
+.sheet-front{ background:var(--sbg) }
+
+/* ---------- première de couverture ---------- */
+.front{ position:relative; width:8.25in; height:10.25in; color:var(--ink); background:var(--bg) }
+.f-serie{ position:absolute; left:.85in; right:.85in; top:.78in; padding-bottom:.15in; border-bottom:.6pt solid var(--ink);
+  font:600 9.5pt/1 var(--sans); letter-spacing:.34em; text-transform:uppercase }
+.f-tome{ position:absolute; left:.85in; top:1.5in; font:italic 400 17pt/1 var(--serif); font-variation-settings:'opsz' 24; letter-spacing:.01em }
+.f-titre{ position:absolute; left:.8in; right:.6in; top:1.86in; margin:0; font:600 94pt/.98 var(--serif); font-variation-settings:'opsz' 60; letter-spacing:-.025em }
+.f-titre span{ display:block }
+.f-titre.n2{ font-size:84pt }
+.f-ch{ position:absolute; left:.85in; top:var(--chtop, 3.52in); font:600 8.8pt/1 var(--sans); letter-spacing:.24em; text-transform:uppercase }
+.f-img{ position:absolute; left:.85in; right:.85in; top:4.3in; bottom:1.28in }
+.f-img svg{ width:100%; height:100%; display:block; overflow:visible }
+.f-pied{ position:absolute; left:.85in; right:.85in; bottom:.72in; padding-top:.14in; border-top:.6pt solid var(--ink);
+  font:500 8pt/1 var(--sans); letter-spacing:.2em; text-transform:uppercase }
+.f-pied span{ margin:0 .35em }
+
+/* ---------- couverture complète ---------- */
+.wrap-bg{ position:absolute; inset:0; background:var(--bg) }
+.panel{ position:absolute; top:var(--bl); height:10.25in }
+.p-back{ left:var(--bl); width:8.25in }
+.p-spine{ left:calc(var(--bl) + 8.25in); width:var(--tr) }
+.p-front{ left:calc(var(--bl) + 8.25in + var(--tr)); width:8.25in }
+.p-front .front{ box-shadow:none }
+.back{ position:relative; width:8.25in; height:10.25in; background:var(--bg); color:var(--ink) }
+.b-serie{ position:absolute; left:.85in; right:.85in; top:.78in; padding-bottom:.15in; border-bottom:.6pt solid var(--ink);
+  font:600 9.5pt/1 var(--sans); letter-spacing:.34em; text-transform:uppercase }
+.b-serie span{ margin:0 .3em }
+.b-titre{ position:absolute; left:.85in; top:1.42in; font:600 30pt/1 var(--serif); font-variation-settings:'opsz' 60; letter-spacing:-.015em }
+.b-ch{ position:absolute; left:.85in; top:2.02in; font:600 8.8pt/1 var(--sans); letter-spacing:.24em; text-transform:uppercase }
+.b-liste{ position:absolute; left:.85in; right:.85in; top:2.5in; margin:0; padding:0; list-style:none; columns:2; column-gap:.35in;
+  font:400 11pt/16.4pt var(--serif); font-variation-settings:'opsz' 14 }
+.b-liste li{ break-inside:avoid; padding-left:.34in; text-indent:-.34in }
+.b-liste b{ display:inline-block; width:.34in; text-indent:0; font:700 8.5pt/1 var(--sans); letter-spacing:.02em }
+.b-credo{ position:absolute; left:.85in; right:.85in; top:6.72in; margin:0; padding-top:.2in; border-top:.6pt solid var(--ink);
+  font:italic 400 19pt/1.2 var(--serif); font-variation-settings:'opsz' 36 }
+.b-serie4{ position:absolute; left:.85in; right:.85in; top:7.75in; margin:0; padding:0; list-style:none; display:grid; grid-template-columns:repeat(4, 1fr); gap:.12in;
+  font:500 8.2pt/1.25 var(--sans) }
+.b-serie4 li{ color:#c9c1b3 } .b-serie4 li.on{ color:var(--ink); font-weight:700 }
+.b-serie4 i{ display:block; height:.2in; margin-bottom:.08in; border:.6pt solid var(--ink); box-sizing:border-box }
+.b-serie4 b{ margin-right:.25em }
+.b-reserve{ display:none }
+
+/* ---------- dos ---------- */
+.spine{ position:relative; width:var(--tr); height:10.25in; background:var(--bg); color:var(--ink); overflow:hidden }
+.s-num{ position:absolute; left:0; right:0; top:.72in; text-align:center; font:400 30pt/1 var(--serif); font-variation-settings:'opsz' 60 }
+.s-txt{ position:absolute; left:0; right:0; top:1.55in; bottom:.7in; display:flex; justify-content:space-between; align-items:center;
+  writing-mode:vertical-rl; }
+.s-titre{ font:600 23pt/1 var(--serif); font-variation-settings:'opsz' 48; letter-spacing:-.008em }
+.s-serie{ font:600 7.2pt/1 var(--sans); letter-spacing:.3em; text-transform:uppercase }
+
+/* ---------- repères de contrôle (aperçu seulement) ---------- */
+.guides{ display:none; position:absolute; inset:0; pointer-events:none }
+.g .guides{ display:block }
+.g .b-reserve{ display:flex; position:absolute; left:50%; bottom:.3in; transform:translateX(-50%); width:2.2in; height:.55in; align-items:center; justify-content:center;
+  border:1pt dashed #00b7eb; color:#00b7eb; font:600 8pt var(--sans) }
+.g-trim{ position:absolute; inset:var(--bl); border:1pt solid #ff2d9b }
+.g-fold{ position:absolute; top:0; bottom:0; width:0; border-left:1pt dashed #ff2d9b }
+.g1{ left:calc(var(--bl) + 8.25in) } .g2{ left:calc(var(--bl) + 8.25in + var(--tr)) }
+.g-safe{ position:absolute; top:calc(var(--bl) + .5in); bottom:calc(var(--bl) + .5in); border:1pt dashed #00b7eb }
+.gs1{ left:calc(var(--bl) + .5in); width:calc(8.25in - 1in) } .gs2{ left:calc(var(--bl) + 8.25in + var(--tr) + .5in); width:calc(8.25in - 1in) }
+.g-lab{ position:absolute; top:.02in; font:600 10pt var(--sans); color:#ff2d9b; background:rgba(255,255,255,.85); padding:1px 4px }
+.l1{ left:3.6in } .l2{ left:calc(var(--bl) + 8.25in - .05in) } .l3{ left:calc(var(--bl) + 8.25in + var(--tr) + 3.4in) }
+.g .sheet-wrap{ outline:1px solid #999 }
+
+/* ---------- tablette ---------- */
+.sheet-shelf{ display:none }
+.shelf{ display:flex; gap:0; align-items:flex-end; padding:0 0 0 20px; border-bottom:10px solid #8b7355; width:max-content; padding-right:20px }
+.shelf .spine{ border-right:1.5px solid rgba(0,0,0,.28) }
+.shelf-lab{ margin-top:14px; font:600 13px var(--sans); color:#555 }
+
+/* ---------- aperçus ---------- */
+body.m-fronts, body.m-wrap, body.m-shelf{ background:#d9d6d0 }
+.m-fronts main{ display:flex; gap:36px; padding:36px; width:max-content }
+.m-fronts .sheet-front{ width:calc(8.25in * var(--k)); height:calc(10.25in * var(--k)); box-shadow:0 3px 14px rgba(0,0,0,.35) }
+.m-fronts .sheet-front .front{ left:0; top:0; transform:scale(var(--k)); transform-origin:0 0 }
+.m-fronts .sheet-wrap, .m-fronts .sheet-shelf{ display:none }
+.m-wrap main{ padding:36px }
+.m-wrap .sheet-front, .m-wrap .sheet-shelf{ display:none }
+.m-wrap .wrapbox{ width:calc((16.75in + var(--tr)) * var(--k)); height:calc(10.5in * var(--k)); position:relative; box-shadow:0 3px 14px rgba(0,0,0,.35) }
+.m-wrap .sheet-wrap{ position:absolute; top:0; left:0; transform:scale(var(--k)); transform-origin:0 0 }
+.m-shelf main{ padding:40px 60px }
+.m-shelf .sheet-front, .m-shelf .sheet-wrap{ display:none }
+.m-shelf .sheet-shelf{ display:block }
+.m-shelf .shelf{ zoom:1 }
+.m-shelf .shelf .spine{ transform-origin:0 0 }
+</style>
+</head>
+<body>
+<main id="c">
+<!--FRONTS-->
+<!--WRAP-->
+<!--SHELF-->
+</main>
+<script>/*HACHURES*/</script>
+<script>
+const P = new URLSearchParams(location.search), MODE = P.get('mode') || 'print';
+// typographie : apostrophe, espaces fines
+(function typo(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); const ns = []; while (w.nextNode()) ns.push(w.currentNode);
+  for (const n of ns){ if (n.parentElement.closest('script,style,svg')) continue;
+    n.nodeValue = n.nodeValue.replace(/'/g, '’').replace(/[  ]+([;:!?])/g, ' $1'); }
+})(document.getElementById('c'));
+function crop(){
+  document.querySelectorAll('svg.drw').forEach(svg => {
+    const g = svg.querySelector('g.keep');
+    let b = g.getBBox();
+    const ymax = svg.dataset.ymax ? +svg.dataset.ymax : null;
+    if (ymax && b.y + b.height > ymax) b = { x: b.x, y: b.y, width: b.width, height: ymax - b.y };
+    const p = Math.max(b.width, b.height) * .015;
+    svg.setAttribute('viewBox', `${b.x - p} ${b.y - p} ${b.width + 2 * p} ${b.height + 2 * p}`);
+    deplierHachures(svg);
+    // épaisseur de trait constante d'une couverture à l'autre, quelle que soit l'échelle du dessin
+    const box = svg.getBoundingClientRect(), f = svg.closest('.front');
+    const k = f ? f.getBoundingClientRect().width / f.offsetWidth : 1;   // échelle d'aperçu éventuelle
+    const s = Math.min(box.width / k / (b.width + 2 * p), box.height / k / (b.height + 2 * p));
+    svg.querySelectorAll('[stroke-width]').forEach(e => { if (e.closest('pattern')) return; e.setAttribute('stroke-width', (+e.getAttribute('stroke-width') / s).toFixed(3)); });
+    if (ymax){ const cp = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath'); const id = 'cp' + Math.random().toString(36).slice(2);
+      cp.id = id; cp.innerHTML = `<rect x="${b.x - p}" y="${b.y - p}" width="${b.width + 2 * p}" height="${b.height + 2 * p}"/>`; svg.prepend(cp); g.setAttribute('clip-path', `url(#${id})`); }
+  });
+  // la ligne « chapitres » suit le titre, qu'il tienne sur une ligne ou deux
+  document.querySelectorAll('.front').forEach(f => {
+    const t = f.querySelector('.f-titre'), c = f.querySelector('.f-ch');
+    const top = t.offsetTop + t.offsetHeight + 14;
+    c.style.top = top + 'px';
+  });
+}
+function arrange(){
+  document.body.classList.add('m-' + MODE);
+  if (P.get('guides')) document.documentElement.classList.add('g');
+  const k = +(P.get('k') || (MODE === 'fronts' ? .28 : MODE === 'wrap' ? .42 : .5));
+  document.body.style.setProperty('--k', k);
+  if (MODE === 'wrap'){ const s = document.querySelector('.sheet-wrap'); const b = document.createElement('div'); b.className = 'wrapbox'; b.style.setProperty('--tr', getComputedStyle(s).getPropertyValue('--tr')); s.before(b); b.appendChild(s); }
+  if (MODE === 'shelf'){ document.querySelectorAll('.shelf .spine').forEach(s => { s.style.zoom = k; }); }
+}
+document.fonts.ready.then(() => Promise.all(['600 94pt "Source Serif 4"', 'italic 400 17pt "Source Serif 4"', '600 9pt "Source Sans 3"', '500 8pt "Source Sans 3"'].map(f => document.fonts.load(f)))).then(() => {
+  crop(); arrange(); document.body.dataset.pret = '1';
+});
+</script>
+</body>
+</html>

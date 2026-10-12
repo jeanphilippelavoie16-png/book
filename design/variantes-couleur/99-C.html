@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>99 — Les façons de faire d’autrefois — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"99"}
+</style>
+</head>
+<body class="vA vB vC t5 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 5 · La forêt, le jardin et le chalet</span><span>Chapitre</span></div><div class="open-title"><div class="num">99</div><h1>Les façons de faire d’autrefois</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Ce chapitre plante des choses qui mettent trois à cinq ans à rendre et qui rendent ensuite pendant des années — au moins huit à dix pour un gadellier, et un camerisier vit plus de trente ans : elles vont là où il y a de la terre, de l’herbe à faucher et une famille qui reviendra. La maison au village peut porter la rhubarbe, deux camerisiers et un gadellier dans la cour, et c’est une bonne idée tant que tout marche ; mais le pré, la talle, le fenil et la butte de maïs sont au chalet, parce que c’est lui qui finit par nourrir quand l’événement dure.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Les façons d’autrefois font produire un terrain nordique sans engrais acheté ni machine : on plante une fois ce qui revient chaque année (arbustes fruitiers qui produisent des années et dont certains vivent plus de trente ans, rhubarbe, topinambour), on sème serré ce qui se protège mutuellement, on rajeunit la talle au lieu de la chercher ailleurs, et on fauche l’herbe pour que les bêtes passent l’hiver — rien de tout ça ne conserve : ça remplit le séchoir, le caveau et le fenil.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<p class="p0 lab kh"><strong class="runin">Le bon choix.</strong></p>
+<p class="li"><strong>Maintenant, pendant que tout marche.</strong> Un camerisier donne quelques kilos par plant après trois ou quatre ans ; un pommier peut en mettre cinq avant sa première pomme ; un gadellier donne sa pleine récolte la troisième année ; un argousier fleurit sur du bois de trois ans. Ce qui n’est pas planté avant la crise ne produit pas pendant la crise. C’est la seule partie du livre où l’essentiel du travail se fait des années d’avance.</p>
+<p class="li"><strong>Quand l’événement s’étire au-delà d’une saison.</strong> Le potager annuel (<span class="ref">ch. 95</span>) se ressème chaque printemps et meurt au premier gel ; une vivace est déjà en place au dégel, racines faites, et profite de la saison dès le premier jour.</p>
+<p class="li"><strong>Quand il y a des bêtes, ou qu’il va y en avoir.</strong> Le lapin du <span class="ref">ch. 101</span> passe l’hiver sur du foin et du feuillage qu’on a coupés l’été. La chèvre, écartée au <span class="ref">ch. 101</span> tant que le foin n’est pas assuré, se décide ici, à la faux, en chiffres (<span class="ref">§5-G</span>).</p>
+<p class="li"><strong>Sur un sol pauvre et acide.</strong> La rhubarbe pousse entre pH 5 et 6,8, la camerise entre 5 et 7, l’argousier entre 5,5 et 8,3 et sur des sols très pauvres, et le bleuet vit de l’acidité. Ce sont les plantes qui acceptent la pessière telle qu’elle est.</p>
+<p class="li"><strong>En bord de mer.</strong> L’argousier tolère le sel et fixe son propre azote : c’est l’arbuste du talus battu par le vent du golfe.</p>
+<p class="p0 lab kh"><strong class="runin">Le mauvais choix.</strong></p>
+<p class="li"><strong>Pour les calories et le gras.</strong> Aucun arbuste ne donne de gras. Des fruits, de la vitamine C, du goût, oui ; de quoi passer l’hiver, non. Viande maigre seule, c’est le mal de caribou, mortel en quelques semaines, et une montagne de camerises n’y change rien (<span class="ref">ch. 19</span>, <span class="ref">ch. 72</span>).</p>
+<p class="li"><strong>Les Trois Sœurs comme récolte de base.</strong> Même la variété de maïs la plus hâtive connue reste un pari de belle année sur la Côte-Nord (<span class="ref">§5-B</span>), et les deux autres sœurs aussi : le haricot gèle au premier froid, la courge d’hiver demande 120 à 135 jours (<span class="ref">ch. 98</span>, étapes 24 et 29). Les Trois Sœurs se tentent sous plastique ou contre le mur sud (<span class="ref">ch. 97</span>) ; elles ne se planifient pas comme la pomme de terre (<span class="ref">ch. 98</span>).</p>
+<p class="li"><strong>Le feu dans une talle après la fonte de la neige en lisière, ou par temps sec.</strong> Le brûlage ancien marche au printemps humide ; le même feu en juillet est un feu de forêt (<span class="ref">§8</span>, <span class="ref">ch. 11</span>).</p>
+<p class="li"><strong>Du foin pour une chèvre sans quelqu’un pour faucher, faner et rentrer chaque beau jour de l’été.</strong> Il en faut plusieurs centaines de kilos par bête (<span class="ref">§5-G</span>). Faute de bras, la chèvre reste écartée, et c’est le lapin et le foin d’arbre du <span class="ref">ch. 101</span> qui restent.</p>
+<p class="p0 lab kh"><strong class="runin">Ce que chaque façon donne, et ce qu’elle coûte.</strong></p>
+<table class="tspan"><colgroup><col style="width:14.0%"><col style="width:24.9%"><col style="width:28.8%"><col style="width:32.3%"></colgroup><thead><tr><th>Façon de faire</th><th>Ce qu’elle donne</th><th>Ce qu’elle demande</th><th>Où elle bute sur la Côte-Nord</th></tr></thead><tbody><tr><td class="c-item">Potager des habitants</td><td>Oignon, chou, navet d’hiver, citrouille, gadelle</td><td>Un jardin clos, du fumier, des semences</td><td>Rien, sauf la citrouille les étés frais</td></tr><tr><td class="c-item">Trois Sœurs</td><td>Maïs sec, haricot sec, courge, sur une même butte</td><td>Une variété de maïs très hâtive, de la chaleur, un plastique transparent ou un mur sud</td><td>Les trois sont des paris : le maïs faute de chaleur, le haricot qui gèle au premier froid, la courge d’hiver qui demande 120 à 135 jours (<span class="ref">ch. 98</span>, étapes 24 et 29)</td></tr><tr><td class="c-item">Jardin de poste nordique</td><td>Navet, chou, verdures de temps frais</td><td>Pente sud, rangs relevés, varech et poisson</td><td>Rien : il a été tenu plus au nord encore</td></tr><tr><td class="c-item">Arbustes et vivaces</td><td>Fruits de juin à septembre, rhubarbe, topinambour</td><td>Trois à cinq ans d’attente, deux variétés pour certains</td><td>Les gels de floraison, le lièvre, les oiseaux</td></tr><tr><td class="c-item">Talle rajeunie</td><td>Des bleuets gros et nombreux, sans rien planter</td><td>Une coupe ou un feu tous les deux ou trois ans</td><td>Le feu qui s’échappe</td></tr><tr><td class="c-item">Foin et pâture</td><td>L’hiver des bêtes</td><td>Une faux, du beau temps, des bras</td><td>Les étés pluvieux et le foin qui chauffe</td></tr></tbody></table>
+<p class="p0 ri"><strong class="runin">Ce qui n’est pas dans ce chapitre.</strong> Le potager annuel, le sol, les billons et la toile anti-gel : <span class="ref">ch. 95</span>. Faire la terre — compost, fumier, cendre, varech, poisson, jachère : <span class="ref">ch. 96</span>. Les semis, la couche chaude, le châssis et la serre : <span class="ref">ch. 97</span>. La pomme de terre, les céréales à la main et les quantités pour un hiver : <span class="ref">ch. 98</span>. Garder ses semences : <span class="ref">ch. 100</span>. Les bêtes elles-mêmes, leur eau et leur abri : <span class="ref">ch. 101</span>. Les petits fruits sauvages et leurs quatre routes de conservation : <span class="ref">ch. 91</span>.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">Une vivace a déjà payé sa mise en place.</strong> Une annuelle doit germer dans une terre encore froide, faire ses racines, puis ses feuilles, puis ses fruits, le tout entre deux gels ; une vivace sort du dégel avec ses racines et ses réserves en place. C’est pour ça que la camerise est le premier fruit de l’année, avant la fraise, et que la rhubarbe se mange quand le jardin n’a encore rien donné. La saison courte ne se rallonge pas : on cesse seulement d’en gaspiller le début.</p>
+<p class="p0 ri"><strong class="runin">Les Trois Sœurs se partagent le travail.</strong> Le maïs sert de tuteur au haricot grimpant ; la courge couvre le sol, étouffe les mauvaises herbes et garde l’humidité ; la butte draine, se réchauffe et tient le pied du maïs contre le vent. Mesuré au champ, l’ensemble donne plus d’énergie et plus de protéines que chacune des trois cultures seule sur la même surface. <strong>Le fait qui surprend :</strong> le haricot ne nourrit pas le maïs de l’année. L’azote qu’il fixe reste dans ses racines et ne se libère qu’en pourrissant : il sert au maïs de l’année suivante, ce qui explique qu’on replantait dans les mêmes buttes plusieurs années. La première année, le maïs mange ce qu’on lui donne — compost, fumier —, sinon le rendement baisse.</p>
+<p class="p0 ri"><strong class="runin">Le maïs ne mûrit pas au nombre de jours sans gel, mais à la chaleur.</strong> Les Iroquoiens du Saint-Laurent cultivaient le maïs jusqu’à Stadaconé, où est Québec aujourd’hui. Le maïs de la vallée y demandait environ 100 jours sans gelée, qu’on n’avait pas toutes les années : on fumait l’anguille pour l’hiver au cas où la récolte manquerait. Sur la Côte-Nord, la saison sans gel dure 108 à 124 jours en moyenne selon la station, et 89 à 95 jours ou moins une année sur dix ; et les étés sont frais : une journée sans gel n’est pas une journée chaude (<span class="ref">ch. 97</span>, <span class="ref">§3</span>). Ce qui rend le maïs possible ici, c’est une variété qui fait tout plus vite — moins de feuilles, une fleur plus hâtive, un épi plus petit. Le maïs de Gaspé, parmi les plus hâtifs connus, émet son pollen une trentaine de jours avant un maïs de référence moderne semé au même endroit.</p>
+<p class="p0 ri"><strong class="runin">Le maïs mangé seul rend malade ; la cendre corrige.</strong> Là où le maïs devient la base de la table, la pellagre suit : le grain est pauvre en une vitamine du groupe B et mal équilibré en protéines. Les peuples du maïs le cuisaient dans une lessive de cendre de bois franc, qui décolle la pelure et améliore la valeur du grain. Sur la Côte-Nord, le maïs ne sera jamais la base : c’est une raison de plus de le cuire à l’ancienne, pas une menace.</p>
+<p class="p0 ri"><strong class="runin">Une talle vieillit, et le feu la rajeunit.</strong> Laissé à lui-même, le plant de bleuet se ramifie, met son énergie dans les tiges et forme de moins en moins de bourgeons à fruits, petits et perchés au bout des branches, là où le froid les tue. Détruire la partie aérienne pendant la dormance réveille les bourgeons du pied et du rhizome : des tiges neuves, droites, qui forment leurs bourgeons à fruits la première année et donnent leur plus grosse récolte la deuxième. Les feux de forêt faisaient ce travail ; on a appris à le faire exprès, en petit, au bon moment, ou à le faire sans feu, à la lame.</p>
+<p class="p0 ri"><strong class="runin">Le foin se garde parce qu’il n’a plus d’eau.</strong> L’herbe fauchée contient de 70 à 90 % d’eau. Tant qu’elle en garde plus de 20 à 25 %, les bactéries et les moisissures y travaillent, et leur travail dégage de la chaleur ; au-delà d’un seuil, la chaleur appelle d’autres bactéries qui en dégagent davantage, jusqu’à l’inflammation. Faner, c’est une course entre le soleil et les microbes. Et un foin moisi, en plus de ce qu’il fait aux bêtes (<span class="ref">ch. 101</span>), lâche une poussière qui donne aux gens une maladie des poumons : le poumon du fermier<sup class="fnr" data-fn="99-1">1</sup>. <strong>Le fait qui surprend :</strong> la crise arrive quatre à huit heures après le travail au fenil, avec la fièvre, les frissons et la toux sèche d’une grippe, et personne ne la relie à la poussière de l’après-midi. On retourne au fenil le lendemain, et c’est ce retour qui abîme le poumon : une fois sensibilisé, on le reste des années, et chaque exposition relance la crise.</p>
+<p class="p0 ri"><strong class="runin">Un clone garde la variété, une graine la mélange.</strong> Le pommier ne se féconde pas lui-même, et son pépin porte le mélange de deux parents : semé, il donne un arbre dont on ne sait rien d’avance. La bouture, la marcotte, le drageon, la division et le tubercule donnent au contraire une copie exacte : c’est pour ça que les gadelliers, la rhubarbe et le topinambour se transmettent d’un jardin à l’autre sans jamais passer par un sachet.</p>
+<p class="p0 ri"><strong class="runin">Une plante repère fait le calcul de la chaleur.</strong> Un calendrier donne une date ; un lilas en première feuille dit que le printemps de cette année-ci, dans ce sol-ci, a accumulé assez de chaleur. Le repère intègre ce que la date ignore. La lune, elle, ne mesure rien de ce qui fait pousser une plante (<span class="ref">§5-I</span>).</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Seulement ce que demandent les procédures de ce chapitre. Ce qui s’achète d’avance se range au <span class="ref">ch. 00b</span>.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Semence de maïs très hâtif (maïs de Gaspé ou équivalent)</td><td>Quelques centaines de grains</td><td>Aucune par un maïs sucré ordinaire, qui demande une saison plus longue que la nôtre (<span class="ref">ch. 100</span>). Sans semence hâtive, la butte devient haricot à rames et courge, eux aussi en pari (<span class="ref">§9</span>)</td><td><span class="non">NON</span> <span class="negx">pour faire du maïs. La variété décide de tout (<span class="ref">§3</span>)</span></td></tr><tr><td class="c-item">Haricot grimpant sec et courge d’hiver</td><td>Selon les buttes</td><td>Pois grimpant sur branchages ; courge coureuse de n’importe quelle variété hâtive. Paris, comme le maïs : sous plastique transparent ou contre le mur sud (<span class="ref">ch. 97</span> ; <span class="ref">ch. 98</span>, étapes 24 et 29)</td><td>Oui</td></tr><tr><td class="c-item">Camerisiers</td><td><strong>Deux variétés non apparentées qui fleurissent en même temps</strong>, au minimum</td><td>Aucune. Un plant seul, ou deux plants de la même variété, fleurit sans fruit</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Amélanchier</td><td>1 ou plus</td><td>Drageon ou branche racinée d’un amélanchier sauvage, choisi au goût (<span class="ref">§5-E</span>)</td><td>Oui</td></tr><tr><td class="c-item">Pommetiers ou pommiers</td><td><strong>Deux variétés</strong> à 30 m l’une de l’autre au plus</td><td>Un pommetier du voisin ou un pommier sauvage dans le rayon fait la deuxième variété. Un pommetier ornemental à fleurs doubles ne compte pas : il n’a pas de pollen</td><td><span class="non">NON</span> <span class="negx">pour la deuxième variété</span></td></tr><tr><td class="c-item">Argousiers</td><td>Plusieurs, dont environ un mâle sur dix</td><td>Le sexe ne se voit qu’à la floraison : planter plus qu’il ne faut et éliminer ensuite</td><td><span class="non">NON</span> <span class="negx">pour le mâle</span></td></tr><tr><td class="c-item">Gadelliers, cassissiers, groseilliers</td><td>2 à 4</td><td>Boutures d’un plant existant (<span class="ref">§5-E</span>) ; gadelliers sauvages du sous-bois (<span class="ref">ch. 91</span>) transplantés</td><td>Oui</td></tr><tr><td class="c-item">Rhubarbe</td><td>Quelques plants suffisent à une famille</td><td>Un morceau de couronne pris à une vieille talle (<span class="ref">§5-E</span>)</td><td>Oui</td></tr><tr><td class="c-item">Topinambour</td><td>Une chaudière de tubercules</td><td>Un seul tubercule à deux yeux suffit à partir la talle</td><td>Oui</td></tr><tr><td class="c-item">Faux avec pierre à faux</td><td>1</td><td>Faucille (environ cinq fois plus lente) ; machette ou couteau long ; ou pas de faux du tout : foin d’arbre (<span class="ref">ch. 101</span>, <span class="ref">§9</span>, étape 8)</td><td>Oui. Le foin, non</td></tr><tr><td class="c-item">Fourche et râteau</td><td>1 de chaque</td><td>Fourche taillée dans une branche fourchue de bouleau ; râteau de planche à dents de bois ou de clous (<span class="ref">ch. 95</span>)</td><td>Oui</td></tr><tr><td class="c-item">Perches</td><td>Trois par trépied ; davantage pour une tente canadienne</td><td>Épinette ou sapin du terrain, assez longues pour que le foin ne touche pas le sol</td><td>Oui</td></tr><tr><td class="c-item">Tige de fer ou tuyau d’environ 1 cm, de 2,4 à 3 m</td><td>1</td><td>Tige de ferraillage, barre à mine mince, tuyau de galerie. <strong>C’est la sonde du fenil (<span class="ref">§5-G</span>, <span class="ref">§8</span>)</strong></td><td><span class="non">NON</span> <span class="negx">dès qu’il y a un tas de foin</span></td></tr><tr><td class="c-item">Thermomètre à tige longue</td><td>1</td><td>La tige de fer et la main</td><td>Oui</td></tr><tr><td class="c-item">Cendre de bois franc tamisée</td><td>Environ 1 volume pour 4 volumes d’eau</td><td>Chaux éteinte, <strong>à sa propre dose</strong> : environ 10 g par litre d’eau (étape 22). Le <span class="ref">ch. 112</span> (<span class="ref">§9-B</span>) dit comment la faire, pas comment la doser pour le maïs. <strong>Jamais cendre et chaux ensemble</strong></td><td>Oui</td></tr><tr><td class="c-item">Chaudron d’inox ou de fonte, pour la lessive</td><td>1</td><td>Aucun en aluminium : la lessive l’attaque et en tire de l’hydrogène (<span class="ref">§8</span>)</td><td><span class="non">NON</span> <span class="negx">pour l’aluminium</span></td></tr><tr><td class="c-item">Eau de rinçage tiède, prête avant la cendre</td><td>De quoi rincer 60 minutes sans interrompre</td><td>Chaudières tiédies près du poêle (<span class="ref">ch. 112</span>, <span class="ref">§4</span>)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Panier à claire-voie, ou sac de jute</td><td>1</td><td>Chaudière percée de trous de clou</td><td>Oui</td></tr><tr><td class="c-item">Toile, drap, papier</td><td>De quoi couvrir les arbustes en fleur</td><td>Branches de conifère, vieille couverture. Le plastique protège peu ou pas</td><td>Oui</td></tr><tr><td class="c-item">Gants imperméables, pour le lièvre pris au collet autour des arbustes</td><td>1 paire</td><td>Gants de caoutchouc réservés à ça, ou sacs de plastique serrés au poignet (<span class="ref">ch. 48</span>). <strong>Pas les gants de jardin</strong> : le cuir et le tissu boivent le sang jusqu’à la peau. Tularémie</td><td><span class="non">NON</span> <span class="negx">pour le lièvre</span></td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Le potager des habitants</h3>
+<p class="p0">Ce qu’un naturaliste suédois a vu dans les jardins du Canada français en 1749, entre Québec et Montréal, et ce qui s’en garde.</p>
+<p class="step"><span class="sn">1</span><strong>Semer ce qu’ils semaient.</strong> De l’oignon avant tout — c’était le repas des jours maigres —, le chou blanc, le navet semé en abondance et mangé surtout l’hiver, la carotte, la betterave, le radis, le raifort, les pois, les fèves et les haricots, la salade, la chicorée, le concombre, le melon, la citrouille, le thym et la marjolaine. Un gadellier dans chaque petit jardin. Ils avaient aussi leur tabac près de la maison, à la mesure de la famille.</p>
+<p class="step"><span class="sn">2</span><strong>Savoir ce qui manquait.</strong> Pas de pomme de terre : en 1749, les Canadiens n’en plantaient pas et riaient des Anglais qui l’aimaient tant. C’est le changement qui compte le plus pour un hiver de la Côte-Nord : la base du caveau, aujourd’hui, c’est elle (<span class="ref">ch. 98</span>).</p>
+<p class="step"><span class="sn">3</span><strong>Clore le jardin.</strong> La citrouille se semait dans un champ fermé, en bonne terre riche, une fois la gelée passée, et souvent dans de vieilles couches chaudes (<span class="ref">ch. 97</span>). La clôture sans broche est au <span class="ref">ch. 95</span>.</p>
+<p class="step"><span class="sn">4</span><strong>Cueillir la citrouille avant le froid, mûre ou pas.</strong> Dès que le froid s’annonce, on ramasse tout ce qui reste sur les tiges, on l’étale sur le plancher de la maison <strong>sans jamais les empiler</strong>, et les vertes finissent de mûrir. Dans une cave humide, elles pourrissent vite ; dans une pièce sèche chauffée de temps en temps, elles passent l’hiver — aujourd’hui, une pièce fraîche et sèche du chalet, 10 à 13 °C (<span class="ref">ch. 79</span>, groupe C), pas le caveau. À la table : coupée en deux, la chair tournée vers le feu du foyer jusqu’à ce qu’elle soit rôtie, puis grattée hors de l’écorce.</p>
+<p class="step"><span class="sn">5</span><strong>Faire du navet la récolte d’hiver.</strong> C’est la leçon qui revient partout au nord : semé en quantité, il va au caveau (<span class="ref">ch. 79</span>) ou en fermentation (<span class="ref">ch. 80</span>).</p>
+<p class="step"><span class="sn">6</span><strong>Monter le champ en billons.</strong> Les champs des environs de Québec étaient faits de planches bombées de 1,8 à 2,7 m de large, hautes d’environ 30 cm au milieu, entre deux sillons. C’est le billon du <span class="ref">ch. 95</span> à l’échelle d’un champ : il égoutte ce que personne n’avait drainé.</p>
+<p class="step"><span class="sn">7</span><strong>Ne semer le grain qu’au printemps.</strong> Le froid de l’hiver détruisait le grain laissé en terre : aucun semis d’automne, tout en grain d’été. La même règle vaut ici, plus fort encore (<span class="ref">ch. 98</span>).</p>
+<p class="step"><span class="sn">8</span><strong>Laisser la terre en jachère un an sur deux, et y mettre les bêtes.</strong> On ne labourait pas la jachère l’été : les herbes y poussaient librement et le bétail y pâturait toute la saison. C’est la rotation la plus simple qui soit, et elle nourrit les bêtes en même temps (<span class="ref">ch. 96</span>, <span class="ref">§5-E</span> ; ici <span class="ref">§5-H</span>).</p>
+<p class="step"><span class="sn">9</span><strong>Lire ce que les jardiniers de 1749 croyaient de leurs semences.</strong> Ils faisaient venir leur graine de France chaque année, parce qu’elle perdait, disaient-ils, sa force à la troisième génération. Ce n’est pas la terre du Canada qui l’affaiblissait : une graine récoltée sur trop peu de plants s’appauvrit, et deux variétés voisines se croisent. Le <span class="ref">ch. 100</span> dit combien de plants garder et comment isoler — c’est ce qui manquait en 1749.</p>
+<h3 class="sub">B — Les Trois Sœurs à la latitude de la Côte-Nord</h3>
+<p class="p0">Le maïs (<em>Zea mays</em>), le haricot (<em>Phaseolus vulgaris</em>) et la courge (<em>Cucurbita</em> spp.) sur les mêmes buttes : c’est la culture en buttes des Haudenosaunee, que les premiers explorateurs ont trouvée en pleine vigueur. Ce qui suit est cette méthode, ramenée à ce qui a une chance ici. <strong>Et ici, les trois sœurs sont des paris</strong>, pas seulement le maïs : le maïs faute de chaleur, le haricot qui gèle au premier froid et ne mûrit pas en sol froid, la courge d’hiver qui demande 120 à 135 jours (<span class="ref">ch. 98</span>, étapes 24 et 29). Le haricot et la courge ne se font qu’en poussant à travers un plastique transparent ou contre le mur sud (<span class="ref">ch. 97</span>). La butte se tente ; elle ne se planifie pas.</p>
+<p class="step"><span class="sn">10</span><strong>Choisir le maïs le plus hâtif qui existe, et rien d’autre.</strong> Le maïs de Gaspé, un maïs à grain dur à huit rangs, fait des plants de 60 à 90 cm et des épis d’environ 10 cm. Semé à la fin de mai en Nouvelle-Écosse, il a donné des épis secs vers le 20 juillet, soit environ 50 à 70 jours. Le sachet fait foi pour toute autre variété : un maïs qui demande plus de jours que l’été n’en donne ne fait pas « un peu moins », il ne fait rien (<span class="ref">ch. 95</span>, <span class="ref">ch. 100</span>). <strong>Le piège de ce maïs-là, c’est sa taille.</strong> À la butte, un maïs trop court se fait coucher par le haricot et étouffer par la courge : c’est pour ça qu’on écarte le maïs à éclater, et le maïs de Gaspé est plus court encore. Avec lui, le haricot grimpant reçoit sa propre perche au centre de la butte (étape 15).</p>
+<p class="step"><span class="sn">11</span><strong>Prendre la place la plus chaude du terrain.</strong> Pente au sud, pied d’un mur exposé au sud, loin des creux où l’air froid coule la nuit (<span class="ref">ch. 95</span>, <span class="ref">§3</span>).</p>
+<p class="step"><span class="sn">12</span><strong>Semer dans une terre réchauffée, pas froide et mouillée.</strong> Aucun repère de plante publié ne vaut ici pour le maïs (<span class="ref">§5-I</span>) : on réchauffe la terre sous un plastique transparent posé d’avance, et on sème par des fentes (<span class="ref">ch. 97</span>, étape 29). Tremper le grain quelques heures, <strong>huit au plus</strong>, puis garder le semis humide les deux premières semaines : un grain trempé sèche vite.</p>
+<p class="step"><span class="sn">13</span><strong>Faire des buttes basses à 0,9 à 1,2 m les unes des autres</strong>, dans le rang et entre les rangs. Semer cinq à sept grains par butte, espacés, à 2,5 à 4 cm de profondeur. En 1605, Champlain décrivait des buttes semblables, à trois ou quatre grains, espacées d’environ 90 cm.</p>
+<p class="step"><span class="sn">14</span><strong>Désherber et rechausser.</strong> À chaque sarclage, ramener doucement la terre autour des jeunes plants : c’est ce qui fait la butte, et c’est elle qui tient le maïs contre le vent.</p>
+<p class="step"><span class="sn">15</span><strong>Semer les deux autres sœurs quand le maïs a environ 15 cm.</strong> Quatre ou cinq graines de haricot grimpant autour du maïs dans <strong>chaque</strong> butte ; quatre ou cinq graines de courge dans <strong>une butte sur sept</strong> seulement. Une courge par butte noierait le carré sous les tiges. Avec un maïs nain comme celui de Gaspé, planter en même temps une perche d’épinette au centre de la butte, et y guider les tiges du haricot au premier tour : il y grimpe au lieu de plier le maïs. Une seule perche pour quatre ou cinq plants laisse quand même quelques tiges s’enrouler sur le maïs voisin.</p>
+<p class="step"><span class="sn">16</span><strong>Donner 25 mm d’eau par semaine</strong> quand il ne pleut pas — le même chiffre que le jardin : 25 L/m² (<span class="ref">ch. 95</span>).</p>
+<p class="step"><span class="sn">17</span><strong>Nourrir le maïs la première année.</strong> Compost ou fumier bien fait au pied (<span class="ref">ch. 96</span>) : l’azote du haricot n’arrivera que l’an prochain. Replanter les mêmes buttes l’année suivante pour le toucher.</p>
+<p class="step"><span class="sn">18</span><strong>Récolter le maïs quand les spathes sont sèches</strong>, et ne pas l’engranger tout de suite : étaler les épis au sec, plusieurs semaines si le grain doit être moulu, sinon il moisit. Laisser quelques feuilles d’enveloppe à chaque épi, les tresser en longues guirlandes, et les pendre sous le toit ou près du poêle. La semence se prend sur les plants les plus vigoureux et au milieu de l’épi — et il en faut beaucoup de plants (<span class="ref">ch. 100</span>).</p>
+<p class="step"><span class="sn">19</span><strong>Sécher le haricot dans sa cosse ; le cuire selon le <span class="ref">ch. 98</span>, étape 26.</strong> Le chaudron qui mijote tout le jour au bord du poêle sans jamais bouillir ne détruit pas la toxine du haricot cru : c’est le gros bouillon qui la détruit.</p>
+<p class="step"><span class="sn">20</span><strong>Sécher la courge en lanières, ou la garder entière au sec.</strong> Coupée en lanières, enfilée sur une corde près du feu jusqu’à ce qu’elle soit sèche, puis rangée. Une courge dure, entière, tenait quatre à cinq mois. Entière, elle va dans une pièce fraîche et sèche du chalet, 10 à 13 °C (<span class="ref">ch. 79</span>, groupe C) : pas au caveau, trop humide pour elle.</p>
+<p class="step"><span class="sn">21</span><strong>Ne jamais mettre en pot la récolte de la butte sans autoclave.</strong> Maïs, haricot et courge sont peu acides : l’eau bouillante ne suffit pas, <strong>et le botulisme ne change ni l’odeur, ni le goût, ni l’apparence du pot</strong> (<span class="ref">ch. 78</span>). La façon d’autrefois — sécher — est justement celle qui ne court pas ce risque.</p>
+<p class="step pk-d"><span class="sn">22</span><strong>Cuire le maïs sec à la lessive de cendre.</strong> L’eau de rinçage tiède est prête avant tout le reste, et le chaudron est d’inox ou de fonte, jamais d’aluminium (<span class="ref">§8</span>, point 3). Faire gonfler le maïs à grain dur dans l’eau bouillante, puis y ajouter de la cendre de bois franc tamisée, environ <strong>un volume de cendre pour quatre d’eau</strong> (un cinquième du mélange). Faire bouillir jusqu’à ce que les petites pointes noires du grain — le bout qui tenait à l’épi — se détachent et flottent, et que la pelure glisse quand on roule un grain entre les doigts — environ 45 minutes. Le grain à tester se sort à la cuillère et passe à l’eau froide avant d’aller aux doigts. Verser dans le panier, secouer et brasser dans l’eau courante d’un ruisseau jusqu’à ce que pelures et pointes soient parties, puis faire rebouillir environ 30 minutes dans une eau neuve et rincer encore : il ne doit rester aucune lessive. La lessive de cendre ne se goûte pas pour juger de sa force. Le grain ainsi traité se mange en soupe, entier ou écrasé. <strong>À la chaux éteinte plutôt qu’à la cendre, la dose n’est pas la même</strong> : environ 10 g de chaux par litre d’eau, une part de maïs pour deux parts d’eau, chauffé à environ 80 °C, sous le bouillon, de 20 à 45 minutes, laissé tremper la nuit, puis lavé deux ou trois fois pour enlever pelures, pointes et chaux. <strong>Jamais cendre et chaux ensemble dans la marmite</strong> : ensemble, elles font la lessive forte du savon (<span class="ref">ch. 112</span>, <span class="ref">§9-B</span>), pas une cuisson de maïs.</p>
+<p class="step"><span class="sn">23</span><strong>Mesurer ce que la butte ne fera pas.</strong> Pour une table faite à environ deux tiers de maïs, on estime qu’il fallait un tiers d’acre par personne — environ 1 350 m². C’était la mesure des Wendats, beaucoup plus au sud, dans des étés bien plus chauds. Ici, les buttes donnent un complément : du grain sec, des haricots secs et des courges qui se gardent.</p>
+<h3 class="sub">C — Les jardins des postes et des missions, plus au nord encore</h3>
+<p class="p0">Sur la côte du Labrador, refroidie par un courant froid, un marchand anglais a jardiné seize ans à partir de 1770, les missionnaires moraves ont tenu des jardins à Nain dès la fin du XVIIIᵉ siècle, et les postes de la Compagnie de la Baie d’Hudson ont semé dans les années 1840. Leurs gestes, dans l’ordre où ils servent :</p>
+<p class="step"><span class="sn">24</span><strong>Chercher les creux abrités et les pentes au sud.</strong> Leurs vieux rangs relevés se voient encore, envahis d’herbe, blottis dans les creux et sur les versants tournés au sud : ce sont les microclimats d’une côte refroidie par la mer.</p>
+<p class="step"><span class="sn">25</span><strong>Couper la tourbe.</strong> Une terre de tourbe dense se desserrait avec du sable pris dessous, ou avec de la cendre. Le jardin qui a donné les meilleures récoltes du Labrador avait été fumé au varech et aux déchets de poisson (<span class="ref">ch. 96</span>).</p>
+<p class="step"><span class="sn">26</span><strong>Pelleter la neige des planches au printemps</strong> pour que la terre se réchauffe plus tôt, semer à l’intérieur en mars et en avril, et allonger la saison au châssis et en bac (<span class="ref">ch. 97</span>). Un échec noté : des semis tués par trop de chaleur près du feu.</p>
+<p class="step"><span class="sn">27</span><strong>Clôturer contre le vent</strong>, pas seulement contre les bêtes : les jardins des missions étaient clos avec soin pour ça.</p>
+<p class="step"><span class="sn">28</span><strong>Faire du navet et du chou la récolte-vedette, et des verdures de temps frais l’appoint.</strong> Un poste de la rivière Churchill a rentré 36 barils de navets là où on en espérait 10 — à l’intérieur des terres, sur un sol sableux, à l’abri du courant froid de la côte. La laitue, le cresson et la moutarde aiment le temps frais et le soleil voilé : ce sont les verdures d’une côte brumeuse.</p>
+<p class="step"><span class="sn">29</span><strong>Ils salaient aussi l’épinard pour l’hiver.</strong> Le livre n’en fait pas une méthode, faute de proportion connue : un légume peu acide tassé à l’abri de l’air est le terrain du botulisme, qui ne change ni l’odeur, ni le goût, ni l’apparence.</p>
+<p class="step"><span class="sn">30</span><strong>Retenir les deux revers qu’ils ont écrits eux-mêmes.</strong> Le varech posé en paillis a fait pulluler des vers qui ont mangé la semence, et tout a été à ressemer : le varech se composte ou s’enfouit, il ne couvre pas un semis (<span class="ref">ch. 96</span>). Et la grande marée d’automne a noyé un jardin de bord de mer, choux et choux-fleurs compris : un jardin de grève se place au-dessus de la plus haute marée qu’on a vue, pas au-dessus de celle d’aujourd’hui.</p>
+<h3 class="sub">D — Planter les vivaces et les arbustes fruitiers</h3>
+<p class="step"><span class="sn">31</span><strong>Planter tôt, et planter le bon nombre.</strong> Le tableau dit combien de plants il faut pour qu’il y ait des fruits, pas seulement des fleurs.</p>
+<table class="tspan"><colgroup><col style="width:13.8%"><col style="width:15.9%"><col style="width:14.3%"><col style="width:9.4%"><col style="width:15.1%"><col style="width:7.7%"><col style="width:24.0%"></colgroup><thead><tr><th>Plante</th><th>Froid supporté</th><th>Pollinisation</th><th>Espacement</th><th>Premiers fruits</th><th>Durée</th><th>À savoir</th></tr></thead><tbody><tr><td class="c-item">Camerisier (<em>Lonicera caerulea</em>)</td><td>−47 °C sans dommage ; fleur ouverte jusqu’à −7 °C</td><td><strong>Deux variétés non apparentées, fleurissant ensemble.</strong> Les deux portent des fruits</td><td>1 m en haie, 1,3 m isolé</td><td>Quelques-uns l’année après la plantation ; quelques kilos par plant après 3 ou 4 ans</td><td>Vit plus de 30 ans</td><td>Premier fruit de l’année. Ne drageonne pas, pas d’épines. Mûr quand l’intérieur est violet, pas vert</td></tr><tr><td class="c-item">Amélanchier (<em>Amelanchier</em> spp. ; <em>A. alnifolia</em> pour les variétés de pépinière)</td><td>−60 °C (<em>A. alnifolia</em>)</td><td>Un plant suffit ; plus de fruits s’il y en a d’autres</td><td>1 à 1,5 m ; la haie se ferme en 5 ans</td><td>3 à 5 ans ; pleine production de 6 à 8 ans</td><td>Se rajeunit (étape 39)</td><td>Mûrit par étapes : plusieurs cueillettes. Racines en surface, sensibles à l’herbe</td></tr><tr><td class="c-item">Gadellier et groseillier (<em>Ribes</em>)</td><td>Rustiques ; le gadellier sauvage pousse déjà en sous-bois sur la côte (<span class="ref">ch. 91</span>)</td><td>Autofertiles</td><td>1 à 1,25 m ; cassissier 0,6 à 1,5 m</td><td>Un peu la 2ᵉ année, plein la 3ᵉ ; environ 1 kg par plant, la moitié pour le cassis</td><td>Au moins 8 à 10 ans</td><td>Fleurit tôt : le gel de floraison est le vrai risque</td></tr><tr><td class="c-item">Argousier (<em>Hippophae rhamnoides</em>)</td><td>−43 °C</td><td><strong>Plants mâles et femelles séparés</strong> ; 7 à 12 % de mâles</td><td>1 m</td><td>Fleurs sur du bois de 3 ans</td><td>—</td><td>Tolère le sel et le sol pauvre, fixe son azote. Épines ; 5 à 7 kg par plant, très durs à cueillir. Mûr fin août, début septembre</td></tr><tr><td class="c-item">Pommetier, pommier (<em>Malus</em>)</td><td>Certaines variétés fruitent la plupart des années sans protection en site abrité à Whitehorse, au Yukon</td><td><strong>Deux variétés à 30 m au plus</strong> ; pommetier et pommier se pollinisent</td><td>—</td><td>Jusqu’à 5 ans</td><td>—</td><td>Le pépin ne donne pas la pomme (<span class="ref">§3</span>). Choisir une variété hâtive : une pomme d’octobre ne mûrit pas certaines années</td></tr><tr><td class="c-item">Rhubarbe (<em>Rheum rhabarbarum</em>)</td><td>Aime les hivers qui gèlent le sol</td><td>—</td><td>—</td><td>Quelques tiges la 2ᵉ année</td><td>Replanter ailleurs aux 6 à 8 ans</td><td><strong>Seules les tiges se mangent</strong> (<span class="ref">§7</span>)</td></tr><tr><td class="c-item">Topinambour (<em>Helianthus tuberosus</em>)</td><td>Indigène du Canada</td><td>—</td><td>30 à 35 cm dans le rang, rangs à 60 à 100 cm</td><td>La 1ʳᵉ année</td><td>Revient de lui-même</td><td>Environ 400 g par plant ailleurs ; plus petits ici (<span class="ref">§9</span>)</td></tr></tbody></table>
+<p class="step"><span class="sn">32</span><strong>Placer contre le gel de floraison, pas seulement contre l’hiver.</strong> Camerise, amélanchier et gadellier fleurissent tôt : jamais dans un creux où l’air froid s’accumule, toujours dans un endroit où l’air circule. Les nuits claires de floraison, un drap ou du papier posé sur les petits arbustes les protège ; une bâche de plastique protège peu ou pas.</p>
+<p class="step"><span class="sn">33</span><strong>Abriter du vent du nord et de l’ouest.</strong> Le dégât d’hiver d’un arbuste est souvent un dessèchement par le vent dominant, pas le froid lui-même : l’épinette laissée debout au nord-ouest vaut une clôture. Le topinambour, qui monte jusqu’à 3 m, fait lui-même un brise-vent d’été pour les planches plus basses.</p>
+<p class="step"><span class="sn">34</span><strong>Planter un peu plus profond que dans le pot.</strong> L’amélanchier, 2,5 à 5 cm plus bas : il fera plusieurs tiges au lieu de drageons partout. Le gadellier un peu plus bas aussi, racines du haut à au moins 2,5 cm sous terre, et les branches rabattues à 10 à 15 cm pour le forcer à repartir.</p>
+<p class="step"><span class="sn">35</span><strong>Rien d’autre à moins d’un mètre du pied.</strong> L’amélanchier a des racines de surface qui perdent contre l’herbe, et le jeune camerisier se tient sans herbe tant qu’il s’établit : paillis épais en large cercle, sans monter contre les tiges.</p>
+<p class="step"><span class="sn">36</span><strong>Enlever les fleurs du gadellier l’année de la plantation</strong>, et ne pas toucher à la rhubarbe la première année : on nourrit la racine avant de nourrir la table.</p>
+<p class="step"><span class="sn">37</span><strong>Tenir les gadelliers et les cassissiers loin des pins blancs.</strong> La rouille vésiculeuse passe une partie de sa vie sur le <em>Ribes</em> et l’autre sur le pin à cinq aiguilles, qu’elle abîme gravement ; le pin blanc (<em>Pinus strobus</em>) pousse dans le sud de la Côte-Nord. Au moins 300 m. Et l’amélanchier loin des genévriers (<em>Juniperus</em> spp.), pour la même raison et une autre rouille : 2 km si possible, ce qui se tient rarement sur une côte où le genévrier pousse sur les affleurements.</p>
+<p class="step"><span class="sn">38</span><strong>Protéger l’écorce du lièvre et des cervidés.</strong> L’écorce de l’amélanchier est un mets recherché du lièvre et du cerf. Le lièvre (<em>Lepus americanus</em>) qui finit au collet autour des arbustes se manipule <strong>avec des gants imperméables</strong>, mis avant de toucher au collet : le cuir et le tissu des gants de jardin boivent le sang jusqu’à la peau, et la tularémie passe par la peau éraflée au dépouillement (<span class="ref">ch. 48</span>, étape 6). Il se cuit à 74 °C à cœur (<span class="ref">ch. 48</span>). Contre les oiseaux, le filet se pose à mailles de 1,25 cm au plus, sinon ils s’y prennent et y meurent ; le jaseur peut raser la récolte de camerises d’une année entière.</p>
+<p class="step"><span class="sn">39</span><strong>Tailler en fin d’hiver, selon l’âge du bois.</strong></p>
+<p class="li l2">Camerisier : éclaircir les vieilles branches quand l’arbuste devient dense, <strong>jamais plus du quart</strong> de l’arbuste la même année.</p>
+<p class="li l2">Cassissier : il fruite surtout sur le bois d’un an. Garder 10 à 12 tiges, dont la moitié d’un an ; couper au ras du sol tout ce qui a plus de trois ans.</p>
+<p class="li l2">Gadellier rouge et groseillier : ils fruitent sur les courts rameaux du bois de deux et trois ans. Garder trois ou quatre tiges de chaque âge — un, deux et trois ans —, soit 9 à 12 tiges ; couper tout ce qui dépasse trois ans.</p>
+<p class="li l2">Amélanchier : ôter quelques branches au pied pour laisser entrer la lumière ; quand il est vieux et ne donne plus, le <strong>couper à environ 15 cm du sol</strong> et le laisser repartir.</p>
+<p class="li l2">Pommier et pommetier : dans le nord, on les conduit en arbuste à plusieurs troncs, ce qui les rend plus rustiques et limite les pertes d’hiver.</p>
+<p class="step"><span class="sn">40</span><strong>Cueillir à maturité, et conserver par les routes du <span class="ref">ch. 91</span>.</strong> Camerise : mordre quelques baies en deux ; verte dedans, elle n’est pas prête. Amélanche, camerise et gadelle se sèchent au séchoir près du poêle (<span class="ref">ch. 91</span>, <span class="ref">§9</span>, route 1) ; la gadelle, riche en pectine, prend en gelée sans pectine achetée (<span class="ref">ch. 91</span>, <span class="ref">§9</span>, route 4) ; le pommetier « Dolgo », à fruit de 1,5 cm, sert surtout à la gelée ; le pommetier « Rescue », à fruit de 3,5 cm, se garde environ trois semaines. Le cassis et l’argousier sont riches en vitamine C, ce qui compte en hiver (<span class="ref">ch. 20</span>) ; l’argousier se cueille en coupant la branche chargée, parce que le fruit mûr ne se détache pas.</p>
+<h3 class="sub">E — Multiplier sans pépinière</h3>
+<p class="step"><span class="sn">41</span><strong>Bouturer le gadellier.</strong> À la fin de l’automne, prendre sur un plant sain des tiges de l’été, les couper en bouts de 15 à 20 cm, le bas juste sous un bourgeon, le haut environ 10 mm au-dessus d’un bourgeon. Les piquer tout de suite à 15 cm les unes des autres, dans une terre qui s’égoutte, assez profond pour que seulement un ou deux bourgeons dépassent, puis couvrir de paille. Au printemps, la paille reste en paillis. Après une saison, le plant va à sa place. Au printemps, avant le débourrement<sup class="fnr" data-fn="99-2">2</sup>, ça marche aussi.</p>
+<p class="step"><span class="sn">42</span><strong>Marcotter le groseillier.</strong> Les groseilliers de type européen reprennent mal de bouture : coucher une branche encore attachée au plant, la couvrir de terre en partie, la fixer au sol avec un crochet de bois. Elle racine là où elle touche la terre ; après une saison, on la sèvre et on la déterre. Une seule branche donne souvent plusieurs plants.</p>
+<p class="step"><span class="sn">43</span><strong>Prendre l’amélanchier sauvage le meilleur au goût.</strong> Chaque amélanchier sauvage est un individu, avec son goût à lui ; son drageon ou sa bouture donne le même fruit. Goûter plusieurs talles en juillet ou en août, marquer la meilleure, y revenir en fin d’hiver : prélever un drageon, ou couper des branches et les mettre dans une chaudière d’eau à la maison, où elles font des racines ; on les plante au printemps quand les racines sont faites.</p>
+<p class="step"><span class="sn">44</span><strong>Diviser la rhubarbe.</strong> Soulever la couronne tôt au printemps, avant la reprise, la couper en morceaux portant chacun au moins un gros bourgeon vigoureux, replanter chaque morceau <strong>debout</strong>, à 10 à 15 cm sous la surface. Des tiges qui deviennent minces d’une année à l’autre disent qu’il est temps ; une plantation se refait à un nouvel endroit tous les 6 à 8 ans.</p>
+<p class="step"><span class="sn">45</span><strong>Replanter le topinambour.</strong> Un morceau de tubercule portant au moins deux yeux, à 10 cm de profondeur, dès que la terre dégèle — bien avant la date de dernier gel, il aime le frais.</p>
+<p class="step"><span class="sn">46</span><strong>Ne pas semer de pépin pour avoir une pomme.</strong> Le pépin donne un arbre inconnu. Les variétés se multiplient par la greffe sur un porte-greffe ; sur un porte-greffe de pommetier de Sibérie, l’arbre fait 6 à 9 m. Un camerisier, lui, pousse sur ses propres racines : même rasé par le verglas ou le feu, il repart de la souche, et c’est la même variété qui repousse.</p>
+<h3 class="sub">F — La talle gérée</h3>
+<p class="p0">Chez les Premières Nations, les familles fréquentent souvent les mêmes talles depuis plusieurs générations, et le droit d’y cueillir se règle par les liens de famille et d’amitié. Une talle sur le territoire d’une famille se demande donc à cette famille. Voici comment on garde une talle productive au lieu d’en chercher une autre.</p>
+<p class="step"><span class="sn">47</span><strong>Lire la talle.</strong> Plus de bleuets après un feu ou une coupe forestière ; <strong>le bouleau et le framboisier qui s’installent annoncent une talle qui décline.</strong> Au pied, des plants très ramifiés dont les rares bourgeons à fruits sont au bout des tiges : c’est une talle qui a besoin d’être rajeunie.</p>
+<p class="step"><span class="sn">48</span><strong>Choisir la lame d’abord.</strong> Couper toutes les tiges <strong>au ras du sol</strong>, à la faucille, à la faux ou au couteau, pendant la dormance : après la première gelée forte de l’automne, quand le feuillage a tourné au rouge, ou au printemps avant le débourrement<sup class="fnr" data-fn="99-2">2</sup>. À l’automne, les tiges coupées trop haut meurent l’hiver ; au printemps, un chicot laissé long repousse de côté en tiges peu productives. Coupée à ras, la talle repart aussi bien qu’au feu, sans aucun risque de feu de forêt.</p>
+<p class="step"><span class="sn">49</span><strong>Ou brûler, à l’ancienne, dans la seule fenêtre où c’est sûr.</strong> Au Labrador, on brûlait les talles de petits fruits ; chez les Cris et les Dénés de l’Ouest, on brûlait au printemps, quand la neige tenait encore en lisière de forêt et servait de coupe-feu, à faible intensité, tous les quelques ans. Les conditions qui rendent la méthode sûre, toutes ensemble :</p>
+<p class="li l2">la plante dort (même fenêtre qu’à l’étape 48) ;</p>
+<p class="li l2">le sol garde un peu d’humidité, et la neige est encore là autour ;</p>
+<p class="li l2">un vent léger, pas de rafales ; tout autour, une bande de coupe-feu où rien ne peut brûler ;</p>
+<p class="li l2">on allume du côté où va le vent, pour que le feu recule contre lui, lentement, au lieu de courir avec lui ;</p>
+<p class="li l2">on brûle une partie de la talle à la fois, jamais tout ;</p>
+<p class="li l2">le feu doit seulement <strong>faire éclater les bourgeons</strong>. Un feu chaud brûle l’humus, et c’est dans l’humus que vit le rhizome : on tue la talle qu’on voulait sauver ;</p>
+<p class="li l2">avant d’allumer, le battoir et le râteau à feu sont en main, et l’eau à portée (<span class="ref">ch. 11</span>, <span class="ref">§9</span>, « Fabriquer les outils ») : c’est avec eux qu’on rabat une lisière qui part.</p>
+<p class="step"><span class="sn">50</span><strong>Compter deux ou trois ans.</strong> Le bleuet à feuilles étroites (<em>Vaccinium angustifolium</em>) donne sa plus grosse récolte la deuxième année après la coupe ; le bleuet fausse-myrtille (<em>Vaccinium myrtilloides</em>), la troisième, et elle supporte mal les brûlages répétés. On recommence le cycle tous les deux ou trois ans. <strong>Diviser la talle en deux moitiés qu’on rajeunit à tour de rôle</strong> donne une moitié en fruits chaque année.</p>
+<p class="step"><span class="sn">51</span><strong>À la floraison, repérer et surveiller.</strong> C’est le moment de voir quelles zones fleurissent le plus, et de surveiller le gel du printemps, qui peut anéantir la récolte en une nuit.</p>
+<h3 class="sub">G — Le foin à la main</h3>
+<p class="p0">Autour de Québec en 1749, le foin était fait d’un pâturin fin (<em>Poa</em>) et de trèfle blanc (<em>Trifolium repens</em>) ; on faisait les foins au début d’août, les prés ne se fauchaient qu’une fois l’été parce que le printemps arrive tard, et on montait des meules près des prés, coniques sur les prés humides. Rien de ça n’a changé pour un pré naturel du Nord : une seule coupe par été.</p>
+<p class="step"><span class="sn">52</span><strong>Faucher au bon moment.</strong> Le foin perd vite sa valeur après la floraison ; faucher du début au milieu de la floraison. La fléole des prés (<em>Phleum pratense</em>), le « mil », la grande herbe à foin des pays froids, devient vite ligneuse : la couper avant ou juste à l’épiaison<sup class="fnr" data-fn="99-3">3</sup>.</p>
+<p class="step"><span class="sn">53</span><strong>Faucher à la rosée.</strong> L’herbe mouillée de rosée se fauche bien mieux à la faux. Un matin clair, commencer tôt, pour que le fanage commence le jour même.</p>
+<p class="step"><span class="sn">54</span><strong>Régler la faux sur soi.</strong> Le manche et ses poignées se placent selon la taille du faucheur : bras tendus, les deux mains à peu près à la même hauteur, la lame toujours parallèle au sol pendant tout le demi-cercle. On avance en ligne droite, coups larges, en coupant vers l’herbe déjà fauchée. Une lame de 75 cm laisse un andain — la bande d’herbe coupée — d’environ 175 cm ; sur un terrain égal et sans roches, on fauche à peu près 500 m² à l’heure.</p>
+<p class="step"><span class="sn">55</span><strong>Aiguiser souvent, sur place.</strong> La pierre à faux se passe des deux côtés de la lame, en partant du talon, plusieurs fois par jour (<span class="ref">ch. 105</span>). C’est à ce moment-là que la faux coupe le faucheur : la pierre qui dérape hors du fil emmène les doigts qui la tiennent sur une lame qu’on vient de rendre tranchante, et un tendon de la main coupé ne se répare pas ici. Pour apprendre, on aiguise à genoux, le manche dans la main gauche et la pointe de la lame posée au sol : la lame ne bouge pas. Debout, le bout du manche posé par terre, la lame devant soi, pointe à droite, la main gauche tient la lame par le dos, jamais du côté du fil, juste derrière l’endroit où passe la pierre, et avance le long du dos à mesure. La pierre mouillée part du dos et descend vers le fil, jamais le long du fil, à petits coups qui se chevauchent, du talon vers la pointe : le dessus d’abord, puis le dessous. Aucune de ces prises n’empêche la coupure. Un fil qui rencontre une roche cachée s’ébrèche : un pré se nettoie de ses roches avant la première fauche, pas pendant.</p>
+<p class="step"><span class="sn">56</span><strong>Faner le jour même.</strong> Retourner et éparpiller l’andain à la fourche pour que l’air et le soleil y entrent : ça accélère le séchage et dissipe la chaleur qui commence dès la coupe. Au soleil, on étale ; par temps gris mais venteux, on aère.</p>
+<p class="step"><span class="sn">57</span><strong>Mettre en veillottes quand la pluie menace.</strong> Un foin à moitié sec qui se fait remouiller s’abîme bien plus qu’un foin fraîchement coupé sous la pluie. Avant l’averse, rassembler en gros andains ou en petits tas ronds — les veillottes — et les réétaler au soleil après.</p>
+<p class="step"><span class="sn">58</span><strong>Par temps humide, sécher en l’air.</strong> Une meule posée sur un trépied de perches, ou étendue sur une « tente canadienne » — deux chevalets en A reliés par une perche faîtière, des perches sur les côtés — sèche là où le sol mouillé l’aurait fait pourrir. C’est long à monter et ça demande des perches : le terrain en a.</p>
+<p class="step"><span class="sn">59</span><strong>Savoir quand rentrer.</strong> Le foin doit passer de 70 à 90 % d’eau à <strong>25 % au plus pour du foin en vrac</strong>. Sur le terrain : une poignée tordue qui craque, sans aucune humidité qui perle à la torsion, est à peu près à 25 à 30 %. <strong>C’est la limite, pas la cible</strong> : au premier craquement, on laisse encore sécher. Les feuilles fines sèchent d’abord ; la tige épaisse garde son jus plus longtemps : tordre des tiges, pas seulement des feuilles. Un bon foin est croustillant et d’un vert brillant ; un foin blanchi a pris la pluie. En climat humide, il faut rarement moins de trois jours.</p>
+<p class="step pk-d"><span class="sn">60</span><strong>Monter le tas pour qu’il respire.</strong> Sur un lit de pierres qui laisse passer l’air ; un trépied de perches au centre d’une meule ronde pour l’aérer ; le cœur <strong>bien tassé</strong>, sinon le tas s’affaisse en séchant et la pluie y entre. Plusieurs petits tas valent mieux qu’un gros : le volume garde la chaleur. Sous un toit si possible, et <strong>jamais sous le toit où l’on dort</strong> (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">61</span><strong>Sonder les six premières semaines.</strong> C’est dans cette période que se déclarent la plupart des feux de foin. Enfoncer la tige de fer au cœur du tas, la laisser environ 20 minutes, la retirer, et la toucher d’abord du dos de la main, brièvement, avant de l’empoigner. <strong>Trop chaude pour la main, on sort le foin chaud — mais la tige ne dit pas de combien</strong> : tout le tableau du <span class="ref">§6</span>, de la zone de danger au foin qui va flamber, lui fait le même effet. On traite donc le tas comme le pire cas : l’eau prête, une deuxième personne, des planches sur le tas avant la première fourchée, et chaque fourchée sort dehors et se noie. Avec un thermomètre descendu au fond d’un tuyau, les seuils sont au <span class="ref">§6</span>. On marche sur le tas sur des planches : un foin qui a brûlé en dedans laisse une cavité sous une croûte qui cède.</p>
+<p class="step"><span class="sn">62</span><strong>Compter le foin d’une chèvre avant d’acheter la chèvre.</strong> Une chèvre mange de 2 à 4 % de son poids en matière sèche par jour ; un foin sec contient 80 à 88 % de matière sèche. Pour une chèvre de 50 kg, c’est 1,1 à 2,5 kg de foin par jour. La saison sans gel dure 108 à 124 jours en moyenne selon la station ; en comptant le foin sur les quelque 240 à 257 autres, c’est <strong>270 à 640 kg par chèvre</strong>, avant le froid et le gaspillage. Une année courte, 89 à 95 jours sans gel ou moins, en demande davantage. Le froid compte : une chèvre au sec est à l’aise jusqu’à environ 0 °C, mais une chèvre mouillée commence à avoir froid dès 14 °C, et sous son seuil, sa ration doit monter d’environ 1 % par degré Fahrenheit, soit près de 2 % par degré Celsius. À −35 °C au vent, elle mange beaucoup plus. C’est ce foin-là que le <span class="ref">ch. 101</span> demande d’avoir avant la chèvre, et il faut les bras pour le faucher à la main.</p>
+<p class="step"><span class="sn">63</span><strong>Mesurer ce que le pré donne.</strong> Le livre ne donne aucun rendement de pré : il dépend du sol, de l’herbe et de l’été. La première année, on pèse. La romaine du <span class="ref">ch. 101</span> (<span class="ref">§9</span>, étape 18) ne donne pas de kilos telle quelle : elle compare. On l’étalonne. Le sac vide suspendu au bras court, marquer d’une encoche l’endroit où le bidon l’équilibre : c’est le zéro. Mettre dans le sac 10 L d’eau en bidons pleins (1 L d’eau pèse 1 kg), marquer l’encoche du 10. Les encoches suivantes se reportent au même écart, 10 kg par écart, puisque le bidon s’éloigne du pivot d’autant pour chaque poids égal ajouté. Peser ensuite une brassée dans le même sac, compter les brassées, et comparer au foin d’une chèvre (étape 62) : le pré dit lui-même combien de bêtes il nourrit. Le lapin mange du foin à volonté, et le foin d’arbre coupé en juillet complète tout (<span class="ref">ch. 101</span>, <span class="ref">§9</span>, étape 8).</p>
+<h3 class="sub">H — Le pâturage</h3>
+<p class="step"><span class="sn">64</span><strong>Faire pâturer le regain.</strong> Après la fauche, l’herbe qui repousse se broute : c’est la pâture de fin d’été, sans travail de plus. La fléole supporte mieux la faux que le broutage répété : le pré se fauche d’abord, se pâture ensuite.</p>
+<p class="step"><span class="sn">65</span><strong>Faire pâturer la jachère.</strong> La terre qui se repose un an sur deux porte ses herbes, et les bêtes les mangent tout l’été (étape 8).</p>
+<p class="step"><span class="sn">66</span><strong>Le pré de grève.</strong> Sur les côtes du fleuve, les marais à spartine ont servi de pâturage aux troupeaux des premiers habitants, de pré à foin de mer, et de chaume pour couvrir les bâtiments. Deux conditions. L’abri des bêtes et les meules restent au-dessus de la plus haute marée d’automne (étape 30) ; les bêtes descendent pâturer à marée basse et remontent. Et un abri contre le vent et la pluie froide, qui fait perdre à la chèvre l’isolation de son poil mouillé.</p>
+<h3 class="sub">I — Semer selon les signes, et ce qu’on disait de la lune</h3>
+<p class="step"><span class="sn">67</span><strong>Semer quand le lilas le dit.</strong> Betterave, carotte, choux, laitue et épinard quand le lilas (<em>Syringa vulgaris</em>) est en première feuille ; haricot, concombre et courge quand il est en pleine floraison ; la pomme de terre quand les premiers pissenlits fleurissent. Pour le maïs, on attendait ailleurs que les feuilles du chêne aient la taille d’une oreille d’écureuil — le sol était alors assez chaud pour que la graine ne pourrisse pas, et la saison encore assez longue —, ou, dans la tradition des Trois Sœurs (<span class="ref">§5-B</span>), celles du cornouiller. Le chêne ne pousse pas sur la Côte-Nord. Un cornouiller y pousse, le hart rouge (cornouiller stolonifère), dans la sapinière et plus rarement dans la pessière ; mais la tradition ne dit pas de quel cornouiller elle parle, et aucun repère local n’est publié pour le maïs : sa terre se réchauffe sous plastique (étape 12).</p>
+<p class="step"><span class="sn">68</span><strong>Prendre un repère qui pousse dans les conditions du jardin.</strong> Un lilas planté contre un mur au sud, ou à côté d’un stationnement, fleurit plus tôt que le jardin : il ne dit plus rien. On n’a besoin d’aucun registre : la plante fait elle-même l’addition de la chaleur de l’année.</p>
+<p class="step"><span class="sn">69</span><strong>Se méfier des calendriers du sud.</strong> En règle générale, un même signe du printemps recule d’environ quatre jours par degré de latitude vers le nord. De Montréal à Sept-Îles, la latitude seule donne près de trois semaines de retard ; les formulations de la règle ne s’accordent pas sur ce qu’y ajoute la longitude. C’est un ordre de grandeur, que le fleuve et le relief déplacent encore.</p>
+<p class="step"><span class="sn">70</span><strong>Tenir la lune pour ce qu’elle est : une croyance.</strong> Semer et récolter selon la phase de la lune et les signes de l’almanach : c’est une tradition presque universelle, et elle ne repose sur rien qu’on ait pu mesurer. L’attraction de la lune sur une plante est environ 300 000 fois plus faible que celle de la Terre, et la lumière de la pleine lune environ 128 000 fois plus faible que celle du soleil ; aucun lien constant n’a été trouvé entre la lune et la croissance. Elle ne fait de tort qu’une fois : quand on laisse passer une belle journée de semis, sol chaud et ciel clair, pour attendre la bonne lune.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:12.5%"><col style="width:14.8%"><col style="width:35.5%"><col style="width:37.2%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Achat de la semence de maïs</td><td>Jours à maturité sur le sachet</td><td>Le plus court trouvé ; maïs de Gaspé : épis secs vers le 20 juillet d’un semis de fin mai en Nouvelle-Écosse, soit environ 50 à 70 jours</td><td>Ne pas semer un maïs sucré ordinaire. Faire la butte en haricot à rames et courge (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Semis du maïs</td><td>Trempage ; profondeur</td><td>8 h au plus ; 2,5 à 4 cm, 5 à 7 grains par butte</td><td>Resemer ; garder humide deux semaines</td></tr><tr><td class="c-item">Buttes</td><td>Espacement</td><td>0,9 à 1,2 m dans les deux sens</td><td>Refaire avant de semer : trop serrées, la courge étouffe tout</td></tr><tr><td class="c-item">Semis des deux autres sœurs</td><td>Hauteur du maïs</td><td>Environ 15 cm ; haricot dans chaque butte, courge dans une sur sept</td><td>Attendre. Semé trop tôt, le haricot grimpe sur un maïs qui n’est pas là</td></tr><tr><td class="c-item">Toute la saison</td><td>Eau</td><td>25 mm par semaine, pluie comprise</td><td>Arroser au pied</td></tr><tr><td class="c-item">Haricot sec à la cuisson</td><td>Trempage, puis gros bouillon</td><td>Selon le <span class="ref">ch. 98</span>, étape 26</td><td>Monter à gros bouillon avant de servir, même si c’est déjà « cuit » au coin du poêle</td></tr><tr><td class="c-item">Avant la lessive du maïs</td><td>Eau de rinçage ; chaudron</td><td>Eau tiède prête pour 60 min de rinçage ; inox ou fonte</td><td>On ne verse pas la cendre</td></tr><tr><td class="c-item">Lessive du maïs</td><td>Proportion ; signes</td><td>Cendre : 1 volume pour 4 d’eau, environ 45 min. Chaux : environ 10 g par litre, 80 °C, 20 à 45 min, une nuit. Pointes noires qui flottent, pelure qui glisse</td><td>Prolonger. Rincer deux fois : aucune lessive ne doit rester</td></tr><tr><td class="c-item">Plantation des camerisiers</td><td>Variétés</td><td>Deux, non apparentées, qui fleurissent en même temps</td><td>En ajouter une compatible ; un plant seul ne donnera jamais</td></tr><tr><td class="c-item">Argousiers à la première floraison</td><td>Sexe des plants</td><td>Environ un mâle sur dix</td><td>Éliminer des mâles en trop, ou en ajouter un</td></tr><tr><td class="c-item">Pommiers</td><td>Distance entre deux variétés</td><td>30 m au plus</td><td>Planter la deuxième plus près, ou greffer une deuxième variété sur l’arbre</td></tr><tr><td class="c-item">Gadelliers</td><td>Distance aux pins blancs</td><td>300 m au moins</td><td>Déplacer les gadelliers, pas le pin</td></tr><tr><td class="c-item">Taille de fin d’hiver</td><td>Tiges gardées</td><td>Cassis : 10 à 12, la moitié d’un an. Gadellier rouge, groseillier : 9 à 12, trois ou quatre de chaque âge. Rien de plus de trois ans. Camerisier : un quart au plus</td><td>Couper au ras du sol ce qui dépasse</td></tr><tr><td class="c-item">Rhubarbe</td><td>Âge de la plantation ; tiges</td><td>Rien la 1ʳᵉ année ; quelques tiges la 2ᵉ ; tiges tirées, pas coupées ; hampe florale coupée dès qu’elle paraît</td><td>Diviser si les tiges s’amincissent ; replanter ailleurs aux 6 à 8 ans</td></tr><tr><td class="c-item">Talle</td><td>Moment de la coupe ou du feu</td><td>Dormance : feuillage rouge après la première gelée forte, ou avant le débourrement ; au printemps, sol humide et neige en lisière</td><td>Attendre la bonne fenêtre. Jamais de feu hors d’elle</td></tr><tr><td class="c-item">Talle rajeunie</td><td>Récolte</td><td>La 2ᵉ année (bleuet à feuilles étroites), la 3ᵉ (bleuet fausse-myrtille) ; cycle de 2 ou 3 ans</td><td>Rien la 2ᵉ année : coupe trop haute, ou feu trop chaud (<span class="ref">§7</span>)</td></tr><tr><td class="c-item">Fauche</td><td>Stade de l’herbe</td><td>Début à mi-floraison ; fléole avant ou à l’épiaison</td><td>Faucher sans attendre : la qualité baisse chaque jour</td></tr><tr><td class="c-item">Rentrée du foin</td><td>Humidité</td><td>25 % au plus en vrac. Le test de torsion (craque, rien ne perle, tiges comprises) dit 25 à 30 % : c’est le signal de laisser encore sécher, pas celui de rentrer</td><td>Encore du soleil ; en veillottes si la pluie menace</td></tr><tr><td class="c-item">Tas, 6 premières semaines</td><td>Sonde au cœur, 20 min, touchée du dos de la main d’abord</td><td>Tige supportable à la main. Au thermomètre : 52 °C, rien à faire</td><td>Tige trop chaude : elle ne dit pas de combien, donc le pire cas des lignes suivantes (étape 61)</td></tr><tr><td class="c-item">Tas</td><td>Température</td><td>66 °C</td><td>Zone de danger : sonder deux fois par jour, défaire le tas pour le refroidir</td></tr><tr><td class="c-item">Tas</td><td>Température</td><td>71 °C</td><td>Sonder aux deux heures. Défaire pour refroidir, mais <strong>eau prête et deux personnes avant la première fourchée</strong> : vers 77 °C, ouvrir le tas peut le faire flamber. Chaque fourchée chaude sort dehors et se noie</td></tr><tr><td class="c-item">Tas</td><td>Température</td><td>79 °C</td><td>Poches de feu probables : <strong>ne plus faire entrer d’air</strong>. Préparer l’eau et les bras (<span class="ref">§8</span>)</td></tr><tr><td class="c-item">Tas</td><td>Température</td><td>88 °C et plus</td><td>Sortir le foin chaud, eau prête : il peut s’enflammer à l’air. Chaque fourchée dehors, arrosée, loin de tout bâtiment</td></tr><tr><td class="c-item">Chèvre, l’hiver</td><td>Ration</td><td>2 à 4 % du poids en matière sèche, plus le froid</td><td>La peser ; augmenter avant qu’elle maigrisse</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:28.9%"><col style="width:27.6%"><col style="width:43.5%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Épis de maïs encore laiteux au premier gel</td><td>Variété trop tardive pour l’été qu’il a fait</td><td>Manger frais, grillé. Ne pas garder cette semence. Chercher plus hâtif (<span class="ref">ch. 100</span>)</td></tr><tr><td class="c-item">Maïs jaune et chétif, haricot vigoureux</td><td>Maïs affamé : l’azote du haricot n’arrive que l’an prochain</td><td>Compost ou fumier au pied maintenant ; replanter les mêmes buttes l’an prochain</td></tr><tr><td class="c-item">Tout le carré noyé sous les tiges de courge</td><td>Courge semée dans trop de buttes</td><td>Une butte sur sept, pas plus, l’an prochain. Couper des tiges cette année</td></tr><tr><td class="c-item">Épis moisis dans la réserve</td><td>Rentrés sans séchage</td><td>Jeter l’épi moisi entier : même la cuisson à la chaux n’enlève qu’une partie de la toxine des moisissures, pas assez pour rendre sûr un grain contaminé. Étaler le reste et laisser sécher plusieurs semaines avant de ranger</td></tr><tr><td class="c-item">Nausées, vomissements, diarrhée après un plat de haricots secs</td><td>Haricots jamais montés à gros bouillon (<span class="ref">ch. 98</span>, étape 26)</td><td>Faire boire (<span class="ref">ch. 26</span>). Le reste du plat remonte à gros bouillon ou se jette</td></tr><tr><td class="c-item">Citrouilles cueillies vertes qui pourrissent au lieu de mûrir</td><td>Empilées, ou gardées dans une cave humide</td><td>Les étaler une à une, au sec ; la cave humide pourrit la citrouille (<span class="ref">ch. 79</span>, groupe C : une pièce fraîche et sèche du chalet)</td></tr><tr><td class="c-item">Camerisiers en fleurs, aucun fruit</td><td>Une seule variété, ou deux qui ne fleurissent pas en même temps ; ou fleurs gelées sous −7 °C</td><td>Ajouter une variété compatible. Couvrir les nuits de gel de floraison</td></tr><tr><td class="c-item">Camerise bleue dehors, verte dedans</td><td>Pas mûre</td><td>Attendre ; goûter en mordant en deux</td></tr><tr><td class="c-item">Argousiers en fleurs, aucun fruit</td><td>Pas de mâle, ou que des mâles ; ou bois trop jeune</td><td>Identifier les sexes à la floraison ; attendre le bois de trois ans</td></tr><tr><td class="c-item">Pommier en fleurs chaque année, aucune pomme</td><td>Pas de deuxième variété à 30 m, ou le voisin est un pommetier ornemental à fleurs doubles</td><td>Planter une deuxième variété, ou greffer</td></tr><tr><td class="c-item">Pommes encore vertes et dures à la première grosse gelée</td><td>Variété d’octobre</td><td>Choisir une variété hâtive, comme certains pommetiers</td></tr><tr><td class="c-item">Pommier semé de pépin dont le fruit ne ressemble pas à la pomme d’origine</td><td>Normal : le pépin ne reproduit pas la pomme</td><td>Le garder s’il est bon ; sinon, s’en servir comme porte-greffe</td></tr><tr><td class="c-item">Branches de gadellier qui feuillent tard ou dépérissent ; moelle noire et creuse à la coupe</td><td>Larve de sésie dans la tige</td><td>Couper et brûler ces branches à la taille ; ne pas laisser vieillir les tiges</td></tr><tr><td class="c-item">Petites taches brunes sur les feuilles de gadellier, défeuillaison dès la fin juillet</td><td>Anthracnose, qui hiverne dans les feuilles tombées</td><td>Ramasser et brûler les feuilles tombées à l’automne ou avant le débourrement ; perte de récolte l’an prochain</td></tr><tr><td class="c-item">Poudre blanche sur les jeunes pousses de cassis ou de groseillier, qui brunit ensuite</td><td>Blanc (oïdium), favorisé par le temps chaud et humide et l’air qui ne circule pas</td><td>Couper les bouts atteints à la taille ; éclaircir ; déplacer vers un site aéré</td></tr><tr><td class="c-item">Tiges de rhubarbe de plus en plus minces</td><td>Couronne trop vieille, trop serrée</td><td>Diviser (étape 44)</td></tr><tr><td class="c-item">Feuilles de rhubarbe cuites avec les tiges ; brûlure de la bouche et de la gorge</td><td>L’acide oxalique du limbe. Les cas graves touchent les reins</td><td>Ne jamais manger le limbe ; il va au compost (<span class="ref">ch. 95</span>, <span class="ref">§7</span>)</td></tr><tr><td class="c-item">Topinambour partout, y compris là où on n’en veut plus</td><td>Normal : le moindre bout de racine repousse</td><td>Le confiner dans un coin à lui ; déterrer ce qui dépasse chaque automne</td></tr><tr><td class="c-item">Gaz et ballonnements après un plat de topinambour</td><td>Sa réserve, l’inuline, ne se digère pas</td><td>Pas un signe d’altération. En manger peu à la fois, cuit</td></tr><tr><td class="c-item">Talle envahie de jeunes bouleaux et de framboisiers</td><td>Talle qui se referme et décline</td><td>Rajeunir (étapes 48 à 50)</td></tr><tr><td class="c-item">Talle coupée ou brûlée qui repart mal</td><td>Feu trop chaud qui a brûlé l’humus et les rhizomes ; coupe trop hâtive à l’automne, qui a privé les rhizomes de leurs réserves ; ou coupe trop tardive au printemps</td><td>Si le feu a touché l’humus, y revenir d’abord : un feu de sol avance sans flamme ni fumée et peut ressortir plus loin, même après l’hiver. Gratter jusqu’au sol minéral et noyer partout où le dos de la main sent de la chaleur, et refaire le tour au dégel (<span class="ref">ch. 11</span>, <span class="ref">§9</span>). Puis laisser la partie morte se refaire d’elle-même ; brûler plus léger, ou couper à la lame, dans la fenêtre de l’étape 48</td></tr><tr><td class="c-item">Foin blanchi, décoloré</td><td>A pris la pluie en séchant</td><td>Il se donne, mais il vaut moins ; ne pas compter sur lui seul</td></tr><tr><td class="c-item">Foin poussiéreux, poudre blanche, grise ou noire au cœur des brassées</td><td>Foin moisi, rentré trop humide</td><td>Ne pas le donner au lapin (<span class="ref">ch. 101</span>, <span class="ref">§9</span>, étape 9). Le défaire dehors, jamais dans un bâtiment fermé, dos au vent, la poussière mouillée avant d’être brassée : elle donne le poumon du fermier (<span class="ref">§3</span>)</td></tr><tr><td class="c-item">Tas qui s’affaisse au centre, pluie entrée</td><td>Cœur mal tassé</td><td>Refaire le tas, cœur serré ; l’humide au soleil</td></tr><tr><td class="c-item">Tige de fer trop chaude pour la main</td><td>Le foin chauffe, et la tige ne dit pas de combien</td><td>Le pire cas du <span class="ref">§6</span> : eau prête, deux personnes, planches sur le tas ; chaque fourchée dehors et noyée (étape 61, <span class="ref">§8</span>)</td></tr><tr><td class="c-item">Chèvre qui maigrit en janvier</td><td>Ration d’été gardée en grand froid</td><td>Peser, augmenter ; l’abriter du vent et de la pluie froide</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Un tas de foin rentré trop humide peut prendre feu tout seul, des semaines plus tard.</strong> Au-delà de 20 à 25 % d’eau, les bactéries du foin se multiplient et font monter l’intérieur du tas entre 54 et 60 °C ; d’autres bactéries, qui aiment la chaleur, prennent alors le relais et le poussent au-delà de 77 °C, où il peut s’enflammer sans étincelle. Un foin à 30 % d’eau peut rester chaud jusqu’à 40 jours, et la plupart des feux de foin se déclarent dans les six semaines qui suivent la rentrée. Trois mécanismes font de ce feu un piège :</p>
+<p class="li"><strong>L’air nourrit le feu caché.</strong> Entre 66 et 77 °C, on défait le tas pour le refroidir ; mais vers le haut de cette plage, l’ouvrir lui donne l’oxygène qui lui manquait et peut le faire flamber à la fourche. Donc, dès 71 °C, et chaque fois que la tige de fer est trop chaude pour la main, parce qu’elle ne dit pas de combien : l’eau prête et deux personnes avant la première fourchée, et chaque fourchée chaude sort dehors et se noie. À 79 °C, on ne fait plus entrer d’air du tout ; à 88 °C, le foin chaud sort quand même, eau prête, parce qu’il peut s’enflammer à l’air de toute façon.</p>
+<p class="li"><strong>Le foin brûle en dedans et laisse un trou.</strong> Une croûte de foin intact peut couvrir une cavité brûlée : on n’y marche que sur des planches, et jamais seul.</p>
+<p class="li"><strong>Le foin qui couve dégage du monoxyde de carbone</strong>, sans odeur, qui endort avant d’alerter.</p>
+<p class="pt cont0">D’où la règle qui ne se discute pas : <strong>le foin ne se range jamais sous le toit où quelqu’un dort</strong>, ni contre le chalet. Un fenil qui s’enflamme une nuit de septembre, adossé à la chambre des enfants, ne laisse le temps de rien. Et la sonde de fer passe au cœur du tas chaque jour les six premières semaines, touchée du dos de la main avant d’être empoignée : c’est l’instrument qui dit qu’il faut agir, pas de combien le tas est chaud.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Un feu de talle hors de sa fenêtre est un feu de forêt.</strong> Le brûlage ancien est sûr pour une raison précise : au printemps, le sol est humide, l’humus ne brûle pas en profondeur, et la neige qui reste en lisière arrête le feu. Qu’une seule de ces conditions manque, et c’est un autre feu. En été, par temps sec, le même feu entre dans l’humus sec, y couve sans flamme ni fumée visibles, et ressort ailleurs au premier vent (<span class="ref">ch. 11</span> : les signes du sol sec, et le point chaud qu’on cherche du dos de la main). <strong>Pas de neige en lisière, humus qui s’effrite sous le pied, vent qui monte : on coupe à la lame, on ne brûle pas.</strong> Et on ne quitte pas une talle brûlée avant d’avoir passé le dos de la main au ras du sol partout où le feu est passé — le dos, parce qu’une main à plat se referme sur ce qui brûle. Un brûlis qui a touché l’humus se revisite, au dégel aussi : un feu de sol peut passer l’hiver et ressortir plus loin. On gratte jusqu’au sol minéral et on noie (<span class="ref">ch. 11</span>, <span class="ref">§9</span>).</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">La lessive du maïs rend aveugle.</strong> La cendre bouillie dans l’eau fait une lessive, de la même famille que celle du savon, et la chaux éteinte aussi. <strong>Le mécanisme :</strong> une base dissout les tissus et continue de s’enfoncer tant qu’on ne la rince pas ; une brûlure qui ne fait pas mal tout de suite travaille encore. L’eau de rinçage tiède est donc prête <strong>avant</strong> qu’on verse la cendre ou la chaux, de quoi rincer 60 minutes sans interrompre, yeux ou peau (<span class="ref">ch. 112</span>, <span class="ref">§8</span>.1). Jamais de chaudron d’aluminium : la lessive l’attaque et en tire de l’hydrogène, qui s’enflamme au poêle (<span class="ref">ch. 112</span>, <span class="ref">§8</span>.2). Et le grain se rince jusqu’à ce qu’il ne reste aucune lessive : ce qui en reste brûle la bouche de ceux qui le mangent.</p>
+</template>
+<template id="story-e">
+<p class="p0 ri"><strong class="runin">Sans pépinière, sans semence achetée, sans faux, sans rien du commerce : ce qui pousse presque seul et revient chaque année.</strong> C’est la partie du chapitre qui sert le jour où il n’y a plus de catalogue. Elle marche à une condition qui ne se négocie pas : ce qui est vivace doit avoir été planté, ou trouvé, une saison au moins avant d’en avoir besoin.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on trouve déjà sur le territoire.</strong> Le gadellier sauvage du sous-bois, l’amélanchier des lisières et des talus, le bleuet des brûlis (<span class="ref">ch. 91</span>) : ils poussent sans nous. La variante ne les plante pas, elle les rapproche. En juillet ou en août, goûter les amélanchiers d’une lisière, marquer d’un ruban le meilleur au goût ; en fin d’hiver, revenir y couper des branches ou arracher un drageon (étape 43) et les planter en haie derrière le chalet, là où on n’aura plus à marcher pour cueillir. Les gadelliers sauvages se bouturent comme ceux du jardin (étape 41). <strong>Ce qu’on perd :</strong> la taille du fruit et le rendement des variétés sélectionnées, et deux ou trois ans avant la première vraie récolte.</p>
+<p class="p0 ri"><strong class="runin">La rhubarbe prise à une vieille talle.</strong> Un seul morceau de couronne avec un gros bourgeon (étape 44) donne ses premières tiges la deuxième année, et quelques plants nourrissent une famille. Elle ne demande rien : ni semence, ni pollinisateur, ni pH corrigé. <strong>Et elle se force l’hiver.</strong> À la fin de l’automne, déterrer une ou deux couronnes, les laisser geler plusieurs semaines dehors sous un peu de terre, puis les rentrer dans une caisse, couronnes couvertes de 5 à 8 cm de terre ou de sable, au noir ou presque, entre 10 et 18 °C — le coin frais de la maison, pas le caveau, qui est à 0 °C. Elles poussent des tiges en plein hiver : un légume frais au moment où le caveau ne sort plus que des racines. <strong>Ce qu’on perd :</strong> les couronnes qu’on déterre ; on force celles qu’une division a mises en surplus (étape 44), jamais la talle qui nourrit l’été. Et les feuilles restent toxiques, forcées ou pas.</p>
+<p class="p0 ri"><strong class="runin">Le topinambour, la vivace qui ne s’arrête plus.</strong> Un tubercule à deux yeux dans un coin à lui, à 10 cm de profondeur, dès le dégel. Il pousse haut, fait brise-vent, et le moindre bout oublié en terre repart au printemps : une talle qu’on récolte sans jamais la vider se replante toute seule. Il passe l’hiver en terre et se déterre à l’automne, ou au printemps dès que la terre dégèle. Pour grossir les tubercules : rabattre les tiges à environ 1,5 m à la fin de l’été et couper les fleurs. <strong>Ce qu’on perd :</strong> il demande en moyenne 130 jours pour mûrir, et la côte en donne 108 à 124 sans gel en moyenne, 89 à 95 ou moins une année sur dix : les tubercules seront plus petits qu’ailleurs, où on compte environ 400 g par plant. Il n’a pas d’amidon mais de l’inuline, que le corps ne digère pas : il remplit, il donne des gaz, il ne remplace pas la pomme de terre. Et il ne se déloge plus : on le met où on n’aura jamais besoin de la place.</p>
+<p class="p0 ri"><strong class="runin">La talle rajeunie sans feu.</strong> La coupe à ras du sol en dormance, à la faucille ou au couteau, fait le travail du feu (étape 48) sans aucun des risques du <span class="ref">§8</span>. Une moitié de talle une année, l’autre moitié l’année d’après, et il y a des bleuets tous les ans. <strong>Ce qu’on perd :</strong> le feu tue aussi des insectes et des maladies qui hivernent au sol ; la lame, non. C’est un prix bas.</p>
+<p class="p0 ri"><strong class="runin">Les Trois Sœurs sans maïs hâtif.</strong> Sans semence de maïs très hâtif, la butte perd sa première sœur. Les deux autres restent ce qu’elles étaient déjà ici : des paris de belle année, qui ne se font que sous un plastique transparent ou contre le mur sud (<span class="ref">ch. 97</span> ; <span class="ref">ch. 98</span>, étapes 24 et 29). Le haricot grimpant monte sur une perche d’épinette plantée au centre de la butte, ou sur une branche d’aulne à rameaux ; la courge couvre le sol comme avant. On garde la butte, qui draine et chauffe, et le partage du travail entre la plante qui grimpe et celle qui couvre. <strong>Ce qu’on perd :</strong> le grain sec, qui faisait le gros de la table là où les Trois Sœurs venaient bien (étape 23).</p>
+<p class="p0 ri"><strong class="runin">Garder la récolte de la butte comme on la gardait.</strong> Rien en pot sans autoclave (étape 21). Le maïs tressé par ses feuilles et pendu sous le toit ; le haricot séché dans sa cosse, écossé, rangé au sec ; la courge en lanières enfilées sur une corde près du poêle, ou entière sur un plancher sec, jamais en tas. Pour manger le haricot sec : trempage et gros bouillon (<span class="ref">ch. 98</span>, étape 26), jamais le seul mijotage au coin du poêle. Pour le maïs, la lessive de cendre (étape 22).</p>
+<p class="p0 ri"><strong class="runin">Le foin sans faux.</strong> La faucille coupe environ cinq fois moins vite que la faux ; une machette ou un long couteau à peu près deux fois moins vite. Ça reste du foin. Et ce qui ne demande aucune lame à faucher :</p>
+<p class="li"><strong>Le foin d’arbre</strong> : rameaux feuillus de saule, de bouleau, de tremble et d’aulne coupés en juillet, en petits bottillons séchés à l’ombre (<span class="ref">ch. 101</span>, <span class="ref">§9</span>, étape 8). Pour le lapin, c’est la ration d’hiver la plus facile à récolter du territoire.</p>
+<p class="li"><strong>Le regain et la jachère broutés sur place</strong> (étapes 64 et 65) : les bêtes font elles-mêmes le travail de la faux jusqu’à la neige.</p>
+<p class="li"><strong>Le pré de grève</strong> : là où la côte a des marais à spartine, les bêtes y pâturent à marée basse et l’herbe s’y fauche comme au temps des premiers habitants ; l’abri et les meules restent au-dessus de la marée d’automne (étape 66).</p>
+<p class="p0 ri"><strong class="runin">Le pré qui se fait tout seul.</strong> Autour de Québec en 1749, presque tous les prés avaient d’abord été des champs de grain : on voyait encore les sillons sous l’herbe. Une trouée défrichée, un vieux jardin qu’on abandonne, une jachère qu’on ne reprend pas se couvrent d’herbe sans qu’on sème, et ce pré-là se fauche une fois l’été comme un autre. <strong>Ce qu’on perd :</strong> le choix de l’herbe. On fauche ce que le sol a donné, et on le pèse à la romaine étalonnée pour savoir ce qu’il vaut (étape 63).</p>
+<p class="p0 ri"><strong class="runin">La faux qui casse.</strong> Le manche est traditionnellement en bois : il se refait dans une perche de bois dur, à la taille du faucheur, avec ses poignées placées pour qu’il fauche bras tendus (étape 54). La lame tient au manche par un anneau serré d’un coin ; un anneau perdu se refait d’une bande de tôle roulée et serrée au coin de bois, ou se soude (<span class="ref">ch. 107</span>). Sans pierre à faux, un grès fin ou un schiste de rivière mouillé, qui raye l’acier et laisse une boue grise sous la lame (<span class="ref">ch. 105</span>, <span class="ref">§9</span>). <strong>Ce qu’on perd :</strong> une lame qu’un faucheur n’a pas réglée à sa main fauche mal et fatigue vite ; on fauche moins, et plus tôt le matin, pendant que la rosée aide encore.</p>
+<p class="p0 ri"><strong class="runin">Le séchage du foin sans bâtiment.</strong> Trépieds de trois perches d’épinette liées au sommet, le foin posé en couches sur les perches et non contre le sol ; ou la tente canadienne, deux chevalets et une faîtière. Le foin sec se garde en meule ronde sur un lit de pierres, un trépied au centre pour l’air, le cœur tassé, le dessus en pente pour que la pluie coule. <strong>Ce qu’on perd :</strong> une meule dehors dont le dessus n’est pas couvert s’abîme à chaque pluie ; on la coiffe de ce qu’on a — écorce, toile, branches serrées — et on compte large.</p>
+<p class="p0 ri"><strong class="runin">La sonde du fenil, fabriquée.</strong> Une tige de ferraillage, une barre mince ou un bout de tuyau d’environ 1 cm, de 2,4 à 3 m, affûtée d’un bout au marteau. Enfoncée au cœur du tas, laissée 20 minutes, retirée, touchée d’abord du dos de la main, brièvement, et empoignée seulement si elle le permet. Si elle brûle la main, on sort le foin chaud ; et comme elle ne dit pas de combien, on le sort comme au pire cas du <span class="ref">§6</span> : l’eau prête, deux personnes, des planches sur le tas, chaque fourchée dehors et noyée. Pas besoin de thermomètre pour savoir qu’il faut agir ; il en faut un pour savoir de combien.</p>
+<p class="p0 ri"><strong class="runin">Semer sans calendrier.</strong> Le lilas du village, les pissenlits, le sol qu’on prend dans la main : aucun papier, aucun almanach, aucune lune. Le repère est vrai chaque année parce qu’il a vécu la même année que le jardin (étapes 67 et 68).</p>
+<p class="p0 lab kh"><strong class="runin">Ce qui ne se remplace vraiment pas.</strong></p>
+<p class="li"><strong>Le temps.</strong> Aucune façon ancienne ne fait donner un arbuste l’année où on le plante. Ce qui n’est pas en terre trois ans avant la crise ne nourrit personne pendant la crise ; le topinambour et la rhubarbe sont les seules exceptions, parce qu’ils donnent dès la première ou la deuxième saison.</p>
+<p class="li"><strong>La deuxième variété de camerisier, le mâle de l’argousier, le deuxième pommier.</strong> Sans eux, les plants fleurissent pour rien, chaque année, et aucune taille ni aucun soin n’y change quoi que ce soit.</p>
+<p class="li"><strong>La variété de maïs.</strong> Une butte ne change pas l’été. Sans maïs très hâtif, pas de maïs.</p>
+<p class="li"><strong>Le sec du foin.</strong> Aucun tour de main ne fait garder un foin humide : il moisit ou il brûle. Faute de beau temps, on fait moins de foin, on nourrit au foin d’arbre et on réduit le troupeau à ce que le fenil porte (<span class="ref">ch. 101</span>).</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="28-1"><span class="fnn">1</span>Chez l’enfant couché calme, torse nu : à chaque inspiration, le bas de la cage thoracique se creuse vers l’intérieur pendant que le haut du ventre se soulève. Ça compte seulement si c’est permanent et bien visible au repos ; un creux qui paraît quand l’enfant pleure ou mange, ou la peau qui se creuse seulement entre les côtes ou au-dessus de la clavicule, ne suffit pas. Chez l’adulte, c’est la peau qui se creuse entre les côtes ou au-dessus des clavicules.</p>
+<p class="fn" data-fn="28-2"><span class="fnn">2</span>Les narines s’ouvrent grand à chaque inspiration, comme chez quelqu’un qui vient de courir, alors que la personne est couchée au repos.</p>
+<p class="fn" data-fn="28-3"><span class="fnn">3</span>Un son court, répété, comme un petit grognement ou une plainte, à chaque expiration : l’enfant ferme à moitié sa gorge pour garder de l’air dans ses poumons.</p>
+<p class="fn" data-fn="28-4"><span class="fnn">4</span>Un son rauque et aigu qu’on entend quand la personne <strong>inspire</strong>, pas quand elle expire. Au repos, il veut dire que le passage de l’air dans la gorge est en train de se fermer.</p>
+<p class="fn" data-fn="28-5"><span class="fnn">5</span>Presser fermement le flanc d’un verre transparent sur la tache et regarder à travers. Une tache qui pâlit et disparaît sous la pression est une rougeur ordinaire. <strong>Une tache qui reste visible à travers le verre</strong> est du sang sorti sous la peau. Elle commence souvent en petits points rouges comme des piqûres d’épingle, puis s’étend en taches rouges ou violettes. Sur une peau foncée, on regarde les zones pâles : paumes, plantes des pieds, palais, blanc des yeux, intérieur des paupières. Tous les malades graves n’ont pas de taches : leur absence ne rassure pas.</p>
+<p class="fn" data-fn="28-6"><span class="fnn">6</span>La personne couchée ou assise, on lui demande d’amener le menton sur la poitrine, ou on soulève doucement sa tête pour le faire. Une nuque raide résiste : le geste est très douloureux, parfois impossible, alors que tourner la tête de côté l’est beaucoup moins. Le signe se cherche chez l’enfant plus vieux et l’adulte ; le tout-petit peut ne pas l’avoir.</p>
+<p class="fn" data-fn="28-7"><span class="fnn">7</span>Le bleu ou le gris se voit d’abord aux lèvres, à la langue, aux gencives et sous les ongles ; sur une peau foncée, aux paumes, aux lèvres, à la langue, aux gencives et autour des yeux. Il apparaît tard, quand il manque déjà beaucoup d’oxygène.</p>
+<p class="fn" data-fn="28-8"><span class="fnn">8</span>Une peau tachetée de violet, de gris et de pâle, comme du marbre ; sur une peau foncée, elle se voit mieux aux paumes et à la plante des pieds. Avec la fièvre et des mains et des pieds froids, c’est la circulation qui se ferme à la peau pour garder le sang au centre du corps (<span class="ref">ch. 26</span>, section 8).</p>
+<p class="fn" data-fn="28-9"><span class="fnn">9</span>Une fièvre qui dure au moins 5 jours et ne cède pas aux médicaments, le plus souvent chez un enfant de moins de 5 ans, avec plusieurs de ces signes : les yeux rouges <strong>sans écoulement</strong>, apparus au bout d’un ou deux jours ; les lèvres rouges, sèches et fendues, la langue rouge comme une fraise ; les paumes et la plante des pieds rouges ou violacées, les mains et les pieds enflés ; une éruption de taches rouges sur le tronc ; des ganglions enflés au cou. Vers le 10e jour, la peau du bout des doigts pèle.</p>
+<p class="fn" data-fn="28-10"><span class="fnn">10</span>Derrière l’oreille, sur l’os qu’on sent en arrière du pavillon : une bosse rouge, chaude, douloureuse au toucher, qui pousse le pavillon vers l’avant et le décolle de la tête. On compare avec l’autre côté, en regardant l’enfant de face puis de derrière. L’enfant est fatigué, irritable, entend moins de ce côté.</p>
+<p class="fn" data-fn="28-11"><span class="fnn">11</span>Des gestes brusques, sans but, que l’enfant ne contrôle pas, des mains d’abord, puis des pieds et du visage, avec des grimaces ; ils disparaissent pendant le sommeil. Dans les cas légers, l’enfant a seulement l’air maladroit et peine à s’habiller et à manger. Ils peuvent n’apparaître qu’une fois tous les autres signes disparus.</p>
+<p class="fn" data-fn="28-12"><span class="fnn">12</span>L’enfant a une forte fièvre apparue en moins d’une journée, il est anxieux, assis, penché en avant, la bouche ouverte, la salive qui coule parce qu’avaler fait trop mal. Il ne tousse pas et sa voix n’est pas rauque, ce qui le distingue du croup, où la toux aboie. Il refuse de se coucher : c’est sa façon de garder l’air ouvert.</p>
+<p class="fn" data-fn="28-13"><span class="fnn">13</span>Un mal de gorge qui s’aggrave au lieu de passer, plus fort d’un côté ; la voix étouffée, comme avec une patate chaude dans la bouche ; la bouche qui n’ouvre plus qu’à moitié parce que les mâchoires se contractent ; à la lampe, un côté du fond de la gorge bombe et pousse la luette — le petit bout de chair qui pend au milieu — vers l’autre côté.</p>
+<p class="fn" data-fn="28-14"><span class="fnn">14</span>On demande à la personne de suivre un doigt des yeux, à gauche, à droite, en haut, en bas. Dans l’infection de l’orbite, bouger l’œil fait mal, un œil suit moins bien que l’autre, elle voit le doigt en double ; vu de profil ou d’en haut, l’œil malade dépasse l’autre.</p>
+<p class="fn" data-fn="28-15"><span class="fnn">15</span>Aucune urine depuis plus de 8 heures ; pas de larmes quand il pleure ; les yeux enfoncés ; la bouche et la langue sèches ; une soif extrême, ou au contraire un enfant qui ne veut plus boire ; une respiration plus rapide ; étourdi ou confus ; une peau froide et bleutée qui, pincée doucement entre deux doigts, ne reprend pas sa place tout de suite.</p>
+<p class="fn" data-fn="28-16"><span class="fnn">16</span>Un vomi vert franc, ou jaune-vert comme de l’herbe écrasée : c’est de la bile. Chez un enfant, c’est un signe qui ne se discute pas, même si le reste a l’air d’une gastro ordinaire.</p>
+<p class="fn" data-fn="28-17"><span class="fnn">17</span>Des traînées rouges, chaudes et douloureuses partent de l’infection et remontent le long du bras ou de la jambe, vers l’aisselle ou l’aine, souvent avec fièvre et frissons : l’infection gagne les vaisseaux lymphatiques (<span class="ref">ch. 26</span>).</p>
+<p class="fn" data-fn="28-18"><span class="fnn">18</span>La peau craque sous le doigt quand on appuie, comme s’il y avait des bulles dessous : c’est du gaz que l’infection fabrique. Elle peut aussi virer au bronze, au violet ou au noir et se couvrir de cloques au liquide brun. La douleur est bien plus forte que ce que la peau laisse voir, puis la zone devient insensible (<span class="ref">ch. 26</span>).</p>
+<p class="fn" data-fn="28-19"><span class="fnn">19</span>Le triangle qui va des coins de la bouche jusqu’à la racine du nez, entre les yeux : le nez, la lèvre du haut, les ailes du nez, le creux à côté du nez. Les veines de cette zone se vident vers une grosse veine à la base du crâne, derrière les yeux.</p>
+<p class="fn" data-fn="37-1"><span class="fnn">1</span>Une douleur d’angine stable vient à un effort connu, toujours le même, reste courte et passe au repos. Celle qui interdit le sauna est prolongée et vient d’ordinaire au repos. Elle peut annoncer un infarctus : ce signe veut dire que la vie est en jeu, et la chaleur n’a rien à y faire.</p>
+<p class="fn" data-fn="37-2"><span class="fnn">2</span>Dans les premières minutes d’un arrêt du cœur, la personne inconsciente fait souvent encore des bouffées : des halètements bruyants, comme un ronflement, de plus en plus espacés, la bouche qui s’ouvre comme celle d’un poisson sorti de l’eau. Ce n’est pas une respiration, c’est le signe de l’arrêt.</p>
+<p class="fn" data-fn="38-1"><span class="fnn">1</span>On revit l’événement comme s’il recommençait : on revoit, on entend, parfois on sent la scène, et le corps réagit comme sur le moment — sursaut, cœur qui cogne, sueurs. Ça peut être assez réel pour faire croire qu’on hallucine ou qu’on devient fou. Ce n’est ni l’un ni l’autre : c’est une réaction ordinaire au stress.</p>
+<p class="fn" data-fn="38-2"><span class="fnn">2</span>La personne pense sans arrêt à la personne morte, s’ennuie d’elle au point d’avoir mal, reste en colère contre la mort, s’isole, désespère, et n’arrive plus à ressentir quoi que ce soit de bon ni à reprendre ses activités. Elle peut même ressentir dans son corps les malaises que la personne morte avait à la fin de sa maladie. Ce qui distingue ce deuil-là, c’est que rien ne change d’un mois à l’autre.</p>
+<p class="fn" data-fn="38-3"><span class="fnn">3</span>Les paroles qui alertent : « je veux en finir », « je vais me tuer », « vous seriez tellement mieux sans moi », « je suis inutile », « j’ai tout raté dans ma vie », « je serais bien mieux mort », « la vie ne vaut pas la peine d’être vécue ». Les comportements : s’isoler ; mettre de l’ordre dans ses affaires ; donner des objets personnels ; s’intéresser aux moyens de s’enlever la vie ; boire ou prendre des médicaments de façon inhabituelle ; être agité ou sans énergie ; écrire un testament ou un message d’adieu ; mal dormir, mal manger ; négliger son apparence et son hygiène ; et surtout, <strong>un regain d’énergie soudain après une période noire</strong>, que l’entourage prend pour une guérison.</p>
+<p class="fn" data-fn="38-4"><span class="fnn">4</span>Environ 6 heures après le dernier verre : les mains tremblent, on sue, on a la nausée, mal à la tête. Entre 6 et 48 heures, des convulsions peuvent survenir — la personne tombe, se raidit, puis ses membres se secouent. Entre 12 et 24 heures, certains voient des choses qui n’existent pas. D’habitude entre 48 et 72 heures commence le délire, qui peut tuer : confusion croissante, angoisse, sueurs abondantes, cauchemars, visions qui terrifient, impression que le plancher bouge ou que les murs tombent.</p>
+<p class="fn" data-fn="38-5"><span class="fnn">5</span>La vue devient floue, la lumière fait mal aux yeux ; on voit comme à travers une brume ou une peau posée sur l’œil, comme dans une tempête de neige, ou des points qui dansent et des éclairs. Puis la vue baisse, en partie ou au complet. Les pupilles restent grandes même à la lumière.</p>
+<p class="fn" data-fn="38-6"><span class="fnn">6</span>Nausée et diarrhée chez quelqu’un qui mange pourtant de la viande maigre à sa faim, avec des repas de plus en plus gros, une faim qui revient au bout de chacun, un ventre tendu et une agitation sans cause. Seul le gras arrête la diarrhée.</p>
+<p class="fn" data-fn="96-1"><span class="fnn">1</span>La couche pâle a la couleur de la cendre ou du sable délavé ; elle peut manquer. La couche du dessous est franchement plus rouge que tout le reste, avec une limite nette ; frottée mouillée entre les doigts, elle a un toucher un peu limoneux. Plus bas, la couleur tourne au jaune.</p>
+<p class="fn" data-fn="96-2"><span class="fnn">2</span>La pâte est poussée vers le haut par le pouce, au-dessus de l’index, en une bande d’épaisseur égale, jusqu’à ce qu’elle casse sous son propre poids. On mesure ce qui dépassait avant la cassure. Ensuite, une pincée détrempée frottée dans la paume : si elle gratte, il y a du sable.</p>
+<p class="fn" data-fn="96-3"><span class="fnn">3</span>Une graminée dont les racines blanches courent sous terre, à l’horizontale, en longs cordons articulés. Chaque morceau coupé par la bêche redonne un plant.</p>
+<p class="fn" data-fn="96-4"><span class="fnn">4</span>Un piquet de métal ou une tige de fer enfoncé au cœur du tas et laissé une heure : il ressort chaud à la main quand le tas travaille, froid quand il dort. La main à plat dans le tas ouvert dit la même chose. Ni l’un ni l’autre ne dit si le tas a atteint 55 °C : pour ça, la sonde (étape 20).</p>
+<p class="fn" data-fn="96-5"><span class="fnn">5</span>Une plante grimpante qui s’accroche aux autres par des vrilles au bout de ses feuilles ; chaque feuille porte huit à douze paires de petites folioles. Les fleurs, bleu violacé, en épis serrés, sont toutes tournées du même côté de la tige. Elle pousse en tapis dans les fossés, les bords de chemin et les vieux champs.</p>
+<p class="fn" data-fn="96-6"><span class="fnn">6</span>Chez le pois et la vesce, les nodules sont de petits renflements allongés en doigt, souvent ramifiés, collés aux racines — pas des grains de terre : ils ne se détachent pas en rinçant. On les coupe au couteau.</p>
+<p class="fn" data-fn="96-7"><span class="fnn">7</span>Des renflements blancs sur les racines, qui grossissent vite, puis noircissent et pourrissent. On arrache le plant qui flétrit à midi et on regarde : une racine saine est fine et ramifiée. Ne pas confondre avec les nodules d’un pois, beaucoup plus petits, allongés en doigt, et qui ne poussent que sur les légumineuses.</p>
+<p class="fn" data-fn="96-8"><span class="fnn">8</span>Le ver fil de fer est la larve d’un petit coléoptère, le taupin : un ver allongé et dur au toucher, qui ressemble à un ver de farine, avec trois paires de pattes courtes à l’avant. Le ver blanc est une larve grasse, blanche ou jaune pâle, recourbée en C. On les trouve en retournant la terre autour d’un légume rongé.</p>
+<p class="fn" data-fn="98-1"><span class="fnn">1</span>Le duvet se voit par temps humide, sur l’envers de la feuille : un feutrage blanc à la limite entre la partie brune et la partie encore verte. Une tache arrêtée net par les nervures est plutôt la brûlure hâtive (alternariose), moins grave.</p>
+<p class="fn" data-fn="98-2"><span class="fnn">2</span>Une repousse, c’est un plant de pomme de terre qui lève tout seul au printemps d’un tubercule oublié en terre l’automne d’avant, souvent au milieu d’une autre culture.</p>
+<p class="fn" data-fn="98-3"><span class="fnn">3</span>La coulure : les fleurs avortent et tombent sans laisser de gousse. Le plant a fleuri, et les tiges restent vides.</p>
+<p class="fn" data-fn="98-4"><span class="fnn">4</span>Deux passages croisés corrigent les bandes trop claires qu’un seul passage laisse toujours, surtout au vent.</p>
+<p class="fn" data-fn="98-5"><span class="fnn">5</span>On presse un grain pris au milieu de l’épi sous l’ongle du pouce. Tant que l’ongle y entre ou y laisse une marque, le grain n’est pas fait. Au stade pâteux dur, l’ongle ne marque plus, et l’épi a pris un jaune pâle.</p>
+<p class="fn" data-fn="98-6"><span class="fnn">6</span>Une moyette, ce sont des gerbes dressées debout, épis en haut, appuyées les unes contre les autres en petit cône ou en double rangée, pour que l’air passe dedans et que la pluie coule dessus. Une gerbe couchée au sol ne sèche pas.</p>
+<p class="fn" data-fn="98-7"><span class="fnn">7</span>La rouille : de petites pustules allongées, orange clair et poudreuses, surtout sur le limbe des feuilles, souvent dans une feuille qui jaunit autour. Les feuilles atteintes meurent.</p>
+<p class="fn" data-fn="98-8"><span class="fnn">8</span>La jaunisse : la peau et le blanc des yeux deviennent jaunes. On regarde le blanc des yeux à la lumière du jour : sous une lampe jaune, tout le monde a l’air jaune.</p>
+<p class="fn" data-fn="99-1"><span class="fnn">1</span>Le poumon du fermier est une réaction du poumon à la poussière de foin, de paille ou de grain moisis. La crise vient quatre à huit heures après avoir respiré beaucoup de poussière : essoufflement, toux sèche qui irrite, malaise général soudain, fièvre et frissons, cœur et souffle rapides. Elle se confond avec une grippe ou une pneumonie, et s’apaise en général en douze heures si on ne retourne pas dans la poussière, mais peut durer jusqu’à deux semaines. La forme lente ressemble à un rhume de poitrine qui traîne tout l’hiver, avec perte de poids. Une fois sensibilisé, on le reste des années, peut-être à vie, et les crises répétées laissent le poumon abîmé pour de bon. La crise frappe surtout à la fin de l’hiver, quand on ouvre le foin rentré. Entre la poussière et le poumon : défaire le foin dehors plutôt que dans un bâtiment fermé, où l’on respire en très peu de temps une quantité énorme de poussière ; mouiller la poussière avant de la balayer ou de la brasser ; un masque filtrant s’il y en a un. Celui qui a fait une crise ne retourne plus dans la poussière de foin moisi.</p>
+<p class="fn" data-fn="99-2"><span class="fnn">2</span>Le débourrement, c’est le moment où les bourgeons s’ouvrent au printemps : l’écaille brune s’écarte et le bout vert de la feuille apparaît. Tant qu’aucun bourgeon ne montre de vert, la plante dort.</p>
+<p class="fn" data-fn="99-3"><span class="fnn">3</span>L’épiaison, c’est quand l’épi de la graminée sort de la dernière feuille qui l’enveloppait. Chez la fléole, on voit sortir au bout de la tige un épi cylindrique, serré, encore vert ; plus tard, il se couvre de petites fleurs. On fauche quand les premiers épis se montrent.</p>
+</template>
+<script type="application/json" id="meta">{"num": "99", "title": "Les façons de faire d’autrefois", "tome": "Tome 5 · La forêt, le jardin et le chalet", "tnum": 5, "tfond": "#4B3A28", "tencre": "#F2EBDF", "lieu": "Chalet", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

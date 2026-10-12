@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>90 — Le canot : réparer, porter, en refaire un — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"90"}
+</style>
+</head>
+<body class="vA vB vC t5 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 5 · La forêt, le jardin et le chalet</span><span>Chapitre</span></div><div class="open-title"><div class="num">90</div><h1>Le canot : réparer, porter, en refaire un</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Le canot vit au lac du chalet ; à la maison, rien de ce chapitre ne sert. C’est le deuxième chemin du chapitre 11, le seul bateau qui se répare avec ce que la forêt donne, et le seul qui se refait avec ce que la chasse vient de donner.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Refermer une coque ouverte en quelques minutes avec une pièce posée en deux couches de gomme d’épinette cuite au gras et au charbon, porter le canot seul d’un lac à l’autre sur la nuque et le front, et, s’il est perdu, en refaire un avec deux ou trois peaux d’orignal tendues sur des perches : le lac reste un chemin tant qu’il y a une épinette, un feu et une bête.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h3 class="sub">C’est le bon choix</h3>
+<p class="li"><strong>Quand le lac est le chemin.</strong> Le filet (<span class="ref">ch. 60</span>), la talle de pêche (<span class="ref">ch. 57</span>), la rive d’en face où l’orignal traverse, et la sortie du chalet quand le chemin brûle (<span class="ref">ch. 11</span>). Un canot percé en août ferme tout ça d’un coup, et il n’y a pas de coque de rechange au chalet.</p>
+<p class="li"><strong>Quand la coque s’ouvre en route.</strong> Posée à froid, sans feu, une pièce tient par le seul collant de la gomme si la distance qui reste est courte. Avec un feu et la gomme chauffée, elle se pose en quelques minutes, et un trou qui a l’air grave ne l’est pas.</p>
+<p class="li"><strong>Chaque soir d’un voyage en canot d’écorce ou de toile.</strong> Les canots d’écorce des voyageurs d’autrefois se réparaient à la fin de chaque journée. La gomme n’est pas une réparation d’accident : c’est un entretien.</p>
+<p class="li"><strong>Au printemps, quand on sort du bois sans canot.</strong> Le canot de peaux se fait quand il est trop tôt pour que l’écorce décolle et que le lac est la seule sortie. Les peaux de la chasse, gardées tendues sur leur cadre, en sont la matière (<span class="ref">§9</span>).</p>
+<h3 class="sub">C’est un mauvais choix</h3>
+<p class="li"><strong>La gomme seule sur une coque de polyéthylène</strong>, le plastique souple qui plie sans casser. Rien ne colle sur ce plastique tel quel : l’eau y perle au lieu de s’étaler, et une colle fait pareil. Il faut d’abord le traiter à la flamme, ou tenir la pièce mécaniquement (<span class="ref">§5-C</span>).</p>
+<p class="li"><strong>Un rivet aveugle</strong> — celui qu’on pose d’un seul côté en tirant sa tige — <strong>sous la ligne de flottaison d’une coque d’aluminium.</strong> Il serre moins qu’un rivet frappé et il n’a pas sa place là où l’eau doit rester dehors. Sous l’eau, c’est un rivet plein d’aluminium frappé (<span class="ref">§5-C</span>).</p>
+<p class="li"><strong>La gomme de sapin baumier (<em>Abies balsamea</em>) quand il y a de l’épinette.</strong> Le canot se gomme à l’épinette : le constructeur innu le dit sans détour, la gomme de sapin n’est pas faite pour ça. Faute d’épinette, elle dépanne (<span class="ref">§9</span>).</p>
+<p class="li"><strong>Le canot de peaux dans l’eau haute du dégel, ou dans un rapide.</strong> C’est la saison où on le construit, et c’est celle où l’eau est à la fois la plus haute et la plus froide : une coque qui ramollit en route, dans une eau qui court, là où le budget de l’eau froide est le plus court (<span class="ref">§8</span>). Le canot de peaux traverse ; il ne descend pas une rivière en crue.</p>
+<p class="li"><strong>Le bouleau en grandes feuilles comme coque.</strong> Il n’y avait pas de bonne écorce à canot sur la Basse-Côte-Nord : on remontait le fleuve l’été pour s’en procurer. En Ungava, elle venait des postes du Saint-Laurent. La meilleure se trouvait en arrière de la côte, loin de la mer. Ce que valent les bouleaux à papier (<em>Betula papyrifera</em>) autour du chalet, c’est l’essai de l’écorce qui le dit (<span class="ref">§9</span>) ; en petites pièces cousues, le Nord en a quand même fait des coques.</p>
+<p class="li"><strong>Deux peaux d’orignal au canot quand l’hiver s’en vient.</strong> Ce sont aussi la babiche des raquettes, le cuir des mocassins et les mitaines (<span class="ref">ch. 102</span> à 104). Un canot de peaux fait en octobre se paie en février.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">La gomme est une colle qu’on règle.</strong> La résine d’épinette chauffée perd sa partie volatile et durcit en une matière cassante (<span class="ref">ch. 94</span> <span class="ref">§3</span>). Le gras la rend moins cassante et la garde souple et collante ; le charbon en poudre lui donne du corps. Trop de gras, elle ne durcit plus : elle colle aux doigts et s’essuie au frottement. Le réglage se fait donc entre deux échecs qui se voient — ça fend, ou ça colle — et l’essai de la languette (étape 9) montre les deux en quelques instants. La proportion se règle à l’essai : elle change avec la résine, et avec le froid de l’eau où le canot va naviguer. Plus l’eau est froide, plus la gomme demande de gras.</p>
+<p class="p0 ri"><strong class="runin">La pièce tient par ses bords.</strong> La première couche colle la pièce sur la déchirure. La seconde, posée sur le pourtour une fois la première refroidie, ferme la ligne où la pièce rencontre la coque. C’est par cette ligne que l’eau entre sous une pièce et la soulève, et c’est elle que la seconde couche recouvre.</p>
+<p class="p0 ri"><strong class="runin">Un canot d’écorce ou de peaux n’a pas de charpente rigide.</strong> C’est le revêtement qui tient la charpente ensemble. À l’intérieur, le bordé — des lattes minces couchées contre la peau dans le sens de la longueur — et les membrures — des lattes pliées en travers, forcées une à une contre le bordé. Chaque membrure pousse le bordé contre la peau, la peau résiste, et cette tension serre tout. Deux conséquences. Une pièce de bois cassée se remplace sans défaire le reste : les membrures ne sont pas clouées, et le constructeur en garde une de rechange par paquet. Et le canot de peaux se monte avec des perches à peine équarries, parce que c’est la peau qui fait la forme. Le canot de toile que les Innus montent encore est un canot d’écorce dont on a changé la peau au début du siècle dernier : la méthode est restée la même, ses membrures ne sont pas clouées, et tout ce chapitre s’y applique. C’est le <strong>canot de toile à membrures libres</strong>. Le canot de toile <strong>de fabrique</strong> est construit autrement : son bordé est cloué aux membrures par des broquettes rivées, et la toile est tendue par-dessus. Il se répare autrement aussi (<span class="ref">§5-C</span>, étape 22).</p>
+<p class="p0 ri"><strong class="runin">La peau crue travaille avec l’eau.</strong> Mouillée, elle redevient molle ; en séchant, elle se rétracte et serre (<span class="ref">ch. 103</span>). Le canot de peaux s’en sert deux fois : la peau sèche à plat sous le cadre jusqu’à ce qu’elle raidisse, pour garder la forme qu’on va lui donner, puis on la remouille si elle résiste aux dernières membrures. C’est aussi sa limite : à l’eau, une peau crue se gorge d’eau et ramollit. Elle se sort et se sèche chaque jour, et se regraisse au suif.</p>
+<p class="p0 ri"><strong class="runin">La courroie de front met la charge sur le squelette.</strong> Passée sur le front et attachée à la charge, elle soulage les épaules et laisse respirer. Coupée à la longueur du cou du porteur, elle fait passer le poids du front aux épaules quand il hausse les épaules, et des épaules au front quand il les relâche. On repose l’un pendant que l’autre travaille, sans poser le canot.</p>
+<p class="p0 ri"><strong class="runin">L’eau froide noie avant de refroidir.</strong> La première minute est un choc thermique : on inspire d’un coup, puis la respiration s’emballe. Dans les dix minutes suivantes, bras, jambes et doigts cessent de répondre. L’hypothermie, le corps sous 35 °C, s’installe avant l’heure, et plus tôt chez un enfant (<span class="ref">ch. 25</span>, étape 31) : l’heure, c’est le temps qu’il faut parfois pour en perdre connaissance (<span class="ref">ch. 25</span>, étape 23). Ce qui tue un canoteur chaviré, ce n’est pas d’avoir froid : c’est la noyade que le froid provoque pendant qu’il a encore chaud. Le VFI porté est ce qui fait passer la première minute (<span class="ref">§8</span>) ; ce qui se fait dans les dix suivantes décide du reste (étape 34).</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">La trousse voyage dans le canot, toujours. Elle ne liste que ce que les procédures de ce chapitre demandent.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">VFI <strong>porté</strong>, ajusté à chaque enfant</td><td>1 par personne à bord</td><td><strong>Aucune.</strong> Un VFI sous le banc ne s’enfile pas dans l’eau (<span class="ref">§8</span>). L’ajustement des enfants est au <span class="ref">ch. 39</span>, étape 6</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Écope</td><td>1</td><td>Chaudière, bidon coupé en biais, écuelle d’écorce cousue (<span class="ref">ch. 94</span> <span class="ref">§9</span>)</td><td><span class="non">NON</span> <span class="negx">— un canot plein d’eau ne se répare pas</span></td></tr><tr><td class="c-item">Corde qui flotte, <strong>15 m</strong></td><td>1 par canot</td><td>Toute corde qui flotte (<span class="ref">ch. 15</span>), la ligne de bout du canot. Un bidon vide bien bouché noué au bout la fait flotter, et des nœuds espacés d’une brassée donnent des prises à une main qui ne serre plus (<span class="ref">ch. 25</span> <span class="ref">§4</span>)</td><td><span class="non">NON</span> <span class="negx">— elle se lance depuis la rive ou depuis l’autre canot : celui qui est au sec ne retourne pas à l’eau (étape 35)</span></td></tr><tr><td class="c-item">Gomme d’épinette trempée, en bâtonnets</td><td>Quelques bâtonnets</td><td>Coulées dures d’une épinette tombée, mâchées et lissées au tison (<span class="ref">§9</span>). Résine de pin trempée au suif, là où il n’y a pas d’épinette</td><td><span class="non">NON</span> <span class="negx">— c’est la réparation</span></td></tr><tr><td class="c-item">Gras animal</td><td>Une petite boîte</td><td>Suif d’orignal (<em>Alces americanus</em>) ou graisse d’ours noir (<em>Ursus americanus</em>) (<span class="ref">ch. 72</span>) ; huile de phoque (<span class="ref">ch. 56</span>)</td><td>Oui</td></tr><tr><td class="c-item">Charbon de bois en poudre</td><td>Une poignée</td><td>Charbon de saule (<em>Salix</em>) du feu de la veille, écrasé entre deux pierres et tamisé (<span class="ref">ch. 94</span> <span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Pièces</td><td>Quelques-unes, selon la coque</td><td>Écorce de bouleau mince pour tout ; toile pour la toile ; tôle d’aluminium <strong>de la même épaisseur</strong> que la coque, ou de l’épaisseur au-dessus ; cuir</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Fil</td><td>Une couronne</td><td>Racine d’épinette fendue (<span class="ref">ch. 94</span>, étape 10), babiche (<span class="ref">ch. 103</span>), fil de tendon</td><td>Oui</td></tr><tr><td class="c-item">Alêne, clous à river ou rivets pleins d’aluminium</td><td>1 alêne, une poignée</td><td>Alêne : clou affûté et emmanché (<span class="ref">ch. 104</span>). Rivet : bout de fil ou de tige d’aluminium, coupé et matté à froid (<span class="ref">§5-C</span>). Contre-masse : la tête de la hache</td><td>Oui</td></tr><tr><td class="c-item">Boîte pour la gomme, palette</td><td>1 de chaque</td><td>Contenant d’écorce et eau bouillante, ou auge et pierres chaudes (<span class="ref">§9</span>). La palette : une cuillère de bois aplatie</td><td>Oui</td></tr><tr><td class="c-item">Couteau croche</td><td>1</td><td>Couteau droit affûté ; lame de ressort biseautée d’un côté (<span class="ref">ch. 103</span> <span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Courroie de front</td><td>1 par porteur</td><td>Deux pagaies liées sur les traverses et une lanière de peau ou d’écorce (<span class="ref">§9</span>)</td><td>Oui</td></tr></tbody></table>
+<p class="p0">Le VFI d’enfant est au palier 1 du chapitre 00b. La gomme, le gras, le charbon, la babiche et la racine se font avec les chapitres 94, 72 et 103.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — La trousse, avant de perdre le chalet de vue (1 à 3)</h3>
+<p class="step"><span class="sn">1</span><strong>Mettre dans le canot, à chaque sortie qui dépasse la distance d’un retour à pied :</strong> des pièces d’écorce, de la racine, de la gomme. C’est la trousse de base de tout canot d’écorce du Nord. Ajouter ce que la coque demande : toile pour un canot de toile ; tôle, rivets et contre-masse pour l’aluminium ; alêne et fil partout. Il faut de quoi refermer n’importe quelle fente de la coque.</p>
+<p class="step"><span class="sn">2</span><strong>Garder la gomme en bâtonnets, dans une boîte fermée.</strong> Elle reste propre, elle se refond sur n’importe quel feu, et elle ne coule pas dans le fond du canot au soleil.</p>
+<p class="step"><span class="sn">3</span><strong>Laisser la courroie de front attachée au canot</strong>, coupée à la longueur du porteur (étape 24), et roulée court contre la traverse sur l’eau. Une courroie qu’il faut ajuster sur la grève d’un portage se règle mal, et en retard ; une courroie qui pend fait une boucle où un bras ou un enfant s’enroule au chavirement.</p>
+<h3 class="sub">B — Récolter et tremper la gomme (4 à 10)</h3>
+<p class="p0">La fonte, la filtration et la poix d’usage général sont au chapitre 94 <span class="ref">§5-F</span>. Ici, ce qui change pour le canot.</p>
+<p class="step"><span class="sn">4</span><strong>Épinette, pas sapin</strong> (<span class="ref">§2</span>). Épinette noire (<em>Picea mariana</em>) ou épinette blanche (<em>Picea glauca</em>).</p>
+<p class="step"><span class="sn">5</span><strong>Récolter.</strong> Gratter la résine molle d’une épinette tombée, ou d’une épinette blessée pendant l’été. Pour en accumuler, la méthode ancienne des constructeurs de canots d’écorce : au printemps, enlever une <strong>bande étroite</strong> d’écorce sur une épinette, d’un seul côté, et revenir quand il fait chaud ramasser la résine qui s’amasse au bas de la cicatrice. Elle marche parce que l’arbre pousse sa résine pour fermer la plaie, et qu’une bande d’un seul côté laisse vivre le reste de l’écorce. Jamais en ceinture : un anneau complet d’écorce vivante coupé, l’arbre meurt (<span class="ref">ch. 94</span> <span class="ref">§3</span>). Le prix : la plaie est une porte d’entrée pour la carie et l’insecte, et c’est pour ça que le <span class="ref">ch. 94</span> (étape 32) n’entaille pas pour sa gomme un conifère qu’on veut garder. Donc une épinette qu’on accepte de perdre, près du chalet, une seule bande, et on y revient chaque été. Ramasser aussi les grains et les écailles durs d’une épinette tombée : ils ne fondent pas bien, mais ils se mâchent (<span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">6</span><strong>Fondre dehors, jamais de flamme sous la gomme.</strong> Les vapeurs de térébenthine s’enflamment (<span class="ref">ch. 94</span>, étape 33). La gomme fond facilement : il ne faut pas un grand feu. Sur des braises, dans une vieille boîte de conserve ; ou, mieux, dans de l’eau qui bout : la gomme crue fond et remonte à la surface, où elle se cueille à la cuillère (<span class="ref">§9</span>). Là, elle ne dépasse pas 100 °C.</p>
+<p class="step"><span class="sn">7</span><strong>Écumer.</strong> Retirer les copeaux, les aiguilles et la saleté de la gomme chaude avec une lanière d’écorce ou un bâton plat. Pour une gomme plus propre, filtrer (<span class="ref">ch. 94</span>, étape 34).</p>
+<p class="step"><span class="sn">8</span><strong>Tremper.</strong> Ajouter du gras fondu, peu à la fois, et une petite quantité de charbon de bois en poudre fine. Il n’y a pas de proportion fixe : c’est l’essai de l’étape 9 qui règle, et celle qui a passé s’écrit au feutre sur la boîte. Refondre la gomme plusieurs fois la fonce et la durcit : c’est une manière de rattraper une gomme trop grasse.</p>
+<p class="step"><span class="sn">9</span><strong>L’essai de la languette.</strong> Tremper une languette d’écorce dans la gomme, puis dans l’eau froide du lac, et la plier.</p>
+<p class="li l2"><strong>La gomme fend :</strong> trop cassante. Ajouter du gras, refaire l’essai.</p>
+<p class="li l2"><strong>Elle ne fend pas :</strong> tenir la languette dans la main quelques instants. Si la gomme devient collante ou part en frottant : trop de gras. Ajouter de la gomme ou recuire, refaire l’essai.</p>
+<p class="li l2"><strong>Ni fendue ni collante :</strong> prête.</p>
+<p class="stepc">L’essai se fait dans l’eau où le canot va naviguer, pas dans l’eau tiède du chaudron. Une gomme réglée pour l’eau d’août peut fendre dans le lac de mai (<span class="ref">ch. 94</span> <span class="ref">§9</span> : la poix d’hiver porte plus de gras).</p>
+<p class="step"><span class="sn">10</span><strong>Couler en bâtonnets</strong> dans une gouttière d’écorce, laisser prendre, ranger. La gomme se refond indéfiniment : les grattures d’une vieille pièce retournent au pot.</p>
+<h3 class="sub">C — Poser la pièce en deux couches (11 à 22)</h3>
+<p class="step"><span class="sn">11</span><strong>Sortir le canot, le vider, le retourner.</strong> Essuyer et laisser sécher la zone : la gomme se pose chaude sur une surface <strong>sèche</strong>. Sur une écorce ou une toile mouillée, elle fige avant d’avoir pris.</p>
+<p class="step"><span class="sn">12</span><strong>Remettre en place ce qui a plié.</strong> Une écorce ramollie se repousse à la main ; une tôle d’aluminium bosselée se redresse au maillet de bois contre une bûche tenue derrière.</p>
+<p class="step"><span class="sn">13</span><strong>Tailler la pièce</strong> dans la matière qui convient (tableau <span class="ref">§4</span>), plus grande que la déchirure de tous les côtés : assez pour que la gomme la colle sur de l’écorce ou de la toile saine tout autour, et non sur les bords éraillés. L’aluminium a sa règle, plus bas.</p>
+<p class="step"><span class="sn">14</span><strong>Faire un petit feu, chauffer la gomme sur les braises, jamais dans la flamme</strong> (étape 6).</p>
+<p class="step"><span class="sn">15</span><strong>Border la pièce de gomme chaude et la presser fermement sur la déchirure</strong>, à la palette.</p>
+<p class="step"><span class="sn">16</span><strong>Laisser refroidir la première couche.</strong> Pas avant : la seconde couche posée sur une première encore molle la fait glisser.</p>
+<p class="step"><span class="sn">17</span><strong>Poser la seconde couche sur le pourtour de la pièce</strong>, chaude, en débordant sur la coque.</p>
+<p class="step"><span class="sn">18</span><strong>Lisser à la palette chauffée.</strong> La gomme lissée à chaud colle ; une gomme étendue froide reste posée dessus.</p>
+<p class="step"><span class="sn">19</span><strong>Les coutures.</strong> Couler la gomme chaude le long de la couture et la pousser entre les points à la palette. Sur une couture qui travaille, presser par-dessus une bande étroite d’écorce enduite de gomme.</p>
+<p class="step"><span class="sn">20</span><strong>Mettre à l’eau peu profonde avant de charger</strong> et regarder l’intérieur, à l’endroit de la pièce. Si ça suinte, sortir le canot, sécher et reprendre la seconde couche.</p>
+<p class="p0 lab kh"><strong class="runin">Selon la coque.</strong></p>
+<p class="li"><strong>Écorce et toile.</strong> Les étapes 11 à 20 telles quelles. Sur un canot de toile à membrures libres, la toile est clouée à environ <strong>10 cm (4 po)</strong> d’intervalle et chaque clou est rivé : un clou qui a levé se refrappe, une masse tenue derrière. Une déchirure de toile reçoit une pièce de toile, en deux couches. Sur un canot de toile de fabrique, une grande déchirure se ferme par en dessous d’abord : une mince toile de coton glissée entre la toile et le bordé, collée au revers de la toile d’origine, puis une pièce de toile épaisse par-dessus. La colle d’origine y était une colle de caoutchouc. Sans elle, c’est la gomme chaude, posée sur une toile sèche : une réparation de route, qui se regarde chaque soir et se refait au premier feu.</p>
+<p class="li"><strong>Aluminium.</strong> Percer d’abord un <strong>trou d’arrêt</strong> de <strong>2,4 mm (3/32 po)</strong>, ou 3,2 mm (1/8 po), au bout de chaque fissure, là où elle finit vraiment et non là où on la voit finir<sup class="fnr" data-fn="90-1">1</sup> : sans lui, elle continue sous la pièce. Pièce de tôle de la même épaisseur que la coque, ou de l’épaisseur au-dessus, et <strong>au moins deux fois aussi longue que la fissure</strong>. Rivets pleins d’aluminium frappés, en un rang, <strong>au moins quatre par côté</strong> dans le sens de la longueur : <strong>3,2 mm (1/8 po)</strong> de diamètre sur une tôle de <strong>1 mm (0,040 po)</strong> ou moins, <strong>4 mm (5/32 po)</strong> au-delà. <strong>Au moins 2 diamètres de rivet</strong> entre le centre d’un trou et le bord de la pièce, et autant entre un trou et la fissure ; <strong>au moins 3 diamètres</strong> d’un trou au suivant. Plus près du bord, la tôle déchire ; plus serrés, les trous font une ligne de perforation. Sans rivet plein, un bout de fil ou de tige d’aluminium coupé à longueur et matté à froid des deux côtés en fait un. Pas de clou d’acier sous l’eau, sauf en tout dernier recours : l’acier et l’aluminium en contact dans l’eau font une pile, et c’est l’aluminium qui se ronge autour du clou. Le rivet serre, il ne rend pas étanche : entre la pièce et la coque, il faut une matière qui fasse le joint, et en forêt, c’est la gomme, avec une toile mince noyée dedans si on en a. L’aluminium tire la chaleur et fige la gomme avant qu’elle ne mouille le métal. Tiédir la pièce et la zone à gommer avant de poser la gomme, à la chaleur des braises, jamais à la flamme : l’aluminium ne change pas de couleur avant de s’effondrer (<span class="ref">ch. 107</span> <span class="ref">§2</span>). Un rivet d’origine qui pleure<sup class="fnr" data-fn="90-2">2</sup> se refrappe : la contre-masse tenue sur la tête, le marteau sur la queue.</p>
+<p class="li"><strong>Fibre de verre.</strong> Même geste que l’écorce : une pièce de toile noyée entre deux couches de gomme. C’est une pièce de route, comme toute pièce de gomme : elle se regarde chaque soir et se refait au premier feu.</p>
+<p class="li"><strong>Polyéthylène.</strong> Traiter la surface à la flamme avant toute colle : passer la pointe de la flamme d’un chalumeau ou d’une torche au propane tenue à la main, vite — <strong>30 à 40 cm par seconde</strong> — en deux ou trois passes, pour environ <strong>une seconde</strong> d’exposition en tout, sans que la surface change de couleur. La torche se tient <strong>bouteille debout</strong>, jamais penchée à plus de 60° : couchée, elle envoie du propane liquide au bout et crache une grande flamme jaune ; on la redresse et on ferme. C’est donc la coque qu’on tourne vers la flamme, canot couché sur le flanc, pas la torche qu’on couche sous la coque. Pas un réchaud : il ne se balaie pas à cette vitesse. L’essai : une goutte d’eau perle sur une surface non traitée et s’étale en nappe sur une surface traitée. Coller <strong>dans la demi-heure</strong> : l’effet s’estompe. Rien ne dit que la gomme d’épinette y tienne comme une colle d’atelier. Ce qui tient à coup sûr sur ce plastique, c’est la mécanique : une pièce boulonnée ou cousue au travers, posée dans la gomme.</p>
+<p class="p0 lab kh"><strong class="runin">La charpente.</strong></p>
+<p class="step"><span class="sn">21</span><strong>Traverse cassée.</strong> Un jeune arbre, les bouts amincis au couteau croche jusqu’à ce qu’ils plient, enroulés autour du plat-bord et ligaturés sous la traverse, côté intérieur. Une traverse de fortune tient les flancs comme l’autre.</p>
+<p class="step"><span class="sn">22</span><strong>Membrure ou plat-bord cassé.</strong> Dans un canot d’écorce, de peaux ou de toile à membrures libres, la membrure se retire — elle n’est pas clouée — et se remplace par la membrure de rechange, ou par une latte de bois vert pliée sur le genou (<span class="ref">§9</span>). Dans un canot de toile de fabrique, elle est clouée au bordé : on enlève le morceau cassé, on ébouillante une latte sèche pour la plier, on la pose à sa place et on la cloue à travers le bordé, les broquettes rivées à l’intérieur contre le dos de la hache ou une roche. Une latte glissée entre deux membrures soutient aussi un bordé cassé. Le plat-bord se répare par une enture à recouvrement généreux (<span class="ref">ch. 110</span> <span class="ref">§5</span>.7), liée plutôt que chevillée : une cheville de plus fend une pièce déjà cassée. La ligature se fait à la racine d’épinette fendue, qui tient mouillée (<span class="ref">ch. 103</span>, étape 22). La babiche serre en séchant (<span class="ref">ch. 103</span>, étape 31), mais un plat-bord est mouillé toute la journée et elle y redevient molle : en dépannage seulement, refaite au sec.</p>
+<h3 class="sub">D — Porter (23 à 30)</h3>
+<p class="step"><span class="sn">23</span><strong>Seul, la traverse du centre sur la nuque.</strong> Retourner le canot en levant un bout, ou le lever d’un bloc, et le poser sur les épaules, la traverse du centre contre la nuque. Les mains, lancées vers l’arrière, tiennent le bout qui cherche le sol.</p>
+<p class="step"><span class="sn">24</span><strong>La courroie de front, coupée au cou.</strong> Une bande de peau, de toile ou d’écorce passe sur le front et s’attache aux flancs du canot par deux cordons ; elle l’empêche de glisser des épaules. La courroie de portage innue se coupe <strong>à la longueur du cou du porteur</strong> : les épaules haussées prennent la charge, les épaules relâchées la rendent au front. On alterne en marchant. Dans une chute, la tête sort de la courroie et le canot part : une courroie attachée à la coque et passée sur le front tire sur le cou quand la coque tombe.</p>
+<p class="step"><span class="sn">25</span><strong>De l’écorce de bouleau sous la courroie.</strong> Glissée entre le front et la lanière, elle ne se détrempe pas de sueur, et la peau du front ne chauffe pas.</p>
+<p class="step"><span class="sn">26</span><strong>Le bagage à la courroie de front.</strong> La charge repose au creux des reins, le poids pris par les hanches ; les bouts de la courroie sont noués à la charge, la bande large sur le front. Le détail de la courroie est au <span class="ref">§9</span>.</p>
+<p class="step"><span class="sn">27</span><strong>Le porteur du canot prend le long chemin.</strong> Un canot ne passe pas partout où passe un marcheur : sur un sol accidenté, le porteur contourne, et le reste du groupe coupe au plus court pour l’attendre au lac.</p>
+<p class="step"><span class="sn">28</span><strong>Compter les voyages avant de partir.</strong> Une grosse famille faisait jusqu’à quatre voyages par portage, et un portage de dix kilomètres prenait deux jours avec le bagage. Chaque charge de plus que la première, ce sont deux longueurs de portage de plus : on revient la chercher à vide. Avec deux enfants de 4 et 6 ans, un long portage se compte en journées, pas en heures.</p>
+<p class="step"><span class="sn">29</span><strong>Répartir entre canots.</strong> Les adultes se partagent le bagage pour alléger le canot qui porte le plus d’enfants.</p>
+<p class="step"><span class="sn">30</span><strong>Au bout du portage, poser le canot à l’eau vide</strong> et regarder le fond avant de charger. Une fente qu’on voit à vide se répare sur la grève ; la même fente trouvée au large, chargée, se répare à l’écope.</p>
+<h3 class="sub">E — Sur l’eau froide (31 à 36)</h3>
+<p class="step pk-d"><span class="sn">31</span><strong>VFI attaché sur tout le monde avant d’embarquer.</strong> Une fois dans l’eau, l’attraper est presque impossible, et l’enfiler, encore moins : le choc thermique prend la respiration, puis les mains (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">32</span><strong>Charger en sachant ce que la charge enlève.</strong> Une charge trop lourde réduit la marge de roulis avant que les flancs n’embarquent, et de petites vagues suffisent alors à remplir le canot.</p>
+<p class="step"><span class="sn">33</span><strong>Avec des enfants à bord, la route suit la rive</strong>, assez près pour qu’on la gagne en poussant le canot à la nage avant que les bras ne lâchent. Ce qu’on nage l’été ne dit rien de ce qu’on nage dans l’eau du printemps. La traversée au large gagne du temps et joue tout le budget. Pas d’eau grossie par la pluie ou la fonte : elle court et elle charrie, et celle de la fonte sort de la glace.</p>
+<p class="step"><span class="sn">34</span><strong>Si le canot chavire :</strong> la première minute, garder la bouche et le nez hors de l’eau et ralentir la respiration, sans nager pour se réchauffer (<span class="ref">ch. 25</span>, étape 24). Puis rester avec le canot, qui flotte, et ne nager que pour rejoindre les autres ou un appui qu’on atteint à coup sûr. <strong>Ce qui n’est pas au sec à la fin des dix minutes n’y arrivera plus par ses propres forces</strong>, et personne ne vient : attendre sur la coque au milieu du lac, c’est attendre l’heure. Tant que les mains répondent :</p>
+<p class="li l2"><strong>rive proche :</strong> pousser le canot vers la rive en battant des jambes, une main au plat-bord, les enfants sur la coque ou contre elle ;</p>
+<p class="li l2"><strong>rive loin :</strong> retourner le canot à l’endroit, s’y hisser et le pagayer plein d’eau jusqu’à la rive, ou l’écoper. Est-ce que ce canot-là flotte plein d’eau, et avec qui dedans : ça s’essaie l’été, au bord, une fois, en le remplissant, pas le jour où il chavire. Celui qui coule ne sert pas à la traversée avec les enfants.</p>
+<p class="stepc">Grimper sur la coque et attendre ne vaut que si quelqu’un est vraiment en route : l’autre canot, l’autre adulte déjà en train de revenir.</p>
+<p class="step pk-d"><span class="sn">35</span><strong>Les enfants sortent de l’eau les premiers</strong>, sur la coque ou contre la poitrine d’un adulte, tenus par leur VFI — épaulettes, poignée — plutôt que par leur prise : leurs mains lâchent avant celles des adultes, et leur corps refroidit plus vite (<span class="ref">ch. 25</span>, étape 31). On les ramène ensemble, pas un à la fois : l’adulte qui dépose un enfant sur la rive et repart chercher l’autre fait le deuxième trajet avec des bras qui ont déjà dépensé une partie de leurs dix minutes (<span class="ref">§8</span>). Celui qui est déjà au sec ne retourne pas à l’eau : il lance la corde (<span class="ref">§4</span>). Un sauveteur à l’eau double le problème (<span class="ref">ch. 25</span>, étape 26).</p>
+<p class="step"><span class="sn">36</span><strong>Sorti de l’eau :</strong> à l’horizontale, sans asseoir la personne ni lui faire lever les bras (<span class="ref">ch. 25</span>, étapes 5 et 27). Les vêtements mouillés se coupent, ils ne se passent pas par-dessus la tête, et on ne découvre la personne que lorsqu’il y a de quoi l’envelopper (<span class="ref">ch. 25</span>, étape 7). Puis la séquence B du <span class="ref">ch. 25</span>, et le feu (<span class="ref">ch. 13</span>). L’hypothermie continue de descendre après la sortie.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:19.1%"><col style="width:17.6%"><col style="width:32.5%"><col style="width:30.7%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant une sortie hors de vue du chalet</td><td>Trousse, écope, corde</td><td>Gomme, pièces, fil, alêne, gras dans le canot ; corde de 15 m, bidon bouché au bout</td><td>Compléter. Sans gomme ni pièce, rester à distance d’un retour à pied</td></tr><tr><td class="c-item">Avant d’embarquer</td><td>VFI des enfants</td><td>Porté et attaché ; soulevé par les épaulettes, pas plus de 7,6 cm entre les épaules et le vêtement (<span class="ref">ch. 39</span>)</td><td>L’enfant n’embarque pas — sauf le jour où la rive est pire que le lac (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Gomme, après trempe</td><td>Languette pliée après l’eau froide</td><td>Ne fend pas</td><td>Ajouter du gras, refaire l’essai</td></tr><tr><td class="c-item">Gomme, après trempe</td><td>Languette tenue dans la main</td><td>Ne colle pas, ne part pas au frottement</td><td>Recuire ou ajouter de la gomme</td></tr><tr><td class="c-item">Pièce posée, refroidie</td><td>Pourtour de la pièce</td><td>Seconde couche continue sur tout le tour, aucun bord levé</td><td>Sécher, reprendre la seconde couche</td></tr><tr><td class="c-item">Pièce posée, à l’eau peu profonde</td><td>Intérieur de la coque vis-à-vis de la pièce</td><td>Sec</td><td>Sortir, sécher, reprendre les bords</td></tr><tr><td class="c-item">Coque d’aluminium, avant la pièce</td><td>Bout de la fissure</td><td>Trou d’arrêt percé au-delà de la dernière trace visible</td><td>Percer avant de poser</td></tr><tr><td class="c-item">Coque d’aluminium, pièce et rivets</td><td>Géométrie</td><td>Pièce : au moins deux fois la longueur de la fissure. Au bord et à la fissure : au moins 2 diamètres. D’un trou à l’autre : au moins 3 diamètres</td><td>Pièce plus longue ; repercer plus loin du bord et de la fissure, espacer</td></tr><tr><td class="c-item">Polyéthylène traité</td><td>Goutte d’eau</td><td>S’étale en nappe</td><td>Perle : repasser la flamme ; coller dans les 30 minutes</td></tr><tr><td class="c-item">Courroie de front</td><td>Longueur</td><td>Celle du cou du porteur : épaules haussées, la charge quitte le front</td><td>Raccourcir ou rallonger au nœud</td></tr><tr><td class="c-item">Canot de peaux, sur le lit</td><td>Bords de la peau</td><td>Commencent à rouler</td><td>Pas encore : attendre. Trop raide pour se relever : remouiller</td></tr><tr><td class="c-item">Canot de peaux, à l’eau</td><td>Peau entre les membrures, coutures</td><td>Tendue, aucun suintement</td><td>Sortir, sécher, repasser les coutures à la gomme ou au suif</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:30.9%"><col style="width:34.5%"><col style="width:34.6%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">La languette fend à l’eau froide</td><td>Gomme trop cassante : pas assez de gras, ou trop cuite</td><td>Gras, peu à la fois, et réessayer</td></tr><tr><td class="c-item">La gomme colle aux doigts ou s’essuie</td><td>Trop de gras</td><td>Recuire, ou ajouter de la gomme</td></tr><tr><td class="c-item">La gomme fume, une flamme lèche le contenant</td><td>Trop chaud : vapeurs de térébenthine</td><td>Couvrir pour étouffer, ou jeter du sable. <strong>Jamais d’eau dessus</strong> (<span class="ref">§8</span>)</td></tr><tr><td class="c-item">La pièce suinte par le bord</td><td>Seconde couche manquante, ou posée sur une coque mouillée</td><td>Sécher, refaire la seconde couche</td></tr><tr><td class="c-item">La pièce part d’un bloc</td><td>Posée sur du mouillé ou du froid ; ou polyéthylène non traité</td><td>Sécher et refaire. Sur plastique : flamme, ou pièce boulonnée</td></tr><tr><td class="c-item">La fissure d’aluminium ressort de la pièce</td><td>Pas de trou d’arrêt, ou percé avant la vraie fin</td><td>Déposer la pièce, percer plus loin, reposer</td></tr><tr><td class="c-item">Un rivet pleure</td><td>Rivet desserré, rivet aveugle sous l’eau, ou clou d’acier qui ronge l’aluminium autour de lui</td><td>Refrapper ; remplacer par un rivet plein d’aluminium</td></tr><tr><td class="c-item">La membrure neuve fend en travers</td><td>Bois sec plié à froid</td><td>Refaire en bois vert</td></tr><tr><td class="c-item">La courroie brûle le front</td><td>Sueur sous la lanière</td><td>Écorce de bouleau entre le front et la courroie</td></tr><tr><td class="c-item">Canot de peaux mou entre les membrures, coutures qui pleurent</td><td>La peau crue a repris de l’eau</td><td>Sortir, sécher, regommer ; faire des traversées plus courtes</td></tr><tr><td class="c-item">La peau du canot sent, le poil se détache en plaques</td><td>La peau pourrit : c’est le coulage du <span class="ref">ch. 103</span> (étape 11), sur une coque</td><td>Finir la traversée, ne pas y remettre d’enfant, démonter</td></tr><tr><td class="c-item">Un enfant mouillé cesse de grelotter, devient mou ou somnolent</td><td>Hypothermie qui s’installe</td><td>Séquence B du <span class="ref">ch. 25</span>, tout de suite</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">L’eau froide noie avant de refroidir.</strong> Dans la première minute, le choc thermique fait prendre une grande respiration d’un coup, puis emballe la respiration de 600 à 1 000 % : la tête sous l’eau à ce moment-là, on inspire l’eau. Même un bon nageur peut y succomber. Dans les dix minutes suivantes, les bras, les jambes et les doigts cessent de répondre : on ne nage plus, on ne s’accroche plus à la coque, et on n’enfile plus un VFI qu’on n’a pas sur le dos. L’hypothermie, le corps sous 35 °C, s’installe avant l’heure, et plus tôt chez un enfant : l’heure, c’est le temps qu’il faut parfois pour en perdre connaissance (<span class="ref">ch. 25</span>, étapes 23 et 31 ; <span class="ref">ch. 15</span>). <strong>Mécanisme :</strong> ce n’est pas le froid du corps qui tue le canoteur, c’est la noyade que le froid de l’eau provoque pendant que le corps est encore chaud. D’où le VFI <strong>porté et attaché</strong>, pas rangé : environ 90 % des noyés d’accidents de navigation de plaisance n’en portaient pas.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Le deuxième aller.</strong> Un adulte qui ramène un enfant à la rive, puis repart chercher l’autre, refait le trajet avec ce qui lui reste de ses dix minutes. Le réflexe est de sauver un enfant à la fois ; le budget de l’eau froide ne le permet pas. Les enfants sortent de l’eau les premiers, sur la coque, tenus par leur VFI, et le canot va à la rive avec eux (étapes 34 et 35). Celui qui est déjà au sec lance la corde ; il ne retourne pas à l’eau. On n’attend sur la coque que si quelqu’un est vraiment en route : personne d’autre ne viendra, et l’heure court plus vite pour un enfant de 4 ans.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Le canot de peaux se construit à la saison de l’eau la plus haute et la plus froide.</strong> Il naît au printemps, quand la fonte gonfle les rivières et que le lac sort de la glace. Sa peau crue ramollit en reprenant de l’eau, d’une traversée à l’autre. <strong>Mécanisme :</strong> une coque qui se détend en route se remplit en route, et elle le fait dans l’eau où le budget est d’une minute. Il traverse court, le long de la rive, jamais dans un courant ni dans une eau grossie par la fonte. Le premier voyage porte le bagage : il dit si la coque tient avant qu’on y mette un enfant.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">La gomme grasse en feu ne s’éteint pas à l’eau.</strong> Coupée au gras, la gomme qui prend feu brûle comme un feu de graisse, et le lac est à trois pas. <strong>Mécanisme :</strong> l’eau jetée dessus coule sous la gomme brûlante, s’y vaporise d’un coup et projette la gomme en feu sur celui qui l’a jetée. On couvre la boîte, ou on jette du sable, et on ne la déplace pas. La fonte dans l’eau qui bout ne pose pas ce problème : la gomme n’y dépasse pas 100 °C, et l’eau n’a rien à vaporiser d’un coup.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Ailleurs, volontairement :</strong> les brûlures de gomme chaude (<span class="ref">ch. 94</span> <span class="ref">§8</span>, entrée 5) ; la glace, les pics et la sortie d’un trou (<span class="ref">ch. 25</span> <span class="ref">§5-D</span>, <span class="ref">ch. 15</span>, <span class="ref">ch. 58</span>) ; l’abattage des arbres dont on prend l’écorce (<span class="ref">ch. 106</span>) ; le dépouillement de l’orignal et ses gants (<span class="ref">ch. 102</span>, étape 1).</p>
+</template>
+<template id="story-e">
+<p class="p0">Plus de trousse, plus de chaudron, plus de rivet, et, au bout, plus de canot. Il reste l’épinette, le feu, les jeunes arbres et la bête.</p>
+<h3 class="sub">Réparer sans chaudron</h3>
+<p class="li"><strong>La gomme mâchée.</strong> Les grains et les écailles durs d’une épinette tombée ne fondent pas bien sur un petit feu. Les mâcher longtemps, jusqu’à ce qu’ils ramollissent, les étendre sur la couture ou sur le bord de la pièce, puis <strong>les lisser au tison</strong> — un bout de bois rougi. Sans le tison, elle colle mal. C’est une réparation d’urgence : elle tient moins bien que la gomme cuite, et on la refait au premier feu sérieux.</p>
+<p class="li"><strong>La gomme de sapin.</strong> Sans épinette, la gomme des vésicules du sapin baumier (<span class="ref">ch. 94</span>, étape 32) dépanne : une grande déchirure de canot de toile a déjà été ramenée jusqu’au bout du voyage à la gomme de sapin et à l’écorce de bouleau. On la reprend à la gomme d’épinette dès qu’on en trouve.</p>
+<p class="li"><strong>La pièce collée à froid.</strong> Une pièce d’écorce bordée de gomme crue et pressée sur la déchirure tient par le seul collant de la gomme, le temps d’une courte distance. C’est ce qui ramène à la grève où l’on fera le feu.</p>
+<p class="li"><strong>Boucher un grand trou.</strong> Tasser dans l’ouverture de l’herbe, des copeaux, de la mousse ou de l’écorce interne mêlés de gomme — ou même de glaise — puis couvrir de gomme ou de suif. C’est ainsi qu’on fermait les grandes ouvertures des canots faits à la hâte. Sur une déchirure d’accident, sous la poussée de l’eau, c’est une transposition : le bourrage tient au-dessus de la ligne d’eau, ou le temps de gagner la grève, et se reprend au premier feu.</p>
+<p class="li"><strong>Le suif seul.</strong> Sans gomme, une couture se passe au suif chaud. Il étanche moins longtemps et se refait souvent, mais il ferme.</p>
+<h3 class="sub">Fondre la gomme sans chaudron</h3>
+<p class="li"><strong>Dans l’eau qui bout.</strong> Faire bouillir de l’eau dans un contenant d’écorce (<span class="ref">ch. 94</span> <span class="ref">§9</span> explique pourquoi l’écorce ne brûle pas tant qu’il y a du liquide contre elle), y jeter la gomme crue : elle fond et remonte, assez épaisse pour se cueillir à la cuillère d’écorce. Une gomme déjà cuite a perdu sa térébenthine, qui la rendait plus légère que l’eau : elle coule au fond au lieu de remonter, et une gomme très cuite n’y fond même plus, l’eau qui bout n’étant pas assez chaude. On y met la gomme crue. La saleté s’enlève avec une lanière d’écorce ou un bâton plat. Avantage réel : la gomme posée sur l’eau qui bout ne dépasse pas 100 °C et ne brûle pas au fond.</p>
+<p class="li"><strong>Dans une auge et des pierres chaudes.</strong> La gomme fond sans grande chaleur. Pierres sèches, ramassées loin de l’eau et chauffées dans le feu avant qu’on s’en approche : une pierre de rivière éclate (<span class="ref">ch. 94</span> <span class="ref">§9</span>). Les pierres vont dans un fond d’eau, la gomme par-dessus. Une pierre qui rougit est bien plus chaude qu’il n’en faut pour que la vapeur de la gomme s’enflamme toute seule, sans flamme : plongée dans la gomme nue, elle y met le feu.</p>
+<h3 class="sub">Remplacer une pièce de bois en route</h3>
+<p class="li"><strong>La traverse</strong> : un jeune arbre, bouts amincis, enroulés et ligaturés (étape 21).</p>
+<p class="li"><strong>La membrure</strong> : une latte de bois vert, fendue, amincie au couteau croche, pliée sur le genou. Le bois vert se plie sans eau chaude ; le bois sec fend. Au chalet, les plats-bords d’un canot neuf trempent une semaine avant d’être pliés.</p>
+<p class="li"><strong>Le plat-bord</strong> : deux jeunes arbres mis bout à bout par le gros bout, chaque gros bout taillé à plat pour que les deux se recouvrent face contre face, et ligaturés dans de petites rainures qui empêchent la ligature de glisser. Pressé, on se contente de superposer les deux bouts et de les lier : la ligne du bord fait un cran, sans conséquence.</p>
+<p class="li"><strong>La ligature</strong> : racine d’épinette fendue et trempée jusqu’à ce qu’elle se noue sans casser : elle tient mouillée (<span class="ref">ch. 103</span>, étape 22). La babiche posée mouillée serre en séchant (<span class="ref">ch. 103</span>, étape 31), mais redevient molle une fois remouillée : sur un canot, elle dépanne, et on la refait au sec.</p>
+<h3 class="sub">Porter sans courroie ni joug</h3>
+<p class="p0">Deux pagaies, espacées d’une trentaine de centimètres, se couchent dans le sens de la longueur par- dessus la traverse du centre et les deux traverses voisines. Une lanière de peau ou d’écorce interne d’aulne (<span class="ref">ch. 103</span>, étape 23) fait d’abord le tour des bouts de la traverse du centre, à l’extérieur des épaules, et ses bouts lient les pagaies en place. La lanière s’appuie contre un épaulement de la traverse, à quelques pouces (5 à 10 cm) du plat-bord : sans lui, elle glisse vers le milieu et les pagaies se desserrent. Sur une traverse qui n’en a pas, une encoche au couteau en fait un. On lève le canot : les manches des pagaies reposent sur les épaules, la traverse du centre tombe juste derrière la tête, et la boucle de la lanière passe sur le front pour empêcher le canot de glisser vers l’arrière.</p>
+<p class="p0 ri"><strong class="runin">La courroie de front se taille dans une peau.</strong> La pièce du front : une bande de cuir épais (<span class="ref">ch. 102</span>), d’environ 10 cm sur 46 cm (4 × 18 po), amincie vers les bouts, assez raide pour ne pas rouler. Les deux courroies cousues à ses bouts : souples, de 5 à 6,4 cm de large (2 à 2 ½ po) et d’environ 3 m (10 pi), amincies vers le bout libre. Couture au point sellier (<span class="ref">ch. 104</span>, étape 7). De l’écorce de bouleau sous le front.</p>
+<h3 class="sub">Le canot de peaux d’orignal</h3>
+<p class="p0">C’est le canot de peaux d’orignal des Wolastoqiyik (Malécites), un canot du Sud, pas du Nord : le chasseur le faisait au printemps quand il sortait du bois trop tôt pour que l’écorce d’épinette décolle. Il gardait pour ça deux ou trois peaux tendues sur leur cadre. Des peaux fraîches de la chasse font la même chose ; des peaux sèches se trempent jusqu’à redevenir souples (<span class="ref">ch. 102</span> <span class="ref">§5-C</span>). La charpente se prépare l’hiver, dans les heures creuses ; sinon, elle se fait vite.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’il donne.</strong> Une coque d’environ <strong>3,8 m (12 ½ pi)</strong> de long, <strong>1 m (40 po)</strong> de large et <strong>36 à 48 cm (14 à 19 po)</strong> de creux. C’est la taille des peaux qui décide de la longueur.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’il faut.</strong> Deux ou trois peaux d’orignal, avec ou sans poil. Quatre jeunes arbres pour les plats-bords. Un pour la traverse du centre. De la babiche torse pour les traverses des bouts. Deux étraves d’environ <strong>90 cm (3 pi)</strong>, en jeunes arbres pliés au profil voulu — ou une seule quille de toute la longueur. Des jeunes arbres minces pour les membrures, pliés verts. D’autres pour le bordé, en perches d’environ les <strong>trois quarts</strong> de la longueur du canot. De la babiche, du suif et de la gomme accumulés d’avance. Des piquets et des pierres. Pour les essences, le choix des canots de toile d’ici se transpose : l’épinette pour les plats-bords et les traverses — peu de nœuds, très souple ; le sapin, plus léger, pour le fond et les membrures, taillées et pliées pendant qu’il est encore vert.</p>
+<p class="step"><span class="sn">1</span><strong>Coudre les peaux ensemble, dans le sens de la longueur</strong>, en les recouvrant d’environ <strong>15 cm (6 po)</strong> ou un peu moins, avec <strong>deux rangs de points</strong> de babiche (<span class="ref">ch. 103</span>), au point sellier par exemple (<span class="ref">ch. 104</span>, étape 7). Si le poil reste, le gratter le long des bords cousus ; il ira à l’extérieur.</p>
+<p class="step"><span class="sn">2</span><strong>Monter le cadre des plats-bords.</strong> Quatre jeunes arbres, deux par côté, joints par le gros bout au milieu (voir le plat-bord, plus haut). La traverse du centre : un jeune arbre, bouts amincis, enroulés autour des plats-bords et ligaturés sous la traverse. Les bouts des plats-bords se croisent et se lient. À la place des traverses des bouts, une corde de babiche torse d’un plat-bord à l’autre.</p>
+<p class="step"><span class="sn">3</span><strong>Percer le dessous des plats-bords</strong> à intervalles, pour recevoir la tête des membrures.</p>
+<p class="step"><span class="sn">4</span><strong>Préparer le lit.</strong> Un sol plat et lisse — ou le plancher de la cabane s’il est assez grand. Planter quelques piquets autour du contour des plats-bords pour le marquer, puis les arracher.</p>
+<p class="step"><span class="sn">5</span><strong>Poser les peaux sur le lit, le cadre dessus, et le charger de pierres.</strong></p>
+<p class="step"><span class="sn">6</span><strong>Laisser sécher jusqu’à ce que la peau raidisse.</strong> Le signe : les bords de la peau commencent à rouler.</p>
+<p class="step"><span class="sn">7</span><strong>Relever les flancs.</strong> Soulever le cadre, le fixer aux piquets replantés dans leurs trous, relever les côtés de la peau, y tailler des pinces là où elle fait des plis. On peut relever un peu les bouts des plats-bords contre les piquets des bouts pour donner de la tonture ; plusieurs canots s’en passaient.</p>
+<p class="step"><span class="sn">8</span><strong>Tailler la peau à la ligne des plats-bords et l’y lacer</strong> à la babiche. Coudre les pinces.</p>
+<p class="step"><span class="sn">9</span><strong>Placer les étraves</strong>, leur tête liée dans la pointe que forment les bouts des plats-bords.</p>
+<p class="step"><span class="sn">10</span><strong>Forcer les premières membrures</strong>, pliées, contre la peau raidie, leurs bouts entrés dans les trous du dessous des plats-bords, à peu près d’équerre avec la courbe du fond.</p>
+<p class="step"><span class="sn">11</span><strong>Tailler la peau au profil des étraves et la coudre</strong>, les points passant à l’extérieur de l’étrave, avec un tour de temps en temps par-dessus pour tenir la charpente. Plus facile : poser les étraves à blanc, tailler la peau, les enlever pour coudre, les remettre et ajouter quelques points.</p>
+<p class="step"><span class="sn">12</span><strong>Poser le bordé</strong> : les perches couchées à quelques pouces (5 à 10 cm) les unes des autres, leurs bouts glissés sous la membrure la plus proche du milieu, sur chaque étrave, tenues par quelques membrures provisoires le temps des ajustements.</p>
+<p class="step"><span class="sn">13</span><strong>Forcer les membrures une à une</strong>, chacune pliée d’avance à la forme de la section. Si la peau résiste, la remouiller pour qu’elle s’étire.</p>
+<p class="step"><span class="sn">14</span><strong>Passer les coutures à la gomme ou au suif.</strong> Mettre à l’eau.</p>
+<p class="p0 ri"><strong class="runin">Le premier voyage porte le bagage, le long de la rive</strong> (<span class="ref">§8</span>). Après chaque traversée, sortir le canot, le laisser égoutter, et graisser la peau au suif quand elle sèche. Il sert le temps d’un voyage : c’est un canot de passage, qu’on défait à l’arrivée, et ses peaux vont au tannage.</p>
+<h3 class="sub">La cuve d’une seule peau</h3>
+<p class="p0">Une seule peau lacée sur un cerceau de jeunes arbres, des membrures croisées en grille au fond, fait une cuve ronde à fond plat qui garde le bagage au sec. Beaucoup étaient trop petites pour porter quelqu’un : on les chargeait et un nageur les remorquait. Ici, personne ne nage dans cette eau : l’adaptation, c’est de la remorquer au bout d’une corde, derrière le canot, et elle s’essaie vide, près de la rive, avant d’y mettre quoi que ce soit. Une cuve ronde se remorque mal, et pleine d’eau elle ne se remorque plus : on la largue. La ligne se tient à la main, ou se noue d’un nœud qui se largue d’un geste, le couteau à portée : au chavirement, une ligne attachée à la coque s’enroule autour d’un bras ou d’un enfant.</p>
+<h3 class="sub">Le canot d’écorce d’épinette</h3>
+<p class="p0">L’épinette est partout, et c’est d’elle qu’on faisait le plus souvent le canot d’urgence. Son écorce se lève sur une épinette qu’on abat (<span class="ref">ch. 106</span>), avec une entaille en long <strong>et</strong> des entailles en travers : elle ne se fend pas d’elle-même autour du tronc comme celle du bouleau. Elle ne se garde pas : on la gratte de sa surface rugueuse et on l’emploie tout de suite. Elle décolle quand l’arbre pousse, sève montée : hors de cette saison, elle peut tenir au bois plus de deux fois plus fort. Le chasseur malécite qui sortait du bois trop tôt au printemps faisait un canot de peaux, pas d’épinette.</p>
+<p class="p0 ri"><strong class="runin">En une seule feuille pliée, pour passer.</strong> Son grain grossier, dans le sens du tronc, fend : on n’y taille pas de pinces. Le canot d’urgence des Maritimes prend donc <strong>une seule grande feuille</strong> et la <strong>plie</strong> le long des plats-bords, à deux endroits ou plus de chaque côté : les plis aplatissent le fond et relèvent les bouts. Chaque bout se pince entre deux lattes, avec une corde d’écorce, et le tout se lie à la racine. Les bouts s’étanchent à la gomme ou au suif ; les grandes ouvertures se bouchent à l’herbe, aux copeaux, à la mousse ou à l’écorce interne mêlées de gomme ou de glaise. Plats-bords en jeunes arbres joints par le gros bout, traverses à bouts amincis enroulés, membrures en jeunes arbres fendus. Fait vite, il sert à une traversée et s’abandonne.</p>
+<p class="p0 ri"><strong class="runin">Cousu comme un canot de bouleau, pour durer.</strong> Au nord, les Naskapis faisaient avec l’écorce d’épinette, qui s’y lève en assez grandes feuilles, le même canot qu’avec le bouleau, par la même méthode (plus bas) : pas un canot de passage, un canot. Avec du soin, un canot d’écorce d’épinette vaut presque un canot de bouleau. Elle se coud comme lui, mais son grain en long fend sous une rangée de points alignés sur une même fibre : là où la couture suit le grain, on alterne points courts et points longs, ou on coud une latte dans la couture. On amincit les bords des pièces avant de coudre et de gommer, et on passe deux ou trois tours dans un même trou plutôt que de percer serré. Sans racine, la babiche coud l’écorce.</p>
+<h3 class="sub">Le canot d’écorce de bouleau</h3>
+<p class="p0">Le bouleau à papier donne le meilleur canot d’écorce. La Basse-Côte-Nord n’en avait pas qui convienne, et la meilleure se trouvait en arrière de la côte, loin de la mer (<span class="ref">§2</span>). L’écorce doit faire <strong>plus de 3,2 mm (1/8 po)</strong> d’épaisseur ; au-delà de <strong>6,4 mm (1/4 po)</strong>, elle est rare. Son épaisseur ne se devine pas à la taille de l’arbre, et deux bouleaux pareils côte à côte n’ont pas la même : on l’essaie sur un échantillon<sup class="fnr" data-fn="90-3">3</sup>.</p>
+<p>La bonne écorce vient avec sa couche interne collée dessous. Elle se lève pendant un long dégel d’hiver, surtout sous la pluie, ou dès que la sève commence à monter au printemps ; ailleurs, on la levait aussi à la fin de l’automne, après les premières gelées. Dans les gros arbres, la sève part plus tard, et par endroits la bonne écorce se prend encore en juin. Celle qu’on lève par temps chaud se sépare en feuillets de papier et ne vaut rien pour une coque. On la prend sur un arbre qu’on abat (<span class="ref">ch. 94</span> <span class="ref">§5-G</span>), couché sur des perches pour ne pas l’abîmer dans la chute, et c’est l’abattage qui permet le froid : sur l’arbre à terre, on chauffe l’écorce à l’eau chaude, et elle se lève par un temps où celle d’un arbre debout ne lâcherait pas. Pour la décoller sans la fendre : un carré d’écorce de bouleau sèche et épaisse, d’une trentaine de centimètres, un bord arrondi et biseauté, glissé dessous et basculé sur sa courbe.</p>
+<p>Débarrasser l’écorce de ses écailles extérieures, puis la <strong>faire tremper plusieurs jours</strong> à l’eau douce : sèche, elle casse comme une coquille d’œuf. La racine d’épinette noire court près de la surface dans la mousse humide et se tire au bâton ou à la main (<span class="ref">ch. 94</span>, étape 10) ; fendue, amincie au couteau, trempée jusqu’à ce qu’elle se noue sans casser, elle coud l’écorce. On couche l’écorce sur une forme de terre tassée au creux du canot, on la coud, on pose les plats-bords, les étraves, puis le bordé, lattes jointives, et les membrures en travers, espacées d’à peu près leur largeur, avec cinq traverses ou plus. <strong>Pendant qu’il sèche, on mouille souvent le canot</strong> : sèche trop vite, l’écorce fend sous la tension. Les coutures se passent à la gomme chaude, à la palette, sur une surface sèche ; on laisse prendre <strong>une journée</strong>, puis on met à l’eau et on reprend tout ce qui suinte.</p>
+<p class="p0 ri"><strong class="runin">Sans grande feuille, des petites pièces.</strong> Là où la bonne écorce manquait, au nord, on faisait la coque de beaucoup de petites pièces de bouleau cousues : plus long, plus rugueux, mais un canot.</p>
+<p>C’est la même méthode, au clou et à la toile, que celle du canot de toile à membrures libres. Le canot de toile de fabrique, lui, se répare comme au <span class="ref">§5-C</span> et à l’étape 22.</p>
+<h3 class="sub">Ce qui ne se remplace vraiment pas</h3>
+<p class="li"><strong>Le VFI.</strong> Rien d’improvisé ne tient une tête d’enfant hors de l’eau (<span class="ref">ch. 39</span>, <span class="ref">ch. 00b</span>). Sans VFI d’enfant, l’enfant n’embarque pas — sauf le jour où la rive est pire que le lac : le chemin qui brûle (<span class="ref">ch. 11</span>), ou le printemps quand les VFI sont partis avec le canot perdu. Ce jour-là, ce qui donne le plus de marge : la traversée la plus courte, au ras de la rive ; un VFI d’adulte serré au plus court, avec une courroie d’entrejambe faite d’une corde passée entre les jambes et nouée devant et derrière, parce que sans elle le vêtement monte et l’enfant sort par en dessous (<span class="ref">ch. 39</span>, étape 6). L’essai, sur la grève : soulever l’enfant par les épaules du VFI. S’il reste <strong>plus de 7,6 cm</strong> entre ses épaules et le vêtement, le VFI est trop grand et nuit plus qu’il n’aide : l’enfant va alors contre un adulte qui porte le sien. Des bidons vides bien bouchés, attachés au tronc, aident à flotter ; ils ne tiennent pas la tête hors de l’eau (<span class="ref">ch. 00b</span>).</p>
+<p class="li"><strong>Le budget de l’eau froide.</strong> Aucune technique ne rallonge la première minute ni les dix suivantes. Ce qui change, c’est ce qu’on porte en tombant : le VFI attaché et, au printemps et à l’automne, plusieurs couches de vêtements secs et légers sous une couche coupe-vent ou imperméable, le tout sous le VFI. Un VFI gonflable à déclenchement manuel ne flotte pas tant qu’on ne l’a pas déclenché (<span class="ref">ch. 39</span>, étape 6). On tire la poignée <strong>tout de suite</strong>, en tombant : dans l’eau froide, la poigne et l’adresse des doigts fondent de minute en minute, et le tube à gonfler par la bouche ne sert plus à grand-chose quand on a peine à garder la tête hors de l’eau.</p>
+<p class="li"><strong>La bonne écorce de bouleau en grandes feuilles.</strong> Là où elle manque, un plan qui compte sur elle pour une coque ne tient pas : ce sont les petites pièces ou l’épinette.</p>
+<p class="li"><strong>La saison.</strong> Le canot de peaux attend les peaux, le canot d’écorce attend la sève. Ni l’un ni l’autre ne se fait n’importe quand.</p>
+<h3 class="sub">Ce qu’on perd, nommément</h3>
+<p class="li"><strong>Avec la gomme,</strong> la durée : une pièce de gomme se surveille et se refait. Un voyage en canot gommé se termine, chaque soir, par un feu et une palette.</p>
+<p class="li"><strong>Avec la gomme mâchée,</strong> l’adhérence : elle ne tient qu’une fois lissée au tison, et moins bien.</p>
+<p class="li"><strong>Avec le canot de peaux,</strong> une coque qui ramollit et s’alourdit à l’eau et qui ne dure qu’un voyage, et deux ou trois peaux d’orignal prises par la coque : elles ne vont au tannage qu’une fois le canot défait, et seulement si elles en sortent sèches et intactes.</p>
+<p class="li"><strong>Avec le canot d’une feuille d’épinette,</strong> tout ce qui dépasse une traversée : il se fait pour passer, pas pour durer.</p>
+<p class="li"><strong>Avec la pièce d’aluminium rivetée à la main,</strong> la finition : un rivet frappé à la main tient en cisaillement, mal à l’arrachement (<span class="ref">ch. 107</span> <span class="ref">§9-D</span>). Une pièce, pas une coque neuve.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="12-1"><span class="fnn">1</span>Une braise se cache sous la cendre. Lampe éteinte, porte du poêle ouverte, on brasse la cendre au tisonnier jusqu’au fond : une braise vivante luit rouge. Tant qu’un seul point rouge luit, le feu n’est pas mort, et il fait du CO sans flamme.</p>
+<p class="fn" data-fn="12-2"><span class="fnn">2</span>Le fil, tenu au bout d’une broche, s’approche d’une flamme, dehors. Le coton brûle sans reculer devant la flamme, sent le papier brûlé et laisse une cendre grise et fine. Le nylon et le polyester fondent en se recroquevillant loin de la flamme, sentent le produit chimique et laissent une petite bille fondue. Un tissu mélangé ne se lit pas à coup sûr : dans le doute, il se range avec la bâche.</p>
+<p class="fn" data-fn="43-1"><span class="fnn">1</span>Le bord avant du gros coussinet, celui qui regarde les doigts, fait deux bosses arrondies côte à côte. Celui d’un canidé est un petit triangle, sans ces deux bosses.</p>
+<p class="fn" data-fn="43-2"><span class="fnn">2</span>Un gros rocher posé seul au milieu d’une tourbière, d’un plat ou d’une forêt, loin de toute falaise d’où il aurait pu tomber : c’est la glace des glaciers qui l’a laissé là.</p>
+<p class="fn" data-fn="43-3"><span class="fnn">3</span>Là où le loup et le coyote ont un petit coussinet en triangle, celui du pied avant du renard se réduit à une barre étroite, posée en travers de l’empreinte. Autour de cette barre, le vide entre les doigts et le coussinet est grand, et le X se lit net.</p>
+<p class="fn" data-fn="90-1"><span class="fnn">1</span>Le bout d’une fissure est plus fin qu’un cheveu et continue au-delà de ce que l’œil voit. On nettoie la tôle à vif autour du bout, on tient la lampe basse, à moins de 45° de la tôle, puis le faisceau en travers de la fissure pour la suivre jusqu’au bout, et on la confirme à la loupe de 10. On perce sur le bout trouvé, pas sur la dernière trace visible. Si la fissure repart au-delà du trou, on en perce un second plus loin.</p>
+<p class="fn" data-fn="90-2"><span class="fnn">2</span>De l’eau qui perle ou suinte autour de la tête du rivet, à l’intérieur de la coque, quand le canot est à l’eau. Au sec, un rivet desserré bouge ou tourne sous la pointe d’un couteau.</p>
+<p class="fn" data-fn="90-3"><span class="fnn">3</span>Plier un échantillon d’écorce d’un côté, puis de l’autre : s’il se sépare en feuillets, l’écorce est mauvaise. Sur la face intérieure, des « yeux » bosselés ou trop rapprochés annoncent une écorce qui fend ; creux, ils ne gênent pas. Une écorce d’un blanc mort, ou dont la surface pèle en petites lanières, se rejette. La bonne écorce de saison froide porte, collée à sa face intérieure, une couche sombre qu’on gratte à l’usage.</p>
+</template>
+<script type="application/json" id="meta">{"num": "90", "title": "Le canot : réparer, porter, en refaire un", "tome": "Tome 5 · La forêt, le jardin et le chalet", "tnum": 5, "tfond": "#4B3A28", "tencre": "#F2EBDF", "lieu": "Chalet", "dsub": "l’eau froide, le canot du dégel, la gomme en feu", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

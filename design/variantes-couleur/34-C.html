@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>34 — Soigner avec la forêt, par symptôme — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"34"}
+</style>
+</head>
+<body class="vA vB vC t2 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 2 · Le corps</span><span>Chapitre</span></div><div class="open-title"><div class="num">34</div><h1>Soigner avec la forêt, par symptôme</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Pour douze maux ordinaires, ce que le bois de la Côte-Nord donne, comment on le prépare, à quelle dose et ce que ça ne fait pas : un soulagement de quelques heures à quelques semaines, jamais le remède de la cause.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">L’article de la pharmacie est épuisé, ou qu’il faut le garder pour un enfant. Le comprimé qui reste va à la fièvre de l’enfant ; l’adulte qui a mal au dos prend l’écorce de saule (<span class="ref">§5-H</span>). La forêt sert d’abord à ceux à qui elle est permise, pour que le stock dure pour les autres.</p>
+<p class="li">Le geste est mécanique ou se fait sur la peau : peigner des poux, faire mûrir un furoncle à l’eau chaude, poser une résine sur une plaie déjà lavée, ébouillanter le linge d’une maison qui a la gale. C’est là que la forêt et le poêle font le plus, et à tout âge.</p>
+<p class="li">La plante a une dose écrite. L’écorce de saule et la feuille de framboisier sont les deux seules préparations de ce chapitre qui se boivent pour soigner, et elles se boivent à l’âge adulte. Le thé du Labrador a une dose aussi, mais c’est une boisson, pas un remède (<span class="ref">§5-I</span>).</p>
+<h4 class="choix">C’est un mauvais choix quand :</h4>
+<p class="li">Il s’agit d’un enfant et de quelque chose à avaler. De tout ce chapitre, seuls le sirop sucré (<span class="ref">§5-A</span>), le miel après un an (étape 5) et la tisane de sapin ou d’épinette (<span class="ref">ch. 20</span>, <span class="ref">ch. 33</span>) vont dans la bouche d’un enfant de 4 ou 6 ans. L’écorce de saule surtout : c’est un salicylé, la famille de l’aspirine, interdite avant 18 ans (<span class="ref">§8</span>).</p>
+<p class="li">Le problème est une diarrhée. Ce qui la soigne, c’est l’eau, le sucre et le sel (<span class="ref">ch. 26</span>, <span class="ref">§9</span> ; <span class="ref">ch. 30</span>, étape 20) ; une tisane qui fait patienter pendant que le corps se vide coûte plus qu’elle ne rapporte.</p>
+<p class="li">La personne prend une ordonnance, réagit à l’aspirine ou fait de l’asthme quand elle en prend : ni saule ni bourgeon de peuplier (<span class="ref">§8</span>). La règle générale des interactions est au <span class="ref">ch. 33</span>, <span class="ref">§2</span>.</p>
+<p class="li">La plaie est profonde, sale, perforante ou faite par une bête. Elle se soigne ouverte (<span class="ref">ch. 26</span>, étape 24) : une résine qui la ferme enferme l’infection avec elle.</p>
+<p class="li">La brûlure est fraîche. L’eau fraîche pendant 20 minutes, et rien dessus, ni gomme ni gras (<span class="ref">ch. 26</span>, étapes 28 et 29). La forêt n’arrive qu’après.</p>
+<p class="li">On ne reconnaît pas la plante avec certitude. C’est la section 9.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">Cinq mécanismes portent ce chapitre. Aucun n’a la force d’un médicament, et chacun a sa limite.</p>
+<p class="p0 ri"><strong class="runin">La résine freine les microbes de la peau.</strong> La résine d’épinette ralentit la croissance des bactéries dites Gram positif — le staphylocoque des furoncles et des plaies qui suintent, même celui qui résiste aux antibiotiques — et des champignons du pied d’athlète. Elle ne fait presque rien à la plupart des bactéries Gram négatif, la famille qui comprend celles de l’intestin, ni aux levures. Elle freine, elle ne tue pas.</p>
+<p class="p0 ri"><strong class="runin">Les tanins resserrent.</strong> La feuille de framboisier en porte de 2,6 à 6,9 % de son poids sec. Ils donnent le goût râpeux et resserrent la muqueuse de la gorge ou de l’intestin. Ils ne remplacent pas l’eau perdue.</p>
+<p class="p0 ri"><strong class="runin">Le salicylé soulage lentement.</strong> L’écorce de saule et le bourgeon de peuplier contiennent de la salicine, que le corps change en acide salicylique, le cousin de l’aspirine. À la dose des essais, 240 mg de salicine, ce qui passe dans le sang équivaut à 87 mg d’aspirine, et l’effet mesuré sur un mal de dos apparaît après une semaine.</p>
+<p class="p0 ri"><strong class="runin">Le sucre calme la toux.</strong> L’effet d’un sirop contre la toux passe surtout par son goût sucré et par la confiance de celui qui le prend, bien plus que par la molécule qu’il contient. Le sirop de sapin agit d’abord comme sirop.</p>
+<p class="p0 ri"><strong class="runin">La chaleur, le temps et le peigne font le reste.</strong> L’eau chaude fait mûrir un furoncle ; au-dessus de 50 °C pendant 10 minutes, elle tue l’acarien de la gale et ses œufs. Le pou meurt en 2 jours loin d’une tête ; la lente éclôt en 7 à 12 jours. Qui connaît ces durées traite le linge sans produit.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Seulement ce qu’il faut pour les préparations et les gestes de ce chapitre. Le stock est au <span class="ref">ch. 00b</span> ; le matériel de récolte et de séchage, au <span class="ref">ch. 33</span>.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Chaudron à couvercle</td><td>1</td><td>Boîte de conserve dédiée et une assiette retournée ; contenant d’écorce et pierres chauffées (<span class="ref">ch. 33</span>, <span class="ref">§9</span>). Le couvercle compte : il garde dans l’eau ce qui partirait en vapeur</td><td>Oui</td></tr><tr><td class="c-item">Linge de coton bouilli, plié à sécher (<span class="ref">ch. 26</span>, <span class="ref">§9</span>)</td><td>10 carrés</td><td>Drap, taie, chemise, bouillis à gros bouillons. C’est le filtre, la compresse et le pansement</td><td><strong>Non négociable</strong></td></tr><tr><td class="c-item">Corps gras rendu et filtré</td><td>250 à 500 g</td><td>Graisse d’orignal, d’ours ou de phoque rendue (<span class="ref">ch. 72</span>), huile végétale du stock (<span class="ref">ch. 5</span>)</td><td>Oui</td></tr><tr><td class="c-item">Gomme de sapin ou d’épinette, filtrée</td><td>100 g</td><td>Coulées durcies d’épinette ramassées au couteau (<span class="ref">ch. 94</span>, <span class="ref">§5-F</span>)</td><td>Oui</td></tr><tr><td class="c-item">Sucre</td><td>1 kg par lot de sirop</td><td>Sucre de sève (<span class="ref">ch. 94</span>, étape 31). Le miel et le sirop de sève sont déjà des sirops : allongés d’infusion, ils tombent sous le seuil de garde, et le mélange se garde au froid, bu vite. Le miel jamais avant un an (étape 5). L’eau sucrée seule fait encore une part du travail (<span class="ref">§3</span>)</td><td>Oui</td></tr><tr><td class="c-item">Balance de cuisine (g)</td><td>1</td><td>Fléau à plateaux d’écorce, réglé à bras <strong>égaux</strong> (<span class="ref">§9</span>), et pierre-étalon (<span class="ref">ch. 33</span>, <span class="ref">§9</span>). Le fléau à bras égaux suffit pour le sirop et l’onguent, qui sont des rapports ; le saule et le framboisier, dosés en grammes, demandent la pierre-étalon (<span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Thermomètre 0 à 100 °C</td><td>1</td><td>Eau qui bout à gros bouillons : elle dépasse tous les seuils du chapitre. Ce qu’on perd : la laine feutre et rétrécit</td><td>Oui</td></tr><tr><td class="c-item">Peigne fin à poux, en métal</td><td>1 par maisonnée</td><td>Ongles et pince à sourcils, lente par lente ; rasoir ou ciseaux (<span class="ref">§5-J</span>, <span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Rasoir, ciseaux</td><td>1 de chaque</td><td>Couteau affûté au rasoir (<span class="ref">ch. 105</span>)</td><td>Oui</td></tr><tr><td class="c-item">Lame de rasoir neuve, pour un abcès</td><td>1</td><td>La lame la plus fine, affûtée (<span class="ref">ch. 105</span>) et bouillie 30 minutes à gros bouillons (<span class="ref">ch. 28</span>, <span class="ref">§9</span>). Jamais passée au rouge : le rouge la détrempe (<span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Bouteille souple, bouchon percé d’un trou d’aiguille ou au clou chauffé</td><td>1</td><td>Seringue sans aiguille (<span class="ref">ch. 26</span>, étape 22). C’est le jet qui lave</td><td>Oui</td></tr><tr><td class="c-item">Sacs de plastique qui ferment, ou bac à couvercle</td><td>10</td><td>Coffre, caisse, pièce qu’on ne rouvre pas. C’est le temps qui travaille, pas le sac</td><td>Oui</td></tr><tr><td class="c-item">Pots opaques à couvercle</td><td>4</td><td>Boîtes de fer-blanc, boîte d’écorce cousue et gommée (<span class="ref">ch. 33</span>, <span class="ref">§9</span>)</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Quatre préparations que le <span class="ref">ch. 33</span> n’a pas</h3>
+<p class="step pk-c"><span class="sn">1</span><strong>Le sirop de sapin ou d’épinette.</strong> Faire une infusion forte d’aiguilles ou de jeunes pousses de sapin baumier (<em>Abies balsamea</em>) ou d’épinette (<em>Picea glauca</em>, <em>Picea mariana</em>), hachées, à couvert, comme au <span class="ref">ch. 33</span> (<span class="ref">§5-D</span> et <span class="ref">§9</span>). Filtrer au linge : aucune aiguille ne reste dans le pot. Peser l’infusion, puis y dissoudre à feu doux <strong>deux fois son poids de sucre</strong>. Deux parts de sucre pour une part d’eau font 67 % de sucre, au-dessus des 66 °Brix où un sirop se garde à la tablette (<span class="ref">ch. 94</span>, <span class="ref">§3</span>). Porter au frémissement et mettre en pot aussitôt, <strong>à 82 °C au moins</strong>, dans un pot ébouillanté, couvercle vissé à la main, comme le sirop de sève (<span class="ref">ch. 94</span>, étape 29) : le vide se fait en refroidissant, et la vapeur qui se condense ne redilue pas la surface. C’est le haut de la fourchette du <span class="ref">ch. 94</span> (étape 27) : dans un chalet froid, il peut faire des cristaux. On le réchauffe pour les redissoudre, <strong>sans ajouter d’eau</strong>, qui le ferait tomber sous le seuil. Moins sucré, il se garde au froid et se boit vite.</p>
+<p class="step pk-d"><span class="sn">2</span><strong>L’onguent de bourgeons de peuplier baumier</strong> (<em>Populus balsamifera</em>). Le bourgeon se reconnaît sans guide : brun-orangé, jusqu’à 25 mm, très résineux, il colle aux doigts et sent le baume ; la queue de la feuille est ronde en coupe. Cueillir au printemps, avant l’ouverture, sur une branche qu’on atteint, et <strong>sécher les bourgeons</strong> à l’ombre comme au <span class="ref">ch. 33</span> (<span class="ref">§5-C</span>). Écraser, puis mettre <strong>1 part de bourgeons pour 3 parts de gras</strong>, en poids : 25 %, au milieu des 20 à 30 % des onguents de bourgeons de peuplier. Chauffer doucement sans laisser fumer, filtrer au linge chaud, couler en pot. Jamais de bourgeon frais dans le gras : <span class="ref">§8</span>. <strong>Le baume écumé, usage anishinaabé.</strong> Les bourgeons cueillis frais et fermés au début du printemps bouillaient dans l’eau ; le baume qui montait en surface s’écumait, puis bouillait avec de la graisse d’ours. Ce qui le rend sûr : seul le baume passe dans le gras. Le bourgeon, son eau et la terre qu’il porte restent dans le chaudron, et la cuisson avec le gras fait partir l’eau venue avec le baume ; c’est le même principe que l’onguent de gomme du <span class="ref">ch. 33</span> (<span class="ref">§9</span>). Ce qui le rend dangereux : le raccourci, les bourgeons frais jetés directement dans le gras, ramène l’eau et la matière verte, le milieu du botulisme (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">3</span><strong>La compresse chaude.</strong> Un carré de linge bouilli trempé dans l’eau chaude, tordu, posé, changé dès qu’il tiédit. Pour garder la chaleur, un sac de linge rempli de sable chauffé ou une pierre sèche chauffée, roulée dans deux épaisseurs de tissu, par-dessus (<span class="ref">ch. 26</span>, <span class="ref">§9</span>). Sur un malade qui a de la fièvre ou qui somnole, on regarde la peau sous la compresse à chaque changement : elle ne sent pas la brûlure (<span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">4</span><strong>Le gargarisme.</strong> L’infusion de feuille de framboisier du §C, tiédie, gardée au fond de la gorge, recrachée. Adulte seulement, comme la feuille elle-même (étape 10).</p>
+<h3 class="sub">B — Toux et rhume</h3>
+<p class="step"><span class="sn">5</span><strong>Ce qui marche le mieux est sucré.</strong> Le sirop de l’étape 1, à la cuillère, quand la toux empêche de dormir. S’il y a du miel au stock : chez l’enfant de plus d’un an, il calme la toux mieux que rien du tout pendant <strong>les trois premiers jours</strong>, et pas au-delà. Jamais avant un an, même cuit dans un sirop : les spores de botulisme qu’il porte résistent à la chaleur, et le miel pasteurisé a lui aussi donné le botulisme du nourrisson. Le sapin donne le goût et un peu de vitamine C ; le sucre fait l’effet (<span class="ref">§3</span>).</p>
+<p class="step"><span class="sn">6</span><strong>Boire chaud et souvent.</strong> La tisane d’aiguilles de sapin ou d’épinette du <span class="ref">ch. 20</span> fait boire un enfant qui ne boit pas, et c’est la seule tisane qui lui est permise.</p>
+<p class="step pk-d"><span class="sn">7</span><strong>Pas de bol d’eau bouillante sous une serviette.</strong> La vapeur n’a pas fait la preuve qu’elle soigne un rhume, et elle ébouillante des enfants : dans une série d’enfants brûlés par ce bol, l’âge moyen était de <strong>7,4 ans</strong>, et le rhume était la première raison du bol. L’enfant qui se penche bouge, s’appuie et renverse sur ses cuisses ; ébouillanté ainsi, un enfant a besoin d’une greffe de peau plus souvent qu’un adulte (<span class="ref">§8</span>).</p>
+<p class="step pk-d"><span class="sn">8</span><strong>La gomme, usage innu.</strong> Chez les Innus, la gomme et l’écorce d’épinette se prenaient contre la toux, et la gomme d’épinette blanche se posait sur la gorge. Ce qui la rend tenable : c’est la gomme à mâcher des nations du Nord, qui se mâche sans s’avaler, et elle vient d’un arbre qu’on reconnaît au toucher (<span class="ref">§9</span>). Sur la toux elle-même, aucun effet n’est mesuré. L’avertissement : jamais la résine du cèdre (thuya, <em>Thuja occidentalis</em>) (<span class="ref">§8</span>).</p>
+<p class="step pk-d"><span class="sn">9</span><strong>Le cerisier, usage innu, et pourquoi le livre ne le prend pas.</strong> L’écorce du cerisier de Pennsylvanie (<em>Prunus pensylvanica</em>) se buvait en tisane contre la toux et la bronchite. Ce qui la rendait tenable dans leurs conditions n’est pas documenté. Ce qui la rend dangereuse est connu : le rameau cassé sent l’amande amère, parce que l’écorce et le rameau portent le même composé que le noyau, qui devient du cyanure dès que le tissu est broyé ou mâché. Dans la pharmacopée d’autrefois, l’écorce d’un cerisier voisin calmait la toux par ce cyanure même : l’effet et le poison sont la même chose, et l’écorce d’automne en porte près de trois fois plus que celle du printemps. La dose mortelle de cyanure se compte au kilo, de 0,5 à 3 mg, donc d’abord chez l’enfant (<span class="ref">ch. 94</span>, <span class="ref">§8</span>). On ne prend rien sur cet arbre.</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> rien de tout ça n’abrège un rhume ni ne tue un virus. Une respiration qui creuse la peau entre les côtes, des lèvres bleues, un enfant qui ne réagit plus : <span class="ref">ch. 30</span>, étape</p>
+<p class="step"><span class="sn">21</span>Une fièvre qui dure : §H et <span class="ref">ch. 30</span>, étape 19.</p>
+<h3 class="sub">C — Mal de gorge</h3>
+<p class="step"><span class="sn">10</span><strong>La feuille de framboisier en gargarisme.</strong> Le framboisier sauvage (<em>Rubus idaeus</em>) est la canne épineuse des brûlis et des lisières (<span class="ref">ch. 91</span>). Cueillir les feuilles en été, les sécher (<span class="ref">ch. 33</span>, <span class="ref">§5-C</span>). <strong>1,5 à 8 g</strong> de feuille sèche hachée, pesés à la pierre-étalon (<span class="ref">§9</span>), dans <strong>150 mL</strong> d’eau bouillante, 10 à 15 minutes à couvert, <strong>3 fois par jour</strong>, en gargarisme (étape 4). Les tanins resserrent la gorge irritée ; le goût est râpeux et c’est normal. Adulte, et pas pendant la grossesse ni l’allaitement.</p>
+<p class="step"><span class="sn">11</span><strong>La savoyane, usage innu.</strong> La décoction de savoyane (<em>Coptis trifolia</em>) se prenait contre le mal de gorge, la toux et les infections de la bouche. Son fil de racine jaune vif doit sa couleur à des alcaloïdes, la berbérine et la coptisine, à parts à peu près égales. Ce qui la rendait tenable au-delà d’un usage en rinçage de bouche, celui du <span class="ref">ch. 33</span>, n’est pas documenté : les autres usages connus, chez les Innus du Lac-Saint-Jean comme chez leurs voisins, sont tous de bouche — lavage, linge imbibé, racine mâchée. L’avertissement : aucune dose n’est connue, elle ne se boit pas en tasse, et on ne vide pas une talle (<span class="ref">ch. 33</span>, <span class="ref">§5-B</span>). Chez l’enfant, rien.</p>
+<p class="step"><span class="sn">12</span><strong>Le sirop et le miel</strong> de la section B adoucissent aussi la gorge : c’est leur viscosité.</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> ni le framboisier ni la savoyane ne soignent une infection ; ils adoucissent. Les signes qui commandent l’urgence sont au <span class="ref">ch. 30</span> (étape 21).</p>
+<h3 class="sub">D — Diarrhée</h3>
+<p class="step"><span class="sn">13</span><strong>D’abord l’eau, le sucre et le sel.</strong> La solution de réhydratation du commerce, ou la recette du <span class="ref">ch. 30</span> (étape 20) et du <span class="ref">ch. 26</span> (<span class="ref">§9</span>), au millilitre près. C’est elle qui soigne. Tout ce qui suit vient après, jamais à sa place.</p>
+<p class="step"><span class="sn">14</span><strong>Le charbon ne sert à rien.</strong> Même le charbon activé du commerce raffermit à peine les selles et ne réduit ni la perte d’eau ni la perte de sel. Le charbon du foyer, encore moins. Un enfant à qui on fait avaler du charbon au lieu de la solution se déshydrate quand même.</p>
+<p class="step pk-t"><span class="sn">15</span><strong>La feuille de framboisier, en tisane.</strong> Même infusion qu’à l’étape 10 — <strong>1,5 à 8 g dans 150 mL, 3 fois par jour</strong> —, bue. Adulte seulement. Au-delà de <strong>3 jours</strong>, ce n’est plus une diarrhée légère, et la tisane n’est plus le sujet.</p>
+<p class="step"><span class="sn">16</span><strong>Racines de framboisier, écorces de bouleau et d’aulne, usage innu.</strong> La tisane de racine de framboisier, et celle d’écorce de bouleau à papier (<em>Betula papyrifera</em>) ou d’écorce interne d’aulne crispé (<em>Alnus viridis</em> subsp. <em>crispa</em>), se buvaient contre la diarrhée. Ce qui les rend tenables : ce sont des plantes qu’on ne confond pas, et leurs proches parents — l’écorce de racine des ronces, l’écorce du bouleau et de l’aulne — sont riches en tanins, qui resserrent, et servaient contre la diarrhée dans les pharmacopées d’autrefois. L’avertissement : aucune dose, adulte seulement, chez l’enfant rien, et une tisane ne remplace pas une goutte de solution (étape 13). <strong>L’aulne, pourtant, le livre ne le prend pas</strong> : la tige du même aulne crispé, bouillie, a servi de vomitif chez les Dénés, et d’autres aulnes de purgatif (étape 19). Une tisane qui fait vomir ou qui purge, bue pour une diarrhée, vide le corps plus vite de l’eau et du sel qu’il perd.</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> ni la tisane ni le charbon ne remettent dans le corps l’eau et le sel qu’il perd. Les signes de déshydratation qui commandent l’urgence sont au <span class="ref">ch. 30</span> (étape 21) et au <span class="ref">ch. 39</span>.</p>
+<h3 class="sub">E — Constipation</h3>
+<p class="step"><span class="sn">17</span><strong>La cause est dans l’assiette.</strong> Un hiver de viande et de gras fait tomber les fibres à zéro (<span class="ref">ch. 21</span>). Ce qui se corrige d’abord : l’eau, l’avoine, la farine entière, les fruits séchés (<span class="ref">ch. 21</span>).</p>
+<p class="step"><span class="sn">18</span><strong>Ce que la forêt ajoute : les petits fruits séchés.</strong> Bleuets et amélanches séchés à l’été (<span class="ref">ch. 91</span>) se mangent à la poignée l’hiver. Ce sont des fibres, pas un remède, et elles demandent de l’eau pour travailler.</p>
+<p class="step"><span class="sn">19</span><strong>Pas d’écorce qui purge.</strong> Des écorces de la forêt boréale ont servi de purgatif, et parfois de vomitif : l’aulne a servi aux deux. Personne ne sait doser ce qui purge, et la diarrhée qu’on provoque se soigne ensuite à l’étape 13. On ne se purge pas au chalet.</p>
+<h3 class="sub">F — Plaie qui s’infecte</h3>
+<p class="step"><span class="sn">20</span><strong>Laver d’abord, toujours au jet</strong> (<span class="ref">ch. 26</span>, étapes 21 à 23). La résine vient sur une plaie propre, pas à la place du lavage.</p>
+<p class="step"><span class="sn">21</span><strong>L’onguent à la résine.</strong> Gomme de sapin ou d’épinette et gras rendu, faits comme au <span class="ref">ch. 33</span> (<span class="ref">§9</span>, « L’onguent quand il n’y a pas de plante sèche »). En couche mince sur la plaie qui suinte, sous un linge bouilli, renouvelé chaque jour comme le pansement du <span class="ref">ch. 26</span> (étape 24). Sur des plaies de lit graves, un onguent de résine d’épinette a tout refermé en six mois chez 12 malades sur 13, contre 4 sur 9 avec un pansement moderne. Les essais ont été faits sur l’épinette de Norvège, pas sur les nôtres ni sur le sapin.</p>
+<p class="step"><span class="sn">22</span><strong>La gomme sur les coupures, usage innu et de presque toutes les nations du Nord.</strong> Posée sur une coupure, elle la couvre et freine les microbes de la peau (<span class="ref">§3</span>). L’avertissement : sur une plaie sale, profonde ou de morsure, elle enferme ce qu’il fallait laisser couler (<span class="ref">ch. 26</span>, étape 24).</p>
+<p class="step"><span class="sn">23</span><strong>Le furoncle mûrit à l’eau chaude.</strong> Laver à l’eau et au savon deux fois par jour, couvrir d’un linge sec, et poser la compresse chaude (étape 3) plusieurs fois par jour : elle aide le pus à sortir de lui-même. Après, même soin jusqu’à ce que ça ferme.</p>
+<p class="step"><span class="sn">24</span><strong>L’abcès mûr<sup class="fnr" data-fn="34-1">1</sup> qui ne perce pas seul s’ouvre selon le <span class="ref">ch. 28</span></strong> (étapes 52 à 55, lame au <span class="ref">§9</span>) : ses cinq conditions, un seul trait franc dans le <strong>grand axe</strong> de la bosse, le doigt qui défait les cloisons, le jet d’eau bouillie salée à 9 g par litre (<span class="ref">ch. 32</span>, <span class="ref">§9</span>), le pansement sec, les compresses et le lavage qui reprennent. Trois garde-fous s’y ajoutent.</p>
+<p class="li l2"><strong>Une bosse qui bat sous les doigts ne se coupe jamais.</strong> Elle est sur une artère ou tout contre, et une artère ouverte ne s’arrête pas au chalet.</p>
+<p class="li l2"><strong>Le doigt qui sent battre au fond de la cavité, ou qui touche l’os, s’arrête là.</strong> On lave, on panse, et c’est l’évacuation (<span class="ref">ch. 35</span>).</p>
+<p class="li l2"><strong>L’abcès profond ou mal délimité ne s’ouvre pas.</strong> Mal délimité : sous les doigts, on ne sent pas où la poche finit. Comme l’abcès d’enfant et celui de plus de 5 cm, il demande qu’on endorme, et on n’a pas de quoi.</p>
+<p class="step pk-d"><span class="sn">25</span><strong>Là où on ne coupe pas.</strong> Le devant et les côtés du cou, le triangle du milieu du visage (entre les coins de la bouche et la racine du nez), la main, autour de l’anus, le sein, près d’un gros vaisseau qu’on sent battre (le pli de l’aine), sur un os ou une articulation. Ni l’abcès d’enfant, ni l’abcès profond, mal délimité ou de plus de 5 cm (étape 24). Ceux-là reçoivent les compresses chaudes et partent avec le malade (<span class="ref">ch. 35</span>). <strong>Le furoncle du milieu du visage ne s’ouvre pas et ne se presse pas</strong> : les veines de cette zone se vident vers une grosse veine à la base du crâne, derrière les yeux, et l’infection qui y monte fait un caillot qui tue de 10 à 15 % des malades, même traités. Chaleur humide, rien d’autre. Mal de tête qui monte, paupière qui enfle, œil qui avance, vue qui se trouble, forte fièvre : la vie est en jeu (<span class="ref">ch. 28</span>, <span class="ref">§8</span> ; <span class="ref">ch. 35</span>). Enfin, une bosse dure, qui ne bouge pas, qui grossit ou qui dure plus de deux semaines n’est pas un abcès et ne s’ouvre pas (<span class="ref">ch. 28</span>, étape 52).</p>
+<p class="step"><span class="sn">26</span><strong>Le trait de crayon.</strong> Le pourtour de la rougeur se marque chaque jour, avec l’heure (<span class="ref">ch. 26</span>, étape 26). C’est lui qui dit si la résine suffit.</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> la résine freine, elle ne remplace pas un antibiotique. Une rougeur qui dépasse le trait, une traînée rouge qui remonte le membre, une fièvre qui s’installe : <span class="ref">ch. 26</span>, <span class="ref">§7</span>, et <span class="ref">ch. 35</span>.</p>
+<h3 class="sub">G — Brûlure</h3>
+<p class="step"><span class="sn">27</span><strong>Le premier jour, l’eau seulement.</strong> Refroidir à l’eau fraîche 20 minutes, couvrir sans coller, rien de gras, ni gomme ni onguent (<span class="ref">ch. 26</span>, étapes 28 à 32). La gomme sur une brûlure fraîche garde la chaleur dedans.</p>
+<p class="step pk-t"><span class="sn">28</span><strong>S’il y a du miel.</strong> Sur une brûlure qui a cloqué sans toucher toute l’épaisseur de la peau<sup class="fnr" data-fn="34-2">2</sup>, un pansement de miel referme environ <strong>4 à 5 jours</strong> plus vite qu’un pansement ordinaire. Une couche sur le linge bouilli, changée chaque jour ; plus souvent tant que la plaie coule et délaye le miel, moins souvent quand elle est propre et sèche. Le miel ne colle pas : le linge s’enlève sans arracher la peau neuve. Le miel n’est pas un produit de la forêt ; s’il n’est pas au stock, le linge bouilli seul reste le pansement.</p>
+<p class="step pk-d"><span class="sn">29</span><strong>L’onguent de bourgeons de peuplier</strong>, pour le coup de soleil, l’engelure qui démange et l’écorchure superficielle : en couche mince, sur une peau <strong>fermée</strong>, une fois la chaleur partie. Jamais chez qui réagit à l’aspirine, à la propolis ou au baume du Pérou (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">30</span><strong>La peau qui a guéri et tire</strong> : l’onguent de graisse et de gomme du <span class="ref">ch. 33</span> (<span class="ref">§9</span>), qui garde l’eau dans la peau et ferme les gerçures.</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> ni le miel ni l’onguent ne remplacent le refroidissement et le linge propre du <span class="ref">ch. 26</span>, et rien de la forêt ne soigne une grande brûlure (<span class="ref">ch. 26</span>, <span class="ref">ch. 35</span>).</p>
+<h3 class="sub">H — Douleur et fièvre</h3>
+<p class="step"><span class="sn">31</span><strong>Reconnaître le saule</strong> (<em>Salix</em> spp.) : rameaux sans épines, feuilles étroites simplement dentées, et surtout le <strong>bourgeon coiffé d’une seule écaille</strong>, comme un capuchon. Prendre l’écorce des jeunes rameaux sur une branche coupée au complet, jamais sur le tronc debout (<span class="ref">ch. 33</span>, <span class="ref">§9</span>), et la sécher.</p>
+<p class="step pk-t"><span class="sn">32</span><strong>La décoction d’écorce de saule.</strong> <strong>3 g</strong> d’écorce sèche hachée au plus, <strong>200 mL</strong> d’eau froide, <strong>15 minutes</strong> à l’ébullition à couvert, <strong>15 minutes</strong> de repos, filtrer. Un verre tiède <strong>3 fois par jour, après les repas</strong>, parce que l’écorce dérange l’estomac : <strong>9 g par jour au plus</strong>. Ou l’infusion : <strong>1 à 3 g dans 150 mL</strong> d’eau bouillante, 3 fois par jour. Les 3 g se pèsent à la pierre-étalon (<span class="ref">§9</span>), jamais à la poignée. Adulte seulement, et jamais plus de <strong>4 semaines</strong> de suite.</p>
+<p class="step"><span class="sn">33</span><strong>Ce qu’elle fait, honnêtement.</strong> Contre un mal de dos ou une douleur de jointure, l’effet mesuré apparaît après <strong>une semaine</strong>, et il est plus lent que celui d’un comprimé. Même à la dose des essais, l’équivalent de <strong>87 mg d’aspirine</strong> passe dans le sang, et une décoction d’écorce n’atteint habituellement pas cette dose. La teneur en salicine varie de <strong>0,5 %</strong> à <strong>10 %</strong> selon l’espèce, et celle des saules de la Côte-Nord n’est pas connue. Les essais mesurent un effet sur une douleur qui dure, pas sur celle du jour.</p>
+<p class="step pk-d"><span class="sn">34</span><strong>Qui n’en prend pas.</strong> Personne de moins de 18 ans. Personne qui réagit à l’aspirine ou aux anti-inflammatoires, qui fait de l’asthme en en prenant, qui a un ulcère d’estomac, du sang qui coagule mal, un anticoagulant, le foie ou les reins gravement atteints, un déficit en G6PD<sup class="fnr" data-fn="34-3">3</sup>. Pas pendant la grossesse ni l’allaitement. Pas en même temps que l’aspirine ou l’ibuprofène : c’est la même famille (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">35</span><strong>La fièvre de l’enfant ne se soigne pas au saule.</strong> Elle se soigne à l’acétaminophène du stock (<span class="ref">ch. 32</span>), au linge léger et à la pièce moins chauffée (<span class="ref">ch. 32</span>, <span class="ref">§9</span>), et elle se surveille selon le <span class="ref">ch. 30</span> (étapes 19 et 21). Chez les Innus, la tisane de rameaux d’épinette noire se buvait contre la fièvre : c’est la tisane d’épinette du <span class="ref">ch. 20</span>, et elle fait boire, ce qui compte chez un enfant fiévreux.</p>
+<p class="step"><span class="sn">36</span><strong>Douleur de muscle ou de dos, sur la peau.</strong> La compresse chaude (étape 3) et le repos ; la gomme d’épinette posée sur le dos, usage innu, ou les bourgeons de peuplier en cataplasme ou en onguent sur l’entorse, usage anishinaabé. Leur effet sur la douleur n’est pas mesuré.</p>
+<h3 class="sub">I — Insomnie et nervosité</h3>
+<p class="step"><span class="sn">37</span><strong>Aucune plante de ce territoire n’a d’effet mesuré sur le sommeil.</strong> Même la camomille du commerce, cousine de la matricaire odorante (<em>Matricaria discoidea</em>), n’a pas le sommeil parmi ses usages reconnus.</p>
+<p class="step pk-d"><span class="sn">38</span><strong>Le thé du Labrador n’est pas un somnifère.</strong> Rien ne mesure chez lui un effet sur le sommeil. Chez son cousin, le lédon des marais (<em>Rhododendron tomentosum</em>), le ledol pourrait, à faible dose, stimuler un peu comme la caféine, et il donne des convulsions à forte dose (<span class="ref">§8</span>) ; l’espèce d’ici en porte très peu. Sa réputation calmante ne repose sur aucune mesure.</p>
+<p class="step"><span class="sn">39</span><strong>Ce qui fait dormir se fabrique.</strong> L’heure fixe, la noirceur, la chambre à la bonne température, la tisane chaude comme signal et non comme remède, la veilleuse que l’enfant allume lui-même : <span class="ref">ch. 40</span> (§D) pour les enfants, <span class="ref">ch. 36</span> pour les adultes.</p>
+<p class="step pk-t"><span class="sn">40</span><strong>Le thé du Labrador comme boisson, usage innu.</strong> Les Innus en faisaient une boisson, comme les Cris, les Algonquins et d’autres nations de l’Est. Dans plusieurs nations du Nord, les feuilles bouillaient une demi-heure et plus, jusqu’à un thé brun foncé, ou s’infusaient simplement. Ce qui la rend tenable : l’espèce d’ici (<em>Rhododendron groenlandicum</em>) porte très peu de ledol, bien moins que le lédon des marais, et on la reconnaît feuille par feuille au feutrage roux du dessous (<span class="ref">§8</span>). Ce qui la rend dangereuse : personne n’a établi de dose sûre, et plus on la fait bouillir, plus la tasse est forte ; une feuille de kalmia dans le lot fait le reste. Le livre s’en tient à <strong>une tasse par jour au plus</strong>, <strong>une cuillère à thé de feuilles sèches par tasse, 5 minutes</strong> d’infusion, jamais pour un enfant, et pas pendant la grossesse ni l’allaitement : le lédon a servi à faire avorter.</p>
+<h3 class="sub">J — Poux</h3>
+<p class="step pk-t"><span class="sn">41</span><strong>Chercher au bon endroit.</strong> Une tête en porte en général moins de 10 à 20 : il faut chercher. La lente vivante<sup class="fnr" data-fn="34-4">4</sup> est à moins de 6 mm du cuir chevelu et éclôt en <strong>7 à 12 jours</strong> ; celle qui est à plus d’un centimètre, sèche et blanche, est morte et ne se traite pas.</p>
+<p class="step"><span class="sn">42</span><strong>Le peignage mouillé, sans produit.</strong> Mouiller les cheveux, puis les graisser d’un peu d’huile ou de gras fondu : le gras ne tue pas les poux, il fait glisser le peigne. Séparer en mèches de la largeur du peigne, <strong>2 cm</strong> pour des cheveux longs. Enfoncer le peigne fin au ras du cuir chevelu, incliné, et le tirer jusqu’au bout de la mèche. Tremper le peigne dans l’eau chaude après chaque passage. Recommencer sur toute la tête, puis rincer et repeigner.</p>
+<p class="step pk-t"><span class="sn">43</span><strong>Quatre séances, tous les 4 jours</strong> : jours 1, 5, 9 et 13. C’est ce calendrier qui rattrape les lentes à mesure qu’elles éclosent. Dans un essai, il a guéri <strong>57 %</strong> des enfants, contre <strong>13 %</strong> pour une seule application d’insecticide du commerce ; d’autres jugent les preuves du peigne seul minces. On continue tant qu’on trouve des poux vivants.</p>
+<p class="step pk-t"><span class="sn">44</span><strong>Décoller les lentes.</strong> Une serviette humide et tiède sur la tête <strong>30 minutes</strong> avant ; les lentes qui résistent se retirent aux ongles ou à la pince, en glissant le long du cheveu.</p>
+<p class="step"><span class="sn">45</span><strong>Le rasoir règle ce que le peigne ne règle pas.</strong> La lente est collée au cheveu, près du cuir chevelu : un cheveu rasé n’en porte plus. Pour un enfant de 4 ans qui ne tient pas quatre séances de peigne, c’est la méthode qui marche du premier coup.</p>
+<p class="step"><span class="sn">46</span><strong>Les têtes, toutes, le même jour.</strong> On regarde toute la maisonnée ; on peigne toutes les têtes qui ont des poux ou des lentes vivantes, le même jour.</p>
+<p class="step pk-t"><span class="sn">47</span><strong>Le linge, les tuques, les peignes</strong> : eau à 65 °C de 5 à 10 minutes, ou sac fermé 10 jours (<span class="ref">ch. 31</span>, étapes 58 et 59). Le pou meurt en <strong>2 jours</strong> loin d’une tête : ce qui n’a pas touché une tête depuis deux jours et ne porte pas de lente ne transmet plus rien.</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> l’huile, le beurre, le vinaigre et la graisse ne tuent pas les poux, et les noyer ne marche pas non plus : ils tiennent huit heures sous l’eau. Aucune plante de la forêt n’a fait ses preuves contre eux.</p>
+<h3 class="sub">K — Gale</h3>
+<p class="step"><span class="sn">48</span><strong>Reconnaître.</strong> Une démangeaison qui redouble la nuit, souvent chez plusieurs personnes de la maison, et de fines lignes sinueuses de 5 à 15 mm entre les doigts, aux poignets, aux coudes, aux aisselles (<span class="ref">ch. 31</span>, note 4) ; le dos et le visage sont épargnés chez le grand enfant et l’adulte. Chez le jeune enfant, ce sont plutôt de petites bulles, et les paumes, les plantes des pieds, le dos et le visage peuvent être pris.</p>
+<p class="step"><span class="sn">49</span><strong>Toute la maison, le même jour, même ceux qui ne se grattent pas.</strong> La première gale met <strong>4 à 8 semaines</strong> à démanger, et elle se transmet avant. Le soir où un enfant se gratte, tous les autres l’ont peut-être déjà.</p>
+<p class="step pk-t"><span class="sn">50</span><strong>Le linge et la literie, le même jour que le traitement.</strong> Au-dessus de <strong>50 °C pendant 10 minutes</strong> : l’acarien et ses œufs meurent. Au chalet, le linge bouilli au chaudron (<span class="ref">§9</span>). Ce qui ne se lave pas : <strong>une semaine</strong> en sac fermé ou dans un coffre, dans la pièce chauffée et sèche (étape 51).</p>
+<p class="step pk-t"><span class="sn">51</span><strong>Pas dans la remise froide.</strong> Hors de la peau, l’acarien vit <strong>24 à 36 heures</strong> dans une pièce à 21 °C, mais bien plus longtemps au froid humide : celui du chien, très proche, a tenu <strong>19 jours</strong> à 10 °C. Le linge qu’on met à « mourir » dans le hangar humide garde la gale ; c’est dans la pièce chauffée et sèche qu’on l’isole.</p>
+<p class="step"><span class="sn">52</span><strong>Ce qui tue l’acarien sur la peau n’est pas dans la forêt.</strong> Les onguents de gomme et de gras des nations du Nord ont servi contre la gale ; aucune mesure ne montre qu’ils tuent l’acarien. Ce qui marche : la crème de perméthrine, ou l’onguent de soufre, du soufre précipité dans de la vaseline, à 6 %. À cette dose, il est sans danger sur la peau de l’enfant, nourrisson compris ; à 10 %, trois jours de suite, il a tué des nourrissons. Il a guéri des enfants aussi bien qu’un scabicide du commerce dans un essai, au prix d’une mauvaise odeur, et il se mêle au chalet (<span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">53</span><strong>La démangeaison dure après la guérison</strong>, de 1 à 3 semaines. Elle ne prouve pas l’échec. Des sillons encore là après 4 semaines, oui.</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> sans scabicide, le linge et la chaleur empêchent la maison de se réinfester, pas la peau de guérir. Les plaies de grattage s’infectent : §F.</p>
+<h3 class="sub">L — Mycoses : pied d’athlète, teigne, ongle</h3>
+<p class="step"><span class="sn">54</span><strong>Lire l’endroit.</strong> Démangeaison, fissure et peaux blanches entre le 3e et le 4e orteil, et entre le 4e et le 5e : c’est un champignon de la peau, sur lequel la résine agit. Entre les trois premiers orteils : plutôt une levure, sur laquelle elle ne fait rien.</p>
+<p class="step"><span class="sn">55</span><strong>Sécher avant tout.</strong> Laver à l’eau et au savon, sécher entre chaque orteil, bas changés deux fois par jour, bottes séchées la nuit (<span class="ref">ch. 31</span>). Le champignon vit de la macération.</p>
+<p class="step"><span class="sn">56</span><strong>L’onguent à la résine</strong> (étape 21), deux fois par jour après le lavage, en couche mince entre les orteils, pendant <strong>2 à 4 semaines</strong>, ou <strong>2 semaines après</strong> que la peau paraît guérie. La résine freine fortement ces champignons au laboratoire ; aucun essai sur le pied lui-même.</p>
+<p class="step"><span class="sn">57</span><strong>L’ongle.</strong> Une laque à <strong>30 %</strong> de résine, posée <strong>une fois par jour pendant 9 mois</strong>, a débarrassé du champignon <strong>13 %</strong> des malades, contre <strong>56 %</strong> avec un comprimé d’antifongique. La laque de l’essai est de la résine dissoute dans de l’alcool, 30 % du poids, qui sèche en une couche souple ; aucune recette maison n’a été essayée. Le plus proche est l’onguent de l’étape 21 monté à <strong>au moins 3 parts de gomme pour 7 de gras</strong>, pesées au fléau (<span class="ref">§9</span>) : c’est à partir de 30 % de résine que l’effet sur le champignon est le plus fort au laboratoire. Chaque jour, l’ongle trempé à l’eau chaude, coupé et limé, puis l’onguent en couche mince. Ça vaut la peine seulement parce qu’il n’y a rien d’autre.</p>
+<p class="step"><span class="sn">58</span><strong>La teigne du cuir chevelu de l’enfant</strong><sup class="fnr" data-fn="34-5">5</sup> : couper ras autour des plaques, laver, sécher, onguent à la résine. Elle ne guérit pas avec un traitement sur la peau seul : <span class="ref">ch. 35</span>.</p>
+<h3 class="sub">M — Piqûres</h3>
+<p class="step"><span class="sn">59</span><strong>Le dard d’abeille, tout de suite.</strong> Tant que le dard reste, le venin entre, et quelques secondes comptent déjà. Pincé ou gratté, c’est pareil après <strong>2 secondes</strong> : ce qui compte, c’est la vitesse, pas la manière. On l’enlève avec l’ongle, sans chercher la carte de crédit.</p>
+<p class="step"><span class="sn">60</span><strong>Le plantain majeur</strong> (<em>Plantago major</em>), la rosette à nervures parallèles des sentiers tassés (<span class="ref">ch. 92</span>) — jamais une rosette à nervures parallèles en terrain humide, qui peut être du vératre vert, dont la feuille ne se déchire pas en fils. Celle du plantain, déchirée en travers, laisse pendre ses nervures en fils élastiques (<span class="ref">ch. 92</span>). Une feuille écrasée entre deux pierres, pas dans la bouche, posée sur la piqûre, tenue sous un linge. Ses effets anti-inflammatoire et cicatrisant sont mesurés au laboratoire, pas sur la piqûre : c’est défendable, pas plus. Même geste avec les feuilles d’aulne ou de bouleau, mâchées ou écrasées, chez les Dénés.</p>
+<p class="step"><span class="sn">61</span><strong>Laver</strong> la piqûre à l’eau et au savon.</p>
+<p class="step"><span class="sn">62</span><strong>Se protéger d’abord</strong> : les rameaux de myrique baumier portés sur soi et dans la literie (<span class="ref">ch. 33</span>, tableau 1).</p>
+<p class="p0 ri"><strong class="runin">Ce que ça ne fait pas :</strong> rien de ce qui pousse n’arrête une réaction allergique grave — lèvres qui enflent, gorge qui se ferme, respiration difficile, lèvres bleues, perte de connaissance. C’est l’épinéphrine ou l’évacuation (<span class="ref">ch. 26</span>, <span class="ref">ch. 32</span>, <span class="ref">ch. 35</span>).</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:12.0%"><col style="width:24.6%"><col style="width:28.6%"><col style="width:34.8%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Hors cible → quoi faire</th></tr></thead><tbody><tr><td class="c-item">Avant une tasse</td><td>Âge, ordonnance, réaction à l’aspirine, grossesse ou allaitement ; pour le saule, aussi ulcère, sang qui coagule mal, foie ou reins atteints, G6PD (étape 34)</td><td>Adulte ; aucun « oui »</td><td>Un seul « oui » : pas de saule, pas de framboisier, pas de thé du Labrador, pas de tisane de racine ou d’écorce (<span class="ref">§2</span>, étapes 16 et 34)</td></tr><tr><td class="c-item">Sirop</td><td>Poids de sucre dissous par rapport à l’infusion ; mise en pot</td><td><strong>2 pour 1</strong>, en poids ; en pot à <strong>82 °C</strong> au moins</td><td>Moins sucré : au froid, bu vite. Cristaux au fond : réchauffer pour les redissoudre, sans ajouter d’eau</td></tr><tr><td class="c-item">Onguent de bourgeons</td><td>Bourgeons secs ; proportion</td><td>Bourgeon qui casse net ; <strong>1 pour 3</strong> en poids</td><td>Bourgeons encore frais : on attend. Pot qui a pris une odeur ou changé d’aspect : <span class="ref">ch. 33</span>, <span class="ref">§7</span></td></tr><tr><td class="c-item">Décoction de saule</td><td>Poids d’écorce, volume, durée</td><td><strong>3 g au plus / 200 mL / 15 + 15 min</strong>, 3 fois par jour après le repas ; <strong>9 g par jour</strong> au plus</td><td>Brûlure d’estomac : arrêter. Plus de <strong>4 semaines</strong> : arrêter</td></tr><tr><td class="c-item">Feuille de framboisier</td><td>Poids, volume, fréquence</td><td><strong>1,5 à 8 g / 150 mL</strong>, 3 fois par jour</td><td>Diarrhée qui dure plus de <strong>3 jours</strong> : §D, <span class="ref">ch. 30</span></td></tr><tr><td class="c-item">Thé du Labrador</td><td>Nombre de tasses ; dessous de chaque feuille</td><td><strong>1 tasse par jour</strong> au plus, 1 c. à thé de feuilles par tasse, 5 min ; feutrage roux sous chaque feuille</td><td>Vomissement, mal de tête, pouls lent, gestes mal coordonnés : arrêter, <span class="ref">§8</span></td></tr><tr><td class="c-item">Plaie sous résine, chaque jour</td><td>Trait de crayon autour de la rougeur</td><td>Rougeur à l’intérieur du trait de la veille</td><td>Elle dépasse : <span class="ref">ch. 26</span>, <span class="ref">§7</span></td></tr><tr><td class="c-item">Abcès ouvert</td><td>Écoulement, rougeur autour</td><td>L’écoulement diminue chaque jour ; la rougeur reste dans son trait</td><td>Pus qui revient, rougeur qui s’étend : <span class="ref">ch. 28</span>, étape 55 ; <span class="ref">ch. 35</span></td></tr><tr><td class="c-item">Poux, jours 1, 5, 9, 13</td><td>Poux vivants au peigne</td><td>Aucun au jour 13</td><td>Encore des poux : on continue aux 4 jours, ou on rase</td></tr><tr><td class="c-item">Gale</td><td>Toute la maison traitée ; linge chauffé ou isolé</td><td>Le même jour ; <strong>plus de 50 °C, 10 min</strong>, ou <strong>une semaine</strong> isolé au chaud et au sec</td><td>Sillons encore là après <strong>4 semaines</strong> : on recommence, toute la maison</td></tr><tr><td class="c-item">Pied d’athlète</td><td>Peau entre les orteils</td><td>Sèche, sans fissure ; traitement tenu <strong>2 semaines</strong> après la guérison visible</td><td>Entre 1er et 2e orteil, qui ne change pas : levure, la résine n’y fait rien</td></tr><tr><td class="c-item">Piqûre d’abeille</td><td>Temps avant de retirer le dard</td><td>Dans les secondes qui suivent, avec l’ongle</td><td>Dard encore là : on l’enlève quand même, la manière ne compte pas</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:35.7%"><col style="width:26.3%"><col style="width:37.9%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Enfant qui tousse, respire vite et creuse la peau entre les côtes</td><td>Ce n’est plus un rhume</td><td><span class="ref">Ch. 30</span>, étape 21</td></tr><tr><td class="c-item">Brûlure rouge et cloquée sur le ventre ou les cuisses d’un enfant, après un bol de vapeur</td><td>Ébouillantage, souvent une grande surface sur un petit corps</td><td>Refroidir la brûlure 20 minutes à l’eau fraîche en gardant le reste du corps au chaud : une grande surface refroidie sur un enfant devient une hypothermie (<span class="ref">ch. 26</span>, étapes 28 à 32). Brûlure étendue : <span class="ref">ch. 35</span>. Plus de bol</td></tr><tr><td class="c-item">Diarrhée depuis plus de 3 jours malgré la tisane ; urines rares et foncées</td><td>La tisane a pris la place de la réhydratation</td><td>Solution de réhydratation (<span class="ref">ch. 26</span>, <span class="ref">§9</span> ; <span class="ref">ch. 30</span>, étape 20) ; signes au <span class="ref">ch. 39</span></td></tr><tr><td class="c-item">Rougeur qui dépasse le trait de la veille sous l’onguent à la résine</td><td>Infection qui gagne</td><td><span class="ref">Ch. 26</span>, <span class="ref">§7</span> ; <span class="ref">ch. 35</span></td></tr><tr><td class="c-item">Traînée rouge qui remonte le membre, fièvre, frissons</td><td>Infection passée dans les vaisseaux ou le sang</td><td>Évacuation (<span class="ref">ch. 26</span>, <span class="ref">§7</span> ; <span class="ref">ch. 35</span>)</td></tr><tr><td class="c-item">Abcès ouvert qui se remplit de nouveau en un ou deux jours</td><td>Cloisons pas défaites, ou incision trop courte</td><td>Recompresser ; rouvrir seulement hors des zones de l’étape 25 (<span class="ref">ch. 28</span>, étape 54)</td></tr><tr><td class="c-item">Furoncle au milieu du visage</td><td>Zone dont les veines montent derrière les yeux (étape 25)</td><td>Chaleur humide ; ni lame ni pression. Mal de tête qui monte, paupière qui enfle, œil qui avance : la vie est en jeu (<span class="ref">ch. 28</span>, <span class="ref">§8</span> ; <span class="ref">ch. 35</span>)</td></tr><tr><td class="c-item">Brûlures d’estomac, mal de ventre, diarrhée chez qui prend du saule</td><td>L’écorce agresse l’estomac comme l’aspirine</td><td>Arrêter le saule</td></tr><tr><td class="c-item">Vomissements soudains et violents chez un enfant, une semaine après un rhume, à qui on a donné du saule</td><td>Syndrome de Reye<sup class="fnr" data-fn="34-6">6</sup></td><td>Évacuation immédiate (<span class="ref">§8</span>)</td></tr><tr><td class="c-item">Vomissement, mal de tête, pouls lent, gestes mal coordonnés après du thé du Labrador</td><td>Trop fort, ou kalmia dans le lot</td><td>Arrêter. Ne rien faire vomir à qui somnole ou convulse (<span class="ref">ch. 33</span>, <span class="ref">§7</span>). Convulsions, respiration qui faiblit : évacuation (<span class="ref">§8</span>)</td></tr><tr><td class="c-item">Poux vivants au jour 13</td><td>Séances manquées ou peigne pas assez fin</td><td>Continuer aux 4 jours, ou raser</td></tr><tr><td class="c-item">Sillons de gale encore là 4 semaines après</td><td>Quelqu’un n’a pas été traité, ou le linge a recontaminé</td><td>Tout recommencer, toute la maison, le même jour</td></tr><tr><td class="c-item">Pied d’athlète qui s’étend malgré la résine</td><td>Levure, ou peau qui reste mouillée</td><td>Sécher, aérer ; la résine ne fait rien sur la levure</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Le cèdre et l’if ne sont pas les conifères des tisanes.</strong> Le cèdre (thuya, <em>Thuja occidentalis</em>) contient de la <strong>thuyone</strong>, qui agit sur le système nerveux et donne des convulsions. Pas de tisane, pas de sirop, pas de gomme, pas d’écorce de cèdre. Pour la vitamine C, le sirop et la tisane de ce chapitre, c’est le <strong>sapin baumier</strong> (<em>Abies balsamea</em>) ou l’<strong>épinette</strong> (<em>Picea glauca</em>, <em>Picea mariana</em>). Contre le cèdre, le critère est sûr : le sapin et l’épinette ont des aiguilles, le cèdre des écailles aplaties en éventail (<span class="ref">ch. 33</span>, <span class="ref">§8</span> ; <span class="ref">ch. 20</span>). <strong>Contre l’if du Canada</strong> (<em>Taxus canadensis</em>), il ne suffit pas : l’if a lui aussi des aiguilles plates et molles, et il pousse sous le couvert des sapinières, à hauteur de main. Sa <strong>taxine</strong> bloque les échanges de sodium et de calcium dans le muscle du cœur, qui perd sa conduction et part en arythmie ; chez le bétail, la mort vient souvent en 2 à 3 heures, et il n’existe aucun antidote. Il est toxique frais ou sec, toute l’année. Ce qui le sépare du sapin : l’if est un <strong>arbuste bas aux tiges qui traînent par terre</strong>, sans tronc unique ; le dessous de son aiguille n’a <strong>pas de bandes blanches</strong> ; froissée, elle ne sent pas le sapin. On ne prend les aiguilles que sur un arbre à tronc unique, repéré et marqué en été (<span class="ref">ch. 20</span>, <span class="ref">§5-C</span> et <span class="ref">§8</span> ; <span class="ref">ch. 33</span>, tableau 3).</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">L’écorce de saule, c’est de l’aspirine lente, avec les mêmes interdits.</strong> Sa salicine devient de l’acide salicylique dans le corps. Chez l’enfant et l’adolescent, un salicylé donné pendant une grippe ou une varicelle peut déclencher un <strong>syndrome de Reye</strong> : le cerveau enfle et le foie lâche, et environ un enfant touché sur cinq en meurt. L’écorce ne change rien au mécanisme parce qu’elle est « naturelle ». Chez l’adulte, elle freine aussi les plaquettes du sang, beaucoup moins que l’aspirine, mais assez pour compter avec un anticoagulant, un ulcère ou un trouble de la coagulation : c’est un saignement qu’on prépare. Chez qui réagit à l’aspirine, elle déclenche la même réaction, jusqu’à la crise d’asthme. Les mêmes interdits valent pour l’onguent de bourgeons de peuplier sur la peau de qui réagit aux salicylés.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le thé du Labrador empoisonne quand on le fait fort, et il a des sosies.</strong> Chez son cousin le lédon des marais, le ledol stimule à faible dose, puis donne des convulsions, une paralysie et un arrêt de la respiration à forte dose. L’espèce d’ici en porte très peu, mais personne n’a établi de dose sûre. Il pousse <strong>mêlé au kalmia à feuilles étroites</strong> (<em>Kalmia angustifolia</em>), plus toxique : pouls lent, vomissements, convulsions, défaillance du cœur. Le kalmia à feuilles d’andromède (<em>Kalmia polifolia</em>), plus toxique aussi, vit dans les mêmes milieux. Le critère est le dessous de <strong>chaque</strong> feuille, et seul un <strong>feutre couleur de rouille</strong>, des poils qu’on voit et qu’on sent au doigt et qui cachent la nervure, fait le thé du Labrador. Les deux kalmias ont le dessous lisse ou à peine duveteux. L’<strong>andromède glauque</strong> (<em>Andromeda polifolia</em>), petit arbuste des mêmes tourbières de la Côte-Nord, a le dessous <strong>blanc</strong>, parfois feutré de blanc, et porte la même toxine que les kalmias : pression qui tombe, souffle difficile, vomissements, diarrhée, crampes, parfois la mort. Un feutre blanc n’est pas du thé du Labrador. Le bord roulé ne prouve rien : le thé du Labrador, le kalmia à feuilles d’andromède et l’andromède l’ont tous les trois. Une tasse par jour au plus, légère, jamais pour un enfant, ni pendant la grossesse ou l’allaitement : le lédon a servi à faire avorter.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Les cerisiers ne vont dans aucune tasse.</strong> Écorce, rameau, feuille : aucune partie en tisane, même celle de l’usage innu contre la toux. Le rameau cassé sent l’amande amère, parce qu’il porte le même composé que le noyau, qui devient du cyanure dès que le tissu est broyé ou mâché. La dose mortelle se compte au kilo de poids, 0,5 à 3 mg par kilo : c’est l’enfant qui tousse qui en a le moins à avaler (<span class="ref">ch. 94</span>, <span class="ref">§8</span>).</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Le bol d’eau bouillante ébouillante des enfants.</strong> La vapeur n’a pas prouvé qu’elle soigne un rhume. L’enfant qui se penche sur un bol bouge, s’appuie, renverse, et l’eau à 100 °C coule sur ses cuisses et son ventre. Ébouillanté ainsi, un enfant a besoin d’une greffe de peau plus souvent qu’un adulte, et au chalet il n’y a personne pour greffer. Pas de bol pour un enfant.</p>
+<p class="pt"><span class="pn">6</span><strong class="plead">Un onguent monté avec du frais peut porter le botulisme.</strong> Bourgeons, feuilles ou écorce frais apportent de l’eau et des spores de sol dans un gras sans air, à la température de la pièce : le milieu où le botulisme fabrique sa toxine. <strong>Le botulisme ne change ni l’odeur, ni le goût, ni l’apparence</strong> : un pot contaminé a l’air normal. Tout ce qui entre dans un gras est <strong>sec</strong> (<span class="ref">ch. 33</span>, <span class="ref">§8</span>), ou ne porte ni eau ni matière verte : la gomme filtrée, le baume écumé de l’étape 2.</p>
+</template>
+<template id="story-e">
+<p class="p0">C’est le cas ordinaire, pas le cas rare : le guide a pris l’eau, l’herbier est resté à la maison, c’est janvier et il n’y a plus de feuille, ou c’est une espèce qu’on n’a jamais vue. La règle ne fléchit pas : <strong>une plante dont on n’est pas sûr ne va dans aucune bouche</strong>, ni la sienne, ni surtout celle d’un enfant (<span class="ref">ch. 33</span>, <span class="ref">§9</span>). Ce qui reste est plus large qu’on pense, parce que la moitié de ce chapitre ne dépend d’aucune plante.</p>
+<h3 class="sub">Trois ressources qui se reconnaissent sans guide</h3>
+<p class="li"><strong>Le sapin et l’épinette</strong>, au toucher, dans le noir : le sapin a des aiguilles plates et molles et des cloques de gomme sur l’écorce lisse ; l’épinette, des aiguilles piquantes qui roulent entre les doigts. Le cèdre n’a pas d’aiguilles du tout (<span class="ref">ch. 33</span>, <span class="ref">§9</span>). <strong>Ce triage sépare le sapin du cèdre, pas du tout de l’if du Canada</strong>, un arbuste bas du sous-bois aux aiguilles plates et molles lui aussi, mortel frais ou sec (<span class="ref">§8</span>). Ce qui tranche, sur la plante même où l’on prend les aiguilles : un <strong>arbre à tronc unique</strong>, qui porte des <strong>cloques de gomme</strong> sur son écorce, jamais un arbuste bas aux tiges couchées ; et mieux encore, un arbre marqué en été (<span class="ref">ch. 20</span>, <span class="ref">§5-C</span>). L’épinette, elle, ne se confond pas avec l’if : ses aiguilles piquent et roulent. Ils donnent la tisane, le sirop, la gomme, donc l’onguent de plaie et de pied d’athlète.</p>
+<p class="li"><strong>Le peuplier baumier</strong>, au nez et aux doigts, au printemps : trois caractères qui se vérifient à la main — le bourgeon brun-orangé, qui colle, qui sent le baume — et, dès que la neige part, la queue ronde des feuilles de l’automne, au sol sous l’arbre (étape 2).</p>
+<p class="li"><strong>Le framboisier</strong>, en été, à sa canne épineuse et à son fruit (<span class="ref">ch. 91</span>). Hors saison, sans fruit, on ne le prend pas.</p>
+<p>Tout le reste — saule, savoyane, plantain, thé du Labrador — attend qu’on soit sûr.</p>
+<h3 class="sub">Ce qui marche sans aucune plante</h3>
+<table class="tspan"><colgroup><col style="width:13.5%"><col style="width:51.5%"><col style="width:35.0%"></colgroup><thead><tr><th>Mal</th><th>Ce qu’on fait avec rien</th><th>Ce qu’on perd</th></tr></thead><tbody><tr><td class="c-item">Toux, rhume</td><td>Eau sucrée chaude, ou sirop de sucre seul, à la cuillère (<span class="ref">§3</span>) ; boire</td><td>Le goût du sapin et un peu de vitamine C, pas l’effet</td></tr><tr><td class="c-item">Mal de gorge</td><td>Sirop de sucre, boissons chaudes</td><td>Les tanins du framboisier</td></tr><tr><td class="c-item">Diarrhée</td><td>La solution de réhydratation au sucre et au sel, pesés, moins salée que des larmes (<span class="ref">ch. 26</span>, <span class="ref">§9</span> ; <span class="ref">ch. 30</span>, étape 20)</td><td>Rien d’essentiel : c’est elle qui soignait</td></tr><tr><td class="c-item">Constipation</td><td>Eau, marche, gruau, fruits séchés du stock (<span class="ref">ch. 21</span>)</td><td>Les petits fruits de la forêt</td></tr><tr><td class="c-item">Plaie qui s’infecte</td><td>Lavage au jet, eau salée à 9 g/L, pansement bouilli changé chaque jour (<span class="ref">ch. 26</span>, <span class="ref">ch. 32</span>)</td><td>L’effet de la résine sur le staphylocoque</td></tr><tr><td class="c-item">Furoncle, abcès</td><td>Compresses chaudes ; incision hors des zones interdites (étapes 23 à 25)</td><td>Rien : la compresse et la lame ne sont pas des plantes</td></tr><tr><td class="c-item">Brûlure</td><td>L’eau, 20 minutes, et un linge propre (<span class="ref">ch. 26</span>) ; le miel s’il y en a</td><td>L’onguent de bourgeons pour la suite</td></tr><tr><td class="c-item">Douleur</td><td>Chaleur ou froid, repos, attelle (<span class="ref">ch. 26</span>, <span class="ref">§9</span>)</td><td>Le salicylé, faible de toute façon</td></tr><tr><td class="c-item">Fièvre</td><td>Pièce moins chauffée, linge léger, boire (<span class="ref">ch. 32</span>, <span class="ref">§9</span>)</td><td>Rien que la forêt donnait à un enfant</td></tr><tr><td class="c-item">Insomnie</td><td>La routine (<span class="ref">ch. 36</span>, <span class="ref">ch. 40</span>)</td><td>Rien : aucune plante ne faisait dormir</td></tr><tr><td class="c-item">Poux</td><td>Peigne, ongles, rasoir ; linge à l’eau chaude ou au sac (§J)</td><td>Rien : aucune plante ne tuait les poux</td></tr><tr><td class="c-item">Gale</td><td>Linge chauffé ou isolé, toute la maison le même jour (§K)</td><td>Rien : la forêt ne tuait pas l’acarien</td></tr><tr><td class="c-item">Pied d’athlète</td><td>Sécher, aérer, changer de bas, bottes au sec (étape 55)</td><td>L’onguent à la résine</td></tr><tr><td class="c-item">Piqûre</td><td>Dard retiré tout de suite, eau et savon (étapes 59 et 61)</td><td>Le plantain</td></tr></tbody></table>
+<h3 class="sub">Peser sans balance : le fléau à bras égaux</h3>
+<p class="p0">Le fléau du <span class="ref">ch. 33</span> (<span class="ref">§9</span>) s’équilibre à vide en déplaçant les attaches des plateaux : les bras n’ont plus la même longueur, et ça ne gêne pas là-bas, parce que la pierre-étalon répète toujours la même charge du même côté. Ici, on compare deux charges entre elles, et des bras inégaux trompent. Par exemple, des plateaux de 20 et de 25 g équilibrés sur un bras de 30 cm mettent l’autre bras à 24 cm ; des charges égales ne s’équilibrent plus, et un sirop visé à 2 pour 1 peut sortir à 1,6 pour 1, sous le seuil où il se garde. Le fléau se règle donc autrement.</p>
+<p class="step"><span class="sn">1</span><strong>Le pivot au milieu exact.</strong> Mesurer la baguette avec une ficelle, plier la ficelle en deux : le pli marque le milieu. L’encoche de suspension va là.</p>
+<p class="step"><span class="sn">2</span><strong>Les plateaux à la même distance.</strong> Deux encoches à égale distance du milieu, prises avec la même ficelle ; les plateaux y pendent et n’en bougent plus.</p>
+<p class="step"><span class="sn">3</span><strong>La tare en ajoutant, jamais en déplaçant.</strong> À vide, le plateau léger reçoit un caillou ou une boulette de gomme jusqu’à l’horizontale. Déplacer une attache rendrait les bras inégaux.</p>
+<p class="step"><span class="sn">4</span><strong>L’épreuve.</strong> Deux charges en équilibre, on les inverse d’un plateau à l’autre : l’équilibre doit tenir. S’il bascule, les bras ne sont pas égaux ; on reprend au point 1.</p>
+<p class="p0 ri"><strong class="runin">Le sirop et l’onguent</strong>, qui sont des rapports. Verser l’infusion filtrée dans un contenant posé sur un plateau, et un contenant pareil, vide, sur l’autre : les deux contenants s’annulent. Sucre dans le contenant vide jusqu’à l’équilibre : c’est une part. Mettre ce sucre de côté, recommencer : deux parts. Les deux parts de sucre vont dans l’infusion. Même méthode pour l’onguent de bourgeons : une part de bourgeons, puis trois pesées de gras égales à elle.</p>
+<p class="p0 ri"><strong class="runin">Le saule et le framboisier</strong>, qui se dosent en grammes. Un rapport ne suffit plus : il faut la pierre-étalon faite d’avance, le jour où une balance existe encore (<span class="ref">ch. 33</span>, <span class="ref">§9</span>). Sans elle, le fléau à bras égaux la fabrique par moitiés, à partir du sac de sucre, dont le poids est imprimé : 1 kg partagé entre les deux plateaux jusqu’à l’équilibre donne deux tas de 500 g ; un tas retourne au sac, l’autre se repartage. À la neuvième moitié, il reste un peu moins de 2 g (1 000 ÷ 512). La pierre qui équilibre ce petit tas dose une prise d’écorce de saule, sous les 3 g de l’étape 32 ; deux pierres, une prise de feuille de framboisier (étape 10).</p>
+<p><em>Ce qu’on perd :</em> la précision au gramme. Pour le sirop, c’est sans importance : il tient s’il est assez sucré, et le fléau penche toujours du côté du trop sucré si on le charge jusqu’à ce qu’il bascule. Pour le saule, la pierre faite par moitiés est approchée : on ne l’arrondit jamais vers le haut, et une prise ne prend jamais deux pierres.</p>
+<h3 class="sub">Le sirop quand il n’y a plus de sucre</h3>
+<p class="p0">Le sucre du sirop peut venir de l’arbre, dans cet ordre. D’abord le <strong>sirop de sève</strong>, fait comme au <span class="ref">ch. 94</span> (<span class="ref">§5-C</span> à <span class="ref">§5-E</span>) : des dizaines de kilos de sève pour un kilo de sirop (<span class="ref">ch. 94</span>, <span class="ref">§3</span>), évaporés <strong>dehors</strong>, sur un grand feu, dans une casserole large, jamais dans le chalet (<span class="ref">ch. 94</span>, <span class="ref">§8</span>) ; seule la fin se fait au petit chaudron, sur un feu réglé, jusqu’à 66-67 °Brix. Ensuite, à part, une infusion forte d’aiguilles (étape 1), versée dans le sirop fini ; puis on ramène le mélange à 66-67 °Brix au petit chaudron et on met en pot chaud (<span class="ref">ch. 94</span>, étapes 27 et 29). Infuser les aiguilles dans la sève avant des heures d’ébullition chasserait justement ce qu’elles apportent : ce qui part en vapeur (<span class="ref">ch. 33</span>, <span class="ref">§9</span>) et la vitamine C, dont un jus bouilli jusqu’au dixième de son volume perd la moitié (<span class="ref">ch. 20</span>, étape 8). Hors saison, le <strong>sucre de sève</strong> fait au printemps (<span class="ref">ch. 94</span>, étape 31) remplace le sucre acheté, deux parts pour une d’infusion. Le sirop de sève gardé, lui, est déjà à la limite : allongé d’infusion, il tombe sous 66 °Brix et retourne au petit chaudron.</p>
+<p><em>Ce qu’on perd :</em> la saison. La sève ne coule que quelques semaines, et il en faut beaucoup pour un peu de sirop (<span class="ref">ch. 94</span>). Sans sucre d’aucune sorte, il reste la tisane chaude, qui fait boire.</p>
+<h3 class="sub">La compresse qui garde sa chaleur</h3>
+<p class="p0">Un sac de linge rempli de sable sec ou de gravier fin, chauffé près des braises, roulé dans un deuxième linge et posé sur la compresse mouillée : le sable garde la chaleur que le linge mince perd en quelques minutes. Des pierres sèches font la même chose, jamais des pierres prises dans un ruisseau, un gravier humide ou la neige, qui éclatent au feu (<span class="ref">ch. 26</span> et <span class="ref">ch. 33</span>, <span class="ref">§9</span>). La peau d’un malade fiévreux, endormi ou refroidi ne sent pas la brûlure, et il ne retire pas son bras (<span class="ref">ch. 26</span>, <span class="ref">§9</span>) : ce qui est confortable à une main chaude le cuit. On regarde sous la compresse à chaque changement.</p>
+<h3 class="sub">Ouvrir un abcès avec ce qu’il y a</h3>
+<p class="p0">Le geste, la lame et le rinçage sont au <span class="ref">ch. 28</span> (étape 54 et <span class="ref">§9</span>), avec les garde-fous des étapes 24 et 25.</p>
+<p class="li"><strong>La lame.</strong> Une lame de rasoir neuve, s’il y en a, parce qu’elle coupe en un seul trait. Sinon la lame la plus fine, affûtée (<span class="ref">ch. 105</span>), <strong>bouillie</strong> 30 minutes à gros bouillons dans une casserole couverte (<span class="ref">ch. 28</span>, <span class="ref">§9</span>). Jamais la pointe d’un couteau passée au rouge : le rouge dépasse de loin la température de revenu, la pointe se ramollit pour de bon et le fil ne fait plus un trait franc (<span class="ref">ch. 105</span>, <span class="ref">§3</span>). Le rouge reste pour l’aiguille à écharde (<span class="ref">ch. 26</span>, <span class="ref">§9</span>).</p>
+<p class="li"><strong>Le lavage.</strong> La bouteille souple percée au clou chauffé et l’eau bouillie salée à 9 g/L (<span class="ref">ch. 26</span> et <span class="ref">ch. 32</span>, <span class="ref">§9</span>). Sans sel, l’eau bouillie seule : le jet compte plus que ce qu’il contient.</p>
+<p class="li"><strong>La douleur.</strong> Il n’y a pas d’anesthésie : la vitesse du seul trait franc fait tout. C’est pour ça que l’enfant, et l’abcès profond, mal délimité ou de plus de 5 cm, ne s’ouvrent pas (étape 24).</p>
+<p><em>Ce qu’on perd :</em> la stérilité, et la possibilité de reprendre si on s’est trompé d’endroit. C’est pourquoi la liste de l’étape 25 ne se discute pas.</p>
+<h3 class="sub">Venir à bout des poux sans peigne fin</h3>
+<p class="p0">Le peigne fin se remplace mal : le meilleur, en métal, laisse <strong>moins d’un dixième de millimètre</strong> entre deux dents, et une lente fait <strong>0,8 mm</strong> de long. Un peigne de plastique plus ouvert en laisse passer, et une dent taillée au couteau n’approche pas de cet écart. Sans lui, il reste deux méthodes.</p>
+<p class="step"><span class="sn">1</span><strong>Les ongles.</strong> La serviette humide 30 minutes, puis mèche par mèche, au jour, près d’une fenêtre, chaque lente vivante pincée entre deux ongles et glissée jusqu’au bout du cheveu. C’est long, et on recommence aux jours 5, 9 et 13. Quand il n’y a que quelques lentes, couper au ciseau, un par un, les cheveux qui les portent.</p>
+<p class="step"><span class="sn">2</span><strong>Le rasoir.</strong> Ce qui n’a pas de cheveu n’a pas de lente. Les ciseaux d’abord, au plus court, puis le rasoir sur la peau mouillée et savonnée. Chez un enfant, on le fait avant le jour où la fatigue de tout le monde en fait une punition.</p>
+<p>Dans les deux cas, le linge suit la règle du <span class="ref">ch. 31</span>, et ce qui n’a pas touché une tête depuis 2 jours ne porte plus de pou vivant.</p>
+<p><em>Ce qu’on perd :</em> avec les ongles, la certitude, parce qu’une lente oubliée recommence tout ; avec le rasoir, les cheveux, et chez un enfant qui a peur, un peu de fierté (<span class="ref">ch. 40</span>).</p>
+<h3 class="sub">Traiter le linge d’une maison qui a la gale, sans laveuse</h3>
+<p class="p0">La gale ne se règle qu’en un seul jour pour tout le monde, et c’est le linge qui fait défaut. Le chaudron du poêle ne contient pas la literie de quatre personnes.</p>
+<p class="step"><span class="sn">1</span><strong>Ce qui se porte contre la peau</strong> — sous-vêtements, pyjamas, draps, taies, serviettes — va à l’eau bouillante, par charges, le jour du traitement. Sans thermomètre, l’eau qui bout dépasse largement les 50 °C ; on la laisse bouillir 10 minutes par charge.</p>
+<p class="step"><span class="sn">2</span><strong>Ce qui ne bouillit pas</strong> — manteaux, couvertures de laine, peaux, bottes, toutous — va dans des sacs fermés, un coffre ou une pièce qu’on ferme, <strong>une semaine</strong>, dans la partie <strong>chauffée et sèche</strong> du chalet. Pas dans la remise, et pas dehors : le froid humide d’ici garde l’acarien en vie au lieu de le tuer (étape 51).</p>
+<p class="step"><span class="sn">3</span><strong>La maisonnée vit la semaine dans du linge neuf ou bouilli</strong> pendant que le reste attend.</p>
+<p class="p0 ri"><strong class="runin">L’onguent de soufre, s’il y a du soufre.</strong> C’est le seul scabicide qui se mêle au chalet : du <strong>soufre précipité</strong>, celui de la pharmacie, dans de la vaseline, <strong>6 g de soufre pour faire 100 g d’onguent</strong>, les deux pesés au fléau à bras égaux (plus haut). Sans vaseline, du saindoux ou un gras rendu : c’était la base de l’onguent de soufre d’autrefois. Jamais plus de 10 g pour 100 g : au-delà de 15 %, le soufre brûle la peau, et un onguent à 10 % posé trois jours de suite sur des nourrissons en a tué plusieurs. Une couche mince du cou aux orteils, plantes des pieds comprises, <strong>trois soirs de suite</strong> ; un bain avant chaque couche et un autre le lendemain de la dernière ; environ 30 g par adulte à chaque fois, moins pour un enfant. Une seule couche ne suffit pas : moins d’un malade sur deux s’en débarrasse, contre neuf sur dix en trois soirs. Toute la maison, le même jour, comme le linge.</p>
+<p><em>Ce qu’on perd :</em> sans crème ni soufre, rien de tout ça ne guérit la peau de ceux qui ont déjà la gale ; ça empêche seulement de se la redonner. C’est la moitié du travail, et la seule qui se fait sans pharmacie.</p>
+<h3 class="sub">Le pied d’athlète quand il n’y a plus de gomme propre</h3>
+<p class="p0">Sécher et aérer ôte au champignon la macération dont il vit : bas de laine changés deux fois par jour et séchés au-dessus du poêle, bottes ouvertes près du feu la nuit, pieds nus dans le chalet, entre-orteils essuyés un par un. Le bois pourri de bouleau, séché et réduit en poudre fine, a servi de poudre à bébé chez les Cris et les Métis : le bois sec boit l’humidité. L’avertissement : le bois qui pourrit dans l’humidité est l’endroit où pousse le champignon de la blastomycose, commun au Québec près des lacs du Bouclier canadien, et on l’attrape surtout en respirant ses spores ; broyer du bois pourri, c’est les mettre en l’air. Le livre ne la prend pas. <em>Ce qu’on perd :</em> l’effet de la résine sur le champignon, qui est réel au laboratoire.</p>
+<h3 class="sub">Ce qu’on perd, honnêtement</h3>
+<p class="li"><strong>La dose.</strong> Dès qu’on sort des trois préparations dosées, il n’y en a plus. Le sirop, la compresse, le peigne et le linge bouilli n’ont pas besoin de dose ; tout le reste en aurait.</p>
+<p class="li"><strong>La vitesse.</strong> Le saule prend une semaine, le peigne deux, la laque d’ongle neuf mois. Rien de la forêt ne soulage aussi vite qu’un comprimé.</p>
+<p class="li"><strong>L’enfant.</strong> Presque rien de ce qui s’avale dans ce chapitre ne lui est permis. Pour un enfant, la forêt soigne par la peau, par l’eau chaude et par le peigne.</p>
+<h3 class="sub">Ce qui ne se remplace pas</h3>
+<p class="li"><strong>L’antibiotique</strong>, quand une infection dépasse son trait de crayon ou passe dans le sang.</p>
+<p class="li"><strong>Le scabicide</strong>, pour la peau de ceux qui ont la gale. Le linge seul ne guérit personne ; seul l’onguent de soufre se fabrique, et seulement s’il y a du soufre au stock.</p>
+<p class="li"><strong>L’antifongique en comprimé</strong>, pour l’ongle et pour la teigne du cuir chevelu de l’enfant.</p>
+<p class="li"><strong>L’épinéphrine</strong>, pour la réaction allergique grave à une piqûre.</p>
+<p class="li"><strong>L’acétaminophène de l’enfant</strong>, pour sa fièvre : rien dans la forêt ne lui est permis à la place.</p>
+<p class="li"><strong>La certitude sur la plante.</strong> Il n’y a pas de version dégradée de l’identification (<span class="ref">ch. 33</span>, <span class="ref">§9</span>).</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="34-1"><span class="fnn">1</span>Un abcès mûr est une bosse rouge, chaude et luisante qui, pressée doucement entre deux doigts posés de chaque côté, cède comme un ballon plein d’eau : on sent le liquide bouger sous la peau. Souvent une tache blanche ou jaune apparaît au sommet, là où le pus va sortir. Une bosse dure partout n’est pas mûre : compresses chaudes et patience. Une bosse qui bat sous les doigts n’est pas un abcès et ne se coupe jamais ; une bosse dure, fixe, qui grossit ou dure plus de deux semaines non plus (étapes 24 et 25).</p>
+<p class="fn" data-fn="34-2"><span class="fnn">2</span>Une brûlure qui touche toutes les couches de la peau est blanche, peut avoir l’air de cuir, et peut ne pas faire mal au début. Le miel n’a fait ses preuves que sur les brûlures moins profondes, celles qui cloquent.</p>
+<p class="fn" data-fn="34-3"><span class="fnn">3</span>Le déficit en G6PD est un manque héréditaire, surtout chez les hommes, d’une enzyme des globules rouges. Il ne se voit pas : on le sait par une analyse, ou parce qu’un médicament ou des fèves ont déjà donné à la personne une jaunisse — peau et blanc des yeux jaunes — avec des urines foncées, de la fatigue et le souffle court. Ses frères et sœurs aussi, tant qu’on ne sait pas.</p>
+<p class="fn" data-fn="34-4"><span class="fnn">4</span>La lente vivante ressemble à une pellicule gonflée, luisante, blanc grisâtre et translucide, collée au cheveu : elle ne part pas en soufflant, alors qu’une pellicule s’envole. Le pou adulte est grisâtre, de la taille d’une graine de sésame, et il fuit la lumière.</p>
+<p class="fn" data-fn="34-5"><span class="fnn">5</span>La teigne fait des plaques rondes où la peau pèle en fines écailles, avec des cheveux cassés court dans la plaque ; parfois la plaque enfle, suinte et fait des croûtes.</p>
+<p class="fn" data-fn="34-6"><span class="fnn">6</span>Il commence 5 à 7 jours après le début d’un virus, par des nausées et des vomissements brusques et très violents ; puis l’enfant devient mou, confus, désorienté ou agité, et il peut convulser. C’est une atteinte du cerveau et du foie.</p>
+</template>
+<script type="application/json" id="meta">{"num": "34", "title": "Soigner avec la forêt, par symptôme", "tome": "Tome 2 · Le corps", "tnum": 2, "tfond": "#5C1A15", "tencre": "#F3ECE5", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

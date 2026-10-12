@@ -1,0 +1,87 @@
+/* ---------- jetons ---------- */
+:root{--papier:#F2ECDF;--encre:#1E1C19}
+@page front{size:594pt 738pt;margin:0}      /* 8,25 x 10,25 po : face du carton */
+@page wrap{size:1368pt 846pt;margin:0}      /* 19 x 11,75 po : couverture complète */
+@page shelf{size:432pt 828pt;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:'Vollkorn',Georgia,serif;color:var(--encre);font-variant-numeric:lining-nums;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+.cv{position:relative;overflow:hidden;background:var(--c);break-after:page}
+.front{page:front;width:8.25in;height:10.25in}
+.wrap{page:wrap;width:19in;height:11.75in}
+
+/* ---------- l'étiquette : même place, même cadre, sur les quatre ---------- */
+.panel{position:absolute;left:1in;right:1in;top:1in;bottom:1in;background:var(--papier);padding:0.12in}
+.pin{position:relative;height:100%;border:2.25pt solid var(--c);outline:0.6pt solid var(--c);outline-offset:-5.5pt;
+  display:flex;flex-direction:column;align-items:center;text-align:center;padding:0.4in 0.38in 0.32in}
+.series{font-family:'Vollkorn SC';font-weight:700;font-size:12pt;letter-spacing:.3em;text-transform:lowercase;line-height:14pt;margin-right:-.3em}
+.tome{display:flex;align-items:center;gap:14pt;width:100%;margin-top:0.26in}
+.tome .r{flex:1;border-top:0.75pt solid var(--c)}
+.tome .rn{font-weight:800;font-size:54pt;line-height:46pt;color:var(--c);letter-spacing:.03em}
+.tomelab{order:-1;display:none}
+.ti{margin:0.08in 0 0;height:1.5in;display:flex;flex-direction:column;justify-content:center;font-weight:800;font-size:48pt;line-height:50pt;letter-spacing:-.012em}
+.ti span{display:block}
+.ti.n2{font-size:44pt;line-height:45pt}
+.desc{font-style:italic;font-size:11.5pt;line-height:15pt;max-width:4.6in;margin-top:0.04in}
+.vig{flex:1 1 0;min-height:0;width:100%;margin-top:0.22in;border-top:0.6pt solid var(--c);border-bottom:0.6pt solid var(--c);
+  padding:0.18in 0.05in;display:flex;align-items:center;justify-content:center}
+.vig svg{width:100%;height:100%;display:block}
+.foot{margin-top:0.17in}
+.chap{font-family:'Vollkorn SC';font-weight:700;font-size:10pt;letter-spacing:.26em;text-transform:lowercase;color:var(--c);margin-right:-.26em}
+.sub{font-style:italic;font-size:10.5pt;margin-top:3pt}
+
+/* ---------- quatrième ---------- */
+.back .pin{align-items:stretch;text-align:left;padding:0.4in 0.42in 0.3in}
+.back .series{text-align:center}
+.btitle{text-align:center;font-weight:800;font-size:21pt;line-height:24pt;margin-top:0.12in}
+.bhead{font-family:'Vollkorn SC';font-weight:700;font-size:9.5pt;letter-spacing:.25em;text-transform:lowercase;color:var(--c);
+  text-align:center;margin:0.2in 0 0.12in;border-top:0.6pt solid var(--c);padding-top:0.12in}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:0.2in}
+.toc ol{list-style:none;margin:0;padding:0;font-size:11pt;line-height:16.5pt}
+.toc li{display:flex;gap:6pt}
+.toc .n{font-weight:800;color:var(--c);min-width:18pt}
+.motto{margin-top:auto;padding-top:0.18in;border-top:0.6pt solid var(--c);font-style:italic;font-size:16pt;line-height:20pt;text-align:center}
+.bnote{font-size:10pt;line-height:13.5pt;text-align:center;margin-top:0.08in;padding:0 0.15in}
+.serie{display:flex;justify-content:center;flex-wrap:wrap;gap:4pt 13pt;margin-top:0.18in;font-family:'Vollkorn SC';font-weight:600;font-size:9pt;
+  letter-spacing:.1em;text-transform:lowercase;color:#6f685e}
+.serie b{font-family:'Vollkorn';font-weight:800;margin-right:4pt;letter-spacing:0;text-transform:none}
+.serie .on{color:var(--c);font-weight:700}
+
+/* ---------- dos ---------- */
+.spine{width:1in;height:10.25in;background:var(--c);position:relative;color:var(--papier);overflow:hidden}
+.slab{position:absolute;left:0.14in;right:0.14in;top:1in;height:1.4in;background:var(--papier);
+  box-shadow:inset 0 0 0 3pt var(--papier),inset 0 0 0 4pt var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.st{font-family:'Vollkorn SC';font-weight:700;font-size:7.5pt;letter-spacing:.25em;text-transform:lowercase;color:var(--c);margin-right:-.25em}
+.srn{font-weight:800;font-size:28pt;line-height:30pt;color:var(--c)}
+.stitle{position:absolute;left:0;right:0;top:2.7in;bottom:1.25in;writing-mode:vertical-rl;transform:rotate(180deg);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5pt}
+.stitle .a{font-family:'Vollkorn SC';font-weight:700;font-size:19pt;letter-spacing:.14em;text-transform:lowercase;white-space:nowrap;line-height:22pt}
+.stitle .b{font-family:'Vollkorn SC';font-weight:600;font-size:9.5pt;letter-spacing:.22em;text-transform:lowercase;white-space:nowrap;line-height:12pt}
+.sfoot{position:absolute;bottom:0.62in;left:0;right:0;text-align:center;font-weight:700;font-size:9pt;letter-spacing:.04em}
+
+/* ---------- couverture complète ---------- */
+.wrap .board{position:absolute;top:0.75in;height:10.25in;width:8.25in}
+.wrap .bk{left:0.75in}
+.wrap .fr{left:10in}
+.wrap .sp{position:absolute;left:9in;top:0.75in;width:1in;height:10.25in}
+.guides{position:absolute;inset:0;pointer-events:none}
+.gl{position:absolute;border:0 dashed #0096D6}
+.gl.v{top:0;bottom:0;border-left-width:1.2pt}
+.gl.h{left:0;right:0;border-top-width:1.2pt}
+.gs{position:absolute;border:1.2pt dashed #D6007A}
+.gh{position:absolute;top:0.75in;height:10.25in;width:0.4in;background:rgba(0,150,214,.22)}
+.gt{position:absolute;font:10pt/1.25 Georgia,serif;color:#005F8A;background:rgba(255,255,255,.88);padding:2pt 4pt}
+
+/* ---------- la tablette ---------- */
+.shelf{page:shelf;width:6in;height:11.5in;background:#D8D4CC;position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:0.45in}
+.shelf .row{display:flex;gap:0.025in;align-items:flex-end}
+.plank{width:5.4in;height:0.16in;background:#5E574F}
+
+/* ---------- aperçus écran ---------- */
+@media screen{
+  body.apercu{background:#8C8983;padding:0.3in}
+  body.m-serie{display:flex;gap:0.4in;width:max-content}
+  body.m-tab{background:#D8D4CC;padding:0}
+}

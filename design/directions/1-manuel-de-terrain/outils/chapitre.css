@@ -1,0 +1,43 @@
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto;max-height:5.2in;object-fit:contain}   /* une photo en hauteur ne dépasse plus la page (ch. 33, 28 septembre 2026) : centrée, blanc de chaque côté */
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}

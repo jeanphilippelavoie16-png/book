@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>68 — Salaison à sec — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"68"}
+</style>
+</head>
+<body class="vA vB vC t4 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 4 · De la bête au garde-manger</span><span>Chapitre</span></div><div class="open-title"><div class="num">68</div><h1>Salaison à sec</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">La salaison à sec tire l’eau d’une pièce de viande entière par contact direct avec du sel sec, ce qui la garde d’abord quelques semaines au froid, puis, si le séchage se poursuit jusqu’à une activité de l’eau inférieure ou égale à <strong>0,85</strong>, plusieurs mois sans froid du tout.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<p class="p0 ri"><strong class="runin">Le bon choix.</strong> Une pièce entière de gros gibier — orignal (<em>Alces americanus</em>) en priorité — qui arrive sur la table de débitage quand il n’y a plus de place au congélateur, ou plus de courant pour le faire tourner. Une pièce de porc élevé au chalet (<span class="ref">ch. 101</span>), qui est la seule viande du territoire faite pour ça. Une saison froide : la salaison à sec demande une pièce maintenue entre <strong>1,7 °C et 7,3 °C</strong> pendant des semaines, ce qui, sur la Côte-Nord, est gratuit de novembre à avril et impossible en juillet sans électricité. Un lecteur qui a le temps devant lui : le barème le plus court demande <strong>40 jours</strong> de salaison avant même de commencer à sécher.</p>
+<p class="p0 ri"><strong class="runin">Au chalet, et pas à la maison.</strong> Le réfrigérateur de la maison ne prend pas un quartier et ne descend pas sous <strong>3 °C</strong> (<span class="ref">§8</span>) : la maison passe une panne de trois jours, elle ne commence pas une salaison de quarante. Une viande du village qu’il faut sortir du congélateur tout de suite se cuit ou se met en pot (<span class="ref">ch. 78</span>) ; elle ne se sale que si elle monte au chalet.</p>
+<p class="p0 ri"><strong class="runin">Le mauvais choix.</strong> Toute pièce qui n’a pas atteint <strong>7 °C dans les 24 premières heures</strong> après l’abattage : le sel ne rattrape pas une viande qui a déjà travaillé, il conserve l’état dans lequel il la trouve. La viande hachée, qui n’a plus ni surface ni centre et dont tout l’intérieur a été ensemencé par l’extérieur — elle va au <span class="ref">ch. 69</span>, au <span class="ref">ch. 71</span> ou au congélateur. Une chambre qui dépasse <strong>15,6 °C</strong> pendant que la pièce est encore humide.</p>
+<p class="p0 ri"><strong class="runin">Les espèces, une par une.</strong> Ce tableau ferme des portes.</p>
+<table class="tspan"><colgroup><col style="width:31.0%"><col style="width:25.3%"><col style="width:43.7%"></colgroup><thead><tr><th>Espèce</th><th>Salaison à sec</th><th>Pourquoi</th></tr></thead><tbody><tr><td class="c-item">Orignal (<em>Alces americanus</em>), caribou (<em>Rangifer tarandus</em>)</td><td><strong>Ouvert.</strong> Le sujet du chapitre</td><td>Pièces entières, gros muscles, pas de parasite connu qui résiste au sel</td></tr><tr><td class="c-item">Porc élevé au chalet (<span class="ref">ch. 101</span>)</td><td><strong>Ouvert</strong>, avec le barème de la <span class="ref">§5</span>, qui a été écrit pour lui</td><td>Voir <span class="ref">§5</span></td></tr><tr><td class="c-item">Ours noir (<em>Ursus americanus</em>)</td><td><strong>FERMÉ</strong>, sauf sur une viande déjà cuite à 74 °C</td><td><em>Trichinella</em>. « La salaison, le séchage, le fumage […] n’exterminent pas toujours les larves infectieuses ». Cohérent avec le <span class="ref">ch. 52</span></td></tr><tr><td class="c-item">Phoque du Groenland (<em>Pagophilus groenlandicus</em>), phoque commun (<em>Phoca vitulina</em>)</td><td><strong>FERMÉ</strong>, même règle</td><td>Même parasite, même mécanisme. Voir <span class="ref">ch. 56</span></td></tr><tr><td class="c-item">Castor (<em>Castor canadensis</em>), lièvre d’Amérique (<em>Lepus americanus</em>), gélinotte huppée (<em>Bonasa umbellus</em>)</td><td><strong>Hors sujet.</strong> Pièces trop petites et trop maigres</td><td>Le rapport surface-volume rend la pièce sèche et immangeable avant d’être stabilisée. Ces bêtes vont au <span class="ref">ch. 71</span> et au <span class="ref">ch. 78</span></td></tr><tr><td class="c-item">Foie et reins de cervidés</td><td><strong>INTERDIT, et pas à cause du sel</strong></td><td>« Ne mangez pas le foie ni les reins de cervidés car ils peuvent contenir un taux de cadmium élevé ». Le cadmium ne sort pas au salage. Voir <span class="ref">ch. 22</span></td></tr><tr><td class="c-item">Poisson, tous</td><td><strong>Autre chapitre</strong></td><td><span class="ref">Ch. 75, 76, 77</span></td></tr></tbody></table>
+<p class="p0 ri"><strong class="runin">Ce qui n’est pas dans ce chapitre.</strong> Le choix du sel lui-même et ce qu’il y a dedans : <span class="ref">ch. 67</span>. Le mécanisme complet de l’altération, dont la <span class="ref">§3</span> ne prend que ce qui sert au sel : <span class="ref">ch. 66</span>. La salaison en liquide, qui règle le problème des pièces irrégulières que la salaison à sec règle mal : <span class="ref">ch. 69</span>. Le fumage, qui n’est jamais un traitement de conservation à lui seul dans ce livre : <span class="ref">ch. 70</span> et 71. Le débitage qui fournit les pièces : <span class="ref">ch. 62</span> à 65.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">Le sel sec posé sur la viande fait sortir l’eau des cellules et entre à sa place. Ce qui compte n’est pas la quantité de sel mais l’eau qui reste <strong>disponible</strong> aux bactéries, l’activité de l’eau, ou <strong>aw</strong>. Sous <strong>aw 0,85</strong>, la pièce tient sans froid ; avant, elle n’est qu’en cours de conservation, et c’est le froid qui la tient. Le sel voyage par diffusion, lentement et depuis l’extérieur : les barèmes comptent donc les jours <strong>au kilogramme</strong>, pas à la pièce.</p>
+<p>Le nitrite, lui, ne sèche rien : il freine les microbes et leurs toxines pendant que le sel avance, et une seule des deux barrières ne fait pas le travail des deux.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="li"><strong>Balance au gramme</strong> — balance de cuisine qui affiche le gramme et porte plus que la plus grosse pièce ; tout le chapitre est en pourcentage du poids de la viande, et sans pesée il n’y a pas de pourcentage. Une balance à ressort de chasse ne lit pas le gramme. Remplacée au besoin par : → <span class="ref">§9</span> (balance à fléau tarée à l’eau).</p>
+<p class="li"><strong>Thermomètre à sonde</strong> — thermomètre à lecture instantanée dont on plante la tige au plus épais de la pièce ; il porte les <strong>74 °C à cœur</strong>, la dernière barrière. Remplacé au besoin par : rien ; il ne se fabrique pas, il se vérifie (→ <span class="ref">§9</span>).</p>
+<p class="li"><strong>Thermomètre min-max</strong> — thermomètre d’ambiance qui garde la plus haute et la plus basse température atteintes depuis la dernière lecture ; lui seul dit si la chambre a passé <strong>15,6 °C</strong> pendant la nuit, donc si la pièce se mange ou se jette. Remplacé au besoin par : un thermomètre ordinaire lu deux fois par jour, sinon → <span class="ref">§9</span>.</p>
+<p class="li"><strong>Sel sans additif</strong> — gros sel, sel à marinade ou sel de mer, sans iode ni antiagglomérant : <strong>6 % du poids de la viande</strong>, plus une réserve pour les resalages de l’étape 11. Jamais de sel de déglaçage ni d’adoucisseur : on ne sait pas ce qu’il y a dedans. Remplacé au besoin par : sel de table non iodé, ou sel fait avec l’eau du fleuve (→ <span class="ref">§9</span>).</p>
+<p class="li"><strong>Sel de salaison nitrité</strong> — sel du commerce additionné de nitrite de sodium, pourcentage déclaré sur l’emballage ; la deuxième barrière contre les toxines, sans laquelle le plancher de 2,5 % de sel n’existe pas. Dosé selon l’emballage, <strong>jamais selon une recette</strong>. Remplacé au besoin par : rien, et le salpêtre n’en est pas un (<span class="ref">§8</span>) ; sans lui, → <span class="ref">§9</span>, avec ses pertes.</p>
+<p class="li"><strong>Contenant non réactif à fond qui égoutte</strong> — plastique alimentaire, acier inoxydable ou grès vernissé, percé au fond ou sur une grille : une pièce qui baigne dans sa saumure n’est plus en salaison à sec. <strong>Ni aluminium, ni fer galvanisé, ni cuivre</strong> : la saumure les attaque et ce qu’elle en tire finit dans la pièce. Remplacé au besoin par : caisse de bouleau ou de tremble à fond percé, sur deux tasseaux au-dessus d’un plat (→ <span class="ref">§9</span>).</p>
+<p>Le reste : <span class="ref">ch. 00b</span>.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">5.1 Avant de sortir le sel</h3>
+<p class="step pk-c"><span class="sn">1</span><strong>Vérifier la porte d’entrée.</strong> La pièce vient d’une bête refroidie à <strong>7 °C dans les 24 premières heures</strong>. Si on ne peut pas l’affirmer, c’est non : la pièce va au <span class="ref">ch. 78</span> ou à la poêle, pas au sel. Le sel n’assainit pas, il arrête.</p>
+<p class="step"><span class="sn">2</span><strong>Choisir la pièce.</strong> Muscles entiers, séparés proprement à la membrane (<span class="ref">ch. 63, 64, 65</span>), sans caillot, sans esquille d’os, sans plaie de balle ni tissu meurtri. Un hématome au centre d’une pièce est de l’eau, du sang et un abri contre le sel. Il se taille au couteau et il se jette (<span class="ref">ch. 23</span>).</p>
+<p class="step"><span class="sn">3</span><strong>Peser, et écrire le poids.</strong> Au gramme, avant tout. Tout ce qui suit est un pourcentage de ce nombre-là. <strong>Ce poids initial est aussi ce qui permettra, des semaines plus tard, de savoir où en est le séchage</strong> : une pièce dont on a perdu le poids de départ est une pièce dont on ne saura jamais si elle est prête. Sur l’étiquette attachée à la pièce : le poids frais et la date de salage.</p>
+<p class="step"><span class="sn">4</span><strong>Parer.</strong> Retirer les membranes sales et le gras jauni. <strong>Garder la couverture de gras propre du côté extérieur</strong> : elle protège la surface du dessèchement en croûte. Sur l’orignal, il y en aura peu — c’est une bête maigre, et c’est la limite du chapitre autant que du <span class="ref">ch. 19</span>.</p>
+<h3 class="sub">5.2 Le salage</h3>
+<p class="step"><span class="sn">5</span><strong>Calculer.</strong> <strong>6 % du poids de la viande</strong> en sel. Sur une pièce de 3 200 g : 192 g. Le plancher absolu est <strong>2,5 %</strong>, et il n’est <strong>jamais donné seul</strong> — toujours « avec un minimum de 100 ppm » de nitrite ou de nitrate. Sans nitrite, 2,5 % n’est pas un plancher, c’est un pari.</p>
+<p class="step"><span class="sn">6</span><strong>Préparer le mélange.</strong> Sel, plus le sel de salaison nitrité (nitrite de sodium) <strong>dosé selon son emballage et rien d’autre</strong>. Le mélange doit rester majoritairement du sel : pour les jambons, les agents de salaison doivent avoir une teneur en sel d’au moins <strong>70 %</strong>. Mélanger à sec, à fond, dans un bol, <strong>avant</strong> de toucher la viande. Un mélange fait sur la pièce est un mélange inégal, et un mélange inégal de nitrite est un problème des deux côtés : trop ici, pas assez là.</p>
+<p class="step"><span class="sn">7</span><strong>Frotter.</strong> « Les tissus musculaires exposés […] devraient être recouverts d’agents de salaison ». Recouverts veut dire recouverts : pas une saupoudrée, une couche. Insister là où l’os a été retiré, dans les replis, autour de l’articulation. C’est exactement là que ça tourne.</p>
+<p class="step"><span class="sn">8</span><strong>Disposer.</strong> Pièces à plat dans le contenant, gras vers le bas sauf la dernière, gras vers le haut. Ne pas empiler plus haut que ce qui se retourne d’une main.</p>
+<p class="step pk-c"><span class="sn">9</span><strong>Mettre au froid, entre 2 et 4 °C</strong>. Lire le min-max deux fois par jour. <strong>Au-dessus de 15,6 °C, la salaison est terminée et la pièce est perdue</strong> — pas mise en attente, perdue.</p>
+<p class="step"><span class="sn">10</span><strong>Égoutter.</strong> Le sel fait sortir de l’eau ; cette eau se charge de sel et devient une saumure. En salaison à <strong>sec</strong>, elle s’évacue : la pièce ne trempe pas dedans. Une pièce qui baigne n’est plus au chapitre 68, elle est au chapitre 69, et pas selon le barème du 69.</p>
+<p class="step"><span class="sn">11</span><strong>Retourner et resaler.</strong> Le mélange de l’étape 6 se partage en trois : un tiers frotté à l’étape 7, les deux autres au 3e et au 5e jour. Chaque fois : retourner chaque pièce, remettre le sel là où il a fondu, vider le liquide. Ensuite, retourner et vider tant que la pièce est au sel, et remettre du sel partout où il manque. C’est le geste qui distingue une salaison conduite d’une pièce oubliée dans une boîte.</p>
+<p class="step"><span class="sn">12</span><strong>Compter les jours, au kilogramme.</strong> Le barème, écrit pour les jambons :</p>
+<table class="tspan"><colgroup><col style="width:34.8%"><col style="width:17.6%"><col style="width:47.6%"></colgroup><thead><tr><th>Ce qu’on compte</th><th>Minimum absolu</th><th>Minimum au poids</th></tr></thead><tbody><tr><td class="c-item">Contact avec les agents de salaison</td><td><strong>28 jours</strong></td><td>et <strong>jamais moins de 3,3 jours par kilogramme</strong> de produit non salé</td></tr><tr><td class="c-item">Durée totale de la salaison</td><td><strong>40 jours</strong></td><td>et <strong>« en aucun cas » moins de 4,4 jours/kg</strong></td></tr></tbody></table>
+<p class="p0">Pour la pièce de 3 200 g de l’étape 5 : 3,2 × 3,3 = <strong>11 jours</strong> de contact, donc le minimum absolu de <strong>28 jours</strong> commande. 3,2 × 4,4 = <strong>14 jours</strong>, donc le minimum de <strong>40 jours</strong> commande aussi. <strong>Sur des pièces de chalet, ce sont presque toujours les minimums absolus qui gouvernent, pas le calcul au kilogramme.</strong> Le calcul reprend la main au-dessus d’environ 8,5 kg pour le contact et 9,1 kg pour le total.</p>
+<p class="step pk-c"><span class="sn">13</span><strong>Rincer et laisser égaliser.</strong> Rincer le sel de surface à l’eau froide, éponger, remettre au froid sans sel, <strong>sous 5 °C</strong>, à couvert léger : d’<strong>un mois</strong> pour une petite pièce jusqu’à <strong>trois mois</strong> pour une pièce peu salée, le temps que le sel de la couche externe gagne le centre. La pièce y perd encore de 10 à 15 % de son poids. Une pièce qui sort de sa salaison est salée en surface et pas au centre, et la trancher à ce moment-là donne exactement l’impression trompeuse d’un produit fini.</p>
+<h3 class="sub">5.3 Le séchage</h3>
+<p class="step"><span class="sn">14</span><strong>Suspendre.</strong> Pièce pendue, une ficelle par pièce, rien qui se touche, air qui circule des deux côtés. Sous filet ou coton à fromage si les mouches sont une possibilité — donc dès que la chambre remonte au-dessus du gel.</p>
+<p class="step pk-t"><span class="sn">15</span><strong>Sécher au froid et lentement.</strong> Les barèmes de séchage, tous écrits pour le porc : saucissons, <strong>15 jours minimum à 7,3 °C minimum</strong> ; capicola, <strong>20 jours à 7,3 °C minimum</strong> ; jambons, un tableau qui va de −54,4 °C à 23,9 °C selon la durée. Une pièce qui sèche vite fait une <strong>croûte</strong> : la surface durcit, ferme le passage, et le centre reste humide derrière. C’est le défaut classique et il ne se rattrape pas.</p>
+<p class="step"><span class="sn">16</span><strong>Peser, et peser encore.</strong> Chaque semaine, à la même balance ; le poids du jour s’écrit sur l’étiquette, sous le poids frais, à la place du précédent. <strong>La perte de masse est la seule lecture de chantier qu’un chalet puisse faire du séchage.</strong> Elle n’est pas une mesure d’activité de l’eau, et aucun pourcentage de perte ne garantit un aw de 0,85. Ce qu’on sait : un jambon sec fini a perdu <strong>au moins 18 %</strong> de son poids frais, et en dessous ce n’en est pas un ; tant que la pièce perd du poids, elle sèche encore ; quand elle arrête d’en perdre alors que la chambre n’a pas changé, elle a fini ce qu’elle pouvait faire dans ces conditions-là.</p>
+<p class="step"><span class="sn">17</span><strong>Décider de ce qu’on a.</strong> Deux produits sortent de la même procédure, et il faut savoir lequel on tient :</p>
+<table class="tspan"><colgroup><col style="width:17.7%"><col style="width:39.4%"><col style="width:42.9%"></colgroup><thead><tr><th></th><th>Pièce salée, encore humide</th><th>Pièce salée et séchée</th></tr></thead><tbody><tr><td class="c-item">Critère</td><td>Salaison terminée, séchage partiel</td><td><strong>aw ≤ 0,85</strong> — non mesurable au chalet</td></tr><tr><td class="c-item">Se garde</td><td><strong>Au froid seulement</strong>, 2 à 4 °C</td><td>Hors froid</td></tr><tr><td class="c-item">Se mange</td><td><strong>Cuite à 74 °C à cœur</strong></td><td>Le livre dit : <strong>cuite quand même.</strong> Voir <span class="ref">§8</span></td></tr><tr><td class="c-item">Statut dans ce livre</td><td>Le cas normal au chalet</td><td>Le cas que le livre ne peut pas certifier</td></tr></tbody></table>
+<p class="step"><span class="sn">18</span><strong>Étiqueter et ranger.</strong> Sur l’étiquette de la pièce : « À CUIRE ». Rangement au froid, <strong>au-dessus</strong> des viandes crues et jamais en dessous, dans un contenant qui laisse respirer. <strong>Une pièce salée qui n’est pas sèche ne se met pas sous vide ni dans un sac fermé</strong> : le sac crée le milieu « humide et sans oxygène » où le botulisme se développe.</p>
+<p class="step pk-c"><span class="sn">19</span><strong>Cuire.</strong> <strong>74 °C à cœur, thermomètre planté dans la partie la plus épaisse</strong>. Le dessalage préalable — tremper la pièce à l’eau froide, changer l’eau — est une question de goût, pas de sécurité, et il ne change rien au 74 °C.</p>
+<figure class="fig pl demi" data-id="68-06"><img src="../../images/planche-68-06-caisse-sel-caveau.svg" alt="Planche 68-06" style="height:4.251in"></figure>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:14.5%"><col style="width:16.6%"><col style="width:29.4%"><col style="width:39.6%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant le sel</td><td>Refroidissement de la carcasse</td><td><strong>7 °C en 24 h</strong></td><td>Pas de salaison. Cuisson à 74 °C ou <span class="ref">ch. 78</span></td></tr><tr><td class="c-item">Étape 3</td><td>Poids frais sur l’étiquette</td><td>Au gramme</td><td>Repeser avant de saler. Sans ce nombre, le chapitre ne fonctionne pas</td></tr><tr><td class="c-item">Étape 5</td><td>Sel pesé</td><td><strong>6 %</strong> du poids de la viande. Plancher <strong>2,5 %</strong> et seulement avec nitrite</td><td>Repeser. Ne jamais estimer au volume : le sel fin et le gros sel n’ont pas la même masse au litre</td></tr><tr><td class="c-item">Tous les jours, salage</td><td>Température de la chambre</td><td><strong>2 à 4 °C</strong> visé ; fourchette de la chambre de salaison <strong>1,7 à 7,3 °C</strong></td><td>Sous 1,7 °C, la diffusion s’arrête et les jours ne comptent plus : prolonger. <strong>Au-dessus de 15,6 °C : jeter</strong></td></tr><tr><td class="c-item">Jours 3 et 5, puis à chaque retournement</td><td>Liquide au fond</td><td>Contenant vidé, pièce non immergée</td><td>Vider, resaler les zones nues, retourner</td></tr><tr><td class="c-item">Jour 28</td><td>Contact avec le sel</td><td><strong>≥ 28 jours et ≥ 3,3 jours/kg</strong></td><td>Poursuivre. Un barème ne s’arrondit pas vers le bas</td></tr><tr><td class="c-item">Jour 40</td><td>Salaison totale</td><td><strong>≥ 40 jours et ≥ 4,4 jours/kg</strong></td><td>Poursuivre</td></tr><tr><td class="c-item">Fin de salaison</td><td>Fermeté au pouce</td><td>La pièce ne cède plus comme de la viande fraîche, elle résiste sur toute l’épaisseur</td><td>Une zone molle au centre = sel non arrivé. Prolonger, ou trancher et cuire à 74 °C</td></tr><tr><td class="c-item">Chaque semaine, séchage</td><td>Perte de masse</td><td>Perte qui continue, sans chute brutale</td><td>Perte arrêtée tôt = croûte. Perte trop rapide = chambre trop sèche ou trop ventilée</td></tr><tr><td class="c-item">Chaque semaine, séchage</td><td>Température</td><td><strong>≥ 7,3 °C</strong> dans les barèmes, mais le livre garde la chambre froide, quitte à sécher plus longtemps</td><td>Ne jamais monter la chambre pour aller plus vite. Voir <span class="ref">§8</span></td></tr><tr><td class="c-item">Avant de trancher</td><td>Aspect de la coupe</td><td>Couleur homogène du bord au centre</td><td>Centre plus pâle, plus mou ou plus rouge que le pourtour = salage incomplet</td></tr><tr><td class="c-item">À table</td><td>Température à cœur</td><td><strong>74 °C</strong></td><td>Remettre au feu. Un thermomètre, pas une couleur</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:34.2%"><col style="width:29.1%"><col style="width:36.8%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Odeur aigre ou sûre en ouvrant le contenant, dans les premiers jours</td><td>Fermentation non voulue : sel insuffisant, ou chambre trop chaude</td><td><strong>Jeter.</strong> Loin du bâtiment (<span class="ref">ch. 23</span>)</td></tr><tr><td class="c-item">Surface visqueuse, gluante, qui file entre les doigts</td><td>Flore de surface installée. Le sel n’a pas pris la main</td><td><strong>Jeter.</strong> Ce n’est pas rattrapable au lavage</td></tr><tr><td class="c-item">Verdâtre ou gris-vert dans l’épaisseur, autour d’un os ou d’un hématome</td><td>Altération interne partie d’un point où le sel n’est pas arrivé</td><td><strong>Jeter la pièce entière</strong>, pas seulement la zone</td></tr><tr><td class="c-item">Bulles, gonflement, liquide qui mousse</td><td>Production de gaz</td><td><strong>Jeter.</strong> Aucune dégustation, aucun reniflage prolongé</td></tr><tr><td class="c-item">Moisissure blanche, sèche, poudreuse, en surface, pendant le séchage</td><td>Normale sur une viande salée et séchée : les jambons secs en portent d’ordinaire</td><td>Brosser à la brosse raide et à l’eau chaude, puis cuire la pièce à <strong>74 °C</strong>, comme tout ce qui sort de ce chapitre. Sur une pièce encore molle et humide, ce n’est plus le même signe : la moisissure y descend sous la surface — <strong>jeter</strong></td></tr><tr><td class="c-item">Moisissure noire, verte, duveteuse ou qui pénètre</td><td>Contamination installée</td><td><strong>Jeter</strong></td></tr><tr><td class="c-item">Pièce dure et sombre à l’extérieur, molle et fraîche au centre</td><td>Croûte de séchage : la surface a fermé le passage</td><td>Ne pas prolonger le séchage, ça n’entrera plus. Trancher et <strong>cuire à 74 °C</strong>, tout de suite</td></tr><tr><td class="c-item">Goût rance, odeur de peinture ou de vieille huile, gras jauni</td><td>Oxydation du gras. Question de qualité, pas d’infection</td><td>Parer le gras. Si c’est traversant, la pièce n’est plus mangeable</td></tr><tr><td class="c-item">Cristaux blancs en surface d’une pièce bien sèche</td><td>Sel ressorti au séchage</td><td>Aucune action. Frotter si ça dérange</td></tr><tr><td class="c-item">Pièce salée oubliée dans un sac fermé, non sèche</td><td>Milieu « humide et sans oxygène »</td><td><strong>Jeter sans ouvrir près du visage.</strong> Voir <span class="ref">§8</span></td></tr><tr><td class="c-item">Rien d’anormal, mais la chambre a dépassé 15,6 °C en cours de route</td><td>Le seuil critique de <em>S. aureus</em> a été franchi</td><td><strong>Jeter.</strong> L’absence de signe n’est pas une preuve — c’est justement le problème</td></tr></tbody></table>
+<p class="p0 ri"><strong class="runin">« Ça sent bizarre » n’est pas un diagnostic, et l’inverse non plus.</strong> Une pièce salée à sec sent le sel, la viande et un peu le moisi noble<sup class="fnr" data-fn="68-1">1</sup>. Le seul écart qui se lit sans hésiter, c’est l’aigre.</p>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Le botulisme ne se voit pas, ne se sent pas et ne se goûte pas.</strong> « Le botulisme n’altère pas la couleur, l’odeur ou le goût des aliments ». La bactérie « peut se développer dans un milieu <strong>humide et sans oxygène</strong> » — c’est la définition exacte du centre d’une pièce épaisse où le sel n’est pas encore arrivé, et d’une pièce salée non sèche rangée dans un sac fermé ou sous vide. La souche du milieu marin et fluvial, le type E, est inhibée par un entreposage <strong>sous 3 °C</strong>, un pH sous 5,0 ou une <strong>activité de l’eau sous 0,97</strong> : un réfrigérateur réglé à 4 °C ne descend pas sous 3 °C, et une pièce encore humide n’est pas sous 0,97. <strong>Ce qui protège, ce sont le sel arrivé au centre, l’oxygène et le temps — pas l’apparence.</strong> Symptômes généralement <strong>12 à 36 heures</strong> après le repas : vision double, paupières tombantes, difficulté à avaler, faiblesse qui descend des épaules vers le bas. Un chalet hors réseau de la Côte-Nord est à des heures d’une antitoxine. <strong>Au moindre doute sur une pièce : elle se jette. Une pièce de viande coûte moins cher qu’une évacuation.</strong></p>
+<p class="pt"><span class="pn">2</span><strong class="plead">La salaison ne règle pas la trichinellose. Ni le sel, ni le séchage, ni le fumage, ni le congélateur.</strong> « La salaison, le séchage, le fumage ou la cuisson au four à micro-ondes n’exterminent pas toujours les larves infectieuses ». « La plupart des espèces de <em>Trichinella</em> qui ont été trouvées dans la nature <strong>résistent à la congélation</strong> ». Le mécanisme : la larve est enkystée dans le muscle, protégée, et ce qui tue une bactérie de surface ne l’atteint pas. <strong>Aucune salaison à sec seule n’est reconnue</strong> comme traitement d’inactivation : chaque méthode reconnue enchaîne le sel <strong>et</strong> un séchage long, <strong>ou</strong> le sel <strong>et</strong> un fumage à chaud. <strong>Conséquence, sans exception : aucune pièce d’ours noir ni de phoque ne se sale à sec pour être mangée crue. Jamais.</strong> Ces deux espèces se cuisent à <strong>74 °C à cœur</strong>, et ce qui se sale, c’est la viande <strong>déjà cuite</strong>. Voir <span class="ref">ch. 52</span> et 56.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le sel de salaison n’est pas du sel.</strong> Le plafond de dose de la salaison à sec est de <strong>62 g de sel de nitrite de sodium et 186 g de sel de nitrate par 100 kg de produit de viande</strong> : à l’échelle d’une pièce de 3 kg, on parle de <strong>quelques grammes</strong>, pesés, pas d’une cuillère. Ce n’est pas un excès de goût qui guette, c’est un poison franc — le nitrite change le fer du sang en une forme qui ne fixe plus l’oxygène, et les tissus en manquent. <strong>Dans ce produit, la dose est la sécurité.</strong> Il se pèse et ne se cuillère pas, parce que le même volume de cristaux fins et de cristaux gros n’a pas la même masse. Il ne se coupe pas d’avance avec du sel ordinaire non plus : un mélange dilué à un taux qu’on ne connaît plus ne se dose plus du tout, ni vers le haut ni vers le bas. <strong>Une ingestion est une intoxication dont la gravité dépend de la dose</strong>, et le transport depuis un chalet se compte en heures : la décision de partir se prend tout de suite (<span class="ref">ch. 2</span>, <span class="ref">ch. 35</span>).</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Le salpêtre ne se dose pas comme un sel de salaison moderne.</strong> Les vieux textes disent « une poignée de salpêtre ». Le salpêtre (nitrate de potassium) est du <strong>nitrate</strong>, qui doit d’abord être réduit en <strong>nitrite</strong> par des bactéries pour agir : il agit plus lentement, et sa concentration en matière active n’a rien à voir avec celle d’un mélange du commerce. Les deux apparaissent d’ailleurs séparément dans le plafond de dose, avec des chiffres différents (62 g contre 186 g par 100 kg). <strong>Ce livre ne donne aucune quantité de salpêtre, dans aucun chapitre.</strong> La forme moderne équivalente est un <strong>sel de salaison nitrité (nitrite de sodium) du commerce, à pourcentage déclaré sur l’emballage</strong>, dosé selon cet emballage. Substituer l’un à l’autre au poids est une erreur de dose dans un produit où la dose est la sécurité.</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Une salaison tiède ne se rattrape pas.</strong> « Lorsque la température dépasse le seuil critique de <strong>15,6 °C</strong>, la multiplication de <em>Staphylococcus aureus</em> et la production de toxines peuvent survenir ». Le mécanisme : ce n’est pas la bactérie qui pose problème à la fin, c’est ce qu’elle a <strong>laissé</strong> pendant que la pièce était tiède et encore humide. La toxine reste après que la bactérie est morte, et le froid revenu ne l’enlève pas. <strong>Une pièce dont la chambre a dépassé ce seuil en cours de salaison se jette, même si elle n’a rien d’anormal.</strong></p>
+<p class="pt"><span class="pn">6</span><strong class="plead">Ni foie ni reins de cervidés, salés ou non.</strong> « Ne mangez pas le foie ni les reins de cervidés car ils peuvent contenir un taux de cadmium élevé » — jusqu’à cent fois plus de cadmium que la quantité tolérée. Le cadmium est un métal : le sel ne le retire pas, le séchage le <strong>concentre</strong>. Voir <span class="ref">ch. 22</span>.</p>
+</template>
+<template id="story-e">
+<p class="p0">Pas d’électricité, pas de sel de salaison nitrité, pas de balance, pas de thermomètre d’ambiance, personne à qui demander. La question n’est plus de faire un produit, elle est de ne pas perdre un quartier d’orignal (<em>Alces americanus</em>). Deux items seulement de la <span class="ref">§4</span> ne se refabriquent pas ; tout le reste, oui.</p>
+<h3 class="sub">9.1 La balance, fabriquée</h3>
+<p class="p0">Sans pesée, le chapitre n’existe plus : tout y est en pourcentage du poids de la viande. Une balance à fléau se monte en une heure avec ce qui traîne, et elle se tare à l’eau, parce que <strong>1 mL d’eau pèse 1 g et 1 L pèse 1 kg</strong> — ce n’est pas un chiffre à valider, c’est la définition du litre.</p>
+<p class="p0 ri"><strong class="runin">Le fléau.</strong> Une tige droite et rigide — bois franc équarri, tube de métal — percée exactement en son milieu. La suspendre par cette perce, à un fil ou à une boucle de broche, de façon que le point d’appui soit <strong>au-dessus</strong> de la ligne des deux plateaux : un fléau dont l’appui est en dessous bascule d’un bord et ne revient jamais. Deux plateaux — couvercles de boîte de conserve, écuelles, morceaux d’écorce — pendus par trois fils chacun, à égale distance du centre. À vide, le fléau doit tenir l’horizontale ; sinon, gratter le bras lourd ou fixer un bout de broche sur le bras léger jusqu’à ce qu’il tienne. Long et léger, il lit fin ; court et massif, il ne lit rien.</p>
+<p class="p0 ri"><strong class="runin">La pesée par substitution, qui rend l’égalité des bras inutile.</strong> Poser la pièce de viande sur le plateau de gauche. Verser du sable, du gravier ou de la neige tassée sur celui de droite jusqu’à l’équilibre — peu importe combien, on ne le saura jamais. <strong>Retirer la viande</strong>, laisser le sable en place, puis verser de l’eau <strong>dans le même plateau de gauche</strong>, dans un contenant dont on a mesuré le vide de la même façon, jusqu’à retrouver l’équilibre. La masse d’eau versée est la masse de la viande. Comme la viande et l’eau ont occupé le même plateau au même bras, un bras plus long que l’autre ne change rien au résultat : c’est le seul montage improvisé dont la justesse ne dépend pas de la qualité de la fabrication.</p>
+<p class="p0 ri"><strong class="runin">Mesurer l’eau sans éprouvette.</strong> Tout contenant dont le volume est imprimé dessus — bouteille, cruche, boîte de conserve — donne une masse connue une fois rempli à ras. Une bouteille de 2 L pleine, c’est 2 kg. Pour le sel de l’étape 5, on ne pèse d’ailleurs pas du sel : on pèse <strong>l’eau</strong> qui lui fait équilibre. Les 192 g de l’exemple, ce sont 192 mL d’eau.</p>
+<p>Une balance à fléau ne dérive pas, ne se décharge pas et ne se dérègle pas au froid, ce qui en fait l’instrument le plus fiable de la <span class="ref">§4</span>. Elle est seulement lente, et elle demande les deux mains.</p>
+<h3 class="sub">9.2 Le thermomètre, réparé plutôt que remplacé</h3>
+<p class="p0">Un thermomètre à sonde ne se fabrique pas. <strong>Il se vérifie</strong>, et un thermomètre faux vérifié vaut un thermomètre juste.</p>
+<p>Deux points fixes, tous deux gratuits : de la glace pilée noyée d’un peu d’eau et brassée donne <strong>0 °C</strong> ; l’eau qui bout au bord du fleuve donne <strong>100 °C</strong>. Tremper la sonde dans la glace fondante sans toucher le fond du plat, attendre que la lecture arrête de bouger, lire l’écart. S’il lit 3 °C dans la glace fondante, il lit 3 °C de trop partout : le 74 °C se vise alors à <strong>77 °C sur ce cadran-là</strong>, et l’écart s’écrit sur le thermomètre lui-même, au feutre ou gravé, pas dans la tête. Un cadran à aiguille se rattrape souvent tout seul — l’écrou sous la tête se tourne, sonde dans la glace, jusqu’à ce que l’aiguille revienne sur zéro.</p>
+<p>Un thermomètre qui donne deux écarts différents aux deux points fixes n’est pas décalé, il est brisé, et rien ne le rattrape.</p>
+<h3 class="sub">9.3 La chambre, sans thermomètre d’ambiance</h3>
+<p class="p0">Un plat d’eau posé dans la chambre borne le bas : tant qu’il garde de la glace qui ne fond pas complètement dans la journée, la chambre tourne autour de 0 °C. Une chambre où l’eau reste liquide sans jamais devenir tiède au dos de la main est dans la bonne région, et c’est tout ce qu’on peut en dire.</p>
+<p class="p0 ri"><strong class="runin">Rien de ce qui traîne dans un chalet ne marque le 15,6 °C</strong>, et c’est pourtant le seuil qui décide entre manger et jeter. La réponse honnête n’est pas un truc, c’est un calendrier : on ne commence une salaison qu’entre le premier gel sérieux et le dégel, et dans un caveau creusé dans le sol, parce que le sol suit l’air avec du retard. Ce retard est exactement ce qui rend un caveau sûr en octobre et traître en mai — la terre est encore froide, mais les journées ne le sont plus, et c’est l’air qui entre à l’ouverture de la porte qui fait monter la caisse. <strong>Le sol retarde sur l’air d’autant plus qu’on creuse : de l’ordre d’un mois par mètre de profondeur</strong>, jusqu’à six mois vers 5 ou 6 m, où la température ne bouge presque plus de l’année. Moins dans un sol humide ou dans le roc, plus dans un sol sec.</p>
+<h3 class="sub">9.4 Le contenant, fabriqué</h3>
+<p class="p0">Bouleau ou tremble : bois neutres, qui ne donnent rien au goût. Ni épinette ni sapin, qui donnent leur résine. <strong>Ni cèdre</strong> — le livre écarte le thuya occidental (<em>Thuja occidentalis</em>) de tout ce qui va dans la bouche (<span class="ref">ch. 20</span>, <span class="ref">ch. 70</span>). Une caisse à fond percé, ou à lattes espacées, posée sur deux tasseaux au-dessus d’un plat qui reçoit le liquide. Récurer à l’eau bouillante et au gros sel, jamais au savon parfumé : le bois garde l’odeur et la rend à la viande. Une caisse qui a tenu du carburant ou de l’huile ne redevient pas une caisse à viande.</p>
+<p>Et la limite qui ne se contourne pas, répétée ici parce qu’on n’ouvre pas ce livre à la première page : <strong>ni aluminium, ni fer galvanisé, ni cuivre</strong>. La saumure les attaque, et ce qu’elle en tire ne ressort plus de la viande.</p>
+<h3 class="sub">9.5 Faire le sel, et le refaire</h3>
+<p class="p0 ri"><strong class="runin">Du fleuve.</strong> L’eau salée du Saint-Laurent bouillie donne du sel (<span class="ref">ch. 67</span>). Devant la Côte-Nord, elle porte de l’ordre de 27 à 29 g de sels par litre, dont le sel de table n’est que la plus grosse part : un kilo de sel demande bien plus de 35 L d’eau, moins salée encore près des embouchures et au printemps. Le vrai rendement se mesure à la première fournée — peser le sel obtenu, compter les brassées brûlées.</p>
+<p class="p0 ri"><strong class="runin">Le gel fait la moitié du travail, et gratuitement.</strong> L’eau qui gèle rejette le sel : la glace qui prend en surface d’un bac d’eau de mer laissé dehors est presque douce, et la saumure qui reste en dessous est d’autant plus concentrée. Jeter la glace, garder le liquide, recommencer tant que le froid tient. Ce qui entre dans le chaudron est alors bien plus salé que l’eau du fleuve, et le bois brûlé tombe d’autant. C’est l’avantage propre de la Côte-Nord sur n’importe quel saunier du Sud, et il ne travaille que l’hiver.</p>
+<p class="p0 ri"><strong class="runin">Bouillir, puis s’arrêter avant la fin.</strong> En réduisant, la saumure dépose d’abord un tartre blanc qui colle au fond du chaudron : il y reste, on ne le racle pas dans le sel. Vient ensuite le gros du sel, en cristaux qui montent et s’accumulent — on les cueille à l’écumoire au fur et à mesure et on les égoutte. <strong>La dernière eau du chaudron est amère et ne se fait pas sécher avec le reste</strong> : elle concentre tout ce qui n’est pas du sel de table, elle reste poisseuse et elle gâte une pièce. On arrête quand ce qui reste au fond devient amer au bout du doigt : ce reste-là se jette.</p>
+<p class="p0 ri"><strong class="runin">Récupérer le sel déjà servi.</strong> La saumure qui s’écoule de la caisse à chaque retournement est chargée du sel qu’on vient de payer en bois ou en argent, et la jeter est le gaspillage le plus cher du chapitre. Elle se remet au chaudron, se porte à <strong>pleine ébullition</strong> et non à frémissement, on écume la mousse brune de sang coagulé qui monte, et on récupère les cristaux comme ci-dessus. Ce sel a vu de la viande : il va sur les <strong>couches extérieures et sur les resalages</strong>, jamais en premier contact sur une pièce fraîche, et jamais s’il a séjourné tiède avant d’être rebouilli.</p>
+<h3 class="sub">9.6 La caisse de sel dans le caveau</h3>
+<p class="p0">Caisse préparée comme en 9.4, dans le caveau (<span class="ref">ch. 79</span>) ou dans le trou de froid du <span class="ref">ch. 73</span>, à un endroit qui se tient sous <strong>4 °C</strong> et qui ne remonte <strong>jamais au-dessus de 15,6 °C</strong>. Les morceaux sont taillés petits — épaisseur d’une main, pas d’un jambon — parce que le sel voyage lentement et qu’on n’a plus les semaines devant soi. Chaque morceau est <strong>noyé</strong> dans le sel, pas saupoudré : le sel touche partout, les morceaux ne se touchent pas entre eux, et il en reste au fond et sur le dessus. Tous les deux jours, on ouvre, on vide le liquide, on remet du sel là où il a fondu.</p>
+<p class="p0 ri"><strong class="runin">Presser accélère.</strong> Une planche propre sur la couche du dessus, une pierre lavée par-dessus : le liquide sort plus vite et les morceaux restent collés à leur sel au lieu de se décoller en séchant. La pierre vient de l’eau ou du champ, jamais du foyer — une pierre qui a chauffé se fend.</p>
+<p class="p0 ri"><strong class="runin">Tailler petit ne raccourcit pas le calendrier.</strong> Le calcul au kilogramme de l’étape 12 ferait croire qu’un morceau d’un kilo est salé en 3,3 jours ; les minimums absolus, 28 et 40 jours, ne descendent pas avec la taille de la pièce. La différence est ailleurs : la <span class="ref">§9</span> ne vise pas un produit stable, elle vise <strong>du sel arrivé au centre avant la flore</strong>, et ça se lit sur la face de coupe (<span class="ref">§6</span>), pas au calendrier.</p>
+<p class="p0 ri"><strong class="runin">À défaut de balance, on peut aussi ne plus mesurer du tout</strong> : la saturation, le morceau entouré de sel sans compter. C’est la méthode la plus vieille du livre et elle se paye — la viande sort beaucoup plus salée que nécessaire.</p>
+<p class="p0 ri"><strong class="runin">Le dessalage, et le piège qu’il contient.</strong> Tremper à l’eau froide, changer l’eau plusieurs fois, juger sur une tranche cuite et non sur la pièce crue. <strong>Le dessalage se fait au froid, dans le caveau, pas sur le comptoir</strong> : une pièce qui dessale est une pièce à qui on retire sa barrière, et la réchauffer pendant qu’on la lui retire enlève les deux protections en même temps. L’eau de dessalage repart au chaudron avec le reste (9.5).</p>
+<h3 class="sub">9.7 Sécher dehors, l’hiver</h3>
+<p class="p0">Le froid empêche le sel d’avancer — sous 1,7 °C la diffusion s’arrête (<span class="ref">§6</span>) — mais il ne l’empêche pas de sécher. L’ordre est donc forcé, et c’est l’inverse de ce qu’on ferait d’instinct : <strong>saler d’abord au caveau à 2–4 °C, sécher ensuite dehors dans le froid sec.</strong> À l’air d’hiver, l’eau de la pièce s’en va sans repasser par l’état liquide ; c’est la viande séchée du Nord, et elle ne coûte ni bois ni courant.</p>
+<p>Pièce pendue à l’abri du soleil direct et hors d’atteinte des bêtes, rien qui se touche, l’air qui circule des deux côtés. Les mouches ne travaillent pas avant le dégel, ce qui règle la question du filet en janvier et la pose autrement : <strong>la pièce rentre avant le premier redoux.</strong> Une pièce qui dégèle mouillée en surface est retombée dans la phase humide dont elle venait de sortir, avec cette fois un centre que plus personne ne surveille.</p>
+<p>Aucune durée ne se donne d’avance : c’est la pesée hebdomadaire de l’étape 16 qui dit où en est la pièce, avec la balance à fléau du 9.1.</p>
+<p>Si le dégel prend de vitesse : un feu de boucane sous la pièce tient les mouches à distance le temps de la rentrer. <strong>Ce n’est pas du fumage et ça ne conserve rien</strong> — le fumage n’est jamais un traitement de conservation à lui seul dans ce livre (<span class="ref">ch. 70</span>, <span class="ref">ch. 71</span>).</p>
+<h3 class="sub">9.8 Ce qui ne se remplace pas, et ce qu’on perd</h3>
+<p class="p0">Deux choses ne se refabriquent pas, et il vaut mieux les regarder en face que broder autour.</p>
+<p class="p0 ri"><strong class="runin">Le nitrite.</strong> Il n’existe aucune route de chalet vers un nitrite dosable. Le salpêtre (nitrate de potassium) n’en est pas une : c’est du nitrate, il doit être réduit par des bactéries avant d’agir, et sa matière active n’a rien à voir avec celle d’un mélange du commerce (<span class="ref">§8</span>). Ce qui remplace la barrière n’est pas un produit mais une conduite tenue sans relâche — le froid, l’oxygène, donc jamais de sac fermé ni de sous-vide sur une pièce qui n’est pas sèche, et la cuisson.</p>
+<p class="p0 ri"><strong class="runin">Le thermomètre à sonde.</strong> S’il n’en reste plus un seul au chalet, le 74 °C devient une opinion. La conservation par le sel redevient un pari, et la voie sûre est la cuisson immédiate et le froid naturel du <span class="ref">ch. 73</span>.</p>
+<p>Ce que cette version coûte, nommé sans adoucir :</p>
+<p class="step"><span class="sn">1</span><strong>Le produit stabilisé.</strong> Il n’y en a pas. Rien de ce qui sort de cette caisse ne se garde hors froid : ce n’est pas un jambon sec, c’est de la viande salée au froid, et elle dépend entièrement du caveau. Si le caveau se réchauffe, tout est perdu d’un coup.</p>
+<p class="step"><span class="sn">2</span><strong>La barrière du nitrite.</strong> Sans elle, il ne reste que le sel, le froid et l’oxygène. Le plancher de 2,5 %, qui suppose 100 ppm de nitrite, <strong>ne s’applique plus</strong> : la saturation est ce qui le remplace, et c’est un remplacement qui n’a pas de chiffre.</p>
+<p class="step"><span class="sn">3</span><strong>La mesure fine, pas la mesure.</strong> La balance à fléau rend le poids frais, le pourcentage et la perte de masse : l’essentiel du chapitre tient encore. Ce qu’elle ne rend pas, c’est l’activité de l’eau — le <strong>aw ≤ 0,85</strong> n’est mesurable au chalet ni avec elle ni sans elle, et aucune perte de masse ne s’y traduit.</p>
+<p class="step pk-c"><span class="sn">4</span><strong>Le cru.</strong> Rien de ce qui sort de cette caisse ne se mange sans cuisson. <strong>74 °C à cœur</strong>, thermomètre planté dans la partie la plus épaisse.</p>
+<p class="step"><span class="sn">5</span><strong>Le gras.</strong> Une viande d’orignal salée et dessalée, mangée seule tout un hiver, c’est la situation exacte du <span class="ref">ch. 19</span> : viande maigre seule, mal de caribou, mortel en quelques semaines. La caisse de sel ne dispense pas de garder du gras (<span class="ref">ch. 72</span>).</p>
+<p class="step"><span class="sn">6</span><strong>Les heures.</strong> Faire son sel, le récupérer, retourner tous les deux jours, peser chaque semaine : cette version ne coûte pas d’argent, elle coûte du temps tous les jours de l’hiver, à quelqu’un qui en a déjà peu.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="68-1"><span class="fnn">1</span>La fleur blanche, mince et sèche des saucissons et des jambons secs : une moisissure normale sur ces produits. Toute autre moisissure — noire, verte, duveteuse — n’en est pas, ni une surface visqueuse.</p>
+</template>
+<script type="application/json" id="meta">{"num": "68", "title": "Salaison à sec", "tome": "Tome 4 · De la bête au garde-manger", "tnum": 4, "tfond": "#25414F", "tencre": "#EDF2F5", "lieu": "Chalet", "dsub": "SALAISON À SEC", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

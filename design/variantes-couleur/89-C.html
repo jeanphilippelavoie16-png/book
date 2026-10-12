@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>89 — Raquettes et toboggan — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"89"}
+</style>
+</head>
+<body class="vA vB vC t5 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 5 · La forêt, le jardin et le chalet</span><span>Chapitre</span></div><div class="open-title"><div class="num">89</div><h1>Raquettes et toboggan</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Un fût de bouleau fendu, cintré à l’eau bouillante et lacé de babiche, et deux planches d’épinette relevées à la tête, remplacent la motoneige dès que la neige passe 30 cm : une paire bien faite tient deux saisons de gros usage, un toboggan se fait en une journée et demie d’atelier, et une patte d’ours de dépannage se fait en un jour avec n’importe quelle corde.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h3 class="sub">C’est le bon choix quand</h3>
+<p class="li"><strong>La neige passe 30 cm et la machine ne part plus, ou le carburant se compte</strong> (<span class="ref">ch. 15</span>). À 61 cm et plus, sans raquettes, on ne bouge presque plus. Avec elles, on retrouve à peu près la mobilité d’un piéton sur sol dur : c’est tout ce qu’elles promettent, et c’est énorme.</p>
+<p class="li"><strong>Il faut ramener ce qui ne se porte pas</strong> : le bois, un quartier d’orignal, un enfant de quatre ans, un blessé (<span class="ref">ch. 26</span>). Tirer au lieu de porter garde le dos, l’équilibre et les deux mains libres.</p>
+<p class="li"><strong>On est à l’automne et la bête vient d’être abattue.</strong> C’est la seule fenêtre où tout se trouve en même temps : du bois vert qui plie, une peau fraîche pour la babiche, et des semaines devant soi pour laisser sécher.</p>
+<p class="li"><strong>Une raquette du commerce a cassé son cadre ou son laçage.</strong> On la répare (<span class="ref">§9</span>) avant d’en refaire une : une éclisse et quelques brins de laçage valent mieux qu’une semaine.</p>
+<h3 class="sub">C’est un mauvais choix quand</h3>
+<p class="li"><strong>La croûte porte.</strong> Sur de la neige assez dure pour tenir un homme, la raquette glisse et n’accroche rien : on l’enlève et on marche, et on la remet quand la croûte cède.</p>
+<p class="li"><strong>La pente est raide.</strong> La prise de la raquette devient nulle et elle part de côté. On monte en travers, en taillant une marche à chaque pas, ou on contourne.</p>
+<p class="li"><strong>La neige fond au soleil.</strong> La babiche s’engorge de sloche, chaque pas soulève un paquet de neige mouillée collée au laçage, et la marche devient épuisante. C’est la saison de la raquette de planche (<span class="ref">§9</span>).</p>
+<p class="li"><strong>Le toboggan doit traverser de la sloche ou de l’eau sur la glace.</strong> Il boit, la charge se mouille et gèle ensuite. Au début et à la fin de l’hiver, c’est un traîneau à patins qui passe (<span class="ref">§9</span>). En plein hiver, l’eau peut aussi dormir sous la neige d’un lac (<span class="ref">§7</span>).</p>
+<p class="li"><strong>Le toboggan doit monter une longue pente raide.</strong> On le laisse en bas et on monte la charge sur le dos, en plusieurs voyages : ça coûte moins d’énergie que de le hisser.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">La raquette et le toboggan font la même chose : étaler le poids.</strong> Un pied s’enfonce parce que tout le corps porte sur une petite surface. Le laçage serré de la raquette et le fond plat du toboggan répartissent la même charge sur une surface plusieurs fois plus grande, et la neige, qui ne supporte pas le pied, supporte la surface. Le reste du chapitre sert à obtenir cette surface avec du bois qu’on a coupé soi-même et une peau qu’on a préparée soi-même.</p>
+<p class="p0 ri"><strong class="runin">Le bois chaud et mouillé se plie ; le bois froid et sec casse.</strong> La chaleur et l’eau ensemble rendent le bois environ <strong>dix fois plus plastique</strong> que du bois sec à la température de la pièce. L’eau bouillante vaut la vapeur à la pression de l’air : pas besoin de chaudière, un chaudron suffit, et c’est la méthode commode quand une partie seulement de la pièce doit plier — la pointe d’une raquette, la tête d’un toboggan. Du bois vert, coupé de la veille, a déjà son eau : il ne lui manque que la chaleur.</p>
+<p class="p0 ri"><strong class="runin">Dans une courbe, le bois se comprime à l’intérieur et s’étire à l’extérieur, et il ne s’étire presque pas.</strong> Tout le cintrage tient dans cette phrase. Le bois assoupli encaisse beaucoup de compression sur la face intérieure, mais la face extérieure rompt dès qu’on lui demande de s’allonger un peu : c’est là que partent les échardes. Un nœud, lui, refuse de se comprimer, et la pièce fait un coude à cet endroit. Plié librement, sans rien pour retenir la face extérieure, le bois ne tolère qu’environ <strong>3 %</strong> d’écart de longueur entre ses deux faces, ce qui correspond à un rayon d’environ <strong>33 fois l’épaisseur</strong> — 36 cm pour un fût de 11 mm. La pointe d’une raquette et la tête d’un toboggan sont bien plus serrées que ça. C’est pour ça qu’on amincit la zone de pli, qu’on la chauffe à fond, qu’on plie lentement, et qu’on garde une sangle prête (<span class="ref">§5-D</span>) : une bande d’acier posée sur la face extérieure l’empêche de s’allonger et force tout le travail en compression. Ainsi tenu, le bouleau à papier est parmi les meilleurs bois à cintrer qu’on ait mesurés : il plie jusqu’à un rayon d’environ <strong>2,5 fois son épaisseur</strong>, et au moins une pièce sur deux réussit à ce rayon. Une épinette mesurée de la même façon est jugée impropre au cintrage : c’est pour ça que la tête d’un toboggan d’épinette s’amincit autant.</p>
+<p class="p0 ri"><strong class="runin">La courbe prend en séchant, pas en refroidissant.</strong> Sortie de son gabarit encore chaude, la pièce se redresse en partie. Tenue jusqu’à ce qu’elle sèche, elle garde sa forme. Le signe que c’est pris : le lien qui retient <strong>seul</strong> les deux bouts devient lâche tout seul, et une fois ôté, la pièce ne bouge plus. L’inverse est vrai aussi : <strong>un bois cintré qu’on remouille s’ouvre</strong>. C’est la raison des liens permanents qui tiennent la tête d’un toboggan, qui passe l’hiver dans la neige.</p>
+<p class="p0 ri"><strong class="runin">La babiche serre en séchant et se relâche mouillée</strong> (<span class="ref">ch. 103</span>, <span class="ref">§3</span>). Lacée humide, elle rétrécit sur le fût et tend le laçage comme une peau de tambour ; trempée par la neige mouillée, elle boit, s’étire et blanchit. Tout l’entretien d’une raquette vient de là.</p>
+<p class="p0 ri"><strong class="runin">Le toboggan est fait de deux planches, pas d’une.</strong> Une planche assez large ne se trouve pas dans une forêt d’épinettes, une seule planche fendrait, et deux planches liées ensemble plient sur les bosses au lieu de casser. Un toboggan long se dirige mieux qu’un court.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce qu’il faut pour <strong>cette</strong> procédure. Ce qui s’achète d’avance, raquettes du commerce comprises, est au <span class="ref">ch. 00b</span>.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item"><strong>Bille de bouleau à papier</strong> (<em>Betula papyrifera</em>) droite, sans nœud, sans pourriture</td><td>Assez longue pour un fût entier ; ou deux pour un fût en deux pièces (étape 5)</td><td><strong>Mélèze laricin</strong> (<em>Larix laricina</em>), bois dur et résistant, pris dans la tourbière ; un bouleau plus petit, en fût de deux pièces. Pour la raquette de printemps, une planche (<span class="ref">§9</span>)</td><td><strong>Non sur le fil droit.</strong> Un nœud ou un fil qui tourne dans la zone de pli casse la pièce, quelle que soit l’essence</td></tr><tr><td class="c-item"><strong>Épinette</strong> noire (<em>Picea mariana</em>) ou blanche (<em>Picea glauca</em>)</td><td>Deux traverses par raquette ; un tronc pour les deux planches d’un toboggan, plus des bâtons de 5 × 5 × 46 cm (2 × 2 × 18 po) pour les traverses</td><td>Mélèze laricin pour le toboggan. Bouleau en planches minces, d’à peine 6 mm (¼ po) : il plie bien mieux que l’épinette (<span class="ref">§3</span>)</td><td>Oui</td></tr><tr><td class="c-item"><strong>Hache</strong> affûtée (<span class="ref">ch. 105</span>)</td><td>1</td><td>Aucune pour abattre ; pour amincir, la plane ou le couteau croche</td><td><span class="non">NON</span></td></tr><tr><td class="c-item"><strong>Couteau croche</strong></td><td>1</td><td>Couteau droit bien affûté, plane, petit rabot. Il se fabrique (<span class="ref">§9</span>)</td><td>Oui, mais c’est l’outil du chapitre</td></tr><tr><td class="c-item"><strong>Coins et masse de bois</strong> pour fendre</td><td>Trois ou quatre coins</td><td>La hache seule pour une petite bille ; coins taillés dans du bouleau jaune ou de l’érable sec (<span class="ref">ch. 110</span>, <span class="ref">§9</span>.3)</td><td>Oui</td></tr><tr><td class="c-item"><strong>Chaudron d’eau bouillante et « brosse »</strong> : un bâton fendu, un vieux chiffon coincé dans la fente</td><td>1</td><td>Chiffons ébouillantés enroulés sur la zone de pli ; boîte à vapeur de tuyau de poêle (<span class="ref">§9</span>) ; chaleur sèche du poêle sur une perche verte entière, avec son écorce</td><td><strong>Non sur la chaleur</strong></td></tr><tr><td class="c-item"><strong>Gabarit</strong> : une planche, le contour tracé, des taquets cloués à l’intérieur</td><td>1 par forme</td><td>Le genou et une corde nouée entre les deux bouts</td><td>Oui</td></tr><tr><td class="c-item"><strong>Sangle de cintrage</strong> : une bande d’acier couchée sur la face extérieure, aussi large qu’elle, un taquet contre le bout proche de la pièce, une ligature ou une serre au-delà de la courbe de l’autre côté (étape 14)</td><td>1</td><td>Feuillard de palette ou vieille lame de scie à ruban pour un fût ; pour une planche de toboggan, seule une bande de tôle couvre la largeur (<span class="ref">§9</span>)</td><td>Oui, tant que rien ne lève à l’extérieur</td></tr><tr><td class="c-item"><strong>Perçage</strong> : vilebrequin ou perceuse à main, mèches fines</td><td>1</td><td>Alène chauffée au rouge ; drille à archet et clou aplati (<span class="ref">ch. 110</span>, <span class="ref">§9</span>.2)</td><td><span class="non">NON</span> <span class="negx"> : sans trous, pas de laçage</span></td></tr><tr><td class="c-item"><strong>Aiguille à lacer</strong>, plate, arrondie aux deux bouts, chas au milieu</td><td>1 ou 2</td><td>Os, andouiller, bois franc, clou aplati ; fil de collet tordu pour la ficelle du toboggan</td><td>Oui</td></tr><tr><td class="c-item"><strong>Babiche</strong> mouillée (<span class="ref">ch. 103</span>, blocs D et E)</td><td>Une peau pour commencer. Le centre, en grosse lanière serrée, en prend bien plus que la pointe et le talon ; couper le centre d’abord, dans la plus belle partie de la peau</td><td><strong>Peau de phoque bien grattée</strong> (<span class="ref">ch. 56</span>) ; corde ; toile en bandes et ligne à pêche pour la patte d’ours seulement (<span class="ref">§9</span>)</td><td><strong>Non sur la qualité du centre</strong> : c’est lui qui porte le poids</td></tr><tr><td class="c-item"><strong>Ficelle ou babiche</strong> pour les ligatures du toboggan</td><td>Quelques mètres</td><td>Babiche tordue, corde fine, fil de collet. La ficelle sert pendant le cintrage ; la babiche se pose après la dernière eau chaude, qui la cuit (<span class="ref">ch. 103</span>, <span class="ref">§9</span>)</td><td>Non</td></tr><tr><td class="c-item"><strong>Corde de côté et traits</strong> du toboggan</td><td>Une corde de côté, en boucle (étape 56) ; deux traits d’environ 7,6 m (25 pi), ou une corde nouée aux deux coins</td><td>Babiche tordue en deux brins ; n’importe quelle corde qui ne s’étire pas</td><td>Non</td></tr><tr><td class="c-item"><strong>Clous</strong> pour les traverses du toboggan</td><td>2 par traverse</td><td>Aucun : le toboggan tient entièrement à la ligature</td><td>Oui</td></tr><tr><td class="c-item"><strong>Toile ou peau</strong> pour envelopper la charge</td><td>1</td><td>Bâche, couverture, peau d’orignal</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A. Choisir et fendre le bois (1 à 6)</h3>
+<p class="step"><span class="sn">1</span><strong>Couper le bouleau à l’automne et le travailler vert, le jour même.</strong> Le bois de fût se travaille dès la coupe, pour garder le maximum de ressort. On le cherche au clair : le bouleau à papier ne supporte pas l’ombre. Il pousse en lisière, au bord des lacs et des chemins, et en peuplements presque purs dans les brûlis et les vieilles coupes. Trouver le bon arbre peut prendre des jours ; ça fait partie du travail.</p>
+<p class="step"><span class="sn">2</span><strong>Refuser tout ce qui a un défaut dans la zone de pli</strong> : pourriture, nœud, fente, fil tordu, et le cœur de l’arbre. La pente du fil ne doit pas dépasser <strong>1 sur 15</strong> : sur une fente de 30 cm, le fil ne dévie pas de plus de 2 cm. La fente elle-même fait l’essai — un bois qui fend droit a le fil droit.</p>
+<p class="step"><span class="sn">3</span><strong>Fendre, ne pas scier.</strong> Moitiés, puis quarts, aux coins (<span class="ref">ch. 110</span>, <span class="ref">§9</span>.3). Une fente suit le fil, un trait de scie le coupe, et un fil coupé devient une écharde au cintrage. Tirer les baguettes loin du cœur.</p>
+<p class="step"><span class="sn">4</span><strong>Orienter la pièce avant de la tailler.</strong> Les cernes doivent courir le long des faces qui vont se courber, pas les traverser, et <strong>la face qui regardait le cœur de l’arbre ira à l’intérieur de la courbe</strong> : elle a moins de gerces, et c’est elle qui travaille en compression.</p>
+<p class="step"><span class="sn">5</span><strong>Dégrossir à la hache, puis au couteau croche</strong>, jusqu’à la section du fût : environ <strong>27 mm</strong> de haut sur <strong>11 mm</strong> d’épais à la pointe et <strong>14 mm</strong> au talon (27 × 11 à 14 mm, soit 1 1/16 × 7/16 à 9/16 po). En bois vert, garder un peu de gras : la pièce rétrécit en séchant. La finition se fait après le premier pli. Longueur : le tour du gabarit plus <strong>5 cm</strong> (2 po), la pointe de la raquette au milieu du bâton, les deux bouts au talon. Un bouleau trop court donne un <strong>fût en deux pièces</strong>, réunies par une longue enture à mi-bois (<span class="ref">ch. 110</span>, <span class="ref">§5</span>.4 et <span class="ref">§5</span>.7) ligaturée de babiche mouillée (<span class="ref">ch. 103</span>, étape 31). Placée sur un côté, entre les deux traverses, l’enture est ensuite tenue par le laçage du centre, qui s’enroule autour du fût.</p>
+<p class="step"><span class="sn">6</span><strong>Arrondir le dessous.</strong> Le chant du dessous se façonne bien rond et un peu plus large que celui du dessus : un chant vif coupe la babiche qui passe autour. Faire une encoche au couteau sur le dessus, pour ne jamais monter une pièce à l’envers.</p>
+<h3 class="sub">B. Le gabarit (7 et 8)</h3>
+<p class="step"><span class="sn">7</span><strong>Le meilleur gabarit est la paire qu’on a déjà.</strong> Poser une raquette du commerce sur une planche, tracer le contour intérieur, clouer des taquets le long du trait à l’intérieur, et préparer ceux de l’extérieur avec leurs clous déjà plantés, pour les fixer vite quand le bois arrive chaud. Sans modèle : une raquette d’usage courant fait environ <strong>30 × 107 cm</strong> (12 × 42 po) ; la raquette longue de neige poudreuse et de terrain plat, <strong>30 × 152 cm</strong> (12 × 60 po) ; la patte d’ours est courte, large et ovale. La taille se décide pour qui la raquette est faite : plus lourd, plus grande ; bois dense et côtes, plus courte. <strong>La première paire se fait plate.</strong> Une pointe relevée monte mal les côtes, et plier une pièce dans deux sens à la fois demande une main qu’on n’a pas encore.</p>
+<p class="step"><span class="sn">8</span><strong>Sans planche</strong>, le fût plié se ferme en rapprochant les deux bouts et en les nouant d’une corde solide, et d’autres cordes le tiennent en forme pendant qu’il sèche.</p>
+<p class="p0 ri"><strong class="runin">Les formes selon la neige et le terrain.</strong> Au chalet, la forme se choisit d’abord pour le bois dense et les côtes : ovale, à queue courte ou sans queue, parce qu’elle manœuvre entre les arbres.</p>
+<table class="tspan"><colgroup><col style="width:22.0%"><col style="width:42.1%"><col style="width:35.9%"></colgroup><thead><tr><th>Forme</th><th>Où elle sert</th><th>Ce qu’elle coûte</th></tr></thead><tbody><tr><td class="c-item"><strong>Patte d’ours</strong> : courte, large, ovale, sans queue</td><td>Broussailles, bois dense, abords du camp, endroits serrés ; la raquette des enfants</td><td>Lente en ligne droite ; porte moins en neige très profonde</td></tr><tr><td class="c-item"><strong>Queue de castor</strong> : ovale, queue courte</td><td>Le travail de tous les jours : bois de chauffage, ligne de trappe, et la longue route en tirant un toboggan</td><td>La raquette à tout faire ; aucune spécialité</td></tr><tr><td class="c-item"><strong>Longue à pointe relevée</strong></td><td>Neige poudreuse profonde, terrain plat et découvert, ouvrir la trace</td><td>Difficile sur une piste tapée et dans les côtes, glissante sur la glace, plus fatigante à porter</td></tr><tr><td class="c-item"><strong>Planche</strong> (<span class="ref">§9</span>)</td><td>Neige molle et fondante du printemps</td><td>Ne vaut que pour cette neige-là</td></tr></tbody></table>
+<h3 class="sub">C. Assouplir (9 à 12)</h3>
+<p class="step"><span class="sn">9</span><strong>Travailler à côté du poêle, jamais dehors.</strong> Le bois doit être plié dès qu’il sort de l’eau chaude : la surface qui refroidit ou qui sèche avant le pli redevient raide, et c’est elle qui casse.</p>
+<p class="step pk-t"><span class="sn">10</span><strong>Durée : une demi-heure par 2,5 cm d’épaisseur pour du bois vert, une heure par 2,5 cm pour du bois sec.</strong> Pour un fût vert de 11 à 14 mm, environ <strong>15 minutes</strong> de chaleur mouillée. Trop longtemps à la pression de l’air n’abîme presque rien ; trop peu fait casser.</p>
+<p class="step"><span class="sn">11</span><strong>La méthode la plus simple : éponger.</strong> Tremper la brosse dans l’eau bouillante et la passer sur <strong>les deux faces</strong> de la zone de pli, sans arrêt, en déplaçant le bâton. Après 10 à 15 minutes, envelopper la zone d’un chiffon, la fléchir doucement dans les deux sens, puis reprendre l’eau. Recommencer jusqu’à ce qu’elle plie sans craquer. La pointe, qui a la courbe la plus serrée, doit être la mieux assouplie de toutes.</p>
+<p class="step"><span class="sn">12</span><strong>Jamais de pression.</strong> La vapeur à la pression de l’air suffit, et la pression n’ajoute que du risque. Sur du chêne étuvé 20 minutes à environ <strong>120 kPa</strong>, près de deux cintrages sur dix ont raté, contre moins d’un sur dix à la pression de l’air : écart faible, mais dans le mauvais sens. À <strong>240 kPa</strong>, dix minutes suffisent pour en faire rater quatre sur dix. L’autoclave à conserves travaille à 70 kPa (<span class="ref">ch. 78</span>) : il n’apporte rien au bois que le chaudron ne donne déjà.</p>
+<h3 class="sub">D. Cintrer et laisser prendre (13 à 18)</h3>
+<p class="step"><span class="sn">13</span><strong>Commencer par la pointe.</strong> Placer le milieu du bâton au nez du gabarit, face du cœur contre les taquets, et plier lentement, d’une pression régulière : un pli brusque se concentre en un point et casse. Fixer les taquets extérieurs de la pointe, finir un côté, puis l’autre.</p>
+<p class="step"><span class="sn">14</span><strong>Regarder la face extérieure pendant qu’on plie.</strong> Au premier soulèvement d’écharde, arrêter, rechauffer, et poser la sangle : la bande d’acier couchée sur la face extérieure de la zone de pli, serrée au bois de part et d’autre de la courbe — ou appuyée par un taquet contre le bout de la pièce quand le bout est proche, comme sur une planche de toboggan —, et on plie les deux ensemble. La sangle doit être aussi large que le bois, sinon les échardes partent sur les arêtes.</p>
+<p class="step"><span class="sn">15</span><strong>Ne rien percer, ne rien mortaiser avant de plier.</strong> Chaque trou est un point faible où la courbe casse.</p>
+<p class="step"><span class="sn">16</span><strong>Refermer la queue provisoirement.</strong> Rapprocher les deux bouts et les nouer d’une corde, sans ligature définitive : les traverses doivent entrer <strong>avant</strong> la fermeture (bloc E).</p>
+<p class="step"><span class="sn">17</span><strong>Laisser sécher dans la forme.</strong> Pour du bouleau vert dans la chaleur d’une tente ou du chalet, on compte <strong>un à trois jours</strong> ; d’autres laissent le fût <strong>au moins une semaine</strong> sur la forme, bois vert ou sec. Entre les deux, c’est le bois qui tranche, par un signe mécanique : <strong>quand la corde qui retient seule les deux bouts devient lâche, la courbe est prise.</strong> Sur un gabarit à taquets, la corde ne porte presque rien et ne dit rien : l’essai est d’enlever un taquet extérieur. Le fût ne bouge pas, c’est pris ; il s’écarte, on replante le taquet et on attend. Retirée trop tôt, la pièce s’ouvre : on la remet dans la forme, réchauffée au besoin (<span class="ref">§7</span>). Sécher dans l’air de la pièce, pas collé au poêle : une surface qui sèche trop vite se gerce.</p>
+<p class="step"><span class="sn">18</span><strong>Égaliser les deux fûts</strong> une fois secs, au couteau croche, pour que les deux contours soient pareils.</p>
+<h3 class="sub">E. Poser les traverses et fermer le cadre (19 à 23)</h3>
+<p class="step"><span class="sn">19</span><strong>Tailler deux traverses d’épinette</strong>, sèches. Elles divisent la raquette en trois zones — pointe, centre, talon — et sont espacées d’environ <strong>38 à 41 cm</strong> (15 à 16 po).</p>
+<p class="step"><span class="sn">20</span><strong>Trouver leur place à l’équilibre.</strong> Écarter le fût, y coincer les deux traverses sans les fixer, et tenir la raquette par le milieu, en équilibre sur une main. Déplacer les traverses jusqu’à ce que le <strong>talon soit plus lourd d’environ 85 g</strong> que la pointe : sans balance, la queue doit descendre doucement quand on la tient au centre. C’est ce qui fait traîner la queue et lever la pointe à chaque pas. Marquer les deux places.</p>
+<p class="step"><span class="sn">21</span><strong>Mortaiser le côté intérieur du fût</strong>, à environ <strong>6 mm</strong> (¼ po) de profondeur : c’est assez pour un joint serré, et chaque millimètre de plus affaiblit la courbe.</p>
+<p class="step"><span class="sn">22</span><strong>Entrer les traverses, puis fermer la queue.</strong> Écarter les deux branches, glisser les traverses dans leurs mortaises, relâcher. Une fois la queue fermée, elles ne peuvent plus entrer. Pour fermer : superposer les deux bouts, percer <strong>trois trous à environ 10 cm</strong> (4 po) du bout, et ligaturer de babiche mouillée qui serrera en séchant. <strong>Jamais de vis</strong> : le bois fend autour à la première saison.</p>
+<p class="step"><span class="sn">23</span><strong>Faire une gauche et une droite.</strong> La bouche — l’ouverture où entre le pied — n’est pas centrée : décalée d’un côté, elle fait pencher légèrement la raquette vers l’extérieur, et les deux raquettes ne se frappent plus à chaque pas. Décaler la bouche vers l’intérieur laisse plus de raquette dehors, donc plus de poids, et c’est ce côté qui devrait descendre. On le vérifie une fois le centre lacé : tenue par la corde des orteils, la raquette doit pencher, côté extérieur plus bas. Si elle penche de l’autre côté, elle va à l’autre pied.</p>
+<h3 class="sub">F. Percer et poser les lisières (24 à 26)</h3>
+<p class="step"><span class="sn">24</span><strong>Percer la pointe et le talon, pas le centre.</strong> Des paires de petits trous, <strong>en diagonale et rapprochés</strong>, percés en biais : la babiche passe ainsi surtout <strong>dans</strong> le bois, à l’abri, au lieu de frotter sur la neige et la croûte. Le centre n’a pas de trous : son laçage s’enroule autour du fût lui-même. Dans chaque traverse, trois trous : un à environ <strong>4 cm</strong> (1 ½ po) de chaque bout, un au milieu.</p>
+<p class="step"><span class="sn">25</span><strong>Poser la lisière.</strong> C’est un cordon de babiche fine passé dans les trous du fût et dans ceux des traverses, qui forme une rangée de petites boucles le long du bord intérieur de la pointe et du talon. Le laçage de ces deux zones s’accroche aux boucles, pas au bois.</p>
+<p class="step"><span class="sn">26</span><strong>Préparer la babiche</strong> au <span class="ref">ch. 103</span>, blocs D et E. Pour lacer, des brins de <strong>3 à 6 m</strong> (10 à 20 pi) : plus long, ils s’emmêlent. Deux bouts s’aboutent sans nœud : une fente au couteau dans chaque bout, chacun passé dans la fente de l’autre et tiré. Une fois sec, le raccord ne se voit presque plus. <strong>La babiche se pose toujours mouillée.</strong></p>
+<h3 class="sub">G. Lacer en trois zones (27 à 34)</h3>
+<p class="step"><span class="sn">27</span><strong>Choisir la babiche.</strong> L’orignal (<em>Alces americanus</em>) lace une raquette : plusieurs peuples l’ont toujours fait, et c’est la peau que le territoire donne. Pour le laçage, elle passe pourtant pour <strong>moins durable</strong> que le caribou (<em>Rangifer tarandus</em>) ou le phoque, sans qu’aucune durée soit publiée. La peau de phoque bien grattée passe pour bonne et durable ; sa coupe en spirale est au <span class="ref">ch. 56</span>. Donc : phoque quand on en a ; orignal sinon, la plus belle peau pour le centre (<span class="ref">ch. 103</span>, étape 18), en comptant relacer plus tôt et en gardant de la babiche de réserve sur soi.</p>
+<p class="step"><span class="sn">28</span><strong>L’ordre : la pointe, puis le centre, puis le talon.</strong> La raquette se tient serrée entre les genoux, ou entre deux perches plantées.</p>
+<p class="step"><span class="sn">29</span><strong>La pointe, en babiche fine.</strong> Faire un œil au bout du brin et le passer en nœud coulant dans la boucle de lisière du coin où la traverse rejoint le fût. Monter le brin jusqu’à la boucle du milieu de la pointe, le tordre autour, redescendre au coin opposé, le tordre autour de sa boucle. Revenir en travers, en accrochant chaque fois la boucle suivante d’une boucle torsadée, et en tordant le brin autour des passes déjà posées. La pointe se remplit de triangles serrés.</p>
+<p class="step"><span class="sn">30</span><strong>Le centre commence par le cordon d’orteils</strong>, en babiche forte : un brin tendu en travers du fût, juste derrière la traverse avant, passé <strong>cinq ou six fois</strong> et arrêté d’une demi-clé. Puis deux <strong>haubans</strong>, de part et d’autre du futur trou des orteils : chacun va du cordon d’orteils à la traverse avant, enroulé plusieurs fois. C’est sous la plante du pied que le laçage force le plus, et c’est là qu’on le double.</p>
+<p class="step"><span class="sn">31</span><strong>Le reste du centre, en babiche forte, autour du fût.</strong> Même geste qu’à la pointe, mais chaque passe fait le tour du fût lui-même et s’y arrête d’un nœud de cabestan. Maille d’environ <strong>2 cm</strong> (¾ po) pour l’usage courant ; <strong>plus lâche là où la neige est mouillée</strong>, parce qu’une maille fine s’y bouche ; plus serrée pour la neige poudreuse, qui passe au travers. Le centre, lacé serré autour du fût, tient aussi l’enture d’un fût en deux pièces.</p>
+<p class="step"><span class="sn">32</span><strong>Le trou des orteils</strong>, environ <strong>10 cm</strong> (4 po) de large, en demi-cercle juste derrière la traverse avant : quand le laçage du centre atteint ses bords, le brin ne passe plus autour de la traverse mais dans le cordon d’orteils. Le border en tordant le brin autour des haubans et du cordon. Le faire généreux : une chaussure d’hiver épaisse doit y descendre sans frotter.</p>
+<p class="step"><span class="sn">33</span><strong>Le talon, en babiche la plus fine</strong>, comme la pointe. Égaliser les mailles au fur et à mesure avec l’espaceur (<span class="ref">§9</span>), en tirant chaque passe à la même tension.</p>
+<p class="step"><span class="sn">34</span><strong>Faire sécher la raquette dehors, à plat et à l’ombre, trois ou quatre jours</strong>, hors de portée des chiens et des rongeurs, qui mangent la babiche fraîche. Jamais près du poêle : surchauffée, la babiche devient cornée et cassante, et ça ne se rattrape pas (<span class="ref">ch. 103</span>). Et comme elle serre en séchant (<span class="ref">§3</span>), une raquette lacée trop serré, séchée à −30 °C, casse son cadre (<span class="ref">ch. 103</span>, étape 32).</p>
+<h3 class="sub">H. L’attache (35 à 38)</h3>
+<p class="step"><span class="sn">35</span><strong>Chausser mou.</strong> Mocassin, mukluk ou botte souple (<span class="ref">ch. 104</span>) : une semelle et un talon de cuir dur, en frottant, usent le laçage en quelques sorties, et ils gèlent le pied.</p>
+<p class="step"><span class="sn">36</span><strong>La lanière simple.</strong> Une lanière large de cuir souple, fixée de part et d’autre de la bouche, derrière la traverse avant. Ses deux attaches sont assez écartées pour que le pied entre jusqu’aux orteils, et tirées vers le bas pour que le pied ne puisse pas glisser en avant et buter contre la traverse. La boucle qui passe sur les orteils reste lâche, pour que le pied bouge. Le reste de la lanière fait le tour du talon et se noue. Pour chausser : le pied entre dans la boucle <strong>par l’avant</strong>, tourne dedans, puis passe sous la bride des orteils. Bien réglée une fois pour toutes, cette attache s’enlève d’un tour de cheville.</p>
+<p class="step"><span class="sn">37</span><strong>Régler par le talon.</strong> Trop serrée, le poids écrase le tendon du talon, et la circulation des orteils coupe : la gelure vient de là. Trop lâche, la lanière tombe et l’orteil sort de sa bride. Vérifier le serrage à chaque halte.</p>
+<p class="step"><span class="sn">38</span><strong>Les orteils ne vont dans le trou que pour agripper en montée.</strong> Quand le talon se lève, la pointe du pied doit pouvoir descendre dans le trou ; mais on n’y enfonce pas les orteils à chaque pas, ce qui fait mal et fait perdre les ongles. En descente, le pied reste posé en travers de la traverse.</p>
+<h3 class="sub">I. Marcher (39 à 42)</h3>
+<p class="step"><span class="sn">39</span><strong>Lever la pointe juste assez pour dégager la neige</strong>, la pousser devant, et laisser la queue glisser. Genoux souples, pas un peu écarté pour que la raquette arrière passe au-dessus de l’autre : le cadre qui passe trop près frappe la cheville et laisse un bleu profond.</p>
+<p class="step"><span class="sn">40</span><strong>En montée,</strong> droit dans les pentes douces, en travers et en marches dans les raides, la raquette posée le plus à plat possible, la pointe levée pour ne pas buter. <strong>En descente,</strong> le corps bien en arrière : penché en avant, on passe cul par-dessus tête, et le cadre peut frapper l’arrière de la tête.</p>
+<p class="step"><span class="sn">41</span><strong>Ne jamais faire porter le cadre en pont</strong> sur un tronc ou un fossé, ne pas sauter avec : c’est comme ça que les fûts cassent. Dans la neige mince, surveiller les chicots à peine couverts, qui crèvent le laçage. Quand la neige mouillée fait une boule sous le pied, la frapper tout de suite d’un bâton.</p>
+<p class="step"><span class="sn">42</span><strong>Ouvrir la trace.</strong> En neige profonde, le plus fort devant, et on le relaie souvent (<span class="ref">ch. 15</span>) : dans une file en raquettes, le troisième ou le quatrième marche déjà sur une piste ferme.</p>
+<h3 class="sub">J. Le toboggan de deux planches (43 à 57)</h3>
+<p class="p0">C’est le toboggan innu de la Basse-Côte-Nord : deux planches minces tirées d’un seul tronc, relevées à la tête, liées à des traverses par une ficelle qui ne touche jamais la neige.</p>
+<p>Le temps, pour une main exercée : une journée et demie d’atelier, plus les quelques heures en forêt pour tirer les deux planches du tronc.</p>
+<p class="step"><span class="sn">43</span><strong>Choisir un tronc d’épinette ou de mélèze le plus libre de nœuds possible</strong>, le fendre en deux par le cœur, aux coins (<span class="ref">ch. 110</span>, <span class="ref">§9</span>.3), et tirer <strong>une planche de chaque moitié</strong> : venues du même arbre, elles plient pareil.</p>
+<p class="step"><span class="sn">44</span><strong>Planches brutes :</strong> environ <strong>2,5 à 3,2 cm</strong> d’épais (1 à 1 ¼ po), <strong>17 cm</strong> de large (6 ¾ po), <strong>2,4 m</strong> de long (96 po). Plus long se dirige mieux ; on en a fait jusqu’à <strong>4 m</strong> (13 pi).</p>
+<p class="step"><span class="sn">45</span><strong>Amincir à la hache.</strong> Coincer un bout de la planche entre deux arbres rapprochés, et travailler debout, la jambe hors de la trajectoire, ou à genoux, le genou appuyé derrière la planche. Quand un éclat menace de filer trop loin, donner <strong>quelques coups juste en dessous</strong> : ils l’arrêtent. Viser la planche à l’œil et la faire ressorter pour lire le gauchissement. Au sortir de la hache : environ <strong>16 mm</strong> (5/8 po) au plus épais, les bouts amincis à <strong>10 à 13 mm</strong> (3/8 à ½ po).</p>
+<p class="step"><span class="sn">46</span><strong>Finir au rabot ou au couteau croche</strong> à un peu plus de <strong>13 mm</strong> (½ po). Dresser un chant de chaque planche, et mettre les deux chants dressés ensemble : c’est le joint du milieu.</p>
+<p class="step"><span class="sn">47</span><strong>Marquer la zone de pli de deux traits</strong> en travers, plier au genou pour essayer, et gratter la zone au couteau croche entre deux essais, jusqu’à ce qu’elle plie franchement.</p>
+<p class="step"><span class="sn">48</span><strong>Tailler quatre ou cinq traverses</strong> dans des bâtons d’épinette de <strong>5 × 5 × 46 cm</strong> (2 × 2 × 18 po), finies à environ <strong>32 × 22 mm</strong> (1 ¼ × 7/8 po), et les faire <strong>sécher une nuit sous le poêle</strong> : des traverses sèches ne rétrécissent plus une fois ligaturées. Sous le poêle seulement si la main tient sous la tôle ; sinon, à côté, là où elle tient. Un bois chauffé longtemps sans s’enflammer se change en charbon, et ce charbon prend feu bien plus bas que le bois neuf (<span class="ref">ch. 82</span>, étape 3) : de l’épinette résineuse oubliée toute une nuit sous un poêle trop chaud, c’est le feu pendant que tout le monde dort.</p>
+<p class="step"><span class="sn">49</span><strong>Le premier pli.</strong> Coincer une <strong>pince de deux bâtons</strong> liés serré en travers du bout de la planche : elle sert de poignée et tire toute la largeur en même temps, sans tordre. Passer la brosse d’eau bouillante sur <strong>les deux faces</strong> de la zone, tenir la planche à <strong>8 à 10 cm</strong> (3 à 4 po) du poêle chaud, puis la plier lentement sur le genou, entre les deux traits. Deux ou trois applications d’eau, un pli après chacune.</p>
+<p class="step"><span class="sn">50</span><strong>Si la planche fend</strong>, arrêter tout de suite : percer un trou de chaque côté de la fente, y passer une ficelle mouillée et serrer. La fente s’arrête là. D’autres trous et d’autres ligatures plus loin si elle a couru.</p>
+<p class="step"><span class="sn">51</span><strong>Lier les deux planches.</strong> Deux trous dans chaque planche à environ <strong>20 cm</strong> (8 po) du bout, une ligature qui les réunit, puis deux bâtons serrés à la ficelle en travers, environ <strong>60 cm</strong> (2 pi) plus bas, comme serre-joint.</p>
+<p class="step"><span class="sn">52</span><strong>Poser les traverses, et noyer la ficelle.</strong> Chaque traverse sert de gabarit pour tracer sa place <strong>sous</strong> les planches. Elle se lie en <strong>quatre points</strong> : un à chaque bout, un de chaque côté du joint du milieu. À chaque point, deux trous, un de chaque côté de la traverse : la ficelle monte par l’un, passe par-dessus la traverse et redescend par l’autre. <strong>Sous le toboggan, tailler une rainure entre les deux trous</strong> : la ficelle s’y couche à fleur de bois et ne frotte jamais la neige. Une ficelle qui dépasse dessous s’use sur la neige et freine. Passer les boucles de ficelle, couper la traverse à largeur, tailler une <strong>encoche sous chaque bout</strong> de la traverse (étape 56), glisser la traverse dans ses boucles, serrer, nouer. Deux clous rabattus sur la ficelle, si on en a. Les deux premières traverses se posent ainsi : celle où commence la courbe, puis la suivante, à plat.</p>
+<p class="step"><span class="sn">53</span><strong>La tête.</strong> Poser la traverse de tête au bout des planches pliées, un peu creusée du côté du toboggan. Puis mettre le toboggan à plat, s’agenouiller dessus, un pied contre la zone de pli, et tirer le haut vers soi jusqu’à la courbe voulue. L’attacher de la traverse de tête à la première traverse à plat, derrière la courbe, par <strong>deux liens doubles de chaque côté</strong>, en ficelle. Remettre de l’eau bouillante, rechauffer près du poêle, et reprendre le pli en tirant d’une main la tête et de l’autre les liens. La tête monte d’environ <strong>32 cm</strong> (12 ½ po) sur un toboggan de 2,4 m, et jusqu’à <strong>45 cm</strong> (18 po) sur les grands.</p>
+<p class="step"><span class="sn">54</span><strong>Les liens de la tête sont permanents</strong>, et on les fait très forts : babiche tordue ou tendon, posés <strong>après la dernière eau chaude</strong>, qui cuit la babiche au lieu de l’assouplir (<span class="ref">ch. 103</span>, <span class="ref">§9</span>). Un bois cintré qui passe l’hiver dans la neige se remouille et cherche à se redresser : ces liens l’en empêchent.</p>
+<p class="step"><span class="sn">55</span><strong>Les dernières traverses</strong>, vers le talon, de la même façon. Les dimensions d’un toboggan éprouvé : environ <strong>2,35 m</strong> (92 ½ po) hors tout, <strong>1,9 m</strong> (75 po) à plat sous la tête ; <strong>19 cm</strong> (7 ½ po) de large à la traverse de tête, <strong>30 cm</strong> (12 po) au milieu, <strong>20 cm</strong> (8 po) au talon. Les grands toboggans de charge, en planches plus larges, allaient jusqu’à <strong>46 cm</strong> (18 po) entre les deux premières traverses et se rétrécissaient à <strong>13 à 18 cm</strong> (5 à 7 po) au talon.</p>
+<p class="step"><span class="sn">56</span><strong>La corde de côté.</strong> Une seule corde, en boucle. Elle part d’un bout de la traverse où commence la courbe, descend d’un côté en passant <strong>sous le bout de chaque traverse suivante</strong>, dans son encoche, jusqu’à la dernière, remonte de l’autre côté de la même façon, et revient se tendre et se nouer à la traverse de départ. Elle renforce les côtés et <strong>empêche les deux planches de glisser l’une contre l’autre</strong> dans les bosses. Seule la traverse de tête n’a pas d’encoches.</p>
+<p class="step"><span class="sn">57</span><strong>Les traits.</strong> Deux cordes d’environ <strong>7,6 m</strong> (25 pi), une à chaque bout de la traverse de tête, nouées à la corde de côté, qui répartit la traction sur toutes les traverses ; ou une seule corde dont les deux bouts se nouent aux deux coins. Couper le talon à longueur, ligaturer toute fente qui y apparaît.</p>
+<h3 class="sub">K. Tirer une charge (58 à 65)</h3>
+<p class="step"><span class="sn">58</span><strong>Envelopper avant de charger.</strong> Étendre une toile ou une peau sur le toboggan, poser la charge dessus, rabattre, et attacher (nœud de camionneur, <span class="ref">ch. 109</span>). La neige et la glace ne touchent plus rien. Mettre le poids sur la partie qui porte au sol, jamais dans la tête.</p>
+<p class="step pk-d"><span class="sn">59</span><strong>Sur la terre ferme, tirer de la poitrine, harnais lâche.</strong> Les deux bouts de la corde noués aux coins, le double de la corde contre la poitrine, ou un harnais ajusté large. <strong>Sur la glace, rien de tout ça, ni ceinture</strong> : chacun fait une boucle fermée autour du corps. La corde se tient à la main, ou se pose sur une seule épaule, les deux brins partant vers l’arrière du même côté : on baisse l’épaule, elle tombe (<span class="ref">§8</span>). Tirer fait suer : se découvrir avant de suer, se couvrir avant d’avoir froid à la halte, parce que la sueur dans les couches refroidit celui qui s’arrête (<span class="ref">ch. 58</span>, étape 21 ; <span class="ref">ch. 104</span>, <span class="ref">§8</span>.1).</p>
+<p class="step pk-d"><span class="sn">60</span><strong>L’enfant voyage emmailloté dans une peau ou un sac de couchage</strong>, calé entre les paquets, avec sous lui une couche qui ne s’écrase pas : une peau avec son poil, un matelas, du sapinage. Un sac écrasé sous son poids n’isole plus rien du bas, et c’est par le bas qu’un corps immobile se vide (<span class="ref">ch. 25</span>, étape 6). Sur la glace, ni attaché, ni enfermé bras dedans (<span class="ref">§8</span>). Autrefois, chaque personne capable de marcher tirait son propre toboggan, plus petit pour les enfants : celui de six ans peut tirer le sien, à sa taille, avec une charge à sa mesure.</p>
+<p class="step"><span class="sn">61</span><strong>Fossé :</strong> arrêter le toboggan au fond, avancer jusqu’au bout de la corde, et tirer d’un coup, à plusieurs si on est plusieurs.</p>
+<p class="step"><span class="sn">62</span><strong>Virage en forêt :</strong> continuer tout droit jusqu’à ce que le toboggan arrive au point de virage, puis tourner. Tourner trop tôt le jette contre les arbres de l’intérieur.</p>
+<p class="step"><span class="sn">63</span><strong>Montée raide :</strong> frapper une longue corde au toboggan, monter jusqu’au bout, le hisser, et l’<strong>ancrer</strong> à un arbre à chaque reprise avant de remonter. Longue pente raide : laisser le toboggan en bas et monter la charge sur le dos.</p>
+<p class="step"><span class="sn">64</span><strong>Descente :</strong> quelqu’un derrière, sur une corde, retient pour que le toboggan ne rattrape pas ceux de devant. Descente courte en forêt : celui qui retient se place derrière un arbre et laisse filer. Pente en travers : ceux qui tiennent restent <strong>au-dessus</strong> du toboggan, le plus loin que la corde le permet. Très raide : on le descend au bout d’une longue corde. En descente, des brancards rigides valent mieux qu’une corde : une corde laisse la charge frapper les jambes (<span class="ref">ch. 15</span>).</p>
+<p class="step"><span class="sn">65</span><strong>En file, celui qui ouvre la trace (étape 42) tire peu ou rien</strong> ; les charges lourdes suivent sur la trace déjà tapée.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:12.6%"><col style="width:17.7%"><col style="width:34.7%"><col style="width:35.1%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Choix de la bille</td><td>Pente du fil, lue sur la fente</td><td><strong>≤ 1 sur 15</strong> (2 cm sur 30 cm) ; aucun nœud dans la zone de pli</td><td>Bois de chauffage. Aucune technique ne rattrape un fil tordu</td></tr><tr><td class="c-item">Fût dégrossi</td><td>Section</td><td>Environ <strong>27 mm</strong> de haut ; <strong>11 mm</strong> d’épais à la pointe, <strong>14 mm</strong> au talon</td><td>Reprendre au couteau croche ; en bois vert, garder un peu de gras</td></tr><tr><td class="c-item">Assouplissement</td><td>Durée de chaleur mouillée</td><td><strong>½ h par 2,5 cm</strong> d’épaisseur en bois vert (environ 15 min pour un fût), <strong>1 h par 2,5 cm</strong> en bois sec</td><td>Le bois craque au premier essai : reprendre l’eau, ne pas forcer</td></tr><tr><td class="c-item">Pendant le pli</td><td>Face extérieure</td><td>Aucune écharde qui lève</td><td>Arrêter, rechauffer, poser la sangle</td></tr><tr><td class="c-item">Séchage dans la forme</td><td>Corde qui retient seule les deux bouts ; sur un gabarit à taquets, un taquet extérieur enlevé</td><td>Corde <strong>lâche</strong> d’elle-même ; fût qui ne bouge pas sans son taquet. De 1 à 3 jours (bouleau vert) à au moins une semaine</td><td>Laisser encore. Une pièce sortie trop tôt s’ouvre : la remettre dans la forme</td></tr><tr><td class="c-item">Pose des traverses</td><td>Écart ; équilibre</td><td><strong>38 à 41 cm</strong> ; talon plus lourd d’environ <strong>85 g</strong> : la queue descend quand on tient le centre</td><td>Déplacer les traverses <strong>avant</strong> de mortaiser</td></tr><tr><td class="c-item">Mortaise</td><td>Profondeur</td><td><strong>6 mm</strong></td><td>Plus profond affaiblit le fût ; moins, la traverse sort</td></tr><tr><td class="c-item">Queue</td><td>Fermeture</td><td>3 trous à <strong>10 cm</strong> du bout, ligature de babiche</td><td>Jamais de vis</td></tr><tr><td class="c-item">Laçage</td><td>Trou des orteils ; maille du centre ; cordon d’orteils</td><td><strong>10 cm</strong> de large ; maille d’environ <strong>2 cm</strong> ; <strong>5 ou 6</strong> passes</td><td>Relacer avant de sécher : sec, rien ne se reprend</td></tr><tr><td class="c-item">Après laçage</td><td>Séchage</td><td>Dehors, à plat, à l’ombre, <strong>3 à 4 jours</strong></td><td>Laçage mou au toucher : pas sec, attendre</td></tr><tr><td class="c-item">À chaque halte</td><td>Pieds dans l’attache</td><td>Orteils roses et chauds, qui bougent ; talon sans douleur</td><td>Froid mais sensible : desserrer, remuer les orteils, réchauffer le pied contre une peau chaude. Blanc ou insensible : gelure, <strong>ne pas frotter</strong> (<span class="ref">§7</span> ; <span class="ref">ch. 25</span>, étapes 15 à 21)</td></tr><tr><td class="c-item">Planches du toboggan</td><td>Épaisseur</td><td>Au sortir de la hache, <strong>16 mm</strong>, bouts à <strong>10 à 13 mm</strong> ; finies, un peu plus de <strong>13 mm</strong>, la zone de pli grattée plus mince</td><td>Gratter la zone de pli au couteau croche entre deux essais au genou, jusqu’à ce qu’elle plie franchement</td></tr><tr><td class="c-item">Tête du toboggan</td><td>Hauteur</td><td>Environ <strong>32 cm</strong> sur 2,4 m ; jusqu’à <strong>45 cm</strong></td><td>Reprendre l’eau chaude et le pli</td></tr><tr><td class="c-item">Dessous du toboggan</td><td>Ficelle</td><td>Couchée dans sa rainure, à fleur de bois</td><td>Recreuser la rainure avant la première sortie</td></tr><tr><td class="c-item">Avant chaque départ</td><td>Corde de côté, liens de la tête</td><td>Tendus ; les deux planches alignées ; la tête à sa hauteur</td><td>Retendre. Une tête qui s’ouvre est un lien qui a lâché</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:29.2%"><col style="width:26.9%"><col style="width:43.8%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Des échardes lèvent sur la face extérieure pendant le pli</td><td><strong>Rupture en traction</strong> : fil de travers, bois pas assez chaud, pli trop rapide</td><td>Grande écharde : on peut parfois la remettre en place et la ligaturer. Fût qui s’ouvre sur sa longueur : pièce perdue, en refaire une. La suivante se plie plus chaude, plus lentement, avec la sangle</td></tr><tr><td class="c-item">Un pli ou un bourrelet d’un chant à l’autre sur la face intérieure</td><td><strong>Rupture en compression</strong>, la plus bénigne : bois mal assoupli ou de mauvaise qualité</td><td>Bourrelet seul : l’araser au couteau et garder la pièce. Fibres séparées et gonflées de travers : pièce perdue</td></tr><tr><td class="c-item">La pièce fait un coude net à un endroit</td><td><strong>Un nœud</strong> : il ne se comprime pas, la courbe casse autour</td><td>Pièce perdue pour un fût. On choisit mieux la suivante (étape 2)</td></tr><tr><td class="c-item">Le fût s’ouvre quand on le sort de la forme</td><td>Sorti avant d’être sec</td><td>Le remettre dans la forme, rechauffer si nécessaire, et attendre que la corde des bouts soit lâche</td></tr><tr><td class="c-item">La queue fend autour de sa fixation</td><td>Vis, ou trous trop près du bout</td><td>Ligature de babiche seulement, trous à 10 cm du bout</td></tr><tr><td class="c-item">Le laçage a blanchi, s’est détendu, les mailles pendent</td><td>La babiche a bu l’eau de la neige mouillée</td><td>Sécher lentement, loin de la flamme. Si elle ne se retend pas en séchant, relacer (<span class="ref">ch. 103</span>)</td></tr><tr><td class="c-item">Une boule de neige colle sous le pied à chaque pas</td><td>Neige mouillée collée à la babiche</td><td>La frapper au bâton tout de suite. Au printemps, passer à la raquette de planche (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Orteils blancs, engourdis, qui ne se réchauffent pas en marchant</td><td><strong>Gelure qui commence</strong> : attache trop serrée, circulation coupée</td><td>Enlever l’attache. <strong>Ne pas frotter ni masser</strong> : la glace dans les tissus déchire les cellules quand on frotte. Réchauffer le pied contre une peau chaude, le ventre ou l’aisselle de quelqu’un d’autre, et seulement s’il ne regèlera pas avant l’abri (<span class="ref">ch. 25</span>, étapes 15 à 21). Régler l’attache plus lâche</td></tr><tr><td class="c-item">Sur un lac, la raquette s’alourdit d’un coup ; la trace fonce et se remplit d’eau derrière soi ; des taches sombres et affaissées dans la neige, parfois une tache d’où partent des bras comme des tentacules</td><td><strong>Eau sous la neige</strong> : le poids de la neige a enfoncé la glace, l’eau est remontée par les fissures. En plein hiver aussi, et elle peut dormir des semaines sous une neige épaisse (<span class="ref">ch. 58</span>, <span class="ref">§3</span> et <span class="ref">§7</span>)</td><td>Sortir vers la neige sèche ou la rive et contourner le secteur. Au sec, enlever tout de suite l’eau et la glace de la raquette et du dessous du toboggan, avant qu’elles prennent. Remettre le pied au sec : un pied mouillé à −35 °C gèle sans avertissement (<span class="ref">ch. 25</span>, bloc E ; <span class="ref">ch. 104</span>, <span class="ref">§8</span>.1)</td></tr><tr><td class="c-item">Douleur au tendon d’Achille après quelques kilomètres</td><td>Tour de talon trop serré</td><td>Relâcher le tour du talon</td></tr><tr><td class="c-item">Ongles d’orteils noirs, douloureux</td><td>Orteils enfoncés dans le trou à chaque pas</td><td>Les orteils ne descendent qu’en montée (étape 38)</td></tr><tr><td class="c-item">Bleu à la cheville, du côté intérieur</td><td>Le cadre de l’autre raquette la frappe</td><td>Pas plus écarté ; vérifier que la bouche est décalée du bon côté (étape 23)</td></tr><tr><td class="c-item">La tête du toboggan s’est ouverte</td><td>Liens de la tête lâches, bois remouillé</td><td>Retendre les liens de la tête, mouillés, pour qu’ils serrent en séchant</td></tr><tr><td class="c-item">Les deux planches glissent l’une contre l’autre dans les bosses</td><td>Corde de côté lâche ou cassée</td><td>Retendre ou refaire la corde de côté</td></tr><tr><td class="c-item">La ficelle est usée ou coupée sous le toboggan</td><td>Pas noyée dans sa rainure</td><td>Recreuser la rainure, reficeler</td></tr><tr><td class="c-item">La babiche est rongée, trouée</td><td>Chiens ou rongeurs</td><td>Pendre haut et loin ; relacer la zone</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">L’enfant sur le toboggan refroidit pendant que celui qui tire a chaud.</strong> Celui qui tire transpire et trouve qu’il fait doux ; l’enfant, immobile, ne produit presque pas de chaleur, et son petit corps en perd plus vite qu’un adulte (<span class="ref">ch. 25</span>, bloc F ; <span class="ref">ch. 39</span>). Le blessé couché sur le toboggan aussi, et plus encore (<span class="ref">ch. 26</span>). La sensation de celui qui tire est donc exactement le mauvais thermomètre. Et un enfant qui refroidit <strong>devient tranquille</strong> : emmitouflé sur la charge, il a l’air de dormir. Sous lui, une peau avec son poil ou du sapinage : un sac écrasé n’isole plus du bas (étape 60). On s’arrête pour lui <strong>à intervalle fixe, décidé avant de partir</strong>, pas quand celui qui tire a envie de souffler (<span class="ref">ch. 25</span>, étape 34 ; <span class="ref">ch. 15</span>, étape 25). Sur un lac, c’est le vent qui fait le froid : à un indice de −40, la peau nue gèle en 5 à 10 minutes (<span class="ref">ch. 25</span>, tableau du refroidissement éolien). Joues, oreilles, doigts, et est-ce qu’il répond. Pas l’air qu’il a : sa réponse.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Sur la glace, rien ne doit rester attaché à ce qui coule.</strong> Un toboggan qui passe à travers la glace tire vers le fond celui qui le traîne par une ceinture bouclée. Une raquette qui ne se défait pas garde au pied une grande palette qui accroche le bord de la glace et empêche de battre des jambes pour remonter à l’horizontale (<span class="ref">ch. 15</span>, étape 34). Dans l’eau, tout ce qui fait une boucle fermée autour du corps retient comme une attache : un harnais, une corde en bandoulière, le double de la corde contre la poitrine, une sangle, un sac de couchage fermé sur les bras. La traction vient de l’arrière et du bas, et elle serre la boucle au lieu de la faire glisser. Sur la glace, donc : la corde de tire tenue à la main, ou posée sur une seule épaule, les deux brins vers l’arrière, pour tomber quand on baisse l’épaule ; les brancards tenus à la main, jamais liés au corps ; la ceinture du sac à dos détachée ; les pics à glace au cou (<span class="ref">ch. 15</span>, Matériel). L’enfant n’est ni attaché, ni sous la charge lacée, ni enfermé bras dedans : le sac reste ouvert, les bras libres pour saisir le bord ou la perche tendue (<span class="ref">ch. 25</span>, étape 26), ou bien il traverse à pied, dans la trace. Le blessé sanglé au toboggan (<span class="ref">ch. 26</span>) : on défait ses sangles le temps de traverser, ou on contourne le lac. Aux raquettes, seule une attache dont le pied sort sans les mains : la lanière, qui s’enfile et s’enlève d’un mouvement du pied, réglée assez lâche pour sortir d’un tour de cheville. Une boucle, une sangle ou une bande de chambre à air s’ouvre à la main : on l’essaie sur la rive, et si le pied n’en sort pas d’un tour de cheville, on traverse sans raquettes, dans la trace, ou on contourne. Et la glace se mesure avant, raquettes ou pas (<span class="ref">ch. 15</span>, étapes 20 à 23). En plein froid, de l’eau peut aussi dormir sous la neige d’un lac et tremper le pied sans prévenir (<span class="ref">§7</span>).</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Dans une pente, la charge va plus vite que soi.</strong> Un toboggan chargé, retenu par une corde dans le dos de celui qui tire, le rattrape, lui fauche les jambes et le renverse devant lui. Une jambe cassée à une journée du chalet, en février, n’est plus une blessure, c’est une nuit dehors. En descente, toujours quelqu’un derrière sur une corde, ou des brancards rigides, et personne en bas de la trajectoire (étape 64).</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">La neige brûle les yeux, et ça ne se sent que des heures plus tard.</strong> Le soleil renvoyé par la neige brûle la surface de l’œil pendant la marche, sans douleur sur le moment : c’est le coup d’arc du soudeur, donné par la neige. Six à douze heures plus tard, les yeux piquent comme pleins de sable, pleurent, rougissent, font mal à chaque mouvement et ne supportent plus la lumière. C’est au pire après une neige fraîche, et même quand une brume légère voile le soleil : se croire à l’abri parce que le soleil est voilé est le mauvais réflexe. Attendre d’avoir mal pour se protéger, c’est trop tard : la brûlure est déjà faite. Sur un lac ou dans la neige du printemps, des verres foncés ou des lunettes à fente (<span class="ref">§9</span>) dès le départ. Atteint : un bandeau sur les yeux ou un linge mouillé, qui arrête le mouvement des yeux, et du repos. Ça guérit en un à deux jours, parfois quelques-uns, sans séquelle, si on ne s’y expose plus.</p>
+</template>
+<template id="story-e">
+<p class="p0">Ce qui manque le jour où ça sert : la babiche séchée d’avance, le chaudron assez grand, la perceuse, le gabarit, la raquette du commerce — et surtout la semaine. Ce qui ne manque jamais au chalet : du bouleau vert, de l’épinette, une hache, le poêle, et une peau quand la chasse a donné. Les raquettes de fortune ci-dessous vont de la plus vite faite à la plus longue.</p>
+<h3 class="sub">La raquette de sortie</h3>
+<p class="p0">Elle ne sert pas à traverser le territoire. Elle sert à sortir d’un fond de neige jusqu’à la trace, au bois ou à la machine en panne.</p>
+<p class="p0 ri"><strong class="runin">La botte de branches.</strong> Couper quelques branches de pin, de sapin baumier (<em>Abies balsamea</em>) ou d’épinette bien fournies, les poser ensemble, les gros bouts en avant, et les ligaturer serré par les gros bouts. Attacher la botte sous le pied. C’est tout. On perd presque tout : ça pèse, ça porte peu, et ça ne dure qu’une sortie. On y gagne de ne pas s’enfoncer jusqu’aux hanches.</p>
+<p class="p0 ri"><strong class="runin">La perche en goutte.</strong> Une perche verte d’environ <strong>2,5 cm</strong> de diamètre et <strong>1,5 m</strong> de long — bouleau, saule, érable. La chauffer au-dessus du feu ou du poêle, ou la tremper une nuit si on a le temps, puis la plier en forme de goutte, les deux bouts réunis à l’arrière et ligaturés, écartée d’environ <strong>30 cm</strong> au plus large. Ligaturer deux traverses en travers du milieu : la plante du pied porte sur l’une, le talon sur l’autre. Tendre de la corde en diagonale d’un côté à l’autre du cadre, en croisillons, et nouer deux cordes à chaque traverse pour attacher la botte. Deux branches d’épinette noire pliées en boucle et ligaturées sous la botte font la même chose en plus grossier (<span class="ref">ch. 15</span>).</p>
+<p class="p0 ri"><strong class="runin">La raquette de trois perches.</strong> Celle qui se fait sans rien cintrer. Pour chaque raquette, trois perches <strong>aussi longues que la personne est grande</strong>, grosses comme le pouce au gros bout et comme le petit doigt à la pointe, et six bâtons d’environ <strong>25 cm</strong> :</p>
+<p class="step"><span class="sn">1</span>Poser les trois perches côte à côte, gros bouts en arrière. Réunir les trois pointes en avant et les nouer ensemble.</p>
+<p class="step"><span class="sn">2</span>Ligaturer <strong>un bâton</strong> en travers des gros bouts, à l’arrière : c’est la surface qui porte.</p>
+<p class="step"><span class="sn">3</span>Ligaturer <strong>trois bâtons</strong> jointifs en travers, <strong>un peu en avant du milieu</strong> : c’est le plancher de pivot, sous l’avant du pied.</p>
+<p class="step"><span class="sn">4</span>Ligaturer <strong>deux bâtons</strong> là où le talon retombe.</p>
+<p class="step"><span class="sn">5</span>Attacher la botte au plancher de pivot seulement, de façon que le pied <strong>pivote</strong> et que le talon reste libre.</p>
+<p>Le principe est celui de toute raquette : parce que le pivot est en avant du milieu, l’arrière reste sur la neige et la pointe se lève d’elle-même à chaque pas. Une raquette qui bascule du nez vers le bas a son pivot trop en arrière : déplacer l’attache vers l’avant.</p>
+<h3 class="sub">La patte d’ours de dépannage</h3>
+<p class="p0">C’est la raquette que les Innus font pour les petits enfants et pour les temps durs, quand il faut des raquettes tout de suite. Elle sert aussi au début de l’hiver, quand il y a peu de neige, pour ménager la bonne paire.</p>
+<p class="step"><span class="sn">1</span><strong>Le fût d’une seule perche</strong> de bouleau vert, chauffée au-dessus du poêle, ou d’une baguette fendue, épongée d’eau bouillante, pliée en rond ou en ovale. Les deux bouts se chevauchent à l’arrière et se ligaturent. Pas de gabarit : on plie sur le genou et on noue.</p>
+<p class="step"><span class="sn">2</span><strong>Une seule traverse</strong>, juste devant les orteils.</p>
+<p class="step"><span class="sn">3</span><strong>Le devant — le « front », devant la traverse — reste ouvert.</strong> Seul l’arrière de la traverse est lacé. On y gagne toute la pointe à lacer.</p>
+<p class="step"><span class="sn">4</span><strong>Laçage avec n’importe quelle corde</strong> : corde, ficelle, ligne à pêche, babiche fraîche, ou toile déchirée en bandes — la toile ne vaut que pour cette raquette-là. Des passes croisées en diagonale, chaque croisement tordu d’un tour pour que rien ne glisse. Laisser le trou des orteils ouvert juste derrière la traverse.</p>
+<p class="step"><span class="sn">5</span><strong>Attache</strong> : comme au bloc H, ou une bande de chambre à air (plus bas).</p>
+<p>Elle se fait en un jour. Pour les enfants de quatre et six ans, c’est la bonne raquette : courte, elle permet un pas court et tourne vite dans le bois. <strong>Ce qu’on perd</strong> : la portance de tout le devant, et la vitesse en ligne droite. Elle est lente sur un lac et à sa place dans le bois dense.</p>
+<h3 class="sub">La raquette de planche, pour la sloche du printemps</h3>
+<p class="p0">Au printemps, quand la neige fond au soleil, la babiche s’engorge et chaque pas soulève un paquet de sloche. Une planche, elle, ne retient rien.</p>
+<p class="li"><strong>Une planche mince, plate et raide</strong>, taillée au contour d’une queue de castor : épinette fendue et amincie, ou une planche de récupération du chalet. Mince pour être légère ; raide pour ne pas fléchir sous le pied quand elle ne porte que par ses deux bouts.</p>
+<p class="li"><strong>Pas de traverse, pas de laçage.</strong> Seulement un trou découpé devant le pied, pour les orteils, et la même attache qu’une raquette lacée.</p>
+<p class="li"><strong>Quelques heures de travail</strong>, contre plusieurs jours pour une raquette lacée.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd</strong> : une planche ne plie pas, ne laisse rien passer et ne se répare pas d’un brin de babiche. Elle est faite pour la neige molle et fondante, et c’est pour cette saison-là qu’on la garde.</p>
+<h3 class="sub">Lacer sans babiche sèche</h3>
+<p class="li"><strong>La peau de phoque</strong>, bien grattée, passe pour bonne et durable pour lacer ; le <span class="ref">ch. 56</span> la coupe en spirale.</p>
+<p class="li"><strong>La peau fraîche, coupée gelée.</strong> Une peau crue grattée qu’on laisse geler dehors se coupe dehors, raide sous la lame ; on rentre les lanières de peau à mesure pour qu’elles dégèlent, et on lace avec. Le laçage sèche sur la raquette au lieu de sécher avant, et serre en séchant.</p>
+<p class="li"><strong>La corde synthétique</strong> lace honnêtement une patte d’ours. Elle ne serre pas en séchant : le laçage se tend à la main, passe par passe.</p>
+<p class="li"><strong>La toile</strong> en bandes : patte d’ours seulement.</p>
+<h3 class="sub">L’attache sans courroie</h3>
+<p class="li"><strong>La lanière simple nouée</strong>, au bloc H. C’est la seule qui ne demande rien d’autre qu’une lanière.</p>
+<p class="li"><strong>Une bande de chambre à air</strong> coupée en travers dans un gros pneu : glissée sur l’avant du pied et tirée derrière le talon, elle tient sans nœud, s’enfile avec des mitaines et s’enlève d’une torsion. Au très grand froid, le caoutchouc raidit : la mettre au chaud avant de chausser. Elle serre sans arrêt et ne se desserre pas à la halte : la choisir assez lâche pour que les orteils bougent dedans, et la vérifier aux haltes comme la lanière (étape 37).</p>
+<p class="li"><strong>Une bande de toile pliée en plusieurs épaisseurs</strong>, nouée comme la lanière simple.</p>
+<h3 class="sub">Cintrer sans chaudron, sans boîte, sans gabarit</h3>
+<p class="li"><strong>La perche verte entière, avec son écorce, se plie à la chaleur sèche.</strong> Elle contient déjà son eau. Promener la zone de pli au-dessus des braises ou le long du poêle, en la tournant sans arrêt, puis plier. On ne compte pas le temps : on chauffe en tenant la perche sous une légère pression de pliage, et elle est prête quand elle perd presque tout son ressort sous la main. La surface trop chaude pour la main ne dit rien du cœur. Jamais jusqu’à roussir : trop chauffé, le bois sèche et casse, et carbonisé il n’a plus de résistance. Ça vaut pour une perche mince ; une pièce épaisse sèche dehors avant de mollir dedans, et va à l’eau bouillante. Une baguette fendue, sans écorce, sèche en surface à la chaleur sèche et casse là (étape 9) : on la plie aux chiffons mouillés.</p>
+<p class="li"><strong>Les chiffons ébouillantés</strong> enroulés sur la zone, arrosés de nouveau à mesure qu’ils tiédissent, remplacent le chaudron trop petit.</p>
+<p class="li"><strong>La boîte à vapeur</strong> : une longueur de tuyau de poêle bouchée aux deux bouts de chiffons, posée en légère pente au-dessus d’une bouilloire dont le bec entre par le bas. Un trou au point bas laisse sortir l’eau qui se condense ; sans lui, elle descend noyer le bec. La vapeur d’une bouilloire qui bout à la pression de l’air est déjà mouillée : pas d’eau à mettre dans le tuyau, et surtout pas de pression. La pièce y reste le temps du bloc C. Au bout de 15 à 20 minutes, une pièce qu’on sort doit dégoutter : sinon, il n’entre pas assez de vapeur, et on chauffe plus fort ou on raccourcit le tuyau. Quand seul le bout d’une pièce plie, plus simple encore : le tuyau debout dans le chaudron d’eau qui bout, un chiffon en haut, et l’eau qui se condense retombe dans le chaudron.</p>
+<p class="li"><strong>Pas de gabarit</strong> : le genou pour plier, une corde entre les deux bouts, et d’autres cordes pour tenir la forme pendant le séchage.</p>
+<p class="li"><strong>La sangle improvisée</strong> : une bande de métal couchée sur la face extérieure de la zone de pli, aussi large qu’elle. Un feuillard de palette ou une vieille lame de scie à ruban couvre un fût ; pour la tête du toboggan, seule une bande de tôle couvre la largeur de la planche, et une sangle plus étroite laisse partir les échardes sur les arêtes. Un taquet de bois ligaturé au bout de la sangle appuie contre le bout proche de la pièce ; de l’autre côté, la sangle se ligature ou se serre à la pièce au-delà de la courbe (étape 14). C’est surtout pour la tête du toboggan qu’elle sauve la pièce.</p>
+<h3 class="sub">Percer sans perceuse</h3>
+<p class="p0">L’alène chauffée au rouge passe les trous fins d’un fût ; il faut la réchauffer souvent et racler le charbon entre deux passes. Le drille à archet et son clou aplati, et le fer rouge pour les trous du toboggan, sont au <span class="ref">ch. 110</span>, <span class="ref">§9</span>.2. Un trou brûlé est plus gros qu’un trou percé : on garde plus de bois entre deux trous voisins.</p>
+<h3 class="sub">Les outils qu’on se fait</h3>
+<p class="li"><strong>Le couteau croche.</strong> Une vieille lime ou une lame de couteau. Une face meulée plate, l’autre biseautée comme une plane. La lame chauffée et courbée — certaines en entier, d’autres par le bout seulement — puis emmanchée dans un manche recourbé, et ligaturée serré, parce que la lame tire fort sur le manche. Recuire avant de façonner, retremper, revenir : <span class="ref">ch. 111</span>. Une lame de scie à métaux fait l’affaire en dépannage (<span class="ref">ch. 94</span>). <strong>La prise</strong> : le manche tenu en travers du corps, <strong>le pouce appuyé sur le bout du manche</strong> pour guider la lame, et on tire vers soi. La lame vient vers le ventre, et c’est là qu’elle blesse : la pièce ne se tient donc ni à la main ni contre soi. On la serre au chevalet à planer — un banc où l’on s’assoit à califourchon, un bras pivotant que les pieds poussent pour coincer la pièce — et une pièce longue se pose de biais, pour que la partie finie passe à côté du corps et non devant. C’est l’outil qui fait les fûts, les traverses, les planches et les manches, et celui qui amincit la zone de pli.</p>
+<p class="li"><strong>Les lunettes à fente</strong> (<span class="ref">§8</span>, point 4). Une pièce de bois un peu courbée pour épouser le visage, une encoche pour le nez, et une fente étroite à la hauteur des yeux : elle ne laisse entrer la lumière que par là. Une petite visière au-dessus de la fente, le devant noirci à la suie mêlée d’huile pour boire la lumière, l’intérieur creusé pour que les cils bougent. Une lanière de peau à chaque bout, nouée derrière la tête.</p>
+<p class="li"><strong>L’aiguille à lacer.</strong> Plate, arrondie aux deux pointes, le chas au milieu : elle passe dans les deux sens sans qu’on la retourne. Os, andouiller, bois franc, clou aplati et percé. Plusieurs grosseurs pour les différentes mailles. Pour la ficelle du toboggan, un fil de collet tordu en boucle.</p>
+<p class="li"><strong>L’espaceur.</strong> Une pointe d’andouiller ou une spatule de bois franc, pour égaliser les mailles.</p>
+<p class="li"><strong>La brosse.</strong> Un bâton fendu au bout, un chiffon coincé dans la fente.</p>
+<p class="li"><strong>La pince de deux bâtons.</strong> Deux bâtons liés serré de part et d’autre du bout de la planche.</p>
+<h3 class="sub">Le toboggan sans rabot ni clous</h3>
+<p class="p0">La hache fait les planches (équarrir au cordeau : <span class="ref">ch. 110</span>, <span class="ref">§9</span>.3) ; le couteau croche fait la zone de pli. Les clous ne sont pas nécessaires : un toboggan tient entièrement par ses ligatures de peau crue passées dans des trous, couchées dans leurs rainures sous les planches, avec quatre points par traverse (étape 52), posées après la dernière eau chaude. Une fente à la tête se ferme par deux trous et une ligature, comme à l’étape 50.</p>
+<h3 class="sub">Quand le toboggan n’est pas le bon véhicule</h3>
+<p class="li"><strong>La sloche et l’eau sur la glace</strong>, au début et à la fin de l’hiver : on met la charge sur une plateforme portée par <strong>deux patins</strong>, à <strong>10 à 15 cm</strong> au-dessus de la glace. La charge reste sèche, et l’eau passe dessous. C’est aussi ce qui transporte le canot et le bois à l’embâcle et à la débâcle.</p>
+<p class="li"><strong>La peau de la bête elle-même</strong> : la viande enveloppée dans la peau d’orignal, poil dessous, tirée comme un traîneau. Ça va bien sur un lac ou une rivière gelés et sur la neige lisse, mal dans les broussailles. La peau isole, et c’est ce qui rend la méthode sûre ou dangereuse : enveloppée froide, ou découpée en morceaux assez petits pour avoir refroidi seuls, la viande voyage bien, et on ouvre le paquet dès l’arrivée. Un quartier encore chaud roulé dans sa peau et traîné des heures garde sa chaleur au cœur du cuissot, et le 7 °C en 24 heures est manqué (<span class="ref">ch. 61</span>, <span class="ref">§3</span> et <span class="ref">§9</span>). Le prix : une peau traînée ne fait plus un bon cuir (<span class="ref">ch. 61</span>, <span class="ref">ch. 102</span>).</p>
+<p class="li"><strong>Le capot, la tôle roulée, les deux skis, la bâche entre deux perches, la porte</strong> : <span class="ref">ch. 15</span> et <span class="ref">ch. 26</span>.</p>
+<h3 class="sub">Tirer sans harnais</h3>
+<p class="p0 ri"><strong class="runin">Sur la terre ferme</strong>, la corde de tire se passe contre la poitrine, pas autour de la taille : une bande de toile large, une vieille ceinture ou une sangle de sac, passée en bandoulière et nouée au double de la corde, répartit la traction sur le haut du corps. <strong>Sur la glace</strong>, la bandoulière fait une boucle fermée autour du torse et ne tombe pas : la corde se tient à la main ou se pose sur une seule épaule (<span class="ref">§8</span>, point 2). Une corde mince qui scie l’épaule se double d’une mitaine repliée. Pour un blessé ou une charge lourde en descente, deux perches liées aux coins du toboggan font des brancards qui empêchent la charge de rattraper celui qui tire (<span class="ref">ch. 15</span>) ; sur la glace, ils se tiennent à la main et ne se lient pas à la ceinture.</p>
+<h3 class="sub">Réparer sur la piste</h3>
+<p class="li"><strong>Un fût cassé</strong> : une éclisse de bois vert de chaque côté de la cassure, ligaturée serré de babiche mouillée ou de corde. Tout de suite : un laçage qui a perdu sa tension se défait de proche en proche.</p>
+<p class="li"><strong>Une babiche cassée</strong> : on noue le bout neuf pendant qu’il est mouillé (<span class="ref">ch. 103</span>). Garder toujours un ou deux brins de babiche dans la poche : un brin casse sans prévenir.</p>
+<p class="li"><strong>Une raquette trempée</strong> : la sécher le soir, loin de la flamme, pendue. Près du poêle, on la retrouve cornée et cassante (<span class="ref">ch. 103</span>).</p>
+<p class="li"><strong>Une corde de côté cassée</strong> : la refaire avant de repartir ; sans elle, les planches se décalent à la première bosse et tout l’effort passe dans la ligature des traverses.</p>
+<p class="li"><strong>La raquette d’aluminium du commerce</strong>, celle qu’on a le plus de chances d’avoir aux pieds. Sa courroie cassée se remplace par la lanière simple du bloc H ou par une bande de chambre à air. Sa toile déchirée se recoud à la corde, par des trous percés d’un clou chauffé qui fond le plastique au lieu de le fendre, en points serrés de part et d’autre de la déchirure. Son cadre plié ou fissuré s’éclisse comme un fût de bois, avec deux baguettes et une ligature serrée.</p>
+<h3 class="sub">Ce qui ne se remplace vraiment pas</h3>
+<p class="li"><strong>Le temps.</strong> Une paire lacée, c’est environ une semaine de travail pour une personne : un jour pour les fûts, au moins un jour de séchage, une journée ou plus pour lacer chaque raquette, et la babiche faite avant (<span class="ref">ch. 103</span>). En février, avec une peau fraîche à préparer d’abord, on n’a pas cette semaine-là devant soi. L’automne est la saison des raquettes ; en février, on fait des pattes d’ours.</p>
+<p class="li"><strong>La portance d’une grande raquette lacée.</strong> Aucune raquette de fortune ne flotte comme elle. Les raquettes de sortie ramènent à la trace ; elles ne traversent pas le territoire.</p>
+<p class="li"><strong>La main du laçage.</strong> Une main exercée met une journée ou plus par raquette ; la première qu’on lace soi-même prend plus longtemps et ne sera pas belle. C’est une chose à avoir faite une fois avant d’en avoir besoin.</p>
+<p class="li"><strong>La babiche craint l’eau et la chaleur</strong>, et le printemps lui apporte les deux. Frotté de gras, un laçage fini boit plus lentement (<span class="ref">ch. 103</span>) ; verni, il boit moins encore, mais il glisse sur les troncs et sur la glace. Sans vernis, la réponse au printemps est la raquette de planche.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="12-1"><span class="fnn">1</span>Une braise se cache sous la cendre. Lampe éteinte, porte du poêle ouverte, on brasse la cendre au tisonnier jusqu’au fond : une braise vivante luit rouge. Tant qu’un seul point rouge luit, le feu n’est pas mort, et il fait du CO sans flamme.</p>
+<p class="fn" data-fn="12-2"><span class="fnn">2</span>Le fil, tenu au bout d’une broche, s’approche d’une flamme, dehors. Le coton brûle sans reculer devant la flamme, sent le papier brûlé et laisse une cendre grise et fine. Le nylon et le polyester fondent en se recroquevillant loin de la flamme, sentent le produit chimique et laissent une petite bille fondue. Un tissu mélangé ne se lit pas à coup sûr : dans le doute, il se range avec la bâche.</p>
+<p class="fn" data-fn="43-1"><span class="fnn">1</span>Le bord avant du gros coussinet, celui qui regarde les doigts, fait deux bosses arrondies côte à côte. Celui d’un canidé est un petit triangle, sans ces deux bosses.</p>
+<p class="fn" data-fn="43-2"><span class="fnn">2</span>Un gros rocher posé seul au milieu d’une tourbière, d’un plat ou d’une forêt, loin de toute falaise d’où il aurait pu tomber : c’est la glace des glaciers qui l’a laissé là.</p>
+<p class="fn" data-fn="43-3"><span class="fnn">3</span>Là où le loup et le coyote ont un petit coussinet en triangle, celui du pied avant du renard se réduit à une barre étroite, posée en travers de l’empreinte. Autour de cette barre, le vide entre les doigts et le coussinet est grand, et le X se lit net.</p>
+</template>
+<script type="application/json" id="meta">{"num": "89", "title": "Raquettes et toboggan", "tome": "Tome 5 · La forêt, le jardin et le chalet", "tnum": 5, "tfond": "#4B3A28", "tencre": "#F2EBDF", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

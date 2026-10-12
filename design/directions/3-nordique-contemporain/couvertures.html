@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>Couvertures — direction 3, nordique contemporain</title>
+<!--
+  Spécification Blurb relevée au calculateur le 2026-09-23 (sources-blurb/) :
+  Standard Portrait 8 × 10, couverture rigide ImageWrap, papier standard, 440 pages.
+    PDF de couverture complète : 18,347 × 10,986 po
+    Format rogné total         : 17,735 × 10,374 po
+    Fond perdu, tous les bords : 0,306 po (il s'enroule sous le carton)
+    Dos (tranche)              : 1,236 po
+    Zone de sécurité           : 0,25 po du bord rogné (calculateur) ; Blurb recommande
+                                 1 po pour l'ImageWrap (page Book Dimensions) : c'est
+                                 le pouce qui est retenu ici pour tout ce qui se lit.
+  Plat (avant ou arrière) = (17,735 - 1,236) / 2 = 8,2495 × 10,374 po.
+  Pages 1 à 4 : les quatre plats avant, chacun avec son fond perdu en tête, en pied et
+  au bord extérieur (8,5555 × 10,986 po). Page 5 : la couverture complète du tome 4.
+-->
+<style>
+@font-face{font-family:"Sans";src:url(fonts/sg-500.ttf);font-weight:500}
+@font-face{font-family:"Sans";src:url(fonts/sg-700.ttf);font-weight:700}
+@font-face{font-family:"Sans";src:url(fonts/sg-800.ttf);font-weight:800}
+@font-face{font-family:"Sans";src:url(fonts/sg-900.ttf);font-weight:900}
+@font-face{font-family:"SerifD";src:url(fonts/ss4-disp-400.ttf);font-weight:400}
+@font-face{font-family:"SerifD";src:url(fonts/ss4-disp-400i.ttf);font-weight:400;font-style:italic}
+
+:root{
+  --W:209.537mm;   /* plat */
+  --H:263.5mm;
+  --b:7.772mm;     /* fond perdu 0,306 po */
+  --S:31.394mm;    /* dos 1,236 po */
+  --m:25.4mm;      /* 1 po : tout ce qui se lit reste en deçà */
+}
+@page{margin:0;size:8.5555in 10.986in}
+@page plat{size:8.5555in 10.986in;margin:0}
+@page complete{size:18.347in 10.986in;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:"Sans",sans-serif}
+
+.sheet{position:relative;overflow:hidden;break-after:page}
+.sheet.plat{page:plat;width:calc(var(--W) + var(--b));height:calc(var(--H) + 2*var(--b))}
+.sheet.complete{page:complete;width:calc(2*var(--W) + var(--S) + 2*var(--b));height:calc(var(--H) + 2*var(--b))}
+
+/* un plat : le rectangle rogné, positionné dans la feuille ; l'aplat déborde partout */
+.board{position:absolute;top:var(--b);width:var(--W);height:var(--H);color:var(--ink)}
+.face{position:absolute;inset:calc(-1*var(--b));background:var(--bg)}
+.sheet.plat .board{left:0}
+
+/* ------------------------------------------------ le plat avant */
+.front .series{position:absolute;left:var(--m);top:var(--m);font:800 13.5pt/15pt "Sans";letter-spacing:-.005em}
+.front .series span{display:block;font-weight:500;font-size:9pt;line-height:12pt;letter-spacing:.08em;text-transform:uppercase;margin-top:1.2mm;opacity:.78}
+.front .tome{position:absolute;right:var(--m);top:var(--m);font:800 13.5pt/15pt "Sans";text-align:right}
+.front .blk{position:absolute;left:var(--m);top:54mm;width:calc(var(--W) - 2*var(--m))}
+.front .title{font:900 76pt/68pt "Sans";letter-spacing:-.04em;margin-left:-1.2mm}
+.front .desc{margin-top:7mm;width:118mm;font:400 italic 14.5pt/19pt "SerifD";letter-spacing:-.003em}
+.front .chap{margin-top:5mm;font:700 9pt/12pt "Sans";letter-spacing:.08em;text-transform:uppercase}
+.front .big{position:absolute;right:calc(var(--m) - 9mm);bottom:-58mm;font:900 560pt/1 "Sans";letter-spacing:-.06em;color:var(--num);font-variant-numeric:lining-nums}
+
+/* ------------------------------------------------ le dos */
+.spine{position:absolute;top:var(--b);height:var(--H);width:var(--S);color:var(--ink)}
+.spine .face{inset:calc(-1*var(--b)) 0}
+.spine .n{position:absolute;top:var(--m);left:0;right:0;text-align:center;font:900 34pt/1 "Sans";letter-spacing:-.04em}
+.spine .t{position:absolute;top:58mm;left:50%;transform:translateX(-50%);writing-mode:vertical-rl;font:900 19pt/1 "Sans";letter-spacing:-.01em;white-space:nowrap}
+.spine .s{position:absolute;bottom:var(--m);left:50%;transform:translateX(-50%);writing-mode:vertical-rl;font:700 8.5pt/1 "Sans";letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;opacity:.8}
+
+/* ------------------------------------------------ le plat arrière */
+.back .series{position:absolute;left:var(--m);top:var(--m);font:800 13.5pt/15pt "Sans"}
+.back .series span{display:block;font-weight:500;font-size:9pt;line-height:12pt;letter-spacing:.08em;text-transform:uppercase;margin-top:1.2mm;opacity:.78}
+.back .pitch{position:absolute;left:var(--m);top:62mm;width:calc(var(--W) - 2*var(--m));font:400 16pt/21pt "SerifD";letter-spacing:-.004em}
+.back .pitch b{font-family:"Sans";font-weight:900;font-size:17pt;letter-spacing:-.01em;display:block;margin-bottom:3mm}
+.back .toc{position:absolute;left:var(--m);top:122mm;width:calc(var(--W) - 2*var(--m));columns:2;column-gap:8mm;font:500 8.6pt/11.6pt "Sans"}
+.back .toc div{display:flex;gap:2.6mm;break-inside:avoid}
+.back .toc i{font-style:normal;font-weight:800;width:6.4mm;flex:none;font-variant-numeric:tabular-nums}
+.back .toc .k{font:700 7.4pt/11.6pt "Sans";letter-spacing:.09em;text-transform:uppercase;opacity:.75;margin-bottom:1.2mm}
+.back .set{position:absolute;left:var(--m);bottom:var(--m);font:500 8.6pt/12pt "Sans";width:120mm}
+.back .set div{display:flex;gap:2.6mm}
+.back .set i{font-style:normal;font-weight:800;width:4mm}
+.back .set .on{font-weight:800}
+.back .set .off{opacity:.62}
+
+/* ------------------------------------------------ aperçus écran */
+body.apercu{background:#cfd4d7;padding:40px;width:max-content}
+body.apercu .sheet{box-shadow:0 2px 10px rgba(0,0,0,.28)}
+body.planche .wrap4{display:flex;gap:16mm;zoom:.42}
+body.planche .sheet.complete{display:none}
+body.planche .sheet.plat{width:var(--W);height:var(--H)}
+body.planche .sheet.plat .board{top:0}
+body.jaquette .sheet.plat{display:none}
+body.jaquette .sheet.complete{zoom:.62}
+body.jaquette .guide{position:absolute;pointer-events:none;border:0 dashed rgba(0,255,255,.9)}
+body.tablette .sheet{display:none}
+body.tablette .shelf{display:flex;gap:1.2mm;align-items:flex-end;zoom:.62;padding:0 0 0 0}
+body.tablette .shelf .sp{position:relative;width:var(--S);height:var(--H);overflow:hidden;box-shadow:inset -2px 0 3px rgba(0,0,0,.25),inset 2px 0 2px rgba(255,255,255,.12)}
+body.tablette .shelf .sp .spine{top:0;left:0}
+body.tablette .plank{height:9mm;background:#8a7a66;zoom:.62;width:calc(4*var(--S) + 3.6mm + 12mm);margin-left:-6mm}
+</style>
+</head>
+<body>
+<script>
+const TOMES=[
+ {n:1,titre:'Tenir',desc:'La panne, le froid, l’eau, le feu, la route, les voisins.',ch:[1,23],bg:'#E2E7EA',ink:'#15222B',num:'#C9D2D8'},
+ {n:2,titre:'Le corps',desc:'Manger assez, soigner quand il n’y a personne, tenir tout un hiver.',ch:[24,33],bg:'#5C1A15',ink:'#F3ECE5',num:'#72271F'},
+ {n:3,titre:'Prélever',desc:'Le gibier, le poisson, la cueillette, lire le territoire.',ch:[34,60],bg:'#1D392E',ink:'#E9F0EA',num:'#2A4B3E'},
+ {n:4,titre:'Conserver<br>et réparer',plain:'Conserver et réparer',desc:'Le sel, la fumée, le froid, le caveau, le cuir, le métal.',ch:[61,89],bg:'#25414F',ink:'#EDF2F5',num:'#335567'}
+];
+const CH4=['Pourquoi la viande pourrit','Le sel','Salaison à sec','Saumure','Fumage à froid','Fumage à chaud et séchage','Pemmican et graisses','Froid naturel','Un congélateur plein qui dégèle','Traiter le poisson à la sortie de l’eau','Saler et sécher la truite','Fumer le poisson','Conserves et marinades','Jardin nordique','Semences','Caveau à légumes','Fermentation','Petit élevage','De la peau au cuir','Babiche, tendons, cordage','Coudre et chausser','Affûter, limer, aiguiser','Scie à chaîne et petits moteurs','Souder, braser, réparer le métal','Le stock de pièces et de consommables','Leviers, poulies, treuils','Assemblages bois-bois','Trempe et travail du métal à chaud','Savon et chandelles'];
+const NB=' ';
+function vars(el,t){el.style.setProperty('--bg',t.bg);el.style.setProperty('--ink',t.ink);el.style.setProperty('--num',t.num);}
+function front(t){
+  const b=document.createElement('div');b.className='board front';vars(b,t);
+  b.innerHTML=`<div class="face"></div>
+   <div class="big">${t.n}</div>
+   <div class="series">Le Grand Livre du Chalet<span>Côte-Nord</span></div>
+   <div class="tome">Tome${NB}${t.n}</div>
+   <div class="blk"><div class="title">${t.titre}</div>
+   <div class="desc"></div>
+   <div class="chap">Chapitres ${t.ch[0]}${NB}à${NB}${t.ch[1]}</div></div>`;
+  b.querySelector('.desc').textContent=t.desc;
+  return b;
+}
+function spine(t){
+  const s=document.createElement('div');s.className='spine';vars(s,t);
+  s.innerHTML=`<div class="face"></div><div class="n">${t.n}</div><div class="t">${t.plain||t.titre}</div><div class="s">Le Grand Livre du Chalet</div>`;
+  return s;
+}
+function back(t){
+  const b=document.createElement('div');b.className='board back';vars(b,t);
+  const toc=CH4.map((x,i)=>`<div><i>${61+i}</i><span>${x}</span></div>`).join('');
+  const set=TOMES.map(u=>`<div class="${u.n===t.n?'on':'off'}"><i>${u.n}</i><span>${u.plain||u.titre}</span></div>`).join('');
+  b.innerHTML=`<div class="face"></div>
+   <div class="series">Le Grand Livre du Chalet<span>Tome${NB}${t.n} · ${t.plain||t.titre}</span></div>
+   <div class="pitch"><b>Il n’y a personne à appeler.</b>Pas d’entrepreneur, pas de quincaillerie ouverte, pas de pièce en commande. Ce livre dit comment faire la chose soi-même, et comment la faire avec rien quand le bon outil n’est pas là.</div>
+   <div class="toc"><div class="k">Dans ce tome</div>${toc}</div>
+   <div class="set">${set}</div>`;
+  return b;
+}
+// pages 1 à 4 : les plats avant
+TOMES.forEach(t=>{const sh=document.createElement('section');sh.className='sheet plat';sh.appendChild(front(t));document.body.appendChild(sh);});
+// page 5 : la couverture complète du tome 4
+(function(){
+  const t=TOMES[3];const sh=document.createElement('section');sh.className='sheet complete';
+  const bk=back(t);bk.style.left='var(--b)';sh.appendChild(bk);
+  const sp=spine(t);sp.style.left='calc(var(--b) + var(--W))';sh.appendChild(sp);
+  const fr=front(t);fr.style.left='calc(var(--b) + var(--W) + var(--S))';sh.appendChild(fr);
+  document.body.appendChild(sh);
+})();
+// aperçus
+const h=location.hash;
+if(h){document.body.classList.add('apercu');}
+if(h==='#planche'){
+  document.body.classList.add('planche');
+  const w=document.createElement('div');w.className='wrap4';
+  document.querySelectorAll('.sheet.plat').forEach(s=>w.appendChild(s));document.body.appendChild(w);
+}
+if(h==='#jaquette'){
+  document.body.classList.add('jaquette');
+  const sh=document.querySelector('.sheet.complete');
+  const g=(css)=>{const d=document.createElement('div');d.className='guide';Object.assign(d.style,css);sh.appendChild(d);};
+  g({left:'var(--b)',top:'var(--b)',right:'var(--b)',bottom:'var(--b)',borderWidth:'1px'});
+  g({left:'calc(var(--b) + var(--W))',top:'0',bottom:'0',width:'var(--S)',borderLeftWidth:'1px',borderRightWidth:'1px'});
+}
+if(h==='#tablette'){
+  document.body.classList.add('tablette');
+  const shelf=document.createElement('div');shelf.className='shelf';
+  TOMES.forEach(t=>{const w=document.createElement('div');w.className='sp';w.appendChild(spine(t));shelf.appendChild(w);});
+  document.body.appendChild(shelf);
+  const p=document.createElement('div');p.className='plank';document.body.appendChild(p);
+}
+</script>
+</body>
+</html>

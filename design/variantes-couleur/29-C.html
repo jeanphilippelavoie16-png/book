@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>29 — La santé des femmes — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"29"}
+</style>
+</head>
+<body class="vA vB vC t2 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 2 · Le corps</span><span>Chapitre</span></div><div class="open-title"><div class="num">29</div><h1>La santé des femmes</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Les règles et l’espacement des naissances se vivent aux deux endroits, et c’est au chalet que le dernier paquet finit. L’accouchement a sa propre bascule. À la maison, pendant un événement court, une naissance part à l’hôpital, et ce chapitre ne sert que si le bébé va plus vite que la route. Une grossesse qui approche du terme est la seule exception à « ce qui dure finit au chalet » : quand un événement long s’annonce, la femme enceinte reste près de l’hôpital tant que la route existe (<span class="ref">ch. 2</span>, <span class="ref">ch. 7</span>), et la décision se prend avant 37 semaines, pas au premier signe. Au chalet coupé du monde, tout ce qui suit cesse d’être un dépannage : c’est le plan.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Tenir les règles, l’espacement des naissances, la grossesse, l’accouchement et les six semaines qui suivent sans pharmacie ni hôpital, avec des protections qui durent un an, des méthodes sans stock qui laissent de moins de 1 à 20 grossesses pour 100 femmes par année selon le choix et la rigueur, et les deux gestes qui décident de la première heure : faire durcir l’utérus et faire respirer le bébé.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">Le stock de serviettes, de tampons, de condoms ou de pilules va finir pendant un événement qui dure. Les protections lavables et les méthodes d’observation se mettent en place <strong>avant</strong> la dernière boîte : une méthode qui lit le corps s’apprend sur quelques cycles, pas le soir où on en a besoin.</p>
+<p class="li">Le bébé arrive plus vite que la route. Pour un deuxième accouchement et les suivants, la phase active dure <strong>3 heures</strong> en médiane et la naissance se fait d’habitude en moins de <strong>2 heures</strong> de poussée. C’est le troisième enfant qui surprend, pas le premier.</p>
+<p class="li">La route est coupée pour des semaines et une grossesse avance. Le chapitre se lit dès le premier retard de règles : la nourriture (5-C) et la préparation (5-D) se font des mois avant le jour.</p>
+<h4 class="choix">C’est un mauvais choix quand :</h4>
+<p class="li">La grossesse approche du terme et un moyen de rejoindre l’hôpital existe encore. Monter au chalet pour « tenir » avec une femme près du terme, c’est choisir d’accoucher sans salle d’opération alors qu’on pouvait l’avoir.</p>
+<p class="li">Le bébé ne se présente pas par la tête (comment le savoir : 5-C, étape 23). Couché en travers, il ne naît pas par les voies naturelles : il faut une césarienne (<span class="ref">ch. 35</span>, l’horloge en heures). Par un pied, il fait très souvent descendre le cordon avant lui : tant que la route existe, c’est elle ; sinon, il naît comme un siège, la mère couchée (section 7, 9-G). Les fesses d’abord, ça peut bien aller, à condition de ne rien tirer.</p>
+<p class="li">Du sang rouge coule en quantité avant la naissance, ou le cordon sort avant la tête. Les mains achètent des minutes, pas une issue (5-E, section 7).</p>
+<p class="li">Il y a deux bébés. Ils naissent plus souvent avant terme, le cordon du deuxième descend plus souvent, et la mère saigne davantage après (5-C, étape 23 ; section 7).</p>
+<p class="li">Les contractions deviennent régulières avant 37 semaines. Plus un bébé naît petit et tôt, moins il tolère le froid : le chalet ne le garde pas au chaud comme un incubateur.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">Le sang et le tissu.</strong> Une protection humide ou sale contre la peau fait des irritations et des infections. D’où la règle qui tient tout le système : changer souvent, tremper à froid, laver au savon et <strong>sécher complètement</strong>. La sphaigne sèche retient de <strong>15 à 22 fois son poids</strong> en liquide, et c’est ce qui en fait l’absorbant de dépannage du Nord.</p>
+<p class="p0 ri"><strong class="runin">La fertilité a une fenêtre.</strong> L’ovaire libère un ovule une fois par cycle, et le corps l’annonce : une glaire<sup class="fnr" data-fn="29-1">1</sup> apparaît au col les jours d’avant, et la température du matin monte de <strong>0,2 à 0,5 °C</strong> juste après. Les méthodes sans stock lisent ces signes ou comptent les jours, et elles échouent toutes de la même façon : une relation pendant les jours fertiles. L’allaitement, lui, bloque les hormones de l’ovulation tant que le bébé tète souvent, jour et nuit. Le piège est dans l’ordre : l’ovulation peut revenir <strong>avant</strong> les premières règles, et on peut donc être enceinte sans les avoir revues. Attendre les règles pour reprendre la contraception, c’est se fier à un signe qui peut arriver trop tard.</p>
+<p class="p0 ri"><strong class="runin">Après la naissance, c’est un muscle qui arrête le sang, pas un caillot.</strong> Le placenta est collé à la paroi de l’utérus par des vaisseaux ouverts. Quand il se détache, seul l’utérus qui se contracte en boule dure les écrase. Tout ce qui l’aide à durcir arrête le saignement : le frotter, faire téter (la succion fait produire l’ocytocine, l’hormone qui le contracte), vider la vessie, vider l’utérus d’un placenta complet. Tout ce qui le tient ouvert, même un petit morceau de placenta resté dedans, le fait saigner.</p>
+<p class="p0 ri"><strong class="runin">Le nouveau-né se ranime par l’air.</strong> Ses poumons sont pleins de liquide à la naissance. Le séchage et le frottement du dos déclenchent le premier souffle ; s’il ne vient pas, c’est l’air poussé dans les poumons qui fait repartir le cœur, pas le massage cardiaque. Et il perd sa chaleur à une vitesse qu’on ne soupçonne pas : <strong>nu à 23 °C, il perd autant de chaleur qu’un adulte nu à 0 °C</strong>, et mouillé, il en perd davantage, parce que c’est surtout l’eau qui s’évapore de sa peau qui le refroidit.</p>
+<p class="p0 ri"><strong class="runin">Le lait suit la demande.</strong> Plus le bébé tète, plus le sein produit. La douleur au mamelon veut presque toujours dire que le bébé tient le bout du sein au lieu d’une grande bouchée d’aréole : il tire moins de lait et blesse davantage.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce tableau dit seulement ce qui sert à ces gestes-là.</p>
+<table class="tspan"><colgroup><col style="width:28.9%"><col style="width:15.6%"><col style="width:37.0%"><col style="width:18.5%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Serviettes lavables en flanelle de coton, dos imperméable, ailes à boutons-pression</td><td><strong>5 au minimum</strong> par femme ; durent environ 1 an</td><td>Flanelle de vieilles chemises en plusieurs épaisseurs ; sachet de sphaigne dans une enveloppe de coton bouilli (9-A)</td><td>Oui</td></tr><tr><td class="c-item">Coupe menstruelle</td><td>1 par femme ; dure <strong>5 à 10 ans</strong></td><td>Les serviettes lavables</td><td>Oui</td></tr><tr><td class="c-item">Chaudière à couvercle réservée au trempage</td><td>1</td><td>N’importe quel seau à couvercle (<span class="ref">ch. 31</span>, étape 44)</td><td>Oui</td></tr><tr><td class="c-item">Condoms en latex</td><td>Selon la durée visée</td><td>Aucune pour la barrière ; les méthodes d’observation (5-B) les remplacent, moins bien</td><td>Oui</td></tr><tr><td class="c-item">Thermomètre médical</td><td>1</td><td>La main sur le front ou le pied du bébé, pour estimer seulement</td><td>Oui — sauf pour la méthode de la température</td></tr><tr><td class="c-item">Collier des jours</td><td>1 par femme</td><td>Fabriqué (9-B)</td><td>Oui</td></tr><tr><td class="c-item">Montre à trotteuse</td><td>1</td><td>Compter à voix haute « mille-un, mille-deux »</td><td>Oui</td></tr><tr><td class="c-item">Gants</td><td>Quelques paires</td><td>Sacs de plastique très propres ; mains frottées au savon, ongles coupés court</td><td>Oui</td></tr><tr><td class="c-item">Liens pour le cordon</td><td><strong>3</strong> (2 et 1 de réserve)</td><td>Ficelle de coton, lacet de coton, bande de drap, stérilisés (5-D)</td><td><span class="non">NON</span> <span class="negx">— mais une ficelle se trouve toujours</span></td></tr><tr><td class="c-item">Lame neuve dans son emballage, ou ciseaux</td><td>1</td><td>Couteau bouilli 20 minutes (9-C)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Toile de plastique et draps bouillis sous la mère</td><td>1 toile, 2 draps</td><td>Sacs à ordures ouverts ; sacs de jute ou guenilles bouillis et séchés</td><td>Oui</td></tr><tr><td class="c-item">Deux serviettes et un bonnet pour le bébé, réchauffés</td><td>2 et 1</td><td>Tout tissu sec ; la manche d’un chandail de laine nouée au bout, un bas de laine</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Pièce chauffée à <strong>25-28 °C</strong>, sans courant d’air</td><td>1</td><td>Un coin près du poêle fermé de couvertures suspendues (5-D)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Surface ferme et chaude pour ranimer le bébé</td><td>1</td><td>Table, planche, plancher couvert d’un linge chaud</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Linge roulé sous les épaules du bébé</td><td>1</td><td>Serviette pliée</td><td>Oui</td></tr><tr><td class="c-item">Poire nasale</td><td>1</td><td>Linge propre enroulé sur le doigt ; la plupart des bébés n’ont besoin de rien</td><td>Oui</td></tr><tr><td class="c-item">Bol pour le placenta, chaudière à couvercle</td><td>1 et 1</td><td>Tout plat creux</td><td>Oui</td></tr><tr><td class="c-item">Beaucoup de linges propres pour les saignements des premiers jours</td><td>Plus qu’un cycle de règles</td><td>Vieux draps et flanelle bouillis et séchés ; la sphaigne seulement une fois le périnée guéri (9-A)</td><td>Oui</td></tr><tr><td class="c-item">Balance de cuisine <strong>0 à 5 kg au gramme</strong>, et un bassin</td><td>1</td><td>Les couches et les selles (étape 80)</td><td>Oui</td></tr><tr><td class="c-item">Misoprostol, <strong>s’il a été prescrit</strong> pendant la grossesse</td><td>3 comprimés de 200 µg en prévention, 4 en traitement</td><td>Les mains (5-H) : elles font moins, plus lentement</td><td>Oui — ce qu’on perd est une marge sur la première cause de mort après l’accouchement</td></tr><tr><td class="c-item">Vitamine K pour le bébé, <strong>si elle a été prescrite</strong></td><td>Selon l’ordonnance</td><td>Aucune</td><td>Oui — ce qu’on perd est la protection contre un saignement dans le cerveau entre 2 et 12 semaines (5-K)</td></tr><tr><td class="c-item">Vitamine D en gouttes <strong>pour bébé</strong></td><td><strong>10 µg (400 UI) par jour</strong> dès la naissance, tant qu’il est allaité</td><td>Aucune</td><td>Oui — ce qu’on perd : la carence existe encore chez les bébés allaités qui n’en reçoivent pas (étape 78)</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Les règles sans rien acheter</h3>
+<p class="step pk-t"><span class="sn">1</span><strong>Changer souvent.</strong> Une serviette lavable se change aux <strong>3 à 6 heures</strong>, plus tôt si elle est pleine. La coupe se vide aux <strong>6 à 12 heures</strong> ; on la rince à l’eau propre si on en a, sinon on la remet telle quelle. Un tampon ne reste jamais plus de <strong>8 heures</strong> : au-delà, il expose à une infection rare mais mortelle, le choc toxique<sup class="fnr" data-fn="29-2">2</sup>. La coupe peut le donner aussi, et il vient aussi après un accouchement. Au premier signe, on retire tout de suite ce qui est dans le vagin, et la vie est en jeu.</p>
+<p class="step"><span class="sn">2</span><strong>Tremper à l’eau froide</strong>, dans la chaudière à couvercle, avant tout lavage (<span class="ref">ch. 31</span>, étape 44) : l’eau chaude fixe le sang dans la fibre.</p>
+<p class="step"><span class="sn">3</span><strong>Laver au savon, rincer</strong> (le savon qu’on fait : <span class="ref">ch. 112</span>).</p>
+<p class="step"><span class="sn">4</span><strong>Sécher complètement.</strong> Au soleil l’été, sur une corde près du poêle l’hiver. Une serviette rangée humide est une serviette qui irrite et infecte le mois suivant.</p>
+<p class="step"><span class="sn">5</span><strong>Ranger sec</strong> dans un sac de coton.</p>
+<p class="step pk-t"><span class="sn">6</span><strong>La coupe se fait bouillir 5 à 10 minutes à la fin de chaque cycle.</strong></p>
+<p class="step"><span class="sn">7</span><strong>Rien d’autre dans le vagin que ce qui est fait pour y aller.</strong> Feuilles, herbes, mousse nue : infection et irritation, sans rien absorber de mieux qu’une serviette.</p>
+<p class="step"><span class="sn">8</span><strong>Reconnaître les règles trop abondantes</strong> : la protection traversée chaque heure pendant plusieurs heures de suite, des règles qui durent plus d’une semaine, des caillots de plus de <strong>2,5 cm</strong>. Répétées, elles mènent à l’anémie ; le fer de la femme et le signe de la paupière pâle sont au chapitre 21.</p>
+<p class="step pk-t"><span class="sn">9</span><strong>Lire le calendrier du corps.</strong> Les règles reviennent d’ordinaire tous les <strong>21 à 35 jours</strong>. Un retard veut dire une grossesse jusqu’à preuve du contraire (5-C) ; des règles qui cessent pendant une disette disent souvent qu’elle ne mange pas assez. Tant que le cycle est déréglé, les méthodes d’observation de 5-B ne marchent pas.</p>
+<h3 class="sub">B — Espacer les naissances quand le stock finit</h3>
+<p class="p0">Une grossesse commencée au chalet en janvier est un accouchement au chalet en octobre. La contraception est la première ligne de tout ce qui suit la section 5-D.</p>
+<p class="step"><span class="sn">10</span><strong>Ce qui se prépare pendant que tout marche.</strong> Les seules méthodes qui ne dépendent d’aucun stock sont celles qu’on pose d’avance : le stérilet au cuivre reste efficace <strong>12 ans</strong>, le stérilet hormonal de <strong>3 à 5 ans</strong> selon le modèle (le plus durable protège encore bien à <strong>7 ans</strong>), l’implant <strong>3 à 5 ans</strong>. La vasectomie est définitive, mais elle ne protège qu’après <strong>3 mois</strong> : condoms jusque-là.</p>
+<p class="step"><span class="sn">11</span><strong>Le condom.</strong> Un neuf à chaque fois, emballage intact. <strong>Tout corps gras détruit le latex</strong> : huile, beurre, saindoux, graisse d’ours ou de phoque, vaseline, onguent, crème. Au chalet, où le gras est partout, c’est la cause d’échec qu’on ne voit pas venir. Lubrifier à l’eau propre ou à la salive. Un condom périmé ne s’emploie que s’il n’en reste pas de plus récent.</p>
+<p class="step"><span class="sn">12</span><strong>La méthode des deux jours.</strong> Chaque après-midi ou chaque soir, la femme vérifie s’il y a de la glaire, sur les doigts, la culotte ou un linge essuyé à l’extérieur du vagin, ou à la sensation. <strong>Toute glaire</strong>, quelle que soit sa couleur ou sa texture, rend fertile ce jour-là et le lendemain. Les relations sans protection reprennent après <strong>deux jours secs de suite</strong>. Aucune douche vaginale : elle emporte la glaire qu’on cherche à lire. La méthode est difficile à lire pendant une infection vaginale.</p>
+<p class="step pk-t"><span class="sn">13</span><strong>Le collier des jours.</strong> Le premier jour de saignement est le jour 1. Les <strong>jours 8 à 19</strong> sont fertiles, tous les mois, pour toutes. La méthode ne vaut que si les cycles durent de <strong>26 à 32 jours</strong> ; plus de deux cycles hors de cette plage dans une année, et elle perd sa fiabilité. Le collier (9-B) remplace le calendrier et le crayon. Les deux méthodes employées ensemble marchent mieux que chacune seule.</p>
+<p class="step pk-c"><span class="sn">14</span><strong>La température du matin, pour qui veut la plus fiable des méthodes sans stock.</strong> Prendre la température à la même heure chaque matin, <strong>avant de se lever et avant de manger</strong>. Après l’ovulation, elle monte de <strong>0,2 à 0,5 °C</strong> et reste haute jusqu’aux règles. Combinée à la glaire (méthode symptothermique), la période à protéger va du premier jour des règles jusqu’au plus tard de deux moments : le <strong>4e jour après le dernier jour de glaire claire et glissante</strong>, ou le <strong>3e jour complet de température haute</strong>. Le prix : un thermomètre, et un point au crayon chaque matin sur une planchette quadrillée clouée près du lit — une colonne par jour, une ligne par dixième de degré —, qui montre la marche d’escalier d’un coup d’œil et s’efface au retour des règles. <strong>Une fièvre rend la courbe illisible</strong> : pendant ce cycle-là, on revient aux deux jours (étape 12), ou on se protège.</p>
+<p class="step pk-t"><span class="sn">15</span><strong>L’allaitement comme méthode.</strong> Il protège seulement si les <strong>trois</strong> conditions tiennent en même temps : le bébé a <strong>moins de 6 mois</strong> ; il ne reçoit presque rien d’autre que le sein et tète souvent, <strong>pas plus de 4 heures d’écart le jour, 6 heures la nuit</strong> ; les règles ne sont pas revenues. Le jour où une seule condition tombe, on passe à une autre méthode, ce jour-là. L’ovulation peut revenir dès la <strong>troisième semaine</strong> après l’accouchement.</p>
+<p class="step"><span class="sn">16</span><strong>Le retrait.</strong> Mieux que rien, loin derrière le reste. S’il y a eu une éjaculation peu de temps avant, l’homme urine et s’essuie le bout du pénis avant la relation : il reste du sperme.</p>
+<p class="step pk-t"><span class="sn">17</span><strong>La contraception d’urgence.</strong> Les comprimés se prennent jusqu’à <strong>5 jours</strong> après la relation, et plus ils sont pris tôt, mieux ils marchent. Ils s’achètent d’avance, pendant que tout marche ; une femme qui allaite en veut une sorte compatible, à demander au même moment.</p>
+<p class="step"><span class="sn">18</span><strong>Ce qui ne marche pas</strong> : la douche vaginale (le sperme est au fond avant qu’on ait fini), uriner après, les feuilles et les herbes dans le vagin (infection), et le calendrier « à l’œil ».</p>
+<table class="tspan"><colgroup><col style="width:30.2%"><col style="width:36.0%"><col style="width:16.9%"><col style="width:16.9%"></colgroup><thead><tr><th>Méthode</th><th>Ce qu’il faut</th><th>Grossesses sur 100 femmes en un an, bien suivie</th><th>Telle qu’on la suit d’habitude</th></tr></thead><tbody><tr><td class="c-item">Implant, posé avant</td><td>Rien pendant 3 à 5 ans</td><td>0,1</td><td>0,1</td></tr><tr><td class="c-item">Vasectomie</td><td>Condoms les 3 premiers mois</td><td>0,1</td><td>0,15</td></tr><tr><td class="c-item">Stérilet hormonal, posé avant</td><td>Rien pendant 3 à 5 ans selon le modèle</td><td>0,5</td><td>0,7</td></tr><tr><td class="c-item">Stérilet au cuivre, posé avant</td><td>Rien pendant 12 ans</td><td>0,6</td><td>0,8</td></tr><tr><td class="c-item">Allaitement, 3 conditions</td><td>Téter jour et nuit ; 6 mois au plus</td><td>0,9</td><td>2</td></tr><tr><td class="c-item">Symptothermique</td><td>Thermomètre, glaire, discipline</td><td>moins de 1</td><td>2</td></tr><tr><td class="c-item">Condom</td><td>Le stock</td><td>2</td><td>13</td></tr><tr><td class="c-item">Collier des jours</td><td>Cycles de 26 à 32 jours</td><td>5</td><td>12</td></tr><tr><td class="c-item">Deux jours</td><td>Regarder chaque soir</td><td>4</td><td>14</td></tr><tr><td class="c-item">Retrait</td><td>Rien</td><td>4</td><td>20</td></tr><tr><td class="c-item">Aucune méthode</td><td>—</td><td>85</td><td>85</td></tr></tbody></table>
+<p class="p0">La colonne de droite est la vraie. L’écart entre les deux colonnes, c’est la fatigue, l’envie et la nuit où on se dit que ce jour-là ne compte pas.</p>
+<h3 class="sub">C — La grossesse</h3>
+<p class="step pk-t"><span class="sn">19</span><strong>Compter.</strong> La date prévue tombe <strong>280 jours</strong> (40 semaines) après le premier jour des dernières règles. Le bébé est à terme de <strong>37 à 42 semaines</strong>, et la plupart naissent entre 39 et 41. Sans échographie, la date est approximative : c’est pour ça que tout ce qui est en 5-D est prêt à 37 semaines.</p>
+<p class="step"><span class="sn">20</span><strong>Manger un repas de plus, surtout du gras et des glucides.</strong> Il faut <strong>340 kcal</strong> de plus par jour au deuxième trimestre, <strong>452 kcal</strong> au troisième, puis <strong>330 kcal</strong> pendant les six premiers mois d’allaitement et <strong>400 kcal</strong> après. À 9 kcal le gramme, c’est l’équivalent d’environ <strong>38 g de gras pur</strong> par jour au deuxième trimestre et <strong>50 g</strong> au troisième. Les protéines, elles, ne montent qu’à <strong>71 g par jour</strong> (<span class="ref">ch. 19</span>) : une femme enceinte qui mange plus de viande maigre au lieu de plus de gras court au mal de caribou, et <strong>la viande maigre seule tue en quelques semaines</strong>. Elle se sert en même temps que les enfants, pas après.</p>
+<p class="step"><span class="sn">21</span><strong>La multivitamine prénatale</strong>, commencée deux ou trois mois avant la grossesse et prise jusqu’après l’accouchement : au moins <strong>0,4 mg d’acide folique</strong> et <strong>16 à 20 mg de fer</strong>. L’acide folique protège la colonne et le cerveau du bébé, surtout au tout début de la grossesse : d’où les mois d’avance. Elle s’achète d’avance, pendant que tout marche. Deux autres choses se font à ce moment-là, une fois pour toutes : <strong>le vaccin de la mère contre le tétanos</strong>, mis à jour avant ou pendant la grossesse, qui protège aussi le nouveau-né du tétanos par le cordon (section 7) ; et <strong>son groupe sanguin avec le Rh</strong> : une mère Rh négatif reçoit une injection à 28 semaines, et parfois après la naissance ; et un groupe différent entre la mère et le bébé est une des causes de la jaunisse du premier jour (section 7).</p>
+<p class="step"><span class="sn">22</span><strong>Ce qu’elle ne mange pas, et pourquoi.</strong></p>
+<p class="li l2"><strong>Aucun foie</strong>, d’aucune bête : trop de vitamine A pour le bébé. Et pour tout le monde, <strong>jamais le foie ni les reins d’un cervidé</strong> : le cadmium (<span class="ref">ch. 22</span>).</p>
+<p class="li l2"><strong>Le gibier cuit à 74 °C à cœur</strong>, sans exception : la viande crue ou saignante porte la toxoplasmose, un parasite qui atteint le bébé.</p>
+<p class="li l2"><strong>Le poisson fumé à froid se réchauffe à 70 °C à cœur avant qu’elle en mange.</strong> La listériose pousse au froid, dans un aliment qui a l’air, l’odeur et le goût d’un aliment sain, et elle tue le bébé avant la naissance. Pour tout le monde, le botulisme de type E fait sa toxine dès <strong>3 °C</strong> et ne change ni l’odeur, ni le goût, ni l’apparence (<span class="ref">ch. 77</span>).</p>
+<p class="li l2"><strong>Le lait cru se fait bouillir</strong> (<span class="ref">ch. 101</span>).</p>
+<p class="li l2"><strong>La viande autour du trajet de la balle se pare large et se jette</strong> : les éclats de plomb se dispersent loin du trou et ne se voient pas (<span class="ref">ch. 62</span>), et le plomb nuit au développement de l’enfant, avant comme après la naissance. La balle sans plomb supprime le problème.</p>
+<p class="li l2"><strong>Le poisson se compte comme au chapitre 46.</strong> Le modèle du poisson de mer y a une ligne à part pour la femme enceinte, qui sert de gabarit ; au lac, le touladi (truite grise), le doré et le brochet sont les plus limités.</p>
+<p class="li l2"><strong>Pas d’eau traitée à l’iode</strong> (<span class="ref">ch. 10</span>) : il donne un goitre au nouveau-né, <strong>et pendant l’allaitement aussi</strong> : l’iode passe dans le lait et ralentit la thyroïde du bébé, dont le cerveau en a besoin pour se faire. Si l’iode est le seul moyen de traiter l’eau, il vaut mieux que l’eau non traitée, le moins de jours possible. <strong>Pas d’ibuprofène ni d’aspirine</strong>, l’acétaminophène pour peu de jours seulement ; <strong>pas de remède de plantes</strong> (<span class="ref">ch. 33</span>), l’écorce de saule comprise, parente de l’aspirine, ni le thé du Labrador. <strong>Les tisanes qui passent</strong> : l’églantier (le fruit du rosier sauvage), le gingembre, la pelure d’orange ou d’autres agrumes, <strong>pas plus de deux ou trois tasses par jour</strong>. Le sapin baumier et l’épinette n’y sont pas : rien ne dit qu’ils sont sans danger pour le bébé. Pendant la grossesse, la vitamine C vient de l’églantier (<span class="ref">ch. 20</span>). <strong>Jamais le cèdre</strong> (thuya, <em>Thuja occidentalis</em>) : sa thuyone est toxique.</p>
+<p class="step"><span class="sn">23</span><strong>Le bébé qui bouge, et le cœur qu’on écoute.</strong> Les mouvements se sentent vers 20 semaines. Après <strong>26 semaines</strong>, si le bébé semble moins bouger, la femme se repose et compte : <strong>moins de six mouvements distincts en deux heures</strong> est un signe de danger (section 7).</p>
+<p class="li l2"><strong>Le cœur</strong> s’entend souvent dans les deux derniers mois, l’oreille collée au ventre dans une pièce silencieuse, mieux avec un cornet (9-C). Il bat vite et léger, comme une montre sous un oreiller, <strong>120 à 160 fois par minute</strong>, à peu près deux fois le pouls de la mère. Un battement lent est souvent le pouls de la mère : on lui tient le poignet en écoutant, et s’ils vont ensemble, c’est elle qu’on entend. Un souffle, « chou-ou, chou-ou », est le cordon : il donne la vitesse, pas la position.</p>
+<p class="li l2"><strong>La position.</strong> Le cœur le plus fort <strong>sous le nombril</strong> : le bébé a sans doute la tête en bas ; <strong>au-dessus</strong> : il est peut-être en siège. Sur le ventre, une main sur le dos du bébé, l’autre pousse doucement de côté le bout du haut : si tout le dos suit, la tête est en bas ; si le dos reste en place, c’est la tête qu’on bouge, en haut, et c’est un siège. Les deux bouts du bébé dans les flancs de la mère : il est en travers. Beaucoup tournent la tête en bas vers le huitième mois ; en travers après, c’est la section 2.</p>
+<p class="li l2"><strong>Deux bébés.</strong> Le ventre grossit plus vite qu’on l’attend, la main sent deux têtes ou deux fesses, on entend deux cœurs. Pour le vérifier, deux personnes écoutent chacune à un endroit et tapent le rythme de la main : deux rythmes qui ne tombent pas ensemble, ce sont sans doute deux bébés. Les jumeaux naissent plus souvent avant terme : la préparation de 5-D se fait dès le sixième mois.</p>
+<p class="step"><span class="sn">24</span><strong>Les signes qui disent que la vie est en jeu</strong> sont au tableau de la section 7. Ils se lisent une fois par semaine, à deux, pendant toute la grossesse.</p>
+<h3 class="sub">D — Préparer l’accouchement, avant 37 semaines</h3>
+<p class="step pk-c"><span class="sn">25</span><strong>La pièce.</strong> La plus facile à chauffer, sans courant d’air : <strong>25 à 28 °C</strong>. Si la pièce ne monte pas jusque-là, on chauffe un coin : le lit près du poêle, des couvertures suspendues autour. Le repère sans thermomètre : quand la pièce devient trop chaude pour un adulte en manches courtes, elle est juste pour le bébé. On chauffe au poêle à bois, jamais avec un appareil à combustion sans cheminée (<span class="ref">ch. 87</span>). <strong>Le piège est dans la pièce même</strong> : fermer, calfeutrer, entourer le lit de couvertures pour garder la chaleur, c’est le geste qui laisse monter le monoxyde de carbone, qui n’a ni odeur ni couleur : on s’endort au lieu de sortir. Ses signes (mal de tête, fatigue, nausées, étourdissements) sont aussi ceux du travail, de l’épuisement d’après la naissance et de la prééclampsie, et on les met sur leur compte. Deux personnes qui ont mal à la tête en même temps, et ça passe dehors : tout le monde sort, on ouvre, on coupe le feu (<span class="ref">ch. 87</span>, section 7). Les animaux sortent de la pièce.</p>
+<p class="step"><span class="sn">26</span><strong>Le lit.</strong> Toile de plastique dessous, draps bouillis et séchés dessus, et d’autres pliés à côté pour les changer.</p>
+<p class="step"><span class="sn">27</span><strong>Le linge.</strong> Bouilli, séché à la corde, plié pendant qu’il sèche, rangé dans un sac fermé (même méthode que le pansement : <span class="ref">ch. 26</span>, section 9) : de quoi essuyer, couvrir, changer, et garnir les premiers jours de saignement.</p>
+<p class="step pk-t"><span class="sn">28</span><strong>Les liens et la lame.</strong> La stérilisation se fait <strong>à la maison, pendant que tout marche</strong>, au four de la cuisinière : trois liens de ficelle de coton, et des ciseaux s’il y en a, enveloppés dans <strong>quatre épaisseurs de tissu</strong> et ficelés, cuits <strong>1 heure à 170 °C</strong> (ou 2 heures et demie à 150 °C). Ils sortent stériles ; le paquet refroidit, monte au chalet fermé et sec, et ne s’ouvre qu’au moment de s’en servir. Rien de plastique ni de caoutchouc au four. L’autoclave de la maison (<span class="ref">ch. 78</span>) stérilise aussi, caoutchouc compris : <strong>121 °C pendant 20 minutes</strong>, soit 103 kPa (15 lb), le paquet posé <strong>sur la grille, au-dessus de l’eau</strong>, et <strong>après la purge</strong> : l’air resté dans la marmite fait mentir le manomètre (<span class="ref">ch. 78</span>, étape 17), et 103 kPa ne veulent plus dire 121 °C. Une lame neuve reste dans son papier ; un papier mouillé ou percé ne la garde plus stérile. <strong>Au chalet, sans four, les liens et la lame bouillent 20 minutes</strong> (9-C) : c’est la méthode normale là-bas, pas un pis-aller. Le tout dans une boîte de métal à couvercle, <strong>au sec</strong> : les germes reviennent dans ce qu’on range mouillé.</p>
+<p class="step"><span class="sn">29</span><strong>Le coin du bébé.</strong> À portée de main du lit, une surface ferme à hauteur de taille couverte d’un linge chaud, le linge roulé pour les épaules, les deux serviettes et le bonnet sur le réchaud du poêle.</p>
+<p class="step"><span class="sn">30</span><strong>Les rôles.</strong> Deux adultes, pas un : l’aide qui s’occupe de la mère, et quelqu’un pour le bébé. À un seul aidant, s’il faut choisir, <strong>la mère qui saigne passe avant le bébé</strong>.</p>
+<p class="step"><span class="sn">31</span><strong>Se pratiquer.</strong> L’aide répète les insufflations de 5-F sur une poupée ou un paquet de linge de la taille d’un bébé, et apprend à trouver l’utérus sur le ventre de la mère. La mère apprend à sentir le sien : après la naissance, c’est elle qui le surveille le mieux.</p>
+<p class="step"><span class="sn">32</span><strong>À boire et à manger</strong> prêts : boisson de réhydratation (<span class="ref">ch. 26</span>), bouillon, eau sucrée.</p>
+<p class="step"><span class="sn">33</span><strong>Les médicaments prescrits</strong> (misoprostol, vitamine K), s’il y en a, dans la boîte, avec leur dose écrite au feutre sur la boîte même.</p>
+<h3 class="sub">E — Le travail et la naissance</h3>
+<p class="step"><span class="sn">34</span><strong>Les signes.</strong> Des contractions régulières qui durent <strong>au moins 20 secondes</strong> et se rapprochent ; un peu de glaire teintée de sang ; la poche des eaux qui se rompt, d’un coup ou goutte à goutte.</p>
+<p class="step pk-t"><span class="sn">35</span><strong>Les eaux.</strong> Claires ou rosées : normal. <strong>Vertes ou jaunes</strong> : le bébé a fait ses premières selles (le méconium) dans l’utérus, et il pourrait avoir besoin de 5-F à la naissance. On écoute le cœur du bébé tout de suite après (étape 37) : s’il tombe sous 100, c’est le cordon (section 7). Une fois la poche rompue, <strong>rien dans le vagin</strong>, et la température de la mère aux 4 heures. Le travail devrait commencer dans les <strong>12 heures</strong> et le bébé naître dans les <strong>24 heures</strong> : au-delà, les germes montent dans l’utérus (section 8).</p>
+<p class="step"><span class="sn">36</span><strong>La phase de début.</strong> Elle peut durer longtemps et n’a pas de durée normale. La mère dort entre les contractions, mange si elle a faim, boit.</p>
+<p class="step pk-t"><span class="sn">37</span><strong>La phase active.</strong> Les contractions deviennent fortes et rapprochées. La mère boit <strong>au moins une tasse (environ 250 mL) par heure</strong> — la boisson de réhydratation si c’est long —, <strong>urine au moins toutes les deux heures</strong> (une vessie pleine ralentit le travail et fait saigner après), et <strong>change de position chaque heure</strong> : marcher, s’accroupir, quatre pattes. Cette phase dure d’habitude moins de <strong>12 heures</strong> pour un premier bébé et moins de <strong>10 heures</strong> pour les suivants ; plus de 12 heures de contractions fortes sans progrès est un signe d’alarme (section 7). <strong>Le cœur du bébé s’écoute environ une fois par heure</strong> (étape 23), juste après une contraction : pendant, on l’entend souvent mal, et ça ne veut rien dire. Normal : <strong>120 à 160</strong>. Il peut monter à 180 ou descendre à 100 un moment, mais il revient à la fin de la contraction ou quand la mère change de position. <strong>Sous 100 ou au-dessus de 180, et qui ne revient pas</strong> : section 7.</p>
+<p class="step pk-t"><span class="sn">38</span><strong>La poussée.</strong> L’envie de pousser vient quand le col est ouvert. Accroupie, à quatre pattes, à demi assise : la mère prend la position où ça descend ; une corde attachée à une solive, qu’elle tire vers le bas en poussant, l’aide. La naissance se fait d’habitude en moins de <strong>3 heures</strong> de poussée pour un premier, <strong>2 heures</strong> pour les suivants. Si rien ne bombe à la vulve après <strong>30 minutes</strong> de bonnes poussées, ou si rien ne descend après <strong>1 heure</strong> : vider la vessie, changer de position, faire boire. <strong>Jamais de poussée sur le ventre</strong> : ça décolle le placenta ou déchire l’utérus.</p>
+<p class="step pk-t"><span class="sn">39</span><strong>Le couronnement.</strong> Quand la tête reste à la vulve entre deux contractions, ouverte à peu près de la grandeur d’une paume, l’aide se lave les mains et met les gants. Des linges trempés dans de l’eau bouillie <strong>2 minutes</strong>, salée d’une pincée et refroidie jusqu’à tiède, se tiennent contre le périnée : la peau s’assouplit. Une main à plat sur le périnée, un linge sur l’anus.</p>
+<p class="step"><span class="sn">40</span><strong>Ralentir la tête.</strong> La mère souffle fort et vite au lieu de pousser, ou donne de toutes petites poussées entre les contractions : <strong>pas plus de 1 cm</strong> de tête à la fois. Une tête qui sort lentement déchire moins. <strong>On ne ralentit pas</strong> s’il y a eu un jet de sang avant la naissance, si le cordon est sorti ou si le bébé semble en difficulté : il doit sortir vite.</p>
+<p class="step"><span class="sn">41</span><strong>La tête est sortie.</strong> Essuyer la bouche et le nez avec un linge sur le doigt ; pas d’aspiration. Tâter le cou : un cordon lâche se fait passer par-dessus la tête ; un cordon serré se desserre si on peut, sinon on garde la tête collée contre la cuisse de la mère et le corps sort en culbute autour. On ne coupe pas le cordon avant la sortie du bébé : sans lui, le bébé n’a plus d’oxygène avant son premier souffle.</p>
+<p class="step"><span class="sn">42</span><strong>Les épaules.</strong> À la contraction suivante, une petite poussée. La mère à demi assise, l’aide guide la tête vers le bas, vers l’anus de la mère, pour dégager l’épaule du dessus, puis vers le ventre de la mère pour l’autre. Guider, <strong>jamais tirer</strong>, jamais plier le cou : un cou tiré d’un coup ou plié trop loin déchire les nerfs du bras du bébé.</p>
+<p class="step pk-t"><span class="sn">43</span><strong>Les épaules qui bloquent.</strong> Le signe : la tête sortie se fait ravaler contre la vulve, comme une tortue rentre la sienne, et ne tourne pas. Après <strong>environ 5 minutes</strong>, la pression commence à faire saigner le cerveau du bébé. La seule traction permise tient la tête, <strong>jamais le cou</strong>, tire droit dans l’axe du bébé, sans à-coup et sans plier : c’est ce qui la sépare de la traction interdite à l’étape 42. Quatre essais, dans l’ordre, un à la fois : (1) la mère à quatre pattes, les mains en coupe autour de la tête, traction droite et douce en comptant jusqu’à <strong>30</strong> ; (2) la mère au bord du lit, qui tire ses genoux vers ses épaules aussi loin qu’elle peut, quelqu’un qui appuie fort <strong>juste au-dessus de l’os du pubis — pas sur le ventre</strong> —, la mère qui pousse de toutes ses forces, et la même traction en comptant jusqu’à 30 ; (3) la mère à quatre pattes, une main gantée entre dans le vagin le long du dos du bébé, les doigts derrière l’épaule qui est du côté du dos de la mère, et pousse cette épaule vers l’avant jusqu’à ce qu’elle glisse de côté ; (4) la main remonte le long du dos du bébé, contourne son corps, plie un bras, prend la main et la sort en travers de la poitrine, sans enfoncer la clavicule. On ne tire jamais par le cou. Si les quatre échouent : 9-G. Ce bébé aura presque sûrement besoin de 5-F.</p>
+<p class="step"><span class="sn">44</span><strong>Le bébé est sorti.</strong> Sur le ventre de la mère, peau contre peau. <strong>Le sécher tout de suite, tête comprise</strong>, jeter la serviette mouillée, le couvrir de la deuxième serviette chaude, lui mettre le bonnet. Il reste peau contre peau <strong>au moins une heure</strong> sans être séparé.</p>
+<p class="step"><span class="sn">45</span><strong>Dans les 30 secondes, regarder s’il respire.</strong> Il crie ou respire régulièrement, et il rosit en une ou deux minutes : tout va bien. Il ne respire pas, ou seulement par hoquets : 5-F, tout de suite.</p>
+<p class="step"><span class="sn">46</span><strong>Le sein dans la première heure.</strong> La première tétée fait contracter l’utérus : le placenta sort mieux et la mère saigne moins. Le premier lait, jaune et épais (le colostrum), est tout ce dont le bébé a besoin.</p>
+<h3 class="sub">F — Le bébé qui ne respire pas</h3>
+<p class="step"><span class="sn">47</span><strong>Frotter.</strong> En le séchant, frotter fermement le dos <strong>2 ou 3 fois</strong>. Jamais de tape, jamais la tête en bas.</p>
+<p class="step"><span class="sn">48</span><strong>Toujours rien : nouer et couper le cordon</strong> (étapes 53-54) pour pouvoir le déplacer, et le coucher sur le dos sur la surface ferme et chaude, la poitrine découverte, le reste couvert. Le linge roulé sous les épaules, la tête droite, le nez vers le plafond : pas renversée loin en arrière, ce qui referme la gorge.</p>
+<p class="step"><span class="sn">49</span><strong>Si les eaux étaient teintées de vert ou de jaune</strong>, vider la bouche puis le nez d’abord : poire, ou linge sur le doigt.</p>
+<p class="step"><span class="sn">50</span><strong>Souffler.</strong> La bouche de l’aide couvre la bouche et le nez du bébé, un linge mince entre les deux si on en a. On ne souffle que <strong>l’air que les joues gonflées contiennent</strong>, jamais celui de la poitrine : trop d’air déchire les poumons d’un nouveau-né. D’abord <strong>3 à 5 insufflations lentes</strong>, qui chassent le liquide, puis <strong>40 petites bouffées par minute</strong> — de 30 à 50, c’est correct —, soit à peu près une toutes les secondes et demie. Cette ventilation commence <strong>dans la première minute</strong> de vie.</p>
+<p class="step"><span class="sn">51</span><strong>La poitrine doit se soulever</strong> à chaque bouffée. Si elle ne bouge pas : replacer la tête, vider la bouche, ouvrir la bouche, souffler un peu plus fort.</p>
+<p class="step pk-t"><span class="sn">52</span><strong>Après une minute</strong>, regarder et écouter. Il respire ou crie : on arrête, peau contre peau, et on le surveille. Le cœur se sent avec deux doigts sur la poitrine : compter 6 secondes et multiplier par 10. Normal : <strong>120 à 160</strong>. Sous <strong>100</strong>, on continue de souffler. <strong>Ce qui fait repartir un nouveau-né, c’est l’air, pas le massage cardiaque</strong> : tout l’effort va aux insufflations. On arrête après <strong>10 minutes</strong> de ventilation efficace sans aucun battement, ou après <strong>20 minutes</strong> sans respiration avec un cœur sous 60.</p>
+<h3 class="sub">G — Le cordon et le placenta</h3>
+<p class="step pk-t"><span class="sn">53</span><strong>Attendre 1 à 3 minutes</strong> avant de nouer : le sang du placenta passe au bébé. Le cordon, gros et bleu, devient mince et blanc et cesse de battre. Rien n’oblige à couper vite : on peut attendre la sortie du placenta. La seule exception est le bébé à ranimer (étape 48).</p>
+<p class="step"><span class="sn">54</span><strong>Nouer et couper.</strong> Un lien à <strong>2 travers de doigt</strong> du ventre du bébé, un autre à <strong>5 travers de doigt</strong>, chacun serré d’un nœud plat (droite sur gauche, gauche sur droite). Couper entre les deux avec la lame stérile. Regarder le bout : s’il suinte, un troisième lien entre le premier et la peau. Le moignon reste à l’air, sans rien dessus.</p>
+<p class="step pk-t"><span class="sn">55</span><strong>Le placenta vient seul</strong>, d’ordinaire en moins d’une heure. Les signes qu’il s’est décollé : un petit jet de sang (une poignée, pas un filet), le cordon qui s’allonge hors de la vulve, l’utérus qui remonte vers le nombril. À <strong>30 minutes</strong> sans signe : le bébé au sein, la mère urine.</p>
+<p class="step"><span class="sn">56</span><strong>À une heure</strong>, ou plus tôt si elle saigne beaucoup : la mère s’assoit ou s’accroupit au-dessus du bol et pousse avec une contraction. Les membranes qui suivent se tournent doucement en corde avant d’être tirées, pour ne pas se déchirer.</p>
+<p class="step pk-d"><span class="sn">57</span><strong>Ne jamais tirer sur le cordon pour hâter le placenta, ne jamais appuyer sur le ventre.</strong> Encore attaché, le placenta arrache le cordon, ou l’utérus se retourne et sort avec lui (section 8).</p>
+<p class="step"><span class="sn">58</span><strong>Examiner le placenta</strong>, avec des gants. Le côté du bébé est lisse, parcouru de vaisseaux comme des racines. Le côté de la mère est fait de lobes qu’on rassemble dans les deux mains en coupe : <strong>un trou, un bord déchiré, ou des vaisseaux qui partent du bord vers nulle part</strong> veulent dire qu’un morceau est resté dedans, et un morceau resté fait saigner et infecte. Le bout du cordon montre trois trous, un gros et deux petits.</p>
+<p class="step"><span class="sn">59</span><strong>Le placenta s’enterre profond</strong>, pour que les bêtes ne le déterrent pas — renard, ours, chien du chalet —, ou se brûle.</p>
+<h3 class="sub">H — L’hémorragie après l’accouchement</h3>
+<p class="step"><span class="sn">60</span><strong>Ce qui est normal.</strong> Autant qu’une grosse journée de règles, du sang foncé ou rosé qui sort par petits coups quand l’utérus se contracte, quand la mère tousse, bouge ou se lève. <strong>Trop : 500 mL, environ deux tasses.</strong> Sur des linges, on compte les linges trempés.</p>
+<p class="step pk-t"><span class="sn">61</span><strong>Tâter l’utérus</strong>, main à plat sur le ventre : juste après le placenta, puis <strong>toutes les 5 à 10 minutes pendant une heure</strong>, puis <strong>toutes les 15 à 30 minutes pendant une ou deux heures</strong>. Il doit être dur, rond, de la grosseur d’un pamplemousse ou moins, bien au centre du ventre, ni à gauche ni à droite.</p>
+<p class="step pk-t"><span class="sn">62</span><strong>Mou : le frotter.</strong> La main posée sur le dessus de l’utérus serre en tournant, jusqu’à ce qu’il durcisse. Revérifier <strong>toutes les 1 à 2 minutes</strong> ; s’il ramollit, recommencer. La mère et l’aide apprennent ce geste tous les deux.</p>
+<p class="step"><span class="sn">63</span><strong>Le bébé au sein.</strong> S’il ne tète pas, on roule doucement les mamelons entre les doigts : c’est la même ocytocine.</p>
+<p class="step"><span class="sn">64</span><strong>Vider la vessie.</strong> Accroupie sur un bol dans le lit, ou couchée en urinant dans un linge épais ; de l’eau tiède versée sur la vulve aide. Elle devrait uriner dans les <strong>2 ou 3 premières heures</strong>.</p>
+<p class="step"><span class="sn">65</span><strong>Revoir le placenta.</strong> Un morceau manquant tient l’utérus ouvert. Faire téter, rouler les mamelons ; s’il ne sort pas et qu’elle saigne à en mourir, 9-G.</p>
+<p class="step"><span class="sn">66</span><strong>L’utérus est dur et ça saigne quand même</strong> : c’est une déchirure, d’où coule un filet rouge clair et continu. Rouler <strong>10 à 15 compresses</strong> stériles, ou un linge bouilli, en tampon épais et le presser fermement sur l’endroit qui saigne, sans le lâcher. Le tampon se roule d’un seul morceau et se noue d’une ficelle qui reste dehors : une compresse oubliée dans le vagin infecte, et la ficelle fait le compte à la place de la mémoire.</p>
+<p class="step pk-d"><span class="sn">67</span><strong>Ça saigne encore, l’utérus reste mou : la compression à deux mains.</strong> Mains lavées, gant, la main faite la plus petite possible entre dans le vagin, jusqu’au fond, au-dessus du col, et s’y ferme en poing — <strong>jamais dans l’utérus</strong>, où la main porterait les germes jusqu’à la plaie ouverte du placenta (section 8, point 6). L’autre main, sur le ventre, ramène l’utérus vers ce poing et le serre entre les deux. On relâche doucement quand il est dur, puis on sort les caillots du vagin. C’est douloureux pour elle, et c’est ce qui la garde en vie.</p>
+<p class="step"><span class="sn">68</span><strong>Toujours rien : la compression de l’aorte.</strong> L’aide se place au-dessus de la mère, le poing droit juste au-dessus et à côté du nombril, du côté gauche de la mère, le bras tendu, et pousse fort vers le dos. La main gauche cherche le pouls à l’aine, au pli de la cuisse : on appuie <strong>jusqu’à ce qu’il disparaisse</strong>, et on tient jusqu’à ce que le saignement soit maîtrisé.</p>
+<p class="step"><span class="sn">69</span><strong>Les signes du choc</strong> : étourdie, faible, confuse ; peau pâle, sueurs froides ; pouls de plus de <strong>100</strong> par minute, faible et filant ; respiration rapide. La coucher les pieds plus hauts que la tête, la tête tournée sur le côté, la garder au chaud, la faire boire si elle est consciente (la boisson du <span class="ref">ch. 26</span>), rien par la bouche si elle ne l’est pas. <strong>Encore enceinte</strong>, elle se couche sur le côté gauche, les jambes surélevées, jamais à plat sur le dos : couchée sur le dos, l’utérus écrase la grosse veine qui ramène au cœur le sang des jambes ; sur le côté gauche, il la libère. Le réflexe du secourisme, à plat sur le dos les pieds en l’air, est ici le mauvais <strong>dès 20 semaines</strong>, quand le haut de l’utérus arrive au nombril : sur le dos, le sang revient mal au cœur, la pression tombe, et le bébé en reçoit moins. Une femme en santé compense sans que ça paraisse ; une femme en choc n’a plus rien pour compenser. Si elle doit rester sur le dos, une main pousse l’utérus vers sa gauche.</p>
+<p class="step pk-d"><span class="sn">70</span><strong>Le misoprostol, s’il a été prescrit.</strong> <strong>Avant toute dose, la main sur le ventre</strong> : un utérus encore gros et dur comme à terme, où l’on sent des parties de bébé, veut dire qu’il y en a un deuxième, et la dose attend que le dernier soit né. Puis, en prévention, <strong>600 µg</strong> (3 comprimés de 200 µg) par la bouche dès que le bébé est sorti. En traitement, si rien n’a été donné en prévention et qu’elle saigne : <strong>800 µg</strong> (4 comprimés) sous la langue. <strong>Jamais avant la sortie du dernier bébé</strong>, et pas de deuxième dose par-dessus la prévention (section 8). Il donne souvent à la mère des frissons, de la fièvre et des nausées, et de la diarrhée au bébé qui tète.</p>
+<h3 class="sub">I — Les six semaines qui suivent</h3>
+<p class="step"><span class="sn">71</span><strong>L’utérus rapetisse</strong> : le lendemain de la naissance, il est à la hauteur du nombril, un peu plus bas chaque jour. S’il ramollit, on le frotte et on fait téter plus souvent.</p>
+<p class="step pk-t"><span class="sn">72</span><strong>Les pertes durent de 3 à 6 semaines.</strong> Plus abondantes que des règles les deux premiers jours, puis moins ; rosées, puis brunes de plus en plus pâles, puis jaunâtres. Un caillot de temps en temps, le matin ou après une tétée, n’inquiète pas si le saignement diminue après. Un gros effort les fait redevenir rouges : c’est un avertissement, pas un accident. Des serviettes, <strong>ni tampon ni coupe</strong>, changées au moins <strong>toutes les 4 heures</strong> ; se laver chaque jour, s’essuyer de l’avant vers l’arrière, aucune douche vaginale. <strong>Rien dans le vagin, aucune relation, tant que ça saigne.</strong> Pas de bain assise dans l’eau la première semaine.</p>
+<p class="step"><span class="sn">73</span><strong>La déchirure qu’on ne coud pas.</strong> Une petite déchirure guérit seule : <strong>deux semaines</strong> au lit, les jambes serrées la plupart du temps, en les bougeant souvent et en buvant assez : le risque de caillot (section 7) n’est jamais aussi haut que dans les semaines qui suivent la naissance, et une femme couchée qui ne bouge pas, qui manque d’eau ou qui a beaucoup saigné l’augmente encore. Sans escalier ni pente raide. Si ça brûle en urinant, verser de l’eau tiède pendant.</p>
+<p class="step"><span class="sn">74</span><strong>Le repos, six semaines.</strong> Au chalet, c’est l’aide qui fend le bois, charrie l’eau et pellette : une mère qui reprend l’ouvrage trop tôt se remet à saigner.</p>
+<p class="step"><span class="sn">75</span><strong>Manger autant qu’enceinte, et boire</strong> : 330 kcal de plus par jour pendant l’allaitement (étape 20), et l’eau de l’allaitement au chapitre 19.</p>
+<p class="step"><span class="sn">76</span><strong>Le moral.</strong> Des pleurs et des sautes d’humeur les jours qui suivent la naissance sont normaux et passent en <strong>deux semaines</strong> environ. Au-delà, ou si la tristesse s’alourdit, c’est une dépression, et elle se soigne comme le reste du moral de l’hiver (<span class="ref">ch. 36</span>) ; devant l’idée de mourir, on pose la question clairement (<span class="ref">ch. 35</span>). Rare et différente, la psychose d’après la naissance éclate d’un coup, le plus souvent dans les deux premières semaines (section 7). Une mère qui se désintéresse du bébé peut aussi saigner, faire de la fièvre ou être à bout : on vérifie le corps avant de conclure au caractère.</p>
+<p class="step"><span class="sn">77</span><strong>La contraception reprend maintenant</strong> (5-B), pas au retour des règles.</p>
+<h3 class="sub">J — L’allaitement</h3>
+<p class="step pk-t"><span class="sn">78</span><strong>La première tétée dans l’heure</strong>, puis à la demande, <strong>8 fois ou plus par 24 heures</strong>, jour et nuit. Rien d’autre, pas même de l’eau, pendant six mois, <strong>sauf la vitamine D</strong> : le lait maternel donne tout, sauf elle, et on n’expose pas un bébé au soleil pour qu’il la fabrique. <strong>10 µg (400 UI) par jour</strong>, en gouttes, dès la naissance. Les gouttes de la famille (<span class="ref">ch. 00b</span>) ne sont pas celles du bébé : à <strong>1 000 UI</strong> la goutte, une seule touche déjà le plafond d’un bébé de moins de six mois.</p>
+<p class="step"><span class="sn">79</span><strong>Mettre au sein.</strong> La mère s’installe, le dos appuyé. La main sur le haut du dos du bébé, jamais sur sa tête : un bébé à qui on pousse la tête recule. Le menton touche le sein, le mamelon se pose sur la lèvre du haut, et on attend que la bouche s’ouvre <strong>très grand</strong> ; à ce moment, on l’amène au sein, le mamelon pointé vers le palais. Bonne prise : une grande partie de l’aréole dans la bouche, les lèvres retournées, le menton collé au sein, le nez dégagé, pas de douleur qui dure toute la tétée, et on l’entend avaler. Pour l’enlever, un doigt dans le coin de sa bouche fait entrer l’air et brise la succion.</p>
+<p class="step pk-t"><span class="sn">80</span><strong>Boit-il assez ?</strong> Une couche mouillée le premier jour, deux le deuxième, trois le troisième, puis <strong>au moins six par 24 heures</strong> après la première semaine, d’une urine claire. Le méconium, noir et collant, est parti avant le <strong>5e jour</strong> ; ensuite, au moins une selle jaune ou verte par jour jusqu’à 4 semaines. Il perd de <strong>5 à 10 %</strong> de son poids les premiers jours et le retrouve <strong>entre 10 et 14 jours</strong>. Il se pèse directement, couché dans un bassin posé sur la balance de cuisine au gramme (<span class="ref">ch. 00b</span>), qu’on remet à zéro avec le bassin vide : pour un bébé de 3,5 kg, 10 %, c’est 350 g, et un pèse-personne ne lit pas cet écart, surtout par différence avec un adulte. Un bébé très difficile à réveiller pour boire, à l’urine foncée, boit trop peu : plus de tétées, tout de suite.</p>
+<p class="step"><span class="sn">81</span><strong>Les seins engorgés</strong>, lourds et tendus les premiers jours : téter plus souvent. Si le bébé n’arrive pas à prendre un sein trop dur, en exprimer un peu à la main, ou appuyer quelques instants autour du mamelon pour assouplir l’aréole. <strong>En tirer juste assez pour être confortable, jamais le vider</strong> : un sein vidé produit davantage, et l’engorgement revient.</p>
+<p class="step"><span class="sn">82</span><strong>Les crevasses.</strong> Presque toujours une mauvaise prise : on la corrige (étape 79), on varie les positions, on commence par le sein le moins douloureux. Un peu de lait étendu sur le mamelon, laissé sécher à l’air. Acétaminophène au besoin. Si la douleur empêche la tétée, on exprime le lait à la main et on le donne à la tasse et à la cuillère quelques jours.</p>
+<p class="step pk-t"><span class="sn">83</span><strong>La mastite.</strong> Une zone du sein dure, rouge, enflée, chaude, avec de la fièvre, des frissons et des courbatures comme une grippe. <strong>On continue d’allaiter, du sein malade aussi : le lait reste bon.</strong> Du <strong>froid</strong> 10 à 15 minutes toutes les 1 ou 2 heures entre les tétées, <strong>pas de chaleur</strong> ; un massage léger seulement, en effleurant du mamelon vers l’aisselle, jamais en profondeur, ce qui blesse le sein. Ibuprofène ou acétaminophène. Si ça ne commence pas à diminuer en <strong>24 heures</strong>, si la rougeur s’étend, si la fièvre dure plus de 24 heures : c’est une infection qui demande un antibiotique (section 7).</p>
+<p class="step"><span class="sn">84</span><strong>Exprimer à la main.</strong> Mains lavées, un contenant propre et large. Le pouce et l’index de part et d’autre de l’aréole, à <strong>2 à 5 cm</strong> du mamelon ; enfoncer vers les côtes, rapprocher les doigts en pince, relâcher, en rythme, comme le bébé tète. Ne pas glisser sur la peau ni étirer le mamelon. Tourner autour du sein. Le lait vient en gouttes, puis en petits jets.</p>
+<h3 class="sub">K — Le nouveau-né, la première semaine</h3>
+<p class="step pk-t"><span class="sn">85</span><strong>Au chaud.</strong> Une ou deux couches de vêtements de plus qu’un adulte, et le bonnet. <strong>Pas de bain avant 24 heures</strong> : le séchage suffit, et le bain le refroidit. La nuit dans une pièce froide, il retourne peau contre peau. Température normale : <strong>36,5 à 37,5 °C</strong>.</p>
+<p class="step"><span class="sn">86</span><strong>Le cordon.</strong> Chaque jour, nettoyer le tour avec un linge ou un coton trempé d’eau bouillie tiède, puis sécher. <strong>Pas d’alcool</strong> : il retarde la chute. La couche repliée sous le nombril ; rien sur le moignon, qui reste sec. Il noircit et tombe seul entre le <strong>5e et le 21e jour</strong> ; on ne tire pas dessus. Quelques gouttes de sang à la chute sont normales.</p>
+<p class="step"><span class="sn">87</span><strong>La vitamine K.</strong> Le nouveau-né naît avec peu de vitamine K, et le lait maternel en contient peu : à l’hôpital, on la lui donne pour prévenir des saignements rares mais parfois mortels. Si elle a été prescrite pendant la grossesse pour une naissance hors de l’hôpital : <strong>2 mg par la bouche à la première tétée</strong>, puis de nouveau <strong>entre 2 et 4 semaines</strong> et <strong>entre 6 et 8 semaines</strong>. Sans elle, on surveille les signes de saignement<sup class="fnr" data-fn="29-3">3</sup> jusqu’à 6 mois.</p>
+<p class="step"><span class="sn">88</span><strong>La jaunisse.</strong> Le blanc des yeux et la peau jaunissent souvent vers le <strong>2e ou 3e jour</strong> et redeviennent normaux après la première semaine. Elle est pire quand le bébé boit peu : la réponse est de le faire téter plus. Le jaune se voit mieux à la lumière du jour, et en appuyant un instant du doigt sur le bout du nez ou le front. <strong>Celle qui paraît dans les 24 premières heures n’est pas celle-là</strong> : c’est une urgence (section 7). Un bébé jaune qui est aussi somnolent, irritable ou qui boit mal est en danger (section 7).</p>
+<p class="step"><span class="sn">89</span><strong>Les yeux</strong> qui collent un peu de jaune les premières semaines se lavent au lait maternel ou à l’eau bouillie refroidie, avec un linge propre. Rouges, enflés, pleins de pus : section 7.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:22.2%"><col style="width:20.1%"><col style="width:28.7%"><col style="width:28.9%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Chaque changement</td><td>Temps de port</td><td>Serviette 3-6 h ; coupe 6-12 h ; tampon <strong>8 h au plus</strong></td><td>Raccourcir ; la nuit, une serviette plus épaisse plutôt qu’un tampon</td></tr><tr><td class="c-item">Fin de chaque cycle</td><td>Coupe</td><td>Bouillie 5 à 10 min</td><td>La faire bouillir avant la réutiliser</td></tr><tr><td class="c-item">Serviette rangée</td><td>Au toucher et au nez</td><td>Sèche, sans odeur</td><td>La relaver et la sécher près du poêle</td></tr><tr><td class="c-item">Retour des règles, collier</td><td>Marque où est l’anneau</td><td>Règles revenues entre le jour 27 et le jour 33</td><td>Un nœud d’arrêt de plus sur le collier ; au troisième dans l’année, passer aux deux jours (9-B)</td></tr><tr><td class="c-item">Après 26 semaines, si doute</td><td>Mouvements du bébé, mère au repos</td><td><strong>6 mouvements ou plus en 2 heures</strong></td><td>Section 7</td></tr><tr><td class="c-item">Travail actif, chaque heure</td><td>Liquide bu ; position</td><td>1 tasse (250 mL) ; une nouvelle position</td><td>Boisson de réhydratation ; faire marcher</td></tr><tr><td class="c-item">Travail actif, chaque heure, juste après une contraction ; et dès que les eaux se rompent</td><td>Cœur du bébé (étape 37)</td><td>120 à 160 ; revient après la contraction</td><td>Changer la mère de position, réécouter ; sous 100 ou au-dessus de 180 qui ne revient pas : section 7</td></tr><tr><td class="c-item">Travail actif, aux 2 h</td><td>Urine</td><td>Elle a uriné</td><td>Accroupie sur un bol, eau tiède</td></tr><tr><td class="c-item">Eaux rompues, aux 4 h</td><td>Température de la mère</td><td>Moins de <strong>38 °C</strong></td><td>Section 7</td></tr><tr><td class="c-item">Travail actif</td><td>Durée</td><td>Moins de 12 h (1er bébé), moins de 10 h (suivants)</td><td>Section 7</td></tr><tr><td class="c-item">Poussée</td><td>Descente</td><td>La vulve bombe en 30 min ; le bébé descend en 1 h</td><td>Vessie, position, boire ; puis section 7</td></tr><tr><td class="c-item">Naissance + 30 s</td><td>Respiration</td><td>Il crie ou respire</td><td>5-F : ventiler <strong>avant 1 minute</strong></td></tr><tr><td class="c-item">Ventilation + 1 min</td><td>Cœur, poitrine qui monte</td><td>Cœur au-dessus de 100</td><td>Continuer ; corriger la tête et la bouche</td></tr><tr><td class="c-item">Naissance + 1 h</td><td>Placenta</td><td>Sorti, complet, 3 vaisseaux au cordon</td><td>5-G, étape 56 ; morceau manquant : 5-H</td></tr><tr><td class="c-item">1re heure, toutes les 5-10 min ; puis aux 15-30 min</td><td>Utérus</td><td>Dur, rond, au centre du ventre</td><td>Frotter (5-H)</td></tr><tr><td class="c-item">24 premières heures</td><td>Sang perdu</td><td>Moins de 500 mL (2 tasses)</td><td>5-H</td></tr><tr><td class="c-item">2 à 3 h après</td><td>Urine de la mère</td><td>Elle a uriné</td><td>Étape 64</td></tr><tr><td class="c-item">1re heure, toutes les 15 min</td><td>Bébé : peau du pied ou du front, respiration</td><td>Chaude ; moins de 60 respirations par minute, sans tirage</td><td>Peau contre peau, couvrir ; section 7</td></tr><tr><td class="c-item">Chaque jour, 1re semaine</td><td>Couches mouillées</td><td>Autant que l’âge en jours, puis 6 et plus</td><td>Plus de tétées</td></tr><tr><td class="c-item">Jours 1 à 14</td><td>Poids du bébé, au gramme, dans un bassin (étape 80)</td><td>Perte de 10 % au plus ; poids de naissance repris entre 10 et 14 jours</td><td>Plus de tétées ; vérifier la prise</td></tr><tr><td class="c-item">Chaque jour, 6 semaines</td><td>Pertes de la mère</td><td>Qui diminuent ; moins d’une serviette pleine par heure</td><td>Section 7</td></tr><tr><td class="c-item">Chaque jour, 6 semaines</td><td>Mal de tête, vue, enflure des mains et du visage de la mère</td><td>Rien de tout ça</td><td>Section 7, prééclampsie : elle peut venir après la naissance</td></tr><tr><td class="c-item">Chaque jour</td><td>Température de la mère</td><td>Moins de 38 °C</td><td>Section 7</td></tr><tr><td class="c-item">Jour 5 à 21</td><td>Cordon</td><td>Sec, tombé sans rougeur</td><td>Section 7</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<p class="p0">Aucun de ces signes n’attend. La colonne de droite dit ce qu’on fait ici ; quand elle dit que la vie est en jeu, tout moyen de partir qui existe encore sert maintenant (<span class="ref">ch. 2</span>, <span class="ref">ch. 15</span>), et sinon c’est l’horloge en heures du chapitre 35.</p>
+<table class="tspan"><colgroup><col style="width:38.2%"><col style="width:14.7%"><col style="width:47.1%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Protection traversée chaque heure pendant plusieurs heures ; règles de plus d’une semaine ; caillots de plus de 2,5 cm</td><td>Règles trop abondantes</td><td>Repos, fer et viande rouge (<span class="ref">ch. 21</span>) ; si c’est chaque mois, surveiller la pâleur de la paupière</td></tr><tr><td class="c-item">Retard de règles, puis douleur inhabituelle au ventre, souvent d’un côté, saignement, étourdissement, évanouissement, parfois douleur à l’épaule</td><td>Grossesse hors de l’utérus<sup class="fnr" data-fn="29-4">4</sup></td><td><strong>La vie est en jeu.</strong> La coucher, la garder au chaud ; rien ne se fait à la main (<span class="ref">ch. 35</span>)</td></tr><tr><td class="c-item">Saignement en début de grossesse</td><td>Souvent sans suite ; une fois sur deux, une fausse couche</td><td>Surveiller la quantité ; abondant (deux serviettes par heure pendant deux ou trois heures), ou avec faiblesse et douleur forte au ventre : la vie est en jeu</td></tr><tr><td class="c-item">Saignement après 14 semaines, sans les signes des trois lignes suivantes</td><td>Le placenta, une fausse couche, un début de travail ; ce n’est pas toujours un danger</td><td><strong>Rien dans le vagin, ni doigt ni main</strong>, tant qu’elle saigne ; repos ; surveiller la quantité, la douleur, le bébé qui bouge</td></tr><tr><td class="c-item">Sang rouge vif en fin de grossesse ou pendant le travail, <strong>sans douleur</strong> entre les contractions, ventre mou</td><td>Placenta posé devant le col (placenta prævia)</td><td><strong>La vie de la mère et du bébé est en jeu</strong> : une fois le col ouvert, elle peut se vider de son sang très vite. <strong>Rien dans le vagin</strong> : un doigt qui va « voir le col » troue le placenta posé dessus et fait pire. Couchée sur le côté gauche, au chaud (étape 69) ; ce qui manque est une césarienne</td></tr><tr><td class="c-item">Douleur entre les contractions, qui monte ; ventre dur tout le temps et sensible au toucher ; du sang, ou pas de sang du tout ; cœur du bébé très rapide ou très lent ; jet de sang frais pendant la poussée</td><td>Placenta qui se décolle</td><td><strong>La vie de la mère et du bébé est en jeu.</strong> Si la naissance est proche, la mère pousse fort et vite : le bébé doit sortir en quelques minutes. Préparer 5-F et 5-H, les deux en auront besoin. Sinon, choc (étape 69)</td></tr><tr><td class="c-item">Douleur très forte, puis une sensation de déchirure dans le ventre, puis moins de douleur ; <strong>les contractions s’arrêtent</strong> ; le bébé se sent lâche sous la peau du ventre, sans cœur</td><td>Utérus déchiré</td><td><strong>La vie de la mère est en jeu</strong>, et vite. Pousser ne sert plus : il n’y a plus de contractions. Choc (étape 69) ; ce qui manque est une opération</td></tr><tr><td class="c-item">Maux de tête sévères, douleur en barre dans le haut du ventre, vue qui change d’un coup, enflure qui gagne les mains et le visage — <strong>pendant la grossesse, et aussi dans les jours et les semaines qui suivent la naissance</strong></td><td>Prééclampsie<sup class="fnr" data-fn="29-5">5</sup></td><td><strong>La vie de la mère et du bébé est en jeu.</strong> Si elle convulse : sur le côté, rien dans la bouche, rien de dur autour d’elle. Après la naissance, un mal de tête violent se lit d’abord comme elle, pas comme de la fatigue</td></tr><tr><td class="c-item">Fièvre, frissons, douleur au bas du dos ou sur un côté, brûlure en urinant, envies pressantes, pendant la grossesse</td><td>Infection du rein</td><td><strong>Plus grave chez la femme enceinte qu’ailleurs</strong> : elle peut passer dans le sang, et la vie est alors en jeu. Boire beaucoup, acétaminophène (pas d’ibuprofène), repos ; le reste au <span class="ref">ch. 28</span>, étape 36 ; l’antibiotique manque (<span class="ref">ch. 32</span>)</td></tr><tr><td class="c-item">Fièvre de 38,5 °C ou plus, ou de 38 °C plus de 24 heures, pendant la grossesse, sans les signes du rein</td><td>Infection</td><td>Boire ; acétaminophène quelques jours ; chercher la cause : l’utérus si les eaux ont coulé (plus bas)</td></tr><tr><td class="c-item">Après 26 semaines, moins de 6 mouvements en 2 heures au repos</td><td>Bébé en souffrance</td><td>Se reposer et recompter ; rien d’autre ne se fait ici</td></tr><tr><td class="c-item">Contractions régulières de 20 s ou plus, plus de 7 par jour, avant 37 semaines ; eaux rompues avant 37 semaines</td><td>Travail prématuré</td><td>Préparer 5-D en entier maintenant, la chaleur surtout (étape 25)</td></tr><tr><td class="c-item">Douleur et enflure d’une seule jambe, pendant la grossesse ou dans les semaines d’après</td><td>Caillot de sang dans la jambe</td><td><strong>La vie est en jeu</strong> : il peut monter au poumon. Couchée, jambes plus hautes que les hanches, immobile, linges chauds sur l’enflure, <strong>jamais masser</strong></td></tr><tr><td class="c-item">Douleur ou serrement à la poitrine, essoufflement soudain sans raison ; parfois elle crache du sang ou s’effondre</td><td>Caillot monté au poumon</td><td><strong>La vie est en jeu.</strong> Immobile, jamais masser la jambe ; encore enceinte, sur le côté gauche (étape 69). Ce qui la soigne, un médicament qui empêche le sang de coaguler, n’est pas au chalet</td></tr><tr><td class="c-item">Ventre plus gros que la date ; deux têtes ou deux fesses sous la main ; deux cœurs ; après le premier bébé, un utérus encore gros et dur où l’on sent un bébé</td><td>Jumeaux (étape 23)</td><td>Le premier naît comme les autres ; son cordon se noue serré des deux côtés, parce que les jumeaux partagent parfois un placenta. Chercher la position du deuxième : il naît d’ordinaire dans les <strong>15 à 20 minutes</strong>. <strong>Aucun misoprostol avant lui</strong> (étape 70), aucun médicament pour relancer le travail. Rien en 2 heures : le premier au sein, ou les mamelons roulés ; en travers, il ne naît pas seul (section 2). Elle saigne entre les deux : le deuxième doit sortir au plus vite, mamelons, poussée forte. Après, elle saigne davantage : 5-H prêt</td></tr><tr><td class="c-item">Eaux rompues depuis 12 h sans travail, ou 24 h sans naissance ; fièvre de 38 °C pendant le travail</td><td>Infection qui monte dans l’utérus</td><td>Rien dans le vagin ; boire ; la naissance doit venir (section 8)</td></tr><tr><td class="c-item">Plus de 12 h de contractions fortes sans progrès ; rien ne descend après 1 h de poussée</td><td>Bébé mal placé ou trop gros pour le bassin</td><td>Vessie, position, boire ; puis <strong>la vie des deux est en jeu</strong> : ce qui manque est une césarienne</td></tr><tr><td class="c-item">Cordon sorti avant le bébé ; cœur du bébé (étape 37) qui ralentit d’un coup quand les eaux se rompent, ou qui reste sous 100 d’une contraction à l’autre</td><td>Cordon écrasé par la tête</td><td>Mère à genoux, la poitrine au sol, les fesses en l’air ; main gantée qui repousse la tête loin du cordon ; cordon remis dedans pour qu’il reste chaud et humide, sinon enveloppé dans un linge propre. Si la naissance est proche : pousser fort et vite, et 5-F prêt</td></tr><tr><td class="c-item">Les fesses ou un pied se présentent d’abord ; le cœur s’entendait au-dessus du nombril</td><td>Siège</td><td>9-G, du début à la fin. Rien ne se tire ; la tête vient en dernier, et c’est elle qui tue quand on la brusque</td></tr><tr><td class="c-item">Tête qui se fait ravaler à la vulve et ne tourne pas</td><td>Épaules coincées</td><td>Étape 43, sans attendre ; puis 9-G</td></tr><tr><td class="c-item">Placenta pas sorti à 1 h, ou morceau manquant ; utérus qui reste mou</td><td>Placenta retenu ou incomplet</td><td>5-G, étape 56 ; 5-H. Pas de traction sur le cordon. Elle saigne à en mourir et il ne vient pas : 9-G</td></tr><tr><td class="c-item">L’utérus sort par la vulve, retourné comme un gant, avec le placenta ou derrière lui ; elle saigne fort</td><td>Utérus retourné</td><td>9-G, tout de suite ; choc (étape 69)</td></tr><tr><td class="c-item">Pendant les règles avec un tampon ou une coupe, ou après la naissance : fièvre soudaine, rougeur rugueuse comme du papier sablé, vomissements, diarrhée, étourdie, confuse</td><td>Choc toxique<sup class="fnr" data-fn="29-2">2</sup></td><td><strong>La vie est en jeu.</strong> Retirer tout de suite ce qui est dans le vagin ; boire ; l’antibiotique manque (<span class="ref">ch. 32</span>)</td></tr><tr><td class="c-item">Plus de 500 mL ; une serviette pleine par heure deux heures de suite ; caillots plus gros qu’un œuf</td><td>Hémorragie</td><td>5-H, dans l’ordre</td></tr><tr><td class="c-item">Faible, pâle, sueurs froides, pouls de plus de 100</td><td>Choc</td><td>Étape 69</td></tr><tr><td class="c-item">Fièvre de 38 °C ou plus, frissons, ventre douloureux au toucher, pertes qui sentent mauvais, dans les jours qui suivent</td><td>Infection de l’utérus</td><td><strong>La vie est en jeu</strong>, et vite : le traitement est un antibiotique, qu’aucune plante ne remplace (<span class="ref">ch. 32</span>). Boire, repos ; si elle ne s’améliore pas en 1 ou 2 jours, un morceau de placenta est resté</td></tr><tr><td class="c-item">Saignement qui reprend plus d’un jour après la naissance, ou qui ne tarit pas</td><td>Morceau de placenta, ou infection</td><td>Frotter l’utérus, faire téter ; surveiller la fièvre</td></tr><tr><td class="c-item">Tristesse qui dure plus de deux semaines ou s’alourdit</td><td>Dépression après l’accouchement</td><td><span class="ref">Ch. 36</span> ; l’aide prend le bébé la nuit pour qu’elle dorme. L’idée de mourir : on pose la question clairement (<span class="ref">ch. 35</span>)</td></tr><tr><td class="c-item">D’un coup, le plus souvent dans les deux premières semaines : elle voit, entend ou sent des choses qui ne sont pas là ; elle tient à des idées ou à des peurs qui ne tiennent pas debout ; elle parle et pense trop vite, ne tient pas en place, ou s’effondre, ou passe de l’un à l’autre ; elle est très confuse. Souvent, elle ne se sait pas malade</td><td>Psychose d’après la naissance</td><td><strong>La vie de la mère et celle du bébé sont en jeu</strong>, et ça empire vite. Elle n’est jamais seule, ni avec le bébé ; quelqu’un veille, jour et nuit ; elle dort le plus possible, l’aide prend les tétées de nuit au biberon de lait exprimé ou à la tasse ; les armes loin d’elle (<span class="ref">ch. 35</span>). Le calme et le silence dans la maison</td></tr><tr><td class="c-item">Bébé : plus de 60 respirations par minute, tirage<sup class="fnr" data-fn="29-6">6</sup>, narines qui battent, grognement ; peau qui reste bleue plus de 5 minutes</td><td>Détresse respiratoire</td><td>Peau contre peau, au chaud ; frotter le dos ; s’il cesse de respirer, 5-F</td></tr><tr><td class="c-item">Bébé : moins de 35,5 °C ; ne tète pas ; ne bouge pas ; convulsions</td><td>Froid, infection</td><td>Peau contre peau, tétées ; <strong>sa vie est en jeu</strong></td></tr><tr><td class="c-item">Bébé : plus de 38 °C</td><td>Trop couvert, trop près du poêle — ou infection</td><td>L’éloigner de la chaleur, lui enlever une couche ou plus, le faire téter plus souvent, et reprendre sa température après la tétée. Une chaleur venue du poêle ou des couvertures retombe quand on l’enlève ; si elle ne retombe pas, ou sans cause de chaleur évidente : infection, <strong>sa vie est en jeu</strong>. Au-dessus de 40 °C, un bain d’eau tiède, environ 2 °C de moins que lui ; jamais froide : il passerait vite au froid</td></tr><tr><td class="c-item">Bébé jaune <strong>dans les 24 premières heures</strong></td><td>Jaunisse qui n’est pas celle des premiers jours : un groupe sanguin différent de celui de la mère, une infection</td><td><strong>Sa vie est en jeu</strong> ; ce qui la soigne n’est pas au chalet. Tétées, au moins 8 par 24 heures</td></tr><tr><td class="c-item">Bébé jaune et somnolent, irritable ou qui boit mal</td><td>Jaunisse qui monte</td><td>Plus de tétées, au moins 8 par 24 heures ; le réveiller pour boire</td></tr><tr><td class="c-item">Bébé jaune dont l’urine est jaune foncé ou brune, ou les selles pâles, couleur crème</td><td>Le foie ne fait pas son travail</td><td>Aucun remède ici. Ne pas confondre avec la jaunisse d’un bébé allaité qui dure jusqu’à 2 mois : s’il prend du poids et mouille et salit ses couches normalement, elle est sans gravité</td></tr><tr><td class="c-item">Yeux du bébé rouges, enflés, pleins de pus</td><td>Infection de l’œil</td><td>Laver comme à l’étape 89 ; le médicament qui la soigne n’est pas au chalet (<span class="ref">ch. 32</span>)</td></tr><tr><td class="c-item">Rougeur autour du cordon qui apparaît ou s’intensifie, pus, mauvaise odeur</td><td>Infection du cordon</td><td>Nettoyer, sécher, laisser à l’air ; c’est une infection qui demande un antibiotique, et <strong>sa vie peut être en jeu</strong></td></tr><tr><td class="c-item">Bébé qui ne tète plus, raide, pleure sans arrêt, fiévreux, dans les premiers jours</td><td>Tétanos du nouveau-né</td><td><strong>Sa vie est en jeu.</strong> Ce qui le prévient : le vaccin de la mère, fait avant ou pendant la grossesse (étape 21), puis la lame et les liens stériles ou bouillis (5-D, 9-C)</td></tr><tr><td class="c-item">Bébé qui saigne sans raison, jusqu’à 6 mois</td><td>Carence en vitamine K</td><td>Étape 87 et la note des signes ; <strong>sa vie est en jeu</strong></td></tr><tr><td class="c-item">Mastite qui ne diminue pas en 24 h, rougeur qui s’étend, bosse douloureuse</td><td>Infection du sein, abcès</td><td>Continuer d’allaiter, du froid ; l’antibiotique manque (<span class="ref">ch. 32</span>)</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">DANGER</strong> </p>
+<p class="pt"><span class="pn">1</span><strong class="plead">L’hémorragie après l’accouchement tue dans les 24 premières heures.</strong> C’est là que surviennent la plupart des morts. Le mécanisme : ce n’est pas un caillot qui ferme les vaisseaux du placenta, c’est l’utérus qui les écrase en durcissant. Un utérus mou, une vessie pleine ou un morceau de placenta resté dedans les laissent ouverts. <strong>Le saignement peut être caché</strong> : le sang s’accumule dans l’utérus, le dessus de l’utérus remonte dans le ventre, et la mère pâlit et s’évanouit sans qu’on voie de sang. D’où la main sur le ventre toutes les quelques minutes la première heure, même quand tout a l’air correct.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Tirer sur le cordon ou appuyer sur le ventre pour sortir le placenta</strong> peut retourner l’utérus et le faire sortir avec lui, ce qui peut tuer la mère. Le mécanisme : tant que le placenta tient à la paroi, tirer sur le cordon tire l’utérus, ou arrache le cordon. On attend, on fait téter, on fait uriner, on fait pousser ; ce qui reste quand elle saigne à en mourir est en 9-G.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Un nouveau-né qui ne respire pas a une minute.</strong> Ce qui le sauve est l’air soufflé dans ses poumons, commencé dans cette minute-là, pas le massage cardiaque. Souffler avec la poitrine au lieu des joues déchire ses poumons.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Le froid tue le nouveau-né sans bruit.</strong> Nu à 23 °C, il perd sa chaleur comme un adulte nu à 0 °C, et mouillé, davantage. Le sécher et le mettre peau contre peau passe avant tout, sauf la respiration.</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Le misoprostol donné avant la sortie du dernier bébé peut déchirer l’utérus.</strong> Il ne sert jamais à lancer ni à hâter un travail. Sans échographie, un deuxième bébé passe inaperçu : avant toute dose, la main sur le ventre (étape 70). Après une dose de prévention, on ne rajoute pas de dose : ce qu’une deuxième dose ajoute n’est pas établi, et sa toxicité possible est à craindre.</p>
+<p class="pt"><span class="pn">6</span><strong class="plead">L’infection de l’utérus tue vite, et son remède n’est pas au chalet.</strong> Elle entre par les mains, par une lame ou un lien qui n’était pas stérile, par ce qu’on met dans le vagin, et par les eaux rompues depuis plus de 24 heures. La seule défense qui existe ici est de ne pas la faire entrer.</p>
+<p class="pt"><span class="pn">7</span><strong class="plead">Enceinte, la listériose tue le bébé avant la naissance</strong> , dans un poisson fumé à froid ou un gibier saignant qui ont l’air, l’odeur et le goût d’un aliment sain. Pour tout le monde, le botulisme de type E du poisson fait sa toxine dès 3 °C, dans le froid du frigo ou de la cache, sans rien changer à l’odeur, au goût ni à l’apparence.</p>
+<p class="pt"><span class="pn">8</span><strong class="plead">La prééclampsie et la grossesse hors de l’utérus tuent la mère.</strong> La prééclampsie fait monter la pression du sang jusqu’aux convulsions et à l’attaque dans le cerveau ; et elle peut commencer <strong>après</strong> la naissance, dans les jours ou les semaines qui suivent, quand plus personne ne la guette. La grossesse hors de l’utérus grossit dans une trompe jusqu’à la déchirer, et la mère saigne dans son ventre sans qu’on voie le sang (note 4). Pour les deux, ce qui soigne n’est pas au chalet : ce qui reste, c’est de lire les signes de la section 7 tôt, tant qu’une route existe.</p>
+<p class="pt"><span class="pn">9</span><strong class="plead">Le monoxyde de carbone dans la pièce chauffée pour la naissance.</strong> Il n’a ni odeur ni couleur : on s’endort au lieu de sortir. La pièce qu’on ferme et qu’on calfeutre pour le bébé est celle où il s’accumule, et ses signes se confondent avec la fatigue du travail et de l’après (étape 25).</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans pharmacie, sans rien d’acheté, sans personne qui vient. C’est ici que le chapitre sert.</p>
+<h3 class="sub">9-A. Les serviettes qu’on coud, et la sphaigne</h3>
+<p class="p0 ri"><strong class="runin">La serviette cousue.</strong> Trois parties, qui se lavent et sèchent séparément.</p>
+<p class="li"><strong>L’enveloppe</strong> : une bande de flanelle de coton de la largeur de l’entrejambe de la culotte, un peu plus longue qu’elle devant et derrière, doublée dessous d’un tissu qui ne laisse pas passer l’humidité : le nylon enduit d’un vieil imperméable ou d’une toile de tente déchirée. Deux ailes qui se replient sous la culotte et se ferment d’un bouton-pression, d’un bouton ou d’une épingle de sûreté. La doublure se coud sur le pourtour seulement, pour ne pas la percer au milieu.</p>
+<p class="li"><strong>L’âme</strong> : plusieurs épaisseurs de flanelle, de vieille couche ou de drap, pliées en rectangle et glissées dans l’enveloppe. Plus d’épaisseurs la nuit et pour les pertes après l’accouchement. Une âme séparée se déplie pour sécher, là où une serviette cousue épaisse garde l’humidité au centre.</p>
+<p class="li"><strong>Sans culotte</strong> : une ceinture de corde ou d’élastique à la taille, et la serviette tenue devant et derrière par deux épingles.</p>
+<p>On en coud au moins cinq par femme. La flanelle d’une chemise usée fait l’affaire. Ce qui compte est la couleur pâle, qui montre si la tache est partie au lavage.</p>
+<p class="p0 ri"><strong class="runin">La sphaigne.</strong> C’est l’absorbant qui ne s’achète pas. Les Cris et les Dénés du Nord en garnissaient les couches des bébés, et plusieurs peuples du Nord en faisaient aussi les serviettes des femmes et une réserve d’hiver. Elle retient <strong>15 à 22 fois son poids sec</strong>.</p>
+<p class="step"><span class="sn">1</span><strong>Choisir.</strong> La longue sphaigne <strong>pâle</strong> — blanchâtre, jaunâtre, à peine rosée — du dessus des buttes, pas celle des creux mouillés, qui absorbe moins. <strong>Jamais la sphaigne rouge</strong> : les peuples qui se servaient de la mousse l’écartaient presque tous, parce qu’elle passait pour irriter la peau et donner des plaies.</p>
+<p class="step"><span class="sn">2</span><strong>Cueillir en août</strong>, avec des gants, à pleines mains (<span class="ref">ch. 31</span>, « Le papier hygiénique devient de la sphaigne »). Un champignon de la sphaigne entre par la moindre égratignure de la main et y fait, une à douze semaines plus tard, une petite bosse indolore qui ressemble à une piqûre d’insecte, puis d’autres bosses qui s’ouvrent comme des furoncles et guérissent très lentement ; il ne se soigne qu’avec un médicament d’ordonnance. Les gants règlent la question.</p>
+<p class="step"><span class="sn">3</span><strong>Débarrasser</strong> des brindilles, des aiguilles et des bestioles ; étendre sur une toile au soleil, ou pendre, jusqu’à ce que les insectes l’aient quittée ; finir de sécher au-dessus du poêle.</p>
+<p class="step"><span class="sn">4</span><strong>Garder</strong> au sec, dans un sac de jute.</p>
+<p class="step"><span class="sn">5</span><strong>Employer</strong> : une poignée tassée dans un sachet de coton bouilli, cousu ou noué, qui prend la place de l’âme dans l’enveloppe. <strong>Jamais la mousse nue contre la peau, jamais contre une déchirure ou une plaie</strong> : le champignon de l’étape 2 entre par là. Après un accouchement, pas de sphaigne tant que le périnée n’est pas guéri (étape 73) ; de la flanelle bouillie jusque-là. Le sachet mouillé se vide au feu ; le coton se lave comme le reste.</p>
+<p class="step"><span class="sn">6</span><strong>Les couches du bébé</strong> se font de la même façon. La mousse pâle était jugée meilleure que le tissu contre les rougeurs de couche.</p>
+<p><em>Ce qu’on perd</em> : la sphaigne sert une fois ; il en faut des sacs pour un hiver, et elle moisit si on la range humide. La flanelle s’use en <strong>un an</strong> environ. Et la serviette qui n’est pas complètement sèche irrite : au chalet l’hiver, c’est le poêle qui décide combien il en faut, parce qu’une âme mouillée ne sèche pas dans une pièce froide.</p>
+<h3 class="sub">9-B. Le collier des jours</h3>
+<p class="p0">Un collier qui remplace le calendrier et le crayon, et qui se lit au toucher dans le noir.</p>
+<p class="step"><span class="sn">1</span><strong>Trente-deux marques</strong> sur une cordelette fermée en boucle : des perles, des rondelles de bois percées, des bouts d’os, ou simplement des nœuds.</p>
+<p class="step"><span class="sn">2</span><strong>La marque 1</strong> se distingue de toutes les autres : une perle rouge, un bout de cuivre, un nœud triple. C’est le premier jour des règles. Pour que le sens se sente dans le noir, sa voisine du côté où l’anneau avance, la marque 2, se distingue de la 32, sa voisine de l’autre côté : une perle plus petite, ou un bout de fil qui pend du nœud.</p>
+<p class="step"><span class="sn">3</span><strong>Les marques 2 à 7</strong>, et <strong>20 à 32</strong> : des jours où le risque est faible, tous pareils — perles brunes, nœuds simples.</p>
+<p class="step"><span class="sn">4</span><strong>Les marques 8 à 19</strong> : les douze jours fertiles, d’une autre sorte qui se sent sous les doigts — perles blanches, nœuds doubles.</p>
+<p class="step"><span class="sn">5</span><strong>La marque 27</strong> se distingue aussi, un nœud plus gros ou une perle plus foncée : c’est le premier jour où les règles ont le droit de revenir.</p>
+<p class="step"><span class="sn">6</span><strong>Un anneau qui glisse</strong> : une rondelle de métal, une bague de caoutchouc de pot, une boucle de fil de laiton.</p>
+<p class="step"><span class="sn">7</span><strong>Chaque matin</strong>, l’anneau avance d’une marque, jours de saignement compris. Au premier jour des règles, il retourne à la marque 1.</p>
+<p class="step"><span class="sn">8</span><strong>La vérification</strong> : si les règles reviennent avant que l’anneau touche la marque 27, le cycle a duré moins de 26 jours ; si elles ne sont pas revenues le lendemain de la marque 32, il a dépassé 32 jours. Chaque cycle hors plage se marque sur le collier même, pas dans la mémoire : un nœud d’arrêt sur un fil noué à la marque 1, fil qui se refait à neuf au premier de l’an. Au troisième nœud, le collier ne protège plus assez, et c’est la méthode des deux jours qui prend le relais.</p>
+<p><em>Ce qu’on perd</em> : douze jours par cycle sans relation ou avec condom, et <strong>12 grossesses sur 100 femmes</strong> par année telle que la méthode se suit d’habitude. Il ne vaut rien après un accouchement, pendant l’allaitement ou pendant une disette, tant que le cycle n’est pas redevenu régulier.</p>
+<h3 class="sub">9-C. Le nécessaire d’accouchement quand rien n’est prêt</h3>
+<p class="li"><strong>Les liens</strong> : lacets de coton, ficelle, bandes de drap déchirées. Au chalet, sans four, ils bouillent <strong>20 minutes</strong> comptées à partir du bouillon, dans un chaudron à couvercle, et sortent à la fourchette bouillie aussi. Bouillir <strong>désinfecte</strong> : ça tue presque tous les germes, pas tous. Ce qui peut survivre, ce sont les spores, et celle du tétanos en est une : elle survit 10 à 15 minutes à 121 °C, plus chaud que l’eau qui bout. Pour couper le cordon, une lame et des liens désinfectés ainsi font l’affaire ; le vaccin de la mère (étape 21) couvre ce que l’ébullition laisse passer.</p>
+<p class="li"><strong>La lame</strong> : une lame de rasoir neuve dans son papier, un couteau d’office bouilli 20 minutes. Une lame qu’on ne peut pas faire bouillir se passe au rouge dans la flamme, comme l’aiguille du <span class="ref">ch. 26</span>, section 9 — tout le tranchant, pas seulement la pointe —, et refroidit à l’air sans qu’on l’essuie. Le rouge tue ce que l’ébullition laisse, spores comprises ; une lame seulement noircie n’a pas été assez chauffée. Rien n’oblige à couper le cordon vite quand le bébé respire : le temps de faire bouillir la lame existe, et on peut attendre le placenta. Pour le bébé à ranimer, il faut au contraire que lien et lame soient prêts avant la naissance.</p>
+<p class="li"><strong>Le cornet</strong>, pour écouter le cœur du bébé (étape 23) : un tube creux, de bois ou d’argile, dont un bout se pose sur le ventre et l’autre contre l’oreille. À défaut, l’oreille nue sur le ventre, dans une pièce où tout se tait.</p>
+<p class="li"><strong>Les gants</strong> : des sacs de plastique propres, retournés, qu’on ne touche qu’à l’intérieur ; à défaut, les mains frottées au savon jusqu’aux coudes et les ongles coupés ras.</p>
+<p class="li"><strong>Le dessous</strong> : des sacs à ordures ouverts, recouverts de draps bouillis ; des sacs de jute ou des guenilles bouillis et séchés.</p>
+<p class="li"><strong>Le bonnet</strong> : la manche d’un chandail de laine nouée au bout, un bas de laine. Les serviettes réchauffées sur le poêle. Le coin chaud fermé de couvertures suspendues.</p>
+<p class="li"><strong>La poire</strong> : presque jamais nécessaire. Pour un bébé mou né dans des eaux teintées de vert ou de jaune, un petit pot, un bouchon percé de deux trous et deux tubes fins et souples, bouillis : l’un va jusqu’au fond du pot, l’autre juste sous le bouchon. Le premier entre dans la bouche du bébé, <strong>pas plus de 10 cm</strong> ; on aspire par le second, et les glaires tombent dans le pot. La poire de caoutchouc vaut mieux que ce piège, qui met la bouche de l’aide en jeu.</p>
+<h3 class="sub">9-D. L’accouchement seule</h3>
+<p class="p0">Une femme qui accouche seule a les mêmes étapes et une paire de mains de moins. Tout se prépare pour que rien ne manque à portée de bras.</p>
+<p class="step"><span class="sn">1</span><strong>Dès les contractions régulières</strong> : le poêle chargé et le coffre à bois plein — personne ne va fendre pendant les heures qui viennent —, la pièce qui monte vers 25 °C, une lampe frontale sur la tête. Si le chalet a une balise ou une messagerie satellite, c’est le moment de s’en servir, pas après (<span class="ref">ch. 14</span>).</p>
+<p class="step"><span class="sn">2</span><strong>À portée de bras, sur un linge propre</strong> : les deux serviettes et le bonnet au chaud, la boîte des liens et de la lame, le bol, de l’eau et de la boisson, des linges, une toile et un drap sous elle.</p>
+<p class="step"><span class="sn">3</span><strong>Boire, uriner, bouger</strong> comme en 5-E, étape 37.</p>
+<p class="step"><span class="sn">4</span><strong>Pour la naissance</strong> : accroupie, le dos appuyé contre le lit, sur la toile : le bassin s’ouvre et la pesanteur aide le bébé à descendre. À quatre pattes si le travail se sent dans le dos, ou si les épaules coincent. C’est la position où elle se sent bien qui est la bonne ; pas à plat sur le dos, qui écrase les vaisseaux du bébé, sauf s’il arrive très vite.</p>
+<p class="step"><span class="sn">5</span><strong>Souffler au couronnement</strong> pour que la tête sorte lentement. Une main sous la tête qui sort, sans tirer.</p>
+<p class="step"><span class="sn">6</span><strong>Le bébé tout de suite sur sa poitrine</strong>, séché, la serviette mouillée jetée, la deuxième par-dessus, le bonnet. Se couvrir tous les deux d’une couverture.</p>
+<p class="step"><span class="sn">7</span><strong>S’il ne respire pas</strong> : frotter le dos. Puis le coucher sur le lit entre ses genoux, à plat sur le linge chaud, la tête vers elle, et souffler comme en 5-F : <strong>le cordon peut rester attaché</strong> s’il est assez long. Si la poitrine ne se soulève pas quand elle souffle, elle replace la tête, dégage la bouche, et, si ça ne suffit pas, noue et coupe le cordon : les liens et la lame sont à portée de bras (étape 2).</p>
+<p class="step"><span class="sn">8</span><strong>Ne pas couper le cordon</strong> : rien ne presse. Elle le nouera et le coupera après le placenta, les mains libres.</p>
+<p class="step"><span class="sn">9</span><strong>Le mettre au sein tout de suite.</strong> C’est ce qui fait sortir le placenta et ce qui la protège de l’hémorragie, et c’est le seul de ses gestes qui fait les deux.</p>
+<p class="step"><span class="sn">10</span><strong>Le placenta</strong> : accroupie au-dessus du bol quand il vient ; ne pas tirer.</p>
+<p class="step"><span class="sn">11</span><strong>Frotter son propre utérus</strong>, couchée ou accroupie, fort, sur le bas du ventre, jusqu’à le sentir dur ; y revenir aux quelques minutes la première heure. <strong>Uriner</strong> dans le bol, sur le lit.</p>
+<p class="step"><span class="sn">12</span><strong>Boire, manger, rester au chaud avec le bébé contre elle.</strong></p>
+<p><em>Ce qu’on perd</em> : la deuxième paire de mains. Seule, elle ne peut pas se faire une compression à deux mains ni une compression de l’aorte ; si le frottement, la tétée et la vessie vide n’arrêtent pas le saignement, rien d’autre ne l’arrêtera ici. C’est pour ça que, pour un deuxième bébé ou les suivants, qui viennent vite, un adulte ne quitte pas le chalet les dernières semaines.</p>
+<h3 class="sub">9-E. Nourrir le bébé quand le sein ne suffit pas</h3>
+<p class="li"><strong>Le lait de la mère à la tasse.</strong> Exprimé à la main (étape 84), donné à la petite tasse ou à la cuillère, quelques jours, le temps qu’une crevasse guérisse ou que le bébé apprenne à prendre le sein.</p>
+<p class="li"><strong>Une autre femme qui allaite</strong> peut nourrir le bébé : c’est le meilleur remplaçant qui existe.</p>
+<p class="li"><strong>La préparation commerciale</strong>, s’il y en a : exactement comme l’étiquette le dit. Allonger le lait pour qu’il dure plus longtemps affame le bébé ; une tasse ou une tétine sale le tue.</p>
+<p class="li"><strong>Le lait de chèvre ou de vache frais</strong>, en dernier recours : <strong>100 mL de lait, 50 mL d’eau propre, 10 g de sucre</strong> (deux cuillères à thé), portés à ébullition, refroidis, donnés tout de suite. Tout ce qui touche le lait — tasse, cuillère, contenant — bout <strong>20 minutes</strong> avant chaque usage ; rien ne reste plus de <strong>2 heures</strong> à la température de la pièce. Le lait cru ne se donne jamais (<span class="ref">ch. 101</span>). <strong>L’eau propre n’est jamais celle d’un puits qui n’a pas été analysé</strong> : le nitrate y est invisible, il empêche le sang du bébé de porter l’oxygène, surtout avant 3 mois, et l’ébullition le concentre au lieu de l’enlever (<span class="ref">ch. 10</span>, section 8). C’est le geste qui rassure et qui empire. <em>Ce qu’on perd</em> : la protection contre les infections que donne le lait maternel, et des vitamines que le lait animal n’a pas. La vitamine C d’abord : c’est ainsi que se faisait le scorbut du nourrisson (<span class="ref">ch. 20</span>), vers <strong>5 ou 6 mois</strong>, quand les réserves venues de la mère sont épuisées. Le bébé est irritable, crie quand on lui touche les jambes, ne les bouge plus et les garde repliées en grenouille ; ses gencives saignent autour des dents qui percent. Ce qui le prévient avant 6 mois : le lait maternel, ou une préparation commerciale, qui en est enrichie. Le lait fait maison n’en a presque pas. <strong>7 mg de vitamine C par jour</strong> suffisent à empêcher le scorbut ; un bébé au sein en reçoit environ 40. Sans autre source : un comprimé de 500 mg (<span class="ref">ch. 20</span>) dissous dans 100 mL d’eau bouillie refroidie, <strong>8 mL par jour</strong> à la seringue orale ou à la cuillère, le reste jeté ; jamais plus que ce que donnerait le sein. Le fer manque aussi : jusque vers 6 mois, le bébé vit sur les réserves de sa naissance, et le lait animal n’en ajoute presque pas. Le lait fait maison demande un supplément de vitamines et minéraux pour nourrisson : fer, zinc, vitamines A et C, acide folique ; le lait de chèvre manque surtout d’acide folique. Il manque aussi la vitamine D (étape 78). Le bébé nourri ainsi a besoin d’autres aliments dès 6 mois, riches en fer d’abord : la viande, au moins deux fois par jour ; un manque de fer à cet âge peut abîmer le cerveau pour de bon.</p>
+<h3 class="sub">9-F. Ce qui ne se remplace pas</h3>
+<p class="li"><strong>La salle d’opération.</strong> Le bébé en travers, la tête qui ne passe pas le bassin, l’utérus déchiré, le placenta posé devant le col : aucun geste ne remplace l’opération (<span class="ref">ch. 35</span>). Le placenta qui ne se décolle pas pendant que la mère saigne a un dernier geste, dangereux, en 9-G.</p>
+<p class="li"><strong>Le sang perdu.</strong> Aucune boisson ne le remplace (<span class="ref">ch. 26</span>). On le garde dans le corps ou on ne l’a plus.</p>
+<p class="li"><strong>L’antibiotique</strong> d’une infection de l’utérus ou d’un abcès du sein. Aucune plante ne le remplace, et aucune ne remplace non plus le misoprostol : ce qui arrête le sang au chalet, ce sont les mains et le sein.</p>
+<p class="li"><strong>L’injection de vitamine K.</strong> La vitamine K par la bouche protège moins bien ; sans rien, on surveille.</p>
+<p class="li"><strong>La contraception posée d’avance.</strong> Ce qui se fait avec rien — collier, deux jours, retrait — laisse, tel qu’on le suit d’habitude, de 12 à 20 grossesses sur 100 femmes par année. Seule la méthode de la température avec la glaire descend à 2, au prix d’une discipline de chaque matin ; et l’allaitement, à 2 aussi, pour six mois au plus.</p>
+<h3 class="sub">9-G. Les gestes de dernier recours</h3>
+<p class="p0">Ces gestes font mal, portent l’infection jusque dans l’utérus, et peuvent tuer. Ils ne se font que si, sans eux, la mère ou le bébé meurt avant qu’une route s’ouvre. Pour chacun : mains et bras frottés au savon et à l’eau bouillie jusqu’aux coudes, ongles ras, gants (9-C), et on ne touche plus rien d’autre que le bébé, le cordon et l’intérieur de la mère. Après, l’infection de l’utérus est à craindre (section 7 ; section 8, point 6), et l’antibiotique qui la prévient manque (<span class="ref">ch. 32</span>).</p>
+<p class="p0 ri"><strong class="runin">Le siège.</strong> Les fesses d’abord ; par un pied, pareil, la mère couchée, parce que couchée, le cordon descend moins.</p>
+<p class="step"><span class="sn">1</span><strong>Aucune poussée avant le col tout à fait ouvert.</strong> Même quand l’envie est forte, attendre encore quelques contractions : le corps, plus petit que la tête, passe un col pas tout à fait ouvert, qui retient ensuite la tête.</p>
+<p class="step"><span class="sn">2</span><strong>Rien ne se tire.</strong> Les fesses et le ventre sortent seuls, les jambes aussi d’ordinaire. Si elles ne viennent pas, les doigts entrent et les abaissent doucement, sans tirer sur le bébé. On dégage un peu de cordon en le tirant doucement hors du vagin, et on n’y touche plus.</p>
+<p class="step"><span class="sn">3</span><strong>Envelopper le corps</strong> dans un linge chaud dès qu’il sort, et le garder enveloppé jusqu’au bout : s’il a froid, il cherche à respirer dedans, et ses poumons se remplissent de liquide.</p>
+<p class="step"><span class="sn">4</span><strong>Le tenir par les hanches ou plus bas</strong>, jamais par le ventre ni le dos : la pression y blesse ses organes. Quelqu’un appuie juste au-dessus de l’os du pubis de la mère — pas sur le ventre — pour garder la tête du bébé fléchie, pas pour le pousser.</p>
+<p class="step"><span class="sn">5</span><strong>Les épaules.</strong> On abaisse doucement le corps pour dégager l’épaule du dessus. Si elle ne vient pas, les doigts entrent, trouvent l’épaule, suivent le bras jusqu’au coude et le ramènent en travers de la poitrine en tirant doucement sur le coude. Puis on relève doucement le corps pour l’épaule du dessous et son bras.</p>
+<p class="step"><span class="sn">6</span><strong>La tête dernière, le moment qui tue.</strong> Le bébé se tourne face au dos de la mère. Il repose sur l’avant-bras de l’aide, un doigt de cette main dans sa bouche ; l’autre main sur ses épaules, un doigt sur l’arrière de la tête, qui la garde fléchie, le menton contre la poitrine : c’est comme ça qu’elle passe le bassin. On abaisse le corps jusqu’à voir les cheveux de la nuque. <strong>Jamais tirer fort, jamais plier le cou : il casse.</strong> Puis, la tête toujours fléchie, on relève le corps vers le ventre de la mère pour dégager le visage, l’arrière de la tête encore dedans. La mère arrête de pousser et souffle, et la tête sort <strong>le plus lentement possible</strong> : trop vite, elle saigne dans le cerveau ; trop longtemps coincée, le cordon pincé entre la tête et le bassin le prive d’air.</p>
+<p class="p0 ri"><strong class="runin">Les épaules qui ne sortent toujours pas</strong>, après les quatre essais de l’étape 43. Loin de tout, casser la clavicule du bébé vaut mieux que le laisser mourir : un doigt entre, accroche la clavicule, tire vers la tête du bébé et la casse. Il faut beaucoup de force.</p>
+<p class="p0 ri"><strong class="runin">Le placenta qui ne vient pas, pendant qu’elle saigne à en mourir.</strong> C’est le seul moyen de lui sauver la vie, et il est dangereux : infection grave, col, placenta ou utérus déchirés et saignement pire, et une douleur qui peut à elle seule la faire tomber en choc.</p>
+<p class="step"><span class="sn">1</span>Une main tient le cordon. L’autre, les doigts et le pouce serrés en cône, suit le cordon dans le vagin : la main entière y entre. Le placenta y est peut-être déjà décollé, posé au fond : on le sort, et on frotte l’utérus jusqu’à ce qu’il durcisse.</p>
+<p class="step"><span class="sn">2</span>Encore collé : la main du dehors monte sur le ventre et soutient l’utérus ; celle du dedans suit le cordon jusque dans l’utérus, trouve la paroi, puis le bord du placenta. Quelqu’un la tient et la fait respirer à fond.</p>
+<p class="step"><span class="sn">3</span>Le côté du petit doigt décolle le bord de la paroi ; puis les doigts glissent entre le placenta et la paroi et le pèlent, comme on pèle une orange à peau épaisse. Il sort dans le creux de la main, sans laisser de morceau ni de caillot.</p>
+<p class="step"><span class="sn">4</span>Frotter l’utérus, ou la compression à deux mains (étape 67) s’il reste mou. Puis le choc : la tête basse, les hanches et les jambes hautes, boire (étape 69).</p>
+<p class="p0 ri"><strong class="runin">Un morceau resté dedans, et elle saigne à en mourir.</strong> Une compresse stérile repliée sur les doigts : l’utérus est glissant, et la compresse ramasse les petits morceaux. Mieux, une bande de tissu solide nouée d’une ficelle, stérilisée d’avance dans le paquet (étape 28), dont la ficelle reste dehors. Les doigts entrent dans l’utérus et essuient les morceaux de placenta et de membranes. Un tissu qui s’effiloche laisse des bouts dedans : du solide seulement. C’est très douloureux, et on lui dit pourquoi : un morceau qui reste empêche l’utérus de se serrer.</p>
+<p class="p0 ri"><strong class="runin">L’utérus retourné.</strong> Rarement, il suit le placenta hors du corps, retourné comme un gant : après une traction sur le cordon ou une poussée sur le ventre, ou tout seul, sans que personne ait mal fait. Il saigne fort ; vite, mais calmement. On le remet par le vagin et le col, <strong>la partie la plus proche du col d’abord</strong>, le fond de l’utérus en dernier, sans forcer ; s’il ne rentre pas, on le roule avec les doigts. S’il ne rentre toujours pas, on le met au moins dans le vagin. Puis frotter jusqu’à ce qu’il durcisse, la compression à deux mains au besoin ; elle se couche sur le dos, une couverture pliée sous les hanches. Choc (étape 69).</p>
+<p><em>Ce qu’on perd</em> : tout ce qui rend ces gestes moins dangereux ailleurs, l’antibiotique qui les suit et le sang qui remplace celui qu’elle a perdu. Mais ici, la mère qui saigne à mort et le bébé coincé n’ont pas d’autre issue.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="29-1"><span class="fnn">1</span>La glaire cervicale : une humidité qu’on sent à la vulve ou qu’on voit sur les doigts, sur la culotte ou sur un papier essuyé à l’extérieur du vagin. Les jours fertiles, elle devient claire, glissante et élastique, comme du blanc d’œuf cru ; les jours secs, on ne voit et on ne sent rien.</p>
+<p class="fn" data-fn="29-2"><span class="fnn">2</span>Le choc toxique vient vite, pendant les règles avec un tampon ou une coupe, et aussi après un accouchement : forte fièvre, ou chaud et froid avec des frissons ; mal dans les muscles, comme une grippe ; vomissements et diarrhée ; une rougeur de la peau rugueuse comme du papier sablé ; les paumes, la plante des pieds, la langue et le blanc des yeux qui deviennent rouge vif ; étourdie, confuse. La peau peut enfler ou peler par grandes plaques.</p>
+<p class="fn" data-fn="29-3"><span class="fnn">3</span>Un saignement de carence en vitamine K : un saignement qu’on n’attendait pas et qui ne s’arrête pas — au cordon, à une égratignure —, du sang dans les selles ou dans ce que le bébé vomit, des bleus sans coup. La forme tardive, entre 2 et 12 semaines, touche presque seulement les bébés allaités et saigne une fois sur deux dans le cerveau, où rien ne se voit : c’est pour ça que la vitamine se donne d’avance au lieu d’attendre un signe.</p>
+<p class="fn" data-fn="29-4"><span class="fnn">4</span>La grossesse hors de l’utérus s’implante ailleurs, le plus souvent dans une trompe. Au début, peu ou pas de signes, puis ils deviennent graves : une douleur au ventre qui n’est pas celle des règles, ou un ventre sensible au toucher, souvent d’un seul côté ; un saignement différent des règles habituelles, ou pas de règles du tout ; des étourdissements ; un évanouissement ; parfois une douleur aux épaules. C’est l’ensemble qui fait penser à elle, pas un signe seul. Quand la trompe se déchire, la douleur devient soudaine et aiguë, en coup de couteau au bas du ventre, d’un côté ou partout ; le sang qui coule dans le ventre peut donner mal à l’épaule droite en appuyant sous les côtes, et en quelques heures le ventre devient dur et elle tombe en choc.</p>
+<p class="fn" data-fn="29-5"><span class="fnn">5</span>La prééclampsie se remarque à des maux de tête sévères, à une douleur qui serre le haut du ventre sous les côtes comme une barre, à une vue qui change d’un coup, et à une enflure qui devient générale : les jambes, mais aussi les mains et le visage. Elle peut mener à des convulsions : yeux qui roulent, visage et mains qui tressautent, corps raide ou secoué, peau bleue, perte de conscience, parfois la langue mordue, l’urine ou les selles qui partent ; puis un sommeil, et au réveil une confusion.</p>
+<p class="fn" data-fn="29-6"><span class="fnn">6</span>Le tirage : à chaque inspiration, la peau entre les côtes et sous le sternum se creuse vers l’intérieur, parce que le bébé force pour faire entrer l’air.</p>
+</template>
+<script type="application/json" id="meta">{"num": "29", "title": "La santé des femmes", "tome": "Tome 2 · Le corps", "tnum": 2, "tfond": "#5C1A15", "tencre": "#F3ECE5", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+PDF to Book specifications and checklist
+https://support.blurb.com/hc/en-us/articles/207792946-PDF-to-Book-specifications-and-checklist
+mis à jour 2026-09-17T03:31:22Z — relevé le 2026-09-23 via l'API publique du centre d'aide
+
+
+Use this article to check your PDF meets Blurb’s requirements before uploading. A PDF that doesn’t match the specifications below will either fail preflight or produce print defects.
+Quick checklist
+Dimensions match the 
+Blurb specifications
+ for your book size and format. 
+Even number of pages (required for all formats).
+Pages exported as individual pages, not spreads.
+No printer marks included in the file.
+Full-bleed images extend to the page edge.
+100% black ink only for text (no rich black for body text).
+No spot or registration colors (CMYK or sRGB only)
+Overly complex vector art rasterized.
+Cover exported as a separate file (unless submitting a single-file PDF).
+File size within the upload limit. 
+Dimensions
+Your PDF must match the 'Final, exported PDF' measurements in the Blurb spec tool for your chosen book size, format, paper type, and cover type: 
+PDF to Book Specifications
+For dimensions that include bleed, the spec tool provides the exact measurements. Don’t calculate bleed yourself from the trim size — use the spec tool value.
+💡 Single-file PDF dimensions
+If you’re uploading a single PDF containing both cover and pages, the cover pages must match the page dimensions, not the cover dimensions.
+Page count rules
+Page count is checked at preflight. If your count doesn’t meet the requirement for your format, the upload will fail. For additional information on page count specifications, see 
+How many pages can my book have?
+Page structure
+Export your PDF as individual pages, not as spreads. The uploader handles the assembly into a two-page spread view — if you submit spreads, your upload will be flagged for a page dimension error.
+Page 1 is a right-hand single page.
+Pages 2–3 are the first two-page spread.
+The final page is a left-hand single page with an even page number.
+Bleed and full bleed
+If your design extends to the edge of the page, your image must reach the full bleed edge specified in the Blurb spec tool. If it stops at the trim line, a white edge will likely appear in print.
+Color
+Use CMYK (recommended) or sRGB color throughout.
+Use 100% black (0C, 0M, 0Y, 100K) for all body text and line art.
+For large areas of black coverage, use rich black: 60C, 50M, 50Y, 100K.
+Do not use spot or registration color. Blurb does not support Pantone or other spot colors. 
+For full CMYK black value guidelines, see: 
+CMYK black values
+Printer marks
+Do not add crop marks, registration marks, or any other printer marks to your PDF. Blurb adds any required marks during production. Marks included in your file will appear in the printed book.
+Vector art
+Overly complex vector art (such as CAD drawings or intricate Illustrator files) can cause print failures. Rasterize any complex vector content before exporting your PDF. See: 
+How to use complex vector-based files with PDF to Book
+File size
+The PDF uploader accepts pages files up to 2GB and cover files up to 90MB. 
+If your file exceeds maximum size, it most likely contains images at a higher resolution than is needed for print. To reduce file size:
+Set all images to a maximum of 300 PPI.
+For JPG images, compress at the High setting rather than Maximum.
+Cover file
+For most uploads, your cover and pages are separate PDF files. The cover is a single-page document; the pages file contains all interior pages in order.
+Single-file PDF uploads (cover and pages in one file) are also supported. The uploader will use page 1 as the front cover and the last page as the back cover.

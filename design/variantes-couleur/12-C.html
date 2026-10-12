@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>12 — La tente d’hiver et l’abri de neige — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"12"}
+</style>
+</head>
+<body class="vA vB vC t1 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 1 · Tenir</span><span>Chapitre</span></div><div class="open-title"><div class="num">12</div><h1>La tente d’hiver et l’abri de neige</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Monter avant la noirceur un abri où une famille passe la nuit à −35 °C, la tente de toile chauffée au poêle quand on a la toile, la neige quand on n’a rien, le tenir des semaines s’il le faut, et ne pas y mourir du monoxyde que le chauffage fabrique.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">Le chalet est perdu et partir coûterait plus cher que rester (<span class="ref">ch. 2</span>). La tente de toile est l’abri de repli que le chapitre 82 demande d’avoir. Pour une nuit ou deux, l’abri de neige la remplace.</p>
+<p class="li">La sortie a duré plus que prévu et la noirceur arrive avant le chalet. L’abri se décide dès qu’on sait qu’on ne rentrera pas, pas quand la clarté baisse : le bois de la nuit, l’abri et le lit prennent tout ce qui reste de jour, et en décembre le soleil se couche vers 15 h 20. À la lampe frontale, personne ne le fait bien.</p>
+<p class="li">Deux maisonnées doivent hiverner ensemble et le chalet n’en loge qu’une. Une seule longue tente à deux poêles (section 5G) demande moins de toile et moins de bois que deux tentes.</p>
+<h4 class="choix">C’est un mauvais choix quand :</h4>
+<p class="li"><strong>Le redoux ou la pluie arrive, et l’abri est en neige.</strong> Par temps doux, une voûte de neige occupée ramollit par le haut, dégoutte, puis tombe sur ceux qui dorment dessous. Par redoux, on dort sous la toile ou dans la tranchée bâchée, pas sous une voûte.</p>
+<p class="li"><strong>Il fait trop froid pour casser des perches.</strong> L’épinette gelée dur casse net au lieu de plier, et la perche perd son appui au pied. On monte alors la charpente liée de la tente de prospecteur (5C), pas le shaputuan (5G).</p>
+<p class="li"><strong>On compte chauffer un abri de neige.</strong> Il ne se chauffe pas, parce que sa paroi fond à 0 °C. Pour avoir une source de chaleur, il faut une toile et un poêle, ou un feu dehors.</p>
+<p class="li"><strong>On n’a qu’une bâche de plastique, ou un tissu synthétique, et on veut y mettre un poêle à bois fermé.</strong> Le polyéthylène ne laisse pas passer l’air et fond au contact du tuyau, et le nylon comme le polyester fondent aussi. Une bâche accepte un feu ouvert devant elle (section 9), ou au centre d’un cône ouvert au sommet (5H). Un poêle dans un volume clos, non.</p>
+<p class="li"><strong>La neige du sous-bois coule dans la main comme du sucre.</strong> Elle ne donne ni blocs ni caverne. On la brasse en butte (5I-1), ou on va chercher la neige que le vent a tassée.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">Une toile de tente n’isole presque rien. Elle arrête le vent, et c’est tout : la chaleur vient du poêle et repart dès qu’il s’éteint. Une nuit sous la toile se joue donc par le dessous. Couché sur la neige, un corps perd sa chaleur par contact beaucoup plus vite que dans l’air (<span class="ref">ch. 25</span>). Et le vent qui passe sous le bas de la toile emporte la chaleur du poêle avant qu’elle serve. Trois gestes de ce chapitre ne coûtent rien et sont ceux qu’on bâcle : le plancher foulé, le sapinage épais, le pied de la toile renchaussé de neige.</p>
+<p>La neige isole parce qu’elle est surtout de l’air emprisonné entre des cristaux. Elle porte parce qu’on la dérange. Piétinée, pelletée ou brassée, elle voit ses grains se briser et se rapprocher. La vapeur d’eau se dépose ensuite à leurs points de contact et y soude de petits ponts de glace. C’est le <strong>frittage</strong>, et il durcit en quelques heures une neige qu’on a remuée. Un plancher foulé devient une dalle, et une butte brassée devient une voûte qu’on peut creuser. Mais le frittage ralentit beaucoup par grand froid : l’attente qui suffit un jour doux ne suffit pas à −35 °C.</p>
+<p>Là où le manteau est mince et longtemps exposé au grand froid, la neige a un défaut invisible en surface : elle pourrit par le fond. Ses grains du bas deviennent de gros cristaux à faces planes, sans cohésion, qui coulent comme du sucre, et ils restent souvent là toute la saison. Cette neige ne se taille pas en blocs, et une caverne y croule. La neige qui se taille est celle que le vent a cassée en fines particules puis comprimée : la <strong>plaque à vent</strong>. Elle se forme surtout sur les versants sous le vent.</p>
+<p>Un abri de neige ne se chauffe pas au-dessus de zéro, parce que sa paroi fond à 0 °C. Quand l’intérieur chauffe trop, le plafond ramollit et dégoutte, et par temps doux il s’effondre. On ne chauffe donc pas une maison de neige. On la ferme, et la chaleur des corps suffit : l’intérieur ne passe pas 0 °C, mais c’est loin des −35 °C du dehors. L’air froid est plus lourd et tombe. C’est pourquoi l’entrée se fait plus basse que le banc où l’on couche : le froid reste dans le trou d’entrée au lieu de monter dans les sacs. Cette <strong>trappe à froid</strong> sert aussi sous la tente, où un lit de neige foulée à hauteur des genoux garde le froid en bas.</p>
+<p class="p0 ri"><strong class="runin">Chaque abri fabrique le monoxyde de carbone à sa façon</strong>, et c’est ce qui tue dans ce chapitre. Le CO a presque exactement le poids de l’air. Il ne monte donc pas au plafond et ne descend pas au plancher : il se mélange à tout le volume. Il n’a ni odeur ni couleur et n’irrite rien. Au lieu de sortir, on s’endort.</p>
+<p class="li"><strong>Dans la tente à poêle</strong>, le poêle raccordé à son tuyau ne suffit pas. Une tente chauffée tire comme une cheminée : l’air chaud monte, pousse vers le haut et fuit par le haut, et en bas la pression tombe sous celle du dehors. Plus le haut fuit et plus le bas est fermé, plus cet effet est fort, et une toile glacée, renchaussée de neige, est fermée en bas. Tant que le feu est vif, le tuyau, plus chaud que la tente, tire plus fort qu’elle. Quand le feu tombe en braise, le tuyau refroidit et son tirage faiblit : la tente peut alors l’emporter, faire descendre l’air par le tuyau et verser dans la tente la fumée et le CO du feu qui couve. C’est quand le feu est réduit à l’état de braise et que le tirage est faible que ce refoulement arrive le plus, et un gros feu couvant fuit de la fumée même porte fermée. Or la braise, qui brûle sans flamme, fait justement du CO. Au Québec, un abri de toile chauffé au bois a intoxiqué des campeurs par une nuit de froid intense : l’ouverture du toit, qui faisait l’entrée d’air frais, était à moitié fermée, et le CO est entré par le poêle. Par grand froid, les mouvements d’air peuvent même rabattre le CO vers le bas, là où l’on dort. Une ouverture en haut ne suffit donc pas : il faut une entrée d’air au ras du plancher. Une toile de coton respire, une bâche de polyéthylène ne respire pas. Le poêle bourré puis étouffé pour la nuit aggrave tout : un feu qui manque d’air couve, et un feu qui couve fait du CO.</p>
+<p class="li"><strong>Dans le cône ouvert au sommet</strong>, la fumée sort parce que la flamme la chauffe et la pousse vers le haut. Quand le feu tombe en braise, le tirage faiblit au moment même où la braise, qui brûle sans flamme, fait du CO.</p>
+<p class="li"><strong>Dans l’abri de neige</strong>, un réchaud, une lampe ou une chandelle n’ont pas de tuyau du tout : tout ce qu’ils brûlent reste dedans. En laboratoire, dans une boîte de carton partiellement aérée de 200 L, le volume d’un baril, tenue à −6 °C, un réchaud de camping a porté l’air à environ 400 ppm en moins de dix minutes, et l’y a maintenu. À 400 ppm, le mal de tête et la nausée arrivent en 1 à 3 heures. Dans de vraies cavernes de neige neuves, 15 à 21 minutes de réchaud ont donné en moyenne 14 à 67 ppm, avec un pic de 120 ppm à l’allumage, le pire moment. Un brûleur encrassé multipliait le CO jusqu’à dix fois, et cinq cavernes creusées selon le même plan donnaient des résultats très différents : ce qui s’est bien passé hier dans un abri ne prouve rien pour celui d’aujourd’hui. Sous une petite tente, deux heures de réchaud au kérosène ont bloqué en moyenne plus du cinquième de l’hémoglobine d’adultes en santé. Et le même réchaud a donné un pic moyen plus de deux fois plus haut dans une tente 4 saisons, faite pour couper le vent, que dans une tente 3 saisons. <strong>Même quand rien ne brûle, un abri bouché se vicie.</strong> L’haleine ajoute du gaz carbonique à l’air et lui prend de l’oxygène, et la neige n’en échange qu’une partie par ses pores : c’est ce qui rend vite irrespirable la poche d’air fermée d’un enseveli d’avalanche. Le trou d’aération sert donc toute la nuit, flamme ou pas.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Tente de toile de coton type prospecteur, avec jupe à neige et sortie de poêle</td><td>1, à la taille de la maisonnée</td><td>Toile de chaloupe, vieille toile, rideaux, peaux cousues, <strong>si c’est du coton ou de la peau</strong> (test du fil, section 9). Un tissu synthétique ou enduit se range avec la bâche : cône à feu ouvert (5H) ou appentis, jamais de poêle. Sans rien : la neige (5I)</td><td>Oui. La neige la remplace quelques nuits, pas un hiver</td></tr><tr><td class="c-item">Poêle de tôle pour tente</td><td>1 par tente, 1 par bout de shaputuan</td><td>La truie du <span class="ref">ch. 83</span> (section 9), en petit : bidon d’acier, petit baril, chaudière de tôle épaisse, avec une porte découpée, une sortie en haut à l’arrière et un lit de sable au fond</td><td>Oui</td></tr><tr><td class="c-item">Tuyau en sections emboîtables, un coude, une clé</td><td>De quoi sortir plus haut que le faîte</td><td>Tôle roulée sur une bille avec un joint agrafé (<span class="ref">ch. 82</span>, section 9)</td><td><strong>Non.</strong> Sans tuyau, pas de poêle sous une toile</td></tr><tr><td class="c-item">Collerette de traversée : plaque incombustible cousue dans la toile, percée au tuyau</td><td>1 par poêle</td><td>Couvercle de baril ou flanc de bidon aplati, percé et cousu à la toile au fil de fer (section 9)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Pare-étincelles au bout du tuyau, ouvertures d’au plus 1 cm</td><td>1 par tuyau</td><td>Treillis métallique ou tôle perforée roulé et serré au fil (<span class="ref">ch. 82</span>)</td><td><strong>Non.</strong> Chaque escarbille qui retombe perce le toit</td></tr><tr><td class="c-item">Avertisseur de CO à pile, <strong>à affichage numérique en ppm</strong></td><td>1 par abri où l’on dort</td><td>Aucune (<span class="ref">ch. 87</span>). Sans lui, les règles de la section 8 sont la seule protection</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Pelle à neige</td><td>1 par adulte</td><td>Pelle taillée dans une planche, raquette, poêlon, chaudière. Tout ça creuse, lentement</td><td><span class="non">NON</span> <span class="negx">pour l’abri de neige</span></td></tr><tr><td class="c-item">Égoïne ou long couteau</td><td>1</td><td>Machette, couteau de boucher à longue lame</td><td>Oui (blocs seulement)</td></tr><tr><td class="c-item">Hache</td><td>1</td><td>Scie. Par grand froid, une tige verte de la grosseur du poignet se casse facilement</td><td>Oui</td></tr><tr><td class="c-item">Corde et fil de fer</td><td>De quoi lier la charpente et haubaner le tuyau</td><td>Babiche, racine d’épinette fendue (<span class="ref">ch. 103</span>), fil électrique récupéré, fil à balles</td><td>Oui</td></tr><tr><td class="c-item">Sac de couchage d’hiver</td><td>1 par personne</td><td>Enveloppe croisée de deux couvertures et d’une bâche (<span class="ref">ch. 25</span>)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Peaux, matelas de mousse, bâche de sol</td><td>De quoi couvrir le lit</td><td>Sapinage plus épais ; peau d’orignal (<em>Alces americanus</em>), poil en haut</td><td>Oui</td></tr><tr><td class="c-item">Bâches de plastique</td><td>Une pour l’appentis ou la tranchée. Pour le cône où l’on se couche : de quoi abouter plus de 9 m de bande du bas, et la bande du haut (5H, point 3)</td><td>Toile de coton, peaux ; sans rien, des perches couvertes de sapin en écailles (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Bâtons repères</td><td>Assez pour hérisser toute la butte</td><td>Branches mortes coupées à la longueur de paroi voulue</td><td>Oui</td></tr></tbody></table>
+<p class="p0">Ce tableau ne liste que ce qu’utilisent les procédures du chapitre. Le reste, vêtements, piles et réserve de bois compris, est au chapitre 00b.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A. Choisir la place, pour tous les abris</h3>
+<p class="step"><span class="sn">1</span><strong>À l’abri du vent, près de l’eau et du bois mort debout.</strong> L’eau épargne la fonte de neige, qui coûte cher en bois (<span class="ref">ch. 10</span>). L’épinette morte debout se brûle le jour même où on la coupe (<span class="ref">ch. 83</span>, section 9).</p>
+<p class="step"><span class="sn">2</span><strong>Pas de branche lourde de neige au-dessus de la tête.</strong> La chaleur la fait lâcher, et elle ensevelit ce qui est dessous et éteint le feu.</p>
+<p class="step"><span class="sn">3</span><strong>Pas au fond d’un creux.</strong> Par nuit claire et calme, l’air froid coule vers le bas et s’y accumule.</p>
+<p class="step"><span class="sn">4</span><strong>La porte sous le vent dominant, l’entrée d’air basse du côté du vent</strong> (5C, point 7). Ce sont deux côtés opposés, et on ne les confond pas.</p>
+<p class="step"><span class="sn">5</span><strong>Assez de neige, et la bonne.</strong> La tente de prospecteur se monte sur n’importe quelle neige. Le shaputuan demande au moins un mètre de neige. Pour le quinzhee, n’importe quelle neige sert, qu’on monte en butte. La caverne se creuse dans une congère d’environ 3 m, et les blocs se taillent dans la plaque à vent. Pour faire le test, on enfonce la lame à fond. La plaque résiste de la même façon sur toute la profondeur et donne un bloc qui tient quand on le soulève. La neige de sucre, elle, coule.</p>
+<h3 class="sub">B. Le plancher de neige foulée</h3>
+<p class="step"><span class="sn">1</span><strong>Enlever les raquettes et fouler en bottes</strong>, à petits pas serrés, toute l’aire de la tente et un peu plus. La raquette répartit le poids et ne tasse que le dessus, alors que la botte tasse en profondeur. Un plancher foulé seulement en raquettes cède plus tard sous les pas des occupants, et la chaleur s’en va par les trous.</p>
+<p class="step"><span class="sn">2</span><strong>Égaliser ensuite en raquettes</strong>, en passes croisées.</p>
+<p class="step"><span class="sn">3</span><strong>Laisser prendre pendant qu’on coupe la charpente.</strong> Le frittage finit le travail. Par grand froid, il faut le laisser prendre plus longtemps.</p>
+<p class="step"><span class="sn">4</span><strong>Si la neige manque</strong>, on la pellette dans l’aire et on la foule par couches.</p>
+<p class="step"><span class="sn">5</span><strong>Le lit de neige, pour la trappe à froid.</strong> Sur à peu près la moitié du plancher, au fond de la tente, on monte de la neige foulée aux raquettes et tapée à la pelle, jusqu’à la hauteur des genoux. Le froid reste dans l’allée, entre le lit et le poêle. On peut aussi descendre le poêle dans un trou, plus bas que le lit. Une perche couchée au bord du lit l’empêche de s’égrener.</p>
+<h3 class="sub">C. La tente de prospecteur : la charpente se coupe sur place</h3>
+<p class="p0">Seuls la toile, le poêle et le tuyau voyagent, au toboggan (<span class="ref">ch. 89</span>). La charpente se coupe sur place.</p>
+<p class="step"><span class="sn">1</span><strong>Trois perches horizontales.</strong> Le faîte au milieu, un peu plus long que la toile, et une traverse de chaque côté, plus bas, à la hauteur du haut des murs.</p>
+<p class="step"><span class="sn">2</span><strong>Porter le faîte.</strong> À chaque bout, deux perches croisées en X et liées au croisement (brêlage, <span class="ref">ch. 110</span>) font un chevalet. On peut aussi suspendre le faîte à une corde tendue entre deux arbres. Les traverses reposent sur des piquets fourchus en Y plantés dans la neige foulée.</p>
+<p class="step"><span class="sn">3</span><strong>Poser la toile</strong> sur le faîte et tirer les murs sur les traverses.</p>
+<p class="step"><span class="sn">4</span><strong>Dans la neige, un piquet ne tient pas.</strong> Chaque cordon s’amarre à un bout de bois couché dans une petite fosse et recouvert de neige foulée. Ce corps mort gèle en place pendant la nuit et tient mieux qu’un piquet dans le sol.</p>
+<p class="step"><span class="sn">5</span><strong>Coucher la jupe à neige</strong> à plat sur la neige, à l’extérieur.</p>
+<p class="step"><span class="sn">6</span><strong>Renchausser.</strong> On pellette la neige contre le bas des murs, sur au moins un demi-mètre de haut, et on la tape à la pelle. Elle ferme le passage au vent sous la toile, et c’est l’isolant le moins cher de l’hiver.</p>
+<p class="step"><span class="sn">7</span><strong>Sauf à un endroit : l’entrée d’air basse.</strong> On garde au ras du plancher de l’allée, dans le mur qui reçoit le vent, une ouverture qui ne se renchausse jamais. Du côté du vent, le vent y pousse l’air vers l’intérieur et relève la pression dans le bas de la tente. La porte, elle, est sous le vent : on n’y met pas l’entrée d’air. Une boîte de conserve ouverte aux deux bouts, glissée sous la jupe et dégagée dehors, fait l’affaire. C’est là que le poêle prend son air. Elle réduit la dépression qui fait refouler le tuyau quand le feu baisse (section 3), mais elle ne l’empêche pas : une entrée d’air ne suffit pas toujours, et le vent peut renverser le courant qui y passe. La vraie protection reste la règle de la nuit (5F, point 1). L’entrée se déneige après chaque bordée.</p>
+<h3 class="sub">D. Le poêle sur pieux et la traversée du tuyau</h3>
+<p class="step"><span class="sn">1</span><strong>La place du poêle :</strong> près de la porte, dans l’allée, avec le lit au fond. Le tuyau sort par le mur de devant avec un coude, ou par le toit.</p>
+<p class="step"><span class="sn">2</span><strong>Quatre pieux verts de conifère</strong>, plantés à travers le plancher foulé, aussi profond que la pelle le permet, jusqu’au sol si on peut. Le poêle s’y pose, surélevé au-dessus du plancher. La neige fond sous le poêle, et les pieux le gardent d’aplomb pendant que le trou se creuse dessous. Sans eux, il s’enfonce et se couche, tuyau compris. Chaque matin, on regarde si la tête des pieux a charbonné.</p>
+<p class="step"><span class="sn">3</span><strong>Un lit de sable, de cendre ou de petites pierres au fond du poêle</strong>, de l’épaisseur d’une main, si la tôle est mince (<span class="ref">ch. 83</span>, section 9).</p>
+<p class="step"><span class="sn">4</span><strong>Pas de sapinage autour du poêle.</strong> On garde un rond de neige nue entre les pieux et devant la porte du poêle. Une braise qui tombe y fait fondre la neige au lieu d’allumer le lit.</p>
+<p class="step"><span class="sn">5</span><strong>Le tuyau :</strong> des sections emboîtées serré, chaque joint arrêté d’une vis ou d’un tour de fil. Un joint qui bouge au vent s’ouvre et fuit dans la tente. La clé se place dans la première section.</p>
+<p class="step"><span class="sn">6</span><strong>La traversée de la toile.</strong> Jamais de tuyau contre la toile. Il passe dans la collerette, une plaque incombustible cousue dans la toile et percée à peine plus grand que lui. La toile commence au bord de la plaque, et c’est la distance que la plaque met entre la toile et le tuyau qui la protège. Le test est celui de la main, des chapitres 83 et 82, fait au plus fort d’un feu vif : la main tient sur la toile au bord de la plaque. Si elle ne tient pas, la plaque est trop petite.</p>
+<p class="step"><span class="sn">7</span><strong>Dehors, le tuyau monte plus haut que le faîte</strong>, coiffé du pare-étincelles. Une escarbille qui sort bas retombe encore rouge sur la toile, et plus elle tombe de haut, plus elle a le temps de s’éteindre. Trois haubans de fil de fer tiennent le tuyau contre le vent : un tuyau qui se déboîte dehors renvoie la fumée dans la tente par le joint ouvert.</p>
+<p class="step"><span class="sn">8</span><strong>La première flambée se fait vive, air grand ouvert.</strong> Elle sèche la toile, raidit les cassures du shaputuan et montre les fuites. On cherche la fumée à chaque joint et au bord de la collerette.</p>
+<h3 class="sub">E. Le sapinage posé en écailles</h3>
+<p class="step"><span class="sn">1</span><strong>Le bois.</strong> Le sapin baumier (<em>Abies balsamea</em>) est le plus doux sous le corps. L’épinette noire (<em>Picea mariana</em>) est souvent la seule qu’il y a, et elle fait l’affaire. Les branches des perches ébranchées sur l’aire foulée font la première couche. On prend des branches courtes et souples, et on laisse les grosses tiges.</p>
+<p class="step"><span class="sn">2</span><strong>Partir du fond et avancer vers la porte.</strong> Au premier rang, les branches sont couchées côte à côte. Le bout coupé est piqué dans la neige, vers le fond. La pointe va vers la porte, et la courbe naturelle de la branche vers le haut, comme un ressort.</p>
+<p class="step"><span class="sn">3</span><strong>Chaque rang recouvre les bouts coupés du rang d’avant</strong>, comme les écailles d’un poisson ou les bardeaux d’un toit. Il ne reste en surface que des pointes souples, et aucun bout de tige ne touche le dos.</p>
+<p class="step"><span class="sn">4</span><strong>Serrer comme un tapis</strong>, jusqu’à ce qu’un genou appuyé ne sente plus la neige.</p>
+<p class="step"><span class="sn">5</span><strong>Dans une tente à deux portes</strong>, on part du milieu et on pose vers chaque porte.</p>
+<p class="step"><span class="sn">6</span><strong>Rien autour du poêle</strong> (5D, point 4).</p>
+<p class="step"><span class="sn">7</span><strong>Par-dessus :</strong> les peaux poil en haut, la bâche de sol, les matelas.</p>
+<p class="step"><span class="sn">8</span><strong>L’entretien.</strong> Le sapinage s’écrase. On ajoute une couche fraîche par-dessus au lieu de tout changer : l’ancienne, tassée, fait l’isolant du dessous. Les aiguilles sèches tombées près du poêle se ramassent, car elles brûlent comme de l’amadou.</p>
+<h3 class="sub">F. La nuit sous la toile</h3>
+<p class="step"><span class="sn">1</span><strong>Décider avant de se coucher. Il n’y a que deux façons.</strong> Première façon : quelqu’un veille, assis près du poêle, et le nourrit pour garder une flamme claire, air <strong>et clé</strong> ouverts, à tour de rôle : la relève se compte en recharges (<span class="ref">ch. 18</span>). Deuxième façon : le feu est <strong>mort avant que le dernier adulte se couche</strong>, sans une braise rouge dans le poêle<sup class="fnr" data-fn="12-1">1</sup>. On y arrive en le laissant brûler, air et clé grands ouverts, en restant debout jusqu’au bout, ou en sortant la braise dans une chaudière de métal, dehors, sous le vent de la tente et loin de l’entrée d’air basse. On ne s’endort jamais pendant que le feu meurt. C’est l’heure du refoulement (section 3), et l’avertisseur ne la couvre pas : une toile ne garde pas la chaleur, et la tente passe sous 4,4 °C pendant que la braise couve encore (point 3). <strong>Jamais le poêle bourré puis étouffé pour la nuit pendant que tout le monde dort</strong>, ni la clé fermée pour garder la chaleur. Ce feu-là manque d’air, et le tuyau refoule une fois refroidi.</p>
+<p class="step"><span class="sn">2</span><strong>Avant de se coucher, un tour dehors :</strong> l’entrée d’air basse est dégagée, et le pare-étincelles n’est bouché ni de givre, ni de suie, ni de neige. Une grille bouchée ferme le tuyau : la fumée n’a plus d’autre sortie que la tente.</p>
+<p class="step"><span class="sn">3</span><strong>L’avertisseur de CO</strong> se pose à hauteur de tête des dormeurs, à plus de 2 m du poêle. On se fie à ce qu’il affiche, jamais à son silence (<span class="ref">ch. 87</span>) : il est fait pour ne pas sonner avant 4 minutes à 400 ppm, ni avant une heure à 70 ppm. Il n’est pas fait non plus pour une pièce à moins de 4,4 °C : sous ce seuil, sa pile faiblit et sa cellule peut perdre de sa sensibilité, et une tente où le poêle s’éteint y descend vite. Le jour, il se garde dans une poche intérieure. Au coucher, on le pose et on appuie sur le bouton d’essai. Le bouton prouve la pile, le circuit et la sirène, pas la cellule qui sent le CO. S’il a passé des heures au froid, on le réchauffe contre le corps avant de le poser. Mais la cellule de certains avertisseurs contient de l’eau : si elle a gelé, elle peut rester abîmée pour de bon, et le bouton d’essai ne le montrera pas. C’est pour ça qu’il vit dans la poche intérieure, jamais au fond d’un sac ou d’un traîneau.</p>
+<p class="step"><span class="sn">4</span><strong>La place la plus chaude du lit est au milieu.</strong> Elle va aux plus frileux, donc aux enfants, entre deux adultes. Celui qui frissonne change de place.</p>
+<p class="step"><span class="sn">5</span><strong>La neige sur le toit.</strong> Tant que le poêle chauffe, elle glisse sur la toile tiède. Une fois le poêle éteint, elle s’accumule, et une bordée mouillée écrase une tente. À chaque réveil, un coup de manche de pelle par en dedans la fait tomber.</p>
+<p class="step"><span class="sn">6</span><strong>Le givre du matin.</strong> L’haleine de la nuit gèle sur la toile froide. Au premier feu, ce givre fond et tombe en pluie. On roule donc les sacs avant d’allumer.</p>
+<h3 class="sub">G. Le shaputuan : la longue tente à deux portes</h3>
+<p class="p0">Le shaputuan est la grande tente d’hiver des Innus. Elle est longue, a une porte à chaque bout et porte ses feux en ligne dans l’axe. Rien de rigide ne voyage : on casse la charpente sur place, et la neige fait le mur. Quand deux maisonnées hivernent ensemble, chacune a son bout et son poêle près de sa porte, avec une seule allée au milieu. Deux portes veulent aussi dire deux sorties : si le feu part à un poêle, on sort par l’autre bout.</p>
+<p class="step"><span class="sn">1</span><strong>L’aire.</strong> On la choisit à l’abri du vent, près de l’eau, là où il y a au moins un mètre de neige, et on la foule (5B) en ellipse allongée.</p>
+<p class="step"><span class="sn">2</span><strong>Les perches de côté.</strong> Ce sont des épinettes d’au moins 8 cm de diamètre, qui dépassent de beaucoup la hauteur des yeux. On les ébranche sur l’aire foulée, et leurs branches font la première couche de sapinage.</p>
+<p class="step"><span class="sn">3</span><strong>Les planter</strong> tout autour de l’ellipse, penchées vers l’intérieur à 75 ou 80°, à un coude l’une de l’autre, soit 30 à 40 cm. Leur nombre suit la longueur voulue.</p>
+<p class="step"><span class="sn">4</span><strong>La poutre de faîte</strong> est faite de deux épinettes liées ensemble. Elle repose sur trois épinettes fourchues en Y, plantées dans l’axe.</p>
+<p class="step"><span class="sn">5</span><strong>Casser les perches.</strong> À la hauteur des yeux, on entaille chaque perche et on la casse vers la poutre, en gardant des fibres entre les deux parties. On lie chaque point de contact à la poutre et on coupe l’excédent. Les fibres gardées se raidissent à la chaleur de la tente dans leur nouvel angle.</p>
+<p class="step"><span class="sn">6</span><strong>Pas par trop grand froid.</strong> L’épinette gelée dur casse net et perd son appui au pied. On attend le redoux, ou on monte la charpente liée (5C).</p>
+<p class="step"><span class="sn">7</span><strong>Les bouts.</strong> On plante des épinettes à chaque extrémité et on les lie en haut aux perches cassées, en laissant la place de la porte.</p>
+<p class="step"><span class="sn">8</span><strong>La toile des côtés</strong> se fixe aux perches par des agrafes, des clous à toiture ou un laçage. <strong>À mesure qu’on avance</strong>, on plante en dedans des pieux appuyés contre la toile, et on pellette la neige dehors, contre elle, jusqu’à la hauteur des cassures. Les pieux tiennent la toile contre la poussée de la neige. La neige, elle, tient la toile, isole le bas et fait le mur. On garde une entrée d’air basse par poêle, du côté du vent (5C, point 7).</p>
+<p class="step"><span class="sn">9</span><strong>La toile du dessus</strong> passe par-dessus la poutre. Elle est tenue par des épinettes couchées de chaque côté.</p>
+<p class="step"><span class="sn">10</span><strong>Dedans :</strong> le sapinage part du milieu vers chaque porte. Chaque poêle a ses quatre pieux, et son tuyau traverse la toile du dessus dans sa collerette. Les peaux vont sur le sapinage.</p>
+<h3 class="sub">H. Le cône de bâches</h3>
+<p class="p0">C’est la tente conique des Innus et des Naskapis, faite de deux bandes de peaux de caribou (<em>Rangifer tarandus</em>) : la bande du bas se posait en premier, et celle du haut la recouvrait. Des bâches font la même chose. Le feu est au milieu, et la fumée sort par le sommet. On a chaud tant que la flamme brûle, on respire de la fumée, et c’est un abri pour veiller plus que pour dormir.</p>
+<p>Un feu ouvert sous une toile va contre tout ce que ce chapitre dit du CO. Celui-ci marche pour trois raisons : le sommet reste grand ouvert, une flamme claire pousse la fumée vers le haut, et quelqu’un la garde éveillé toute la nuit. Qu’on ferme le sommet pour garder la chaleur, qu’on laisse le feu tomber en braise ou qu’on s’endorme tous, et c’est un abri fermé avec un feu dedans (section 3).</p>
+<p class="step"><span class="sn">1</span><strong>La charpente.</strong> Trois perches de 3,5 à 4,5 m et d’environ 5 cm de diamètre sont liées ensemble à un bout (brêlage de trépied, <span class="ref">ch. 110</span>), puis dressées et écartées. On appuie en rond cinq ou six perches de plus dans la fourche du trépied, sans les lier.</p>
+<p class="step"><span class="sn">2</span><strong>La porte</strong> se tourne à 90° ou plus du vent.</p>
+<p class="step"><span class="sn">3</span><strong>La bâche du bas se pose en premier.</strong> Elle fait le tour de la base, attachée aux perches par des cordons noués en dedans. Sa longueur décide du plancher : divisée par un peu plus de 3, elle donne le diamètre du rond qu’elle ferme. Pour se coucher les pieds au feu, il faut, de chaque côté du rond de pierres, la longueur d’un adulte couché dans son sac, plus l’écart que le test de la main demande entre le pied du sac et le feu (section 9, « Le feu de la nuit », point 4). Le diamètre se mesure donc sur place, avec les corps. Les anciennes tentes coniques avaient de 3 à 5,5 m de base : il faut de plus de 9 m à plus de 17 m de bâche pour la bande du bas, sans le recouvrement. On aboute des bâches, lacées ou cousues bord à bord. Une seule bâche de 3 m ferme un plancher de moins d’un mètre : là-dedans, on veille assis, on ne se couche pas.</p>
+<p class="step"><span class="sn">4</span><strong>La bâche du haut se pose en dernier</strong>, et elle recouvre par l’extérieur le haut de la première. C’est le bardeau : la pluie et la neige fondue coulent par-dessus le joint au lieu d’entrer. Posé dans l’autre ordre, le joint devient une gouttière qui verse dans la tente.</p>
+<p class="step"><span class="sn">5</span><strong>Le sommet reste ouvert</strong>, sur 30 à 50 cm entre les perches, pour la fumée. On ne le ferme jamais pour garder la chaleur : l’abri de toile intoxiqué de la section 3 avait son ouverture du haut fermée à moitié.</p>
+<p class="step"><span class="sn">6</span><strong>La porte</strong> est un pan de bâche attaché en haut aux perches et lesté en bas d’une petite bille, qui l’empêche de battre.</p>
+<p class="step"><span class="sn">7</span><strong>Le foyer</strong> se fait au centre, dans un rond de pierres sèches, prises sur une crête ou un talus, <strong>jamais sur une rive ni dans un ruisseau</strong> : l’eau prise dans la pierre se vaporise, la fait éclater, et les éclats partent à hauteur d’homme (<span class="ref">ch. 83</span>). Il se fait sur le sol dégagé ou sur une plateforme de billes vertes (section 9). Le sapinage fait le tour, <strong>jamais jusqu’au foyer</strong>.</p>
+<p class="step"><span class="sn">8</span><strong>On se couche en rond, les pieds vers le feu</strong>, si le plancher a la taille voulue (point 3). Sinon, on veille assis.</p>
+<p class="step"><span class="sn">9</span><strong>La base</strong> se renchausse contre le vent, mais le feu tire son air par le bas : on la laisse respirer du côté de la porte.</p>
+<p class="step"><span class="sn">10</span><strong>La nuit, on veille par quarts, et le veilleur garde une flamme claire plutôt qu’un lit de braise.</strong> La flamme entretient le tirage, alors que la braise fait du CO sans en avoir.</p>
+<p class="step"><span class="sn">11</span><strong>Le feu reste petit.</strong> Une grande flamme lance des escarbilles sur le plastique du haut, qui fond et tombe en gouttes brûlantes sur les dormeurs et sur le sapinage. La chaleur qui part par le sommet ouvert est de toute façon énorme.</p>
+<h3 class="sub">I. La maison de neige</h3>
+<p class="p0">Il y en a trois, et c’est la neige qui choisit. Quatre règles valent pour toutes. L’entrée est plus basse que le banc. La voûte est en arc. Le trou d’aération reste ouvert, même quand rien ne brûle (section 3). <strong>Aucune flamme dedans, éveillé ou non</strong> : la neige fond dehors, à l’air libre. On y ajoute une pelle, qui reste dedans.</p>
+<p>Celui qui creuse n’est jamais seul. Un autre <strong>adulte</strong> reste à l’entrée, le voit ou lui parle sans arrêt, et ne fait rien d’autre. Un adulte seul avec les enfants ne creuse ni quinzhee ni caverne : il fait l’appentis ou la tranchée (section 9).</p>
+<h4 class="choix">I-1. Le quinzhee : la butte brassée, dans n’importe quelle neige</h4>
+<p class="p0">C’est la maison de neige du sous-bois, parce qu’elle se fait avec la neige qui ne se taille pas.</p>
+<p class="step"><span class="sn">1</span><strong>Planter au centre une perche droite</strong>, plus haute que la butte prévue. Elle deviendra le trou d’aération. Une deuxième perche, couchée au sol, pointe vers la future porte, dos au vent.</p>
+<p class="step"><span class="sn">2</span><strong>Pelleter une butte de plus de 2 m de haut en brassant.</strong> On mêle la neige de sucre du fond à celle du dessus. Pendant que la butte monte, un ou deux adultes la foulent en raquettes. Brasser la neige, c’est déclencher le frittage.</p>
+<p class="step"><span class="sn">3</span><strong>Hérisser toute la butte de bâtons</strong> coupés à la longueur de paroi voulue, soit au moins 30 cm, enfoncés jusqu’à la tête et perpendiculaires à la surface.</p>
+<p class="step"><span class="sn">4</span><strong>Attendre deux à trois heures</strong> par un froid ordinaire, davantage par grand froid. On en profite pour faire le bois, le repas et le sapinage.</p>
+<p class="step"><span class="sn">5</span><strong>Creuser par une porte basse et petite</strong>, juste assez large pour un adulte à quatre pattes, et ne jamais l’agrandir. Un adulte creuse dedans. L’autre, à l’entrée, sort la neige et ne le quitte ni des yeux ni de la voix. Si la neige coule en poudre au lieu de sortir en mottes, on arrête et on attend encore : la butte n’a pas pris. Celui qui creuse ne garde que sa couche de base, et une couche sèche l’attend dans un sac. On se mouille en creusant, sans exception.</p>
+<p class="step"><span class="sn">6</span><strong>Arrêter à chaque bâton.</strong> Quand la pelle en touche un, on arrête de creuser à cet endroit. On garde la voûte en arc et lisse : les gouttes coulent alors le long de la paroi au lieu de tomber sur les sacs.</p>
+<p class="step"><span class="sn">7</span><strong>Garder de la neige pour le banc.</strong> On la tape à hauteur des genoux, en tout cas plus haut que la porte. Une petite rigole entre le banc et la paroi reçoit l’eau de fonte.</p>
+<p class="step"><span class="sn">8</span><strong>Faire le test de la lumière, de jour.</strong> On bouche la porte : là où la paroi luit plus clair, elle est mince. On égalise ensuite en grattant les zones sombres.</p>
+<p class="step"><span class="sn">9</span><strong>Tirer la perche du centre.</strong> Son trou fait le trou d’aération. On laisse un bâton planté dedans pour le rouvrir à chaque réveil, parce que le givre le referme tout seul.</p>
+<p class="step"><span class="sn">10</span><strong>Fermer la porte</strong> d’un bloc ou d’un sac, juste assez pour couper le vent.</p>
+<p class="step"><span class="sn">11</span><strong>Sur le banc :</strong> le sapinage en écailles, puis la bâche, les matelas et les sacs.</p>
+<p>Il faut compter deux ou trois heures d’attente et trois ou quatre heures de creusage, sans le pelletage de la butte. Ces durées sont celles d’une équipe de pelleteurs, qui finit les murs à deux dedans et deux dehors : à deux adultes, c’est plus long. En décembre sur la Côte-Nord, le soleil se couche vers 15 h 20 et le jour dure à peine plus de 8 heures. Le quinzhee se commence donc à la première clarté, et celui qu’on n’a pas commencé le matin ne se finit pas de jour : on fait l’appentis ou la tranchée (section 9).</p>
+<h4 class="choix">I-2. La caverne dans une congère</h4>
+<p class="p0">Ici, le vent a déjà fait le travail de la butte. La caverne se creuse dans une congère d’environ 3 m, contre une rive de lac ou en bordure d’une clairière, du côté sous le vent. Elle va plus vite que le quinzhee, parce qu’il n’y a rien à attendre. Les règles sont les mêmes : porte basse, banc plus haut, voûte en arc, murs et plafond d’au moins 30 cm, trou d’aération. On ne la creuse pas au pied d’une pente raide chargée par le vent : le vent qui fait la congère y fait aussi la plaque qui glisse.</p>
+<h4 class="choix">I-3. La maison de blocs</h4>
+<p class="p0">C’est la maison de neige des Inuits, l’iglou. Elle demande de la plaque à vent, un bon outil et de la pratique. Elle s’apprend un hiver ordinaire, sur le lac devant le chalet, et pas le soir où on en a besoin.</p>
+<p class="step"><span class="sn">1</span><strong>Tester la neige.</strong> On enfonce la lame, qui doit résister pareil sur toute sa longueur. Un premier bloc soulevé doit tenir d’un morceau. Sinon, cette neige ne fera pas de maison.</p>
+<p class="step"><span class="sn">2</span><strong>Tailler les blocs</strong> : 20 à 25 cm d’épaisseur, environ 60 cm de large, un peu plus en longueur. On les scie à la profondeur de la lame, on tranche le fond net, et on les soulève. On taille là où la maison va se bâtir : le constructeur est debout dans la fosse d’où sortent les blocs, et cette fosse devient le plancher.</p>
+<p class="step"><span class="sn">3</span><strong>Poser le premier rang</strong> en cercle autour de la fosse. Chaque bloc penche vers l’intérieur et la ligne se courbe vers le dedans. Le premier bloc se taille en biseau, comme une rampe. Quand le cercle revient à lui, le bloc suivant, plus long, se pose sur cette pente, et le rang devient une spirale qui continue de monter. Les joints se croisent d’un rang à l’autre.</p>
+<p class="step"><span class="sn">4</span><strong>Monter la spirale</strong> en refermant peu à peu. Chaque bloc s’appuie sur les deux qui sont dessous et penche un peu plus que le précédent.</p>
+<p class="step"><span class="sn">5</span><strong>Poser la clé.</strong> Le dernier trou, au sommet, se ferme d’un bloc taillé à sa forme. C’est un deuxième adulte qui le pose, de dehors.</p>
+<p class="step"><span class="sn">6</span><strong>Colmater tous les joints</strong> avec de la neige écrasée entre les mains.</p>
+<p class="step"><span class="sn">7</span><strong>Faire la porte</strong> sous le premier rang, à partir d’une tranchée creusée dehors. Des blocs posés le long de la tranchée et coiffés d’un toit en arc font un passage couvert, plus bas que le plancher : c’est la trappe à froid.</p>
+<p class="step"><span class="sn">8</span><strong>Le banc.</strong> On laisse en place la neige d’un côté de la fosse, ou on empile des blocs. On le couvre de sapinage, ou de brindilles de saule (<em>Salix</em> spp.) et d’aulne rugueux (<em>Alnus incana</em>), puis de peaux.</p>
+<p class="step"><span class="sn">9</span><strong>Percer le trou d’aération</strong> près du sommet.</p>
+<p class="step"><span class="sn">10</span><strong>Si l’abri doit durer</strong>, on monte tout autour un mur de blocs de 60 à 90 cm de haut. Une seule nuit de poudrerie peut user une paroi jusqu’à la percer.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:16.8%"><col style="width:22.0%"><col style="width:27.5%"><col style="width:33.7%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant de monter la charpente</td><td>Le plancher foulé sous le poids d’un adulte en bottes</td><td>La botte n’enfonce plus</td><td>Fouler encore, et laisser prendre plus longtemps par grand froid</td></tr><tr><td class="c-item">Première flambée</td><td>Fumée aux joints du tuyau et au bord de la collerette</td><td>Aucune fumée dans la tente</td><td>Serrer, visser ou ligaturer le joint. Refaire la collerette</td></tr><tr><td class="c-item">Au plus fort d’un feu vif</td><td>La main sur la toile au bord de la collerette, et sur la toile la plus proche du poêle</td><td>La main tient</td><td>Agrandir la plaque, éloigner la toile, réduire le feu</td></tr><tr><td class="c-item">Chaque soir</td><td>Entrée d’air basse, du côté du vent</td><td>Ouverte, dégagée dehors</td><td>Déneiger, rouvrir. Ne jamais la boucher pour « garder la chaleur »</td></tr><tr><td class="c-item">Chaque soir</td><td>Pare-étincelles et bout du tuyau</td><td>Grille libre de givre, de suie et de neige</td><td>Déglacer, gratter. Une grille bouchée ferme le tuyau</td></tr><tr><td class="c-item">Chaque soir</td><td>Avertisseur de CO</td><td>Gardé au chaud le jour. Au coucher : posé à plus de 2 m du poêle, bouton d’essai qui sonne, affichage à 0 ppm</td><td>Le réchauffer contre le corps. Le bouton prouve la pile et la sirène, pas la cellule. Sans avertisseur fiable : feu mort avant le coucher (5F, point 1)</td></tr><tr><td class="c-item">Au coucher, sans veilleur</td><td>Le poêle</td><td>Plus une braise rouge quand on brasse la cendre, lampe éteinte</td><td>Attendre debout, air et clé ouverts, ou sortir la braise dehors dans une chaudière de métal</td></tr><tr><td class="c-item">Chaque semaine, poêle froid</td><td>Le tuyau, démonté section par section. Le poêle de tente encrasse comme la truie du <span class="ref">ch. 83</span></td><td>Dépôt poudreux qui se gratte. Aucune croûte noire, dure et luisante</td><td>Gratter dehors (<span class="ref">ch. 83</span>, section 9). Croûte luisante : pas de feu avant de l’avoir enlevée</td></tr><tr><td class="c-item">Chaque matin</td><td>Pieux du poêle</td><td>D’aplomb, tête non charbonnée</td><td>Replanter, en remplacer un. Poêle froid pour le faire</td></tr><tr><td class="c-item">Chaque matin</td><td>Le rond de neige nue autour du poêle</td><td>Pas une aiguille sèche à portée de la porte du poêle</td><td>Ramasser, élargir le rond</td></tr><tr><td class="c-item">Après chaque bordée</td><td>Toit de la tente, tuyau, haubans, pare-étincelles</td><td>Pas de poche de neige sur la toile. Tuyau d’aplomb. Grille libre</td><td>Faire glisser la neige, retendre, déglacer la grille</td></tr><tr><td class="c-item">Quinzhee, avant de creuser</td><td>Temps depuis la fin du pelletage</td><td>2 à 3 h par froid ordinaire, davantage par grand froid</td><td>Attendre. La neige doit sortir en mottes, pas couler</td></tr><tr><td class="c-item">Quinzhee, pendant le creusage</td><td>Bâtons repères</td><td>On s’arrête au premier bâton touché</td><td>Si un bâton tombe à l’intérieur, la paroi est trop mince là : reboucher de neige tassée</td></tr><tr><td class="c-item">Tout abri de neige, à chaque réveil, et après une poudrerie ou une bordée</td><td>Trou d’aération et entrée</td><td>Le bâton passe librement. L’entrée n’est pas bouchée de neige soufflée</td><td>Rouvrir tout de suite, avant de se rendormir</td></tr><tr><td class="c-item">Tranchée, au coucher et après une bordée</td><td>La bâche du toit</td><td>Tendue sur ses perches, sans poche qui descend vers les visages</td><td>Dégager la neige du dessus, ajouter une perche</td></tr><tr><td class="c-item">Tout abri de neige, à chaque réveil</td><td>Plafond</td><td>Sec au toucher, pas de gouttes qui tombent, pas d’affaissement</td><td>Porte ouverte, lisser la voûte. S’il baisse : tout le monde dehors</td></tr><tr><td class="c-item">Chaque matin, tout abri</td><td>Tête et estomac de chacun, enfants compris</td><td>Personne n’a mal à la tête ni mal au cœur</td><td>Tout le monde dehors avant de chercher pourquoi (section 8)</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:27.6%"><col style="width:28.8%"><col style="width:43.6%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Une personne ou plus a mal à la tête ou mal au cœur au réveil, et ça passe dehors</td><td>Monoxyde de carbone jusqu’à preuve du contraire. À deux en même temps, c’est lui</td><td>Tout le monde dehors, dans les sacs, bottes aux pieds. Poêle éteint et braise sortie, entrée basse et porte grandes ouvertes le temps d’aérer. On rentre une fois la source supprimée : sans feu, ou avec quelqu’un d’éveillé qui garde une flamme claire. S’il y a un avertisseur à affichage, réchauffé, on attend qu’il lise 0 ppm</td></tr><tr><td class="c-item">Nausée ou vomissement la nuit, pris pour de la viande qui passe mal</td><td>Monoxyde de carbone, jusqu’à preuve du contraire</td><td>Même chose. On le prend souvent pour la digestion</td></tr><tr><td class="c-item">Un enfant mou, grognon, qui veut se recoucher</td><td>Monoxyde de carbone possible : chez l’enfant, il a l’air de la fatigue (<span class="ref">ch. 39</span>)</td><td>Dehors d’abord, les questions ensuite</td></tr><tr><td class="c-item">Fumée par la porte du poêle ou par les joints quand le feu baisse</td><td>Le tuyau refoule : manque d’air par le bas, ou sortie bouchée (grille givrée, suie, neige dans le bout du tuyau)</td><td>Rouvrir l’entrée d’air basse et relancer une flamme claire. Si la fumée continue, c’est la sortie : feu éteint, braise sortie, tout le monde dehors, puis dégager la grille et le bout du tuyau</td></tr><tr><td class="c-item">Odeur de fumée froide dans la tente au réveil</td><td>Le tuyau a refoulé pendant la nuit</td><td>Même lecture que le mal de tête : dehors, aérer, puis trouver pourquoi (entrée basse bouchée, grille bouchée, poêle étouffé, feu laissé mourir pendant qu’on dormait)</td></tr><tr><td class="c-item">Ronflement grave dans le tuyau, tuyau qui rougit, étincelles à la sortie</td><td>Feu de cheminée (<span class="ref">ch. 83</span>, section 8)</td><td>Fermer l’air du poêle et la clé. Tout le monde dehors avec les sacs. Surveiller la toile autour de la collerette et le toit sous la sortie. Jamais d’eau dans un tuyau rouge</td></tr><tr><td class="c-item">Flamme jaune au réchaud</td><td>Combustion incomplète : beaucoup plus de CO</td><td>Éteindre. Nettoyer le brûleur. Réchaud dehors seulement</td></tr><tr><td class="c-item">Toile qui brunit ou roussit autour de la collerette</td><td>Plaque trop petite, ou tuyau trop chaud contre elle</td><td>Agrandir la plaque, baisser le feu. Une toile roussie a perdu sa résistance et se déchire</td></tr><tr><td class="c-item">Petits trous ronds dans le toit</td><td>Escarbilles : pare-étincelles absent, percé ou bouché</td><td>Réparer la grille. Rapiécer les trous (<span class="ref">ch. 104</span>)</td></tr><tr><td class="c-item">Poêle qui penche, tuyau qui force sur la collerette</td><td>Pieux enfoncés, charbonnés ou mal plantés</td><td>Laisser refroidir, replanter plus profond</td></tr><tr><td class="c-item">Plancher qui cède sous les pas, flaque près du poêle</td><td>Plancher foulé en raquettes seulement, ou poêle posé sans pieux</td><td>Fouler en bottes autour, remonter le poêle sur pieux</td></tr><tr><td class="c-item">Toile qui s’affaisse sous la neige</td><td>Poêle éteint pendant une bordée</td><td>Faire tomber la neige par en dedans, relancer le feu</td></tr><tr><td class="c-item">Perche qui casse net au lieu de plier (shaputuan)</td><td>Trop froid pour casser en gardant les fibres</td><td>Arrêter. Attendre le redoux, ou charpente liée (5C)</td></tr><tr><td class="c-item">Neige qui coule en poudre au creusage du quinzhee</td><td>Butte pas encore frittée</td><td>Sortir, attendre, recommencer à creuser plus tard</td></tr><tr><td class="c-item">Plafond d’abri de neige qui dégoutte ou qui baisse</td><td>Trop chaud dedans, ou redoux</td><td>Ouvrir la porte, éteindre toute flamme. S’il baisse, tout le monde dehors</td></tr><tr><td class="c-item">Parois intérieures luisantes, glacées</td><td>L’haleine et la chaleur des corps ont glacé la paroi. L’abri vieillit</td><td>Gratter la glace, tenir le trou d’aération bien ouvert. Après plusieurs nuits : un abri neuf</td></tr><tr><td class="c-item">Réveil trempé dans un abri de neige</td><td>Banc trop bas, pas de rigole, pas d’isolant sous le corps</td><td>Remonter le banc, creuser la rigole, doubler le sapinage</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Un poêle raccordé à son tuyau peut quand même intoxiquer une tente.</strong> Une tente chauffée tire comme une cheminée. Quand le feu tombe en braise, le tuyau refroidit, son tirage faiblit, et la tente peut faire descendre l’air par le tuyau et verser dans la tente la fumée et le CO de la braise. Au Québec, des campeurs ont été intoxiqués par le poêle à bois d’un abri de toile, une nuit de froid intense où l’ouverture du toit était à moitié fermée. Les premiers signes ont été un mal de tête et un mal de cœur, vers 2 h du matin, et on les prend pour la digestion. Le CO n’a ni odeur ni couleur, il a le poids de l’air et se mélange à tout le volume, et par grand froid il peut être rabattu vers ceux qui dorment. On s’endort au lieu de sortir. Quatre règles, sans exception. <strong>Une entrée d’air au ras du plancher, du côté du vent, qui ne se renchausse jamais.</strong> <strong>Un pare-étincelles dégagé chaque soir</strong> : bouché, il ferme le tuyau, et la fumée n’a plus que la tente. <strong>Quelqu’un veille, air et clé ouverts, ou le feu est mort avant que le dernier adulte se couche</strong> : jamais un poêle bourré puis étouffé, jamais un feu qu’on laisse mourir en dormant. <strong>Un avertisseur de CO à affichage, gardé au chaud, qu’on lit au lieu de l’écouter</strong> : sous 4,4 °C, et pendant les minutes où il est fait pour se taire, son silence ne prouve rien.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Dans un abri de neige, rien ne brûle, éveillé ou non. Sous une toile, rien ne brûle que le poêle raccordé à son tuyau</strong> , ou le feu du cône ouvert au sommet, qu’on veille. Ni réchaud, ni lampe, ni fanal, ni chandelle, ni chaufferette au propane, même celle vendue pour l’intérieur : aucun n’a de tuyau, et tout ce qu’ils brûlent reste dedans. En laboratoire, un réchaud de camping a porté une boîte de la taille d’un baril à environ 400 ppm en moins de dix minutes, et 400 ppm donnent le mal de tête et la nausée en 1 à 3 heures. Deux heures sous une petite tente avec un réchaud ont bloqué en moyenne plus du cinquième de l’hémoglobine d’adultes en santé. L’allumage est le pire moment. Un brûleur encrassé ou une flamme jaune multiplient le CO. Deux abris faits de la même façon ne donnent pas la même chose. On fait fondre la neige dehors, à l’air libre, jamais dans l’entrée ni dans le passage couvert. Une chandelle brûle normalement dans un air chargé de CO : elle ne sert pas de test. Chez un enfant de 4 ou 6 ans, l’intoxication a l’air de la fatigue ou du mauvais caractère au bout d’une journée dehors (<span class="ref">ch. 39</span>). <strong>Un enfant qui devient mou dans un abri où quelque chose brûle sort dehors avant qu’on cherche pourquoi.</strong></p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Une génératrice ne fonctionne jamais dans un bâtiment, dans un garage ou sous un auvent</strong> , ni dans le vestibule d’une tente, ni sous une bâche tendue. Elle fabrique du CO en continu, et une toile le retient exactement comme un mur. Elle va dehors, dégagée, l’échappement loin de toute ouverture, et d’abord de l’entrée d’air basse de la tente, par où le poêle aspire l’air du dehors (<span class="ref">ch. 3</span>, <span class="ref">ch. 87</span>). Même chose pour une motoneige qu’on laisse tourner à côté de la tente.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">L’abri de neige peut s’effondrer sur quelqu’un.</strong> Une butte creusée avant d’avoir pris tombe sur celui qui creuse, et un corps sous une masse de neige ne respire plus et ne se dégage pas seul. Celui qui creuse n’est jamais seul : un autre adulte reste à l’entrée, pelle en main, le voit ou lui parle sans arrêt, et ne fait rien d’autre. Celui qui arrête de répondre est dessous. Un adulte seul avec les enfants ne creuse ni quinzhee ni caverne. Une voûte occupée par redoux ou sous la pluie ramollit et descend la nuit sur ceux qui dorment : on ne dort pas sous la neige quand il fait doux, et on garde une pelle dedans. Une bâche chargée de neige sur une tranchée, sans perches dessous, s’affaisse, et une bordée de nuit la plaque sur les visages : du plastique collé au visage d’un enfant qui dort, c’est l’étouffement. Enfin, même sans flamme, un abri dont la poudrerie a bouché l’entrée et le trou d’aération se vicie du souffle de ceux qui dorment dedans. Après une poudrerie ou une bordée, on dégage l’entrée et le trou avant de se rendormir.</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Une tente de toile brûle d’un coup</strong> , avec son sapinage sec et ses sacs de couchage. Le feu part du poêle, et le poêle est près de la porte : la sortie est du côté du feu. Un couteau reste à la tête du lit, parce que la toile se tranche et qu’on sort par le mur du fond. Le shaputuan a une porte à chaque bout : on sort par l’autre. Un feu de cheminée sous une toile, c’est la toile qui prend : le tuyau mince rougit à la collerette, et les escarbilles pleuvent sur le toit. Dehors, devant l’appentis, l’épinette lance beaucoup d’étincelles, et l’enveloppe d’un sac synthétique fond à la première : la seule pièce du chapitre qui ne se remplace pas est celle qui brûle d’abord.</p>
+</template>
+<template id="story-e">
+<p class="p0">La nuit dehors sans tente, sans poêle, avec une bâche, du sapin, un feu, et un couteau ou une hache. Tout ce qui suit se fait avec ça et avec ce qui pousse autour.</p>
+<h3 class="sub">L’ordre des gestes</h3>
+<p class="p0">L’abri se décide dès qu’on sait qu’on ne rentrera pas. Il se fait à la lumière, et en décembre elle finit vers 15 h 20 (section 2). L’ordre est le suivant :</p>
+<p class="step"><span class="sn">1</span>le bois de toute la nuit, parce que c’est le travail le plus long ;</p>
+<p class="step"><span class="sn">2</span>l’appentis ;</p>
+<p class="step"><span class="sn">3</span>le lit ;</p>
+<p class="step"><span class="sn">4</span>le feu, en dernier, avec sa plateforme et son mur.</p>
+<p>Les enfants ramassent les branches mortes basses des épinettes, sèches même sous la neige : c’est le bois d’allumage, et c’est un vrai travail (<span class="ref">ch. 40</span>). Le bois de la nuit se coupe en entier avant la noirceur, parce qu’à −30 °C, à 3 h du matin, personne ne trouve de bois sec à la lampe frontale. On prend l’épinette morte debout (<span class="ref">ch. 83</span>, section 9). Par grand froid, même une tige verte de la grosseur du poignet se casse facilement, contre un arbre ou sous la botte, sans hache.</p>
+<h3 class="sub">L’appentis de bâche</h3>
+<p class="step"><span class="sn">1</span><strong>La place</strong> (5A) : sous le vent d’un fourré ou d’un rocher, avec du bois mort autour, rien au-dessus.</p>
+<p class="step"><span class="sn">2</span><strong>Fouler l’aire</strong> en bottes puis en raquettes (5B), ou creuser jusqu’au sol si la neige est mince.</p>
+<p class="step"><span class="sn">3</span><strong>Le faîte :</strong> une perche liée entre deux arbres, à hauteur de poitrine, ou posée sur deux piquets fourchus.</p>
+<p class="step"><span class="sn">4</span><strong>La bâche</strong> descend du faîte jusque dans la neige, derrière. Le dos de l’appentis est au vent. Le bas de la bâche est enfoui dans la neige et chargé de bûches.</p>
+<p class="step"><span class="sn">5</span><strong>Les côtés</strong> se ferment de branches de sapin plantées serrées, puis de neige pelletée contre elles.</p>
+<p class="step"><span class="sn">6</span><strong>Sans bâche</strong>, on couche des perches du faîte jusqu’à la neige. On les couvre de branches de sapin posées en écailles, <strong>en commençant par le bas</strong> et en montant, pour que chaque rang recouvre celui du dessous comme des bardeaux, puis on met de la neige sur le dos. Ça coule quand le feu fait fondre la neige du toit : du côté du feu, on ne met pas de neige.</p>
+<h3 class="sub">Le puits d’arbre, pour une personne et vite</h3>
+<p class="p0">Sous une grosse épinette dont les branches basses touchent la neige, la neige est moins profonde près du tronc. On creuse tout autour du tronc, jusqu’au sol si on peut, et on tasse les parois. On coupe des branches pour couvrir le trou et pour tapisser le fond. <strong>Pas de feu dans le puits</strong> : la neige des branches fond, tombe sur le feu et l’éteint, ou sur le dormeur, et une épinette noire s’allume de bas en haut (<span class="ref">ch. 11</span>).</p>
+<h3 class="sub">Le lit</h3>
+<p class="p0">Le sapinage se pose en écailles (5E), <strong>plus épais que sous une tente</strong>, parce qu’aucun poêle ne chauffe le plancher. On continue jusqu’à ce qu’un genou appuyé ne sente plus le froid. S’il n’y a qu’une bâche, elle fait le toit, et le sapinage fait le dessous : c’est lui l’isolant, pas le plastique. On se couche en rang le long de l’ouverture, les pieds vers le feu, les enfants entre les adultes, chacun dans son sac ou dans l’enveloppe croisée (<span class="ref">ch. 25</span>).</p>
+<h3 class="sub">Le feu de la nuit</h3>
+<p class="step"><span class="sn">1</span><strong>La plateforme.</strong> Sur la neige profonde, un feu s’enfonce dans son propre trou et s’y noie. On couche donc côte à côte des billes vertes sur la neige, puis une ou deux autres couches par-dessus, la couche du haut en travers de celle du dessous. Le feu se fait sur ce radeau. Une plateforme de bois vert continue de couver après qu’on a noyé ce qu’il y avait dessus (<span class="ref">ch. 13</span>) : le matin, on la défait.</p>
+<p class="step"><span class="sn">2</span><strong>Le feu long.</strong> Il se fait aussi long que le rang des dormeurs, parallèle à l’ouverture, pour que chaque corps reçoive sa part de rayonnement. Des billes longues de bois mort, couchées dans le sens du feu, brûlent longtemps et se poussent au lieu de se recharger.</p>
+<p class="step"><span class="sn">3</span><strong>Le mur réflecteur</strong> se monte derrière le feu, du côté opposé à l’abri. On plante quatre pieux de 1,5 m, puis on empile des billes vertes en deux rangs entre les pieux. On remplit l’espace entre les rangs de terre, qui renforce le mur et renvoie mieux la chaleur, et on lie le haut des pieux. De la neige ne sert pas de remplissage : à côté du feu, elle fond et s’écoule. Quand la terre est gelée sous la neige, les deux rangs de billes vertes font le mur sans remplissage : il tient moins et renvoie moins, mais il renvoie. Sans mur, la chaleur qui part de l’autre côté du feu chauffe la forêt (<span class="ref">ch. 17</span>).</p>
+<p class="step"><span class="sn">4</span><strong>La distance entre le feu et la bâche</strong>, c’est la main. Si la main ne tient pas sur la bâche, le feu est trop près : le polyéthylène ramollit et fond bien avant qu’un bout de bois s’allume.</p>
+<p class="step"><span class="sn">5</span><strong>Quelqu’un veille.</strong> À deux adultes, on se relaie aux recharges (<span class="ref">ch. 18</span>). Seul avec deux enfants, on met moins de billes mais de plus grosses, et on accepte que le feu tombe à un moment de la nuit. C’est alors le sapinage sous les corps et les sacs qui portent jusqu’au matin, d’où l’épaisseur du lit.</p>
+<p class="step"><span class="sn">6</span><strong>Boire chaud.</strong> On fait fondre la neige dans le chaudron sur un fond d’eau (<span class="ref">ch. 10</span>). La décoction se fait avec des aiguilles de sapin baumier ou d’épinette, <strong>jamais de cèdre</strong> (thuya, <em>Thuja occidentalis</em>) : la thuyone du cèdre est toxique (<span class="ref">ch. 20</span>). Les pierres chauffées vont dans les sacs. Elles sont prises au sec, jamais dans l’eau ni sur une rive, parce que l’eau prise dedans les fait éclater au feu. Elles sont roulées dans deux épaisseurs de tissu, parce que la peau engourdie ne sent pas la brûlure (<span class="ref">ch. 25</span>).</p>
+<h3 class="sub">La tranchée bâchée, quand le feu est impossible</h3>
+<p class="p0">Il n’y a pas de bois sec, ou le vent tourne et rabat la fumée dans l’appentis. On creuse alors une tranchée étroite, jusqu’au sol si la neige le permet, juste assez longue pour les corps couchés serrés. <strong>Des perches se posent en travers de la tranchée avant la bâche</strong>, serrées. La bâche s’étend sur les perches, chargée de neige sur les bords. Si on met de la neige sur le dessus, elle porte sur les perches, jamais sur le plastique seul : une bâche sans perches s’affaisse sous la neige et descend sur les visages (section 8, point 4). S’il n’y a pas de bâche, les perches couvertes de sapin en écailles, puis de neige, font le toit. Il n’y a qu’une entrée, plus basse que le lit, qu’on ferme d’un sac. Sous le corps, il faut du sapinage, et une ouverture reste au toit. <strong>Aucune flamme dedans.</strong> La chaleur vient des corps, et la neige la garde (<span class="ref">ch. 25</span>, section 9). Après une bordée, on dégage le dessus et l’ouverture.</p>
+<h3 class="sub">La tente à poêle faite avec ce qui traîne</h3>
+<p class="p0">On a un poêle et du tuyau récupérés dans les cendres du chalet (<span class="ref">ch. 82</span>, section 9) ou une truie de baril (<span class="ref">ch. 83</span>, section 9), mais pas de tente.</p>
+<p class="li"><strong>La toile.</strong> Une toile de coton, quelle qu’elle soit : toile de chaloupe, bâche de coton d’un hangar, rideaux épais cousus ensemble (<span class="ref">ch. 104</span>), <strong>s’ils sont de coton</strong>. Une tente d’été, une toile de chaloupe récente ou un rideau occultant peuvent être en nylon, en polyester, ou enduits : on vérifie. Le coton respire, roussit au lieu de fondre, et se recoud. Le synthétique fond au tuyau et sous les escarbilles, et un tissu enduit ne laisse pas passer l’air : il se range avec la bâche, pour le cône ou l’appentis, jamais avec un poêle. Un tissu enduit se voit à son envers luisant ou caoutchouté. Pour le reste, le test se fait dehors, sur un fil tiré du bord et approché d’une flamme<sup class="fnr" data-fn="12-2">2</sup>. On peut ajouter du plastique <strong>loin du poêle</strong>, en second toit par-dessus le coton, jamais autour du tuyau, et jamais au point de fermer le bas : on garde l’entrée d’air basse (5C, point 7).</p>
+<p class="li"><strong>La collerette.</strong> On aplatit un couvercle de baril, le flanc d’un bidon ou une plaque de tôle de toiture. On perce au centre un trou juste un peu plus grand que le tuyau, en taillant en étoile au ciseau à froid et en rabattant les languettes. On perce ensuite le pourtour d’une rangée de trous au clou. On découpe dans la toile une ouverture nettement plus petite que la plaque, et plus grande que le tuyau. La plaque se coud à la toile au fil de fer, en passant par ses trous. Le test de la main, au plus fort d’un feu vif (5D, point 6), dit si elle est assez grande.</p>
+<p class="li"><strong>Le pare-étincelles.</strong> Un bout de treillis ou de tôle perforée, roulé en manchon et serré au fil sur le haut du tuyau, avec des ouvertures d’au plus 1 cm (<span class="ref">ch. 82</span>) : assez petites pour retenir l’escarbille. Une moustiquaire métallique, plus fine, se bouche plus vite de givre et de suie, et on ne la prend qu’à défaut. Une grille bouchée ferme le tuyau, et la fumée n’a plus d’autre sortie que la tente : on la regarde chaque soir (5F, point 2).</p>
+<p class="li"><strong>Les haubans.</strong> Du fil à balles, de la broche de clôture ou du fil électrique récupéré, tendus à trois arbres ou à trois corps morts.</p>
+<p class="li"><strong>Ce qu’on perd :</strong> une toile qui n’est pas traitée contre le feu roussit plus vite, et le test de la main se refait après chaque grosse flambée.</p>
+<h3 class="sub">Ce qu’on perd en choisissant cette version</h3>
+<p class="li"><strong>L’appentis et le feu :</strong> la nuit devient une suite de petits sommes entre deux recharges. On brûle énormément de bois, et la fumée tourne avec le vent. Ce qui fait face au feu chauffe, ce qui est tourné vers la bâche gèle, et on se retourne sans arrêt.</p>
+<p class="li"><strong>L’abri de neige :</strong> des heures de travail, toute la clarté d’une journée d’hiver pour le quinzhee, du linge mouillé qu’on ne sèche nulle part dedans, et aucune source de chaleur. On y dort, on n’y vit pas.</p>
+<p class="li"><strong>La tranchée :</strong> il fait noir et c’est étroit. Un enfant s’y sent enterré et ne dort pas. C’est l’abri du soir où rien d’autre n’est possible.</p>
+<p class="li"><strong>Le cône de bâches :</strong> la fumée dans les yeux, le plastique qui fond au sommet, et une veille obligatoire toute la nuit.</p>
+<h3 class="sub">Ce qui ne se remplace pas</h3>
+<p class="li"><strong>Le sac de couchage d’hiver</strong> et une couche de linge sèche. Tout ce chapitre suppose qu’on arrive au lit sec. L’enveloppe croisée (<span class="ref">ch. 25</span>) remplace le sac, alors que rien ne remplace le sec.</p>
+<p class="li"><strong>L’avertisseur de CO.</strong> Rien ne le sent et aucun montage ne le fabrique. Sans lui, il reste la règle : ni réchaud, ni lampe, ni fanal, ni chandelle, ni chaufferette dans un abri fermé, et une tente à poêle qui respire par le bas, avec quelqu’un d’éveillé, ou un feu mort avant que le dernier adulte se couche.</p>
+<p class="li"><strong>La lumière du jour.</strong> En décembre, elle dure à peine plus de 8 heures. Un quinzhee ne se creuse pas dans un après-midi, et un appentis monté à la lampe frontale n’a pas de bois pour la nuit.</p>
+<p class="li"><strong>La pratique de la maison de blocs.</strong> Elle s’apprend un hiver ordinaire, et pas la nuit où on en a besoin.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="12-1"><span class="fnn">1</span>Une braise se cache sous la cendre. Lampe éteinte, porte du poêle ouverte, on brasse la cendre au tisonnier jusqu’au fond : une braise vivante luit rouge. Tant qu’un seul point rouge luit, le feu n’est pas mort, et il fait du CO sans flamme.</p>
+<p class="fn" data-fn="12-2"><span class="fnn">2</span>Le fil, tenu au bout d’une broche, s’approche d’une flamme, dehors. Le coton brûle sans reculer devant la flamme, sent le papier brûlé et laisse une cendre grise et fine. Le nylon et le polyester fondent en se recroquevillant loin de la flamme, sentent le produit chimique et laissent une petite bille fondue. Un tissu mélangé ne se lit pas à coup sûr : dans le doute, il se range avec la bâche.</p>
+</template>
+<script type="application/json" id="meta">{"num": "12", "title": "La tente d’hiver et l’abri de neige", "tome": "Tome 1 · Tenir", "tnum": 1, "tfond": "#E2E7EA", "tencre": "#15222B", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

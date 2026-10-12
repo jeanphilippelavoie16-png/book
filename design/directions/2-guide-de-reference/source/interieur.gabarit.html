@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>Pages intérieures — direction 2, grand guide de référence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   LE GRAND LIVRE DU CHALET — direction 2 : le grand guide de référence
+   Page Blurb 8 × 10 po, PDF 8,125 × 10,25 po (fond perdu 0,125 po en tête,
+   en pied et au petit fond ; aucun au grand fond).
+   Grille (recto ; le verso est en miroir) :
+     grand fond 17 | texte 151 (2 × 73 + 5) | 3,5 | marge 19 | petit fond 12,7  = 203,2 mm
+     tête 19,05 | 49 lignes de 12,5 pt = 216,07 | pied 18,88                         = 254 mm
+   Planche pleine page : 177,8 × 215,9 mm (7 × 8,5 po), à 12,7 mm des deux bords.
+   ===================================================================== */
+:root{
+  --red:#9B2C1E;           /* le seul rouge : le danger, et rien d'autre */
+  --g70:#4a4a4a; --g50:#808080; --g40:#999; --g25:#bfbfbf; --g10:#e6e6e6;
+  --lh:12.5pt; --bleed:3.175mm;
+  --serif:'Source Serif 4', Georgia, serif;
+  --sans:'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+  --tri:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 21'%3E%3Cpath d='M12 1.6 L22.6 19.8 H1.4 Z' fill='none' stroke='%239B2C1E' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M12 7.6 V13.4' stroke='%239B2C1E' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='16.6' r='1.45' fill='%239B2C1E'/%3E%3C/svg%3E");
+}
+@page{ size:8.125in 10.25in; margin:0 }
+html,body{ margin:0; padding:0; background:#fff }
+body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color:#000;
+  font-family:var(--serif); font-size:10pt; line-height:var(--lh);
+  font-kerning:normal; font-variation-settings:'opsz' 20; font-variant-numeric:lining-nums;
+  text-rendering:geometricPrecision }
+
+/* ---------- la page ---------- */
+.page{ position:relative; width:8.125in; height:10.25in; overflow:hidden; background:#fff; break-after:page }
+.trim{ position:absolute; top:var(--bleed); width:203.2mm; height:254mm }
+.recto .trim{ left:0 } .verso .trim{ left:var(--bleed) }
+.m-trim .page, .m-contact .page, .m-one .page{ width:203.2mm; height:254mm }
+.m-trim .trim, .m-contact .trim, .m-one .trim{ top:0; left:0 }
+
+.flow{ position:absolute; top:19.05mm; width:151mm; height:calc(49 * var(--lh));
+  column-count:2; column-gap:5mm; column-fill:auto }
+.recto .flow{ left:17mm } .verso .flow{ left:35.2mm }
+.mcol{ position:absolute; top:0; width:19mm; height:254mm }
+.recto .mcol{ left:171.5mm } .verso .mcol{ left:12.7mm }
+
+/* ---------- titre courant, folio ---------- */
+.rh{ position:absolute; top:9mm; display:flex; align-items:baseline; gap:3mm; white-space:nowrap;
+  font:600 7pt/1 var(--sans); letter-spacing:.11em; text-transform:uppercase; color:var(--g70) }
+.rh .cn{ font:700 13pt/1 var(--sans); letter-spacing:0; color:#000 }
+.rh .sep{ color:var(--g25) }
+.recto .rh{ right:12.7mm } .verso .rh{ left:12.7mm; flex-direction:row-reverse }
+.folio{ position:absolute; bottom:9mm; font:600 9pt/1 var(--sans); font-variant-numeric:tabular-nums }
+.recto .folio{ right:12.7mm } .verso .folio{ left:12.7mm }
+
+/* ---------- texte courant ---------- */
+.flow p{ margin:0; text-align:justify; text-indent:1.1em; hyphens:manual; widows:2; orphans:2 }
+.flow h2+p, .flow h3+p, .flow .kicker+p, .flow .tblw+p, .flow .dz+p, .flow p.split-b,
+.flow .txt{ text-indent:0 }
+.flow .split-a .txt, .flow p.split-a{ text-align-last:justify }
+b, strong{ font-weight:700 }
+.ref{ font-family:var(--sans); font-weight:600; font-size:.96em }
+.av{ font:600 6.6pt/1 var(--sans); letter-spacing:.05em; color:var(--g70); white-space:nowrap }
+sub{ font-size:.7em; vertical-align:-.25em; line-height:0 }
+.anc{ position:absolute; width:0; height:0 }
+
+/* ---------- titres de section : le squelette de repérage ---------- */
+.flow h2.sec{ column-span:all; position:relative; margin:var(--lh) 0 0; padding:6pt 0 0;
+  font:600 15pt/18pt var(--serif); letter-spacing:-.003em; font-variation-settings:'opsz' 24 }
+.flow h2.sec.top{ margin-top:0 }
+.flow h2.sec::before{ content:''; position:absolute; top:0; height:.75pt; background:#000 }
+.recto .flow h2.sec::before{ left:0; right:-22.5mm } .verso .flow h2.sec::before{ left:-22.5mm; right:0 }
+.sn{ position:absolute; top:3pt; font:300 25pt/1 var(--serif); font-variation-settings:'opsz' 60 }
+.recto .sn{ right:-22.5mm } .verso .sn{ left:-22.5mm }
+
+/* section 9 : la bande noire, la seule de la page */
+.flow h2.sec.s9{ color:#fff; padding:4pt 0 4pt; z-index:0 }
+.flow h2.sec.s9::before{ top:0; bottom:0; height:auto; background:#000; z-index:-1 }
+.recto .flow h2.sec.s9::before{ left:-3mm } .verso .flow h2.sec.s9::before{ right:-3mm }
+.flow h2.sec.s9 .sn{ top:1pt; color:#fff; font-weight:500 }
+.recto .flow h2.sec.s9 .sn{ right:-20.5mm } .verso .flow h2.sec.s9 .sn{ left:-20.5mm }
+.bar9{ position:absolute; width:2pt; background:#000 }
+.tab9{ position:absolute; height:30mm; background:#000; color:#fff; font:700 11pt/30mm var(--sans) }
+.recto .tab9{ right:0; width:calc(10mm + var(--bleed)); text-align:left; padding-left:3.2mm; box-sizing:border-box }
+.verso .tab9{ left:0; width:calc(10mm + var(--bleed)); text-align:right; padding-right:3.2mm; box-sizing:border-box }
+.m-trim .recto .tab9, .m-contact .recto .tab9, .m-one .recto .tab9{ right:calc(-1 * var(--bleed)) }
+.m-trim .verso .tab9, .m-contact .verso .tab9, .m-one .verso .tab9{ left:calc(-1 * var(--bleed)) }
+
+.flow h3{ margin:var(--lh) 0 0; font:italic 600 11.5pt/var(--lh) var(--serif); font-variation-settings:'opsz' 20;
+  break-after:avoid; text-align:left; hyphens:none }
+.flow h3.part{ font-style:normal; font-weight:600; font-size:10.5pt }
+.flow h3.part .pl{ display:inline-block; width:4.3mm; margin-right:1.7mm; text-align:right;
+  font:700 9.5pt/var(--lh) var(--sans) }
+.flow .kicker{ margin-top:var(--lh); font:700 7.8pt/var(--lh) var(--sans); letter-spacing:.09em;
+  text-transform:uppercase; text-indent:0; text-align:left }
+.flow h2+.kicker, .flow h2+h3{ margin-top:0 }
+
+/* listes et étapes */
+.li{ position:relative; padding-left:4.2mm }
+.li::before{ content:''; position:absolute; left:.4mm; top:5.2pt; width:1.45mm; height:1.45mm; background:#000 }
+.li.split-b::before{ display:none }
+.step{ position:relative; padding-left:6.3mm }
+.step .n{ position:absolute; left:0; top:0; width:4.4mm; text-align:right; font:700 9.5pt/var(--lh) var(--sans) }
+.step.split-b .n{ display:none }
+.step-sub{ position:relative; padding-left:10.3mm }
+.step-sub::before{ content:''; position:absolute; left:6.6mm; top:5.2pt; width:1.45mm; height:1.45mm; background:#000 }
+.step-sub.split-b::before{ display:none }
+.step-p{ padding-left:6.3mm }
+
+/* ---------- ouverture de chapitre ---------- */
+header.ouv{ column-span:all; position:relative; padding-top:calc(var(--lh) * 2) }
+.ouv-k{ font:600 7.8pt/var(--lh) var(--sans); letter-spacing:.15em; text-transform:uppercase }
+.ouv-k .sep{ color:var(--g25); margin:0 .4em }
+header.ouv h1{ margin:5pt 0 9pt; font:600 42pt/44pt var(--serif); font-variation-settings:'opsz' 60; letter-spacing:-.012em }
+.bignum{ position:absolute; top:calc(var(--lh) * 2 - 2pt); font:300 50pt/1 var(--serif); font-variation-settings:'opsz' 60; letter-spacing:-.02em }
+.recto .bignum{ right:-22.5mm } .verso .bignum{ left:-22.5mm }
+.ouv-lieu{ margin:0 0 13pt }
+.lieu{ display:inline-flex; gap:1.3mm; font:700 6.8pt/1 var(--sans); letter-spacing:.13em; text-transform:uppercase; vertical-align:middle }
+.lieu span{ padding:1.3mm 2mm 1.1mm; border:.6pt solid #000 }
+.lieu .on{ background:#000; color:#fff }
+.lieu .off{ color:#a6a6a6; border-color:#cfcfcf }
+.som{ list-style:none; margin:0; padding:5pt 0 0; border-top:1pt solid #000;
+  display:grid; grid-template-rows:repeat(3, auto); grid-auto-flow:column; grid-template-columns:repeat(3, 1fr); column-gap:5mm;
+  font:500 7.8pt/11pt var(--sans) }
+.som li{ display:flex; gap:1.6mm; align-items:baseline; padding:1.5pt 0 1.3pt; border-bottom:.5pt solid var(--g25) }
+.som .n{ font-weight:700; width:3.4mm; text-align:center }
+.som .t{ flex:1 } .som .f{ font-variant-numeric:tabular-nums; color:var(--g70) }
+.som .s8 .n{ color:var(--red) }
+.som .s9{ font-weight:700 } .som .s9 .n{ background:#000; color:#fff }
+.som .s9 .f{ color:#000 }
+.flow .lede{ column-span:all; margin:0; padding:4pt 0 0; text-indent:0; text-align:left; hyphens:manual;
+  font:400 12.5pt/18pt var(--serif); font-variation-settings:'opsz' 16 }
+
+/* ---------- tableaux ---------- */
+.tblw{ column-span:all; position:relative; padding-top:var(--lh); padding-bottom:7pt }
+.verso .tblw{ left:-22.5mm }
+.tbl{ width:173.5mm; border-collapse:collapse; font:9pt/11.4pt var(--serif); font-variation-settings:'opsz' 16; font-variant-numeric:tabular-nums lining-nums }
+.tbl caption{ caption-side:top; text-align:right; font:italic 400 7.5pt/1 var(--sans); color:var(--g70); padding-bottom:2pt }
+.tbl th{ text-align:left; vertical-align:bottom; padding:4pt 3.2mm 3pt 0; border-top:1pt solid #000; border-bottom:.5pt solid #000;
+  font:700 6.9pt/9pt var(--sans); letter-spacing:.09em; text-transform:uppercase }
+.tbl td{ text-align:left; vertical-align:top; padding:3pt 3.2mm 3.3pt 0; border-bottom:.5pt solid var(--g40); hyphens:manual }
+.tbl tr:last-child td{ border-bottom:1pt solid #000 }
+.tbl th:last-child, .tbl td:last-child{ padding-right:0 }
+.t-mat th:nth-child(1){ width:25% } .t-mat th:nth-child(2){ width:10% }
+.t-mat th:nth-child(3){ width:47% } .t-mat th:nth-child(4){ width:18% }
+.t-mat td:nth-child(3){ }
+.t-mat td:nth-child(4) b{ font-family:var(--sans); font-weight:700; letter-spacing:.02em }
+
+/* ---------- encadré DANGER ---------- */
+.flow .dz{ column-span:all; position:relative; margin-top:var(--lh); padding:6pt 0 7pt }
+.flow .dz.top{ margin-top:0 }
+.dz::before, .dz::after{ content:''; position:absolute; height:1.5pt; background:var(--red) }
+.dz::before{ top:0 } .dz::after{ bottom:0 }
+.recto .dz::before, .recto .dz::after{ left:0; right:-22.5mm }
+.verso .dz::before, .verso .dz::after{ left:-22.5mm; right:0 }
+.dz.open-b::after{ height:.8pt; background:repeating-linear-gradient(90deg, var(--red) 0 2mm, transparent 2mm 4mm) }
+.dz-head{ position:relative; margin:0 0 6pt; color:var(--red); font:700 9.5pt/var(--lh) var(--sans); letter-spacing:.16em; text-transform:uppercase }
+.dz-head .subj{ font:italic 600 12pt/var(--lh) var(--serif); letter-spacing:0; text-transform:none }
+.dz-head .dash{ letter-spacing:0; margin:0 .15em }
+.dz-head .suite{ display:none }
+.dz.cont .dz-head .full{ display:none } .dz.cont .dz-head .suite{ display:inline }
+.dz.cont .dz-head .subj{ font-size:10pt; font-style:italic }
+.dzmark{ position:absolute; top:-3pt; width:8.5mm; height:7.4mm; background:var(--tri) no-repeat center/contain }
+.recto .dzmark{ right:-22.5mm } .verso .dzmark{ left:-22.5mm }
+.dz-body{ column-count:2; column-gap:5mm; column-fill:balance }
+.dz-pt{ position:relative; padding-left:5.2mm }
+.dz-pt+.dz-pt{ margin-top:var(--lh) }
+.dz-pt.split-b{ margin-top:0 }
+.dz-pt .n{ position:absolute; left:0; top:0; font:700 10pt/var(--lh) var(--sans); color:var(--red) }
+.dz-pt.split-b .n{ display:none }
+.dz-pt .txt{ margin:0; text-indent:0; text-align:justify }
+.dz-suite{ margin-top:4pt; text-align:right; font:italic 500 7.5pt/1 var(--sans); color:var(--red) }
+.dz-suite::after{ content:''; display:inline-block; width:5mm; height:.6pt; margin-left:1.5mm; vertical-align:middle; background:var(--red) }
+
+/* pendant la pagination, rien ne dépasse dans la marge */
+.paginating .sn, .paginating .dzmark, .paginating .bignum{ display:none }
+
+/* ---------- notes et repères de marge ---------- */
+.mn{ position:absolute; left:0; width:19mm; font:500 7pt/9pt var(--sans); color:#000 }
+.recto .mn{ text-align:left } .verso .mn{ text-align:right }
+.mn.rf b{ font-weight:700; font-size:8pt; margin-right:.3em }
+.mn.rf i{ font-family:var(--serif); font-size:7.6pt; font-weight:400 }
+.mn.fg .v{ display:block; font:600 11pt/12pt var(--serif); font-variation-settings:'opsz' 18; letter-spacing:-.01em; white-space:nowrap }
+.mn.fg .l{ display:block; margin-top:1.5pt; color:var(--g70) }
+.mn.fg{ padding-top:3pt; border-top:.5pt solid #000 }
+
+/* ---------- planche pleine page ---------- */
+.plate .plate-svg{ position:absolute; top:19.05mm; left:12.7mm; width:177.8mm; height:215.9mm }
+.plate .plate-svg svg{ display:block; width:100%; height:100% }
+
+/* ---------- le chapitre principal : la page qu'on ouvre en panique ---------- */
+.principal .pp{ position:absolute; top:19.05mm; left:17mm; width:151mm; height:216.07mm }
+.pp-k{ padding-top:2pt; font:600 7.8pt/var(--lh) var(--sans); letter-spacing:.15em; text-transform:uppercase }
+.pp-k .sep{ color:var(--g25); margin:0 .4em }
+.principal h1{ margin:4pt 0 8pt; font:600 34pt/38pt var(--serif); font-variation-settings:'opsz' 60; letter-spacing:-.012em }
+.principal h1 .ppn{ font-weight:300; margin-right:4mm }
+.pp-ctx{ margin:0 0 4pt; font:italic 400 10pt/13.5pt var(--serif); color:#000; max-width:132mm }
+.gestes{ list-style:none; margin:10pt 0 0; padding:0 }
+.gestes li{ position:relative; padding:8pt 0 9pt 14mm; border-top:.75pt solid #000 }
+.gestes .gn{ position:absolute; left:0; top:5pt; font:300 30pt/1 var(--serif); font-variation-settings:'opsz' 60 }
+.gestes .gdz{ position:absolute; left:0; top:34pt; width:7mm; height:6.2mm; background:var(--tri) no-repeat left center/contain }
+.gestes .gl{ margin:0 0 4pt; font:600 16.5pt/19.5pt var(--serif); font-variation-settings:'opsz' 30; letter-spacing:-.005em }
+.gestes .gx{ margin:0; font:400 10.5pt/14pt var(--serif); max-width:118mm }
+.gr{ margin:4pt 0 0; font:500 7.8pt/11pt var(--sans) }
+.gch{ margin-right:4mm; white-space:nowrap }
+.gch b{ font-weight:700; font-size:9pt }
+.gch i{ font-family:var(--serif); font-size:8.5pt }
+.pp-chalet{ position:relative; margin-top:0; padding:9pt 0 9pt 14mm; border-top:.75pt solid #000; border-bottom:.75pt solid #000 }
+.pp-chalet .lieu{ position:absolute; left:0; top:11pt; letter-spacing:.08em; font-size:6.4pt }
+.pp-chalet .lieu span{ padding:1.1mm 1.3mm 0.9mm }
+.pp-chalet p.gr{ font:500 7.8pt/11pt var(--sans); margin-top:4pt }
+.pp-chalet p{ margin:0; font:10.5pt/14pt var(--serif) }
+.pp-rien{ margin:9pt 0 0 14mm; font:500 8.5pt/12pt var(--sans) }
+.pp-rien .fl{ margin:0 .3em }
+.pidx{ list-style:none; margin:0; padding:0 }
+.pidx li{ position:absolute; top:calc(19.05mm + var(--i) * 19.6mm); right:12.7mm; width:19mm; height:18.6mm;
+  font:500 7pt/8.5pt var(--sans); color:var(--g40); text-align:right; border-top:.5pt solid var(--g25); padding-top:2pt; box-sizing:border-box }
+.pidx li b{ display:block; font:300 13pt/1.1 var(--serif); font-variation-settings:'opsz' 40 }
+.pidx li.on{ color:#000; border-top:1.5pt solid #000; font-weight:700 }
+.pidx li.on b{ font-weight:600 }
+.ptab{ position:absolute; top:calc(var(--bleed) + 19.05mm + var(--i) * 19.6mm); height:18.6mm; right:0; width:calc(9mm + var(--bleed));
+  background:#000; color:#fff; font:700 11pt/18.6mm var(--sans); padding-left:3mm; box-sizing:border-box }
+.principal .ptab{ } .m-trim .ptab, .m-contact .ptab, .m-one .ptab{ right:calc(-1 * var(--bleed)); top:calc(19.05mm + var(--i) * 19.6mm) }
+.principal .ptab{ position:absolute }
+
+/* ---------- modes d'aperçu ---------- */
+.m-contact body, body.m-contact{ background:#d9d6d0 }
+.sheet{ --k:.3; display:flex; flex-wrap:wrap; gap:26px 40px; padding:30px; width:1480px }
+.spread{ display:flex; flex-direction:column; align-items:center }
+.spread .pp2{ display:flex; box-shadow:0 2px 10px rgba(0,0,0,.28) }
+.spread .slot{ position:relative; width:calc(203.2mm * var(--k)); height:calc(254mm * var(--k)); overflow:hidden; background:#fff }
+.spread .slot > .page{ position:absolute; top:0; left:0; transform:scale(var(--k)); transform-origin:0 0 }
+.spread .blank{ background:#efede8 }
+.spread .lab{ margin-top:9px; font:600 13px/1 var(--sans); color:#555; letter-spacing:.02em }
+.m-contact .page{ break-after:auto }
+.m-trim .page{ margin:0 auto 6mm; box-shadow:0 0 0 .3mm #bbb }
+body.m-one{ background:#fff }
+</style>
+</head>
+<body class="paginating">
+<main id="book">
+
+<section class="page recto" data-folio="213" data-chain="a">
+  <div class="trim"><div class="flow">
+<!--CHAINE_A-->
+  </div><div class="mcol"></div><div class="folio"></div></div>
+</section>
+
+<section class="page verso" data-folio="216" data-chain="b">
+  <div class="trim"><div class="flow">
+<!--CHAINE_B-->
+  </div><div class="mcol"></div><div class="rh"></div><div class="folio"></div></div>
+</section>
+<section class="page recto" data-folio="217" data-chain="b"><div class="trim"><div class="flow"></div><div class="mcol"></div><div class="rh"></div><div class="folio"></div></div></section>
+<section class="page verso" data-folio="218" data-chain="b"><div class="trim"><div class="flow"></div><div class="mcol"></div><div class="rh"></div><div class="folio"></div></div></section>
+
+<section class="page recto plate" data-folio="219" data-sec="5">
+  <div class="trim">
+    <div class="plate-svg"><!--PLANCHE--></div>
+    <div class="rh"></div><div class="folio"></div>
+  </div>
+</section>
+
+<section class="page verso" data-folio="222" data-chain="c">
+  <div class="trim"><div class="flow">
+<!--CHAINE_C-->
+  </div><div class="mcol"></div><div class="rh"></div><div class="folio"></div></div>
+</section>
+<section class="page recto" data-folio="223" data-chain="c"><div class="trim"><div class="flow"></div><div class="mcol"></div><div class="rh"></div><div class="folio"></div></div></section>
+
+<!--PRINCIPAL-->
+
+</main>
+
+<script>/*HACHURES*/</script>
+<script type="module">
+const TITRES = /*TITRES*/;
+const CHAP = "65", CHTITRE = "Fumage à froid";
+const LH = 12.5 * 96 / 72;
+const params = new URLSearchParams(location.search);
+const MODE = params.get('mode') || 'print';
+
+/* ---------- typographie française (Québec) ---------- */
+function typo(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  for (const n of nodes){
+    if (n.parentElement.closest('script,style')) continue;
+    let s = n.nodeValue;
+    s = s.replace(/'/g, '’');
+    s = s.replace(/«[   ]*/g, '« ').replace(/[   ]*»/g, ' »');
+    s = s.replace(/[   ]+([;:!?])(?=[\s)\]»]|$)/g, ' $1');
+    s = s.replace(/(\d)[  ](?=\d{3}(?!\d))/g, '$1 ');
+    s = s.replace(/(\d)[  ](°C|%|kg|g|mm|cm|m|km|h|L|cc|ppm|pi|po|min|j)(?![\wÀ-ÿ])/g, '$1 $2');
+    s = s.replace(/(\d)[ ](?=[A-Za-zÀ-ÿ])/g, '$1 ');
+    s = s.replace(/(^|[\s(≤≥=  ])-(?=\d)/g, '$1−');
+    s = s.replace(/ — /g, ' — ');
+    n.nodeValue = s;
+  }
+}
+
+/* ---------- césure : motifs français, 3 lettres minimum de part et d'autre ---------- */
+function hyphenate(root, hy){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  for (const n of nodes){
+    const p = n.parentElement;
+    if (p.closest('h1,h2,h3,.kicker,.ref,.av,.som,.lieu,.dz-head,.rh,.folio,.n,th,.gl,.pp-k,.t-mat td:nth-child(2),.t-mat td:nth-child(4),svg,script,style')) continue;
+    let s = hy(n.nodeValue);
+    s = s.replace(/[A-Za-zÀ-ÿœŒ­]+/g, word => {
+      if (!word.includes('­')) return word;
+      const parts = word.split('­'), total = word.replace(/­/g, '').length;
+      let out = parts[0], before = parts[0].length;
+      for (let i = 1; i < parts.length; i++){
+        const after = total - before;
+        out += (before >= 3 && after >= 3 ? '­' : '') + parts[i];
+        before += parts[i].length;
+      }
+      return out;
+    });
+    n.nodeValue = s;
+  }
+}
+
+/* ---------- pagination ---------- */
+function over(flow){
+  const fr = flow.getBoundingClientRect();
+  for (const c of flow.children){
+    if (c.matches(SPAN)){                       // un bloc à cheval : il ne peut déborder que par le pied
+      if (c.getBoundingClientRect().bottom > fr.bottom + 1.5) return true;
+      continue;
+    }
+    const r = document.createRange(); r.selectNodeContents(c);
+    for (const x of [...r.getClientRects(), ...c.getClientRects()]){
+      if (x.width < .5 && x.height < .5) continue;
+      if (x.left > fr.right - 2 || x.bottom > fr.bottom + 1.5) return true;
+    }
+  }
+  return false;
+}
+const SPAN = 'h2.sec, header.ouv, .lede, .tblw, .dz';
+function snap(flow){
+  for (const el of flow.querySelectorAll(':scope > ' + SPAN.split(', ').join(', :scope > '))){
+    if (el.dataset.pb0 === undefined) el.dataset.pb0 = parseFloat(getComputedStyle(el).paddingBottom) || 0;
+    el.style.paddingBottom = el.dataset.pb0 + 'px';
+    const cs = getComputedStyle(el);
+    const h = el.getBoundingClientRect().height + parseFloat(cs.marginTop);
+    const t = Math.ceil(h / LH - 0.02) * LH;
+    el.style.paddingBottom = (parseFloat(el.dataset.pb0) + (t - h)) + 'px';
+  }
+}
+function fits(flow){ snap(flow); return !over(flow); }
+function markTop(flow){
+  flow.querySelectorAll(':scope > .top').forEach(e => e.classList.remove('top'));
+  const f = flow.firstElementChild;
+  if (f && f.matches('h2.sec, .dz')) f.classList.add('top');
+}
+const txtOf = el => el.matches('p') ? el : el.querySelector('.txt');
+function bounds(t){
+  const res = [], w = document.createTreeWalker(t, NodeFilter.SHOW_TEXT);
+  while (w.nextNode()){ const n = w.currentNode, v = n.nodeValue;
+    for (let i = 0; i < v.length; i++) if (v[i] === ' ') res.push([n, i + 1]); }
+  return res;
+}
+function splitText(flow, el, box){
+  const t = txtOf(el); if (!t) return false;
+  const b = bounds(t); const MIN = 9;
+  if (b.length < MIN * 2) return false;
+  const clone = el.cloneNode(true), ct = txtOf(clone);
+  (box || flow).appendChild(clone);
+  const setK = k => { const r = document.createRange(); r.setStart(t, 0); r.setEnd(b[k][0], b[k][1]);
+    ct.innerHTML = ''; ct.appendChild(r.cloneContents()); };
+  let lo = MIN, hi = b.length - MIN, best = -1;
+  clone.classList.add('split-a');
+  while (lo <= hi){ const mid = (lo + hi) >> 1; setK(mid); if (fits(flow)){ best = mid; lo = mid + 1; } else hi = mid - 1; }
+  if (best < 0){ clone.remove(); return false; }
+  setK(best);
+  // une dernière ligne justifiée trop courte s'étire en trous : on recule d'une ligne
+  const last = () => { clone.classList.remove('split-a'); const r = document.createRange(); r.selectNodeContents(ct);
+    const rs = [...r.getClientRects()].filter(x => x.width > .5);
+    if (!rs.length){ clone.classList.add('split-a'); return { n: 0, w: 1 }; }
+    const fl = flow.getBoundingClientRect().left, cw = 78 * 96 / 25.4;
+    const key = x => Math.floor((x.left - fl + 2) / cw) * 100000 + Math.round((x.top + x.height / 2) / 8);
+    const tops = new Set(rs.map(key)); const mx = Math.max(...tops);
+    const colL = Math.min(...rs.filter(x => key(x) === mx).map(x => x.left));
+    const w = rs.filter(x => key(x) === mx).reduce((a, x) => Math.max(a, x.right), 0) - colL;
+    clone.classList.add('split-a'); return { n: tops.size, w: w / (73 * 96 / 25.4) }; };
+  const L0 = last();
+  if (L0.w < .62){
+    let k = best;
+    while (k > MIN){ setK(k - 1); if (last().n < L0.n) { best = k - 1; break; } k--; }
+    setK(best);
+  }
+  const r = document.createRange(); r.setStart(t, 0); r.setEnd(b[best][0], b[best][1]); r.deleteContents();
+  el.classList.add('split-b');
+  return true;
+}
+function splitTable(flow, w){
+  const tbl = w.querySelector('table'), body = tbl.tBodies[0];
+  if (body.rows.length < 3) return false;
+  const cw = w.cloneNode(false), ct = tbl.cloneNode(false), tb = document.createElement('tbody');
+  ct.appendChild(tbl.tHead.cloneNode(true)); ct.appendChild(tb); cw.appendChild(ct); flow.appendChild(cw);
+  let n = 0;
+  while (body.rows.length){
+    const r = body.rows[0]; tb.appendChild(r);
+    if (!fits(flow)){ body.insertBefore(r, body.firstChild); break; }
+    n++;
+  }
+  if (n < 2){ while (tb.lastChild) body.insertBefore(tb.lastChild, body.firstChild); cw.remove(); return false; }
+  if (!body.rows.length){ w.remove(); return true; }  // tout le tableau a tenu
+  cw.classList.add('split-a'); w.classList.add('split-b');
+  if (!tbl.caption){ const c = tbl.createCaption(); c.textContent = '(suite)'; }
+  return true;
+}
+function splitDz(flow, dz){
+  const body = dz.querySelector('.dz-body');
+  const c = dz.cloneNode(false); c.appendChild(dz.querySelector('.dz-head').cloneNode(true));
+  const cb = document.createElement('div'); cb.className = 'dz-body'; c.appendChild(cb);
+  const s = document.createElement('div'); s.className = 'dz-suite'; s.textContent = 'suite page suivante'; c.appendChild(s);
+  c.classList.add('open-b'); flow.appendChild(c);
+  let moved = 0;
+  while (body.firstElementChild){
+    const p = body.firstElementChild; cb.appendChild(p);
+    if (!fits(flow)){ body.insertBefore(p, body.firstChild); break; }
+    moved++;
+  }
+  if (body.firstElementChild && splitText(flow, body.firstElementChild, cb)) moved++;
+  if (!moved){ c.remove(); return false; }
+  if (!body.firstElementChild){ c.classList.remove('open-b'); s.remove(); dz.remove(); return true; }
+  dz.classList.add('cont');
+  return true;
+}
+function trySplit(flow, el){
+  if (el.matches('p, .li, .step, .step-sub, .step-p')) return splitText(flow, el) ? 'part' : 'none';
+  if (el.matches('.tblw')){ const had = el.isConnected; const r = splitTable(flow, el); return r ? (el.isConnected ? 'part' : 'all') : 'none'; }
+  if (el.matches('.dz')){ const r = splitDz(flow, el); return r ? (el.isConnected ? 'part' : 'all') : 'none'; }
+  return 'none';
+}
+function fillPage(flow, sink){
+  const rest = document.createElement('div');
+  while (flow.lastElementChild) rest.insertBefore(flow.lastElementChild, rest.firstChild);
+  while (rest.firstElementChild){
+    const el = rest.firstElementChild;
+    flow.appendChild(el); markTop(flow);
+    if (fits(flow)) continue;
+    rest.insertBefore(el, rest.firstChild); markTop(flow);
+    const r = trySplit(flow, el);
+    if (r === 'all') continue;
+    break;
+  }
+  // un titre ne reste jamais seul en pied de page
+  let last = flow.lastElementChild;
+  while (last && last.matches('h2, h3, .kicker')){ rest.insertBefore(last, rest.firstChild); last = flow.lastElementChild; }
+  snap(flow);
+  while (rest.lastElementChild) sink.insertBefore(rest.lastElementChild, sink.firstChild);
+}
+function paginate(){
+  const chains = {};
+  document.querySelectorAll('.page[data-chain]').forEach(p => (chains[p.dataset.chain] ||= []).push(p));
+  for (const pages of Object.values(chains)){
+    for (let i = 0; i < pages.length; i++){
+      const flow = pages[i].querySelector('.flow');
+      const sink = pages[i + 1] ? pages[i + 1].querySelector('.flow') : document.createElement('div');
+      fillPage(flow, sink);
+    }
+  }
+}
+
+/* ---------- après la pagination : marge, titres courants, section 9 ---------- */
+function rel(el, trim){ const a = el.getBoundingClientRect(), t = trim.getBoundingClientRect(); return { top: a.top - t.top, bottom: a.bottom - t.top, left: a.left - t.left, right: a.right - t.left }; }
+const PX = 96 / 25.4;
+function placeNotes(page){
+  const trim = page.querySelector('.trim'), mcol = page.querySelector('.mcol'), flow = page.querySelector('.flow');
+  if (!mcol || !flow) return;
+  const fb = rel(flow, trim).bottom;
+  const obst = [];
+  page.querySelectorAll('.flow .sn, .flow .dzmark, .flow .bignum').forEach(e => { const r = rel(e, trim); obst.push([r.top - 2, r.bottom + 5]); });
+  page.querySelectorAll('.flow h2.s9').forEach(e => { const r = rel(e, trim); obst.push([r.top - 2, r.bottom + 4]); });
+  page.querySelectorAll('.flow .tblw').forEach(e => { const r = rel(e, trim); obst.push([r.top, r.bottom + 4]); });
+  const items = [], seen = new Set();
+  page.querySelectorAll('.flow .ref, .flow .anc').forEach(e => {
+    if (e.closest('.tblw')) return;
+    const rs = e.getClientRects(); if (!rs.length) return;
+    const top = rs[0].top - trim.getBoundingClientRect().top;
+    if (top > fb) return;
+    if (e.classList.contains('ref')){
+      const n = e.dataset.ch; if (n === CHAP || seen.has(n) || !TITRES[n]) return; seen.add(n);
+      items.push({ top, html: `<b>${n}</b><i>${TITRES[n]}</i>`, cls: 'rf' });
+    } else {
+      items.push({ top: top - 3, html: `<span class="v">${e.dataset.v}</span><span class="l">${e.dataset.l}</span>`, cls: 'fg' });
+    }
+  });
+  items.sort((a, b) => a.top - b.top);
+  let floor = 0;
+  for (const it of items){
+    const d = document.createElement('div'); d.className = 'mn ' + it.cls; d.innerHTML = it.html; mcol.appendChild(d);
+    typo(d);
+    const h = d.getBoundingClientRect().height;
+    let y = Math.max(it.top, floor);
+    let moved = true;
+    while (moved){ moved = false; for (const [a, b] of obst) if (y < b && y + h > a){ y = b; moved = true; } }
+    if (y + h > fb + 2){ d.remove(); continue; }
+    d.style.top = y + 'px'; floor = y + h + 5;
+  }
+}
+function heads(){
+  let sec = null;
+  const pages = [...document.querySelectorAll('#book .page')];
+  for (const p of pages){
+    const flow = p.querySelector('.flow');
+    let atTop = sec;
+    if (flow){
+      const f = flow.firstElementChild;
+      if (f && f.matches('h2.sec')) atTop = { n: f.dataset.n, t: f.dataset.t };
+      const hs = flow.querySelectorAll(':scope > h2.sec');
+      if (hs.length){ const l = hs[hs.length - 1]; sec = { n: l.dataset.n, t: l.dataset.t }; }
+    }
+    if (p.dataset.sec) atTop = { n: '5', t: 'Procédure' };
+    p._sec = atTop;
+    const fo = p.querySelector('.folio'); if (fo && !fo.textContent) fo.textContent = p.dataset.folio;
+    const rh = p.querySelector('.rh');
+    if (rh && !rh.innerHTML.trim()){
+      const t = p.classList.contains('verso') ? CHTITRE : (atTop ? `${atTop.n} · ${atTop.t}` : CHTITRE);
+      rh.innerHTML = `<span class="t">${t}</span><span class="cn">${CHAP}</span>`;
+    }
+    // section 9 : filet noir le long du texte, onglet noir au petit fond
+    if (flow){
+      const trim = p.querySelector('.trim');
+      const h9 = flow.querySelector(':scope > h2.s9');
+      const inS9 = h9 || (atTop && atTop.n === '9');
+      if (inS9){
+        const fr = rel(flow, trim);
+        const start = h9 ? rel(h9, trim).bottom + 5 : fr.top + 2;
+        const r = document.createRange(); r.selectNodeContents(flow);
+        let end = start; for (const x of r.getClientRects()){ const b = x.bottom - trim.getBoundingClientRect().top; if (b > end && b <= fr.bottom + 2) end = b; }
+        const bar = document.createElement('div'); bar.className = 'bar9';
+        bar.style.top = start + 'px'; bar.style.height = (end - start) + 'px';
+        bar.style.left = p.classList.contains('recto') ? (168 + 1.75) * PX - 1.3 + 'px' : (31.7 + 1.75) * PX - 1.3 + 'px';
+        trim.appendChild(bar);
+        const tab = document.createElement('div'); tab.className = 'tab9'; tab.textContent = '9';
+        tab.style.top = `calc(var(--bleed) + 196mm)`;
+        p.appendChild(tab);
+      }
+    }
+  }
+}
+
+function arrange(){
+  document.documentElement.classList.add('m-' + MODE);
+  document.body.classList.add('m-' + MODE);
+  if (MODE === 'contact'){
+    const byF = f => document.querySelector(`.page[data-folio="${f}"]`);
+    const sheet = document.createElement('div'); sheet.className = 'sheet';
+    const spreads = [[null, 213, 'ouverture · 213'], [216, 217, 'matériel, procédure · 216–217'], [218, 219, 'procédure et planche · 218–219'],
+                     [222, 223, 'danger, variante d’urgence · 222–223'], [null, 3, 'chapitre principal · tome 1, p. 3']];
+    for (const [l, r, lab] of spreads){
+      const s = document.createElement('div'); s.className = 'spread';
+      const pp = document.createElement('div'); pp.className = 'pp2';
+      for (const f of [l, r]){ const sl = document.createElement('div'); sl.className = 'slot' + (f === null ? ' blank' : ''); if (f !== null) sl.appendChild(byF(f)); pp.appendChild(sl); }
+      const lb = document.createElement('div'); lb.className = 'lab'; lb.textContent = lab;
+      s.appendChild(pp); s.appendChild(lb); sheet.appendChild(s);
+    }
+    document.getElementById('book').replaceChildren(sheet);
+  }
+  if (MODE === 'bleed'){
+    const f = params.get('p');
+    document.querySelectorAll('#book .page').forEach(p => { if (p.dataset.folio !== f) p.remove(); });
+  }
+  if (MODE === 'one'){
+    const f = params.get('p');
+    document.querySelectorAll('#book .page').forEach(p => { if (p.dataset.folio !== f) p.remove(); });
+  }
+}
+
+async function main(){
+  typo(document.getElementById('book'));
+  let hy = null;
+  try { const m = await import('https://cdn.jsdelivr.net/npm/hyphen@1.10.6/fr/+esm'); hy = (m.default || m).hyphenateSync; } catch(e){ console.warn('césure indisponible', e); }
+  if (hy) hyphenate(document.getElementById('book'), hy);
+  await document.fonts.ready;
+  await Promise.all(['400 10pt "Source Serif 4"', '700 10pt "Source Serif 4"', 'italic 400 10pt "Source Serif 4"',
+    'italic 600 11pt "Source Serif 4"', '600 15pt "Source Serif 4"', '300 25pt "Source Serif 4"',
+    '600 9pt "Source Sans 3"', '700 9pt "Source Sans 3"', '500 7pt "Source Sans 3"', 'italic 500 7pt "Source Sans 3"'].map(f => document.fonts.load(f)));
+  document.querySelectorAll('.plate-svg svg').forEach(deplierHachures);
+  paginate();
+  document.body.classList.remove('paginating');
+  heads();
+  document.querySelectorAll('#book .page').forEach(placeNotes);
+  arrange();
+  const rep = document.createElement('pre'); rep.id = 'rapport'; rep.style.display = 'none';
+  rep.textContent = JSON.stringify([...document.querySelectorAll('.page')].map(p => ({ f: p.dataset.folio, over: p.querySelector('.flow') ? over(p.querySelector('.flow')) : null,
+    words: p.querySelector('.flow') ? p.querySelector('.flow').innerText.replace(/­/g,'').split(/[\s  ]+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length : null })));
+  document.body.appendChild(rep);
+  document.body.dataset.pret = '1';
+}
+main();
+</script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Grand Livre du Chalet — intérieur, direction 4 : l’almanach refait</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn+SC:wght@400;600;700;900&display=block" rel="stylesheet">
+<style>
+/* Vollkorn en instances statiques (Fontsource) : le PDF incorpore de vraies polices, pas du Type 3 */
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:400;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:400;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Vollkorn';font-style:italic;font-weight:400;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Vollkorn';font-style:italic;font-weight:400;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:600;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:600;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:700;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:700;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Vollkorn';font-style:italic;font-weight:700;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-700-italic.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Vollkorn';font-style:italic;font-weight:700;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-ext-700-italic.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:800;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:800;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:900;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-900-normal.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:900;font-display:block;src:url(https://cdn.jsdelivr.net/npm/@fontsource/vollkorn@5/files/vollkorn-latin-ext-900-normal.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+</style>
+<style>
+/* ---------- jetons ---------- */
+:root{
+  --rouge:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --gris:#8c8c8c;           /* seule nuance : les lieux non visés */
+  --fs:10.25pt;             /* corps */
+  --lh:13.6pt;              /* pas de la grille : 8,5 po = 45 lignes */
+  --gut:0.25in;             /* gouttière entre colonnes */
+}
+@page{size:585pt 738pt;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{
+  font-family:'Vollkorn',Georgia,serif;font-size:var(--fs);line-height:var(--lh);color:#000;
+  font-variant-numeric:lining-nums proportional-nums;font-kerning:normal;
+  hyphens:auto;hyphenate-limit-chars:6 3 3;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.src{display:none}
+strong{font-weight:700}
+
+/* ---------- la page ---------- */
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;break-after:page;background:#fff}
+.frame{position:absolute;top:0.875in;left:0.5625in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* titre courant + folio : toujours au même endroit, folio au petit fond */
+.rh{position:absolute;left:0.5625in;width:7in;top:0.46in;height:0.23in;display:flex;align-items:baseline;gap:9pt;
+  border-bottom:0.5pt solid #000;font-family:'Vollkorn SC';font-weight:600;font-size:8pt;letter-spacing:.11em;
+  text-transform:lowercase;line-height:10pt;white-space:nowrap}
+.rh .fo{font-family:'Vollkorn';font-weight:800;font-size:11.5pt;letter-spacing:0;text-transform:none}
+.rh.verso .in{margin-left:auto}
+.rh.recto .ou{margin-left:auto}
+.rh strong{font-weight:900}
+.rh.urg{border-bottom:2.5pt solid #000}
+.rh.opening{border-bottom:none;justify-content:flex-end}
+
+/* onglets de tranche : on les voit livre fermé */
+.tab{position:absolute;width:0.375in;background:#000}
+.recto .tab{right:0}
+.verso .tab{left:0}
+.tab.principal{top:0.875in;height:2.1in}
+.tab.danger{top:3.5in;height:1.6in;background:var(--rouge)}
+.tab.urg{top:5.75in;height:3.625in}
+
+/* ---------- colonnes et flux ---------- */
+.cols{column-count:2;column-gap:var(--gut)}
+.cols2{display:flex;gap:var(--gut)}
+.cols2.fill{flex:1 1 0;min-height:0}
+.cols2.dg{gap:0.22in}
+.col{flex:1 1 0;min-width:0;height:100%;overflow:hidden}
+.col>:first-child{margin-top:0!important}
+.col>p:first-child,.col>.dgi:first-child{text-indent:0}
+.cols.bal{column-fill:balance}
+.cols.after{margin-top:var(--lh)}
+
+p{margin:0;text-align:justify;text-indent:1em;orphans:2;widows:2}
+p.first,h2+p,h3+p,.lead+p,p.split-b,.cols>p:first-child,.col>p.split-b{text-indent:0}
+.split-a{text-align-last:justify}
+p.lead{font-weight:700;font-style:italic;text-indent:0;margin-top:var(--lh)}
+h2+p.lead{margin-top:0}
+
+/* titres de section : trois lignes de grille, chiffre + capitales espacées */
+h2.sec{display:flex;align-items:baseline;gap:7pt;margin:var(--lh) 0 5.95pt;padding-top:3.5pt;
+  border-top:0.75pt solid #000;line-height:17pt;break-after:avoid}
+h2.sec .n{font-weight:800;font-size:15pt;min-width:11pt}
+h2.sec .t{font-family:'Vollkorn SC';font-weight:700;font-size:10.5pt;letter-spacing:.13em;text-transform:lowercase}
+.cols>h2.sec:first-child,.frame>h2.sec:first-child{margin-top:0}
+h3.sub{font-family:'Vollkorn SC';font-weight:700;font-size:9.75pt;letter-spacing:.09em;text-transform:lowercase;
+  margin:var(--lh) 0 0;line-height:var(--lh);break-after:avoid}
+.cols>h3.sub:first-child{margin-top:0}
+
+/* listes : puce carrée, aucun blanc ajouté (la grille tient) */
+.li{position:relative;padding-left:10pt;text-align:justify}
+.li .m{position:absolute;left:0.5pt;top:5.3pt;width:3.6pt;height:3.6pt;background:#000}
+.li.sub{margin-left:17pt}
+.li.sub .m{background:none;border:0.75pt solid #000}
+.step{position:relative;padding-left:17pt;text-align:justify}
+.step .m{position:absolute;left:0;width:12.5pt;text-align:right;font-weight:800}
+p.stepcont{padding-left:17pt;text-indent:0}
+
+.av{font-family:'Vollkorn SC';font-size:8pt;letter-spacing:.06em;color:#000;border:0.5pt solid #000;padding:0 2pt;white-space:nowrap}
+
+/* ---------- ouverture de chapitre ---------- */
+.tomeline{font-family:'Vollkorn SC';font-weight:600;font-size:9pt;letter-spacing:.17em;text-transform:lowercase;
+  padding-bottom:5pt;border-bottom:0.5pt solid #000;display:flex;gap:6pt}
+.titre{display:flex;align-items:flex-end;gap:16pt;padding:14pt 0 12pt;border-bottom:2.5pt solid #000}
+.titre .num{font-weight:800;font-size:80pt;line-height:62pt;letter-spacing:-.02em}
+.titre .kick{font-family:'Vollkorn SC';font-weight:600;font-size:9pt;letter-spacing:.2em;text-transform:lowercase;margin-bottom:5pt}
+.titre h1{margin:0;font-weight:700;font-size:40pt;line-height:36pt;letter-spacing:-.01em}
+.ouvbar{margin-top:2pt;border-top:0.5pt solid #000;padding:8pt 0 8pt;display:flex;flex-direction:column;gap:8pt;border-bottom:0.5pt solid #000;margin-bottom:var(--lh)}
+.lieu{display:flex;align-items:center;font-family:'Vollkorn SC';font-weight:700;font-size:10pt;letter-spacing:.12em;text-transform:lowercase;line-height:12pt}
+.lieu .lab{font-weight:600;font-size:8.5pt;margin-right:10pt}
+.lieu .o{padding:2pt 7pt 3pt;color:var(--gris);border:0.5pt solid var(--gris);margin-right:-0.5pt}
+.lieu .o.on{background:#000;color:#fff;border-color:#000;position:relative}
+ol.somm{list-style:none;margin:0;padding:0;columns:3;column-gap:0.3in;font-size:8.75pt;line-height:12pt}
+ol.somm li{display:flex;align-items:baseline;gap:5pt;break-inside:avoid}
+ol.somm .n{font-weight:800;min-width:7pt}
+ol.somm .d{flex:1;border-bottom:0.6pt dotted #000;position:relative;top:-2.5pt}
+ol.somm .p{font-weight:600}
+ol.somm li.s9{font-weight:800}
+ol.somm li.s9 .p{font-weight:800}
+.frame>h2.sec.one{margin-top:0}
+p.uneligne{font-size:12.5pt;line-height:17pt;text-indent:0;text-align:left;hyphens:manual;margin:0 0 4pt;max-width:6.4in}
+
+/* ---------- tableaux ---------- */
+h2.sec.span{margin-bottom:6pt}
+table.t{width:100%;border-collapse:collapse;font-size:8.4pt;line-height:9.9pt;font-variant-numeric:lining-nums tabular-nums;border-top:1.5pt solid #000}
+table.t th{font-family:'Vollkorn SC';font-weight:700;font-size:8.5pt;letter-spacing:.1em;text-transform:lowercase;text-align:left;
+  padding:3.5pt 7pt 3.5pt 0;border-bottom:0.75pt solid #000;line-height:10pt;white-space:nowrap;hyphens:manual}
+table.t td{vertical-align:top;padding:2.4pt 8pt 2.8pt 0;border-bottom:0.5pt solid #000;text-align:left}
+table.t td:last-child,table.t th:last-child{padding-right:0}
+table.t td.it{font-weight:600}
+table.t td.ng .q{font-size:7.8pt;font-style:italic;font-weight:400}
+table.t tbody tr:last-child td{border-bottom:1.5pt solid #000}
+.suite{font-family:'Vollkorn SC';font-weight:700;font-size:9pt;letter-spacing:.11em;text-transform:lowercase;margin-bottom:5pt;line-height:12pt}
+.suite em{font-family:'Vollkorn';font-style:italic;font-weight:400;letter-spacing:0;text-transform:none}
+
+/* ---------- encadré DANGER : la seule chose rouge ---------- */
+.danger{border:1.5pt solid var(--rouge);padding:6pt 10pt 7pt;margin-top:var(--lh);display:flex;flex-direction:column}
+.danger.fillbox{flex:1 1 0;min-height:0}
+.danger.cont{margin-top:0}
+.danger .dh{display:flex;align-items:baseline;gap:10pt;padding-bottom:5pt;margin-bottom:7pt;border-bottom:1pt solid var(--rouge)}
+.danger .w{color:var(--rouge);font-family:'Vollkorn SC';font-weight:900;font-size:15pt;letter-spacing:.2em;text-transform:uppercase;line-height:16pt}
+.danger .s{font-style:italic;font-size:11pt}
+.dgb{column-count:2;column-gap:0.22in}
+.dgi{position:relative;padding-left:16pt;text-align:justify}
+.dgi+.dgi{margin-top:6.8pt}
+.dgi.split-b{margin-top:0}
+.dgi .m{position:absolute;left:0;top:-1.5pt;color:var(--rouge);font-weight:800;font-size:13pt}
+.dsuite{align-self:flex-end;font-family:'Vollkorn SC';font-weight:700;font-size:8.5pt;letter-spacing:.1em;text-transform:lowercase;margin-top:4pt;line-height:10pt}
+
+/* ---------- section 9 : bande noire, même geste partout ---------- */
+.urgband{display:flex;align-items:baseline;gap:10pt;background:#000;color:#fff;padding:6pt 10pt 7pt;margin:var(--lh) 0 9pt}
+.urgband .n{font-weight:900;font-size:19pt;line-height:18pt}
+.urgband .t{font-family:'Vollkorn SC';font-weight:700;font-size:12.5pt;letter-spacing:.15em;text-transform:lowercase}
+.urgband .s{margin-left:auto;font-style:italic;font-size:10pt}
+
+/* ---------- planche pleine page : 7 x 8,5 po, rien ne se déforme ---------- */
+.frame.planche img{display:block;width:7in;height:8.5in}
+
+/* ---------- chapitre principal : lisible en trois secondes ---------- */
+.cphead{display:grid;grid-template-columns:1.1in 1fr;gap:0.12in;padding-bottom:8pt;border-bottom:2.5pt solid #000}
+.cpnum{font-weight:900;font-size:104pt;line-height:82pt;letter-spacing:-.03em}
+.cptit h1{margin:2pt 0 9pt;font-weight:800;font-size:42pt;line-height:40pt;letter-spacing:-.01em}
+.cpfact{font-style:italic;font-size:10.5pt;line-height:13.5pt;text-indent:0;text-align:left;hyphens:manual;margin-top:7pt}
+.cprows{border-top:0.5pt solid #000;margin-top:2pt}
+.cpr{display:grid;grid-template-columns:1fr 0.9in;gap:0.2in;padding:5pt 0 6pt;border-bottom:0.5pt solid #000;position:relative}
+.cpt{font-size:11.25pt;line-height:14.5pt;hyphens:manual;text-align:left}
+.cpt strong{font-size:14.5pt;font-weight:800}
+.cpref{font-weight:800;font-size:14pt;text-align:right;white-space:nowrap;line-height:15pt}
+.cpref .ch{font-weight:400;font-style:italic;font-size:10pt}
+.cpr.dang::before{content:"";position:absolute;left:-10pt;top:5.5pt;bottom:6.5pt;width:3pt;background:var(--rouge)}
+.cpchalet{display:flex;gap:9pt;align-items:baseline;padding:5pt 0 6pt;border-bottom:0.5pt solid #000;font-size:9.75pt;line-height:13pt;white-space:nowrap}
+.cpchalet .cpref{margin-left:auto}
+.cpchalet .lab{font-family:'Vollkorn SC';font-weight:700;font-size:10pt;letter-spacing:.12em;text-transform:lowercase}
+.cpchalet .cpref{font-size:12pt}
+.urgband.sr{margin-top:9pt;margin-bottom:8pt}
+
+/* ---------- aperçus (écran seulement) ---------- */
+@media screen{
+  body.contact{background:#5f5f5c;padding:28px 34px}
+  .sheet{display:flex;flex-direction:column;gap:0.55in}
+  .row{display:flex;gap:0.6in;align-items:flex-start}
+  .spread{display:flex;flex-direction:column;gap:0.12in}
+  .spread .pp{display:flex;box-shadow:0 0.04in 0.18in rgba(0,0,0,.45)}
+  .spread .cap{color:#eee;font-family:'Vollkorn SC';font-size:22pt;letter-spacing:.1em;text-transform:lowercase}
+  .tv{width:8in;height:10in;overflow:hidden;position:relative;background:#fff}
+  .tv>.page{position:absolute;top:-0.125in}
+  .tv.recto>.page{left:0}
+  .tv.verso>.page{left:-0.125in}
+  .tv.vide{background:transparent}
+  .contact .tv::after{content:"";position:absolute;top:0;bottom:0;width:0.3in;pointer-events:none}
+  .tv.recto::after{left:0;background:linear-gradient(90deg,rgba(0,0,0,.16),rgba(0,0,0,0))}
+  .tv.verso::after{right:0;background:linear-gradient(270deg,rgba(0,0,0,.16),rgba(0,0,0,0))}
+  .tv.vide::after{display:none}
+  body.single{background:#fff}
+}
+
+#dbg{position:fixed;left:0;top:0;right:0;background:#ff0;color:#000;font:14px/1.3 monospace;padding:8px;z-index:9;white-space:pre-wrap}
+body.dbgo .frame{outline:1px solid blue}
+body.dbgo .col{outline:1px solid red}
+
+</style>
+</head>
+<body>
+<!--
+  Direction 4 — l'almanach, refait aujourd'hui.
+  Page PDF : 8,125 x 10,25 po (8 x 10 rogné + 0,125 po de fond perdu en tête, en pied et au petit fond ; aucun fond perdu au grand fond).
+  Empagement : 7 x 8,5 po, identique à la zone utile des planches. Tête et pied 0,75 po ; grand fond 0,5625 po ; petit fond 0,4375 po.
+  Deux colonnes de 3,375 po, gouttière 0,25 po. Corps Vollkorn 9,75/12,75 pt : 48 lignes par colonne.
+  Le texte est versé par le script en bas de page (flux par mots, césure du navigateur en français).
+  Aperçus : ?contact (planche contact des doubles pages), ?page=78 (une page rognée).
+-->
+<section class="page recto" id="p67" data-folio="67">
+<header class="rh recto opening"><span class="fo">67</span></header>
+<div class="frame">
+ <div class="ouv">
+  <div class="tomeline"><span>Tome IV</span><span class="sep">·</span><span>Conserver et réparer</span></div>
+  <div class="titre"><div class="num">65</div><div class="tt"><div class="kick">Chapitre soixante-cinq</div><h1>Fumage à froid</h1></div></div>
+  <div class="ouvbar"><div class="lieu"><span class="lab">Lieu</span><span class="o">Maison</span><span class="o on">Chalet</span><span class="o">Les deux</span></div><ol class="somm"><li class=""><span class="n">1</span><span class="t">En une ligne</span><span class="d"></span><span class="p">67</span></li><li class=""><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="d"></span><span class="p">67</span></li><li class=""><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="d"></span><span class="p">68</span></li><li class=""><span class="n">4</span><span class="t">Matériel</span><span class="d"></span><span class="p">70</span></li><li class=""><span class="n">5</span><span class="t">Procédure</span><span class="d"></span><span class="p">71</span></li><li class=""><span class="n">6</span><span class="t">Points de contrôle</span><span class="d"></span><span class="p">74</span></li><li class=""><span class="n">7</span><span class="t">Signes d’échec</span><span class="d"></span><span class="p">75</span></li><li class="s8"><span class="n">8</span><span class="t">Danger</span><span class="d"></span><span class="p">76</span></li><li class="s9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="d"></span><span class="p">77</span></li></ol></div>
+ </div>
+ <h2 class="sec kwn one"><span class="n">1</span><span class="t">En une ligne</span></h2>
+ <p class="uneligne">Le fumage à froid traite une pièce <strong>déjà salée</strong> avec de la fumée à une température qui ne provoque pas de coagulation des protéines : il assèche et assainit la surface, freine le rancissement et donne le goût, mais il ne conserve rien par lui-même — ce qui en sort reste une pièce crue, qui se garde à 4 °C ou moins et au plus 14 jours pour du poisson fumé réfrigéré, ou à −18 °C ou moins.</p>
+ <div class="cols2 fill"><div class="col" data-slot="ouv"></div><div class="col" data-slot="ouv"></div></div>
+</div></section><section class="page verso" id="p70" data-folio="70">
+<header class="rh verso"><span class="fo">70</span><span class="ou">65 · Fumage à froid</span><span class="in">4 · Matériel</span></header>
+<div class="frame">
+ <h2 class="sec kwn span"><span class="n">4</span><span class="t">Matériel</span></h2>
+ <table class="t mat"><colgroup><col style="width:24.5%"><col style="width:10%"><col style="width:53%"><col style="width:12.5%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="it">Pièce salée, avec son % de sel sur le poids de la viande noté (ch. 63, 64)</td><td class="qt">—</td><td class="sb">Aucune. C’est l’entrant du chapitre</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Thermomètre de chambre, à demeure, à hauteur des pièces</td><td class="qt">1</td><td class="sb">Un cube de gras dont le point de ramollissement a été mesuré d’avance, posé à hauteur des pièces (§ 9). Il donne un seuil, pas une lecture — et pour ce chapitre, le seuil est presque tout ce qu’on demandait</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Thermomètre à sonde, lecture instantanée</td><td class="qt">1</td><td class="sb">Un thermomètre à cadran remis d’aplomb dans la glace fondante et l’eau bouillante (§ 9). Sans aucune sonde, l’ours et le phoque sortent du chapitre au complet</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Thermomètre de congélateur, à demeure</td><td class="qt">1 par appareil</td><td class="sb">Un pot d’eau saturée de sel, qui ne prend en bloc dur que sous le seuil du gel antiparasitaire (§ 9). Il sert à disqualifier un appareil, jamais à en qualifier un</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Avertisseur de CO dans tout bâtiment relié au fumoir ou sous le vent</td><td class="qt">1 par bâtiment</td><td class="sb">Aucune, et aucun montage non plus : « seul un avertisseur […] peut détecter la présence de ce gaz ». Ce qui remplace l’appareil, c’est la géométrie — tout dehors, personne sous le vent (§ 9)</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Foyer ou générateur de fumée <strong>séparé de la chambre</strong></td><td class="qt">1</td><td class="sb">Serpentin de bran de scie monté en labyrinthe, qui couve sans flamme et se pose dans la chambre elle-même, sans conduit (§ 9) ; ou foyer au sol relié par une tranchée couverte</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Conduit foyer-chambre : tôle noire, tuyau de poêle usagé, tranchée couverte</td><td class="qt">selon montage</td><td class="sb">La tranchée couverte de tôle et de terre refroidit le mieux</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Chambre : coffre, armoire, baril, cabane de planches</td><td class="qt">1</td><td class="sb">Vieux réfrigérateur <strong>vidé de toute mousse et de tout plastique</strong></td><td class="ng">Oui</td></tr><tr><td class="it">Tringles et crochets inoxydables, ou bâtons de bois franc écorcés</td><td class="qt">selon charge</td><td class="sb">Bâtons de bois franc écorcés ligaturés à la babiche posée mouillée, qui serre en séchant (ch. 80). Fil inoxydable. Jamais de galvanisé ni de broche à foin dans le circuit</td><td class="ng"><strong>Non</strong><br><span class="q">matériau</span></td></tr><tr><td class="it">Bois franc sec, écorcé</td><td class="qt">10 à 15 kg/saison <span class="av">à vérifier</span></td><td class="sb">Bouleau, érable, aulne, cerisier. <strong>Jamais</strong> de résineux, de bois traité, peint, collé ni d’épave</td><td class="ng"><strong>Non</strong><br><span class="q">essence</span></td></tr><tr><td class="it">Coton fromage ou moustiquaire fine</td><td class="qt">selon charge</td><td class="sb">Vieille moustiquaire de fenêtre découpée et lavée, tulle, vieux drap de coton usé jusqu’à la trame. Ce qui n’a pas de substitut, c’est d’en avoir une si les mouches volent encore</td><td class="ng">Oui</td></tr><tr><td class="it">Papier boucherie et sacs de papier</td><td class="qt">selon récolte</td><td class="sb">Tout emballage <strong>perméable</strong> : ≥ 2 000 cc/m²/24 h pour le poisson fumé réfrigéré. Coton usé, toile de jute, écorce de bouleau roulée — ou rien du tout, la pièce pendue à l’air dans une caisse grillagée au froid</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Registre de fumage et étiquettes</td><td class="qt">1 cahier</td><td class="sb">Bardeau, planchette ou plaque d’écorce de bouleau, au crayon de plomb, une par pièce, pendue à la même broche qu’elle (§ 9). Le support est libre ; l’écriture ne l’est pas</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Balance de 10 kg, précision au gramme</td><td class="qt">1</td><td class="sb">Fléau à bras égaux et des litres d’eau comme masses (§ 9) : assez pour un pourcentage de sel ordinaire et pour suivre la perte de masse, pas assez pour un sel de salaison nitrité (ch. 62)</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Extincteur ou chaudière d’eau au foyer</td><td class="qt">1</td><td class="sb">Pelle et banc de neige, chaudière de sable</td><td class="ng"><strong>Non</strong></td></tr><tr><td class="it">Sel de salaison du commerce, <strong>teneur en nitrite déclarée sur l’étiquette</strong></td><td class="qt">selon recette (ch. 62)</td><td class="sb"><strong>Pas de salpêtre au volume.</strong> § 5, étape 4</td><td class="ng">Oui<br><span class="q">si la teneur est déclarée</span></td></tr></tbody></table>
+</div></section><section class="page recto" id="p71" data-folio="71">
+<header class="rh recto"><span class="in">4 · Matériel — 5 · Procédure</span><span class="ou">65 · Fumage à froid</span><span class="fo">71</span></header>
+<div class="frame">
+ <div class="cols2 fill"><div class="col" data-slot="proc"></div><div class="col" data-slot="proc"></div></div>
+</div></section><section class="page verso" id="p76" data-folio="76">
+<div class="tab danger"></div>
+<header class="rh verso"><span class="fo">76</span><span class="ou">65 · Fumage à froid</span><span class="in">7 · Signes d’échec — 8 · Danger</span></header>
+<div class="frame">
+ <div class="suite">7 · Signes d’échec <em>(suite)</em></div>
+ <table class="t echec"><colgroup><col style="width:30%"><col style="width:33%"><col style="width:37%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="it">Emballage sous vide gonflé, bombé</td><td>Production de gaz sous atmosphère sans oxygène</td><td><strong>Jeter sans ouvrir, sans goûter, sans sentir.</strong> Ne pas mettre au compost accessible aux animaux</td></tr><tr><td class="it">Rien. Aucun signe. Apparence, odeur et goût normaux</td><td><strong>Cela ne prouve rien.</strong> La bactérie peut se développer dans le poisson fumé réfrigéré « même s’il ne montre aucun signe de détérioration »</td><td>La sécurité d’un produit fumé à froid se décide <strong>avant</strong>, par le sel, le froid, l’emballage perméable et la date — jamais après, par les sens</td></tr><tr><td class="it">Une personne tombe malade 3 à 30 jours, voire jusqu’à 70 jours, après un repas</td><td>Fenêtre d’incubation de la listériose</td><td>Consulter. Nommer le produit fumé au soignant : personne ne fait spontanément le lien à deux mois de distance. Garder l’étiquette et le reste de la pièce. Ch. 27</td></tr></tbody></table>
+ <div class="danger fillbox">
+  <div class="dh"><span class="w">Danger</span><span class="s">cinq mécanismes qui tuent, et aucun ne s’annonce</span></div>
+  <div class="cols2 dg fill"><div class="col" data-slot="danger"></div><div class="col" data-slot="danger"></div></div>
+  <div class="dsuite">suite au recto&nbsp;›</div>
+ </div>
+</div></section><section class="page recto" id="p77" data-folio="77">
+<div class="tab danger"></div><div class="tab urg"></div>
+<header class="rh recto"><span class="in">8 · Danger — 9 · Variante d’urgence</span><span class="ou">65 · Fumage à froid</span><span class="fo">77</span></header>
+<div class="frame">
+ <div class="danger cont">
+  <div class="dh"><span class="w">Danger</span><span class="s">(suite)</span></div>
+  <div class="dgb" data-slot="danger" data-take="all"></div>
+ </div>
+ <div class="urgband"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="s">sans électricité, sans matériel acheté, sans personne à appeler</span></div>
+ <div class="cols2 fill"><div class="col" data-slot="urg"></div><div class="col" data-slot="urg"></div></div>
+</div></section><section class="page verso" id="p78" data-folio="78">
+<div class="tab urg"></div>
+<header class="rh verso urg"><span class="fo">78</span><span class="ou">65 · Fumage à froid</span><span class="in"><strong>9 · Variante d’urgence</strong></span></header>
+<div class="frame">
+ <div class="cols2 fill"><div class="col" data-slot="urg"></div><div class="col" data-slot="urg"></div></div>
+</div></section><section class="page recto" id="p79" data-folio="79">
+<div class="tab urg"></div>
+<header class="rh recto urg"><span class="in"><strong>9 · Variante d’urgence</strong> — planche 65-01</span><span class="ou">65 · Fumage à froid</span><span class="fo">79</span></header>
+<div class="frame planche"><img src="../../../images/planche-65-01-fumoir-froid.svg" alt="Planche 65-01, le fumoir à froid"></div>
+</section><section class="page recto cp" id="p5" data-folio="5">
+<div class="tab principal"></div>
+<header class="rh recto"><span class="in">Ce qui arrive vraiment — bloc 1 sur 11</span><span class="ou">Le chapitre principal</span><span class="fo">5</span></header>
+<div class="frame">
+ <div class="cphead">
+  <div class="cpnum">1</div>
+  <div class="cptit"><h1>Le courant tombe</h1><div class="lieu"><span class="lab">Lieu</span><span class="o on">Maison</span><span class="o">Chalet</span><span class="o">Les deux</span></div>
+  <p class="cpfact">436 minutes d’interruption par client en 2024, 238 sans les journées d’événements majeurs. L’écart entre les deux chiffres, c’est exactement la panne pour laquelle ce livre existe.</p></div>
+ </div>
+ <div class="cprows"><div class="cpr"><div class="cpt"><strong>Noter l’heure du début.</strong> Toute la suite est une soustraction : le réfrigérateur tient 4 à 6 h, le congélateur plein 48 h porte fermée. Sans l’heure de départ, il n’y a plus de mesure, juste une impression.</div><div class="cpref"><span class="ch">ch.</span> 1 · 69</div></div><div class="cpr dang"><div class="cpt"><strong>Génératrice dehors, à 6 m du bâtiment,</strong> échappement à l’opposé des portes, fenêtres et prises d’air. Le plein se fait moteur froid, à la lampe de poche.</div><div class="cpref"><span class="ch">ch.</span> 4</div></div><div class="cpr"><div class="cpt"><strong>Trancher la plomberie tout de suite :</strong> chauffer ou vidanger. La décision se prend pendant qu’il reste de la chaleur dans la maison, pas quand le tuyau siffle.</div><div class="cpref"><span class="ch">ch.</span> 4</div></div><div class="cpr"><div class="cpt"><strong>À la sixième heure, lire les quatre horloges</strong> — le corps, l’eau, le stock périssable, les calories. La plus courte commande.</div><div class="cpref"><span class="ch">ch.</span> 1</div></div></div>
+ <div class="cpchalet"><span class="lab">Au chalet</span><span>Hors réseau, le chalet ne subit pas cette panne-là. Il subit celle du propane et celle du 12 V.</span><span class="cpref"><span class="ch">ch.</span> 14 · 18</span></div>
+ <div class="urgband sr"><span class="t">Sans rien</span><span class="s">le courant, sans génératrice</span></div>
+ <div class="cols2 fill"><div class="col" data-slot="sr"></div><div class="col" data-slot="sr"></div></div>
+</div></section>
+<div class="src" data-flow="ouv"><h2 class="sec kwn "><span class="n">2</span><span class="t">Quand l’utiliser</span></h2><p class="lead kwn">C’est le bon choix quand :</p><div class="li"><span class="m"></span>La pièce sort d’une salaison terminée et vérifiée (ch. 63 pour le sel sec, ch. 64 pour la saumure). Le fumage à froid est une <strong>finition</strong>, jamais un traitement autonome.</div><div class="li"><span class="m"></span>L’air extérieur fait le refroidissement tout seul : fin de l’automne, début du printemps. Ce n’est pas une question de date de calendrier, c’est une question de thermomètre.</div><div class="li"><span class="m"></span>On veut <strong>arrêter le rancissement</strong> d’une pièce grasse qui va sécher ou attendre : lard d’ours noir (<em>Ursus americanus</em>), poitrine et flanc d’orignal (<em>Alces americanus</em>), saucisse sèche. La fumée est le seul outil du livre qui freine l’oxydation sans froid ni vide.</div><div class="li"><span class="m"></span>Il faut <strong>tenir les mouches à viande loin</strong> d’une pièce qui sèche à l’air en septembre.</div><div class="li"><span class="m"></span>La destination est <strong>la cuisson</strong> — bacon d’orignal, lard, épaule, saucisse à griller. Fumé à froid puis cuit à 74 °C à cœur : c’est le cadre le plus sûr du chapitre.</div><div class="li"><span class="m"></span>Le congélateur ou le froid naturel peuvent recevoir la pièce <strong>le jour même</strong> où elle sort du fumoir (ch. 68, ch. 69).</div><p class="lead kwn">C’est un mauvais choix quand :</p><div class="li"><span class="m"></span>La pièce n’a pas été salée, ou l’a été sans que le pourcentage de sel sur le poids de la viande soit noté. Fumer à froid une pièce sous-salée, c’est laisser une pièce tiède des heures dans la zone de danger avec un parfum dessus.</div><div class="li"><span class="m"></span>Il s’agit d’<strong>ours noir ou de phoque</strong> — phoque commun (<em>Phoca vitulina</em>), phoque du Groenland (<em>Pagophilus groenlandicus</em>) — et le produit se mangerait sans cuisson. Section 8, ch. 48, ch. 52.</div><div class="li"><span class="m"></span>Le produit visé est un poisson fumé à froid prêt-à-manger, style gravlax ou saumon fumé, et aucun congélateur ne peut tenir −20 °C pendant 7 jours ou −35 °C pendant 15 heures. Sans cette étape, la filière est fermée.</div><div class="li"><span class="m"></span>La seule façon d’emballer est le sac sous vide destiné au réfrigérateur : la pire combinaison du chapitre, et celle vers laquelle penche un chalet qui vient d’acheter une scelleuse.</div><div class="li"><span class="m"></span>La chambre ne peut pas être séparée du foyer. Un fumoir dont la fumée sort d’un feu logé sous les pièces est un fumoir à chaud mal réglé (ch. 66).</div><div class="li"><span class="m"></span>On envisage de fumer <strong>le foie ou les reins d’un cervidé</strong>. Ils peuvent contenir un taux de cadmium élevé : un seul repas de reins contaminés peut porter jusqu’à cent fois la quantité tolérable, et le cadmium s’accumule à vie, dans l’animal puis dans le consommateur. Le fumage n’enlève pas un métal. Ch. 41.</div><div class="li"><span class="m"></span>Le stock de la saison est fait de viande maigre seule. Fumer de l’orignal maigre en lanières donne des calories protéiques et presque pas de gras : c’est le mal de caribou, et il est mortel (ch. 24).</div><div class="li"><span class="m"></span>Une personne enceinte, âgée ou immunodéprimée mange à la table. Le poisson fumé est un aliment à risque de listériose, et la bactérie se multiplie de 4 à 10 °C, donc au réfrigérateur.</div><h2 class="sec kwn "><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2><p class="">La fumée de bois qui couve, et non qui flambe, transporte des phénols, des acides organiques et des composés carbonylés qui se déposent sur une surface humide et y restent. Ils sont antimicrobiens et antioxydants <strong>là où ils se posent</strong>, c’est-à-dire sur les premiers millimètres. Ils ne traversent pas un jambon ni un filet épais, et ils n’atteignent jamais le centre d’une pièce roulée et ficelée. Ce qui se passe au cœur relève du sel, et de lui seul.</p><p class="">Le deuxième effet est un assèchement de surface — réel, et petit. Le fumage à froid « ne provoque pas de coagulation significative des protéines », mais il abaisse un peu l’activité de l’eau. Un produit de viande fermenté-séché stable est à une aw de <strong>0,85 ou moins</strong> ; un fumage à froid seul ne descend pas là. Le seuil qui compte pour le botulisme non protéolytique — type E, celui du fleuve — est <strong>0,97</strong>, et il s’atteint par le sel, pas par la fumée.</p><p class="">Le troisième effet est celui qu’on sous-estime. Le gras d’un poisson ou d’un ours rancit à l’air, à la lumière et à la chaleur sans l’aide d’aucune bactérie ; une pièce rance n’est pas avariée au sens microbien, elle est devenue immangeable. Le froid, le noir et la fumée sont les trois choses qui ralentissent cette horloge-là, et la fumée est la seule qui ne coûte que du bois.</p></div><div class="src" data-flow="proc"><p class="first">Il y a peu de non négociables, et chacun a sa raison. Les thermomètres et l’avertisseur de CO, parce que les seuls chiffres qui protègent ici — 74 °C, 70 °C, 4 °C, −18 °C, −20 °C — ne se devinent pas et que le monoxyde ne se sent pas. La séparation du foyer et de la chambre, parce que c’est <strong>la</strong> définition mécanique du procédé. L’essence du bois, parce qu’un bois traité dépose sur la viande ce qu’on l’a payé à repousser. L’emballage perméable, parce que le sac sous vide est exactement ce que <em>Clostridium botulinum</em> attend. Le registre, parce qu’une pièce non datée devient, trois mois plus tard, un morceau dont personne ne sait s’il se mange cru.</p><h2 class="sec kwn "><span class="n">5</span><span class="t">Procédure</span></h2><h3 class="sub kwn">A — Décider avant d’allumer</h3><div class="step"><span class="m">1</span><strong>Vérifier que la salaison est terminée</strong>, pas « bien avancée ». Reprendre la fiche du chapitre 63 ou 64 : masse de la pièce à l’entrée, pourcentage de sel sur le poids de la viande, durée, masse à la sortie. Sans ces quatre valeurs écrites, la pièce ne va pas au fumoir : elle retourne au sel ou elle va au congélateur.</div><div class="step"><span class="m">2</span><strong>Déclarer la destination du produit, par écrit, avant de fumer.</strong> Deux catégories, et une seule ligne à écrire sur l’étiquette.</div><div class="li sub"><span class="m"></span><strong>À CUIRE</strong> — bacon, lard, épaule, saucisse fraîche fumée, tout produit d’ours ou de phoque, tout produit dont le sel n’a pas été mesuré. Le produit se traite comme de la viande crue jusqu’à la cuisson : 74 °C à cœur pour le gibier, 70 °C pour le poisson.</div><div class="li sub"><span class="m"></span><strong>PRÊT-À-MANGER</strong> — poisson fumé à froid de style saumon fumé, saucisse sèche. Au chalet, cette catégorie est l’exception et elle exige trois choses réunies : un sel mesuré, la congélation antiparasitaire du point 3, et une conservation au congélateur.</div><p class="stepcont">Dans le doute, c’est <strong>À CUIRE</strong>. Une étiquette n’a jamais tué personne.</p><div class="step"><span class="m">3</span><strong>Régler la question des parasites du poisson maintenant.</strong> La consigne : congeler le poisson, <strong>avant ou après le fumage</strong>, à −35 °C ou moins pendant au moins 15 heures, ou à −20 °C pendant au moins 168 heures (7 jours). Le « avant ou après » est la seule souplesse accordée, et elle est utile : un congélateur de chalet qui peine à descendre sert mieux après le fumage, quand la pièce a perdu de l’eau. Vérifier la température <strong>dans</strong> le congélateur, avec un thermomètre, pas sur le cadran. Le congélateur qui tient sa température sept jours d’affilée sans qu’on y pense est celui de la maison, sur le réseau : le gel antiparasitaire se fait souvent là, avant de monter ou au retour. Celui du chalet le fait aussi, mais il se juge au thermomètre et pas à la réputation.</div><div class="step"><span class="m">4</span><strong>Le salpêtre et sa forme moderne.</strong> Le salpêtre, c’est du nitrate — de potassium ou de sodium. « Les nitrates sont lentement convertis par l’action bactérienne en nitrite, qui est l’agent de saumurage actif » : le nitrate n’agit qu’après qu’une flore l’ait transformé, à une vitesse qui dépend de la température, du temps et de cette flore. Sa forme moderne équivalente est le <strong>sel de salaison du commerce, qui contient du nitrite déjà formé et dont l’étiquette déclare la teneur</strong>. Les deux ne se dosent pas pareil, et l’écart est au point 5 de la section 8. <strong>Ce livre ne donne aucune quantité de salpêtre, à aucun endroit.</strong> Les teneurs qui circulent sont des teneurs <strong>dans la viande</strong>, pas des dosages de sac : la conversion vers un produit du commerce passe obligatoirement par la teneur déclarée sur son étiquette, et la formule est au chapitre 62. Aucune cuillerée, jamais.</div><h3 class="sub kwn">B — Monter le fumoir</h3><div class="step"><span class="m">5</span><strong>Séparer le foyer de la chambre.</strong> C’est la seule chose qui distingue mécaniquement un fumoir à froid d’un fumoir à chaud : le feu est ailleurs, et la fumée arrive refroidie. Un conduit de 2,5 à 4 m (8 à 13 pi), en pente légère montante vers la chambre, donne assez de tirage et assez de refroidissement. <span class="av">à vérifier</span> — dimension de montage non sourcée, à ajuster au premier essai à vide.</div><div class="step"><span class="m">6</span><strong>Creuser le conduit dans le sol si le terrain le permet.</strong> Une tranchée couverte de tôle et de terre refroidit mieux que n’importe quel tuyau à l’air libre, ne coûte rien, et supprime d’un coup les quelques mètres de surface brûlante qu’un tuyau aérien laisse en travers de la cour, à hauteur de hanche.</div><div class="step"><span class="m">7</span><strong>Monter la chambre en matériaux qui ne rendent rien.</strong> Planches brutes non traitées, acier noir, acier inoxydable. Pas de contreplaqué ni de panneau collé dans le circuit — la colle chauffe et dégaze. Pas d’acier galvanisé dans la zone chaude : le zinc se volatilise. Un vieux réfrigérateur fait une bonne chambre à condition d’en retirer <strong>toute</strong> la mousse isolante, tous les plastiques et tous les joints. Ch. 84, ch. 87.</div><div class="step"><span class="m">8</span><strong>Entrée d’air en bas, sortie en haut</strong>, registre réglable sur la sortie. Sans courant lent et continu, la surface reste humide et la fumée se condense en dépôt amer au lieu de se déposer en couche sèche.</div><div class="step"><span class="m">9</span><strong>Placer le fumoir à l’écart.</strong> Jamais adossé au chalet, jamais sous un auvent fermé, jamais dans un hangar, jamais sous une fenêtre de chambre : la consigne vise « une pièce, un abri ou un véhicule », et un fumoir est un abri. Orienter selon le vent dominant pour que le panache ne descende pas sur la porte. Ch. 16.</div><div class="step"><span class="m">10</span><strong>Essai à vide, sans viande, avant la première charge de la saison.</strong> Allumer, lire le thermomètre de chambre aux 15 minutes pendant deux heures, noter au registre avec la température extérieure. C’est cet essai qui dit si le montage tient, pas la première charge.</div></div><div class="src" data-flow="danger"><div class="dgi"><span class="m">1</span><strong>Botulisme de type E — le sac sous vide est le piège, pas la fumée.</strong> <em>Clostridium botulinum</em> est « répandue dans les milieux aquatiques » et « se développe uniquement en l’absence d’oxygène, par exemple dans un emballage sous vide ». Les souches non protéolytiques, dont le type E, <strong>croissent au-dessus de 3 °C</strong> : un réfrigérateur réglé à 4 °C ne les arrête pas. Un fumage à froid ne comporte <strong>aucune étape de chaleur</strong> — le traitement qui réduit ces spores de six unités logarithmiques est de 90 °C pendant 10 minutes, et un fumoir à froid n’en approche rien. Et la toxine <strong>ne change ni l’odeur, ni le goût, ni l’apparence</strong> : la bactérie peut se développer dans le poisson fumé réfrigéré « même si celui-ci […] ne montre aucun signe de détérioration ». <em>Mécanisme :</em> mettre sous vide un produit fumé à froid, c’est retirer l’oxygène, c’est-à-dire retirer la dernière barrière qui empêchait cette bactérie de pousser, tout en croyant en ajouter une. <strong>Un produit fumé à froid qui reste au réfrigérateur va dans du papier, jamais sous vide ; sinon, il va au congélateur.</strong></div><div class="dgi"><span class="m">2</span><strong>Trichinellose — le fumage ne tue pas ce parasite, et le gel non plus.</strong> « La salaison, le séchage, le fumage ou la cuisson au four à micro-ondes ne détruisent pas toujours les larves infectieuses », et « la plupart des espèces de <em>Trichinella</em> qui ont été trouvées dans la nature résistent à la congélation ». <em>Mécanisme :</em> les larves sont enkystées <strong>dans le muscle</strong>, pas en surface. La fumée se dépose sur les premiers millimètres et n’y arrive jamais ; le sel diffuse, mais il ne suffit pas toujours ; le gel, qui règle le problème du poisson, ne règle pas celui-ci. Seule la chaleur au cœur les tue. L’atteinte du muscle cardiaque et du cerveau « est grave, voire mortelle ». <strong>L’ours noir (<em>Ursus americanus</em>) et le phoque ne sortent jamais d’un fumoir à froid comme produit prêt-à-manger. Ils sortent étiquetés À CUIRE et ils se mangent à 74 °C à cœur.</strong> Ch. 48, ch. 52.</div><div class="dgi"><span class="m">3</span><strong>Listériose — la seule bactérie du chapitre que le froid n’arrête pas.</strong> <em>Listeria monocytogenes</em> « peut aussi se multiplier à des températures froides (4 à 10 °C), par exemple dans les aliments conservés au réfrigérateur », et les « poissons fumés, comme le saumon » sont parmi les aliments à risque : la bactérie « a fréquemment été détectée dans le poisson fumé ». <em>Mécanisme :</em> un produit fumé à froid est prêt-à-manger, n’a reçu aucune étape de chaleur, et passe ensuite des semaines au froid — c’est-à-dire précisément les conditions où cette bactérie-là est la seule à pouvoir pousser, sans concurrence. Les symptômes apparaissent « entre 3 et 30 jours après la consommation […] mais parfois même jusqu’à 70 jours après » : personne ne remonte jusqu’au fumoir à deux mois de distance. Les personnes vulnérables sont « les personnes enceintes ; les personnes âgées ; les personnes dont le système immunitaire est affaibli ». <strong>Position du livre :</strong> au chalet, un produit fumé à froid se congèle ou se cuit, il ne vieillit pas au réfrigérateur ; et il ne se sert pas cru à une personne enceinte.</div><div class="dgi"><span class="m">4</span><strong>Monoxyde de carbone — le fumoir est un appareil à combustion, et c’est un abri.</strong> « Le monoxyde de carbone se dégage lorsque des appareils et des véhicules brûlent un combustible comme le propane, le bois, le mazout », et « c’est un gaz toxique qui ne se voit pas et ne se sent pas. Il n’irrite pas les yeux ni les voies respiratoires ». <em>Mécanisme :</em> la fumée de bois pique les yeux, ce qui donne l’impression qu’on saurait si l’air devenait mauvais. Le monoxyde, lui, ne donne aucun signal — et les symptômes qu’il produit, « maux de tête ; fatigue ; nausées ; vomissements ; étourdissements », sont ceux qu’on met sur le compte d’une longue journée au fumoir. La consigne vise « une pièce, un abri ou un véhicule » : <strong>un fumoir n’est jamais adossé au chalet, jamais sous un auvent fermé, jamais dans un hangar, et on n’y entre pas respirer.</strong> Avertisseur de CO en fonction dans tout bâtiment relié ou sous le vent. En cas de symptômes : sortir dehors, 9-1-1 ou Centre antipoison du Québec, <strong>1 800 463-5060</strong>.</div><div class="dgi"><span class="m">5</span><strong>Salpêtre — jamais une quantité, jamais une cuillerée.</strong> Le salpêtre est du nitrate. « Les nitrates sont lentement convertis par l’action bactérienne en nitrite, qui est l’agent de saumurage actif ». Sa forme moderne équivalente est le sel de salaison du commerce, qui contient du nitrite <strong>déjà formé</strong> et dont l’étiquette déclare la teneur. <em>Mécanisme :</em> les deux produits n’ont ni le même délai d’action, ni le même rendement, ni la même limite — la limite tient, dans une seule et même phrase, en « 62 g de sel de nitrite de sodium et 186 g de sel de nitrate par 100 kg de produit de viande ». Trois fois l’écart. Un dosage au volume, à la cuillère ou « comme faisait le grand-père » n’a aucune chance de tomber juste, et le nitrite est actif à des teneurs qui se comptent en parties par million de viande, pas en cuillerées de sac. <strong>Ce livre ne donne aucune quantité de salpêtre nulle part.</strong> La conversion vers un produit du commerce passe par la teneur déclarée sur son étiquette et par la formule du chapitre 62.</div></div><div class="src" data-flow="urg"><h3 class="sub kwn">Le montage, à la pelle et à la hache</h3><p class="first"><strong>Le foyer et la tranchée.</strong> Un trou à feu creusé dans le sol, large comme une chaudière, profond jusqu’au genou, avec une amorce d’entrée d’air du côté du vent dominant. De là part une tranchée de 3 à 4 m (10 à 13 pi) <span class="av">à vérifier</span> en pente montante, creusée large et profonde comme un avant-bras, couverte de plaques d’écorce, de pierres plates ou de tôle, puis de terre tassée par-dessus. La terre fait deux métiers en même temps : elle scelle, et c’est elle qui refroidit. Un tuyau aérien perd sa chaleur dans l’air, qui n’en prend pas beaucoup ; une tranchée la perd dans le sol, qui est une masse froide sans fond. Allumer à vide et <strong>marcher la course du conduit</strong> : partout où un filet de fumée sort du couvert, il manque de la terre. Un conduit qui fuit ne tire pas, et un conduit qui ne tire pas laisse la chaleur monter dans la chambre au lieu de la laisser au sol.</p><p class=""><strong>La chambre.</strong> Un baril défoncé aux deux bouts posé debout sur la sortie de tranchée ; un tipi de perches habillé d’une toile, d’une bâche ou de peaux ; une caisse de planches brutes ; un vieux réfrigérateur vidé de toute sa mousse, de tous ses plastiques et de tous ses joints, carcasse d’acier percée en bas pour le conduit et en haut pour la sortie. Un couvercle de tôle, une pierre plate ou un bout de toile qu’on glisse sur la sortie du haut fait le registre : c’est le seul réglage du montage, et il suffit. Les pièces pendent à des bâtons de bois franc écorcés — <strong>jamais d’épinette noire (<em>Picea mariana</em>) ni de sapin baumier (<em>Abies balsamea</em>)</strong>, la résine passe dans la viande — ligaturés à la babiche posée mouillée, qui serre en séchant (ch. 80). Les grilles d’un vieux réfrigérateur ne servent que si elles ne sont ni peintes ni plastifiées ; sinon les bâtons les remplacent.</p><p class=""><strong>Le générateur de fumée sans feu.</strong> C’est la pièce qui change tout quand il n’y a ni terrain à creuser ni tuyau à poser. Une bande de grillage à mailles fines, pliée en U sur sa longueur et montée en labyrinthe dans un plateau de tôle, les couloirs remplis de bran de scie de feuillu tassé à ras : on allume <strong>un seul bout</strong>, avec une braise ou un bout de chandelle, et le bran de scie couve d’un bout à l’autre du labyrinthe sans jamais flamber. Il n’y a pas de feu, donc pas de source de chaleur : le plateau se pose au fond de la chambre elle-même, à l’écart des pièces, et la chambre ne monte pratiquement pas. C’est le seul montage du chapitre qui fume à froid sans conduit du tout. La vitesse de combustion dépend de la finesse et de l’humidité du bran de scie : elle se mesure une fois, à vide, montre en main, et elle s’écrit au registre — c’est ce chiffre-là qui dit ensuite combien de temps une charge dure, et il n’est pas le même d’une essence à l’autre. Bran de scie de feuillu sec seulement : un atelier qui a scié du bois traité a du bran de scie empoisonné, et ce qui tombe d’une scie à chaîne arrive chargé d’huile de chaîne.</p><h3 class="sub kwn">Les instruments qu’on n’a pas</h3><p class="first"><strong>Le thermomètre à cadran se remet d’aplomb au lieu de se jeter.</strong> Un cadran qui ment n’est pas mort. L’échelle Celsius donne deux points fixes gratuits : la glace fondante dans son eau est à 0 °C, l’eau qui bout au niveau de la mer est à 100 °C, et la Côte-Nord est au niveau de la mer. Plonger la tige dans un verre de glace pilée noyée d’eau, brasser, attendre que l’aiguille s’arrête ; recommencer dans l’eau bouillante. Sous la tête de la plupart des cadrans se cache un petit écrou à six pans : on tient la tête d’une main, on tourne l’écrou de l’autre jusqu’à ce que l’aiguille tombe sur le point. Un cadran qui n’a pas cet écrou se lit quand même, à condition d’écrire son écart au crayon gras sur le cadran lui-même — « lit 3 de trop » — et de le soustraire chaque fois, sans exception.</p><p class=""><strong>La graisse témoin, calibrée pendant qu’on a encore un thermomètre.</strong> Un fumoir sans thermomètre de chambre n’a aucune mesure, et le dos de la main ne distingue pas 25 °C de 38 °C — exactement l’écart qui sépare une chambre acceptable de la plage où le nombre de bactéries « peut doubler toutes les 15 minutes ». Ce qui remplace l’instrument, c’est un corps gras dont on connaît le point de ramollissement : suif de rognon d’orignal (<em>Alces americanus</em>), lard d’ours noir (<em>Ursus americanus</em>), cire d’abeille, bout de chandelle. Le calibrage se fait <strong>avant</strong>, à la maison, pendant que le thermomètre fonctionne encore : chauffer lentement un petit cube au bain-marie avec le thermomètre dans l’eau, noter la température exacte à laquelle le cube perd ses arêtes, écrire cette valeur sur le pot. <span class="av">à vérifier</span> — elle dépend du gras et ne se recopie d’aucun livre. Au fumoir, le cube posé sur un éclat de bois à hauteur des pièces devient une alarme muette : arêtes vives, la chambre est sous le point noté ; arêtes arrondies, elle l’a dépassé. <strong>Ce qu’on perd :</strong> un seuil, pas une lecture. Le témoin ne dit pas combien il fait, il dit de quel bord d’un chiffre on se trouve — et dans ce chapitre-là, c’est presque tout ce qu’on demandait au thermomètre.</p><p class=""><strong>Le témoin de congélateur en saumure saturée.</strong> Sans thermomètre de congélateur, « est-ce que l’appareil descend à −20 °C » n’a pas de réponse à l’œil : la viande est dure comme de la roche bien avant. Un pot d’eau saturée de sel — on en ajoute jusqu’à ce qu’il en reste au fond qui ne se dissout plus — ne prend en bloc dur qu’autour de −21 °C <span class="av">à vérifier</span>, donc sous le seuil de −20 °C du gel antiparasitaire. Posé au fond du congélateur, il se lit d’un coup de doigt : bloc dur, l’appareil passe sous le seuil ; encore en bouillie, il n’y est pas. <strong>Ce qu’on perd, et c’est décisif :</strong> le pot dit que l’appareil <em>peut</em>, il ne dit jamais qu’il a <em>tenu</em>. Le gel antiparasitaire demande 168 heures d’affilée à −20 °C, ou 15 heures à −35 °C, et un congélateur qui ne tourne que pendant les heures de génératrice ne tient rien du tout. Le pot sert à disqualifier un appareil, jamais à en qualifier un.</p><p class=""><strong>Peser sans balance.</strong> Le pourcentage de sel se calcule sur le poids de la viande : sans masse, il n’y a pas de salaison, donc pas de fumage à froid. Un fléau à bras égaux se fait d’une latte de bois franc, d’une encoche au centre pour le pivot, de deux encoches à distances rigoureusement égales et de deux chaudières suspendues ; les distances se marquent avec une ficelle pliée en deux, pas à l’œil. La masse de référence, c’est l’eau : un litre d’eau pèse un kilogramme, et n’importe quel contenant gradué en litres donne autant de kilogrammes qu’on veut.</p></div><div class="src" data-flow="sr"><div class="li"><span class="m"></span><strong>L’auto est la génératrice.</strong> L’alternateur débite du 12 V tant que le moteur tourne, et la batterie garde ce qu’il a fait. Le moteur tourne dehors, jamais dans le garage même porte ouverte : c’est le même monoxyde que la génératrice, avec un toit dessus.</div><div class="li"><span class="m"></span><strong>Charger une batterie d’appoint, pas alimenter un fil qui traîne.</strong> Câbles de survoltage du véhicule à une deuxième batterie, moteur au ralenti le temps de la charge, puis la batterie rentre à l’intérieur et c’est elle qui fournit. On répète. Sur un onduleur, tout ce qui éclaire, communique ou pompe passe : lampes, radio, cellulaire, pompe de puisard, ventilateur de poêle. <strong>Tout ce qui chauffe ne passe pas</strong> — plinthe, bouilloire, grille-pain, fer. Un élément chauffant vide une batterie de char en quelques minutes, parce que la chaleur est ce que l’électricité fait de plus cher (ch. 18, ch. 4).</div><div class="li"><span class="m"></span><strong>Deux batteries de char montées en série font 24 V, et 24 V tirent un arc.</strong> C’est la soudure quand il n’y a plus de soudeuse : positif de la première au négatif de la seconde, la masse mordue solide et propre sur la pièce, une baguette enrobée ou une tige d’acier doux comme électrode. Des points courts, parce que les câbles et les batteries chauffent vite, et une pause entre les points. Un verre de soudeur ou une visière teintée, jamais l’œil nu : l’arc brûle la cornée en quelques secondes et la brûlure ne se sent que des heures plus tard, en pleine nuit (ch. 84, ch. 88).</div><div class="li"><span class="m"></span><strong>Le congélateur devient une glacière</strong> dès qu’il y a de la neige dehors : des chaudières de neige tassée dedans, couvercle fermé, et on cesse de l’ouvrir. Il travaille alors comme un caveau, pas comme un appareil (ch. 68, ch. 69).</div></div>
+<script>
+(function(){
+  var Q = new URLSearchParams(location.search);
+  function over(el){ return el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1; }
+  function wordStarts(root){
+    var pts = [], tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), n;
+    while ((n = tw.nextNode())) { var re = /\S+/g, m; while ((m = re.exec(n.data))) pts.push({node:n, offset:m.index}); }
+    return pts;
+  }
+  function cut(b, k, first){
+    var c = b.cloneNode(true), p = wordStarts(c)[k], r = document.createRange();
+    if (first) { r.setStart(p.node, p.offset); r.setEnd(c, c.childNodes.length); }
+    else { r.setStart(c, 0); r.setEnd(p.node, p.offset); }
+    r.deleteContents();
+    c.classList.add(first ? 'split-a' : 'split-b');
+    return c;
+  }
+  function trySplit(slot, b){
+    var N = wordStarts(b).length, lo = 6, hi = N - 6, best = -1;
+    if (hi < lo) return null;
+    while (lo <= hi) {
+      var mid = (lo + hi) >> 1, a = cut(b, mid, true);
+      slot.appendChild(a); var o = over(slot); slot.removeChild(a);
+      if (!o) { best = mid; lo = mid + 1; } else hi = mid - 1;
+    }
+    if (best < 0) return null;
+    if (N - best < 12) best = N - 12;   /* jamais une ligne seule en haut de colonne */
+    if (best < 6) return null;
+    var a1 = cut(b, best, true); slot.appendChild(a1);
+    var h = a1.getBoundingClientRect().height; slot.removeChild(a1);
+    if (h < 2 * 17) return null;  /* au moins deux lignes avant la coupure */
+    return [a1, cut(b, best, false)];
+  }
+  function run(){
+    var queues = {}, report = [];
+    document.querySelectorAll('.src').forEach(function(s){ queues[s.dataset.flow] = Array.prototype.slice.call(s.children); });
+    document.querySelectorAll('[data-slot]').forEach(function(slot){
+      var q = queues[slot.dataset.slot]; if (!q) return;
+      if (slot.dataset.take === 'all') { while (q.length) slot.appendChild(q.shift()); }
+      else {
+        while (q.length) {
+          var b = q.shift(); slot.appendChild(b);
+          if (!over(slot)) continue;
+          slot.removeChild(b);
+          if (!b.classList.contains('kwn')) { var s = trySplit(slot, b); if (s) { slot.appendChild(s[0]); q.unshift(s[1]); break; } }
+          q.unshift(b); break;
+        }
+        while (slot.lastElementChild && slot.lastElementChild.classList.contains('kwn')) { var l = slot.lastElementChild; slot.removeChild(l); q.unshift(l); }
+      }
+      report.push(slot.closest('.page').id + ':' + slot.dataset.slot + ' reste=' + q.length + (over(slot) ? ' DEBORDE' : ''));
+    });
+    document.querySelectorAll('.frame').forEach(function(f){
+      if (f.scrollHeight > f.clientHeight + 1) report.push('DEBORDE ' + f.closest('.page').id + ' +' + (f.scrollHeight - f.clientHeight) + 'px');
+    });
+    document.querySelectorAll('.page').forEach(function(p){
+      var fr = p.querySelector('.frame'), rr = fr.getBoundingClientRect(), pr = p.getBoundingClientRect();
+      report.push(p.id + ' frame top=' + ((rr.top-pr.top)/96).toFixed(3) + 'in h=' + (rr.height/96).toFixed(3) + 'in; kids=' + Array.prototype.map.call(fr.children, function(k){ return k.className.split(' ')[0] + ':' + (k.getBoundingClientRect().height/96).toFixed(2); }).join(','));
+      var t = p.querySelector('.frame').innerText; report.push(p.id + ' mots=' + ((t.match(/\S+/g) || []).length));
+    });
+    document.body.setAttribute('data-report', report.join(' | '));
+    var miss = ['Vollkorn','Vollkorn SC'].filter(function(f){ return !document.fonts.check('10pt "' + f + '"'); });
+    if (miss.length) document.body.setAttribute('data-polices-manquantes', miss.join(','));
+    if (Q.has('outline')) document.body.classList.add('dbgo');
+    if (Q.has('debug')) { var dd = document.createElement('div'); dd.id = 'dbg'; dd.textContent = report.join(String.fromCharCode(10)); document.body.appendChild(dd); }
+    if (Q.has('contact')) contact(); else if (Q.has('page')) single(Q.get('page'));
+    document.body.setAttribute('data-done', '1');
+  }
+  function tv(id){
+    var d = document.createElement('div');
+    if (!id) { d.className = 'tv vide'; return d; }
+    var p = document.getElementById(id);
+    d.className = 'tv ' + (p.classList.contains('recto') ? 'recto' : 'verso');
+    d.appendChild(p); return d;
+  }
+  function contact(){
+    var rows = [[[null,'p67','67'],['p70','p71','70 – 71'],[null,'p5','5 · tome I']],[['p76','p77','76 – 77'],['p78','p79','78 – 79']]];
+    var sheet = document.createElement('div'); sheet.className = 'sheet';
+    sheet.style.zoom = Q.get('z') || '0.3';
+    rows.forEach(function(r){
+      var row = document.createElement('div'); row.className = 'row';
+      r.forEach(function(s){
+        var sp = document.createElement('div'); sp.className = 'spread';
+        var pp = document.createElement('div'); pp.className = 'pp';
+        pp.appendChild(tv(s[0])); pp.appendChild(tv(s[1]));
+        var cap = document.createElement('div'); cap.className = 'cap'; cap.textContent = s[2];
+        sp.appendChild(pp); sp.appendChild(cap); row.appendChild(sp);
+      });
+      sheet.appendChild(row);
+    });
+    document.body.classList.add('contact');
+    document.body.insertBefore(sheet, document.body.firstChild);
+  }
+  function single(n){
+    var t = tv('p' + n);
+    document.querySelectorAll('body > .page, body > .src').forEach(function(e){ e.remove(); });
+    document.body.classList.add('single');
+    document.body.insertBefore(t, document.body.firstChild);
+  }
+  var loads = ['400 9.75pt Vollkorn','700 9.75pt Vollkorn','800 9.75pt Vollkorn','900 9.75pt Vollkorn','italic 400 9.75pt Vollkorn','italic 700 9.75pt Vollkorn',
+               '600 9pt "Vollkorn SC"','700 9pt "Vollkorn SC"','900 9pt "Vollkorn SC"'].map(function(f){ return document.fonts.load(f, 'Aéàç'); });
+  var done = false;
+  function go(){ if (done) return; done = true; run(); }
+  Promise.all(loads).then(function(){ return document.fonts.ready; }).then(function(){ setTimeout(go, 50); }, function(){ setTimeout(go, 50); });
+  setTimeout(go, 12000);   /* filet : le texte est versé même si une police manque */
+})();
+
+</script>
+</body>
+</html>

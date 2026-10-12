@@ -1,0 +1,904 @@
+{
+  "_lisez-moi": "Placements du tome 2 (Le corps, ch. 19 à 40), au format de placements.json (voir sa clé _lisez-moi) : une clé par chapitre, numérotation NOUVELLE. « apres » = début du paragraphe Markdown (texte source du bloc, tel que build_chapitre.py le lit) après lequel la figure vient ; chaque « apres » ne se trouve que dans un seul bloc du chapitre. Plusieurs figures au même « apres » sortent dans l'ordre INVERSE de la liste : place() insère chacune juste après l'ancrage (corrigé le 29 septembre 2026). Une planche en deux pages (a et b) a deux entrées, une par page : le constructeur cherche l'identifiant exact du fichier (24-06a, pas 24-06). Photos : fichier depuis la racine du livre ; les dossiers 30a/30b/30c et lot3/lot4 gardent l'ANCIEN numéro de chapitre (30b = images 26 à 50 de l'ancien ch. 30, pas l'ancien 30b), le dossier tri/ porte le numéro actuel. Taille quart | demi, légende sans attribution. placements.json n'avait aucune entrée pour les ch. 19 à 40 : rien n'en est repris. Revu le 28 septembre 2026 : planches a/b de 24-06, 37-01 et 37-03, photos du tri pour les ch. 25, 26 et 33. Chapitres sans planche ni photo : 21, 32, 35, 36, 39. Ajout du 29 septembre 2026 : 25-gelure-superficielle-cloques (images/photos/manquantes/), au ch. 25.",
+  "19": {
+    "planches": [
+      {
+        "id": "19-09",
+        "apres": "5. **Ne pas jeter le bouillon sous la galette.**"
+      },
+      {
+        "id": "19-04",
+        "apres": "**Bouillir sans chaudron.**"
+      }
+    ],
+    "photos": []
+  },
+  "20": {
+    "planches": [],
+    "photos": [
+      {
+        "fichier": "images/photos/lot3/25-7a-gencives.jpg",
+        "apres": "30. Reprendre la section 7.",
+        "taille": "quart",
+        "legende": "Gencives gonflées, molles, qui saignent : scorbut installé."
+      },
+      {
+        "fichier": "images/photos/lot3/25-7b-hemorragies-perifolliculaires.png",
+        "apres": "30. Reprendre la section 7.",
+        "taille": "demi",
+        "legende": "Petites taches rouges à la base des poils : hémorragies périfolliculaires, un signe quasi propre au scorbut."
+      },
+      {
+        "fichier": "images/photos/lot3/25-6a-airelle-hiver.jpg",
+        "apres": "Airelle vigne-d'Ida (*Vaccinium vitis-idaea*), camarine noire",
+        "taille": "quart",
+        "legende": "Airelle vigne-d'Ida restée sur la tige tout l'hiver."
+      },
+      {
+        "fichier": "images/photos/lot3/25-6b-camarine-neige.jpg",
+        "apres": "Airelle vigne-d'Ida (*Vaccinium vitis-idaea*), camarine noire",
+        "taille": "quart",
+        "legende": "Camarine noire dans la neige de mars : le jus noir tache la neige."
+      },
+      {
+        "fichier": "images/photos/lot3/25-6c-canneberge-hiver.jpg",
+        "apres": "Airelle vigne-d'Ida (*Vaccinium vitis-idaea*), camarine noire",
+        "taille": "quart",
+        "legende": "Canneberge sauvage en décembre, encore sur la plante."
+      }
+    ]
+  },
+  "21": {
+    "planches": [],
+    "photos": []
+  },
+  "22": {
+    "planches": [
+      {
+        "id": "22-40",
+        "apres": "16. **La langue.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/22-poisson-foie-rogue-laitance.jpg",
+        "apres": "50. La rogue (les œufs) et la laitance se détachent en poche entière",
+        "taille": "quart",
+        "legende": "Poisson ouvert : le foie, la rogue et la laitance, sortis à côté."
+      },
+      {
+        "fichier": "images/photos/lot4/41-5c-lapin-lesions-foyers-blancs.jpg",
+        "apres": "44. Chez le lièvre, examiner le foie et la rate avant toute autre chose",
+        "taille": "demi",
+        "legende": "Petits foyers blancs sur le foie : signal d'arrêt, toute la bête part aux refus, avec des gants."
+      },
+      {
+        "fichier": "images/photos/lot4/41-5a-orignal-kystes-hydatiques.jpg",
+        "apres": "Des taches dans un foie d'orignal viennent le plus souvent de larves de ténia",
+        "taille": "demi",
+        "legende": "Foie et poumons d'orignal porteurs de kystes : tout part aux refus, rien au chien."
+      }
+    ],
+    "_photos": "41-5b (lièvre du Cap, rate grossie et foie décoloré) n'est pas placée : elle ne montre pas les taches blanches que l'étape 44 donne comme signal d'arrêt, la 41-5c les montre. Les 41-1a à 41-1e (planches d'anatomie du bœuf, 1910) sont des références de dessin, pas des photos à imprimer (registre du lot 4)."
+  },
+  "23": {
+    "planches": [
+      {
+        "id": "23-02",
+        "apres": "**4. Les boyaux, si et seulement si le sel et l'eau chaude suivent.**"
+      },
+      {
+        "id": "23-40",
+        "apres": "**Le froid dehors est le réfrigérateur, et il refroidit par contact.**"
+      }
+    ],
+    "photos": []
+  },
+  "24": {
+    "planches": [
+      {
+        "id": "24-01",
+        "apres": "8. **Lever près, lever droit, lever sans tourner.**"
+      },
+      {
+        "id": "24-02",
+        "apres": "11. **Fendre avec le poids du corps, pas avec les bras.**"
+      },
+      {
+        "id": "24-05",
+        "apres": "16. **La longueur, c'est celle du cou.**"
+      },
+      {
+        "id": "24-12",
+        "apres": "30. **Les exercices qui refont le tendon.**"
+      },
+      {
+        "id": "24-11",
+        "apres": "45. **L'entorse haute.**"
+      },
+      {
+        "id": "24-14",
+        "apres": "58. **L'ampoule qui est là.**"
+      },
+      {
+        "id": "24-15",
+        "apres": "62. **L'ongle qui rentre : soulever, pas couper.**"
+      },
+      {
+        "id": "24-06a",
+        "apres": "*Ce qu'on perd :* une béquille seule soulage moins que deux"
+      },
+      {
+        "id": "24-06b",
+        "apres": "*Ce qu'on perd :* une béquille seule soulage moins que deux"
+      },
+      {
+        "id": "24-06",
+        "apres": "*Ce qu'on perd :* une béquille seule soulage moins que deux"
+      },
+      {
+        "id": "24-07",
+        "apres": "C'est l'attelle en pince, en forme de U"
+      },
+      {
+        "id": "24-08",
+        "apres": "Deux perches droites ou deux planches, de la mi-cuisse"
+      },
+      {
+        "id": "24-09",
+        "apres": "Un manche trop mince fait serrer plus fort, et c'est un des facteurs du coude du bûcheron. Enrouler"
+      },
+      {
+        "id": "24-10",
+        "apres": "Pour le pouce : une bande d'écorce de bouleau trempée chaude"
+      },
+      {
+        "id": "24-13",
+        "apres": "Les poids des exercices du coude : une boîte de conserve"
+      },
+      {
+        "id": "24-03",
+        "apres": "Deux paires de perches solides croisées en X"
+      },
+      {
+        "id": "24-04",
+        "apres": "Un rectangle de toile épaisse ou de peau, un bâton glissé dans un ourlet"
+      },
+      {
+        "id": "24-16",
+        "apres": "Un carré de feutre épais, de peau de mouton"
+      }
+    ],
+    "photos": [],
+    "_planches": "24-06 est redessinée en ce moment sous son numéro sans lettre : l'entrée « 24-06 » ne sert que si la nouvelle version sort en une seule page ; si elle sort en a et b, ce sont les entrées 24-06a et 24-06b qui servent. Le constructeur ignore l'entrée qui n'a pas de fichier."
+  },
+  "25": {
+    "planches": [
+      {
+        "id": "25-01",
+        "apres": "**L'enveloppe croisée, avec deux couvertures et une bâche.**"
+      },
+      {
+        "id": "25-40",
+        "apres": "**Le bain de gelure sans thermomètre.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/25-gelure-profonde.png",
+        "apres": "22. **Ampoules** : la pratique courante",
+        "taille": "demi",
+        "legende": "Gelure profonde du pied, après le dégel : grande ampoule sur le dessus, orteils violacés qui virent au noir."
+      },
+      {
+        "fichier": "images/photos/manquantes/25-gelure-superficielle-cloques.jpg",
+        "apres": "22. **Ampoules** : la pratique courante",
+        "taille": "quart",
+        "legende": "Gelure superficielle des doigts, après le dégel : peau rouge, ampoules claires comme de l'eau, celles qu'on peut vider."
+      }
+    ],
+    "_photos": "La ligne prévue (25·03-6) voulait deux gros plans, gelure superficielle et gelure profonde. La profonde vient du tri, la superficielle de images/photos/manquantes/ (29 septembre 2026) : prise après le dégel, pas blanche et cireuse comme à l'étape 15, elle va donc avec la profonde à l'étape 22, ampoules claires contre ampoule de la gelure profonde. Inscrite après la profonde pour sortir avant elle (même ancrage, ordre inversé)."
+  },
+  "26": {
+    "planches": [
+      {
+        "id": "26-40",
+        "apres": "17. **Bourrer la plaie profonde**"
+      },
+      {
+        "id": "26-11",
+        "apres": "**Le pansement absorbant, quand ça coule plus vite que le coton ne boit.**"
+      },
+      {
+        "id": "26-04",
+        "apres": "**Le garrot.** Une bande large"
+      },
+      {
+        "id": "26-08",
+        "apres": "**L'attelle.** Une plaque d'écorce de bouleau"
+      },
+      {
+        "id": "26-09a",
+        "apres": "**Le moyen de déplacer un blessé.**"
+      },
+      {
+        "id": "26-09b",
+        "apres": "**Le moyen de déplacer un blessé.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/26-rougeur-cernee-crayon.jpg",
+        "apres": "26. **Marquer le pourtour de la rougeur au crayon feutre, avec l'heure.**",
+        "taille": "demi",
+        "legende": "Le pourtour de la rougeur cerné au crayon : le lendemain, on regarde si le rouge a passé le trait."
+      }
+    ],
+    "_photos": "La ligne prévue (26·27-6) voulait deux temps, la rougeur cernée puis la même qui déborde le trait ; seul le premier existe (26-rougeur-cernee-crayon). 26-rougeur-jour1 et 26-rougeur-jour3 (même plaie, premier et troisième jour, sans trait) ne sont plus placées : elles ne montrent ni le trait ni la rougeur qui le dépasse, et l'étape 26 ne demande rien d'autre."
+  },
+  "27": {
+    "planches": [
+      {
+        "id": "27-04",
+        "apres": "24. **Faire refermer doucement.**"
+      },
+      {
+        "id": "27-03",
+        "apres": "40. **La tenir 5 minutes avec les doigts**"
+      },
+      {
+        "id": "27-05",
+        "apres": "**Casser et sentir avant de mâcher, chaque fois.**"
+      },
+      {
+        "id": "27-02",
+        "apres": "5. Pousser la cire entre les dents avec une pointe mousse"
+      },
+      {
+        "id": "27-01",
+        "apres": "5. Couper les bouts et les replier vers les dents"
+      },
+      {
+        "id": "27-06",
+        "apres": "Piquer au sommet, laisser couler, rincer à l'eau tiède bouillie"
+      }
+    ],
+    "photos": []
+  },
+  "28": {
+    "planches": [
+      {
+        "id": "28-05",
+        "apres": "7. **Passer le test du verre sur toute tache nouvelle**"
+      },
+      {
+        "id": "28-06",
+        "apres": "45. **Ce qu'on fait.** Nettoyer quatre fois par jour"
+      },
+      {
+        "id": "28-01",
+        "apres": "Ce qu'on perd : l'anesthésie."
+      },
+      {
+        "id": "28-02",
+        "apres": "**Sur un enfant de 4 ans :** couché sur le dos"
+      },
+      {
+        "id": "28-04",
+        "apres": "Un linge de coton trempé dans l'eau chaude de la bouilloire du poêle"
+      },
+      {
+        "id": "28-03",
+        "apres": "Une ficelle de 1 m entre le point d'attache et le milieu d'un poids compact"
+      }
+    ],
+    "photos": []
+  },
+  "29": {
+    "planches": [
+      {
+        "id": "29-10",
+        "apres": "28. **Les liens et la lame.**"
+      },
+      {
+        "id": "29-08",
+        "apres": "43. **Les épaules qui bloquent.**"
+      },
+      {
+        "id": "29-05",
+        "apres": "51. **La poitrine doit se soulever**"
+      },
+      {
+        "id": "29-03",
+        "apres": "54. **Nouer et couper.**"
+      },
+      {
+        "id": "29-04",
+        "apres": "68. **Toujours rien : la compression de l'aorte.**"
+      },
+      {
+        "id": "29-06",
+        "apres": "79. **Mettre au sein.**"
+      },
+      {
+        "id": "29-07",
+        "apres": "84. **Exprimer à la main.**"
+      },
+      {
+        "id": "29-01",
+        "apres": "On en coud au moins cinq par femme."
+      },
+      {
+        "id": "29-02",
+        "apres": "8. **La vérification** : si les règles reviennent avant que l'anneau touche la marque 27"
+      },
+      {
+        "id": "29-09",
+        "apres": "**La poire** : presque jamais nécessaire."
+      }
+    ],
+    "photos": []
+  },
+  "30": {
+    "planches": [
+      {
+        "id": "30-01",
+        "apres": "Le filet est mince, et c'est son avantage"
+      },
+      {
+        "id": "30-40",
+        "apres": "**Une lampe et un banc** (ch. 85)."
+      }
+    ],
+    "photos": []
+  },
+  "31": {
+    "planches": [
+      {
+        "id": "31-01",
+        "apres": "20. Rechausser le soubassement et le bas de l'abri avec de la terre"
+      },
+      {
+        "id": "31-08",
+        "apres": "Le bois brûlé pour un trou est du bois qui ne chauffe pas le chalet."
+      },
+      {
+        "id": "31-04",
+        "apres": "Deux chaudières de 20 L. La première reçoit l'eau de vaisselle."
+      },
+      {
+        "id": "31-40",
+        "apres": "5. Laisser une ouverture de visite"
+      }
+    ],
+    "photos": []
+  },
+  "32": {
+    "planches": [],
+    "photos": []
+  },
+  "33": {
+    "planches": [],
+    "photos": [
+      {
+        "fichier": "images/photos/30b/49-herbe-a-puce-folioles.jpg",
+        "apres": "4. **Porter des gants tant que l'identification n'est pas faite.**",
+        "taille": "demi",
+        "legende": "Herbe à puce : trois folioles, celle du milieu portée par une queue plus longue."
+      },
+      {
+        "fichier": "images/photos/30b/50-herbe-a-puce-rampante.jpg",
+        "apres": "4. **Porter des gants tant que l'identification n'est pas faite.**",
+        "taille": "quart",
+        "legende": "Herbe à puce rampante, en sous-bois."
+      },
+      {
+        "fichier": "images/photos/30c/51-herbe-a-puce-grimpante.jpg",
+        "apres": "4. **Porter des gants tant que l'identification n'est pas faite.**",
+        "taille": "quart",
+        "legende": "Herbe à puce grimpante, sur un tronc."
+      },
+      {
+        "fichier": "images/photos/30c/52-berce-laineuse-plant.jpg",
+        "apres": "4. **Porter des gants tant que l'identification n'est pas faite.**",
+        "taille": "quart",
+        "legende": "Berce laineuse, plant entier : la sève brûle la peau exposée à la lumière."
+      },
+      {
+        "fichier": "images/photos/30c/53-berce-laineuse-tige-feuille.jpg",
+        "apres": "4. **Porter des gants tant que l'identification n'est pas faite.**",
+        "taille": "quart",
+        "legende": "Berce laineuse, tige et feuille."
+      },
+      {
+        "fichier": "images/photos/30c/54-berce-du-caucase-plant.jpg",
+        "apres": "4. **Porter des gants tant que l'identification n'est pas faite.**",
+        "taille": "demi",
+        "legende": "Berce du Caucase, plant entier."
+      },
+      {
+        "fichier": "images/photos/30c/55-berce-du-caucase-tige.jpg",
+        "apres": "4. **Porter des gants tant que l'identification n'est pas faite.**",
+        "taille": "quart",
+        "legende": "Berce du Caucase, la tige."
+      },
+      {
+        "fichier": "images/photos/30b/34-cicutaire-plant-fleur.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "demi",
+        "legende": "Cicutaire maculée en fleur : la plante la plus toxique du territoire."
+      },
+      {
+        "fichier": "images/photos/30b/35-cicutaire-tige.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Cicutaire maculée, la tige."
+      },
+      {
+        "fichier": "images/photos/tri/33-cicutaire-rhizome-cloisonne.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Cicutaire, le bas de la tige fendu en long : cloisonné en chambres."
+      },
+      {
+        "fichier": "images/photos/30b/37-veratre-pousses.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Vératre vert, jeunes pousses du printemps."
+      },
+      {
+        "fichier": "images/photos/30b/38-veratre-plant.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Vératre vert : grandes feuilles à nervures parallèles saillantes, qui embrassent la tige."
+      },
+      {
+        "fichier": "images/photos/30b/39-if-arbuste.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "demi",
+        "legende": "If du Canada : arbuste bas et rampant, sous couvert."
+      },
+      {
+        "fichier": "images/photos/30b/40-if-rameau.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "If du Canada : aiguilles molles, vert vif, sans odeur de sapin."
+      },
+      {
+        "fichier": "images/photos/30b/41-if-fruit-graine.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "If du Canada, le fruit : tout est toxique sauf la pulpe rouge, graine comprise."
+      },
+      {
+        "fichier": "images/photos/30b/42-thuya-rameau.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Thuya (cèdre) : pas d'aiguilles, des écailles aplaties en éventail."
+      },
+      {
+        "fichier": "images/photos/30b/43-thuya-ecorce-feuillage.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Thuya (cèdre), écorce et feuillage."
+      },
+      {
+        "fichier": "images/photos/30b/44-kalmia-fleur.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Kalmia à feuilles étroites en fleur, dans les tourbières du thé du Labrador."
+      },
+      {
+        "fichier": "images/photos/30b/47-actee-rouge-fruits.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Actée rouge : fruits rouges luisants, un point noir au bout."
+      },
+      {
+        "fichier": "images/photos/30b/48-actee-rouge-port.jpg",
+        "apres": "5. **Ne jamais goûter pour identifier**",
+        "taille": "quart",
+        "legende": "Actée rouge, feuillage et port."
+      },
+      {
+        "fichier": "images/photos/30a/30-01-sapin-baumier-rameau-dessus.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Sapin baumier : aiguilles plates, sur deux rangs."
+      },
+      {
+        "fichier": "images/photos/30a/30-04-sapin-baumier-port.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Sapin baumier, port d'ensemble."
+      },
+      {
+        "fichier": "images/photos/30a/30-05-epinette-blanche-rameau.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Épinette blanche : aiguilles piquantes, quadrangulaires."
+      },
+      {
+        "fichier": "images/photos/30a/30-06-epinette-blanche-port.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Épinette blanche, port et cônes."
+      },
+      {
+        "fichier": "images/photos/30a/30-07-epinette-noire-cones.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Épinette noire, rameau et petits cônes."
+      },
+      {
+        "fichier": "images/photos/30a/30-08-epinette-noire-port.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Épinette noire en tourbière."
+      },
+      {
+        "fichier": "images/photos/30a/30-09-meleze-rameau-faisceaux.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Mélèze laricin, aiguilles en faisceaux."
+      },
+      {
+        "fichier": "images/photos/30a/30-10-meleze-ecorce.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Mélèze laricin, le tronc."
+      },
+      {
+        "fichier": "images/photos/30a/30-11-bouleau-papier-ecorce.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Bouleau à papier, écorce blanche."
+      },
+      {
+        "fichier": "images/photos/30a/30-12-bouleau-papier-feuille-herbier.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Bouleau à papier, rameau et feuilles."
+      },
+      {
+        "fichier": "images/photos/30a/30-13-aulne-rugueux-feuilles-chatons.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Aulne rugueux, feuilles et chatons."
+      },
+      {
+        "fichier": "images/photos/30a/30-14-aulne-rugueux-port.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Aulne rugueux en bord de ruisseau."
+      },
+      {
+        "fichier": "images/photos/30a/30-15-saule-discolore-rameaux.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Saule, jeunes rameaux."
+      },
+      {
+        "fichier": "images/photos/tri/33-saule-talle.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Saule en talle, sans ses feuilles : plusieurs tiges d'une même souche."
+      },
+      {
+        "fichier": "images/photos/30a/30-17-the-labrador-plant-fleur.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Thé du Labrador en fleur."
+      },
+      {
+        "fichier": "images/photos/30a/30-18-the-labrador-feuille-dessous.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Thé du Labrador : dessous de la feuille en feutrage roux, bord enroulé."
+      },
+      {
+        "fichier": "images/photos/30a/30-19-the-labrador-kalmia-tourbiere.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Thé du Labrador et kalmia côte à côte, dans la même tourbière."
+      },
+      {
+        "fichier": "images/photos/30a/30-20-achillee-feuilles.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Achillée millefeuille, feuille très découpée."
+      },
+      {
+        "fichier": "images/photos/30a/30-21-achillee-corymbe.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Achillée millefeuille en fleur."
+      },
+      {
+        "fichier": "images/photos/30a/30-22-plantain-rosette.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Plantain majeur, en rosette."
+      },
+      {
+        "fichier": "images/photos/30a/30-23-plantain-epi.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Plantain majeur, l'épi."
+      },
+      {
+        "fichier": "images/photos/30a/30-24-aralie-planche-1913.png",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Aralie à tige nue (salsepareille)."
+      },
+      {
+        "fichier": "images/photos/tri/33-aralie-rhizome.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Aralie à tige nue, le rhizome déterré : c'est lui qui se récolte."
+      },
+      {
+        "fichier": "images/photos/30b/26-savoyane-plant.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Savoyane, plant entier."
+      },
+      {
+        "fichier": "images/photos/30b/27-savoyane-rhizome.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Savoyane : le rhizome jaune."
+      },
+      {
+        "fichier": "images/photos/30b/28-comptonie-feuille.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Comptonie voyageuse, la feuille."
+      },
+      {
+        "fichier": "images/photos/30b/29-comptonie-station.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Comptonie voyageuse en terrain sec et ouvert."
+      },
+      {
+        "fichier": "images/photos/30b/30-myrique-rameau.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Myrique baumier, rameau."
+      },
+      {
+        "fichier": "images/photos/30b/31-myrique-station.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Myrique baumier en bord d'eau."
+      },
+      {
+        "fichier": "images/photos/30b/32-quatre-temps-verticille.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Quatre-temps, feuilles en verticille."
+      },
+      {
+        "fichier": "images/photos/30b/33-quatre-temps-fruits.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Quatre-temps, fruits rouges groupés."
+      },
+      {
+        "fichier": "images/photos/30c/58-the-du-labrador-dessus-dessous.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Thé du Labrador, dessus et dessous : feutrage roux, bord enroulé."
+      },
+      {
+        "fichier": "images/photos/30c/58-kalmia-dessous-feuille-comparaison.png",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Kalmia, dessous de la feuille (à gauche) : glabre et pâle."
+      },
+      {
+        "fichier": "images/photos/30c/59-sapin-baumier-aiguilles-dessus-dessous.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Sapin baumier : aiguilles plates, le dessous marqué de bandes de points blancs."
+      },
+      {
+        "fichier": "images/photos/30c/59-thuya-occidental-rameaux-dessous.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Thuya, dessous du rameau : des écailles, pas d'aiguilles."
+      },
+      {
+        "fichier": "images/photos/30c/59-thuya-occidental-rameaux-dessus.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Thuya, dessus du rameau."
+      },
+      {
+        "fichier": "images/photos/30c/60-if-du-canada-rameau-cones.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "If du Canada, rameau : à comparer au sapin baumier."
+      },
+      {
+        "fichier": "images/photos/30c/61-angelique-pourpre-feuille.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Angélique pourpre, feuille."
+      },
+      {
+        "fichier": "images/photos/30c/61-berce-laineuse-feuille.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Berce laineuse, feuille."
+      },
+      {
+        "fichier": "images/photos/30c/61-berle-douce-feuille.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Berle douce, feuille."
+      },
+      {
+        "fichier": "images/photos/30c/61-cicutaire-maculee-feuille.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Cicutaire maculée, feuille : aucun critère de terrain sûr ne la sépare des trois autres."
+      },
+      {
+        "fichier": "images/photos/30c/56-prele-des-champs-tige.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Prêle des champs, tige stérile."
+      },
+      {
+        "fichier": "images/photos/30c/57-prele-des-marais-tige.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Prêle des marais, toxique : trop semblable à la prêle des champs, on s'abstient des deux."
+      },
+      {
+        "fichier": "images/photos/30c/63-aralie-a-tige-nue-folioles.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Aralie à tige nue : folioles multiples."
+      },
+      {
+        "fichier": "images/photos/30c/63-herbe-a-puce-trois-folioles.jpg",
+        "apres": "Les noms latins sont donnés pour permettre la vérification dans un guide.",
+        "taille": "quart",
+        "legende": "Herbe à puce : trois folioles. Aucune récolte d'une plante à trois folioles."
+      },
+      {
+        "fichier": "images/photos/30c/72-sapin-baumier-vesicules.jpg",
+        "apres": "**La gomme.** Percer une vésicule",
+        "taille": "quart",
+        "legende": "Vésicules de gomme sur l'écorce lisse d'un jeune sapin baumier."
+      }
+    ],
+    "_photos": "Photos de l'ancien ch. 30 (images/photos/30a, 30b, 30c). Les fiches d'espèce du 5-E sont en tableaux, et un tableau ne sert pas d'ancrage : espèces retenues (tableau 1) et comparaisons (tableau 3) après la phrase qui ouvre le 5-E, juste avant les tableaux ; herbe à puce et berces après l'étape 4 du 5-A (les gants) ; espèces qu'on ne met jamais dans une tasse (tableau 2) après l'étape 5 (ne jamais goûter). Écartés comme doublons : 30-02 (même cliché que 30-59a), 30-03 (même cliché que 30-72), 30-46 (même cliché que 30-19)."
+  },
+  "34": {
+    "planches": [
+      {
+        "id": "34-05",
+        "apres": "2. **L'onguent de bourgeons de peuplier baumier**"
+      },
+      {
+        "id": "34-04",
+        "apres": "3. **La compresse chaude.**"
+      },
+      {
+        "id": "34-02",
+        "apres": "42. **Le peignage mouillé, sans produit.**"
+      },
+      {
+        "id": "34-03",
+        "apres": "**Le sirop et l'onguent**, qui sont des rapports."
+      },
+      {
+        "id": "34-06",
+        "apres": "2. **Ce qui ne bouillit pas**"
+      },
+      {
+        "id": "34-01",
+        "poser": false
+      }
+    ],
+    "photos": [],
+    "_planches": "34-01 (ouvrir un abcès mûr) n'est pas placée : elle refait la 28-01 (en dessin), et l'étape 24 du ch. 34 renvoie au ch. 28 (étapes 52 à 55) pour le geste. Depuis que l'assembleur pose les planches à valider (28 septembre 2026), l'entrée « poser »: false la tient hors des pages."
+  },
+  "35": {
+    "planches": [],
+    "photos": []
+  },
+  "36": {
+    "planches": [],
+    "photos": []
+  },
+  "37": {
+    "planches": [
+      {
+        "id": "37-01a",
+        "apres": "2. **Petit, bas, et deux pièces.**"
+      },
+      {
+        "id": "37-01b",
+        "apres": "**La cage à pierres porte sur ses propres appuis, jamais sur le baril.**"
+      },
+      {
+        "id": "37-01",
+        "apres": "2. **Petit, bas, et deux pièces.**"
+      },
+      {
+        "id": "37-04",
+        "apres": "14. **Éprouver chaque pierre au feu avant de la monter**"
+      },
+      {
+        "id": "37-07",
+        "apres": "**le bas du dos** : couché sur le dos, ramener les deux genoux"
+      },
+      {
+        "id": "37-03a",
+        "apres": "7. **Le plancher : du sapinage épais"
+      },
+      {
+        "id": "37-03b",
+        "apres": "12. **Charger le bac, fermer"
+      },
+      {
+        "id": "37-03",
+        "apres": "7. **Le plancher : du sapinage épais"
+      },
+      {
+        "id": "37-08",
+        "apres": "le rond de neige nue autour du poêle reste nu, sapinage loin."
+      },
+      {
+        "id": "37-05",
+        "apres": "6. **Sortir le charbon et la cendre**"
+      },
+      {
+        "id": "37-02",
+        "apres": "La cage à pierres de la truie se fait sans poste"
+      },
+      {
+        "id": "37-06",
+        "apres": "2. **Les réunir, le dessous pâle des feuilles vers l'extérieur**"
+      }
+    ],
+    "photos": [],
+    "_planches": "37-01 est redessinée en ce moment sous son numéro sans lettre : l'entrée « 37-01 » ne sert que si la nouvelle version sort en une seule page ; si elle sort en a et b, ce sont les entrées 37-01a et 37-01b qui servent. Le constructeur ignore l'entrée qui n'a pas de fichier. Même chose pour 37-03."
+  },
+  "38": {
+    "planches": [
+      {
+        "id": "38-02",
+        "apres": "22. **Écrire sur la chose même.**"
+      },
+      {
+        "id": "38-04",
+        "apres": "45. **Le mot de pause, et la règle des vingt minutes.**"
+      },
+      {
+        "id": "38-01",
+        "apres": "3. **Rester au chaud, dedans, ensemble**"
+      }
+    ],
+    "photos": []
+  },
+  "39": {
+    "planches": [],
+    "photos": []
+  },
+  "40": {
+    "planches": [
+      {
+        "id": "40-40",
+        "apres": "**Le tableau de la journée, en cailloux.**"
+      }
+    ],
+    "photos": []
+  }
+}

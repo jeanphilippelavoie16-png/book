@@ -1,0 +1,317 @@
+{
+  "102": {
+    "planches": [
+      {
+        "id": "102-02",
+        "apres": "14. **Pousser, ne pas couper.**"
+      },
+      {
+        "id": "102-40",
+        "apres": "40. **C'est l'étape la plus longue et celle qu'on rate.**"
+      },
+      {
+        "id": "102-07",
+        "apres": "Dessous, un trou creusé dans le sol, un lit de braises au fond"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/102-cuir-tanne-vegetal.jpg",
+        "apres": "22. Épiler sur la poutre, même couteau, en poussant.",
+        "taille": "quart",
+        "legende": "Cuir tanné végétal, non teint : la fleur gardée donne la surface lisse, et le cuir reste ferme.",
+        "poser": false,
+        "_retire": "JP, 29 sept. : photo faute de mieux, retirée"
+      },
+      {
+        "fichier": "images/photos/tri/102-cuir-chamoise-non-fume.jpg",
+        "apres": "22. Épiler sur la poutre, même couteau, en poussant.",
+        "taille": "quart",
+        "legende": "Peau chamoisée, non fumée : la fleur enlevée, la surface est veloutée et la peau reste souple.",
+        "poser": false,
+        "_retire": "JP, 29 sept. : photo faute de mieux, retirée"
+      }
+    ],
+    "_photos": "Les deux photos de tri/ (ligne 98·79-8, « à défaut » des trois cuirs finis côte à côte) vont à l'étape 22, celle qui décide de la fleur : enlevée pour le chamoisé, gardée pour le végétal. Listées à rebours exprès : à l'impression, chamoisé d'abord, végétal ensuite, dans l'ordre du texte. Deux objets du commerce, à recadrer : 102-cuir-tanne-vegetal montre en haut à droite l'étui ouvert avec une clé de voiture (garder l'étui fermé du bas) ; 102-cuir-chamoise-non-fume porte une impression de marque et un mode d'emploi en néerlandais (garder la moitié gauche, sans impression). La peau de chamois du commerce est tannée à l'huile, pas au cerveau : elle ne sert qu'à faire voir la surface. 102-peaux-caribou-innues (vitrine de musée, reflets sur la vitre) non placée : le chapitre ne parle ni des Innus ni du vêtement, et la photo n'aide à reconnaître aucun geste ni aucun critère."
+  },
+  "103": {
+    "planches": [
+      {
+        "id": "103-40",
+        "apres": "**14. Racler le poil.**"
+      },
+      {
+        "id": "103-05",
+        "apres": "**17. Couper en spirale, d'un seul tenant.**"
+      },
+      {
+        "id": "103-10",
+        "apres": "**22. La racine d'épinette (la wattape).**"
+      },
+      {
+        "id": "103-07",
+        "apres": "**28. Le geste, à deux mains.**"
+      },
+      {
+        "id": "103-11",
+        "apres": "**31. La ligature qui serre en séchant.**"
+      }
+    ],
+    "photos": [],
+    "_photos": "Les quatre fichiers de l'ancien 80 (lot8/80-02a à 80-02d : silhouette, profil, squelette d'orignal, planche de muscles de vache) sont des appuis pour un dessin des gisements de tendon, pas des photos du sujet : le registre dit qu'aucun ne montre ni ne situe un tendon. Non placés.",
+    "_planches": "103-10 : la moitié « hart » (pousse de saule tordue) n'a aucun texte dans le ch. 103 (ni « hart » ni « saule ») ; la planche est posée au pas de la wattape (22)."
+  },
+  "104": {
+    "planches": [
+      {
+        "id": "104-02",
+        "apres": "8. **Couture rabattue**"
+      },
+      {
+        "id": "104-40",
+        "apres": "12. Percer à l'alêne losange, lame **dans l'axe de la couture**"
+      },
+      {
+        "id": "104-04",
+        "apres": "32. Le bord de la pièce de dessous est **plus long**"
+      },
+      {
+        "id": "104-15a",
+        "apres": "38. La tige se taille en toile enduite"
+      },
+      {
+        "id": "104-15b",
+        "apres": "41. Coudre les cordons de façon à ce qu'ils soient **noués court**"
+      }
+    ],
+    "photos": [],
+    "_photos": "Aucune photo téléchargée pour le ch. 104 (ancien 81) : les huit images de credits.md sont « à acquérir »."
+  },
+  "105": {
+    "planches": [
+      {
+        "id": "105-01",
+        "apres": "**Le morfil est la preuve, et c'est le seul indicateur fiable.**"
+      },
+      {
+        "id": "105-07",
+        "apres": "3. **Refaire le profil à la bâtarde**"
+      },
+      {
+        "id": "105-03",
+        "apres": "8. **Les guides de profondeur, après trois ou quatre affûtages**"
+      },
+      {
+        "id": "105-40",
+        "apres": "Le test du marqueur (§5-A) est l'instrument de mesure du chapitre"
+      }
+    ],
+    "photos": [],
+    "_photos": "Aucune photo téléchargée pour le ch. 105 (ancien 82) : les huit images de credits.md sont « à acquérir »."
+  },
+  "106": {
+    "planches": [
+      {
+        "id": "106-01",
+        "apres": "17. **Charnière : environ 1/10 du diamètre, sur toute sa longueur**"
+      },
+      {
+        "id": "106-10a",
+        "apres": "**Fabriquer la sciotte.**"
+      },
+      {
+        "id": "106-10b",
+        "apres": "**Entretenir la lame.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/lot8/83-09-carburateur-membranes-monte.jpg",
+        "apres": "41. **Le carburateur au complet.**",
+        "taille": "quart",
+        "legende": "Le carburateur à membranes d'une scie à chaîne, monté, tel qu'on le pose sur le linge avant de séparer les moitiés."
+      }
+    ],
+    "_photos": "83-09 (ancien 83) est la vue montée, pas l'éclaté voulu par credits.md : il fait reconnaître la pièce, il ne montre pas les membranes."
+  },
+  "107": {
+    "planches": [
+      {
+        "id": "107-02",
+        "apres": "Un joint tient par l'une de deux choses"
+      },
+      {
+        "id": "107-03",
+        "apres": "22. **Faire un essai sur une chute du même métal et de la même épaisseur.**"
+      },
+      {
+        "id": "107-09",
+        "apres": "4. **Fabriquer la pince de masse et le porte-électrode.**"
+      },
+      {
+        "id": "107-07",
+        "apres": "Une plaque d'acier prise dans la ferraille, percée, posée à cheval sur la cassure"
+      },
+      {
+        "id": "107-10",
+        "apres": "C'est la réparation de fonte qui ne demande aucune chaleur"
+      }
+    ],
+    "photos": [],
+    "_photos": "Aucune photo téléchargée pour le ch. 107 (ancien 84) : les sept images de credits.md sont « à acquérir »."
+  },
+  "108": {
+    "planches": [],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/108-pile-gonflee.jpg",
+        "apres": "**L'accumulateur.** Une batterie qui a gelé, une pile au lithium gonflée",
+        "taille": "quart",
+        "legende": "Pile au lithium-ion gonflée : le boîtier bombe, l'enveloppe se décolle et plisse."
+      }
+    ],
+    "_planches": "Aucune planche 108-* dans images/validees, images/a-valider ni images/*.svg, et aucune en cours de dessin (args-reste.json).",
+    "_photos": "108-pile-gonflee (tri, ligne 104·85-6 : pile gonflée seule, sans pile saine à côté). Sa vraie place est la ligne « Pile au lithium gonflée » du tableau du §7, mais un tableau ne peut pas servir d'ancre ; le seul texte courant qui nomme la pile gonflée est l'item « L'accumulateur » du §9. Les six images de credits.md (ancien 85) restent « à acquérir »."
+  },
+  "109": {
+    "planches": [
+      {
+        "id": "109-40",
+        "apres": "5. **Le vérin n'est pas un support.**"
+      },
+      {
+        "id": "109-02",
+        "apres": "L'étrier — la pièce en U — va toujours sur le brin mort"
+      },
+      {
+        "id": "109-08",
+        "apres": "5. Le câble s'enroule en une seule couche, épaulé contre un bout"
+      },
+      {
+        "id": "109-01",
+        "apres": "Une poulie se fabrique : deux joues de bois franc"
+      },
+      {
+        "id": "109-12",
+        "apres": "Une boucle de corde entre deux points, un bâton passé dedans"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/109-cable-fils-casses-bout.jpg",
+        "apres": "4. **Inspecter avant ET après chaque usage.**",
+        "taille": "quart",
+        "legende": "Fils cassés qui se hérissent : ce sont eux qui accrochent le chiffon promené sur le câble."
+      },
+      {
+        "fichier": "images/photos/tri/109-cable-fils-casses.jpg",
+        "apres": "4. **Inspecter avant ET après chaque usage.**",
+        "taille": "quart",
+        "legende": "Câble d'acier à jeter : des fils cassés sortent des torons sur toute la longueur."
+      }
+    ],
+    "_photos": "Deux photos de tri/ (ligne 105·86-5, fils cassés seulement ; ni cage d'oiseau, ni coque, ni écrasement). Les critères de rejet sont au tableau du §7, qui ne peut pas servir d'ancre : elles vont à l'étape 4 (méthode du chiffon, « les critères de rejet sont à la §7 »). Listées à rebours : à l'impression, le câble entier d'abord, le bout ensuite. 109-cable-fils-casses est une fiche d'archives de 1950 : recadrer sur la photo seule (cartouche tapé en néerlandais, pastilles orange, numéro 256-2846 à couper). Les autres images de credits.md (ancien 86) restent « à acquérir ». Non posée (29 septembre) : 109-cable-torons-ecartes-ame-sortie (tri, 105·86-5, « à défaut » : dommage mécanique local près d'une rupture, ni cage d'oiseau franche, ni coque, ni écrasement ; fiche d'archives de 1950 prise à côté de la rupture d'un câble déjà cassé : torons écartés et âme de fibre sortie, mais c'est ce qui reste après l'accident, pas ce qu'on voit à l'inspection d'un câble encore en service)."
+  },
+  "110": {
+    "planches": [
+      {
+        "id": "110-40",
+        "apres": "1. **Lire le fil avant de mesurer.**"
+      },
+      {
+        "id": "110-01a",
+        "apres": "18. **Percer une mortaise borgne un peu plus profonde que le tenon n'est long.**"
+      },
+      {
+        "id": "110-03",
+        "apres": "29. **Le chevillage à tire.**"
+      },
+      {
+        "id": "110-01b",
+        "apres": "17. **Le tenon passant à clé**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/lot8/87-07a-pourritures-brune-blanche.jpg",
+        "apres": "25. **Un bout pourri : la greffe à mi-bois.**",
+        "taille": "quart",
+        "legende": "Les deux sur la même pièce : brune en haut, blanche en bas."
+      },
+      {
+        "fichier": "images/photos/lot8/87-07c-bouleau-pourriture-blanche.jpg",
+        "apres": "25. **Un bout pourri : la greffe à mi-bois.**",
+        "taille": "quart",
+        "legende": "Pourriture blanche dans un bouleau : le bois pâlit et tourne en masse fibreuse."
+      },
+      {
+        "fichier": "images/photos/lot8/87-07b-bouleau-pourriture-brune.jpg",
+        "apres": "25. **Un bout pourri : la greffe à mi-bois.**",
+        "taille": "quart",
+        "legende": "Pourriture brune dans un bouleau : le bois fonce et se fend en cubes."
+      }
+    ],
+    "_photos": "Ancien 87. Les trois photos de pourriture vont avec le « recouper jusqu'au bois clair et sain » de la greffe (§9, 25) : le tableau du §7 qui décrit brune et blanche ne peut pas servir d'ancre (un tableau n'a pas de texte source pour le constructeur). Listées à rebours exprès : place() insère chaque figure juste après l'ancre, donc la dernière listée sort la première ; à l'impression l'ordre est brune (b), blanche (c), les deux (a). 87-07b porte en bas à droite l'inscription « Malling 26.1.2005 » du photographe, à recadrer. 87-07b et 87-07c font 500 px de large (environ 150 ppp à la largeur d'une colonne). 87-07d (coupe d'épicéa sain, pis-aller) non placée."
+  },
+  "111": {
+    "planches": [
+      {
+        "id": "111-40",
+        "apres": "35. **Essuyer, et vérifier à la lime tout de suite.**"
+      },
+      {
+        "id": "111-11",
+        "apres": "Le garnissage remplace la brique réfractaire"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/lot8/88-06a-cassures-acier-1918.jpg",
+        "apres": "6. **Casser le coupon durci dans l'étau, d'un coup sec, et regarder la cassure.**",
+        "taille": "quart",
+        "legende": "Cassures de coupons : 1 brut de laminage, 2 recuit, 3 trempé, grain fin ; 4 surchauffé, grain grossier."
+      },
+      {
+        "fichier": "images/photos/tri/111-revenu-bande.jpg",
+        "apres": "39. **Regarder les couleurs ramper**",
+        "taille": "quart",
+        "legende": "Les couleurs de revenu sur une même bande polie, dans l'ordre où elles rampent : paille, bronze, violet, bleu."
+      },
+      {
+        "fichier": "images/photos/tri/111-revenu-etalons.jpg",
+        "apres": "40. **Arrêter à la couleur qui convient à l'usage**",
+        "taille": "demi",
+        "legende": "Coupons du même acier : normalisé, trempé, puis revenus de plus en plus loin, du jaune pâle au bleu, puis au gris."
+      }
+    ],
+    "_photos": "Ancien 88. 88-06a est une planche imprimée de 1918 : les légendes de l'image sont en anglais (As Rolled, Annealed, Hardened, Overheated), d'où la légende qui les traduit dans l'ordre des numéros ; format en hauteur (1280 × 1935 px), donc quart et non demi. 88-06b (fissures de trempe sur des jauges, 1925) non placée. Tri (ligne 107·88-5) : 111-revenu-bande à l'étape 39 (l'ordre des couleurs sur une seule pièce) ; 111-revenu-etalons à l'étape 40 (où s'arrêter), en demi parce que dix coupons côte à côte se comparent au détail. 111-revenu-etalons est à recadrer avant l'impression : la rangée d'étiquettes sous les coupons donne des températures en °F (°C entre parenthèses, 176 à 388 °C) et un titre en anglais ; ces chiffres ne sont pas ceux du texte (220 °C à un peu plus de 300 °C, étape 39) et ne doivent pas entrer dans le livre. Couper juste sous les coupons."
+  },
+  "112": {
+    "planches": [
+      {
+        "id": "112-40",
+        "apres": "50. Couper la base à plat, laisser durcir suspendu une journée"
+      },
+      {
+        "id": "112-07",
+        "apres": "57. Coucher une mèche de coton dans la coupelle"
+      },
+      {
+        "id": "112-41",
+        "apres": "18. **Verser la soude dans l'eau, lentement, en brassant. Jamais l'eau sur la soude.**"
+      },
+      {
+        "id": "112-10a",
+        "apres": "Le lessivage se fait dans un baril de bois percé"
+      },
+      {
+        "id": "112-10b",
+        "apres": "**Mesurer sa force.**"
+      }
+    ],
+    "photos": [],
+    "_photos": "Aucune photo téléchargée pour le ch. 112 (ancien 89) : les neuf images de credits.md sont « à acquérir ».",
+    "_planches": "112-41 (nouvelle, à valider) montre en quatre vignettes la soude versée dans l'eau, l'inverse barré, la lessive versée dans le gras et la trace (étapes 17-18 et 24-27). Posée à l'étape 18, le geste dangereux, qui ouvre la séquence : la trace (27) suit une douzaine de lignes plus bas."
+  },
+  "_lisez-moi": "Tome 6 (L'atelier, ch. 102 à 112) : où chaque planche et chaque photo se pose dans son chapitre. Même format que placements.json (clés et numéros de planche : numérotation NOUVELLE ; « apres » = début du paragraphe Markdown après lequel la figure vient ; photos : fichier depuis la racine du livre, apres, taille quart | demi, legende). placements.json n'a aucune entrée pour les ch. 102 à 112. Repris et complété le 28 septembre 2026 : 41 planches (25 dans images/validees, 16 dans images/a-valider, dont la 112-41, nouvelle) ; aucune planche du tome 6 dans args-reste.json (rien en cours de dessin) — les fiches 102-10, 103-10 et 108-10 du 24 septembre sont les anciens numéros de 106-10, 107-10 et 112-10, déjà dessinées. Le constructeur ne pose que les planches de images/validees : les 16 entrées à valider attendent la validation. Photos : lot8/ (ANCIENS numéros 79 à 89) et, depuis le 27 septembre, images/photos/tri/ nommé au NOUVEAU numéro (102-, 108-, 109-, 111-) ; toutes données par chemin complet, parce que photos_du_chapitre() cherche sous l'ancien numéro et, dans tri/ et manquantes/, compte à tort pour le tome 6 des photos d'autres chapitres (tri/80-* au 103, tri/83-* au 106, manquantes/88-* au 111) — ce n'est qu'un compte affiché, rien n'est posé. Aucun texte des ch. 102 à 112 ne dit « planche NN-0K » : sans ces entrées, tout tomberait en fin de section 5. Toutes les « apres » vérifiées contre les blocs du constructeur : présentes mot pour mot et ne touchant qu'un seul bloc. Deux photos au même « apres » : place() insère chacune juste après l'ancre, donc la dernière listée sort la première."
+}

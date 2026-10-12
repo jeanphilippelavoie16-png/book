@@ -1,0 +1,222 @@
+
+/* =====================================================================
+   CHAPITRES D'ANCRAGE — 00 (le chapitre principal) et 00b (acheter par
+   priorité). Posé après interieur.tpl.html et chapitre.css (non modifiés),
+   avant couleur.css quand variante.py passe : les jetons du tome (--ta,
+   --tsq, --t9, --tf, --tp, --tp2, --tx9…) viennent de là, avec un repli en
+   noir et gris pour l'épreuve sans couleur. Tout est limité aux pages .anc
+   ou aux classes propres à ces deux chapitres.
+   ===================================================================== */
+
+/* ---------- pictogrammes (variante C : --i-maison, --i-chalet, --i-deux) ---------- */
+.ak{display:inline-block;flex:none;vertical-align:middle;background:currentColor;
+  -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;
+  height:var(--h,12pt);width:calc(var(--h,12pt) * var(--r,1))}
+.ak-m{--r:1;-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.ak-c{--r:1.29;-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.ak-2,.ak-mc{--r:1.42;-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+.lieu-b{display:inline-flex;align-items:center;gap:4pt;font:700 8pt/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.lieu-b .ak{--h:12pt}
+
+/* ---------- onglets de tranche : à la hauteur du bloc (00) ou du palier (00b) ---------- */
+.ak-tab{position:absolute;z-index:2;width:0.56in;height:0.68in;display:flex;align-items:center;
+  background:var(--ta,#000);color:#fff;font:700 15pt/1 var(--sans);letter-spacing:-.01em}
+.recto .ak-tab{right:0;justify-content:flex-start;padding-left:6pt}
+.verso .ak-tab{left:0;justify-content:flex-end;padding-right:6pt}
+.vC .ak-tab{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pied : le lieu de la page porte son pictogramme (00 : celui du bloc, pas celui du chapitre) */
+.page.anc .ft .lieu-ft::before{content:none;display:none}
+.page.anc .lieu-ft{display:flex;align-items:center;gap:4pt;white-space:nowrap}
+.page.anc .lieu-ft .ak{--h:10pt}
+.page.anc .lad li{width:13pt}
+
+/* ================================================================ 00 */
+.recto.a00 .block{padding-right:0.16in}
+.verso.a00 .block{padding-left:0.16in}
+.a00{--ks:1;--kl:1;--kt:1;--gap:0pt}
+
+/* ---------- ouverture : l'en-tête des chapitres, puis la table en index ---------- */
+.a00.ouv .open{margin-bottom:0}
+.a00.ouv .open-title{padding-bottom:12pt}
+.ouv-sous{flex:none;margin:9pt 0 0;text-indent:0;font:italic 500 calc(14pt*var(--ks))/1.25 var(--serif)}
+.ouv-intro{flex:none;columns:2;column-gap:0.22in;column-rule:0.5pt solid var(--k40);margin-top:8pt;
+  font-size:calc(9.6pt*var(--ks));line-height:calc(12.6pt*var(--ks))}
+.ouv-intro p{text-indent:0;margin:0 0 4pt}
+table.ak-index{flex:none;margin:12pt 0 0;font-family:var(--sans);column-span:none}
+table.ak-index thead th{padding:4pt 5pt 3pt 0}
+.frame table.ak-index td, table.ak-index td{vertical-align:middle;padding:calc(3pt*var(--ks)) 5pt calc(3pt*var(--ks)) 0;border-bottom:0.6pt solid var(--k40)}
+table.ak-index tbody tr:last-child td{border-bottom:1.5pt solid var(--ta,#000)}
+.ix-n span{display:inline-block;width:20pt;height:20pt;background:var(--tsq,#000);color:#fff;font:700 13pt/20pt var(--sans);text-align:center}
+.ix-t{font:700 calc(12.4pt*var(--kl))/1.08 var(--sans)}
+.ix-l .lieu-b{font-size:7.4pt;letter-spacing:.05em}
+.ix-l .lieu-b .ak{--h:11pt}
+.ix-o{font:500 8.4pt/1.2 var(--sans)}
+.ix-c{white-space:nowrap}
+.ix-c .gr{display:inline-block;min-width:17pt;margin:1pt 3pt 1pt 0;font:700 9.5pt/1 var(--sans);text-align:center;border:1pt solid var(--ta,#000);color:var(--ta,#000);padding:2.5pt 3pt 1.5pt}
+.ix-p{font:700 10.5pt/1 var(--sans);text-align:right;white-space:nowrap}
+table.ak-index th:last-child{text-align:right}
+
+/* ---------- page de bloc (verso) : le bloc, en gros ---------- */
+.bk-head{flex:none;display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:0 12pt;padding-bottom:8pt;border-bottom:5pt solid var(--ta,#000)}
+.bk-num{width:1.08in;height:1.08in;background:var(--tsq,#000);color:#fff;font:700 82pt/1.08in var(--sans);text-align:center;letter-spacing:-.03em}
+.bk-num.deux{font-size:62pt;letter-spacing:-.05em}
+.vC .bk-num{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--tsq)}
+.bk-tt h1{margin:0;font:700 calc(35pt*var(--kt))/1.05 var(--sans);text-transform:uppercase;letter-spacing:.005em;hyphens:manual}
+.bk-lieu .lieu-b{flex-direction:column;gap:4pt;padding:6pt 8pt 5pt;background:var(--ta,#000);color:#fff;font-size:9pt;letter-spacing:.07em}
+.bk-lieu .ak{--h:24pt}
+.bk-intro{flex:none;columns:2;column-gap:0.22in;column-rule:0.5pt solid var(--k40);padding-top:8pt;
+  font-size:calc(9.7pt*var(--ks));line-height:calc(12.7pt*var(--ks))}
+.bk-intro.one{columns:1}
+.bk-intro p,.bk-outro p,.sr-intro p{text-indent:0;margin:0 0 4pt}
+.bk-intro p.cite{column-span:all;margin:3pt 0 6pt;font:italic 700 calc(13pt*var(--ks))/1.25 var(--serif)}
+.bk-outro{flex:none;margin-top:6pt;
+  font:italic 400 calc(9.7pt*var(--ks))/calc(12.7pt*var(--ks)) var(--serif)}
+
+/* les gestes : amorce en gros (lisible à un mètre), suite au corps de lecture, renvois en boîte */
+ol.gestes{flex:none;list-style:none;margin:6pt 0 0;padding:0}
+ol.gestes li{display:grid;grid-template-columns:18pt 1fr auto;gap:0 8pt;border-top:2pt solid var(--ta,#000);
+  padding:calc(6pt + var(--gap)) 0 calc(7pt + var(--gap))}
+ol.gestes li:last-child{border-bottom:2pt solid var(--ta,#000)}
+ol.gestes .g-m{width:11pt;height:11pt;background:var(--tsq,#000);margin-top:calc(4pt*var(--kl))}
+ol.gestes .g-t{min-width:0}
+ol.gestes .g-lead{font:700 calc(17pt*var(--kl))/1.12 var(--sans);letter-spacing:.003em;hyphens:manual}
+ol.gestes .g-exp{margin-top:3pt;font-size:calc(9.9pt*var(--ks));line-height:calc(12.9pt*var(--ks));hyphens:auto}
+ol.gestes .g-refs{display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt;min-width:0.52in}
+ol.gestes .gr{font:700 10.5pt/1 var(--sans);border:1.2pt solid var(--ta,#000);color:var(--ta,#000);padding:3pt 4pt 2pt;white-space:nowrap}
+.bk-sans{flex:none;margin-top:auto;display:flex;align-items:baseline;gap:10pt;background:var(--t9,#000);color:#fff;padding:6pt 9pt;font:500 9.5pt/1.2 var(--sans)}
+.bk-sans b{font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.bk-sans .bk-sp{margin-left:auto;font-weight:700}
+
+/* ---------- page « Quand il n'y a rien » (recto, en face du bloc) ---------- */
+.sr-head{flex:none;background:var(--t9,#000);color:#fff;padding:7pt 10pt 9pt}
+.vC .sr-head{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.sr-k{font:600 8pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;margin-bottom:6pt}
+.sr-t{display:flex;align-items:center;gap:10pt}
+.sr-n{flex:none;width:32pt;height:32pt;background:#fff;color:var(--t9,#000);font:700 23pt/32pt var(--sans);text-align:center}
+.sr-t h2{margin:0;font:700 calc(23pt*var(--kt))/1 var(--sans);text-transform:uppercase;letter-spacing:.02em;hyphens:manual}
+.sr-intro{flex:none;padding-top:8pt;font-size:calc(10pt*var(--ks));line-height:calc(13pt*var(--ks))}
+ol.gestes.sr li{border-top-width:1pt;border-top-color:var(--k)}
+ol.gestes.sr li:first-child{border-top:none}
+ol.gestes.sr li:last-child{border-bottom:none}
+ol.gestes.sr .g-lead{font-size:calc(13.2pt*var(--kl));line-height:1.16}
+ol.gestes.sr .g-m{background:var(--t9,#000);width:9pt;height:9pt;margin-top:calc(3.6pt*var(--kl))}
+ol.gestes.sr .g-exp{font-size:calc(9.7pt*var(--ks));line-height:calc(12.7pt*var(--ks))}
+ol.gestes.sr .gr{font-size:9.5pt;border-width:1pt}
+
+/* notes de bas de page des pages fixes : au pied du bloc */
+.a00 .block > .fnz{margin-top:auto;padding-top:6pt}
+
+/* ---------- le seuil ---------- */
+.sx-head{flex:none;border-top:5pt solid var(--ta,#000);padding-top:7pt;margin-bottom:8pt}
+.sx-head h1{margin:0;font:700 calc(27pt*var(--kt))/1 var(--sans);text-transform:uppercase;letter-spacing:.01em;hyphens:manual}
+.sx-body{flex:none;font-size:calc(10.4pt*var(--ks));line-height:calc(13.8pt*var(--ks))}
+.sx-body p{text-indent:0;margin:0 0 6pt}
+.sx-body strong.runin{font-size:calc(12.5pt*var(--kl))}
+.sx-body p.step{padding-left:30pt;margin:0 0 8pt;font-size:calc(10.6pt*var(--ks));line-height:calc(14pt*var(--ks))}
+.sx-body p.step .sn{width:22pt;font:700 22pt/1 var(--sans);color:var(--tsq,#000)}
+.sx-body p.step > strong:first-of-type{font:700 calc(14pt*var(--kl))/1.15 var(--sans)}
+.sx-body table{margin:4pt 0 10pt;font-size:calc(9.6pt*var(--ks));line-height:calc(12.4pt*var(--ks))}
+.sx-body table td:first-child{font:700 calc(11pt*var(--kl))/1.2 var(--sans)}
+
+/* ---------- ce qui tue le plus vite ---------- */
+.a00.dgr .danger .frame{padding:12pt 14pt 6pt}
+.a00.dgr .dhead{font-size:15pt;padding:8pt 10pt}
+.a00.dgr .dhead svg{width:22pt;height:19pt}
+.a00.dgr .pt{padding-left:30pt;margin:0 0 12pt;font-size:calc(10.8pt*var(--ks));line-height:calc(14.4pt*var(--ks))}
+.a00.dgr .pt .pn{font:700 26pt/1 var(--sans)}
+.a00.dgr .pt .plead{font:700 calc(16pt*var(--kl))/1.15 var(--sans);margin-bottom:4pt}
+.a00.dgr .pt.cont0{padding-left:0;font:600 calc(13.5pt*var(--kl))/1.3 var(--serif);margin-bottom:14pt}
+
+/* ---------- quand il n'y a rien (ouverture) et tableau de substitution ---------- */
+.a00 .qr.s9wrap{margin-top:0}
+.a00 .qr h2.sec.s9{font-size:19pt;padding:9pt 10pt}
+.qr-body{flex:1 1 0;min-height:0;padding-top:9pt}
+.qr-intro{font-size:calc(10.4pt*var(--ks));line-height:calc(13.8pt*var(--ks))}
+.qr-intro p{text-indent:0;margin:0 0 6pt}
+.qr-body h3.sub{margin-top:10pt}
+table.subst{font-size:calc(8.8pt*var(--ks));line-height:calc(11.4pt*var(--ks))}
+table.subst td:first-child{font:700 calc(9.8pt*var(--ks))/1.2 var(--sans)}
+table.subst td:nth-child(2){font-weight:600}
+
+/* ================================================================ 00b */
+/* intensité des paliers : 1 le plus foncé, 4 au trait ; R = ce qui remplace (bandeau de la section 9) */
+.pal1{--pc:var(--tfi,#000);--pci:#fff;--pt:var(--tfi,#000)}
+.pal2{--pc:var(--ta,#444);--pci:#fff;--pt:var(--ta,#444)}
+.pal3{--pc:color-mix(in srgb,var(--ta,#444) 40%,#fff);--pci:var(--tfi,#000);--pt:color-mix(in srgb,var(--ta,#444) 40%,#fff)}
+.pal4{--pc:var(--tp,#eee);--pci:var(--tfi,#000);--pt:var(--tp2,#ccc)}
+.palr{--pc:var(--t9,#000);--pci:#fff;--pt:var(--t9,#000)}
+
+p.lead0{text-indent:0}
+h2.palier{column-span:all;display:flex;align-items:stretch;margin:14pt 0 8pt;background:var(--pc);color:var(--pci);break-after:avoid}
+h2.palier:first-child{margin-top:0}
+.vC h2.palier.pal1,.vC h2.palier.pal2{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--pc)}
+h2.palier.pal4{background:#fff;box-shadow:inset 0 0 0 2.5pt var(--ta,#000)}
+h2.palier .pn{flex:none;width:0.95in;display:flex;align-items:center;justify-content:center;font:700 60pt/1 var(--sans);padding:4pt 0 2pt}
+h2.palier .pt2{display:flex;flex-direction:column;justify-content:center;padding:9pt 12pt 9pt 2pt;font:700 25pt/1 var(--sans);text-transform:uppercase;letter-spacing:.02em}
+h2.palier .pt2 small{font:600 9pt/1 var(--sans);letter-spacing:.18em;margin-bottom:6pt}
+p.crit{column-span:all;margin:0 0 6pt;font-size:10pt;line-height:13.4pt}
+p.crit strong.runin{text-transform:uppercase;font-size:9.6pt;letter-spacing:.06em}
+
+/* sous-sections 1.A, 2.C… : pleine largeur, la cote du palier en pastille */
+.frame h3.sub.ss{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 4pt;font-size:10.6pt;border-top:none;padding-top:0}
+.ssn{flex:none;background:var(--pc);color:var(--pci);font:700 10.5pt/1 var(--sans);padding:3pt 5pt 2pt;letter-spacing:.02em}
+.pal4.ssn{box-shadow:inset 0 0 0 1.2pt var(--ta,#000);background:#fff}
+
+/* tableaux d'achat : Lieu (cases) | Item | Quantité | Sans ça | Ch. */
+table.achat{margin:2pt 0 11pt;font-size:8pt;line-height:10.2pt}
+table.achat thead th{background:var(--pc);color:var(--pci);border-top:none;border-bottom:none;padding:5pt 5pt 4pt;
+  font:700 7.8pt/1.1 var(--sans);letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
+table.achat.pal4 thead th{box-shadow:inset 0 2pt 0 var(--ta,#000)}
+.frame table.achat td, table.achat td{padding:4.5pt 5pt 5pt;vertical-align:top;border-bottom:0.6pt solid var(--k40)}
+table.achat tbody tr:last-child td{border-bottom:1.5pt solid var(--ta,#000)}
+table.achat td.c-item{font:600 9.6pt/11.6pt var(--sans);letter-spacing:.005em}
+table.achat td.c-item strong{font-weight:700}
+table.achat td.c-qte{font:500 8.4pt/10.4pt var(--sans)}
+table.achat td.c-qte strong{font-weight:700}
+table.achat td.c-sans{font-size:8pt;line-height:10.3pt}
+table.achat td.c-ch, table.achat th.c-ch{text-align:right}
+table.achat .gr{display:block;font:700 8.8pt/1.3 var(--sans)}
+table.achat td.c-lieu{padding-left:3pt;padding-right:2pt}
+table.achat caption.tsuite{font-size:7.5pt}
+
+/* la colonne Lieu : une case à cocher au crayon par endroit */
+.lcell{display:flex;flex-direction:column;gap:3.5pt}
+.lx{display:flex;align-items:center;gap:3pt;font:700 6.9pt/1 var(--sans);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.lx .bx{flex:none;width:9.5pt;height:9.5pt;border:1pt solid var(--k);background:#fff}
+.lx .ak{--h:9.5pt;color:var(--ta,#000)}
+.lx.fl .ar{flex:none;width:9.5pt;text-align:center;font:700 9pt/1 var(--sans);color:var(--ta,#000)}
+.lq{display:block;font:italic 500 6.9pt/8.4pt var(--sans);white-space:normal;margin-top:0.5pt}
+
+/* légende des mentions, tableau « ce qui ne se remplace par rien » */
+table.legende td{vertical-align:middle}
+table.legende .lx{font-size:7.4pt}
+table.rien td.c-item{font:700 9.4pt/1.2 var(--sans)}
+.pb{display:inline-block;width:16pt;height:16pt;background:var(--pc);color:var(--pci);font:700 10pt/16pt var(--sans);text-align:center}
+
+/* la dernière section : une seule chose */
+p.une{column-span:all;text-indent:0;margin:2pt 0 10pt;padding:9pt 12pt 10pt;background:var(--tp,#eee);border-left:6pt solid var(--tfi,#000);
+  font:700 16pt/1.22 var(--sans);letter-spacing:.005em}
+
+/* « Ce qu'on perd : » à la ligne, en étiquette */
+em.perd{font-family:var(--sans);font-style:normal;font-weight:700;font-size:.92em;text-transform:uppercase;letter-spacing:.05em}
+
+/* sommaire de l'ouverture : deux colonnes, les titres entiers */
+.toc.tocb{grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:2pt 12pt}
+.toc.tocb li{align-items:center;padding:1.5pt 0}
+.toc.tocb .t{white-space:normal;line-height:1.12}
+.toc.tocb li[class*="pal"] .n{background:var(--pc);color:var(--pci);border-color:var(--pc)}
+.toc.tocb li.pal4 .n{background:#fff;border-color:var(--ta,#000)}
+.toc.tocb li.hors .n{border:none;width:11pt}
+
+/* pied du 00b : l'échelle des quatre paliers, chacun à sa couleur */
+.page.anc .lad li[class*="pal"].on{background:var(--pt);border-color:var(--pt);color:var(--pci)}
+.page.anc .lad li.pal4.on{border-color:var(--ta,#000)}
+
+/* onglets et bande des pages du 00b */
+.page.anc.a0b::after{width:0.56in;font-size:13pt}   /* l'onglet du chapitre (variante C) : « 00b » tient dans sa partie visible */
+.frame p.span{column-span:all}
+.rh .minus{text-transform:none}
+.toc .nw{white-space:nowrap}
+.ak-tab.pal1,.ak-tab.pal2,.ak-tab.pal3,.ak-tab.pal4{background:var(--pt);color:var(--pci)}
+.vC .ak-tab.pal1,.vC .ak-tab.pal2{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--pt)}

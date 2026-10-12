@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>13 — Eau : puiser, filtrer, désinfecter — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t4       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"13"}
+</style>
+</head>
+<body class="vA vB t1 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 1 · Tenir</span><span>Chapitre</span></div><div class="open-title"><div class="num">13</div><h1>Eau : puiser, filtrer, désinfecter</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">À la maison, l’eau arrive au robinet et le problème est sa qualité : un avis d’ébullition, une conduite qui casse, du plomb dans l’entrée de service. Au chalet, il n’y a pas de robinet qui tienne tout seul : le problème est toute la chaîne, du lac au bidon. Les sections 5-A à 5-I sont celles du chalet ; la section 5-J est celle de la maison.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Trois gestes dans l’ordre — décanter, filtrer, désinfecter — qui rendent buvable l’eau d’un lac, d’un ruisseau ou d’un puits, et dont le dernier seul est absolu : une eau portée à gros bouillons pendant au moins 1 minute est débarrassée de tous les micro-organismes pathogènes. La durée monte à <strong>cinq minutes</strong> là où vivent le castor, le rat musqué ou le lièvre — la tularémie, et presque tous les lacs d’ici. L’arbitrage entre ces deux durées est rendu à la section 5-E.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h3 class="sub">C’est le bon choix</h3>
+<p class="p0 lab kh"><strong class="runin">À la maison, au village :</strong></p>
+<p class="li">Avis d’ébullition. Il s’émet notamment pour un « entretien, réparation ou bris d’équipement du réseau de distribution pouvant, par exemple, mener à une baisse de pression ou à une intrusion de microorganismes ». Le mécanisme est là : une conduite sous pression repousse ce qui l’entoure ; une conduite qui perd sa pression aspire l’eau du sol par ses joints. L’avis arrive donc souvent <strong>avant</strong> le moindre résultat de laboratoire, et c’est ce qui fait sa valeur.</p>
+<p class="li">Baisse de pression franche au robinet pendant des travaux ou un incendie de quartier, même sans avis émis. L’analyse vient après coup ; la famille boit pendant.</p>
+<p class="li">Panne d’Hydro assez longue pour arrêter les pompes de l’aqueduc (<span class="ref">ch. 4</span>).</p>
+<p class="li">Eau transportée dans un contenant dont on ne connaît pas l’historique. C’est le contenant qui est suspect, pas l’eau qu’on y a versée.</p>
+<p class="p0 lab kh"><strong class="runin">Au chalet :</strong></p>
+<p class="li">Eau de surface, toujours et sans exception : lac, ruisseau, étang, neige fondue, glace de lac. Le bassin versant d’un chalet boréal contient du castor (<em>Castor canadensis</em>), du rat musqué (<em>Ondatra zibethicus</em>) et de l’orignal (<em>Alces americanus</em>), et ces trois-là défèquent en amont de la prise d’eau. Le castor et le rat musqué sont des réservoirs reconnus de <em>Giardia lamblia</em>.</p>
+<p class="li">Puits jamais analysé : il se traite comme un puits positif, pas comme un puits négatif. Une eau de puits qui n’a jamais vu de laboratoire n’est pas une eau réputée bonne, c’est une eau inconnue.</p>
+<p class="li">Puits après une crue, une inondation, un dégel violent, des travaux d’excavation à proximité, ou le remplacement d’une pompe.</p>
+<p class="li">Panne prolongée où la pompe ne tourne plus et où l’on redescend puiser à la main.</p>
+<h3 class="sub">C’est un mauvais choix</h3>
+<p class="li"><strong>Contamination chimique.</strong> L’ébullition « n’est généralement d’aucune utilité dans la gestion d’une contamination chimique (p. ex. plomb) ». Pire : l’eau s’évapore, le contaminant reste, la concentration monte. Bouillir une eau chargée en nitrate ou en arsenic la rend plus dangereuse, pas moins. Le cas courant à la maison est justement le plomb de l’entrée de service : le réflexe de faire bouillir « pour être sûr » est exactement le mauvais geste, et la réponse est à la section 5-J.</p>
+<p class="li"><strong>Eau salée.</strong> Aucune des trois étapes n’enlève un sel dissous. Le fleuve, à la hauteur de la Côte-Nord, est de l’eau de mer pour ce qui nous concerne : de 27 à 29 g de sels dissous par litre, un peu moins en surface au printemps, quand la fonte et la crue l’adoucissent. Seules la distillation et l’osmose inverse enlèvent le sel : les deux seules méthodes qui font passer l’eau ailleurs que le sel, au lieu de retenir ce qui est plus gros qu’un pore.</p>
+<p class="li"><strong>Chloration seule d’une eau de surface.</strong> « L’efficacité du chlore seul envers le Cryptosporidium est presque nulle » — voir la section 8.</p>
+<p class="li"><strong>Chloration d’une eau froide.</strong> Le chlore ralentit avec le froid dans des proportions qui rendent le dosage domestique illusoire : contre les kystes de <em>Giardia</em>, le CT requis est « inférieur à 12 pour une eau à 25 °C, mais varierait de 65 à 360 pour désinfecter une eau de 3 à 5 °C ». Un lac boréal est à 4 °C une bonne partie de l’année.</p>
+<p class="li"><strong>Chloration d’une eau trouble.</strong> Les particules abritent les micro-organismes et consomment le chlore avant qu’il les atteigne.</p>
+<p class="li"><strong>Eau de pluie ou de neige recueillie sous le vent d’un feu, d’un moteur ou d’une cheminée.</strong> Les suies ne s’enlèvent ni à l’ébullition ni à la javel.</p>
+<p class="li"><strong>Fonte de retombées.</strong> Ni l’ébullition ni la filtration ordinaire n’enlèvent les radionucléides — voir le chapitre 6.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">La chaleur détruit les protéines des micro-organismes bien avant 100 °C : <em>E. coli</em> tombe à 70 °C en 1 minute, le virus de l’hépatite A à 85 °C en 1 minute, <em>Giardia lamblia</em> à 70 °C en 10 minutes, et les oocystes de <em>Cryptosporidium</em> demandent « une température de l’ordre de 73 °C […] pour les détruire en une minute alors qu’à 65 °C, le temps requis était de 5 minutes ». Le gros bouillon n’est pas une exigence biologique, c’est un indicateur visuel : il dit qu’on est à 100 °C sans thermomètre, donc très au-delà de toutes ces cibles.</p>
+<p>Le chlore, lui, doit entrer en contact avec l’organisme et l’oxyder. Tout ce qui s’interpose — argile en suspension, matière organique, tanins de tourbière — le consomme ou l’abrite. Le froid ralentit la réaction. C’est pourquoi une dose de chlore se donne toujours avec un temps de contact et une température, jamais seule.</p>
+<p>La filtration est un tamis mécanique : le pore retient ce qui est plus gros que lui. Un kyste de <em>Giardia</em> mesure environ 8 × 14 µm, un oocyste de <em>Cryptosporidium</em> de 4 à 6 µm, une bactérie comme <em>E. coli</em> 0,5 × 3 à 8 µm, un virus 0,03 µm. Un filtre à 1 µm arrête les deux protozoaires et la plupart des bactéries ; aucun filtre portatif courant n’arrête les virus.</p>
+<p>Aucune des trois étapes n’enlève ce qui est dissous. Sel, arsenic, uranium, nitrate, manganèse, plomb : ils traversent le tissu, traversent la céramique, résistent au chlore, et l’ébullition les concentre. C’est pour ça qu’une eau de puits se juge par une analyse en laboratoire, pas par son goût.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Chaudière de puisage avec corde</td><td>1 de 15 à 20 L</td><td>Seau de plastique de qualité alimentaire</td><td>Oui</td></tr><tr><td class="c-item">Contenants de décantation</td><td>2 de 20 L, ou 1 baril de 200 L (45 gal)</td><td>N’importe quel contenant alimentaire à couvercle</td><td>Oui</td></tr><tr><td class="c-item">Tissu de préfiltration, coton serré</td><td>3 ou 4 carrés</td><td>Taie d’oreiller, filtre à café, bas de nylon</td><td>Oui</td></tr><tr><td class="c-item">Filtre à pores de 1 µm ou moins</td><td>1 + 2 cartouches de rechange</td><td>Bougie de céramique de campeur, qui a l’avantage de se récurer et de repartir ; à défaut, le filtre à sable et charbon de la section 9, qui clarifie sans désinfecter</td><td><span class="non">NON</span> <span class="negx">si on veut boire sans bouillir</span></td></tr><tr><td class="c-item">Marmite à couvercle</td><td>8 à 12 L</td><td>N’importe quel chaudron avec couvercle ; sinon un contenant qui ne va pas au feu, chauffé aux pierres (<span class="ref">§9</span>), mais on perd la preuve du gros bouillon</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Source de chaleur indépendante du réseau</td><td>—</td><td>Poêle à bois (<span class="ref">ch. 15</span>), réchaud (<span class="ref">ch. 14</span>), feu dehors sur deux pierres</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Eau de Javel non parfumée, 5,25 %, sans additif ni parfum ni agent épaississant</td><td>4 L, datée et renouvelée</td><td>Hypochlorite de calcium granulaire, qui se garde des années au lieu de mois, se dilue en solution mère et se dose à la bandelette (<span class="ref">§9</span>) ; sinon la marmite</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Compte-gouttes propre ou seringue de 1 mL</td><td>2</td><td>N’importe quel embout qui fait des gouttes régulières — paille coupée en biseau, tige de clou, tube de boyau à essence. Ce qui compte n’est pas l’instrument, c’est de connaître le volume de <strong>sa</strong> goutte : compter une fois combien il en faut pour remplir un contenant gradué, et écrire le nombre sur le manche</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Bandelettes de chlore libre, plage 0 à 200 mg/L</td><td>1 boîte</td><td>Pour l’eau de boisson, l’odeur, qui dit s’il reste du chlore mais jamais combien. Pour la solution mère d’hypochlorite et pour le choc du puits, rien : c’est là que la bandelette est irremplaçable, parce qu’on dose une poudre de titre inconnu</td><td><span class="non">NON</span> <span class="negx">pour la désinfection du puits</span></td></tr><tr><td class="c-item">Thermomètre de cuisson 0-120 °C</td><td>1</td><td>Ébullition visible</td><td>Oui</td></tr><tr><td class="c-item">Contenants d’entreposage opaques, alimentaires, à goulot étroit</td><td>100 L au total</td><td>Bidons de 20 L ; à défaut, n’importe quel fût alimentaire peint en noir ou gardé dans le noir, et un bout de boyau pour siphonner plutôt qu’une louche</td><td>Oui</td></tr><tr><td class="c-item">Analyse en laboratoire</td><td>2 microbiologiques + 1 chimique par année</td><td>Aucune pour la chimie : arsenic, uranium, nitrate et manganèse ne se voient, ne se sentent ni ne se goûtent. Faute d’analyse, la règle de remplacement est de traiter le puits comme un puits positif et de ne pas en faire de biberon (<span class="ref">§8</span>)</td><td><span class="non">NON</span> <span class="negx">si le chalet a un puits</span></td></tr><tr><td class="c-item">Avertisseur de monoxyde de carbone à pile</td><td>1 par niveau habité</td><td>Aucune. Aucun sens humain ne détecte le CO, et la vigilance ne compense pas un gaz sans odeur</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Pompe 12 V et boyau</td><td>1</td><td>Puisage à la chaudière ; dans un tubage de puits trop étroit pour une chaudière, la buse fabriquée de la section 9</td><td>Oui</td></tr></tbody></table>
+<p class="p0">Le filtre est marqué non négociable pour un seul usage : boire sans bouillir. Si l’on accepte de bouillir chaque litre, il devient un confort. Ce qui n’est jamais négociable, c’est d’avoir <strong>deux</strong> moyens de désinfecter, parce que l’un des deux tombera en panne au mauvais moment : la marmite et la javel, ou la marmite et le filtre.</p>
+<p>À la maison, la moitié de ce tableau ne sert pas. Il reste la marmite, la javel datée, les contenants d’entreposage et les bandelettes — et le filtre, qui y joue un autre rôle qu’au chalet. Au chalet, il tamise : il retient ce qui est plus gros que son pore. À la maison, contre le plomb, il n’y a rien à tamiser, parce que le plomb est dissous — il faut un filtre dont le média <strong>fixe</strong> le métal au passage, ce que tous les filtres à eau ne font pas. Un même boîtier peut donc être excellent contre les protozoaires et sans aucun effet sur le plomb. C’est la fiche du média qu’on lit, pas le prix. Les quantités à garder d’avance ne sont pas ici : elles sont au chapitre d’achat.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Choisir la prise d’eau</h3>
+<p class="step"><span class="sn">1</span>Puiser <strong>en amont</strong> de tout ce qui vit : camp, fosse septique, enclos, sentier de motoneige, hutte de castor. Une hutte visible dans la baie ne disqualifie pas le lac ; elle disqualifie l’idée de boire sans traiter.</p>
+<p class="step"><span class="sn">2</span>Pour un puits, compter la distance aux eaux usées : au moins 30 m d’un système de traitement non étanche, 15 m si le puits est scellé — foré au moins 10 cm plus large que son tubage, et cet espace autour du tubage rempli de bentonite ou de ciment-bentonite sur 5 m de profondeur au moins. Ce qui fait la différence entre les deux chiffres, ce n’est pas la paperasse, c’est le chemin de l’eau : ce bouchon autour du tuyau oblige l’eau de surface à descendre par le sol filtrant au lieu de couler le long du tubage. Voir le chapitre 28 pour l’autre bout du problème.</p>
+<p class="step"><span class="sn">3</span>Prendre l’eau à 20 ou 30 cm sous la surface, jamais en raclant le fond : la couche superficielle concentre les pollens et les hydrocarbures, le fond concentre les sédiments.</p>
+<h3 class="sub">B — Puiser</h3>
+<p class="step"><span class="sn">4</span>Descendre la chaudière lestée, ouverte vers le bas, et la retourner sous l’eau.</p>
+<p class="step"><span class="sn">5</span>Si la pompe est entraînée par une génératrice, l’installer dehors, loin des portes et des fenêtres. Jamais dans un bâtiment, un garage, un abri ou sous un auvent. Le mécanisme est à la section 8.</p>
+<p class="step"><span class="sn">6</span>Rentrer l’eau brute dans des contenants réservés à l’eau brute, marqués, jamais mélangés avec ceux de l’eau traitée. La recontamination croisée est la façon la plus courante de perdre une journée de travail.</p>
+<h3 class="sub">C — Décanter</h3>
+<p class="step"><span class="sn">7</span>Laisser reposer sans bouger, couvercle posé, de 12 à 24 h. Le sable tombe en quelques minutes, l’argile et la matière organique fine prennent des heures.</p>
+<p class="step"><span class="sn">8</span>Siphonner ou transvaser <strong>par-dessus</strong> le dépôt, sans le remettre en suspension. Sacrifier les deux ou trois derniers centimètres.</p>
+<h3 class="sub">D — Filtrer</h3>
+<p class="step"><span class="sn">9</span>Préfiltrer à travers trois ou quatre épaisseurs de coton serré. Cette étape ne désinfecte rien ; elle protège le filtre fin et fait durer la cartouche.</p>
+<p class="step"><span class="sn">10</span>Passer au filtre à 1 µm. Ce seuil retient les oocystes de <em>Cryptosporidium</em> (4 à 6 µm) et les kystes de <em>Giardia</em> (8 × 14 µm). Il ne retient pas les virus (0,03 µm) : un filtre ne remplace donc jamais une désinfection quand l’eau peut avoir reçu des matières fécales humaines.</p>
+<p class="step"><span class="sn">11</span>Viser une eau limpide. La filtration donne son plein rendement — « en moyenne un enlèvement de 3 log » — « lorsque la turbidité de l’eau ne dépasse pas 0,3 UNT ». Sans turbidimètre, le critère de terrain est : aucun voile visible en regardant à travers 20 cm d’eau contre une feuille imprimée. Ce test ne dit pas qu’on est à 0,3 UNT : l’œil ne voit un voile qu’au-dessus d’environ 5 UNT. Une eau limpide à l’œil peut donc être encore à plusieurs fois le seuil — le filtre y travaille, sans la garantie des 3 log.</p>
+<h3 class="sub">E — Désinfecter : l’ébullition, méthode de référence</h3>
+<p class="step"><span class="sn">12</span>Porter à <strong>gros bouillons</strong> et maintenir <strong>au moins 1 minute</strong>, et <strong>5 minutes</strong> dès que l’eau sort d’un bassin où vivent le castor, le rat musqué ou le lièvre, ou qu’on la boit en forêt sans le reste de la chaîne. Sur la Côte-Nord, ça donne cinq minutes pour toute eau de surface, et une minute pour un puits ou un avis d’ébullition au village. Un frémissement ne compte pas : on chronomètre à partir du moment où la surface roule.</p>
+<p class="step"><span class="sn">13</span>Couvrir pendant l’ébullition : on perd moins d’eau et moins de bois.</p>
+<p class="step"><span class="sn">14</span>Laisser refroidir dans la même marmite couverte. Ne pas remuer avec une cuillère qui a traîné, ne pas verser dans un contenant non lavé : tout le travail se perd dans les cinq dernières secondes.</p>
+<p class="step"><span class="sn">15</span>Le goût plat de l’eau bouillie vient de l’air chassé. Transvaser deux ou trois fois d’un contenant à l’autre le rend potable au palais des enfants.</p>
+<p class="p0 ri"><strong class="runin">Une minute ou cinq minutes : l’arbitrage.</strong> Une minute à gros bouillons suffit contre les organismes pathogènes courants de l’eau : le plus coriace, l’oocyste de <em>Cryptosporidium</em>, tombe à 73 °C en une minute, et 100 °C dépasse toutes ces cibles. La tularémie ne change pas ce calcul. Sa bactérie, <em>Francisella tularensis</em>, « survit plusieurs mois dans un environnement humide et froid tel que l’eau » et « résiste également très bien à la congélation », mais pas à la chaleur : dans l’eau, elle meurt en une minute à 56 °C, et il n’en reste aucune de vivante après 45 secondes à 94 °C. Une minute à gros bouillons la tue comme le reste. La consigne pour l’eau bue en forêt, là où la tularémie circule, est pourtant de cinq minutes. <strong>Le livre retient donc cinq minutes partout où la tularémie est présente</strong> — castor, rat musqué, lièvre, soit le bassin versant décrit à la section 2 — parce que c’est la plus haute des deux durées et que les quatre minutes de plus se paient en bois, pas en risque. Le filtre ne remplace pas ces cinq minutes : un pore de 1 µm arrête la plupart des bactéries, pas toutes, et celle-ci est un très petit coccobacille. Devant la tularémie, on bout. Les chapitres 44 (lièvre) et 46 (castor) appliquent la même durée.</p>
+<h3 class="sub">F — Désinfecter : la javel, méthode d’appoint</h3>
+<p class="step"><span class="sn">16</span>Utiliser de l’eau de Javel <strong>non parfumée</strong>, sans agent épaississant ni détergent. Titre accepté : 5,25 % ou 4 % à 6 %.</p>
+<p class="step"><span class="sn">17</span>Dose : « environ 2 gouttes (0,2 millilitre) d’eau de Javel 5,25 % non parfumée à 1 litre ». Soit 20 gouttes, ou 2 mL, pour 10 L.</p>
+<p class="step"><span class="sn">18</span>Brasser et laisser reposer <strong>30 minutes</strong>. Ces 30 minutes valent pour une eau à plus de 20 °C. Une eau à 8 °C sortie du lac ne remplit pas cette condition.</p>
+<p class="step"><span class="sn">19</span>Eau trouble, colorée ou très froide : doubler la dose, soit 4 gouttes par litre, et allonger le temps de contact. Le doublement ne rattrape ni une eau franchement trouble — de 1 à 10 UNT, le chlore devient huit fois moins efficace — ni le <em>Cryptosporidium</em> : devant une eau de lac froide et colorée, <strong>bouillir plutôt que chlorer</strong>.</p>
+<p class="step"><span class="sn">20</span>Après 30 minutes, l’eau doit garder une légère odeur de chlore. Si elle n’en a plus, la matière organique a tout consommé : redoser une fois et attendre encore 30 minutes. Si elle n’en a toujours pas, changer de méthode.</p>
+<p class="step"><span class="sn">21</span>La javel perd son titre en entreposage, d’autant plus vite qu’il fait chaud : à l’abri de la chaleur et du soleil, elle tient environ un an depuis sa fabrication, puis se dégrade de plus en plus vite. Dater le contenant à l’achat, le garder au frais et à l’obscurité, et le remplacer avant l’année — le temps passé en magasin compte aussi — par principe et non parce qu’il est vide.</p>
+<p class="p0 ri"><strong class="runin">Quand l’eau est froide et qu’il n’y a pas de feu.</strong> C’est le trou de la chloration, et il se bouche par le temps de contact, pas par la dose. Pour l’iode, l’échelle est explicite : « cinq gouttes de teinture d’iode à 2 % ou un comprimé […] par litre d’eau », puis 30 minutes à plus de 20 °C, <strong>60 minutes entre 15 et 20 °C, et 120 minutes entre 5 et 15 °C</strong>. Deux heures d’attente pour une eau de lac boréale, mais deux heures qui sont documentées, alors que la consigne de la javel en eau froide — doubler la dose — ne donne pas de durée. L’iode est contre-indiqué chez « les femmes enceintes (goitre néonatal) », chez « les voyageurs avec une maladie thyroïdienne, même si contrôlée par médication » et en cas d’allergie connue ; et « l’utilisation quotidienne d’iode à des dosages élevés devrait se limiter à une courte période, soit moins d’un mois ». Ce n’est donc pas une méthode de fond : c’est un dépannage de quelques jours, et c’est pour ça que la javel et la marmite restent les deux moyens du chalet. L’iode est un halogène comme le chlore et travaille par la même oxydation, à laquelle la paroi de l’oocyste de <em>Cryptosporidium</em> résiste : aux doses qu’on peut boire, l’iode ne l’inactive pas plus que le chlore, même en allongeant le contact. Contre ce parasite, il reste la chaleur ou le filtre à 1 µm.</p>
+<p class="p0 ri"><strong class="runin">L’ultraviolet.</strong> Un stérilisateur UV couvre « bactéries, virus et protozoaires », donc plus large que le chlore et que le filtre. Il a deux défauts qu’il faut connaître avant d’y mettre de l’argent : il demande du courant, et « les particules dans l’eau peuvent bloquer les rayons ultraviolets et empêcher la désinfection ». Une eau trouble le met hors service sans prévenir, sans odeur ni goût pour le signaler — un UV se place donc toujours après la décantation et la filtration, jamais avant.</p>
+<h3 class="sub">G — Entreposer</h3>
+<p class="step"><span class="sn">22</span>Contenants alimentaires, opaques, à goulot étroit, remplis à ras bord, bouchés. L’opacité empêche les algues, le goulot étroit empêche les mains. Seule exception au « à ras bord » : un contenant qui risque de geler, dans un hangar, un véhicule ou une remise. L’eau prend de l’expansion en gelant et fend le contenant plein, qui ne se découvre qu’au dégel, vide. Laisser un vide d’air, et coucher le bidon.</p>
+<p class="step"><span class="sn">23</span>Étiqueter la date de traitement. Une eau traitée n’est pas stérile et se recontamine par le contenant et par les mains. Durée à respecter : « Conservez l’eau bouillie dans des contenants hermétiques et propres jusqu’à trois jours au réfrigérateur ou pendant 24 heures à la température de la pièce ». Ces 24 heures sont courtes et ce sont elles qui commandent : une eau bouillie la veille et laissée sur le comptoir se rebout, elle ne se boit pas sur la foi qu’elle a déjà été traitée. Une eau chlorée dans les règles tient plus longtemps, parce qu’il lui reste un résiduel (section 9).</p>
+<p class="step"><span class="sn">24</span>Réserve visée, deux chiffres officiels qui ne mesurent pas la même chose : <strong>4 L par personne par jour</strong> pour une trousse qui couvre tout, et <strong>6 L pour la consommation plus 6 L pour « la préparation des aliments et l’hygiène personnelle »</strong> quand c’est précisément l’eau qui manque ou qui est contaminée, soit 12 L. Le premier est le plancher de la trousse de 72 heures et il est calculé au chapitre 9 ; le second est la cible quand le problème est l’eau elle-même, et c’est celui de ce chapitre-ci. Pour quatre personnes : 48 L par jour, 144 L pour 72 heures, environ 1 440 L pour un mois. À 20 L par bidon, c’est 72 bidons pour le mois : personne ne stocke ça. Ce qui se stocke, c’est les 72 heures ; le reste se produit chaque jour, et c’est ce débit quotidien — pas le volume total — qui dicte la taille de la marmite et la réserve de bois.</p>
+<h3 class="sub">H — Le puits : analyser, puis désinfecter</h3>
+<p class="step"><span class="sn">25</span>Tant qu’il y a un laboratoire qui reçoit des échantillons, faire analyser l’eau du puits : c’est le seul geste de ce chapitre qui voit ce qui est dissous. Fréquence : « L’analyse des paramètres microbiologiques devrait se faire au moins deux fois par année et l’analyse des contaminants chimiques devrait être effectuée au moins une fois ». Paramètres chimiques visés : uranium, baryum, arsenic, nitrates/nitrites, fer, fluorures, manganèse.</p>
+<p class="step"><span class="sn">26</span>Désinfection choc d’un puits existant : viser une concentration de chlore libre de <strong>50 mg/L</strong> ; pour un puits neuf, <strong>250 mg/L</strong>, avec de l’« eau de Javel non parfumée à 5,25 % ».</p>
+<p class="step"><span class="sn">27</span>Calcul de la dose à partir de cette cible : une javel à 5,25 % titre 52 500 mg de chlore par litre. Pour amener 1 000 L d’eau à 50 mg/L, il faut 50 × 1 000 ÷ 52 500 ≈ 0,95 L de javel, soit environ <strong>1 L de javel par 1 000 L d’eau</strong>. Le chiffre difficile n’est pas celui-là : c’est le volume réel d’eau dans le puits et la plomberie.</p>
+<p class="step"><span class="sn">28</span>Ce volume se calcule, il ne s’estime pas. La hauteur à utiliser n’est pas la profondeur du puits mais la colonne d’eau, soit « la profondeur du puits moins la profondeur de l’eau » : un puits de 40 m dont le niveau statique est à 12 m porte 28 m d’eau. Le reste est de la géométrie, π r² h :</p>
+<table class="tcol nest"><colgroup><col style="width:58.7%"><col style="width:41.3%"></colgroup><thead><tr><th>Diamètre intérieur</th><th>Eau par mètre de colonne</th></tr></thead><tbody><tr><td>100 mm</td><td>7,9 L/m</td></tr><tr><td>150 mm (tubulaire courant)</td><td>17,7 L/m</td></tr><tr><td>900 mm (puits de surface)</td><td>636 L/m</td></tr></tbody></table>
+<p class="stepc">Nos 28 m dans un tubage de 150 mm font donc 28 × 17,7 ≈ 495 L, soit environ 0,5 L de javel à 5,25 % pour atteindre 50 mg/L. Le calcul se refait pour n’importe quel diamètre sans table ni outil : le volume par mètre, en litres, c’est le rayon en centimètres au carré, multiplié par 3,14, divisé par 10. Mesurer la colonne avec une ficelle lestée et un nœud, et arrondir vers le bas plutôt que vers le haut « pour être sûr » : une surchloration se paie en purge, et la purge se paie en eau qu’il faut ensuite aller chercher ailleurs.</p>
+<p class="step"><span class="sn">29</span>Faire circuler l’eau chlorée dans toute la plomberie en ouvrant chaque robinet jusqu’à ce qu’il sente le chlore, puis fermer. Laisser l’eau reposer dans la plomberie de 12 à 24 heures, et prendre les 24 heures : c’est la plus longue des deux durées et elle ne coûte qu’une nuit de plus sans eau courante.</p>
+<p class="step"><span class="sn">30</span>Purger ensuite jusqu’à disparition complète du chlore au robinet, bandelette à l’appui — « une purge prolongée en laissant couler l’eau d’un robinet jusqu’à ce que l’odeur du chlore disparaisse ». Ne pas rejeter cette eau dans le champ d’épuration ni dans un plan d’eau. Le mécanisme : une fosse septique traite les eaux usées par une population bactérienne vivante, et cette eau de purge est dosée pour tuer des bactéries — elle stérilise la fosse, qui cesse de traiter (<span class="ref">ch. 28</span>), et elle fait la même chose au ruisseau. Purger au loin, sur un sol nu, en étalant.</p>
+<p class="step"><span class="sn">31</span>Refaire analyser « une semaine suivant la désinfection et quatre semaines plus tard ». Les deux analyses sont nécessaires et ne disent pas la même chose : celle d’une semaine dit si le choc a fonctionné, celle de quatre semaines dit s’il tient. Une désinfection choc traite l’épisode, pas la cause. Un puits qui redevient positif deux fois de suite a un défaut d’étanchéité ou un voisin de contamination, et c’est le puits qu’il faut reprendre.</p>
+<h3 class="sub">I — L’hiver</h3>
+<p class="step"><span class="sn">32</span>Sous la glace : percer à l’écart des courants et des bouches de ruisseau, là où la glace est la plus épaisse et la plus régulière. La sécurité sur la glace est traitée au chapitre 54 ; elle ne se résume pas à une épaisseur, elle se lit.</p>
+<p class="step"><span class="sn">33</span>Garder le trou ouvert avec un couvercle isolé et un matelas de neige plutôt que de le repercer chaque jour.</p>
+<p class="step"><span class="sn">34</span>Fondre la neige coûte cher en bois et donne peu : la neige fraîche ne contient que 4 à 10 % d’eau, soit de 10 à 25 L de neige pour un litre. Et la fonte elle-même coûte presque autant de chaleur que de porter ensuite l’eau à ébullition : un litre de neige bouilli demande près de deux fois le bois d’un litre d’eau du lac. La neige tassée et vieillie, et mieux encore la glace, rendent beaucoup plus pour le même effort. Mettre toujours un fond d’eau liquide dans la marmite avant d’y ajouter la neige, sinon le métal surchauffe à sec et la neige brûle au fond avec un goût qui ne part plus.</p>
+<p class="step"><span class="sn">35</span>La glace de lac donne plus d’eau que la neige à volume égal et se manipule mieux. Elle exige le même traitement : la glace n’est pas une désinfection.</p>
+<p class="step"><span class="sn">36</span>Neige et glace passent par l’ébullition comme le reste. Une hutte de castor à 300 m en amont contamine la glace comme elle contamine l’eau libre.</p>
+<h3 class="sub">J — À la maison : l’avis d’ébullition, la coupure, le plomb</h3>
+<p class="step"><span class="sn">37</span>Pendant un avis, l’eau du robinet ne se bout pas pour tout : seulement pour ce qui finit dans la bouche. La liste est courte et elle se colle sur l’armoire.</p>
+<table class="tcol nest"><colgroup><col style="width:45.3%"><col style="width:54.7%"></colgroup><thead><tr><th>Exige l’eau bouillie</th><th>Ne l’exige pas</th></tr></thead><tbody><tr><td>Boire, et les breuvages</td><td>« se laver les mains, à condition d’utiliser du savon »</td></tr><tr><td>« préparer le lait maternisé, les biberons »</td><td>« prendre un bain ou une douche, à condition de ne pas avaler de l’eau »</td></tr><tr><td>« laver les légumes et les fruits qui se mangent crus »</td><td>« laver la vaisselle avec du détergent »</td></tr><tr><td>« faire des glaçons »</td><td>« laver les vêtements »</td></tr><tr><td>« vous brosser les dents »</td><td>Cuisson des plats qui bouillent longtemps</td></tr></tbody></table>
+<p class="stepc">La ligne du bain suppose un adulte. Un enfant de 4 ans avale l’eau du bain, boit au gant de toilette et se rince la bouche au robinet par habitude : pendant un avis, c’est le robinet de la salle de bain qu’on ferme et un verre d’eau bouillie qu’on laisse à côté de la brosse à dents.</p>
+<p class="step"><span class="sn">38</span>La durée, ici, est <strong>une</strong> minute à gros bouillons, pas cinq : « Faites bouillir l’eau du robinet au moins une minute à gros bouillons ». Les cinq minutes de la section 5-E visent la tularémie d’une eau de surface prise sur le territoire, pas une eau traitée par une usine puis rendue douteuse par une baisse de pression.</p>
+<p class="step"><span class="sn">39</span>Conserver l’eau bouillie « jusqu’à trois jours au réfrigérateur ou pendant 24 heures à la température de la pièce », dans des contenants hermétiques et propres. Bouillir le matin pour la journée fonctionne ; bouillir le dimanche pour la semaine, non.</p>
+<p class="step"><span class="sn">40</span>Deux consignes divergent, et la divergence se tranche par le mécanisme, pas par la sévérité : l’une interdit l’eau contaminée pour laver la vaisselle et se laver les mains, l’autre l’autorise <strong>avec du savon ou du détergent</strong>. C’est la condition qui fait toute la différence — le savon décolle les organismes de la peau et le rinçage les emporte, ce que l’eau seule ne fait pas. Sans savon, la position sévère est la bonne ; avec savon, la souple. Ce qui reste indiscutable des deux côtés, c’est la bouche : rien de non bouilli n’y entre.</p>
+<p class="step"><span class="sn">41</span>À la levée de l’avis, la plomberie de la maison contient encore l’eau de l’avis. Faire couler chaque robinet froid, jeter la glace faite par le congélateur pendant l’épisode, vider et rincer le réservoir de la machine à glaçons et la carafe filtrante, changer la cartouche si elle a filtré de l’eau sous avis.</p>
+<p class="step"><span class="sn">42</span><strong>Le plomb, quand la maison est vieille.</strong> « Des entrées de service en plomb ont été installées dans des maisons unifamiliales et des immeubles de moins de 8 logements, particulièrement entre 1940 et 1955 et même jusque dans les années 1970 ». Le seuil est de 5 µg/L, soit 0,005 mg/L : « la concentration de plomb à ne pas dépasser dans l’eau potable ». Une maison bâtie hors de cette période peut encore avoir des soudures ou de la robinetterie au plomb, alors la seule réponse ferme est l’analyse. Ce n’est pas un problème d’eau de l’aqueduc, c’est un problème de tuyau : le plomb se dissout dans l’eau qui stagne la nuit dans l’entrée de service. Quatre gestes, aucun ne coûte rien :</p>
+<p class="li l2">« laisser couler l’eau du robinet quelques minutes après qu’elle soit devenue froide (fraîche l’été) avant de la boire » — le matin et au retour du travail. Une chasse d’eau, une douche ou un lave-vaisselle font la même purge.</p>
+<p class="li l2">« Pour la préparation des aliments, des préparations commerciales pour nourrissons et des breuvages, utilisez seulement l’eau froide du robinet ». L’eau chaude fait sortir davantage de plomb et d’autres métaux de la plomberie.</p>
+<p class="li l2">« Enlevez et nettoyez régulièrement l’aérateur (petit filtre) placé dans le bec du robinet » : les particules de plomb s’y accumulent.</p>
+<p class="li l2">Une carafe ou un filtre de robinet, à condition que son média soit fait pour <strong>réduire le plomb</strong> et pas seulement pour clarifier l’eau et en corriger le goût. Un filtre à sédiments, si fin soit-il, ne fait rien contre un métal dissous : il n’y a rien à tamiser.</p>
+<p class="stepc">« Les enfants de moins de 6 ans et les femmes enceintes (pour l’enfant à naître) sont […] plus sensibles aux effets du plomb » — donc les deux enfants de la maison. Et pour ce contaminant-là, on ne bout pas : voir la section 8.</p>
+<p class="step"><span class="sn">43</span><strong>Quand l’eau ne coule plus du tout</strong> — conduite gelée, bris majeur, pompes du réseau arrêtées par une panne. Cible de réserve : « six litres d’eau par personne pour la consommation » plus « six litres d’eau supplémentaires pour la préparation des aliments et l’hygiène personnelle », soit 48 L par jour pour la famille. La réserve de la maison couvre l’événement court ; si la coupure s’étire, c’est la bascule du chapitre 2 qui s’applique, et le chalet a de l’eau parce qu’il a un lac et un poêle, pas parce qu’il a un réseau.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:16.1%"><col style="width:16.3%"><col style="width:39.0%"><col style="width:28.6%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant de puiser</td><td>Position de la prise par rapport aux eaux usées</td><td>≥ 30 m d’un système non étanche, ou 15 m si le puits est scellé (bouchon de bentonite de 5 m autour du tubage)</td><td>Déplacer la prise ou traiter l’eau comme une eau de surface contaminée</td></tr><tr><td class="c-item">Après décantation</td><td>Dépôt au fond, limpidité</td><td>Aucun voile visible à travers 20 cm d’eau — ce qui veut dire moins d’environ 5 UNT, pas 0,3</td><td>Prolonger le repos de 12 h, puis préfiltrer</td></tr><tr><td class="c-item">Avant filtration fine</td><td>Turbidité</td><td>≤ 0,3 UNT pour un enlèvement de 3 log</td><td>Préfiltrer encore ; sinon bouillir au lieu de filtrer</td></tr><tr><td class="c-item">Pendant l’ébullition</td><td>Aspect de la surface, chronomètre</td><td>Gros bouillons, ≥ 1 min chronométrée ; <strong>5 min</strong> pour toute eau de surface d’un bassin à castors, rats musqués ou lièvres — voir 5-E</td><td>Recommencer le chronométrage à zéro</td></tr><tr><td class="c-item">Avec thermomètre, si l’on économise le bois</td><td>Température tenue</td><td>≥ 73 °C pendant 1 min détruit les oocystes de <em>Cryptosporidium</em> ; 65 °C exige 5 min. Ne remplace pas les 5 min à gros bouillons sur un bassin à castors</td><td>Prolonger la durée ou monter la température</td></tr><tr><td class="c-item">Chloration — température de l’eau</td><td>Thermomètre dans le seau</td><td>&gt; 20 °C pour que les 30 min valent</td><td>Bouillir plutôt que chlorer</td></tr><tr><td class="c-item">Chloration — temps de contact</td><td>Montre</td><td>30 min</td><td>Attendre ; ne pas raccourcir</td></tr><tr><td class="c-item">Chloration — résiduel</td><td>Odeur, ou bandelette de chlore libre</td><td>Odeur de chlore encore perceptible à 30 min</td><td>Redoser 2 gouttes/L, attendre 30 min de plus</td></tr><tr><td class="c-item">Désinfection du puits</td><td>Chlore libre dans l’eau du puits</td><td>50 mg/L (puits existant), 250 mg/L (puits neuf)</td><td>Ajouter de la javel et remesurer</td></tr><tr><td class="c-item">Volume à chlorer</td><td>Colonne d’eau × section du tubage</td><td>Colonne = profondeur du puits moins profondeur de l’eau ; 17,7 L/m pour un tubage de 150 mm, ou rayon en cm au carré × 3,14 ÷ 10 pour tout autre diamètre</td><td>Recalculer : une dose posée sur un volume deviné ne vaut rien</td></tr><tr><td class="c-item">Contact dans la plomberie</td><td>Durée</td><td>12 à 24 h — retenir 24 h</td><td>Prolonger</td></tr><tr><td class="c-item">Purge après le choc</td><td>Chlore libre au robinet</td><td>Plus rien de détectable, ni à la bandelette ni à l’odeur</td><td>Continuer à purger avant tout usage</td></tr><tr><td class="c-item">Après une désinfection choc</td><td>Analyses de contrôle</td><td>Une à 1 semaine, une à 4 semaines</td><td>Les deux, pas une seule : la première dit si le choc a marché, la seconde s’il tient</td></tr><tr><td class="c-item">Eau bouillie mise de côté</td><td>Âge de l’eau dans le contenant</td><td>3 jours au réfrigérateur, 24 h à la température de la pièce</td><td>Rebouillir. Ne pas rallonger un vieux bidon avec de l’eau fraîche</td></tr><tr><td class="c-item">Deux fois l’an</td><td>Analyse microbiologique</td><td><em>E. coli</em> : « Aucun microorganisme détectable par 100 mL »</td><td>Avis d’ébullition maison, désinfection choc, nouvelle analyse</td></tr><tr><td class="c-item">Une fois par période d’usage</td><td>Analyse chimique, en mg/L</td><td>Nitrate 10 en azote ou 45 en nitrate ; nitrite 1 en azote ou 3 en nitrite ; arsenic 0,010 ; uranium 0,02 ; fluorure 1,5 ; plomb 0,005 ; baryum 2,0</td><td>Distillation ou osmose inverse pour l’eau de boisson, ou une autre source. Rien d’autre du chapitre n’y touche</td></tr><tr><td class="c-item">Une fois par période d’usage</td><td>Manganèse</td><td>0,12 mg/L ; valeur guide 0,06 mg/L pour les nourrissons ; taches sur la lessive dès 0,02 mg/L</td><td>Au-dessus de 0,12 mg/L : pas d’eau du puits pour un nourrisson</td></tr><tr><td class="c-item">Avant l’hiver</td><td>Réserve traitée</td><td>4 L par personne par jour pour la trousse (<span class="ref">ch. 9</span>) ; 6 L + 6 L par personne par jour quand c’est l’eau qui manque, soit 48 L/jour pour quatre</td><td>Compléter avant que le lac prenne</td></tr><tr><td class="c-item">Maison d’avant les années 1970</td><td>Purge du robinet avant de boire</td><td>Laisser couler « quelques minutes après qu’elle soit devenue froide » ; plomb ≤ 0,005 mg/L à l’analyse</td><td>Purger plus longtemps, eau froide seulement, filtre dont le média fixe le plomb, faire analyser</td></tr><tr><td class="c-item">À chaque achat de javel</td><td>Date sur le contenant</td><td>Moins d’un an depuis la fabrication, gardée au frais et à l’obscurité ; remplacer avant l’année</td><td>Remplacer même si le contenant est plein</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:30.0%"><col style="width:28.6%"><col style="width:41.4%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Analyse positive à <em>E. coli</em></td><td>Contamination fécale : fosse, ruissellement, tubage percé</td><td>Eau non potable. Bouillir tout usage de bouche, désinfecter le puits, réanalyser. Ne pas se fier au goût</td></tr><tr><td class="c-item">Coliformes totaux présents, <em>E. coli</em> absent</td><td>Défaut d’étanchéité, intrusion d’eau de surface</td><td>Inspecter couvercle et tubage, désinfecter, réanalyser</td></tr><tr><td class="c-item">Diarrhée qui s’installe 3 à 25 jours après avoir bu, médiane 7 à 10 jours</td><td>Giardiase (<em>Giardia lamblia</em>)</td><td>Traiter et réhydrater (<span class="ref">ch. 27</span>). Chercher le castor ou le rat musqué en amont (<span class="ref">ch. 46</span>). Passer à l’ébullition</td></tr><tr><td class="c-item">Diarrhée malgré une eau chlorée dans les règles</td><td><em>Cryptosporidium</em> : le chlore seul est presque sans effet</td><td>Bouillir, ou filtrer à 1 µm. La chloration ne reviendra pas comme méthode unique</td></tr><tr><td class="c-item">Eau claire au robinet qui brunit après quelques minutes à l’air</td><td>Fer ou manganèse dissous qui s’oxyde</td><td>Analyse chimique. Comparer au seuil de 0,12 mg/L pour le manganèse</td></tr><tr><td class="c-item">Taches noires sur la lessive et la porcelaine</td><td>Manganèse au-dessus de 0,02 mg/L</td><td>Analyse. Seuil esthétique, pas encore sanitaire — mais on veut savoir où on est</td></tr><tr><td class="c-item">Goût salé</td><td>Intrusion d’eau salée, ou sel de voirie</td><td>Rien dans ce chapitre ne l’enlève. Distillation, osmose inverse, ou autre source</td></tr><tr><td class="c-item">Filtre à 1 µm colmaté en quelques jours</td><td>Turbidité trop élevée en amont</td><td>Décanter plus longtemps et préfiltrer mieux. Une bougie de céramique se récure (<span class="ref">§9</span>) ; une cartouche plissée, non — la brosse ouvre le pli et le filtre laisse tout passer sans le dire</td></tr><tr><td class="c-item">Filtre qui se met à couler beaucoup plus vite qu’avant, sans qu’on l’ait nettoyé</td><td>Fêlure de la céramique ou pli crevé. Le débit est le seul témoin : l’eau sort limpide et non filtrée</td><td>Mettre la bougie au rebut. Une céramique fendue ne se répare pas : la colle bouche le pore autour et laisse la fissure ouverte</td></tr><tr><td class="c-item">Javel qui ne sent plus rien à l’ouverture du contenant</td><td>Perte de titre</td><td>Remplacer. Un dosage calculé sur un titre imaginaire ne désinfecte rien</td></tr><tr><td class="c-item">Bandelette à zéro 30 minutes après le dosage</td><td>Demande en chlore de la matière organique</td><td>Redoser une fois. Si ça recommence, bouillir</td></tr><tr><td class="c-item">Eau bouillie qui garde un goût métallique ou amer</td><td>Contaminant chimique, que l’ébullition a concentré</td><td>Cesser d’utiliser cette source. Analyse chimique</td></tr><tr><td class="c-item">Neige fondue au goût de fumée ou de suie</td><td>Retombées de combustion</td><td>Ne pas boire. Prélever la neige au vent du chalet, sous la croûte de surface</td></tr><tr><td class="c-item">Contenant d’eau traitée qui développe un film glissant sur les parois</td><td>Biofilm : le contenant est devenu la source de contamination</td><td>Vider, laver, désinfecter le contenant, recommencer</td></tr><tr><td class="c-item">Aucun signe, aucun goût, aucune couleur — maison desservie par l’aqueduc, bâtie entre 1940 et les années 1970</td><td>Entrée de service en plomb possible. Le plomb ne se voit pas, et l’ébullition le concentre</td><td>Purger le robinet froid avant de boire, eau froide seulement pour les biberons, faire analyser (<span class="ref">§5-J</span>)</td></tr><tr><td class="c-item">Bidon de réserve retrouvé vide ou fendu au printemps</td><td>Rempli à ras bord et laissé geler : l’eau a pris de l’expansion et a ouvert le contenant</td><td>Réserve à garder hors gel, ou vide d’air et bidon couché</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">La génératrice, la pompe à essence, le barbecue et le réchaud ne rentrent jamais.</strong> Ni dans la maison, ni dans le chalet, ni dans le garage, ni dans l’appentis, ni sous un auvent, ni dans un abri de toile, même porte ouverte, même cinq minutes. Le mécanisme : le monoxyde de carbone est un gaz « toxique qui ne se voit pas et ne se sent pas. Il n’irrite pas les yeux ni les voies respiratoires ». Il n’y a donc <strong>aucun signal d’alarme</strong> avant les symptômes : « maux de tête ; fatigue ; nausées ; vomissements ; étourdissements », qui peuvent apparaître « dans les minutes suivant l’exposition ». Quelqu’un qui s’endort n’a plus de symptômes à ressentir. « Seul un avertisseur de monoxyde de carbone peut détecter la présence de ce gaz et vous la signaler ». La génératrice va dehors, le plus loin possible des portes et des fenêtres.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Une eau contaminée a l’apparence, l’odeur et le goût d’une eau propre.</strong> Il faut 10 kystes de <em>Giardia</em> pour infecter quelqu’un : 10 objets de 8 µm dans un litre. Aucun sens humain ne détecte ça. Un lac clair qui sent bon n’est pas une information. La seule information, c’est l’analyse ou le traitement.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le chlore ne protège pas contre le Cryptosporidium.</strong> « L’efficacité du chlore seul envers le Cryptosporidium est presque nulle » : le CT requis atteint 7 000 mg-min/L, une valeur qu’aucune chloration domestique n’approche. Le mécanisme est la paroi de l’oocyste, qui résiste à l’oxydation. Une eau de lac traitée à la javel et bue sans autre étape est une eau non traitée contre ce parasite-là. Contre lui, il n’y a que la chaleur ou un filtre à 1 µm.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Bouillir une eau chimiquement contaminée la rend pire.</strong> L’ébullition « n’est généralement d’aucune utilité dans la gestion d’une contamination chimique (p. ex. plomb) », et comme une partie de l’eau part en vapeur, ce qui reste est plus concentré qu’au départ. Deux cas, un par lieu.</p>
+<p class="pt cont0">Au chalet, c’est le nitrate du puits : le seuil à ne pas dépasser est de 10 mg/L en azote, soit 45 mg/L en nitrate, et il est fixé là précisément pour protéger les nourrissons. Le mécanisme : « la toxicité des nitrates résulte de leur transformation en nitrites », ceux-ci « peuvent réagir avec le fer de l’hémoglobine des globules rouges et entraîner la formation subséquente de méthémoglobine », et « la méthémoglobine est une forme d’hémoglobine dans laquelle le fer est présent sous forme oxydée ou ferrique incapable de transporter l’oxygène ». Le cœur pompe, les poumons se remplissent, et l’oxygène ne se rend plus. « La méthémoglobinémie provoquée par les nitrates dans l’eau de boisson a principalement été observée chez les enfants de moins de 3 mois »<sup class="fnr" data-fn="13-1">1</sup>. Un puits jamais analysé ne sert pas à préparer un biberon, et bouillir son eau pour « la rendre sûre » monte la concentration de nitrate au lieu de la baisser.</p>
+<p class="pt cont0">À la maison, c’est le plomb de l’entrée de service, avec le même piège exactement : le geste qui rassure est celui qui empire. La réponse est la purge du robinet froid et un filtre dont le média fixe le plomb, jamais la marmite (<span class="ref">§5-J</span>).</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">L’eau de Javel ne se mélange à rien.</strong> Ni vinaigre, ni détartrant, ni nettoyant à cuvette, ni ammoniaque, ni urine. Le mécanisme : un acide libère le chlore de l’hypochlorite sous forme de gaz, et l’ammoniaque forme des chloramines ; les deux brûlent les voies respiratoires, peuvent tuer, et c’est pire dans un espace fermé. Ce qui trompe : l’atteinte des poumons par le chlore — une grande difficulté à respirer — peut n’arriver que 24 à 48 heures plus tard. Quelqu’un qui a toussé la veille et va bien le matin n’est pas sorti d’affaire. La javel se verse dans l’eau, jamais l’inverse, et jamais dans un contenant qui a servi à autre chose.</p>
+<p class="pt"><span class="pn">6</span><strong class="plead">L’eau du fleuve ne se boit pas.</strong> Le sel dissous traverse tous les traitements de ce chapitre. Boire de l’eau salée oblige le rein à excréter plus d’eau qu’elle n’en apporte : la déshydratation s’accélère au lieu de se corriger. Face à la Côte-Nord, le fleuve porte de 27 à 29 g de sels dissous par litre : c’est de l’eau de mer. En manque d’eau douce, c’est la neige, la glace ou l’alambic — jamais le fleuve tel quel.</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans électricité, sans filtre acheté, sans javel : il reste le feu, et le feu suffit, à un prix.</p>
+<p class="p0 ri"><strong class="runin">À la maison, le feu n’est pas acquis.</strong> La cuisinière est électrique, et la seule source de chaleur qui reste est souvent le barbecue ou le réchaud de camping. Les deux brûlent dehors, jamais dans la maison, le garage, l’entrée ni sous un auvent, pour la raison donnée à la section 8 : le monoxyde de carbone ne se voit pas, ne se sent pas, n’irrite rien, et quelqu’un qui s’endort n’a plus de symptômes à ressentir. Faire bouillir vingt litres dehors à −20 °C prend plus de temps que prévu et coûte du combustible : le chapitre 14 donne les rendements, et c’est là que la réserve déjà traitée de la section 5-G paie sa place.</p>
+<p class="p0 ri"><strong class="runin">La chaîne complète, version dégradée.</strong> Deux chaudières. La première reçoit l’eau brute et repose 12 à 24 h sous couvercle. On transvase par-dessus le dépôt dans la seconde, à travers quatre épaisseurs de coton, puis on bout à gros bouillons — 1 minute, 5 minutes si le bassin porte des castors, des rats musqués ou des lièvres (section 5-E) — et on laisse refroidir couvert. C’est tout. C’est suffisant contre les bactéries, les virus, <em>Giardia</em> et <em>Cryptosporidium</em>.</p>
+<figure class="fig pl demi" data-id="13-01"><img src="../../images/planche-13-01-trois-temps-eau.svg" alt="Planche 13-01" style="height:4.251in"></figure>
+<p class="p0 ri"><strong class="runin">Bouillir quand il n’y a pas de marmite.</strong> Un contenant qui ne va pas au feu — boîte d’écorce cousue et gommée (<span class="ref">ch. 60</span>), fût de plastique, caisse de bois, peau tendue dans un trou — se chauffe aux pierres. Faire un feu, y enfouir des pierres, les sortir une à une avec deux bâtons verts taillés en pince et les laisser tomber dans l’eau ; sortir chaque pierre refroidie avant d’en mettre une autre, sinon le fond se remplit et le contenant ne tient plus rien. <strong>Les pierres se prennent au sec, loin de l’eau, et jamais une pierre feuilletée ou une pierre ramassée dans le lit d’un ruisseau :</strong> l’eau emprisonnée dans les couches se détend d’un coup à la chaleur et la pierre éclate au visage de celui qui est penché dessus. Ce qu’on perd : la preuve. Une eau chauffée aux pierres fume, elle ne roule pas, et sans gros bouillon il n’y a plus rien qui dise qu’on est à 100 °C. C’est une manière de rendre un contenant utilisable, pas une manière de certifier de l’eau — devant un bassin à castors, ça ne remplace pas les cinq minutes.</p>
+<p class="p0 ri"><strong class="runin">Puiser un puits quand la pompe est morte.</strong> Une chaudière n’entre pas dans un tubage de 150 mm. Ce qui entre, c’est une buse : un bout de tuyau rigide de 1,5 à 2 m, un clapet au bas, une corde en haut. Le clapet se fait d’un carré de chambre à air vissé d’un seul côté au-dessus d’un trou percé dans un bouchon — il s’ouvre à la descente, il se plaque à la remontée. Volume par voyage : la longueur immergée multipliée par le volume au mètre, soit le rayon en centimètres au carré × 3,14 ÷ 10. Un tuyau de 40 mm porte donc environ 1,2 L par mètre, et une buse de 2 m remonte 2,5 L. Pour les 48 L d’une journée de famille, c’est une vingtaine de voyages, et c’est pour ça qu’on stocke l’eau traitée au lieu de la puiser au fur et à mesure. Le piège n’est pas la fatigue, c’est que <strong>tout ce qu’on descend dans le tubage est désormais dans l’eau qu’on boit</strong> : corde, buse, mains. La corde s’enroule sur un bâton et ne touche jamais le sol, la buse se range bouchée et suspendue, et tout ce qui descend est attaché deux fois — ce qui tombe au fond d’un puits y reste et y pourrit.</p>
+<figure class="fig plf" data-plate="full" data-id="13-02" data-src="../../images/planche-13-02-buse-pour-puiser-puits.svg"></figure>
+<p class="p0 ri"><strong class="runin">Faire du chlore quand il n’y a plus de javel.</strong> Deux chemins, inégaux.</p>
+<p>L’hypochlorite de calcium en granules se garde des années là où la javel liquide perd son titre en mois. Il ne se jette jamais tel quel dans l’eau de boisson : les granules ne se dissolvent pas également, et ce qui descend au fond est une concentration qui brûle. On dissout d’abord une petite quantité dans un litre d’eau propre pour faire une solution mère, on la laisse déposer, on dose l’eau avec le liquide clair au-dessus, et <strong>on vérifie à la bandelette</strong> — le titre du produit et son vieillissement font qu’aucune recette ne tient. Ces granules s’entreposent seuls, au sec, loin des huiles, des guenilles et du carburant : l’hypochlorite de calcium est un oxydant puissant et s’enflamme au contact de matière organique, sans flamme pour l’amorcer.</p>
+<p>L’électrolyse d’une saumure donne de l’hypochlorite avec ce qui est déjà au chalet : du 12 V et deux électrodes de carbone. Le mécanisme : le courant continu arrache le chlore du sel dissous à l’anode, où il se recombine en hypochlorite dans l’eau, pendant que l’hydrogène se dégage à la cathode. Trois conditions qui ne se négocient pas. <strong>Carbone aux deux bornes</strong> — une électrode d’acier ou de cuivre se dissout dans le liquide et on boit le métal ; les charbons d’une grosse pile sèche ou des électrodes de gougeage font l’affaire. <strong>Contenant ouvert, dehors, au vent.</strong> L’hydrogène qui monte est explosif dès qu’il s’accumule sous un couvercle, et le chlore qui s’échappe de la surface brûle les poumons : un bidon fermé transforme une bricole utile en bombe. <strong>Et la bandelette</strong>, parce qu’on ne sait pas ce qu’on a fabriqué : la concentration dépend du sel, du courant et du temps, et elle ne se devine pas. Un appareil conçu pour ça tire d’une saumure à 25 g de sel par litre une solution à 5 g de chlore actif par litre ; un montage de fortune fera moins, sans qu’on sache combien. La solution perd son chlore en moins d’une journée : on la fait le jour où on s’en sert. Sans bandelette, cette méthode est un dosage à l’aveugle, ce qui est pire que de bouillir.</p>
+<p class="p0 ri"><strong class="runin">Le filtre à sable.</strong> Un baril debout, un trou au bas avec un bout de boyau. Du fond vers le haut : une main de grosse pierre, une couche de gravier, puis du sable lavé — lavé jusqu’à ce que l’eau de rinçage sorte claire, faute de quoi c’est de la boue qu’on met dans le filtre. L’eau entre par le haut, doucement, sur une assiette percée qui l’empêche de creuser le sable. Plus la couche de sable est épaisse et plus l’eau la traverse lentement, mieux ça marche : ce n’est pas le pore du sable qui filtre, c’est le film vivant qui s’installe à sa surface et qui mange ce qui passe. Ce film met jusqu’à un mois à se faire, et pendant ce temps l’eau qui sort se désinfecte comme le reste ; il ne se voit pas — le sable qui fonce, c’est la saleté prise, pas le film. Il meurt si le filtre s’assèche ou s’il reste plus de deux jours sans eau neuve à manger, et se détruit si le baril gèle — un filtre à sable est un ouvrage d’été et d’automne qu’on ne peut pas improviser le jour où on en a besoin, et qu’on nourrit tous les jours une fois parti. Quand le débit tombe, on gratte les deux ou trois centimètres du dessus, on ne brasse pas le lit. Le charbon du poêle, concassé et rincé, ne se met pas dans ce baril-là : il fait un deuxième seau, <strong>après</strong> le sable, parce que déposé sur le sable il étouffe le film vivant qui fait tout le travail. Ce deuxième seau corrige le goût et la couleur. Le charbon de bois n’est pas du charbon actif. L’activation — une cuisson à la vapeur au-dessus de 800 °C qui ouvre ses pores — fait passer un charbon de bois de quelques m² à 300 m² de surface par gramme à 750 à 1 100 m², et il fixe alors trois à cinq fois plus. Le charbon du poêle retient donc un peu, mais il ne faut pas compter sur lui contre un métal ou un produit chimique dissous. Tout ça clarifie ; rien de tout ça ne désinfecte. On s’en sert avant l’ébullition, jamais à la place.</p>
+<figure class="fig plf" data-plate="full" data-id="13-07" data-src="../../images/planche-13-07-filtre-sable-baril.svg"></figure>
+<p class="p0 ri"><strong class="runin">L’alambic de fortune.</strong> Une marmite, un couvercle bombé posé à l’envers, un bol sur un trépied au centre : la vapeur monte, frappe le couvercle froid, glisse vers le creux et tombe dans le bol. Quatre détails font la différence entre un alambic et une marmite qui fume. Le joint : un boudin de guenille mouillée ou une pâte de farine et d’eau autour du couvercle, refait à chaque fois. Le froid : de la neige ou un linge mouillé sur le couvercle, renouvelé, sinon la vapeur repart au lieu de condenser. Le feu : un bouillon doux, parce qu’un gros bouillon projette des gouttes d’eau sale directement dans le bol et annule tout le travail. Et le bol : sorti à froid, jamais rempli à ras. Avec un bout de tuyau de cuivre enroulé dans un banc de neige en guise de serpentin, on récupère plus de la vapeur ; sans lui, on en perd beaucoup. Et même bien fait, l’alambic mange du bois : vaporiser un litre demande plus de cinq fois la chaleur qu’il a fallu pour l’amener à ébullition, donc plus de six fois le bois d’une simple ébullition. C’est la seule réponse d’urgence au sel, à l’arsenic, à l’uranium et au manganèse, et on la réserve à l’eau de boisson des enfants, pas à la vaisselle. <strong>Son angle mort, qui n’est pas intuitif :</strong> l’alambic laisse derrière ce qui est plus lourd que l’eau, mais il emporte avec la vapeur tout ce qui bout plus bas qu’elle. Une eau qui sent l’essence, le solvant ou le naphta ressort de l’alambic avec son contaminant dans le bol. Contre une contamination chimique volatile, distiller ne sert à rien.</p>
+<figure class="fig pl demi" data-id="13-03"><img src="../../images/planche-13-03-alambic-fortune.svg" alt="Planche 13-03" style="height:4.251in"></figure>
+<p class="p0 ri"><strong class="runin">Fondre sans gaspiller de bois.</strong> Toujours un fond d’eau liquide dans la marmite avant la neige (<span class="ref">§5-I</span>). Au-delà de ça, l’hiver donne deux fontes gratuites : un prélart noir ou une bâche foncée étalée sur la neige par une journée claire de mars, avec une pente et une rigole vers un seau ; et un sac souple accroché près du poêle, qui fond sur la chaleur perdue pendant qu’on cuisine autre chose. La glace de lac rend beaucoup plus d’eau que la neige à volume égal et vaut le voyage. <strong>Ce qui ne se fait pas, c’est manger la neige pour boire :</strong> la chaleur qu’il faut pour la fondre sort du corps, pas de rien, et un homme qui se rafraîchit l’intérieur pendant qu’il travaille dehors descend vers l’hypothermie en croyant s’hydrater (<span class="ref">ch. 3</span>). Et fondu ne veut pas dire traité : la neige et la glace passent par la marmite comme le reste.</p>
+<p class="p0 ri"><strong class="runin">Dessaler par le gel, quand il n’y a que le fleuve.</strong> L’eau qui gèle se range en cristal et refuse le sel : la glace qui se forme est moins salée que l’eau qu’elle quitte, et la saumure rejetée concentre le reste. On laisse donc geler lentement, on sort la glace, on la rince à l’eau froide pour emporter la pellicule de saumure qui l’enrobe, et on la fond. Ce n’est pas du dessalement, c’est une dilution : la glace qui vient de se former garde encore beaucoup de sel, et ne s’adoucit qu’en perdant sa saumure. Une passe ne suffit pas, il en faut plusieurs. La tentation, c’est de juger au goût et de se dire que ça passe. Une eau encore salée au goût est très loin d’être buvable, et la boire assèche plus vite que de ne rien boire (<span class="ref">§8</span>). Le gel dépanne ; l’alambic tranche.</p>
+<p class="p0 ri"><strong class="runin">Le soleil, l’été.</strong> Une bouteille de plastique transparent, remplie d’eau déjà claire, couchée sur le côté sur une surface sombre, en plein soleil : le rayonnement abîme les micro-organismes et la chaleur y ajoute. Trois conditions : l’eau doit être limpide, parce que la moindre particule fait de l’ombre ; la bouteille doit être claire, de plastique ou de verre, jamais teintée brune ou verte ; et il faut du vrai soleil — au moins six heures, deux jours de suite si le ciel est couvert —, ce qui raye cette méthode en hiver sur la Côte-Nord. Contre le <em>Cryptosporidium</em>, ça ne change rien à ce que dit la section 8 : il reste la chaleur ou le pore de 1 µm.</p>
+<p class="p0 ri"><strong class="runin">Siphonner sans amorcer à la bouche.</strong> Remplir le boyau complètement dans le contenant plein, boucher les deux bouts avec les pouces, en descendre un dans le seau receveur et lâcher. Amorcer en aspirant met l’eau brute dans la bouche et la bouche dans le côté propre : c’est la manière la plus bête de perdre une journée de bois.</p>
+<p class="p0 ri"><strong class="runin">Réparer plutôt que remplacer.</strong> Une bougie de céramique colmatée se récure sous l’eau propre avec une brosse dure ou le dos d’un couteau, et son débit repart ; chaque nettoyage lui enlève une pelure, alors on mesure son diamètre quand elle est neuve et on l’écrit sur le couvercle, sinon on la récure jusqu’à la percer sans le savoir. Une cartouche plissée, elle, ne se brosse jamais : on la rince à contre-courant et c’est tout, parce que la brosse ouvre le pli et le filtre continue de couler en ne filtrant plus rien. Un fût de plastique fendu se ressoude au fer, avec une bande découpée dans un fût du même plastique — un autre plastique ne fusionne pas, il colle et lâche. Un boyau crevé se recoupe de part et d’autre du trou et se raboute sur un manchon de tuyau rigide serré au fil de fer. Une pompe 12 V morte ne se commande pas : on la remplace par la hauteur. Un baril monté sur une plateforme distribue tout seul et la gravité ne tombe pas en panne — ce qu’elle ne fait pas, c’est remonter l’eau du lac, et ce bout-là reste à bras.</p>
+<p class="p0 ri"><strong class="runin">Ce qui ne se remplace pas, et il faut le dire net.</strong> Les bandelettes de chlore : sans elles, l’hypochlorite maison et le choc du puits se dosent à l’aveugle. L’analyse chimique : rien dans cette section ne voit l’arsenic, l’uranium, le nitrate, le manganèse ni le plomb, et aucun de ces cinq-là ne se goûte. L’avertisseur de monoxyde. Et les virus : aucun filtre de terrain ne les arrête, donc partout où des matières fécales humaines ont pu entrer dans l’eau, c’est la chaleur ou rien.</p>
+<p class="p0 lab kh"><strong class="runin">Ce qu’on perd en choisissant cette variante, nommément :</strong></p>
+<p class="li"><strong>Le volume.</strong> Bouillir 16 L par jour pour quatre personnes — le plancher de la trousse — c’est une bûche de plus à fendre chaque jour, tous les jours, en plus du chauffage. Viser les 48 L de la cible de la section 5-G en bouillant chaque litre, c’est une deuxième corvée à temps plein, et c’est pour ça que l’hygiène redescend au minimum en premier (<span class="ref">ch. 28</span>). La réserve se construit à l’automne, pas en janvier.</p>
+<p class="li"><strong>La rémanence.</strong> Une eau chlorée garde un résiduel qui la protège dans le contenant. Une eau bouillie n’en a aucun : elle est propre à la seconde où on ferme le couvercle et redevient suspecte dès qu’une main sale entre dans le bidon.</p>
+<p class="li"><strong>Tout ce qui est dissous.</strong> Arsenic, uranium, nitrate, manganèse, sel : la variante d’urgence n’y touche pas, sauf par l’alambic et en très petite quantité.</p>
+<p class="li"><strong>Le confort et la clarté.</strong> L’eau reste teintée par les tanins, plate au goût, et les enfants de 4 et 6 ans le remarquent et refusent de boire. C’est un problème réel en déshydratation d’hiver, pas un détail : voir les chapitres 7 et 33.</p>
+<p class="li"><strong>La marge d’erreur.</strong> Avec deux méthodes, un oubli se rattrape. Avec une seule, un chronomètre mal parti est une gastro-entérite pour quatre personnes à 90 km du premier médecin.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="13-1"><span class="fnn">1</span>Chez le nourrisson, la peau et les lèvres prennent une teinte bleutée. Si ça s’aggrave, viennent les troubles de la respiration et de la conscience, puis le coma. Le sang, lui, est brun chocolat au lieu de rouge.</p>
+</template>
+<script type="application/json" id="meta">{"num": "13", "title": "Eau : puiser, filtrer, désinfecter", "tome": "Tome 1 · Tenir", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

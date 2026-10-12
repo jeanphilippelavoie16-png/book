@@ -1,0 +1,12 @@
+# Direction 4 — l'almanach, refait aujourd'hui
+
+1. **Parti pris.** Un livre de référence qu'on garde quarante ans : une seule famille de caractères, des capitales espacées pour les repères, des filets fins, aucun ornement. L'héritage de l'almanach, c'est la discipline de la page, pas le papier jauni.
+2. **Polices.** Vollkorn (corps 10,25/13,6 pt ; gras pour les amorces ; extra-gras pour les chiffres de chapitre et de tome) et Vollkorn SC pour tous les repères : titres courants, sections, en-têtes de tableaux, ligne de lieu. Un pain de ménage : foncé, robuste, lisible à la lampe frontale. Instances statiques incorporées au PDF, aucune police Type 3.
+3. **Grille.** Page PDF 8,125 × 10,25 po (fond perdu en tête, en pied et au petit fond). L'empagement **est** la zone des planches, 7 × 8,5 po, décalé de 1/16 po vers l'extérieur pour l'avaleur de la reliure (grand fond 0,5625, petit fond 0,4375, tête et pied 0,75). Deux colonnes de 3,375 po, 45 lignes de 13,6 pt. Titre courant et folio toujours au même endroit.
+4. **Densité.** Environ 875 mots sur une page de texte pleine, de 590 à 770 sur une page avec tableau ou encadré : les 700 mots utiles tiennent sans descendre sous 10 pt.
+5. **Hiérarchie.** Chaque section, c'est un chiffre gras et un nom en capitales espacées sur un filet, et toujours le même dessin. L'œil apprend le signe une fois.
+6. **Section 9.** Une bande noire pleine largeur, un filet de tête épais sur toutes ses pages et un onglet noir en bas de la tranche : elle se trouve livre fermé, au pouce.
+7. **Danger.** C'est le seul rouge du livre. Il donne le cadre, le mot DANGER, les numéros des mécanismes et un onglet rouge au milieu de la tranche, et rien d'autre n'est rouge. On voit l'encadré avant de le lire.
+8. **Lieu.** Trois cases, Maison · Chalet · Les deux, et la bonne est en noir. Même geste dans chaque chapitre et dans le chapitre principal.
+9. **Chapitre principal.** Une catastrophe par page. Les gestes sont en gras à 14,5 pt et les renvois de chapitre dans la marge de droite. En pied, « Sans rien » dans la même bande noire que la section 9, et un onglet noir en haut de la tranche.
+10. **Couvertures.** Une toile de couleur sourde par tome (bleu de nuit, ocre, épinette, fumée), une étiquette crème à double filet à la même place sur les quatre et une planche au trait dans la couleur du tome. Au dos, une étiquette avec le chiffre romain : la série se lit de l'autre bout du chalet.

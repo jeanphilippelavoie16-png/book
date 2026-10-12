@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>43 — Les traces et les signes des animaux — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"43"}
+</style>
+</head>
+<body class="vA vB vC t3 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 3 · Prélever</span><span>Chapitre</span></div><div class="open-title"><div class="num">43</div><h1>Les traces et les signes des animaux</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">C’est autour du chalet que les pistes décident de quelque chose : où poser un collet, où attendre à la brunante, qui a tourné autour de la cache de viande pendant la nuit, et où ne pas aller. Au village, le même savoir dit seulement quel chien a traversé la cour.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Une trace dit quelle bête est passée, à quelle allure, dans quel sens et depuis combien de temps : dans la neige, elle se lit de quelques minutes à quelques jours selon le vent et le soleil ; dans la boue, ses bords sont secs et croûtés au bout d’une heure au moins ; une griffade d’ours sur un tremble se lit encore des années plus tard.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<p class="p0 lab kh"><strong class="runin">Quand c’est le bon geste.</strong></p>
+<p class="li"><strong>Le deuxième matin après une neige, pour savoir ce qui vit là.</strong> La première nuit ne montre que les bêtes qui ont bougé cette nuit-là ; la deuxième en ajoute assez pour dresser l’inventaire d’un secteur, sans que les pistes se mêlent encore.</p>
+<p class="li"><strong>Le premier matin après une neige, pour trouver une bête.</strong> Tout ce qui est sur la neige neuve a été fait depuis qu’elle a cessé de tomber : la piste la plus nette est la plus fraîche (<span class="ref">ch. 47</span>, étape 6).</p>
+<p class="li"><strong>Avant de poser une ligne de collets ou de pièges.</strong> Une ligne se pose sur des pistes, pas sur une impression (<span class="ref">ch. 48</span>, étape 3 ; <span class="ref">ch. 55</span>).</p>
+<p class="li"><strong>Au retour au chalet après une absence.</strong> Le tour du bâtiment, de la cache et du caveau dit qui est venu, combien de fois, et s’il est reparti. Le tas de viscères se lit <strong>de loin</strong> : une piste d’ours qui y mène renvoie au <span class="ref">§8</span>, bloc 1, parce qu’un ours qui mange là garde ce qu’il mange. <strong>Une piste d’ours qui entre dans la remise, le caveau, la cache ou sous le chalet, et qui ne ressort pas</strong> : il est peut-être encore dedans. On n’ouvre pas la porte, on ne passe pas la tête dessous : un ours coincé ou surpris de près se défend. On se tient loin, on lui laisse le chemin libre vers le bois, et on fait du bruit de là. Un ours qui entend venir du monde s’en va.</p>
+<p class="li"><strong>Tôt le matin au printemps</strong>, quand le gel de la nuit tient encore la neige : c’est l’heure où les empreintes n’ont pas encore fondu.</p>
+<p class="p0 lab kh"><strong class="runin">Quand c’en est un mauvais.</strong></p>
+<p class="li"><strong>Après un redoux suivi d’un gel.</strong> Les bêtes marchent sur la croûte sans laisser de trace. Une neige vide ne veut pas dire un secteur vide.</p>
+<p class="li"><strong>À midi, sur un versant exposé au sud, au printemps.</strong> Le soleil agrandit les empreintes d’heure en heure : un renard devient un lynx, un coyote devient un loup (<span class="ref">§3</span>). Mesurer là où il y a de l’ombre, ou revenir sur le versant nord.</p>
+<p class="li"><strong>Pour chercher une bête blessée.</strong> L’attente avant de suivre, le sang, et la recherche en cercles ou en carré qui s’élargit sont au chapitre 44 (blocs C, D et F). Ce chapitre-ci lit les bêtes vivantes et saines.</p>
+<p class="li"><strong>Pour suivre un lièvre qu’on vient de lever.</strong> Il décrit un grand cercle et revient près de son point de départ : on l’attend, on ne le suit pas (<span class="ref">ch. 47</span>, étape 8).</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">Trois mots, qu’on n’emploie pas l’un pour l’autre.</strong> L’<strong>empreinte</strong> est la marque d’un seul pied. La <strong>piste</strong> est une suite d’empreintes. La <strong>trace</strong> est tout ce que la bête laisse derrière elle : piste, crotte, poil, griffade, reste de repas. La <strong>foulée</strong>, dans ce chapitre, est la distance entre deux posés <strong>du même pied</strong> — un cycle complet. Au pas, elle vaut à peu près la distance de l’épaule à la hanche : elle donne la longueur de la bête. Le <strong>pas</strong>, comme longueur, en est la moitié : d’une empreinte à la suivante, <strong>de l’autre pied</strong>. Les fiches donnent la foulée ; le bâton de pistage mesure le pas (<span class="ref">§9</span>).</p>
+<p class="p0 ri"><strong class="runin">Le pied dit la famille.</strong> Quatre questions suffisent presque toujours : combien de doigts, les griffes marquent-elles, l’empreinte est-elle symétrique, quel pied est le plus grand.</p>
+<p class="li"><strong>Les canidés</strong> (loup, coyote, renard) : quatre doigts devant et derrière, griffes presque toujours visibles, empreinte ovale et symétrique, doigts presque parallèles. Entre les doigts et le coussinet, un espace vide en forme de <strong>X</strong> chez le renard et le loup, <strong>plutôt de H chez le coyote</strong>. Le pied avant est le plus grand : c’est l’avant qui porte le poids.</p>
+<p class="li"><strong>Le lynx</strong> : quatre doigts, <strong>griffes rarement visibles</strong>, empreinte ronde, aussi large que longue ; un doigt central dépasse l’autre ; le coussinet a deux lobes à l’avant quand on le voit<sup class="fnr" data-fn="43-1">1</sup>. Le pied est si poilu que le dessin est flou, même l’été.</p>
+<p class="li"><strong>Les mustélidés</strong> (martre, vison, loutre, belette) : <strong>cinq doigts</strong> groupés un-trois-un ; quand le petit doigt intérieur ne marque pas, un-trois ; coussinet en V renversé, plus long d’un côté ; griffes visibles.</p>
+<p class="li"><strong>L’ours</strong> : cinq doigts, griffes qui ne marquent pas toujours ; le pied arrière ressemble à un pied humain, <strong>mais son plus petit doigt est à l’intérieur</strong>. L’arrière est le plus grand : c’est l’arrière-train qui est lourd.</p>
+<p class="li"><strong>Les rongeurs</strong> (castor, rat musqué, porc-épic, écureuil) : quatre doigts devant, cinq derrière ; les trois doigts du milieu du pied arrière sont parallèles. Le pied arrière est le plus grand ; chez le porc-épic, avant et arrière ont le même dessin.</p>
+<p class="li"><strong>Le lièvre</strong> : pieds arrière beaucoup plus grands que les avant, qui se posent <strong>devant</strong> eux.</p>
+<p class="li"><strong>Les cervidés</strong> : deux sabots, et deux <strong>ergots</strong>, petits doigts placés plus haut derrière la patte, qui ne marquent que dans la neige, dans la boue ou quand la bête va vite.</p>
+<p class="p0 ri"><strong class="runin">Le corps dit l’allure.</strong> Une bête ne choisit pas sa façon de marcher, sa forme la lui impose, et l’allure se lit de loin quand l’empreinte ne se lit plus.</p>
+<p class="li"><strong>Au pas</strong>, les pieds se posent l’un après l’autre et laissent une ligne ; souvent le pied arrière se pose exactement dans l’empreinte du pied avant (pose directe). Plus la bête compte sur la discrétion, plus la pose est directe : le lynx pose presque toujours ses pieds arrière dans ses propres trous.</p>
+<p class="li"><strong>Au trot</strong>, les pattes opposées bougent ensemble. La piste ressemble à celle du pas, mais la foulée est plus longue et la piste plus étroite. Les canidés trottent pour se déplacer, souvent de biais, les avant d’un côté de la ligne, les arrière de l’autre.</p>
+<p class="li"><strong>Le bond</strong>, les deux pieds arrière poussant ensemble, laisse des groupes séparés par des vides : lièvre, écureuil. <strong>Les mustélidés</strong>, longs et bas, <strong>bondissent par paires</strong> dans la neige, les pieds arrière tombant dans les trous des avant : deux trous côte à côte, un vide, deux trous.</p>
+<p class="li"><strong>Une allure qui change est un événement.</strong> Un carnivore galope rarement longtemps avec un espacement égal ; au pas ou au trot, il garde le même espacement sur de longues distances. La piste d’un lynx qui marche et qui bondit sur quelques mètres raconte une tentative de prise.</p>
+<p class="p0 ri"><strong class="runin">Les dents disent qui a mangé.</strong> Les cervidés n’ont <strong>pas d’incisives en haut</strong> : ils pincent la pousse et l’arrachent, et laissent un <strong>bout effiloché</strong>. Le lièvre et les rongeurs ont des incisives en ciseau et doivent pencher la tête pour couper : ils laissent une <strong>coupe nette, en biais</strong>. Et la largeur d’une marque de dent trie les rongeurs : <strong>6 mm</strong> le castor, <strong>3,6 mm</strong> le porc-épic, <strong>2,3 mm</strong> le lièvre, <strong>1 mm</strong> l’écureuil roux et le campagnol.</p>
+<p class="p0 lab kh"><strong class="runin">La neige enregistre, puis elle efface — et elle ment entre les deux.</strong></p>
+<p class="li"><strong>Elle se soude.</strong> Les miettes de neige que le pied projette en avant se soudent à la neige dessous en <strong>20 minutes à une heure</strong> selon le froid, l’humidité et la neige : c’est le frittage, le même phénomène qui fait tenir un abri de neige. Tant qu’elles s’envolent au souffle, la bête est passée il y a très peu de temps (<span class="ref">§5-A</span>, étape 9).</p>
+<p class="li"><strong>Elle grossit les empreintes.</strong> Le soleil fond les bords, surtout le bord opposé au soleil ; le vent sublime la neige du côté sous le vent. Une empreinte peut <strong>quadrupler de surface</strong>, et ses doigts finissent par se fondre dans le coussinet. C’est ainsi qu’un coyote devient un lynx, dans l’œil de celui qui a mesuré une seule empreinte au soleil de midi.</p>
+<p class="li"><strong>Elle les rapetisse.</strong> Le manteau de neige se tasse sous son propre poids ; comme la neige colle aux troncs, <strong>des creux en entonnoir autour des arbres</strong> signalent le tassement. En quelques heures, une empreinte rétrécit, et parfois disparaît.</p>
+<p class="li"><strong>Par grand froid calme, elle ne change plus.</strong> Sans soleil ni vent, une piste de trois jours a l’air de la nuit dernière. L’âge d’une trace, c’est de la météo : il faut savoir le temps qu’il a fait.</p>
+<p class="p0 ri"><strong class="runin">La boue aussi.</strong> L’eau tient les bords d’une empreinte nets ; en séchant, les grains tombent dedans et les bords s’arrondissent, puis croûtent — <strong>une heure au moins</strong> pour des bords secs et croûtés. L’eau qui remplit une empreinte fraîche dans un sol détrempé est trouble, et <strong>s’éclaircit en une heure environ</strong>. Une pluie légère arrondit les bords ; une forte pluie efface tout.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce qu’il faut pour <strong>lire</strong> ; les jumelles et les frontales s’achètent au chapitre 00b.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Ruban à mesurer ou règle</td><td>1</td><td><strong>La main mesurée une fois</strong> (<span class="ref">§9</span>) ; le bâton entaillé aux 5 cm ; la hauteur de la page de ce livre, 25,4 cm ; la règle imprimée sur les planches des empreintes</td><td>Oui</td></tr><tr><td class="c-item">Lampe frontale</td><td>1</td><td>Soleil bas du matin ou du soir ; l’ombre de son propre corps jetée sur l’empreinte ; <strong>à la brunante et la nuit seulement</strong>, une chandelle tenue au ras de la neige</td><td>Oui</td></tr><tr><td class="c-item">Bâton de pistage, droit, d’environ 90 cm</td><td>1</td><td>N’importe quelle branche droite, écorcée au couteau aux endroits à marquer ; une perche plus longue si le pas de la bête dépasse le bâton</td><td>Oui</td></tr><tr><td class="c-item">Bâtonnet pour ouvrir une crotte</td><td>1</td><td>Une brindille. <strong>Jamais les doigts</strong> (<span class="ref">§8</span>)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Jumelles</td><td>1 paire</td><td>Monter sur une butte ; s’arrêter plus longtemps</td><td>Oui</td></tr><tr><td class="c-item">Marques pour la dernière empreinte sûre</td><td>3 ou 4</td><td>Branche cassée plantée dans la neige ; mitaine posée ; ruban de couleur ; trois cailloux</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<p class="p0">Un chapitre de référence : une méthode de lecture en quinze étapes (5-A), puis les fiches par espèce (5-B à 5-F), les signes sur les arbres (5-G) et les confusions (5-H).</p>
+<h3 class="sub">5-A. Lire une trace, dans l’ordre</h3>
+<p class="step"><span class="sn">1</span><strong>S’arrêter avant de marcher dessus.</strong> La pire erreur de lecture, c’est le pisteur : ses pieds, ceux des enfants, le chien. On arrête tout le monde à distance et on garde le chien attaché.</p>
+<p class="step"><span class="sn">2</span><strong>Regarder la scène avant l’empreinte.</strong> D’où vient la piste, où va-t-elle, dans quel milieu, à quelle saison, et la surface a-t-elle changé depuis le passage (neige tombée, vent, soleil) ? Une empreinte de mustélidé moyen le long d’un ruisseau est plus souvent un vison qu’une martre ; la même en vieille forêt de conifères, l’inverse.</p>
+<p class="step"><span class="sn">3</span><strong>Approcher par le côté, et par le bas s’il y a une pente.</strong> On marche à côté de la piste, jamais dedans, et du côté aval, pour qu’une glissade ne détruise rien.</p>
+<p class="step"><span class="sn">4</span><strong>Chercher la meilleure empreinte, pas la première.</strong> Suivre sur vingt ou trente mètres. Une empreinte nette se trouve <strong>sous les épinettes</strong>, où la neige est plus mince et plus ferme, sur un chemin tassé, sur une croûte saupoudrée de neige fraîche, au bord d’une flaque. Trois empreintes avant et trois arrière, si on peut, plutôt qu’une.</p>
+<p class="step"><span class="sn">5</span><strong>Compter les doigts, chercher les griffes, regarder la forme.</strong> Les quatre questions du <span class="ref">§3</span>. Sur un sabot : pointu ou rond, ergots ou non.</p>
+<p class="step"><span class="sn">6</span><strong>Mesurer la longueur et la largeur comme les fiches le font.</strong> Le pied arrière du lièvre, des rongeurs et de l’ours se mesure <strong>talon compris</strong> : l’exclure donne une mesure plus petite que la fiche, et une autre bête. L’avant de l’ours se lit avec ou sans son petit talon rond, qui marque rarement (5-C). Les griffes ne comptent pas dans la longueur : elle s’arrête au bout du coussinet du doigt le plus avancé. La griffe se regarde à part : marque-t-elle ou non (<span class="ref">§3</span>). Mesurer ce que le pied a touché, pas le trou qu’il a laissé : une empreinte enfoncée paraît plus grande qu’elle n’est.</p>
+<p class="step"><span class="sn">7</span><strong>Trouver un bout où la bête ne se pressait pas,</strong> sur terrain plat, piste droite, espacement égal sur plusieurs foulées. C’est là qu’on mesure la foulée et la largeur de piste. Le trot pris pour un pas fait croire à une bête plus grosse : c’est l’erreur qui transforme un coyote en loup. <strong>Mesurer de centre à centre</strong> d’empreinte : le centre bouge peu quand la neige fond.</p>
+<p class="step"><span class="sn">8</span><strong>Lire le sens de la marche.</strong> Trois indices, du plus sûr au moins sûr :</p>
+<p class="li">les <strong>miettes de neige projetées vers l’avant</strong>, qui se voient même de loin ;</p>
+<p class="li">la forme du trou dans la neige profonde : <strong>une petite entrée</strong> où le pied est entré, <strong>un étranglement</strong> où la patte a pivoté, <strong>une sortie plus large</strong> où le pied est ressorti ;</p>
+<p class="li"><strong>le fond du trou, tâté avec la main nue</strong> : les pointes d’un sabot, les doigts d’un canidé marquent plus profond que l’arrière. Chez le lièvre, <strong>le sens de la marche va vers les grandes empreintes</strong> : ce sont les pieds arrière, posés devant. La moitié des gens le lisent à l’envers.</p>
+<p class="step"><span class="sn">9</span><strong>Dater dans la neige.</strong> Souffler sur les miettes au bord de l’empreinte : si elles s’envolent, la bête est passée depuis moins de 20 minutes à une heure, et elle est probablement tout près ; si elles sont soudées, c’est plus vieux, sans qu’on sache de combien. Ensuite, la météo : une piste nette sur une neige tombée hier soir date de la nuit ; des bords arrondis et secs disent le vent ou le soleil ; des empreintes remplies à moitié de neige neuve sont d’avant ou de pendant la dernière chute. Tout ça se range dans les trois niveaux du chapitre 42 (étape 6) — du jour, de la semaine, de la saison — et pas plus fin.</p>
+<p class="step"><span class="sn">10</span><strong>Dater dans la boue.</strong> Bords nets et humides, grains qui commencent à tomber dedans : quelques minutes. Bords secs et croûtés : <strong>une heure au moins</strong>. Eau trouble au fond de l’empreinte : moins d’une heure environ ; claire : plus. Des feuilles ou brindilles dans l’empreinte : poussées par le vent après le passage, ou écrasées par le pied pendant — les écrasées sont enfoncées sous le bord.</p>
+<p class="step"><span class="sn">11</span><strong>Nommer l’allure.</strong> Ligne régulière : pas ou trot, et la foulée tranche. Paires de trous côte à côte : mustélidé qui bondit. Groupes de quatre avec les grandes empreintes devant : lièvre ou écureuil. Espacement qui s’allonge ou change : la bête a été dérangée, ou elle a chassé.</p>
+<p class="step"><span class="sn">12</span><strong>Chercher les autres signes à moins de cent mètres.</strong> Crotte, urine, poil sur une branche, lit, tunnel, reste de repas, arbre marqué (5-G). Ce sont eux qui confirment l’espèce quand l’empreinte ne le fait pas.</p>
+<p class="step"><span class="sn">13</span><strong>Confronter à la fiche</strong> (5-B à 5-F), puis à la table des confusions (5-H). Si deux espèces restent possibles, suivre la piste jusqu’à une empreinte nette plutôt que de trancher au hasard.</p>
+<p class="step pk-d"><span class="sn">14</span><strong>Décider.</strong> Une trace lue sans décision est une promenade : collet ici, attente là, rien à faire, ou s’en aller (<span class="ref">§8</span>). La décision s’écrit sur la carte du territoire, au crayon, pas ailleurs (<span class="ref">ch. 42</span>, étape 7).</p>
+<p class="step"><span class="sn">15</span><strong>Refaire le chemin au retour.</strong> Une empreinte invisible le matin sous une lumière plate ressort l’après-midi sous le soleil bas. Aller et revenir par la même route, c’est lire chaque trace sous deux lumières.</p>
+<h3 class="sub">5-B. Les cervidés</h3>
+<p class="p0">Deux sabots en cœur, la pointe dans le sens de la marche, deux ergots derrière dans la neige ou la boue. Pas de griffes, pas de doigts. Sabots avant plus grands. Allure ordinaire : le pas.</p>
+<table class="tspan"><colgroup><col style="width:5.5%"><col style="width:24.2%"><col style="width:28.7%"><col style="width:41.6%"></colgroup><thead><tr><th>Espèce</th><th>Empreinte</th><th>Piste</th><th>Autres signes</th></tr></thead><tbody><tr><td class="c-item"><strong>Orignal</strong> (<em>Alces americanus</em>)</td><td>Deux croissants allongés et pointus. Avant <strong>11 à 18 cm de long, souvent plus</strong>, sur <strong>9,5 à 15 cm</strong> ; arrière 10,5 à 16,5 cm sur 9 à 12 cm. Un sabot de plus de 18 cm reste un orignal. Les pointes marquent plus profond. Les ergots marquent dans la neige et la boue</td><td>Pas lent, en ligne droite ; il enjambe les chablis et passe dans une neige qui arrête le loup. <strong>Sabots écartés et ergots marqués sur un sol dur : une bête qui court.</strong> <strong>Deux pistes fraîches ensemble, une grande et une minuscule</strong>, de la fin du printemps à l’été : une femelle et son petit veau, et on ne suit plus (<span class="ref">§8</span>, bloc 2). Avant de se coucher, il remonte le vent un moment, puis revient en demi-cercle : ce qui suit sa piste arrive sur lui du côté d’où vient le vent (<span class="ref">ch. 44</span>, étape 7)</td><td><strong>Brout effiloché</strong> sur saule, bouleau, tremble, sapin baumier, cornouiller : les rameaux mordus l’hiver, les feuilles arrachées l’été. Par endroits, une <strong>ligne de broutage à 1,8 ou 2,4 m</strong> du sol ; un saule brouté des années de suite prend la forme d’un balai. <strong>Écorçage</strong> vers la fin de l’hiver, surtout sur les trembles et les peupliers : raclé de bas en haut avec les dents du bas, bord inférieur net. <strong>Crottes d’hiver</strong> en boulettes ovales de <strong>2,5 à 4,5 cm</strong>, dures et sèches ; l’été, bouses molles. Jusqu’à une vingtaine de dépôts par jour. <strong>Frottis</strong> à l’automne : écorce effilochée et petites branches cassées à la hauteur du panache</td></tr><tr><td class="c-item"><strong>Caribou</strong> (<em>Rangifer tarandus</em>)</td><td><strong>Plus large que long</strong> : les sabots les plus ronds de tous les cervidés, deux demi-lunes creuses très écartées. Avant <strong>8 à 13 cm</strong> de long sur <strong>10 à 15 cm</strong> de large ; arrière 7,5 à 11,5 cm sur 9 à 12 cm</td><td>Pas, aux bords des tourbières et autour des gros blocs erratiques<sup class="fnr" data-fn="43-2">2</sup> où poussent les lichens</td><td><strong>Cratères d’alimentation</strong> : trous creusés à la patte dans la neige jusqu’aux lichens du sol ; dans une harde voisine, on ne les a pas vus creuser dans plus d’environ <strong>1,25 m</strong> de neige. Certains caribous passent l’hiver dans les vieilles pessières et sapinières, aux lichens des arbres. Crottes d’hiver en <strong>petites boulettes creusées d’un côté</strong></td></tr></tbody></table>
+<h3 class="sub">5-C. L’ours noir</h3>
+<table class="tspan"><colgroup><col style="width:5.1%"><col style="width:26.2%"><col style="width:18.4%"><col style="width:50.4%"></colgroup><thead><tr><th>Espèce</th><th>Empreinte</th><th>Piste</th><th>Autres signes</th></tr></thead><tbody><tr><td class="c-item"><strong>Ours noir</strong> (<em>Ursus americanus</em>)</td><td>Cinq doigts ; le <strong>plus petit à l’intérieur</strong>, à l’inverse du pied humain ; griffes pas toujours visibles. Avant large et court, le petit talon rond marque rarement : jusqu’à <strong>15 cm</strong> de large, et jusqu’à <strong>20 cm</strong> de long quand le talon marque. Arrière comme un pied humain élargi, talon entier : <strong>14 à 22,5 cm</strong> de long sur <strong>9 à 15 cm</strong></td><td>Pas lourd ; le pied arrière se pose souvent devant l’avant. Il prend <strong>les mêmes sentiers et chemins que les gens</strong>, le soir et au petit matin : ses pistes fraîches se voient le matin, sur les sentiers</td><td><strong>Arbre de marquage</strong> près d’un sentier : griffades verticales <strong>à hauteur des yeux</strong>, parfois jusqu’à 3,7 m, morsures, écorce polie, <strong>poils collés dans la sève</strong>. <strong>Griffades</strong> sur les trembles et les peupliers, qui restent <strong>des années</strong> en cicatrices noires. <strong>Écorçage de printemps</strong> : longs sillons verticaux de dents dans le bois, lanières d’écorce au pied ou pendantes. <strong>Billots roulés ou éventrés</strong>, fourmilières creusées, <strong>pierres retournées à l’envers sur la végétation</strong>. <strong>Lit de jour</strong> : cuvette ou végétation couchée près d’une source de nourriture, <strong>plusieurs crottes autour</strong> ; il y revient. <strong>Crottes</strong> foncées, <strong>450 g ou plus</strong>, pleines de petits fruits entiers et de graines l’été et l’automne, à l’odeur presque sucrée ; au printemps, petites, denses, tubulaires. <strong>Bosse de terre, d’herbe et de branches</strong> : une carcasse cachée (<span class="ref">§8</span>)</td></tr></tbody></table>
+<h3 class="sub">5-D. Les canidés et le lynx</h3>
+<p class="p0">Chez les quatre, le pied avant est plus grand que l’arrière. Les canidés marquent leurs griffes et trottent ; le lynx cache ses griffes et marche.</p>
+<table class="tspan"><colgroup><col style="width:6.3%"><col style="width:23.5%"><col style="width:35.5%"><col style="width:34.8%"></colgroup><thead><tr><th>Espèce</th><th>Empreinte</th><th>Piste</th><th>Autres signes</th></tr></thead><tbody><tr><td class="c-item"><strong>Loup gris</strong> (<em>Canis lupus</em>)</td><td>Quatre doigts, griffes, ovale, X entre doigts et coussinet. Avant <strong>9,5 à 14,5 cm</strong> de long sur <strong>7 à 12,5 cm</strong> ; arrière nettement plus petit, 9,5 à 13 cm sur 6,5 à 11,5 cm. Les doigts marquent plus profond que le coussinet</td><td>Trot en ligne droite. <strong>Foulée de trot 130 à 155 cm</strong> ; au pas, 111 à 124 cm. Largeur de piste 12 à 23 cm. <strong>Dans la neige, la meute marche en file</strong>, chacun dans les pas du premier : une seule piste peut cacher plusieurs loups, qui se séparent plus loin. Sur une piste tassée, il va plus de trois fois plus vite qu’à côté ; il s’en sert là où il y en a, sans les rechercher partout. Les étangs de castor gelés, balayés par le vent et moins enneigés que la forêt, les rives gelées et les barrages sont des passages fréquents</td><td><strong>Crottes en corde de plus de 2,5 cm de diamètre</strong>, jusqu’à 3,8 cm, longues de 10 à 18 cm, pleines de poil de cervidé, de castor ou de lièvre, <strong>franges de poil effilées</strong> aux bouts, éclats d’os. <strong>Urine de marquage</strong> : seuls le mâle et la femelle dominants lèvent la patte. Carcasse d’orignal tuée dans une neige croûtée ou sur la glace lisse, où l’orignal n’a pas d’appui</td></tr><tr><td class="c-item"><strong>Coyote</strong> (<em>Canis latrans</em>)</td><td>Même dessin, en plus petit ; l’espace entre doigts et coussinet fait plutôt un <strong>H</strong>. Avant <strong>5,5 à 8 cm</strong> sur <strong>4 à 6 cm</strong> ; arrière 5,5 à 7,5 cm sur 3 à 5 cm</td><td>Trot en ligne ; <strong>foulée de trot 84 à 118 cm</strong> ; au pas, 61 à 98 cm</td><td>Crottes en corde de <strong>2 à 2,5 cm</strong> de diamètre, 7,5 à 15 cm de long, poil de petits mammifères, os, graines, fruits ; sur les sentiers, les roches, en vue. Grattages à côté</td></tr><tr><td class="c-item"><strong>Renard roux</strong> (<em>Vulpes vulpes</em>)</td><td><strong>5 à 7 cm</strong> de long sur <strong>3,5 à 5,5 cm</strong> ; pied très poilu l’hiver, doigts flous ; coussinet avant en barre<sup class="fnr" data-fn="43-3">3</sup>, qui dessine un <strong>X</strong> franc</td><td><strong>Une ligne droite</strong> : chaque pied arrière dans l’empreinte de l’avant, les pieds posés l’un devant l’autre comme sur un fil. Foulée au pas <strong>56 à 67 cm</strong>, au trot 79 à 102 cm. Son trot de biais laisse des paires d’empreintes qui ressemblent à une martre</td><td><strong>Urine à l’odeur de moufette</strong> sur une brindille, une souche, une motte : c’est le test qui sépare le renard du chien. <strong>Plongeons</strong> : un trou dans la neige, museau le premier, au bout d’un bond en arc, là où il a entendu un campagnol sous la neige. Crottes en corde effilée de <strong>moins de 1,6 cm</strong> de diamètre, poil et petits os l’hiver, petits fruits l’été ; grattage autour</td></tr><tr><td class="c-item"><strong>Lynx du Canada</strong> (<em>Lynx canadensis</em>)</td><td><strong>Ronde, aussi large que longue</strong> : en moyenne <strong>8,7 cm de long sur 9 cm de large</strong> à l’avant ; fourchette de 6 à 11 cm de long. <strong>Pas de griffes</strong>, doigts flous sous le poil, gros coussinet flou</td><td><strong>Pas en pose directe</strong>, foulée de <strong>47 à 94 cm</strong> (72 en moyenne) ; un <strong>sillon</strong> d’environ 27 cm de large même dans la neige molle, tracé par le poil des pieds. Il flotte : il porte trois fois moins par centimètre carré qu’un chat. <strong>Piste droite en vieille forêt, sinueuse dans la repousse</strong> : là, il chasse. Quelques mètres de bonds au milieu d’un pas : une tentative sur un lièvre ou un oiseau</td><td><strong>Crottes rarement enterrées</strong>, au milieu de la piste ou à une croisée. <strong>Caches</strong> : monticules de neige ou de débris sur les restes d’un lièvre. <strong>Lits</strong> : cuvettes rondes et nettes, <strong>à croûte de glace</strong> quand il s’y est reposé longtemps. Il lui arrive de marcher sur la piste du pisteur</td></tr></tbody></table>
+<h3 class="sub">5-E. Les mustélidés</h3>
+<p class="p0">Cinq doigts un-trois-un, griffes, bonds par paires dans la neige. Leur piste se reconnaît de loin : deux trous côte à côte, un vide, deux trous, et des vides qui alternent souvent court-long quand la bête accélère.</p>
+<table class="tspan"><colgroup><col style="width:11.7%"><col style="width:19.6%"><col style="width:32.6%"><col style="width:36.2%"></colgroup><thead><tr><th>Espèce</th><th>Empreinte</th><th>Piste</th><th>Autres signes</th></tr></thead><tbody><tr><td class="c-item"><strong>Martre d’Amérique</strong> (<em>Martes americana</em>)</td><td>Avant <strong>4 à 7 cm</strong> sur <strong>3,5 à 6,5 cm</strong> ; pieds poilus l’hiver, coussinets flous</td><td>Paires de bonds ; elle marche aussi, en diagonale, quand elle examine quelque chose — ce qui trompe. <strong>Piste erratique qui se recoupe</strong>, de trou en souche : <strong>une piste sinueuse est une martre qui chasse</strong>. Elle emprunte les sentiers tassés des lièvres</td><td><strong>Tunnels</strong> dans la neige au pied des souches et des chablis. Elle frotte son ventre sur ce qui dépasse la neige pour marquer</td></tr><tr><td class="c-item"><strong>Vison d’Amérique</strong> (<em>Neogale vison</em>)</td><td>Avant <strong>3 à 5 cm</strong> sur <strong>2 à 4,5 cm</strong> ; un peu plus petit que la martre, l’écart est parfois mince</td><td>Paires de bonds <strong>le long des cours d’eau</strong>, qu’il quitte peu</td><td>Brun chocolat toute l’année et lié à l’eau ; la belette, elle, est blanche l’hiver</td></tr><tr><td class="c-item"><strong>Loutre de rivière</strong> (<em>Lontra canadensis</em>)</td><td>Avant <strong>5,5 à 8 cm</strong> ; arrière jusqu’à 10 cm sur 9,5 cm</td><td>Bonds, puis <strong>glissades de 1 à 5 m</strong> sur le ventre : la piste fait <strong>point-trait</strong>, comme du morse. Elle coupe d’un plan d’eau à l’autre par les fossés, les décharges, les barrages de castor</td><td><strong>Latrines</strong> sur les points hauts des berges ou sur les sentiers de traverse entre deux plans d’eau : herbe couchée, <strong>tas de crottes faits d’écailles de poisson</strong>. <strong>Grattages</strong> : herbe ratissée en petits tas. Elle revient parfois après une ou deux semaines seulement : <strong>des crottes vieillies ne veulent pas dire qu’elle est partie</strong>. Occupe les huttes de castor abandonnées</td></tr><tr><td class="c-item"><strong>Belette</strong> (hermine, <em>Mustela erminea</em>)</td><td><strong>2 à 3 cm</strong> de long sur 1 à 2 cm : la plus petite piste de carnivore du livre</td><td>Paires de bonds aux espacements irréguliers, courts et longs, qui plongent sous la neige et ressortent plus loin</td><td><strong>Petits trous</strong> dans la neige, par où elle chasse dans les tunnels des campagnols. Blanche l’hiver, <strong>bout de la queue noir</strong></td></tr></tbody></table>
+<p class="p0 ri"><strong class="runin">Le pékan</strong> (<em>Pekania pennanti</em>), s’il passe par là, fait une piste de la taille d’une grosse martre : il marche davantage, suit le dessus des billots, traîne les pieds et la queue, laisse un sillon dans la neige molle et creuse rarement. Des crottes faites de piquants de porc-épic désignent le pékan.</p>
+<h3 class="sub">5-F. Les rongeurs, le lièvre et les oiseaux</h3>
+<table class="tspan"><colgroup><col style="width:12.7%"><col style="width:25.0%"><col style="width:20.1%"><col style="width:42.3%"></colgroup><thead><tr><th>Espèce</th><th>Empreinte</th><th>Piste</th><th>Autres signes</th></tr></thead><tbody><tr><td class="c-item"><strong>Castor du Canada</strong> (<em>Castor canadensis</em>)</td><td>Avant <strong>6 à 10 cm</strong>, comme une petite main, sans palmure ; arrière <strong>12 à 18 cm</strong> de long sur 8 à 13 cm, cinq doigts <strong>entièrement palmés</strong>, le plus grand pied de rongeur</td><td>Pas lourd, en se dandinant ; <strong>la queue peut traîner</strong> entre les pieds. Coulées de l’eau aux arbres coupés</td><td><strong>Souches taillées en crayon</strong>, gros copeaux au pied, marques de dents de <strong>6 mm</strong>. Bâtons écorcés dans l’eau. <strong>Hutte</strong> d’environ <strong>5 m</strong> de diamètre sur <strong>2 m</strong> de haut. <strong>Réserve de branches</strong> dans l’eau devant la hutte, dont les bouts dépassent et retiennent la neige. Barrage. Monticules de boue au bord de l’eau, marqués au castoréum, l’odeur musquée de ses glandes (<span class="ref">ch. 50</span>)</td></tr><tr><td class="c-item"><strong>Rat musqué</strong> (<em>Ondatra zibethicus</em>)</td><td>Avant <strong>2 à 4 cm</strong> ; arrière <strong>4 à 7 cm</strong></td><td>Pas ; <strong>la queue traîne</strong> et laisse un trait mince entre les pieds</td><td><strong>Huttes</strong> de végétaux et de boue de <strong>0,5 à 1 m</strong> de haut. Après le gel, il ronge des <strong>ouvertures dans la glace jusqu’à 90 m</strong> de la hutte : ce sont ses relais. Coulées au fond vaseux (<span class="ref">ch. 53</span>)</td></tr><tr><td class="c-item"><strong>Porc-épic d’Amérique</strong> (<em>Erethizon dorsatum</em>)</td><td>Avant <strong>5,5 à 8,5 cm</strong>, arrière <strong>7 à 10 cm</strong> ; avant et arrière ont le même dessin</td><td><strong>Sillon large et traînant</strong> dans la neige, qui revient sur lui-même, de l’arbre à la tanière (<span class="ref">ch. 51</span>, étape 4)</td><td>Écorce enlevée <strong>en plaques irrégulières haut dans l’arbre</strong>, marques de dents de <strong>3,6 mm</strong> en travers ou en biais. <strong>Rameaux coupés net sur la neige</strong> au pied de l’arbre. <strong>Crottes oblongues de 1,5 à 3 cm</strong>, arquées comme une noix de cajou, pleines de fibre de bois qui sent la résine l’hiver, en tas devant la tanière</td></tr><tr><td class="c-item"><strong>Écureuil roux</strong> (<em>Tamiasciurus hudsonicus</em>)</td><td>Avant <strong>2,5 à 3 cm</strong> ; arrière 2 à 5,5 cm</td><td>Groupes de quatre, <strong>les grands pieds arrière devant</strong>, qui vont <strong>d’un arbre à un autre</strong></td><td><strong>Amas</strong> d’écailles et de rafles de cônes au pied d’un perchoir, qui peut faire plus d’un demi-mètre de haut et de large, percé de trous, avec des tunnels dessous. Petits lambeaux d’écorce, pousses pelées sous les arbres. Champignons coincés dans les branches</td></tr><tr><td class="c-item"><strong>Lièvre d’Amérique</strong> (<em>Lepus americanus</em>)</td><td>Avant <strong>5 à 7,5 cm</strong> ; arrière <strong>8 à 15 cm</strong> de long, et <strong>de 4 à 12,5 cm de large</strong> selon que les doigts s’écartent dans la neige molle</td><td>Bonds : deux grandes empreintes arrière <strong>devant</strong>, deux petites avant derrière. <strong>Sentiers</strong> creusés en gouttière dans la neige, qui suivent les sentiers de l’été</td><td><strong>Brout coupé net en biais</strong>, marques de dents de <strong>2,3 mm</strong>, à la hauteur où il atteint <strong>depuis la neige du moment</strong> : la hauteur du brout dit l’épaisseur de neige qu’il y avait. Crottes rondes, un peu aplaties, brunes, faites de fibres. Gîte : petite cuvette sous des branches basses (<span class="ref">ch. 47</span>, étape 5)</td></tr><tr><td class="c-item"><strong>Gélinotte huppée</strong> (<em>Bonasa umbellus</em>)</td><td>Trois doigts devant, un petit derrière : <strong>4 à 5,5 cm</strong> de long sur <strong>4,5 à 6 cm</strong>. L’hiver, des écailles poussent sur les côtés des doigts et font raquette</td><td>Pas en ligne ; dans la neige molle, un <strong>sillon</strong></td><td><strong>Trou de neige</strong> où elle a passé la nuit (<span class="ref">ch. 47</span>) : petit trou peu profond, <strong>empreintes d’ailes</strong> autour, et <strong>des crottes au fond</strong>, laissées juste avant l’envol. Crottes d’environ <strong>2,5 cm</strong>, un peu courbes, <strong>un bout blanc</strong>. Bourgeons de tremble et de saule cueillis net ; au coucher du soleil, elle monte manger dans la cime des trembles</td></tr><tr><td class="c-item"><strong>Tétras du Canada</strong> (<em>Canachites canadensis</em>)</td><td>Trois doigts devant ; le doigt arrière, petit, marque peu. Dans la neige molle, un sillon plutôt que des empreintes</td><td>Pas, en pessière et en sapinière</td><td>L’hiver, il passe le jour <strong>dans les épinettes à manger des aiguilles</strong> et la nuit sur la neige sous les branches basses, ou enfoui dedans : rameaux dénudés, crottes sèches en forme de gros vers sous l’arbre. Il se laisse approcher (<span class="ref">ch. 49</span>)</td></tr><tr><td class="c-item"><strong>Lagopède des saules</strong> (<em>Lagopus lagopus</em>)</td><td><strong>3,5 à 4,5 cm</strong> de long ; l’hiver, les plumes des pieds font des <strong>raquettes</strong> qui brouillent tout : une empreinte ronde et floue, sans doigts nets</td><td>En bande dès septembre, dans les saulaies des bords d’eau et en terrain ouvert</td><td>Saules aux bourgeons cueillis. Il s’enfouit dans la neige par mauvais temps. Le pied emplumé réduit de plus de 60 % la pression de son pas</td></tr><tr><td class="c-item"><strong>Outarde</strong> (bernache du Canada, <em>Branta canadensis</em>)</td><td>Trois doigts palmés vers l’avant : <strong>10 à 12 cm</strong> de long sur <strong>9,5 à 12,5 cm</strong></td><td>Pas, sur les battures, les grèves et les champs</td><td>—</td></tr><tr><td class="c-item"><strong>Canards</strong> (canard noir, <em>Anas rubripes</em>, et colvert)</td><td>Palmés, trois doigts, la palmure d’ordinaire visible ; plus petits que ceux de l’outarde (10 à 12 cm)</td><td>Pas dans la vase des bords d’eau</td><td>—</td></tr></tbody></table>
+<h3 class="sub">5-G. Les signes sur les arbres</h3>
+<p class="p0">Un arbre garde une trace des mois et des années. Le bois frais, jaune ou blanc, <strong>suinte de la sève</strong> ; exposé à l’air, il fonce et la sève durcit. Une écorchure fonce avec le temps.</p>
+<table class="tspan"><colgroup><col style="width:39.6%"><col style="width:12.4%"><col style="width:48.0%"></colgroup><thead><tr><th>Ce qu’on voit</th><th>Qui</th><th>À quoi on le reconnaît</th></tr></thead><tbody><tr><td class="c-item">Rameau terminé par un <strong>bout effiloché</strong></td><td>Orignal</td><td>Pas d’incisives en haut : il arrache. Jusqu’à 1,8 ou 2,4 m du sol, plus haut qu’un homme</td></tr><tr><td class="c-item">Rameau <strong>coupé net en biais</strong></td><td>Lièvre</td><td>À la hauteur de la neige du moment plus la longueur d’un lièvre dressé ; marques de 2,3 mm</td></tr><tr><td class="c-item">Écorce raclée <strong>de bas en haut</strong>, bord inférieur net, sur tremble ou peuplier</td><td>Orignal, fin d’hiver</td><td>Sillons des dents du bas ; tronc cicatrisé de noir les années suivantes. Des marques plus hautes que la bête : elle marchait sur une neige épaisse et tassée</td></tr><tr><td class="c-item"><strong>Longs sillons verticaux</strong> dans le bois, lanières d’écorce au pied</td><td>Ours noir, au printemps</td><td>Les incisives raclent le bois à la verticale ; les rongeurs, eux, rongent en travers</td></tr><tr><td class="c-item"><strong>Griffades</strong> noires sur un tremble ou un peuplier</td><td>Ours noir</td><td>Visibles des années. Morsures, poils collés dans la sève et écorce polie en plus : <strong>arbre de marquage</strong>, près d’un sentier, marques à hauteur des yeux</td></tr><tr><td class="c-item">Plaques d’écorce enlevées <strong>haut dans l’arbre</strong>, rameaux coupés sur la neige</td><td>Porc-épic</td><td>Marques de dents de 3,6 mm, en travers ou en biais ; crottes oblongues au pied</td></tr><tr><td class="c-item"><strong>Souche en crayon</strong>, gros copeaux</td><td>Castor</td><td>Marques de dents de 6 mm ; un chemin vers l’eau</td></tr><tr><td class="c-item">Petits lambeaux d’écorce d’environ 1,3 cm sur 5 à 7,5 cm, pousses pelées au sol</td><td>Écureuil roux</td><td>Rongement fin ; écailles de cônes autour</td></tr><tr><td class="c-item">Écorce effilochée et branches cassées à hauteur de panache, à l’automne</td><td>Orignal mâle</td><td><strong>Frottis</strong> du rut, souvent sur un jeune arbre lisse</td></tr><tr><td class="c-item">Bourgeons cueillis net, crottes groupées sur une souche, un billot, une roche</td><td>Gélinotte, tétras</td><td>Aucune marque de dent</td></tr><tr><td class="c-item">Trous d’une vingtaine de centimètres de large et jusqu’à 35 cm de profond, copeaux au pied</td><td>Grand pic</td><td>Il va chercher les fourmis charpentières dans le cœur du bois</td></tr><tr><td class="c-item">Rangées parallèles de petits trous d’environ 6 mm</td><td>Pic maculé</td><td>Il boit la sève ; les trous neufs se font au-dessus des vieux</td></tr></tbody></table>
+<h3 class="sub">5-H. Les confusions</h3>
+<table class="tspan"><colgroup><col style="width:7.3%"><col style="width:11.6%"><col style="width:81.1%"></colgroup><thead><tr><th>On croit voir</th><th>C’est peut-être</th><th>Ce qui tranche</th></tr></thead><tbody><tr><td class="c-item"><strong>Lynx</strong></td><td><strong>Loup</strong></td><td>Le lynx est rond, sans griffes, flou, avec un doigt central en avance ; le loup est ovale, griffu, net, avec un X. Le lynx marche en pose directe et creuse un sillon de poil ; le loup trotte, foulée d’un mètre et demi. Et la profondeur : un lynx pèse une dizaine de kilos, un loup de 23 à 50 kg ; à neige égale, le loup enfonce bien plus</td></tr><tr><td class="c-item"><strong>Lynx</strong></td><td>Renard ou coyote dans une neige fondue</td><td>L’empreinte agrandie par le soleil a perdu ses griffes et ses doigts. Suivre jusqu’à l’ombre des épinettes ou à une neige plus froide, et mesurer là. La foulée ne ment pas autant que l’empreinte</td></tr><tr><td class="c-item"><strong>Loup</strong></td><td><strong>Chien</strong></td><td>Des empreintes humaines à côté : chien. L’empreinte du chien est plus ronde, celle du loup plus longue et étroite ; à taille égale, la foulée du loup, aux longues pattes, est nettement plus longue. La crotte du chien est <strong>pleine de moulée</strong>, sans poil ni frange</td></tr><tr><td class="c-item"><strong>Coyote</strong></td><td><strong>Renard</strong></td><td>Le renard a un X franc et un pied poilu aux doigts flous, et <strong>son urine sent la moufette</strong> ; le coyote a un H, des coussinets nets, une taille au-dessus. Dans la poudreuse, une femelle coyote et un gros renard mâle ont presque la même foulée : suivre jusqu’à un chemin tassé</td></tr><tr><td class="c-item"><strong>Martre</strong></td><td>Renard au trot de biais</td><td>Les deux font des paires d’empreintes de même taille. La martre a cinq doigts et une piste erratique ; le renard, quatre doigts et une ligne droite</td></tr><tr><td class="c-item"><strong>Martre</strong></td><td>Pékan, vison</td><td>Le pékan est plus gros, marche, suit les billots, traîne les pieds. Le vison est plus petit et ne quitte pas l’eau</td></tr><tr><td class="c-item"><strong>Lièvre</strong></td><td><strong>Écureuil roux</strong></td><td>La taille : le pied arrière du lièvre fait <strong>8 à 15 cm</strong>, celui de l’écureuil <strong>2 à 5,5 cm</strong>. Le lièvre suit ses sentiers vers le couvert ; l’écureuil va d’un arbre à un autre et disparaît dans le tronc. Et le dessin du groupe : l’écureuil pose ses deux petits pieds avant <strong>côte à côte</strong>, sur la même ligne que les grands ; le lièvre les pose <strong>l’un derrière l’autre</strong>, décalés, derrière les deux grands côte à côte</td></tr><tr><td class="c-item"><strong>Orignal</strong></td><td>Caribou</td><td>Le sabot d’orignal est un cœur long et pointu ; celui du caribou, un rond plus large que long, aux deux moitiés écartées en croissant. Le caribou se cherche aux bords des tourbières et près des blocs erratiques</td></tr><tr><td class="c-item"><strong>Ours</strong></td><td>Homme pieds nus</td><td>Le petit doigt de l’ours est à l’intérieur ; des marques de griffes au bout des doigts</td></tr><tr><td class="c-item"><strong>Loutre</strong></td><td>Castor</td><td>La loutre glisse, fait des latrines d’écailles et coupe entre deux plans d’eau ; le castor traîne une queue plate et coupe des arbres</td></tr><tr><td class="c-item"><strong>Gélinotte</strong></td><td>Lièvre au gîte</td><td>Le trou de neige de la gélinotte porte des marques d’ailes et des crottes courbes à bout blanc au fond ; le lièvre ne s’enfouit pas, il se ramasse sous des branches basses, et ses crottes sont rondes</td></tr></tbody></table>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:16.4%"><col style="width:19.4%"><col style="width:25.9%"><col style="width:38.4%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant de mesurer</td><td>Nombre d’empreintes lisibles</td><td><strong>3 avant et 3 arrière</strong></td><td>Suivre la piste jusqu’à une neige plus ferme, sous les conifères</td></tr><tr><td class="c-item">Avant de mesurer</td><td>Surface</td><td>Neige froide, à l’ombre ; pas de creux en entonnoir autour des troncs</td><td>Au soleil : l’empreinte a grossi. Entonnoirs : elle a rapetissé. Mesurer de centre à centre</td></tr><tr><td class="c-item">À la mesure de la foulée</td><td>Espacement</td><td><strong>Égal sur plusieurs foulées</strong>, terrain plat, piste droite</td><td>Espacement qui varie : c’est un galop ou un bond ; chercher plus loin un bout au pas</td></tr><tr><td class="c-item">À la mesure de la foulée</td><td>Allure : pas ou trot</td><td>Foulée dans la fourchette que la fiche donne pour l’allure au pas</td><td>Trop longue pour une bête au pas : c’est un trot, et la bête est plus petite qu’on croit</td></tr><tr><td class="c-item">Âge, neige</td><td>Miettes au bord</td><td>S’envolent au souffle : <strong>moins de 20 minutes à une heure</strong></td><td>Soudées : plus vieux ; lire la météo depuis la dernière neige</td></tr><tr><td class="c-item">Âge, boue</td><td>Bords et eau</td><td>Bords humides et nets ; eau trouble</td><td>Bords secs et croûtés, eau claire : <strong>une heure au moins</strong></td></tr><tr><td class="c-item">Sens de la marche</td><td>Miettes, forme du trou, fond</td><td>Les trois indices d’accord</td><td>Deux contre un : suivre dix mètres et relire</td></tr><tr><td class="c-item">Avant de ramasser une crotte</td><td>L’outil</td><td>Un bâtonnet</td><td>Ne pas toucher (<span class="ref">§8</span>)</td></tr><tr><td class="c-item">Sur une piste, avant d’aller plus loin</td><td>Bosse fraîche de terre, d’herbe et de branches ; odeur de bête morte ; corbeaux ou geais réunis</td><td><strong>Aucun des trois</strong></td><td><strong>Un seul des trois suffit</strong> : on ne s’approche pas, on repart par où on est venu (<span class="ref">§8</span>, bloc 1)</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:35.6%"><col style="width:26.5%"><col style="width:37.9%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Une « piste de loup » de 15 cm, sans griffes, sur un versant au soleil</td><td>Empreinte fondue ; souvent un renard, un coyote ou un lynx</td><td>Mesurer à l’ombre ou tôt le matin ; lire la foulée</td></tr><tr><td class="c-item">Piste de « lynx » avec des griffes au bout des doigts</td><td>Canidé</td><td>Chercher entre les doigts et le coussinet le X du renard ou du loup, ou le H du coyote</td></tr><tr><td class="c-item">« Loup » qui zigzague, avec des empreintes de bottes à côté</td><td>Chien</td><td>Laisser tomber</td></tr><tr><td class="c-item">Pistes du lièvre lues « vers l’arrière »</td><td>Les grandes empreintes sont les pieds arrière, posés devant</td><td>Le sens de la marche va vers les grandes empreintes</td></tr><tr><td class="c-item">Piste qui a l’air d’être de la nuit, par un grand froid calme</td><td>La neige ne change plus : l’âge ne se lit pas</td><td>Se fier aux miettes (souffle) et à la dernière neige, pas au bord de l’empreinte</td></tr><tr><td class="c-item">Aucune piste après un redoux et un gel</td><td>La croûte porte les bêtes</td><td>Attendre la prochaine neige avant de conclure que le secteur est vide</td></tr><tr><td class="c-item">Crottes de loutre vieilles, aucune fraîche</td><td>Elle revient aux une ou deux semaines</td><td>Ne pas rayer le secteur</td></tr><tr><td class="c-item">Crotte de canidé pleine de grains</td><td>Chien</td><td>—</td></tr><tr><td class="c-item">Brout coupé net à hauteur de hanche, en plein été</td><td>Lièvre de l’hiver précédent, qui mangeait dressé sur la neige</td><td>La hauteur du brout dit l’épaisseur de la neige de cet hiver-là, pas la présence d’un lièvre aujourd’hui</td></tr><tr><td class="c-item">Deux espèces encore possibles après la fiche</td><td>Empreinte trop floue</td><td>Suivre jusqu’à une empreinte nette. Ne pas trancher au hasard</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">1 — Une bosse fraîche de terre, d’herbe et de branches. Ou une odeur de bête morte. Ou des corbeaux et des geais réunis. Un seul des trois suffit : une carcasse, et un ours qui la garde tout près.</strong> Une bosse fraîche sans odeur et sans un oiseau ne rassure sur rien. Le réflexe du pisteur est d’aller voir ce qui attire les oiseaux. C’est l’inverse qu’il faut faire. L’ours couvre les grosses carcasses et les garde ; même absent de la carcasse, il reste dans les environs, sans qu’on le voie. Un ours surpris sur sa nourriture souffle, claque des dents, couche les oreilles et charge. On ne s’approche pas, on ne reste pas pour regarder : on repart tout de suite par où on est venu, sans courir. Ce qui vaut pour la carcasse d’une bête vaut pour la viande qu’on a laissée soi-même dans le bois : si un ours l’a prise, on ne la lui dispute pas. Et la taille du tas n’autorise rien : un petit monticule ne se lit pas comme la cache d’un lynx qu’on pourrait aller voir.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">S’il vient quand même, on ne court pas</strong>  : la course lance la poursuite, et l’ours court, grimpe et nage mieux qu’un homme. On s’arrête, face à lui, et on lui parle d’une voix calme ; la charge d’un ours qui défend sa nourriture s’arrête souvent avant le contact, et on recommence alors à s’éloigner. <strong>S’il touche, on se défend</strong> avec tout ce qui tombe sous la main — roche, bâton, hache —, en frappant la face et le museau, en criant. <strong>On ne fait pas le mort devant un ours noir.</strong> La mise en boule du bloc 2 vaut pour l’orignal, jamais pour l’ours. Et l’ours qui fait le plus peur n’est pas le plus dangereux : celui qui souffle et claque des dents défend ; celui qui s’avance calmement, sans un bruit, les yeux fixés sur soi, chasse, et c’est lui qu’on affronte le plus tôt et le plus fort. <strong>2 — En Alaska, où les deux abondent, l’orignal blesse chaque année plus de monde que l’ours.</strong> On le croit placide parce qu’il fuit presque toujours. Trois situations où il ne fuit pas : <strong>la femelle avec un petit veau</strong>, de la fin du printemps à l’été — deux pistes fraîches ensemble, une grande et une minuscule, et on ne suit plus ; <strong>le mâle au rut</strong>, de la fin de septembre à octobre ; et <strong>l’orignal de fin d’hiver</strong>, affamé et épuisé par la neige profonde, couché sur le sentier tassé qu’il ne veut plus quitter. <strong>Un veau seul</strong> veut dire qu’on s’est peut-être placé entre lui et sa mère. L’orignal prévient : <strong>poils de la bosse hérissés, oreilles couchées</strong>, il se lèche le museau — si on voit ça, on est beaucoup trop près. Il déteste les chiens et se détourne pour en frapper un, même tenu en laisse. Contrairement à l’ours, <strong>on court</strong> : il ne poursuit pas loin, et on tourne autour d’un arbre plus vite que lui. L’hiver, en raquettes dans la neige profonde, la course ne va pas loin : ce qui compte, c’est <strong>l’arbre ou l’obstacle solide</strong> qu’on met entre lui et soi, et c’est vers lui qu’on va. Renversé, on se met en boule, la tête dans les bras, et on ne bouge plus tant qu’il n’est pas loin — devant l’orignal seulement, jamais devant l’ours (bloc 1). <strong>3 — Une crotte de renard, de coyote ou de loup ne se touche pas, même gelée dure comme une roche.</strong> Les canidés sauvages portent le ver adulte de l’échinococcose ; ses œufs sortent avec les crottes et restent dessus et autour. <strong>Le froid ne les tue pas</strong> : ils survivent jusqu’à huit mois dehors l’automne et l’hiver, et le congélateur ne les tue pas non plus. Ils ne se prennent que par la bouche : avec les doigts qui ont émietté une crotte pour voir ce qu’elle contenait, puis qui ont tenu un morceau de pain. En théorie, un seul œuf suffit. La maladie est très rare, mais sa forme la plus grave ronge le foie comme un cancer lent et ne se déclare que cinq à quinze ans plus tard. <strong>Une crotte s’ouvre au bâtonnet</strong>, ne se renifle pas de près, et on se lave les mains au savon avant de manger. Le reste — le renard qu’on dépouille, le chien du chalet — est au chapitre 55. <strong>4 — Un lièvre trouvé mort sur une piste, sans collet et sans blessure, ne se touche pas, gants ou pas.</strong> Pas plus que celui qui se laisse approcher, faible, en bon état de chair : c’est le tableau de la tularémie. La bactérie passe à l’humain par la peau, les yeux, l’air qu’on respire près de la bête et la viande mal cuite ; contre l’air, le gant ne fait rien. On n’y touche pas, on ne le rapporte pas, et le chien n’y va pas (<span class="ref">ch. 48</span>, étape 7). Tout autre lièvre — pris au collet, tiré — se ramasse avec des gants (<span class="ref">ch. 48</span>). <strong>5 — La piste d’une bête sur la glace ne dit rien de la glace, même celle d’une bête plus lourde que soi.</strong> Un lynx pèse une dizaine de kilos, un loup de 23 à 50 : ni l’un ni l’autre ne pèse un homme habillé pour l’hiver. La piste d’un orignal ou d’un caribou ne prouve pas davantage : elle dit seulement que la glace a tenu <strong>à cet endroit-là, le jour où la bête est passée</strong>. Juste à côté, au-dessus d’un courant, d’une source ou d’une hutte, elle ne porte pas, et un redoux a pu passer depuis (<span class="ref">ch. 42</span>, bloc 1). Et les pistes se concentrent justement là où la glace est la plus mince : la loutre passe par les décharges, qui restent souvent ouvertes tout l’hiver, et par les entrées et les barrages des étangs de castor ; le vison ne quitte pas les cours d’eau ; les relais du rat musqué sont des trous qu’il garde ouverts dans la glace, jusqu’à 90 m de sa hutte (5-F). <strong>Une piste qui mène à un lac, un ruisseau ou une rivière se suit par la rive.</strong> Un ruisseau et une rivière, c’est du courant d’un bout à l’autre : ce que le chapitre 42 dit de la décharge vaut pour toute leur longueur. La glace se sonde comme au chapitre 42 (étape 9), piste ou pas piste. <strong>6 — En saison de chasse, on piste en orange, enfants compris.</strong> Celui qui lit des traces ne se voit pas comme un chasseur, et c’est pour ça qu’il sort en brun. Mais il suit à genoux, dans la repousse et les aulnes, les mêmes pistes fraîches d’orignal que d’autres suivent l’arme à la main, et une silhouette brune qui bouge dans les aulnes ressemble à ce que l’autre cherche (<span class="ref">ch. 42</span>, bloc 4). <strong>7 — Un renard qui s’approche, un loup qui titube, une bête qui bave ou n’a pas peur : on la traite comme enragée.</strong> La lecture naturelle est celle d’une bête apprivoisée, et c’est la mauvaise. On n’y touche pas, et une morsure ou une griffure se traite tout de suite, sans attendre un symptôme : la fenêtre de traitement de la rage se ferme avant le premier (<span class="ref">ch. 55</span>, <span class="ref">§7</span> et <span class="ref">§8</span>, bloc 2).</p>
+</template>
+<template id="story-e">
+<p class="p0">Tout ce chapitre se fait sans rien acheter. Ce qui manque le jour où il sert, c’est une règle, une lumière, du temps pour attendre et un œil exercé. Les trois premiers se remplacent ou se fabriquent ; le quatrième se prend l’hiver d’avant.</p>
+<h3 class="sub">Une règle qu’on a toujours sur soi</h3>
+<p class="p0 ri"><strong class="runin">Mesurer sa main une fois, au chalet, avec une vraie règle.</strong> La largeur de la paume aux jointures, la longueur du pouce, la longueur de l’index, l’écart entre le pouce et le petit doigt, doigts écartés. Ce sont quatre mesures qu’on ne perd jamais. Les écrire dans un carnet ne sert à rien : on les <strong>grave au couteau sur le manche du bâton de marche</strong>, une encoche par mesure, avec la valeur en chiffres. Le fait vit sur la chose.</p>
+<p class="p0 ri"><strong class="runin">Le bâton entaillé.</strong> Un bâton droit, écorcé, entaillé aux 5 cm sur 50 cm contre une règle, puis aux 10 cm jusqu’au bout. Il mesure une empreinte, une foulée, une épaisseur de neige, une hauteur de brout. À défaut de règle pour l’entailler, la page de ce livre fait <strong>25,4 cm de haut</strong> : on reporte sa hauteur sur le bâton, puis sa moitié et son quart. Des marques moins rondes que les 5 cm, mais justes. Sa largeur ne sert pas : elle se mesure jusqu’au fond de la reliure.</p>
+<p class="p0 ri"><strong class="runin">Les gabarits à l’échelle.</strong> Les planches des empreintes de ce chapitre sont dessinées <strong>grandeur nature</strong>, règle imprimée dans la marge. On pose le livre ouvert à côté de l’empreinte et on compare les formes. C’est plus sûr qu’une mesure : l’œil compare une forme mieux qu’il ne retient un chiffre.</p>
+<h3 class="sub">Le bâton de pistage</h3>
+<p class="p0">C’est l’outil qui retrouve une empreinte qu’on ne voit plus. Une branche droite d’environ 90 cm, écorcée par endroits pour que les marques se voient, pointue au bout. Sur la meilleure empreinte de la piste, on marque au couteau, <strong>à partir de la pointe</strong> :</p>
+<p class="step"><span class="sn">1</span><strong>la longueur de l’empreinte</strong> (première encoche) ;</p>
+<p class="step"><span class="sn">2</span><strong>sa largeur</strong> (deuxième encoche, comptée depuis la première) ;</p>
+<p class="step"><span class="sn">3</span><strong>le pas</strong> : d’une empreinte à la suivante, <strong>de l’autre pied</strong>, mesuré de centre à centre (troisième encoche, depuis la pointe). C’est la moitié de la foulée des fiches, pas la foulée ;</p>
+<p class="step"><span class="sn">4</span><strong>la largeur de la piste</strong> (quatrième encoche, reportée depuis la troisième vers la pointe, pour qu’elle reste sur le bâton).</p>
+<p>Si le pas de la bête dépasse le bâton, on prend une perche plus longue : un bâton trop court ne mesure rien.</p>
+<p>Une bête qui marche ou qui trotte garde le même espacement sur de longues distances : c’est ce qui rend l’outil juste. Quand la piste s’efface, on pose la troisième encoche sur le centre de la dernière empreinte sûre, le bâton dans le sens de la marche : <strong>la pointe tombe à la hauteur de la suivante, qui est celle de l’autre pied</strong>, décalée sur le côté de la largeur de piste. On la cherche là, à genoux, de près, et nulle part ailleurs. Pour une bête qui bondit, la troisième encoche mesure d’un groupe au groupe suivant.</p>
+<p>Trois corrections, parce que la bête n’est pas une machine : <strong>le pas raccourcit dans une montée et dans une descente</strong>, il change dans une neige plus molle ou plus dure, et il s’allonge quand la bête accélère. Quand deux pistes de la même espèce se croisent, le bâton dit laquelle est la bonne : ses encoches ne tombent juste que sur une.</p>
+<h3 class="sub">La lumière</h3>
+<p class="p0">Une empreinte est un relief. Elle se voit par son ombre, et une lumière d’en haut n’en fait pas.</p>
+<p class="li"><strong>Le soleil bas</strong>, le matin et le soir, dessine tout. À midi en hiver, par temps gris, la neige est plate.</p>
+<p class="li"><strong>La tête au ras du sol, la trace entre soi et la lumière.</strong> On se couche presque, joue à la neige ou à la terre, et on regarde la trace à contre-jour, en rasant. Les creux et les tassements apparaissent en taches mates ou luisantes que l’œil debout ne voit pas, même sur un sol dur ou dans une litière de feuilles.</p>
+<p class="li"><strong>Par lumière plate, une frontale tenue à la main, au ras de la neige</strong>, à côté de l’empreinte, fait des ombres rasantes. C’est la meilleure lumière de pistage qui soit, et elle marche la nuit. <strong>À la brunante et la nuit</strong>, une chandelle posée sur la neige fait la même chose. En plein jour gris, elle est trop faible pour faire une ombre : on reste à la frontale ou à la lecture de profil, la tête au ras du sol.</p>
+<p class="li"><strong>Au plein soleil, jeter l’ombre de son corps sur l’empreinte</strong> : elle réapparaît.</p>
+<p class="li"><strong>Tourner autour</strong>, et <strong>revenir par le même chemin</strong> : une empreinte invisible d’un côté ou le matin ressort de l’autre côté ou l’après-midi.</p>
+<h3 class="sub">Les doigts</h3>
+<p class="p0 ri"><strong class="runin">Tâter le fond</strong> d’un trou dans la neige profonde, main nue : les pointes d’un sabot, les doigts d’un canidé marquent plus profond. On y sent le sens de la marche et parfois le nombre de doigts.</p>
+<p class="p0 ri"><strong class="runin">Le piédestal</strong>, quand une neige nouvelle a comblé une empreinte : la neige tassée par le pied est plus dure que la neige tombée par-dessus. On creuse un cercle tout autour, on souffle la neige molle, puis on gratte du bout des doigts nus jusqu’à ce que l’empreinte durcie apparaisse, debout sur son petit socle. Elle ne dira pas toujours l’espèce, mais elle dira la vraie taille, que le creux laissé en surface ne dit pas.</p>
+<h3 class="sub">Dater sans rien</h3>
+<p class="p0">Le souffle et la boue sont à la <span class="ref">§5-A</span> (étapes 9 et 10) ; ils ne demandent déjà rien. Le reste :</p>
+<p class="li"><strong>Sa propre trace témoin.</strong> À côté de la piste, avec le poing ou le talon, on fait une empreinte en appuyant à peu près comme la bête a appuyé, et on la regarde vieillir pendant qu’on lit le reste. Au retour, quelques heures plus tard, on en refait une à côté de la première, avec le même geste : on a sous les yeux, côte à côte, ce que ces heures-là ont fait à cette neige-là, ce jour-là, et on compare à la piste. Le temps qu’il fait détruit une trace plus que tout le reste, la pesanteur qui fait crouler les bords vient ensuite, puis la nature du sol : la trace témoin les mesure tous les trois à la fois.</p>
+<p class="li"><strong>L’herbe couchée</strong> montre au soleil sa face luisante pendant environ deux heures, et se redresse en environ une journée. Ce sont des ordres de grandeur : la trace témoin dit ce qu’ils valent dans cette herbe-là, ce jour-là.</p>
+<p class="li"><strong>Le bois</strong> : sève qui coule sur un écorçage frais, sève durcie sur un vieux ; bois clair qui fonce avec les mois, jusqu’au noir des vieilles cicatrices. Une cassure de branche se date de la même façon qu’une empreinte : on en casse une à côté et on compare.</p>
+<p class="li"><strong>La crotte</strong> : luisante et molle, fraîche ; terne et croûtée, vieille. Une forte pluie ou une neige les efface vite : une crotte nette après une tempête est postérieure à la tempête.</p>
+<p class="li"><strong>Le sang</strong> sur la neige ou une branche, près d’un reste de repas : rouge vif frais, puis rubis, puis croûte brune.</p>
+<h3 class="sub">Savoir qui vient la nuit, sans veiller</h3>
+<p class="p0">Autour du chalet, la question n’est pas toujours « quelle bête est-ce », mais « qui vient manger au fumoir, à la cache, au caveau, au poulailler ». On ne veille pas toute une nuit à −30 °C pour le savoir : on prépare une surface qui écrit toute seule, et on la lit au matin.</p>
+<p class="p0 ri"><strong class="runin">La bande lissée.</strong> Le soir, on efface. L’hiver, on balaie une bande de neige d’un mètre de large autour de la cache ou en travers d’une coulée, avec une branche de sapin traînée à plat. L’été, on étend une bande de sable fin, de cendre tamisée du poêle <strong>de plus de sept jours</strong> — une braise vit des jours dans une cendre froide au toucher, et la bande longe des bâtiments de bois (<span class="ref">ch. 82</span>) — ou la boue d’une grève, et on la lisse avec une planche tirée à plat. Au matin, <strong>tout ce qui a traversé est écrit, et on sait que ça a été écrit depuis la veille au soir</strong> : c’est ce qui manque à une piste trouvée au hasard. On relisse chaque soir, et chaque matin donne le compte de la nuit. Une bande étroite qu’on relit tous les jours apprend plus sur les visites d’un secteur qu’une grande bande qu’on lit une fois.</p>
+<p class="p0 ri"><strong class="runin">La plaque de suie.</strong> Pour les petites bêtes, dont la patte ne marque rien dans une neige dure ou une terre sèche, et pour lire les doigts et les griffes au détail près :</p>
+<p class="step"><span class="sn">1</span>Une tôle plate et lisse : une plaque à biscuits, un couvercle de baril aplati, une feuille d’aluminium épaisse, le côté d’un vieux réservoir.</p>
+<p class="step"><span class="sn">2</span>On la <strong>noircit dehors</strong>, au-dessus de la flamme d’une <strong>chandelle</strong> dont on a laissé la mèche longue : une mèche longue fume, et la fumée noire, c’est de la suie (<span class="ref">ch. 85</span>). Jamais à l’intérieur : cette flamme-là fait aussi du monoxyde de carbone. On passe la tôle au-dessus jusqu’à ce qu’elle soit uniformément noire, sans la chauffer au point de brûler la suie. Une lampe à l’huile à mèche montée noircit plus vite, mais une flamme trop haute et le choc thermique du froid dehors font fendre son verre de cheminée, et c’est le verre qui tient la flamme à distance du reste (<span class="ref">ch. 85</span>) : la chandelle d’abord.</p>
+<p class="step pk-d"><span class="sn">3</span>On la pose à plat au fond d’une boîte de planches ou d’écorce ouverte d’un bout. <strong>Autour du fumoir, de la cache, du caveau et du poulailler, sans appât</strong> : l’odeur de ce qu’on y garde attire déjà ce qu’on veut identifier. Un appât posé près des bâtiments, nuit après nuit, apprend aux bêtes que la nourriture est là, l’ours le premier, et un ours qui trouve à manger près des gens perd sa peur des gens (<span class="ref">ch. 95</span>, <span class="ref">§8</span>, bloc 4 ; <span class="ref">ch. 23</span>, <span class="ref">§8</span>, bloc 7). <strong>Loin des bâtiments</strong>, l’appât se pose au fond — un bout de poisson, de viscère —, pour que la bête marche sur toute la longueur de la tôle pour l’atteindre. Pour une bête de la taille d’une martre, une boîte d’une trentaine de centimètres de large et de haut sur 80 de long ; pour plus gros, la tôle se pose à découvert, loin des bâtiments, l’appât attaché au milieu.</p>
+<p class="step"><span class="sn">4</span>Au matin, <strong>chaque pied qui a marché a enlevé la suie</strong> : l’empreinte apparaît en clair sur le noir, doigts, coussinets et griffes compris, souvent plus nette que dans n’importe quelle neige.</p>
+<p class="step"><span class="sn">5</span>On la lit sur place et on la renoircit.</p>
+<p>La plaque se protège de la pluie et de la neige, qui la brouillent : c’est surtout un outil d’été et d’abri. Ce qu’elle apprend sert tout l’hiver : la martre qui vient au fumoir viendra au poste couvert qu’on montera sur son chemin (<span class="ref">ch. 55</span>, <span class="ref">§9</span>, « Le poste couvert »).</p>
+<h3 class="sub">Lire une crotte avec un bâtonnet</h3>
+<p class="p0">Une crotte dit qui l’a laissée, mais surtout <strong>ce qu’il a mangé, donc où est la nourriture</strong>. On l’ouvre au bâtonnet, on l’étale, on regarde — jamais aux doigts, et on ne respire pas la poussière d’une crotte sèche (<span class="ref">§8</span>, bloc 3).</p>
+<p class="li"><strong>Poil et os</strong> : un carnivore. Du poil d’orignal ou de castor dans une crotte de loup, du lièvre dans une crotte de lynx : on sait ce que la meute ou le chat chasse en ce moment, et donc où.</p>
+<p class="li"><strong>Écailles de poisson</strong> : loutre, qui fait ses tas au même endroit, sur une pointe.</p>
+<p class="li"><strong>Petits fruits entiers et graines</strong> : ours, ou renard et coyote l’été et l’automne. Une crotte d’ours pleine de bleuets entiers dit qu’une talle n’est pas loin.</p>
+<p class="li"><strong>Piquants de porc-épic</strong> : pékan.</p>
+<p class="li"><strong>Fibre de bois</strong> : porc-épic, orignal l’hiver, lièvre ; <strong>sciure et copeaux</strong> : castor. Des crottes d’herbivores dures et fibreuses, c’est l’hiver et les rameaux ; molles, c’est l’été et le vert.</p>
+<p class="li"><strong>Moulée</strong> : chien.</p>
+<h3 class="sub">Écouter</h3>
+<p class="li"><strong>Les mains en cornet</strong> derrière les oreilles, on tourne lentement sur soi : le son est le plus fort face à sa source.</p>
+<p class="li"><strong>L’écureuil roux</strong> crie de deux façons : un cri aigu quand il voit un oiseau de proie, <strong>un aboiement grave quand un prédateur est au sol</strong>. Un écureuil qui aboie dans la même épinette depuis un moment regarde quelque chose sous lui : une martre, un renard, un lynx — ou soi.</p>
+<p class="li"><strong>Les corbeaux, les geais et les aigles réunis</strong> au même endroit, qui se posent et repartent : une carcasse (<span class="ref">§8</span>, bloc 1).</p>
+<p class="li"><strong>Les oiseaux qui s’affolent</strong> sur le passage de quelque chose disent où ce quelque chose est passé, et dans quel sens il va.</p>
+<h3 class="sub">Lire sans neige</h3>
+<p class="p0">L’été, il n’y a presque jamais d’empreinte complète ; on suit une chaîne de dérangements.</p>
+<p class="li"><strong>La rosée essuyée.</strong> Tôt le matin, ce qui a traversé une clairière a fait tomber les gouttes des herbes et laisse une ligne mate dans l’herbe luisante. Elle disparaît dès que le soleil sèche l’herbe : c’est une piste de l’aube, qu’on suit tout de suite ou jamais.</p>
+<p class="li"><strong>L’herbe couchée</strong> penche dans le sens de la marche.</p>
+<p class="li"><strong>Les feuilles et les cailloux retournés</strong> montrent leur face humide ou plus foncée.</p>
+<p class="li"><strong>Les toiles d’araignée déchirées</strong> en travers d’une coulée : quelque chose est passé depuis que l’araignée l’a tissée.</p>
+<p class="li"><strong>La sortie d’un ruisseau.</strong> Une bête sort de l’eau là où c’est facile : on cherche la berge basse et ouverte, les roches mouillées, la boue remuée, l’eau troublée en aval. Une piste qui ressort mouillée sèche peu à peu sur quelques mètres : une piste humide qui devient sèche est fraîche.</p>
+<p class="li"><strong>Les roches.</strong> Sur un sol dur, la mousse et le lichen arrachés ou écrasés gardent la marque ; sinon, on contourne le terrain dur pour retrouver la piste à la sortie.</p>
+<p class="li"><strong>La hauteur de la cassure</strong> dit la taille de la bête : des tiges cassées à hauteur de poitrine d’homme ne sont pas un renard.</p>
+<h3 class="sub">Quand la piste se perd</h3>
+<p class="step"><span class="sn">1</span><strong>Marquer la dernière empreinte sûre</strong> d’une branche plantée, d’une mitaine, de trois cailloux. On y reviendra dix fois, et c’est de là que tout repart.</p>
+<p class="step"><span class="sn">2</span><strong>Regarder loin devant, pas à ses pieds.</strong> À dix ou vingt mètres, la piste se voit comme une ligne de dérangements que l’œil perd quand il est collé dessus. Les yeux au sol ratent la bête couchée devant.</p>
+<p class="step"><span class="sn">3</span><strong>Poser le bâton</strong> sur la dernière empreinte sûre et chercher à la pointe.</p>
+<p class="step"><span class="sn">4</span><strong>Chercher avec méthode, et à deux si on peut</strong> : en cercles qui s’élargissent autour de la dernière empreinte sûre, en commençant du côté où la bête allait, ou en carré qui s’élargit ; à deux, l’un ne quitte pas la dernière empreinte sûre pendant que l’autre cherche. C’est la même méthode que pour une bête blessée : chapitre 44 (étapes 26 et 31).</p>
+<p class="step pk-d"><span class="sn">5</span><strong>Penser comme la bête.</strong> Elle prend le chemin le plus facile : le sentier tassé d’un lièvre, un chemin de motoneige, la glace d’un ruisseau — qui se lit depuis la rive (<span class="ref">§8</span>, bloc 5) —, le dessus d’un chablis, la berge basse. Une piste qui disparaît sur un sentier de lièvre est souvent dedans, recouverte par les pistes des lièvres.</p>
+<p class="step"><span class="sn">6</span><strong>Connaître ses ruses.</strong> L’orignal fait un crochet avant de se coucher : quand sa piste se met à tourner, on la quitte (<span class="ref">ch. 44</span>, étape 7). Le lièvre levé tourne en rond et revient : on l’attend. La martre se recoupe et fouille chaque trou. Le lynx file droit en vieille forêt et serpente dans la repousse. Les loups vont en file dans la neige et se servent des pistes tassées là où il y en a. L’ours prend les sentiers.</p>
+<p class="step"><span class="sn">7</span><strong>Le vent.</strong> Une poignée de neige poudreuse ou d’herbe sèche lâchée à hauteur d’épaule dit d’où il vient.</p>
+<h3 class="sub">Approcher la bête au bout de la piste</h3>
+<p class="p0">L’approche elle-même — le vent dans la face, au moins dix fois plus de temps immobile qu’en marche, le crochet de l’orignal qu’on quitte pour revenir sous le vent, la marche à deux — est au chapitre 44 (étapes 5 à 7 et 11). Ce chapitre-ci n’ajoute que la lecture : quand la miette de neige s’envole au souffle et que la piste change d’allure, raccourcit ou tourne vers un fourré, la bête est couchée tout près. On regarde devant, à hauteur de bête, l’œil noir d’un lièvre blanc, pas la piste. Le lièvre se gîte souvent sur une petite butte d’où il voit autour (<span class="ref">ch. 47</span>, étape 5) : on arrive par le côté, pas par la piste.</p>
+<p class="p0 ri"><strong class="runin">Sauf l’ours.</strong> Une piste d’ours fraîche qui entre dans un fourré ne se suit pas dedans. On la contourne de loin, en se faisant entendre : on parle fort, on tape des mains. Un ours qui entend venir du monde s’en va ; un ours surpris à quelques pas se défend, et le fourré, où l’on ne voit rien devant soi, est justement l’endroit où on le surprend (<span class="ref">§8</span>, bloc 1).</p>
+<h3 class="sub">Le retour</h3>
+<p class="p0">Quand il recommence à neiger, on rentre : la piste du retour est la première qui disparaît.</p>
+<h3 class="sub">S’exercer l’hiver d’avant</h3>
+<p class="p0">L’œil ne s’achète pas. Il se prend autour du chalet, dans les années ordinaires :</p>
+<p class="li"><strong>Chaque matin de neige</strong>, suivre une piste de renard ou de lièvre jusqu’à ce qu’elle raconte quelque chose ; faire deviner aux enfants la bête et le sens de la marche.</p>
+<p class="li"><strong>Mesurer sa propre foulée</strong> au pas, au trot et à la course dans la neige, et voir de combien elle change : c’est ce qui arrive à la bête aussi.</p>
+<p class="li"><strong>Faire marcher, trotter et courir le chien du chalet</strong> dans une neige fraîche, puis lire ses pistes : c’est le seul canidé dont on connaît d’avance l’allure.</p>
+<p class="li"><strong>Vieillir ses propres marques.</strong> Dans un coin de sable ou de terre lissée derrière le chalet, faire une rangée de marques avec un même bâton, en appuyant de plus en plus fort ; revenir six heures plus tard et refaire la même rangée à côté ; recommencer à douze, dix-huit, vingt-quatre heures, puis chaque jour pendant une semaine. Refaire la même chose dans la neige. Une saison de ce jeu apprend à dater mieux que n’importe quel tableau.</p>
+<h3 class="sub">Ce qu’on perd, et ce qui ne se remplace pas</h3>
+<p class="p0">Sans règle, on perd la précision : on sépare encore un loup d’un renard, plus un coyote d’un gros renard. Sans lumière rasante, on perd les empreintes de la neige plate de midi. Sans neige, on perd presque tout ce qui est vitesse et nombre : l’été, on sait qu’une bête est passée, rarement combien, rarement quand — sauf devant une bande lissée ou une plaque de suie, qui ne disent que ce qui s’est passé à un seul endroit.</p>
+<p>Ce qui ne se remplace pas, c’est l’expérience. Aucune fiche ne donne l’empreinte à moitié fondue, la piste dans la poudreuse profonde, la bête qui marche quand elle devrait bondir. Les fourchettes de ce chapitre ont été mesurées sur des bêtes d’Alaska, des Rocheuses et du nord-est américain, dans des neiges et des boues de toutes sortes : elles servent à trier, pas à trancher au millimètre.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="12-1"><span class="fnn">1</span>Une braise se cache sous la cendre. Lampe éteinte, porte du poêle ouverte, on brasse la cendre au tisonnier jusqu’au fond : une braise vivante luit rouge. Tant qu’un seul point rouge luit, le feu n’est pas mort, et il fait du CO sans flamme.</p>
+<p class="fn" data-fn="12-2"><span class="fnn">2</span>Le fil, tenu au bout d’une broche, s’approche d’une flamme, dehors. Le coton brûle sans reculer devant la flamme, sent le papier brûlé et laisse une cendre grise et fine. Le nylon et le polyester fondent en se recroquevillant loin de la flamme, sentent le produit chimique et laissent une petite bille fondue. Un tissu mélangé ne se lit pas à coup sûr : dans le doute, il se range avec la bâche.</p>
+<p class="fn" data-fn="43-1"><span class="fnn">1</span>Le bord avant du gros coussinet, celui qui regarde les doigts, fait deux bosses arrondies côte à côte. Celui d’un canidé est un petit triangle, sans ces deux bosses.</p>
+<p class="fn" data-fn="43-2"><span class="fnn">2</span>Un gros rocher posé seul au milieu d’une tourbière, d’un plat ou d’une forêt, loin de toute falaise d’où il aurait pu tomber : c’est la glace des glaciers qui l’a laissé là.</p>
+<p class="fn" data-fn="43-3"><span class="fnn">3</span>Là où le loup et le coyote ont un petit coussinet en triangle, celui du pied avant du renard se réduit à une barre étroite, posée en travers de l’empreinte. Autour de cette barre, le vide entre les doigts et le coussinet est grand, et le X se lit net.</p>
+</template>
+<script type="application/json" id="meta">{"num": "43", "title": "Les traces et les signes des animaux", "tome": "Tome 3 · Prélever", "tnum": 3, "tfond": "#1D392E", "tencre": "#E9F0EA", "lieu": "Chalet", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

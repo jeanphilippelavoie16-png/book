@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>84 — Ouvrir et fermer le chalet — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"84"}
+</style>
+</head>
+<body class="vA vB vC t5 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 5 · La forêt, le jardin et le chalet</span><span>Chapitre</span></div><div class="open-title"><div class="num">84</div><h1>Ouvrir et fermer le chalet</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Fermer le chalet sans rien y laisser qui gèle, qui se fend ou qui nourrit une souris, et le rouvrir dans un ordre où rien ne s’allume, ne se remplit ni ne se balaie avant d’avoir été regardé, de façon qu’il redevienne habitable en une journée au printemps et en quelques heures en plein hiver.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est la bonne procédure quand :</h4>
+<p class="li">Le chalet va rester sans feu à une saison où il peut geler. Il n’y a pas de fermeture « courte » : un chalet qu’on quitte trois semaines en novembre en comptant revenir gèle aussi bien qu’un chalet qu’on quitte six mois, et l’eau qui reste au point bas n’attend pas le retour.</p>
+<p class="li">On rouvre après une absence qui a couvert un gel, un dégel ou un été de nidification. N’importe lequel des trois suffit à rendre le premier feu ou le premier coup de pompe dangereux.</p>
+<p class="li">Le chalet est la destination de repli de la famille (<span class="ref">ch. 2</span>). Dans ce cas, la fermeture ne se fait pas pour le printemps : elle se fait pour le jour où on reviendra en catastrophe, et ça change ce qu’on laisse dedans (section 5-A, étapes 8 et 20 à 22).</p>
+<p class="p0 lab kh"><strong class="runin">Ce n’est pas la bonne procédure quand :</strong></p>
+<p class="li"><strong>On veut remettre l’eau en janvier dans un système d’été.</strong> Une prise d’eau au lac dont la conduite court en surface ou dans un vide sanitaire ouvert ne se remet pas en marche l’hiver, même avec le poêle qui roule : elle gèle dehors, là où aucune chaleur ne l’atteint. L’ouverture de la section 5-B ne s’applique qu’au dégel. En hiver, l’eau vient à la chaudière (<span class="ref">ch. 10, 30</span>-I).</p>
+<p class="li"><strong>On rouvre en hiver comme au printemps.</strong> L’ordre du printemps suppose du temps, de la clarté et un bâtiment qui n’est pas plus froid que l’air. L’arrivée d’hiver a son propre ordre — l’air avant le feu, le feu avant l’eau, et l’eau pas le premier jour —, à la section 9.</p>
+<p class="li"><strong>On monte ouvrir le chalet gelé pour une crise courte.</strong> Rouvrir un chalet à −30 °C coûte une journée de travail et la nuit la plus risquée de l’hiver. Pour trois jours de panne, la maison gagne (<span class="ref">ch. 2</span>).</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">L’eau se cache aux points bas.</strong> L’eau prend du volume en gelant, et c’est ce volume qui fend un tuyau, un corps de pompe ou une cuvette de porcelaine ; un tuyau vide ne fend rien (<span class="ref">ch. 3</span>). Ouvrir les robinets ne vide pas un chalet : ça vide ce qui est plus haut que le robinet. Ce qui reste, c’est ce qui dort sous lui — le fond du chauffe-eau, le réservoir sous pression, le corps de la pompe, le boîtier du filtre, un coude sous le plancher, la conduite du lac tenue pleine par son clapet de pied, qui existe précisément pour ça. Une fermeture réussie est une chasse aux points bas, et l’air comprimé sert à pousser ce que la gravité laisse dans les creux.</p>
+<p class="p0 ri"><strong class="runin">Un bâtiment fermé est le gîte parfait.</strong> Sec, vide, tranquille, plein de papier, de mousse de matelas et d’isolant : c’est exactement ce que cherche la souris sylvestre (<em>Peromyscus maniculatus</em>) à l’automne, au moment même où le chalet se vide de ses occupants. Elle passe où son crâne passe, et elle ne ronge que ce qui est plus tendre que ses dents. Ce qu’elle laisse derrière elle rend malade surtout quand on le respire — le toucher et la bouche sont les autres voies, d’où les gants —, et c’est le balai qui le met dans l’air. D’où la règle qui renverse le réflexe du printemps : on mouille, on ne balaie pas.</p>
+<p class="p0 ri"><strong class="runin">Un conduit froid ne tire pas ; un conduit bouché ne tirera jamais.</strong> Un poêle tire parce que la colonne de gaz chauds du conduit est plus légère que l’air froid du dehors. Après des mois sans feu, l’air du conduit est à la température du dehors, et il n’y a plus de tirage du tout : la première fumée hésite ou redescend dans la pièce. Ça se corrige en chauffant le conduit par le bas, une torche de papier tenue à l’entrée du tuyau. Le conduit bouché, lui, refoule encore après la torche, et c’est le seul des deux qui tue : un nid fait pendant l’absence, un bouchon de neige soufflée sur le chapeau, du givre ou du verglas fermé sur le grillage, et les gaz du feu, monoxyde de carbone compris, n’ont plus que la pièce pour sortir. Un conduit resté froid depuis la fermeture est un abri sec et vide pour un oiseau ou un écureuil roux (<em>Tamiasciurus hudsonicus</em>), et un nid, c’est aussi des brindilles sèches au fond d’une cheminée. Une clé de tuyau fermée fait le même effet qu’un nid, sans rien laisser voir.</p>
+<p class="p0 ri"><strong class="runin">Un bâtiment gelé boit la chaleur.</strong> Après des semaines de froid, tout ce qui est dans le chalet est à la température du dehors : murs, plancher, matelas, conserves, le poêle lui-même. Le poêle réchauffe l’air d’une pièce assez vite ; il réchauffe la masse beaucoup plus lentement. Tant que la masse est froide, elle reprend la chaleur de l’air, le plancher reste glacé sous un air devenu confortable, les tuyaux dans les murs restent gelés, et l’humidité de quatre personnes et d’un chaudron qui bout se condense sur tout ce qui est froid. C’est pourquoi l’eau revient en dernier, et pourquoi on chauffe une pièce et non le chalet.</p>
+<p class="p0 ri"><strong class="runin">L’avertisseur de monoxyde a une plage de température.</strong> Sous <strong>4,4 °C</strong>, un avertisseur de CO sort de la plage où il fonctionne : sa pile faiblit, et la sensibilité de sa cellule peut changer. Un chalet ouvert en janvier est sous ce seuil pendant des heures, et on ne sait pas ce qu’un hiver à −30 °C a fait à l’appareil resté au mur. Le bouton d’essai ne le dira pas : il éprouve le circuit, la sirène et la pile, il ne fait respirer aucun monoxyde à la cellule. Le jour de l’arrivée, le seul avertisseur auquel on peut se fier est celui qui a voyagé au chaud, et seulement dans un air qui a passé 4,4 °C.</p>
+<p class="p0 ri"><strong class="runin">Fermer, c’est préparer l’ouverture.</strong> Une fermeture faite pour le printemps laisse un chalet propre et vide. Une fermeture faite pour le jour de la bascule laisse en plus un feu monté dans le poêle, du bois sec en dedans, des bouchons collés sur la pompe, un conduit brossé et des mots écrits sur les choses. Ça coûte quelques gestes en octobre, et ça rend les premières heures de janvier possibles.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce tableau ne porte que ce que l’opération demande. Les quantités à acheter et à tenir sont au chapitre 00b.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Avertisseur de CO à piles, <strong>qui voyage dans la cabine avec la famille</strong></td><td>1, en plus de ceux du chalet</td><td>Aucune. Celui du mur du chalet a passé l’hiver hors de sa plage de fonctionnement ; on le réchauffe et on le teste, mais il ne sert pas de preuve la première nuit</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Thermomètre</td><td>1</td><td>Aucune qui donne un chiffre. C’est lui qui dit quand l’air où dormiront les enfants a passé 4,4 °C et quand la pièce d’un appareil tient 18 °C ; sans lui, l’avertisseur de voyage reste sur l’adulte et l’eau attend</td><td>Oui</td></tr><tr><td class="c-item">Antigel de plomberie <strong>non toxique</strong></td><td>0,5 L par siphon et par réservoir de toilette, 1 L par cuvette (étape 7)</td><td>Vidange complète et siphons vidés à l’éponge, puis de quoi remplir le coude de chaque siphon d’huile de cuisson, qui épaissit sans prendre de volume (<span class="ref">ch. 3</span>, <span class="ref">§9</span>). Le lave-glace et l’antigel de moteur ne vont dans rien qui reverra l’eau de boisson</td><td>Oui</td></tr><tr><td class="c-item">Air pour souffler les conduites : compresseur, pompe à pneus à pied, aspirateur d’atelier monté en soufflerie</td><td>1</td><td>La bouche sur un bout de boyau enfoncé dans le robinet, pour les courtes longueurs (étape 5, par les robinets). À défaut de tout, la gravité : points bas ouverts, et du temps</td><td>Oui</td></tr><tr><td class="c-item">Boyau court, chaudière, éponge</td><td>1 de chaque</td><td>Une casserole et un linge pour les siphons ; une bouteille coupée pour les bouchons de pompe</td><td>Oui</td></tr><tr><td class="c-item">Feutre indélébile et ruban adhésif</td><td>1 et 1</td><td>Crayon gras ; étiquette de carton attachée à la broche. C’est ce qui permet à quelqu’un d’autre de rouvrir sans nous</td><td>Oui</td></tr><tr><td class="c-item">Laine d’acier, calfeutrant, grillage métallique fin, tôle</td><td>Selon les trous</td><td>Boîte de conserve aplatie au marteau et clouée, grillage roulé et enfoncé, ciment. La mousse, le bois neuf et la guenille ne bouchent rien (<span class="ref">ch. 5</span>, <span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Contenants de métal ou de verre à couvercle ; bacs fermés pour la literie</td><td>Selon le stock</td><td>Baril ou poubelle de métal à couvercle. Le plastique mince se ronge ; le carton est un nid</td><td>Oui</td></tr><tr><td class="c-item">Miroir et lampe frontale, pour voir le conduit</td><td>1</td><td>Miroir de poche, fond de boîte de conserve poli ; ou la première section du tuyau démontée pour regarder au travers</td><td>Oui</td></tr><tr><td class="c-item">Javel domestique, gants, masque N95 qui scelle sur le visage</td><td>1 bouteille, 2 paires, 2 masques</td><td>Pour le masque, aucune : un masque de papier qui bâille laisse passer l’air par le bord. Sans javel, de l’eau savonneuse en abondance : ce qui compte est que tout soit détrempé avant d’être ramassé (<span class="ref">ch. 79</span>, <span class="ref">§4</span>)</td><td>Javel : oui. Gants, masque et mouillage : <strong>non</strong>, dès qu’il y a des crottes</td></tr><tr><td class="c-item">Pelle à neige</td><td>1 accrochée haut sur le mur d’un pignon, près de la porte, jamais sous le bord d’un toit de tôle ; 1 dans le véhicule</td><td>Raquette, couvercle de chaudière, toboggan de plastique</td><td>Oui</td></tr><tr><td class="c-item">Perche à crochet pour atteindre le chapeau du conduit depuis le sol</td><td>1, rangée à l’abri contre un pignon, sa longueur utile mesurée à l’automne (<span class="ref">§9</span>)</td><td>Se fabrique sur place, à la hache (<span class="ref">§9</span>)</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A. Fermer à l’automne</h3>
+<p class="p0">La fermeture va de l’eau vers la porte : d’abord ce qui gèle, ensuite ce qui attire, ensuite le feu, en dernier ce qu’on laisse pour le retour. Elle se fait de jour, à deux, la veille ou le matin du départ, le dernier feu éteint depuis la veille au moins (étape 17).</p>
+<p class="p0 lab kh"><strong class="runin">L’eau</strong></p>
+<p class="step"><span class="sn">1</span><strong>Couper ce qui pompe et ce qui chauffe.</strong> Pompe à son interrupteur ou à son disjoncteur. Chauffe-eau électrique à son disjoncteur <strong>avant</strong> de le vider : un élément qui chauffe à sec se détruit (<span class="ref">ch. 3</span>, étape 22). Chauffe-eau au propane : robinet de gaz de l’appareil fermé, veilleuse éteinte.</p>
+<p class="step"><span class="sn">2</span><strong>Ouvrir tous les robinets</strong>, chauds et froids, du plus haut au plus bas, et le robinet extérieur. Tirer une dernière fois la chasse de la toilette pour vider le réservoir.</p>
+<p class="step"><span class="sn">3</span><strong>Vider les points bas, un par un.</strong> Le chauffe-eau par son robinet de vidange, boyau conduit au drain ou dehors, un robinet d’eau chaude ouvert plus haut pour casser le vide — sinon rien ne coule et on croit le robinet bouché. Le réservoir sous pression par son robinet du bas. Le corps de la pompe par son <strong>bouchon de vidange</strong>, en bas : une pompe de surface en a deux, un de vidange en bas et un d’amorçage en haut, et c’est le premier qui compte ici. Les boîtiers de filtre : cartouche sortie, boîtier vidé et laissé ouvert. Un boîtier resté plein se fend comme un tuyau.</p>
+<p class="step"><span class="sn">4</span><strong>La conduite du lac.</strong> Le clapet de pied la garde pleine : c’est son travail. Elle se sort donc de l’eau et se vide en pente, ou on dévisse le clapet. La souffler vers le lac ne sert à rien tant que le clapet est en place : il se ferme justement dans ce sens-là, et l’eau reste prise. Une conduite qui passe l’hiver pleine au-dessus de l’eau éclate. Pour un puits, ce qui est enterré sous la ligne de gel reste plein et n’en souffre pas ; tout ce qui est au-dessus, dans le bâtiment ou le vide sanitaire, se vide comme le reste.</p>
+<p class="step"><span class="sn">5</span><strong>Souffler.</strong> L’air pousse l’eau vers une sortie ; s’il trouve une sortie plus proche, il passe par là et ne pousse rien. Deux façons, qu’on ne mélange pas :</p>
+<p class="li l2"><strong>Par en amont, au compresseur.</strong> Le temps de souffler, toutes les autres sorties se ferment : bouchons revissés sur la pompe, boîtiers de filtre refermés vides, entrée de la pompe bouchée si la conduite du lac en est débranchée. L’air entre en amont de tous les robinets, par le robinet de vidange du réservoir sous pression, le boyau du compresseur serré dessus. Un robinet ouvert à la fois, les autres fermés, jusqu’à ce qu’il ne crache plus que de l’air, puis le suivant. Ensuite, les points bas se rouvrent et restent ouverts.</p>
+<p class="li l2"><strong>Par les robinets, à la pompe à pied ou à la bouche.</strong> Les points bas restent ouverts. Le boyau enfoncé dans chaque robinet, on souffle, et l’eau part vers les points bas.</p>
+<p class="stepc">Jamais plus de pression que celle que le système tient en marche : la pression d’arrêt du pressostat, lue l’été sur le manomètre du réservoir et écrite au feutre sur le réservoir même. Au-delà, on éprouve les joints au lieu de les vider.</p>
+<p class="step"><span class="sn">6</span><strong>Chercher le point bas oublié.</strong> Une boucle de tuyau sous le plancher, un coude derrière la douche, la laveuse. Tant qu’une goutte tombe d’un robinet ouvert, il reste de l’eau quelque part plus haut.</p>
+<p class="step"><span class="sn">7</span><strong>Siphons et toilette.</strong> Vider la cuvette et le réservoir à l’éponge, puis l’antigel de plomberie non toxique : <strong>0,5 L</strong> dans le réservoir de la toilette, <strong>1 L</strong> dans la cuvette, <strong>0,5 L</strong> dans chaque évier, lavabo, douche, baignoire et drain de plancher. S’il y en a au chalet : <strong>2 L</strong> dans la laveuse et <strong>0,5 L</strong> dans son siphon, <strong>1 L</strong> dans le lave-vaisselle. Le siphon est la seule barrière entre la pièce et les gaz de la fosse ; vide, il les laisse monter ; plein d’eau, il gèle et fend le siphon ou la porcelaine. L’antigel le garde plein sans qu’il gèle.</p>
+<p class="step"><span class="sn">8</span><strong>Écrire sur les choses.</strong> Les bouchons de vidange se collent au ruban sur la pompe même. Sur le réservoir, au feutre : « VIDANGÉ », la date, et la pression d’arrêt. Sur le robinet principal : fermé ou ouvert. Celui qui rouvre le lira à la lampe frontale, et ce ne sera peut-être pas nous.</p>
+<p class="p0 lab kh"><strong class="runin">Ce qui gèle et se fend descend</strong></p>
+<p class="step"><span class="sn">9</span><strong>Tout liquide en verre ou en boîte</strong> — conserves, bocaux, bouteilles — quitte un local qui gèle et descend à la maison. Une boîte qui gèle et dégèle voit son serti<sup class="fnr" data-fn="84-1">1</sup> travailler (<span class="ref">ch. 5</span>) ; un bocal de conserve maison qui a gelé se jette, fendu ou non, parce que son joint a travaillé (<span class="ref">ch. 78</span>, <span class="ref">§6</span>). Pas au caveau : il est tenu près de 0 °C et à 98 % d’humidité (<span class="ref">ch. 79</span>), et l’humidité rouille les couvercles et les boîtes jusqu’à défaire le scellé.</p>
+<p class="step"><span class="sn">10</span><strong>La caisse hors gel du <span class="ref">ch. 104</span> descend</strong> : colles, scellants, peintures, piles, abrasifs, électrodes, semences, films. Les médicaments d’ordonnance descendent avec la famille (<span class="ref">ch. 5, 5</span>.9). Les piles au lithium sortent des outils et descendent à la charge que dit le <span class="ref">ch. 104</span>.</p>
+<p class="p0 lab kh"><strong class="runin">Ce qui attire</strong></p>
+<p class="step"><span class="sn">11</span><strong>Les denrées qui restent</strong> vont dans le métal ou le verre à couvercle. Rien dans le carton, le papier ou le sac : c’est de la nourriture et du matériel de nid dans le même emballage.</p>
+<p class="step"><span class="sn">12</span><strong>Tout ce qui sent la nourriture sort ou se lave</strong> : poubelles, restes, grille du barbecue, glacière. Une odeur de nourriture dans un bâtiment vide attire la souris par le bas et l’ours noir (<em>Ursus americanus</em>) par la fenêtre.</p>
+<p class="step"><span class="sn">13</span><strong>Le réfrigérateur</strong> : vidé, lavé, séché, éteint, porte calée entrouverte. Fermé humide six mois, il se rouvre moisi.</p>
+<p class="step"><span class="sn">14</span><strong>La literie</strong> : draps lavés, tout rangé en bacs fermés, matelas debout contre un mur. Debout, on voit dessous et derrière au retour, avant d’y toucher.</p>
+<p class="step"><span class="sn">15</span><strong>Les pièges</strong> : la chaudière à bascule du <span class="ref">ch. 5</span> (<span class="ref">§9</span>), laissée <strong>sèche</strong>, parce que l’eau gèlerait. Au retour, ce qu’elle a pris se traite comme les crottes (étape 30).</p>
+<p class="p0 lab kh"><strong class="runin">L’enveloppe</strong></p>
+<p class="step"><span class="sn">16</span><strong>Boucher à la fermeture, pas au printemps.</strong> La souris sylvestre entre à l’automne ; au printemps, elle a déjà passé l’hiver dedans. Toute ouverture de la taille d’<strong>une pièce de 10 ¢</strong>, où la pièce passe à plat, laisse passer une souris : on garde la pièce dans la main pour faire le tour. Autour des tuyaux et des fils, la laine d’acier tassée d’abord, le calfeutrant par-dessus. Sur les évents, du grillage métallique fin. Sur les trous francs, de la tôle. Les endroits où chercher : le bas des murs derrière les armoires, le passage des tuyaux sous l’évier, la trappe du vide sanitaire, le dessous de la porte, le passage du tuyau du poêle et des fils de la génératrice.</p>
+<p class="p0 lab kh"><strong class="runin">Le poêle et le conduit</strong></p>
+<p class="step"><span class="sn">17</span><strong>Les cendres du dernier feu</strong> sortent dans le contenant métallique à couvercle, dehors, sur une surface qui ne brûle pas, à au moins 1 m de tout (<span class="ref">ch. 83</span>, étapes 24 et 25). Des braises survivent des jours sous une cendre froide au toucher, et ce contenant va passer des mois sans que personne le regarde, en octobre, dans les feuilles mortes, au vent. Il se pose donc sur la roche ou la terre nue, à <strong>3 m</strong> ou plus du chalet et de tout bâtiment, loin de la corde de bois et de la lisière, calé pour que le vent ne le renverse pas, et les cendres s’arrosent d’eau dedans avant de fermer le couvercle. Le mieux est encore un dernier feu fait quelques jours avant le départ. La cendre qui reste au fond du foyer se brasse : le feu du retour se monte sur une cendre brassée, sans une braise, qui ne chauffe plus la main tenue au-dessus.</p>
+<p class="step"><span class="sn">18</span><strong>Brosser le conduit à la fermeture.</strong> Pour un chalet fermé l’automne, la fin de la saison de chauffe, c’est la fermeture : des dépôts laissés dans l’acier passent l’hiver puis le dégel dans l’humidité, et l’humidité fait rouiller l’acier sous les dépôts. La méthode, avec ou sans brosse, est au <span class="ref">ch. 83</span> (<span class="ref">§9</span>, « Le ramonage sans brosse ») et au <span class="ref">ch. 82</span> (<span class="ref">§9</span>, « Ramoner sans brosse »). Le grillage du chapeau se brosse aussi : un grillage déjà encrassé a moins de passage à perdre quand le givre s’y met en janvier.</p>
+<p class="step"><span class="sn">19</span><strong>Fermer l’arrivée d’air</strong>, porte du poêle fermée. <strong>La clé du tuyau, s’il y en a une, reste ouverte.</strong> Fermée, c’est le geste qu’on oublie au retour, et une clé fermée renvoie toute la fumée du premier feu dans la pièce, monoxyde compris.</p>
+<p class="step"><span class="sn">20</span><strong>Monter le feu du retour dans le poêle.</strong> Allumage par le haut (<span class="ref">ch. 83</span>, étape 15) : les bûches au fond, le moyen, le menu, et le papier et l’allumage secs au sommet. Le papier journal, l’écorce de bouleau à papier (<em>Betula papyrifera</em>) et les éclisses de réserve vont dans une boîte de métal fermée à côté, pas en tas : la souris en fait son nid. Allumettes et briquet dans un pot de verre à couvercle, à côté du poêle.</p>
+<p class="step"><span class="sn">21</span><strong>Rentrer du bois sec.</strong> Les deux jours de bois du support incombustible (<span class="ref">ch. 83</span>, <span class="ref">§9</span>), empilés en croisillon. En janvier, la corde est sous la neige et chaque bûche du dessus est prise dans la glace : le bois rentré en octobre est celui du premier soir.</p>
+<p class="step"><span class="sn">22</span><strong>Écrire sur le poêle.</strong> Une étiquette attachée à la broche sur la poignée : « Conduit brossé le …. Clé du tuyau laissée OUVERTE : la vérifier. Regarder le chapeau avant d’allumer. » Elle est lue à l’instant exact où elle sert.</p>
+<p class="p0 lab kh"><strong class="runin">Le propane, les batteries</strong></p>
+<p class="step"><span class="sn">23</span><strong>Propane</strong> : robinet de chaque bouteille fermé à la main jusqu’à l’arrêt, bouchons d’obturation posés sur les raccords (<span class="ref">ch. 87</span>, étape 2), bouteilles dehors, debout, protégées des chocs (<span class="ref">ch. 104, 5</span>.5). Veilleuses éteintes, robinets des appareils fermés.</p>
+<p class="step"><span class="sn">24</span><strong>Batteries et génératrice</strong> : le banc au plomb part chargé, cosses propres (<span class="ref">ch. 104</span>, <span class="ref">§6</span>). Une batterie laissée à plat gèle, et une batterie gelée ne se charge plus sans risque (<span class="ref">§7</span>, <span class="ref">§9</span> ; <span class="ref">ch. 86</span>, <span class="ref">§3</span>). Un banc au lithium ne se charge jamais sous le point de congélation : son système de gestion refuse la charge sous +5 °C (<span class="ref">ch. 86</span>, <span class="ref">§3</span>) ; s’il n’a pas cette coupure, les panneaux se débranchent avant de partir, sinon le premier soleil de novembre le charge en plein gel. Les piles au lithium des outils descendent à la charge que dit le <span class="ref">ch. 104</span> (étape 10). La génératrice et son carburant suivent le <span class="ref">ch. 104</span> et le <span class="ref">ch. 15</span>.</p>
+<p class="p0 lab kh"><strong class="runin">La porte</strong></p>
+<p class="step"><span class="sn">25</span><strong>La pelle</strong> s’accroche haut sur le mur d’un pignon, près de la porte : là où elle dépasse encore de la neige en février. Pas sous le bord d’un toit de tôle, où la neige du toit tombe et s’empile tout l’hiver.</p>
+<p class="step"><span class="sn">26</span><strong>Le cadenas ou la serrure</strong> : du graphite en poudre dans le cylindre, pas d’huile, qui épaissit au froid. Une boîte de conserve renversée, clouée par-dessus le cadenas, lui garde la pluie verglaçante hors du cylindre. Une clé dans le véhicule, une à la maison.</p>
+<h3 class="sub">B. Ouvrir au printemps — dans l’ordre</h3>
+<p class="p0">La règle : rien ne s’allume, ne se remplit ni ne se balaie avant d’avoir été regardé. L’ordre va du dehors vers le dedans, et de l’air vers l’eau.</p>
+<p class="step"><span class="sn">27</span><strong>Faire le tour dehors avant d’entrer.</strong> Le toit et le chapeau du conduit : chapeau arraché, nid, brindilles qui dépassent. Les fenêtres, la porte, les traces d’une entrée forcée. Les bouteilles de propane : debout, robinets fermés.</p>
+<p class="step"><span class="sn">28</span><strong>Flairer à la porte, au ras du plancher.</strong> Le propane est plus lourd que l’air : une fuite lente ne monte pas, elle coule et remplit le point bas. Une odeur de chou pourri ou de mouffette au plancher : personne n’entre, rien ne s’allume, et c’est l’heure 0 du <span class="ref">ch. 87</span>.</p>
+<p class="step pk-t"><span class="sn">29</span><strong>Tout ouvrir et ressortir.</strong> Portes et fenêtres grandes ouvertes, <strong>au moins 30 minutes</strong>, avant de commencer quoi que ce soit dedans. C’est le temps de faire le tour de la pompe, des bouteilles et du chapeau.</p>
+<p class="step pk-t"><span class="sn">30</span><strong>Les crottes de souris, mouillées, jamais balayées.</strong> Gants de caoutchouc, masque N95 qui scelle sur le visage ; il ne scelle ni sur une barbe ni sur un visage d’enfant. Les crottes, les nids et le papier déchiqueté s’arrosent d’une solution d’<strong>une partie de javel pour 9 parties d’eau</strong>, qui agit <strong>10 minutes</strong>, puis se ramassent au papier ou au linge mouillé, dans un sac fermé. Pas de balai, pas d’aspirateur, pas de souffleur. Un matelas où il y a un nid s’arrose aussi, puis sort dehors sans être secoué. Les souris mortes de la chaudière à bascule, et la chaudière elle-même, se mouillent de la même solution avant qu’on y touche (<span class="ref">ch. 104</span>, <span class="ref">§8</span>). Sans javel, de l’eau savonneuse en abondance : ce qui sauve est que tout soit détrempé avant d’être ramassé (<span class="ref">ch. 79</span>). Les enfants sont hors de la pièce pendant ce temps. Toute denrée sèche que les souris ont touchée se jette ; elle ne se tamise pas et ne se lave pas (<span class="ref">ch. 5</span>).</p>
+<p class="step"><span class="sn">31</span><strong>Le propane, raccord par raccord.</strong> Eau savonneuse sur chaque raccord avant d’ouvrir un appareil (<span class="ref">ch. 87</span>, étape 5). Les tubes de brûleur se vident des toiles d’araignée de l’été : une flamme jaune et molle fabrique du monoxyde (<span class="ref">ch. 87</span>, <span class="ref">§9</span>). La cheminée du réfrigérateur se regarde comme celle du poêle, et l’évent de tout appareil au propane qui en a un — chauffe-eau, chaufferette murale — aussi, avant d’ouvrir le gaz : un nid dans l’évent renvoie le monoxyde dans le chalet chaque fois que le brûleur part seul, la nuit comme le jour, sans personne devant.</p>
+<p class="step"><span class="sn">32</span><strong>Le conduit, avant le premier feu.</strong> D’abord, <strong>la clé du tuyau ouverte</strong>. Chapeau vu d’en bas ou du toit. Miroir au fond du foyer ou dans la buse, lampe frontale : sur un conduit droit, on doit voir le ciel (<span class="ref">ch. 83</span>, <span class="ref">§9</span>), et sous un capuchon plein, une lumière sur le pourtour. Un conduit qui sort par le mur ou qui fait un coude ne montre rien au miroir, même dégagé : on regarde par le bouchon de ramonage du té, au pied de la cheminée extérieure, et on démonte la section à chaque coude. Au même miroir, on cherche le dépôt luisant et boursouflé (<span class="ref">ch. 82, 30</span>-A, étape 2). Un nid dans le conduit se sort par le bas, à la perche ou à l’écouvillon (<span class="ref">ch. 83</span>, <span class="ref">§9</span>), jamais en le brûlant sur place : c’est un feu de cheminée qu’on allume soi-même.</p>
+<p class="step"><span class="sn">33</span><strong>L’essai de tirage</strong>, portes et fenêtres encore ouvertes (étape 29). Une torche de papier journal ou d’écorce allumée et tenue haut dans le foyer, contre l’entrée du tuyau, le temps de chauffer le conduit (<span class="ref">ch. 83</span>, étape 17). La fumée doit être aspirée franchement. Une fumée qui revient dans la pièce <strong>après</strong> que la torche a chauffé le conduit veut dire une obstruction : pas de feu. Une cheminée extérieure, froide sur toute sa hauteur, peut refouler plus longtemps qu’un tuyau qui monte dans la pièce : une fenêtre ouverte au même étage, du côté du vent, et une deuxième torche, avant de conclure au bouchon.</p>
+<p class="step"><span class="sn">34</span><strong>Les avertisseurs.</strong> Piles neuves, bouton d’essai, appareil revenu au-dessus de 4,4 °C avant d’en tirer quoi que ce soit. L’avertisseur de CO se pose à <strong>2 m ou plus</strong> du poêle, là où l’on dort.</p>
+<p class="step pk-t"><span class="sn">35</span><strong>Le premier feu</strong> : le feu monté en octobre, clé du tuyau ouverte, air grand ouvert. La porte peut rester entrouverte <strong>jusqu’à 15 minutes</strong> pour que le conduit se réchauffe et tire fort, avec un adulte devant tout ce temps : une porte entrouverte fait monter le poêle à une chaleur qu’il n’est pas fait pour tenir. Pendant ce temps, l’autre adulte est dehors et regarde le haut du conduit. De la fumée ou un tremblement d’air chaud au chapeau : le conduit est ouvert.</p>
+<p class="step pk-c"><span class="sn">36</span><strong>La pièce à 18 °C d’abord.</strong> Rien ne se remet en eau tant que la pièce où se trouve l’appareil n’est pas à au moins <strong>18 °C</strong> : de l’eau poussée dans un tuyau encore gelé le fend. Au printemps, c’est une question d’heures ; en hiver, c’est une autre affaire (<span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">37</span><strong>L’eau, dans l’ordre inverse de la fermeture.</strong> Tous les robinets et les drains fermés. Les bouchons, collés sur la pompe, se revissent ; les cartouches rentrent dans leurs boîtiers. La conduite retourne au lac, clapet de pied remis. <strong>La pompe s’amorce</strong> : on la remplit d’eau par le bouchon d’amorçage, en haut, jusqu’à ce que ça déborde, on revisse, et seulement là on la met en marche. Une pompe de surface ne tourne jamais à sec : elle surchauffe et elle se tue à essayer.</p>
+<p class="step"><span class="sn">38</span><strong>Remplir, un robinet à la fois</strong>, du plus proche de la pompe au plus loin, jusqu’à ce que l’air soit sorti et que l’eau ne mousse plus. La pression doit monter et <strong>s’arrêter</strong> à la valeur écrite sur le réservoir. L’antigel des siphons part au drain à la première eau.</p>
+<p class="step"><span class="sn">39</span><strong>Chercher la fuite pendant la première heure.</strong> Sous chaque évier, autour de la pompe, du réservoir, du chauffe-eau, et là où un tuyau passe dans un mur extérieur. Une fente faite par le gel en février ne coule qu’au moment où l’eau revient. Elle se ferme à froid (<span class="ref">ch. 3</span>, <span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">40</span><strong>Le chauffe-eau se remplit avant de chauffer.</strong> Robinet d’eau chaude ouvert jusqu’à ce que l’eau coule sans air ; seulement là, le gaz ou le courant.</p>
+<p class="step"><span class="sn">41</span><strong>L’eau se traite.</strong> L’eau du lac est une eau de surface et le reste (<span class="ref">ch. 10</span>). Un puits qui a passé l’hiver et le dégel se juge au <span class="ref">ch. 10, 30</span>-H.</p>
+<p class="step"><span class="sn">42</span><strong>Le reste.</strong> La bécosse et la fosse au dégel : <span class="ref">ch. 31</span>. Le stock : boîtes bombées, rouillées ou bosselées sur le serti jetées sans être ouvertes (<span class="ref">ch. 5</span>). Tout bocal de conserve maison resté l’hiver dans le chalet a gelé, et il se jette, fendu ou non (<span class="ref">ch. 78</span>, <span class="ref">§6</span>). <strong>Le botulisme ne change ni l’odeur, ni le goût, ni l’apparence</strong> : une boîte qui a gelé se juge à son serti, un bocal au seul fait d’avoir gelé, jamais au nez. La caisse hors gel remonte de la maison (<span class="ref">ch. 104</span>).</p>
+<p class="p0 ri"><strong class="runin">La maison au village, au retour d’une bascule.</strong> Le même ordre la rouvre : pièce à 18 °C d’abord, robinets fermés, chauffe-eau rempli avant le courant, un robinet à la fois, et la première heure à chercher la fuite (<span class="ref">ch. 2</span>, <span class="ref">ch. 3</span>).</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:14.1%"><col style="width:19.7%"><col style="width:36.9%"><col style="width:29.2%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Fermeture, après la vidange</td><td>Robinets et drains ouverts</td><td>Plus une goutte, nulle part</td><td>Souffler de nouveau ; chercher la boucle sous le plancher ou le coude oublié</td></tr><tr><td class="c-item">Fermeture</td><td>Chauffe-eau, réservoir, pompe, filtres, conduite du lac</td><td>Les cinq vidés par leur point bas, bouchons collés sur la pompe</td><td>Le point bas qui reste plein est celui qui fend</td></tr><tr><td class="c-item">Fermeture</td><td>Siphons et toilette</td><td>0,5 L par siphon et par réservoir, 1 L par cuvette ; laveuse 2 L, lave-vaisselle 1 L s’il y en a</td><td>Sans antigel : siphons vidés, huile de cuisson (<span class="ref">ch. 3</span>, <span class="ref">§9</span>)</td></tr><tr><td class="c-item">Fermeture</td><td>Ouvertures de l’enveloppe</td><td>Aucune de la taille d’une pièce de 10 ¢</td><td>Laine d’acier puis calfeutrant ; grillage ; tôle</td></tr><tr><td class="c-item">Fermeture</td><td>Liquides en verre ou en boîte</td><td>Aucun dans un local qui gèle</td><td>À la maison, jamais au caveau</td></tr><tr><td class="c-item">Fermeture</td><td>Cendres du dernier feu</td><td>Contenant fermé, cendres arrosées, sur sol nu, à 3 m ou plus de tout bâtiment ; foyer brassé, sans braise</td><td>Déplacer le contenant ; brasser et arroser encore</td></tr><tr><td class="c-item">Fermeture</td><td>Clé du tuyau</td><td>Ouverte, écrit sur l’étiquette de la poignée</td><td>L’ouvrir</td></tr><tr><td class="c-item">Fermeture</td><td>Feu du retour</td><td>Feu monté dans le poêle, bois sec rentré, allumage en boîte de métal, allumettes en pot</td><td>Le monter avant de partir</td></tr><tr><td class="c-item">Fermeture</td><td>Bouteilles de propane</td><td>Robinets fermés, bouchons posés</td><td><span class="ref">Ch. 87</span>, étape 2</td></tr><tr><td class="c-item">Ouverture, avant d’entrer</td><td>Odeur au ras du plancher</td><td>Aucune</td><td>Personne n’entre, rien ne s’allume : <span class="ref">ch. 87</span>, heure 0</td></tr><tr><td class="c-item">Ouverture</td><td>Aération</td><td>Au moins 30 min, portes et fenêtres ouvertes</td><td>Ressortir et attendre</td></tr><tr><td class="c-item">Ouverture</td><td>Crottes, nids</td><td>Javel 1 pour 9, 10 min de contact, ramassé mouillé</td><td>Jamais de balai ni d’aspirateur</td></tr><tr><td class="c-item">Avant le premier feu</td><td>Conduit</td><td>Clé du tuyau ouverte ; jour visible au bout du conduit (ciel au miroir sur un conduit droit, par le té ou section démontée sinon) ; fumée de la torche aspirée</td><td>Pas de feu tant que ce n’est pas le cas</td></tr><tr><td class="c-item">Avant le premier feu</td><td>Évents des appareils au propane</td><td>Rien dedans</td><td>Pas de gaz à l’appareil</td></tr><tr><td class="c-item">Avant la première nuit</td><td>Avertisseur de CO</td><td>Air à plus de 4,4 °C là où l’on dort, au thermomètre ; bouton d’essai qui sonne ; à 2 m ou plus du poêle</td><td>Celui qui a voyagé au chaud reste sur un adulte, et personne ne dort</td></tr><tr><td class="c-item">Premier feu</td><td>Porte du poêle entrouverte</td><td>15 min au plus, un adulte devant</td><td>Refermer ; si ça refoule porte fermée, c’est le conduit</td></tr><tr><td class="c-item">Avant de remettre l’eau</td><td>Pièce où est l’appareil</td><td>Au moins 18 °C</td><td>Attendre</td></tr><tr><td class="c-item">Remise en eau</td><td>Pompe</td><td>Amorcée avant la mise en marche ; pression qui monte et qui s’arrête</td><td>Couper tout de suite si rien ne monte : elle tourne à sec</td></tr><tr><td class="c-item">Première heure d’eau</td><td>Joints, dessous d’évier, pompe, réservoir, chauffe-eau</td><td>Aucun suintement</td><td>Couper l’eau, réparer à froid (<span class="ref">ch. 3</span>, <span class="ref">§9</span>)</td></tr><tr><td class="c-item">Chauffe-eau</td><td>Réservoir</td><td>Eau sans air au robinet chaud avant le gaz ou le courant</td><td>Laisser couler encore</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:30.6%"><col style="width:25.3%"><col style="width:44.2%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Eau au plancher près de la pompe ou sous un évier au retour</td><td>Point bas oublié qui a gelé : corps de pompe, boîtier de filtre, coude, tuyau</td><td>Couper la pompe, trouver la fente sous faible pression, fermer à froid à la chambre à air et aux colliers (<span class="ref">ch. 3</span>, <span class="ref">§9</span>). Un corps de pompe en fonte fendu se brase (<span class="ref">ch. 103</span>)</td></tr><tr><td class="c-item">La pompe tourne et la pression ne monte pas</td><td>Pompe non amorcée, ou la conduite aspire de l’air par le clapet de pied ou un joint</td><td>Couper tout de suite. Réamorcer par le bouchon du haut ; sortir le clapet et le nettoyer, ou le refaire en cuir (<span class="ref">ch. 104</span>, <span class="ref">§9</span>)</td></tr><tr><td class="c-item">La pompe repart seule sans qu’aucun robinet ne soit ouvert</td><td>Fuite quelque part, ou clapet qui laisse redescendre la colonne</td><td>Chercher le suintement ; nettoyer le clapet, ou le refaire d’une languette de cuir épais (<span class="ref">ch. 104</span>, <span class="ref">§9</span>)</td></tr><tr><td class="c-item">Fumée dans la pièce au premier allumage, qui cesse une fois la torche passée</td><td>Conduit froid, sans tirage</td><td>Normal. Air grand ouvert, porte entrouverte sous surveillance, feu vif</td></tr><tr><td class="c-item">Fumée qui revient après la torche, ou rien qui sort au chapeau</td><td>Obstruction : clé du tuyau fermée, nid, bouchon de neige, givre sur le grillage</td><td>Éteindre, ouvrir, sortir tout le monde de la pièce. La clé d’abord. Pas de feu avant d’avoir vu le jour au bout du conduit</td></tr><tr><td class="c-item">Brindilles, paille, plumes ou coquilles dans le foyer ou la buse</td><td>Nid dans le conduit</td><td>Pas de feu. Sortir le nid par le bas, puis refaire l’essai</td></tr><tr><td class="c-item">Odeur d’égout dans le chalet</td><td>Siphon vide : antigel oublié, ou évaporé</td><td>Eau ou antigel dans chaque siphon ; chercher celui qui ne garde pas</td></tr><tr><td class="c-item">Papier déchiqueté, isolant grugé, crottes</td><td>Entrée de souris</td><td>Protocole de l’étape 30, puis la pièce de 10 ¢ pour trouver le passage</td></tr><tr><td class="c-item">Boîte bombée, rouillée, bosselée au serti</td><td>Gel ou contamination</td><td>Jeter sans ouvrir, sans goûter (<span class="ref">ch. 5</span>)</td></tr><tr><td class="c-item">Bocal fendu, bouteille éclatée</td><td>A gelé</td><td>Jeter le contenu et tout ce que le verre cassé a touché</td></tr><tr><td class="c-item">Bocal de conserve maison intact, resté l’hiver au chalet</td><td>A gelé ; le joint a travaillé</td><td>Jeter, fendu ou non, sans goûter (<span class="ref">ch. 78</span>, <span class="ref">§6</span>)</td></tr><tr><td class="c-item">Batterie au boîtier bombé ou fendu</td><td>Gelée à plat</td><td>Ni charge ni survoltage. Dehors, à l’écart. Elle ne sert plus</td></tr><tr><td class="c-item">Avertisseur muet au bouton d’essai</td><td>Pile morte au froid, ou appareil fini</td><td>Réchauffer, pile neuve, réessayer. Sinon, aucune nuit dans la pièce du poêle sans un autre avertisseur</td></tr><tr><td class="c-item">Un enfant « juste fatigué » ou marabout le soir de l’arrivée, ou deux adultes avec mal de tête le premier matin</td><td>Monoxyde de carbone jusqu’à preuve du contraire</td><td>Tout le monde dehors d’abord, la cause ensuite (<span class="ref">§8</span>, <span class="ref">ch. 39</span>)</td></tr><tr><td class="c-item">Le lendemain, un grondement sur le toit</td><td>La neige du toit de tôle part d’un coup</td><td>Personne sous le bord du toit. Regarder le conduit dès que la neige est tombée : une plaque qui glisse peut plier ou arracher le tuyau qui traverse le toit (<span class="ref">§9</span>)</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt cont0">Un conduit qui n’a pas servi depuis l’automne peut être fermé : un nid fait pendant l’absence, un bouchon de neige soufflée sur le chapeau, du givre refermé sur le grillage, une clé de tuyau restée fermée. Le feu brûle quand même, et ses gaz, qui ne sortent plus par en haut, sortent dans la pièce. Le monoxyde de carbone n’a ni odeur ni couleur et n’irrite rien. Il prend la place de l’oxygène dans le sang : le sang circule et ne transporte plus rien, et le corps ne sonne aucune alarme. <strong>On s’endort au lieu de sortir.</strong> Une odeur de fumée dans la pièce veut dire que l’appareil n’évacue pas sa fumée, et un appareil qui n’évacue pas sa fumée n’évacue pas son monoxyde non plus.</p>
+<p class="pt cont0">Le jour de l’arrivée d’hiver empile tout ce qui aggrave : un conduit que personne n’a regardé, un poêle qu’on pousse pour réchauffer un bâtiment glacé, la tentation d’étouffer une grosse charge pour la nuit (<span class="ref">ch. 83</span>), des adultes épuisés, et un avertisseur resté au mur, sous <strong>4,4 °C</strong>, hors de sa plage de fonctionnement, pile affaiblie, cellule dont la sensibilité a pu changer. Et chez l’enfant, le premier signe ressemble à la journée qu’il vient de passer : il a l’air fatigué, marabout, il veut se coucher. Après une journée de route et de motoneige, c’est ce que tout parent attend de voir. C’est le piège.</p>
+<p class="li"><strong>Pas de feu avant d’avoir vu le jour au bout du conduit</strong> — clé ouverte, ciel au miroir ou lumière par le té — et vu la fumée de la torche aspirée.</p>
+<p class="li"><strong>L’avertisseur qui a voyagé au chaud</strong> reste sur un adulte tant que l’air, là où dormiront les enfants, n’a pas passé 4,4 °C ; ensuite il se pose à leur tête, à 2 m ou plus du poêle, loin de l’entrée d’air. Personne ne dort avant, pas même une sieste.</p>
+<p class="li"><strong>Le véhicule qui sert d’abri</strong> : la neige poussée par le vent rebouche l’échappement pendant qu’on est assis dedans, le monoxyde entre par le plancher, et on s’endort. Échappement dégagé avant <strong>chaque</strong> redémarrage, un adulte éveillé, l’avertisseur de voyage dans l’habitacle (<span class="ref">ch. 2</span>, <span class="ref">§9</span> ; <span class="ref">ch. 15</span>, étapes 31 et 32).</p>
+<p class="li"><strong>Une fois le chalet chauffé, personne sous le versant qui porte le conduit</strong>, ni à la perche, ni à la ronde de nuit : la tôle réchauffée lâche sa neige d’un coup, sur celui qui est seul dehors pendant que l’autre dort. On regarde le chapeau depuis le côté du pignon.</p>
+<p class="li"><strong>Génératrice : jamais dans un bâtiment, un garage ou sous un auvent.</strong> Le soir de l’arrivée, le cabanon à l’abri du vent est exactement l’endroit où on a envie de la mettre (<span class="ref">ch. 15</span>).</p>
+<p class="li"><strong>Rien qui brûle un combustible n’entre pour « dégourdir » la pièce</strong> en attendant le poêle : ni chaufferette au propane, ni barbecue, ni réchaud. Le volume est petit, et tout le monde est dedans.</p>
+<p class="li">Mal de tête chez deux personnes, ou un enfant qui devient mou : <strong>tout le monde dehors</strong>, portes et fenêtres ouvertes, propane coupé à la bouteille, et on cherche la cause après.</p>
+<p class="pt cont0">Un séjour dans une habitation restée inoccupée fait partie des expositions reconnues au hantavirus. La souris sylvestre (<em>Peromyscus maniculatus</em>) en est le principal porteur, et le virus passe surtout par l’air : ce sont les crottes, l’urine et la salive séchées, mises en poussière, qu’on respire. Il passe aussi par les mains et par la bouche, d’où les gants. Le geste qui les met en poussière est le premier du printemps : le balai. Le syndrome pulmonaire est rare, et il est mortel dans environ <strong>40 %</strong> des cas. Il commence comme une grippe<sup class="fnr" data-fn="84-2">2</sup>, des semaines après le ménage, trop tard pour que personne ne fasse le lien.</p>
+<p class="pt cont0">Aérer <strong>au moins 30 minutes</strong>. Masque N95 qui scelle, gants. Mouiller à la javel <strong>1 pour 9</strong>, <strong>10 minutes</strong>, ramasser mouillé. Jamais de balai, d’aspirateur ni de souffleur. Une fièvre et des courbatures chez quelqu’un qui a ouvert le chalet se disent <strong>avec cette information-là</strong> à qui le soignera. Si l’essoufflement suit, c’est un des signes qui ne se discutent pas (<span class="ref">ch. 35, 5</span>-B, étape 6), et la question d’évacuer se pose tout de suite (<span class="ref">ch. 35, 30</span>-C).</p>
+</template>
+<template id="story-e">
+<p class="p0">C’est le moment de la bascule du <span class="ref">ch. 2</span>. La maison est vidangée et fermée derrière (<span class="ref">ch. 2</span>, étape 9 ; <span class="ref">ch. 3</span>), la route a pris plus de temps que prévu, la fin du trajet s’est faite en motoneige, la clarté baisse, il fait −30 °C, deux enfants de 4 et 6 ans ont froid et faim. Le chalet est à la température du dehors depuis des semaines. Personne ne viendra. Ce qui suit est l’ordre des premières heures, et il n’est pas celui du printemps : <strong>l’air avant le feu, le conduit avant le feu, le feu avant l’eau, et l’eau pas le premier jour.</strong></p>
+<h3 class="sub">Ce qui se fait avant de quitter la maison</h3>
+<p class="p0">Quatre gestes, et ils décident de la première nuit plus que tout ce qu’on fera là-bas.</p>
+<p class="li"><strong>Un avertisseur de CO se décroche et part dans la cabine</strong>, dans une poche de manteau, pas dans la boîte du camion ni dans le traîneau. C’est le seul qui n’aura jamais gelé.</p>
+<p class="li"><strong>Les sacs de couchage et un matelas de sol par personne voyagent au sec et au chaud</strong>, dans la cabine ou en dessous des enfants. Ceux du chalet sont des blocs de froid, et peut-être des nids.</p>
+<p class="li"><strong>Un thermos d’eau chaude par personne.</strong> C’est l’eau du premier soir, en attendant la neige fondue, et c’est aussi la première bouillotte (<span class="ref">ch. 25</span>, <span class="ref">§9</span>).</p>
+<p class="li"><strong>Le briquet dans une poche intérieure</strong>, contre le corps. Un briquet au butane gelé ne donne pas de flamme ; réchauffé dans la main, il en redonne une.</p>
+<h3 class="sub">La première demi-heure, à la porte</h3>
+<p class="p0">Deux adultes, deux rôles. Le premier ouvre le chalet. Le second garde les enfants et surveille le conduit de l’extérieur.</p>
+<p class="p0 ri"><strong class="runin">Les enfants attendent au chaud, pas dedans.</strong> Un chalet fermé depuis décembre n’est pas un abri en arrivant : il est aussi froid que dehors, plus noir, et plein de ce qu’on n’a pas encore regardé. Si le véhicule s’est rendu à la porte, ils attendent dedans, avec l’avertisseur de voyage : c’est le seul endroit chaud, donc le seul où il est dans sa plage. La neige qui bouche le tuyau d’échappement renvoie le monoxyde dans l’habitacle par le plancher, et un enfant qui s’endort après la route, c’est justement ce qu’on s’attend à voir. Donc : tuyau dégagé à la pelle avant <strong>chaque</strong> redémarrage, pas seulement le premier (<span class="ref">ch. 2</span>, <span class="ref">§9</span> ; <span class="ref">ch. 15</span>, étape 31) ; l’arrière du véhicule tourné loin des portes et des fenêtres qu’on vient d’ouvrir au chalet ; fenêtre entrouverte du côté opposé au vent ; moteur une dizaine de minutes par période de 30 minutes. Si la fin du trajet s’est faite en motoneige, ils restent dans leur sac, dans le toboggan, à l’abri du vent du côté sous le vent du chalet ou dans la galerie fermée, habits de neige sur le dos, avec l’adulte qui surveille le toit. Ils bougent les orteils sur commande et on leur fait attacher une botte plutôt que de leur demander s’ils ont froid (<span class="ref">ch. 2</span>, <span class="ref">§9</span> ; <span class="ref">ch. 39</span>). Si le travail sur le conduit s’étire — une perche à fabriquer de nuit, un bonnet de glace qui résiste —, un feu long s’allume dehors, à l’écart du toit, et les enfants s’installent à côté avant que le froid les prenne (<span class="ref">ch. 82</span>, <span class="ref">§9</span>).</p>
+<p class="p0 lab kh"><strong class="runin">Entrer.</strong></p>
+<p class="li">La porte est souvent sous un banc de neige tassé par le vent, qui ne se pellette pas comme de la neige folle : il se découpe en blocs, au bout de la pelle ou à la raquette posée sur le côté.</p>
+<p class="li">Le cadenas gelé ne se force pas. Deux façons, l’une <strong>ou</strong> l’autre. La clé se chauffe au briquet, s’enfonce, se retire, se chauffe encore, et le métal dégèle le cylindre de l’intérieur. Ou du gel hydroalcoolique, du lave-glace ou de l’alcool à brûler versé dans le cylindre fait fondre la glace et l’empêche de reprendre. Jamais le briquet après l’alcool : la flamme prend sur le cadenas et les mitaines imbibés, et le méthanol du lave-glace ou de l’alcool à brûler brûle d’une flamme à peine visible en plein jour. Jamais d’eau chaude : elle fond la glace et regèle aussitôt, en pire.</p>
+<p class="li">La porte gelée dans son cadre ne se tire pas par la poignée, qui cède avant la glace. On frappe le cadre du plat de la main ou du manche de la hache sur toute sa hauteur, du côté des pentures d’abord.</p>
+<p class="li"><strong>Flairer au ras du plancher</strong> en ouvrant. Les bouteilles ont été fermées en octobre, mais c’est le moment de le savoir. Une odeur de propane : personne n’entre (<span class="ref">ch. 87</span>, heure 0).</p>
+<p class="p0 ri"><strong class="runin">Tout ouvrir tout de suite.</strong> Portes et fenêtres, pendant qu’on fait le reste dehors. Le temps d’aération du printemps — au moins 30 minutes — ne coûte aucune chaleur maintenant, parce qu’il n’y en a pas : le chalet est aussi froid dedans que dehors. Il coûtera cher une heure plus tard, une fois le feu allumé. C’est pour ça qu’il se fait <strong>avant</strong>, pendant qu’on regarde le conduit, et pas après.</p>
+<h3 class="sub">Le conduit, avant tout</h3>
+<p class="p0">C’est le seul point de la journée où une erreur tue toute la famille dans son sommeil. Il se traite en trois regards.</p>
+<p class="p0 ri"><strong class="runin">D’en bas, dehors.</strong> Le chapeau : un bonnet de neige soufflée, une croûte de verglas, du givre blanc sur le grillage, un nid qui dépasse. La nuit, la lampe frontale en plein faisceau, et les jumelles s’il y en a. À l’arrivée, aucun feu n’a tourné depuis des semaines : ce qui ferme le grillage vient du dehors, neige soufflée, verglas, givre de brouillard. Après l’allumage, c’est autre chose : la fumée d’un feu de bois est pleine de vapeur d’eau, et cette vapeur se condense et gèle sur le métal le plus froid du chalet, qui est le grillage du chapeau à −30 °C. C’est pour ça que le regard d’en bas se refait le soir, avant de se coucher (plus bas).</p>
+<p class="p0 ri"><strong class="runin">Dégager le chapeau sans monter sur le toit.</strong> Un toit de tôle à −30 °C, givré, dans le noir, sans personne pour appeler, est le mauvais endroit pour tomber. La perche se fabrique sur place, à la hache et au couteau : une épinette noire (<em>Picea mariana</em>) sèche, droite, ébranchée au ras ; au bout, un crochet de broche épaisse ou un long clou plié, ligaturé serré au fil de fer, ou simplement la fourche naturelle d’une branche coupée à une main du tronc. Sa longueur n’est pas la hauteur de l’avant-toit : c’est la distance entre les mains, debout au sol ou sur le banc de neige, et le chapeau, qui est souvent en retrait du bord et plus haut que lui. Elle se mesure une fois à l’automne, une perche en main, et la longueur s’écrit au crayon gras sur le mur du pignon, à côté de la perche rangée : si la perche a disparu, celle qu’on fabrique se coupe à cette longueur. On se tient au bout du versant, du côté du pignon, hors de la trajectoire du versant qui porte le conduit : une plaque qui part glisse droit vers le bas de la pente, pas sur le côté. Avant le premier feu, le toit froid garde mieux sa neige ; une fois le chalet chauffé, personne ne se met sous ce versant. On casse le bonnet de neige, on gratte le givre du grillage, on décroche ce qui est posé sur le chapeau ou coincé entre le capuchon et le grillage. Un nid <strong>dans</strong> le conduit est sous le grillage : il ne s’atteint pas d’en haut à la perche, il se sort par le bas (plus bas, et 5-B, étape 32). Sur un chalet d’un étage, ça se fait debout sur le banc de neige, qui ajoute sa hauteur. Pour un chalet plus haut, l’échelle fabriquée à l’automne (<span class="ref">ch. 82</span>, <span class="ref">§4</span>), jamais seul, l’autre adulte au pied, et les enfants dans le véhicule ou le toboggan, là où cet adulte les voit, loin du bord du toit.</p>
+<p class="p0 ri"><strong class="runin">De l’intérieur.</strong> D’abord la clé du tuyau : ouverte. Puis porte du poêle ouverte, miroir posé au fond du foyer ou dans la buse, lampe frontale : sur un conduit droit, on doit voir un rond de ciel ou, la nuit, de noir plus pâle que le tuyau ; sous un chapeau à capuchon plein, une lumière sur le pourtour plutôt qu’un rond. Sur un tuyau de chalet, la première section se démonte : regarder au travers vaut tous les miroirs. Un conduit qui sort par le mur vers une cheminée extérieure, ou qui fait un coude, ne montre rien au miroir même quand il est dégagé : on regarde vers le haut par le bouchon de ramonage du té, au pied de la cheminée extérieure, et on démonte la section à chaque coude. Des brindilles, des plumes ou de la paille tombées dans le foyer ou dans le té disent le nid avant qu’on le voie.</p>
+<p class="p0 ri"><strong class="runin">La torche, les deux adultes ensemble.</strong> Celui de dedans tient une torche de papier journal ou d’écorce de bouleau allumée haut dans le foyer, contre l’entrée du tuyau, le temps de chauffer le conduit, en la renouvelant au besoin. Celui de dehors regarde le chapeau. Un filet de fumée ou un tremblement d’air chaud en haut : le conduit est ouvert. De la fumée qui roule dans la pièce <strong>pendant</strong> les premières secondes, puis qui se met à monter : c’était le conduit froid, et c’est normal. De la fumée qui revient <strong>après</strong> que la torche a chauffé le conduit, ou rien au chapeau : obstruction. Pas de feu. Une cheminée extérieure, froide sur toute sa hauteur, peut refouler plus longtemps qu’un tuyau qui monte dans la pièce : une fenêtre du même étage ouverte du côté du vent, une deuxième torche, puis seulement la conclusion.</p>
+<p class="p0 ri"><strong class="runin">Si le conduit ne se dégage pas.</strong> Il n’y a pas de variante. Un conduit bouché qu’on n’atteint pas veut dire aucun feu dans ce bâtiment ce soir, et aucun appareil à combustion à la place. Ce qui reste :</p>
+<p class="li"><strong>Un autre bâtiment qui a son poêle et son conduit</strong> — hangar, camp de chasse, voisin (<span class="ref">ch. 16</span>). Son conduit est aussi froid et aussi fermé depuis l’automne que celui du chalet : il passe par les mêmes trois regards et la même torche avant tout feu. S’il ne peut pas être vérifié, même règle : pas de feu dans ce bâtiment non plus.</p>
+<p class="li"><strong>Le véhicule.</strong> C’est l’abri où l’on s’endort, et c’est là que le monoxyde tue : la neige s’accumule sous le vent et rebouche le tuyau pendant la nuit, le gaz entre par le plancher, rien ne se sent, et personne ne se réveille. L’échappement se dégage avant <strong>chaque</strong> redémarrage (<span class="ref">ch. 2</span>, <span class="ref">§9</span> ; <span class="ref">ch. 15</span>, étapes 31 et 32), moteur une dizaine de minutes par période de 30 minutes, un adulte reste éveillé, et l’avertisseur de voyage passe dans l’habitacle : il y fait chaud, il y est dans sa plage.</p>
+<p class="li"><strong>L’abri de neige et le feu long</strong> (<span class="ref">ch. 82</span>, <span class="ref">§9</span>).</p>
+<p>C’est une nuit dure. C’est une nuit dont on se réveille.</p>
+<h3 class="sub">Le premier feu</h3>
+<p class="li">Le feu monté en octobre, allumé par le haut, clé du tuyau ouverte, air grand ouvert. Si rien ne s’allume, <span class="ref">ch. 13</span>.</p>
+<p class="li">Porte entrouverte <strong>jusqu’à 15 minutes</strong>, un adulte devant tout ce temps, pour que le conduit chauffe et tire fort. Au-delà, le poêle monte à une chaleur qu’il n’est pas fait pour tenir.</p>
+<p class="li">Des charges petites et vives, souvent, pas une grosse d’un coup. Un bâtiment glacé donne envie de bourrer le poêle ; un poêle bourré dans un conduit froid gazéifie son bois sans le brûler, et ce qu’il n’a pas brûlé se dépose dans le tuyau froid (<span class="ref">ch. 83</span>, <span class="ref">§3</span>).</p>
+<p class="li"><strong>L’avertisseur de voyage reste sur un adulte</strong>, dans une poche de poitrine laissée ouverte, où il reste tiède et où l’air de la pièce l’atteint, tant que l’air à la hauteur où dormiront les enfants n’a pas passé 4,4 °C au thermomètre. Posé plus tôt, il refroidit avec la pièce et se retrouve dans l’état de celui du mur, pendant les heures où l’on pousse le poêle. Ensuite seulement, il se pose là où les enfants vont dormir, à 2 m ou plus du poêle, loin de la fenêtre qu’on laisse entrouverte pour l’air. Personne ne dort avant, pas même une sieste.</p>
+<p class="li"><strong>L’avertisseur du mur</strong>, lui, se décroche et se réchauffe dans une poche intérieure ou dans la pièce qui tiédit, jamais près du poêle : au-dessus de <strong>37,8 °C</strong>, il sort aussi de sa plage. Une fois revenu au-dessus de 4,4 °C, pile neuve et bouton d’essai. S’il sonne au bouton, on sait que son circuit, sa sirène et sa pile marchent ; on ne sait pas ce que l’hiver a fait à sa cellule, que le bouton n’éprouve pas. La première nuit, il est le deuxième avertisseur, pas le premier.</p>
+<p class="li">Une entrée d’air reste ouverte en permanence, même à −35 °C : un poêle tire son air de la pièce, et une pièce fermée finit par le lui refuser (<span class="ref">ch. 39</span>, <span class="ref">§9</span> ; <span class="ref">ch. 83</span>, <span class="ref">§3</span>).</p>
+<p class="li">Les fenêtres ouvertes pour l’aération se referment dès que le feu tire, sauf celle-là.</p>
+<h3 class="sub">Le feu d’abord, l’eau jamais la première journée</h3>
+<p class="p0">La question se pose parce que tout le monde a soif et que le robinet est là. La réponse est simple : <strong>le feu d’abord, et la plomberie ne se touche pas.</strong></p>
+<p class="p0 ri"><strong class="runin">Si la plomberie a été vidangée en octobre</strong>, il n’y a rien à sauver et rien à faire : robinets ouverts, pompe coupée, et on la laisse comme ça. L’eau du premier soir vient du thermos, puis de la neige ou de la glace fondue sur le poêle, dans un chaudron où l’on a laissé un fond d’eau pour que le fond ne roussisse pas, et elle passe par l’ébullition comme toute eau de surface (<span class="ref">ch. 10, 30</span>-E et 5-I). La glace de lac donne plus d’eau que la neige à volume égal. Le sac de neige suspendu à côté du poêle fond sans prendre de place sur la plaque (<span class="ref">ch. 3</span>, <span class="ref">§9</span>).</p>
+<p class="p0 ri"><strong class="runin">Si elle ne l’a pas été</strong> — la fermeture a été bâclée, ou quelqu’un a remis l’eau en novembre —, le mal est fait, et il ne faut pas l’aggraver. La glace tient les fentes fermées ; c’est au dégel que tout se met à couler, souvent en même temps, souvent dans un mur. Donc, <strong>avant d’allumer</strong> : pompe coupée, robinet principal fermé s’il y en a un, tous les robinets et les drains ouverts pour que l’eau de fonte ait une sortie, des chaudrons sous les joints qu’on voit. Puis on laisse les tuyaux dégeler au rythme du bâtiment, sans les chauffer. Jamais de flamme sur un tuyau : dans un mur, elle allume la charpente derrière, et sur le cuivre elle défait les soudures en amont. Si un tuyau doit dégeler plus vite, c’est du robinet ouvert vers le bouchon de glace, jamais au milieu, avec des guenilles et de l’eau chaude (<span class="ref">ch. 3</span>, <span class="ref">§9</span>) : chauffé au milieu, l’eau fondue et la vapeur restent coincées entre deux glaces, et le tuyau fend. Les fentes se trouvent au dégel et se ferment à froid, à la chambre à air et aux colliers.</p>
+<p class="p0 ri"><strong class="runin">L’eau courante revient-elle cet hiver ?</strong> Un système d’été — prise au lac, conduite en surface ou dans un vide sanitaire ouvert — ne revient pas avant le dégel. On vit à la chaudière et au trou dans la glace (<span class="ref">ch. 10, 30</span>-I ; la glace se lit au <span class="ref">ch. 58</span>), et c’est une corvée de chaque jour qui entre dans l’horaire (<span class="ref">ch. 36</span>). Un système d’hiver — puits, conduite enfouie sous le gel, vide sanitaire fermé — se remet en eau seulement quand la pièce où est chaque appareil a tenu 18 °C et que les tuyaux sont tièdes à la main sur toute la longueur qu’on peut toucher, <strong>y compris dans le vide sanitaire</strong>, qui est le dernier endroit du chalet à dégeler. Puis l’ordre de la section 5-B, étapes 36 à 40, pompe amorcée.</p>
+<h3 class="sub">Une pièce, pas le chalet</h3>
+<p class="li">On chauffe la pièce du poêle et on ferme les autres. Une couverture de laine clouée au cadre fait une porte là où il n’y en a pas.</p>
+<p class="li">On ne cherche pas à rendre la pièce confortable le premier soir : on cherche à la rendre sûre et tiède. Le poêle aura réchauffé l’air bien avant les murs, le plancher et les meubles, et ceux-là continueront de boire la chaleur toute la nuit.</p>
+<p class="li"><strong>L’humidité.</strong> Quatre personnes qui respirent et un chaudron qui bout mettent de l’eau dans l’air, et cette eau se dépose sur ce qui est froid : fenêtres, murs extérieurs, matelas, sacs de couchage. Les sacs restent roulés dans leur housse jusqu’au coucher ; le chaudron bout avec son couvercle ; le linge mouillé sèche près du poêle, pas contre un mur froid. Au redoux des jours suivants, le givre des murs fond et coule : c’est de l’eau de condensation, pas une fuite de toit.</p>
+<p class="li"><strong>Le temps que met le chalet à se réchauffer ne se devine pas.</strong> Il se mesure une fois, une fin de semaine de février, du moment où on ouvre la porte au moment où la pièce du poêle est tiède, et il s’écrit au crayon gras sur le mur à côté du poêle, et sur la fiche de décision du <span class="ref">ch. 2</span> (<span class="ref">§4</span>), à côté de la durée du trajet. Le jour de la bascule, c’est ce chiffre qui dit, à la maison, s’il faut partir à midi ou à huit heures.</p>
+<h3 class="sub">Dégeler sans faire éclater</h3>
+<p class="p0">Tout ce qui est dans le chalet a gelé. Ce qui contenait de l’eau a pris du volume, et une partie casse au gel, une autre au dégel.</p>
+<p class="li"><strong>Les bocaux et les bouteilles</strong> dégèlent lentement, dans la pièce, loin du poêle et jamais dessus : le verre glacé qu’on pose sur une plaque chaude éclate. Ce qui a fendu au gel se jette, avec tout ce que le verre cassé a touché. Un bocal de conserve maison qui a gelé se jette aussi, fendu ou non : son joint a travaillé, et un pot d’orignal gelé en janvier, dégelé en mars et ouvert en mai a pu passer des semaines descellé (<span class="ref">ch. 78</span>, <span class="ref">§6</span>).</p>
+<p class="li"><strong>Une boîte de conserve ne se réchauffe jamais fermée</strong>, gelée ou pas : la vapeur n’a pas de sortie et la boîte éclate. Une boîte qui a gelé se juge à son serti une fois dégelée (<span class="ref">ch. 5</span>). Pour la boîte comme pour le bocal, le botulisme ne change ni l’odeur, ni le goût, ni l’apparence.</p>
+<p class="li"><strong>La toilette</strong> : si la cuvette ou le réservoir ont gelé pleins, on ne tire pas la chasse, on regarde la porcelaine au dégel. En attendant, la chaudière de nuit et la bécosse (<span class="ref">ch. 31</span>).</p>
+<p class="li"><strong>Les batteries</strong> : une batterie de banc ou de motoneige trouvée à plat a pu geler. Elle ne se charge pas et ne se survolte pas avant d’avoir dégelé, parce qu’une batterie gelée qu’on force peut exploser et projeter son acide au visage. Paroi bombée ou fendue : elle est finie, elle sort. Une batterie intacte dégèle dans la pièce, loin du poêle et de toute flamme, avant qu’on la branche. Un banc au lithium muni de son système de gestion ne s’abîme pas au froid, mais il ne prend aucune charge avant d’avoir passé +5 °C (<span class="ref">ch. 86</span>, <span class="ref">§3</span>).</p>
+<p class="li"><strong>Les bouteilles de propane</strong> ne se réchauffent pas, ni au feu ni en dedans (<span class="ref">ch. 87</span>, étape 3) : réchauffée, la bouteille monte en pression, la soupape lâche du gaz, et ce gaz coule au plancher jusqu’au poêle allumé. À −30 °C, elles débitent mal de toute façon (<span class="ref">ch. 87</span>, <span class="ref">§3</span>) : on ne compte pas sur le propane le premier jour. Tout se fait au poêle.</p>
+<h3 class="sub">Les souris, en janvier</h3>
+<p class="p0">Les crottes de souris gelées sont sèches comme en mai, et le balai les met dans l’air de la même façon. L’aération est déjà faite, à la porte. Le reste change :</p>
+<p class="li"><strong>La javel diluée gèle.</strong> Le lavage de l’étape 30 attend que la pièce soit au-dessus de zéro.</p>
+<p class="li">En attendant, on ne balaie pas, on ne secoue pas un matelas, on ne vide pas un tiroir d’un coup. Le coin où dormiront les enfants se couvre d’une bâche propre sortie du véhicule, posée à plat sans être glissée, et on n’y marche que sur la bâche.</p>
+<p class="li">Dès que la pièce dégèle, gants, masque, javel 1 pour 9, 10 minutes, ramassé mouillé, <strong>avant</strong> que les enfants se couchent, et les enfants à l’autre bout de la pièce ou dehors pendant ce temps.</p>
+<p class="li">Sans javel : de l’eau savonneuse en abondance, et on ramasse quand tout est détrempé (<span class="ref">ch. 79</span>). Dans un repli qui dure des mois, rien ne reste pour de bon sous la bâche.</p>
+<h3 class="sub">Où dorment les enfants la première nuit</h3>
+<p class="li"><strong>Dans la pièce du poêle, avec les adultes.</strong> Pas dans la chambre fermée, qui ne sera pas chaude cette nuit. Pas dans la mezzanine, qui est la place la plus chaude du chalet et la pire ce soir-là : c’est la seule où l’on ne voit pas un enfant sans monter. Devant le monoxyde, c’est le plus petit corps qui tombe le premier (<span class="ref">ch. 39</span>), et il ne se plaint pas : il devient mou et silencieux. Il dort là où l’adulte de garde le voit sans se lever.</p>
+<p class="li"><strong>Surélevés, jamais au plancher.</strong> Dans une pièce chauffée au poêle, l’air se range en couches, et le plancher d’un chalet qui dégèle est la dernière chose à se réchauffer. Un banc, la table, deux chaises dos à dos, des caisses : n’importe quoi qui les monte à hauteur de genou.</p>
+<p class="li"><strong>Sur ce qui a voyagé avec eux.</strong> Leur matelas de sol et leur sac, secs et tièdes. Pas les matelas du chalet, qui sont des blocs de froid qu’un corps d’enfant mettrait la nuit à réchauffer, et peut-être des nids. À défaut de matelas de sol, des couvertures pliées, des manteaux, et en dernier recours du sapinage de sapin baumier (<em>Abies balsamea</em>) posé serré sous une bâche (<span class="ref">ch. 39</span>, <span class="ref">ch. 82</span>, <span class="ref">§9</span>).</p>
+<p class="li"><strong>L’avertisseur de voyage à la tête des enfants</strong>, à 2 m ou plus du poêle, dès que l’air y a passé 4,4 °C (plus haut).</p>
+<p class="li"><strong>Une bouillotte dans chaque sac</strong>, contre le tronc, sous deux épaisseurs de tissu : une bouteille d’eau chaude bien fermée, à une température qu’un adulte tient à pleine main sans lâcher, ou des pierres chauffées au poêle, prises au sec, jamais au bord du lac ni dans un ruisseau, parce qu’une pierre qui a de l’eau dedans éclate au feu. Un enfant engourdi qui dort ne sent pas la brûlure et ne s’écarte pas (<span class="ref">ch. 25</span>, <span class="ref">§9</span> ; <span class="ref">ch. 39</span>, <span class="ref">§9</span> ; <span class="ref">ch. 82</span>, <span class="ref">§9</span>).</p>
+<h3 class="sub">La première nuit</h3>
+<p class="li"><strong>Deux adultes, deux quarts.</strong> Celui qui veille reste assis dans la pièce du poêle (<span class="ref">ch. 82</span>, <span class="ref">§9</span>). Le conduit n’a encore rien prouvé : il a tiré à la torche et une soirée au feu, pas une nuit à −35 °C.</p>
+<p class="li"><strong>Des petites charges vives, pas de charge étouffée.</strong> Le chalet sera froid au matin, et c’est le prix accepté (<span class="ref">ch. 83</span>, étape 22).</p>
+<p class="li"><strong>Le tour du conduit.</strong> Avant de se coucher, et une fois au milieu de la nuit, celui qui veille sort avec la frontale et regarde le chapeau depuis le côté du pignon, jamais sous le versant qui porte le conduit : après des heures de chauffe, c’est le moment où la tôle est le plus prête à lâcher sa neige, et il est seul dehors. Le givre se referme sur un grillage froid pendant une nuit calme et très froide, sur un conduit qui a pourtant bien tiré en soirée. Dedans, le dos de la main sur le mur autour de la traversée du tuyau (<span class="ref">ch. 82</span>, <span class="ref">§9</span>).</p>
+<p class="li"><strong>Un enfant qui devient mou, deux personnes qui ont mal à la tête en même temps</strong> : tout le monde dehors d’abord, les questions ensuite (<span class="ref">§8</span>).</p>
+<h3 class="sub">Le lendemain</h3>
+<p class="li"><strong>Le toit de tôle.</strong> La chaleur qui traverse le toit fait fondre la neige contre la tôle, et la surface lisse la laisse partir d’un coup, en plaque. Un chalet froid depuis des semaines garde sa neige ; le même chalet chauffé depuis une nuit peut la lâcher sur la porte. On repère la ligne du bord du toit, on pellette le chemin de la bécosse et du bois en dehors, et les enfants ne jouent pas sous l’avant-toit. On ne déneige pas un toit de tôle par le bas : la plaque part sur celui qui tire. Après toute glissade, le conduit se regarde d’en bas : une plaque qui part peut plier ou arracher le tuyau qui traverse le toit, et un tuyau ouvert sous la tôle rend ses gaz au chalet.</p>
+<p class="li"><strong>La corde de bois</strong> se dégage. La neige se brosse sur chaque brassée avant d’entrer : elle fond sur le support et mouille la bûche du dessous.</p>
+<p class="li"><strong>La génératrice</strong>, s’il y en a une, dehors et loin des ouvertures (<span class="ref">ch. 15</span>). Les batteries du banc, si elles sont gelées, dégèlent avant qu’on les charge.</p>
+<p class="li"><strong>Faire savoir qu’on est là</strong> : ceux qu’on a prévenus au départ (<span class="ref">ch. 2</span>, étape 9, point 3), le voisin, le groupe de chasse (<span class="ref">ch. 14</span> ; <span class="ref">ch. 16</span>).</p>
+<p class="li"><strong>Le reste du chalet</strong>, une pièce par jour, en ouvrant la porte de la pièce voisine quand celle du poêle tient sa chaleur. La décision de l’eau courante, selon le type de système (plus haut).</p>
+<h3 class="sub">Ce qu’on perd, et ce qui ne se remplace pas</h3>
+<p class="p0">On perd la plomberie jusqu’au dégel, si le système est d’été, et l’eau devient un travail de chaque jour. On perd l’avertisseur du mur pour la première nuit, et une partie de la confiance qu’on lui accorde pour l’hiver. On perd le regard sur le conduit si on arrive de nuit : la frontale voit un bonnet de neige, pas un grillage à moitié givré. On perd des heures de chaleur à réchauffer une masse qui ne rend rien le premier soir, et une nuit de sommeil pour deux adultes.</p>
+<p>Ne se remplacent pas :</p>
+<p class="step"><span class="sn">1</span><strong>Un conduit bouché qu’on n’atteint pas.</strong> Aucun montage ne rend sûr un feu dont les gaz ne sortent pas. La réponse est ailleurs que dans ce bâtiment.</p>
+<p class="step"><span class="sn">2</span><strong>L’avertisseur de CO qui n’a pas gelé.</strong> Il n’existe pas de version maison. Sans lui, les cinq règles du <span class="ref">ch. 39</span> (<span class="ref">§9</span>) s’appliquent sans exception, et la première nuit se passe avec un adulte éveillé en permanence dans la pièce.</p>
+<p class="step"><span class="sn">3</span><strong>La fermeture d’octobre.</strong> Tout ce qui rend les premières heures possibles — le feu monté, le bois rentré, le conduit brossé, la plomberie vide, les bouchons sur la pompe — se fait à l’automne ou ne se fait pas. Le jour de la bascule, on ne fait qu’en profiter.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="27-1"><span class="fnn">1</span>L’œil infecté par derrière : paupières enflées et rouges ; l’œil poussé vers l’avant, ce qui se voit le mieux en regardant le visage d’en haut, par-dessus le front ; l’œil qui fait mal quand il bouge et qui bouge moins bien que l’autre ; la vue qui baisse ; de la fièvre. Au début, une partie de ces signes peut manquer : la paupière qui enfle chez quelqu’un qui a mal à une dent du haut ou au sinus suffit à partir.</p>
+<p class="fn" data-fn="27-2"><span class="fnn">2</span>Un son aigu et rauque à chaque entrée d’air : l’air forcé à travers une gorge que l’enflure rétrécit.</p>
+<p class="fn" data-fn="45-1"><span class="fnn">1</span>Le renflement est un anneau où le canon a gonflé sous le choc de la balle contre l’obstacle. Il se voit parfois dehors, comme un anneau autour du canon. Sinon, l’âme bien propre, regardée par la chambre contre une lumière vive, y montre une ombre en anneau — une tache de graisse fait la même ombre, d’où l’âme propre — et les doigts passés doucement le long du canon le sentent comme une bosse. Deux balles restées dans l’âme : on présume le canon renflé. Un canon renflé ne s’arrange pas en tirant.</p>
+<p class="fn" data-fn="47-1"><span class="fnn">1</span><strong>Le tambourinage de la gélinotte.</strong> Un bruit sourd qui pulse, comme un tambour qu’on bat au loin. Le mâle le fait en comprimant l’air sous ses ailes, le plus souvent debout sur un billot, parfois sur une racine ou une roche. On l’entend surtout au printemps, et parfois à l’automne.</p>
+<p class="fn" data-fn="47-2"><span class="fnn">2</span><strong>La trace du lagopède.</strong> L’hiver, le dessous de ses pieds est couvert de plumes jusqu’au bout des doigts, au point de ressembler à une patte de lièvre, et seules ses longues griffes dépassent : l’empreinte est ronde et floue, sans doigts nets (<span class="ref">ch. 43</span>, <span class="ref">§5</span>-F). La gélinotte et le tétras n’ont pas le pied emplumé : l’hiver, la gélinotte porte seulement de petites franges en peigne le long des doigts, et ses doigts marquent.</p>
+<p class="fn" data-fn="81-1"><span class="fnn">1</span>Les premiers jours, les repas grossissent et la faim revient au bout de chacun : le repas complet de viande ne la coupe pas, le ventre est tendu, et l’envie de gras ne lâche pas. On maigrit alors que les portions sont grosses. Viennent ensuite la nausée et la diarrhée, que seul le gras arrête. Plus de viande maigre aggrave ; le gras renverse. L’enfant y arrive avant l’adulte : la part de protéines qu’il supporte plafonne plus bas (24).</p>
+<p class="fn" data-fn="81-2"><span class="fnn">2</span>Acides, donc à l’eau bouillante : petits fruits, confitures, gelées, marinades acidifiées. Peu acides, donc à l’autoclave : viande, poisson, bouillon, champignons de culture, haricots, betteraves, carottes, maïs, courges (73).</p>
+<p class="fn" data-fn="81-3"><span class="fnn">3</span>Le 66 °Brix ne se voit pas et ne se goûte pas : il se lit au réfractomètre ou au densimètre à sirop. Sans instrument, on ne fait pas de sirop de garde : on fait du sucre, qui se juge à l’œil et à la dent, ou un sirop léger gardé gelé dehors et mangé dans la saison (60).</p>
+<p class="fn" data-fn="81-4"><span class="fnn">4</span>Trouble laiteux, mousse qui ne retombe pas, odeur aigre, filaments dans la chaudière. Le froid qui concentre la sève concentre aussi ce qui a tourné (60).</p>
+<p class="fn" data-fn="84-1"><span class="fnn">1</span>Le serti est le repli de métal du pourtour de la boîte, là où le couvercle est roulé sur le corps. Avec la ligne de métal qui ferme le corps sur toute sa hauteur, c’est un des deux joints de la boîte. Une bosse, une arête pliée ou de la rouille à cet endroit, et le joint ne tient plus.</p>
+<p class="fn" data-fn="84-2"><span class="fnn">2</span>Les premiers signes sont ceux d’une grippe : frissons, fièvre, fatigue, maux de tête, étourdissements, douleurs musculaires, parfois toux, maux de ventre, nausées et vomissements. Rien dans la liste n’est propre au hantavirus : ce qui la distingue, c’est d’avoir ouvert le chalet ou touché des crottes de souris dans les semaines d’avant. La forme grave ajoute l’essoufflement, puis une détresse respiratoire sévère.</p>
+</template>
+<script type="application/json" id="meta">{"num": "84", "title": "Ouvrir et fermer le chalet", "tome": "Tome 5 · La forêt, le jardin et le chalet", "tnum": 5, "tfond": "#4B3A28", "tencre": "#F2EBDF", "lieu": "Les deux", "dsub": "Le ménage du printemps", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

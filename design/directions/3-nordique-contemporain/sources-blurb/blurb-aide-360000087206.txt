@@ -1,0 +1,33 @@
+Understanding bleed and trim in your Blurb book
+https://support.blurb.com/hc/en-us/articles/360000087206-Understanding-bleed-and-trim-in-your-Blurb-book
+mis à jour 2026-08-05T13:59:23Z — relevé le 2026-09-23 via l'API publique du centre d'aide
+
+
+When a book is printed, each page is trimmed to its final size. The trim line marks approximately where that cut will happen. Two common layout issues relate directly to this trim: content placed too close to the trim line risks being cut off, and full-bleed images that don’t extend past the trim line will leave an unwanted white edge.
+The trim line and safe area
+A trim line marks the approximate cut line for your page. The word 'approximate' matters — the actual cut may fall slightly to either side of the trim line due to normal variation in the printing and binding process.
+Keep all important content — text, faces, logos — inside the safe area, which is typically at least 0.25 inches from the trim line. Content placed close to the trim line risks being cut off in the finished book.
+For safe area guidance specific to your book size, use the 
+Blurb spec tool 
+or 
+check your bookmaking tool’s trim guide settings.
+Full bleed layouts
+A full bleed layout is one where an image or background color extends to the edge of the page with no white border. To achieve this in print, the image must extend past the trim line and reach the outer bleed edge. If the image stops at the trim line, a thin white strip will appear along that edge in the printed book.
+Correct bleed
+In a correctly designed full bleed layout, the image extends past the trim line and reaches the outer bleed edge. The extra image area beyond the trim line is cut off during production, ensuring the image prints right to the edge of the finished page with no white border. When viewing your design in your bookmaking tool, the image should fill the entire page including the shaded bleed area outside the trim line.
+Incorrect bleed
+If the image stops at the trim line without extending into the bleed area, a white strip will appear along that edge in the finished book. The trim cut does not land in exactly the same place on every copy — slight variation is normal in print production — so an image that only just reaches the trim line may leave a white edge even when it looks correct on screen. The further the image extends past the trim line, the more reliably the printed result will be edge-to-edge.
+Setting up bleed and trim in your bookmaking tool
+For step-by-step guidance on setting up bleed and trim in each tool:
+BookWright: 
+Understanding Print Safe Areas in BookWright
+ and 
+How to create a full bleed layout in BookWright
+Blurb plug-in for Adobe InDesign: 
+Safe zone, trim and bleed lines in the Blurb plug-in for Adobe InDesign
+PDF to Book uploader:  
+PDF to Book Specifications
+ and 
+How to review the PDF uploader preview
+Lightroom plug-in: 
+How to use trim guides and page bleed in Adobe Lightroom Classic

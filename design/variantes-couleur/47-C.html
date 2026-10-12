@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>47 — Chasser le petit gibier — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"47"}
+</style>
+</head>
+<body class="vA vB vC t3 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 3 · Prélever</span><span>Chapitre</span></div><div class="open-title"><div class="num">47</div><h1>Chasser le petit gibier</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Le petit gibier se chasse sur le territoire, à distance de marche, et presque toujours en passant : en relevant les collets, en allant au bois, en revenant du lac. La maison du village n’a ni le territoire ni l’espace pour tirer.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Trouver la bête à l’heure où elle bouge, dans le couvert qui la cache, l’approcher jusqu’à un seul coup à la tête et garder la cartouche pour ce que rien d’autre ne prend : c’est ce qui fait durer une boîte de .22 tout un hiver, et quand la boîte est vide, le bâton, la perche et la flèche mousse prennent encore ce qui se fige au lieu de fuir.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<p class="p0 lab kh"><strong class="runin">Quand la chasse est le bon choix.</strong></p>
+<p class="li"><strong>Pour ce que les engins ne prennent pas.</strong> Le lièvre d’Amérique (<em>Lepus americanus</em>) et le rat musqué (<em>Ondatra zibethicus</em>) se prennent mieux au collet et au piège, qui travaillent la nuit sans rien consommer (<span class="ref">ch. 48, 53</span>). La gélinotte huppée (<em>Bonasa umbellus</em>), le tétras du Canada (<em>Canachites canadensis</em>) et la sauvagine — canards et outarde (bernache du Canada, <em>Branta canadensis</em>) — ne passent pas dans un collet de sentier : ceux-là se chassent. Le lagopède des saules (<em>Lagopus lagopus</em>) se chasse aussi, et il se prend en plus à des collets qui ne sont pas ceux du lièvre, posés dans ses saules (<span class="ref">§9</span>).</p>
+<p class="li"><strong>En passant.</strong> Une .22 à l’épaule pendant la tournée de collets ou la corvée de bois ne coûte pas un pas de plus. Le petit gibier vit sur quelques hectares (<span class="ref">§3</span>) : il est là où l’on passe déjà, à condition d’y passer à la bonne heure.</p>
+<p class="li"><strong>À l’heure de la bête qu’on cherche.</strong> Le lièvre sur ses coulées, la gélinotte d’hiver qui monte aux bourgeons, le canard de passage et le rat musqué bougent à l’aube ou à la brunante : à midi, la marche qui les cherche ne rapporte que des pistes. Le reste se chasse le jour : le lièvre tapi au gîte, l’écureuil, le tétras dans ses épinettes, le lagopède quand il sort manger dans les saules.</p>
+<p class="li"><strong>Le matin d’après une neige.</strong> Tout ce qui est écrit dans la neige neuve date de la nuit, et une piste de lièvre fraîche finit à un gîte, pas loin (<span class="ref">§5-B</span>).</p>
+<p class="li"><strong>Quand le lièvre est blanc et que le sol ne l’est pas.</strong> La mue suit la lumière, pas la neige : en automne avant la première neige qui reste, et au printemps après la fonte, le lièvre blanc sur la feuille morte se voit de loin.</p>
+<p class="li"><strong>À la fin d’octobre</strong>, quand la gélinotte passe aux bourgeons de tremble et que le tétras fréquente le bord des chemins, et <strong>aux deux passages</strong> de la sauvagine (<span class="ref">ch. 41</span>).</p>
+<p class="p0 lab kh"><strong class="runin">Quand c’est un mauvais choix.</strong></p>
+<p class="li"><strong>Courir après un lièvre levé.</strong> Poursuivi, il ne part pas : il tourne, et il revient près de l’endroit d’où il est parti (<span class="ref">§5-B</span>). Celui qui court derrière lui le perd ; celui qui l’attend pendant qu’un autre le pousse le revoit.</p>
+<p class="li"><strong>Tirer la gélinotte en vol avec les dernières cartouches de fusil.</strong> Il y a deux ou trois secondes pour tirer, dans les branches. La même gélinotte perchée à la brunante coûte une cartouche de .22, à condition d’avoir un tronc, une grosse branche ou une pente derrière sa tête (étape 12).</p>
+<p class="li"><strong>Par grand vent.</strong> La gélinotte le fuit et se tient dans les creux ; l’écureuil devient invisible dans des branches qui bougent toutes ; le bruit de la forêt couvre celui de la bête. On chasse le flanc sous le vent, ou on reste aux collets.</p>
+<p class="li"><strong>Le canard au-delà de 37 m.</strong> Il revient avec des billes dans le corps et va mourir ailleurs, et la cartouche est perdue deux fois.</p>
+<p class="li"><strong>Au-dessus d’une eau qu’on ne peut pas atteindre.</strong> Le canard mort dérive, le rat musqué mal touché plonge, et l’on regarde partir le souper.</p>
+<p class="li"><strong>L’écureuil qui regarde par l’entrée d’un trou.</strong> Il tombe dedans et ne se récupère pas.</p>
+<p class="li"><strong>La bête qui ne réagit pas à l’approche.</strong> L’oiseau qui ne tient pas la tête haute, les yeux mi-clos ou enflés, et ne suit pas des yeux celui qui approche ; le lièvre sur qui l’on arrive sans qu’il parte, ou qui s’éloigne lentement : c’est le portrait de la maladie, pas une prise facile (<span class="ref">§8</span>, bloc 1).</p>
+<p class="li"><strong>Pour nourrir la famille à lui seul.</strong> Le lièvre et les « perdrix » sont parmi les viandes les plus maigres du territoire, sans gras à côté, comme l’orignal maigre (<span class="ref">§8</span>, bloc 4). La chasse au petit gibier remplit la marmite de la semaine ; elle ne remplit pas un hiver.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">Le petit gibier vit petit.</strong> Le domaine d’un lièvre couvre de <strong>2 à 12 ha</strong>, selon la nourriture et le couvert, et certains passent des mois sans s’éloigner de plus d’<strong>une centaine de mètres</strong> d’un même point. Pisté sans relâche pendant plus d’une heure, un lièvre est resté dans <strong>environ 4 ha</strong>. La gélinotte passe presque toute sa vie sur à peine quelques hectares, l’écureuil roux (<em>Tamiasciurus hudsonicus</em>) sur <strong>0,2 à 0,4 ha</strong>, et jusqu’à <strong>2,4 ha</strong>. Tout le chapitre repose là-dessus : l’endroit qui a donné une bête en donnera une autre, la bête levée ne va pas loin, et celle qu’on a manquée est encore dans le secteur. Le lagopède des saules est l’exception : il descend de la toundra l’hiver, et certaines années il ne descend presque pas (<span class="ref">§5-E</span>).</p>
+<p class="p0 ri"><strong class="runin">Chaque bête n’a qu’une défense, et c’est elle qu’on exploite.</strong> Le lièvre au gîte, le tétras et le lagopède misent sur le camouflage : ils se figent et laissent approcher. La gélinotte mise sur l’explosion : elle reste tapie jusqu’au dernier moment et part d’un coup, en laissant deux à trois secondes pour tirer. L’écureuil met le tronc entre lui et le danger. Le rat musqué plonge et peut tenir sous l’eau <strong>jusqu’à une quinzaine de minutes</strong>. Le canard vole haut et loin, mais il se pose et décolle face au vent. La méthode suit la défense : on approche ce qui se fige, on fait lever ce qui explose à courte distance, on attend ce qui se cache, et on fait venir à soi ce qui vole.</p>
+<p class="p0 ri"><strong class="runin">Les bords du jour.</strong> Le lièvre mange à la brunante, la nuit et au petit matin, et passe le jour au gîte. La gélinotte d’hiver quitte son abri au coucher du soleil pour monter manger à la cime des arbres. La sauvagine voyage tôt et tard entre l’eau où elle dort et l’endroit où elle mange. Le rat musqué se montre au crépuscule. Une sortie à midi traverse le territoire quand ces bêtes-là sont couchées ; c’est l’heure des autres : le lièvre tapi au gîte, l’écureuil, le tétras dans ses épinettes, le lagopède qui sort manger.</p>
+<p class="p0 ri"><strong class="runin">La viande se perd par le coup, pas par la mort.</strong> Une balle de .22 qui n’a touché que la tête ne gâche aucune viande ; mais la balle est du plomb, et cette tête-là ne va pas au bouillon (<span class="ref">§8</span>, bloc 3). Une charge de grenaille tirée de trop près arrive en paquet et rend l’oiseau immangeable ; tirée par derrière sur un lièvre, elle se loge dans les cuisses, qui sont justement la plus grosse pièce de viande de la bête (<span class="ref">ch. 48</span>, étape 16). Le bon tir met <strong>le bord de la gerbe</strong> sur la tête et le cou, pas le centre sur le corps. Et sur le lièvre comme sur l’oiseau, chaque bille de plomb laissée dans la chair est du plomb dans une assiette d’enfant (<span class="ref">§8</span>, bloc 3).</p>
+<p class="p0 ri"><strong class="runin">La cartouche se dépense sur ce qui vole.</strong> Une bête assise se prend en un coup. Un oiseau en vol en coûte plusieurs : chez des chasseurs ordinaires, <strong>de l’ordre de cinq cartouches par canard abattu</strong>. Une boîte de .22 tirée à la tête sur des bêtes assises, à 25 m, fait bien plus de repas qu’une boîte de cartouches de fusil tirée au vol.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce qu’il faut pour chasser, et rien de plus. Ce qui s’achète est au chapitre 00b ; le compte des cartouches, leur garde au froid et le réglage de l’arme sont au chapitre 45.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item"><strong>La .22</strong>, carabine à percussion annulaire, réglée à 25 m (<span class="ref">ch. 45</span>, étape 33)</td><td>1</td><td>Arc de mélèze et flèche mousse, lance-pierre (<span class="ref">ch. 45</span> <span class="ref">§9</span>) ; bâton de jet (<span class="ref">§9</span>). Tout ce qui s’assoit se prend sans elle, plus près et moins souvent</td><td>Oui</td></tr><tr><td class="c-item"><strong>Le calibre 12</strong> : choke ouvert (cylindre amélioré) pour le bois ; choke modifié ou demi-modifié pour la sauvagine jusqu’à 37 m</td><td>1</td><td>Sur la bête assise, la .22. Sur l’oiseau en vol : rien. Avec le seul choke ouvert, la sauvagine se tire de près, à l’arrivée sur les appelants, pas jusqu’à 37 m</td><td><span class="non">NON</span> <span class="negx">pour l’oiseau en vol et la sauvagine. Le vieux fusil à choke fixe plein ne tire pas d’acier : plus dur que le plomb, l’acier bat le canon et le gonfle juste derrière le choke (<span class="ref">ch. 45</span>, étape 1)</span></td></tr><tr><td class="c-item">Grenaille pour le bois : <strong>n° 7½ ou 8</strong> pour la gélinotte ; <strong>n° 6</strong> quand les feuilles sont tombées ; <strong>n° 6 à 8</strong> pour l’écureuil</td><td>Selon la boîte</td><td>Grenaille d’acier plutôt que de plomb pour tout ce qui ira dans l’assiette des enfants (<span class="ref">§8</span>, bloc 3). L’acier pèse environ un tiers de moins que le plomb au même numéro et porte moins loin : il se prend <strong>un ou deux numéros plus gros</strong> que le plomb au même usage — plus gros, c’est un numéro plus petit. Pas plus : trop gros, la gerbe se vide et l’oiseau passe entre les grains. Pour le lièvre, <strong>n° 4 à 7½</strong>, et le n° 6 d’abord : le plus gros grain met moins de billes dans la viande, le plus fin fait une gerbe plus serrée</td><td>Oui</td></tr><tr><td class="c-item">Grenaille <strong>non toxique</strong> pour la sauvagine : acier <strong>n° 2 ou 3</strong> pour le canard, <strong>BB, 1 ou 2</strong> pour l’outarde</td><td>Selon le passage</td><td>Aucune, et jamais le plomb qui traîne dans la veste de la gélinotte (<span class="ref">ch. 54</span>, étape 0)</td><td><span class="non">NON</span> <span class="negx"> : le plomb tiré au-dessus du marais reste dans la vase, où le canard qui cherche son gravier ne le distingue pas d’un caillou, et deux ou trois billes avalées suffisent souvent à le tuer. L’étang qu’on chasse chaque automne s’empoisonne pour les suivants</span></td></tr><tr><td class="c-item"><strong>Gants imperméables</strong></td><td>2 paires par sortie</td><td>Gants de vaisselle réservés à cet usage ; sacs de plastique intacts serrés au poignet (<span class="ref">ch. 48</span> <span class="ref">§9</span>)</td><td><span class="non">NON</span> <span class="negx">pour le lièvre, le rat musqué et l’écureuil : on les met <strong>avant</strong> de ramasser la bête, ou la flèche et le bâton qui l’ont touchée (<span class="ref">§8</span>, bloc 2)</span></td></tr><tr><td class="c-item">Appelants</td><td>Une ou deux douzaines</td><td>Les premiers oiseaux pris, tête calée droite sur un bâton fourchu planté dans la vase (<span class="ref">ch. 54</span> <span class="ref">§9</span>) ; mottes de vase ou de neige coiffées d’un chiffon sombre</td><td>Oui</td></tr><tr><td class="c-item">Cache</td><td>—</td><td>Ce qui pousse sur place : branches, quenouilles (<em>Typha latifolia</em>), herbes sèches. Ce qui compte est de <strong>casser la silhouette</strong>, pas d’avoir la bonne couleur</td><td>Oui</td></tr><tr><td class="c-item">Moyen de récupérer sur l’eau</td><td>1</td><td>Canot, avec le VFI porté et attaché (<span class="ref">ch. 90</span>, étape 31) ; perche longue terminée par une fourche ; berge sous le vent (<span class="ref">§5-G</span>)</td><td><span class="non">NON</span> <span class="negx">au-dessus de l’eau : un oiseau qu’on ne peut pas aller chercher ne se tire pas</span></td></tr><tr><td class="c-item">Jumelles</td><td>1 paire</td><td>Les yeux, plus lentement : balayer par bandes, s’arrêter sur ce qui ne bouge pas</td><td>Oui</td></tr><tr><td class="c-item">Bâtons de jet</td><td>2 ou 3</td><td>Tout bâton solide, long comme le bras (<span class="ref">ch. 45</span> <span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">De quoi porter à l’air</td><td>—</td><td>Un bâtonnet pointu aux deux bouts passé dans un jarret, qui se tient entre les doigts ; les oiseaux pendus séparés, jamais dans un sac fermé (<span class="ref">ch. 49</span> <span class="ref">§4</span>)</td><td><span class="non">NON</span> <span class="negx">pour les oiseaux</span></td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Choisir l’arme selon la bête, avant de sortir</h3>
+<p class="step"><span class="sn">1</span><strong>Partir avec l’arme de la bête qu’on va chercher, pas avec celle qui traîne.</strong> Le tableau dit où, quand, avec quoi et où viser. La distance de la .22 est celle de son réglage (<span class="ref">ch. 45</span>, étape 33).</p>
+<table class="tspan"><colgroup><col style="width:12.7%"><col style="width:31.8%"><col style="width:12.2%"><col style="width:26.4%"><col style="width:16.9%"></colgroup><thead><tr><th>Bête</th><th>Où et quand</th><th>Arme</th><th>Où viser</th><th>Distance</th></tr></thead><tbody><tr><td class="c-item">Lièvre au gîte</td><td>Couvert dense, petite butte, pied d’arbre ou de souche ; le jour</td><td>.22</td><td>Tête</td><td>25 m ou moins</td></tr><tr><td class="c-item">Lièvre qui court</td><td>Devant le chien ou au retour de son cercle, posté de côté par rapport à la coulée</td><td>Fusil</td><td>Devant le nez : le bord de la gerbe sur la tête et les épaules. En travers seulement, jamais dans l’axe d’où revient le pisteur</td><td>Courte</td></tr><tr><td class="c-item">Gélinotte levée</td><td>Tremblaie de 10 à 20 ans, aulnaie, lisière</td><td>Fusil, n° 7½ ou 8</td><td>Au vol, devant l’oiseau</td><td>9 à 23 m</td></tr><tr><td class="c-item">Gélinotte perchée</td><td>Cime des trembles au coucher du soleil, l’hiver</td><td>.22</td><td>Tête, avec un tronc, une grosse branche ou la pente derrière ; jamais sur le ciel</td><td>25 m ou moins</td></tr><tr><td class="c-item">Tétras du Canada</td><td>Pessière, bord de chemin l’automne, dans les épinettes l’hiver</td><td>.22</td><td>Tête</td><td>25 m ou moins</td></tr><tr><td class="c-item">Lagopède des saules</td><td>Saules qui dépassent de la neige, en bandes</td><td>.22 ; fusil si la bande se lève</td><td>Tête</td><td>25 m ou moins</td></tr><tr><td class="c-item">Écureuil roux</td><td>Près de son amas de cônes, le jour</td><td>.22 ; fusil n° 6 à 8</td><td>Tête, ou le bord de la gerbe sur la tête</td><td>25 m ou moins</td></tr><tr><td class="c-item">Canard, outarde</td><td>Aux appelants, à l’affût, sur les routes de passage, tôt et tard</td><td>Fusil, grenaille non toxique, choke modifié</td><td>Tête et cou, de travers ou à l’arrivée ; on laisse l’oiseau qui s’éloigne droit (étape 35)</td><td>Attendre 23 m ; jamais au-delà de 37 m</td></tr><tr><td class="c-item">Rat musqué</td><td>Eau libre, au crépuscule, sur sa bûche ou sa pointe</td><td>.22</td><td>Tête</td><td>Courte, en plongée ou avec une berge derrière ; jamais à plat sur l’eau ou la glace</td></tr></tbody></table>
+<p class="step"><span class="sn">2</span><strong>Une seule sorte de grenaille par veste.</strong> Le plomb de la gélinotte et l’acier du canard ne voyagent pas dans la même veste (<span class="ref">ch. 54</span>, étape 0).</p>
+<p class="step pk-d"><span class="sn">3</span><strong>Vérifier le zéro avant de compter dessus.</strong> Trois coups à 25 m, au froid, avec des cartouches qui ont passé la nuit dehors (<span class="ref">ch. 45</span>, étape 34). Les trois trous doivent tenir dans ce qu’on va viser : une tête de gélinotte, pas une gélinotte. Ce sont aussi ces cartouches-là qui font des longs feux : après un clic, soixante secondes la bouche dans une direction sûre avant d’ouvrir. Et après une chute dans la neige en raquettes, regarder à travers le canon avant le coup suivant : un canon bouché éclate à une main du visage (<span class="ref">ch. 45</span>, étape 38 et <span class="ref">§8</span>, blocs 1 et 2).</p>
+<h3 class="sub">B — Le lièvre</h3>
+<p class="step"><span class="sn">4</span><strong>Le chercher là où il se cache, selon la saison.</strong> L’été, il mange du vert — feuilles, trèfle, pissenlit, jeunes pousses — et reste sous couvert dense. Après les gels, il passe au bois : ramilles et écorce de tremble, de saule, de bouleau, d’aulne, et souvent des aiguilles de sapin et d’épinette. Il broute aussi haut qu’il atteint debout, et la neige profonde le hausse. Ses meilleurs endroits : les coupes et les brûlis de <strong>7 à 10 ans</strong>, les marécages à cèdre, à épinette ou à mélèze, les tremblaies mêlées de conifères, l’aulnaie de bord d’eau (<span class="ref">ch. 42</span>, étape 5).</p>
+<p class="step"><span class="sn">5</span><strong>Lire l’heure.</strong> Le lièvre mange à la brunante, la nuit et au petit matin. Le jour, il est au gîte : une petite dépression dans la litière ou la neige, souvent <strong>sur une petite butte</strong> qui égoutte et d’où il voit autour, <strong>sous des branches basses, dans un bouquet d’arbustes, au pied d’un arbre ou d’une souche</strong>. Il a plusieurs gîtes et se sert <strong>du même</strong> la plupart du temps. Un gîte trouvé une fois se revisite.</p>
+<p class="step"><span class="sn">6</span><strong>Le matin d’après une neige, suivre la piste de la nuit.</strong> Une neige tombée la veille et arrêtée avant l’aube efface tout ce qui est vieux : ce qui reste a été fait cette nuit. Suivre la piste la plus fraîche, lentement, les yeux <strong>loin devant, sur le couvert où elle mène</strong>, pas sur ses pieds. Le lièvre ne s’est pas couché au bout de ses sentiers de nourriture : il est allé vers le couvert, et la piste change d’allure quand il approche du gîte : elle raccourcit et tourne vers un fourré (<span class="ref">ch. 43</span> <span class="ref">§9</span>). Chercher <strong>l’œil</strong> et <strong>le bout noir des oreilles</strong>, qui restent noirs toute l’année, pas la forme blanche d’un animal blanc sur de la neige. Le lièvre ramassé en boule, les pattes sous lui, tient tant qu’il se croit invisible.</p>
+<p class="step"><span class="sn">7</span><strong>À la brunante, attendre sur les coulées.</strong> Les sentiers du lièvre deviennent des gouttières visibles dans la neige, et il les réemprunte (<span class="ref">ch. 48</span>, étape 3). S’asseoir immobile à portée de .22 d’un carrefour de sentiers, avant que la lumière baisse, et laisser la bête venir. Le coup se tire quand le lièvre s’arrête, pas pendant qu’il bouge.</p>
+<p class="step"><span class="sn">8</span><strong>Le lièvre levé tourne en rond quand on le pousse : l’un pousse, l’autre attend.</strong> Délogé, il part d’un coup, et file jusqu’à <strong>45 km/h</strong> par bonds de <strong>3 m</strong> — puis, poursuivi, il tourne en grand cercle, parce qu’il ne veut pas quitter son domaine, et il revient près de l’endroit d’où il est parti. Il se terre rarement. C’est la poursuite qui fait le cercle. <strong>Avec un chien</strong> qui suit la piste, le chasseur reste là où le lièvre a été levé et attend son retour. <strong>Sans chien</strong>, à deux : l’un suit la piste sans relâche, sans chercher le silence ; l’autre se poste près du point de départ. <strong>Le cercle ramène aussi le pisteur</strong> : le chien ou le partenaire revient par la même piste, juste derrière le lièvre, et celui qui tire dans la coulée tire vers lui. Se poster <strong>de côté</strong> par rapport à la coulée, tirer <strong>en travers</strong> seulement, jamais dans l’axe d’où arrive la piste, et ne rien tirer de ce qui arrive par la piste tant que le pisteur n’a pas fait savoir où il est. <strong>Seul</strong>, personne ne pousse le lièvre, et rien n’établit qu’il revienne : le collet sur sa coulée le prend mieux que l’attente (étape 7, <span class="ref">ch. 48</span>).</p>
+<p class="step"><span class="sn">9</span><strong>Tirer ce qui s’arrête, à la tête.</strong> Assis, à la .22, la tête. Au fusil sur un lièvre qui court : <strong>devant le nez</strong>, pour que le bord de la gerbe prenne la tête et les épaules. Un lièvre tiré par derrière reçoit la charge dans les cuisses, c’est-à-dire dans la viande.</p>
+<p class="step pk-d"><span class="sn">10</span><strong>Mettre les gants avant de le ramasser.</strong> Pas au dépouillement : au ramassage, parce que le sang du coup est déjà sur la fourrure et dans la neige (<span class="ref">§8</span>, bloc 2). Le regarder d’abord (<span class="ref">ch. 48</span>, étape 7), le porter pendu à l’extérieur du sac (<span class="ref">ch. 48</span>, étape 8). Un lièvre tiré au plomb va aux adultes (<span class="ref">§8</span>, bloc 3). La suite est au chapitre 48.</p>
+<h3 class="sub">C — La gélinotte huppée</h3>
+<p class="step"><span class="sn">11</span><strong>Chercher la jeune tremblaie.</strong> La gélinotte vit dans les peuplements denses de peuplier faux-tremble (<em>Populus tremuloides</em>) nés d’une coupe ou d’un feu <strong>il y a 10 à 20 ans</strong>, là où les tiges ont la grosseur d’un avant-bras ou d’un mollet ; dans les aulnaies basses ; sur les lisières où la vieille forêt touche la repousse. Elle mange les chatons de tremble, de bouleau, de noisetier, et à l’automne les petits fruits des lisières : églantier, viorne, airelle, bleuet. Le gravier des chemins forestiers l’attire aussi (<span class="ref">ch. 42</span>, étape 5). Le mâle qui tambourine<sup class="fnr" data-fn="47-1">1</sup> au printemps dit où elle vit à l’automne : elle ne quitte pas ses quelques hectares. Si la marche y est facile, on n’est pas au bon endroit.</p>
+<p class="step pk-d"><span class="sn">12</span><strong>Suivre les saisons.</strong> <strong>À la fin d’octobre</strong>, elle passe aux bourgeons de tremble et de saule. L’hiver, elle passe presque tout son temps <strong>dans un trou de neige</strong> et n’en sort que pour manger ; <strong>au coucher du soleil</strong>, elle monte à la cime des arbres pour les bourgeons. C’est la gélinotte de la .22, à une condition : ce qu’il y a derrière sa tête. Découpée sur le ciel, elle n’a rien derrière, et une balle qui manque ou qui traverse part vers le haut sans rien pour l’arrêter ; une balle de .22 qui ne rencontre rien peut retomber à plus de 2 km (<span class="ref">§8</span>, bloc 5). Se déplacer jusqu’à avoir derrière la tête le tronc, une grosse branche ou la pente, en sachant de quel côté sont le chalet et les siens. Sinon, la laisser.</p>
+<p class="step"><span class="sn">13</span><strong>Au fusil, marcher lentement en S et s’arrêter souvent.</strong> La gélinotte se sait invisible dans les feuilles et préfère rester tapie. La marche en S couvre plus de terrain et fait lever les oiseaux qui se sont déplacés de côté. <strong>Les arrêts de 10 à 20 secondes</strong> la font partir : elle croit qu’on l’a vue. S’arrêter souvent lève presque <strong>deux fois plus</strong> d’oiseaux que de marcher sans s’arrêter. S’arrêter là où l’on peut épauler, près d’un chablis ou d’un tas de branches. Par vent, chercher les creux, les fonds et le flanc sous le vent. Les abords du chemin sont les plus visités : s’enfoncer avant de commencer.</p>
+<p class="step"><span class="sn">14</span><strong>Tirer vite, et pas trop près.</strong> Il y a <strong>deux à trois secondes</strong> entre l’envol et l’arbre qui cache l’oiseau. Les tirs se font souvent entre <strong>18 et 23 m</strong>, parfois à <strong>9 à 14 m</strong> : un choke ouvert, du <strong>n° 7½ ou 8</strong>, du <strong>n° 6</strong> quand les feuilles sont tombées et que les tirs s’allongent. L’oiseau qui part à deux pas ne se tire pas tout de suite : la gerbe n’a pas eu le temps de s’ouvrir, et elle arrive en paquet.</p>
+<p class="step"><span class="sn">15</span><strong>Suivre l’oiseau manqué.</strong> Une gélinotte levée se repose <strong>à une centaine de mètres</strong>, dans la direction où elle est partie. Regarder où elle file, marcher droit dessus et la relever. Chaque nouvelle approche la fait partir de plus loin : la deuxième levée se tire au <strong>n° 6</strong>. Elles sont souvent plusieurs : après le premier coup, se tenir prêt pour la deuxième.</p>
+<p class="step"><span class="sn">16</span><strong>Chercher l’oiseau touché plus loin qu’on croit.</strong> Une gélinotte touchée qui a continué se retrouve parfois <strong>à 70 ou 90 m</strong>. Marquer d’une branche cassée l’endroit du coup, puis marcher dans la direction du vol ; quand la ligne ne donne rien, chercher en cercles ou en grille (<span class="ref">ch. 44</span>, étapes 31 et 32). La suite — six signes, vidage dans l’heure, jabot, plombs — est au chapitre 49.</p>
+<h3 class="sub">D — Le tétras du Canada</h3>
+<p class="step"><span class="sn">17</span><strong>Le chercher dans l’épinette.</strong> Pessières noires, tourbières boisées, épinettes denses avec des ouvertures (<span class="ref">ch. 42</span>, étape 5). L’automne, il mange viorne, airelle, bleuet, camarine, et on le voit <strong>souvent au bord des chemins</strong>. L’hiver, il passe le jour <strong>dans les épinettes</strong>, à se reposer et à manger des aiguilles de sapin, d’épinette et de pin.</p>
+<p class="step"><span class="sn">18</span><strong>Savoir ce qu’il fait quand on arrive.</strong> Souvent, il se laisse approcher presque à le toucher, d’où son nom anglais de « poule folle ». Dérangé, il <strong>monte le plus souvent dans un arbre</strong>, se pose sur une branche basse et regarde, et une fois installé il reste souvent là jusqu’au coup de feu. Ailleurs, il est plus farouche : il part d’un coup d’ailes et disparaît dans l’épinette.</p>
+<p class="step pk-d"><span class="sn">19</span><strong>Le tirer perché, à la .22, à la tête seulement.</strong> Pas au cou : la balle de .22 est du plomb, elle brise les vertèbres et s’y fragmente, et le cou va au bouillon (<span class="ref">§8</span>, bloc 3). Jamais au fusil sur un oiseau posé à quelques pas : la charge arrive en paquet et il ne reste rien. S’ils sont plusieurs dans le même arbre, <strong>tirer le plus bas d’abord</strong> : l’oiseau qui tombe ne passe pas devant les autres, et ceux d’en haut restent souvent en place. Commencer par le haut, c’est faire tomber un oiseau qui bat des ailes à travers toute la bande.</p>
+<p class="step"><span class="sn">20</span><strong>Préférer celui de l’automne.</strong> L’hiver, le tétras vit d’aiguilles, un régime résineux qui passe dans la chair, et son jabot peut tenir <strong>jusqu’à 10 % de son poids</strong> en aiguilles. Le sortir tout de suite (<span class="ref">ch. 49</span>, étape 5), et braiser plutôt que rôtir (<span class="ref">ch. 49</span>, étape 16).</p>
+<h3 class="sub">E — Le lagopède des saules</h3>
+<p class="step"><span class="sn">21</span><strong>Savoir s’il est descendu cette année, puis le chercher dans les saules.</strong> Le lagopède niche dans la toundra, et il devient plus répandu à mesure qu’on monte vers le nord. Au sud de la Côte-Nord, près du fleuve, il ne niche que sur quelques hauts plateaux et sommets dénudés et sur les landes de la Basse-Côte-Nord ; ailleurs, c’est un oiseau d’hiver. Ce sont surtout des femelles et des jeunes qui descendent dans la pessière, jusque dans l’arrière-pays, et le nombre change d’une année à l’autre : certains hivers presque rien, puis, <strong>environ tous les dix ans</strong> (de huit à douze), une descente en masse, en bandes qui peuvent compter plusieurs centaines d’oiseaux. L’hiver où il y en a, c’est la prise la plus facile du territoire ; l’hiver où il n’y en a pas, aucune marche ne le fera apparaître. Les familles se regroupent <strong>en bandes dès septembre</strong>. Le saule est sa première nourriture : bourgeons et ramilles de saule, d’aulne, de bouleau glanduleux. Chercher les bandes là où les touffes de saules dépassent de la neige, dans les fonds de vallée abrités, près des lacs et des rivières, dans les clairières, et le long des chemins forestiers enneigés, où il se chasse d’ordinaire.</p>
+<p class="step pk-t"><span class="sn">22</span><strong>Savoir qu’il peut être sous la neige.</strong> Quand la neige est assez épaisse et le froid assez dur, il s’y creuse un trou et peut y rester <strong>jusqu’à 17 heures sur 24</strong>. Une bande peut être invisible à quelques pas, et partir d’un coup sous les raquettes. Son camouflage est si bon qu’il se comporte souvent comme s’il n’avait pas peur : il se laisse approcher à découvert, et c’est ce qui le rend si facile à prendre.</p>
+<p class="step"><span class="sn">23</span><strong>Le tirer assis, un à la fois, à la .22.</strong> Un oiseau de <strong>430 à 810 g</strong> : la tête. Si la bande se lève, elle se tire au fusil comme la gélinotte. Même traitement ensuite qu’au chapitre 49.</p>
+<h3 class="sub">F — L’écureuil roux</h3>
+<p class="step"><span class="sn">24</span><strong>Trouver l’amas de cônes.</strong> L’écureuil roux coupe et stocke des cônes d’épinette verts tout l’été ; ses amas — un tas d’écailles et de cônes au pied des arbres — sont son garde-manger. Un amas frais, des écailles neuves sur la neige : l’écureuil vit dans les quelques dizaines de mètres autour, et un territoire n’a d’ordinaire qu’un seul gros amas actif. Il est actif <strong>le jour, toute l’année</strong>, mais reste au nid <strong>par grand froid</strong> : on le chasse les jours doux, et sans vent, parce qu’une forêt dont toutes les branches bougent cache celle qui bouge à cause de lui.</p>
+<p class="step"><span class="sn">25</span><strong>Choisir entre s’asseoir et marcher.</strong> Assis près de l’amas ou des débris frais, on a d’ordinaire un coup ou deux sans attendre longtemps. En marche, lentement, une pause <strong>tous les dix pas</strong> pour regarder et écouter. Le soleil dans le dos, dans les deux cas : on voit mieux, on est moins vu.</p>
+<p class="step pk-t"><span class="sn">26</span><strong>Approcher en biais, jamais droit.</strong> Marcher droit sur un écureuil le rend nerveux et prêt à fuir. Bouger quand il est occupé — à manger, à courir après un autre — et se cacher derrière les troncs. Repéré, il jacasse : s’asseoir, caché, <strong>20 à 30 minutes</strong>, et il se remet à manger. S’il ne se montre pas, secouer une branche basse et japper comme lui : il répond.</p>
+<p class="step"><span class="sn">27</span><strong>Contre le tronc.</strong> L’écureuil garde l’arbre entre lui et le chasseur, et tourne à mesure qu’on tourne. À deux, l’un reste et l’autre fait le tour lentement : l’écureuil glisse vers celui qui ne bouge pas. Seul, on ne le fait pas tourner : on s’assoit, caché, et on attend qu’il se remontre (étape 26). <strong>Celui qui tourne ne s’arrête jamais dans le prolongement du tir</strong> : l’écureuil passe du côté du tireur, donc son partenaire est de l’autre côté du tronc, dans la ligne d’une balle qui manque la tête. Il s’arrête de biais, hors de cette ligne, avant que l’autre épaule.</p>
+<p class="step"><span class="sn">28</span><strong>La tête, et seulement la tête.</strong> À la .22, c’est ce qui laisse un écureuil intact. Au fusil, <strong>n° 6 à 8</strong>, et <strong>viser devant</strong> pour que seul le bord de la gerbe prenne la tête ; mieux encore, attendre que seule la tête dépasse d’une branche. Ne pas tirer celui qui regarde par l’entrée d’un trou. Et compter : une cartouche pour une bête de <strong>200 à 280 g</strong>. C’est la prise la plus chère du chapitre au coup tiré ; la perche à collet (<span class="ref">ch. 53</span> <span class="ref">§9</span>) et la flèche mousse la prennent sans rien dépenser.</p>
+<p class="step"><span class="sn">29</span><strong>Ne pas se lever après le premier.</strong> Laisser la bête abattue où elle est tant que les autres continuent de sortir. Plusieurs en une séance, c’est possible, à condition de ne pas aller ramasser la première. Gants aux mains pour la ramasser, comme le rat musqué. La suite est au chapitre 53.</p>
+<h3 class="sub">G — Canards et outarde</h3>
+<p class="step"><span class="sn">30</span><strong>Choisir la méthode.</strong> Il y en a trois. <strong>Les appelants</strong> : attendre à l’affût que les oiseaux viennent se poser. <strong>L’approche</strong> : marcher, ramper ou pagayer jusqu’à portée d’oiseaux posés, d’un talus de quenouilles à l’autre, en se disant que l’oiseau est toujours derrière le prochain, ou en canot, dans les courbes, au ras de la berge. <strong>Le passage</strong> : se poster sur la route que les oiseaux suivent, <strong>tôt et tard</strong>, entre l’eau où ils dorment et l’endroit où ils mangent ; ils la reprennent jour après jour, et la pluie et le vent les font voler bas. Les appelants amènent les oiseaux plus près que les deux autres : c’est la méthode qui coûte le moins de cartouches.</p>
+<p class="step"><span class="sn">31</span><strong>Monter l’affût vent dans le dos.</strong> La sauvagine se pose et décolle <strong>face au vent</strong>. Vent dans le dos, les oiseaux arrivent de face, par-dessus les appelants, et on les voit venir. Vent de travers, c’est encore bon. <strong>Vent dans la face, c’est le pire</strong> : ils arrivent par derrière, et on les voit trop tard. La cache se fait de ce qui pousse sur place ; elle doit <strong>casser la silhouette</strong> de l’homme et du canot, pas reproduire la couleur exacte du marais.</p>
+<p class="step"><span class="sn">32</span><strong>Poser les appelants pour qu’on les voie d’en haut.</strong> À découvert, jamais collés à la quenouillère ni sous les arbres. Laisser <strong>un trou</strong> où les oiseaux peuvent se poser, en C ou en J, <strong>l’ouverture sous le vent</strong>, devant l’affût. Pas trop loin de la cache : un oiseau qui se pose dans le trou doit être à portée. Une douzaine ou deux suffisent. Les premiers oiseaux pris, calés droits sur un bâton fourchu, font les meilleurs (<span class="ref">ch. 54</span> <span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">33</span><strong>Appeler peu.</strong> Un mauvais appel chasse les oiseaux plus vite qu’aucun appel. Quand ils arrivent, se taire.</p>
+<p class="step"><span class="sn">34</span><strong>Attendre qu’ils soient énormes.</strong> Un canard ou une outarde paraît gros à 37 m quand on est énervé, et <strong>énorme à 23 m</strong> : attendre énorme. Au-delà de <strong>37 m</strong>, ne pas tirer, et ces 37 m sont ceux d’un choke modifié ou demi-modifié : au choke ouvert du bois, on ne tire que l’oiseau qui arrive tout près sur les appelants (<span class="ref">§4</span>). Les petits oiseaux — sarcelle, petite bernache — sont presque toujours plus près qu’ils n’en ont l’air. Grenaille non toxique : <strong>n° 2 ou 3</strong> pour le canard, <strong>BB, 1 ou 2</strong> pour l’outarde, et jamais une cartouche venue de la veste à gélinotte (<span class="ref">ch. 54</span>, étape 0).</p>
+<p class="step"><span class="sn">35</span><strong>Viser la tête et le cou.</strong> C’est là qu’un plomb tue sur le coup et ne touche pas la poitrine. L’oiseau qui s’éloigne droit présente le dos, les organes protégés par la chair et l’os : au n° 2 ou 3 d’acier, il n’offre pas de cible qui tue ; il faudrait un plomb plus gros et un choke plus serré. On le laisse, pour ménager la boîte, et on attend le travers ou l’arrivée. L’oiseau tombé vivant sur l’eau ne se tire qu’à la tête : il n’offre que la tête et le cou.</p>
+<p class="step pk-d"><span class="sn">36</span><strong>Penser à la récupération avant le coup.</strong> L’oiseau mort dérive <strong>sous le vent</strong>, donc loin d’un affût qui a le vent dans le dos. Le canot prêt à partir, ou un étang assez étroit pour que la berge d’en face se rejoigne à pied. Un oiseau qu’on ne pourra pas aller chercher ne se tire pas. Dans le canot, ce sont les gestes de la chasse qui font chavirer : le recul d’un coup épaulé de travers, le poids jeté sur un bord pour saisir l’oiseau qui flotte (<span class="ref">§8</span>, bloc 6). La suite — six signes, refroidissement, plumaison — est au chapitre 54.</p>
+<h3 class="sub">H — Le rat musqué</h3>
+<p class="step"><span class="sn">37</span><strong>Le guetter au crépuscule, en eau libre.</strong> Au printemps après la débâcle et à l’automne avant le gel, le rat musqué se montre à la brunante : il nage, il mange <strong>assis sur une bûche ou au bout d’une pointe de terre</strong>, il travaille à sa hutte. Au printemps, ses sifflements aigus le trahissent avant qu’on le voie. Se poster en face d’une de ces places à manger, immobile, avant la baisse de lumière. Sous la glace, il circule de relais en relais <strong>jusqu’à 90 m</strong> de sa hutte : l’hiver, il se prend au piège, pas au tir (<span class="ref">ch. 53</span>).</p>
+<p class="step pk-d"><span class="sn">38</span><strong>Tirer à la tête, avec une berge derrière.</strong> À la .22, sur la bête assise sur sa bûche ou sa pointe, près du bord, en plongée ou avec la berge derrière. Jamais à plat sur l’eau calme ni sur la glace de bord : une balle qui frappe l’eau ou une surface dure et plane ricoche et repart dans une direction qu’on ne contrôle pas (<span class="ref">§8</span>, bloc 5). Un rat manqué plonge et peut rester sous l’eau <strong>jusqu’à une quinzaine de minutes</strong> : ne pas bouger, il ressortira plus loin, ou il faudra revenir à la brunante suivante.</p>
+<p class="step pk-d"><span class="sn">39</span><strong>Gants avant de le sortir de l’eau.</strong> Le rat musqué porte la tularémie comme le lièvre (<span class="ref">§8</span>, bloc 2). La suite est au chapitre 53.</p>
+<h3 class="sub">I — Après le coup</h3>
+<p class="step"><span class="sn">40</span><strong>Marquer, puis regarder.</strong> Marquer l’endroit du coup d’une branche cassée avant de bouger. Regarder la bête <strong>avant</strong> de la toucher : les signes du chapitre 48 (étape 7) pour le lièvre et le rat musqué, les six signes du chapitre 49 (étape 2) et du chapitre 54 (étape 1) pour les oiseaux. Une bête blessée qui est partie se retrace au chapitre 44 (étapes 31 et 32 quand le signe se perd). La bête reconnue malade après le coup ne se ramasse pas pour la viande : elle part au feu, loin de l’eau, touchée le moins possible (<span class="ref">ch. 48</span> <span class="ref">§9</span>, « S’en débarrasser sans contaminer le terrain »). Le rat musqué tué au bord ne reste pas dans l’eau, où la bactérie survit des mois : on le tire hors de l’eau à la perche ou à la fourche, gants aux mains, pour le brûler.</p>
+<p class="step"><span class="sn">41</span><strong>Remettre la douille dans la boîte.</strong> Chaque douille tirée retourne dans sa boîte, jamais dans la neige. À la fin de la saison, les douilles contre les bêtes prises disent ce que chaque sorte de chasse a coûté, sans rien écrire (<span class="ref">ch. 45</span>, étape 4).</p>
+<h3 class="sub">J — Tirer peu, prendre beaucoup</h3>
+<p class="p0">Quand la boîte ne se remplace plus, chaque règle de cette section vaut une bête de plus par boîte.</p>
+<p class="step"><span class="sn">42</span><strong>La .22 sur ce qui s’assoit, le fusil sur ce qui vole et sur rien d’autre.</strong> Une brique de cartouches de .22 tient dans une poche pour un nombre de coups qu’aucune boîte de fusil n’approche (<span class="ref">ch. 49</span> <span class="ref">§9</span>). Tout ce qui se pose — gélinotte à la brunante, tétras, lagopède, lièvre au gîte, écureuil, rat musqué — se prend à la .22. Le fusil reste pour la sauvagine et la gélinotte levée, qu’on ne prend pas autrement.</p>
+<p class="step"><span class="sn">43</span><strong>Un seul coup, à la tête, à 25 m ou moins.</strong> Si la tête n’est pas là, on attend qu’elle y soit. Un coup au corps de .22 laisse souvent partir une bête qui mourra ailleurs, et coûte la cartouche plus celle d’après.</p>
+<p class="step"><span class="sn">44</span><strong>Rester en place après le coup.</strong> L’écureuil ressort, la deuxième gélinotte est à côté de la première, le tétras d’en haut reste sur sa branche si l’on a tiré celui d’en bas, le lièvre que le partenaire pousse revient. Le chasseur qui court ramasser sa première bête fait fuir les trois suivantes.</p>
+<p class="step"><span class="sn">45</span><strong>Laisser les engins travailler.</strong> Le collet, la perche et le piège prennent le lièvre, l’écureuil et le rat musqué pendant qu’on dort (<span class="ref">ch. 48, 53</span>). La chasse va à ce qu’ils ne prennent pas.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:16.8%"><col style="width:13.2%"><col style="width:36.6%"><col style="width:33.4%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant la saison</td><td>Zéro de la .22</td><td>Trois coups à 25 m dans la tête qu’on va viser</td><td>Régler (<span class="ref">ch. 45</span> <span class="ref">§5-F</span>) avant de chasser</td></tr><tr><td class="c-item">Avant de sortir</td><td>Veste</td><td>Une seule sorte de grenaille ; <strong>zéro plomb</strong> dans celle de la sauvagine</td><td>Vider la veste (<span class="ref">ch. 54</span>, étape 0)</td></tr><tr><td class="c-item">Avant de sortir</td><td>Heure</td><td>Celle de la bête visée : aube ou brunante pour la gélinotte perchée, le lièvre sur ses coulées, la sauvagine, le rat musqué ; le jour pour le lièvre au gîte, l’écureuil, le tétras, le lagopède</td><td>Hors de son heure : changer de bête, ou relever les collets</td></tr><tr><td class="c-item">Avant de sortir</td><td>Vent</td><td>Calme, ou chasse sur le flanc sous le vent</td><td>Changer de secteur ou rester aux engins</td></tr><tr><td class="c-item">À l’affût</td><td>Appelants</td><td>Trou ouvert sous le vent, à portée de l’affût, visibles d’en haut</td><td>Déplacer. Vent dans la face : déplacer l’affût</td></tr><tr><td class="c-item">Au coup, .22</td><td>Distance, cible et ce qu’il y a derrière</td><td><strong>25 m ou moins</strong>, tête visible ; derrière la tête, un tronc, la pente, une berge ou un talus</td><td>Attendre, s’approcher ou se déplacer. Pas de coup au corps, pas de coup sur le ciel, pas de coup à plat sur l’eau, la glace ou le sol gelé</td></tr><tr><td class="c-item">Au coup, à deux</td><td>Le partenaire et le chien</td><td>Hors de la ligne de tir ; tir en travers de la coulée seulement</td><td>Ne rien tirer de ce qui arrive par la piste tant que le pisteur n’a pas dit où il est</td></tr><tr><td class="c-item">Au coup, fusil au bois</td><td>Distance</td><td><strong>9 à 23 m</strong></td><td>Laisser l’oiseau s’éloigner avant de tirer s’il part à deux pas</td></tr><tr><td class="c-item">Au coup, sauvagine</td><td>Distance</td><td>Attendre <strong>23 m</strong> ; <strong>jamais au-delà de 37 m</strong>, et plus près au choke ouvert</td><td>Ne pas tirer. Laisser passer</td></tr><tr><td class="c-item">Au coup, sur l’eau</td><td>Récupération</td><td>Canot prêt, VFI porté et attaché, ou berge atteignable sous le vent</td><td>Ne pas tirer</td></tr><tr><td class="c-item">Après un envol manqué</td><td>Direction du vol</td><td>Suivre <strong>environ 90 m</strong> dans la direction</td><td>Relever l’oiseau ; ne pas tirer au hasard</td></tr><tr><td class="c-item">Après un oiseau touché qui continue</td><td>Recherche</td><td>Jusqu’à <strong>70 à 90 m</strong></td><td>Cercles ou grille (<span class="ref">ch. 44</span>, étapes 31 et 32)</td></tr><tr><td class="c-item">Avant de ramasser</td><td>État de la bête</td><td>Aucun signe de maladie (<span class="ref">ch. 48, 49, 54</span>)</td><td>Ne pas toucher ; au feu, loin de l’eau (étape 40). <span class="ref">§8</span>, bloc 1</td></tr><tr><td class="c-item">Avant de ramasser un lièvre, un rat musqué ou un écureuil</td><td>Gants</td><td>Aux mains avant de toucher la bête, la flèche ou le bâton</td><td>Ne pas ramasser à mains nues</td></tr><tr><td class="c-item">Fin de saison</td><td>Douilles contre prises, .22</td><td><strong>1 douille par bête assise</strong></td><td>Au-dessus : tirs trop longs ou au corps. Revenir à la <span class="ref">§5-J</span></td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:32.0%"><col style="width:25.0%"><col style="width:43.0%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">On entend lever des gélinottes sans jamais les voir</td><td>Marche trop rapide, ou secteur trop visité</td><td>Ralentir, marcher en S, pauses de 10 à 20 s. S’enfoncer loin des chemins</td></tr><tr><td class="c-item">Pas une gélinotte dans un secteur où l’on marche facilement</td><td>Forêt mûre : mauvais habitat</td><td>Chercher la tremblaie de 10 à 20 ans, l’aulnaie, la lisière</td></tr><tr><td class="c-item">Un lièvre levé, puis plus rien</td><td>Chasseur seul qui l’a suivi, ou poursuite relâchée : sans pression, rien ne le fait tourner</td><td>À deux, reprendre la poursuite sans relâche pendant que l’autre attend de côté ; seul, poser un collet sur sa coulée (<span class="ref">ch. 48</span>)</td></tr><tr><td class="c-item">Pistes fraîches partout, aucun lièvre vu au gîte</td><td>Regard sur le sol ou sur la forme blanche</td><td>Regarder loin devant, sur le couvert où la piste mène ; chercher l’œil et le bout noir des oreilles</td></tr><tr><td class="c-item">L’écureuil reste toujours de l’autre côté du tronc</td><td>Approche droite, chasseur seul</td><td>Approche en biais ; 20 à 30 min caché ; à deux, l’un tourne, hors de la ligne de tir, l’autre attend (étape 27)</td></tr><tr><td class="c-item">Les canards tournent au-dessus des appelants sans se poser</td><td>Pas de trou, affût visible, trop d’appels, ou vent dans la face</td><td>Ouvrir le trou sous le vent, casser la silhouette, se taire, déplacer l’affût</td></tr><tr><td class="c-item">Les canards se posent hors de portée</td><td>Appelants trop loin de l’affût</td><td>Rapprocher les appelants</td></tr><tr><td class="c-item">Oiseau criblé, poitrine en bouillie</td><td>Tiré trop près, ou oiseau posé tiré au fusil</td><td>Laisser l’oiseau levé s’éloigner avant de tirer ; oiseau posé à la .22</td></tr><tr><td class="c-item">Billes dans les cuisses du lièvre</td><td>Tiré par derrière</td><td>Tirer de travers, devant le nez. Chercher chaque bille (<span class="ref">ch. 49</span>, étape 12) ; la bête va aux adultes (<span class="ref">§8</span>, bloc 3)</td></tr><tr><td class="c-item">Oiseau touché qui continue et qu’on ne retrouve pas</td><td>Recherche trop courte</td><td>Marquer le coup, chercher jusqu’à 70 à 90 m dans la direction du vol, puis en cercles ou en grille (<span class="ref">ch. 44</span>, étapes 31 et 32)</td></tr><tr><td class="c-item">Rat musqué qui plonge au coup</td><td>Coup manqué</td><td>Ne plus bouger ; revenir à la brunante suivante</td></tr><tr><td class="c-item">La boîte baisse beaucoup plus vite que le garde-manger ne monte</td><td>Coups longs, coups au vol évitables, coups au corps</td><td>.22 sur ce qui s’assoit, tête seulement (<span class="ref">§5-J</span>)</td></tr><tr><td class="c-item">Tétras qui partent tous au premier coup</td><td>On a tiré celui du haut</td><td>Tirer le plus bas d’abord</td></tr><tr><td class="c-item">Tétras au goût de résine</td><td>Oiseau d’hiver nourri d’aiguilles</td><td>Défaut de goût, pas de salubrité. Braiser (<span class="ref">ch. 49</span>) ; préférer ceux de l’automne</td></tr><tr><td class="c-item">Oiseau qui ne suit pas des yeux, yeux mi-clos, ou qui porte un des six signes ; lièvre qui ne part pas quand on arrive sur lui, ou qui s’éloigne lentement</td><td>Bête malade</td><td>Ne pas tirer pour la viande, ne pas toucher, quitter le secteur (<span class="ref">§8</span>, bloc 1 ; <span class="ref">ch. 48</span> <span class="ref">§9</span>)</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">La bête qui ne fuit pas.</strong> Ce chapitre apprend à approcher ce qui se fige. La même immobilité est le portrait de deux maladies qui passent à l’homme par contact. Le lièvre ou le rat musqué atteints de tularémie sont <strong>faibles, léthargiques, se laissent approcher, et restent en bon état de chair</strong> : le bon état n’est pas rassurant, il fait partie du tableau (<span class="ref">ch. 48</span>, étape 7). L’oiseau atteint d’influenza aviaire montre un des <strong>six signes</strong> : abattement, nervosité, tremblements ou perte d’équilibre, enflure de la tête, du cou et des yeux, toux ou respiration difficile, diarrhée (<span class="ref">ch. 49</span>, étape 2). <strong>Chez l’oiseau, ce qui trie, c’est la réaction, pas l’immobilité.</strong> Le tétras et le lagopède sains misent sur le camouflage : rester figé, même au sol ou assis dans la neige, ne dit rien chez eux, et tout oiseau gonfle son plumage par grand froid pour s’isoler. L’oiseau sain tient la tête haute, garde les yeux ouverts et <strong>suit des yeux celui qui approche</strong>. Celui qui ne suit rien, les yeux mi-clos ou enflés, ou qui porte un des six signes, est malade. <strong>Chez le lièvre, rien ne trie à distance.</strong> Au gîte, le lièvre sain se fige lui aussi, et un porteur peut avoir l’air normal (<span class="ref">ch. 48</span> <span class="ref">§3</span>) : à 25 m, un lièvre malade et un lièvre sain sont pareils, et c’est pourquoi tous se ramassent comme porteurs (bloc 2). Seule l’approche parle : le lièvre malade se méfie moins et fuit moins, et au dernier stade il devient très lent. Celui sur qui l’on arrive sans qu’il parte, ou qui s’éloigne lentement, ne se tire pas. La bête malade ne se tire pas pour la viande, ne se touche pas, ne se donne pas au chien, et le secteur se quitte pour la saison (<span class="ref">ch. 48</span> <span class="ref">§9</span>). Le mécanisme est un contact : sang, fluides, plumes, fourrure, sur les mains puis au visage. Une gerçure, un œil qui pleure au froid essuyé avec le gant qui a ramassé la bête, une poussière de poil sec respirée suffisent (<span class="ref">ch. 48</span> <span class="ref">§8</span>, bloc 1 ; <span class="ref">ch. 49</span> <span class="ref">§8</span>, bloc 2).</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Le sang du lièvre et du rat musqué est déjà sur la neige.</strong> La tularémie est endémique dans toutes les régions du Québec, et sa forme la plus fréquente est celle d’une personne <strong>qui a préparé du petit gibier avec des lésions aux mains</strong>. Le coup de feu ouvre la bête : le sang est dans la fourrure et dans la neige avant qu’on se penche. <strong>Les gants se mettent avant de ramasser, pas avant de dépouiller</strong>, et avant de reprendre la flèche ou le bâton qui a frappé : ils ressortent couverts de sang et de poil (<span class="ref">ch. 45</span> <span class="ref">§8</span>, bloc 4). Le gel ne tue pas la bactérie ; la cuisson, oui : <strong>74 °C à cœur</strong>, mesurés à la cuisse (<span class="ref">ch. 48</span>).</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le plomb dans la bête servie aux enfants.</strong> La grenaille de plomb tirée sur le lièvre, la gélinotte, le tétras ou le lagopède reste dans la bête, et <strong>la balle de .22 courante est elle aussi du plomb</strong>. Une bille ou une balle qui touche un os se fragmente, et ses éclats sont trop petits pour être vus, sentis au doigt ou sous la dent : palper les trajets ne les retrouve pas (<span class="ref">ch. 54</span> <span class="ref">§8</span>, bloc 1). Un enfant de 4 ans est la personne la plus sensible au plomb de la maisonnée ; aucun seuil sans effet n’est établi (<span class="ref">ch. 49</span>, <span class="ref">§8</span>, bloc 1). <strong>Toute bête tirée au plomb va aux adultes</strong>, et sa carcasse, son cou et sa tête ne vont pas au bouillon des enfants. L’assiette des enfants reçoit la bête prise à la .22 <strong>qui n’a touché que la tête</strong> — et la tête va aux restes —, à l’acier vérifié à l’aimant, au collet, à la perche, au bâton ou à la flèche. Une balle de .22 au cou ou au corps met du plomb dans la viande, comme la grenaille.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Une saison de petit gibier seul tue au milieu de la viande.</strong> Le lièvre tire <strong>plus de 80 %</strong> de ses calories des protéines, contre un plafond de <strong>35 %</strong> chez l’adulte et de <strong>30 %</strong> chez l’enfant de 4 à 18 ans (<span class="ref">ch. 19</span>) ; le tétras du Canada n’est pas plus gras (<strong>près de 90 %</strong> cru) et le lagopède à peine moins (<strong>environ 75 %</strong>). Passé le plafond, le foie ne suffit plus à évacuer l’azote, et la personne mange à sa faim et maigrit : le <strong>mal de caribou</strong>, qui tue en quelques semaines, et les enfants avant les adultes. Plus on chasse de lièvres et de « perdrix » sans gras à côté, plus vite il arrive. Chaque repas de petit gibier porte du gras et un féculent venus d’ailleurs (<span class="ref">ch. 19, 50, 51, 72</span>).</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Le coup qui ne s’arrête pas dans la bête.</strong> Trois situations de ce chapitre envoient la balle ou la gerbe ailleurs que dans la bête. <strong>Le cercle du lièvre ramène le pisteur</strong> : le chien ou le partenaire revient par la même piste, juste derrière le lièvre, et celui qui tire dans la coulée tire vers lui ; à l’écureuil, le partenaire qui fait le tour se retrouve de l’autre côté du tronc, dans la ligne d’une balle qui manque la tête (étapes 8 et 27). <strong>Le tir vers le ciel n’a pas d’arrêt</strong> : une balle de .22 qui ne rencontre rien peut retomber à plus de 2 km, et le chalet, les enfants, le voisin sont quelque part dans ce rayon (étape 12). <strong>Toute surface dure et plane renvoie la balle</strong> : eau calme, glace de lac ou de bord, croûte, sol gelé, roc, gravier du chemin. Le lagopède sur la glace, le tétras sur le gravier, le lièvre au gîte sur une croûte gelée sont posés dessus ; un coup rasant ricoche et repart dans une direction qu’on ne contrôle pas. On tire en plongée, ou avec une berge, un talus ou un tronc derrière la cible (étape 38).</p>
+<p class="pt"><span class="pn">6</span><strong class="plead">Le canot se renverse sous le chasseur.</strong> Épauler de travers, encaisser le recul assis de côté, se pencher par-dessus le plat-bord pour saisir l’oiseau qui flotte, tendre la perche d’une berge molle ou d’une glace de bord : ce sont les gestes de la chasse qui font chavirer, à l’aube ou à la brunante, souvent seul, sur une eau d’automne. L’eau froide noie dans la première minute, avant de refroidir : le choc fait prendre une grande inspiration d’un coup, la tête sous l’eau inspire l’eau, et dans les minutes qui suivent les mains lâchent (<span class="ref">ch. 90</span> <span class="ref">§8</span>, bloc 1). Le VFI se porte attaché, pas sous le banc, et la conduite au chavirement est au <span class="ref">ch. 90</span> (étapes 31 et 34).</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans cartouches, ou avec la dernière boîte réservée à l’orignal (<span class="ref">ch. 45</span> <span class="ref">§5-A</span>).</p>
+<h3 class="sub">Ce qui change : on ne chasse plus la bête, on chasse l’immobilité</h3>
+<p class="p0">Sans arme à feu, trois prises disparaissent : <strong>la gélinotte en vol, la sauvagine en vol, le lièvre qui court</strong>. Rien de ce qui se fabrique au chalet ne prend l’oiseau en vol (<span class="ref">ch. 45</span> <span class="ref">§9</span>), ni le lièvre lancé à pleine course. Il reste deux familles de bêtes. Celles dont on connaît le chemin — lièvre, écureuil, rat musqué — et qui vont aux engins (<span class="ref">ch. 48, 53</span>). Et celles <strong>qui se figent au lieu de fuir</strong> : le lièvre au gîte, le tétras sur sa branche, le lagopède dans sa bande, la gélinotte perchée à la brunante, l’écureuil qui s’est arrêté, le porc-épic d’Amérique (<em>Erethizon dorsatum</em>) dans son arbre (<span class="ref">ch. 51</span> <span class="ref">§9</span>). Ce sont elles que le bâton, la perche, le lance-pierre et la flèche mousse prennent, à condition d’arriver assez près.</p>
+<p>C’est la répartition des Innus et des Naskapis pour ce territoire : le fusil pour le gros gibier, l’arc de mélèze et la flèche à tête ronde pour la « perdrix » et le lièvre, parce que la cartouche coûtait trop cher pour ce qui se prend autrement. La fabrication de l’arc, de la flèche mousse, du lance-pierre, de la fronde et du bâton est au chapitre 45 (<span class="ref">§9</span>). Ce qui suit est la chasse avec.</p>
+<h3 class="sub">S’approcher sans arme : le contraire de la gélinotte au fusil</h3>
+<p class="p0">Au fusil, on s’arrête pour faire lever la gélinotte (étape 13). Sans fusil, on veut exactement l’inverse : que la bête ne parte pas. Tout ce qui fait lever doit disparaître de l’approche.</p>
+<p class="li"><strong>Ne jamais s’arrêter net.</strong> C’est l’arrêt brusque, puis la reprise, qui fait partir l’oiseau : la bête croit qu’on l’a vue. Avancer d’un mouvement lent et continu, même quand il faut ralentir à presque rien (<span class="ref">ch. 49</span> <span class="ref">§9</span>).</p>
+<p class="li"><strong>Ne jamais marcher droit dessus.</strong> Avancer en biais, comme si l’on allait passer à côté, et refermer la distance par une courbe. Un écureuil ou un oiseau sauvage vers qui l’on marche droit part de plus loin que si l’on passe de biais. Le lièvre au gîte s’approche de la même façon.</p>
+<p class="li"><strong>Bouger quand elle est occupée.</strong> L’écureuil qui mange, le tétras qui arrache des aiguilles, le lagopède qui gratte la neige regardent moins. Quand la bête s’immobilise et regarde, on s’immobilise aussi, sans à-coup.</p>
+<p class="li"><strong>Garder un tronc entre soi et elle</strong> pour les derniers mètres, quand il y en a un.</p>
+<p class="li"><strong>Se préparer avant d’arriver.</strong> Le bâton dans la main, la pierre dans la pochette, la flèche encochée : le geste qui prépare l’arme à quelques pas de la bête est celui qui la fait partir.</p>
+<h3 class="sub">Le bâton de jet</h3>
+<p class="p0">Un bâton solide, long comme le bras du bout des doigts à l’épaule (<span class="ref">ch. 45</span> <span class="ref">§9</span>), à bout mousse. Le meilleur est en bois franc lourd, naturellement coudé, <strong>aplati sur deux faces comme un boomerang</strong> : il vole à plat et touche plus souvent. Il marche sur ce qui s’immobilise au lieu de fuir, et sur rien d’autre.</p>
+<p class="p0 ri"><strong class="runin">Lancer de côté, à plat, sur ce qui est au sol.</strong> Lancé de côté, le bâton tourne à plat et balaie une bande large comme sa longueur : il pardonne l’erreur de côté. Lancé bas, à hauteur de la bête, il file au ras de la neige au lieu de retomber sur un point : il pardonne aussi l’erreur de distance. C’est le lancer du lièvre au gîte et du lagopède dans la neige.</p>
+<p class="p0 ri"><strong class="runin">Lancer par-dessus l’épaule sur ce qui est perché.</strong> Le bâton tourne alors à la verticale et balaie une bande haute comme sa longueur : il pardonne l’erreur de hauteur, qui est celle qu’on fait sur une branche. C’est le lancer du tétras sur sa branche basse.</p>
+<p class="p0 ri"><strong class="runin">En porter deux ou trois.</strong> Le premier manque souvent, et une bête qui ne part pas au premier passage du bâton — le tétras le fait — reste une cible. Le deuxième est déjà dans l’autre main.</p>
+<p class="p0 ri"><strong class="runin">Courir tout de suite à la bête.</strong> Une bête assommée se réveille. Le lièvre s’achève d’un coup sec du bâton derrière les oreilles ; l’oiseau, en lui cassant le cou d’un geste. <strong>Sauf le porc-épic</strong> : on n’arrive pas au-dessus de son dos. On l’approche de face, hors d’atteinte de la queue, on l’achève au bâton sur la tête, et on attend deux minutes d’immobilité avant de le retourner au bâton, jamais à la main (<span class="ref">ch. 51</span>, étapes 6 à 9). Gants aux mains pour le lièvre (<span class="ref">§8</span>, bloc 2) : le bâton ouvre la peau comme la balle, et le bâton qui l’a frappé se reprend ganté et reste réservé au lièvre, comme la flèche (<span class="ref">ch. 45</span> <span class="ref">§8</span>, bloc 4).</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd :</strong> la distance. Le bâton prend ce qui est à quelques longueurs de bâton, pas plus. Tout le travail est dans l’approche.</p>
+<h3 class="sub">Le tétras : la perche, le bâton, et le plus bas d’abord</h3>
+<p class="p0">Le tétras du Canada qui monte sur une branche basse et regarde est la prise la plus sûre du territoire sans munition. La perche à collet — hampe sèche fendue au bout, boucle de fil métallique fin, présentée de côté, passée par-dessus la tête et tirée sec — est décrite au chapitre 49 (<span class="ref">§9</span>). La distinction entre l’oiseau sain et l’oiseau malade, qui décide de tout, est au <span class="ref">§8</span> (bloc 1) : c’est le regard qui suit, pas la place ni le plumage.</p>
+<p class="p0 ri"><strong class="runin">Ce que la bande ajoute.</strong> Quand trois ou quatre tétras sont dans le même arbre, commencer <strong>par le plus bas</strong>, à la perche comme au bâton ou à la flèche. L’oiseau pris en bas descend sans traverser la bande ; celui qu’on ferait tomber d’en haut passerait en battant des ailes devant tous les autres. Rapprocher la perche du suivant <strong>du même mouvement lent</strong>, sans reculer pour se reposer.</p>
+<p class="p0 ri"><strong class="runin">Tous les tétras ne se laissent pas faire.</strong> Certains, ailleurs, sont plus farouches et partent d’un coup d’ailes. La perche se tente sur celui qui monte sur sa branche et regarde ; celui qui part se laisse.</p>
+<h3 class="sub">Le lagopède, l’hiver où il descend</h3>
+<p class="p0">L’autre oiseau qui se laisse approcher à découvert, et le plus facile des deux quand il est là (étapes 21 et 22). L’hiver où les bandes arrivent, c’est la prise sans munition de l’année : on le sait dès les premières neiges, aux traces de pattes emplumées<sup class="fnr" data-fn="47-2">2</sup> dans les saules et le long des chemins forestiers, et ce sont ces semaines-là qu’on sort tous les jours plutôt que de garder ses forces pour le lièvre, qui, lui, sera encore là en mars. La bande assise dans les saules se prend au bâton lancé à plat, à hauteur des oiseaux, puis au deuxième bâton sur ceux qui n’ont pas bougé ; la perche du tétras sert aussi. Par grand froid, le lagopède peut rester jusqu’à 17 heures sur 24 dans son trou de neige (étape 22) et part d’un coup sous les raquettes : on attend les heures où la bande ressort manger dans les saules plutôt que de la relever sans fin.</p>
+<p class="p0 ri"><strong class="runin">Les collets du lagopède, qui travaillent sans personne.</strong> Deux montages. Le lagopède des saules, l’hiver, vit en bandes dans les saules et se prend facilement au collet :</p>
+<p class="li"><strong>La haie de saules.</strong> Une haie mince de branches de saule plantées serré dans la neige, autour du bouquet où la bande mange, en laissant de petites ouvertures ; un collet dans chaque ouverture. L’oiseau qui longe la haie passe par l’ouverture.</p>
+<p class="li"><strong>La ligne à plat.</strong> Une série de boucles attachées le long d’une ligne, posées <strong>à plat</strong> sur la neige autour d’un bouquet de saules fréquenté. Dans la neige molle, le lagopède traîne les pieds : il met le pied dans une boucle, la tire vers l’avant en marchant, et se prend par la patte.</p>
+<p>Le fil, la boucle et l’œillet sont ceux du collet à lièvre (<span class="ref">ch. 48</span> <span class="ref">§9</span>). Posés là où la bande mange, ils travaillent pendant qu’on fait autre chose.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd :</strong> rien ne garantit la descente. Certains hivers, il n’y en a pas, et aucune marche n’y change rien.</p>
+<h3 class="sub">Le lièvre sans arme</h3>
+<p class="p0 ri"><strong class="runin">Au collet, d’abord.</strong> C’est la vraie réponse, et elle travaille la nuit (<span class="ref">ch. 48</span> <span class="ref">§5</span> et <span class="ref">§9</span>).</p>
+<p class="p0 ri"><strong class="runin">Au gîte, le matin d’après une neige.</strong> Suivre la piste de la nuit (étape 6) jusqu’à voir l’œil et le bout noir des oreilles. S’arrêter de marcher droit vers lui à ce moment-là : continuer en biais, en refermant lentement la distance par une courbe, sans jamais s’arrêter net. Un lièvre accroupi à portée se prend au bâton lancé à plat, à la flèche mousse, au lance-pierre. Celui qui ne part pas quand on arrive sur lui, ou qui s’éloigne lentement, ne se prend pas : c’est le lièvre malade (<span class="ref">§8</span>, bloc 1). <strong>Ce qu’on perd :</strong> la plupart. Un lièvre qui part se prend rarement sans fusil.</p>
+<p class="p0 ri"><strong class="runin">À deux, avec le cercle.</strong> Le lièvre poussé revient près de son point de départ (étape 8). L’un suit la piste sans relâche, sans chercher le silence ; l’autre attend près du point de départ, arc bandé à moitié ou bâton en main, <strong>posté de côté par rapport à la coulée</strong> : le pisteur revient par la même piste, juste derrière le lièvre, et une flèche ou un bâton lancés dans l’axe de la coulée partent vers lui. On ne lance qu’en travers. Et c’est souvent sur cette coulée-là qu’il faut ensuite poser le collet.</p>
+<h3 class="sub">La flèche mousse et le lance-pierre, à la chasse</h3>
+<p class="p0">Le chapitre 45 fabrique l’arc de mélèze, la flèche à tête en œuf et le lance-pierre. Ce qui compte ici, c’est <strong>à quoi on les tire</strong> :</p>
+<p class="li"><strong>La gélinotte perchée à la brunante</strong>, l’hiver, dans un tremble (étape 12), quand un angle donne le tronc ou une grosse branche derrière elle. Découpée sur le ciel, la flèche qui manque est perdue : on l’accepte, ou on ne tire pas.</p>
+<p class="li"><strong>Le tétras</strong> sur sa branche basse.</p>
+<p class="li"><strong>Le lagopède</strong> dans sa bande, assis dans les saules. Un tireur exercé renversait à la flèche mousse un lagopède ou un lièvre accroupi <strong>à une vingtaine de mètres</strong> ; un débutant, à beaucoup moins.</p>
+<p class="li"><strong>Le lièvre accroupi</strong> sous une épinette.</p>
+<p class="li"><strong>L’écureuil</strong> au sommet d’un petit arbre : sur une bête aussi petite, une simple baguette sans plume ni tête suffit.</p>
+<p class="li"><strong>Le porc-épic</strong> perché (<span class="ref">ch. 51</span>).</p>
+<p>Derrière la cible, un talus ou un tronc : une flèche qui manque dans la neige profonde se perd, et une flèche se fait en une soirée. La flèche qui a touché un lièvre, un rat musqué ou un écureuil se reprend gants aux mains ; elle reste réservée au lièvre, marquée d’une entaille, et ne retourne jamais dans les flèches d’entraînement que les enfants ramassent (<span class="ref">ch. 45</span> <span class="ref">§8</span>, bloc 4). L’élastique du lance-pierre voyage dans une poche intérieure et se monte au moment de tirer, parce que le caoutchouc raidit au froid (<span class="ref">ch. 45</span> <span class="ref">§9</span>). Une pierre assomme, elle ne tue pas toujours : courir à la bête comme au bâton, sauf au porc-épic (plus haut).</p>
+<h3 class="sub">L’écureuil, le rat musqué, la sauvagine sans cartouches</h3>
+<p class="p0 ri"><strong class="runin">L’écureuil</strong> : son amas de cônes (étape 24) dit où appuyer la perche à collets du chapitre 53 (<span class="ref">§9</span>). Une perche contre l’arbre le plus proche de l’amas travaille toute la journée, pendant qu’on fait autre chose.</p>
+<p class="p0 ri"><strong class="runin">Le rat musqué</strong> : au piège, dans son passage, jamais à côté (<span class="ref">ch. 53</span> <span class="ref">§9</span>). Sans arme, le tir du crépuscule disparaît, rien d’autre.</p>
+<p class="p0 ri"><strong class="runin">La sauvagine</strong> : rien ne prend un canard en vol (<span class="ref">ch. 45</span> <span class="ref">§9</span>). Les appelants de fortune gardent leur utilité pour la dernière boîte (<span class="ref">ch. 54</span> <span class="ref">§9</span>). Les volées en mue, clouées au sol, se ramassent au complet : c’est manger d’un coup les volées des automnes qui viennent sur ce plan d’eau (<span class="ref">ch. 54</span> <span class="ref">§2</span>).</p>
+<h3 class="sub">Quand il reste quelques cartouches</h3>
+<p class="p0">La section 5-J devient la règle, sans exception :</p>
+<p class="li">La .22 ne sort plus que sur ce qui est assis, à 25 m ou moins, tête visible, un arrêt derrière.</p>
+<p class="li">Le 12 ne sort plus que pour la sauvagine, aux appelants, à 23 m.</p>
+<p class="li">La gélinotte en vol n’est plus une cible : on l’attend perchée à la brunante, ou on la laisse.</p>
+<p class="li">Tout ce qui se fige passe au bâton, à la perche et à la flèche, et la cartouche va à ce qui ne se fige pas.</p>
+<p class="li">Les dernières cartouches de carabine — .308, 7 mm, .303 — vont à l’orignal (<span class="ref">ch. 45</span> <span class="ref">§5-A</span>).</p>
+<h3 class="sub">Ce qui ne se remplace pas</h3>
+<p class="li"><strong>L’oiseau en vol et le lièvre qui court.</strong> Sans fusil, ils sortent du menu. Il faut le savoir en septembre, pas en février.</p>
+<p class="li"><strong>La pratique.</strong> Le bâton, la flèche et la pierre ne vont où l’on veut qu’après des heures. Elles se prennent l’automne d’avant, sur des souches et des cibles d’écorce, avec les enfants qui ramassent les flèches d’entraînement — jamais une flèche qui a servi à la chasse — et pas le jour où la boîte est vide.</p>
+<p class="li"><strong>La lecture du territoire.</strong> Sans arme, on ne prend que ce qu’on a trouvé avant qu’il nous voie. C’est le chapitre 42, et c’est lui qui décide de tout ce qui précède.</p>
+<p class="li"><strong>Le gras.</strong> Aucune quantité de lièvres et de « perdrix » ne le fournit (<span class="ref">§8</span>, bloc 4). La chasse au petit gibier sans gras à côté est une façon plus lente d’arriver au mal de caribou.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="45-1"><span class="fnn">1</span>Le renflement est un anneau où le canon a gonflé sous le choc de la balle contre l’obstacle. Il se voit parfois dehors, comme un anneau autour du canon. Sinon, l’âme bien propre, regardée par la chambre contre une lumière vive, y montre une ombre en anneau — une tache de graisse fait la même ombre, d’où l’âme propre — et les doigts passés doucement le long du canon le sentent comme une bosse. Deux balles restées dans l’âme : on présume le canon renflé. Un canon renflé ne s’arrange pas en tirant.</p>
+<p class="fn" data-fn="47-1"><span class="fnn">1</span><strong>Le tambourinage de la gélinotte.</strong> Un bruit sourd qui pulse, comme un tambour qu’on bat au loin. Le mâle le fait en comprimant l’air sous ses ailes, le plus souvent debout sur un billot, parfois sur une racine ou une roche. On l’entend surtout au printemps, et parfois à l’automne.</p>
+<p class="fn" data-fn="47-2"><span class="fnn">2</span><strong>La trace du lagopède.</strong> L’hiver, le dessous de ses pieds est couvert de plumes jusqu’au bout des doigts, au point de ressembler à une patte de lièvre, et seules ses longues griffes dépassent : l’empreinte est ronde et floue, sans doigts nets (<span class="ref">ch. 43</span>, <span class="ref">§5</span>-F). La gélinotte et le tétras n’ont pas le pied emplumé : l’hiver, la gélinotte porte seulement de petites franges en peigne le long des doigts, et ses doigts marquent.</p>
+</template>
+<script type="application/json" id="meta">{"num": "47", "title": "Chasser le petit gibier", "tome": "Tome 3 · Prélever", "tnum": 3, "tfond": "#1D392E", "tencre": "#E9F0EA", "lieu": "Chalet", "dsub": "six mécanismes", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

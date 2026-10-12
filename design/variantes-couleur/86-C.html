@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>86 — L’électricité du chalet et le froid mécanique — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"86"}
+</style>
+</head>
+<body class="vA vB vC t5 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 5 · La forêt, le jardin et le chalet</span><span>Chapitre</span></div><div class="open-title"><div class="num">86</div><h1>L’électricité du chalet et le froid mécanique</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Au village, le courant vient d’Hydro et la panne se traverse avec une génératrice dans la cour (<span class="ref">ch. 3</span>). Au chalet, il n’y a pas de ligne : le banc de batteries est le réseau, et c’est là que finit tout événement qui dure (<span class="ref">ch. 2</span>). Ce chapitre dimensionne cette installation et le congélateur qu’elle porte. Deux choses servent aussi à la maison : le calcul du congélateur selon la température de la pièce (étape 2), et la règle de grouper dans chaque bloc de génératrice tout ce qui attend du courant (étape 26).</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Un congélateur coffre posé dans la remise non chauffée tient la viande presque toute l’année sur quelques centaines de watts de panneaux dressés à 60° et un banc gardé au chaud, parce que sa consommation baisse avec le soleil, alors que le même coffre posé dans la cuisine vide ce banc presque tous les jours de décembre.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">La famille est montée au chalet pour de bon et qu’il y a de la viande à tenir d’avril à novembre, les mois où l’air du dehors ne le fait pas (<span class="ref">ch. 73</span>). De décembre à mars, l’air fait l’essentiel du travail gratuitement, et le congélateur n’est plus qu’un appoint.</p>
+<p class="li">Un coin dégagé au sud voit le soleil de midi en décembre. Le 21 décembre, à la latitude de Sept-Îles, le soleil de midi n’est qu’à 16° au-dessus de l’horizon : un arbre de 10 m jette une ombre de 34 m. Le matin et l’après-midi, il est plus bas encore (étape 15). Un panneau derrière une rangée d’épinettes ne produit rien du mois.</p>
+<p class="li">Un ruisseau descend d’au moins un mètre près du chalet. C’est la seule source qui produit la nuit sans vent ni essence. En décembre, un petit ruisseau avec quelques mètres de pente bat un champ entier de panneaux, mais seulement monté pour l’hiver, conduite enfouie et roue à l’abri, et compté sur son débit du creux de l’hiver (section 9 C).</p>
+<h4 class="choix">C’est un mauvais choix quand :</h4>
+<p class="li"><strong>Le coffre est dans la pièce chauffée.</strong> À 20 °C autour de lui, il consomme deux fois et demie ce qu’il consomme dans une remise en novembre, et cinq fois en décembre. Ce n’est pas un détail d’installation : c’est la différence entre un banc qui passe l’hiver et un banc vide 85 jours sur 100 en décembre.</p>
+<p class="li"><strong>L’onduleur reste allumé jour et nuit pour un compresseur qui tourne deux heures.</strong> Un onduleur mange à vide de 6,5 à 10 W selon sa taille, soit 150 à 240 Wh par jour. En décembre, c’est plus que ce que demande le coffre de la remise.</p>
+<p class="li"><strong>On compte sur le soleil seul pour la pire semaine.</strong> Sur onze hivers, la pire suite de sept jours a donné le septième de la moyenne de décembre. La réserve de ces jours-là — le banc, la génératrice ou le froid du dehors — se décide avant, pas pendant.</p>
+<p class="li"><strong>Le banc au plomb est dans la remise en janvier.</strong> Il n’y rend plus que la moitié de sa capacité, et à −35 °C une batterie à 62 % gèle déjà : on la garde au-dessus de 85 %. Ce qui reste d’utilisable fait moins du dixième de l’étiquette.</p>
+<p class="li"><strong>Le banc au lithium est dans un bâtiment qui descend sous 5 °C la nuit.</strong> Chargé sous le seuil de sa fiche, +5 °C pour celle qu’on a lue, il s’abîme pour de bon. Avec un système de gestion qui coupe la charge au froid, le soleil du matin passe pendant que la batterie dit non ; sans cette coupure, elle dit oui, et c’est pire (section 3).</p>
+<p class="li"><strong>Le banc est fait de batteries de démarrage.</strong> Elles sont faites pour se vider trois secondes et se remplir tout de suite (<span class="ref">ch. 85</span>). En décharges profondes répétées, elles meurent bien avant leur heure.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">Un congélateur consomme en proportion de l’écart entre ses −18 °C et l’air qui l’entoure.</strong> L’énergie qu’il faut pour tenir une différence de température est proportionnelle à cette différence. Le chiffre en kilowattheures par an de l’étiquette est mesuré à 32 °C, couvercle fermé : un écart de 50 °C. Ce 32 °C tient lieu d’une cuisine ordinaire où l’on ouvre : un coffre qu’on ouvre tous les jours dans le chalet chauffé est plus près de son étiquette que du calcul. Dans une pièce à 20 °C, l’écart tombe à 38 ; dans une remise à −3 °C en novembre, à 15 ; à −10 °C en décembre, à 8. Le coffre de la remise consomme donc le moins au moment exact où le soleil donne le moins. C’est l’argument du chapitre. Le coffre, en plus, garde son froid quand on lève le couvercle : l’air froid est lourd et reste au fond, alors qu’il tombe par la porte d’un vertical.</p>
+<p class="p0 ri"><strong class="runin">En décembre, à cette latitude, le soleil est rare, bas et souvent caché.</strong> La plus belle journée de décembre ne donne guère plus de huit heures de soleil franc. Incliné à 60°, un panneau en tire près de trois fois ce qu’il tire à plat — 1,34 kWh par kilowatt de panneau et par jour, contre 0,47 — et il se déneige presque seul. À la verticale, il ne perd presque rien en décembre (1,31) mais perd le quart de son année par rapport à 60°. Le long de la côte, à 60°, décembre donne de 1,05 vers Baie-Comeau à 1,70 vers Havre-Saint-Pierre. Mais la moyenne cache la semaine : un jour de décembre sur trois donne moins de 0,5, et la pire semaine de onze hivers a donné 0,19 par jour.</p>
+<p class="p0 ri"><strong class="runin">Le froid attaque le plomb par trois bouts, et ils s’enchaînent.</strong> La capacité d’abord : la moitié à −18 °C, moins encore plus bas. La charge ensuite : une batterie froide demande une tension plus haute, et un contrôleur qui ne le sait pas la laisse à moitié pleine. Le gel enfin, parce que l’électrolyte d’une batterie pleine est de l’acide concentré et celui d’une batterie vide, presque de l’eau :</p>
+<table class="tspan"><colgroup><col style="width:21.3%"><col style="width:22.7%"><col style="width:31.1%"><col style="width:24.8%"></colgroup><thead><tr><th>État de charge</th><th>Densité au densimètre</th><th>Tension au repos, 12 V, plomb ouvert</th><th>L’électrolyte gèle vers</th></tr></thead><tbody><tr><td class="c-item">100 %</td><td>1,280</td><td>12,73 V</td><td>-69 °C</td></tr><tr><td class="c-item">85 %</td><td>1,250</td><td>12,56 V</td><td>-52 °C</td></tr><tr><td class="c-item">62 %</td><td>1,200</td><td>12,27 V</td><td>-27 °C</td></tr><tr><td class="c-item">40 %</td><td>1,150</td><td>11,96 V</td><td>-15 °C</td></tr><tr><td class="c-item">20 %</td><td>1,100</td><td>11,66 V</td><td>-7 °C</td></tr></tbody></table>
+<p class="p0">La tension ne vaut qu’au repos : six heures au moins sans charge ni décharge (section 6). Le densimètre<sup class="fnr" data-fn="86-1">1</sup> se lit n’importe quand, corrigé pour la température.</p>
+<p>La chaîne se lit dans ce sens : froid, charge incomplète, état de charge bas, gel, bac fendu. Une batterie dont le bac a bombé ou fendu est finie ; une batterie intacte qui a gelé dégèle dans la pièce avant qu’on la branche (<span class="ref">ch. 84</span>, <span class="ref">§9</span>), et le gel a d’ordinaire abîmé ses plaques pour de bon. Le lithium-fer-phosphate inverse le problème : il se décharge jusqu’à −20 °C, mais il ne doit pas se charger sous le seuil de sa fiche, +5 °C pour celle qu’on a lue. Chargé plus froid, il s’abîme pour de bon. Ce n’est pas la chimie qui refuse : c’est son système de gestion qui coupe la charge, <strong>s’il a cette coupure et qu’elle est réglée</strong>. Le seuil se lit sur la fiche ou dans le réglage de la batterie installée. Faute de fiche, on regarde l’afficheur du contrôleur un matin où la batterie est froide, panneaux au soleil : un courant de charge nul dit que la coupure existe. Un courant qui entre dit qu’elle n’existe pas : on débranche aussitôt, et ce banc ne se charge plus qu’au-dessus du seuil.</p>
+<p class="p0 ri"><strong class="runin">Chaque conversion coûte, et le plomb coûte le plus quand il est presque plein.</strong> Le plomb rend 80 % de ce qu’on y met, le lithium 92 %. Au-dessus de 80 % de charge, le rendement de charge du plomb tombe à 50 % ou moins. C’est justement là qu’on le garde l’hiver pour qu’il ne gèle pas. L’onduleur perd 10 % au mieux en marche, et consomme même quand rien n’y est branché.</p>
+<p class="p0 ri"><strong class="runin">Une génératrice rend plus par litre quand elle travaille fort.</strong> Une génératrice à onduleur de 1 800 W nominaux, avec un plein de 3,6 L, tourne 3,2 h à pleine charge et 8,1 h au quart : 1,6 kWh par litre à plein, 1,0 au quart. Un compresseur de congélateur seul la laisse bien sous le quart : on paie le moteur pour peu de courant. D’où les blocs groupés de l’étape 26.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Congélateur coffre, idéalement vendu pour le garage, avec sa plage de température basse annoncée</td><td>1</td><td>Le coffre de la maison, qui monte à la bascule. Sa carrosserie n’est pas faite pour être levée pleine : on le vide dans des glacières le temps de le charger, ou on le glisse plein sur une planche portée à plusieurs. Plein, fermé et immobile, il tient 48 h. Un vertical fonctionne, mais perd son froid à chaque ouverture. Un coffre à compresseur 12 V se branche au banc sans onduleur</td><td>Oui</td></tr><tr><td class="c-item">Thermomètre min-max dans le coffre, et un autre dans la remise</td><td>2</td><td>Le gobelet d’eau gelée et la pièce de monnaie dans le coffre (<span class="ref">ch. 74</span>). La remise se lit au thermomètre extérieur, à l’ombre</td><td><span class="non">NON</span> <span class="negx">— c’est lui qui dit quand brancher et quand débrancher</span></td></tr><tr><td class="c-item">Wattmètre de prise (compteur de kilowattheures)</td><td>1</td><td>Pince ampèremétrique et une montre. La pince lit des ampères, et sur un seul fil : autour du cordon entier, elle lit zéro. On la referme sur un seul conducteur d’une rallonge dont on a séparé les deux fils sur quelques centimètres, sans entamer l’isolant. On additionne les minutes de marche du compresseur sur une journée. Ampères × 120 donne des watts par excès sur un moteur : c’est un plafond, pas une mesure</td><td>Oui</td></tr><tr><td class="c-item">Banc de batteries à décharge profonde : plomb ouvert (batteries de 6 V en série), AGM, ou lithium-fer-phosphate</td><td>Selon l’étape 20</td><td>Des batteries de démarrage d’appoint, de même âge et de même capacité, en parallèle, jamais celle du camion, qui doit repartir (section 9 A). Elles durent beaucoup moins longtemps, et une batterie dont un élément lâche prend le courant de toutes les autres (section 7)</td><td><span class="non">NON</span> <span class="negx">si le plan passe par le soleil</span></td></tr><tr><td class="c-item">Contrôleur de charge, avec sonde de température</td><td>1</td><td>Le lecteur, au voltmètre, qui branche le panneau le matin et le débranche à la tension d’absorption (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Panneaux et support à 60° ou plus</td><td>Selon l’étape 17</td><td>Panneau vissé à plat sur le mur sud : il perd le quart de son année et presque rien de son décembre, et la neige n’y tient pas</td><td>Oui</td></tr><tr><td class="c-item">Onduleur à onde sinusoïdale pure, dont la pointe annoncée dépasse avec marge trois fois le courant de marche du compresseur : la pointe est souvent de trois fois, parfois plus</td><td>1</td><td>La génératrice branchée directement sur le coffre, par blocs (<span class="ref">ch. 74</span>, <span class="ref">§9</span>). Un coffre à compresseur 12 V, qui s’en passe</td><td><span class="non">NON</span> <span class="negx">pour un coffre de 120 V sur le banc</span></td></tr><tr><td class="c-item">Chargeur de batteries de 120 V</td><td>1</td><td>La prise 12 V de la génératrice ; l’alternateur du camion ; un petit moteur attelé à un alternateur (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Génératrice</td><td>1</td><td>L’alternateur du camion ; le moteur de la souffleuse ou de la tondeuse attelé à un alternateur d’auto (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Câble de cuivre de bonne section, cosses serties, un fusible au positif près de la borne</td><td>Selon l’étape 21</td><td>Câbles de survoltage, gros et courts ; câble de soudeuse</td><td><span class="non">NON</span> <span class="negx">sur le fusible</span></td></tr><tr><td class="c-item">Voltmètre (multimètre)</td><td>1</td><td>Pour le plomb ouvert, un densimètre fait le même travail. Pour le plomb scellé et le lithium, rien</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Avertisseur de CO à pile, à affichage en ppm</td><td>1 par bâtiment chauffé</td><td>Aucune. Rien ne sent le monoxyde, et aucun montage ne le détecte</td><td><span class="non">NON</span> <span class="negx">dès qu’un moteur tourne sur le terrain</span></td></tr></tbody></table>
+<p class="p0">Le banc, le contrôleur, les panneaux, le voltmètre et les thermomètres min-max ont leur rang d’achat au <span class="ref">ch. 00b</span> ; la génératrice y est rangée pour la maison, où se vit la panne courte (<span class="ref">ch. 3</span>). Les fusibles, les cosses et les pièces de rechange sont au <span class="ref">ch. 104</span>.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">5.1 Faire le bilan en wattheures par jour</h3>
+<p class="step"><span class="sn">1</span><strong>Lister ce qui tire sur le banc, un appareil à la fois.</strong> L’éclairage se mesure point par point comme au <span class="ref">ch. 85</span>. La radio a son propre banc et n’entre pas dans ce compte (<span class="ref">ch. 14</span>, étape 7).</p>
+<p class="step"><span class="sn">2</span><strong>Le coffre : partir de l’étiquette, corriger pour l’endroit.</strong> L’étiquette donne des kilowattheures par an mesurés à 32 °C ; divisés par 365, c’est la journée d’un coffre dans une pièce à 32 °C. Un coffre moyen vendu au Canada est à 288 kWh par an, soit 0,79 kWh par jour. Multiplier par l’écart réel (température de l’air autour, plus 18) et diviser par 50. Pour un coffre moyen, avec la température moyenne du mois à Sept-Îles comme température de la remise :</p>
+<table class="tcol nest"><colgroup><col style="width:22.9%"><col style="width:22.9%"><col style="width:22.9%"><col style="width:31.3%"></colgroup><thead><tr><th>Mois</th><th>Coffre dans la remise (kWh/j)</th><th>Même coffre dans le chalet à 20 °C (kWh/j)</th><th>400 W de panneaux à 60° produisent (kWh/j, avant les pertes du contrôleur et de la batterie)</th></tr></thead><tbody><tr><td>Janvier</td><td>0,04</td><td>0,60</td><td>0,69</td></tr><tr><td>Février</td><td>0,07</td><td>0,60</td><td>1,04</td></tr><tr><td>Mars</td><td>0,18</td><td>0,60</td><td>1,37</td></tr><tr><td>Avril</td><td>0,29</td><td>0,60</td><td>1,52</td></tr><tr><td>Mai</td><td>0,38</td><td>0,60</td><td>1,49</td></tr><tr><td>Juin</td><td>0,47</td><td>0,60</td><td>1,42</td></tr><tr><td>Juillet</td><td>0,52</td><td>0,60</td><td>1,44</td></tr><tr><td>Août</td><td>0,51</td><td>0,60</td><td>1,37</td></tr><tr><td>Septembre</td><td>0,44</td><td>0,60</td><td>1,26</td></tr><tr><td>Octobre</td><td>0,34</td><td>0,60</td><td>1,00</td></tr><tr><td>Novembre</td><td>0,24</td><td>0,60</td><td>0,69</td></tr><tr><td>Décembre</td><td>0,12</td><td>0,60</td><td>0,54</td></tr></tbody></table>
+<p class="stepc">C’est un calcul, pas une mesure : il ignore les ouvertures, le soleil sur la remise, la viande tiède qu’on rentre. Il donne l’ordre de grandeur, et c’est l’ordre de grandeur qui décide où va le coffre. La dernière colonne est ce que les panneaux produisent ; ce qui ressort de la batterie est d’environ le quart de moins (étape 17).</p>
+<p class="step"><span class="sn">3</span><strong>Mesurer le vrai chiffre, une journée.</strong> Wattmètre entre la prise et le coffre, 24 heures, sans ouvrir. Ce chiffre remplace le tableau pour ce coffre-là, à cette saison-là. Il s’écrit au feutre sur le couvercle, avec le mois.</p>
+<p class="step"><span class="sn">4</span><strong>Ajouter l’onduleur.</strong> À vide, de l’ordre de 6,5 W pour un appareil de 800 VA et de 10 W pour un de 1 200 VA ; celui qu’on a donne le sien sur sa fiche. S’il reste allumé, de 156 à 240 Wh par jour. En marche, 10 % de pertes au mieux : diviser la consommation du coffre par 0,9. Certains onduleurs ont un mode économie, à 1 W sur la fiche lue : sous quelques watts de charge, l’onduleur s’endort, sonde sa sortie par une impulsion toutes les deux ou trois secondes, et repart dès qu’un appareil tire plus que son seuil. Le compresseur qui démarre quand le thermostat ferme en est un, et le mode économie remplace alors l’interrupteur qu’on actionne à la main entre les blocs. Un appareil qui tire plus que le seuil même au repos — afficheur, commande électronique, lampe — le garde éveillé jour et nuit. La journée au wattmètre de l’étape 3, onduleur en mode économie, dit si le coffre qu’on a tient −18 °C ainsi.</p>
+<p class="step"><span class="sn">5</span><strong>Additionner.</strong> Novembre, coffre dans la remise : éclairage 60 Wh (quatre points de 3 W, cinq heures), coffre 240 Wh ÷ 0,9 = 267 Wh, onduleur allumé seulement pendant les blocs du compresseur, quatre heures à 6,5 W = 26 Wh. Total : environ 350 Wh par jour. Décembre, même installation : environ 220 Wh. Le même mois de novembre avec le coffre à la cuisine et l’onduleur allumé jour et nuit : 60 + 667 + 156, près de 900 Wh.</p>
+<h3 class="sub">5.2 Placer le coffre</h3>
+<p class="step"><span class="sn">6</span><strong>Dans la remise, pas dans le chalet.</strong> Côté nord ou à l’ombre, posé sur des madriers qui laissent passer l’air dessous, à quelques centimètres des murs pour que le condenseur respire. Une remise au soleil de mars fait un four (<span class="ref">ch. 73</span>).</p>
+<p class="step"><span class="sn">7</span><strong>Lire la plage de température du coffre dans son manuel.</strong> Les coffres vendus pour le garage sont annoncés jusqu’à −17 °C d’air ambiant. Un coffre ordinaire a sa propre plage, écrite dans son manuel ; elle s’écrit au feutre sur le couvercle. Sous sa plage, le compresseur peine ou s’arrête en croyant avoir assez froid. Sans manuel, le min-max du coffre le dit : un maximum qui remonte au-dessus de −18 °C alors que la remise est plus froide que ça.</p>
+<p class="step"><span class="sn">8</span><strong>Sous la plage du coffre, débrancher</strong> : −17 °C dans la remise pour un coffre de garage, à la limite de son manuel pour un coffre ordinaire. Le coffre plein devient la cache du <span class="ref">ch. 73</span>, et c’est la meilleure qu’on ait. Rebrancher quand le thermomètre du coffre remonte vers −18 °C. En janvier, le maximum quotidien moyen tourne autour de −10 °C : la remise ne tient pas −18 °C toute la journée, mais un coffre plein et fermé traverse une journée douce sur sa propre glace. Au pire, il glisse au Cas 2 du <span class="ref">ch. 74</span> : gelé, sans tenir la consigne.</p>
+<p class="step"><span class="sn">9</span><strong>Refroidir la viande avant de la rentrer.</strong> Un quartier tiède fait tourner le compresseur des heures et réchauffe les paquets voisins. La viande se refroidit à l’air de la nuit (<span class="ref">ch. 73</span>), ou elle entre pendant un bloc de génératrice (étape 26), jamais sur le banc un soir gris.</p>
+<p class="step"><span class="sn">10</span><strong>Combler les vides de cruches d’eau</strong> (<span class="ref">ch. 74</span>, étape 32). Un coffre plein est sa propre réserve.</p>
+<p class="step pk-d"><span class="sn">11</span><strong>L’été, un coffre fait aussi un bon réfrigérateur.</strong> Un thermostat extérieur branché entre la prise et lui le fait tourner en réfrigérateur, et il garde son froid à l’ouverture comme le congélateur. Dans une pièce à 20 °C, il travaille sur un écart d’environ 17 °C au lieu de 38 : moins de la moitié d’un congélateur. Le thermostat coupe et repart avec un écart propre à l’appareil : réglable au degré près sur un thermostat électronique, plus large sur un mécanique. On le règle serré s’il se règle ; c’est le haut de cet écart qui compte, pas le chiffre du bouton. S’il a un délai contre les redémarrages rapprochés, on le met à quelques minutes : un compresseur qui repart aussitôt arrêté démarre dur et fait sauter sa protection. On le règle pour que le <strong>maximum</strong> du min-max reste sous 3 °C, et on le vérifie chaque matin. Au-dessus, le botulisme de type E produit sa toxine dans un sac de poisson fermé, sans oxygène, et il ne change ni l’odeur, ni le goût, ni l’apparence. Le poisson n’y dort pas en sac fermé : emballage qui respire, la semaine pour le frais, 14 jours au plus pour le fumé (<span class="ref">ch. 75</span>, étape 29 et <span class="ref">§8</span>) ; au-delà, le congélateur, le sel ou la fumée (<span class="ref">ch. 77</span>).</p>
+<h3 class="sub">5.3 Monter les panneaux</h3>
+<p class="step"><span class="sn">12</span><strong>Viser le sud vrai.</strong> Sur la Côte-Nord, l’aiguille de la boussole pointe environ 17° à l’ouest du nord vrai : le sud vrai se lit à 197° au cadran, pas à 180°. Sans boussole, l’ombre la plus courte de la journée le donne (section 9).</p>
+<p class="step"><span class="sn">13</span><strong>Incliner à 60°, ou plus si la neige est l’ennemie.</strong> À 60°, le panneau perd 5 % de son année par rapport à l’inclinaison qui rend le plus, et produit près de trois fois plus qu’à plat en décembre. À 75°, décembre est pareil et l’été perd davantage. À la verticale, sur le mur sud, décembre ne perd presque rien et la neige ne reste pas.</p>
+<p class="step"><span class="sn">14</span><strong>Le bord bas au-dessus de la plus haute neige probable, et aucun rebord en bas.</strong> À Sept-Îles, la neige au sol fait en moyenne un demi-mètre en février, mais les plus hauts relevés passent 2 m : 224 cm en janvier, 216 en février. S’y ajoute le tas que fait au pied la neige qui glisse du panneau à 60°, et qui monte au-dessus du sol d’alentour. Un panneau qu’on dégage à la pelle après chaque neige peut se poser plus bas qu’un panneau laissé seul tout l’hiver. Un rebord retient la neige qui glisse et la regèle sur la première rangée de cellules.</p>
+<p class="step"><span class="sn">15</span><strong>Dégager l’horizon sud, et plus bas à mesure qu’on s’écarte du sud.</strong> Le 21 décembre, à midi, le soleil est à 16° plein sud, et un arbre fait de l’ombre sur trois fois et demie sa hauteur. Deux heures avant et après midi, il n’est plus qu’à 12°, à une trentaine de degrés du sud ; trois heures avant et après, à 6°, à une quarantaine de degrés. Un arbre qui reste sous 16° plein sud mais dépasse 12° une trentaine de degrés plus à l’est ou à l’ouest coupe le panneau du matin ou de l’après-midi, et la journée de décembre n’a guère que huit heures. Ce qui pousse dans cet arc se coupe à l’automne, pas en décembre dans la neige à la taille. La fumée de la cheminée ne passe pas devant non plus.</p>
+<p class="step"><span class="sn">16</span><strong>Les panneaux près du banc.</strong> Le courant d’un panneau est sur son étiquette. Pour une douzaine d’ampères, à 15 m du banc, il faut du câble de 25 à 35 mm² ; à 3 m, de 6 mm². Deux panneaux en série divisent le cuivre par quatre, mais seulement avec un contrôleur qui suit le point de puissance maximale<sup class="fnr" data-fn="86-2">2</sup> et accepte la tension double. Un contrôleur ordinaire ramène la tension des panneaux à celle de la batterie et perd la différence : la série n’y gagne rien.</p>
+<p class="step"><span class="sn">17</span><strong>Dimensionner le champ.</strong> Puissance des panneaux (W) = besoin (Wh/j) ÷ (heures d’ensoleillement × 0,77). Le 0,77 compte les pertes du contrôleur et de la batterie. À 60°, à Sept-Îles : 1,49 h en décembre, 2,0 en novembre, 1,88 en janvier. Ajouter 15 à 25 % si le contrôleur ne suit pas le point de puissance maximale. Novembre, coffre dans la remise : 350 ÷ (2,0 × 0,77) = 230 W. Décembre : 220 ÷ (1,49 × 0,77) = 190 W. Coffre à la cuisine, décembre : 770 W. Le calcul donne la moyenne ; onze hivers simulés donnent la vérité. Avec 400 W à 60° et un banc de 2,4 kWh tiré jusqu’à la moitié, une demande de 350 Wh par jour laisse la batterie vide un jour sur cinq en décembre et en janvier, et presque jamais le reste de l’année. À 900 Wh par jour, elle est vide 85 jours sur 100 en décembre, et encore un jour sur dix en juillet.</p>
+<h3 class="sub">5.4 Le banc de batteries</h3>
+<p class="step"><span class="sn">18</span><strong>Au chaud, dans un coffre ventilé vers dehors.</strong> Le banc vit dans le volume chauffé, dans un coffre fermé côté pièce, couvercle à joint. Une bouche d’au moins 2,5 cm pour deux batteries de 12 V chargées doucement part du haut du coffre et traverse le mur, parce que l’hydrogène monte. Elle grandit en surface avec le courant : en fin de charge, presque tout le courant qui entre dans une batterie pleine devient du gaz. En 12 V, compter environ 9 cm² d’ouverture par ampère de fin de charge — un trou de 3,5 cm pour un ampère, de 7 cm pour quatre —, le double de surface en 24 V ; faute de connaître ce courant, 40 % du courant maximal du chargeur. Le chargeur de 17 A de l’étape 28 demande ainsi un trou de 9 cm. Au-delà d’un petit banc, une seconde bouche de même taille au bas du coffre, dehors elle aussi, fait entrer l’air que la première fait sortir. Dehors, son bout remonte au-dessus de la neige de fin février, coudé vers le bas contre la pluie, et se dégage comme les panneaux : la neige contre le mur la bouche, et l’air humide du coffre qui sort à −35 °C givre et referme un petit tuyau. Le <span class="ref">ch. 104</span> veut le banc hors de toute pièce où l’on dort ; dans un chalet d’une seule pièce, c’est le coffre étanche côté pièce et ventilé dehors qui en tient lieu, adossé au mur extérieur, du côté opposé au couchage et loin du poêle : on ne charge ni ne manipule une batterie près d’une source de chaleur. <strong>Dans le coffre, seulement les batteries, la sonde et le fusible.</strong> L’onduleur, le contrôleur, le chargeur, les interrupteurs et les relais font des étincelles en coupant : ils restent dehors du coffre, l’onduleur vissé contre sa paroi extérieure pour garder ses câbles courts. Seuls les câbles traversent, par un passage bouché serré autour d’eux. <strong>Avant de toucher une cosse</strong>, la charge est arrêtée et le couvercle ouvert quelques minutes, pour que le gaz accumulé dessous s’en aille avant la première étincelle. L’hiver, le bas d’un bâtiment chauffé est en dépression par rapport au dehors : l’air chaud monte et fuit par le haut, et le poêle qui tire son air de la pièce creuse encore l’écart. Le coffre relié au dehors peut alors aspirer par sa bouche et pousser son air, hydrogène compris, vers la pièce par le passage des câbles ; le vent sur le mur fait la même chose. L’essai : poêle allumé, charge arrêtée, une bande de papier mince tenue au passage des câbles. Tirée vers la pièce, elle dit que le passage fuit : on le rebouche. Faute de place au chaud, un contenant enfoui dehors amortit les écarts de température ; il a la même bouche, qui sort au-dessus de la neige, et la marge de gel de l’étape 31 s’applique.</p>
+<p class="step"><span class="sn">19</span><strong>Choisir la chimie selon le chauffage.</strong> Chalet habité et chauffé tout l’hiver : plomb ou lithium. Chalet qui refroidit sous 5 °C la nuit : plomb, parce que le lithium n’y doit pas charger le matin (section 3). Le plomb ouvert coûte le moins, se vérifie au densimètre et dégage le plus d’hydrogène. L’AGM en dégage beaucoup moins et ne se vérifie qu’au voltmètre. Le lithium-fer-phosphate rend 92 % et ne se répare pas ; il ne dégage de gaz qu’abîmé, surchargé, ou rechargé après une décharge trop profonde.</p>
+<p class="step"><span class="sn">20</span><strong>Dimensionner.</strong> Capacité (Ah) = besoin (Wh/j) × jours de réserve ÷ (tension × 0,42). Le 0,42 compte 85 % de rendement et une décharge limitée à la moitié, sur une batterie autour de 20 °C. Trois jours de réserve en règle générale. Décembre, coffre dans la remise, 220 Wh par jour : 220 × 3 ÷ (12 × 0,42) = 130 Ah à 12 V. Même mois, coffre à la cuisine : 525 Ah. Pour la pire semaine, sept jours plutôt que trois, ou la génératrice (étape 32).</p>
+<p class="step"><span class="sn">21</span><strong>Câbler court et gros.</strong> La chute visée est de 0,3 V sur un système de 12 V. Jusqu’à 5 m de câble au total, aller et retour, la section en mm² vaut au moins les ampères divisés par 3. Au-delà, ampères × longueur totale en mètres ÷ 15. Un onduleur de 800 VA à pleine puissance tire environ 60 A à 12 V : 25 mm². La pointe du compresseur passe par les mêmes câbles, et c’est elle qui trouve le câble trop mince (section 7).</p>
+<p class="step"><span class="sn">22</span><strong>En parallèle, le courant fait le même chemin pour chaque batterie.</strong> Le plus pris à la première batterie, le moins à la dernière — en diagonale —, ou des câbles de même longueur jusqu’à deux barres communes. Branché au même bout, c’est la première batterie qui travaille et la dernière qui dort. En série, jamais des batteries d’âges ou de capacités différentes : la plus faible se fait vider puis surcharger à chaque cycle.</p>
+<p class="step"><span class="sn">23</span><strong>Un fusible au positif, près de la borne.</strong> Il protège le câble qui le suit : il coupe quand ce câble se coupe sur une tôle ou touche la masse plus loin. Il ne protège rien de ce qui tombe entre deux bornes. Une clé en travers des deux bornes d’une batterie, ou des bornes de deux batteries voisines, fait un court-circuit en amont de tout fusible : la clé rougit, se soude, crache du métal fondu, et l’étincelle éclate dans le coffre où dort l’hydrogène. Une bague ou un bracelet de montre qui touche une borne fait la même chose autour du doigt. Le 12 V ne se sent pas sur la peau, et c’est ce qui trompe la main habituée : ce n’est pas le choc qui blesse, c’est le métal qui chauffe. Avant de travailler au banc, bague et montre enlevées, manche de la clé entouré de ruban isolant jusqu’à la tête, borne voisine couverte d’un chiffon épais ou d’un bout de caoutchouc. Pour du lithium, qui donne des courants de court-circuit énormes, un fusible dont le pouvoir de coupure dépasse le courant de court-circuit du banc : un fusible ordinaire peut éclater sans couper.</p>
+<p class="step"><span class="sn">24</span><strong>Régler le contrôleur sur la chimie, et coller sa sonde sur une batterie.</strong> Plomb ouvert : absorption de 14,1 à 14,7 V à 25 °C, maintien à 13,5 V. Au froid, la tension de charge du plomb monte de 0,03 V par degré sous 25 °C pour une batterie de 12 V, ouverte ou scellée : à 0 °C, 0,75 V de plus ; à −10 °C, plus d’un volt. <strong>Jamais pour le lithium</strong> : cette correction pousserait ses éléments au-delà de la tension où son système de gestion coupe. Une sonde laissée au chaud sur le boîtier du contrôleur charge une batterie froide comme si elle était tiède : elle ne se remplit jamais, et une batterie jamais pleine est une batterie qui gèle.</p>
+<h3 class="sub">5.5 La génératrice, en blocs chargés à plein</h3>
+<p class="step pk-d"><span class="sn">25</span><strong>Dehors, toujours.</strong> Jamais dans un bâtiment, jamais dans un garage, jamais dans la remise du coffre, jamais sous un auvent ni dans un abri de toile, même pour la protéger de la neige. Au moins 6 m de tout bâtiment, l’échappement tourné à l’opposé des portes et des fenêtres. La neige se balaie sur la machine arrêtée et froide. Le mécanisme est à la section 8.</p>
+<p class="step"><span class="sn">26</span><strong>Grouper dans le même bloc tout ce qui attend du courant.</strong> Chaque bloc porte le coffre, le chargeur de batteries au plus fort courant que le banc accepte, et tout ce qui attendait le courant : la pompe, les outils, l’eau à chauffer. La machine de l’exemple rend 1,6 kWh par litre à pleine charge et 1,0 au quart : plus le bloc est chargé, moins le litre coûte. Quand il n’y a rien d’autre à brancher, le coffre seul par blocs reste le recours du <span class="ref">ch. 74</span>, <span class="ref">§9</span>.</p>
+<p class="step"><span class="sn">27</span><strong>Combien d’heures pour le coffre.</strong> Heures par jour = consommation du coffre (kWh/j) ÷ puissance du compresseur en marche (kW), lue au wattmètre. Si le compresseur tire 100 W : 6 heures par jour dans un chalet à 20 °C, un peu moins de 3 heures dans une remise à 0 °C, un peu plus d’une heure à −10 °C. Ces heures se groupent en un ou deux blocs : un coffre plein et fermé travaille le reste du jour sur sa glace. Le thermomètre du coffre décide, pas la montre (<span class="ref">ch. 3</span>, étape 18).</p>
+<p class="step"><span class="sn">28</span><strong>Charger vite pendant le bloc, finir au soleil.</strong> Le plomb accepte beaucoup de courant quand il est bas, et de moins en moins en approchant du plein ; au-dessus de 80 %, chaque litre rend la moitié, ou moins. La génératrice monte le banc de la moitié vers 80 %, les panneaux finissent. Le chargeur se choisit pour ce que le banc accepte : 10 à 13 % de sa capacité en ampères pour du plomb ouvert. Pour le banc de 130 Ah de l’étape 20, 13 à 17 A, soit de 180 à 250 W environ côté batterie : avec le coffre, le bloc reste sous le quart d’une machine de 1 800 W. C’est une raison de plus d’y mettre la pompe, les outils et l’eau à chauffer.</p>
+<p class="step"><span class="sn">29</span><strong>Le moteur froid et le carburant</strong> sont au <span class="ref">ch. 15</span> (les parts de carburant, faire partir un moteur gelé) et au <span class="ref">ch. 102</span> (l’entretien des petits moteurs).</p>
+<h3 class="sub">5.6 Traverser la semaine grise</h3>
+<p class="step"><span class="sn">30</span><strong>Avant décembre</strong> : banc plein, panneaux dégagés après chaque neige (<span class="ref">ch. 85</span>), coffre dans la remise, cruches dans les vides.</p>
+<p class="step"><span class="sn">31</span><strong>Écrire le seuil de bascule sur le coffre à batteries, au feutre.</strong> Banc au chaud : génératrice quand il touche la moitié, 12,10 V au repos ou 1,172 au densimètre pour du plomb ouvert. Banc au froid : génératrice quand il touche 85 %, 12,56 V au repos ou 1,250 au densimètre, parce que c’est là que se décide le gel. Lithium : la batterie ne calcule pas elle-même son état de charge ; il se lit à un moniteur de batterie ajouté au banc, et la génératrice part à la moitié, comme le plomb au chaud. Sans moniteur, la dernière alarme est celle du système de gestion : sur la batterie lue, une alerte à 3,10 V par élément, 12,4 V pour une batterie de 12 V, puis la coupure de tout ce qui tire à 2,80 V par élément, 11,2 V, au moins 30 secondes plus tard. L’alerte veut dire génératrice tout de suite, pas demain. Les réglages de la batterie installée se lisent dans son application ou sa fiche et s’écrivent au feutre à côté.</p>
+<p class="step"><span class="sn">32</span><strong>Compter l’essence en kilowattheures manquants.</strong> Au quart de charge, où le bloc groupé de l’étape 26 amène la machine, chaque kilowattheure coûte un litre ; le plomb n’en rend que 80 %, et un bon chargeur 93 % : environ 1,35 L par kilowattheure qui manque, davantage avec un vieux chargeur qui chauffe. La pire semaine, coffre dans la remise : sept jours à 220 Wh, 1,5 kWh, environ deux litres. Coffre à la cuisine : sept jours à près de 900 Wh, plus de 6 kWh, plus de huit litres. Ces comptes supposent une semaine sans aucun soleil.</p>
+<p class="step"><span class="sn">33</span><strong>Couper dans cet ordre</strong> : l’onduleur hors des blocs du compresseur, puis l’éclairage général (<span class="ref">ch. 85</span>, étape 25), et en dernier le coffre, qui reste une cache une fois débranché dans une remise froide.</p>
+<h3 class="sub">5.7 Ce que ça change au <span class="ref">ch. 74</span></h3>
+<p class="step"><span class="sn">34</span>Le tri du <span class="ref">ch. 74</span> vaut au chalet tel quel. Trois choses changent. La panne se cherche d’abord au banc : tension, fusible, onduleur en défaut, sonde du contrôleur, neige sur le panneau. Le coffre de la remise est déjà dans l’air froid : l’hiver, il glisse au Cas 1 ou au Cas 2 du <span class="ref">ch. 74</span> sans qu’on le déplace. Et les heures de génératrice que le <span class="ref">ch. 74</span> laissait à mesurer se calculent à l’étape 27.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:19.9%"><col style="width:24.7%"><col style="width:24.3%"><col style="width:31.0%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Chaque matin, avant que le soleil touche les panneaux, onduleur et lumières éteints depuis le coucher</td><td>Tension du banc au repos, plomb ouvert. Elle ne vaut qu’après six heures au moins sans charge ni décharge : lue le soir après une journée de soleil, elle surestime ; lue sous charge, elle sous-estime</td><td>12,73 V plein ; 12,56 V à 85 % ; 12,50 V à 80 % ; 12,10 V à la moitié</td><td>Sous le seuil écrit sur le coffre à batteries : bloc de génératrice aujourd’hui</td></tr><tr><td class="c-item">Avant une nuit sous −25 °C, banc non chauffé</td><td>État de charge, au densimètre : il se lit le soir, la tension non</td><td>85 % ou plus, soit 1,250 : gel vers −52 °C</td><td>À 62 %, soit 1,200, le gel est à −27 °C. Charger ce soir, ou rentrer le banc</td></tr><tr><td class="c-item">Chaque semaine, plomb ouvert</td><td>Densité de chaque élément. L’acide aux yeux se rince au moins 30 minutes (<span class="ref">ch. 104</span>, <span class="ref">§8</span>)</td><td>1,277 plein. Toutes sous 1,235 : sous-chargé. Plus de 0,030 d’écart entre éléments : à égaliser</td><td>Charge complète au prochain soleil ou bloc. L’écart : égalisation, plomb ouvert seulement, 16,2 V au contrôleur ou au chargeur jusqu’à ce que la densité cesse de monter ; ça bout, couvercle du coffre ouvert, aucune étincelle. L’écart qui reste après : batterie qui finit</td></tr><tr><td class="c-item">À chaque lecture de densité</td><td>Température de l’électrolyte</td><td>Retrancher 0,004 par tranche de 5 °C sous 27 °C</td><td>—</td></tr><tr><td class="c-item">Chaque matin, toute l’année</td><td>Thermomètre min-max du coffre</td><td>Branché en congélateur : maximum à −18 °C ou moins. Débranché en cache l’hiver : gelé dur, le Cas 2 du <span class="ref">ch. 74</span> est accepté (étape 8). En réfrigérateur : maximum sous 3 °C (étape 11)</td><td><span class="ref">Ch. 74</span>. Au-dessus de 3 °C avec du poisson dedans : section 8, point 3</td></tr><tr><td class="c-item">Chaque matin, hiver</td><td>Thermomètre de la remise</td><td>Dans la plage du coffre</td><td>Sous −17 °C, ou sous la plage du manuel : débrancher (étape 8)</td></tr><tr><td class="c-item">Après chaque neige et chaque grand froid</td><td>Bouche du coffre à batteries, dehors</td><td>Dégagée, sans givre</td><td>À la pelle et à la main, tout de suite : une bouche bouchée ne ventile plus rien (étape 18)</td></tr><tr><td class="c-item">Après chaque neige</td><td>Panneaux</td><td>Surface dégagée au complet</td><td>Balai (<span class="ref">ch. 85</span>). Un panneau couvert produit zéro</td></tr><tr><td class="c-item">Chaque bloc de génératrice</td><td>Distance au bâtiment</td><td>6 m au moins, échappement à l’opposé des ouvertures</td><td>Déplacer la machine, jamais la rapprocher</td></tr><tr><td class="c-item">Chaque bloc de génératrice</td><td>Avertisseur de CO du chalet</td><td>0 ppm</td><td>Arrêter la machine, sortir, chercher d’où ça vient</td></tr><tr><td class="c-item">Démarrage du compresseur sur l’onduleur</td><td>Tension au banc pendant la pointe</td><td>L’onduleur ne coupe pas</td><td>Section 7</td></tr><tr><td class="c-item">Après une heure de charge ou d’onduleur</td><td>Cosses, à la main, bague et montre enlevées (étape 23)</td><td>Froides</td><td>Tiède : cosse mal serrée, corrodée ou mal sertie, à refaire</td></tr><tr><td class="c-item">À l’installation, puis chaque automne</td><td>Sonde du contrôleur</td><td>Collée à une batterie du banc</td><td>La déplacer</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:31.8%"><col style="width:34.6%"><col style="width:33.6%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Bac bombé, fendu, ondulé, givre sur le dessus</td><td>Batterie gelée, donc laissée déchargée au froid</td><td>Ne jamais la charger ni la survolter : elle peut exploser. Hors du circuit, au rebut. Elle dit que le banc a été laissé bas (fermeture d’automne : <span class="ref">ch. 84</span>, étape 24)</td></tr><tr><td class="c-item">Une batterie tiède ou chaude au toucher, seule dans le banc</td><td>Un élément en court-circuit : elle prend le courant de toutes les autres, chauffe, bout et dégage de l’hydrogène</td><td>Hors du circuit tout de suite, charge arrêtée, couvercle ouvert (étape 18)</td></tr><tr><td class="c-item">L’onduleur coupe à chaque démarrage du compresseur, et le coffre ne refroidit jamais</td><td>La pointe, souvent trois fois le courant de marche et parfois plus, fait tomber la tension sous le seuil de l’onduleur : câbles minces ou longs, banc bas ou froid, onduleur trop petit</td><td>Câbles plus gros et plus courts, banc chargé, onduleur plus gros. Rallonger un fil mince n’y fait rien</td></tr><tr><td class="c-item">Sur un onduleur bon marché, le coffre consomme nettement plus que le tableau de l’étape 2, ou peine à descendre</td><td>Onde modifiée<sup class="fnr" data-fn="86-3">3</sup>, pas sinusoïdale : le compresseur y tourne mal</td><td>Onduleur à onde pure, ou génératrice branchée directement</td></tr><tr><td class="c-item">Le contrôleur affiche « charge » tout l’hiver et le banc n’atteint jamais l’absorption</td><td>Sonde au chaud, panneaux trop petits ou ombragés, banc froid qui demande plus</td><td>Sonde sur la batterie ; bloc de génératrice jusqu’à 80 % ; dégager l’horizon sud</td></tr><tr><td class="c-item">Lithium : panneaux au soleil, courant de charge nul le matin</td><td>Batterie sous le seuil de sa fiche, le système de gestion coupe la charge</td><td>Réchauffer le coffre à batteries ou déplacer le banc. Ce n’est pas une panne</td></tr><tr><td class="c-item">Lithium : un matin froid, le courant de charge entre quand même</td><td>Pas de coupure au froid, ou coupure réglée trop bas : la batterie s’abîme pour de bon</td><td>Débrancher les sources ; ne charger qu’au-dessus du seuil, à la main (section 3)</td></tr><tr><td class="c-item">Le coffre de la remise tourne sans arrêt sans descendre, ou ne repart plus</td><td>Remise sous la plage du compresseur, ou joint qui fuit</td><td>Débrancher : cache du <span class="ref">ch. 73</span>. Le joint : <span class="ref">ch. 74</span>, <span class="ref">§9</span></td></tr><tr><td class="c-item">Tension correcte à vide, effondrement dès qu’on branche une charge</td><td>Batterie sulfatée ou en fin de vie (<span class="ref">ch. 85</span>)</td><td>La sortir du banc : une batterie morte en parallèle vide les autres</td></tr><tr><td class="c-item">Les batteries d’un même banc ne finissent pas à la même tension</td><td>Câbles inégaux, branchement au même bout, ou une batterie qui finit</td><td>Recâbler en diagonale ; tester chaque batterie seule</td></tr><tr><td class="c-item">Coffre arrêté dans la remise au printemps, poisson dedans</td><td>Remontée possible au-dessus de 3 °C sans que rien ne paraisse</td><td><span class="ref">Ch. 74</span>, et l’encadré ci-dessous</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">La génératrice, le camion et le petit moteur ne tournent jamais dans un bâtiment, un garage ou sous un auvent.</strong> Ni dans la remise du coffre, ni dans un abri de toile, ni « juste pour la nuit » sous la galerie parce qu’il neige. Au moins 6 m de tout bâtiment, l’échappement à l’opposé des portes et des fenêtres. Le monoxyde de carbone n’a ni odeur ni couleur, et il prend dans le sang la place de l’oxygène : le sang circule encore et ne transporte plus rien. Les premiers signes — mal de tête, fatigue, nausée — sont exactement ceux d’une semaine grise au chalet, donc ils n’avertissent personne. On s’endort au lieu de sortir. Chez un enfant, ça ressemble à de la fatigue ou à du mauvais caractère, et un parent attentif conclut au caractère. Le camion qui recharge le banc au ralenti est un moteur comme les autres : un tuyau d’échappement pris dans la neige renvoie le gaz dans la cabine, et personne n’attend dedans pour se réchauffer. L’avertisseur à pile est le seul organe qui voie le gaz venir.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Un banc au plomb qui charge dégage de l’hydrogène, et l’hydrogène explose sur presque toute sa plage.</strong> Il s’enflamme entre 4,1 % et 72 % dans l’air : il n’existe presque pas de mélange trop riche pour brûler. Il est léger, il monte, il s’accumule sous le couvercle d’un coffre fermé. L’étincelle vient d’un interrupteur, d’un relais, d’une cosse qu’on serre, d’une clé ou d’une bague tombée en travers de deux bornes, de la dernière connexion d’un câble de survoltage. D’où la bouche en haut du coffre, vers dehors, rien qui coupe le courant dans le coffre, le couvercle ouvert avant de toucher une cosse, et la dernière connexion faite loin de la batterie (étapes 18 et 23). <strong>Une batterie gelée ne se charge pas et ne se survolte pas</strong> : c’est exactement la combinaison — froid, batterie déchargée, survoltage — qui a projeté de l’acide et des éclats de plastique au visage d’un bûcheron.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le congélateur électrique lâche sans bruit, et le poisson ne prévient pas.</strong> Un fusible, un onduleur en défaut, un banc vidé par une semaine grise, un compresseur hors de sa plage : dans la remise, personne n’entend rien. Le botulisme de type E produit sa toxine dès 3 °C, et le sac d’omble de fontaine (truite mouchetée) bien fermé est justement le milieu sans oxygène où il travaille. Le botulisme ne change ni l’odeur, ni le goût, ni l’apparence. Le thermomètre min-max du coffre se lit chaque matin, toute l’année ; un coffre trouvé au-dessus de 3 °C avec du poisson dedans relève du <span class="ref">ch. 74</span>, et on ne goûte pas pour décider.</p>
+</template>
+<template id="story-e">
+<p class="p0 ri"><strong class="runin">Sans chargeur, sans contrôleur, sans onduleur, sans essence achetée pour ça.</strong> Tout ce qui tourne sur le terrain peut charger une batterie, à condition de lui donner la bonne vitesse : un aimant qui passe devant une bobine fait du courant, que ce soit dans un alternateur de camion, un moteur de tapis roulant ou une génératrice. Et quand le contrôleur manque, c’est le lecteur qui le devient, au voltmètre : il branche, il lit, il débranche à la tension d’absorption.</p>
+<p class="p0 ri"><strong class="runin">L’ordre, le jour où le chargeur ou la génératrice manque.</strong> D’abord le panneau branché direct, qui ne coûte rien. Ensuite la prise 12 V de la génératrice ou le petit moteur attelé à un alternateur, qui coûtent de l’essence. Le camion en dernier, parce qu’il en brûle le plus et qu’il faut qu’il reparte. Le ruisseau est le chantier de la saison qui vient, pas celui de la soirée : il se mesure l’été et se bâtit avant les glaces. Le vent ne vaut le chantier que sur un site exposé.</p>
+<h3 class="sub">A. Charger une batterie sans chargeur</h3>
+<p class="p0 lab kh"><strong class="runin">Avant de brancher quoi que ce soit, deux vérifications.</strong></p>
+<p class="li"><strong>Elle n’a pas gelé.</strong> Une batterie qui a attendu basse au froid a pu geler : à 20 %, elle gèle à −7 °C (section 3). Bac bombé ou fendu, parois ondulées, givre sur le dessus, et pour le plomb ouvert, de la glace ou une bouillie qu’on voit en ouvrant un bouchon : on ne la branche nulle part, ni au camion, ni au banc, ni derrière l’ampoule (section 8, point 2). Intacte mais restée dehors, elle rentre d’abord dans la pièce, loin du poêle, et dégèle avant qu’on la branche (<span class="ref">ch. 84</span>, <span class="ref">§9</span>).</p>
+<p class="li"><strong>La tension est la même des deux bords.</strong> Tout ce qui suit branche une batterie de 12 V sur une source de 12 V : un camion, une autre batterie, la prise de la génératrice. Une batterie de 6 V seule, branchée sur un circuit de 12 V que l’alternateur tient vers 14 V, prend un courant que rien ne limite : elle bout, dégage son hydrogène à côté du moteur, et le câble chauffe. Un banc de 6 V se charge par paires, chaque paire restée câblée en série et portée ensemble.</p>
+<p class="p0 ri"><strong class="runin">Au camion.</strong> Un alternateur d’auto ne donne rien sous environ 1 000 tr/min à son arbre, une partie seulement de son courant au ralenti du moteur, et son courant plein vers 6 000 tr/min. Quand sa plaque porte deux intensités, comme « 40-70 A », la première est celle d’un régime proche du ralenti. Une cale sur l’accélérateur, qui tient le moteur au-dessus du ralenti, fait donc monter le courant. Le camion reste à 6 m du chalet : plutôt que de tirer des câbles minces sur cette distance, on porte la batterie au camion, une de 12 V ou une paire de 6 V à la fois, et on la branche en parallèle sur la sienne avec des câbles courts. Une batterie qui charge monte en état de charge, donc son point de gel descend à mesure : c’est pour ça qu’on la charge, une fois qu’on l’a vue intacte. Le prix est dans le réservoir : au ralenti, un moteur de 3 L brûle 1,8 L à l’heure, un moteur de 5 L, 3 L à l’heure — quatre à sept fois ce que brûle une génératrice de 1 800 W au quart de charge. Le camion est la charge de dernier recours, pas celle de tous les jours.</p>
+<p class="p0 ri"><strong class="runin">À la prise 12 V de la génératrice.</strong> Quand la génératrice en a une, elle sert à ça ; celle de l’exemple donne 8,3 A. Cinq heures, une quarantaine d’ampères-heures : deux journées de décembre du coffre dans la remise. Cette prise n’est pas régulée comme un chargeur : le voltmètre décide de l’arrêt.</p>
+<p class="p0 ri"><strong class="runin">Le panneau branché direct sur la batterie.</strong> Une étiquette de panneau « de 12 V » porte typiquement autour de 20 V à vide. Branché sur une batterie, il est tenu vers le bas tant qu’elle se remplit, puis la tension grimpe au-delà de l’absorption, et la batterie bout et perd son eau. Le lecteur fait le contrôleur : il branche le matin, lit, et débranche quand la batterie atteint 14,1 à 14,7 V en charge. Au froid, pour le plomb seulement, ce seuil monte : 0,75 V de plus à 0 °C, plus d’un volt à −10 °C (étape 24). Pour le lithium, la tension de sa fiche, sans correction, et jamais sous le seuil de température de la section 3. La fréquence des lectures suit le rapport entre le champ et le banc. En décembre, deux lectures, à midi et au milieu de l’après-midi, suffisent. Au printemps et en été, 400 W de panneaux poussent plus de 20 A en plein soleil dans un banc de 130 Ah qui n’en veut que 13 à 17 (étape 28) : à l’approche du plein, on lit toutes les heures, ou on ne branche qu’une partie du champ. La nuit, le panneau se débranche : sans diode antiretour, il laisse la batterie se vider à l’envers dans le noir. Ce qu’on perd : les lectures de la journée, et de l’eau dans le plomb ouvert si on les manque.</p>
+<p class="p0 ri"><strong class="runin">Le chargeur mort.</strong> Quand un vieux chargeur meurt par sa petite électronique ou son redresseur, son transformateur, lui, est encore bon, et déjà à la bonne tension. Le redresseur se refait avec les diodes d’un alternateur de ferraille, montées sur deux plaques : trois sur la plaque positive, trois sur la négative, et trois bornes de phase. Tout dépend du nombre de fils qui sortent du secondaire, le côté basse tension du transformateur, aux fils les plus gros.</p>
+<p class="li"><strong>Deux fils</strong> : un pont de quatre diodes. Chaque fil va à une borne de phase, deux des trois bornes seulement ; la plaque positive va au positif de la batterie, la négative au négatif.</p>
+<p class="li"><strong>Trois fils</strong>, celui du milieu étant un point milieu : deux diodes suffisent. Les deux fils des bouts vont à deux bornes de phase, la plaque positive au positif de la batterie, et le fil du milieu directement au négatif. La plaque négative reste en l’air, rien n’y est branché. Brancher un pont de quatre diodes aux deux bouts d’un tel secondaire double la tension, et elle arrive sans aucune régulation dans la batterie.</p>
+<p>Avant de brancher la batterie, on lit la tension à vide au voltmètre : elle doit être du même ordre que celle d’une batterie en charge. Le double, c’est le mauvais montage. Côté 120 V, les connexions restent dans le boîtier d’origine, isolées avant qu’on branche le cordon, et le fil de terre du cordon reste vissé au boîtier de métal : un fil du primaire qui touche le boîtier fait alors sauter le fusible au lieu de mettre le boîtier sous tension. Le fusible reste. On ne touche pas au primaire tant que le cordon est dans la prise. Il n’y a plus de coupure automatique : le voltmètre, encore.</p>
+<p class="p0 ri"><strong class="runin">L’ampoule de phare en série.</strong> Pour brancher une batterie très basse sur une source forte — le camion, surtout —, une ampoule de phare de 12 V en série plafonne le courant à ce qu’elle tire allumée à pleine tension : ses watts divisés par 12, un peu plus de 4 A pour une ampoule de 55 W. C’est un plafond, pas le courant de charge. L’ampoule ne voit que l’écart entre la source et la batterie, deux ou trois volts au camion, et le courant réel n’en est qu’une fraction : la charge prend des jours, pas des heures. Elle brille quand la batterie est creuse, et pâlit à mesure qu’elle se remplit : c’est un ampèremètre qu’on lit de l’autre bout de la pièce. Elle réduit aussi l’étincelle d’une connexion franche sur une batterie creuse. Elle se pose hors du coffre et loin de la batterie qui charge : elle chauffe, et une batterie qui charge dégage de l’hydrogène. Sur une autre batterie comme source, même pleine, l’écart est plus petit encore, et le montage finit comme le paragraphe suivant.</p>
+<p class="p0 ri"><strong class="runin">Deux batteries.</strong> Une batterie pleine branchée en parallèle sur une vide, de même tension, lui donne jusqu’à ce que les deux aient la même tension, pas plus. On se retrouve avec deux batteries à moitié : utile pour démarrer, inutile pour remplir. Les batteries des véhicules comme réserve de courant du terrain sont au <span class="ref">ch. 3</span>, <span class="ref">§9</span>.</p>
+<h3 class="sub">B. Le petit moteur et l’alternateur d’auto : un chargeur à essence</h3>
+<p class="p0">Le moteur de la tondeuse, de la souffleuse, ou celui d’une génératrice dont la tête a brûlé, fait tourner un alternateur d’auto par une courroie. Un alternateur à régulateur intégré sort déjà 14 V régulés : c’est un chargeur tout fait, sans onduleur et sans chargeur 120 V entre les deux.</p>
+<p class="li"><strong>Le bon alternateur.</strong> Celui d’un véhicule plus ancien, à régulateur intégré, dont la fiche porte une borne de témoin de charge — marquée L, D+, IND, 15, 61, R ou 1 — et souvent une borne S, qui se branche sur la batterie : sans elle, il charge mal. Une borne marquée C, COM, LIN, BSS, RC, SIG ou RLO dit un alternateur commandé par l’ordinateur du véhicule. Monté seul, un tel alternateur ne produit rien, ou part de lui-même à une tension réglée en usine, entre 13,5 et 15 V, une fois passé 3 000 à 4 000 tr/min ; rien ne les distingue de l’extérieur. L’essai tranche : entraîné vite, voltmètre sur la batterie ; une tension qui monte au-dessus de celle de la batterie au repos dit qu’il charge. Une borne DFM, FR, DF, M ou LI ne commande rien : elle renseigne l’ordinateur.</p>
+<p class="li"><strong>Le rapport de poulies.</strong> L’alternateur donne tout son courant vers 6 000 tr/min. Si la plaque du moteur dit 3 600 tr/min, une poulie de moteur 1,7 fois plus grande que celle de l’alternateur l’y amène. Mais un alternateur de 70 A pousse dans un banc bas bien plus que les 10 à 13 % de sa capacité que demande l’étape 28 : un banc de 130 Ah n’en veut que 13 à 17. Pour un petit banc, on vise un régime plus bas, des poulies de même diamètre ou presque, et le voltmètre coupe à l’absorption. Une courroie du même profil que la poulie de l’alternateur : en V sur une poulie en V, à nervures sur une poulie à nervures. Une poulie récupérée, deux arbres alignés au fil tendu.</p>
+<p class="li"><strong>L’excitation.</strong> L’alternateur ne part pas seul : il lui faut un peu de courant de la batterie dans son rotor pour commencer à produire. C’est le fil du témoin de charge du tableau de bord. Il se branche au positif de la batterie à travers une ampoule témoin et un interrupteur. On ouvre l’interrupteur à l’arrêt, sinon le rotor vide la batterie pendant la nuit.</p>
+<p class="li"><strong>La place.</strong> Dehors, à 6 m, l’échappement à l’opposé des ouvertures, comme n’importe quel moteur (section 8).</p>
+<p>Ce qu’on perd : le rendement de cet assemblage n’est pas chiffré ici, la courroie s’use et se désaligne, et le bruit est celui d’une tondeuse pendant des heures.</p>
+<h3 class="sub">C. Le courant du ruisseau</h3>
+<p class="p0">C’est la source que personne ne regarde, et en décembre, c’est la meilleure, à une condition : qu’elle soit montée pour l’hiver, conduite enfouie, prise sous la glace, roue à cuillers et dynamo à l’abri (plus bas, « L’hiver »), et comptée sur le débit du creux de l’hiver. Un ruisseau qui remplit encore au milieu de l’hiver une chaudière de 20 L en 4 secondes, soit 5 L/s, et qui descend de 4 m entre la prise et la roue, donne environ 100 W, jour et nuit : 2,4 kWh par jour, plus que 1 000 W de panneaux en décembre. Monté l’été avec une roue à augets à l’air libre, le même ruisseau ne donne rien de janvier à mars.</p>
+<p class="p0 ri"><strong class="runin">Mesurer d’abord, en basse saison.</strong> Dans le nord du Québec, les petits ruisseaux sont au plus bas au milieu de l’hiver et au plus haut au printemps. La mesure qui compte est celle de la fin de l’hiver, ou celle d’une fin d’été sèche.</p>
+<p class="step"><span class="sn">1</span><strong>Le débit, au seau.</strong> Un petit barrage de planches ou de pierres envoie tout le ruisseau dans une goulotte, la goulotte dans la chaudière. Litres par seconde = 20 ÷ secondes pour remplir. Au-delà d’une chaudière en quelques secondes, un baril de 200 L.</p>
+<p class="step"><span class="sn">2</span><strong>La hauteur de chute, au boyau.</strong> Un boyau transparent plein d’eau, un bout tenu à la surface de l’eau à l’endroit de la future prise ; on lève l’autre bout, plus bas, jusqu’à ce que l’eau cesse de couler. La hauteur entre ce bout et la surface de l’eau à cet endroit, c’est la chute de ce tronçon. On recommence de tronçon en tronçon jusqu’à la roue, on additionne, et on retranche 2 à 5 cm par mesure, parce que l’eau pousse encore un peu dans le boyau. Plus rapide avec un manomètre au bas d’un boyau plein : 9,8 kPa par mètre de chute, soit environ 1 m par 10 kPa (0,7 m par livre au pouce carré, si la jauge à pneus n’a que cette échelle).</p>
+<p class="step"><span class="sn">3</span><strong>Le calcul.</strong> Watts ≈ 5 × litres par seconde × mètres de chute. Les pertes de la conduite, de la roue et de la dynamo sont dans le 5. Exemples : 20 L/s sur 1 m, 100 W ; 10 L/s sur 2 m, 100 W ; 5 L/s sur 8 m, 200 W. Sous 1 m de chute ou sous 0,6 L/s, ça ne vaut pas le chantier. Un ruisseau où vit la truite garde au moins le dixième de son débit moyen de l’année. En basses eaux d’hiver, c’est une bien plus grosse part de ce qui coule : on ne le détourne jamais au complet.</p>
+<p class="p0 lab kh"><strong class="runin">Bâtir.</strong></p>
+<p class="li"><strong>La prise.</strong> Un petit bassin derrière le barrage, une grille — grillage, tôle percée — devant l’entrée de la conduite, qui arrête les feuilles, le bois et la glace. La conduite descend vers la roue : un vieux tuyau de puits, le boyau de la pompe, du tuyau de poêle pour une chute courte. Plus elle est grosse et courte, moins elle mange de chute ; on vise à perdre moins d’un dixième de la hauteur dans le tuyau.</p>
+<p class="li"><strong>La roue à augets, pour une chute d’un mètre environ.</strong> L’eau tombe par-dessus dans des augets — chaudières coupées, cruches, planchettes clouées sur deux disques de contreplaqué ou sur une roue de vélo — et la roue tourne par le poids. C’est la roue qui rend le plus (jusqu’aux trois quarts de l’énergie de l’eau) ; celle que le courant pousse par-dessous rend le moins (du quart à un peu moins de la moitié). Mais elle n’exploite que la hauteur de son propre diamètre : une roue de vélo ou des disques de contreplaqué plafonnent autour d’un mètre, et le reste de la chute est perdu. Les roues se gardent pour les chutes de moins de 3 m ; au-delà d’un mètre ou deux, la roue à cuillers prend toute la hauteur. La roue à augets tourne lentement, et il faut multiplier la vitesse beaucoup. On compte ses tours à la montre une fois montée ; la dynamo en demande des centaines à la minute (plus bas), et le rapport à trouver est le quotient des deux : une roue qui fait 20 tours à la minute, pour une dynamo qui en veut 800, demande 40 fois. Le pédalier et la roue arrière d’un vélo ne multiplient que par le rapport de leurs dents, plateau divisé par pignon, quelques fois seulement : c’est un étage, pas le multiplicateur entier. Les autres étages se font en courroies en V et poulies.</p>
+<p class="li"><strong>La roue à cuillers, pour une chute de plus d’un mètre ou deux, et peu d’eau.</strong> Le tuyau se rétrécit en buse au bout, et le jet frappe des cuillers ou des demi-tasses boulonnées sur le bord d’un disque, qui renvoient l’eau vers l’arrière. C’est le principe de la turbine Pelton. Elle tourne vite, assez pour un alternateur avec peu de multiplication, et c’est elle qui passe l’hiver, à l’abri.</p>
+<p class="li"><strong>La dynamo : un moteur à aimants permanents.</strong> Moteur de tapis roulant, de trottinette électrique : tourné à la main, il produit. Un moteur à courant continu à aimants permanents rend plus de 80 % à pleine charge quand il travaille en dynamo. Sa tension est proportionnelle à sa vitesse, et la plaque donne la paire : un moteur marqué 90 V à 5 000 tr/min donne 9 V à 500 tr/min. Il faut dépasser la tension d’absorption de la batterie, plus la chute de la diode : le moteur de l’exemple demande plus de 800 tr/min, à peu près le régime où l’alternateur d’auto commence. Son avantage n’est donc pas la vitesse, c’est qu’il ne demande aucune excitation : ses aimants produisent dès qu’il tourne, sans fil de témoin ni batterie pour l’amorcer. On calcule la vitesse sur la plaque, on choisit les poulies en conséquence. Une diode dans le fil positif empêche la batterie de faire tourner la dynamo comme un moteur quand l’eau baisse. L’alternateur d’auto marche aussi, mais il lui faut au moins 1 000 tr/min pour commencer, 6 000 pour donner tout son courant, et l’excitation de la section B : une roue lente ne l’atteint pas sans une cascade de poulies.</p>
+<p class="li"><strong>La charge de délestage, qui n’est pas facultative.</strong> Un panneau solaire se débranche sans dommage ; une roue à eau non. Sans charge, la dynamo s’emballe, sa tension grimpe, et la roue et les roulements prennent la vitesse qu’aucune pièce n’a été faite pour tenir. La charge est résistive : des ampoules de phare en parallèle, douilles au sec au-dessus d’un baril d’eau et verre dans l’eau pour que leur chaleur serve. <strong>Elle se branche du côté de la roue, avant le fusible et avant le système de gestion d’un banc au lithium</strong>, pour que la roue ne se retrouve jamais à vide quand la batterie sort du circuit : un fusible qui saute, un système de gestion qui coupe la charge parce que le banc est plein ou froid. Jamais dans le coffre à batteries : une ampoule chaude sous un couvercle plein d’hydrogène, c’est l’étincelle de la section 8. Chaque ampoule allumée se voit dans le baril ; une ampoule éteinte, c’est une charge en moins, et la roue accélère : on la change le jour même.</p>
+<p class="li"><strong>La nuit, personne ne fait le régulateur.</strong> Une source qui produit vingt-quatre heures sur vingt-quatre ne se règle pas au voltmètre : le banc plein à minuit reçoit toute la production jusqu’au matin, et le plomb ouvert bout toute la nuit dans son coffre. La régulation doit se passer de quelqu’un d’éveillé. Deux façons, sans électronique. Soit la roue ne donne au banc que ce que le chalet tire en moyenne, bridée à la buse ou à la vanne, et le reste de l’eau passe à côté. Soit les ampoules de délestage restent branchées côté roue jour et nuit et avalent tout ce qui dépasse la consommation moyenne ; le banc ne reçoit que la différence. Dans les deux cas, le banc se juge le matin, au densimètre et au niveau des éléments. Un plomb ouvert dont le niveau baisse de jour en jour a bouilli la nuit : une ampoule de plus, ou un peu moins d’eau à la buse. Un banc dont la densité baisse de jour en jour manque de courant : une ampoule de moins. Ce qui reste pour le banc quand il est plein doit le tenir à sa tension de maintien, 13,5 V à 25 °C, corrigée pour le froid comme à l’étape 24, et pas plus haut : au-dessus, il bout. Le voltmètre le dit le matin, roue qui tourne, banc plein : à la tension de maintien ou sous elle, c’est un filet ; au-dessus, une ampoule de plus.</p>
+<p class="p0 ri"><strong class="runin">L’hiver.</strong> Une roue à eau à l’air libre ne passe pas l’hiver ici : la glace s’y forme et s’y accumule, et il est pratiquement impossible de l’en empêcher. Ce qui passe l’hiver, c’est une conduite enfouie sous la ligne de gel, une prise sous la glace dans un trou d’eau qui ne gèle pas jusqu’au fond, et la roue à cuillers avec sa dynamo dans un petit abri. Un trou d’eau qui ne gèle pas, c’est une glace mangée par en dessous par le courant ou une source : on n’y va pas sur la glace pour entretenir la prise, on y va du bord ou pas du tout (<span class="ref">ch. 58</span>). Le travail dans le ruisseau se fait à deux et pas seul : l’eau glacée coupe les mains en minutes (<span class="ref">ch. 25</span>, le 1-10-1). Le débit de calcul est celui du milieu de l’hiver, quand le ruisseau est au plus bas.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd :</strong> des jours de chantier, le barrage que la crue du printemps emporte, et un ruisseau qui baisse au moment où on en a le plus besoin. Ce qu’on gagne : la seule source qui ne dépend ni du ciel ni du réservoir.</p>
+<h3 class="sub">D. Le vent</h3>
+<p class="p0">Le vent est la plus faible des trois sources autour d’un chalet en forêt, et il faut le dire. Une éolienne demande une moyenne annuelle d’au moins 15 km/h ; en terrain ouvert, à Sept-Îles, la moyenne est de 14 km/h, et un chalet sous les arbres en a moins. Elle vaut la peine sur une pointe exposée au fleuve, au bord d’un grand lac, sur une butte dénudée — et là, elle a deux qualités que le soleil n’a pas : le vent souffle la nuit, et il souffle plus en hiver (15 km/h en décembre, 12 en juillet). L’air froid, plus lourd, porte environ 16 % d’énergie de plus à −20 °C qu’à +20 °C.</p>
+<p class="li"><strong>La puissance est au cube de la vitesse.</strong> 10 % de vent en plus, 30 % de puissance en plus. D’où la hauteur : le vent gagne environ 12 % chaque fois qu’on double la hauteur, donc la puissance gagne 40 %. Au-dessus des cimes, le vent est plus fort et moins turbulent.</p>
+<p class="li"><strong>Le diamètre compte au carré.</strong> Doubler le diamètre des pales quadruple la puissance.</p>
+<p class="li"><strong>Bâtir.</strong> Le même moteur à aimants permanents qu’au ruisseau, sur une tête qui pivote au bout d’un mât haubané, une queue en tôle qui la garde face au vent, des pales taillées dans du bois ou dans un gros tuyau de plastique fendu en long. Le moteur se choisit sur sa plaque : ses volts divisés par ses tours donnent ce qu’il sort à chaque tour, et il doit dépasser 15 V au régime que l’hélice atteint vraiment ; sinon, une multiplication entre les deux. Le moteur de l’exemple du ruisseau demande plus de 800 tr/min. Le câble descend de la tête qui pivote au mât qui ne pivote pas : laissé lâche en boucle, il se tord à mesure que la tête suit le vent, et se détord à la main à chaque visite. La diode, la charge de délestage branchée du côté de l’éolienne avant le fusible, le voltmètre et le réglage de nuit du ruisseau, tels quels. Si une petite éolienne de voilier ou de camp traîne quelque part, c’est elle qu’on monte : elle a déjà ses pales, sa queue et son frein.</p>
+<p class="li"><strong>Le mât.</strong> Un mât qu’on lève ou qu’on couche tombe sur toute sa hauteur : personne dans cette longueur, du côté où il penche, pendant la manœuvre. Le mât basculant, monté couché et relevé au treuil ou au véhicule, évite de grimper. Un mât de métal au-dessus des cimes devient la cible de la foudre sur le terrain, et son câble la conduit jusqu’au coffre à batteries dans le chalet : le câble se débranche du banc quand l’orage approche.</p>
+<p class="li"><strong>L’arrêter avant la tempête.</strong> Une petite éolienne s’arrête pour se protéger vers 70 km/h. Celle qu’on bâtit n’a pas ce frein : on prévoit de quoi la replier de côté ou attacher les pales avant le gros vent, et on l’arrête quand le givre alourdit une pale et la déséquilibre. Le givre qui s’en détache est projeté loin. Une pale qui tourne frappe : avant de s’approcher, on arrête le rotor. Un moteur à aimants se freine quand on relie ses deux fils de sortie ensemble : il s’arrête, ou, par très grand vent, tourne encore lentement. On fait ce court-circuit avec un interrupteur au pied du mât, jamais à la main nue sur les fils, et un interrupteur qui coupe d’abord la batterie avant de relier les fils : dans l’autre ordre, c’est la batterie qu’il met en court-circuit. Le frein sert pour un arrêt court ; pour des jours, ou pour la tempête annoncée, on couche le mât ou on attache les pales.</p>
+<p>Ce qu’on perd : beaucoup de travail pour peu de courant, sauf sur un site vraiment venteux.</p>
+<h3 class="sub">E. Le froid sans courant</h3>
+<p class="p0">Quand il ne reste ni banc, ni génératrice, ni onduleur, le coffre redevient la meilleure caisse isolée du terrain, et tout ce qui suit est déjà écrit ailleurs : la cache d’hiver au <span class="ref">ch. 73</span>, la génératrice branchée directement sur le coffre par blocs, le thermostat ponté et le joint refait au <span class="ref">ch. 74</span>, <span class="ref">§9</span>, le caveau au <span class="ref">ch. 79</span>. Ce qui ne se fait pas au chalet : changer le compresseur de 120 V d’un coffre pour un compresseur de 12 V. Ça s’est déjà fait, mais le circuit est scellé sous pression, et ce qui manque au chalet n’est pas le brasage : c’est tout ce qui l’entoure. Le gaz se vide et se récupère avant de couper, au coupe-tube, jamais à la scie ; aucune flamme sur un circuit qui en contient encore. On purge à l’azote sec avant de braser, on change le filtre déshydrateur à chaque ouverture, et le circuit ne reste pas ouvert plus d’un quart d’heure : l’humidité qui y entre fait des bouchons de glace et ronge l’huile. Puis la pompe à vide retire l’air, et le gaz de la plaque se remet dans la quantité de la plaque, à la balance. Il manque au chalet l’azote, le filtre, la pompe, la balance et le gaz. Et des coffres récents tournent à l’isobutane ou au propane, des gaz qui brûlent. La plaque du coffre nomme son gaz ; sur bien des appareils récents, les tuyaux où il passe sont marqués de rouge et une étiquette avertit. Sur un circuit à gaz inflammable, aucune flamme ni brasure : le gaz qui sort d’un tuyau ouvert prend feu au chalumeau.</p>
+<h3 class="sub">F. Trouver le sud sans boussole</h3>
+<p class="p0">Un bâton planté droit dans un sol plat, une pierre au bout de l’ombre tous les quarts d’heure autour du milieu de la journée. La pierre la plus proche du bâton marque le midi solaire, et la ligne du bâton à cette pierre pointe le nord vrai ; le sud est à l’opposé. La même ombre donne l’heure juste du midi, qui ne tombe pas à 12 h à l’horloge.</p>
+<h3 class="sub">G. Ce qui ne se remplace pas</h3>
+<p class="li"><strong>La batterie.</strong> Des plaques de plomb et de l’acide ne se fabriquent pas au chalet. Une batterie au bac bombé ou fendu est perdue, une batterie gelée intacte l’est d’ordinaire (<span class="ref">ch. 84</span>, <span class="ref">§9</span>), une batterie au lithium gonflée aussi (<span class="ref">ch. 104</span>). Tout ce chapitre protège le banc avant le reste, parce que c’est la seule pièce qui ne repousse pas.</p>
+<p class="li"><strong>L’onduleur, pour un compresseur de 120 V.</strong> Sans lui et sans génératrice, le coffre est une caisse.</p>
+<p class="li"><strong>L’avertisseur de CO.</strong> Aucun montage ne voit le monoxyde. Ce qui le remplace n’est pas un objet mais une règle tenue sans exception : aucun moteur dans un bâtiment, 6 m entre le moteur et les murs.</p>
+<p class="li"><strong>Le fusible.</strong> Un boulon ou un bout de fil à sa place ne coupe rien : le prochain court-circuit fait fondre le câble au lieu du fusible, sous le plancher ou dans le mur.</p>
+<p>Souder avec les batteries du banc est au <span class="ref">ch. 103</span> : c’est la même énergie, qu’il faudra recharger.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="27-1"><span class="fnn">1</span>L’œil infecté par derrière : paupières enflées et rouges ; l’œil poussé vers l’avant, ce qui se voit le mieux en regardant le visage d’en haut, par-dessus le front ; l’œil qui fait mal quand il bouge et qui bouge moins bien que l’autre ; la vue qui baisse ; de la fièvre. Au début, une partie de ces signes peut manquer : la paupière qui enfle chez quelqu’un qui a mal à une dent du haut ou au sinus suffit à partir.</p>
+<p class="fn" data-fn="27-2"><span class="fnn">2</span>Un son aigu et rauque à chaque entrée d’air : l’air forcé à travers une gorge que l’enflure rétrécit.</p>
+<p class="fn" data-fn="45-1"><span class="fnn">1</span>Le renflement est un anneau où le canon a gonflé sous le choc de la balle contre l’obstacle. Il se voit parfois dehors, comme un anneau autour du canon. Sinon, l’âme bien propre, regardée par la chambre contre une lumière vive, y montre une ombre en anneau — une tache de graisse fait la même ombre, d’où l’âme propre — et les doigts passés doucement le long du canon le sentent comme une bosse. Deux balles restées dans l’âme : on présume le canon renflé. Un canon renflé ne s’arrange pas en tirant.</p>
+<p class="fn" data-fn="47-1"><span class="fnn">1</span><strong>Le tambourinage de la gélinotte.</strong> Un bruit sourd qui pulse, comme un tambour qu’on bat au loin. Le mâle le fait en comprimant l’air sous ses ailes, le plus souvent debout sur un billot, parfois sur une racine ou une roche. On l’entend surtout au printemps, et parfois à l’automne.</p>
+<p class="fn" data-fn="47-2"><span class="fnn">2</span><strong>La trace du lagopède.</strong> L’hiver, le dessous de ses pieds est couvert de plumes jusqu’au bout des doigts, au point de ressembler à une patte de lièvre, et seules ses longues griffes dépassent : l’empreinte est ronde et floue, sans doigts nets (<span class="ref">ch. 43</span>, <span class="ref">§5</span>-F). La gélinotte et le tétras n’ont pas le pied emplumé : l’hiver, la gélinotte porte seulement de petites franges en peigne le long des doigts, et ses doigts marquent.</p>
+<p class="fn" data-fn="81-1"><span class="fnn">1</span>Les premiers jours, les repas grossissent et la faim revient au bout de chacun : le repas complet de viande ne la coupe pas, le ventre est tendu, et l’envie de gras ne lâche pas. On maigrit alors que les portions sont grosses. Viennent ensuite la nausée et la diarrhée, que seul le gras arrête. Plus de viande maigre aggrave ; le gras renverse. L’enfant y arrive avant l’adulte : la part de protéines qu’il supporte plafonne plus bas (24).</p>
+<p class="fn" data-fn="81-2"><span class="fnn">2</span>Acides, donc à l’eau bouillante : petits fruits, confitures, gelées, marinades acidifiées. Peu acides, donc à l’autoclave : viande, poisson, bouillon, champignons de culture, haricots, betteraves, carottes, maïs, courges (73).</p>
+<p class="fn" data-fn="81-3"><span class="fnn">3</span>Le 66 °Brix ne se voit pas et ne se goûte pas : il se lit au réfractomètre ou au densimètre à sirop. Sans instrument, on ne fait pas de sirop de garde : on fait du sucre, qui se juge à l’œil et à la dent, ou un sirop léger gardé gelé dehors et mangé dans la saison (60).</p>
+<p class="fn" data-fn="81-4"><span class="fnn">4</span>Trouble laiteux, mousse qui ne retombe pas, odeur aigre, filaments dans la chaudière. Le froid qui concentre la sève concentre aussi ce qui a tourné (60).</p>
+<p class="fn" data-fn="84-1"><span class="fnn">1</span>Le serti est le repli de métal du pourtour de la boîte, là où le couvercle est roulé sur le corps. Avec la ligne de métal qui ferme le corps sur toute sa hauteur, c’est un des deux joints de la boîte. Une bosse, une arête pliée ou de la rouille à cet endroit, et le joint ne tient plus.</p>
+<p class="fn" data-fn="84-2"><span class="fnn">2</span>Les premiers signes sont ceux d’une grippe : frissons, fièvre, fatigue, maux de tête, étourdissements, douleurs musculaires, parfois toux, maux de ventre, nausées et vomissements. Rien dans la liste n’est propre au hantavirus : ce qui la distingue, c’est d’avoir ouvert le chalet ou touché des crottes de souris dans les semaines d’avant. La forme grave ajoute l’essoufflement, puis une détresse respiratoire sévère.</p>
+<p class="fn" data-fn="86-1"><span class="fnn">1</span>Le densimètre de batterie est une poire de caoutchouc au bout d’un tube de verre, avec un flotteur gradué dedans. On ouvre le bouchon d’un élément, on aspire l’électrolyte jusqu’à ce que le flotteur flotte sans toucher le fond ni les parois, on vide et on remplit deux ou trois fois dans le même élément, puis on lit la graduation au ras du liquide, l’œil à sa hauteur. Le chiffre lu est la densité : 1,277 pour un élément plein. L’acide retourne dans l’élément d’où il vient, lunettes sur le nez.</p>
+<p class="fn" data-fn="86-2"><span class="fnn">2</span>Il porte « MPPT » sur son étiquette ou sur sa fiche. Un contrôleur marqué « PWM », le plus simple, ne le suit pas.</p>
+<p class="fn" data-fn="86-3"><span class="fnn">3</span>Ça se lit sur l’étiquette de l’onduleur ou sur sa boîte : « onde sinusoïdale pure » (« pure sine wave ») ou « onde sinusoïdale modifiée » (« modified sine wave »).</p>
+</template>
+<script type="application/json" id="meta">{"num": "86", "title": "L’électricité du chalet et le froid mécanique", "tome": "Tome 5 · La forêt, le jardin et le chalet", "tnum": 5, "tfond": "#4B3A28", "tencre": "#F2EBDF", "lieu": "Chalet", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

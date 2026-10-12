@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>96 — Faire la terre sans rien acheter — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"96"}
+</style>
+</head>
+<body class="vA vB vC t5 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 5 · La forêt, le jardin et le chalet</span><span>Chapitre</span></div><div class="open-title"><div class="num">96</div><h1>Faire la terre sans rien acheter</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Ouvrir un champ, ramasser le varech, brûler les os : ça se fait là où il y a de la terre à prendre et une grève. À la maison, le potager du village reçoit les mêmes amendements — cendre, urine, compost, engrais vert — et suit la même rotation ; seule l’ouverture d’un champ n’y a pas de sens.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Faire la terre, c’est changer en quelques années un podzol acide, maigre et mince en sol qui nourrit, avec ce qui traîne autour du chalet — cendre, coquilles, os, varech, fumier, urine, pois —, puis la tenir en lui rendant chaque année ce que la récolte emporte.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<p class="p0 ri"><strong class="runin">Le bon choix.</strong> Quand l’événement se compte en années : la terre se fait sur plusieurs saisons, et ce qu’on commence au premier printemps rend au deuxième. Les colons récoltaient du sarrasin, de l’avoine et des pommes de terre « dès la seconde année », pas la première. Quand le jardin du <span class="ref">ch. 95</span> plafonne alors que le soleil, l’eau et le compost y sont : c’est le sol qui manque. Quand la grève est à portée : le varech échoué est l’engrais le plus abondant de la côte, et il arrive seul. Et quand la famille vit au chalet toute la saison, parce que l’urine d’une personne suffit à fertiliser 300 à 400 m² par année (étape 24).</p>
+<p class="p0 lab kh"><strong class="runin">Le mauvais choix.</strong></p>
+<p class="li"><strong>Compter sur un champ neuf pour manger l’automne même.</strong> La première année se joue au <span class="ref">§9</span>, en poquets et en billons de varech ; le champ se prépare pour l’année suivante.</p>
+<p class="li"><strong>Brûler l’abattis sur l’humus épais d’une pessière.</strong> Le feu descend dans la matière organique, y avance sans flamme, passe l’hiver sous la neige et ressort au printemps à distance (<span class="ref">ch. 11</span>). Et il brûle en passant la seule couche fertile qu’a un podzol.</p>
+<p class="li"><strong>Cendrer ou chauler la planche des pommes de terre.</strong> Au-dessus d’un pH de 5,2, la gale commune s’installe ; la cendre et la coquille vont ailleurs dans la rotation (<span class="ref">§5-E</span>).</p>
+<p class="li"><strong>Rapporter la terre d’un autre jardin pour « ensemencer » le sien.</strong> Si ce jardin a eu la hernie des choux, on transporte des spores qui survivent plus de 18 ans dans le sol.</p>
+<p class="li"><strong>Enterrer du poisson cru ou des os crus au jardin du chalet.</strong> Enterrer ne rend rien inaccessible : un ours creuse, et celui qui a trouvé une fois revient (<span class="ref">§8</span>, point 2 ; <span class="ref">ch. 95</span> <span class="ref">§8</span> point 4).</p>
+<p class="li"><strong>Semer un engrais vert qu’on ne pourra pas tuer à la bêche.</strong> Le seigle et le trèfle repoussent au printemps et se détruisent mal à la main ; au chalet sans tracteur, on sème d’abord ce que l’hiver tue (<span class="ref">§5-D</span>).</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">La pluie a lessivé le podzol : sous la mousse, une mince couche noire qui porte ce qui nourrit, une couche grise délavée, puis une couche rouille<sup class="fnr" data-fn="96-1">1</sup>. La récolte emporte calcium, azote, phosphore et potassium ; on les rend avec ce qui traîne autour du chalet. En remontant le pH, le calcium libère aussi le phosphore que le fer et l’aluminium d’un sol acide tiennent bloqué. Un pH remonté expose la pomme de terre à la gale et freine la hernie du chou : la cendre et la coquille vont devant les choux et les pois, loin des pommes de terre. Le carbone mange l’azote : du bois enfoui affame le plant, un fumier seul perd le sien dans l’air ; mêlés, ils se corrigent.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="li"><strong>Bêche</strong> — la pelle à lame plate qu’on enfonce du pied ; l’outil du premier labour, qui garde la couche noire en haut. Remplacé au besoin par : fourche-bêche, pelle ronde, lame de ressort refendue et emmanchée (<span class="ref">ch. 111</span>).</p>
+<p class="li"><strong>Hache et scie</strong> — sans elles, ni arbre abattu ni racine tranchée : pas de champ. Remplacé au besoin par : sciotte, scie à chaîne (<span class="ref">ch. 106</span>).</p>
+<p class="li"><strong>Contenant de métal à couvercle, pour la cendre</strong> — une braise vit des jours sous une cendre qui a l’air morte. Remplacé au besoin par : vieux chaudron de fonte (<span class="ref">ch. 82</span>).</p>
+<p class="li"><strong>Eau propre, prête avant d’ouvrir la cendre ou la chaux vive</strong> — pour rincer l’œil tout de suite et longtemps (<span class="ref">§8</span>, point 5). Remplacé au besoin par : neige fondue d’avance, dans une chaudière percée d’un trou bouché d’une cheville (<span class="ref">ch. 102</span>).</p>
+<p class="li"><strong>Semence de pois</strong> — sans bêtes, la seule source d’azote qui se renouvelle. Remplacé au besoin par : → <span class="ref">§9</span>.</p>
+<p class="li"><strong>Balance</strong> — la coquille et la chaux vive se dosent au poids, et un surchaulage en sable ne se corrige pas vite. Remplacé au besoin par : → <span class="ref">§9</span>.</p>
+<p>Le reste : <span class="ref">ch. 00b</span>.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Lire le terrain avant la hache</h3>
+<p class="step"><span class="sn">1</span><strong>Choisir le coin</strong> selon le soleil, la pente et les voisinages du <span class="ref">ch. 95</span> (<span class="ref">§5-A</span>), puis selon ce qui pousse déjà (<span class="ref">ch. 95</span> <span class="ref">§9</span>) : bleuet (<em>Vaccinium angustifolium</em>), kalmia (<em>Kalmia angustifolia</em>) et thé du Labrador (<em>Rhododendron groenlandicum</em>) disent un sol acide ; une talle d’ortie dioïque (<em>Urtica dioica</em>), plante des sols riches en nitrates et des sols que l’homme a remués, dit le contraire.</p>
+<p class="step"><span class="sn">2</span><strong>Creuser un trou d’essai</strong> jusqu’à la couche rouille ou jusqu’au refus de la pelle. Lire les trois couches (<span class="ref">§3</span>). Une couche noire mince sur une roche proche : billons ou bacs (<span class="ref">ch. 95</span>). Des roches partout dans une terre compacte : du till, donc un drainage lent (étape 12).</p>
+<p class="step"><span class="sn">3</span><strong>Prendre la texture à la main.</strong> Une poignée de terre de la couche du dessus, mouillée goutte à goutte jusqu’à la consistance d’un mastic, pressée entre le pouce et l’index en ruban<sup class="fnr" data-fn="96-2">2</sup>. Le sable gratte, le limon est doux comme de la farine, l’argile colle. Un ruban qui casse avant 2,5 cm : sableux s’il gratte, moyen et riche en limon s’il est doux. Entre 2,5 et 5 cm : moyen s’il gratte, argileux s’il ne gratte pas. Plus de 5 cm : argileux. Une terre qui n’a que 20 % d’argile se comporte déjà comme une argile.</p>
+<p class="step"><span class="sn">4</span><strong>La confirmer au bocal</strong> si on hésite. Un quart de bocal de terre séchée, écrasée, débarrassée des roches et des racines ; de l’eau jusqu’aux trois quarts ; une cuillerée à thé de savon à lave-vaisselle en poudre, qui ne mousse pas. Fermer, secouer fort 10 à 15 minutes, poser. Marquer au crayon gras sur le verre le dépôt au bout de 1 minute (le sable), au bout de 2 heures (le limon), et quand l’eau s’éclaircit, en 1 à 3 jours (l’argile). Les épaisseurs donnent les proportions.</p>
+<p class="step"><span class="sn">5</span><strong>Regarder l’eau au printemps.</strong> À la fonte, marquer d’un piquet chaque endroit où l’eau reste et chaque creux qui sèche en dernier. C’est là que le drain passera.</p>
+<p class="step"><span class="sn">6</span><strong>Compter les vers</strong>, au printemps ou à l’automne après quelques jours de pluie : un trou de 20 cm de côté et 20 cm de profond, la terre étalée sur une toile, les vers comptés à la main. On refait le même trou, le même jour, dans la planche et dans la bordure non travaillée. Aucun chiffre ne dit « bon » ou « mauvais » : c’est l’écart entre les deux qui parle, et il se lit sur place, sans rien noter.</p>
+<h3 class="sub">B — Ouvrir le champ</h3>
+<p class="step"><span class="sn">7</span><strong>Abattre</strong> (<span class="ref">ch. 106</span>) ce qui fait l’ombre au sud et au sud-ouest ; garder ce qui coupe le vent au nord (<span class="ref">ch. 95</span> <span class="ref">§5-A</span>). Le bois va au poêle (<span class="ref">ch. 83</span>). Un arbre dont la souche partira au câble s’abat haut, en laissant un chicot qui servira de levier (étape 9).</p>
+<p class="step"><span class="sn">8</span><strong>Les souches, à l’ancienne.</strong> Les petites s’arrachent : dégager au pic, trancher les racines à la hache tout autour, puis basculer au levier. Les grosses se coupent au ras du sol, s’écorcent et se laissent pourrir ; on sème entre elles. Dans la vallée du Saint-Laurent, une grosse souche écorcée mettait 4 à 5 ans à pourrir ; sur la Côte-Nord, ce sera plus long, parce que le froid ralentit la pourriture : dans la forêt boréale de Finlande, une souche d’épinette met près de deux fois plus de temps à disparaître dans le nord du pays que dans le sud. On ne compte pas les années : on essaie la souche au levier chaque automne.</p>
+<p class="step pk-d"><span class="sn">9</span><strong>Arracher une grosse souche vivante au câble</strong>, si le champ ne peut pas attendre : dégager et trancher les racines d’abord, puis tirer avec un treuil, un tire-fort ou un vindas de bois (<span class="ref">ch. 109</span> <span class="ref">§9</span>), le câble attaché haut sur le chicot — plus le point de traction est haut, plus le bras de levier pour le faire basculer est long. Le chicot s’amincit vers le haut : une élingue passée autour remonte et saute quand il bascule, et toute la tension part d’un coup. On la loge dans une entaille faite à la hache du côté opposé à la traction, qui lui fait un épaulement. Personne dans l’axe du câble, et une masse à cheval sur le câble à mi-portée (<span class="ref">§8</span>, point 4).</p>
+<p class="step"><span class="sn">10</span><strong>Les branches et l’abattis.</strong> Au lieu de brûler sur place comme les colons, empiler les branches en andain en bordure du champ, du côté du vent : l’andain coupe le vent et pourrit en place. Même au tas de compost, le bois non haché met jusqu’à deux ans à se défaire ; en andain, bien davantage. S’il faut brûler, c’est sur la roche, le sable ou la terre minérale mise à nu ; jamais quand le faisceau de sécheresse du <span class="ref">ch. 11</span> <span class="ref">§9</span> est réuni — mousse cassante, humus qui s’effrite, ruisseaux bas —, même si le sol est encore mouillé ; jamais par un vent qui porte vers le bois ou vers le chalet. Personne ne viendra éteindre un brûlis qu’on perd : on brûle par petits tas, un à la fois, et on refait le tour au dégel (<span class="ref">ch. 11</span>). La cendre du tas suit la règle de celle du poêle : un mois avant d’être répandue, et le tas s’ouvre à la pelle jusqu’au fond pour chercher la braise avant qu’on l’étale près de la mousse. Elle ne se laisse pas en tas : elle se répartit à la dose de l’étape 16.</p>
+<p class="step"><span class="sn">11</span><strong>Épierrer.</strong> Chaque bêchage remonte des roches ; elles partent sur la traîne. Les grosses font un muret en bordure. Les moyennes remplissent la tranchée du drain (étape 12) : on se débarrasse des roches et on draine du même geste.</p>
+<p class="step"><span class="sn">12</span><strong>Drainer avant d’engraisser.</strong></p>
+<p class="li l2">Un fossé de ceinture en haut du champ, en travers de la pente, coupe l’eau qui descend du bois avant qu’elle entre dans les planches.</p>
+<p class="li l2">Une tranchée filtrante vide un creux : une tranchée remplie de pierres, recouverte de branches d’épinette puis de terre, dont le fond descend sans contre-pente jusqu’au point bas, où l’eau sort. Elle passe dans l’allée ou en bordure, jamais sous une planche, que la bêche défait chaque année. Elle vide l’eau de surface d’un creux ; elle ne draine pas en profondeur un champ où l’eau remonte d’en dessous.</p>
+<p class="li l2">Une baissière peu profonde se comble ; une grande se draine.</p>
+<p class="li l2">Au printemps, une charrue à rigoles se fait de deux planches clouées en pointe et tirées à la corde : elle trace les rigoles qui vident le champ à la fonte.</p>
+<p class="li l2">Ne jamais décaper la couche noire pour niveler : les légumes poussent très mal sur un sol décapé.</p>
+<p class="step"><span class="sn">13</span><strong>Le premier labour, à la bêche.</strong></p>
+<p class="li l2">Lever la mousse et le tapis de racines en plaques. Elles vont au compost à part, racines en l’air, arrosées et couvertes : un tas de mottes met un à trois ans à se défaire. Ou elles servent de couverture aux billons du <span class="ref">§9</span>.</p>
+<p class="li l2">Bêcher en gardant la couche noire en haut. Ameublir la couche du dessous à la fourche, sans la remonter.</p>
+<p class="li l2">Retirer les racines et les roches à mesure.</p>
+<p class="li l2">Une ampoule crevée ou une écharde pleine de terre ou de fumier est une plaie souillée : le tétanos entre par l’écorchure autant que par le clou rouillé (<span class="ref">ch. 26</span>, étapes 5 et 27).</p>
+<p class="li l2">Tracer des planches de 1,2 m de centre à centre, soit environ 76 cm de terre cultivée : on en atteint le milieu des deux bords sans jamais y poser le pied. Les allées ne se bêchent plus.</p>
+<p class="step"><span class="sn">14</span><strong>À plat ou en billon, selon la texture.</strong> Le billon draine et se réchauffe, mais il sèche : on l’évite dans le sable moyen ou grossier, sauf si le sol est très mince. En terre lourde, en till ou en sol mal drainé, on butte (<span class="ref">ch. 95</span> <span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">15</span><strong>Si le champ est une vieille prairie</strong> — une terre abandonnée près du village, par exemple —, le chiendent (<em>Elymus repens</em>)<sup class="fnr" data-fn="96-3">3</sup> se règle l’été d’avant par une jachère d’environ cinq semaines : on travaille la terre en surface pour sortir et dessécher les racines, sans jamais les enfouir profond, parce que chaque bout enterré repousse. Les vers fil de fer et les vers blancs d’une vieille prairie attaquent les légumes pendant les deux années qui suivent sa destruction : on le sait avant de planter.</p>
+<h3 class="sub">C — Corriger l’acidité</h3>
+<p class="step"><span class="sn">16</span><strong>La cendre de poêle.</strong></p>
+<p class="li l2"><strong>D’un feu de bois non traité, et de rien d’autre.</strong> Une planche de démolition, une retaille de vieille terrasse ou de clôture passée au poêle laisse dans la cendre l’arsenic et le chrome du bois traité : le feu ne détruit pas un métal, et la cendre va justement là où l’enfant de 4 ans arrache sa carotte. Tout bois de démolition d’origine inconnue est traité jusqu’à preuve du contraire (<span class="ref">ch. 95</span> <span class="ref">§8</span> point 3). La cendre d’un poêle qui en a brûlé ne va pas au jardin.</p>
+<p class="li l2"><strong>Froide.</strong> Elle reste dans le contenant de métal à couvercle du <span class="ref">ch. 82</span> et ne s’épand qu’un mois après sa sortie du poêle, par temps calme : une braise enfouie peut vivre longtemps sous une cendre qui a l’air morte.</p>
+<p class="li l2"><strong>Dosée.</strong> 70 g par mètre carré, jamais plus de 150 g, une fois l’an. Sans balance : une tasse rase de 250 mL pèse environ 120 g. <strong>Une demi-tasse par mètre carré ; une tasse au plus, jamais deux.</strong></p>
+<p class="li l2"><strong>Mêlée à la terre</strong> avant de semer, pas laissée en surface ni posée contre une racine : elle n’agit que là où elle touche la terre, et elle brûle ce qu’elle touche.</p>
+<p class="li l2"><strong>Là où il faut.</strong> Sur la planche qui portera les pois l’année suivante (<span class="ref">§5-E</span>). Jamais devant les pommes de terre, jamais au pied des bleuets.</p>
+<p class="li l2"><strong>Jamais sur du fumier frais non enfoui</strong> : un produit aussi alcalin fait partir en ammoniac l’azote du fumier. Quelques jours ou une pluie entre les deux.</p>
+<p class="li l2">Elle apporte aussi du potassium (environ 11 %) et un peu de phosphore (environ 3 %). Elle peut aussi apporter trop de zinc, de cuivre ou de cadmium : une raison de plus pour tenir la dose.</p>
+<p class="li l2"><strong>Elle brûle.</strong> Son calcium est de la chaux vive, au pH de plus de 12 : mouillée par la sueur ou par une larme, elle attaque la peau et l’œil, et le mal arrive en retard (<span class="ref">§8</span>, point 5). Elle se manipule sèche, à la pelle ou à la cuillère, jamais entre les doigts, dos au vent.</p>
+<p class="step pk-d"><span class="sn">17</span><strong>La coquille.</strong> Les coquilles vides que la mer laisse sur l’estran — moule bleue (<em>Mytilus edulis</em>), mye (<em>Mya arenaria</em>) — sont du carbonate de calcium, la même matière que la chaux agricole : 95 à 98 % pour la coquille de moule. On les ramasse vides ; les bivalves de la grève, eux, ne se mangent pas (<span class="ref">ch. 41</span> <span class="ref">§8</span> point 7).</p>
+<p class="li l2">Brosser, sécher, puis écraser le plus fin possible entre deux pierres ou au pilon dans une chaudière. Une chaux fine, c’est une poudre : plus la coquille est fine, plus elle agit vite. Des éclats grossiers mettront des années.</p>
+<p class="li l2"><strong>Dose d’une chaux calcique : 100 à 300 g par mètre carré et par année, jamais plus de 500 g d’un coup en sol sableux.</strong> Peser une fois, puis marquer au couteau le niveau dans le contenant qui servira toujours.</p>
+<p class="li l2">Passée au cœur d’un grand feu pendant des heures, la coquille se change en chaux vive, qui s’écrase sous le bout d’un bâton. Il faut chauffer longtemps et fort : à feu trop faible, la cuisson reste à moitié faite (<span class="ref">ch. 103</span> <span class="ref">§9</span>). <strong>La chaux vive est plus forte au poids</strong> : elle neutralise environ 1,8 fois ce que neutralise la coquille crue. Le feu a chassé le gaz de la coquille sans rien lui ôter de son pouvoir : 100 g de coquille donnent environ 56 g de chaux vive, qui corrigent autant. <strong>On pèse donc la coquille crue, à la dose ci-dessus, avant de la brûler</strong>, et on épand tout ce qui sort du feu, sans repeser. Si on ne pèse que la chaux vive, c’est à peu près la moitié du poids : 55 à 170 g par mètre carré, jamais plus de 280 g d’un coup en sable. Mise à la dose de la coquille crue, elle en ferait presque le double, et un surchaulage en sable ne se corrige pas vite.</p>
+<p class="li l2">La chaux vive s’enfouit au moins <strong>une semaine</strong> avant de planter : elle réagit violemment avec l’eau du sol, et on laisse passer cette réaction avant d’y mettre une racine. Elle chauffe et devient caustique au contact de l’eau, comme la cendre, en pire. Même manipulation : sèche, à la pelle, dos au vent, jamais au doigt (<span class="ref">§8</span>, point 5).</p>
+<p class="li l2">Mieux vaut un peu chaque année qu’une grosse dose une fois : en sol sableux, trop de chaux bloque le fer, le manganèse, le cuivre et le zinc, et la carence qui suit ne se corrige pas vite.</p>
+<p class="step"><span class="sn">18</span><strong>Refaire la mesure 6 à 12 mois après</strong>, avant de remettre de la cendre ou de la coquille, avec les trois lectures du <span class="ref">ch. 95</span> <span class="ref">§9</span> : ce qui pousse, le vinaigre et le bicarbonate, l’eau de chou rouge comparée à ses deux témoins, celui au vinaigre et celui à l’eau bicarbonatée. On vise 6 à 6,5 et on ne dépasse jamais 7. Mais ces lectures donnent un rang, pas une valeur : toute la plage de 5 à 7 tient entre le violet et le pourpre, et <strong>aucune ne sépare 6 de 7</strong>. Elles disent seulement si la terre est encore franchement acide. Tant qu’elle l’est, on remet une dose ; dès qu’elle ne l’est plus, on arrête. Le garde-fou, c’est la dose, pas le test : de petites touches, une fois l’an, jamais au-dessus des plafonds des étapes 16 et 17, et on juge sur ce qui pousse.</p>
+<h3 class="sub">D — Nourrir la terre</h3>
+<p class="step"><span class="sn">19</span><strong>Le compost, par grand froid.</strong> Les proportions, les exclusions et la maturité sont au <span class="ref">ch. 95</span> (<span class="ref">§3</span>, <span class="ref">§5-E</span>). Ce qui change sur la Côte-Nord :</p>
+<p class="li l2">Un tas d’environ un mètre de côté, au minimum : un petit tas mouillé gèle avant d’avoir eu le temps de chauffer.</p>
+<p class="li l2">Le tas gèle après sa phase chaude et reprend au dégel : le compost de cette année est pour le jardin de l’an prochain.</p>
+<p class="li l2">Odeur d’ammoniaque : trop de vert, ajouter du brun. Tas froid au cœur<sup class="fnr" data-fn="96-4">4</sup> : trop petit, trop sec ou trop froid ; l’agrandir, l’arroser en le retournant, l’isoler d’une couche de paille ou de foin.</p>
+<p class="li l2">Les feuilles et les rameaux d’aulne rugueux (<em>Alnus incana</em>) ont une place à part au tas : l’aulne loge dans ses racines une bactérie (<em>Frankia</em>) qui fixe l’azote de l’air, et c’est pour ça qu’il prospère dans les sites pauvres.</p>
+<p class="li l2">Le bois, lui, reste en surface. Des rameaux hachés font un paillis d’allée ; mêlés à la terre d’un semis, ils lui prennent son azote la première année (<span class="ref">§3</span>).</p>
+<p class="step"><span class="sn">20</span><strong>Le fumier : lequel, et combien de temps.</strong> Il ne va jamais dans le compost de cuisine : il a son propre tas, à l’écart du poulailler et du jardin (<span class="ref">ch. 101</span> <span class="ref">§5-H</span>).</p>
+<table class="tcol nest"><colgroup><col style="width:11.8%"><col style="width:33.1%"><col style="width:55.1%"></colgroup><thead><tr><th>Fumier</th><th>Ce qu’il vaut</th><th>Ce qu’il faut savoir</th></tr></thead><tbody><tr><td>Poule</td><td>Le plus riche : frais et encore humide, environ 17 kg d’azote par tonne, trois fois un fumier de vache ; séché, jusqu’à environ 28 kg</td><td>Son azote se libère presque tout de suite : trop fort, il abîme les racines. Trop peu de carbone (5 à 10 pour 1) : il se composte mêlé de beaucoup de brun — paille, feuilles, bran de scie — jusqu’à ce que le tas ne sente plus l’ammoniaque</td></tr><tr><td>Mouton</td><td>Environ 12 kg d’azote par tonne</td><td>Graines de mauvaises herbes, comme tous les ruminants</td></tr><tr><td>Vache</td><td>Environ 6 kg d’azote par tonne</td><td>Graines de mauvaises herbes ; il faut un tas qui chauffe pour les tuer</td></tr><tr><td>Cheval, pailleux</td><td>Pauvre en azote, riche en paille</td><td>Son rapport carbone-azote est déjà près de celui d’un bon tas : il se composte presque tel quel</td></tr><tr><td>Chien, chat, humain</td><td>—</td><td><strong>Jamais</strong> (<span class="ref">§8</span>)</td></tr></tbody></table>
+<p class="li l2"><strong>Pourquoi des délais.</strong> Le fumier porte des bactéries fécales. La chaleur d’un tas qui travaille les tue ; le retournement amène le bord froid au cœur, pour que tout y passe ; le temps en terre achève le travail. C’est ce mécanisme qui décide quand l’outil manque.</p>
+<p class="li l2"><strong>Cru</strong>, un fumier s’enfouit au moins 120 jours avant la récolte d’un légume dont la partie qu’on mange touche la terre, 90 jours avant celle des autres. Sur la côte, 120 jours, c’est plus que la saison sans gel : 111 jours une année sur deux à Sept-Îles, 87 une année sur dix (<span class="ref">ch. 97</span>). <strong>Le fumier cru s’épand et s’enfouit à l’automne, pour l’année suivante</strong>, et jamais dans la planche des pommes de terre (étape 28).</p>
+<p class="li l2"><strong>Ce que l’automne coûte.</strong> Épandu cru sur une terre nue, un fumier riche perd avant le printemps une grosse part de son azote rapide, à la pluie et en l’air ; dans une fiente de poule, cet azote rapide fait plus de la moitié du total. Deux parades : l’enfouir sous un seigle d’automne semé tout de suite (étape 26), qui le reprend et le rend au printemps — au prix d’un seigle à retourner à la bêche deux semaines avant le semis ; ou le composter au lieu de l’épandre cru.</p>
+<p class="li l2"><strong>Composté</strong>, il l’est si le tas a tenu entre 55 et 77 °C pendant 15 jours, retourné au moins cinq fois pour que chaque partie passe au cœur. Ça se vérifie à la sonde du thermomètre de cuisine, celui des 74 °C (<span class="ref">ch. 101</span>, étape 38) ; la tige de métal de la note 4 dit si le tas travaille, pas s’il a atteint 55 °C. <strong>Sans mesure, le fumier est cru.</strong></p>
+<p class="li l2">Un fumier composté a perdu 40 à 50 % de sa masse. Son phosphore y est resté, concentré ; une partie de son azote est partie en l’air, d’autant plus que le tas manquait de brun ou a été retourné souvent. Un tas découvert perd en plus son potassium et son azote à la pluie : il se couvre.</p>
+<p class="li l2">Jamais de fumier sur la planche des pois : une légumineuse qu’on nourrit d’azote arrête de fixer le sien.</p>
+<p class="step"><span class="sn">21</span><strong>Le varech.</strong> Sur la côte, on le ramassait à la fourche au printemps, on en chargeait les traîneaux derrière la motoneige, et on revenait jusqu’à ce que tous les jardins soient faits.</p>
+<p class="li l2"><strong>Lequel.</strong> Celui qui roule, détaché, sur la grève : fucus vésiculeux (<em>Fucus vesiculosus</em>), ascophylle noueuse (<em>Ascophyllum nodosum</em>), laminaires. Pour le jardin, l’algue échouée est la bonne ; celle qu’on mange se coupe attachée à son rocher (<span class="ref">ch. 92</span>, fiche K).</p>
+<p class="li l2"><strong>Quand.</strong> Au printemps, après le départ des glaces, et après chaque tempête d’automne.</p>
+<p class="li l2"><strong>Ce qu’il vaut.</strong> Par tonne fraîche, environ 5 kg d’azote, 1 kg de phosphore et 12 kg de potassium, comptés comme sur un sac d’engrais (N, P₂O₅, K₂O) : l’azote d’un fumier de vache, deux fois son potassium. Mais 5 à 15 % seulement de cet azote servent la première année, contre 80 % du potassium. C’est un engrais de potassium et un bâtisseur de sol, pas un engrais d’azote rapide.</p>
+<p class="li l2"><strong>Le sel.</strong> Le varech va au jardin rincé à l’eau douce : le sel qui entre dans le sol y reste (<span class="ref">ch. 95</span> <span class="ref">§9</span>). Rincé à la chaudière, ou laissé en tas, à l’écart des planches, sous plusieurs grosses pluies avant d’être épandu : la pluie, c’est de l’eau douce.</p>
+<p class="li l2"><strong>Trois usages.</strong> En paillis, en couche plus épaisse qu’on pense : il fond beaucoup en séchant. Ce paillis se pose entre les plants levés, jamais sur un semis : au Labrador, un semis couvert de varech a été mangé par les vers qui y pullulaient, et tout a été à ressemer (<span class="ref">ch. 99</span>, étape 30). Au fond de la tranchée du bêchage de printemps, couvert de terre. Au tas, où il se composte facilement, recouvert de terre : il faut plus d’un an pour que ce tas devienne de l’engrais. Sur la côte, on y mêlait les restes de poissonnerie ; au chalet, pas de poisson au tas (étape 22).</p>
+<p class="step"><span class="sn">22</span><strong>Le poisson : une méthode de village, pas de chalet.</strong> Dans les ports de pêche de Terre-Neuve, le capelan (<em>Mallotus villosus</em>) était d’abord un engrais : on le jetait dans une fosse au bout du jardin, la fosse à capelan, en attendant de l’enterrer dans le carré de pommes de terre. Le poisson est très riche en azote (environ 10 parts de carbone pour une d’azote) ; c’est l’engrais le plus riche qu’on ramasse sans rien.</p>
+<p class="li l2"><strong>Pourquoi ça tenait là.</strong> Un village de pêche a du monde dans les jardins tous les jours, des chiens partout et le bruit du port : ce qui tient l’ours à distance y est présent sans qu’on y pense.</p>
+<p class="li l2"><strong>Ce qui change au chalet.</strong> Aucune de ces conditions n’y est. Enterrer ne rend rien inaccessible : un ours creuse. Et le signe qu’il est venu — le trou de la nuit, les pistes — arrive après qu’il a mangé, donc trop tard : un ours récompensé revient, et il ne reprend pas sa crainte (<span class="ref">ch. 95</span> <span class="ref">§8</span> point 4). <strong>Au chalet, pas de poisson cru enterré au jardin, pas de tas de poisson</strong> (<span class="ref">§8</span>, point 2). L’azote vient du varech, de l’urine et des pois ; les restes de poisson vont loin du chalet (<span class="ref">ch. 23</span>).</p>
+<p class="li l2">Le capelan qui reste mort sur le sable après une roulée ne se mange pas non plus (<span class="ref">ch. 59</span>, étape 47) : le botulisme de type E produit sa toxine dès 3 °C, et elle ne change ni l’odeur, ni le goût, ni l’apparence du poisson.</p>
+<p class="step"><span class="sn">23</span><strong>Les os, brûlés.</strong></p>
+<p class="li l2">Après la graisse d’os (<span class="ref">ch. 72</span> §B), les os bouillis vont au feu jusqu’à devenir blancs et à s’écraser sous le bout d’un bâton. Brûlés, ils se manipulent comme la cendre : pas au doigt.</p>
+<p class="li l2"><strong>Pas les os du trajet de la balle</strong> — omoplate, côtes que la balle a traversées. Ils portent des éclats de plomb, et le feu ne détruit pas plus le plomb que le cadmium : il irait au trou de plantation (<span class="ref">ch. 62</span> <span class="ref">§8</span> point 4). Sauf une bête tirée à balle sans plomb.</p>
+<p class="li l2">La cendre d’os porte environ un tiers de son poids en phosphate et autant en chaux : elle chaule en même temps qu’elle nourrit. Elle agit bien en sol acide, moins bien en sol neutre.</p>
+<p class="li l2">Pourquoi brûler : un os cru se composte mal et attire les bêtes (<span class="ref">ch. 23</span>, <span class="ref">ch. 95</span> <span class="ref">§5-E</span>) ; la cendre d’os ne sent rien.</p>
+<p class="li l2">Où : au trou de plantation des choux, des pois et des vivaces. <strong>Aucune dose connue</strong> : un peu au trou, à la cuillère, mêlé à la terre, et on juge sur ce qui pousse.</p>
+<p class="li l2"><strong>Le foie et les reins de cervidés ne vont pas plus au jardin qu’à la table</strong> (<span class="ref">ch. 22</span>). Ils portent du cadmium, et le feu ne détruit pas un métal : il reviendrait dans les légumes.</p>
+<p class="step"><span class="sn">24</span><strong>L’urine.</strong> C’est l’azote le plus rapide et le seul qui ne manque jamais.</p>
+<p class="li l2">Elle sort du corps normalement sans microbes, mais une urine qui a touché des selles en porte : c’est alors des selles (<span class="ref">§8</span>, point 1). <strong>Seule l’urine recueillie à part, dans un pot qui ne reçoit qu’elle, va au jardin</strong>, au lieu des eaux grises (<span class="ref">ch. 31</span>, étape 28). Le seau de nuit où tout se mêle sur la sciure, et tout ce qui vient d’une maisonnée où quelqu’un a la diarrhée, vont à la bécosse.</p>
+<p class="li l2">L’urine de sa propre famille s’emploie fraîche. Celle d’autres gens — le groupe des <span class="ref">ch. 16</span> et 18 — se garde d’abord, fermée, de 1 à 6 mois selon la culture et la chaleur.</p>
+<p class="li l2"><strong>Dose : l’urine d’une personne pendant une journée par mètre carré et par saison.</strong> Une personne en produit environ 500 L par année, de quoi fertiliser 300 à 400 m². Le seuil où elle devient toxique pour la plante est au moins quatre fois cette dose : les choux et les pommes de terre, qui demandent trois fois plus d’azote que la carotte, en reçoivent deux ou trois journées.</p>
+<p class="li l2"><strong>Au pied, près du sol, enfouie tout de suite</strong> — sinon elle sent, brûle le feuillage et perd son azote en ammoniac. Pure ou diluée ; jamais sur les feuilles.</p>
+<p class="li l2"><strong>Quand</strong> : avant le semis, puis jusqu’aux deux tiers de la saison. <strong>Dernier arrosage un mois au moins avant la récolte.</strong></p>
+<p class="li l2">Les matières fécales, elles, ne vont jamais au jardin (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">25</span><strong>Le purin d’ortie.</strong></p>
+<p class="li l2">1 kg de feuilles d’ortie jeunes, pas montées en graines, hachées, dans 10 L d’eau de pluie. Rien d’autre.</p>
+<p class="li l2">Brasser tous les jours. Laisser macérer 3 à 4 jours à 18 °C.</p>
+<p class="li l2">Filtrer, puis diluer dans environ cinq fois son volume d’eau.</p>
+<p class="li l2">Il se garde près d’un an au frais, bien fermé, dans le plastique ou le verre, jamais le métal. Ne pas en mettre sur une plante en fleurs : il pousse la feuille au détriment de la fleur.</p>
+<p class="li l2"><strong>Ce qu’il est vraiment.</strong> Un stimulant, pas un engrais qu’on sait doser : on ne lui connaît aucune teneur en azote. Son intérêt au chalet : il déplace la richesse d’une talle d’ortie, qui pousse là où l’azote s’est accumulé, vers la planche qui en manque. La consoude (<em>Symphytum officinale</em>) se traite de la même façon, si on en a planté : elle n’est pas de nos bois.</p>
+<p class="step"><span class="sn">26</span><strong>L’engrais vert.</strong></p>
+<table class="tcol nest"><colgroup><col style="width:11.2%"><col style="width:17.6%"><col style="width:15.2%"><col style="width:28.1%"><col style="width:28.0%"></colgroup><thead><tr><th>Espèce</th><th>Semis</th><th>Dose</th><th>Ce qu’il fait</th><th>À la bêche</th></tr></thead><tbody><tr><td>Avoine</td><td>Printemps, ou après une récolte jusqu’à la fin de l’été</td><td>12 à 20 g/m², plus tard = plus dru</td><td>Couvre vite, tient le sol</td><td>L’hiver la tue : rien à détruire au printemps. <strong>Le meilleur choix au chalet</strong></td></tr><tr><td>Pois, vesce commune</td><td>Printemps, ou l’été jusque vers la mi-juillet ; deux mois leur suffisent</td><td>10 à 15 g/m²</td><td>Poussent aussi vite qu’une céréale et fixent l’azote</td><td>L’hiver les tue</td></tr><tr><td>Avoine et pois ensemble</td><td>Idem</td><td>4 à 6 g d’avoine et 8 à 10 g de pois par m²</td><td>Le couvert de l’une, l’azote de l’autre</td><td>Idem</td></tr><tr><td>Sarrasin</td><td>L’été</td><td>5 à 6 g/m²</td><td>Fait pour les sols pauvres ; étouffe les mauvaises herbes ; fleurit 5 à 6 semaines après le semis</td><td>Se fauche en fleur, avant qu’il graine</td></tr><tr><td>Seigle d’automne</td><td>Septembre, même octobre</td><td>12 à 20 g/m²</td><td>Aime les sols humides, acides et froids ; survit en sol mal drainé, pas dans une flaque qui gèle</td><td>Repousse au printemps, dur à tuer à la main, et nuit probablement à certains semis : au moins deux semaines entre sa destruction et le semis suivant</td></tr><tr><td>Trèfle rouge sous avoine</td><td>Au plus tard vers la mi-juin</td><td>1 à 1,5 g de trèfle et 8 g d’avoine par m²</td><td>Beaucoup d’azote, mais il lui faut trois mois</td><td>Vivace, dur à détruire à la main : pour une planche laissée un an en jachère</td></tr></tbody></table>
+<p class="li l2"><strong>Les dates se comptent à rebours de la première gelée</strong>, qui tombe sur la côte vers le 19 septembre une année sur deux, dès le 4 septembre une année sur dix (<span class="ref">ch. 97</span>). Deux mois pour le pois et la vesce, trois pour le trèfle : après la mi-juillet, il ne reste plus assez de saison pour une légumineuse. Avoine seule, semée plus dru.</p>
+<p class="li l2">Tout engrais vert s’enfouit au moins <strong>deux semaines</strong> avant le semis suivant ; si on ne peut pas attendre, on repique plutôt que de semer.</p>
+<p class="li l2">Un très bel engrais vert de légumineuses fait 4 à 6 t de matière sèche à l’hectare, à 2,5 à 3,5 % d’azote, dont la moitié ou plus sert l’année suivante. Ramené à la planche, c’est du même ordre, un peu en deçà, que ce que demandent des pommes de terre de garde (12,5 à 17,5 g d’azote par mètre carré).</p>
+<p class="step"><span class="sn">27</span><strong>Inoculer les pois sans sachet.</strong></p>
+<p class="li l2">Là où des pois ont déjà poussé, la bonne bactérie est probablement dans le sol.</p>
+<p class="li l2">Ailleurs, les pois et les vesces partagent la même bactérie (<em>Rhizobium leguminosarum</em>). Au moment du semis, déterrer quelques plants de vesce bien verts — la vesce jargeau (<em>Vicia cracca</em>)<sup class="fnr" data-fn="96-5">5</sup>, introduite au Québec, est vivace, donc déjà en place au printemps, là où il y en a —, rincer les racines, prendre les nodules roses, les écraser dans un peu d’eau et y rouler la semence juste avant de semer. La méthode a marché au champ sur une autre légumineuse ; du nodule de vesce à la semence de pois, elle n’a pas été essayée. C’est la même bactérie, et c’est le pari ; on ne sait pas ce qu’elle rend ici.</p>
+<p class="li l2">Ne pas prendre la terre d’un autre jardin pour ça : on y prendrait aussi sa hernie (<span class="ref">§5-E</span>).</p>
+<p class="li l2"><strong>Vérifier à la floraison</strong> : déterrer un plant, couper quelques nodules en travers, par le milieu<sup class="fnr" data-fn="96-6">6</sup>. Rose ou rouge dedans : la bactérie travaille. Beige : elle est là mais ne fixe pas. Vert dans tout le nodule : il meurt ; un bout vert à la base seulement est normal sur un nodule qui vieillit.</p>
+<p class="li l2">Un pois qui ne nodule pas dans un sol sous 5,2 ne demande pas de semence : il demande de la cendre ou de la coquille à l’automne (étapes 16 et 17). Le pois se sème tôt, comme d’habitude ; ses nodules se forment quand la terre passe 10 °C.</p>
+<h3 class="sub">E — La rotation et la jachère</h3>
+<p class="step"><span class="sn">28</span><strong>Quatre planches, qui tournent chaque printemps.</strong> L’ordre suit trois règles : l’azote des légumineuses sert l’année suivante ; le calcium va devant les choux et les pois ; les pommes de terre viennent le plus loin possible de la dernière chaux.</p>
+<table class="tcol nest"><colgroup><col style="width:7.7%"><col style="width:38.9%"><col style="width:53.5%"></colgroup><thead><tr><th>Planche</th><th>Cette année</th><th>Ce qu’elle reçoit</th></tr></thead><tbody><tr><td>1</td><td>Pois, ou engrais vert de légumineuses</td><td>Cendre ou coquille à l’automne d’avant. Ni fumier ni urine</td></tr><tr><td>2</td><td>Choux (<em>Brassica oleracea</em>) ; navets (<em>Brassica rapa</em>) et rutabagas (<em>Brassica napus</em>), qui y viennent pour la rotation des crucifères, pas pour la fumure</td><td>Fumier cru enfoui dans la planche à l’automne d’avant, ou fumier composté au trou des choux ; urine ; cendre d’os au trou. Peu pour les navets et les rutabagas, qui demandent moins d’azote que la carotte</td></tr><tr><td>3</td><td>Carottes (<em>Daucus carota</em>), betteraves (<em>Beta vulgaris</em>), panais (<em>Pastinaca sativa</em>), oignons (<em>Allium cepa</em>)</td><td>Compost ; moyennement exigeants : la carotte veut 5 g d’azote par m², la betterave, le panais et l’oignon 8 à 12, le chou jusqu’à 23</td></tr><tr><td>4</td><td>Pommes de terre (<em>Solanum tuberosum</em>)</td><td>Varech enfoui à l’automne d’avant, compost, urine en saison. <strong>Aucun fumier cru, aucune cendre, aucune coquille</strong></td></tr></tbody></table>
+<p class="li l2">Ce cycle laisse quatre ans entre deux crucifères, le minimum contre les maladies des choux. Les radis (<em>Raphanus sativus</em>) et les navets comptent comme des choux ; les moutardes sauvages aussi. Une moutarde ou un radis semés en engrais vert n’ont donc pas leur place dans ce jardin.</p>
+<p class="li l2">La carotte, l’oignon et le pois salissent la planche ; la pomme de terre, qu’on sarcle et qui couvre vite, la nettoie. Dans ce cycle, elle suit justement la carotte et l’oignon.</p>
+<p class="li l2">La chaux posée devant les pois est trois ans derrière quand viennent les pommes de terre : c’est le plus loin qu’on puisse la mettre dans un cycle de quatre. Elle agit encore : la rotation limite la gale, elle ne la règle pas (<span class="ref">§3</span>, <span class="ref">§7</span>).</p>
+<p class="li l2">Le fumier cru ne va jamais dans la planche des pommes de terre : il nourrit la bactérie de la gale (<span class="ref">ch. 98</span>, étape 12).</p>
+<p class="li l2"><strong>La rotation se lit sur le piquet, pas dans un cahier.</strong> Un piquet par planche, planté pour de bon ; une encoche au couteau chaque printemps ; un C gravé l’année où la planche reçoit la chaux. Personne n’a à se souvenir de rien.</p>
+<p class="step"><span class="sn">29</span><strong>La jachère.</strong> Une planche qui rend de moins en moins prend une saison complète en avoine et pois, ou une à deux saisons de foin ou de trèfle. L’idéal est une année d’engrais vert pour une à trois années de légumes. Quand la surface est courte, la jachère verte se fait sur une seule des quatre planches à la fois.</p>
+<p class="step"><span class="sn">30</span><strong>Si la hernie paraît.</strong></p>
+<p class="li l2">Arracher les choux atteints avec leurs racines et les brûler : jamais au compost.</p>
+<p class="li l2">Sept ans sans aucune crucifère sur cette planche, mauvaises herbes comprises.</p>
+<p class="li l2">Drainer : l’eau qui stagne la favorise.</p>
+<p class="li l2"><strong>Chauler la planche au-delà de 7,2, et c’est une exception déclarée.</strong> Au-dessus de 7,2, les spores germent mal ; la maladie peut quand même se développer : la chaux la freine, elle ne la supprime pas. Sur cette planche seulement, on passe le plafond de 7 de l’étape 18, par apports répétés, et on accepte le risque de carence du sable (<span class="ref">§7</span>). Pendant les sept ans, elle sort de la rotation : pois, carottes, oignons, betteraves, engrais vert, <strong>jamais de pommes de terre</strong>, qui y prendraient la gale. Au bout des sept ans, on arrête la chaux et elle reprend la rotation à la place des pois ; les pommes de terre y reviennent trois ans plus tard, comme partout.</p>
+<p class="li l2">Ne rien sortir de cette planche — terre, plants, outils sales — vers une autre.</p>
+<p class="li l2">En dernier recours, la <strong>culture-appât</strong> : semer dru une crucifère en début de saison (radis, moutarde), l’arracher au bout de quatre à cinq semaines, pas plus tard. Les spores se réveillent, entrent dans la plante, et on les sort avant qu’elles aient bouclé leur cycle. Ça marche si l’infection n’est pas trop forte et si on chaule en même temps ; la planche ne porte ensuite qu’une culture tardive.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:12.4%"><col style="width:14.7%"><col style="width:39.7%"><col style="width:33.2%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant d’ouvrir</td><td>Les trois couches du trou d’essai</td><td>Couche noire présente, gardée en haut</td><td>Mince sur roche : billons ou bacs. Pas de couche noire : elle se fabrique (compost, varech) avant de semer</td></tr><tr><td class="c-item">Avant d’ouvrir</td><td>Texture au ruban</td><td>&lt; 2,5 cm : sableux s’il gratte, moyen limoneux s’il est doux ; 2,5 à 5 cm : moyen s’il gratte, argileux sinon ; &gt; 5 cm : argileux</td><td>Sable : à plat, petites doses de chaux. Argile ou till : billons et drain</td></tr><tr><td class="c-item">À la fonte</td><td>Eau qui reste</td><td>Aucune flaque dans les planches ; on y marche 2 à 3 jours après une grosse pluie</td><td>Fossé de ceinture, tranchée filtrante, rigoles (étape 12)</td></tr><tr><td class="c-item">Chaque automne</td><td>Cendre de bois non traité</td><td>70 g/m², jamais plus de 150 g/m², une fois l’an ; un mois hors du poêle</td><td>Une demi-tasse par mètre carré, une tasse au plus</td></tr><tr><td class="c-item">Chaque automne</td><td>Coquille broyée</td><td>100 à 300 g/m² par année ; jamais plus de 500 g/m² d’un coup en sable. Brûlée : environ la moitié du poids</td><td>Fractionner sur plusieurs années ; chaux vive enfouie une semaine avant de planter</td></tr><tr><td class="c-item">6 à 12 mois après</td><td>pH (<span class="ref">ch. 95</span> <span class="ref">§9</span>)</td><td>6 à 6,5 ; jamais au-dessus de 7, sauf la planche atteinte de hernie. Le test donne un rang : il ne sépare pas 6 de 7</td><td>Petites touches, une fois l’an, sous les plafonds ; arrêter dès que la terre n’est plus franchement acide</td></tr><tr><td class="c-item">Au montage du tas</td><td>Taille</td><td>Environ 1 m de côté au minimum</td><td>Agrandir, isoler de paille</td></tr><tr><td class="c-item">Au montage du tas</td><td>Carbone-azote</td><td>Environ 30 pour 1</td><td>Ammoniaque : ajouter du brun</td></tr><tr><td class="c-item">Fumier cru</td><td>Délai avant la récolte</td><td>≥ 120 jours (partie mangée au contact de la terre) ; ≥ 90 jours (autres) ; jamais devant les pommes de terre</td><td>Enfouir à l’automne pour l’année suivante, sous un seigle, ou composter</td></tr><tr><td class="c-item">Fumier composté</td><td>Chaleur, à la sonde</td><td>55 à 77 °C pendant 15 jours, 5 retournements</td><td>Sans mesure, il est cru</td></tr><tr><td class="c-item">En saison</td><td>Urine d’un pot qui ne reçoit qu’elle</td><td>Une journée d’une personne par m² et par saison ; au plus 4 fois ; arrêt un mois avant la récolte</td><td>Au pied, enfouie, jamais sur la feuille. Mêlée de selles : bécosse</td></tr><tr><td class="c-item">Purin</td><td>Recette</td><td>1 kg d’ortie / 10 L ; 3 à 4 jours à 18 °C ; dilué 5 fois</td><td>Pas sur une plante en fleurs</td></tr><tr><td class="c-item">Engrais vert</td><td>Semis et destruction</td><td>Doses du tableau (étape 26) ; pois et vesce avant la mi-juillet, trèfle avant la mi-juin ; ≥ 2 semaines avant le semis suivant</td><td>Avoine seule en fin de saison ; repiquer au lieu de semer</td></tr><tr><td class="c-item">Floraison des pois</td><td>Nodules</td><td>Roses ou rouges dedans</td><td>Inoculer aux nodules de vesce ; chauler à l’automne</td></tr><tr><td class="c-item">Chaque printemps</td><td>Rotation</td><td>4 ans entre deux crucifères ; 7 si hernie</td><td>Déplacer les choux</td></tr><tr><td class="c-item">Printemps ou automne</td><td>Vers, trou de 20 cm</td><td>Plus dans la planche que dans la bordure, le même jour</td><td>Plus de compost, de fumier et de varech</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:32.2%"><col style="width:26.3%"><col style="width:41.5%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Pois pâles ; racines sans nodules, ou nodules beiges à la coupe</td><td>Bactérie absente, sol sous 5,2, ou terre encore sous 10 °C</td><td>Nodules de vesce écrasés sur la semence ; cendre ou coquille à l’automne ; attendre que la terre se réchauffe</td></tr><tr><td class="c-item">Choux qui flétrissent aux heures chaudes et reprennent la nuit ; feuillage jaune pâle ; plants rabougris</td><td>Hernie : racines en massue<sup class="fnr" data-fn="96-7">7</sup></td><td>Étape 30. Rien de cette planche vers une autre</td></tr><tr><td class="c-item">Croûtes brunes et liégeuses sur les pommes de terre, parfois creusées dans la chair</td><td>Gale commune : sol trop peu acide, fumier cru dans la planche, ou sol sec à la formation des tubercules</td><td>Plus de cendre, de coquille ni de fumier cru avant les pommes de terre ; arroser 4 à 6 semaines après la plantation, quand les tubercules se forment ; compost, pour tenir la matière organique au-dessus de 3 % ; une variété qui résiste à la gale, si on en trouve la semence. Là où la gale est forte, les pommes de terre sur une terre neuve jamais chaulée (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Semis qui jaunit après un paillis de copeaux ou de bran de scie enfoui</td><td>Faim d’azote : le bois mange l’azote</td><td>Retirer le bois de la zone des racines ; urine au pied</td></tr><tr><td class="c-item">Feuilles grillées au bord, plants flétris après l’urine ou le fumier de poule</td><td>Trop fort, ou versé sur la feuille</td><td>Diluer, verser au pied, enfouir ; composter la poule avec du brun</td></tr><tr><td class="c-item">Tas qui sent l’ammoniaque</td><td>Trop de vert : fumier de poule, urine, herbe fraîche</td><td>Ajouter du brun, retourner</td></tr><tr><td class="c-item">Tas froid au printemps</td><td>Gelé, trop petit ou trop sec</td><td>Attendre le dégel, agrandir, arroser, isoler</td></tr><tr><td class="c-item">Plants jaunes dans un creux, sol détrempé</td><td>Excès d’eau pris pour un manque d’engrais</td><td>Drainer avant d’ajouter quoi que ce soit</td></tr><tr><td class="c-item">Plus rien ne pousse bien après des années de chaux en sol sableux</td><td>Carence en fer, manganèse, cuivre ou zinc bloqués par la chaux</td><td>Arrêter la chaux ; fumier et compost, qui rapportent manganèse et zinc</td></tr><tr><td class="c-item">Mauvaises herbes partout après un fumier de vache</td><td>Graines passées dans le fumier</td><td>Composter chaud, ou changer de fumier</td></tr><tr><td class="c-item">Chiendent qui repousse de partout après le bêchage</td><td>Racines coupées et enterrées</td><td>Jachère d’été d’environ cinq semaines (étape 15)</td></tr><tr><td class="c-item">Trou creusé la nuit au jardin ou au tas ; crottes ou pistes d’ours</td><td>Un ours a trouvé une récompense : il reviendra</td><td>Ne pas s’en approcher. Retirer tout ce qui attire — tas, restes, os crus — loin du chalet et du sentier des enfants (<span class="ref">ch. 23</span> <span class="ref">§8</span> point 7 ; <span class="ref">ch. 95</span> <span class="ref">§8</span> point 4 ; <span class="ref">§8</span>, point 2)</td></tr><tr><td class="c-item">Légumes rongés sous terre dans les deux années qui suivent une vieille prairie</td><td>Vers fil de fer ou vers blancs de la prairie<sup class="fnr" data-fn="96-8">8</sup></td><td>Normal pendant deux ans ; y mettre ce qui craint le moins, et patienter</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Trois excréments ne vont jamais au jardin : celui du chien, celui du chat, celui de l’humain.</strong> Les deux premiers portent des organismes qui survivent au compostage. Le troisième doit être assaini avant de servir d’engrais, et le livre ne donne aucune méthode sûre pour le faire au chalet ; le contenu gelé d’une fosse, lui, n’est pas assaini (<span class="ref">ch. 31</span>). Le mécanisme est une contamination fécale qui ne se voit ni ne se sent, et qui frappe le plus durement les enfants de moins de cinq ans (<span class="ref">ch. 95</span>, <span class="ref">§8</span> point 2). L’urine seule, d’un pot qui ne reçoit qu’elle, est une autre affaire (étape 24) ; mêlée de selles, elle est des selles. Le fumier des bêtes du chalet suit ses délais (étape 20) : <strong>cru, jamais la même saison sur ce qui se mange cru ; sans sonde, il est cru.</strong></p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Le poisson cru, les os crus et les abats sont des appâts, et le jardin du chalet n’en reçoit pas.</strong> Un ours noir (<em>Ursus americanus</em>) qui a trouvé une fois de quoi manger près du chalet perd sa crainte et revient ; il ne la reprend pas (<span class="ref">ch. 95</span> <span class="ref">§8</span> point 4). Enterrer ne rend rien inaccessible : il creuse. Et le signe qu’il est venu — le trou de la nuit, les pistes — arrive après la récompense : il ne peut pas servir à décider quand s’arrêter. La fosse à capelan tenait dans un village de pêche, qui a du monde et des chiens tous les jours ; le chalet, non (étape 22). Donc au chalet : aucun poisson cru au jardin ni au tas ; les os se brûlent avant d’aller à la terre ; ce qui attire va loin du chalet et du sentier des enfants (<span class="ref">ch. 23</span> <span class="ref">§8</span> point 7). Les abats refusés — <strong>jamais le foie ni les reins de cervidés</strong>, à cause du cadmium — ne vont ni au tas ni à la terre (<span class="ref">ch. 22</span>).</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Un brûlis d’abattis peut couver tout l’hiver.</strong> Le feu qu’on allume sur l’humus d’une pessière descend dans la matière organique, y avance à l’horizontale sans flamme ni fumée, couve sous la neige et peut ressortir au printemps à distance de l’endroit où on l’avait laissé. On brûle sur la terre minérale ou la roche, jamais quand le faisceau de sécheresse du <span class="ref">ch. 11</span> <span class="ref">§9</span> est réuni, même sur un sol encore mouillé, jamais par un vent qui porte vers le bois ou le chalet ; on gratte autour jusqu’au minéral ; on repasse au dégel (<span class="ref">ch. 11</span>). Personne ne viendra l’éteindre.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Le câble qui arrache une souche emmagasine de l’énergie.</strong> Quand une racine cède d’un coup, qu’une élingue saute du chicot ou qu’une pièce lâche, cette énergie repart dans l’axe de traction, et le bout libre voyage plus vite que n’importe quel réflexe (<span class="ref">ch. 109</span>). Personne dans l’axe, des deux bords, sur toute la longueur du câble ; on relâche au lieu de tirer plus fort quand la souche résiste. Une couverture épaisse, un vieux manteau ou une chaîne à cheval sur le câble, à mi-portée, le rabat vers le sol s’il casse (<span class="ref">ch. 109</span> <span class="ref">§8</span>). Et le vindas a son propre danger : sans cliquet, la charge fait tourner le tambour à l’envers et la barre revient à la vitesse de la charge — le retour de barre, qui tue (<span class="ref">ch. 109</span> <span class="ref">§9</span>, le vindas, étape 4).</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">La cendre et la chaux vive brûlent en retard.</strong> Une base ne pique pas tout de suite comme un acide : elle dissout les tissus en profondeur pendant qu’on se dit qu’on rincera tantôt, et dans l’œil, la poudre mouillée forme un amas qui continue de brûler jusqu’à la cécité (<span class="ref">ch. 102</span> <span class="ref">§8</span> point 2). L’eau propre est donc prête <strong>avant</strong> d’ouvrir la cendre ou la chaux, en quantité pour un rinçage long, dont la durée est au <span class="ref">ch. 102</span> ; on rince tout de suite, pas quand ça pique. Ces poudres ne se touchent pas à mains nues et ne se pincent pas entre les doigts : pelle, cuillère, bâton ; des lunettes, même de ski, quand on épand. La chaux vive mouillée chauffe assez pour enflammer le bois ou la paille à côté : elle se garde au sec, dans un contenant de métal fermé, loin du bois d’allumage.</p>
+<p class="pt"><span class="pn">6</span><strong class="plead">La semence d’un engrais vert ne se mange pas.</strong> Le seigle porte l’ergot, qui passe à travers le four (<span class="ref">ch. 88</span> <span class="ref">§8</span> point 2), et la graine de vesce commune, toxique pour l’humain et plus encore pour les poules, ressemble assez à une lentille pour avoir été vendue comme telle : le sac gardé pour semer se marque « semence » au feutre, sur le sac même, pour qu’un hiver de faim ne le verse pas dans la farine ou la soupe.</p>
+</template>
+<template id="story-e">
+<p class="p0">Le premier printemps. Pas de fumier, pas de compost mûr, pas de balance, une trouée de mousse sur du sable gris, et une saison déjà entamée. La règle qui gouverne toute cette section tient en une phrase : <strong>un engrais rare ne s’étend pas, il se met au trou.</strong> On ne fait pas la terre d’un champ la première année ; on fait la terre d’une centaine de trous.</p>
+<p class="p0 ri"><strong class="runin">Les poquets.</strong> Au lieu de bêcher 100 m², on creuse des trous à l’espacement de plantation : un coup de bêche de profond, la mousse gardée de côté. Chaque trou reçoit la meilleure terre qu’on trouve — la couche noire ramassée sous les aulnes, les bouleaux et les trembles, là où les feuilles pourrissent depuis longtemps —, une poignée de varech rincé et haché, un peu de cendre d’os et de cendre de poêle froide prise à la cuillère, mêlées à la terre du trou et jamais posées contre la racine. Pas de cendre dans le trou d’une pomme de terre (étape 16). On plante dedans. Entre les trous, la mousse reste : c’est déjà un paillis. L’urine va au pied des plants, pas entre les rangs. <strong>Ce qu’on perd :</strong> la surface ; un poquet nourrit un plant, pas une planche. <strong>Ce qu’on gagne :</strong> tout ce qu’on avait va là où poussent les racines, et la terre des poquets de cette année devient la planche de l’an prochain.</p>
+<p class="p0 ri"><strong class="runin">Le billon de varech, comme à Terre-Neuve.</strong> C’est la méthode des ports de pêche de Terre-Neuve, même climat, même grève, venue d’Irlande et d’Écosse : des planches qu’on ne laboure pas, couvertes à la bêche avec la terre des rigoles creusées de chaque côté.</p>
+<p class="step"><span class="sn">1</span>Tracer une planche de la largeur qu’on atteint des deux bords, environ 1,2 m, sur le sol <strong>non retourné</strong> : mousse, herbe ou gazon.</p>
+<p class="step"><span class="sn">2</span>Poser les pommes de terre de semence en rangs sur la surface.</p>
+<p class="step"><span class="sn">3</span>Les couvrir d’une couche épaisse de varech rincé — et de fumier composté, s’il y en a : un fumier cru sous des pommes de terre de la même saison nourrit la gale et ne tient pas son délai (étape 20).</p>
+<p class="step"><span class="sn">4</span>De chaque côté, creuser une rigole à la bêche. Les mottes qu’on en tire se posent à l’envers sur le varech, la mousse ou l’herbe en dessous, la terre au-dessus.</p>
+<p class="step"><span class="sn">5</span>Butter à mesure que les tiges montent, avec la terre des rigoles, pour que pas un tubercule ne voie la lumière (<span class="ref">ch. 95</span>, étape 13).</p>
+<p>Pourquoi ça marche : la mousse ou le gazon retourné pourrit en dessous, le varech nourrit, la planche surélevée se réchauffe et s’égoutte, et les rigoles drainent. L’année suivante, la planche se bêche normalement : les billons sont devenus le champ. <strong>Ce qu’on perd :</strong> on ne sait pas ce que la méthode rend ici, elle n’a jamais été mesurée sur la Côte-Nord ; et dans un sable grossier, le billon sèche — là, on plante à plat sous une épaisse couche de varech, et on arrose.</p>
+<p class="p0 ri"><strong class="runin">Le capelan, non.</strong> C’est l’engrais le plus riche qu’on puisse ramasser sans rien, et c’est la tentation de la première année. Au chalet, il ne va ni au jardin ni au tas (étape 22, <span class="ref">§8</span> point 2) : le premier signe que l’ours l’a trouvé arrive après qu’il a mangé, et un ours récompensé revient, sans reprendre sa crainte. Le varech de la même grève fait le travail plus lentement, sans l’appeler.</p>
+<p class="p0 ri"><strong class="runin">L’urine chaque jour.</strong> C’est le seul azote qui ne demande ni saison ni récolte préalable. Un pot réservé à l’urine seule, vidé chaque jour au pied des choux et des pommes de terre, enfoui d’un coup de binette, à raison d’une journée d’une personne par mètre carré pour la saison, jamais sur les feuilles, et plus rien le dernier mois avant la récolte. <strong>Ce qu’on perd :</strong> rien, tant que le pot ne reçoit que l’urine de la famille (étape 24).</p>
+<p class="p0 ri"><strong class="runin">Les pois du garde-manger et les nodules du bord du chemin.</strong> Les pois entiers de la soupe lèvent s’ils ne sont ni fendus ni décortiqués (<span class="ref">ch. 100</span> <span class="ref">§9</span> : test de 20 graines d’abord). Semés tôt, comme tout pois, roulés dans l’eau où on a écrasé les nodules roses d’une vesce sauvage, ils nodulent quand la terre passe 10 °C. Mais il faut choisir, planche par planche. Un pois qu’on laisse mûrir met son azote dans sa graine, et la graine part à la cuisine : les fanes enfouies après la récolte en rendent peu. Une récolte d’environ 220 g de pois secs au mètre carré laisse environ 340 g de fanes et 3,4 g d’azote, dont la moitié sert l’année suivante : le dixième de ce que demandent des pommes de terre de garde. Le pois enfoui en fleur, sans récolte, donne l’azote du tableau de l’étape 26 à la planche suivante. La première année, on mange les pois ; la planche qu’on veut nourrir pour la deuxième reçoit des pois qu’on ne récoltera pas.</p>
+<p class="p0 ri"><strong class="runin">L’avoine, le sarrasin et la pomme de terre, comme les colons.</strong> Sur la terre neuve, les colons semaient d’abord le sarrasin, l’avoine et la pomme de terre ; quoi semer d’autre la première année, et en quelle quantité, est au <span class="ref">ch. 98</span> <span class="ref">§9</span>. Le sarrasin est fait pour les sols pauvres et étouffe ce qui pousse autour ; fauché en fleur, cinq à six semaines après le semis, il s’enfouit et prépare la planche. L’avoine couvre et meurt l’hiver. La pomme de terre nettoie la terre derrière elle, et une terre neuve et acide lui évite la gale, qui ne s’installe qu’au-dessus d’un pH de 5,2 : pour elle, l’acidité du podzol est un avantage, <strong>tant que la terre n’a reçu ni cendre ni coquille</strong>. Le premier chaulage le lui retire.</p>
+<p class="p0 ri"><strong class="runin">Faire la cendre qu’on n’a pas.</strong> Si le poêle ne donne pas assez de cendre, l’abattis en donne, à condition de le brûler sur la terre minérale, hors des jours secs (étape 10 ; <span class="ref">§8</span>, point 3). Mais seule la cendre d’un feu de bois non traité va au jardin : pas de bois de démolition d’origine inconnue, même quand la cendre manque (étape 16). Les os de la saison, bouillis pour leur graisse (<span class="ref">ch. 72</span>), puis brûlés blancs dans le poêle, donnent la cendre d’os, sauf ceux du trajet de la balle (étape 23). Les coquilles vides se ramassent sur l’estran à marée basse — jamais les restes d’une cueillette : les bivalves de la grève ne se mangent pas (<span class="ref">ch. 41</span> <span class="ref">§8</span> point 7) —, se brossent, se sèchent sur le rebord du poêle, et s’écrasent entre deux pierres un soir d’hiver.</p>
+<p class="p0 lab kh"><strong class="runin">Mesurer sans instrument.</strong></p>
+<p class="li">Le pH : les trois lectures du <span class="ref">ch. 95</span> <span class="ref">§9</span> (ce qui pousse, vinaigre et bicarbonate, eau de chou rouge et ses deux témoins). Elles donnent un rang, pas une valeur (étape 18).</p>
+<p class="li">La texture : le ruban dans la main, et le bocal (étapes 3 et 4) ; à défaut de savon en poudre, un peu de savon ordinaire, en sachant que la mousse gêne la lecture.</p>
+<p class="li">La vie du sol : les vers, comparés à la bordure le même jour (étape 6) ; les nodules roses (étape 27).</p>
+<p class="li"><strong>Le poids : une balance à fléau.</strong> Un bâton droit pendu <strong>par son milieu</strong> à une ficelle, et jamais ailleurs : pendu hors du milieu, le poids du bâton lui-même fausse la pesée. Une encoche de chaque côté, à la même distance du milieu : d’un côté pend une bouteille de plastique vide, de l’autre le sac vide. S’ils ne s’équilibrent pas à vide, on ajoute un caillou au côté léger, au même crochet : c’est la tare. Puis on remplit la bouteille d’un litre d’eau (1 kg), ou au quart pour 250 g, et on remplit le sac de coquille broyée jusqu’à l’équilibre. Pas de bouteille de verre : elle pèse lourd même vide, et une tare oubliée fausse tout. Une fois la mesure faite, on marque au couteau le niveau dans le contenant qui servira toujours, et on ne pèse plus jamais.</p>
+<p class="p0 lab kh"><strong class="runin">Les outils qu’on fait.</strong></p>
+<p class="li"><strong>La traîne à roches</strong> : deux patins de bois franc, des planches clouées en travers, le devant relevé pour qu’elle ne pique pas ; tirée à la corde, au VTT ou à la motoneige, comme on tirait le varech.</p>
+<p class="li"><strong>La charrue à rigoles</strong> : deux planches clouées en V, pointe en avant, lestées d’une roche ; tirée à la corde, elle ouvre la rigole qui vide le champ à la fonte.</p>
+<p class="li"><strong>Le levier à racines</strong> : un merisier de la grosseur du bras, la pointe durcie au feu.</p>
+<p class="li"><strong>Le vindas</strong> pour les souches qui ne cèdent pas au levier, toujours avec son cliquet (<span class="ref">ch. 109</span> <span class="ref">§9</span> ; <span class="ref">§8</span>, point 4).</p>
+<p class="li"><strong>La fourche à varech</strong> : n’importe quelle fourche ; à défaut, une branche fourchue en trois, les dents durcies au feu. Le varech mouillé est lourd : on le laisse égoutter sur la grève avant de le charger.</p>
+<p class="li"><strong>Le pilon à coquilles</strong> : une bûche de bois franc dans une chaudière de métal, ou deux pierres plates.</p>
+<p class="p0 lab kh"><strong class="runin">Ce que la variante ne remplace jamais.</strong></p>
+<p class="li"><strong>Le temps.</strong> Un podzol ne devient pas une terre de jardin en une saison. La première année nourrit la plante ; c’est la deuxième et la troisième qui nourrissent le sol.</p>
+<p class="li"><strong>La rotation contre la hernie.</strong> Aucune astuce ne raccourcit la vie de spores qui tiennent plus de 18 ans. Une planche de choux atteinte est perdue pour les choux pendant sept ans.</p>
+<p class="li"><strong>Les excréments humains et ceux du chien.</strong> Aucune pénurie ne les fait entrer au jardin, ni une urine qui les a touchés.</p>
+<p class="li"><strong>Le poisson cru et les os crus hors du jardin du chalet.</strong> Aucune pénurie d’azote ne vaut un ours habitué à quelques pas de la porte (<span class="ref">§8</span>, point 2).</p>
+<p class="li"><strong>La cendre du bois traité hors du jardin</strong>, même quand la cendre manque (étape 16).</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="68-1"><span class="fnn">1</span>La fleur blanche, mince et sèche des saucissons et des jambons secs : une moisissure normale sur ces produits. Toute autre moisissure — noire, verte, duveteuse — n’en est pas, ni une surface visqueuse.</p>
+<p class="fn" data-fn="96-1"><span class="fnn">1</span>La couche pâle a la couleur de la cendre ou du sable délavé ; elle peut manquer. La couche du dessous est franchement plus rouge que tout le reste, avec une limite nette ; frottée mouillée entre les doigts, elle a un toucher un peu limoneux. Plus bas, la couleur tourne au jaune.</p>
+<p class="fn" data-fn="96-2"><span class="fnn">2</span>La pâte est poussée vers le haut par le pouce, au-dessus de l’index, en une bande d’épaisseur égale, jusqu’à ce qu’elle casse sous son propre poids. On mesure ce qui dépassait avant la cassure. Ensuite, une pincée détrempée frottée dans la paume : si elle gratte, il y a du sable.</p>
+<p class="fn" data-fn="96-3"><span class="fnn">3</span>Une graminée dont les racines blanches courent sous terre, à l’horizontale, en longs cordons articulés. Chaque morceau coupé par la bêche redonne un plant.</p>
+<p class="fn" data-fn="96-4"><span class="fnn">4</span>Un piquet de métal ou une tige de fer enfoncé au cœur du tas et laissé une heure : il ressort chaud à la main quand le tas travaille, froid quand il dort. La main à plat dans le tas ouvert dit la même chose. Ni l’un ni l’autre ne dit si le tas a atteint 55 °C : pour ça, la sonde (étape 20).</p>
+<p class="fn" data-fn="96-5"><span class="fnn">5</span>Une plante grimpante qui s’accroche aux autres par des vrilles au bout de ses feuilles ; chaque feuille porte huit à douze paires de petites folioles. Les fleurs, bleu violacé, en épis serrés, sont toutes tournées du même côté de la tige. Elle pousse en tapis dans les fossés, les bords de chemin et les vieux champs.</p>
+<p class="fn" data-fn="96-6"><span class="fnn">6</span>Chez le pois et la vesce, les nodules sont de petits renflements allongés en doigt, souvent ramifiés, collés aux racines — pas des grains de terre : ils ne se détachent pas en rinçant. On les coupe au couteau.</p>
+<p class="fn" data-fn="96-7"><span class="fnn">7</span>Des renflements blancs sur les racines, qui grossissent vite, puis noircissent et pourrissent. On arrache le plant qui flétrit à midi et on regarde : une racine saine est fine et ramifiée. Ne pas confondre avec les nodules d’un pois, beaucoup plus petits, allongés en doigt, et qui ne poussent que sur les légumineuses.</p>
+<p class="fn" data-fn="96-8"><span class="fnn">8</span>Le ver fil de fer est la larve d’un petit coléoptère, le taupin : un ver allongé et dur au toucher, qui ressemble à un ver de farine, avec trois paires de pattes courtes à l’avant. Le ver blanc est une larve grasse, blanche ou jaune pâle, recourbée en C. On les trouve en retournant la terre autour d’un légume rongé.</p>
+</template>
+<script type="application/json" id="meta">{"num": "96", "title": "Faire la terre sans rien acheter", "tome": "Tome 5 · La forêt, le jardin et le chalet", "tnum": 5, "tfond": "#4B3A28", "tencre": "#F2EBDF", "lieu": "Chalet", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

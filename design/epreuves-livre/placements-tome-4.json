@@ -1,0 +1,175 @@
+{
+  "_lisez-moi": "Tome 4 (ch. 61 à 81), même format que placements.json, à y verser. Refait le 28 septembre 2026 sur les chapitres du 27 septembre au soir : chaque « apres » vérifié bloc par bloc avec le découpage de build_chapitre.py. Clés et numéros de planche : numérotation NOUVELLE. « apres » = début du paragraphe (texte Markdown) après lequel la figure vient. Photos : chemin depuis la racine du livre (lot4 et lot7 gardent l'ANCIEN numéro de chapitre, tri porte le numéro actuel), taille quart | demi, légende sans attribution. placements.json n'avait aucune entrée pour ces chapitres, et aucune planche du tome 4 ne se dessine en ce moment (args-reste.json). Les 38 planches existantes sont toutes posées : 26 validées, et 12 à valider (64-08, 64-40, 69-40, 71-40, 72-40, 72-41, 73-07, 74-40, 75-40, 78-40, 79-40, 80-40) que le constructeur ne prendra qu'une fois passées dans images/validees. Chaque planche n'est imprimée qu'une fois, dans son chapitre : le fléau et la romaine (67-09, 67-10) et le thermomètre recalé (74-10) servent aussi les §9 voisins sans y être repris. Chapitres sans figure : 66, 77, 81. Ajout du 29 septembre 2026 : les 17 planches du ch. 62 (62-02, 62-04 à 62-19, à valider), posées elles aussi (voir « 62 »).",
+  "61": {
+    "planches": [
+      {"id": "61-02", "apres": "**9. Ouvrir la paroi abdominale par-dessous.**"},
+      {"id": "61-03", "apres": "**Le guindeau espagnol.**"},
+      {"id": "61-09", "apres": "10. **Suspendre hors de portée des prédateurs**"}
+    ],
+    "photos": [
+      {"fichier": "images/photos/lot4/36-01-cerf-evisceration.jpg", "apres": "**10. Trancher le sternum et le diaphragme.**", "taille": "demi", "legende": "Cerf de Virginie ouvert du bassin vers le sternum : la panse, grise et veinée, et les intestins sont encore entiers dans la cavité."}
+    ],
+    "_photos": "36-01 : la main dans la cavité paraît nue, à l'encontre de l'étape 6 et du point 4 de la section 8 ; à remplacer par la photo de JP d'octobre (liste-photos-octobre, 36-01). 36-07 (Sisson 1910, viscères de la vache projetés sur la paroi) n'est pas posée : planche lettrée sans sa légende, référence de dessin pour la coupe de la cavité. La figure des kystes d'orignal (41-5a, ch. 22) servirait aussi à l'étape 14 : pas reprise ici pour ne pas l'imprimer deux fois."
+  },
+  "62": {
+    "en_ordre": true,
+    "planches": [
+      {"id": "62-02", "apres": "Les repères osseux qui bornent ces régions sont à la planche 62-02."},
+      {"id": "62-04", "apres": "5.2 Quartier arrière"},
+      {"id": "62-05", "apres": "5.2 Quartier arrière"},
+      {"id": "62-06", "apres": "5.2 Quartier arrière"},
+      {"id": "62-07", "apres": "5.2 Quartier arrière"},
+      {"id": "62-08", "apres": "5.2 Quartier arrière"},
+      {"id": "62-09", "apres": "5.2 Quartier arrière"},
+      {"id": "62-10", "apres": "5.2 Quartier arrière"},
+      {"id": "62-11", "apres": "5.3 Le dos"},
+      {"id": "62-12", "apres": "5.3 Le dos"},
+      {"id": "62-13", "apres": "5.3 Le dos"},
+      {"id": "62-14", "apres": "5.3 Le dos"},
+      {"id": "62-15", "apres": "5.4 Quartier avant"},
+      {"id": "62-16", "apres": "5.4 Quartier avant"},
+      {"id": "62-17", "apres": "5.4 Quartier avant"},
+      {"id": "62-18", "apres": "5.4 Quartier avant"},
+      {"id": "62-19", "apres": "5.4 Quartier avant"}
+    ],
+    "photos": [
+      {"fichier": "images/photos/lot4/37-14-bavette-crue-grain.jpg", "apres": "**Le sens du grain décide de la salaison.**", "taille": "quart", "legende": "Bavette crue : les fibres courent dans le sens de la grande flèche. Trancher en travers du grain, c'est suivre la petite."}
+    ],
+    "_planches": "29 septembre 2026 : les 17 planches dessinées ce jour (62-02, 62-04 à 62-19, images/a-valider/) sont posées. 62-02 après la phrase du §5.1 qui la nomme (remise le même jour) ; les autres après le titre de la sous-section dont le tableau les nomme dans sa colonne « Planche » (5.2 : 62-04 à 62-10 ; 5.3 : 62-11 à 62-14 ; 5.4 : 62-15 à 62-19), aucun paragraphe ne précédant ni ne suivant ces tableaux. 62-04 est aussi nommée au §3 (« chaque muscle a sa membrane ») : posée au 5.2 avec le reste du quartier arrière, pour que les planches sortent dans l'ordre. « en_ordre » : plusieurs planches au même titre sortent dans l'ordre des numéros (build_chapitre.place ; sans la clé, l'ordre serait inversé). Ne se dessinent pas : 62-03, 62-21, 62-23 (suivi/62-documentation-planches.md §4).",
+    "_photos": "37-14 porte ses flèches légendées en anglais (« Direction of grain », « Against grain ») : effacer les mots avant impression, garder les deux flèches, dont la légende a besoin. Non posées : les planches d'anatomie du bœuf (37-03, 37-04, 37-09, 37-10, 37-11, 37-15, 37-17, 37-19), références de dessin lettrées sans légende ; 37-02 (squelette d'orignal vu de face, les repères de coupe ne s'y lisent pas) ; 37-05 (500 px, trop faible pour l'impression) ; 37-13 (filet de bœuf isolé, étiquettes en tchèque, ne montre pas le filet en place sous les lombes) ; 37-16 (épaule désossée dans l'assiette, n'apprend rien)."
+  },
+  "63": {
+    "planches": [],
+    "photos": [
+      {"fichier": "images/photos/lot4/38-09-brulure-congelation-boeuf.jpg", "apres": "**15. Emballer et congeler.**", "taille": "quart", "legende": "Brûlure de congélation : plaque grise, sèche et plissée là où l'air est resté contre la viande."}
+    ],
+    "_photos": "38-02 (Das Rind, membre postérieur) n'est pas posée : référence de dessin pour la carte des muscles du quartier arrière."
+  },
+  "64": {
+    "planches": [
+      {"id": "64-40", "apres": "**3. Détacher le quartier.**"},
+      {"id": "64-08", "apres": "**Le sortir du bois sur le dos.**"}
+    ],
+    "photos": [],
+    "_photos": "39-01 (page du bulletin USDA, découpe de l'épaule de bœuf, légendes en anglais) n'est pas posée : référence de dessin ; la 39-01 prévue est la photo de JP d'octobre."
+  },
+  "65": {
+    "planches": [
+      {"id": "65-09", "apres": "*Le trou dans la mousse.*"}
+    ],
+    "photos": [],
+    "_planches": "65-09 dessine aussi « dans la neige, enfoncé » et « la niche de berge », que le texte du ch. 65 ne décrit toujours pas : il décrit le ruisseau, le trou dans la mousse, le linge mouillé et le ciel dégagé.",
+    "_photos": "40-02 (Das Rind, coupe de la paroi thoracique) n'est pas posée : référence de dessin pour la coupe de la vertèbre. Le grain (40-07) est couvert par la 37-14, posée au ch. 62."
+  },
+  "66": {"planches": [], "photos": []},
+  "67": {
+    "planches": [
+      {"id": "67-09", "apres": "**Fabriquer les masses étalons avec de l'eau.**"},
+      {"id": "67-10", "apres": "**Monter une romaine, pour ce qui ne tient pas dans un plateau.**"},
+      {"id": "67-12", "apres": "**Deuxième étage : le vent, l'été, sans une bûche non plus.**"},
+      {"id": "67-13", "apres": "**Troisième étage : le feu, et seulement pour finir.**"}
+    ],
+    "photos": []
+  },
+  "68": {
+    "planches": [
+      {"id": "68-06", "apres": "**Presser accélère.**"}
+    ],
+    "photos": []
+  },
+  "69": {
+    "planches": [
+      {"id": "69-03", "apres": "**Le poids.**"},
+      {"id": "69-40", "apres": "3. **Injecteur de fortune.**"}
+    ],
+    "photos": [],
+    "_planches": "69-40 reste au §9 (fin de « La pièce épaisse sans seringue ») : trois de ses quatre vues sont la fente et l'injecteur de fortune, et posée après l'étape 9 du §5 elle couperait l'étape de ses formules."
+  },
+  "70": {
+    "planches": [
+      {"id": "70-01", "apres": "8. **Entrée d'air en bas, sortie en haut**"},
+      {"id": "70-01b", "apres": "**Le foyer et la tranchée.**"},
+      {"id": "70-09", "apres": "**La chambre.**"},
+      {"id": "70-12", "apres": "**Sans réfrigérateur entre les séances.**"}
+    ],
+    "photos": []
+  },
+  "71": {
+    "planches": [
+      {"id": "71-40", "apres": "20. **Juger la sécheresse à la balance, pas au doigt.**"},
+      {"id": "71-02", "apres": "**Le feu qui fume toute la nuit.**"}
+    ],
+    "photos": []
+  },
+  "72": {
+    "planches": [
+      {"id": "72-40", "apres": "**8. Couler dans des contenants chauds, propres et secs, et combler le retrait.**"},
+      {"id": "72-41", "apres": "**21. Mouler, refroidir, envelopper, étiqueter.**"}
+    ],
+    "photos": []
+  },
+  "73": {
+    "planches": [
+      {"id": "73-07", "apres": "**26. Prévoir l'écoulement de l'eau de fonte par le bas.**"},
+      {"id": "73-01", "apres": "**La cache sur poteaux.**"}
+    ],
+    "photos": []
+  },
+  "74": {
+    "planches": [
+      {"id": "74-40", "apres": "**L'hiver, la variante est presque aussi bonne que la version complète.**"},
+      {"id": "74-10", "apres": "**Le thermomètre.** Un cadran à tige se regradue toujours"},
+      {"id": "74-11", "apres": "Au chalet, un fumoir ne se bâtit pas dans une journée de panne"}
+    ],
+    "photos": []
+  },
+  "75": {
+    "planches": [
+      {"id": "75-40", "apres": "13. Sortir la masse viscérale d'un seul bloc"},
+      {"id": "75-04", "apres": "20. Monter en couches"},
+      {"id": "75-08", "apres": "Deux caisses de bois l'une dans l'autre"}
+    ],
+    "photos": [
+      {"fichier": "images/photos/lot7/70-05a-branchies-brochet.jpg", "apres": "9. Saigner immédiatement", "taille": "quart", "legende": "Les arcs branchiaux d'un brochet, l'opercule écarté : ce sont eux qu'on coupe, des deux côtés."}
+    ],
+    "_photos": "Non posées : 70-05b (œil d'un saumon mort sur les roches, rien ne dit qu'il est frais), 70-05c (têtes sur glace, branchies pâles : enseignerait le mauvais repère), 70-05d (planche anatomique de 1910). Le chapitre ne décrit toujours pas la fraîcheur par la couleur des branchies ou de l'œil : la demi-planche frais contre vieux n'a pas de paragraphe où se poser."
+  },
+  "76": {
+    "planches": [
+      {"id": "76-03", "apres": "2. **Ouvrir en portefeuille** les petits ombles"},
+      {"id": "76-05", "apres": "3. Empiler chair contre chair, peau vers l'extérieur"},
+      {"id": "76-06", "apres": "5. Viser un air **frais, sec et en mouvement lent**"}
+    ],
+    "photos": []
+  },
+  "77": {"planches": [], "photos": []},
+  "78": {
+    "planches": [
+      {"id": "78-40", "apres": "**9. Chasser les bulles**"}
+    ],
+    "photos": []
+  },
+  "79": {
+    "planches": [
+      {"id": "79-01a", "apres": "**6. Percer deux conduits, jamais un seul.**"},
+      {"id": "79-01b", "apres": "**La neige est le meilleur isolant de l'année et elle ne coûte rien.**"},
+      {"id": "79-40", "apres": "Dans une caisse ou dans un trou creusé à même le plancher de terre"},
+      {"id": "79-06", "apres": "10. **Ouvrir du côté abrité du vent**"}
+    ],
+    "photos": [],
+    "_planches": "79-01a passe du §9 au §5, après l'étape 6 : cinq de ses neuf renvois (fond sous la limite du gel, pierre nette, drain de pied, isolant à l'extérieur, les deux conduits) et son bandeau de danger (paroi en pente) sont la procédure A. 79-01b, les assemblages de fortune (toit d'écorce, conduit de billot, porte à boyau fendu), reste au §9, qui garde trois pleines pages au lieu de quatre.",
+    "_photos": "Les pommes de terre verdies et germées (lot7/74-05a à 74-05d, ligne 76-4 fusionnée avec la 74-5) serviraient la tournée de l'étape 16 et le §7, mais le tome 5 en pose déjà trois au ch. 95 : pas reprises ici pour ne pas les imprimer deux fois."
+  },
+  "80": {
+    "planches": [
+      {"id": "80-40", "apres": "**Gonfler.**"}
+    ],
+    "photos": [
+      {"fichier": "images/photos/tri/80-choucroute-jour0-salage.jpg", "apres": "6. **Malaxer** jusqu'à ce que le chou rende son eau.", "taille": "quart", "legende": "Le malaxage : le chou tranché et salé, pétri à pleines mains, commence à rendre son eau."},
+      {"fichier": "images/photos/tri/80-choucroute-en-fermentation.jpg", "apres": "10. **Vérifier à 48 heures que ça bulle.**", "taille": "quart", "legende": "En fermentation : saumure trouble, fines bulles en surface, et tout le chou sous le liquide."},
+      {"fichier": "images/photos/tri/80-choucroute-voile-levures.jpg", "apres": "13. **Écumer** deux à trois fois par semaine", "taille": "quart", "legende": "Voile de levures : blanc, mat, plat, à la surface de la saumure. Il s'écume, puis on revérifie le lestage."}
+    ],
+    "_photos": "Photos du tri du 27 septembre (registre-tri.md, lignes 80·77-1 et 80·77-6). La choucroute « finie » de la ligne 80·77-1 n'est pas posée : celle téléchargée le 28 septembre (tri/80-choucroute-finie.jpg) est marquée « à défaut » au registre (autres pots, autre lumière que le jour 0 et la fermentation, chou rouge à côté du blanc, couvercles vissés), et elle n'apprend rien que l'étape ne dise. Le bocal en fermentation est un pot à pinces : la légende ne parle pas du couvercle, pour ne pas contredire l'étape 9 (couvrir sans sceller). Le voile est photographié dans un pot de grès glaçuré, que le §9 écarte quand la glaçure est d'origine inconnue : la légende ne parle que du voile."
+  },
+  "81": {"planches": [], "photos": []}
+}

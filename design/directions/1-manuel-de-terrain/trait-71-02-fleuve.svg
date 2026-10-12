@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="37.5 48.5 605 200" role="img">
+<title>Trait tiré de la planche 71-02 — Le fumoir de baril sur conduit enterré — vue « coupe », sans renvois</title>
+<defs>
+<pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#EDF2F5" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#EDF2F5" stroke-width="0.5"/></pattern>
+<pattern id="h-pierre" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M1 3 L5 1 L9 3 L8 7 L3 8 Z M10 9 L13 7" fill="none" stroke="#EDF2F5" stroke-width="0.5"/></pattern>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#EDF2F5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<g transform="translate(40 46)" data-vue="coupe">
+<path d="M0 155 L430 126 L600 126 L600 168 L440 170 L300 182 L200 194 L150 200 L0 200 Z" fill="url(#h-terre)" stroke="none"/>
+<path d="M55 151.3 L57 166 L61 180 L72 187 L122 187 L134 181 L139 172 L140 169.6 L430 150 L482 150 L482 126 L430 126 L55 151.3 Z" fill="#25414F" stroke="none"/>
+<path d="M55 151.3 L57 166 L61 180 L72 187 L122 187 L134 181 L139 172 L140 169.6 L430 150 L482 150 L482 126" fill="none" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="0" y1="155" x2="55" y2="151.3" fill="none" stroke="#EDF2F5" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="55" y1="151.3" x2="80" y2="149.6" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="482" y1="126" x2="600" y2="126" fill="none" stroke="#EDF2F5" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="68" cy="184" r="2.2" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="78" cy="185" r="2.6" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="90" cy="185" r="2.2" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="101" cy="185" r="2.6" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="112" cy="185" r="2.2" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="122" cy="184" r="2" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M64.1 183.5 L104.1 182.5 L103.9 175.5 L63.9 176.5 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="104" cy="179" rx="1.5" ry="3.5" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="104" cy="179" rx="0.7" ry="1.7" fill="none" stroke="#EDF2F5" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="68.8" y1="178.2" x2="68.8" y2="179.9" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="74" y1="180.2" x2="74" y2="181.9" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="79.2" y1="177.9" x2="79.2" y2="179.6" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="84.4" y1="179.9" x2="84.4" y2="181.6" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="89.6" y1="177.7" x2="89.6" y2="179.4" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="94.8" y1="179.6" x2="94.8" y2="181.3" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M78.1 176.2 L116.1 175.2 L115.9 168.8 L77.9 169.8 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="116" cy="172" rx="1.4" ry="3.3" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="116" cy="172" rx="0.7" ry="1.6" fill="none" stroke="#EDF2F5" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="82.6" y1="171.3" x2="82.6" y2="172.9" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="87.5" y1="173.1" x2="87.5" y2="174.7" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="92.4" y1="171.1" x2="92.4" y2="172.6" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="97.4" y1="172.9" x2="97.4" y2="174.4" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="102.3" y1="170.8" x2="102.3" y2="172.4" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="107.3" y1="172.6" x2="107.3" y2="174.2" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M81 149.9 L113 147.7 L145 145.5 L146 140.6 L143.5 137.6 L117.7 138.8 L82.5 141.8 L80 145.6 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M67 142.8 L88 141.4 L109 139.9 L110 135.6 L107.5 134 L93.3 134.5 L68.5 136.3 L66 139.5 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M143 137.9 L145 133.2 L149 131.5 L153 132.7 L155 137 L152 136.7 L152 145 L146 145.5 L146 137.2 Z" fill="url(#h-terre)" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M153 145 L170 143.8 L187 142.6 L188 138.7 L185.5 135.7 L174.7 135.9 L154.5 137.7 L152 141.2 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M185 136 L187 131.3 L191.5 129.6 L196 130.8 L198 135.1 L195 134.8 L195 142.1 L188 142.6 L188 135.3 Z" fill="url(#h-terre)" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M196 142.1 L213 140.9 L230 139.7 L231 137.1 L228.5 132.8 L216.4 133 L197.5 135.3 L195 138.3 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M228 133.1 L230 128.4 L234.5 126.7 L239 127.9 L241 132.2 L238 131.9 L238 139.2 L231 139.7 L231 132.4 Z" fill="url(#h-terre)" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M239 139.2 L256 138 L273 136.8 L274 134.7 L271.5 129.9 L258.7 130.1 L240.5 132.7 L238 135.4 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M271 130.2 L273 125.5 L277.5 123.8 L282 125 L284 129.3 L281 129 L281 136.3 L274 136.8 L274 129.5 Z" fill="url(#h-terre)" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M282 136.3 L299 135.1 L316 133.9 L317 131 L314.5 127 L302.2 127.2 L283.5 129.8 L281 132.5 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M314 127.3 L316 122.6 L320.5 120.9 L325 122.1 L327 126.4 L324 126.1 L324 133.4 L317 133.9 L317 126.6 Z" fill="url(#h-terre)" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M325 133.4 L342 132.2 L359 131 L360 126.8 L357.5 124.1 L346.4 124.3 L326.5 126.4 L324 129.6 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M357 124.4 L359 119.7 L363.5 118 L368 119.2 L370 123.5 L367 123.2 L367 130.5 L360 131 L360 123.7 Z" fill="url(#h-terre)" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M368 130.5 L385 129.3 L402 128.1 L403 123.4 L400.5 121.2 L390.3 121.4 L369.5 123.1 L367 126.7 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M400 121.5 L402 116.8 L406.5 115.1 L411 116.3 L413 120.6 L410 120.3 L410 127.6 L403 128.1 L403 120.8 Z" fill="url(#h-terre)" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M411 127.6 L428 126.4 L445 126.3 L446 122.2 L443.5 119.4 L432.9 118.5 L412.5 120.2 L410 123.8 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M447 25 L447 54 L444 56 L444 60 L447 62 L447 126" fill="none" stroke="#EDF2F5" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M447 25 L447 88 L444 90 L444 94 L447 96 L447 126" fill="none" stroke="#EDF2F5" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M513 25 L513 54 L516 56 L516 60 L513 62 L513 126" fill="none" stroke="#EDF2F5" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M513 25 L513 88 L516 90 L516 94 L513 96 L513 126" fill="none" stroke="#EDF2F5" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="447" y1="25" x2="513" y2="25" fill="none" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="447" cy="25" r="2.2" fill="#EDF2F5" stroke="none"/>
+<circle cx="513" cy="25" r="2.2" fill="#EDF2F5" stroke="none"/>
+<line x1="478" y1="25" x2="480" y2="32" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="496" y1="25" x2="498" y2="32" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="460" y1="25" x2="460" y2="41.5" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M477 31 Q481 30 485 38.5 Q488 51.4 483 61 Q484 68 478 62 Q472 49.7 475 37.8 Q478 32 477 31 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M495 31 Q499 30 503 37.6 Q506 49 501 57 Q502 64 496 58 Q490 47.5 493 37 Q496 32 495 31 Z" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="460" cy="46" r="4.5" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="460" cy="22" r="3" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="478" cy="22" r="3" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="496" cy="22" r="3" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="469" y="16" width="72" height="2.4" fill="#25414F" stroke="#EDF2F5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M92 100 Q64 108 61 146" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M96 166 Q118 158 150 152 L420 134 Q451 132 451.5 112 L451.5 5" fill="none" stroke="#EDF2F5" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
+</g>
+</svg>

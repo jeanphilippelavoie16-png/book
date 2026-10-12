@@ -1,0 +1,566 @@
+# -*- coding: utf-8 -*-
+"""Couvertures des six tomes — direction 1, manuel de terrain, couleurs nordiques.
+
+Couleurs retenues par JP le 28 septembre 2026 : écorce pour le tome 5, fonte pour le tome 6. Les variantes non
+retenues (mousse, rouille) sont dans archives/ (couvertures-nordique-6-variantes.html, autonome, et son PDF).
+
+Écrit, à côté de couvertures-nordique.html (les quatre tomes du 23 septembre, qu'on ne touche pas) :
+  couvertures-nordique-6.html     six avants et six couvertures complètes (quatrième | tranche | avant)
+  trait-NN-NN-<couleur>.svg       le dessin de chaque quatrième, tiré d'une planche validée, sans renvois, recoloré
+
+  python build_couvertures_6.py              le HTML et les dessins
+  python build_couvertures_6.py --decouper   après l'impression par Edge de couvertures-nordique-6.pdf : un PDF
+                                             par tome, aux mesures exactes de Blurb -> livre/tome-N/couverture.pdf
+
+Tout le rendu (HTML, PDF, découpe, aperçus) : outils/rendre_couvertures_6.sh
+"""
+import re, os, sys, math
+
+D1 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.abspath(os.path.join(D1, '..', '..', '..'))
+IMG = os.path.join(ROOT, 'images')
+
+# ------------------------------------------------------------------ tomes
+# fond, encre, nom, nom de fichier (design/choix.md)
+COUL = {
+    1: ('#E2E7EA', '#15222B', 'neige', 'neige'),
+    2: ('#5C1A15', '#F3ECE5', 'sang de gibier', 'sang'),
+    3: ('#1D392E', '#E9F0EA', 'épinette', 'epinette'),
+    4: ('#25414F', '#EDF2F5', 'fleuve', 'fleuve'),
+    5: ('#4B3A28', '#F2EBDF', 'écorce', 'ecorce'),
+    6: ('#363432', '#EEEBE6', 'fonte', 'fonte'),
+}
+# Chapitres : plan/tomes-6-proposition.md (numéros du 27 septembre 2026). Poids de la barre = nombre de chapitres.
+TOMES = {
+    1: dict(titre='Tenir', h1=['Tenir'], taille=86, ch=('00', '18'), n=20),
+    2: dict(titre='Le corps', h1=['Le corps'], taille=86, ch=('19', '40'), n=22),
+    3: dict(titre='Prélever', h1=['Prélever'], taille=86, ch=('41', '60'), n=20),
+    4: dict(titre='De la bête au garde-manger', h1=['De la bête', 'au garde-manger'], taille=57, ch=('61', '81'), n=21),
+    5: dict(titre='La forêt, le jardin et le chalet', h1=['La forêt,', 'le jardin', 'et le chalet'], taille=66, interligne=1.02,
+            ch=('82', '101'), n=20),
+    6: dict(titre='L’atelier', h1=['L’atelier'], taille=86, ch=('102', '112'), n=11),
+}
+# Sommaire de la quatrième : les titres des chapitres tels qu'assemblés (livre/tome-N/rapport.md, tableau « Pages »),
+# espaces insécables compris (  insécable,   fine devant le deux-points).
+# verifier() compare avec le rapport de chaque tome.
+SOMMAIRE = {
+    1: [('00', 'Le chapitre principal'), ('00b', 'Acheter par priorité'), ('01', 'Les quatre horloges'),
+        ('02', 'Rester ou partir'), ('03', 'Panne majeure d’Hydro en janvier'), ('04', 'Retombées radioactives'),
+        ('05', 'Le stock permanent du chalet'), ('06', 'La liste de 72 heures'), ('07', 'Quand on a un préavis'),
+        ('08', 'Listes par scénario'), ('09', 'Ce qui manque toujours'), ('10', 'Eau : puiser, filtrer, désinfecter'),
+        ('11', 'Le feu de forêt'), ('12', 'La tente d’hiver et l’abri de neige'), ('13', 'Feu sans allumettes'),
+        ('14', 'Communiquer et savoir'), ('15', 'Se déplacer et le carburant'), ('16', 'Le voisinage et le groupe de chasse'),
+        ('17', 'Qui cogne à la porte'), ('18', 'S’organiser à plusieurs familles')],
+    2: [('19', 'Le mal de caribou'), ('20', 'Le scorbut et l’arbre de vie'), ('21', 'Ce qu’un corps demande l’hiver'),
+        ('22', 'Abats et organes'), ('23', 'Ce que personne ne garde'), ('24', 'Le corps qui travaille'),
+        ('25', 'Le froid lui-même'), ('26', 'Soigner quand il n’y a personne'), ('27', 'Les dents'),
+        ('28', 'Les maladies ordinaires qui durent'), ('29', 'La santé des femmes'), ('30', 'Épidémie'),
+        ('31', 'Hygiène et eaux usées'), ('32', 'Bâtir la pharmacie'), ('33', 'Plantes médicinales boréales'),
+        ('34', 'Soigner avec la forêt, par symptôme'), ('35', 'Ce qu’on ne peut pas soigner'),
+        ('36', 'Tenir le moral tout un hiver'), ('37', 'Le sauna et le bien-être'),
+        ('38', 'Le deuil, le choc et la peur des adultes'), ('39', 'Des enfants de 4 et 6 ans'),
+        ('40', 'Les enfants, la peur et la routine')],
+    3: [('41', 'Calendrier annuel de prélèvement'), ('42', 'Lire le territoire autour du chalet'),
+        ('43', 'Les traces et les signes des animaux'), ('44', 'Pister et retracer une bête'),
+        ('45', 'Les armes, les munitions et l’arc'), ('46', 'Comment lire une fiche d’espèce'), ('47', 'Chasser le petit gibier'),
+        ('48', 'Lièvre d’Amérique'), ('49', 'Gélinotte huppée et tétras du Canada'), ('50', 'Castor'), ('51', 'Porc-épic'),
+        ('52', 'Ours noir'), ('53', 'Rat musqué, écureuil roux, marmotte'), ('54', 'Outarde, canards, oiseaux d’eau'),
+        ('55', 'Martre, vison, renard, lynx, loup'), ('56', 'Phoque du Saint-Laurent'), ('57', 'Truite et omble au lac'),
+        ('58', 'Pêche blanche'), ('59', 'Éperlan et poisson du fleuve'), ('60', 'Nasses, filets, verveux')],
+    4: [('61', 'Abattage, saignée, éviscération'), ('62', 'Carte de la carcasse'), ('63', 'Quartier arrière'),
+        ('64', 'Quartier avant'), ('65', 'Le dos'), ('66', 'Pourquoi la viande pourrit'), ('67', 'Le sel'),
+        ('68', 'Salaison à sec'), ('69', 'Saumure'), ('70', 'Fumage à froid'), ('71', 'Fumage à chaud et séchage'),
+        ('72', 'Pemmican et graisses'), ('73', 'Froid naturel'), ('74', 'Un congélateur plein qui dégèle'),
+        ('75', 'Traiter le poisson à la sortie de l’eau'), ('76', 'Saler et sécher la truite'), ('77', 'Fumer le poisson'),
+        ('78', 'Conserves et marinades'), ('79', 'Caveau à légumes'), ('80', 'Fermentation'),
+        ('81', 'La table aliment → méthode')],
+    5: [('82', 'Le feu au chalet'), ('83', 'Poêles à bois et rendement'), ('84', 'Ouvrir et fermer le chalet'), ('85', 'Éclairage'),
+        ('86', 'L’électricité du chalet et le froid mécanique'), ('87', 'Sans propane'), ('88', 'Le pain'),
+        ('89', 'Raquettes et toboggan'), ('90', 'Le canot : réparer, porter, en refaire un'), ('91', 'Petits fruits'),
+        ('92', 'Plantes comestibles boréales'), ('93', 'Champignons'), ('94', 'Sève, gomme, écorces'), ('95', 'Jardin nordique'),
+        ('96', 'Faire la terre sans rien acheter'), ('97', 'Allonger la saison'), ('98', 'Ce qui nourrit un hiver'),
+        ('99', 'Les façons de faire d’autrefois'), ('100', 'Semences'), ('101', 'Petit élevage')],
+    6: [('102', 'De la peau au cuir'), ('103', 'Babiche, tendons, cordage'), ('104', 'Coudre et chausser'),
+        ('105', 'Affûter, limer, aiguiser'), ('106', 'Scie à chaîne et petits moteurs'), ('107', 'Souder, braser, réparer le métal'),
+        ('108', 'Le stock de pièces et de consommables'), ('109', 'Leviers, poulies, treuils'), ('110', 'Assemblages bois-bois'),
+        ('111', 'Trempe et travail du métal à chaud'), ('112', 'Savon et chandelles')],
+}
+# ------------------------------------------------------------------ tranche
+# Blurb : la tranche ne se calcule pas, elle se lit au calculateur, par paliers (sources/blurb-specifications.md §2,
+# relevé du 27 septembre 2026 : 8 × 10, couverture souple, papier Standard). (pages, tranche en po)
+BLURB_SOUPLE = [(20, .056), (24, .056), (40, .125), (60, .181), (80, .181), (100, .25), (120, .306), (140, .306),
+                (160, .375), (180, .431), (200, .5), (220, .5), (240, .556), (260, .625), (280, .625), (300, .681),
+                (320, .75), (340, .806), (360, .806), (380, .875), (400, .931), (420, .931), (440, 1.0)]
+# Pages par tome : COMPTES RÉELS des six tomes réassemblés le 29 septembre 2026 (livre/tome-N/rapport.md,
+# design/outils/assembler-tome.py ; photos ajoutées : tome 3 passe de 332 à 334, les autres ne bougent pas ;
+# planches du ch. 62, 29 septembre 10 h 23 : tome 4 passe de 284 à 298, même tranche, 0,681 po ; choix de JP
+# sur les noms et le grain, ch. 62 à 64 et 81, réassemblé le même jour : 298, inchangé).
+# Un tome réassemblé qui change de nombre de pages arrête l'outil (verifier) : on remet le compte ici, et la
+# couverture se refait avec sa nouvelle tranche.
+PAGES = {1: 332, 2: 416, 3: 334, 4: 298, 5: 438, 6: 200}
+
+def palier(pages):
+    """Paliers du tableau : 1/16 po (4,5 pt) toutes les 28 pages, arrondi au point inférieur. Les 23 lignes du
+    tableau et les six réponses du calculateur pour les tomes assemblés suivent toutes cette lecture (vérifié
+    plus bas) ; ce n'est pas une règle publiée par Blurb."""
+    return round(int(4.5 * -(-pages // 28)) / 72, 3)
+
+assert all(palier(n) == t for n, t in BLURB_SOUPLE), 'la lecture des paliers ne redonne plus le tableau de Blurb'
+
+def tranche(pages):
+    """Tranche en po, au tableau de Blurb, et la ligne qui la donne. Entre deux lignes, le palier est celui de
+    l'une des deux lignes qui encadrent le compte (vérifié), jamais une interpolation."""
+    if not 20 <= pages <= 440 or pages % 2:
+        raise ValueError('%d pages : Blurb veut un nombre pair de 20 à 440 (papier Standard)' % pages)
+    for n, t in BLURB_SOUPLE:
+        if pages == n:
+            return t, 'ligne %d p. du tableau' % n
+    bas = max(l for l in BLURB_SOUPLE if l[0] < pages)
+    haut = min(l for l in BLURB_SOUPLE if l[0] > pages)
+    t = palier(pages)
+    assert t in (bas[1], haut[1]), (pages, t, bas, haut)
+    n = bas[0] if t == bas[1] else haut[0]
+    return t, 'entre %d p. (%s) et %d p. (%s) du tableau : palier de la ligne %d' % (bas[0], bas[1], haut[0], haut[1], n)
+
+SPINE, PROV = {}, {}
+for _k, _p in PAGES.items():
+    SPINE[_k], PROV[_k] = tranche(_p)
+
+def rapport_tome(k):
+    """(pages, tranche en po) lus dans livre/tome-k/rapport.md (réponse du calculateur), ou None."""
+    f = os.path.join(ROOT, 'livre', 'tome-%d' % k, 'rapport.md')
+    if not os.path.exists(f):
+        return None
+    s = open(f, encoding='utf-8').read()
+    p = re.search(r'Calculateur de Blurb interrogé .*? pour \*\*(\d+) pages\*\*.*?couverture \*\*souple\*\*', s)
+    t = re.search(r'\*\*Tranche\s*:\s*([\d.]+)\s*x\s*10\.25 po', s)
+    ch = re.findall(r'^\|\s*[\d–]+\s*\|\s*ch\.\s*(\w+)\s*—\s*(.+?)\s*\|', s, re.M)
+    return (int(p.group(1)) if p else None, float(t.group(1)) if t else None, ch)
+
+def verifier():
+    """Le compte de PAGES, la tranche du tableau et le sommaire contre le rapport d'assemblage de chaque tome."""
+    notes, erreurs = [], []
+    for k in sorted(PAGES):
+        r = rapport_tome(k)
+        if not r:
+            notes.append('tome %d : pas de rapport d\'assemblage, compte de PAGES pris tel quel' % k)
+            continue
+        pages, tr, ch = r
+        if pages is not None and pages != PAGES[k]:
+            erreurs.append('tome %d : %d pages dans PAGES, %d dans livre/tome-%d/rapport.md — remettre le compte' % (k, PAGES[k], pages, k))
+        if tr is not None and pages == PAGES[k] and abs(tr - SPINE[k]) > 0.0005:
+            erreurs.append('tome %d : tranche %s au tableau, %s au calculateur (rapport)' % (k, SPINE[k], tr))
+        if ch:
+            du_rapport = [(n, t.replace("'", '’')) for n, t in ch]
+            if du_rapport != [(n, t.replace("'", '’')) for n, t in SOMMAIRE[k]]:
+                erreurs.append('tome %d : le sommaire ne suit plus le rapport : %s' % (k, du_rapport))
+    return notes, erreurs
+
+# ------------------------------------------------------------------ dessins des quatrièmes
+# Une vue d'une planche VALIDÉE (images/validees/), sans ses renvois ni sa légende : le groupe data-vue de la planche
+# (les renvois sont hors des groupes), ses motifs de hachure, recolorés à l'encre et au fond du tome.
+# vb : boîte de la vue en unités de la planche (getBBox dans Edge, plus 2,5 de marge pour le trait).
+# Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × 2,66 po.
+ECH = 7.0 / 612
+LMAX, HMAX = 7.0, 2.66
+TRAIT = {
+    1: dict(planche='planche-13-01-arc-feu.svg', vue='monte', vb=(53.5, 49.5, 573, 354), fic='trait-13-01',
+            cap='Ch. 13 · L’arc à feu'),
+    # le repère de coupe A–A (trait mixte, flèches, deux « A » en Georgia), ajouté à la planche le 28 septembre après
+    # les couvertures, sort (29 septembre) : il renvoie à la vue « Coupe A–A », absente de la couverture
+    2: dict(planche='planche-26-08-attelle-ecorce-moulee-echarpe.svg', vue='mouler', vb=(300.2, 45.5, 302, 270.5),
+            fic='trait-26-08', cap='Ch. 26 · L’attelle d’écorce moulée',
+            sans=[r'x1="114" y1="186" x2="114" y2="272"', r'x1="114" y1="186" x2="114" y2="193"',
+                  r'x1="114" y1="186" x2="110" y2="186"', r'd="M110\.5,183 L104,186 L110\.5,189 Z"',
+                  r'x="114" y="180"[^>]*>A<', r'x1="114" y1="272" x2="114" y2="265"',
+                  r'x1="114" y1="272" x2="110" y2="272"', r'd="M110\.5,269 L104,272 L110\.5,275 Z"',
+                  r'x="114" y="287"[^>]*>A<']),
+    3: dict(planche='planche-60-01-verveux-cerceaux-monte-pose.svg', vue='coupe', vb=(41.5, 66.1, 544.8, 162.8),
+            fic='trait-60-01', cap='Ch. 60 · Le verveux sur cerceaux'),
+    # la cote « 2 ou 3 pas » et ses lignes de rappel sortent : une cote sans son chapitre ne dit rien sur une couverture
+    4: dict(planche='planche-71-02-fumoir-baril-conduit-enterre.svg', vue='coupe', vb=(37.5, 48.5, 605, 200),
+            fic='trait-71-02', cap='Ch. 71 · Le fumoir de baril sur conduit enterré',
+            sans=[r'x1="140" y1="112" x2="447" y2="112"', r'x1="140" y1="106" x2="140" y2="118"',
+                  r'x1="447" y1="106" x2="447" y2="118"', r'>2 ou 3 pas<', r'x1="140" y1="118" x2="140" y2="136.5"']),
+    5: dict(planche='planche-95-09-chassis-froid.svg', vue='monte', vb=(165.3, 65.6, 352.1, 182.9), fic='trait-95-09',
+            cap='Ch. 95 · Le châssis froid'),
+    # le trait du tome 4 d'avant (planche 84-09, devenue 107-09), déjà nettoyé de ses renvois, à l'encre du fleuve
+    6: dict(source='trait-84-09-clair.svg', encre_source='#EDF2F5', taille=(612, 208), fic='trait-107-09',
+            cap='Ch. 107 · Souder avec deux batteries'),
+}
+
+def _sans_commentaires(s):
+    return re.sub(r'<!--.*?-->', '', s, flags=re.S)
+
+def _groupe(s, vue):
+    """Le <g data-vue="vue"> complet, groupes imbriqués compris."""
+    i = s.index('data-vue="%s"' % vue)
+    a = s.rindex('<g', 0, i)
+    d = 0
+    for m in re.finditer(r'<(/?)g\b[^>]*?(/?)>', s[a:]):
+        if m.group(1):
+            d -= 1
+        elif not m.group(2):
+            d += 1
+        if d == 0:
+            return s[a:a + m.end()]
+    raise ValueError('groupe %s non fermé' % vue)
+
+def _recolorer(s, fond, encre):
+    s = re.sub(r'#1A1A1A\b|#000000\b|#000\b', encre, s, flags=re.I)
+    s = re.sub(r'#FFFFFF\b|#FFF\b', fond, s, flags=re.I)
+    reste = set(c.upper() for c in re.findall(r'#[0-9A-Fa-f]{6}\b|#[0-9A-Fa-f]{3}\b', s)) - {fond.upper(), encre.upper()}
+    if reste:
+        raise ValueError('couleurs non prévues dans le dessin : %s' % sorted(reste))
+    return s
+
+def traits():
+    tailles = {}
+    for k, t in TRAIT.items():
+        fond, encre, nom, slug = COUL[k]
+        sortie = os.path.join(D1, '%s-%s.svg' % (t['fic'], slug))
+        if 'source' in t:
+            s = open(os.path.join(D1, t['source']), encoding='utf-8').read()
+            s = s.replace('Trait tiré de la planche 84-09', 'Trait tiré de la planche 107-09')
+            open(sortie, 'w', encoding='utf-8').write(s.replace(t['encre_source'], encre))
+            w, h = t['taille']
+        else:
+            s = open(os.path.join(IMG, t['planche']), encoding='utf-8').read()
+            titre = re.search(r'<title>(.*?)</title>', s).group(1)
+            defs = re.search(r'<defs>.*?</defs>', s, re.S)
+            corps = _sans_commentaires(_groupe(s, t['vue']))
+            for motif in t.get('sans', []):
+                corps, n = re.subn(r'^.*%s.*\n?' % motif, '', corps, flags=re.M)
+                if n != 1:
+                    raise ValueError('%s : « %s » trouvé %d fois' % (t['planche'], motif, n))
+            out = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="%g %g %g %g" role="img">\n'
+                   '<title>Trait tiré de la %s — vue « %s », sans renvois</title>\n%s\n%s\n</svg>\n') % (
+                t['vb'] + (esc(titre[0].lower() + titre[1:]), t['vue'], _sans_commentaires(defs.group(0)) if defs else '', corps))
+            open(sortie, 'w', encoding='utf-8').write(_recolorer(out, fond, encre))
+            w, h = t['vb'][2], t['vb'][3]
+        e = min(ECH, LMAX / w, HMAX / h)
+        tailles[k] = (w * e, h * e)
+    return tailles
+
+# ------------------------------------------------------------------ gabarits HTML
+esc = lambda s: s.replace('&', '&amp;').replace('<', '&lt;')
+
+def serie(on):
+    parts = []
+    for k in range(1, 7):
+        d = TOMES[k]
+        parts.append('<div class="s%d%s"><i>%d</i><small>%s–%s</small></div>' % (k, ' on' if k == on else '', k, d['ch'][0], d['ch'][1]))
+    return '<div class="serie">' + ''.join(parts) + '</div>'
+
+def avant_in(k):
+    d = TOMES[k]
+    style = 'font-size:%gpt' % d['taille'] + (';line-height:%g' % d['interligne'] if 'interligne' in d else '')
+    return ('<div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome %d sur 6</span></div>\n'
+            '  <div class="num">%d</div>\n'
+            '  <div class="ttl"><h1 style="%s">%s</h1><div class="ch"><b>Chapitres %s à %s</b>'
+            '<span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>\n  %s') % (
+        k, k, style, '<br>'.join(esc(l) for l in d['h1']), d['ch'][0], d['ch'][1], serie(k))
+
+def avant(k):
+    return ('<section class="sheet front t%d" id="f%d" data-tome="%d"><div class="panel"><div class="in">\n  %s\n</div></div></section>\n'
+            % (k, k, k, avant_in(k)))
+
+def complete(k, tailles):
+    d = TOMES[k]
+    t = TRAIT[k]
+    w, h = tailles[k]
+    img = '<img src="%s-%s.svg" alt="" style="width:%.3fin;height:%.3fin;margin-top:auto">' % (t['fic'], COUL[k][3], w, h)
+    lis = ''.join('<li><b>%s</b>%s</li>' % (n, esc(x)) for n, x in SOMMAIRE[k])
+    return f'''<section class="sheet full t{k}" id="full{k}" data-tome="{k}" style="--spine:{SPINE[k]}in;page:full{k}">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome {k} · {esc(d['titre'])}</span></div>
+    <div class="txt">
+      <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres {d['ch'][0]} à {d['ch'][1]}</h2>
+      <ol>{lis}</ol>
+    </div>
+    <div class="trait">{img}<div class="cap">{t['cap']}</div></div>
+    {serie(k)}
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">{k}</div><div class="rule"></div><div class="vt"><b>{esc(d['titre'])}</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+  {avant_in(k)}
+  </div></div>
+</section>
+'''
+
+CSS = r'''
+/* =====================================================================
+   COUVERTURES DES SIX TOMES — couverture souple Blurb, 8 × 10 po rogné.
+   Fond perdu 0,125 po partout sur la couverture complète.
+   TRANCHE : variable --spine, posée sur chaque couverture complète par le générateur à partir du nombre de
+   pages RÉEL du tome (PAGES, tomes réassemblés le 29 septembre 2026) et du tableau du calculateur de Blurb
+   (sources/blurb-specifications.md). Largeur du PDF = 16,25 po + tranche.
+   Page d'impression : la couverture plus un demi-point au moins, en points entiers (Edge ne rend pas la
+   taille au point près) ; --decouper remet chaque couverture à la mesure exacte de Blurb.
+   ===================================================================== */
+@page front { size: 585pt 738pt; margin: 0; }
+@page full  { size: 1242pt 738pt; margin: 0; }
+%PAGES_FULL%
+:root{
+  --spine:1.0in;
+  --sans:'IBM Plex Sans Condensed','Arial Narrow',sans-serif;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --ink:#111;
+}
+%COULEURS%
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{position:relative;overflow:hidden;background:var(--c);color:var(--ink);break-after:page}
+.sheet:last-of-type{break-after:auto}
+.sheet.front{page:front;width:8.125in;height:10.25in}
+/* + 1px : Chrome arrondit la largeur du fond au pixel inférieur (17,181 po -> 1649 px = 17,177 po), ce qui laissait
+   un filet blanc de 0,3 pt au bord du fond perdu ; le pixel de plus déborde dans la bande que --decouper retire */
+.sheet.full{page:full;width:calc(16.25in + var(--spine) + 1px);height:10.25in}
+
+/* ---------- panneau (avant ou arrière), 8 × 10 rogné ---------- */
+.panel{position:absolute;top:0.125in;width:8in;height:10in}
+.front .panel{left:0}
+.full .back{left:0.125in}
+.full .spine{left:8.125in;width:var(--spine)}
+.full .fr{left:calc(8.125in + var(--spine))}
+.in{position:absolute;left:0.5in;right:0.5in;top:0.5in;bottom:0.5in}
+
+.hd{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:6pt;border-bottom:5pt solid var(--ink);
+  font:700 13.5pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.hd .r{font-weight:600;font-size:11pt;letter-spacing:.14em}
+.num{position:absolute;right:-0.06in;bottom:0.66in;font:700 420pt/0.72 var(--sans);letter-spacing:-.03em;text-align:right}
+.ttl{position:absolute;left:0;right:0;top:0.62in}
+.ttl h1{margin:0;font:700 86pt/1.13 var(--sans);text-transform:uppercase;letter-spacing:-.005em;padding-bottom:10pt;border-bottom:2.5pt solid var(--ink);white-space:nowrap}
+.ttl .ch{display:flex;justify-content:space-between;align-items:baseline;padding-top:8pt}
+.ttl .ch b{font:700 17pt/1 var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.ttl .ch span{font:500 11pt/1.2 var(--sans);letter-spacing:.02em;text-align:right}
+
+/* barre de série : les six tomes au prorata des chapitres (20, 22, 20, 21, 20, 11) */
+.serie{position:absolute;left:0;right:0;bottom:0.02in;display:flex;gap:3pt}
+.serie div{display:flex;flex-direction:column;gap:3pt;min-width:0}
+.serie i{display:block;height:0.3in;border:1.25pt solid var(--ink);font:700 12pt/0.28in var(--sans);font-style:normal;padding-left:5pt}
+.serie div.on i{background:var(--ink);color:var(--c)}
+.serie small{font:600 8pt/1 var(--sans);letter-spacing:.06em;white-space:nowrap}
+.s1{flex:20}.s2{flex:22}.s3{flex:20}.s4{flex:21}.s5{flex:20}.s6{flex:11}
+
+/* ---------- tranche ---------- */
+/* titre de tranche : 26 pt pour les six (31 pt sur les quatre tomes d'avant) — « La forêt, le jardin et le chalet »
+   est le plus long et doit laisser la place au nom de la série en pied */
+.spine .sp{position:absolute;inset:0.42in 0 0.45in 0;display:flex;flex-direction:column;align-items:center}
+/* chiffre de tranche : 58 pt, réduit sur une tranche mince pour garder 1/16 po de chaque côté des plis (la
+   tolérance de coupe de Blurb ; le titre de 26 pt, capitales ≈ 18 pt, garde la même marge sur la plus mince).
+   Le chiffre fait environ 0,55 em de large. Seul le tome 6 descend : 200 p., 0,5 po -> ≈ 49 pt.
+   Le filet suit : jamais plus court que 70 % de la tranche, la largeur du chiffre sur la plus mince. */
+.spine .sn{font:700 58pt/0.8 var(--sans);font-size:min(58pt, calc((var(--spine) - 0.125in) / 0.55));padding-top:4pt;
+  height:calc(46.4pt + 4pt);box-sizing:border-box;display:flex;align-items:flex-end}  /* boîte fixe : le filet reste à la même hauteur sur les six */
+.spine .rule{width:max(calc(100% - 0.22in), calc(var(--spine) * 0.7));height:0;border-top:3pt solid var(--ink);margin:10pt 0 12pt}
+.spine .vt{flex:1;writing-mode:vertical-rl;text-orientation:sideways;display:flex;justify-content:space-between;align-items:center;width:100%}
+.spine .vt b{font:700 26pt/1 var(--sans);text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+.spine .vt span{font:700 8.5pt/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+
+/* ---------- quatrième ---------- */
+.back .txt{position:absolute;top:0.55in;left:0;right:0.3in;font:400 12.5pt/17pt var(--serif)}
+.back .txt p{margin:0 0 8pt}
+.back .txt strong{font-weight:700}
+.back .toc{position:absolute;top:2.2in;left:0;right:0}
+.back .toc h2{margin:0 0 5pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
+.back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.3in;font:500 10pt/13.2pt var(--sans)}
+.back .toc li{display:flex;gap:6pt;break-inside:avoid;border-bottom:0.5pt solid var(--fil)}
+.back .toc li b{width:22pt;flex:none;font-weight:700}
+.back .trait{position:absolute;left:0;right:0;top:5.05in;height:2.9in;display:flex;flex-direction:column}
+.back .trait img{display:block;flex:none}
+.back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
+
+/* ---------- aperçus écran ---------- */
+@media screen{
+  body.v{background:#cfcfcf;min-height:100vh}
+  .trim{position:relative;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.2),0 6px 18px rgba(0,0,0,.18);flex:none}
+  .trim .sheet{position:absolute}
+  .front-trim{width:8in;height:10in}.front-trim .sheet{left:0;top:-0.125in}
+  .full-trim{width:calc(16in + var(--spine));height:10in}.full-trim .sheet{left:-0.125in;top:-0.125in}
+  .spine-trim{width:var(--spine);height:10in;box-shadow:inset -6px 0 10px -6px rgba(0,0,0,.35),inset 6px 0 10px -6px rgba(255,255,255,.25)}
+  .spine-trim .sheet{left:-8.125in;top:-0.125in}
+  .lab{font:600 22px/1.25 var(--sans);color:#2b2b2b;letter-spacing:.02em}
+  .lab b{font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .lab i{font-style:normal;color:#555}
+  .shelf{display:flex;align-items:flex-end;gap:0;padding:0.6in 1.2in 0;border-bottom:0.6in solid #6b5a45}
+  /* vues */
+  .v-avants .wrap{zoom:.25;display:flex;gap:0.7in;padding:0.8in}
+  .v-56 .wrap{zoom:.5;display:flex;flex-direction:column;gap:0.55in;padding:0.6in 0.7in}
+  .v-56 .lab{font-size:30px}
+  .v-tab .wrap{zoom:.5}
+  .v-tab .shelf{justify-content:center}
+  .v-six .wrap{zoom:.3;display:grid;grid-template-columns:auto auto;gap:0.5in 0.8in;padding:0.7in 0.9in;justify-content:start;align-items:end}
+  .v-six .col{display:flex;flex-direction:column;gap:0.2in}
+  .v-six .lab{font-size:52px}
+  .v-un .wrap{zoom:.5;padding:0.3in}
+}
+'''
+
+SCRIPT = r'''
+<script>
+(function(){
+  const faces=['700 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','400 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"'];
+  const NOMS=%NOMS%;
+  const HEX=%HEX%;
+  const INFO=%INFO%;
+  Promise.all(faces.map(f=>document.fonts.load(f,'aéÀ−’→'))).then(()=>document.fonts.ready).then(()=>{
+    const h=location.hash;
+    const el=(t,c,html)=>{const e=document.createElement(t);if(c)e.className=c;if(html!=null)e.innerHTML=html;return e;};
+    const trim=(sheet,kind)=>{const t=el('div','trim '+kind+'-trim');const sp=sheet.style.getPropertyValue('--spine');if(sp)t.style.setProperty('--spine',sp);t.appendChild(sheet);return t;};
+    const cl=id=>{const s=document.getElementById(id).cloneNode(true);s.removeAttribute('id');return s;};
+    const etagere=()=>{const r=el('div','shelf');[1,2,3,4,5,6].forEach(k=>r.appendChild(trim(cl('full'+k),'spine')));return r;};
+    const lab=(k,extra)=>el('div','lab','<b>'+NOMS[k]+'</b> '+HEX[k]+' <i>· tome '+k+', '+INFO[k]+(extra?' · '+extra:'')+'</i>');
+    const go=(cls,wrap)=>{document.body.innerHTML='';document.body.className='v '+cls;document.body.appendChild(wrap);};
+    let m;
+    if(h==='#avants'){
+      const w=el('div','wrap');[1,2,3,4,5,6].forEach(k=>w.appendChild(trim(cl('f'+k),'front')));go('v-avants',w);
+    } else if(h==='#couvertures-5-6'){
+      const w=el('div','wrap');
+      [5,6].forEach(k=>{w.appendChild(lab(k,'quatrième | tranche | avant'));w.appendChild(trim(cl('full'+k),'full'));});
+      go('v-56',w);
+    } else if(h==='#completes'){
+      const w=el('div','wrap');
+      [1,2,3,4,5,6].forEach(k=>{const c=el('div','col');c.appendChild(lab(k));c.appendChild(trim(cl('full'+k),'full'));w.appendChild(c);});
+      go('v-six',w);
+    } else if(h==='#tablette'){
+      const w=el('div','wrap');w.appendChild(etagere());go('v-tab',w);
+    } else if((m=h.match(/^#tome-(\d)$/))){
+      const w=el('div','wrap');w.appendChild(trim(cl('full'+m[1]),'full'));go('v-un',w);
+    }
+    document.documentElement.dataset.ready='1';
+  });
+})();
+</script>
+'''
+
+POLICES = ('<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=block" rel="stylesheet">\n'
+           # la flèche (ch. 81) n'est pas dans le sous-ensemble latin de Google : second lien, qui la recharge de Plex
+           '<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&text=%E2%86%92%E2%88%92&display=block" rel="stylesheet">\n')
+
+def page_edge(pouces):
+    """Largeur de page pour Edge, en pt entiers : la couverture et son pixel de débord, plus un demi-point. Edge ne rend pas la
+    taille demandée au point près (17,1833 po sort à 17,18 ; 8,125 à 8,1267) ; une page un peu plus large que la
+    couverture ne perd rien (la bande en trop est à droite, hors du fond perdu), et --decouper la retire."""
+    return math.ceil(pouces * 72 + 0.75 + 0.5)       # le fond déborde d'un pixel (0,75 pt), voir .sheet.full
+
+def main():
+    notes, erreurs = verifier()
+    for n in notes:
+        print('  note :', n)
+    if erreurs:
+        for e in erreurs:
+            print('  ERREUR :', e)
+        sys.exit(1)
+    tailles = traits()
+    couleurs = '\n'.join('.t%d{--c:%s;--ink:%s;--fil:%s} /* %s */' % (
+        k, f, i, 'rgba(%d,%d,%d,.45)' % tuple(int(i[j:j + 2], 16) for j in (1, 3, 5)), n) for k, (f, i, n, s) in COUL.items())
+    pages_full = '\n'.join('@page full%d { size: %dpt 738pt; margin: 0; }  /* tome %d : %d p. -> tranche %s po (%s) ; PDF %.3f po */' % (
+        k, page_edge(16.25 + SPINE[k]), k, PAGES[k], SPINE[k], PROV[k], 16.25 + SPINE[k]) for k in sorted(SPINE))
+    css = CSS.replace('%COULEURS%', couleurs).replace('%PAGES_FULL%', pages_full)
+    corps = ['<!-- ============ LES SIX AVANTS ============ -->\n']
+    corps += [avant(k) for k in range(1, 7)]
+    corps.append('<!-- ============ COUVERTURES COMPLÈTES : quatrième | tranche | avant ============ -->\n')
+    corps += [complete(k, tailles) for k in range(1, 7)]
+    noms = '{' + ','.join("%d:'%s'" % (k, n.capitalize()) for k, (f, i, n, s) in COUL.items()) + '}'
+    hexes = '{' + ','.join("%d:'%s'" % (k, f) for k, (f, i, n, s) in COUL.items()) + '}'
+    info = '{' + ','.join("%d:'%d p., tranche %s po'" % (k, PAGES[k], str(SPINE[k]).replace('.', ',')) for k in sorted(SPINE)) + '}'
+    html = ('<!DOCTYPE html>\n<html lang="fr-CA">\n<head>\n<meta charset="utf-8">\n'
+            '<title>Le Grand Livre du Chalet — couvertures des six tomes</title>\n'
+            '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+            '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' + POLICES +
+            '<!-- Généré par outils/build_couvertures_6.py : ne pas modifier à la main. -->\n'
+            '<style>' + css + '\n</style>\n</head>\n<body>\n\n'
+            + ''.join(corps) + SCRIPT.replace('%NOMS%', noms).replace('%HEX%', hexes).replace('%INFO%', info) + '</body>\n</html>\n')
+    open(os.path.join(D1, 'couvertures-nordique-6.html'), 'w', encoding='utf-8').write(html)
+    print('couvertures-nordique-6.html', len(html), 'octets')
+    for k in sorted(SPINE):
+        print('tome %d : %d p. -> tranche %s po (%s), PDF %.3f x 10.25 po ; dessin %.2f x %.2f po' % (
+            k, PAGES[k], SPINE[k], PROV[k], 16.25 + SPINE[k], tailles[k][0], tailles[k][1]))
+
+# ------------------------------------------------------------------ un PDF par tome
+def polices_pdf(page):
+    """(noms, non incorporées) des polices de la page, formulaires compris."""
+    vues, non = set(), set()
+    def res(r, seen):
+        r = r.get_object() if r is not None else None
+        if not r or id(r) in seen:
+            return
+        seen.add(id(r))
+        for f in (r.get('/Font') or {}).values():
+            f = f.get_object()
+            nom = str(f.get('/BaseFont', 'Type3' if f.get('/Subtype') == '/Type3' else '?'))
+            vues.add(nom)
+            desc = f.get('/FontDescriptor')
+            if f.get('/Subtype') == '/Type0':
+                desc = f['/DescendantFonts'][0].get_object().get('/FontDescriptor')
+            if f.get('/Subtype') != '/Type3':
+                desc = desc.get_object() if desc else {}
+                if not any(x in desc for x in ('/FontFile', '/FontFile2', '/FontFile3')):
+                    non.add(nom)
+        for x in (r.get('/XObject') or {}).values():
+            x = x.get_object()
+            if x.get('/Subtype') == '/Form':
+                res(x.get('/Resources'), seen)
+    res(page.get('/Resources'), set())
+    return vues, non
+
+def decouper():
+    import pypdf
+    from pypdf.generic import RectangleObject
+    src = os.path.join(D1, 'couvertures-nordique-6.pdf')
+    r = pypdf.PdfReader(src)
+    if len(r.pages) != 12:
+        sys.exit('%s : %d pages, 12 attendues (six avants, six couvertures complètes)' % (src, len(r.pages)))
+    lignes = []
+    for k in range(1, 7):
+        pg_src = r.pages[5 + k]
+        W, H = (16.25 + SPINE[k]) * 72, 10.25 * 72
+        w0, h0 = float(pg_src.mediabox.width), float(pg_src.mediabox.height)
+        if w0 + 0.01 < W or abs(h0 - H) > 0.5:
+            sys.exit('tome %d : page imprimée à %.2f x %.2f pt, %.2f x %.2f attendus' % (k, w0, h0, W, H))
+        w = pypdf.PdfWriter()
+        pg = w.add_page(pg_src)
+        full = RectangleObject([0, h0 - H, W, h0])       # le haut de la page imprimée, sa largeur exacte
+        pg.mediabox = full; pg.cropbox = full; pg.bleedbox = full
+        pg.trimbox = RectangleObject([9, h0 - H + 9, W - 9, h0 - 9])
+        w.add_metadata({'/Title': 'Le Grand Livre du Chalet — Tome %d · %s — couverture' % (k, TOMES[k]['titre']),
+                        '/Author': 'Le Grand Livre du Chalet',
+                        '/Creator': 'design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py'})
+        cible = os.path.join(ROOT, 'livre', 'tome-%d' % k, 'couverture.pdf')
+        with open(cible + '.tmp', 'wb') as f:
+            w.write(f)
+        os.replace(cible + '.tmp', cible)
+        # contrôle du fichier écrit
+        c = pypdf.PdfReader(cible)
+        p = c.pages[0]
+        mb = [round(float(x), 3) for x in p.mediabox]
+        vues, non = polices_pdf(p)
+        # le fond de la couverture couvre-t-il toute la page ? premier aplat de couleur du flux d'Edge (en px CSS,
+        # 0,75 pt le px) : sa largeur, comparée à la page exacte
+        m = re.search(r'rg\s+/NonStruct <</MCID 0 >>BDC\s+0 [\d.]+ ([\d.]+) ([\d.]+) re',
+                      p.get_contents().get_data().decode('latin-1'))
+        fond = float(m.group(1)) * 0.75 if m else None
+        if fond is None:
+            print('  tome %d : largeur du fond non lue dans le flux du PDF (à regarder)' % k)
+        ok = (len(c.pages) == 1 and abs(float(p.mediabox.width) - W) < 0.01 and abs(float(p.mediabox.height) - H) < 0.01
+              and not non and not any('Type3' in v for v in vues) and (fond is None or fond >= W - 0.01))
+        if fond is not None and fond < W - 0.01:
+            print('  tome %d : le fond s\'arrête à %.2f pt, la page fait %.2f pt' % (k, fond, W))
+        lignes.append((k, W / 72, H / 72, len(c.pages), mb, sorted(vues), sorted(non), os.path.getsize(cible), ok))
+        print('tome %d : %s — %d page, %.3f x %.3f po, %d Ko, polices %s%s — %s' % (
+            k, os.path.relpath(cible, ROOT), len(c.pages), float(p.mediabox.width) / 72, float(p.mediabox.height) / 72,
+            os.path.getsize(cible) // 1024, ', '.join(sorted(vues)), (' ; NON INCORPORÉES : ' + ', '.join(sorted(non))) if non else '',
+            'conforme' if ok else 'À REVOIR'))
+    if not all(l[-1] for l in lignes):
+        sys.exit(1)
+
+if __name__ == '__main__':
+    if '--decouper' in sys.argv:
+        decouper()
+    else:
+        main()

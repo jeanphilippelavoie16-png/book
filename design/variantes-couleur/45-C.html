@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>45 — Les armes, les munitions et l’arc — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"45"}
+</style>
+</head>
+<body class="vA vB vC t3 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 3 · Prélever</span><span>Chapitre</span></div><div class="open-title"><div class="num">45</div><h1>Les armes, les munitions et l’arc</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">L’arme sert au chalet, là où est le gibier, et c’est là que le froid, l’air salin du fleuve et les allers-retours entre le poêle et le dehors l’usent. À la maison du village, une seule chose compte : les cartouches se gardent au frais et au sec, loin de la fournaise et du chauffe-eau, et elles montent au chalet quand l’événement s’étire.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">La cartouche est le seul outil du tome 3 qui ne se refait pas au chalet : gardée fraîche, sèche et loin de toute huile, elle ne vieillit à peu près pas, et quand la boîte baisse, un arc de mélèze fendu et une flèche à tête ronde prennent le petit gibier pour que les dernières balles aillent à l’orignal.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<p class="p0 lab kh"><strong class="runin">Quand ce chapitre sert.</strong></p>
+<p class="li"><strong>En août, avant l’ouverture.</strong> Compter (<span class="ref">§5-A</span>) et régler (<span class="ref">§5-F</span>). Le réglage de septembre peut ne plus valoir en janvier : il se revérifie au froid, avec des cartouches restées dehors (<span class="ref">§3</span>).</p>
+<p class="li"><strong>Chaque fois que l’arme passe du froid au chaud.</strong> Elle sue pendant une heure, et cette eau gèle dans le mécanisme à la sortie suivante (<span class="ref">§5-C</span>).</p>
+<p class="li"><strong>Le jour où le stock de cartouches devient un stock fini</strong> (<span class="ref">ch. 41</span>). La carabine ne sert plus qu’au gros gibier, la .22 à ce que l’arc ne prend pas, et le reste passe aux engins et à l’arc (<span class="ref">§9</span>).</p>
+<p class="li"><strong>Quand on hérite de vieilles cartouches militaires.</strong> Leur amorce peut être corrosive, et le canon se lave à l’eau le soir même (<span class="ref">§5-E</span>).</p>
+<p class="li"><strong>Tout l’hiver d’avant, pour apprendre l’arc.</strong> Un arc de fortune se fait vite ; tirer juste avec lui demande une longue pratique, et elle se prend avant le jour où la boîte est vide.</p>
+<p class="p0 lab kh"><strong class="runin">Quand c’est un mauvais choix.</strong></p>
+<p class="li"><strong>L’arc de bille contre l’orignal, l’ours ou le phoque.</strong> Un arc qu’on n’a pas mesuré, avec une flèche sans tranchant, blesse une grosse bête et la laisse partir mourir ailleurs. La <span class="ref">§9</span> dit ce qu’il faudrait mesurer avant même d’y penser.</p>
+<p class="li"><strong>Sécher au poêle des cartouches mouillées.</strong> La chaleur ne sèche pas l’intérieur ; elle altère la poudre et peut faire partir la cartouche (<span class="ref">§8</span>, bloc 3).</p>
+<p class="li"><strong>Graisser l’arme en novembre comme en juillet.</strong> L’huile qui coule l’été fige au grand froid : le percuteur frappe mou et la cartouche ne part pas, ou il reste sorti et elle part quand on referme la culasse (<span class="ref">§3</span>).</p>
+<p class="li"><strong>Laisser l’arc bandé entre deux sorties</strong>, surtout près du poêle : le bois flue et l’arc perd son ressort pour de bon (<span class="ref">§3</span>).</p>
+<p class="li"><strong>Tailler l’élastique d’un lance-pierre dans n’importe quelle chambre à air.</strong> La plupart sont faites pour garder l’air, pas pour rebondir ; l’essai de la <span class="ref">§9</span> tranche en deux secondes.</p>
+<p class="li"><strong>Boucher la bouche du canon pour l’hiver.</strong> Le bouchon garde l’humidité dans l’âme, et la rouille commence là (<span class="ref">§5-E</span>).</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">Une cartouche est un système fermé, et trois choses l’ouvrent : l’eau, l’huile, la chaleur.</strong> L’amorce qui touche de l’eau ou n’importe quel solvant — huile, graisse, essence, kérosène, diluant — se dégrade, et la cartouche rate ou allume mal. La poudre atteinte brûle mal : pression trop basse, pression trop haute, ou départ en retard. La chaleur fait pire, parce qu’elle s’entretient : une poudre chauffée se décompose en acide, et cet acide accélère la décomposition, jusqu’à la combustion spontanée dans les cas extrêmes. Les amorces se dégradent au-delà de <strong>65 °C</strong>, et une cabine de camion au soleil suffit à accélérer la dégradation d’une poudre : la tablette au-dessus du poêle est de la même famille. <strong>Le froid, lui, ne fait rien à une cartouche</strong> : une munition neuve fonctionne de l’Arctique sec à la forêt tropicale. Ce qui l’use au chalet, ce n’est pas l’hiver, c’est le passage répété du froid au chaud, qui la couvre d’eau. La .22, dont l’amorce est logée dans le bourrelet de la douille, craint l’humidité bien plus que les autres — et c’est la cartouche qu’on tire le plus.</p>
+<p class="p0 ri"><strong class="runin">L’acier froid sue dans l’air chaud.</strong> L’air du chalet porte de la vapeur d’eau ; elle se dépose sur tout ce qui est plus froid qu’elle, et une arme rentrée de −30 °C reste plus froide que l’air de la pièce pendant longtemps. La condensation continue <strong>jusqu’à une heure</strong>. Quand l’arme ressort, ce film gèle là où on ne le voit pas — sur le percuteur, dans la gâchette, entre le verrou et la boîte de culasse — et l’arme ne tire plus ou ne se referme plus. D’où la règle qui gouverne tout l’hiver : l’arme vit à la température du dehors, et ses cartouches avec elle.</p>
+<p class="p0 ri"><strong class="runin">L’huile qui fige fait rater.</strong> Une huile d’été épaissit au froid. Le percuteur n’est qu’une tige poussée par un ressort ; dans un film épais, il ralentit et frappe l’amorce trop mollement. L’huile en trop sur les pièces qui bougent les fait marcher mou, ou pas du tout : au grand froid, on enlève tout. Le froid rend aussi l’acier plus cassant, et ce qui casse d’abord, ce sont les pièces qui bougent et encaissent le recul : la gâchette et le percuteur.</p>
+<p class="p0 ri"><strong class="runin">Et la graisse épaisse peut faire l’inverse du raté.</strong> Une graisse trop épaisse, de l’encrassement ou de la rouille dans le logement du percuteur peuvent le tenir <strong>en avant</strong>, sorti de la face de culasse. La cartouche part alors quand la culasse se referme, avant qu’on touche à la détente ; sur une semi-automatique, il en part une à chaque fermeture, jusqu’à ce que le chargeur soit vide. On s’attend au raté au froid, pas au départ en fermant : c’est la deuxième raison de dégraisser le logement du percuteur (étape 17), et la raison de fermer une culasse la bouche toujours dans une direction sûre.</p>
+<p class="p0 ri"><strong class="runin">Le froid déplace le zéro, et pas par où on croit.</strong> La poudre froide brûle plus lentement et la balle sort moins vite : d’une journée tempérée à −18 °C, une charge de chasse perd un peu plus de <strong>30 m/s</strong>, parfois près du double. À 100 m, ça ne fait tomber la balle que d’un centimètre au plus. Ce qui déplace vraiment l’impact au froid, c’est l’arme elle-même — le canon et la crosse qui le porte —, et le déplacement peut aller <strong>de côté</strong> autant que vers le bas, de plusieurs centimètres à 100 m, dans un sens que rien ne permet de deviner. Une seule façon de le savoir : tirer au froid, avec des cartouches restées dehors (étape 34). Sous <strong>-38 °C environ</strong>, le coup de feu fait en plus un brouillard de glace qui reste suspendu devant la mire par temps calme : le deuxième coup se tire d’un pas de côté.</p>
+<p class="p0 ri"><strong class="runin">Régler une arme, c’est de la géométrie.</strong> Une minute d’angle couvre <strong>2,9 cm à 100 m</strong> et 0,73 cm à 25 m ; un dixième de milliradian couvre <strong>1 cm à 100 m</strong>. La tourelle d’une lunette dit ce que vaut un clic ; le reste est une division. Sur une hausse et un guidon, déplacer la hausse déplace l’impact <strong>du même côté</strong>, déplacer le guidon le déplace <strong>de l’autre côté</strong>, et le mouvement est multiplié par le rapport entre la distance de tir et l’écart entre les deux mires. À 100 m, avec 60 cm entre hausse et guidon, 1 mm à la mire fait près de 17 cm sur la cible. Un guidon se lime au dixième de millimètre, pas au millimètre.</p>
+<p class="p0 ri"><strong class="runin">L’arc emmagasine le travail du bras dans du bois plié.</strong> Quand l’arc se bande, la face qui regarde la cible — <strong>le dos</strong> — s’étire, et celle qui regarde le tireur — <strong>le ventre</strong> — s’écrase. Le bois tient bien dans le sens du fil et mal en travers. Une pente de fil <strong>d’un sur cinq</strong> — le fil qui s’écarte du bord d’un centimètre tous les cinq centimètres — ne laisse plus qu’environ <strong>la moitié</strong> de la résistance en flexion et <strong>le tiers</strong> de la résistance au choc ; d’un sur dix, environ les quatre cinquièmes et les trois cinquièmes. Le fil se lit comme au <span class="ref">ch. 106</span> (<span class="ref">§5</span>.1). Une fibre coupée sur le dos est l’endroit exact où l’arc cassera. C’est pour ça qu’on <strong>fend</strong> la bille au lieu de la scier — la fente suit le fil, la scie le coupe — et qu’on ne touche jamais au dos : tout le travail se fait au ventre.</p>
+<p class="p0 ri"><strong class="runin">Le bois vert est faible, et il se déforme pour de bon.</strong> En flexion, le mélèze laricin vert casse à <strong>47 MPa</strong>, sec à <strong>76</strong> ; l’épinette noire à <strong>41</strong> et <strong>79</strong>. Vert, le bois ne vaut donc que la moitié ou les deux tiers de ce qu’il vaudra sec. Pire : un bois vert qu’on laisse sous charge pendant qu’il sèche se déforme en plus de <strong>quatre à six fois</strong> sa déformation de départ, et il n’en récupère qu’une partie une fois déchargé. L’arc bandé vert reste courbé et ne renvoie plus rien. Une hausse de <strong>28 °C</strong> double ou triple ce fluage : l’arc laissé bandé au-dessus du poêle se ruine en un hiver. Le froid, au contraire, raidit le bois sans l’affaiblir. Le cèdre (thuya, <em>Thuja occidentalis</em>), qui fend si droit qu’il tente, ne tient sec qu’environ la moitié du mélèze en flexion : il ne fait pas un arc.</p>
+<p class="p0 ri"><strong class="runin">La flèche mousse assomme au lieu de percer.</strong> Une pointe traverse et emporte son énergie plus loin ; une tête ronde la donne tout entière au point d’impact. Bien tirée, elle roule un lagopède sur plusieurs mètres et lui arrache parfois tout le flanc. Elle n’a rien à affûter, et un poids au bout — un clou, une pierre — la porte plus loin.</p>
+<p class="p0 ri"><strong class="runin">Le caoutchouc perd son ressort au froid.</strong> Gardé quelques jours vers −10 °C, le caoutchouc brut, non vulcanisé, cristallise : il raidit et blanchit. Les élastiques sont vulcanisés : ils ne cristallisent pas, mais au froid ils reviennent mal quand on les étire. Un élastique laissé sur la fourche dehors lance moins fort et revient plus lentement.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce qu’il faut pour les procédures de ce chapitre, et rien de plus. Les quantités de cartouches se calculent à la <span class="ref">§5-A</span>.</p>
+<p class="p0 lab kh"><strong class="runin">L’arme et les cartouches</strong></p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Baguette de nettoyage d’une pièce, au calibre, avec écouvillon et embout à chiffon</td><td>1 par calibre</td><td><strong>Pour nettoyer : le cordon</strong>, une ficelle plus longue que le canon, un plomb de pêche fendu serré au bout pour la faire descendre, une boucle pour le chiffon ; le poids s’essaie seul dans l’âme vide avant d’y attacher un chiffon, parce qu’un poids qui se coince devient lui-même l’obstacle. Il passe de la culasse vers la bouche et ne frotte jamais la bouche. Ou une baguette de bouleau ou d’épinette refendue, plus mince que l’âme, poncée droite (<span class="ref">§9</span>). <strong>Ni le cordon ni le bois ne poussent une balle</strong> : pour ça, une tige droite de laiton ou d’acier doux, à peine plus mince que l’âme, bout plat, plus longue que le canon — baguette de brasage au laiton, électrode dont on a cassé l’enrobage (<span class="ref">ch. 103</span>)</td><td><span class="non">NON</span> <span class="negx">— c’est ce qui dégage un canon bouché de neige ou de boue, et, en métal, ce qui pousse la balle d’un coup faible (<span class="ref">§5-G</span>)</span></td></tr><tr><td class="c-item">Chiffons de coton coupés au calibre</td><td>Une poignée</td><td>Vieux t-shirt, drap, sac de farine découpés en carrés</td><td>Oui</td></tr><tr><td class="c-item">Nettoyant à canon</td><td>1 flacon</td><td>Eau bouillante savonneuse, versée par la culasse (<span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Huile légère pour arme</td><td>1 petit flacon</td><td>Huile à moteur, en dépannage ; gras de moelle de patte pour l’extérieur du métal (<span class="ref">§9</span>) ; <strong>rien du tout</strong> sur ce qui bouge, l’hiver</td><td>Oui</td></tr><tr><td class="c-item">Dégraissant pour l’hiver</td><td>Un fond de contenant</td><td>Naphte à lanterne, varsol, essence pure sans huile mélangée — jamais l’essence de la scie, qui laisse son huile sur le percuteur en s’évaporant. Dehors, loin du poêle et de toute cartouche, et évaporé jusqu’à la dernière trace avant de remonter</td><td>Oui</td></tr><tr><td class="c-item">Tournevis au profil exact des vis de lunette, d’embase et de hausse</td><td>1 jeu</td><td>Lame de vieux couteau meulée au profil de la fente (<span class="ref">ch. 101</span>)</td><td>Oui — mais une tête de vis mâchée ne se resserre plus, et une lunette qui bouge n’a plus de zéro</td></tr><tr><td class="c-item">Cible et appui</td><td>—</td><td>Écorce de bouleau à papier (<em>Betula papyrifera</em>) prise sur une bûche de chauffage ou un bouleau abattu, ou carton, un point au charbon ; sac à dos plein ou bûche fendue sous le fût</td><td>Oui</td></tr><tr><td class="c-item">Ruban électrique, pour la bouche de la carabine pendant la marche (étape 12)</td><td>Un rouleau</td><td>—</td><td>Oui — sans lui, le canon se vérifie plus souvent (étape 38)</td></tr><tr><td class="c-item">Caisse à munitions à joint, sachet de dessiccatif</td><td>1 par calibre</td><td>Pot de verre à couvercle vissé, chaudière à couvercle à joint. Posée sur des rameaux, jamais sur le sol ni dans la neige. <strong>Pour les cartouches seulement</strong> : les amorces et la poudre n’entrent jamais dans un contenant fermé (<span class="ref">§9</span>)</td><td>Oui</td></tr></tbody></table>
+<p class="p0 lab kh"><strong class="runin">L’arc, la flèche et le lance-pierre (<span class="ref">§9</span>)</strong></p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Hache, coins, maillet</td><td>1 jeu</td><td>Coins de bouleau, masse de bûche (<span class="ref">ch. 106</span> <span class="ref">§9</span>.3). Sans fendre : un jeune tronc entier de la bonne grosseur, écorcé</td><td>Oui</td></tr><tr><td class="c-item">Couteau et racloir</td><td>1 de chaque</td><td>Tesson de verre épais tenu d’équerre ; lame de ressort (<span class="ref">ch. 106, 107</span>)</td><td>Oui</td></tr><tr><td class="c-item">Râpe ou lime</td><td>1</td><td>Grès mouillé, pierre de rivière à grain serré (<span class="ref">ch. 101</span>)</td><td>Oui</td></tr><tr><td class="c-item">Pour la pointe large : lame de ressort ou tôle d’acier mince, scie à métaux, ciseau à froid</td><td>Une pointe par flèche, et une de rechange</td><td>Gros clou battu à froid ; éclat d’os long de patte ; une pierre rugueuse pour la forme et le fil, faute de lime (<span class="ref">§9</span>)</td><td>Oui — mais l’os perce sans couper</td></tr><tr><td class="c-item">Tendon ou babiche, pour la corde et les ligatures</td><td>Quelques mètres ; pour un dos câblé, seize fois la longueur de l’arc (<span class="ref">§9</span>)</td><td>Corde synthétique tressée qui ne s’étire pas sous la main ; fil de pêche tressé, doublé</td><td>Oui</td></tr><tr><td class="c-item">Poix de gomme de sapin ou d’épinette (<span class="ref">ch. 94</span> §F)</td><td>Un bâtonnet</td><td>Colle de pattes, fondue au bain-marie (<span class="ref">ch. 23</span>), au sec seulement : elle lâche à l’humidité, donc à la neige</td><td>Oui</td></tr><tr><td class="c-item">Plumes</td><td>3 par flèche</td><td>Queue de gélinotte, de tétras, de lagopède ; rémiges d’outarde fendues. Toujours d’un oiseau pris, jamais d’un oiseau trouvé mort (<span class="ref">§9</span>). Sans plume, la flèche vole encore, moins droit</td><td>Oui</td></tr><tr><td class="c-item">Élastique</td><td>2 bandes</td><td>Tube de latex ; bande de chambre à air qui passe l’essai (<span class="ref">§9</span>)</td><td>Oui</td></tr><tr><td class="c-item">Cuir pour la pochette</td><td>Un carré grand comme la paume</td><td>Langue de vieille botte, paume de gant usé (<span class="ref">ch. 98, 100</span>)</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Compter avant l’automne</h3>
+<p class="step"><span class="sn">1</span><strong>Compter les bêtes, pas les boîtes.</strong> Le tableau ramène chaque bête à ce qu’une prise coûte en cartouches. Pour le petit gibier, l’arme, la distance et le point visé sont au <span class="ref">ch. 47</span> (<span class="ref">§5-A</span>).</p>
+<table class="tspan"><colgroup><col style="width:27.8%"><col style="width:7.2%"><col style="width:23.8%"><col style="width:16.9%"><col style="width:24.4%"></colgroup><thead><tr><th>Bête</th><th>Ch.</th><th>Arme</th><th>Ce qu’une prise coûte</th><th>Ce qui remplace la cartouche</th></tr></thead><tbody><tr><td class="c-item">Orignal (<em>Alces americanus</em>)</td><td>61 à 65</td><td>Une des quatre carabines — la .308 Winchester d’abord, la 7 mm Remington Magnum, la .303 British ; à courte distance, le 12 à balle unique</td><td>Le coup qui tue, et le coup de grâce s’il y a lieu (<span class="ref">ch. 61</span>, étape 3)</td><td>Rien. C’est pour lui qu’on garde les dernières</td></tr><tr><td class="c-item">Ours noir (<em>Ursus americanus</em>)</td><td>52</td><td>Les mêmes carabines</td><td>Le même compte</td><td>Rien</td></tr><tr><td class="c-item">Phoque commun (<em>Phoca vitulina</em>), phoque gris (<em>Halichoerus grypus</em>)</td><td>56</td><td>Les mêmes carabines ; jamais la .22</td><td>Le même compte</td><td>Rien : une bête blessée plonge</td></tr><tr><td class="c-item">Castor du Canada (<em>Castor canadensis</em>)</td><td>50</td><td>Piège ; la .22 pour une bête prise vivante</td><td>1 par bête vivante</td><td>Le coup porté de l’arrière (<span class="ref">ch. 50</span>, étape 4)</td></tr><tr><td class="c-item">Porc-épic d’Amérique (<em>Erethizon dorsatum</em>)</td><td>51</td><td>.22 à la tête</td><td>1</td><td>Le bâton (<span class="ref">ch. 51</span> <span class="ref">§9</span>) ; la flèche sur la bête perchée (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Lièvre d’Amérique (<em>Lepus americanus</em>)</td><td>48</td><td>Collet ; .22 sur la bête accroupie</td><td>1</td><td>Collet (<span class="ref">ch. 48</span>) ; flèche mousse (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Gélinotte huppée (<em>Bonasa umbellus</em>), tétras du Canada (<em>Canachites canadensis</em>)</td><td>49, 47</td><td>Le 12 à grenaille, ou .22 à la tête</td><td>1 à la .22 ; plus au fusil</td><td>Perche à collet (<span class="ref">ch. 49</span> <span class="ref">§9</span>) ; flèche mousse ; lance-pierre (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Lagopède des saules (<em>Lagopus lagopus</em>), l’hiver où il descend</td><td>47</td><td>.22 à la tête ; le 12 si la bande se lève</td><td>1 à la .22</td><td>Bâton, perche, flèche mousse (<span class="ref">ch. 47</span> <span class="ref">§9</span>)</td></tr><tr><td class="c-item">Canards, outarde (<em>Branta canadensis</em>)</td><td>54</td><td>Le 12, grenaille non toxique seulement</td><td><strong>De l’ordre de cinq cartouches par canard abattu</strong>, chez des chasseurs ordinaires</td><td>Rien sur l’oiseau en vol ; la distance (<span class="ref">ch. 54</span> <span class="ref">§9</span>)</td></tr><tr><td class="c-item">Loup gris (<em>Canis lupus</em>), lynx du Canada (<em>Lynx canadensis</em>) pris au piège</td><td>55</td><td>.22</td><td>1</td><td>—</td></tr><tr><td class="c-item">Écureuil roux (<em>Tamiasciurus hudsonicus</em>), rat musqué (<em>Ondatra zibethicus</em>)</td><td>53, 47</td><td>Pièges ; .22 à la tête sur la bête assise</td><td>0 au piège ; 1 à la .22</td><td>Pièges (<span class="ref">ch. 53</span>) ; flèche mousse pour l’écureuil perché (<span class="ref">§9</span>)</td></tr></tbody></table>
+<p class="stepc"><strong>Le vieux fusil à choke fixe plein ne tire pas d’acier.</strong> L’acier est bien plus dur que le plomb : là où le canon se resserre, il le bat et le gonfle juste derrière le choke. Dans une arme qui n’a pas été faite pour l’acier, la grenaille d’acier ne passe qu’en choke modifié ou plus ouvert, en plombs n° 4 ou plus petits, en charge ordinaire ; sinon, le bismuth, plus mou.</p>
+<p class="step"><span class="sn">2</span><strong>Ajouter ce que coûte le réglage.</strong> Le réglage complet de la <span class="ref">§5-F</span> prend trois coups à 25 m et un groupe de trois par correction à 100 m : compter trois groupes par carabine. Puis un groupe de trois au froid avant la chasse d’hiver, et un groupe de trois après chaque chute ou chaque choc sur la lunette. Soit <strong>douze cartouches par carabine</strong> avant la première bête, et trois de plus par chute.</p>
+<p class="step"><span class="sn">3</span><strong>Ajouter la pratique, à la .22.</strong> C’est elle qui apprend à tirer juste, pas les cartouches de la carabine.</p>
+<p class="step"><span class="sn">4</span><strong>Laisser la boîte donner le vrai chiffre.</strong> Personne ne peut dire d’avance combien de coups un orignal coûte à un tireur donné. Chaque douille tirée retourne dans sa boîte, jamais dans la neige. À la fin de la saison, douilles vides contre bêtes prises donnent le rapport réel, sans rien écrire : la boîte est le registre. La douille gardée a une deuxième raison d’être (<span class="ref">§9</span>).</p>
+<p class="step"><span class="sn">5</span><strong>Séparer ce qui se tire de ce qui se garde.</strong> La dernière boîte de carabine est réservée au gros gibier. Dès que le stock devient fini, plus aucune cartouche de carabine ne part sur du petit gibier (<span class="ref">ch. 41</span>).</p>
+<p class="p0 ri"><strong class="runin">Le compte, arme par arme.</strong> Six armes, cinq cartouches. Chaque ligne ramène à une cartouche ce qui précède : les bêtes du tableau, le réglage (étape 2), la pratique (étape 3).</p>
+<table class="tspan"><colgroup><col style="width:7.9%"><col style="width:5.9%"><col style="width:24.9%"><col style="width:12.7%"><col style="width:48.6%"></colgroup><thead><tr><th>Cartouche</th><th>Armes</th><th>Ce qu’elle prend</th><th>Avant la première bête</th><th>Ce qui compte</th></tr></thead><tbody><tr><td class="c-item">.22</td><td>1</td><td>Tout ce qui s’assoit : lièvre, porc-épic, gélinotte et tétras perchés, lagopède, écureuil, rat musqué ; la bête vivante au piège</td><td>Le zéro à 25 m, trois au froid (étapes 33 et 34), et toute la pratique</td><td>Une cartouche par bête assise. C’est celle qu’on tire le plus et la plus fragile (<span class="ref">§3</span>) : ce qui manque ici passe aux engins et à l’arc (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">12</td><td>1</td><td>La gélinotte levée, le lagopède en bande, la sauvagine ; à courte distance, l’orignal à balle unique</td><td>—</td><td>Plusieurs cartouches par oiseau en vol, de l’ordre de cinq par canard. Plomb et acier jamais dans la même veste (<span class="ref">ch. 54</span>, étape 0)</td></tr><tr><td class="c-item">.308 Winchester</td><td><strong>2</strong></td><td>Orignal, ours, phoque</td><td>12 par carabine, donc <strong>24</strong></td><td><strong>Le stock se concentre ici.</strong> Une boîte sert deux armes et deux tireurs, et si une carabine casse, ses cartouches passent à l’autre sans qu’une seule soit perdue</td></tr><tr><td class="c-item">7 mm Remington Magnum</td><td>1</td><td>Orignal, ours, phoque</td><td>12</td><td>Ses cartouches ne vont dans aucune autre arme. Et c’est la seule chambre de la maison où deux autres cartouches se glissent — la .308 et la .303 —, qui n’y partent jamais (étape 39)</td></tr><tr><td class="c-item">.303 British</td><td>1</td><td>Orignal, ours, phoque</td><td>12</td><td>Cartouche à bourrelet, qui ne va que dans son arme. Elle se fabrique encore ; si la boîte est un vieux surplus militaire, l’amorce peut être corrosive (étape 24)</td></tr></tbody></table>
+<p class="p0">Le réglage des quatre carabines coûte <strong>48 cartouches</strong> avant qu’un seul orignal soit vu. Une cartouche de 7 mm ou de .303 ne sert qu’une arme : que cette arme casse, et sa boîte ne vaut plus rien. Une cartouche de .308 en sert deux. Au mois d’août, c’est la boîte de .308 qu’on remplit d’abord ; la 7 mm et la .303 reçoivent leur réglage et les coups des bêtes qu’on leur confie, pas plus.</p>
+<h3 class="sub">B — Garder les cartouches vivantes</h3>
+<p class="step"><span class="sn">6</span><strong>Dans l’emballage d’origine, dans une caisse fermée, au plus frais et au plus sec.</strong> Au chalet : le hangar non chauffé, la caisse surélevée sur des rameaux et couverte. Jamais sur la tablette au-dessus du poêle, jamais sous la tôle du toit en plein soleil, jamais dans le camion l’été.</p>
+<p class="step"><span class="sn">7</span><strong>Rien qui coule à côté.</strong> Essence, naphte, huile, antigel et peinture ne partagent pas la tablette des cartouches : une vapeur ou une goutte qui atteint une amorce la tue sans que rien ne se voie.</p>
+<p class="step"><span class="sn">8</span><strong>Aucune huile sur une cartouche ni dans un chargeur.</strong> Chargeurs essuyés à sec ; cartouches touchées avec des mains propres, pas avec les doigts qui sortent du nettoyage.</p>
+<p class="step"><span class="sn">9</span><strong>À la température de l’arme.</strong> Les cartouches vivent dehors avec elle. Une caisse fermée qu’on rentre au chaud sue <strong>par dehors</strong>, parce que l’air qu’elle contient est l’air sec et froid dans lequel on l’a fermée ; elle reste fermée jusqu’à ce qu’elle soit tiède, puis on l’essuie. Une boîte ouverte rentrée au chaud se couvre d’eau comme l’acier. L’inverse est vrai aussi : une caisse fermée dans la chaleur humide d’août garde cette humidité, qui se dépose sur les cartouches au premier froid. Elle se ferme par temps froid et sec, avec son sachet de dessiccatif.</p>
+<p class="step pk-d"><span class="sn">10</span><strong>Les plus vieilles d’abord, et jamais la même cartouche tous les jours.</strong> Au chargeur, les anciennes passent avant les neuves : le recul abîme celles qui restent dedans. La cartouche qu’on chambre le matin et qu’on retire le soir voit sa balle reculer un peu dans la douille à chaque fois, ce qui fait monter la pression, et son amorce s’abîme. Celle qu’on sort de la chambre ne retourne pas au chargeur : elle va dans une poche à part. <strong>La poche à part ne se vide jamais dans un groupe de réglage ni dans un chargeur</strong> : chaque cartouche s’y tire seule, chargée à la main, chargeur retiré ou vide, et le canon se vérifie après chacune (étape 38 ; <span class="ref">§8</span>, bloc 3). Celle dont la balle est visiblement plus enfoncée que celle de ses voisines ne se tire plus : la pression qu’elle ferait ne se voit pas dans le canon.</p>
+<p class="step"><span class="sn">11</span><strong>Tomber dans la neige n’est pas grave ; y rester l’est.</strong> Une cartouche à percussion centrale tombée dans la neige s’essuie tout de suite et reste bonne. Une .22 tombée dans la neige ou mouillée va dans la poche à part (étape 10).</p>
+<h3 class="sub">C — Rentrer et sortir l’arme</h3>
+<p class="step"><span class="sn">12</span><strong>L’arme vit au froid.</strong> Dans le hangar ou le tambour non chauffé, à l’abri de la neige qui tombe dans le mécanisme ou dans la bouche. Dehors, elle ne se couche pas dans la neige ; sans appui, elle se plante debout, <strong>la crosse</strong> dans la neige. Pendant la marche, sur la carabine, un ruban électrique tendu <strong>sur</strong> la bouche, jamais dedans, garde la neige d’une branche frôlée hors de l’âme : on tire à travers, l’air chassé devant la balle le fait sauter, et quelques tours de ruban gardés autour du canon, devant le fût, en refont un. Il s’enlève au rangement : laissé là, il ferait l’effet du bouchon (étape 26).</p>
+<p class="step"><span class="sn">13</span><strong>Si elle doit entrer</strong> — nettoyage, réparation, pluie à sécher — on la décharge dehors : le chargeur et les cartouches restent dehors, à leur température. Elle se pose près du plancher, là où l’air est le plus froid, et <strong>personne n’y touche pendant une heure</strong> : elle sue tout ce temps. Ensuite seulement on l’essuie, on la démonte, on sèche chaque pièce et on nettoie.</p>
+<p class="step"><span class="sn">14</span><strong>Elle ne ressort que sèche.</strong> Dehors, manœuvrer le mécanisme plusieurs fois dans les premières minutes, pendant que ce qui reste d’eau n’a pas encore pris.</p>
+<p class="step"><span class="sn">15</span><strong>Une culasse gelée ne se force pas.</strong> Réchauffer la pièce dans les mains ou contre le corps et la manœuvrer lentement jusqu’à ce qu’elle se libère ; sans chaleur, gratter la glace et la neige et manœuvrer doucement. Sous −7 °C, la peau nue colle au métal (<span class="ref">ch. 25</span>) : on travaille ganté ou mitaine.</p>
+<p class="step"><span class="sn">16</span><strong>Un canon chaud ne se pose pas dans la neige.</strong> Elle fond, et l’eau regèle en glace dedans et dessus. <strong>On ne souffle pas sur une lunette</strong> : l’haleine y gèle en givre. Une lunette embuée sèche dans un endroit tiède, jamais près d’une chaleur vive, et s’essuie en tamponnant avec un linge doux.</p>
+<h3 class="sub">D — Préparer l’arme pour l’hiver</h3>
+<p class="step"><span class="sn">17</span><strong>Avant le premier gel, dégraisser.</strong> Démonter aussi loin que la notice de l’arme le permet — verrou, <strong>percuteur</strong>, logement du percuteur. Laver au dégraissant, laisser évaporer jusqu’à la dernière trace. Le percuteur est la pièce qui compte : un film de graisse d’été le fait tomber mou, et une graisse épaisse dans son logement peut le tenir sorti (<span class="ref">§3</span>). En plein hiver, le dégraissant gardé au hangar est aussi froid que le métal, et un liquide refroidi gèle la peau au contact comme lui : la pièce trempe, tenue à la pince ou au bout d’un fil de fer, pas les doigts, et une mitaine qui boit le liquide le garde contre la peau.</p>
+<p class="step"><span class="sn">18</span><strong>Remettre presque rien.</strong> Un film à peine visible d’huile très fluide sur les surfaces qui frottent et sur l’acier du dehors, contre la rouille. Rien dans le logement du percuteur. Sans huile d’hiver : sec, et c’est mieux que mal graissé.</p>
+<p class="step"><span class="sn">19</span><strong>Canon sec avant de tirer.</strong> Un chiffon sec dans l’âme avant la sortie : l’huile en excès se mêle aux résidus et encrasse.</p>
+<p class="step"><span class="sn">20</span><strong>L’air du fleuve.</strong> Au chalet de bord de mer, l’air salin ronge l’acier vite et à fond : chaque jour d’exposition, un coup d’œil et un chiffon légèrement huilé sur l’extérieur.</p>
+<h3 class="sub">E — Nettoyer après le tir</h3>
+<p class="step"><span class="sn">21</span><strong>Le soir même.</strong> Même une amorce moderne laisse un dépôt qui boit l’humidité. L’hiver, le soir même veut dire après l’heure de suée (étape 13).</p>
+<p class="step"><span class="sn">22</span><strong>De la culasse vers la bouche.</strong> Verrou sorti, baguette ou cordon entrés par la chambre. La baguette ne frotte jamais la bouche : c’est là que les rayures s’abîment, et c’est là que la balle prend sa direction.</p>
+<p class="step"><span class="sn">23</span><strong>Écouvillon mouillé, puis chiffons jusqu’à ce qu’ils sortent propres, puis un chiffon sec.</strong> L’été, un dernier chiffon à peine huilé. L’hiver, rien (étape 18).</p>
+<p class="step"><span class="sn">24</span><strong>Les cartouches militaires à amorce corrosive se lavent à l’eau, pas à l’huile.</strong> Leurs résidus sont des sels qui attirent l’eau ; l’huile les recouvre sans les enlever, et la rouille pousse dessous. Eau chaude savonneuse ou eau bouillante par la culasse, séchage, puis huile.</p>
+<p class="step"><span class="sn">25</span><strong>Trois jours de suite, un chiffon sec dans l’âme.</strong> Gris : de l’encrassement qui restait, on reprend l’étape 23. Brun : de la rouille qui a commencé, on reprend l’étape 23 et on sèche mieux (<span class="ref">§7</span>).</p>
+<p class="step"><span class="sn">26</span><strong>La crosse de bois mouillée sort de l’arme si on peut la démonter, et sèche à l’air.</strong> Tant qu’elle reste en place, elle garde l’eau contre l’acier. Jamais près du poêle : elle fend et se tord. Et <strong>jamais de bouchon dans la bouche du canon au rangement</strong> : il enferme l’humidité dans l’âme.</p>
+<h3 class="sub">F — Régler l’arme sans armurier</h3>
+<p class="step"><span class="sn">27</span><strong>Vérifier que rien ne bouge.</strong> Vis d’embase, d’anneaux, de hausse, bien serrées avec le bon tournevis. Une lunette qui bouge d’un cheveu promène le zéro d’une séance à l’autre, et aucun réglage ne corrige une vis lâche.</p>
+<p class="step"><span class="sn">28</span><strong>Dégrossir par le canon.</strong> Carabine à verrou calée sur un appui, verrou sorti, cible à 25 m. Regarder <strong>à travers le canon</strong>, par la chambre, et déplacer l’arme jusqu’à voir la cible au centre de l’âme. Sans bouger l’arme, tourner les tourelles jusqu’à ce que le réticule tombe sur le même point. Une arme qui ne se regarde pas par la culasse — pompe, semi-automatique, levier — saute ce dégrossissage : les trois coups de l’étape 29 se tirent sur une grande feuille, à 25 m ou plus près.</p>
+<p class="step"><span class="sn">29</span><strong>À 25 m, trois coups</strong>, seulement pour être sur la feuille près du centre. Corriger.</p>
+<p class="step"><span class="sn">30</span><strong>À 100 m, un groupe de trois coups</strong>, appuyé, <strong>le fût sur l’appui, jamais le canon</strong>, le même point de visée pour les trois.</p>
+<p class="step"><span class="sn">31</span><strong>Mesurer du centre du groupe au point visé, puis diviser.</strong> Écart en centimètres, divisé par ce que vaut un clic à cette distance. Exemple : groupe 6 cm trop bas à 100 m, tourelle à clics d’un quart de minute (0,73 cm à 100 m) : <strong>8 clics</strong> vers le haut (« UP »). Tourelle à dixièmes de milliradian (1 cm à 100 m) : <strong>6 clics</strong>.</p>
+<p class="step"><span class="sn">32</span><strong>Recommencer 30 et 31</strong> jusqu’à ce que le groupe se centre sur le point visé.</p>
+<p class="step"><span class="sn">33</span><strong>La .22 se règle à la distance où elle tire vraiment</strong> : une tête de gélinotte ou de lièvre, c’est de près. 25 m.</p>
+<p class="step"><span class="sn">34</span><strong>Le zéro froid.</strong> Avant la chasse d’hiver, un groupe de trois au froid, avec des cartouches saines restées dehors toute la nuit — jamais celles de la poche à part (étape 10). Corriger s’il le faut (<span class="ref">§3</span>).</p>
+<p class="step"><span class="sn">35</span><strong>Après une chute, un choc sur la lunette ou un trajet à la motoneige</strong>, un groupe de trois avant de se fier à l’arme.</p>
+<h3 class="sub">G — Le clic, le coup faible, le mauvais calibre</h3>
+<p class="step pk-d"><span class="sn">36</span><strong>Clic sans départ : soixante secondes</strong>, la bouche dans une direction où un coup ne ferait rien de mal, avant d’ouvrir. Le mécanisme est à la <span class="ref">§8</span>, bloc 2 ; le réflexe d’ouvrir tout de suite est exactement le mauvais. Ensuite, décharger et <strong>regarder la cartouche</strong> : une douille sans sa balle veut dire que la balle est dans l’âme. Puis vérifier le canon (étape 38), dans tous les cas : au vent, sous la tuque, un coup d’amorce se confond avec un clic.</p>
+<p class="step"><span class="sn">37</span><strong>Coup sans recul, bruit mou : on arrête.</strong> Décharger et vérifier le canon (étape 38) avant quoi que ce soit d’autre. Jamais une autre cartouche derrière. Une balle arrêtée dans l’âme se sort à la tige de métal du <span class="ref">§4</span>. D’abord, la situer : la tige entrée par la bouche jusqu’à la balle, marquée au charbon à la bouche, puis posée le long du canon, dit où elle est, et s’il y en a deux. Elle sort par le chemin le plus court, d’ordinaire vers la chambre, parce qu’une balle poussée par l’amorce seule s’arrête juste devant : tige entrée par la bouche, bout plat contre la pointe de la balle, coups modérés ; il en faut d’ordinaire peu. Jamais de chaleur pour la décoller : de la poudre non brûlée peut rester dans l’âme. La main tient la tige près de la bouche : une tige mince qui dépasse beaucoup plie. <strong>Jamais la baguette de nettoyage ni le cordon</strong>, plus minces que l’âme : la baguette plie et casse dedans, et le bout cassé devient un deuxième obstacle.</p>
+<p class="step"><span class="sn">38</span><strong>Vérifier le canon, selon l’arme.</strong> D’abord, pour toutes : la bouche dans une direction sûre, magasin et chargeur vidés, action ouverte, chambre vue vide. Ensuite :</p>
+<p class="li l2"><strong>À verrou</strong> : sortir le verrou et regarder à travers le canon, par la chambre, contre le ciel ou la neige.</p>
+<p class="li l2"><strong>À bascule</strong> : ouvrir et regarder par la chambre.</p>
+<p class="li l2"><strong>À pompe, semi-automatique, à levier</strong> : démonter le canon si l’arme le permet, et regarder. Sinon, action bloquée ouverte, la lampe frontale braquée dans la fenêtre d’éjection, regarder par la bouche ; ou passer la baguette ou le cordon d’un bout à l’autre : il passe au complet, ou le canon est bouché.</p>
+<p class="li l2"><strong>Pour toutes, même sans lumière</strong> : une baguette marquée d’une entaille à la longueur du canon, mesurée une fois pour toutes sur l’arme vide et propre, de la bouche jusqu’à la culasse fermée. Arme déchargée, glissée par la bouche : si elle ne descend pas jusqu’à l’entaille, le canon est bouché.</p>
+<p class="stepc">Une fois l’obstacle sorti, on regarde encore : pour un éclat de bois ou un bout de chiffon, et, si un coup est parti derrière l’obstacle, pour le renflement<sup class="fnr" data-fn="45-1">1</sup>.</p>
+<p class="step pk-d"><span class="sn">39</span><strong>Un seul calibre par poche, par veste, par caisse, au fusil comme à la carabine.</strong> Même discipline que celle du plomb et de l’acier au <span class="ref">ch. 54</span> (étape 0), pour d’autres raisons. Au fusil, c’est le canon bouché (<span class="ref">§8</span>, bloc 1). À la carabine, c’est <strong>la 7 mm Remington Magnum</strong> : sa chambre est assez proche de celles de la .308 et de la .303 pour qu’on y glisse l’une ou l’autre, et leur balle est plus grosse que l’âme de la 7 mm de six à sept dixièmes de millimètre. Elle s’y force, la pression monte au-delà de ce que l’arme tient, et l’arme cède à hauteur du visage. Qu’une cartouche entre ne veut pas dire qu’elle peut partir. Les deux .308 et la .303 ne risquent rien des autres cartouches de la maison. Au toucher, à la mitaine, dans le noir : la .303 a un bourrelet qui déborde au culot, la 7 mm une ceinture juste au-dessus du culot, la .308 ni l’un ni l’autre. Les cartouches de la 7 mm voyagent seules, dans une poche qui ne sert qu’à elles.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:16.9%"><col style="width:23.0%"><col style="width:27.6%"><col style="width:32.4%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Août</td><td>Cartouches par calibre, contre le tableau de la <span class="ref">§5-A</span></td><td>Chaque ligne couverte, plus le réglage (étape 2)</td><td>Basculer tout de suite le petit gibier vers les engins et l’arc (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Avant de remplir un chargeur</td><td>Chaque cartouche</td><td>Aucune corrosion, aucune bosse profonde ; balle à la même hauteur que ses voisines ; entre dans la chambre sans forcer</td><td>Ne se tire pas : ni la cartouche corrodée ou bosselée profond (<span class="ref">§7</span>), ni celle dont la balle est plus enfoncée, ni celle qui force pour entrer</td></tr><tr><td class="c-item">Chaque entrée au chaud</td><td>Délai avant d’essuyer ou de nettoyer</td><td><strong>1 heure</strong>, arme près du plancher</td><td>Attendre. Une arme essuyée trop tôt se remouille</td></tr><tr><td class="c-item">Avant de ressortir</td><td>Mécanisme</td><td>Sec, verrou qui joue librement à la main</td><td>Sécher encore ; manœuvrer plusieurs fois dans les premières minutes dehors</td></tr><tr><td class="c-item">Premier gel</td><td>Verrou, percuteur, gâchette</td><td>Secs au doigt, aucune graisse</td><td>Dégraisser (étape 17)</td></tr><tr><td class="c-item">Soir du tir</td><td>Âme du canon</td><td>Dernier chiffon propre</td><td>Reprendre l’étape 23</td></tr><tr><td class="c-item">Trois jours suivants</td><td>Chiffon sec dans l’âme</td><td>Ressort propre</td><td>Renettoyer. Brun : rouille commencée</td></tr><tr><td class="c-item">Avant la chasse d’hiver</td><td>Zéro à froid, cartouches saines restées dehors</td><td>Centre du groupe de trois sur le point visé</td><td>Corriger (étapes 30 à 32)</td></tr><tr><td class="c-item">Après une chute ou un choc</td><td>Zéro</td><td>Même cible</td><td>Même correction</td></tr><tr><td class="c-item">Bille d’arc qui sèche</td><td>Masse, pesée à une semaine d’intervalle</td><td>Deux pesées égales</td><td>Continuer à sécher (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Arc au bandage</td><td>Courbe des deux bras, vue à quelques pas</td><td>Deux arcs de cercle égaux, sans point plat ni coude</td><td>Gratter le ventre du bras raide, là où il ne plie pas</td></tr><tr><td class="c-item">Arc débandé, après la séance</td><td>Les deux bras</td><td>Droits, ou presque</td><td>Bois encore vert, ou arc resté bandé : <span class="ref">§7</span></td></tr><tr><td class="c-item">Flèche</td><td>Roulée sur une planche plane</td><td>Roule sans sautiller</td><td>Redresser à la braise (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Élastique</td><td>Étiré puis lâché</td><td>Revient d’un coup sec</td><td>Réchauffer ; changer de bande</td></tr><tr><td class="c-item">Élastique, avant chaque sortie</td><td>Étiré, regardé au nœud, à l’attache et en bordure</td><td>Aucune fente, aucune entaille, aucun trou d’épingle</td><td>Changer la bande avant de tirer (<span class="ref">§8</span>, bloc 6)</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:22.0%"><col style="width:26.9%"><col style="width:51.1%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Clic sans départ, au froid</td><td>Percuteur ralenti par une huile figée, ou amorce touchée par l’eau ou l’huile ; ou coup d’amorce qu’on n’a pas entendu</td><td>Soixante secondes, puis décharger. Regarder si la cartouche a encore sa balle, puis vérifier le canon (étape 38), qu’il y ait eu une cartouche ou non. Dégraisser le percuteur (étape 17). La cartouche va à part</td></tr><tr><td class="c-item">Coup sans recul, bruit faible</td><td>Poudre dégradée, ou amorce seule : <strong>balle possiblement dans le canon</strong></td><td>Arrêter. Vérifier le canon (étapes 37 et 38)</td></tr><tr><td class="c-item">La cartouche part quand on referme la culasse, avant la détente</td><td>Percuteur tenu en avant par une graisse épaisse, de l’encrassement ou de la rouille (<span class="ref">§3</span>)</td><td>Bouche en direction sûre, décharger. Démonter et dégraisser le logement du percuteur (étape 17) avant de recharger</td></tr><tr><td class="c-item">Verrou qui résiste ou ne se referme pas en sortant du chalet</td><td>Condensation gelée</td><td>Étape 15. La prochaine fois, l’heure de l’étape 13</td></tr><tr><td class="c-item">Odeur de vinaigre à l’ouverture d’une boîte de poudre, poussière ou fumée brun-rouge, grains couleur de rouille, boîte tiède au toucher</td><td>Poudre qui se décompose : la réaction chauffe d’elle-même, et la poudre porte son propre oxygène</td><td>Ne s’emploie plus. Tout de suite loin du chalet, du poêle et des autres munitions. <strong>On ne l’étouffe pas</strong> : elle brûle sans air. Jamais refermée dans un contenant solide : enfermée, une poudre qui prend feu fait éclater son contenant comme une explosion. On la brûle, loin de tout, sur le sol nu : en petits tas plats de 2,5 cm d’épaisseur au plus, 450 g au plus par tas, allumés au bout d’une traînée de matière qui brûle lentement, assez longue pour qu’on soit loin quand la flamme arrive. La flamme est assez chaude pour brûler gravement, et la fumée brune est nauséabonde : on se tient du côté d’où vient le vent</td></tr><tr><td class="c-item">Douille verdie en croûte, piquée, bosselée profond</td><td>Corrosion : la douille est affaiblie et peut céder au tir ; le gaz qui s’échappe d’une douille ouverte part vers la culasse, à hauteur du visage</td><td>Ne se tire pas, ni à la chasse ni au réglage. Regarder dans le canon après n’y changerait rien : ce n’est pas un canon bouché qu’elle risque. On ne récupère pas sa poudre (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Groupe qui se promène d’une séance à l’autre</td><td>Vis d’embase lâche ; crosse de bois qui a travaillé à l’humidité</td><td>Resserrer (étape 27), sécher la crosse (étape 26), refaire le zéro</td></tr><tr><td class="c-item">Chiffon brun à la sortie de l’âme</td><td>Rouille : condensation, ou résidus corrosifs laissés</td><td>Eau chaude, séchage, huile ; revérifier trois jours</td></tr><tr><td class="c-item">Crosse de bois fendue ou gauchie</td><td>Séchée trop vite, près du poêle</td><td>Ligature de babiche mouillée sur la fente (<span class="ref">ch. 99</span>) ; ensuite, séchage à l’air seulement</td></tr><tr><td class="c-item">Buée à l’intérieur de la lunette</td><td>Joint perdu : l’humidité est entrée</td><td>Ne s’essuie pas. Retirer la lunette ; tirer à la hausse et au guidon s’il y en a, réglés comme à la <span class="ref">§9</span> (« Régler sans rien »). Sans mires, en fabriquer : un guidon rapporté sur le canon, un cran de hausse limé dans une plaquette fixée à l’embase. Le guidon se fixe <strong>à la soudure à l’étain</strong>, jamais à la brasure : la brasure chauffe le canon à plus de 500 °C et peut lui enlever sa trempe ; l’étain coule vers 250 °C. Le métal mis à nu, les pièces ajustées serré, la chaleur portée sur le canon et non sur la soudure, refroidi à l’air, jamais à l’eau ; le flux se lave, sinon il fait rouiller (<span class="ref">ch. 103</span>). Sans mires ni moyen d’en faire, l’arme ne tire plus juste</td></tr><tr><td class="c-item">Arc qui reste courbé une fois débandé</td><td>Bois bandé vert, ou laissé bandé, ou gardé au chaud : fluage</td><td>Ne se corrige qu’à moitié. Débander toujours, finir de sécher, refaire un arc plus long</td></tr><tr><td class="c-item">Écharde qui se soulève sur le dos</td><td>Fibre coupée ou tirée hors du fil : l’arc va casser là</td><td>Arrêter. Ligaturer au tendon mouillé et à la poix, ou câbler le dos (<span class="ref">§9</span>). L’arc réparé s’essaie d’abord sur la perche à crans, de côté, jamais à la joue (<span class="ref">§8</span>, bloc 6)</td></tr><tr><td class="c-item">Arc qui perd sa force par temps humide</td><td>La corde de babiche ou de tendon a bu l’eau et s’est allongée</td><td>Corde de rechange gardée sèche ; graisser la corde (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Flèche qui part de travers ou tourne</td><td>Fût croche, plume décollée, encoche fendue</td><td>Redresser, réempenner, refaire l’encoche</td></tr><tr><td class="c-item">Élastique qui revient lentement</td><td>Caoutchouc raidi par le froid, ou matière sans rebond</td><td>Le garder au chaud ; changer de bande (<span class="ref">§9</span>)</td></tr><tr><td class="c-item">Élastique fendillé, entaillé en bordure, percé d’un trou d’épingle, ou qui glisse de son attache</td><td>La bande va casser ou lâcher en pleine tension</td><td>La changer, ou refaire l’attache, avant le prochain tir (<span class="ref">§8</span>, bloc 6)</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Un canon bouché fait éclater l’arme dans les mains.</strong> Les gaz d’un coup de feu doivent sortir par la bouche. Si quelque chose bouche l’âme — neige tombée dans la bouche d’une branche frôlée ou d’une arme plantée dans la neige, boue d’une chute, balle arrêtée par un coup faible, chiffon oublié —, la pression monte derrière l’obstacle et le canon gonfle ou s’ouvre à cet endroit, à une main du visage. Le cas qui surprend : <strong>une cartouche de calibre 20 glissée dans un fusil de calibre 12</strong> descend dans le canon et s’y coince ; le fusil fait clic, la chambre a l’air vide, on y met une cartouche de 12, et le coup suivant tire dans un canon bouché. Même piège avec un 16 dans un 12, un 20 dans un 16, un 28 dans un 20. <strong>Même famille à la carabine</strong> : une .308 ou une .303 glissée dans la 7 mm Remington Magnum pousse une balle plus grosse que l’âme, et la pression monte de la même façon (étape 39). <strong>La conduite :</strong> le canon se vérifie avant le premier coup de chaque sortie, après une chute, après une branche chargée de neige frôlée, après tout coup qui sonne mou, et après <strong>tout</strong> clic, une fois les soixante secondes passées, qu’il y ait eu une cartouche dans la chambre ou non. La cartouche retirée après un clic se regarde : une douille sans sa balle, c’est la balle dans l’âme. Au vent, sous la tuque, l’oreille encore pleine du coup d’avant, un coup d’amorce passe pour un clic : on ne se fie pas au son. La vérification dépend de l’arme (étape 38) et prend quelques secondes.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Le long feu : la cartouche qui part après le clic.</strong> Une amorce abîmée peut allumer la poudre avec du retard. Ouverte trop tôt, la cartouche part hors de la chambre : la douille, qui n’est plus tenue par l’acier, éclate, et ses morceaux partent vers les mains et les yeux. <strong>Soixante secondes, la bouche dans une direction sûre, avant d’ouvrir.</strong> L’humidité entrée dans une cartouche est justement ce qui donne un départ en retard ; la .22 la laisse entrer bien plus facilement que les autres. L’inverse existe aussi : un percuteur tenu en avant par une graisse épaisse fait partir la cartouche <strong>à la fermeture de la culasse</strong>, avant la détente (<span class="ref">§3</span>). La bouche reste dans une direction sûre chaque fois qu’on referme.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">La cartouche qui a trempé n’est plus une cartouche de chasse ; celle qui a chauffé n’est plus une cartouche.</strong> L’eau donne un allumage partiel qui pousse la balle juste assez pour la laisser dans l’âme — c’est le bloc 1. Il n’y a personne pour trier : la cartouche mouillée se tire quand même, mais <strong>seule</strong>, chargée à la main, chargeur retiré ou vide, et le canon se vérifie après <strong>chaque</strong> coup, qu’il ait sonné juste ou non (étape 38). Jamais dans un groupe de réglage. La .22 est la plus fragile de toutes. <strong>La cartouche séchée au poêle, oubliée au soleil dans un camion fermé, chauffée d’une façon ou d’une autre, ne se tire pas</strong> : la chaleur a changé la façon dont sa poudre brûle, la pression qui en sortirait peut être trop haute, et une pression trop haute ne se voit pas en regardant dans le canon. Trop de chaleur la fait même partir toute seule. La mettre de côté ne demande personne.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">La flèche qui a touché un lièvre porte la tularémie.</strong> La tête mousse et le fût sortent du lièvre couverts de sang et de poil, et on les retire à mains nues, dans le froid, avec des gerçures aux doigts. C’est exactement la voie d’entrée la plus fréquente de la maladie : une écorchure de la main contre un petit gibier cru. <strong>Gants obligatoires pour ramasser et manipuler le lièvre, flèche comprise.</strong> La flèche trempe dans la javel à 1 pour 9 quand il y en a (<span class="ref">ch. 48</span>, étape 14), mais le bois ne se désinfecte pas pour de bon : il se remplace, comme la planche du <span class="ref">ch. 48</span> (<span class="ref">§9</span>). La flèche qui a touché un lièvre reste donc réservée au lièvre, marquée d’une entaille près de l’encoche, touchée gantée seulement, et elle va au feu en fin de saison. Une tête de métal se sépare et passe à l’eau bouillante comme un couteau.</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Le petit gibier de l’arc ne nourrit pas seul.</strong> L’arc prend du lièvre, de la gélinotte et du tétras : les viandes les plus maigres du territoire. Viande maigre seule, sans gras ni féculent, c’est le mal de caribou : on mange à sa faim et on maigrit, et il tue en quelques semaines. Chaque repas de lièvre ou de tétras porte du gras et un féculent. Le calcul est au <span class="ref">ch. 19</span>.</p>
+<p class="pt"><span class="pn">6</span><strong class="plead">L’arc et l’élastique cassent vers le visage.</strong> À pleine allonge, la main de corde est à la joue et l’arc tout près de l’œil ; le lance-pierre se tend au même endroit. Un arc qui casse renvoie ses éclats et la corde vers le visage ; une bande qui casse, ou qui glisse de son attache, renvoie la pochette et la pierre dans l’œil. <strong>Tirer l’arc sans flèche le casse</strong> : l’énergie qui devait partir avec la flèche reste dans le bois. <strong>La conduite :</strong> on ne lâche jamais la corde sans flèche ; l’arc réparé, ou qui montre une écharde, s’essaie sur la perche à crans, de côté, jamais à la joue ; la bande du lance-pierre se regarde étirée, au nœud, à l’attache et en bordure, avant chaque sortie, et se change à la première fente.</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans armurier, sans magasin, sans pièce qu’on commande, et un jour avec la boîte presque vide. L’ordre de repli se décide avant ce jour-là : les engins d’abord, qui prennent la nuit sans rien consommer (<span class="ref">ch. 48, 53, 60</span>) ; l’arc, la fronde et le bâton pour le petit gibier qui se fige au lieu de fuir (la chasse est au <span class="ref">ch. 47</span>, <span class="ref">§9</span>) ; la .22 pour ce que l’arc ne prend pas ; la carabine pour l’orignal, l’ours et le phoque, et pour rien d’autre.</p>
+<p class="p0 ri"><strong class="runin">La bête qui se laisse approcher n’est pas toujours une bête facile.</strong> Ces armes-là choisissent la bête qui ne part pas, et la maladie en fait autant. Le lièvre accroupi à couvert qui se fie à son camouflage est normal (<span class="ref">ch. 47</span> <span class="ref">§3</span>) ; celui qui reste là, faible, léthargique, quand on est dessus, et en bon état de chair, porte le tableau de la tularémie : il ne se prend pas et ne se touche pas (<span class="ref">ch. 48</span>, étape 7 et <span class="ref">§7</span>). Le tétras perché ou debout, tête haute, plumage serré, qui suit des yeux celui qui approche, est normal ; l’oiseau au sol, plumage gonflé, yeux fermés ou enflés, qui ne suit rien et se laisse prendre, ne se prend pas, ne se touche pas (<span class="ref">ch. 49</span>, <span class="ref">§8</span> bloc 2).</p>
+<h3 class="sub">L’arc tiré d’une bille fendue</h3>
+<p class="p0">C’est l’arc de mélèze des Innus et des Naskapis, pour le petit gibier pendant que la balle va au gros : une bille de mélèze, une corde de peau crue, une flèche à tête ronde. Un arc sans raffinement : cassé, il se remplace par un autre bout de bois de la forêt.</p>
+<p class="p0 ri"><strong class="runin">Choisir le bois.</strong> Le mélèze laricin (<em>Larix laricina</em>), qui pousse au bord des tourbières à sphaignes, ou l’épinette noire (<em>Picea mariana</em>) : ce sont les deux bois de cet arc-là, pour l’arc comme pour les flèches, et secs, ils se valent en flexion. Le bouleau à papier est au moins aussi résistant une fois sec, mais les arcs du Nord sont en mélèze et en épinette : un arc de bouleau est un essai, qui se juge à la perche à crans avant d’aller au bois. Chercher un tronc droit, sans branche ni nœud sur une longueur un peu plus grande que l’arc, pas tordu en vrille : une écorce dont les fentes tournent autour du tronc annonce un fil qui tourne, et un arc tiré de là casse en travers. Pas un arbre penché : son bois de réaction, qu’on reconnaît au cœur décentré sur la coupe, est nettement plus faible. Le bois mort debout, sec et sain, vaut mieux que le vert ; le vert se travaille plus facilement et se sèche ensuite.</p>
+<p class="p0 ri"><strong class="runin">Fendre.</strong> Ouvrir la bille par le centre, puis chaque moitié par son centre, aux coins de bois (<span class="ref">ch. 106</span> <span class="ref">§9</span>.3). Garder la demi-bille ou le quart dont le fil court droit d’un bout à l’autre, et laisser le cœur du côté du ventre, où on l’enlèvera : le bois des premiers cernes autour du cœur tient parfois moitié moins en flexion que le bois mûr. Un jeune tronc de la bonne grosseur peut servir entier, écorcé, sans fendre : c’est plus rapide, mais tout ce bois-là est du bois de jeunesse, et l’arc est plus faible et plus cassant.</p>
+<p class="p0 ri"><strong class="runin">Le dos ne se touche jamais.</strong> Le dos, c’est la face sous l’écorce. On enlève l’écorce et la couche molle juste dessous au racloir, sans entailler le bois. Tout le reste du travail se fait <strong>au ventre</strong>, du côté du cœur : gratter du côté du dos casse l’arc au premier bandage.</p>
+<p class="p0 ri"><strong class="runin">La forme.</strong> Une longueur de <strong>1,2 à 1,8 m (4 à 6 pi)</strong>. Au centre, environ <strong>2,5 cm d’épaisseur et 3,8 cm de largeur</strong>, et à peine plus mince et plus étroit vers les bouts. Garder la poignée pleine ; amincir le ventre des deux bras jusqu’à ce qu’ils plient. Aux deux bouts, <strong>les encoches</strong> : deux entailles taillées en biais sur les côtés, limées lisses, jamais une fente dans l’axe du bois — une fente s’ouvre sous la corde et remonte le fil.</p>
+<p class="p0 ri"><strong class="runin">Sécher.</strong> Un bois dégrossi sèche plus vite qu’une bille. <strong>Enduire les deux bouts</strong> de poix ou de cire : les bouts sèchent trop vite, fendent, et la fente remonte dans l’arc. Sécher à l’abri, au frais, jamais bandé, jamais au-dessus du poêle. Au froid de l’hiver dehors, le séchage à l’air est très lent ; dans le chalet chauffé, il va plus vite, mais à l’écart de la chaleur. Pour savoir quand c’est sec, on pèse comme au <span class="ref">ch. 106</span> : la masse s’écrit <strong>au charbon sur le bois même</strong>, et deux pesées égales à une semaine d’intervalle disent que le bois a fini de perdre son eau. Dehors, un bois de l’épaisseur d’un arc met des semaines à des mois ; mis dehors à l’automne, il ne finit qu’au printemps. Une pièce deux fois plus épaisse sèche environ trois fois plus lentement : c’est pourquoi on dégrossit d’abord. La balance dit le jour.</p>
+<p class="p0 ri"><strong class="runin">Égaliser les deux bras.</strong> Un bras plie toujours plus que l’autre — le bout le plus gros de la bille est le plus raide. On gratte le ventre du gros bout <strong>jusqu’à ce qu’il tire comme le petit</strong>. Pour voir, une perche à crans : une perche plantée ou accrochée au mur, des crans tous les quelques centimètres, l’arc posé par la poignée au sommet, la corde tirée d’un cran à la fois. On recule de quelques pas et on regarde. Les deux bras doivent décrire deux arcs de cercle égaux. Là où un bras reste droit, on gratte le ventre à cet endroit, et seulement là ; là où il plie déjà, on ne touche plus. <strong>On ne tire jamais l’arc à pleine allonge avant que la courbe soit égale</strong> : c’est le point plat qui ne plie pas qui fait casser le point voisin qui plie trop. La pleine allonge, c’est la flèche tirée jusqu’à ce que sa pointe arrive presque à l’arc, à 2,5 cm au moins de l’endroit où elle repose : la longueur de la flèche, moins quelques centimètres. Et jamais la corde lâchée à vide, sans flèche (<span class="ref">§8</span>, bloc 6).</p>
+<p class="p0 ri"><strong class="runin">Bander et débander.</strong> Une corde plus longue sert pendant l’égalisation ; la corde finale laisse environ un poing fermé, pouce levé, entre elle et la poignée : c’est la vieille mesure des archers. <strong>L’arc se débande après chaque séance</strong> et se range à plat ou pendu, au frais. Laissé bandé, il flue et perd son ressort, et c’est définitif.</p>
+<p class="p0 ri"><strong class="runin">Câbler le dos quand le bois est faible ou qu’il commence à lâcher.</strong> Un seul tendon tordu, long de <strong>seize fois l’arc</strong>, bouclé à une encoche et passé <strong>huit allers-retours</strong> d’une encoche à l’autre le long du dos, soit seize longueurs d’arc. Pour un arc de 1,2 m, c’est environ <strong>19 m</strong> de tendon tordu d’un seul morceau ; pour 1,8 m, près de <strong>29 m</strong>. C’est plus que tout le fil de tendon d’un orignal, une quinzaine de mètres (<span class="ref">ch. 99</span>, <span class="ref">§2</span>) : le câble complet demande le tendon de plus d’une bête. Au milieu, on y met <strong>deux tours de torsion</strong> avec un bâtonnet, ce qui retend le câble et raidit l’arc, puis on le ligature à la poignée par une lanière de peau crue. Le câble travaille en traction avec le dos. Un câble plus court, de quelques longueurs seulement, n’est pas la méthode décrite : c’est un essai. C’est aussi ce qu’on essaie sur un arc dont une écharde se soulève, avant de le jeter ; l’arc câblé pour ça s’essaie d’abord sur la perche à crans, de côté, jamais à la joue (<span class="ref">§8</span>, bloc 6). Plus simple et plus grossier : un deuxième arc ligaturé au premier par la poignée, les deux formant un X vu de côté, ses bouts reliés à ceux du premier par une cordelette, et une seule corde, sur l’un des deux.</p>
+<p class="p0 ri"><strong class="runin">Mesurer l’arc.</strong> Accrocher l’arc par la poignée à une poutre, corde vers le bas, et suspendre une chaudière à la corde. Verser de l’eau jusqu’à ce que la corde descende à l’allonge voulue, mesurée de la corde jusqu’au dos de la poignée : <strong>un litre pèse un kilo</strong>, la chaudière pesée vide compte avec l’eau, et le total dit la force de l’arc. Pour le petit gibier, le chiffre compte peu : la flèche doit voler droit et frapper assez pour rouler un lagopède. Pour le gros gibier, le mécanisme est ailleurs : l’arc doit pousser une pointe large et tranchante jusque dans la cage thoracique d’une grosse bête. Pour l’orignal, on demande à l’arc <strong>22,7 kg à 71 cm d’allonge</strong>. Ce chiffre ne s’appuie sur aucune mesure de pénétration publiée : un plancher n’est pas une garantie. L’essai à 71 cm ne vaut que pour un arc du haut de la fourchette et une flèche de plus de 71 cm : un arc court tiré aussi loin plie son bois bien plus fort (<span class="ref">§3</span>). Un arc de bille qui n’arrive pas à 22,7 kg ne va pas sur un orignal.</p>
+<p>Un arc qui y arrive, avec la pointe large décrite plus bas, reste un dernier recours. Avant les fusils, c’est ainsi que l’arc a pris le gros gibier : la bête poussée dans les bancs de neige profonde, le chasseur en raquettes là où elle s’enlisait. Ça marchait parce que la neige la tenait sur place. Mais la flèche tue par le sang que la bête perd, pas par le choc : touchée, elle reste debout de quelques secondes à plusieurs heures. Un orignal touché ne s’approche donc pas à quelques pas, même enneigé : la conduite du <span class="ref">ch. 61</span> (étape 2 et <span class="ref">§8</span>, bloc 1) — attendre, approcher par l’arrière — suppose une arme chargée pour le coup de grâce, et l’arc n’en donne pas. Ce n’est pas l’arc qu’on apprend en premier.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd.</strong> La portée : un tireur exercé renverse un lagopède ou un lièvre accroupi à <strong>une vingtaine de mètres</strong>, et un débutant, à beaucoup moins. La durée : un arc de fortune perd son ressort ou casse, et on en refait un. La pluie : la corde mouillée s’allonge. Le temps de pratique, qui ne se remplace par rien.</p>
+<h3 class="sub">La corde</h3>
+<p class="p0 ri"><strong class="runin">En peau crue ou en tendon.</strong> La corde de l’arc de mélèze est une lanière de peau crue d’orignal, tordue ou tressée. Celle de l’arc câblé est du tendon tordu, avec <strong>une boucle à chaque bout</strong>. La peau crue se coupe et se prépare comme la babiche du <span class="ref">ch. 99</span> (<span class="ref">§5-C</span> à 5-E) ; le tendon se lève, se sèche et se défibre comme au <span class="ref">ch. 99</span> (<span class="ref">§5-A</span> et 5-B). Les deux se tordent en contre-toron (<span class="ref">ch. 99</span>, <span class="ref">§5-G</span>) : deux brins tordus chacun dans un sens et enroulés l’un sur l’autre dans l’autre sens. Le tendon mouillé colle et durcit en séchant ; les reprises se font sans nœud, en roulant les deux pointes l’une sur l’autre dans le sens de la torsion.</p>
+<p class="p0 ri"><strong class="runin">Les boucles.</strong> Une boucle fixe, tressée ou ligaturée, au bout qui va à l’encoche du bas. L’autre bout se noue autour de l’encoche du haut quand l’arc est bandé à la bonne hauteur, puis, la longueur trouvée, se refait en deuxième boucle. La corde se ligature de tendon à l’endroit où la flèche s’appuie, là où les doigts l’usent.</p>
+<p class="p0 ri"><strong class="runin">Contre l’eau.</strong> Une babiche retrempée redevient molle et s’allonge (<span class="ref">ch. 99</span>). Frottée au gras, elle boit l’eau plus lentement : on graisse la corde d’un arc, parce qu’on ne lui demande pas de serrer en séchant. Une corde de rechange voyage roulée dans une poche intérieure, sèche.</p>
+<p class="p0 ri"><strong class="runin">Ce qui la remplace.</strong> Une corde synthétique tressée qui ne s’étire pas sous la main, un fil de pêche tressé doublé. Ce qui s’étire comme un élastique ne fait pas une corde d’arc : il boit la force au lieu de la rendre.</p>
+<h3 class="sub">La flèche mousse</h3>
+<p class="p0 ri"><strong class="runin">Le fût.</strong> Du mélèze ou de l’épinette sec, refendu en baguettes de section carrée, puis arrondi au couteau et au racloir. Longueur : <strong>61 à 76 cm</strong>, à peu près la moitié de l’arc. Un fût croche se redresse à la chaleur : le passer au-dessus des braises sans le roussir, le plier dans le bon sens, le tenir droit jusqu’à ce qu’il refroidisse. Le contrôle : le fût roulé sur une planche plane roule sans sautiller.</p>
+<p class="p0 ri"><strong class="runin">La tête.</strong> En œuf, au bout du fût. Deux façons. La première : garder au bout de la baguette une épaisseur de bois qu’on taille en bulbe arrondi — un seul morceau, rien à coller. La deuxième : un nœud de bouleau, un bout de panache ou d’os percé, enfoncé sur le bout aminci, collé à la poix et ligaturé de tendon. <strong>Du poids au bout la porte plus loin</strong> : un clou enfoncé dans la tête, une petite pierre ligaturée. Une douille vide de .22, qui ne se recharge pas, enfoncée par le collet sur un bout très aminci, fait une tête plate de métal d’un seul coup, le culot en avant : c’est un essai, qui se juge sur une cible avant d’aller au bois. Les douilles de carabine, elles, se gardent (étape 4). Le fût tout seul, sans tête ni plume, tire encore : c’était la flèche de l’écureuil sur une branche basse et du lièvre accroupi sous une épinette.</p>
+<p class="p0 ri"><strong class="runin">L’encoche.</strong> Coupée ou limée en travers au bout arrière, <strong>jamais fendue</strong> : une fente s’ouvre sous la corde et remonte le fût.</p>
+<p class="p0 ri"><strong class="runin">L’empennage.</strong> Trois plumes : queue de gélinotte ou de tétras (<span class="ref">ch. 49</span> <span class="ref">§9</span>), de lagopède des saules (<em>Lagopus lagopus</em>), rémiges d’outarde fendues. Toujours d’un oiseau pris et plumé comme aux <span class="ref">ch. 49</span> et 54, jamais d’un oiseau trouvé mort sur la grève ou dans le bois : ses plumes portent ce qui l’a tué, et elles passent par les doigts (<span class="ref">ch. 49</span>, <span class="ref">§8</span> bloc 2). Fendre le tuyau en long, garder la moitié qui porte la barbe, laisser un bout de tuyau nu à chaque extrémité. Poser les trois plumes à égale distance autour du fût, près de l’encoche, ligaturer les bouts de tuyau au tendon mouillé, et enduire la ligature de poix (<span class="ref">ch. 94</span> §F) — la poix d’hiver porte plus de gras, sinon elle casse au froid (<span class="ref">ch. 94</span> <span class="ref">§9</span>). La plume dirige la flèche : une flèche sans plume vole encore, mais moins droit.</p>
+<p class="p0 ri"><strong class="runin">Le tir.</strong> À quoi on tire la flèche mousse, et comment on s’approche, est au <span class="ref">ch. 47</span> (<span class="ref">§9</span>). Deux choses tiennent à la flèche elle-même : on vise la tête ou le cou, et on tire devant un talus ou un tronc, parce qu’une flèche qui manque s’enfonce sous la neige et se perd.</p>
+<h3 class="sub">La pointe large, pour plus gros que le petit gibier</h3>
+<p class="p0 ri"><strong class="runin">Ce qu’elle fait.</strong> Une flèche ne renverse pas une grosse bête : elle la tue en coupant, par le sang qui sort des vaisseaux tranchés. Une lame affûtée tranche la paroi élastique d’un vaisseau ; émoussée, elle la coupe mal, et la bête saigne moins. Une pointe ronde, conique ou en aiguille — le clou laissé rond, l’éclat d’os — entre moins loin dans la chair qu’une lame et coupe moins. Chez l’orignal, le poil épais et le cuir boivent le sang et referment la plaie : il faut que la flèche ressorte de l’autre côté, une entrée et une sortie. Dans le Nord, quand l’arc servait encore, la pointe du gros gibier était déjà de fer : lame de fer sur un avant-fût de panache, feuille de fer-blanc, gros clou battu en ciseau pour le gros gibier à courte distance, lime battue enfoncée au bout du fût et ligaturée au tendon.</p>
+<p class="p0 ri"><strong class="runin">La tôle d’acier.</strong> Des trois pointes — tôle, clou, os —, c’est la meilleure : le métal fait la meilleure lame de fortune. La pointe large que les chasseurs à l’arc du début du siècle dernier taillaient eux-mêmes pour le gros gibier mesurait <strong>7,6 cm de long, 3,2 cm de large, un peu moins de 0,8 mm d’épais</strong>, et pesait <strong>14 g</strong>. Une lame de ressort recuite puis retrempée (<span class="ref">ch. 107</span>) garde son fil ; l’acier doux coupe aussi bien, mais ne le tient pas, et il se relime à chaque sortie.</p>
+<p class="p0 ri"><strong class="runin">Découper.</strong> Le ressort recuit (<span class="ref">ch. 107</span>) se raye en diagonale à la scie à métaux et se casse en triangles à l’étau. Sans scie : choisir le morceau de tôle qui a déjà à peu près la forme, et l’user sur une pierre rugueuse ; une tôle assez molle se bat à froid pour faire le tranchant, sur une enclume de fortune, avec un marteau plus dur qu’elle.</p>
+<p class="p0 ri"><strong class="runin">La soie.</strong> À la base du triangle, deux entailles en biais au ciseau à froid laissent deux ailettes et, entre elles, une soie d’environ <strong>2,5 cm sur 1 cm</strong>. Deux petites encoches limées au bas des ailettes recevront le tendon.</p>
+<p class="p0 ri"><strong class="runin">Affûter à la lime, dès la pointe.</strong> Une lame qui coupe dès qu’elle touche est celle qui entre le mieux quand l’arc est faible, et le fil rude de la lime coupe mieux la viande que le fil poli à la pierre. L’essai : un élastique tendu sur une petite ouverture ; la pointe qui le coupe sans effort est prête. Elle se reprend avant chaque sortie.</p>
+<p class="p0 ri"><strong class="runin">Poser.</strong> Au bout du fût, une entaille <strong>sciée ou limée, jamais fendue au couteau</strong> — une fente remonte le fût —, <strong>dans le plan de l’encoche</strong>, aussi profonde que la soie est longue. Amincir le bout du fût en biseau jusqu’aux faces de la lame. La soie entre à la poix chaude (<span class="ref">ch. 94</span> §F), et le tendon mouillé serre le bout du fût sur toute la longueur de l’entaille, croisé dans les encoches des ailettes, tour sur tour : c’est la ligature qui tient le bois fermé sur la soie. Le tendon colle et durcit en séchant, sans nœud.</p>
+<p class="p0 ri"><strong class="runin">La longueur.</strong> Le fût se mesure sans la pointe : à pleine allonge, son bout dépasse encore la main d’au moins 2,5 cm (« Égaliser les deux bras »), et la lame reste devant.</p>
+<p class="p0 ri"><strong class="runin">L’équilibre.</strong> La flèche finie, pointe et plumes posées, se pose en travers d’un doigt. Elle vole droit quand elle s’y tient en équilibre <strong>à 10 à 16 % de sa longueur en avant du milieu</strong> : de 6 à 10 cm sur une flèche de 61 cm, de 8 à 12 cm sur une de 76 cm. Le poids de métal au bout sert : une flèche trop légère pour l’arc fait l’effet d’un tir à vide (<span class="ref">§8</span>, bloc 6).</p>
+<p class="p0 ri"><strong class="runin">Le clou.</strong> Un gros clou, tête coupée, battu à froid sur l’enclume jusqu’à faire un ciseau ou une petite lame, puis limé tranchant. Laissé rond, il perce sans couper. Le bout du fût se ligature, puis se perce au diamètre du clou. Sans vilebrequin : un éclat d’os pointu planté debout, et le fût roulé entre les paumes dessus, la ligature gardant le bois entier. Le clou y entre à la poix. C’est la pointe du gros gibier <strong>à courte distance</strong>, et celle qu’on garde au carquois pendant la tournée de lagopède, pour le loup que la flèche mousse ne tuerait pas.</p>
+<p class="p0 ri"><strong class="runin">L’os.</strong> Un os long de patte posé sur une pierre et cassé d’un coup de pierre ; parmi les éclats, en garder un qui a déjà sa pointe, et l’user sur une pierre rugueuse. Il se pose comme la tôle. L’os perce, il ne coupe pas : il ne tient pas de fil, il s’écaille ou casse. Sur une grosse bête, c’est la dernière des trois.</p>
+<p class="p0 lab kh"><strong class="runin">Ce que la pointe ne fait pas.</strong></p>
+<p class="li"><strong>Elle ne fait pas l’arc.</strong> Là où l’orignal est le gros gibier courant, on demande à l’arc <strong>22,7 kg</strong>. Ceux qui l’ont pris à l’arc tiraient des arcs de <strong>23 à 36 kg</strong>, faits par des facteurs d’arc, avec une lame d’acier de ressort. Un arc de bille de mélèze n’a jamais été mesuré à ces forces : la chaudière dit s’il y arrive (« Mesurer l’arc »), et même s’il y arrive, aucun de ces chiffres ne s’appuie sur une mesure de pénétration publiée. Un arc de fortune ne garantit rien.</p>
+<p class="li"><strong>Un seul tir vaut d’être tiré.</strong> La bête de travers, la patte avant portée en avant — sinon l’omoplate arrête la flèche —, le point juste derrière la patte, au tiers inférieur de la poitrine. Jamais de face, ni de trois quarts vers soi, ni de derrière : l’os de l’épaule devant, la masse de l’arrière-train derrière arrêtent la flèche avant ce qui tue. Et de près : avec un arc de magasin, un chasseur ordinaire ne tire pas au-delà de 27 m ; avec un arc de bille, pas plus loin que la distance où l’on renverse un lagopède à coup sûr (« Ce qu’on perd »).</p>
+<p class="li"><strong>Elle tue par où elle passe.</strong> Une flèche au flanc a laissé un orignal trotter bien plus de 90 m avant qu’il se couche ; une flèche qui a traversé la poitrine de part en part en a tué un autre presque sur-le-champ. La bête touchée qu’on n’effraie pas meurt plus près d’où elle a été touchée : on attend, on n’approche pas (<span class="ref">ch. 61</span>, étape 2), et l’arc ne donne pas de coup de grâce.</p>
+<h3 class="sub">Le lance-pierre, la fronde et le bâton</h3>
+<p class="p0 ri"><strong class="runin">Le lance-pierre.</strong> Une fourche de bois dur — bouleau, érable rouge (<em>Acer rubrum</em>) — coupée avec un peu de tronc pour le manche, des branches grosses comme le pouce, séchée comme la bille d’arc. Deux bandes d’élastique égales et une pochette de cuir grande comme la paume, percée aux deux bouts. <strong>Deux attaches, deux façons de faire.</strong> La bande et la pochette forment un ensemble, ligaturé d’avance au tendon mouillé, au chaud, et laissé sécher : le tendon ne tient qu’une fois sec, et dehors, par grand froid, il gèle au lieu de sécher. L’attache à la fourche, elle, se fait et se défait <strong>à froid, à mains gantées</strong> : une gorge taillée au bout de chaque branche, la bande repliée en boucle dans la gorge et serrée d’un tour de cordelette sèche, ou passée dans un trou percé en haut de la branche. Une bande qui glisse de son attache en pleine tension envoie la pochette dans l’œil (<span class="ref">§8</span>, bloc 6) : l’attache s’essaie à bout de bras, de côté, avant le premier tir. <strong>L’essai de la bande</strong> : l’étirer à bout de bras et la lâcher. Une bonne bande claque et revient d’un coup ; une mauvaise revient lentement, comme de la pâte. La plupart des chambres à air sont en butyl, un caoutchouc choisi pour garder l’air et qui rebondit peu ; le tube de latex, du caoutchouc naturel, rebondit bien mieux : l’essai tranche. <strong>Les bandes, avec leur pochette, voyagent dans une poche intérieure</strong>, pas sur la fourche au froid, et se montent au moment de tirer. Les munitions : des galets ronds du ruisseau, tous de la même grosseur, parce qu’une pierre ronde vole plus droit qu’une pierre plate ; les billes d’un roulement mort, quand il y en a. <strong>Ce qu’on perd</strong> : la portée et la certitude. Une pierre assomme ; sur le corps d’un oiseau, elle ne tue pas toujours. C’est l’arme du tétras perché et de l’écureuil sur la branche (<span class="ref">ch. 47</span> <span class="ref">§9</span>).</p>
+<p class="p0 ri"><strong class="runin">La fronde.</strong> Deux cordes d’environ <strong>60 cm</strong>, une pochette de cuir ou de toile grande comme la paume entre les deux, une pierre dedans. Une corde enroulée au majeur et tenue dans la paume, l’autre pincée entre le pouce et l’index ; on fait tourner, on lâche celle du pouce. Rien à acheter, rien qui fige au froid, et beaucoup de pratique avant que la pierre aille où on veut. La pierre part droit devant elle à l’instant où la corde est lâchée, en ligne avec le cercle qu’elle décrivait : lâchée un peu tôt ou un peu tard, elle part de côté, ou derrière le lanceur. Pendant l’apprentissage, la pierre peut partir n’importe où autour du cercle : personne sur les côtés ni derrière.</p>
+<p class="p0 ri"><strong class="runin">Le bâton de jet.</strong> Un bâton de bois franc lourd, long comme le bras du bout des doigts à l’épaule, à bout mousse, naturellement coudé et <strong>aplati sur deux faces comme un boomerang</strong> : il vole à plat et touche plus souvent. Comment on le lance, et sur quoi, est au <span class="ref">ch. 47</span> (<span class="ref">§9</span>).</p>
+<h3 class="sub">Entretenir avec rien</h3>
+<p class="p0 ri"><strong class="runin">L’eau bouillante remplace le nettoyant.</strong> Verrou sorti, crosse démontée si elle se démonte, sinon emmaillotée d’un linge, arme tenue bouche en bas, eau bouillante savonneuse versée par la chambre, puis de l’eau bouillante claire. L’acier chaud sèche vite ; on passe des chiffons secs tant qu’il est chaud, et un chiffon gras tout de suite après, l’été. C’est aussi ce qui enlève les sels d’une amorce corrosive.</p>
+<p class="p0 ri"><strong class="runin">Le cordon et la baguette, pour nettoyer seulement.</strong> Le cordon est une ficelle, un plomb de pêche fendu et une boucle (<span class="ref">§4</span>). La baguette est une baguette de bouleau ou d’épinette refendue, plus mince que l’âme, poncée droite, le bout arrondi ; le bouleau, qui encaisse sec bien plus de travail que l’épinette noire avant de casser, vaut mieux. Le bois n’use pas les rayures ; ce qui les use, c’est de frotter la bouche. Ni l’un ni l’autre ne pousse une balle coincée : c’est le travail de la tige de métal (<span class="ref">§4</span>, étape 37).</p>
+<p class="p0 ri"><strong class="runin">L’huile.</strong> L’huile à moteur dépanne, l’été, en film mince. L’hiver, sur ce qui bouge : rien. Pour l’acier du dehors et pour le rangement, <strong>la moelle des os du bas de la patte</strong> — canons et phalanges — donne un gras plus mou au froid que celle du fémur : chez tous les cervidés où on l’a mesuré, du caribou au chevreuil, le gras des extrémités est fait pour rester souple au froid. Le fondre et le filtrer comme au <span class="ref">ch. 72</span>, en garder un petit pot. Un gras animal rancit à l’air (<span class="ref">ch. 72</span>) : il se renouvelle à chaque nettoyage, il ne se laisse pas des mois. <strong>Jamais de gras salé</strong> — bacon, lard salé, graisse de salaison : le sel et l’humidité, c’est la rouille.</p>
+<p class="p0 ri"><strong class="runin">Régler sans rien.</strong> Une cible d’écorce prise sur une bûche de chauffage ou un bouleau abattu, avec un point de charbon, un sac à dos plein de sable sous le fût, la visée à travers le canon de l’étape 28 sur une carabine à verrou. Sur une hausse et un guidon qui ne se règlent plus : une arme qui tire trop bas, hausse au plus haut, se corrige en <strong>limant le haut du guidon</strong>, un rien à la fois, parce qu’un guidon plus bas oblige à relever le canon pour viser (<span class="ref">§3</span>). Une arme qui tire trop haut, hausse au plus bas, demande un guidon plus haut : une goutte de <strong>soudure à l’étain</strong> sur le guidon, reprise à la lime (<span class="ref">ch. 103</span>). Jamais de brasure : sa chaleur peut enlever la trempe du bout du canon.</p>
+<h3 class="sub">Ce qui ne se remplace pas</h3>
+<p class="li"><strong>L’amorce et la poudre.</strong> Elles ne se fabriquent pas au chalet. La douille, elle, se garde : c’est la seule partie de la cartouche qui resserve, pour qui a stocké d’avance les amorces, la poudre et les données de charge <strong>de cette poudre-là</strong>. On ne récupère jamais la poudre de vieilles cartouches pour s’en servir ailleurs. Deux choses tuent dans ce stock-là, et aucune ne se voit. <strong>Des amorces en vrac qui se touchent partent toutes ensemble</strong> quand une seule part : elles restent dans leurs plateaux d’origine, jamais versées dans un pot. <strong>Une poudre qui prend feu dans un contenant solide et fermé le fait éclater comme une explosion</strong> : elle reste dans son contenant d’origine, fait pour s’ouvrir sous une faible pression. Ni les unes ni l’autre ne vont dans un pot de verre vissé, une chaudière à joint ou la caisse des cartouches, et elles ne se gardent pas ensemble.</p>
+<p class="li"><strong>La cartouche de l’orignal, de l’ours et du phoque.</strong> L’arc de bille prend le petit gibier et libère des balles ; il ne remplace pas la balle.</p>
+<p class="li"><strong>L’oiseau en vol.</strong> Ni l’arc, ni la fronde, ni le lance-pierre ne prennent un canard qui passe (<span class="ref">ch. 54</span> <span class="ref">§9</span>).</p>
+<p class="li"><strong>La pratique.</strong> Un arc se refait ; l’œil et la main qui le tirent juste ne se refont pas en un hiver de disette. C’est l’hiver d’avant qu’on apprend.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="45-1"><span class="fnn">1</span>Le renflement est un anneau où le canon a gonflé sous le choc de la balle contre l’obstacle. Il se voit parfois dehors, comme un anneau autour du canon. Sinon, l’âme bien propre, regardée par la chambre contre une lumière vive, y montre une ombre en anneau — une tache de graisse fait la même ombre, d’où l’âme propre — et les doigts passés doucement le long du canon le sentent comme une bosse. Deux balles restées dans l’âme : on présume le canon renflé. Un canon renflé ne s’arrange pas en tirant.</p>
+</template>
+<script type="application/json" id="meta">{"num": "45", "title": "Les armes, les munitions et l’arc", "tome": "Tome 3 · Prélever", "tnum": 3, "tfond": "#1D392E", "tencre": "#E9F0EA", "lieu": "Chalet", "dsub": "six mécanismes", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

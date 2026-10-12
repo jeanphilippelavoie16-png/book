@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>97 — Allonger la saison — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"97"}
+</style>
+</head>
+<body class="vA vB vC t5 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 5 · La forêt, le jardin et le chalet</span><span>Chapitre</span></div><div class="open-title"><div class="num">97</div><h1>Allonger la saison</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Les semis d’avril se font là où l’on vit en avril : à la maison si on y est encore, au chalet sinon. La méthode ne change pas ; seule la lumière change (<span class="ref">§5-C</span>).</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Allonger la saison, c’est enlever à chaque bout de l’été la poignée de nuits de gel qui le ferme — par le fumier qui fermente, le verre qui garde le soleil, l’eau qui gèle et la toile qui cache le ciel — pour gagner plusieurs semaines sur une saison sans gel qui tombe à 87 à 96 jours une année sur dix sur la côte ; ça ne conserve rien, ça fait mûrir ce qui, autrement, ne mûrirait pas.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<p class="p0 ri"><strong class="runin">Le bon choix.</strong> Pour les espèces qui tiennent <em>presque</em> dans la saison : la tomate (<em>Solanum lycopersicum</em>), la courge (<em>Cucurbita pepo</em>), le concombre (<em>Cucumis sativus</em>), le haricot (<em>Phaseolus vulgaris</em>), le chou d’automne (<em>Brassica oleracea</em>). Pour elles, trois semaines de plus changent une récolte nulle en récolte. Aux deux bouts de l’été, et pas au milieu : la saison est fermée par très peu de nuits. À Sept-Îles, juin compte en moyenne 1,5 nuit de gel et septembre 3,9, et plus des deux tiers de ces nuits restent entre 0 et −2 °C à la station — l’ordre de ce qu’une toile ou un plastique retiennent, sachant que le rang, plus bas, est plus froid (<span class="ref">§3</span>). Garder ces nuits-là, c’est garder l’essentiel de septembre, qui apporte à lui seul les trois quarts de la chaleur de juin (<span class="ref">§3</span>). Reste, en septembre, environ une nuit de gel sur trois qui descend sous −2 °C : là, la couverture devient un pari. Par nuit claire et calme : c’est le gel que les couvertures arrêtent. Et quand quelqu’un est au chalet matin et soir, parce que tout ce qui se ferme sur une plante s’ouvre aussi.</p>
+<p class="p0 ri"><strong class="runin">Le mauvais choix.</strong> Quand le froid arrive avec le vent et les nuages, une masse d’air froid qui entre, plutôt que par une nuit claire : le vent emporte la chaleur que la toile devait garder, la température descend bien sous ce qu’une couverture retient, et la protection devient un pari. Ce soir-là, on ne couvre plus, on récolte (<span class="ref">§9</span>). Pour le maïs sucré (<em>Zea mays</em>) en plein air : dans un été frais et court, il ne mûrit que sous plastique transparent. Pour une couche chaude montée avec un petit tas de fumier vieilli : un petit tas chauffe mal et refroidit vite, et un fumier qui a déjà chauffé ne chauffe plus seul. Pour une serre adossée sous le bord d’un toit qui déverse sa neige : la neige qui glisse la crève.</p>
+<p class="p0 lab kh"><strong class="runin">Ce que chaque moyen gagne, et ce qu’il coûte.</strong></p>
+<table class="tspan"><colgroup><col style="width:18.5%"><col style="width:20.1%"><col style="width:37.1%"><col style="width:24.2%"></colgroup><thead><tr><th>Moyen</th><th>Ce qu’il fait</th><th>Ce qu’il gagne</th><th>Ce qu’il coûte</th></tr></thead><tbody><tr><td class="c-item">Le site : pente, lac au vent, abri du nord (<span class="ref">§5-A</span>)</td><td>Évite le lac d’air froid des creux</td><td>C’est la protection la plus importante de toutes</td><td>Rien, une fois choisi. Mal choisi, rien ne le rattrape</td></tr><tr><td class="c-item">Toile sèche, drap, sapinage, la nuit (<span class="ref">§5-E</span>)</td><td>Cache le ciel au sol qui rayonne</td><td>Juste les quelques degrés d’une nuit claire</td><td>Deux gestes par jour. Mouillée, elle refroidit</td></tr><tr><td class="c-item">Agrotextile (couverture flottante)</td><td>Même chose, et il reste posé des semaines</td><td>Léger : 1 à 2 °C, sans garantie. Moyen : 2 à 3 °C. Lourd : jusqu’à 4 °C, mais il ne laisse passer que 30 à 50 % de la lumière</td><td>Il se déchire à l’ongle, au sabot, au piquet</td></tr><tr><td class="c-item">Plastique sur arceaux (tunnel)</td><td>Une serre de 35 cm de haut</td><td>Fermé, sans trou : de 1 °C (plastique mince) à 5 °C (épais). Des jeunes légumes ont passé −2 °C quelques heures dessous. Percé ou fendu pour l’aération : environ 1 °C seulement, d’où les trous bouchés les soirs de gel (<span class="ref">§5-E</span>)</td><td>Fermé, il dépasse 54 °C en une heure de soleil</td></tr><tr><td class="c-item">Châssis froid vitré (<span class="ref">§5-D</span>)</td><td>La même serre, avec du verre et un coffre</td><td>Plusieurs semaines d’avance sur les plants au moment du repiquage</td><td>L’aération, chaque matin de soleil</td></tr><tr><td class="c-item">Couche chaude au fumier (<span class="ref">§5-B</span>)</td><td>Chauffe le terreau par en dessous</td><td>Un terreau entre 10 et 29 °C sous vitre, en avril, quand dehors il gèle encore</td><td>Du fumier frais en quantité, une semaine à la monter, un thermomètre</td></tr><tr><td class="c-item">Paillis de plastique transparent (<span class="ref">§5-D</span>)</td><td>Laisse entrer le soleil dans le sol et l’y garde</td><td>Environ 4 à 8 °C de plus dans le sol ; le noir, 2 à 3 °C</td><td>Les mauvaises herbes poussent dessous. <strong>Jamais sur les pommes de terre</strong> (<span class="ref">§8</span>)</td></tr><tr><td class="c-item">Baril ou bidon d’eau (<span class="ref">§5-F</span>)</td><td>Gèle avant la plante, et chauffe en gelant</td><td>334 kJ par litre qui prend en glace, rendus lentement, seulement quand l’air descend sous zéro</td><td>Il en faut beaucoup, et au soleil le jour</td></tr><tr><td class="c-item">Semis dans la maison (<span class="ref">§5-C</span>)</td><td>Fait la levée avant que la terre dégèle</td><td>Une récolte quatre à six semaines plus tôt qu’un semis en pleine terre</td><td>La lumière, qui manque en avril</td></tr></tbody></table>
+<p class="p0">Ce qui ne se trouve pas ici : le jardin lui-même, le sol, le compost, l’eau et la clôture (<span class="ref">ch. 95</span>) ; la terre à fabriquer (<span class="ref">ch. 96</span>) ; garder la semence (<span class="ref">ch. 100</span>) ; le fumier des bêtes (<span class="ref">ch. 101</span>) ; ce qu’on fait de la récolte une fois sauvée (<span class="ref">ch. 78, 79</span> et 80).</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">La saison est courte en jours, et beaucoup plus courte en chaleur.</strong> Sur la côte, la saison sans gel dure 109 à 113 jours une année sur deux, et tombe à 87 jours ou moins une année sur dix à Sept-Îles (96 à Baie-Comeau). Mais les jours ne disent pas tout. Au-dessus de 5 °C, Sept-Îles accumule environ 1 040 degrés-jours<sup class="fnr" data-fn="97-1">1</sup> par an, Montréal 2 250 : moins de la moitié. Au-dessus de 10 °C, le seuil où les légumes venus des pays chauds commencent à souffrir, Sept-Îles en reçoit 410 et Montréal 1 320 : moins du tiers. En juillet, le mois le plus chaud, environ deux nuits sur cinq descendent à 10 °C ou moins. C’est pour ça que le chou, la carotte (<em>Daucus carota</em> subsp. <em>sativus</em>) et la pomme de terre (<em>Solanum tuberosum</em>) prospèrent et que la tomate, le haricot et le concombre peinent en plein air : ce qui manque à ces trois-là, ce n’est pas des jours, c’est des degrés.</p>
+<p class="p0 ri"><strong class="runin">La saison est fermée par quelques nuits, pas par un mur.</strong> De 1991 à 2020 (depuis 1994 à Longue-Pointe-de-Mingan), juillet est le seul mois sans aucun gel aux quatre stations de la côte ; août en a connu (−1,0 °C à Sept-Îles le 27 août 2006). Mais la plupart des gels de juin et de septembre sont faibles, entre 0 et −2 °C sous abri, et le tissu d’un légume récolté ne commence à geler qu’un peu sous zéro : vers −0,2 °C pour la laitue, −1,4 °C pour la carotte, −2 °C pour l’ail. Passer ces nuits couvert, c’est rouvrir des semaines entières de chaleur utile de part et d’autre : septembre vaut à Sept-Îles 150 degrés-jours au-dessus de 5 °C, contre 196 en juin.</p>
+<p class="p0 ri"><strong class="runin">Le gel qui tue au jardin vient d’en haut, pas du vent.</strong> Par nuit claire, calme et sèche, le sol rayonne sa chaleur vers un ciel très froid. L’air se refroidit d’abord au ras du sol, devient plus lourd, coule dans les creux et s’y empile, le plus froid en bas. Deux conséquences qu’on ne devine pas. D’abord, le gel des normales se lit à hauteur d’homme, sous abri ; un plant de 20 cm vit plus bas, dans l’air le plus froid de la nuit. Ensuite, l’absence de gelée blanche ne rassure pas : quand l’air est très sec, la température passe sous zéro sans que le givre se forme. Ce gel « noir » fait <strong>plus</strong> de dégâts que la gelée blanche, parce que la glace qui se dépose sur les feuilles, en se formant, libère un peu de chaleur.</p>
+<p class="p0 lab kh"><strong class="runin">On n’a que quatre sources de chaleur, et chaque méthode en exploite une.</strong></p>
+<p class="li"><em>Le sol.</em> Il se charge le jour et rend la nuit. Un sol nu, tassé et humide en garde et en rend le plus. Un sol fraîchement bêché est plein d’air, qui conduit mal : il est plus froid la nuit. Un paillis organique ou de l’herbe entre les rangs l’empêche de se charger le jour : même résultat. D’où le paradoxe : le paillis qui garde le frais en juillet rend la nuit plus froide en septembre.</p>
+<p class="li"><em>Le soleil derrière une vitre.</em> Le verre et le plastique laissent entrer la lumière et gardent la chaleur qu’elle fait en touchant le sol. Ils la gardent si bien qu’une heure de soleil suffit à monter l’air sous un couvert fermé au-delà de 54 °C. Une serre ou un châssis se ferme contre le froid et s’ouvre contre le soleil, tous les jours.</p>
+<p class="li"><em>Le fumier qui fermente.</em> Un tas de fumier frais, mêlé de litière, chauffe parce que ses microbes mangent. Monté en couche sous un châssis, il chauffe le terreau par en dessous pendant qu’il gèle dehors. C’est la seule source des quatre qui travaille la nuit sans avoir été chargée le jour.</p>
+<p class="li"><em>L’eau qui gèle.</em> Un litre d’eau qui prend en glace rend 334 kJ, et il les rend à 0 °C. Mais il les rend lentement, par la surface du contenant, et seulement quand l’air autour est plus froid que lui : c’est une réserve, pas une chaufferette. Par degré, à poids égal, l’eau garde environ cinq fois plus de chaleur que le granit.</p>
+<p class="p0 ri"><strong class="runin">Les anciens le savaient sans les chiffres.</strong> La couche chaude au fumier de cheval, le châssis vitré, le paillasson de paille qu’on roulait sur les couches le soir, l’ados, la bande de terre inclinée vers le sud où les maraîchers faisaient passer l’hiver aux laitues : chacun exploite une de ces sources. L’ados en est l’exemple le plus simple. Une planche de terre relevée de 32 cm sur 1,28 m fait face au sud avec une pente d’environ 14°. Aux équinoxes, le soleil de midi est à 40° au-dessus de l’horizon à Sept-Îles ; sur l’ados, il frappe comme s’il était à 54°, soit environ un quart de soleil de plus par mètre carré, sans rien acheter.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Seulement ce que demandent les procédures de ce chapitre. Ce qui s’achète d’avance : <span class="ref">ch. 00b</span>.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Thermomètre à sonde métallique, celui de la cuisine (<span class="ref">ch. 00b</span>), lavé à l’eau chaude savonneuse avant de retourner à la viande</td><td>1</td><td>Aucun vrai substitut pour semer la couche chaude au bon moment. La main enfoncée dans le fumier, sans coupure ni éraflure (<span class="ref">§8</span>, bloc 5), distingue le brûlant du doux, rien de plus</td><td><span class="non">NON</span> <span class="negx">pour la couche chaude : elle se sème au thermomètre</span></td></tr><tr><td class="c-item">Thermomètre minimum-maximum, à la hauteur des plants</td><td>1</td><td>Un thermomètre ordinaire, lu au lever du jour</td><td>Oui</td></tr><tr><td class="c-item">Fumier frais, mêlé de litière, pas trop pailleux</td><td>60 à 75 cm d’épaisseur sur la surface de la fosse, soit environ 3 à 3,5 m³ pour un seul châssis, plus 30 à 38 cm autour du coffre</td><td>Fumier de cheval, le meilleur (âne ou mulet, pareil). Litière de poulailler ou de clapier : une couche tiède ou sourde, pas une couche chaude (<span class="ref">§9</span>)</td><td><span class="non">NON</span> <span class="negx">pour la couche chaude. Frais, jamais déjà chauffé</span></td></tr><tr><td class="c-item">Châssis vitré</td><td>Un par 91 × 183 cm de couche</td><td>Vieille fenêtre dont la peinture tient ; pellicule claire tendue sur cadre ; coton, qui suffit sauf par grosse gelée. Une vieille peinture qui s’écaille peut être au plomb, et rien ne le dit à l’œil : c’est par les écailles, la poussière et la terre que le plomb entre chez un jeune enfant. Cette fenêtre-là ne va pas au-dessus d’un terreau à légumes et ne se gratte pas au-dessus du jardin</td><td>Oui</td></tr><tr><td class="c-item">Madriers ou planches <strong>non traités</strong></td><td>Un coffre</td><td>Perches empilées, les coins entaillés à mi-bois (<span class="ref">ch. 110</span>). Jamais de bois de démolition d’origine inconnue (<span class="ref">ch. 95</span>, <span class="ref">§8</span>)</td><td>Le non-traité : non</td></tr><tr><td class="c-item">Plastique transparent</td><td>Tunnel + paillis</td><td>Rideau de douche, bâche claire, grands sacs transparents fendus</td><td>Oui</td></tr><tr><td class="c-item">Arceaux</td><td>Un aux 90 cm à 1,5 m</td><td>Fil de fer n° 9 de 165 cm ; perches d’aulne ou d’épinette pliées ; tuyau souple</td><td>Oui</td></tr><tr><td class="c-item">Couvertures de nuit</td><td>La surface à protéger</td><td>Agrotextile ; draps de coton <strong>secs</strong> ; toile à sac en 2 ou 3 épaisseurs ; paillassons (<span class="ref">§9</span>) ; sapinage ; foin de marais, ou foin de grève rincé à l’eau douce (<span class="ref">ch. 95</span>), étendu sur un châssis ou des arceaux, pas sur les plants</td><td>Oui</td></tr><tr><td class="c-item">Barils ou bidons d’eau, foncés</td><td>Autant que la place le permet</td><td>Bouteilles de 2 L, chaudières à couvercle. Fermé, on laisse de l’air sous le bouchon (<span class="ref">§5-F</span>)</td><td>Oui</td></tr><tr><td class="c-item">Lest</td><td>Tout le pourtour</td><td>Pierres, sacs de terre, terre pelletée sur le bord ; du côté qu’on ouvre, des pierres ou des sacs qu’on enlève</td><td><span class="non">NON</span> <span class="negx"> : une couverture non lestée part au premier vent du lac</span></td></tr><tr><td class="c-item">Godets et terreau</td><td>Selon les plants</td><td>Papier journal roulé, boîtes de conserve percées au fond (<span class="ref">ch. 95</span>, <span class="ref">§9</span>). Terreau : terre de jardin + ¼ à ⅓ de fumier <strong>bien pourri</strong></td><td>Oui</td></tr><tr><td class="c-item">Papier journal</td><td>Une feuille par tomate verte</td><td>Papier kraft, sac de papier</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Lire la saison et le terrain</h3>
+<p class="step"><span class="sn">1</span><strong>Les dates.</strong> Les normales de 1991 à 2020, aux stations de la côte :</p>
+<table class="tspan"><colgroup><col style="width:10.2%"><col style="width:15.5%"><col style="width:13.2%"><col style="width:18.1%"><col style="width:15.3%"><col style="width:14.8%"><col style="width:12.9%"></colgroup><thead><tr><th>Station</th><th>Il gèle encore, une année sur deux, le… ou après</th><th>…une année sur dix, le… ou après</th><th>Il gèle déjà, une année sur deux, le… ou avant</th><th>…une année sur dix, le… ou avant</th><th>Saison sans gel, une année sur deux</th><th>…une année sur dix, au plus</th></tr></thead><tbody><tr><td class="c-item">Sept-Îles</td><td>31 mai</td><td>11 juin</td><td>19 septembre</td><td>4 septembre</td><td>111 jours</td><td>87 jours</td></tr><tr><td class="c-item">Baie-Comeau</td><td>27 mai</td><td>11 juin</td><td>17 septembre</td><td>4 septembre</td><td>113 jours</td><td>96 jours</td></tr><tr><td class="c-item">Natashquan</td><td>27 mai</td><td>12 juin</td><td>18 septembre</td><td>6 septembre</td><td>109 jours</td><td>93 jours</td></tr></tbody></table>
+<p class="stepc">Havre-Saint-Pierre n’a pas de normales de gel. Longue-Pointe-de-Mingan, sa voisine à l’ouest, compte en moyenne 3,3 nuits de gel en juin et 6,3 en septembre (mesures de 1995 à 2020) : plus du double de Sept-Îles en juin, une fois et demie en septembre. Natashquan, plus à l’est encore, n’en compte que 0,6 et 2,1. Ce n’est donc pas l’est de la côte qui gèle plus, c’est un endroit : deux stations voisines ne se ressemblent pas, et seul le thermomètre au ras des plants (étape 2) dit à laquelle ressemble le terrain. <strong>On plante pour la mauvaise année</strong> (<span class="ref">ch. 41</span>) : c’est elle qui décide des variétés (<span class="ref">§5-H</span>), pas la moyenne.</p>
+<p class="step"><span class="sn">2</span><strong>Mettre le thermomètre là où vit la plante</strong>, à 20 ou 30 cm du sol, pas au mur du chalet. Celui d’une station est à hauteur d’homme ; par nuit claire, le rang est plus froid. Un minimum-maximum dit le matin jusqu’où la nuit est descendue au ras des plants.</p>
+<p class="step"><span class="sn">3</span><strong>Lire la carte du froid du terrain une fois, le matin de la première gelée blanche.</strong> Là où le givre couvre tout, l’air froid s’accumule ; là où il n’y en a pas, il coule plus loin. Cinq minutes, avant que le soleil efface tout, et on sait où monter la couche et où ne rien planter de tendre.</p>
+<p class="step"><span class="sn">4</span><strong>Ne pas barrer la descente de l’air froid.</strong> Sur une pente, l’air froid coule comme de l’eau. Une clôture pleine, un mur de branchages serrés ou un talus <strong>en bas</strong> du jardin l’arrêtent et le font s’empiler derrière eux, sur les plants. Laisser le bas de la clôture ajouré, ou une brèche au point le plus bas. En haut de la pente, au contraire, un obstacle détourne l’air froid qui descendrait sur le jardin.</p>
+<p class="step"><span class="sn">5</span><strong>Profiter de ce qui est déjà là.</strong> Un grand lac ou le fleuve au vent diminue la fréquence des gels. Un rocher ou une rangée d’arbres voisins rendent de la chaleur la nuit, mais peuvent aussi retenir l’air froid : la gelée blanche du point 3 dit lequel des deux l’emporte ici. Le pied d’un mur ou d’une clôture de planches exposés au sud, à l’abri du nord, est la meilleure place du terrain pour la couche et le châssis.</p>
+<p class="step"><span class="sn">6</span><strong>Travailler la terre tôt, jamais à la veille d’une nuit de gel.</strong> Une terre qu’on vient de bêcher est pleine d’air, et plus froide la nuit. Si elle vient d’être travaillée, la tasser au dos de la bêche ou au rouleau, puis l’arroser.</p>
+<h3 class="sub">B — La couche chaude au fumier</h3>
+<p class="p0">La couche chaude fait lever en avril, sous vitre, ce qui ne lèverait pas dehors avant juin. Elle sert surtout à faire des <strong>plants</strong>, qu’on repique ensuite au jardin.</p>
+<p class="step"><span class="sn">7</span><strong>À l’automne, creuser la fosse</strong>, tant que la terre n’est pas gelée : en avril, elle l’est. Au moins 46 cm de profondeur, environ 90 cm plus large que le coffre pour pouvoir rechausser, sur un endroit élevé et bien égoutté, au sud d’un mur, d’un bâtiment ou d’une clôture de planches jointes. Un lit de 10 cm de gros gravier au fond draine et aère. Couvrir la fosse pour l’hiver, planches et feuilles, sinon elle se remplit de neige et ses parois gèlent : on la déneige avant de charger. Préparer en même temps le terreau : terre de jardin mêlée d’un quart à un tiers de fumier <strong>bien pourri</strong>, mise en tas pour l’hiver.</p>
+<p class="step"><span class="sn">8</span><strong>Le coffre.</strong> Madriers, l’arrière au moins 15 cm plus haut que le devant : la pluie s’écoule et les plants voient plus de ciel. Largeur intérieure un peu plus courte que le châssis pour qu’il porte sur les bords : 173 cm (5 pi 8 po) pour un châssis de 91 × 183 cm (3 × 6 pi), sinon la mesure de la vieille fenêtre qu’on a. Coins renforcés, sinon le coffre s’affaisse (<span class="ref">ch. 110</span>). Le coffre doit pouvoir se soulever.</p>
+<p class="step"><span class="sn">9</span><strong>Faire chauffer le fumier avant de charger.</strong> Frais, pas froid, pas pourri, jamais déjà chauffé ; le fumier de cheval est le meilleur. Le mettre en tas près de la fosse, tassé et couvert : un petit tas chauffe mal et refroidit vite. Dès qu’il fume, le retourner pour l’homogénéiser. Il est prêt quand il rechauffe franchement, cinq ou six jours après. Un fumier très pailleux chauffe lentement, puis trop fort plus tard. Mêler au neuf du vieux fumier mouillé, qui a déjà perdu son feu, donne une chaleur plus douce et qui dure plus longtemps.</p>
+<p class="step"><span class="sn">10</span><strong>Charger.</strong> Pelleter le fumier par lits successifs, secoué à la fourche pour le mélanger, chaque lit tassé avant le suivant. Épaisseur : <strong>60 à 75 cm</strong> pour une couche faite tôt, quand il gèle encore la nuit — 26 nuits d’avril sur 30 à Sept-Îles ; 30 cm seulement pour une couche montée par temps doux. Poser le coffre, remettre 10 à 15 cm de fumier tassé dedans, puis <strong>rechausser</strong> : du fumier empilé contre l’extérieur du coffre jusqu’en haut, sur 30 à 38 cm de large. Il empêche le froid d’entrer par les côtés, et c’est lui qui garde la couche. Les maraîchers d’autrefois faisaient cette ceinture en vieux fumier court, plus large, 40 à 50 cm : c’est l’<em>accot</em>.</p>
+<p class="step"><span class="sn">11</span><strong>Deux ou trois jours fermée</strong>, châssis posés et couverts de volets de planches ou de paillassons. Puis ouvrir, retasser le fumier, l’égaliser, et étendre <strong>13 à 15 cm de terreau</strong> : trop plutôt que pas assez, parce que le fumier se tasse encore. Le terreau doit arriver presque au bord bas du coffre : plus les plants sont près de la vitre, plus ils sont trapus.</p>
+<p class="step"><span class="sn">12</span><strong>Attendre que le coup de feu passe.</strong> Le fumier atteint sa plus grande chaleur trois ou quatre jours après la charge, et peut la tenir cinq ou six jours ; un thermomètre planté à 8 cm dans le terreau peut marquer 50 °C. On ne sème pas là-dedans : les racines cuisent. Soulever un peu les châssis chaque jour pour laisser sortir la chaleur. <strong>C’est le thermomètre qui décide, pas le nombre de jours</strong> : on sème quand le terreau est redescendu vers 30 °C, entre 27 et 32 °C ; le plus prudent attend 24 °C. Selon le fumier, ça prend de six à dix jours.</p>
+<p class="step"><span class="sn">13</span><strong>Semer</strong> en lignes espacées de 10 cm, à la même profondeur qu’en pleine terre. Ou poser des caisses de semis sur la couche ; si le fumier est encore trop chaud, les poser sur des lattes pour laisser une lame d’air dessous.</p>
+<p class="step pk-c"><span class="sn">14</span><strong>Tenir la couche entre 10 et 29 °C</strong>, jamais au-delà. Après la levée, viser 16 à 18 °C pour les choux et la laitue, 18 à 24 °C pour la tomate. Aérer en soulevant le châssis <strong>du côté sous le vent</strong>, quel qu’il soit, sans courant d’air froid direct sur les plants : une couche qu’on n’aère pas donne des plants qui filent<sup class="fnr" data-fn="97-2">2</sup> et qui pourrissent. Arroser peu : un terreau plutôt sec qu’humide, parce que les plants pourrissent sur terre mouillée.</p>
+<p class="step"><span class="sn">15</span><strong>Les nuits froides</strong>, couvrir les châssis : volets de planches de la même taille, paillassons, deux ou trois épaisseurs de toile à sac clouées sur trois lattes et roulées d’un bout à l’autre par une seule personne, ou une couche égale de foin de marais.</p>
+<p class="step"><span class="sn">16</span><strong>Quand elle faiblit, la réchauffer.</strong> Le <em>réchaud</em> des anciens : entourer la couche d’une bande de fumier <strong>neuf</strong> bien pressé, de 40 à 60 cm de large et de la hauteur de la couche. Il chauffe à son tour et recharge la couche par les côtés.</p>
+<p class="step"><span class="sn">17</span><strong>Quand les plants touchent la vitre</strong>, soulever le coffre d’un bloc de bois sous chaque coin.</p>
+<p class="step"><span class="sn">18</span><strong>Endurcir avant de repiquer</strong> : enlever les châssis quelques heures, puis des journées, puis des nuits (<span class="ref">§5-C</span>, étape 26).</p>
+<p class="step pk-d"><span class="sn">19</span><strong>Après la saison</strong>, le fumier usé de la couche n’a chauffé que quelques jours : c’est du <strong>fumier cru</strong>. Il va au tas de fumier du <span class="ref">ch. 101</span>, à l’écart du jardin, jamais au composteur (<span class="ref">ch. 95</span>), ou sous des cultures qu’on récoltera au moins 120 jours plus tard pour ce qui touche la terre, 90 jours pour le reste (<span class="ref">ch. 101</span>). Voir <span class="ref">§8</span>.</p>
+<h3 class="sub">C — Les semis dans la maison et le calendrier</h3>
+<p class="step"><span class="sn">20</span><strong>Compter à rebours depuis le repiquage</strong>, jamais en avant depuis le calendrier. Le nombre de jours à maturité du sachet se compte à partir du <strong>repiquage</strong> pour ce qui se sème à l’intérieur, à partir de la <strong>levée</strong> pour ce qui se sème en pleine terre ; mais aucune règle n’oblige les semenciers à la suivre, et ce nombre a été mesuré ailleurs, plus au chaud. Ici, il s’allonge.</p>
+<table class="tspan"><colgroup><col style="width:13.2%"><col style="width:17.1%"><col style="width:18.7%"><col style="width:29.7%"><col style="width:21.3%"></colgroup><thead><tr><th>Espèce</th><th>Du semis à la levée</th><th>De la levée au repiquage</th><th>Repiquer, sur la côte</th><th>Donc semer vers</th></tr></thead><tbody><tr><td class="c-item">Chou</td><td>4 à 10 jours</td><td>5 à 7 semaines</td><td>Fin mai – début juin, sous agrotextile</td><td>Début à mi-avril</td></tr><tr><td class="c-item">Brocoli</td><td>7 à 10 jours</td><td>5 à 7 semaines</td><td>Fin mai – début juin, sous agrotextile</td><td>Début à mi-avril</td></tr><tr><td class="c-item">Laitue</td><td>6 à 8 jours</td><td>3 à 5 semaines</td><td>Fin mai – début juin</td><td>Fin mars à début mai</td></tr><tr><td class="c-item">Oignon (de semis)</td><td>7 à 10 jours</td><td>8 semaines</td><td>Début juin</td><td>Fin février à fin mars</td></tr><tr><td class="c-item">Tomate</td><td>6 à 12 jours</td><td>5 à 7 semaines</td><td>Mi-juin en plein air ; début juin sous tunnel ou châssis</td><td>Mi à fin avril</td></tr><tr><td class="c-item">Poivron</td><td>9 à 14 jours</td><td>6 à 8 semaines</td><td>Mi-juin, sous tunnel</td><td>Début avril. Un pari de belle année</td></tr><tr><td class="c-item">Concombre</td><td>6 à 10 jours</td><td>4 semaines</td><td>Mi-juin, sous tunnel</td><td>Début mai</td></tr><tr><td class="c-item">Courge, courgette</td><td>4 à 6 jours</td><td>3 à 4 semaines</td><td>Mi-juin, sous tunnel</td><td>Mi-mai</td></tr></tbody></table>
+<p class="stepc">Les dates de repiquage sont tirées du tableau de <span class="ref">§5-A</span> : les choux et la laitue sortent dès la fin mai, endurcis (étape 26) et sous agrotextile, parce que les seuils de gel du <span class="ref">§5-G</span> sont ceux de plants d’automne, pas de jeunes plants de printemps ; le reste attend la date d’une année sur dix, ou sort plus tôt sous plastique.</p>
+<p class="step"><span class="sn">21</span><strong>Faire lever au chaud</strong> : environ 21 °C, sur le dessus du réfrigérateur ou près du poêle, jamais au soleil direct, qui chauffe le terreau au point de tuer la graine. <strong>La laitue fait exception</strong> : elle lève au frais, entre 10 et 18 °C, ni sur le frigo ni près du poêle. Tenir le terreau humide sous une pellicule. Dès que la moitié des graines ont levé, enlever la pellicule et sortir de la chaleur : désormais, c’est la lumière qui compte. Température de la pièce ensuite : 13 à 21 °C, loin des courants d’air.</p>
+<p class="step pk-d"><span class="sn">22</span><strong>La fenêtre ne suffit pas, et c’est normal.</strong> En mars et en avril, à cette latitude, les jours sont encore courts, souvent gris, et la vitre refroidit les plants la nuit par rayonnement : des semis sur l’appui de la fenêtre filent presque toujours. Avec une lampe : 5 à 10 cm au-dessus du feuillage, remontée à mesure, 16 heures par jour. Une couverture de survie drapée au-dessus du support de lampes, sans toucher les tubes et en laissant l’air passer aux bouts, gagne 3 à 6 °C dans une pièce froide sous des tubes fluorescents, qui chauffent un peu ; sous une lampe DEL, qui chauffe moins, le gain est moindre. Au chalet, la lampe tourne sur les batteries (<span class="ref">ch. 85, 86</span>), et c’est la plus grosse charge du printemps : deux tubes fluorescents de 40 W allumés 16 heures tirent environ 1,3 kWh par jour, plus les pertes de l’onduleur, soit plus que ce que 400 W de panneaux rendent par la batterie en avril (<span class="ref">ch. 86</span>, étape 2), et ça pendant toutes les semaines des semis. Une lampe DEL donne la même lumière pour moins de courant. Elle entre au bilan du <span class="ref">ch. 86</span> (étape 1) avant qu’on sème, pas après. <strong>Si une génératrice recharge les batteries pour ça : jamais dans un bâtiment, un garage ni sous un auvent</strong> (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">23</span><strong>Sans lampe</strong>, la fenêtre le jour, les plants reculés de la vitre la nuit, et surtout : <strong>sortir les plants sous le châssis ou dans la couche chaude dès qu’elle est prête</strong>. Sous une vitre, dehors, ils ont tout le ciel ; c’est la vraie lampe du chalet.</p>
+<p class="step"><span class="sn">24</span><strong>Repiquer en godet</strong> à la deuxième vraie feuille, en tenant le plant <strong>par une feuille, jamais par la tige</strong> : le plant se remet d’une feuille abîmée, pas d’une tige écrasée. Écrire l’espèce et la date au feutre sur le godet.</p>
+<p class="step"><span class="sn">25</span><strong>Les pommes de terre de semence</strong> sortent du caveau et passent deux jours au chaud avant la plantation : les germes repartent, et le tubercule ne ruisselle pas de condensation au moment d’aller en terre. Un tubercule aux germes ramifiés et chevelus est trop vieux : il donne un plant faible.</p>
+<p class="step"><span class="sn">26</span><strong>Endurcir une à deux semaines.</strong> Quelques heures dehors, à l’ombre, à l’abri du vent, par plus de 7 °C ; allonger chaque jour la durée et le soleil. Repiquer en fin d’après-midi ou par temps couvert, et arroser à fond.</p>
+<h3 class="sub">D — Le châssis froid, l’ados et le sol qu’on réchauffe</h3>
+<p class="step"><span class="sn">27</span><strong>Le châssis froid</strong> est une couche chaude sans fumier. Le coffre et la vieille fenêtre sont au <span class="ref">ch. 95</span> ; ce qui change ici, c’est la préparation. <strong>À l’automne</strong>, empiler au moins 15 cm de terre riche là où ira le coffre, et la couvrir de feuilles ou de litière sans graines de mauvaises herbes, ainsi que le sol autour : sous les feuilles et la neige, elle gèle moins profond que la terre nue. Au printemps, enlever les feuilles avant de poser le coffre : laissées là, elles garderaient la terre froide (étape 30). Poser le coffre (planches de 30 cm, l’arrière 15 cm plus haut), rechausser l’extérieur de terre ou de fumier, et poser le verre <strong>quelques jours avant</strong> de semer ou de repiquer, pour réchauffer la terre. On ne met jamais un plant dans une terre froide. Du coton tendu remplace le verre, sauf quand une grosse gelée s’annonce.</p>
+<p class="step"><span class="sn">28</span><strong>L’ados.</strong> Prendre une bande de terre orientée est-ouest, large de 1,28 m. En la bêchant, la baisser de 16 cm du côté sud et la relever de 16 cm du côté nord : 32 cm de pente vers le sud. Tendre un cordeau sur la crête, trancher le bord nord à la bêche et le battre au dos de la bêche pour faire un talus presque vertical. S’il y a un mur qui coupe le vent du nord, faire l’ados à quelques pas <strong>devant</strong> le mur, pas contre : il faut pouvoir en faire le tour. C’est là que vont les premières salades du printemps et le dernier rang de l’automne. Il complète le billon du <span class="ref">ch. 95</span> : le billon draine, l’ados capte en plus le soleil bas.</p>
+<p class="step pk-d"><span class="sn">29</span><strong>Réchauffer le sol avant de semer.</strong> Poser un plastique <strong>transparent</strong> sur une terre humide, bien tendu, les bords enterrés, et le laisser jusqu’au semis : il monte la terre de 4 à 8 °C. Le noir ne gagne que 2 à 3 °C et seulement s’il colle au sol, puisqu’il chauffe par contact ; en revanche il étouffe les mauvaises herbes, alors que le transparent les fait lever. Enlever le transparent au semis, ou planter au travers par des fentes. <strong>Jamais sur les rangs de pommes de terre</strong> (<span class="ref">§8</span>).</p>
+<p class="step"><span class="sn">30</span><strong>Le paillis organique a deux saisons.</strong> Au printemps, seulement sur une terre déjà réchauffée, après la levée (<span class="ref">ch. 95</span>). En septembre, <strong>le retirer</strong> des rangs qu’on veut couvrir les nuits de gel : il empêche le sol de se charger le jour, et l’air au ras du sol est plus froid la nuit. Les racines qu’on laisse en terre, elles, se paillent : là, c’est le sol qu’on protège, pas le feuillage (<span class="ref">ch. 79</span>).</p>
+<h3 class="sub">E — Tunnels et couvertures</h3>
+<p class="step"><span class="sn">31</span><strong>Les arceaux.</strong> Un fil de fer n° 9 de 165 cm, planté par ses deux bouts, fait un arceau d’environ 90 cm de base et 35 cm de haut. Des perches d’aulne ou d’épinette pliées font la même chose (<span class="ref">§9</span>). Un arceau aux 90 cm à 1,5 m, plus serrés là où le vent frappe. La forme basse et étalée garde le mieux la chaleur du sol pendant une nuit de gel.</p>
+<p class="step"><span class="sn">32</span><strong>La couverture.</strong> Plastique transparent : il chauffe davantage le jour. Agrotextile : il respire et laisse passer la pluie, mais protège moins. Enterrer ou lester trois côtés ; le quatrième, celui qu’on ouvre, se leste de pierres ou de sacs de terre qu’on enlève, jamais laissé libre. La terre pelletée sur le bord est ce qui tient le mieux au grand vent.</p>
+<p class="step"><span class="sn">33</span><strong>L’aération, tous les matins de soleil.</strong> Ouvrir au moins une fente, quelle que soit la température de l’air : sous un couvert fermé, une heure de soleil suffit pour dépasser 54 °C. Par temps couvert et sans soleil, on peut laisser fermé. Des trous de 5 cm tous les 60 à 90 cm dans les côtés d’un plastique font une aération permanente, pour qui n’est pas là à midi. <strong>Mais ils coûtent la protection</strong> : un plastique percé ou fendu ne gagne plus qu’environ 1 °C une nuit de gel. Les soirs de gel, on ferme tout : trous bouchés d’une motte ou d’une pierre plate, ou une toile ou un plastique entier posé par-dessus. Les tomates, les poivrons et les courges veulent un arceau solide : le plastique qui bat au vent use les pousses.</p>
+<p class="step"><span class="sn">34</span><strong>Découvrir à temps.</strong> Sous couvert, les plants s’endurcissent moins au froid, et les fleurs de courge et de concombre ne sont pas visitées par les insectes : on ouvre le tunnel quand elles apparaissent, et on le referme les nuits de gel.</p>
+<p class="step"><span class="sn">35</span><strong>La toile de nuit</strong> (sans arceaux) se pose <strong>avant le coucher du soleil</strong> : après, la chaleur du sol est déjà partie. Elle doit rester <strong>sèche</strong> : un tissu mouillé qui s’évapore refroidit ce qu’il touche, et le rang est plus froid dessous qu’à découvert. Elle ne doit pas toucher les feuilles, qui gèlent là où la toile les touche : piquets, chaudières renversées, branches entre les deux. Elle s’enlève le matin, sinon le sol ne se recharge pas pour la nuit suivante.</p>
+<h3 class="sub">F — La serre adossée au chalet</h3>
+<p class="step pk-d"><span class="sn">36</span><strong>Où.</strong> Contre le mur sud du chalet, l’axe long est-ouest. <strong>Jamais sous le bord d’un toit qui déverse sa neige ou ses glaçons</strong>, ou alors sous un auvent solide qui les détourne. <strong>Jamais par-dessus une sortie d’évacuation ou une prise d’air d’un appareil qui brûle</strong> — poêle, réfrigérateur, chauffe-eau ou cuisinière au propane (<span class="ref">ch. 87</span>) —, ni sous la cheminée : ce qui brûle dans le chalet rejetterait ses gaz dans la serre fermée, et l’appareil y prendrait son air (<span class="ref">§8</span>, bloc 2). Si le mur sud porte une sortie, la serre va à côté, ou la sortie est prolongée au-delà du vitrage.</p>
+<p class="step"><span class="sn">37</span><strong>Le vitrage.</strong> Le soleil de midi est à 40° au-dessus de l’horizon aux équinoxes et à 63° à la Saint-Jean : un vitrage incliné à environ 50° de l’horizontale reçoit de face le soleil de mars et de septembre, les deux bouts qu’on cherche à allonger. D’octobre à avril, un vitrage vertical reçoit environ un quart de moins qu’un vitrage à 60°, mais il chauffe deux fois moins en été. Vieilles fenêtres ou plastique ; <strong>deux épaisseurs</strong> séparées par une lame d’air coupent la perte de chaleur de moitié.</p>
+<p class="step"><span class="sn">38</span><strong>La masse.</strong> Le mur du chalet fait le mur nord massif. Dans la serre, des barils ou des bidons <strong>pleins d’eau, foncés, fermés</strong>, alignés contre ce mur, là où le soleil de midi les frappe, et qui servent de pieds aux tablettes de semis. Autant que la place en laisse. Pleins veut dire presque à ras : un contenant fermé qui peut geler à fond garde de l’air sous le bouchon, parce que la glace prend plus de place que l’eau et bombe le baril ou fend le bidon. Isoler le bas des murs jusqu’à environ 60 cm sous terre, pour que la chaleur reste dans le sol de la serre au lieu de fuir sous le mur.</p>
+<p class="step"><span class="sn">39</span><strong>L’aération.</strong> Une ouverture basse face au vent d’été, une haute à l’opposé : l’air entre en bas, se réchauffe et sort en haut. Une serre sans ouverture haute cuit ses plants le premier jour de juin ensoleillé.</p>
+<p class="step pk-d"><span class="sn">40</span><strong>Rien ne brûle dans la serre</strong> (<span class="ref">§8</span>). La chaleur du jour passe au chalet par deux ouvertures dans le mur commun, une en haut et une en bas — une fenêtre ouverte en haut, une trappe ou la porte en bas : l’air chaud entre au chalet par le haut, l’air frais revient à la serre par le bas. On les referme au coucher du soleil.</p>
+<h3 class="sub">G — Passer les nuits de gel de juin et de septembre</h3>
+<p class="step"><span class="sn">41</span><strong>Chaque soir de la période à risque</strong> — de la fin mai à la mi-juin, puis de la fin août jusqu’à ce que le jardin soit rentré, et plus longtemps sur un terrain qui gèle plus que sa station (étapes 1 et 2) — regarder le ciel au coucher du soleil. <strong>Ciel clair, pas de vent, air sec : on couvre.</strong> Aucun seuil de thermomètre ne se transpose d’un terrain à l’autre sans des nuits de mesure ; la règle, c’est le ciel. Une toile posée pour rien coûte dix minutes ; une toile oubliée coûte la saison.</p>
+<p class="step"><span class="sn">42</span><strong>Un ou deux jours avant</strong>, quand le temps se met au beau et au froid, mouiller le sol sur 30 cm : 25 mm d’eau dans un sol sablonneux, jusqu’à 50 mm dans un sol argileux, soit 25 à 50 L par mètre carré, l’équivalent d’une à deux semaines d’arrosage (<span class="ref">ch. 95</span>). Un sol humide garde et rend plus de chaleur. Pas le soir même : il faut que l’eau ait le temps de descendre, sinon la surface mouillée s’évapore et refroidit.</p>
+<p class="step"><span class="sn">43</span><strong>Ne pas sarcler, ne pas bêcher.</strong> Arracher l’herbe entre les rangs (elle rend le sol plus froid la nuit), tirer le paillis hors des rangs à couvrir (étape 30).</p>
+<p class="step"><span class="sn">44</span><strong>Avant le coucher du soleil</strong> : bidons d’eau entre les plants, couverture sur arceaux ou sur piquets, un plastique par-dessus la toile s’il pleut ou si la rosée est forte, bords lestés.</p>
+<p class="step"><span class="sn">45</span><strong>Le matin</strong>, découvrir quand le soleil est dessus et que tout a dégelé. Ne juger les dégâts qu’après le dégel : un chou d’automne établi encaisse −2 à −4 °C, et un chou raide de givre à l’aube n’est pas forcément perdu ; une tomate translucide et molle à midi l’est (<span class="ref">§7</span>).</p>
+<p class="step"><span class="sn">46</span><strong>Jamais arroser les feuilles à la chaudière le soir d’un gel.</strong> Une feuille mouillée se refroidit par évaporation sous la température de l’air ; il faudrait l’arroser sans arrêt toute la nuit pour que l’eau qui gèle compense. Quelques chaudières font plus de mal que rien.</p>
+<p class="p0 ri"><strong class="runin">Ce que chaque légume encaisse,</strong> plant établi, à l’automne :</p>
+<table class="tcol"><colgroup><col style="width:24.5%"><col style="width:75.5%"></colgroup><thead><tr><th>Encaisse</th><th>Espèces</th></tr></thead><tbody><tr><td><strong>Rien.</strong> À protéger ou à récolter avant la première petite gelée</td><td>Haricot, maïs, feuillage de pomme de terre, poivron, concombre, courgette. La citrouille et la courge d’hiver supportent parfois une très petite gelée, mais on les protège. La tomate non plus, mais ses fruits mûrissent après cueillette (<span class="ref">§9</span>)</td></tr><tr><td><strong>Une petite gelée</strong>, de 0 à −2 °C</td><td>Betterave (<em>Beta vulgaris</em>), carotte, laitue (<em>Lactuca sativa</em>), oignon, ail, ciboulette, persil, pois (<em>Pisum sativum</em>), radis, rhubarbe, épinard (<em>Spinacia oleracea</em>), bette à carde</td></tr><tr><td><strong>Une gelée modérée</strong>, de −2 à −4 °C</td><td>Chou, chou chinois, chou frisé, chou-rave, navet (<em>Brassica rapa</em>), brocoli et chou-fleur (vers −3 °C)</td></tr><tr><td><strong>Gagne à geler</strong></td><td>Panais (<em>Pastinaca sativa</em>) et salsifis, meilleurs après plusieurs gelées modérées ; chou de Bruxelles. Les racines deviennent plus sucrées quand la terre passe sous 4 °C</td></tr></tbody></table>
+<p class="p0">Les légumes venus des pays chauds commencent à souffrir sous 10 °C, bien avant le gel ; une citrouille supporte une nuit à 2 °C si la journée monte à 21 °C.</p>
+<p>Ces seuils sont ceux de plants établis qui arrivent à maturité à l’automne, endurcis par les nuits fraîches. Un jeune plant repiqué au printemps n’a pas ces seuils : sa pousse tendre gèle plus facilement que le feuillage endurci d’automne, et un plant tenu sous couvert s’endurcit moins (étape 34). Au printemps, la petite gelée se passe sous agrotextile, pas à découvert.</p>
+<h3 class="sub">H — Les variétés hâtives</h3>
+<p class="step"><span class="sn">47</span><strong>Le sachet tranche</strong> (<span class="ref">ch. 95</span>, <span class="ref">ch. 100</span>) : à espèce égale, toujours le plus petit nombre de jours. Les variétés suivantes ont fait leurs preuves dans un été frais et court, en sol froid. Elles servent de repères pour lire un sachet, pas de liste d’achat.</p>
+<table class="tspan"><colgroup><col style="width:15.5%"><col style="width:52.8%"><col style="width:31.8%"></colgroup><thead><tr><th>Espèce</th><th>Variétés hâtives éprouvées dans un été frais</th><th>Remarque</th></tr></thead><tbody><tr><td class="c-item">Haricot</td><td>’Contender’ (la plus hâtive), ’Provider’</td><td>En plein air, mais sous agrotextile au début</td></tr><tr><td class="c-item">Pois</td><td>’Spring’ (la plus hâtive), ’Alaska’, ’Sugar Ann’</td><td>Semis direct, tôt</td></tr><tr><td class="c-item">Chou</td><td>’Early Jersey Wakefield’ (le plus hâtif) ; ’Golden Acre’, dans sa version hybride (F1)</td><td>Pour l’été ; les choux de garde sont plus tardifs</td></tr><tr><td class="c-item">Brocoli, chou-fleur</td><td>’Waltham 29’ ; ’Early Snowball’</td><td></td></tr><tr><td class="c-item">Carotte</td><td>’Nantes Coreless’</td><td>Hâtive, et se garde bien</td></tr><tr><td class="c-item">Laitue</td><td>’Buttercrunch’ (supporte un peu de gel) ; ’Grand Rapids’ (la mieux adaptée aux jours sombres)</td><td></td></tr><tr><td class="c-item">Radis, épinard, navet</td><td>’Cherry Belle’ ; ’Melody’ ; ’Tokyo Cross’</td><td>Les plus rapides du jardin</td></tr><tr><td class="c-item">Pomme de terre</td><td>’Kennebec’, ’Superior’ (hâtives) ; ’Green Mountain’ (mi-saison à tardive, gros rendement)</td><td>’Kennebec’ verdit vite à la lumière : butter tôt (<span class="ref">ch. 95</span>)</td></tr><tr><td class="c-item">Courgette</td><td>’Gold Rush’, ’Black Jack’</td><td>Sous tunnel au début</td></tr><tr><td class="c-item">Tomate</td><td>En plein air : ’Subarctic 25’. Sous tunnel ou serre : ’Early Girl’ (F1)</td><td>En plein air, la récolte reste faible</td></tr><tr><td class="c-item">Maïs sucré</td><td>Seulement sous plastique transparent</td><td>Sinon, mauvais choix (<span class="ref">§2</span>)</td></tr></tbody></table>
+<p class="stepc">’Golden Acre’ sous ce nom, ’Early Girl’, ’Tokyo Cross’, ’Gold Rush’ et ’Melody’ sont des hybrides F1. Un F1 donne sa récolte, pas sa semence : la graine gardée ne redonne pas la variété (<span class="ref">ch. 100</span>). Le sachet le dit, « F1 » ou « hybride » d’un côté, « pollinisation libre » de l’autre.</p>
+<p class="step"><span class="sn">48</span><strong>Garder la graine des plants qui ont mûri les premiers</strong>, année après année, sur les variétés à pollinisation libre seulement : la variété se déplace lentement vers la précocité, et c’est le seul moyen qui agit sur la saison elle-même (<span class="ref">ch. 100</span>).</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:16.1%"><col style="width:15.4%"><col style="width:37.3%"><col style="width:31.2%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Automne</td><td>Fosse de couche creusée, terreau et terre du châssis en tas sous les feuilles</td><td>Fosse ≥ 46 cm ; terre ≥ 15 cm, non gelée au printemps</td><td>Au printemps, monter la couche hors terre sur un endroit sec, fortement rechaussée</td></tr><tr><td class="c-item">Tas de fumier</td><td>Il chauffe</td><td>Fume au bout de quelques jours ; retourné ; rechauffe franchement 5 à 6 jours après</td><td>Tas trop petit, trop sec ou fumier déjà chauffé : grossir, humecter à l’eau tiède, ajouter du frais</td></tr><tr><td class="c-item">Couche chargée</td><td>Épaisseur de fumier</td><td>60 à 75 cm tôt en saison ; jamais moins de 30 cm</td><td>Recharger avant de poser le terreau</td></tr><tr><td class="c-item">Couche, du 3e au 10e jour environ</td><td>Terreau à 8 cm</td><td>Coup de feu jusqu’à 50 °C ; semer à 30 °C ou moins (24 °C, le plus prudent) : le thermomètre décide, pas le calendrier</td><td>Attendre ; lever les châssis un peu chaque jour</td></tr><tr><td class="c-item">Couche et châssis, après la levée</td><td>Air sous la vitre</td><td>10 à 29 °C ; choux 16 à 18 °C ; tomate 18 à 24 °C</td><td>Aérer du côté sous le vent ; couvrir la nuit</td></tr><tr><td class="c-item">Chaque matin de soleil</td><td>Tunnel, châssis, serre</td><td>Au moins une fente ouverte, quelle que soit la température de l’air</td><td>Ouvrir tout de suite : une heure de soleil suffit à dépasser 54 °C sous un couvert fermé</td></tr><tr><td class="c-item">Semis dans la maison</td><td>Levée ; lumière ; pièce</td><td>Levée à ≈ 21 °C (laitue : 10 à 18 °C) ; lampe à 5-10 cm, 16 h par jour ; pièce à 13-21 °C</td><td>Plants qui filent : plus de lumière, moins de chaleur, sortir sous le châssis</td></tr><tr><td class="c-item">Avant le repiquage</td><td>Endurcissement</td><td>1 à 2 semaines, dehors par plus de 7 °C</td><td>Rallonger. Le plant non endurci souffre au premier soleil et au premier vent du lac</td></tr><tr><td class="c-item">Repiquage des espèces tendres</td><td>Date</td><td>Après la date d’une année sur dix (≈ 11-12 juin) en plein air ; plus tôt seulement sous tunnel ou châssis</td><td>Garder sous vitre</td></tr><tr><td class="c-item">Sol à réchauffer</td><td>Plastique</td><td>Transparent sur sol humide : +4 à 8 °C ; noir collé au sol : +2 à 3 °C</td><td>Retendre, enterrer les bords</td></tr><tr><td class="c-item">Soir de la période à risque</td><td>Ciel et vent</td><td>Clair, calme, sec → couvert posé avant le coucher du soleil</td><td>Couvrir même sans certitude</td></tr><tr><td class="c-item">Un ou deux jours avant la nuit froide</td><td>Sol</td><td>Humide sur 30 cm : 25 à 50 L/m²</td><td>Arroser le sol, pas le feuillage</td></tr><tr><td class="c-item">Couverture de nuit</td><td>Contact, eau, lest, trous</td><td>Rien ne touche les feuilles ; tissu sec ; pourtour lesté ; trous d’aération du tunnel bouchés</td><td>Arceaux, plastique par-dessus, pierres, mottes</td></tr><tr><td class="c-item">Serre adossée</td><td>Neige du toit ; ouvertures ; masse</td><td>Hors de la chute de neige ; ouverture basse et haute ; eau au soleil de midi</td><td>Déplacer, ajouter un déflecteur, ouvrir le haut</td></tr><tr><td class="c-item">Récolte de sauvetage</td><td>Tomates</td><td>Vert mûr<sup class="fnr" data-fn="97-3">3</sup>, fermes, saines ; 16 à 18 °C à l’obscurité</td><td>Les immatures ne mûriront pas : cuisine du jour</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:34.1%"><col style="width:23.6%"><col style="width:42.3%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">La couche ne chauffe pas au bout de quelques jours</td><td>Fumier vieux, déjà chauffé, froid ou trop sec ; tas trop petit</td><td>Ajouter du fumier frais, humecter à l’eau tiède, rechausser. Sinon, c’est un châssis froid</td></tr><tr><td class="c-item">Levée qui flétrit ou meurt dans une couche encore très chaude</td><td>Semé pendant le coup de feu : racines cuites</td><td>Ressemer quand le terreau est redescendu ; caisses sur lattes</td></tr><tr><td class="c-item">La couche refroidit trop tôt, nuits encore gelantes</td><td>Chaleur épuisée</td><td>Réchaud : 40 à 60 cm de fumier neuf pressé autour</td></tr><tr><td class="c-item">Plants qui filent, pâles, couchés vers la lumière</td><td>Manque de lumière, ou trop de chaleur pour la lumière reçue</td><td>Lampe plus proche ; pièce plus fraîche ; sortir sous vitre ; aérer davantage la couche</td></tr><tr><td class="c-item">Tiges qui pourrissent au pied, en couche ou en godet</td><td>Trop humide, pas assez d’air</td><td>Arroser moins, aérer, espacer</td></tr><tr><td class="c-item">Plants flétris, brûlés, un midi de soleil</td><td>Couvert resté fermé</td><td>Ouvrir chaque matin ; trous d’aération permanents, bouchés les soirs de gel</td></tr><tr><td class="c-item">Feuilles gelées en taches, seulement là où la toile appuyait</td><td>Contact de la couverture</td><td>Arceaux, piquets ; rien ne touche</td></tr><tr><td class="c-item">Rang plus gelé sous la toile qu’à côté</td><td>Toile mouillée qui s’évapore</td><td>Plastique par-dessus ; toile sèche</td></tr><tr><td class="c-item">Feuillage translucide, gorgé d’eau, mou après le dégel<sup class="fnr" data-fn="97-4">4</sup></td><td>Gel</td><td>Tendres : récolter tout de suite ce qui se mange. Rustiques : attendre midi pour juger</td></tr><tr><td class="c-item">Le jardin du bas gèle, celui du haut rien</td><td>Air froid accumulé</td><td>Planter la saison suivante plus haut ; ouvrir le bas de la clôture</td></tr><tr><td class="c-item">Gel derrière une clôture pleine au bas du terrain</td><td>L’obstacle retient l’air froid</td><td>Ajourer le bas ou faire une brèche au point le plus bas</td></tr><tr><td class="c-item">Pomme de terre aux taches grises ou gris-bleu sous la pelure, molle en dégelant</td><td>Tubercule gelé</td><td>Ne descend pas au caveau (<span class="ref">ch. 79</span>) : cuisine tout de suite</td></tr><tr><td class="c-item">Pommes de terre vertes sous un plastique transparent</td><td>Lumière à travers le plastique</td><td>Enlever le plastique, rebutter, et planter un piquet au bout du rang : à la récolte, tout ce rang se traite comme vert, quelle que soit alors sa couleur, parce que le vert pâlit au noir et que la toxine reste (<span class="ref">ch. 95</span>, <span class="ref">§7</span>). Voir <span class="ref">§8</span></td></tr><tr><td class="c-item">Tomate vert foncé qui ne rougit pas, ou qui pourrit en caisse</td><td>Cueillie trop jeune, blessée, ou gardée trop froide</td><td>Les immatures ne rougiront pas. Trier chaque semaine ; 16 à 18 °C</td></tr><tr><td class="c-item">Serre ou châssis écrasés, vitres brisées</td><td>Neige ou glace du toit</td><td>Déplacer, ou poser un déflecteur solide au-dessus</td></tr><tr><td class="c-item">Plants sortis de la couche qui stagnent au jardin</td><td>Repiqués sans endurcissement, ou en terre froide</td><td>Endurcir 1 à 2 semaines ; réchauffer le sol au plastique avant</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Sous la couche chaude, il y a du fumier cru.</strong> Ce qui pousse jusqu’à la récolte dans la couche chaude pousse à 13 ou 15 cm au-dessus d’un fumier retourné une fois, jamais composté : il n’a pas tenu les 55 à 77 °C pendant 15 jours, retourné au moins cinq fois, qui font un compost. C’est du fumier cru. Le mécanisme est une contamination fécale : elle ne se voit pas, ne se sent pas, et frappe surtout les enfants de moins de cinq ans — il y en a un dans ce chalet. Un fumier cru se tient au moins <strong>120 jours</strong> sous terre avant la récolte d’un légume dont la partie mangée touche la terre, <strong>90 jours</strong> pour les autres ; une couche montée en avril ne répond à aucune des deux règles au mois de mai. Donc : <strong>la couche chaude fait des plants, pas des salades</strong>. Ce qu’on y récolte directement (radis, laitue, épinard) se mange <strong>cuit</strong>. Le fumier usé part au tas de fumier, à l’écart du jardin, jamais au composteur (<span class="ref">ch. 101</span> ; <span class="ref">ch. 95</span> pour le composteur), et jamais étendu frais sous ce qui se mange cru.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Rien ne brûle dans une serre adossée au chalet, et rien du chalet n’y brûle.</strong> Une serre fermée contre le mur partage son air avec le chalet par les ouvertures qu’on laisse pour la chaleur. Une chaufferette, un fanal, une chandelle ou un poêle allumés une nuit de gel dans une serre fermée y font du monoxyde de carbone, sans odeur ni couleur, qui passe au chalet où les gens dorment. Le même gaz y arrive sans aucune flamme dans la serre si elle couvre la sortie d’évacuation ou la prise d’air d’un appareil du chalet — poêle, réfrigérateur, chauffe-eau ou cuisinière au propane — ou si elle passe sous la cheminée : l’appareil rejette ses gaz dans la serre et y prend son air, et c’est le jour où il brûle mal que la serre les renvoie au chalet (<span class="ref">§5-F</span>, étape 36). On s’endort au lieu de sortir ; chez un enfant, l’intoxication a l’air de la fatigue ou du mauvais caractère (<span class="ref">ch. 3</span>, <span class="ref">ch. 12</span>). La chaleur de la serre vient du soleil, de l’eau et du sol, jamais d’une flamme. Et une génératrice, quelle qu’en soit la raison — recharger les batteries des lampes à semis comprise — <strong>jamais dans un bâtiment, un garage, une serre, ni sous un auvent</strong>.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">La récolte sauvée d’un coup pousse à la conserve improvisée.</strong> Le soir du gel, on cueille tout ; le lendemain, il y en a trop, et on met en pots. Les légumes du jardin — haricots, betteraves, carottes, courges, choux — sont <strong>peu acides</strong> : ils ne se conservent en pot qu’à l’autoclave, selon le barème de cet aliment-là. <strong>Pas de barème pour cet aliment, pas de pot</strong> : la courgette et le concombre n’ont pas de barème d’autoclave dans les recettes éprouvées, et ils ne vont en pot qu’en marinade éprouvée (<span class="ref">ch. 78</span>). <strong>La tomate n’est pas l’exception</strong> : elle est à la limite, et en pot elle prend l’acide ajouté de la recette éprouvée, jamais au goût (<span class="ref">ch. 78</span>). Le sel n’y change rien, le vinaigre versé au goût n’y change rien, et <strong>le botulisme ne modifie ni l’odeur, ni le goût, ni l’apparence du pot</strong>. Ce qui ne peut pas être mis en pot correctement va au caveau (<span class="ref">ch. 79</span>), en fermentation (<span class="ref">ch. 80</span>), ou se mange.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Jamais de plastique transparent sur les pommes de terre.</strong> Le plastique transparent laisse passer la lumière jusqu’aux tubercules près de la surface, et c’est la lumière qui fait former les glyco-alcaloïdes dans la pomme de terre. Le vert en est le témoin, pas le poison, et un témoin qui s’efface : <strong>le vert pâlit au noir, la toxine reste</strong>. <strong>La cuisson ne les détruit pas.</strong> Une pomme de terre verdie se coupe large, le vert jeté, et se pèle ; verdie en profondeur, elle se jette (<span class="ref">ch. 79</span>, <span class="ref">§7</span>). Une bouchée amère se recrache, et le reste du lot se jette (<span class="ref">ch. 95</span>, <span class="ref">§7</span>). Sur les pommes de terre : plastique noir, ou paille, ou rien, et le buttage du <span class="ref">ch. 95</span>.</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Le fumier et la terre portent les spores du tétanos.</strong> Elles entrent par une éraflure, une écorchure, une petite plaie : pas besoin d’une grande blessure. La couche chaude se monte à la fourche et se juge au thermomètre ; la main n’entre dans le fumier que si elle n’a ni coupure ni éraflure. Le rappel de chacun se vérifie avant la saison des couches : une plaie souillée de fumier ou de terre n’est couverte que si la dernière dose a moins de 5 ans (<span class="ref">ch. 32</span>). Une éraflure souillée se lave, puis se surveille deux semaines : des crampes et une raideur soudaines qui prennent le cou, puis le visage, ce n’est pas un torticolis (<span class="ref">ch. 26</span>).</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans agrotextile acheté, sans polyéthylène, sans thermomètre peut-être, et avec le gel qui arrive trop tôt. C’est le cas pour lequel ce chapitre existe : une nuit claire de début septembre, le jardin de l’année dans les rangs, et personne à qui emprunter quoi que ce soit.</p>
+<h3 class="sub">La nuit du gel : sauver la récolte en une heure</h3>
+<p class="p0 ri"><strong class="runin">Décider avant le coucher du soleil</strong>, pas après. Ciel clair, pas de vent, air sec, fin août ou septembre : ce soir, on agit. S’il vente et que le ciel se couvre de froid, on ne couvre plus, on cueille.</p>
+<p class="p0 lab kh"><strong class="runin">D’abord cueillir ce qui ne supporte rien et qu’on ne pourra pas couvrir.</strong></p>
+<p class="li"><em>Tomates</em> : toutes celles qui sont vert mûr (<span class="ref">§6</span>, note), à la main, sans la tige. Les vert foncé encore petites restent : elles ne mûriront pas cueillies. Ou arracher le plant entier, fruits dessus, et le pendre tête en bas dans un endroit frais et sombre : les fruits mûrissent sur le plant et se cueillent à mesure.</p>
+<p class="li"><em>Haricots, courgettes, concombres</em> : tout ce qui a une taille mangeable. C’est la cuisine de la semaine. En pot : les haricots à l’autoclave, selon leur barème (<span class="ref">ch. 78</span>) ; la courgette et le concombre, qui n’ont pas de barème d’autoclave, en marinade éprouvée (<span class="ref">ch. 78</span>) ou en fermentation (<span class="ref">ch. 80</span>). Voir <span class="ref">§8</span>, bloc 3.</p>
+<p class="li"><em>Courges et citrouilles</em> qui ont commencé à prendre couleur : elles continuent à tourner cueillies, mais se gardent moins bien que celles mûries sur un plant vert. On les mange en premier ; les autres vont à la cure au chaud du <span class="ref">ch. 79</span>.</p>
+<p class="p0 ri"><strong class="runin">Ensuite couvrir, dans cet ordre.</strong> Ce qui a le plus de valeur et le moins de résistance d’abord : tomates restées au plant, courges, haricots. Le chou, le chou frisé, le navet et le brocoli passent une gelée de −2 à −4 °C sans aide ; la carotte, la betterave, la laitue et l’épinard passent 0 à −2 °C. Le panais, lui, gagne à geler.</p>
+<p class="p0 lab kh"><strong class="runin">Couvrir avec ce qu’il y a.</strong></p>
+<p class="li"><em>Draps, couvertures de lit, rideaux</em> — secs. S’il y a de la rosée ou de la pluie, un plastique ou une toile de tente <strong>par-dessus</strong>, pour que le tissu reste sec.</p>
+<p class="li"><em>Le sapinage</em> : branches de sapin baumier (<em>Abies balsamea</em>) ou d’épinette noire (<em>Picea mariana</em>) couchées en écailles sur les rangs bas. Elles cachent le ciel sans écraser.</p>
+<p class="li"><em>Le foin de marais ou de grève</em>, étendu en couche égale sur un châssis, des arceaux ou des branches, pas à même les plants : ce qu’il touche gèle comme sous une toile. C’est une couverture des anciens pour les couches chaudes, et il se ramasse sur la côte. Le foin de grève se rince d’avance à l’eau douce : son sel, sinon, reste dans le sol (<span class="ref">ch. 95</span>).</p>
+<p class="li"><em>Chaudières, boîtes de carton, caisses</em> renversées sur les plants isolés. Une chaudière de métal touche le plant au sommet : la retourner sur deux bouts de bois.</p>
+<p class="li"><em>La terre elle-même.</em> Une terre sèche conduit mal la chaleur : sur un petit plant de tomate ou un jeune rang de pommes de terre, quelques pelletées de terre <strong>sèche</strong> jetées dessus pour une nuit le protègent ; on dégage à la main le lendemain matin. Ça ne marche que pour une nuit courte, et seulement sur ce qui plie sans casser.</p>
+<p class="li"><em>L’eau qui gèle.</em> Des bouteilles de 2 L ou des bidons pleins, serrés en anneau autour d’un plant de tomate, le tout coiffé d’un sac qui repose sur le haut des bouteilles, jamais sur le plant : l’eau gèle avant la plante et chauffe en gelant. C’est le principe des anneaux d’eau vendus pour ça, qui tiennent vers −9 °C. Celui qu’on bricole tient moins, d’autant moins qu’il y a peu d’eau ; personne n’a mesuré de combien.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on ne fait pas :</strong> arroser le feuillage à la chaudière (<span class="ref">§5-G</span>, étape 46), bêcher, laisser le paillis contre les rangs couverts, laisser une toile toucher les feuilles.</p>
+<p class="p0 ri"><strong class="runin">Le lendemain.</strong> Découvrir quand le soleil est dessus et que tout a dégelé. Attendre midi pour juger. Ce qui est translucide et mou se mange <strong>le jour même</strong> : un tissu gelé puis dégelé ne se garde plus. Les pommes de terre dont le feuillage a noirci sont défanées par le gel : on les laisse en terre une à deux semaines, le temps que la pelure épaississe, puis on arrache par temps sec, plus tôt seulement si la terre menace de geler (<span class="ref">ch. 98</span>, étape 15). Celles qui montrent des taches grises sous la pelure à la coupe ne descendent pas au caveau (<span class="ref">ch. 79</span>). La carotte, la betterave et le navet restent en terre sous un paillis tant que le sol ne gèle pas : le froid les sucre. Ils se récoltent avant que la terre prenne.</p>
+<p class="p0 ri"><strong class="runin">Faire mûrir les tomates vertes.</strong> Laver, sécher, envelopper chacune dans une feuille de papier journal, poser en un seul rang dans une caisse, dans un endroit sombre à 16 à 18 °C : un coin du chalet loin du poêle. Ouvrir la caisse chaque semaine et jeter tout ce qui mollit ou tache. Quand une tomate commence à rougir, la sortir du papier et la poser à la température de la pièce. <strong>Ce qu’on perd :</strong> une partie du lot, qui pourrit en caisse.</p>
+<h3 class="sub">Fabriquer ce qui manque</h3>
+<p class="p0 ri"><strong class="runin">Le paillasson.</strong> C’est la couverture de nuit des maraîchers d’autrefois, et elle se fait avec ce qui pousse au bord de l’eau.</p>
+<p class="li"><em>Le métier.</em> Sur un sol plat, planter de champ deux planches de 2 m de long et 10 cm de large, parallèles, à 1,33 m l’une de l’autre : elles fixent la largeur. Entre elles, trois lignes à 33 cm d’écart, et au bout de chaque ligne un piquet gros comme un doigt, qui dépasse de 4 cm. Six piquets : ils fixent la longueur.</p>
+<p class="li"><em>La ficelle.</em> Tendre fort trois ficelles d’un piquet à l’autre, bouclées au piquet du haut. Au piquet du bas, ne pas couper : garder le double de la longueur tendue, qu’on enroule sur une bobine de bois de 12 cm. Il faut <strong>18 m de ficelle pour un paillasson de 2 m</strong>. Faute de ficelle : racine d’épinette fendue, écorce interne d’aulne rouie, ou feuilles de quenouille (<em>Typha latifolia</em>) tordues (<span class="ref">ch. 103</span>).</p>
+<p class="li"><em>La paille.</em> Poser un lit mince et égal sur les ficelles, pied de la paille contre une planche ; un autre lit depuis l’autre planche, <strong>tête-bêche</strong> sur le premier. Paille de céréale si on en a ; sinon foin de grève rincé, grandes herbes sèches, feuilles de quenouille : une natte de tiges sèches du coin, tressée ou cousue, protège aussi.</p>
+<p class="li"><em>La couture.</em> À genoux au bas du métier, prendre de la main gauche une pincée de paille grosse comme un doigt en soulevant la ficelle tendue dessous ; de la main droite, passer la bobine sous la ficelle et la ramener entre la pincée et la ficelle du dessus : un nœud coulant. Pincée suivante, nœud suivant, jusqu’en haut.</p>
+<p class="li">Ce paillasson couvre un châssis de 91 × 183 cm avec de la marge, se roule le matin, sèche vite parce qu’il est mince. Les anciens le voulaient léger et prompt à sécher, et c’est ce qui compte : un paillasson qui reste mouillé refroidit ce qu’il couvre (<span class="ref">§5-E</span>, étape 35).</p>
+<p class="p0 ri"><strong class="runin">Le tunnel sans plastique acheté.</strong> Arceaux de perches d’aulne ou d’épinette écorcées, pliées fraîches et plantées tous les 90 cm à 1,5 m ; une perche faîtière liée sur le dessus contre le vent. Couverture : rideau de douche, bâche claire, toile de tente crevée, sacs transparents fendus et cousus, vieilles fenêtres appuyées en pignon. Ce qui compte, c’est que ça laisse passer la lumière et que ce soit <strong>lesté sur tout le bord</strong> : pierres, sacs de terre, terre pelletée, et des pierres qu’on enlève du côté qu’on ouvre. Des trous de 5 cm tous les 60 à 90 cm sur les côtés font l’aération de ceux qui ne sont pas là à midi, mais un tunnel percé ne gagne plus qu’environ 1 °C : les soirs de gel, on bouche les trous d’une motte ou on pose une toile par-dessus (<span class="ref">§5-E</span>, étape 33). <strong>Ce qu’on perd :</strong> un plastique qui n’a pas été fait pour le soleil vieillit vite dehors, et il se déchire au premier gros vent.</p>
+<p class="p0 ri"><strong class="runin">Le châssis sans menuisier.</strong> Un coffre de perches empilées, les coins entaillés à mi-bois (<span class="ref">ch. 110</span>), plus haut au nord qu’au sud, rechaussé de terre ou de fumier jusqu’en haut ; une vieille fenêtre dessus, ou un cadre de perches tendu de coton ou de plastique. Le coton suffit au printemps avancé ; le verre vaut mieux dès qu’une grosse gelée menace. <strong>Ce qu’on perd :</strong> l’étanchéité du coffre de madriers. Un coffre qui laisse passer l’air par les joints perd sa chaleur la nuit ; on bouche avec de la mousse tassée et on rechausse plus haut.</p>
+<p class="p0 ri"><strong class="runin">La couche sans cheval.</strong> Au chalet, il n’y a pas de cheval, et c’est la pièce qui manque le plus : sans lui, pas de couche chaude. Ce qu’on monte avec ce qu’on a, c’est une couche <strong>sourde</strong> : elle chauffe moins fort, se monte quand les gelées ne sont plus qu’accidentelles, et donne ses produits six semaines à deux mois plus tard qu’une couche chaude.</p>
+<p class="li"><em>La recette</em> : un tiers de litière fraîche du poulailler ou du clapier (<span class="ref">ch. 101</span>), deux tiers de feuilles, de mousse ou d’herbe fraîchement coupée, bien mêlés, mouillés, en lit de 40 cm tassé, couvert de 20 cm de terreau mêlé de terre. La mousse chauffe moins que les feuilles, mais plus longtemps, et ne coûte rien près du bois. Tas couvert, retourné dès qu’il fume, semé au thermomètre, comme au <span class="ref">§5-B</span>.</p>
+<p class="li"><em>Ce qui y pousse se mange cuit</em> : c’est du fumier cru (<span class="ref">§8</span>, bloc 1).</p>
+<p class="li"><em>En août</em>, l’herbe est partout : la même couche, montée à la fin d’août sous un châssis, permet de tenter épinards et laitues d’automne, à manger cuits.</p>
+<p class="li"><em>Le volume.</em> C’est lui qui manque le plus souvent. Le lit de 40 cm d’un seul châssis (<span class="ref">§5-B</span>, étapes 7 et 10) demande environ 2 m³ de matière, d’un coup, plus le rechaussage. Faute de l’avoir, on fait un châssis froid (<span class="ref">§5-D</span>, étape 27).</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd :</strong> la chaleur forte et régulière du cheval, et toute prévision. On ne sait pas d’avance combien de jours elle tiendra ; on le sait au thermomètre, ou à la main (<span class="ref">§4</span>). Le réchaud (<span class="ref">§5-B</span>, étape 16) se fait avec la même matière.</p>
+<p class="p0 ri"><strong class="runin">La masse qui garde la chaleur, avec ce qu’on a.</strong> Des bidons, des chaudières fermées, des bouteilles, pleins d’eau avec un peu d’air sous le bouchon, noircis à la suie ou peints foncé, au fond du châssis ou le long du mur de la serre, au soleil. Un baril de 200 L qui perd 10 °C rend environ 8 400 kJ ; le même baril qui gèle en entier en rend environ 67 000, autant qu’une chaufferette de 1 500 W allumée un peu plus de douze heures. Mais c’est l’énergie, pas la puissance : le baril la rend lentement, par sa surface, seulement quand l’air est plus froid que lui, et une nuit de gel ne le fait pas geler en entier. Un muret de pierres sèches au nord d’une planche fait la même chose, en moins bien : à poids égal, la pierre garde cinq fois moins de chaleur que l’eau par degré, mais elle ne gèle pas, ne coule pas et ne coûte rien. <strong>Ce qu’on perd :</strong> la place. La masse qui compte se mesure en centaines de litres, et un châssis de 91 × 183 cm n’en loge que quelques bidons.</p>
+<p class="p0 ri"><strong class="runin">L’ados à la bêche</strong> (<span class="ref">§5-D</span>, étape 28) ne demande rien d’autre qu’une bêche et un cordeau : c’est la façon la moins chère de gagner du soleil au printemps.</p>
+<p class="p0 ri"><strong class="runin">Les semis sans lampe.</strong> La fenêtre la plus au sud, des godets de papier journal, et la couche chaude ou le châssis comme vraie lampe dès qu’ils sont prêts (<span class="ref">§5-C</span>, étape 23). Passer la main sur les plants chaque jour et les garder au frais plutôt qu’au chaud les tient plus trapus (<span class="ref">ch. 95</span>). <strong>Ce qu’on perd :</strong> les plants les plus longs à faire. Sans lampe, l’oignon de semis, qu’il faudrait semer de fin février à fin mars, et le poivron, début avril, filent avant que la couche soit prête ; on sème alors l’oignon en bulbilles et on renonce au poivron.</p>
+<h3 class="sub">Ce que la variante ne remplace jamais</h3>
+<p class="li"><strong>Les jours de la variété.</strong> Couche, châssis, tunnel et toile avancent le début de quelques semaines et reculent la fin de quelques nuits ; ils ne font pas un deuxième été. Une espèce qui demande plus de jours que la saison allongée n’en donne sort du jardin (<span class="ref">ch. 95</span>, <span class="ref">ch. 100</span>).</p>
+<p class="li"><strong>La présence.</strong> Tout ce qui se ferme sur une plante dépasse 54 °C en une heure de soleil. Un tunnel fermé un matin où personne n’est là, c’est la récolte perdue. Aucun moyen de ce chapitre ne tient une semaine sans quelqu’un matin et soir.</p>
+<p class="li"><strong>Le thermomètre de la couche chaude.</strong> Sans lui, on sème trop tôt et on cuit les racines, ou trop tard et la couche a refroidi. La main dit brûlant ou tiède, jamais 30 °C.</p>
+<p class="li"><strong>L’autoclave</strong>, pour la récolte sauvée d’un coup (<span class="ref">§8</span>, bloc 3).</p>
+<p class="li"><strong>La règle du fumier cru</strong> et celle du plastique transparent sur les pommes de terre : elles ne coûtent rien, elles sont donc dans les deux versions.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="24-1"><span class="fnn">1</span>L’« anesthésie en selle » : la peau que toucherait une selle — l’intérieur des cuisses, les fesses, le pourtour de l’anus et les organes génitaux — ne sent plus, ou sent « à travers un gant ». Elle se teste en effleurant ces zones d’un brin de foin ou du bout d’un doigt, des deux côtés, et en comparant avec le bas de la cuisse.</p>
+<p class="fn" data-fn="24-2"><span class="fnn">2</span>Le pied qui tombe : assis, talon au sol, on relève la pointe du pied vers le tibia, puis on marche quelques pas sur les talons. Un pied qui ne se relève pas, qui claque au sol à chaque pas ou dont la pointe accroche, c’est un nerf qui ne commande plus le muscle.</p>
+<p class="fn" data-fn="24-3"><span class="fnn">3</span>La pointe de la cheville, ce sont les deux bosses osseuses de chaque côté de la cheville : l’intérieure est le bout du tibia, l’extérieure le bout du péroné. La bosse du bord extérieur du pied se trouve à mi-longueur du pied, là où le bord s’élargit ; celle du bord intérieur, un peu en avant et en dessous de la cheville intérieure.</p>
+<p class="fn" data-fn="24-4"><span class="fnn">4</span>La tête du péroné est la petite bosse osseuse du côté extérieur de la jambe, juste sous le genou, un peu vers l’arrière.</p>
+<p class="fn" data-fn="24-5"><span class="fnn">5</span>La hernie de l’aine se cherche debout, la main à plat sur le pli de l’aine : on tousse, ou on pousse comme pour forcer. Une bosse qui vient pousser contre la main et repart quand on se détend, c’est elle. Elle est plus fréquente chez l’homme, et chez lui elle peut descendre dans les bourses et les faire enfler d’un seul côté.</p>
+<p class="fn" data-fn="29-1"><span class="fnn">1</span>La glaire cervicale : une humidité qu’on sent à la vulve ou qu’on voit sur les doigts, sur la culotte ou sur un papier essuyé à l’extérieur du vagin. Les jours fertiles, elle devient claire, glissante et élastique, comme du blanc d’œuf cru ; les jours secs, on ne voit et on ne sent rien.</p>
+<p class="fn" data-fn="29-2"><span class="fnn">2</span>Le choc toxique vient vite, pendant les règles avec un tampon ou une coupe, et aussi après un accouchement : forte fièvre, ou chaud et froid avec des frissons ; mal dans les muscles, comme une grippe ; vomissements et diarrhée ; une rougeur de la peau rugueuse comme du papier sablé ; les paumes, la plante des pieds, la langue et le blanc des yeux qui deviennent rouge vif ; étourdie, confuse. La peau peut enfler ou peler par grandes plaques.</p>
+<p class="fn" data-fn="29-3"><span class="fnn">3</span>Un saignement de carence en vitamine K : un saignement qu’on n’attendait pas et qui ne s’arrête pas — au cordon, à une égratignure —, du sang dans les selles ou dans ce que le bébé vomit, des bleus sans coup. La forme tardive, entre 2 et 12 semaines, touche presque seulement les bébés allaités et saigne une fois sur deux dans le cerveau, où rien ne se voit : c’est pour ça que la vitamine se donne d’avance au lieu d’attendre un signe.</p>
+<p class="fn" data-fn="29-4"><span class="fnn">4</span>La grossesse hors de l’utérus s’implante ailleurs, le plus souvent dans une trompe. Au début, peu ou pas de signes, puis ils deviennent graves : une douleur au ventre qui n’est pas celle des règles, ou un ventre sensible au toucher, souvent d’un seul côté ; un saignement différent des règles habituelles, ou pas de règles du tout ; des étourdissements ; un évanouissement ; parfois une douleur aux épaules. C’est l’ensemble qui fait penser à elle, pas un signe seul. Quand la trompe se déchire, la douleur devient soudaine et aiguë, en coup de couteau au bas du ventre, d’un côté ou partout ; le sang qui coule dans le ventre peut donner mal à l’épaule droite en appuyant sous les côtes, et en quelques heures le ventre devient dur et elle tombe en choc.</p>
+<p class="fn" data-fn="29-5"><span class="fnn">5</span>La prééclampsie se remarque à des maux de tête sévères, à une douleur qui serre le haut du ventre sous les côtes comme une barre, à une vue qui change d’un coup, et à une enflure qui devient générale : les jambes, mais aussi les mains et le visage. Elle peut mener à des convulsions : yeux qui roulent, visage et mains qui tressautent, corps raide ou secoué, peau bleue, perte de conscience, parfois la langue mordue, l’urine ou les selles qui partent ; puis un sommeil, et au réveil une confusion.</p>
+<p class="fn" data-fn="29-6"><span class="fnn">6</span>Le tirage : à chaque inspiration, la peau entre les côtes et sous le sternum se creuse vers l’intérieur, parce que le bébé force pour faire entrer l’air.</p>
+<p class="fn" data-fn="97-1"><span class="fnn">1</span>Un degré-jour, c’est un degré au-dessus du seuil pendant un jour. Une journée à 15 °C de moyenne compte 10 degrés-jours au-dessus de 5 °C ; une journée à 4 °C n’en compte aucun. Le total dit combien de chaleur utile la saison a vraiment donnée.</p>
+<p class="fn" data-fn="97-2"><span class="fnn">2</span>Un plant qui file est long, mince, pâle, et penche vers la lumière. Il casse au premier vent au repiquage. Il manque de lumière, ou il a trop chaud pour la lumière qu’il reçoit.</p>
+<p class="fn" data-fn="97-3"><span class="fnn">3</span>Une tomate « vert mûr » a atteint presque sa taille finale et est passée du vert foncé à un vert pâle tirant sur le blanc ; elle est ferme et pleine. Une tomate vert foncé, encore petite, ne rougira pas.</p>
+<p class="fn" data-fn="97-4"><span class="fnn">4</span>Un tissu gelé devient translucide, comme trempé d’eau, et mou ; au dégel, la peau d’une feuille de chou se détache, la carotte se couvre de cloques et se fend en long, la tomate ramollit, avec une frontière nette entre la partie morte et la partie saine.</p>
+</template>
+<script type="application/json" id="meta">{"num": "97", "title": "Allonger la saison", "tome": "Tome 5 · La forêt, le jardin et le chalet", "tnum": 5, "tfond": "#4B3A28", "tencre": "#F2EBDF", "lieu": "Chalet", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

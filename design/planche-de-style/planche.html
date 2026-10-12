@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>Planche de style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   PLANCHE DE STYLE — Le Grand Livre du Chalet, direction 1 retenue.
+   Les pages et les couvertures sont des rendus des fichiers retenus
+   (rendus/, faits par construire.sh), pas des redessins. Les spécimens
+   de la section 3 reprennent les valeurs d'outils/interieur.tpl.html.
+   ===================================================================== */
+:root{
+  --k:#000; --k70:#4d4d4d; --k40:#999; --red:#9B2C1E;
+  --sans:'IBM Plex Sans Condensed','Arial Narrow',sans-serif;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --mono:'IBM Plex Mono',Consolas,monospace;
+  --W:1872px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff;color:var(--k)}
+body{width:2000px;padding:56px 64px 48px;font:400 15px/20px var(--sans);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;font-variant-numeric:lining-nums}
+img{display:block}
+
+/* ---------- en-tête de la planche : l'ouverture de chapitre, en grand ---------- */
+.top .kick{display:flex;justify-content:space-between;font:600 14px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--k)}
+.top .ttl{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:14px 0 12px;border-bottom:7px solid var(--k)}
+.top h1{margin:0;font:700 72px/.9 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.top .sys{font:400 18px/24px var(--serif);max-width:860px;text-align:right;padding-bottom:4px}
+
+/* ---------- sections de la planche : le carré de section du livre ---------- */
+section{margin-top:52px}
+h2.sec{display:flex;align-items:center;gap:12px;margin:0 0 22px;padding-top:7px;border-top:3.5px solid var(--k);
+  font:700 24px/1 var(--sans);text-transform:uppercase;letter-spacing:.04em}
+h2.sec .n{display:inline-block;width:34px;height:34px;background:var(--k);color:#fff;text-align:center;font:700 25px/34px var(--sans);letter-spacing:0}
+h2.sec .d{margin-left:auto;font:500 15px/1.2 var(--sans);letter-spacing:.02em;text-transform:none;color:var(--k70)}
+.cap{font:500 15px/20px var(--sans);margin-top:10px}
+.cap b{font-weight:700;letter-spacing:.02em}
+.row{display:flex;align-items:flex-start}
+
+/* feuilles : un filet et une ombre courte, pour que le blanc se détache du blanc */
+.sheet{box-shadow:0 0 0 1px rgba(0,0,0,.14),0 5px 16px rgba(0,0,0,.10);background:#fff}
+.crop{position:relative;overflow:hidden}
+.crop img{position:absolute;max-width:none}
+.spread{display:flex;position:relative}
+.spread::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(0,0,0,.18)}
+
+/* ---------- 1. couvertures ---------- */
+.fronts{display:flex;gap:24px}
+.shelf{margin-left:auto;width:224px;display:flex;flex-direction:column;align-items:center}
+.shelf .crop{border-bottom:5px solid var(--k)}
+.full{display:flex;gap:48px;margin-top:40px}
+.parts{display:flex;font:700 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.parts span{border-left:1px solid var(--k);border-right:1px solid var(--k);padding:0 0 6px;text-align:center;position:relative}
+.parts span::after{content:"";position:absolute;left:0;right:0;bottom:0;border-bottom:1px solid var(--k)}
+.parts span+span{border-left:none}
+.notes{flex:1;padding-top:30px}
+.notes p{margin:0 0 14px;font:400 16px/22px var(--serif)}
+.notes p b{font:700 16px/22px var(--sans);letter-spacing:.02em}
+.notes code{font:400 14px/1 var(--mono)}
+
+/* ---------- 2. palette ---------- */
+.pal{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.sw{height:190px;position:relative;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 0 0 1px rgba(0,0,0,.14)}
+.sw .big{font:700 104px/.74 var(--sans);letter-spacing:-.02em;text-align:right}
+.sw .nm{font:700 22px/1 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.sw .hx{font:600 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between}
+.tints{display:flex;gap:6px;margin-top:6px}
+.tints div{flex:1;height:34px;display:flex;align-items:center;padding-left:8px;font:600 12px/1 var(--sans);letter-spacing:.06em;color:#fff}
+.pal h3{margin:12px 0 6px;font:700 16px/1.15 var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.pal .ev{font:italic 400 15px/20px var(--serif);margin:0 0 6px}
+.pal .dr{font:400 14.5px/20px var(--serif);margin:0}
+.pal .dr b{font:700 14px/20px var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.dh{display:flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:8px 10px;font:700 17px/1 var(--sans);letter-spacing:.05em;text-transform:uppercase}
+
+/* ---------- 3. typographie ---------- */
+.ty{display:flex;gap:48px}
+.fams{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:22px}
+.fam{border-top:1px solid var(--k);padding-top:10px}
+.fam .fn{font:700 15px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between}
+.fam .fn span{font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--k70)}
+.fam .al{font-size:34px;line-height:42px;margin-top:8px;white-space:nowrap;overflow:hidden}
+.fam .ws{display:flex;gap:18px;font-size:19px;margin-top:4px}
+table.lv{width:100%;border-collapse:collapse}
+.lv td{border-top:1px solid var(--k40);padding:10px 14px 11px 0;vertical-align:top}
+.lv tr:first-child td{border-top:2px solid var(--k)}
+.lv tr:last-child td{border-bottom:2px solid var(--k)}
+.lv td.l{width:170px;font:700 14px/18px var(--sans);letter-spacing:.05em;text-transform:uppercase}
+.lv td.s{width:230px;font:400 13.5px/18px var(--sans);color:var(--k)}
+.lv td.s i{font-style:normal;color:var(--k70)}
+.lv td.x{padding-right:0}
+/* spécimens : valeurs du gabarit intérieur, en points réels */
+.x-num{font:700 92pt/.74 var(--sans);letter-spacing:-.02em}
+.x-h1{font:700 38pt/.95 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.x-sec{display:flex;align-items:center;gap:7pt;padding-top:4pt;border-top:2.5pt solid var(--k);font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;width:3.39in}
+.x-sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans)}
+.x-s9{border-top:none;background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt}
+.x-s9 .n{background:#fff;color:var(--k)}
+.x-sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;padding-top:3pt;border-top:.75pt solid var(--k);width:3.39in}
+.x-lead{font:400 12pt/15.5pt var(--serif);width:5.2in}
+.x-txt{font:400 9.5pt/13pt var(--serif);width:3.39in;hyphens:auto;text-align:left}
+.x-txt p{margin:0;text-indent:1.1em}.x-txt p:first-child{text-indent:0}
+.x-step{position:relative;padding-left:19pt;font:400 9.5pt/13pt var(--serif);width:3.39in}
+.x-step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+.x-tab{border-collapse:collapse;font:400 8.6pt/10.8pt var(--serif);width:5.2in}
+.x-tab th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+.x-tab td{border:none;border-bottom:1.5pt solid var(--k);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+.x-tab td:first-child{font-weight:600}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.x-cap{font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em}
+.x-lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.x-fn{width:3.39in}
+.x-fn::before{content:"";display:block;width:.9in;border-top:.75pt solid var(--k);margin-bottom:4pt}
+.x-fn p{position:relative;margin:0;padding-left:11pt;font:400 7.8pt/10pt var(--serif)}
+.x-fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.fnr{position:relative;top:-.42em;font:700 .7em/0 var(--sans);margin-left:.6pt}
+.x-rh{display:flex;justify-content:space-between;align-items:flex-end;width:5.2in;border-bottom:1.5pt solid var(--k);padding-bottom:3pt;text-transform:uppercase;font-family:var(--sans)}
+.x-rh .to{font:500 7.5pt/1 var(--sans);letter-spacing:.09em;color:var(--k70)}
+.x-rh .g{display:flex;align-items:flex-end;gap:10pt}
+.x-rh .ch{font:600 8.5pt/1 var(--sans);letter-spacing:.09em}
+.x-fo{font:700 12.5pt/1 var(--sans);letter-spacing:.02em}
+.x-lad{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.x-lad li{width:12pt;height:12pt;border:.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.x-lad li.on{background:var(--k);color:#fff}
+.x-lad li.dg{border-color:var(--red);color:var(--red)}
+.x-cmd{font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em;width:4.6in}
+.x-dh{display:inline-flex;align-items:center;gap:8pt;background:var(--red);color:#fff;padding:5pt 8pt 5pt 7pt;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.x-dh svg{width:17pt;height:15pt}
+
+/* ---------- 4. grille ---------- */
+.grid-col{width:824px;flex:none}
+.grid-col svg{display:block}
+.gnotes{margin-top:14px;columns:2;column-gap:28px}
+.gnotes p{margin:0 0 10px;font:400 15px/20px var(--serif);break-inside:avoid}
+.gnotes b{font:700 15px/20px var(--sans);letter-spacing:.02em}
+
+/* ---------- 5. pages ---------- */
+.pages{display:flex;flex-direction:column;gap:40px}
+.pages .row{gap:48px}
+.pg440{width:440px;height:550px}
+.grp .cap{max-width:880px}
+
+/* ---------- 6. notes ---------- */
+.nt{display:flex;gap:48px}
+.zoom{width:740px;flex:none;display:flex;flex-direction:column;gap:22px}
+.zoom .lbl{font:700 14px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.md{font:400 14px/21px var(--mono);background:#f2f2f2;padding:12px 14px;white-space:pre-wrap;word-break:break-word}
+.md b{font-weight:400;background:#000;color:#fff;padding:0 3px}
+.rules{flex:1}
+.rules p{margin:0 0 14px;font:400 16px/22px var(--serif)}
+.rules p b{font:700 16px/22px var(--sans);letter-spacing:.02em}
+
+.foot{margin-top:52px;padding-top:8px;border-top:1px solid var(--k);display:flex;justify-content:space-between;font:500 13px/1.3 var(--sans);color:var(--k70)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="kick"><span>Le Grand Livre du Chalet · 4 tomes · 104 chapitres · 8 × 10 po</span><span>Direction 1, manuel de terrain · couvertures aux couleurs nordiques · retenue le 23 septembre 2026</span></div>
+  <div class="ttl"><h1>Planche de style</h1>
+    <div class="sys">Dedans, noir sur blanc et un seul rouge, pour le danger. Dehors, une couleur par tome. Une seule famille de caractères. Tout ce qui est montré ici sort des fichiers retenus.</div></div>
+</header>
+
+<!-- ============================ 1. COUVERTURES ============================ -->
+<section>
+  <h2 class="sec"><span class="n">1</span><span class="t">Les couvertures</span><span class="d">couvertures-nordique.html, rendu tel quel · avants et tranches à la même échelle</span></h2>
+  <div class="row">
+    <div>
+      <div class="fronts">
+        <div class="crop sheet" style="width:384px" data-src="rendus/couvertures.png" data-sw="1652" data-x="0" data-y="12" data-w="768" data-h="960"></div>
+        <div class="crop sheet" style="width:384px" data-src="rendus/couvertures.png" data-sw="1652" data-x="0" data-y="996" data-w="768" data-h="960"></div>
+        <div class="crop sheet" style="width:384px" data-src="rendus/couvertures.png" data-sw="1652" data-x="0" data-y="1980" data-w="768" data-h="960"></div>
+        <div class="crop sheet" style="width:384px" data-src="rendus/couvertures.png" data-sw="1652" data-x="0" data-y="2964" data-w="768" data-h="960"></div>
+      </div>
+      <div class="cap"><b>Les quatre avants.</b> Titre en capitales étroites, chiffre du tome géant, barre de série au prorata des chapitres (23, 10, 27, 29) : la case du tome est pleine.</div>
+    </div>
+    <div class="shelf">
+      <div class="crop" style="width:182.4px" data-src="rendus/tablette.png" data-sw="298" data-x="57.6" data-y="28.8" data-w="182.4" data-h="480"></div>
+      <div class="cap" style="text-align:center"><b>Sur la tablette.</b> Les tranches se lisent 1-2-3-4.</div>
+    </div>
+  </div>
+
+  <div class="full">
+    <div style="width:1400px;flex:none">
+      <div class="parts"><span style="width:660.8px">Quatrième</span><span style="width:78.5px">Tranche</span><span style="width:660.8px">Avant</span></div>
+      <div class="crop sheet" style="width:1400px" data-src="rendus/couvertures.png" data-sw="1652" data-x="12" data-y="3948" data-w="1627.2" data-h="960"></div>
+    </div>
+    <div class="notes">
+      <p><b>Couverture complète, tome 4.</b> 16,95 × 10 po une fois rognée ; le fichier fait 17,2 × 10,25 po, avec un fond perdu de 0,125 po tout autour.</p>
+      <p><b>La tranche</b> fait 0,95 po, largeur supposée pour 440 pages en papier standard. Elle se recale au calculateur de Blurb quand le nombre de pages est connu : une seule variable, <code>--spine</code>.</p>
+      <p><b>La quatrième</b> dit le livre en deux phrases, donne le sommaire du tome et reprend un trait tiré d’une planche du tome.</p>
+      <p><b>L’encre</b> fait tout le reste : titres, filets, chiffre, barre de série. Aucune image sur l’avant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 2. PALETTE ============================ -->
+<section>
+  <h2 class="sec"><span class="n">2</span><span class="t">La palette</span><span class="d">quatre couleurs pour les couvertures, le noir pour les pages, le rouge pour le danger</span></h2>
+  <div class="pal">
+    <div>
+      <div class="sw" style="background:#E2E7EA;color:#15222B"><div class="big">1</div><div class="nm">Tenir</div><div class="hx"><span>Fond #E2E7EA</span><span>Encre #15222B</span></div></div>
+      <h3>Tome 1 · Neige</h3>
+      <p class="dr"><b>Droit :</b> l’avant, la tranche et la quatrième du tome 1. N’entre jamais dans les pages.</p>
+    </div>
+    <div>
+      <div class="sw" style="background:#5C1A15;color:#F3ECE5"><div class="big">2</div><div class="nm">Le corps</div><div class="hx"><span>Fond #5C1A15</span><span>Encre #F3ECE5</span></div></div>
+      <h3>Tome 2 · Sang de gibier</h3>
+      <p class="dr"><b>Droit :</b> la couverture du tome 2, rien d’autre. Il reste dehors : dedans, le seul rouge est celui du danger.</p>
+    </div>
+    <div>
+      <div class="sw" style="background:#1D392E;color:#E9F0EA"><div class="big">3</div><div class="nm">Prélever</div><div class="hx"><span>Fond #1D392E</span><span>Encre #E9F0EA</span></div></div>
+      <h3>Tome 3 · Épinette</h3>
+      <p class="dr"><b>Droit :</b> l’avant, la tranche et la quatrième du tome 3. N’entre jamais dans les pages.</p>
+    </div>
+    <div>
+      <div class="sw" style="background:#25414F;color:#EDF2F5"><div class="big">4</div><div class="nm">Conserver et réparer</div><div class="hx"><span>Fond #25414F</span><span>Encre #EDF2F5</span></div></div>
+      <h3>Tome 4 · Fleuve</h3>
+      <p class="dr"><b>Droit :</b> l’avant, la tranche et la quatrième du tome 4. N’entre jamais dans les pages.</p>
+    </div>
+    <div>
+      <div class="sw" style="background:#000;color:#fff"><div class="big" style="font-family:var(--serif);font-weight:400;font-size:92px">Aa</div><div class="nm">Noir</div><div class="hx"><span>#000</span><span>sur papier blanc</span></div></div>
+      <div class="tints"><div style="background:#4d4d4d">70 % · #4D4D4D</div><div style="background:#999">40 % · #999</div></div>
+      <h3>Le noir des pages</h3>
+      <p class="dr"><b>Droit :</b> tout le texte, les titres, les filets, les carrés de section, le bandeau de la section 9, la pastille NON, les planches. Le 70 % : tome au titre courant, lieu au pied, appel de note. Le 40 % : filets entre colonnes et dans les tableaux. Jamais de gris pour le texte courant.</p>
+    </div>
+    <div>
+      <div class="sw" style="background:#fff;padding:0;justify-content:flex-start;box-shadow:0 0 0 1.5px var(--red)">
+        <div class="dh"><svg viewBox="0 0 34 30" width="22" height="19" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>Danger</div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:12px 14px 14px">
+          <div style="display:flex;gap:10px;font:400 15px/19px var(--serif)"><span style="font:700 26px/22px var(--sans);color:var(--red)">1</span><span><b>Un numéro rouge</b> ouvre chaque mécanisme.</span></div>
+          <div class="hx" style="color:var(--red)"><span>Rouge #9B2C1E</span><span>le seul</span></div>
+        </div>
+      </div>
+      <h3>Le rouge du danger</h3>
+      <p class="dr"><b>Droit :</b> le danger, rien d’autre. Bandeau et cadre de l’encadré, numéros des mécanismes, carré 8 du sommaire et de l’échelle, bande sur la tranche des pages, cadre du danger dans une planche. Jamais pour souligner ni pour décorer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 3. TYPOGRAPHIE  +  4. GRILLE ============================ -->
+<div class="ty">
+<section style="flex:1;min-width:0">
+  <h2 class="sec"><span class="n">3</span><span class="t">La typographie</span><span class="d">spécimens en points réels</span></h2>
+  <div class="fams">
+    <div class="fam"><div class="fn">IBM Plex Sans Condensed <span>titres, tableaux, repères · 400 500 600 700</span></div>
+      <div class="al" style="font-family:var(--sans);font-weight:700">ABCDÉÈÀÇ 0123456789 °C</div>
+      <div class="ws" style="font-family:var(--sans)"><span style="font-weight:400">Régulier</span><span style="font-weight:500">Moyen</span><span style="font-weight:600">Demi-gras</span><span style="font-weight:700">Gras</span></div></div>
+    <div class="fam"><div class="fn">IBM Plex Serif <span>texte courant, tableaux, notes · 400 700</span></div>
+      <div class="al" style="font-family:var(--serif)">Aa Éé Çç 0123456789 « »</div>
+      <div class="ws" style="font-family:var(--serif)"><span>Régulier</span><span style="font-style:italic">Italique</span><span style="font-weight:700">Gras</span></div></div>
+  </div>
+  <table class="lv">
+    <tr><td class="l">Titre de chapitre</td><td class="s">Sans Cond. Gras 38 pt, capitales, interligne 0,95 ; numéro 92 pt</td>
+      <td class="x"><div style="display:flex;align-items:flex-end;gap:12pt"><span class="x-num">65</span><span class="x-h1">Fumage<br>à froid</span></div></td></tr>
+    <tr><td class="l">Carré de section</td><td class="s">Sans Cond. Gras 13 pt, capitales +4 %, filet 2,5 pt ; carré noir 19 pt, chiffre 14 pt. <i>Le 8 en rouge.</i></td>
+      <td class="x"><div class="x-sec"><span class="n">3</span><span>Pourquoi ça marche</span></div></td></tr>
+    <tr><td class="l">Section 9</td><td class="s">Le même en bandeau inversé, et une bande noire sur la tranche</td>
+      <td class="x"><div class="x-sec x-s9" style="width:4.2in"><span class="n">9</span><span>Variante d’urgence</span></div></td></tr>
+    <tr><td class="l">Intertitre</td><td class="s">Sans Cond. Gras 10/12 pt, capitales +5 %, filet 0,75 pt</td>
+      <td class="x"><div class="x-sub">B — Monter le fumoir</div></td></tr>
+    <tr><td class="l">Chapeau</td><td class="s">Serif 12/15,5 pt, sur toute la largeur (section 1)</td>
+      <td class="x"><div class="x-lead">Le fumage à froid traite une pièce <b>déjà salée</b> avec de la fumée à une température qui ne provoque pas de coagulation des protéines.</div></td></tr>
+    <tr><td class="l">Texte courant</td><td class="s">Serif 9,5/13 pt, colonne de 3,39 po, alinéa 1,1 em, césure. <i>Environ 690 mots par page pleine.</i></td>
+      <td class="x"><div class="x-txt"><p>La fumée de bois qui couve, et non qui flambe, transporte des phénols, des acides organiques et des composés carbonylés qui se déposent sur une surface humide et y restent.</p><p>Ils ne traversent pas un jambon ni un filet épais. Ce qui se passe au cœur relève du sel, et de lui seul.</p></div></td></tr>
+    <tr><td class="l">Étape</td><td class="s">Numéro Sans Cond. Gras 11 pt en marge, amorce en Serif gras</td>
+      <td class="x"><div class="x-step"><span class="sn">5</span><b>Séparer le foyer de la chambre.</b> C’est la seule chose qui distingue mécaniquement un fumoir à froid d’un fumoir à chaud : le feu est ailleurs.</div></td></tr>
+    <tr><td class="l">Tableau</td><td class="s">Serif 8,6/10,8 pt ; en-tête Sans Cond. Gras 7,6 pt capitales ; pastille NON</td>
+      <td class="x"><table class="x-tab"><colgroup><col style="width:27%"><col style="width:10%"><col style="width:47%"><col style="width:16%"></colgroup>
+        <tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr>
+        <tr><td>Thermomètre à sonde, lecture instantanée</td><td>1</td><td>Un thermomètre à cadran remis d’aplomb dans la glace fondante et l’eau bouillante (§9)</td><td><span class="non">NON</span></td></tr></table></td></tr>
+    <tr><td class="l">Légende</td><td class="s">Sans Cond. Gras 7,5 pt capitales +9 % au pied ; renvoi de suite en demi-gras italique 7,5 pt</td>
+      <td class="x"><div class="x-lab">Procédure · Planche 65-01</div><div class="x-cap" style="margin-top:6pt">L’encadré continue page 65-13</div></td></tr>
+    <tr><td class="l">Note de bas de page</td><td class="s">Serif 7,8/10 pt, numéro Sans Cond. Gras, filet court de 0,9 po. Appel : Sans Cond. Gras à 70 % du corps</td>
+      <td class="x"><div class="x-txt" style="margin-bottom:8pt"><b>Remplir en laissant l’espace de tête<span class="fnr">1</span> prescrit par la recette.</b></div>
+        <div class="x-fn"><p><span class="fnn">1</span>L’espace de tête est le vide laissé en haut du pot, entre la surface de l’aliment ou de son liquide et le couvercle.</p></div></td></tr>
+    <tr><td class="l">Titre courant</td><td class="s">Sans Cond. Demi-gras 8,5 pt capitales +9 %, filet 1,5 pt ; tome en Moyen 7,5 pt, noir 70 %</td>
+      <td class="x"><div class="x-rh"><span class="to">Tome 4 · Conserver et réparer</span><span class="g"><span class="ch">65 · Fumage à froid</span><span class="x-fo">65-7</span></span></div></td></tr>
+    <tr><td class="l">Folio</td><td class="s">Sans Cond. Gras 12,5 pt : chapitre-page, au bord extérieur</td>
+      <td class="x"><span class="x-fo">65-7</span> &nbsp; <span class="x-fo">73-5</span> &nbsp; <span class="x-fo">00-7</span></td></tr>
+    <tr><td class="l">Échelle au pied</td><td class="s">Carrés de 12 pt, chiffres Sans Cond. Demi-gras 7,5 pt ; la section en cours est pleine</td>
+      <td class="x"><div style="display:flex;align-items:center;gap:6pt"><ol class="x-lad"><li>1</li><li>2</li><li>3</li><li>4</li><li class="on">5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol><span class="x-lab">Procédure</span></div></td></tr>
+    <tr><td class="l">Consigne du ch. principal</td><td class="s">Sans Cond. Gras 14,5/16,5 pt, une phrase ; l’explication suit en Serif 9,8 pt</td>
+      <td class="x"><div class="x-cmd">Si l’avertisseur sonne&#8239;: tout le monde dehors, et le compte des têtes se fait dehors.</div></td></tr>
+    <tr><td class="l">Bandeau danger</td><td class="s">Sans Cond. Gras 12/14 pt, capitales, blanc sur rouge</td>
+      <td class="x"><span class="x-dh"><svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>Danger — <span style="font-weight:600;letter-spacing:.03em">monoxyde de carbone</span></span></td></tr>
+  </table>
+</section>
+
+<section class="grid-col">
+  <h2 class="sec"><span class="n">4</span><span class="t">La grille</span><span class="d">un recto, à l’échelle</span></h2>
+  <svg id="grille" width="824" height="800" viewBox="0 0 824 800" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans Condensed, Arial Narrow, sans-serif"></svg>
+  <div class="gnotes">
+    <p><b>Page rognée 8 × 10 po.</b> Le fichier fait 8,125 × 10,25 po : 0,125 po de fond perdu en tête, en pied et au bord extérieur, jamais au dos.</p>
+    <p><b>Zone utile 7 × 8,5 po.</b> C’est aussi la zone des planches : une planche pleine page y entre au millimètre.</p>
+    <p><b>Deux colonnes de 3,39 po</b>, séparées par 0,22 po et un filet à 40 %. Les titres de section, les tableaux et le chapeau passent sur les deux.</p>
+    <p><b>Marges de 0,5 po</b> sur les côtés, reliure comprise, et de 0,75 po en tête et en pied, où logent le titre courant et l’échelle. Au verso, tout se retourne.</p>
+  </div>
+</section>
+</div>
+
+<!-- ============================ 5. PAGES ============================ -->
+<section>
+  <h2 class="sec"><span class="n">5</span><span class="t">Les pages</span><span class="d">rendues par le moteur de la direction 1 à partir des chapitres 65, 00 et 73, sans retouche</span></h2>
+  <div class="pages">
+    <div class="row">
+      <div class="grp"><img class="pg440 sheet" src="rendus/p65-1.png" alt="Page 65-1">
+        <div class="cap" style="width:440px"><b>65-1 · Ouverture.</b> Numéro, titre, ligne de lieu (maison, chalet, les deux) et sommaire des neuf sections, le 8 en rouge.</div></div>
+      <div class="grp"><div class="spread sheet"><img class="pg440" src="rendus/p65-2.png" alt="Page 65-2"><img class="pg440" src="rendus/p65-3.png" alt="Page 65-3"></div>
+        <div class="cap"><b>65-2 · 65-3 · Page courante, puis le tableau Matériel.</b> Sections ouvertes par le carré noir ; tableau sur toute la largeur, sans filet vertical, pastille NON pour ce qui ne se négocie pas.</div></div>
+      <div class="grp"><img class="pg440 sheet" src="rendus/p00-7.png" alt="Page 00-7">
+        <div class="cap" style="width:440px"><b>00-7 · Chapitre principal.</b> Une catastrophe par page, une consigne par ligne, renvois encadrés à droite, onglet noir au pouce.</div></div>
+    </div>
+    <div class="row">
+      <div class="grp"><div class="spread sheet"><img class="pg440" src="rendus/p65-6.png" alt="Page 65-6"><img class="pg440" src="rendus/p65-7.png" alt="Page 65-7"></div>
+        <div class="cap"><b>65-6 · 65-7 · Planche pleine page et procédure.</b> La planche 65-01 validée, avec la tôle sur le trou à feu, remplit la zone utile ; la procédure lui fait face.</div></div>
+      <div class="grp"><div class="spread sheet"><img class="pg440" src="rendus/p65-12.png" alt="Page 65-12"><img class="pg440" src="rendus/p65-13.png" alt="Page 65-13"></div>
+        <div class="cap"><b>65-12 · 65-13 · Danger, puis variante d’urgence.</b> L’encadré rouge passe la page avec sa coupe en pointillé ; la section 9 ouvre en bandeau noir. Les bandes rouge et noire sur la tranche se voient livre fermé.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 6. NOTES DE BAS DE PAGE ============================ -->
+<section>
+  <h2 class="sec"><span class="n">6</span><span class="t">Les notes de bas de page</span><span class="d">nouveau : un signe nommé s’explique en note · ch. 73, étape 8, note réelle du chapitre</span></h2>
+  <div class="nt">
+    <div class="grp"><img class="pg440 sheet" src="rendus/p73-5.png" alt="Page 73-5">
+      <div class="cap" style="width:440px"><b>73-5 · Procédure avec une note.</b> L’appel tombe dans la colonne de gauche : la note se pose au pied de cette colonne.</div></div>
+    <div class="zoom">
+      <div><div class="lbl">L’appel, grossi</div>
+        <div class="crop sheet" style="width:740px" data-src="rendus/p73-5-x4.png" data-sw="768" data-x="44" data-y="398" data-w="340" data-h="76"></div></div>
+      <div><div class="lbl">La note, au pied de sa colonne</div>
+        <div class="crop sheet" style="width:740px" data-src="rendus/p73-5-x4.png" data-sw="768" data-x="44" data-y="772" data-w="340" data-h="128"></div></div>
+      <div><div class="lbl">Dans le Markdown du chapitre</div>
+        <div class="md">**8. Remplir en laissant l'espace de tête<b>[^1]</b> prescrit par la recette.** …
+
+<b>[^1]:</b> L'espace de tête est le vide laissé en haut du pot, entre la surface de l'aliment ou de son liquide et le couvercle. …</div></div>
+    </div>
+    <div class="rules">
+      <p><b>L’appel.</b> Un chiffre en exposant, collé au mot, avant la ponctuation, en Sans Condensed gras à 70 % du corps. Il reste lisible dans une amorce en gras.</p>
+      <p><b>La note.</b> Au pied de la colonne où tombe l’appel, sous un filet court de 0,9 po, en Serif 7,8/10 pt, numéro en Sans Condensed gras. Dans un cadre à une colonne, elle va au pied de la page.</p>
+      <p><b>La place.</b> La note prend sa hauteur dans le cadre avant que le moteur juge si un bloc tient. Si l’appel passe à la page suivante, la note le suit.</p>
+      <p><b>Le numéro.</b> Par chapitre, dans l’ordre des appels. Le moteur renumérote lui-même, quelle que soit l’étiquette écrite dans le Markdown.</p>
+      <p><b>Dans l’encadré danger,</b> la note reste dans l’encadré, sous son texte et au-dessus de la coupe en pointillé.</p>
+    </div>
+  </div>
+</section>
+
+<div class="foot"><span>Pages : directions/1-manuel-de-terrain/interieur.html, moteur outils/ · Couvertures : couvertures-nordique.html</span><span>Refaire la planche : design/planche-de-style/construire.sh</span></div>
+
+<script>
+(function(){
+/* découpes : une zone d'un rendu, à la largeur de la boîte */
+document.querySelectorAll('.crop').forEach(c=>{
+  const d=c.dataset, w=+d.w, k=parseFloat(c.style.width)/w;
+  c.style.height=(+d.h*k)+'px';
+  const im=document.createElement('img'); im.src=d.src; im.alt='';
+  im.style.width=(+d.sw*k)+'px'; im.style.left=(-d.x*k)+'px'; im.style.top=(-d.y*k)+'px';
+  c.appendChild(im);
+});
+
+/* ---------- la grille : un recto à 64 px par pouce ---------- */
+const S=64, ox=150, oy=62, NS='http://www.w3.org/2000/svg', g=document.getElementById('grille');
+const X=i=>ox+i*S, Y=i=>oy+i*S;           // pouces, repère de la page PDF (fond perdu compris)
+function el(n,a,t){ const e=document.createElementNS(NS,n); for(const k in a) e.setAttribute(k,a[k]); if(t!=null) e.textContent=t; g.appendChild(e); return e; }
+function txt(x,y,t,o={}){ return el('text',Object.assign({x,y,'font-size':14,'font-weight':600,fill:'#000','letter-spacing':'.02em'},o),t); }
+function dimH(x1,x2,y,t,o={}){ el('line',{x1,y1:y,x2,y2:y,stroke:'#000','stroke-width':1});
+  [x1,x2].forEach(x=>el('line',{x1:x,y1:y-6,x2:x,y2:y+6,stroke:'#000','stroke-width':1}));
+  txt((x1+x2)/2,y-7,t,Object.assign({'text-anchor':'middle'},o)); }
+function dimV(y1,y2,x,t,o={}){ el('line',{x1:x,y1,x2:x,y2,stroke:'#000','stroke-width':1});
+  [y1,y2].forEach(y=>el('line',{x1:x-6,y1:y,x2:x+6,y2:y,stroke:'#000','stroke-width':1}));
+  const e=txt(x-8,(y1+y2)/2,t,Object.assign({'text-anchor':'middle'},o)); e.setAttribute('transform',`rotate(-90 ${x-8} ${(y1+y2)/2})`); }
+
+// fond perdu, puis page rognée
+el('rect',{x:X(0),y:Y(0),width:8.125*S,height:10.25*S,fill:'#dcdcdc'});
+el('rect',{x:X(0),y:Y(.125),width:8*S,height:10*S,fill:'#fff'});
+// zone utile et colonnes
+const zl=.5, zt=.875, zw=7, zh=8.5, cw=(7-.22)/2;
+[[zl,cw],[zl+cw+.22,cw]].forEach(([x,w])=>{
+  el('rect',{x:X(x),y:Y(zt),width:w*S,height:zh*S,fill:'#f1f1f1'});
+  for(let i=1;i<=47;i++){ const y=Y(zt)+i*13/72*S-2.5; if(y<Y(zt+zh)) el('line',{x1:X(x)+4,y1:y,x2:X(x+w)-4,y2:y,stroke:'#cfcfcf','stroke-width':.8}); }
+});
+el('line',{x1:X(zl+cw+.11),y1:Y(zt),x2:X(zl+cw+.11),y2:Y(zt+zh),stroke:'#999','stroke-width':1});
+el('rect',{x:X(zl),y:Y(zt),width:zw*S,height:zh*S,fill:'none',stroke:'#000','stroke-width':1.2,'stroke-dasharray':'6 4'});
+// titre courant (recto : folio au bord extérieur) et échelle au pied
+el('line',{x1:X(zl),y1:Y(.66),x2:X(zl+zw),y2:Y(.66),stroke:'#000','stroke-width':2});
+txt(X(zl),Y(.66)-5,'TOME 4 · CONSERVER ET RÉPARER',{'font-size':8,'font-weight':500,fill:'#4d4d4d','letter-spacing':'.08em'});
+txt(X(zl+zw)-36,Y(.66)-5,'65 · FUMAGE À FROID',{'font-size':9,'text-anchor':'end','letter-spacing':'.08em'});
+txt(X(zl+zw),Y(.66)-5,'65-7',{'font-size':13,'font-weight':700,'text-anchor':'end'});
+const sq=12/72*S, gp=1.5/72*S, lx=X(zl+zw)-9*sq-8*gp, ly=Y(9.52)+(0.2*S-sq)/2;
+for(let i=0;i<9;i++) el('rect',{x:lx+i*(sq+gp),y:ly,width:sq,height:sq,fill:i===4?'#000':'#fff',stroke:'#000','stroke-width':.8});
+txt(lx-6,ly+sq-2,'PROCÉDURE',{'font-size':8,'font-weight':700,'text-anchor':'end','letter-spacing':'.08em'});
+txt(X(zl),ly+sq-2,'LIEU · CHALET',{'font-size':7.5,fill:'#4d4d4d','letter-spacing':'.1em'});
+// bord rogné ; dos marqué d'un trait épais
+el('rect',{x:X(0),y:Y(.125),width:8*S,height:10*S,fill:'none',stroke:'#000','stroke-width':1.5});
+el('line',{x1:X(0),y1:Y(.125),x2:X(0),y2:Y(10.125),stroke:'#000','stroke-width':5});
+
+// cotes
+dimH(X(0),X(8),Y(0)-26,'8 po, page rognée');
+dimV(Y(.125),Y(10.125),X(0)-96,'10 po');
+dimV(Y(zt),Y(zt+zh),X(8.125)+44,'8,5 po, zone utile');
+dimH(X(zl),X(zl+zw),Y(10.25)+34,'7 po, zone utile');
+dimH(X(0),X(zl),Y(5.3),'0,5',{'font-size':13});
+dimH(X(zl+zw),X(8),Y(5.3),'0,5',{'font-size':13});
+dimV(Y(.125),Y(zt),X(0)-40,'0,75',{'font-size':12});
+dimV(Y(zt+zh),Y(10.125),X(0)-40,'0,75',{'font-size':12});
+dimH(X(zl),X(zl+cw),Y(2.2),'colonne 3,39 po',{'font-size':13});
+// blanc entre colonnes
+txt(X(zl+cw+.11),Y(zt+zh)+16,'0,22',{'font-size':12,'text-anchor':'middle'});
+// étiquettes
+const lab=(x,y,t,a='start')=>txt(x,y,t,{'font-size':12.5,'font-weight':700,'letter-spacing':'.1em','text-anchor':a});
+lab(X(8.125)+10,Y(.06)+4,'FOND PERDU 0,125 PO');
+el('line',{x1:X(8.07),y1:Y(.06),x2:X(8.125)+6,y2:Y(.06),stroke:'#000','stroke-width':1});
+const r=lab(X(0)-16,Y(5.125),'RELIURE','middle'); r.setAttribute('transform',`rotate(-90 ${X(0)-16} ${Y(5.125)})`);
+lab(X(zl)+8,Y(zt+zh)-10,'47 LIGNES DE 13 PT PAR COLONNE');
+
+/* ---------- mesure, puis format d'impression à la taille de la planche ---------- */
+const ready=()=>{
+  const H=Math.ceil(document.body.getBoundingClientRect().height);
+  document.documentElement.dataset.h=H;
+  const st=document.createElement('style'); st.textContent=`@page{size:2000px ${H}px;margin:0}`; document.head.appendChild(st);
+};
+Promise.all([document.fonts.ready, new Promise(r=>window.addEventListener('load',r))]).then(ready);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+/* ---------- jetons ---------- */
+:root{
+  --rouge:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --gris:#8c8c8c;           /* seule nuance : les lieux non visés */
+  --fs:10.25pt;             /* corps */
+  --lh:13.6pt;              /* pas de la grille : 8,5 po = 45 lignes */
+  --gut:0.25in;             /* gouttière entre colonnes */
+}
+@page{size:585pt 738pt;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{
+  font-family:'Vollkorn',Georgia,serif;font-size:var(--fs);line-height:var(--lh);color:#000;
+  font-variant-numeric:lining-nums proportional-nums;font-kerning:normal;
+  hyphens:auto;hyphenate-limit-chars:6 3 3;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.src{display:none}
+strong{font-weight:700}
+
+/* ---------- la page ---------- */
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;break-after:page;background:#fff}
+.frame{position:absolute;top:0.875in;left:0.5625in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* titre courant + folio : toujours au même endroit, folio au petit fond */
+.rh{position:absolute;left:0.5625in;width:7in;top:0.46in;height:0.23in;display:flex;align-items:baseline;gap:9pt;
+  border-bottom:0.5pt solid #000;font-family:'Vollkorn SC';font-weight:600;font-size:8pt;letter-spacing:.11em;
+  text-transform:lowercase;line-height:10pt;white-space:nowrap}
+.rh .fo{font-family:'Vollkorn';font-weight:800;font-size:11.5pt;letter-spacing:0;text-transform:none}
+.rh.verso .in{margin-left:auto}
+.rh.recto .ou{margin-left:auto}
+.rh strong{font-weight:900}
+.rh.urg{border-bottom:2.5pt solid #000}
+.rh.opening{border-bottom:none;justify-content:flex-end}
+
+/* onglets de tranche : on les voit livre fermé */
+.tab{position:absolute;width:0.375in;background:#000}
+.recto .tab{right:0}
+.verso .tab{left:0}
+.tab.principal{top:0.875in;height:2.1in}
+.tab.danger{top:3.5in;height:1.6in;background:var(--rouge)}
+.tab.urg{top:5.75in;height:3.625in}
+
+/* ---------- colonnes et flux ---------- */
+.cols{column-count:2;column-gap:var(--gut)}
+.cols2{display:flex;gap:var(--gut)}
+.cols2.fill{flex:1 1 0;min-height:0}
+.cols2.dg{gap:0.22in}
+.col{flex:1 1 0;min-width:0;height:100%;overflow:hidden}
+.col>:first-child{margin-top:0!important}
+.col>p:first-child,.col>.dgi:first-child{text-indent:0}
+.cols.bal{column-fill:balance}
+.cols.after{margin-top:var(--lh)}
+
+p{margin:0;text-align:justify;text-indent:1em;orphans:2;widows:2}
+p.first,h2+p,h3+p,.lead+p,p.split-b,.cols>p:first-child,.col>p.split-b{text-indent:0}
+.split-a{text-align-last:justify}
+p.lead{font-weight:700;font-style:italic;text-indent:0;margin-top:var(--lh)}
+h2+p.lead{margin-top:0}
+
+/* titres de section : trois lignes de grille, chiffre + capitales espacées */
+h2.sec{display:flex;align-items:baseline;gap:7pt;margin:var(--lh) 0 5.95pt;padding-top:3.5pt;
+  border-top:0.75pt solid #000;line-height:17pt;break-after:avoid}
+h2.sec .n{font-weight:800;font-size:15pt;min-width:11pt}
+h2.sec .t{font-family:'Vollkorn SC';font-weight:700;font-size:10.5pt;letter-spacing:.13em;text-transform:lowercase}
+.cols>h2.sec:first-child,.frame>h2.sec:first-child{margin-top:0}
+h3.sub{font-family:'Vollkorn SC';font-weight:700;font-size:9.75pt;letter-spacing:.09em;text-transform:lowercase;
+  margin:var(--lh) 0 0;line-height:var(--lh);break-after:avoid}
+.cols>h3.sub:first-child{margin-top:0}
+
+/* listes : puce carrée, aucun blanc ajouté (la grille tient) */
+.li{position:relative;padding-left:10pt;text-align:justify}
+.li .m{position:absolute;left:0.5pt;top:5.3pt;width:3.6pt;height:3.6pt;background:#000}
+.li.sub{margin-left:17pt}
+.li.sub .m{background:none;border:0.75pt solid #000}
+.step{position:relative;padding-left:17pt;text-align:justify}
+.step .m{position:absolute;left:0;width:12.5pt;text-align:right;font-weight:800}
+p.stepcont{padding-left:17pt;text-indent:0}
+
+.av{font-family:'Vollkorn SC';font-size:8pt;letter-spacing:.06em;color:#000;border:0.5pt solid #000;padding:0 2pt;white-space:nowrap}
+
+/* ---------- ouverture de chapitre ---------- */
+.tomeline{font-family:'Vollkorn SC';font-weight:600;font-size:9pt;letter-spacing:.17em;text-transform:lowercase;
+  padding-bottom:5pt;border-bottom:0.5pt solid #000;display:flex;gap:6pt}
+.titre{display:flex;align-items:flex-end;gap:16pt;padding:14pt 0 12pt;border-bottom:2.5pt solid #000}
+.titre .num{font-weight:800;font-size:80pt;line-height:62pt;letter-spacing:-.02em}
+.titre .kick{font-family:'Vollkorn SC';font-weight:600;font-size:9pt;letter-spacing:.2em;text-transform:lowercase;margin-bottom:5pt}
+.titre h1{margin:0;font-weight:700;font-size:40pt;line-height:36pt;letter-spacing:-.01em}
+.ouvbar{margin-top:2pt;border-top:0.5pt solid #000;padding:8pt 0 8pt;display:flex;flex-direction:column;gap:8pt;border-bottom:0.5pt solid #000;margin-bottom:var(--lh)}
+.lieu{display:flex;align-items:center;font-family:'Vollkorn SC';font-weight:700;font-size:10pt;letter-spacing:.12em;text-transform:lowercase;line-height:12pt}
+.lieu .lab{font-weight:600;font-size:8.5pt;margin-right:10pt}
+.lieu .o{padding:2pt 7pt 3pt;color:var(--gris);border:0.5pt solid var(--gris);margin-right:-0.5pt}
+.lieu .o.on{background:#000;color:#fff;border-color:#000;position:relative}
+ol.somm{list-style:none;margin:0;padding:0;columns:3;column-gap:0.3in;font-size:8.75pt;line-height:12pt}
+ol.somm li{display:flex;align-items:baseline;gap:5pt;break-inside:avoid}
+ol.somm .n{font-weight:800;min-width:7pt}
+ol.somm .d{flex:1;border-bottom:0.6pt dotted #000;position:relative;top:-2.5pt}
+ol.somm .p{font-weight:600}
+ol.somm li.s9{font-weight:800}
+ol.somm li.s9 .p{font-weight:800}
+.frame>h2.sec.one{margin-top:0}
+p.uneligne{font-size:12.5pt;line-height:17pt;text-indent:0;text-align:left;hyphens:manual;margin:0 0 4pt;max-width:6.4in}
+
+/* ---------- tableaux ---------- */
+h2.sec.span{margin-bottom:6pt}
+table.t{width:100%;border-collapse:collapse;font-size:8.4pt;line-height:9.9pt;font-variant-numeric:lining-nums tabular-nums;border-top:1.5pt solid #000}
+table.t th{font-family:'Vollkorn SC';font-weight:700;font-size:8.5pt;letter-spacing:.1em;text-transform:lowercase;text-align:left;
+  padding:3.5pt 7pt 3.5pt 0;border-bottom:0.75pt solid #000;line-height:10pt;white-space:nowrap;hyphens:manual}
+table.t td{vertical-align:top;padding:2.4pt 8pt 2.8pt 0;border-bottom:0.5pt solid #000;text-align:left}
+table.t td:last-child,table.t th:last-child{padding-right:0}
+table.t td.it{font-weight:600}
+table.t td.ng .q{font-size:7.8pt;font-style:italic;font-weight:400}
+table.t tbody tr:last-child td{border-bottom:1.5pt solid #000}
+.suite{font-family:'Vollkorn SC';font-weight:700;font-size:9pt;letter-spacing:.11em;text-transform:lowercase;margin-bottom:5pt;line-height:12pt}
+.suite em{font-family:'Vollkorn';font-style:italic;font-weight:400;letter-spacing:0;text-transform:none}
+
+/* ---------- encadré DANGER : la seule chose rouge ---------- */
+.danger{border:1.5pt solid var(--rouge);padding:6pt 10pt 7pt;margin-top:var(--lh);display:flex;flex-direction:column}
+.danger.fillbox{flex:1 1 0;min-height:0}
+.danger.cont{margin-top:0}
+.danger .dh{display:flex;align-items:baseline;gap:10pt;padding-bottom:5pt;margin-bottom:7pt;border-bottom:1pt solid var(--rouge)}
+.danger .w{color:var(--rouge);font-family:'Vollkorn SC';font-weight:900;font-size:15pt;letter-spacing:.2em;text-transform:uppercase;line-height:16pt}
+.danger .s{font-style:italic;font-size:11pt}
+.dgb{column-count:2;column-gap:0.22in}
+.dgi{position:relative;padding-left:16pt;text-align:justify}
+.dgi+.dgi{margin-top:6.8pt}
+.dgi.split-b{margin-top:0}
+.dgi .m{position:absolute;left:0;top:-1.5pt;color:var(--rouge);font-weight:800;font-size:13pt}
+.dsuite{align-self:flex-end;font-family:'Vollkorn SC';font-weight:700;font-size:8.5pt;letter-spacing:.1em;text-transform:lowercase;margin-top:4pt;line-height:10pt}
+
+/* ---------- section 9 : bande noire, même geste partout ---------- */
+.urgband{display:flex;align-items:baseline;gap:10pt;background:#000;color:#fff;padding:6pt 10pt 7pt;margin:var(--lh) 0 9pt}
+.urgband .n{font-weight:900;font-size:19pt;line-height:18pt}
+.urgband .t{font-family:'Vollkorn SC';font-weight:700;font-size:12.5pt;letter-spacing:.15em;text-transform:lowercase}
+.urgband .s{margin-left:auto;font-style:italic;font-size:10pt}
+
+/* ---------- planche pleine page : 7 x 8,5 po, rien ne se déforme ---------- */
+.frame.planche img{display:block;width:7in;height:8.5in}
+
+/* ---------- chapitre principal : lisible en trois secondes ---------- */
+.cphead{display:grid;grid-template-columns:1.1in 1fr;gap:0.12in;padding-bottom:8pt;border-bottom:2.5pt solid #000}
+.cpnum{font-weight:900;font-size:104pt;line-height:82pt;letter-spacing:-.03em}
+.cptit h1{margin:2pt 0 9pt;font-weight:800;font-size:42pt;line-height:40pt;letter-spacing:-.01em}
+.cpfact{font-style:italic;font-size:10.5pt;line-height:13.5pt;text-indent:0;text-align:left;hyphens:manual;margin-top:7pt}
+.cprows{border-top:0.5pt solid #000;margin-top:2pt}
+.cpr{display:grid;grid-template-columns:1fr 0.9in;gap:0.2in;padding:5pt 0 6pt;border-bottom:0.5pt solid #000;position:relative}
+.cpt{font-size:11.25pt;line-height:14.5pt;hyphens:manual;text-align:left}
+.cpt strong{font-size:14.5pt;font-weight:800}
+.cpref{font-weight:800;font-size:14pt;text-align:right;white-space:nowrap;line-height:15pt}
+.cpref .ch{font-weight:400;font-style:italic;font-size:10pt}
+.cpr.dang::before{content:"";position:absolute;left:-10pt;top:5.5pt;bottom:6.5pt;width:3pt;background:var(--rouge)}
+.cpchalet{display:flex;gap:9pt;align-items:baseline;padding:5pt 0 6pt;border-bottom:0.5pt solid #000;font-size:9.75pt;line-height:13pt;white-space:nowrap}
+.cpchalet .cpref{margin-left:auto}
+.cpchalet .lab{font-family:'Vollkorn SC';font-weight:700;font-size:10pt;letter-spacing:.12em;text-transform:lowercase}
+.cpchalet .cpref{font-size:12pt}
+.urgband.sr{margin-top:9pt;margin-bottom:8pt}
+
+/* ---------- aperçus (écran seulement) ---------- */
+@media screen{
+  body.contact{background:#5f5f5c;padding:28px 34px}
+  .sheet{display:flex;flex-direction:column;gap:0.55in}
+  .row{display:flex;gap:0.6in;align-items:flex-start}
+  .spread{display:flex;flex-direction:column;gap:0.12in}
+  .spread .pp{display:flex;box-shadow:0 0.04in 0.18in rgba(0,0,0,.45)}
+  .spread .cap{color:#eee;font-family:'Vollkorn SC';font-size:22pt;letter-spacing:.1em;text-transform:lowercase}
+  .tv{width:8in;height:10in;overflow:hidden;position:relative;background:#fff}
+  .tv>.page{position:absolute;top:-0.125in}
+  .tv.recto>.page{left:0}
+  .tv.verso>.page{left:-0.125in}
+  .tv.vide{background:transparent}
+  .contact .tv::after{content:"";position:absolute;top:0;bottom:0;width:0.3in;pointer-events:none}
+  .tv.recto::after{left:0;background:linear-gradient(90deg,rgba(0,0,0,.16),rgba(0,0,0,0))}
+  .tv.verso::after{right:0;background:linear-gradient(270deg,rgba(0,0,0,.16),rgba(0,0,0,0))}
+  .tv.vide::after{display:none}
+  body.single{background:#fff}
+}
+
+#dbg{position:fixed;left:0;top:0;right:0;background:#ff0;color:#000;font:14px/1.3 monospace;padding:8px;z-index:9;white-space:pre-wrap}
+body.dbgo .frame{outline:1px solid blue}
+body.dbgo .col{outline:1px solid red}

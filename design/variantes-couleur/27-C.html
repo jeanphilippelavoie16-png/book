@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>27 — Les dents — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"27"}
+</style>
+</head>
+<body class="vA vB vC t2 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 2 · Le corps</span><span>Chapitre</span></div><div class="open-title"><div class="num">27</div><h1>Les dents</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">À la maison, un événement court ne change rien aux dents : la rage de dents attend le dentiste avec des analgésiques, et la dent d’adulte arrachée par un coup se replante sur place avant de partir chez lui le jour même. Au chalet, le dentiste n’existe plus pour des semaines ou des mois, et ce qui sert à patienter au village devient le traitement. Aux deux endroits, ce qui force le départ sur l’heure : l’abcès qui sort de la mâchoire (section 8), la mâchoire cassée (5-E), la dent qui a pu partir vers les poumons (5-F), l’huile de girofle bue par un enfant (section 8) et la mâchoire qui raidit après une dent tombée sur le sol (section 7).</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Garder les dents sans dentifrice ni dentiste, calmer celle qui fait mal, boucher le trou d’une obturation perdue pour jusqu’à six mois, replanter la dent d’adulte qui tombe, et reconnaître l’heure où un abcès cesse d’être un mal de dents pour devenir une menace sur la respiration.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">L’événement s’étire et le dentiste n’est plus joignable. Rien ici ne remplace un traitement de canal ni une extraction ; tout ici fait durer une bouche jusqu’à lui.</p>
+<p class="li">Une dent d’adulte vient de sortir de la bouche. La replantation se fait là où l’accident arrive, dans les minutes qui suivent, à la maison comme au chalet : le dentiste ne vient qu’après, et au chalet il ne vient pas.</p>
+<p class="li">Un enfant de 2 à 10 ans tombe. C’est l’âge où les urgences dentaires sont les plus fréquentes, et l’âge où le geste change du tout au tout selon que la dent est de lait ou permanente (5-F).</p>
+<h4 class="choix">C’est un mauvais choix quand :</h4>
+<p class="li">L’enflure quitte la mâchoire : sous la langue, sous le menton, dans le cou, autour de l’œil, ou la bouche qui n’ouvre plus. Ce n’est plus un mal de dents, c’est une infection qui peut fermer la gorge en quelques heures. Aucun geste de ce chapitre ne s’applique : on part (section 8).</p>
+<p class="li">La dent tombée est une dent de lait. Le réflexe d’un parent, la remettre en place, est le mauvais (5-F).</p>
+<p class="li">Plusieurs dents du haut font mal en même temps, pendant un rhume, nez bouché, et la douleur change quand on se penche ; l’os sous l’œil fait mal quand on appuie dessus. C’est le sinus, collé aux racines du haut : rien de ce qu’on fait à une dent n’y change quoi que ce soit. Mais un œil qui enfle pendant une sinusite relève de la section 8, comme celui d’une dent.</p>
+<p class="li">La dent d’un adulte fait mal au point qu’on pense à la pince. Section 5-G.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">Une dent est une coque dure, l’émail puis la dentine, autour d’un cœur vivant, la pulpe, où passent le nerf et les vaisseaux. Elle tient dans l’os par sa racine, attachée par un ligament. La carie vient des bactéries de la plaque, qui changent le sucre en acide contre l’émail : chaque prise de sucre est une attaque, et <strong>le nombre de fois compte autant que la quantité</strong>. La brosse enlève la plaque par frottement ; ce que le dentifrice ajoute, c’est le fluorure, qui rend l’émail plus résistant. Sans dentifrice, l’eau sur les poils fait le travail mécanique, qui est l’essentiel.</p>
+<p>La rage de dents est une affaire de pression. Quand la carie atteint la pulpe, les germes descendent dans la racine et le pus se forme au bout, <strong>dans l’os</strong>, où il n’a pas de place : d’où la douleur constante, celle qui réveille la nuit. La chaleur, les rinçages et l’ouverture d’une bulle soulagent parce qu’ils baissent cette pression. Aucun ne tue l’infection de la racine : la source reste là tant qu’un dentiste n’a pas traité la dent ou ne l’a pas enlevée.</p>
+<p>Le pus finit par sortir de l’os. S’il sort par la gencive, il fait une bulle qui crève et coule : la douleur tombe, l’infection continue. S’il sort par-dessous, d’une dent du bas vers les tissus mous sous et autour de la langue, l’enflure y grossit jusqu’à boucher les voies respiratoires. S’il monte d’une dent du haut, c’est l’œil qui enfle. Ce passage change l’horloge : un abcès dans la dent se compte en jours, un abcès dans le cou se compte en heures (<span class="ref">ch. 35</span>).</p>
+<p>La dent arrachée se replante parce que sa racine est couverte de cellules vivantes, celles du ligament, qui peuvent se rattacher à l’os. Elles meurent en séchant : le dessèchement commence en quelques minutes, et <strong>après 30 minutes à sec, la plupart sont mortes</strong>. Le meilleur endroit où garder une dent, c’est son propre trou ; le deuxième, du lait ou de la salive.</p>
+<p>Une dent de lait ne se replante pas, pour deux raisons. Sa racine est posée sur le germe de la dent permanente qui pousse juste dessous : la renfoncer, c’est appuyer sur la dent que l’enfant gardera toute sa vie. Et une dent de lait remise en place peut se détacher et partir vers les poumons, ce qui transforme un bobo en urgence.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce qui s’achète, en quelle quantité et à quel palier, est au chapitre 00b. Ce tableau dit seulement ce qui sert à ces gestes-là.</p>
+<table class="tspan"><colgroup><col style="width:23.8%"><col style="width:16.5%"><col style="width:44.4%"><col style="width:15.3%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Brosse à dents à soies souples</td><td>1 par personne, plus des rechanges</td><td>Brosse de branche, linge enroulé sur le doigt pour un enfant ; une brosse dure s’assouplit à l’eau chaude (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Dentifrice au fluorure</td><td>Petit pois par enfant de 3 à 6 ans, environ 1 cm par adulte</td><td>Eau seule, bicarbonate de soude ; le dernier tube s’étire à une fois par semaine (section 9)</td><td>Oui — ce qu’on perd, c’est le fluorure</td></tr><tr><td class="c-item">Soie dentaire</td><td>30 cm par personne et par soir</td><td>Un brin de ficelle de coton détordu ; la pointe taillée de la brosse de branche (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Analgésiques : acétaminophène et ibuprofène, formes pour enfants</td><td><span class="ref">Ch. 32</span></td><td>Aucune. Chaleur et froid soulagent, ils ne remplacent pas</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Huile de clou de girofle (eugénol), petit flacon</td><td>1</td><td>Coton seul dans le trou ; rien pour la douleur</td><td>Oui. <strong>Adultes seulement</strong></td></tr><tr><td class="c-item">Pâte d’obturation temporaire, ou poudre d’oxyde de zinc et eugénol</td><td>1</td><td>Coton propre dans le trou, changé chaque jour (5-D)</td><td>Oui. Chez l’enfant aussi : le danger est le flacon de liquide, pas le ciment durci (section 8)</td></tr><tr><td class="c-item">Coton en rouleaux et gaze</td><td>1 paquet</td><td>Coton de drap bouilli et séché plié (<span class="ref">ch. 26</span>, section 9)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Cire d’abeille</td><td>1 bloc — celui du <span class="ref">ch. 100</span> fait l’affaire</td><td>Sans cire : un linge propre plié, mordu, et la nourriture liquide (section 9, « Ce qu’on perd »)</td><td><span class="non">NON</span> <span class="negx">pour une dent replantée au chalet</span></td></tr><tr><td class="c-item">Lait</td><td>Un verre, au moment même</td><td>Lait en poudre reconstitué (section 9) ; salive de la personne, crachée dans une tasse ; eau en tout dernier (5-F)</td><td><span class="non">NON</span> <span class="negx">— mais la salive est toujours là</span></td></tr><tr><td class="c-item">Rince-bouche à la chlorhexidine 0,12 %</td><td>De quoi rincer 2 fois par jour pendant 2 semaines</td><td>Eau tiède, bouillie ou traitée au chalet (étape 7)</td><td>Oui</td></tr><tr><td class="c-item">Lame fine et chaudron à couvercle</td><td>1</td><td>Pointe de couteau d’office, 30 minutes à l’autoclave ou bouillie (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Lime fine ou pierre à aiguiser fine</td><td>1</td><td>Celles de l’atelier, bouillies</td><td>Oui</td></tr><tr><td class="c-item">Miroir de poche et lampe frontale</td><td>1</td><td>Lampe de poche tenue par un deuxième adulte</td><td>Oui</td></tr><tr><td class="c-item">Tige de métal mince et rigide, fil de métal fin, pince</td><td>Pour l’attelle de fil (section 9)</td><td>Aiguille à injection coupée comme tige ; sans aiguille, toute tige de métal ronde, mince et rigide qui se cintre à la pince, bouillie. Le fil : de l’acier fin, environ 0,5 mm, qui se tord sans casser (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Crayon feutre</td><td>1</td><td>Stylo, charbon de bois éteint (<span class="ref">ch. 26</span>)</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — Garder les dents</h3>
+<p class="step"><span class="sn">1</span><strong>Faire réparer toute carie connue avant la saison.</strong> Une carie avance de l’émail à la dentine, puis à la pulpe, et c’est là qu’elle devient un abcès. Réparée en septembre au village, elle ne le devient pas en février au chalet.</p>
+<p class="step"><span class="sn">2</span><strong>Brosser sous le rebord de la gencive, et pas fort.</strong> Brosse souple inclinée vers la gencive, les poils glissés dessous, petits mouvements ronds. Frotter fort use l’émail et fait reculer la gencive. Dentifrice : environ 1 cm pour un adulte, un petit pois de 3 à 6 ans ; l’enfant en avale, et trop de fluorure avalé lui tache les dents de blanc.</p>
+<p class="step"><span class="sn">3</span><strong>Cracher, ne pas rincer.</strong> Le fluorure resté sur les dents continue de travailler ; un rinçage l’emporte.</p>
+<p class="step"><span class="sn">4</span><strong>La soie, le soir.</strong> Entre les dents, la plaque durcit en tartre, et au chalet plus rien ne l’enlève. Au moins 30 cm, enroulés aux majeurs, courbés en demi-cercle contre chaque dent jusque sous la gencive.</p>
+<p class="step"><span class="sn">5</span><strong>Trouver la « dent de 6 ans ».</strong> Entre 6 et 7 ans, la première molaire permanente pousse <strong>derrière</strong> les dents de lait, sans qu’aucune soit tombée pour lui faire place : les molaires de lait ne tombent qu’entre 9 et 12 ans. On la prend facilement pour une dent de lait. C’est une dent pour la vie, la plus reculée de la bouche, et la brosse doit aller la chercher.</p>
+<p class="step"><span class="sn">6</span><strong>Sucrer aux repas, pas entre.</strong> Au chalet, le sucre qui creuse les dents n’est pas le dessert : c’est le sirop, d’érable acheté ou de bouleau (<span class="ref">ch. 94</span>), les fruits séchés et le jus, même naturel, pris par petites doses tout le long de la journée. Chaque fois est une attaque.</p>
+<p class="step"><span class="sn">7</span><strong>Toute eau qui va en bouche est bouillie ou traitée</strong>, pour le brossage comme pour chaque rinçage de ce chapitre : à la maison dès que l’eau du robinet est douteuse, au chalet toujours — lac, ruisseau, neige fondue ou puits. Le castor et le rat musqué vivent en amont de la prise d’eau (<span class="ref">ch. 10</span>, section 2 ; <span class="ref">ch. 31</span>, étape 39).</p>
+<p class="step"><span class="sn">8</span><strong>Lire le saignement des gencives.</strong> Des gencives qui saignent à la soie les premiers jours, c’est l’inflammation qu’on est en train de corriger ; elle cesse en quelques jours. Des gencives qui saignent en fin d’hiver, avec une coupure qui ne ferme pas et de vieilles cicatrices qui rouvrent, c’est le scorbut : <span class="ref">ch. 20</span>, sans attendre.</p>
+<h3 class="sub">B — Lire la douleur</h3>
+<p class="step"><span class="sn">9</span>Tapoter doucement chaque dent de la région avec le manche d’une cuillère, en commençant loin de celle qu’on soupçonne. La dent qui fait un abcès est celle qui répond au tapotement.</p>
+<table class="tspan"><colgroup><col style="width:52.7%"><col style="width:15.1%"><col style="width:32.2%"></colgroup><thead><tr><th>Ce qu’on observe</th><th>Ce que c’est probablement</th><th>Où aller</th></tr></thead><tbody><tr><td class="c-item">Mal seulement en mangeant ou en buvant, au sucré ou au froid ; un trou ou une tache noire ; <strong>pas</strong> de mal au tapotement</td><td>Carie</td><td>5-D</td></tr><tr><td class="c-item">Un morceau d’obturation est parti ; manger et boire font mal</td><td>Obturation perdue</td><td>5-D</td></tr><tr><td class="c-item">Mal tout le temps, même couché, qui réveille ; mal au tapotement ; la dent semble plus longue, un peu lâche</td><td>Abcès</td><td>5-C</td></tr><tr><td class="c-item">Une bulle ou un bouton sur la gencive, vis-à-vis du bout de la racine</td><td>Abcès qui cherche sa sortie</td><td>5-C et section 9</td></tr><tr><td class="c-item">Mal en respirant l’air froid, après un coup</td><td>Dent blessée</td><td>5-E</td></tr><tr><td class="c-item">Plusieurs dents du haut, plus sensibles au tapotement et quand on se penche ; rhume, nez bouché ; l’os sous l’œil fait mal à la pression</td><td>Sinus</td><td>Pas les dents. Beaucoup boire, respirer la vapeur d’un chaudron d’eau bouillante, un linge chaud mouillé sur le visage aussi souvent que possible ; s’essuyer le nez plutôt que se moucher, qui fait mal aux oreilles. Œil qui enfle : section 8</td></tr></tbody></table>
+<h3 class="sub">C — La rage de dents et l’abcès</h3>
+<p class="step pk-d"><span class="sn">10</span><strong>L’analgésique d’abord.</strong> Chez l’adulte et dès 12 ans, l’ibuprofène, seul ou avec l’acétaminophène, chacun à la dose et à l’intervalle de sa propre étiquette : c’est le premier recours contre la douleur dentaire quand le dentiste n’est pas là, avant tout opioïde. Pour les enfants de 4 et 6 ans, l’acétaminophène d’abord, à la dose de son étiquette pédiatrique (<span class="ref">ch. 32</span>). <strong>Aucune aspirine avant 18 ans</strong> (<span class="ref">ch. 32</span>). <strong>La dose de l’étiquette est un plafond, et la rage de dents ne le déplace pas</strong> : en prendre plus ne soulage pas mieux et peut être très dangereux. Au-delà du plafond, l’acétaminophène attaque le foie sans signe marquant pendant des heures, l’effet s’additionne sur la journée, et deux boîtes différentes peuvent contenir le même ingrédient (<span class="ref">ch. 32</span>, section 8, points 1 et 2).</p>
+<p class="step"><span class="sn">11</span><strong>Jamais d’aspirine posée sur la dent ou la gencive.</strong> Le comprimé écrasé contre la gencive la brûle, juste à côté de la dent, comme le ferait un acide (section 7).</p>
+<p class="step"><span class="sn">12</span><strong>Rincer à l’eau tiède quatre fois par jour</strong>, salée ou non, en gardant chaque gorgée contre la dent : c’est la chaleur qui travaille. Pour un enfant, pas de sel : l’eau tiède seule fait le même travail.</p>
+<p class="step"><span class="sn">13</span><strong>Chaleur sur l’enflure d’une infection, froid sur un coup.</strong> Un linge trempé dans l’eau chaude, tordu, tenu contre la joue aussi souvent que possible, jamais assez chaud pour brûler. La glace sert à la dent frappée, pas à l’abcès.</p>
+<p class="step"><span class="sn">14</span><strong>Tracer le bord de l’enflure sur la peau au crayon feutre, avec l’heure</strong>, matin et soir, comme la rougeur d’une plaie (<span class="ref">ch. 26</span>). On ne discute plus de savoir si « c’est plus gros » : le trait est dépassé ou il ne l’est pas.</p>
+<p class="step pk-d"><span class="sn">15</span><strong>Ne pas se fier au thermomètre.</strong> L’acétaminophène de l’étape 10 fait baisser la fièvre (<span class="ref">ch. 32</span>) : sous analgésiques, une fièvre basse ne prouve pas que l’infection recule. Ce qui décide, c’est le trait de l’étape 14 et les signes de la section 8.</p>
+<p class="step"><span class="sn">16</span><strong>Ouvrir la bulle qui pointe sur la gencive, et elle seule</strong> : section 9.</p>
+<p class="step"><span class="sn">17</span><strong>Chez l’adulte, l’huile de clou de girofle</strong> sur la carie : 5-D, étape 26.</p>
+<p class="step pk-d"><span class="sn">18</span><strong>Vérifier matin et soir les signes de la section 8</strong> : ouvrir grand la bouche, avaler sa salive, parler, respirer, regarder les yeux. La nuit, écouter la respiration du dormeur, enfant surtout : le bruit aigu en inspirant (section 8) est le signe qui arrive pendant qu’on dort. Un seul qui cloche, et on part.</p>
+<p class="step"><span class="sn">19</span><strong>Ne pas prendre le calme pour une guérison.</strong> Quand une bulle crève, la pression tombe et la douleur avec ; le pus continue de se faire au bout de la racine. La dent reste infectée tant qu’un dentiste ne l’a pas traitée ou enlevée. À la maison : dentiste dès que possible. Au chalet : un abcès qui reste dans la dent se compte en jours, et la descente se prépare de jour, pas de nuit en panique (<span class="ref">ch. 2</span>, <span class="ref">ch. 15</span> ; ce qu’elle coûte au malade et aux autres : <span class="ref">ch. 35, 30</span>-C).</p>
+<h3 class="sub">D — L’obturation (le plombage) qui tombe</h3>
+<p class="p0 ri"><strong class="runin">Pas de ciment sur une dent qui fait un abcès</strong> : mal tout le temps, mal au tapotement (5-B). Le ciment enferme la pression que le trou laissait sortir : la douleur monte, et le pus cherche une autre sortie, par l’os (section 3). Cette dent-là, c’est 5-C.</p>
+<p class="step"><span class="sn">20</span><strong>Rincer à l’eau tiède</strong> pour sortir ce qui est coincé, et retirer le morceau d’obturation qui branle encore, s’il en reste un. Pour ce qui reste pris entre deux dents, la soie, jamais une pointe ni un couteau.</p>
+<p class="step"><span class="sn">21</span><strong>Sécher.</strong> Un rouleau de coton entre la joue et la gencive, un autre sous la langue pour une dent du bas, changés dès qu’ils sont mouillés ; un bout de coton dans le trou le temps de préparer le ciment. Un ciment à l’eugénol posé dans un trou mouillé ne tient pas.</p>
+<p class="step pk-d"><span class="sn">22</span><strong>Préparer le ciment.</strong> Pâte d’obturation temporaire du commerce, ou poudre d’oxyde de zinc et eugénol : un tas de poudre et quelques gouttes de liquide sur une vitre propre, la poudre tirée vers le liquide un peu à la fois jusqu’à une pâte épaisse. <strong>Le test : rouler une boulette entre les doigts. Si elle colle, ajouter de la poudre.</strong> Le mélange se pratique une fois à froid, sur la table de cuisine, avant d’en avoir besoin : on apprend en combien de temps il prend. Le liquide, c’est l’eugénol, le même poison que l’huile de girofle bue (section 8). Chez l’enfant, le ciment se pose quand même : les dentistes mettent ce mélange dans les dents de lait. Le poison, c’est le liquide bu, pas le ciment durci.</p>
+<p class="step"><span class="sn">23</span><strong>Presser le ciment dans le trou</strong>, contre les parois d’abord, puis au centre. Enlever l’excédent, surtout le long de la gencive, où il blesse et finit par casser.</p>
+<p class="step"><span class="sn">24</span><strong>Faire refermer doucement.</strong> Les dents doivent se rencontrer comme avant. Si elles frappent d’abord sur le ciment, il est trop haut et il cassera : gratter le surplus avant qu’il durcisse. Ensuite, rien à manger ni à boire pendant 1 heure, le temps qu’il durcisse, puis mâcher de l’autre côté : jusqu’au dentiste, le ciment et les parois du trou restent faibles.</p>
+<p class="step"><span class="sn">25</span><strong>Un bon ciment temporaire tient jusqu’à 6 mois.</strong> Faute de ciment, un bout de coton propre dans le trou, changé chaque jour, empêche au moins la nourriture d’y entrer. <strong>Si la dent fait plus mal après la pose qu’avant</strong>, c’est probablement un abcès : gratter le ciment pour rouvrir le trou et relâcher la pression, puis 5-C.</p>
+<p class="step pk-d"><span class="sn">26</span><strong>La douleur, chez l’adulte :</strong> un petit morceau de coton imbibé d’huile de clou de girofle, posé sur la carie, <strong>jamais sur la gencive</strong>, qu’il irrite. Recommencer après 20 minutes, puis aux 2 heures au besoin, <strong>pas plus d’une semaine</strong> : c’est un soulagement, pas un traitement. <strong>Pas d’huile de girofle pour un enfant</strong> : son usage n’est pas établi avant 18 ans, et bue, elle empoisonne (section 8).</p>
+<h3 class="sub">E — La dent cassée</h3>
+<p class="step"><span class="sn">27</span><strong>Rincer doucement à l’eau tiède</strong> et mettre du froid sur la joue : un linge trempé dans l’eau glacée.</p>
+<p class="step"><span class="sn">28</span><strong>Regarder le centre de la cassure, à la lampe.</strong> La dentine est jaunâtre ; au cœur de la dent, la pulpe porte le nerf et les vaisseaux. Un petit point rouge au centre de la cassure, ou qui saigne : le nerf est à nu. Les germes de la salive y sont déjà entrés, et cette dent risque de mourir puis de faire un abcès. Le ciment temporaire (5-D) posé dessus garde le froid et la nourriture dehors, tant que la dent ne fait pas mal tout le temps ni au tapotement ; si elle fait plus mal après la pose, gratter le ciment (5-D, étape 25). Chez l’enfant, même ciment (5-D, étape 22). La dent se surveille comme à la section 7.</p>
+<p class="step"><span class="sn">29</span><strong>Pas de point rouge : l’émail et la dentine seulement.</strong> La dent est sensible au froid, au sucré, à l’air. Adoucir l’arête qui coupe la langue, et étaler du dentifrice au fluorure sur la surface sensible (section 9).</p>
+<p class="step pk-c"><span class="sn">30</span><strong>À −35 °C, respirer par le nez</strong>, un foulard sur la bouche : une dent cassée fait mal à chaque inspiration d’air froid qui passe dessus.</p>
+<p class="step"><span class="sn">31</span><strong>Faire bouger la dent entre le pouce et l’index, l’autre main posée sur la gencive au-dessus.</strong> La dent bouge et l’os non : la racine est cassée, la dent est perdue. À la maison, elle va au dentiste. Au chalet, une couronne qui ne tient plus qu’à la gencive peut tomber dans la gorge, la nuit surtout : l’enlever entre deux doigts, comme tout morceau lâche de l’étape 32, et laisser la racine dans l’os : elle y garde l’os en place, et l’arracher, c’est l’extraction de 5-G. Cette racine peut s’infecter : elle se surveille comme un abcès (5-C). La dent et l’os bougent ensemble : c’est l’os autour qui est fêlé. <strong>Surtout ne pas l’enlever : l’os partirait avec elle.</strong> L’attelle de fil de la section 9 tient le tout 4 semaines.</p>
+<p class="step pk-d"><span class="sn">32</span><strong>Les dents du haut ne rencontrent plus celles du bas</strong>, la bouche ferme mal, ça saigne entre deux dents, il y a du sang dans le blanc de l’œil : la mâchoire est cassée. Coucher la personne sur le côté, ou l’asseoir la tête penchée vers l’avant pour que la langue et la mâchoire tombent vers l’avant et qu’elle respire mieux ; jamais sur le dos (section 8, point 3). Retirer tout morceau de dent qui ne tient plus et pourrait tomber dans la gorge. Le coup qui casse une mâchoire a frappé la tête : réveiller et questionner la personne à intervalles fixes, et celle qui devient plus difficile à réveiller saigne peut-être dans le crâne (<span class="ref">ch. 26</span>, étape 38 et section 7). Partir (<span class="ref">ch. 2</span>, <span class="ref">ch. 15</span> ; <span class="ref">ch. 35, 30</span>-C).</p>
+<p class="step pk-d"><span class="sn">33</span><strong>Une dent de lait qui fonce après un coup</strong> peut reprendre sa couleur en quelques semaines ou quelques mois. Ce qui compte, c’est la bulle sur la gencive ou l’enflure : l’infection d’une dent de lait menace la dent permanente qui pousse dessous. Une bulle ou une enflure sur une dent de lait se surveille exactement comme celle d’un adulte : le trait sur la peau (étape 14), les signes de la section 8 matin et soir, la même règle de départ. À la maison, le dentiste à la première occasion ; au chalet, la descente de jour, tant qu’aucun signe de la section 8 n’est là (5-C, étape 19).</p>
+<h3 class="sub">F — La dent arrachée par un coup</h3>
+<p class="p0">Un coup qui sort une dent a frappé la tête. L’horloge de la dent tire toute l’attention vers la bouche ; la tête se surveille quand même (<span class="ref">ch. 26</span>, étape 38 et section 7).</p>
+<p class="p0 lab kh"><strong class="runin">D’abord, trancher : dent de lait ou permanente.</strong></p>
+<p class="step"><span class="sn">34</span><strong>À 4 ans, toutes les dents sont des dents de lait.</strong> L’enfant en a vingt, et la première dent permanente n’arrive que vers 6 ans.</p>
+<p class="step"><span class="sn">35</span><strong>À 6 ans, une dent n’est permanente que si elle a poussé à la place d’une dent de lait déjà tombée</strong> — le plus souvent une incisive du bas, qui arrive entre 6 et 7 ans — <strong>ou si c’est la dent de 6 ans</strong> (étape 5). Les parents savent quelles dents sont tombées : c’est toute la question, et elle se tranche en deux secondes.</p>
+<p class="step"><span class="sn">36</span><strong>Chez l’adulte, toutes sont permanentes.</strong></p>
+<p class="p0 lab kh"><strong class="runin">La dent permanente : la remettre, maintenant.</strong></p>
+<p class="step"><span class="sn">37</span><strong>La ramasser par la couronne</strong>, la partie blanche. Ne jamais toucher la racine : c’est elle qui porte les cellules vivantes.</p>
+<p class="step"><span class="sn">38</span><strong>Si elle est sale, la tremper quelques secondes dans du lait ou dans la salive</strong> de la personne, crachée dans une tasse. Pas de brosse, pas de frottage, rien pour « désinfecter » : ce qu’on frotterait, ce sont les cellules qui doivent la rattacher.</p>
+<p class="step"><span class="sn">39</span><strong>La remettre dans son trou, tout de suite.</strong> Face avant vers l’avant (la comparer à sa jumelle de l’autre côté), pousser doucement avec un léger va-et-vient tournant jusqu’à ce que le bord arrive au niveau des voisines. Sur le coup, la replantation fait généralement peu mal : l’hésitation coûte plus cher que le geste.</p>
+<p class="step pk-t"><span class="sn">40</span><strong>La tenir 5 minutes avec les doigts</strong>, puis faire mordre un linge propre plié, et mettre de la glace enveloppée d’un linge sur la lèvre.</p>
+<p class="step"><span class="sn">41</span><strong>Si elle ne rentre pas</strong> — personne inconsciente, enfant qui se débat, trou plein de caillot — la mettre dans le lait, ou dans la salive crachée dans une tasse. Jamais dans un mouchoir, jamais à sec dans une poche. L’eau ne vient qu’en dernier, faute de tout le reste : c’est un mauvais milieu, mais meilleur que l’air. Chez un adulte bien éveillé, la dent peut attendre entre la joue et la gencive ; jamais chez un enfant.</p>
+<p class="step"><span class="sn">42</span><strong>La replanter même tard.</strong> Passé 60 minutes à sec, les cellules sont mortes : la racine se fera peu à peu remplacer par de l’os et la dent pourra être perdue des années plus tard. En attendant, elle garde l’os en place et la forme de la mâchoire. Ne pas replanter est la seule décision qu’on ne peut pas défaire.</p>
+<p class="step"><span class="sn">43</span><strong>La tenir en place.</strong> À la maison, le dentiste pose l’attelle le jour même, pour 2 semaines. Au chalet, c’est l’attelle de cire de la section 9, qu’on laisse au moins 3 semaines. Chez l’enfant de 6 ou 7 ans, les voisines sont souvent des dents de lait qui branlent ou qui manquent : l’attelle a moins d’appui et se perd plus facilement, et une dent jeune, à racine courte, peut demander une attelle plus longue.</p>
+<p class="step"><span class="sn">44</span><strong>Pendant 2 semaines :</strong> manger mou, brosser à la brosse souple après chaque repas, et rincer à la chlorhexidine 0,12 % deux fois par jour s’il y en a, sinon à l’eau tiède bouillie.</p>
+<p class="step"><span class="sn">45</span><strong>La dent a touché la terre ou le plancher de la remise :</strong> vérifier le tétanos de la personne (<span class="ref">ch. 26</span>).</p>
+<p class="step"><span class="sn">46</span><strong>Surveiller la couleur et la gencive pendant des mois.</strong> Une dent replantée peut mourir des mois ou des années plus tard : elle fonce, une bulle apparaît, c’est l’abcès qui s’annonce (5-C).</p>
+<p class="p0 lab kh"><strong class="runin">La dent de lait : ne jamais la remettre.</strong></p>
+<p class="step"><span class="sn">47</span><strong>Faire mordre un coton ou un linge plié</strong> pour arrêter le saignement. C’est tout le traitement.</p>
+<p class="step"><span class="sn">48</span><strong>Ne jamais la replanter</strong>, pour les deux raisons de la section 3 : le germe de la dent permanente juste dessous, et la dent qui se détache et part vers les poumons. La dent permanente viendra à sa place, parfois en retard.</p>
+<p class="step"><span class="sn">49</span><strong>Une dent qu’on ne trouve pas n’est pas forcément sortie.</strong> Une dent de lait peut être enfoncée au complet dans la gencive et avoir l’air arrachée : regarder la gencive avant de fouiller le plancher. Enfoncée, on la laisse : elle a tendance à redescendre d’elle-même. Ni dans la gencive ni par terre, après une chute suivie d’une toux soudaine, d’une sensation d’étouffement ou d’un souffle court, elle a pu être avalée, ou aspirée dans les bronches. <strong>Qu’il ne tousse plus ne prouve rien</strong> : même à l’hôpital, la radio des poumons est normale chez 30 à 50 % de ceux qui ont bel et bien un corps étranger dedans. Ne pas aller la chercher au doigt, à l’aveugle. Dent introuvable et épisode de toux ou d’étouffement : on part. L’enfant qui ne peut plus ni tousser ni parler, ou qui bleuit, a la voie bouchée : c’est la manœuvre de Heimlich, celle du cours de secourisme du <span class="ref">ch. 26</span> (étape 2), qui couvre l’étouffement.</p>
+<h3 class="sub">G — Arracher une dent d’adulte : ce qui arrive</h3>
+<p class="p0">Un homme qui soude a des pinces-étau, et c’est après une nuit blanche qu’il y pense. Voici ce qui arrive, dans l’ordre où ça arrive.</p>
+<p class="step"><span class="sn">50</span><strong>Il n’y a pas d’anesthésie.</strong> Le dentiste endort la dent par injection, et même lui ne peut pas le faire dans une gencive enflée : l’anesthésique ne prend pas dans un tissu infecté, et c’est pour ça qu’il attend que l’enflure baisse avant d’arracher. Au chalet, la personne bouge, et une dent qui tourne dans la pince casse.</p>
+<p class="step"><span class="sn">51</span><strong>La racine reste dans l’os.</strong> Une molaire a plusieurs racines. La couronne cède, la racine reste au fond, et une racine laissée dans l’os peut devenir à son tour un foyer d’infection.</p>
+<p class="step"><span class="sn">52</span><strong>L’os part avec la dent</strong> quand l’os autour est fêlé, ce qui arrive justement après un coup : il reste un trou dans la mâchoire.</p>
+<p class="step"><span class="sn">53</span><strong>Les racines du haut touchent le sinus.</strong> Une racine poussée dedans ne se récupère que par une opération.</p>
+<p class="step pk-d"><span class="sn">54</span><strong>Le trou devient une porte.</strong> Une dent arrachée compte parmi ce qui expose à l’infection sous la langue, celle de la section 8 : l’extraction maison ouvre le chemin qu’on redoute le plus. S’y ajoutent la mâchoire qui se luxe sous la pression, et le saignement qui ne s’arrête pas chez quelqu’un qui prend un anticoagulant.</p>
+<p class="step"><span class="sn">55</span><strong>Le morceau qui ne tient plus qu’à la gencive, lui, s’enlève.</strong> Une couronne cassée retenue par la seule gencive peut tomber dans la gorge : elle sort entre deux doigts, sans pince, et la racine qui tient dans l’os y reste (étapes 31 et 32). La dent entière qui balance sur une gencive seule, sans coup ni cassure, a perdu l’os de sa racine à la maladie de la gencive ou à un vieil abcès : elle sort aussi, entre deux doigts, surtout si elle fait mal, et la bouche se surveille ensuite comme un abcès (5-C).</p>
+<p>Ce qui reste pour une dent d’adulte perdue d’avance : la section 5-C, et la décision de descendre dès que la route le permet (<span class="ref">ch. 35, 30</span>-C).</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:17.1%"><col style="width:15.8%"><col style="width:35.3%"><col style="width:31.7%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Hors cible</th></tr></thead><tbody><tr><td class="c-item">Chaque brossage</td><td>Rinçage après</td><td>Cracher, ne pas rincer</td><td>À défaut de dentifrice, la section 9</td></tr><tr><td class="c-item">Chaque brossage d’un enfant de 3 à 6 ans</td><td>Quantité de dentifrice</td><td>Un petit pois</td><td>Essuyer le surplus</td></tr><tr><td class="c-item">Brosse, chaque mois</td><td>Soies</td><td>Droites ; une brosse se change en général aux 3 mois</td><td>Soies couchées : brosse de rechange, ou brosse de branche (section 9)</td></tr><tr><td class="c-item">Dent permanente expulsée</td><td>Temps hors de la bouche, à sec</td><td>Replantée tout de suite ; jamais 30 minutes à sec</td><td>Pas replantable sur place : lait ou salive, puis replanter même après 60 minutes</td></tr><tr><td class="c-item">Dent replantée</td><td>Position</td><td>Bord au niveau des voisines, face avant vers l’avant</td><td>La repousser doucement en place tant que c’est frais</td></tr><tr><td class="c-item">Dent replantée</td><td>Attelle et alimentation</td><td>Attelle 2 semaines (fil, dentiste) ou au moins 3 semaines (cire) ; manger mou 2 semaines</td><td>Cire décollée : la refaire le jour même</td></tr><tr><td class="c-item">Huile de clou de girofle</td><td>Rythme et durée</td><td>Après 20 minutes, puis aux 2 heures ; pas plus d’une semaine ; jamais sur la gencive</td><td>Gencive blanchie ou brûlée : arrêter, rincer</td></tr><tr><td class="c-item">Ciment temporaire</td><td>Tenue et hauteur</td><td>Les dents se rencontrent comme avant ; jusqu’à 6 mois</td><td>Trop haut : gratter ; tombé : refaire, au sec si c’est un ciment à l’eugénol</td></tr><tr><td class="c-item">Abcès, matin et soir</td><td>Trait de l’enflure sur la peau</td><td>Le trait de la veille n’est pas dépassé</td><td>Dépassé : descendre de jour, sans attendre le lendemain (section 7)</td></tr><tr><td class="c-item">Abcès, matin et soir, et la nuit à l’oreille</td><td>Bouche, gorge, yeux, respiration du dormeur</td><td>Ouvre grand, avale sa salive, parle, respire sans bruit, yeux normaux</td><td>Un seul signe anormal : section 8, départ</td></tr><tr><td class="c-item">Avant d’ouvrir une bulle</td><td>Cuisson de la lame</td><td>30 minutes sous pression à l’autoclave (<span class="ref">ch. 78</span>) ; sinon 30 minutes d’ébullition, chaudron couvert ; refroidie dedans</td><td>Recommencer : une lame essuyée ou touchée n’est plus propre</td></tr><tr><td class="c-item">Attelle de fil</td><td>Serrage</td><td>Le lendemain, puis chaque semaine, un demi-tour dans le sens des aiguilles d’une montre ; 4 semaines</td><td>Fil cassé : le refaire, sans serrer plus d’un demi-tour</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:40.8%"><col style="width:19.9%"><col style="width:39.3%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Mal constant qui réveille la nuit, dent sensible au tapotement</td><td>Abcès au bout de la racine</td><td>5-C, et pas de ciment dessus. La dent reste infectée : préparer la descente au chalet, le dentiste à la maison</td></tr><tr><td class="c-item">Bulle ou bouton sur la gencive près d’une dent cariée</td><td>Abcès qui se draine</td><td>Ouvrir si elle pointe (section 9). Ce n’est pas une guérison</td></tr><tr><td class="c-item">Enflure qui dépasse le trait de la veille, avec ou sans fièvre — sous analgésiques, la fièvre reste basse et ne prouve rien</td><td>L’infection gagne les tissus autour</td><td>Descendre de jour, sans attendre le lendemain (<span class="ref">ch. 2</span>, <span class="ref">ch. 15</span> ; <span class="ref">ch. 35, 30</span>-C)</td></tr><tr><td class="c-item">Enflure sous la langue ou sous le menton, plancher de la bouche dur, langue soulevée, salive qui coule, bouche qui n’ouvre plus, parole difficile, bruit en inspirant</td><td>L’infection est sous la langue : voies respiratoires menacées</td><td><strong>Section 8. Partir maintenant</strong></td></tr><tr><td class="c-item">Œil enflé ou douloureux, vue qui se brouille, chez quelqu’un qui a mal à une dent du haut ou au sinus</td><td>L’infection monte vers l’œil</td><td><strong>Section 8. Partir maintenant</strong></td></tr><tr><td class="c-item">Dent qui fonce, des semaines ou des mois après un coup ou une replantation</td><td>Le nerf est mort</td><td>Surveiller la gencive : la bulle suivra. Dentiste à la première occasion ; au chalet, la bulle se surveille comme en 5-C</td></tr><tr><td class="c-item">Plusieurs dents du haut douloureuses pendant un rhume</td><td>Sinus, pas les dents</td><td>Vapeur, linge chaud, s’essuyer le nez (5-B) ; ne toucher à aucune dent. Œil qui enfle : section 8</td></tr><tr><td class="c-item">Ciment qui tombe en quelques jours</td><td>Posé dans un trou mouillé (ciment à l’eugénol), trop haut, ou mordu avant d’avoir durci</td><td>Refaire, au sec si c’est un ciment à l’eugénol ; vérifier que les dents se rencontrent avant qu’il prenne ; rien en bouche pendant 1 heure, mâcher de l’autre côté</td></tr><tr><td class="c-item">Dent qui fait plus mal après la pose du ciment qu’avant</td><td>Abcès enfermé sous le ciment</td><td>Gratter le ciment, rouvrir le trou (5-D, étape 25), puis 5-C</td></tr><tr><td class="c-item">Gencive blanchie, douloureuse, là où l’huile ou un comprimé a touché</td><td>Brûlure chimique de la muqueuse</td><td>Arrêter, rincer à l’eau tiède, ne plus rien poser à cet endroit</td></tr><tr><td class="c-item">Gencives qui saignent partout, coupure qui ne ferme pas, vieilles cicatrices qui rouvrent, fin d’hiver</td><td>Scorbut, pas les dents</td><td><span class="ref">Ch. 20</span>, sans attendre</td></tr><tr><td class="c-item">Cou raide, puis visage et mâchoire raides, difficulté à avaler, le plus souvent dans les 2 semaines après une dent tombée sur le sol</td><td>Tétanos</td><td><strong>Partir maintenant</strong> : ce sont aussi des signes de l’abcès sous la langue (section 8). La cause se tranche en bas (<span class="ref">ch. 26</span>)</td></tr><tr><td class="c-item">Dents du haut et du bas qui ne se rencontrent plus après un coup</td><td>Mâchoire cassée</td><td>Assis penché vers l’avant ou couché sur le côté, jamais sur le dos ; partir (5-E, étape 32)</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">L’abcès qui sort de la mâchoire ferme la gorge en quelques heures.</strong> Tant que le pus est dans la dent, c’est un mal de dents : il fait mal, il se compte en jours. Le jour où il sort de l’os par-dessous, d’une dent du bas vers les tissus mous sous et autour de la langue, l’enflure grossit sous la langue et dans le cou, dure comme une planche, le plus souvent avec fièvre et frissons. <strong>L’obstruction des voies respiratoires, et la mort, peuvent survenir en quelques heures.</strong> D’une dent du haut, comme d’un sinus infecté, c’est derrière l’œil que ça monte : l’enflure y fait monter la pression jusqu’à tuer la vue, et l’infection peut passer de là au cerveau. Ce qui compte n’est pas la force de la douleur, c’est <strong>l’endroit où va l’enflure</strong>, et une douleur qui baisse ne prouve rien : le pus qui sort par la gencive ou par la peau fait tomber la pression et la douleur avec, et l’infection continue.</p>
+<p class="pt cont0">Un seul de ces signes suffit :</p>
+<p class="li">difficulté à respirer, à parler ou à avaler — la salive qui coule parce qu’elle ne passe plus ;</p>
+<p class="li">la bouche qui n’ouvre plus ;</p>
+<p class="li">beaucoup d’enflure dans la bouche, sous la langue, sous le menton ou dans le cou ; le plancher de la bouche ou le dessous du menton durs au toucher, la langue soulevée vers le palais ;</p>
+<p class="li">l’œil enflé ou douloureux, la vue qui se trouble d’un coup<sup class="fnr" data-fn="27-1">1</sup> ;</p>
+<p class="li">un bruit aigu en inspirant<sup class="fnr" data-fn="27-2">2</sup>.</p>
+<p class="pt cont0">Le traitement est un tube dans la gorge, une chirurgie qui ouvre la région infectée et des antibiotiques par la veine. <strong>Rien de ça n’existe au chalet, et rien ne le remplace : on part, maintenant, de nuit s’il le faut.</strong> La personne voyage assise, le haut du corps droit, jamais couchée. Ce n’est pas elle qui conduit.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">L’huile de clou de girofle bue empoisonne, et le liquide du ciment aussi.</strong> C’est une épice de cuisine, et elle a l’air inoffensive. Le liquide de la trousse de ciment temporaire, l’<strong>eugénol</strong>, est le même poison sous un autre nom : le flacon de la trousse est un deuxième flacon d’huile de girofle. <strong>Cinq à dix millilitres bus par un enfant de moins de 2 ans ont mis sa vie en danger ; 10 mL font déjà du tort à un adulte.</strong> Le mécanisme est le foie, qui lâche, surtout chez l’enfant, et le cerveau : somnolence, convulsions, coma. La dose de la section 5-D est un coton imbibé posé sur une dent, pas une gorgée. Un enfant qui a bu au flacon, même s’il a l’air bien : <strong>ne pas le faire vomir</strong>, c’est le réflexe et c’est le mauvais : l’huile est fluide et glisse dans les poumons en remontant, et 2 mL suffisent à y faire une pneumonie. Ça ne se traite pas au chalet : on part.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">La mâchoire cassée ne se couche jamais sur le dos.</strong> La mâchoire ne tient plus la langue : sur le dos, les deux tombent vers la gorge. Sur le côté, ou assise la tête penchée en avant, elles tombent vers l’avant et la personne respire. Tout morceau de dent qui branle peut tomber dans la voie : il sort avant le départ (5-E, étape 32).</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans dentiste, sans pharmacie, sans rien d’acheté. Ce qui suit se fait avec ce qui traîne au chalet, et chaque paragraphe dit ce qu’on perd.</p>
+<h3 class="sub">La brosse qui s’use, et celle qu’on fait</h3>
+<p class="p0 ri"><strong class="runin">La brosse de branche.</strong> Couper une jeune pousse verte et souple, qui s’effiloche quand on la mâche, sur l’arbre dont on boit déjà la sève : le bouleau à papier (<em>Betula papyrifera</em>). Mâcher un bout jusqu’à ce que les fibres se séparent en brosse ; tailler l’autre en pointe au couteau, pour aller entre les dents. On frotte dents et gencive comme avec une brosse, et on recoupe le bout usé pour en refaire un neuf.</p>
+<p class="p0 ri"><strong class="runin">Casser et sentir avant de mâcher, chaque fois.</strong> Une jeune pousse de bouleau n’est pas blanche : l’écorce du jeune bouleau est rouge foncé, presque noire, et ne blanchit qu’avec l’âge. Le critère de l’écorce blanche (<span class="ref">ch. 94</span>, étape 6) ne sert donc à rien sur une pousse, et c’est justement là que le cerisier de Pennsylvanie, qui pousse dans les mêmes coupes, se prend pour un bouleau. Le rameau de cerisier, cassé, sent l’amande forte et amère : c’est l’odeur d’un composé cyanogène, qui se change en cyanure quand on le broie sous la dent (<span class="ref">ch. 94</span>, section 8, point 4). Odeur d’amande : on jette, et on ne recoupe pas sur cet arbre. Un rameau qui, mâché, goûte le thé des bois n’est pas du bouleau à papier non plus : c’est le bouleau jaune (merisier, <em>Betula alleghaniensis</em>), qui ne pousse ici, s’il pousse, qu’en sol riche et humide. Pas pour un enfant : ce goût de thé des bois, c’est du salicylate de méthyle, parent de l’aspirine, comme l’écorce du saule.</p>
+<p class="p0 ri"><strong class="runin">Jamais une branche de cèdre (thuya, <em>Thuja occidentalis</em>)</strong> : sa thuyone est convulsivante, et une branche mâchée tous les jours en libère dans la bouche. Pour la vitamine C qui tient les gencives, c’est le sapin baumier (<em>Abies balsamea</em>) ou l’épinette (<em>Picea mariana</em>, <em>Picea glauca</em>), jamais le cèdre (<span class="ref">ch. 20</span>). Pas d’if du Canada (<em>Taxus canadensis</em>) ni de cerisier (<em>Prunus</em>) non plus : les trois bois que le chapitre 94 interdit. Et pas de saule (<em>Salix</em>) pour un enfant : son écorce est parente de l’aspirine (<span class="ref">ch. 33</span>).</p>
+<p class="p0 ri"><strong class="runin">Le doigt.</strong> Pour un enfant de 4 ans qui mâche mal une branche, un coin de linge propre enroulé sur l’index et frotté dent par dent, sur toutes les faces.</p>
+<p class="p0 ri"><strong class="runin">La brosse trop dure.</strong> Tremper les poils quelques minutes dans l’eau chaude, pas le manche de plastique, qui peut ramollir. Même règle pour la désinfection à l’eau bouillante (<span class="ref">ch. 31</span>) : la tête seulement dans l’eau, le manche dehors.</p>
+<p><em>Ce qu’on perd :</em> une brosse qui se refait sans cesse. Et le linge au doigt ne passe pas entre les dents : la soie, ou la pointe de la branche, passe après.</p>
+<h3 class="sub">Le dentifrice qui s’épuise</h3>
+<p class="p0 ri"><strong class="runin">L’eau suffit.</strong> Ce sont les poils qui nettoient. Pour une pâte, le bicarbonate de soude : il se dissout dans la salive et ne raye pas l’émail. Ce qu’on perd sans dentifrice, c’est le fluorure, et lui seul.</p>
+<p class="p0 ri"><strong class="runin">Le dernier tube se fait durer.</strong> Une fois par semaine, pour chacun : brosser avec le dentifrice au fluorure (un petit pois pour les enfants), le garder en bouche au moins 1 minute, cracher, et ne rien manger ni boire pendant 30 minutes. Les autres jours, l’eau. Un brossage au dentifrice par semaine au lieu de quatorze : le tube dure quatorze fois plus longtemps.</p>
+<p class="p0 ri"><strong class="runin">La dent sensible.</strong> Une couche de dentifrice étalée au doigt sur le collet dénudé ou la cassure, sans cracher ni rincer pendant plusieurs minutes. Recommencer une semaine plus tard.</p>
+<p><em>Ce qu’on perd :</em> la protection de tous les jours. Une fois par semaine vaut beaucoup mieux que jamais ; ça ne vaut pas deux fois par jour.</p>
+<h3 class="sub">La soie</h3>
+<p class="p0">Un brin de ficelle de coton, détordu de la cordelette et passé doucement entre les dents, le long de chaque face. La pointe taillée de la brosse de branche fait le même travail, en frottant une face puis l’autre. Un fil tiré trop fort coupe la gencive : on glisse, on ne scie pas.</p>
+<h3 class="sub">Le ciment</h3>
+<p class="p0">La plupart des pâtes du commerce et le mélange de la section 5-D sont la même chose : de l’oxyde de zinc en poudre et de l’huile de clou de girofle. Quand la pâte manque, ses deux ingrédients font le même ciment, et c’est pour ça que le mélange se pratique à froid avant d’en avoir besoin. Certaines pâtes se vendent sans eugénol, déjà mélangées, à l’oxyde de zinc et au sulfate de calcium ou de zinc : l’étiquette le dit. Elles durcissent à l’humidité de la bouche au lieu de demander un trou sec. Sans l’un ni l’autre, rien ne fait un vrai ciment : un bout de coton propre dans le trou, changé chaque jour, et chez l’adulte une goutte d’huile de girofle sur ce coton.</p>
+<p><em>Ce qu’on perd :</em> le ciment isole, le coton ne fait que tenir la nourriture dehors. Le froid, le sucré et l’air atteignent la dent.</p>
+<h3 class="sub">L’attelle de cire</h3>
+<p class="p0">Pour tenir une dent replantée, au chalet.</p>
+<p class="step"><span class="sn">1</span>Ramollir la cire d’abeille dans les mains ou dans l’eau tiède.</p>
+<p class="step"><span class="sn">2</span>Rouler deux boudins minces, chacun assez long pour couvrir <strong>cinq dents</strong> : la dent replantée et deux de chaque côté.</p>
+<p class="step"><span class="sn">3</span>Presser le premier contre la face avant des cinq dents, au ras de la gencive, fermement mais sans pousser la dent replantée hors de place.</p>
+<p class="step"><span class="sn">4</span>Presser le second contre la face arrière, au même niveau.</p>
+<p class="step"><span class="sn">5</span>Pousser la cire entre les dents avec une pointe mousse, jusqu’à ce que les deux boudins se rejoignent. C’est ce pont entre l’avant et l’arrière qui tient la dent.</p>
+<p class="step"><span class="sn">6</span>Laisser au moins 3 semaines. Refaire le jour même ce qui se décolle.</p>
+<p class="step"><span class="sn">7</span>Chez l’enfant, regarder la cire et la dent au coucher. Une dent qui ne tient que par une cire usée peut ressortir la nuit et partir vers les poumons, comme une dent de lait (section 3) : cire décollée ou dent plus lâche que la veille, on refait l’attelle avant qu’il dorme.</p>
+<p>Une attelle qui laisse la dent bouger un peu est une bonne attelle : un léger mouvement aide le ligament à se refaire. Il ne faut pas la bloquer.</p>
+<p><em>Ce qu’on perd :</em> la cire tient moins qu’un fil collé à la résine. Elle s’use et se décolle à la mastication, et chaque décollement laisse la dent sans appui jusqu’à ce qu’on la refasse. Sans cire du tout, il reste le linge mordu et la nourriture liquide, et la dent a moins de chances de reprendre.</p>
+<h3 class="sub">L’attelle de fil : la dent qui bouge avec l’os</h3>
+<p class="p0">Après un coup, quand la dent et l’os bougent ensemble (5-E, étape 31). Une dent comme ça ne s’arrache pas : on la tient.</p>
+<p class="step"><span class="sn">1</span>Remettre doucement dents et os en place avec le pouce et l’index.</p>
+<p class="step"><span class="sn">2</span>Prendre une tige de métal ronde, mince et rigide — une aiguille à injection coupée fait l’affaire, sinon toute tige qui se cintre à la pince sans casser, bouillie avant — assez longue pour atteindre <strong>deux dents solides de chaque côté</strong> des dents lâches. Chez l’enfant de 6 ou 7 ans, ces dents solides manquent souvent (5-F, étape 43). La cintrer à la courbe des dents, côté lèvre. Adoucir les deux bouts à la lime ou en les frottant sur une pierre.</p>
+<p class="step"><span class="sn">3</span>Couper des bouts de fil de métal fin, qui se tord sans casser : les chirurgiens prennent un fil d’acier d’environ un demi-millimètre (0,4 à 0,5 mm). À défaut, le plus fin qu’on a.</p>
+<p class="step"><span class="sn">4</span>Pour chaque dent : passer le fil sous la tige, autour de l’arrière de la dent, le ramener en avant par-dessus la tige, et tordre les deux bouts ensemble <strong>dans le sens des aiguilles d’une montre</strong>, en regardant le bout de la torsade, dès cette première torsion : c’est ce sens qui serrera à l’étape 6. Retenir le fil derrière la dent avec une pointe mousse pendant qu’on tord. Hauteur : la tige et le fil passent entre le renflement de la dent — là où elle est le plus large — et la gencive, sans l’écraser.</p>
+<p class="step"><span class="sn">5</span>Couper les bouts et les replier vers les dents, pour qu’ils ne coupent pas la lèvre.</p>
+<p class="step"><span class="sn">6</span>Resserrer le lendemain, puis une fois par semaine : <strong>un demi-tour, pas plus</strong>, sinon le fil casse. <strong>Toujours dans le sens des aiguilles d’une montre</strong>, comme à l’étape 4 : à la lampe, fatigué, on sait ainsi quel sens serre et quel sens desserre.</p>
+<p class="step"><span class="sn">7</span>Laisser <strong>4 semaines</strong>, le temps que l’os se refasse. Brosser dents et fils à la brosse souple, mâcher de l’autre côté. Couper et retirer les fils ensuite, et surveiller la couleur des dents (section 7).</p>
+<p><em>Ce qu’on perd :</em> c’est une attelle rigide, faite pour l’os. Elle ne convient pas à une dent replantée seule, que la cire tient mieux parce qu’elle la laisse bouger un peu. Et si ce n’est pas l’os autour d’une dent mais la mâchoire entière qui est cassée (5-E, étape 32), elle ne suffit pas.</p>
+<h3 class="sub">Le lait qui manque</h3>
+<p class="p0">Dans l’ordre : le lait ; la salive de la personne, crachée dans une tasse ; l’eau, en dernier. Le lait en poudre reconstitué à l’eau bouillie refroidie est le lait qu’on a au chalet : pendant la première heure, il garde les cellules de la racine aussi bien que le lait frais ; au-delà, il fait moins bien. Une raison de plus pour replanter dans l’heure. Le seul vrai mauvais choix est l’air.</p>
+<h3 class="sub">La lame qui ouvre la bulle</h3>
+<p class="p0">Une pointe fine — lame de bistouri, pointe d’un couteau d’office — passée <strong>30 minutes</strong> sous pression à l’autoclave s’il est là (<span class="ref">ch. 78</span>), c’est le plus sûr ; sinon bouillie <strong>30 minutes</strong> dans un chaudron couvert. Dans les deux cas, refroidie dans le chaudron sans être touchée ni essuyée. L’eau bouillante rend la lame propre ; seule la pression monte assez haut pour détruire les spores (<span class="ref">ch. 78</span>). Ne s’ouvre que <strong>la bulle</strong>, dans la bouche : un bouton mou, jaunâtre, qui bombe sur la gencive à côté de la dent malade.</p>
+<p class="li"><strong>Pas une enflure dure et large, jamais sous la langue ni dans le cou.</strong> L’infection qui gagne ces endroits est une enflure dure comme une planche, sans poche de pus : la lame n’y trouve rien à vider, et ce qui la traite est un drainage profond, au bloc opératoire (section 8).</p>
+<p class="li"><strong>Pas la joue, ni rien sur la peau du visage.</strong> Sous la peau passent des vaisseaux et des nerfs que seul un chirurgien sait éviter. Une joue qui coule a déjà sa sortie : c’est la dent qui reste à traiter (section 9, « Ce qui ne se remplace pas »).</p>
+<p class="li"><strong>Un enfant de 4 ou 6 ans ne reste pas immobile une lame dans la bouche</strong> : c’est la raison même qui écarte l’extraction (étape 50). Chez lui, pas de lame : la chaleur, aussi souvent que possible, rinçages tièdes et linge chaud (5-C), en attendant que la bulle crève d’elle-même. Elle crève : la douleur tombe, l’infection reste, et la surveillance de 5-C continue.</p>
+<p>Piquer au sommet, laisser couler, rincer à l’eau tiède bouillie, recommencer les rinçages chauds (5-C).</p>
+<p><em>Ce qu’on perd :</em> le pus sort, la cause reste. La bulle se remplira, et la dent reste infectée.</p>
+<h3 class="sub">L’arête qui coupe la langue</h3>
+<p class="p0">Une lime fine ou une pierre à aiguiser fine, bouillie, passée sur l’arête seulement, jusqu’à ce que la langue ne s’y blesse plus. Pas plus : chaque passe enlève de l’émail qui ne revient jamais.</p>
+<h3 class="sub">Nourrir une bouche qui ne mâche plus</h3>
+<p class="p0">Après une attelle, de fil ou de cire : une soupe épaisse — viande, féculents, gras — cuite longtemps puis écrasée à travers une boîte de conserve percée de petits trous au clou, aspirée entre les dents. La boîte se fait bouillir chaque jour. Les besoins d’hiver ne baissent pas parce qu’on ne mâche plus (<span class="ref">ch. 21</span>). Une mâchoire cassée, une enflure qui empêche de mâcher ou d’avaler, ne se nourrissent pas au chalet : ce sont des signes de départ (section 8), et ce qui coule dans une gorge qui avale mal peut passer dans les poumons.</p>
+<p class="p0 ri"><strong class="runin">La viande de cette soupe, au chalet, c’est l’orignal et le lièvre : du maigre. Viande maigre seule, c’est le mal de caribou, mortel en quelques semaines</strong> — et l’attelle de fil dure 4 semaines. Le foie ne sort l’azote des protéines qu’à un débit maximal ; au-delà, la personne se consume le ventre plein. Le gras et les féculents fournissent les deux tiers des calories de la soupe, et la viande le reste, pas l’inverse (<span class="ref">ch. 19</span>).</p>
+<h3 class="sub">Ce qui ne se remplace pas</h3>
+<p class="p0 ri"><strong class="runin">L’antibiotique</strong> qu’un abcès réclame, et que ce livre ne met pas au coffre (<span class="ref">ch. 32</span>, section 8). <strong>Le traitement de canal</strong>, qui sauverait une dent au nerf mort ou replantée : au chalet, il n’aura pas lieu, et cette dent reste en bouche comme une infection en attente, pour des mois ou pour des années. <strong>L’anesthésie. La radiographie.</strong> Et l’extraction faite par un dentiste.</p>
+<p>Quand une dent d’adulte fait un abcès au chalet, la question n’est donc pas de la sauver : c’est de savoir quand descendre. De jour, tant qu’aucun signe de la section 8 n’est là ; tout de suite, dès qu’un seul apparaît.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="27-1"><span class="fnn">1</span>L’œil infecté par derrière : paupières enflées et rouges ; l’œil poussé vers l’avant, ce qui se voit le mieux en regardant le visage d’en haut, par-dessus le front ; l’œil qui fait mal quand il bouge et qui bouge moins bien que l’autre ; la vue qui baisse ; de la fièvre. Au début, une partie de ces signes peut manquer : la paupière qui enfle chez quelqu’un qui a mal à une dent du haut ou au sinus suffit à partir.</p>
+<p class="fn" data-fn="27-2"><span class="fnn">2</span>Un son aigu et rauque à chaque entrée d’air : l’air forcé à travers une gorge que l’enflure rétrécit.</p>
+</template>
+<script type="application/json" id="meta">{"num": "27", "title": "Les dents", "tome": "Tome 2 · Le corps", "tnum": 2, "tfond": "#5C1A15", "tencre": "#F3ECE5", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

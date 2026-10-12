@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>Pages intérieures — direction 3, nordique contemporain</title>
+<!--
+  FICHIER GÉNÉRÉ par outils/construire.py à partir de outils/interieur.tpl.html
+  et des fichiers chapitres/*.md. Ne pas corriger le texte ici : corriger le .md.
+
+  Page PDF : 8,125 × 10,25 po (fond perdu 0,125 po en tête, en pied et au petit fond,
+  aucun au grand fond — spécification Blurb, Standard Portrait, papier standard).
+  Zone utile = zone des planches : 7 × 8,5 po, à 0,625 po du dos, 0,375 po du bord
+  extérieur, 0,75 po en tête et en pied.
+  Grille : 14 colonnes de 8,986 mm, gouttière 4 mm. Colonne de repère = 2 colonnes
+  (21,97 mm) côté extérieur. Texte = 12 colonnes (151,83 mm) en deux colonnes de
+  73,91 mm. Corps 9,4 pt sur 12 pt : 51 lignes = 612 pt = 8,5 po exactement.
+-->
+<style>
+@font-face{font-family:"Serif";src:url(fonts/ss4-text-400.ttf);font-weight:400;font-style:normal}
+@font-face{font-family:"Serif";src:url(fonts/ss4-text-650.ttf);font-weight:700;font-style:normal}
+@font-face{font-family:"Serif";src:url(fonts/ss4-text-400i.ttf);font-weight:400;font-style:italic}
+@font-face{font-family:"Serif";src:url(fonts/ss4-text-650i.ttf);font-weight:700;font-style:italic}
+@font-face{font-family:"SerifD";src:url(fonts/ss4-disp-400.ttf);font-weight:400;font-style:normal}
+@font-face{font-family:"SerifD";src:url(fonts/ss4-disp-400i.ttf);font-weight:400;font-style:italic}
+@font-face{font-family:"SerifD";src:url(fonts/ss4-text-650.ttf);font-weight:700;font-style:normal}
+@font-face{font-family:"Sans";src:url(fonts/sg-400.ttf);font-weight:400}
+@font-face{font-family:"Sans";src:url(fonts/sg-500.ttf);font-weight:500}
+@font-face{font-family:"Sans";src:url(fonts/sg-700.ttf);font-weight:700}
+@font-face{font-family:"Sans";src:url(fonts/sg-800.ttf);font-weight:800}
+@font-face{font-family:"Sans";src:url(fonts/sg-900.ttf);font-weight:900}
+
+:root{
+  --ink:#000;            /* noir K100 : tout le texte */
+  --red:#9B2C1E;         /* le danger, et rien d'autre */
+  --g70:#4a4a4a; --g45:#8c8c8c; --g25:#bfbfbf;
+  --lh:12pt;             /* 51 lignes = 612 pt = 215,9 mm = 8,5 po */
+  --M:21.97mm; --G:4mm; --T:151.83mm;
+  --sans:"Sans","Serif",sans-serif;
+}
+@page{size:8.125in 10.25in;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:"Serif",serif;font-size:9.4pt;line-height:var(--lh);color:var(--ink);
+  font-kerning:normal;font-variant-numeric:oldstyle-nums proportional-nums;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* ------------------------------------------------------------ la page */
+.page{width:8.125in;height:10.25in;position:relative;overflow:hidden;break-after:page}
+.trim{position:absolute;top:3.175mm;width:203.2mm;height:254mm}
+.recto .trim{left:0}
+.verso .trim{left:3.175mm}
+.area{position:absolute;top:19.05mm;width:177.8mm;height:215.9mm;display:flex;flex-direction:column}
+.recto .area{left:15.875mm}
+.verso .area{left:9.525mm}
+
+/* titre courant et folio : tout en tête, rien en pied */
+.rh{position:absolute;top:8.4mm;width:177.8mm;display:grid;align-items:baseline;
+  font:500 7.6pt/9pt var(--sans);letter-spacing:.01em;font-variant-numeric:lining-nums tabular-nums}
+.recto .rh{left:15.875mm;grid-template-columns:var(--T) var(--G) var(--M);grid-template-areas:"t . f"}
+.verso .rh{left:9.525mm;grid-template-columns:var(--M) var(--G) var(--T);grid-template-areas:"f . t"}
+.rh .t{grid-area:t}.rh .f{grid-area:f;font-weight:800;font-size:9pt}
+.recto .rh .f{text-align:right}
+.rh b{font-weight:800;margin-right:.6em}
+
+/* onglets à fond perdu : on les voit sur la tranche du livre fermé */
+.tab{position:absolute;background:#000;width:7.175mm}
+.recto .tab{left:199.2mm}
+.verso .tab{left:-3.175mm}
+.tab.t9{top:176mm;height:59mm}
+.tab.tp{top:-3.175mm;height:260.35mm;width:9.175mm}
+.recto .tab.tp{left:197.2mm}
+
+/* ------------------------------------------------------------ bandes */
+.band{display:grid;flex:none;position:relative}
+.recto .band{grid-template-columns:var(--T) var(--G) var(--M);grid-template-areas:"txt . mg"}
+.verso .band{grid-template-columns:var(--M) var(--G) var(--T);grid-template-areas:"mg . txt"}
+.band>.txt{grid-area:txt;min-width:0}
+.band>.mg{grid-area:mg;min-width:0;position:relative}
+.c2{column-count:2;column-gap:var(--G);column-fill:balance;orphans:2;widows:2}
+.band.fill{flex:1 1 0;min-height:0;grid-template-rows:minmax(0,1fr)}
+.band.fill>.txt.c2{column-fill:auto;height:100%}
+.band.fill>.txt.stack{display:flex;flex-direction:column;height:100%}
+.band.fill>.txt.stack>.c2{flex:1 1 0;min-height:0;column-fill:auto}
+
+/* titres de section : le numéro dans la colonne de repère, le nom sur le texte */
+.sh{align-items:baseline;margin-top:calc(var(--lh)*1.5);margin-bottom:calc(var(--lh)*.5)}
+.area>.sh:first-child{margin-top:0}
+.num{display:block;font:800 25pt/.9 var(--sans);letter-spacing:-.02em;font-variant-numeric:lining-nums}
+h2{font:800 13pt/15pt var(--sans);margin:0;letter-spacing:-.005em}
+.mg .cm .num{color:var(--g25)}
+.mg .cl{display:block;font:500 7pt/8.5pt var(--sans);color:var(--g70);margin-top:1.2mm;letter-spacing:.01em}
+
+/* ------------------------------------------------------------ texte */
+.txt p{margin:0;hyphens:manual;orphans:2;widows:2}
+.txt p+p{text-indent:1em}
+.txt p.suite,.txt p.lab+p{text-indent:0}
+strong{font-weight:700}
+.lab{font:700 8.6pt/var(--lh) var(--sans);break-after:avoid}
+.lab:not(:first-child){margin-top:var(--lh)}
+h3{font:800 9.3pt/var(--lh) var(--sans);margin:var(--lh) 0 0;break-after:avoid}
+h3:first-child{margin-top:0}
+h3 .sl{display:inline-block;width:5.2mm}
+ul.dash{list-style:none;margin:0;padding:0}
+ul.dash>li{position:relative;padding-left:3.6mm;hyphens:manual}
+ul.dash>li.suite::before{content:none}
+ul.dash>li::before{content:"";position:absolute;left:0;top:calc(var(--lh)*.5 - .2pt);width:2.1mm;height:1.1pt;background:#000}
+ol.steps{list-style:none;margin:0;padding:0}
+ol.steps>li{position:relative;padding-left:5.2mm;hyphens:manual}
+ol.steps>li>.n{position:absolute;left:0;top:0;font:800 8.6pt/var(--lh) var(--sans);font-variant-numeric:lining-nums tabular-nums}
+ol.steps ul.dash{margin:0}
+ol.steps .tail{display:block}
+.av{font:700 6.6pt/1 var(--sans);letter-spacing:.05em;color:var(--g70)}
+.av.nw{white-space:nowrap}
+em{font-style:italic}
+.lede{font:400 13pt/17pt "SerifD",serif;hyphens:manual;letter-spacing:-.003em}
+.lede strong{font-weight:700}
+
+/* ------------------------------------------------------------ ouverture */
+.open{margin-bottom:calc(var(--lh)*2)}
+.kick{font:700 7.2pt/9pt var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.chn{font:900 112pt/.74 var(--sans);letter-spacing:-.045em;margin:10mm 0 6.5mm -1.4mm;font-variant-numeric:lining-nums}
+h1{font:800 34pt/34pt var(--sans);letter-spacing:-.02em;margin:0}
+.lieu{position:absolute;bottom:0;left:0;font:700 8pt/11pt var(--sans)}
+.lieu .k{display:block;font:500 6.6pt/9pt var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--g70);margin-bottom:1mm}
+.lieu .o{display:block;color:var(--g45)}
+.lieu .o::before{content:"";display:inline-block;width:2.5mm;height:2.5mm;border:.8pt solid var(--g45);margin-right:2mm;vertical-align:-.1mm}
+.lieu .o.on{color:var(--ink)}
+.lieu .o.on::before{background:#000;border-color:#000}
+
+/* ------------------------------------------------------------ tableaux */
+table{width:100%;border-collapse:collapse;font:400 8.2pt/10pt "Serif",serif;
+  font-variant-numeric:lining-nums tabular-nums;break-inside:auto;table-layout:fixed}
+th{font:700 6.8pt/8pt var(--sans);letter-spacing:.07em;text-transform:uppercase;text-align:left;
+  vertical-align:bottom;padding:0 3mm 1.8mm 0;border-bottom:1pt solid #000;hyphens:none}
+td{vertical-align:top;padding:1.15mm 3mm 1.3mm 0;border-bottom:.5pt solid var(--g45);hyphens:manual}
+tr:last-child td{border-bottom:1pt solid #000}
+th:last-child,td:last-child{padding-right:0}
+table.mat col.c0{width:29%}table.mat col.c1{width:13%}table.mat col.c2{width:43%}table.mat col.c3{width:15%}
+table.mat td:first-child{font-weight:700}
+.after-table{margin-top:calc(var(--lh)*1)}
+
+/* ------------------------------------------------------------ danger */
+.danger .mg .bar{position:absolute;top:0;bottom:0;width:2.2mm;background:var(--red)}
+.recto .danger .mg .bar{left:0}
+.verso .danger .mg .bar{right:0}
+.danger .mg .num,.danger .mg .dl{color:var(--red)}
+.recto .danger .mg .inner{padding-left:5mm}
+.danger .mg .dl{display:block;font:900 10pt/11pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin-top:1.6mm}
+.danger h2{margin-bottom:calc(var(--lh)*.5)}
+.danger h2 .dg{color:var(--red);font-weight:900;text-transform:uppercase;letter-spacing:.04em}
+.dp{break-inside:auto}
+.dp+.dp{margin-top:calc(var(--lh)*.5)}
+.dp h4{position:relative;margin:0;padding-left:5.6mm;font:800 9pt/11.2pt var(--sans);break-after:avoid}
+.dp h4 .dn{position:absolute;left:0;top:-.6pt;color:var(--red);font:900 11.5pt/11.2pt var(--sans)}
+.dp p{text-indent:0!important}
+.dp h4+p{margin-top:1.2pt}
+
+/* ------------------------------------------------------------ section 9 */
+.sh.s9{margin-top:calc(var(--lh)*2)}
+.sh.s9 .num{font-size:44pt;line-height:.8}
+.sh.s9 h2{font-size:21pt;line-height:22pt;letter-spacing:-.015em}
+
+/* ------------------------------------------------------------ planche */
+.plate{width:177.8mm;height:215.9mm;display:block}
+
+/* ------------------------------------------------------------ chapitre principal */
+.pp .chn{font-size:100pt;line-height:.72;margin:1mm 0 0 -1mm;letter-spacing:-.05em}
+.pp .top{margin-bottom:calc(var(--lh)*1.2)}
+.pp h1{font:900 36pt/36pt var(--sans);letter-spacing:-.025em;margin-top:2mm}
+.pp .where{font:700 9pt/12pt var(--sans);margin-top:4mm}
+.pp .where .o{display:inline-block;margin-right:5mm}
+.pp .where .o::before{content:"";display:inline-block;width:2.8mm;height:2.8mm;background:#000;margin-right:2mm;vertical-align:-.2mm}
+.pp .fact{font:400 13pt/17pt "SerifD",serif;letter-spacing:-.005em;hyphens:manual}
+.pp .fact strong{font-weight:700}
+.pp .ctx{margin-top:calc(var(--lh)*.8);font-size:9.8pt;line-height:13pt;max-width:120mm}
+.pp ul.dash{margin-top:calc(var(--lh)*1)}
+.pp ul.dash>li{padding-left:0;font-size:9.6pt;line-height:12.6pt;padding-top:2.4mm;margin-top:2.6mm;border-top:1pt solid #000}
+.pp ul.dash>li::before{content:none}
+.pp ul.dash>li>strong:first-child{display:block;hyphens:none;font:800 13.4pt/15.6pt var(--sans);letter-spacing:-.01em;margin-bottom:1mm;max-width:140mm}
+.pp .foot{font:500 8pt/10pt var(--sans);color:var(--g70)}
+.pp .foot b{color:#000;font-weight:800}
+
+/* ------------------------------------------------------------ aperçus (écran seulement) */
+body.planche{background:#dcdfe1;padding:28px 34px;width:max-content}
+body.planche .sheet{display:grid;grid-template-columns:repeat(3,auto);gap:150px 110px;align-items:start}
+body.planche .spread{display:flex;gap:0;box-shadow:0 1px 5px rgba(0,0,0,.25);background:#fff;position:relative}
+body.planche .spread .ph{width:203.2mm;height:254mm;background:#dcdfe1}
+body.planche .spread.solo-r{box-shadow:none;background:transparent}
+body.planche .spread.solo-r .page{box-shadow:0 1px 5px rgba(0,0,0,.25)}
+body.planche .page,body.single .page{width:203.2mm;height:254mm}
+body.planche .trim,body.single .trim{top:0!important;left:0!important}
+body.planche .spread .verso{border-right:.5px solid #cfcfcf}
+body.planche .cap{position:absolute;left:0;top:100%;margin-top:6px;font:500 13px/1 var(--sans);color:#333;white-space:nowrap;zoom:3.2}
+body.planche .sheet{zoom:.3125}
+body.single .page{display:none}
+body.single .page.show{display:block}
+</style>
+</head>
+<body>
+
+<!-- ================================================================ p. 11 — chapitre principal, bloc 5 -->
+<section class="page recto pp" data-folio="11">
+ <div class="trim">
+  <div class="rh"><span class="t"><b>Le chapitre principal</b></span><span class="f">11</span></div>
+  <i class="tab tp"></i>
+  <div class="area">
+   <div class="band top">
+    <div class="txt">
+     <div class="kick">5 sur 11 · par probabilité réelle</div>
+     <h1>Le monoxyde de carbone</h1>
+     <div class="where"><span class="o">Maison</span><span class="o">Chalet</span></div>
+    </div>
+    <div class="mg"><div class="chn">5</div></div>
+   </div>
+   <div class="band"><div class="mg"></div><div class="txt">
+     <div class="fact">{{00:5:b0}}</div>
+     <div class="ctx">{{00:5:b1}}</div>
+     {{00:5:b2}}
+   </div></div>
+   <div class="band fill" style="align-items:end"><div class="mg"></div><div class="txt foot"><b>Sans avertisseur :</b> Quand il n'y a rien, bloc 5, à la fin de ce chapitre.</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- ================================================================ p. 311 — ouverture -->
+<section class="page recto" data-folio="311">
+ <div class="trim">
+  <div class="rh"><span class="t"><b>65</b>Fumage à froid</span><span class="f">311</span></div>
+  <div class="area">
+   <div class="band open">
+    <div class="txt">
+     <div class="kick">Tome 4 · Conserver et réparer</div>
+     <div class="chn">65</div>
+     <h1>Fumage à froid</h1>
+    </div>
+    <div class="mg"><div class="lieu"><span class="k">Lieu</span><span class="o">Maison</span><span class="o on">Chalet</span></div></div>
+   </div>
+   <div class="band sh"><div class="mg"><span class="num">1</span></div><div class="txt"><h2>En une ligne</h2></div></div>
+   <div class="band"><div class="mg"></div><div class="txt lede">{{65:1}}</div></div>
+   <div class="band sh"><div class="mg"><span class="num">2</span></div><div class="txt"><h2>Quand l'utiliser</h2></div></div>
+   <div class="band fill"><div class="mg"></div><div class="txt c2">{{65:2:b0-1}}{{65:2:b2}}{{65:2:b3:i0-1:w0-9}}</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- ================================================================ p. 312 -->
+<section class="page verso" data-folio="312">
+ <div class="trim">
+  <div class="rh"><span class="f">312</span><span class="t">Tome 4 — Conserver et réparer</span></div>
+  <div class="area">
+   <div class="band"><div class="mg"><div class="cm"><span class="num">2</span><span class="cl">Quand l'utiliser, suite</span></div></div><div class="txt c2">{{65:2:b3:i1-1:w10-}}{{65:2:b3:i2-7}}</div></div>
+   <div class="band sh"><div class="mg"><span class="num">3</span></div><div class="txt"><h2>Pourquoi ça marche</h2></div></div>
+   <div class="band"><div class="mg"></div><div class="txt c2">{{65:3}}</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- ================================================================ p. 313 — matériel -->
+<section class="page recto" data-folio="313">
+ <div class="trim">
+  <div class="rh"><span class="t"><b>65</b>Fumage à froid</span><span class="f">313</span></div>
+  <div class="area">
+   <div class="band sh"><div class="mg"><span class="num">4</span></div><div class="txt"><h2>Matériel</h2></div></div>
+   <div class="band fill"><div class="mg"></div><div class="txt">{{65:4:b0:r0-10}}</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- ================================================================ p. 314 — procédure -->
+<section class="page verso" data-folio="314">
+ <div class="trim">
+  <div class="rh"><span class="f">314</span><span class="t">Tome 4 — Conserver et réparer</span></div>
+  <div class="area">
+   <div class="band"><div class="mg"><div class="cm"><span class="num">4</span><span class="cl">Matériel, suite</span></div></div><div class="txt">{{65:4:b0:r11-15}}</div></div>
+   <div class="band after-table"><div class="mg"></div><div class="txt c2">{{65:4:b1}}</div></div>
+   <div class="band sh"><div class="mg"><span class="num">5</span></div><div class="txt"><h2>Procédure</h2></div></div>
+   <div class="band fill"><div class="mg"></div><div class="txt c2"><h3><span class="sl">A</span>Décider avant d'allumer</h3>{{65:5A:b0:i0-2:w0-58}}</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- ================================================================ p. 315 — planche -->
+<section class="page recto" data-folio="315">
+ <div class="trim">
+  <div class="rh"><span class="t"><b>65</b>Fumage à froid</span><span class="f">315</span></div>
+  <div class="area"><img class="plate" src="../../../images/planche-65-01-fumoir-froid.svg" alt="Planche 65-01 — Le fumoir à froid"></div>
+ </div>
+</section>
+
+<!-- ================================================================ p. 318 — danger -->
+<section class="page verso" data-folio="318">
+ <div class="trim">
+  <div class="rh"><span class="f">318</span><span class="t">Tome 4 — Conserver et réparer</span></div>
+  <div class="area">
+   <div class="band fill danger">
+    <div class="mg"><i class="bar"></i><div class="inner"><span class="num">8</span></div></div>
+    <div class="txt stack"><h2><span class="dg">Danger</span> — {{65:8:title}}</h2><div class="c2">{{65:8:i0-3:w0-160}}</div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ================================================================ p. 319 — danger, suite ; section 9 -->
+<section class="page recto" data-folio="319">
+ <div class="trim">
+  <div class="rh"><span class="t"><b>65</b>Fumage à froid</span><span class="f">319</span></div>
+  <i class="tab t9"></i>
+  <div class="area">
+   <div class="band danger"><div class="mg"><i class="bar"></i><div class="inner"><span class="num">8</span><span class="dl">Danger, suite</span></div></div><div class="txt c2">{{65:8:i3-4:w161-}}</div></div>
+   <div class="band sh s9"><div class="mg"><span class="num">9</span></div><div class="txt"><h2>Variante d'urgence</h2></div></div>
+   <div class="band fill"><div class="mg"></div><div class="txt c2"><h3>Le montage, à la pelle et à la hache</h3>{{65:9.1:b0-1}}{{65:9.1:b2:w0-129}}</div></div>
+  </div>
+ </div>
+</section>
+
+<script>
+(function(){
+  const mm = px => +(px*25.4/96).toFixed(1);
+  function report(){
+    const out=[];
+    document.querySelectorAll('.page').forEach(pg=>{
+      const r={f:pg.dataset.folio,over:[],words:0,free:[]};
+      pg.querySelectorAll('.txt, .c2').forEach(t=>{
+        if(t.scrollWidth>t.clientWidth+2) r.over.push('W:'+t.className+':'+mm(t.scrollWidth-t.clientWidth));
+        if(t.scrollHeight>t.clientHeight+2) r.over.push('H:'+t.className+':'+mm(t.scrollHeight-t.clientHeight));
+      });
+      const area=pg.querySelector('.area');
+      if(area && area.scrollHeight>area.clientHeight+2) r.over.push('AREA:'+mm(area.scrollHeight-area.clientHeight));
+      pg.querySelectorAll('.band.fill .c2, .band.fill > .txt').forEach(c=>{
+        const cr=c.getBoundingClientRect(); if(!c.classList.contains('c2')){ const lc=c.lastElementChild; if(lc) r.free.push(['bloc',mm(cr.bottom-lc.getBoundingClientRect().bottom)]); return; }
+        const range=document.createRange(); range.selectNodeContents(c);
+        const mid=cr.left+cr.width/2; let b1=cr.top,b2=cr.top;
+        for(const q of range.getClientRects()){ if(q.width<1||q.height<1) continue;
+          if(q.left<mid) b1=Math.max(b1,q.bottom); else b2=Math.max(b2,q.bottom);}
+        let ow=0; const tw=document.createTreeWalker(c,NodeFilter.SHOW_TEXT); let n;
+        while((n=tw.nextNode())){ const rg=document.createRange(); rg.selectNodeContents(n);
+          const rs=[...rg.getClientRects()].filter(q=>q.width>0);
+          if(rs.length && rs.some(q=>q.left>=cr.right-1||q.top>=cr.bottom-1)) ow+=(n.data.replace(/­/g,'').match(/\S+/g)||[]).length; }
+        r.free.push([mm(cr.bottom-b1),mm(cr.bottom-b2),'ow:'+ow]);
+      });
+      if(area) r.words=(area.innerText.replace(/­/g,'').match(/[\p{L}\p{N}][\p{L}\p{N}'’\-−,.]*/gu)||[]).length;
+      out.push(r);
+    });
+    document.documentElement.setAttribute('data-report',JSON.stringify(out));
+  }
+  function apercu(){
+    const h=location.hash;
+    if(h==='#planche'){
+      document.body.classList.add('planche');
+      const sheet=document.createElement('div'); sheet.className='sheet';
+      const pages=[...document.querySelectorAll('.page')];
+      let cur=null;
+      pages.forEach(p=>{
+        const f=+p.dataset.folio;
+        if(p.classList.contains('verso')){cur=document.createElement('div');cur.className='spread';cur.dataset.a=f;sheet.appendChild(cur);cur.appendChild(p);}
+        else if(cur && +cur.dataset.a===f-1 && cur.children.length===1){cur.appendChild(p);cur.dataset.b=f;cur=null;}
+        else{const s=document.createElement('div');s.className='spread solo-r';const ph=document.createElement('div');ph.className='ph';s.appendChild(ph);s.appendChild(p);s.dataset.a=f;sheet.appendChild(s);cur=null;}
+      });
+      sheet.querySelectorAll('.spread').forEach(s=>{const c=document.createElement('div');c.className='cap';
+        c.textContent= s.dataset.b? ('p. '+s.dataset.a+'–'+s.dataset.b) : ('p. '+s.dataset.a); if(s.classList.contains('solo-r')) c.style.left='50%'; s.appendChild(c);});
+      document.body.appendChild(sheet);
+    } else if(h.startsWith('#page-')){
+      document.body.classList.add('single');
+      const p=document.querySelector('.page[data-folio="'+h.slice(6)+'"]'); if(p) p.classList.add('show');
+    }
+  }
+  apercu();
+  document.fonts.ready.then(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>{try{report()}catch(e){document.documentElement.setAttribute('data-report','ERR '+e.message+' '+e.stack)}})));
+})();
+</script>
+</body>
+</html>

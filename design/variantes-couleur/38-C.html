@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>38 — Le deuil, le choc et la peur des adultes — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"38"}
+</style>
+</head>
+<body class="vA vB vC t2 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 2 · Le corps</span><span>Chapitre</span></div><div class="open-title"><div class="num">38</div><h1>Le deuil, le choc et la peur des adultes</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">Le choc frappe là où la famille se trouve, et c’est presque toujours la maison : la nouvelle qui entre par la radio, l’accident sur la 138, la mort d’un parent au village. Là, les voisins sont de l’autre côté de la rue et le rassemblement autour de ceux qui ont perdu quelqu’un se fait tout seul ; il suffit de ne pas le refuser. Ce qui dure — un deuil qui traverse l’hiver, une peur qui ne lâche plus, un couple enfermé avec deux enfants dans une seule pièce chauffée — finit au chalet, et là, tout ce que le village fournissait sans qu’on y pense se fabrique à la main : le rassemblement, l’adieu, le tiers à qui parler, la personne qui prend le relais. Le chapitre 36 monte la structure d’un hiver. Celui-ci traite de ce qui la fait craquer.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Reconnaître ce qu’une catastrophe, une mort ou une peur qui dure font normalement à un adulte, et tenir — soi, le couple, le groupe — sans funérailles, sans médecin et sans personne à appeler : le choc se compte en heures, ses suites en semaines, le deuil en mois.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon chapitre quand :</h4>
+<p class="li">quelqu’un vient de mourir, ou on vient de l’apprendre, et les heures qui suivent se passent à ne plus savoir quoi faire. La section 5-B est écrite pour être lue à ce moment-là, à voix haute s’il le faut ;</p>
+<p class="li">un adulte « n’est plus là » depuis l’événement : il tremble, oublie, fonctionne en automatique, ne dort plus — ou à l’inverse ne s’arrête plus de travailler. Les deux sont des réactions ordinaires, et c’est précisément ce que les gens qui les vivent ignorent : ils croient devenir fous (5-C) ;</p>
+<p class="li">on est sans nouvelles de quelqu’un resté ailleurs, et on ne sait pas s’il faut le pleurer (5-E) ;</p>
+<p class="li">la peur a pris racine : crises où le cœur s’emballe, sursauts, nuits blanches (5-F, 5-G) ;</p>
+<p class="li">le couple ou le groupe se chicane pour des riens, plus fort qu’avant, et les enfants l’entendent (5-H) ;</p>
+<p class="li">la réserve d’alcool ou de tabac baisse plus vite que prévu, ou va finir (5-J) ;</p>
+<p class="li">un adulte se retrouve seul avec les deux enfants (section 9).</p>
+<h4 class="choix">C’est le mauvais chapitre quand :</h4>
+<p class="li">le changement est arrivé d’un coup, chez une personne ou plusieurs, dans un chalet ou une maison où quelque chose brûle pour chauffer, et qu’il vient avec mal de tête, nausée ou étourdissement, surtout si ça passe dehors. Le choc, la panique et le chagrin donnent exactement ces signes, et une maisonnée en deuil met tout sur le compte de la peine : c’est du monoxyde de carbone tant qu’on n’a pas trouvé mieux (section 8, point 3). Chez l’enfant, le monoxyde a l’air de la fatigue ou du mauvais caractère, c’est-à-dire de ce qu’on attend d’un enfant en deuil ;</p>
+<p class="li">la poitrine serre chez quelqu’un qui n’a jamais fait de crise d’angoisse. La panique donne une douleur à la poitrine, le cœur aussi. Une crise de panique culmine en 10 à 15 minutes ; une douleur qui persiste une fois la personne calmée, qui est venue à l’effort (<span class="ref">ch. 24</span>, section 8, point 1), ou dont on doute de l’origine se traite comme le cœur (<span class="ref">ch. 35</span>), pas avec ce chapitre ;</p>
+<p class="li">quelqu’un parle de mourir, donne ses affaires ou remonte d’un coup après des semaines noires. La conduite complète est au <span class="ref">ch. 36</span> (5-F, 5-G et section 9) et passe avant tout ce qui suit. Ce chapitre-ci ajoute les moments où le risque monte et ce qui se fait après la crise (5-I) ;</p>
+<p class="li">un adulte a peur d’un autre adulte. Les règles de chicane de la section 5-H supposent deux personnes qui ne se font pas peur ; entre deux personnes dont l’une craint l’autre, elles servent à l’agresseur. C’est une question de sécurité : section 8, point 1 ;</p>
+<p class="li">il s’agit des enfants : <span class="ref">ch. 40</span>. Ce chapitre-ci les touche seulement là où ils dépendent de l’adulte qui tient.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">La plupart des gens se remettent d’une catastrophe et d’une perte, souvent avec le seul soutien de leurs proches, en semaines ou en mois. Les réactions des premiers temps ne sont pas une maladie ; ce qui les rend dangereuses, c’est deux choses : ce qu’on fait pour les fuir — boire, rester couché, s’isoler, travailler sans arrêt — et ce qu’on prend pour elles alors que c’est autre chose — le monoxyde, le cœur, l’envie de mourir. Tout le chapitre tient entre ces deux pièges.</p>
+<p>Ce qui aide une personne à traverser se ramène à <strong>cinq choses</strong>, et elles servent de squelette à toute la procédure : se sentir <strong>en sécurité</strong> ; <strong>se calmer</strong> ; se sentir <strong>capable d’agir</strong>, seul et à plusieurs ; être <strong>relié</strong> à d’autres ; garder <strong>de l’espoir</strong>. Aucune ne demande un professionnel. Toutes se fabriquent au chalet, avec des gestes précis : le corps et les armes mis à l’abri pour la sécurité, la respiration et la pause pour le calme, une tâche vraie pour la capacité, le voisin et le rassemblement pour le lien, une date au calendrier pour l’espoir.</p>
+<p>Deux réflexes naturels sont mauvais, et le livre les retourne. Le premier : « il faut que ça sorte », faire raconter l’événement en détail à tout le monde, tout de suite. Évaluée sérieusement, la séance où l’on fait tout raconter une fois, peu après l’événement, ne prévient ni le stress post-traumatique, ni l’anxiété, ni la dépression, et deux des six effets mesurés allaient dans le mauvais sens : on la déconseille fermement. Écouter qui veut parler, oui ; faire parler qui ne veut pas, non. Le second : le comprimé pour dormir de la pharmacie. Les benzodiazépines ne sont pas indiquées pour les symptômes de stress ni pour le sommeil dans le premier mois après un événement : rien ne prouve qu’elles aident, elles pourraient allonger le temps de rétablissement, et l’organisme s’y habitue.</p>
+<p>Le troisième ressort est le temps. Une crise suicidaire est souvent courte : chez des survivants de tentatives presque mortelles, <strong>un sur quatre</strong> avait mis moins de 5 minutes entre la décision et le geste, près de la moitié moins de 20, et sept sur dix moins d’une heure. Ce qui s’interpose pendant ce temps-là — une culasse absente, une personne dans la pièce — laisse passer la crise. C’est tout le fondement de la règle des clés du <span class="ref">ch. 36</span>.</p>
+<p>Reste le territoire. L’effort physique réduit les symptômes d’anxiété et de dépression : le bois, l’eau, la raquette ne sont pas seulement des corvées, ce sont les traitements qui restent quand il n’y a plus rien à la pharmacie. Le travail qui nourrit se voit, se mesure et se termine, ce que le chapitre 36 organise en « ouvrages ». Et la taille du groupe compte : jusqu’aux années 1950, les Innus du Labrador passaient neuf mois par année sur le territoire en groupes de trois à cinq couples avec leurs enfants. Aujourd’hui encore, sur le territoire, la nourriture se partage et les peines aussi : quand quelque chose arrive, on se rassemble autour de la famille qui souffre. Deux adultes seuls n’ont personne qui ne soit pas partie à leurs chicanes ni personne pour prendre le relais d’un deuil ; c’est le défaut structurel que les sections 5-D, 5-H et 9 compensent.</p>
+<p>Un dernier fait, qui va contre l’intuition : le risque suicidaire n’est pas au plus haut au fond de l’hiver. Dans l’hémisphère nord, il est au plus bas en décembre-janvier et au plus haut en avril-mai ; au Canada, la semaine la plus haute de l’année dépasse la plus basse de 20 à 30 %, et l’écart est plus grand dans les climats froids. Le mécanisme n’est pas établi ; une des explications avancées est la plus utile au chalet : au printemps, les autres se remettent à vivre, on attendait un recommencement, et celui qui ne remonte pas mesure l’écart. La débâcle n’est pas la fin de la surveillance (5-I).</p>
+<table class="tspan"><colgroup><col style="width:28.9%"><col style="width:29.6%"><col style="width:41.4%"></colgroup><thead><tr><th>Ce qui arrive</th><th>Ce qui est ordinaire</th><th>Ce qui dit que ça dépasse</th></tr></thead><tbody><tr><td class="c-item">Le choc : engourdi, rien ne semble réel, tremblements, cœur qui bat vite, sueurs, souffle court, tête vide</td><td>De quelques minutes à quelques heures ; disparaît en général en quelques heures, parfois plus</td><td>La personne ne s’occupe plus d’elle-même ni des enfants, ou agit de façon imprévisible et destructrice</td></tr><tr><td class="c-item">La crise de panique</td><td>Monte à un sommet en 10 à 15 minutes, puis redescend</td><td>La douleur à la poitrine persiste une fois la personne calmée, ou elle est venue à l’effort : elle se traite comme le cœur (<span class="ref">ch. 35</span>), quelle que soit sa durée</td></tr><tr><td class="c-item">Les nuits blanches</td><td>Les premiers jours, presque tout le monde</td><td><strong>Plus d’une semaine</strong> sans dormir, avec confusion</td></tr><tr><td class="c-item">Les images qui reviennent<sup class="fnr" data-fn="38-1">1</sup></td><td>Fréquentes au début, de moins en moins avec le temps</td><td>Pas moins fréquentes <strong>un mois</strong> après</td></tr><tr><td class="c-item">La colère — contre les autres, contre le sort, contre Dieu, contre la mort elle-même</td><td>Attendue, par vagues</td><td>Elle devient des gestes : frapper, menacer, sortir une arme</td></tr><tr><td class="c-item">Le deuil</td><td>Aucune durée fixe ; par vagues ; revient aux anniversaires</td><td><strong>Six mois</strong> après, rien n’a bougé<sup class="fnr" data-fn="38-2">2</sup></td></tr><tr><td class="c-item">L’humeur qui ne remonte pas</td><td>Des jours</td><td><strong>Deux semaines</strong> de symptômes : le seuil de la dépression, <span class="ref">ch. 36</span> (5-E)</td></tr><tr><td class="c-item">Boire, rester couché, s’isoler, travailler sans arrêt</td><td>Ça soulage sur le moment</td><td>Ça dure : chacune de ces fuites empire ce qu’elle soulage (5-J)</td></tr></tbody></table>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce chapitre se pratique presque sans objets. Ce qu’il demande, ce sont des gestes et quelques décisions prises en septembre.</p>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Avertisseur de monoxyde de carbone à piles</td><td>1 dans la pièce de l’appareil à combustion + 1 près des chambres (<span class="ref">ch. 36</span>)</td><td><strong>Aucune.</strong> Aucun sens humain ne détecte ce gaz, et ses symptômes sont ceux du chagrin et de l’angoisse (section 8)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Montre ou horloge à trotteuse</td><td>1</td><td>Chandelle graduée pendant qu’il reste une montre qui marche (<span class="ref">ch. 36</span>, <span class="ref">ch. 40</span>). Sans rien : la pause d’une chicane se compte en gestes — un seau puisé, une brassée rentrée —, jamais à l’humeur</td><td>Oui</td></tr><tr><td class="c-item">Contenant gradué réservé à l’alcool du jour, si un adulte dépend de l’alcool (5-A, étape 3)</td><td>1</td><td>Bouteille marquée d’un trait de feutre par jour ; pot de verre encoché à la lime. Ce qui compte : la dose se voit, et c’est l’autre adulte qui verse (5-J)</td><td><span class="non">NON</span> <span class="negx">si un adulte dépend de l’alcool</span></td></tr><tr><td class="c-item">Marque de tombe : planche de bois dur, pieu équarri ou pierre plate</td><td>1 par mort</td><td>Nom et dates gravés au couteau, brûlés au fer rouge, grattés à la pointe dans la pierre. Plus haute que la neige de mars : une tombe qu’on ne retrouve pas au printemps n’a pas été marquée</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Signal d’absence quotidien convenu avec le voisin</td><td>1 (<span class="ref">ch. 36</span>, section 9)</td><td>Lumière à une fenêtre, drapeau au bout d’une perche, fumée à heure fixe. Ce qui compte : son <strong>absence</strong> fait monter le voisin, une fois le signal manqué et pas avant (section 9)</td><td><span class="non">NON</span> <span class="negx">si un adulte est seul</span></td></tr><tr><td class="c-item">Signal « venez » convenu avec le voisin</td><td>1 (<span class="ref">ch. 16</span>, étape 5 ; <span class="ref">ch. 36</span>, point 7)</td><td>Trois coups, une pause, trois coups, au sifflet, à la corne ou sur un chaudron ; de nuit, deux feux à quelques pas l’un de l’autre (<span class="ref">ch. 16</span>, section 9). Ce qui compte : il fait monter le voisin <strong>dès qu’il le voit ou l’entend</strong>, sans attendre un signal manqué (section 8, point 1)</td><td><span class="non">NON</span></td></tr><tr><td class="c-item">Sacs de couchage des enfants, rangés à leur portée</td><td>1 par enfant</td><td>Couvertures empilées et un habit de neige : ce qui compte, c’est qu’un enfant de 6 ans puisse s’y mettre seul, avec son frère ou sa sœur (section 9)</td><td><span class="non">NON</span> <span class="negx">si un adulte est seul</span></td></tr><tr><td class="c-item">Boîte de nourriture sans cuisson, à hauteur d’enfant, et une gourde d’eau par enfant</td><td>1 boîte ; 1 gourde par enfant</td><td>Pemmican (<span class="ref">ch. 72</span>), biscuits, fruits séchés ; un pot à couvercle vissé fait la boîte. La gourde dort dans le sac de couchage : si le poêle s’éteint, l’eau d’un pichet gèle, pas celle du sac (section 9)</td><td><span class="non">NON</span> <span class="negx">si un adulte est seul</span></td></tr><tr><td class="c-item">Abri des enfants, dehors : bâtiment fermé hors du vent, avec la caisse d’évacuation du <span class="ref">ch. 82</span> et un sifflet</td><td>1</td><td>Remise, bûcher fermé, hangar ; à défaut, la caisse seule, au point de rassemblement (<span class="ref">ch. 82, 5</span>-F). Dedans, de quoi s’asseoir hors du plancher ou de la neige : banc, lit de branches de sapin, matelas de sol (section 9)</td><td><span class="non">NON</span> <span class="negx">si un adulte est seul</span></td></tr></tbody></table>
+<p class="p0">Le verrouillage des armes, le coffre de la pharmacie, le calendrier mural et la liste au mur sont déjà au <span class="ref">ch. 36</span> ; ils servent ici sans être recopiés. Ce qui s’achète est au <span class="ref">ch. 00b</span>.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — En septembre, pendant que tout va bien</h3>
+<p class="step"><span class="sn">1</span><strong>Nommer à voix haute, entre adultes, les chicanes qu’on sait qui viendront, et décider maintenant comment elles se tranchent.</strong> Elles sont toujours les mêmes : qui décide de partir et sur quels critères (<span class="ref">ch. 2</span>) ; la réserve de plaisir — café, sucre, tabac, alcool — et qui y touche (<span class="ref">ch. 36</span>) ; qui fait l’eau et le bois, et qui fait la maison ; le bruit et le sommeil dans une seule pièce ; en groupe, qui reprend l’enfant d’une autre famille, et ce qu’on doit au voisin (<span class="ref">ch. 16</span>). Une chicane tranchée en septembre revient en février comme un rappel ; non tranchée, elle revient comme un procès.</p>
+<p class="step"><span class="sn">2</span><strong>Convenir d’un mot de pause</strong> (5-H). Un mot, le même pour tout le monde, qui arrête une discussion sans qu’on ait à expliquer pourquoi. Il se choisit à froid et se respecte sans négociation, sinon il ne vaut rien.</p>
+<p class="step pk-d"><span class="sn">3</span><strong>Si un adulte dépend de l’alcool, le dire et compter.</strong> Le signe : il se sent mal quelques heures après son dernier verre — mains qui tremblent, sueurs, nausée, mal de tête —, ou il boit beaucoup depuis longtemps. La réserve d’un buveur dépendant ne se calcule pas jusqu’à la dernière bouteille : elle se calcule jusqu’à la fin d’une descente (5-J), parce que l’arrêt brutal peut tuer (section 8, point 2). Décider qui verse.</p>
+<p class="step"><span class="sn">4</span><strong>Décider, à deux, ce qui se passe si l’un des deux meurt ou part.</strong> Qui reste avec les enfants, où va le corps en attendant le dégel (<span class="ref">ch. 35, 5</span>-F), vers qui on se regroupe (<span class="ref">ch. 18</span>), quel signal part, et ce que l’enfant de 6 ans sait faire si l’adulte restant ne se relève pas, abri dehors compris (section 9). Ça s’apprend comme un jeu, et ça se répète une fois par mois avec les gestes du mois (<span class="ref">ch. 36</span>, point 22).</p>
+<p class="step"><span class="sn">5</span><strong>Apprendre les deux gestes de la panique aux deux adultes</strong> : la respiration et le retour au présent (étape 9). On les apprend calme ; en pleine crise, on ne retient rien de nouveau.</p>
+<h3 class="sub">B — Les premières heures, après le choc</h3>
+<p class="step pk-d"><span class="sn">6</span><strong>Le corps d’abord.</strong> Blessures, froid, puis eau et sucre si la personne est bien éveillée : somnolente, confuse ou qui vomit, elle ne boit pas (<span class="ref">ch. 35, 5</span>-D, étape 2). En état de choc, une blessure peut ne pas faire mal sur le moment : on regarde au lieu de demander. Dans un bâtiment qui chauffe par combustion, une personne étourdie ou nauséeuse — une seule suffit —, c’est dehors avant de parler (section 8, point 3).</p>
+<p class="step"><span class="sn">7</span><strong>Un seul adulte calme, voix basse, phrases courtes.</strong> Le calme se transmet ; l’agitation aussi. Dire à la personne qu’elle est en sécurité <strong>si c’est vrai</strong>, jamais sinon, et qu’on reste.</p>
+<p class="step"><span class="sn">8</span><strong>Ne pas faire raconter.</strong> Écouter si la personne parle, aussi longtemps qu’elle veut. Ne pas lui demander de détailler, ni d’expliquer, ni d’analyser ce qui s’est passé, ni de dire ce qu’elle ressent. C’est l’inverse du réflexe, et c’est la section 3 qui dit pourquoi.</p>
+<p class="step"><span class="sn">9</span><strong>La panique se traverse en respirant, pas en discutant.</strong> Le cœur cogne, le souffle manque, la poitrine serre, on sue, la tête tourne, on a mal au cœur, et la personne est souvent convaincue qu’elle va mourir, perdre la tête ou s’évanouir. Ça monte à un sommet en 10 à 15 minutes et ça redescend. Deux gestes :</p>
+<p class="li l2"><strong>respirer</strong> : inspirer lentement par le nez en sentant l’air remplir les poumons, expirer doucement par la bouche ; l’aidant respire avec elle, à voix haute ;</p>
+<p class="li l2"><strong>revenir au présent</strong> par les sens : « Qu’est-ce que tu vois ? Qu’est-ce que tu entends ? Qu’est-ce que tu sens sous tes mains ? » Une question à la fois, des réponses concrètes : le poêle, le bois qui craque, la table.</p>
+<p class="stepc">Si la douleur à la poitrine persiste une fois la personne calmée, si elle est venue à l’effort (<span class="ref">ch. 24</span>, section 8, point 1), ou si c’est la première de sa vie, elle se traite comme le cœur (<span class="ref">ch. 35</span>), quelle que soit sa durée : dans le doute, c’est le cœur.</p>
+<p class="step"><span class="sn">10</span><strong>Une tâche dans l’heure.</strong> Courte, vraie, qui se termine et se voit : rentrer une brassée, faire chauffer l’eau, allumer les lampes. C’est la capacité d’agir de la section 3, et c’est le geste qui coupe la sidération. <strong>Jamais</strong> une tâche dangereuse : ni scie à chaîne, ni glace, ni arme, ni conduite (<span class="ref">ch. 36</span>, point 35).</p>
+<p class="step"><span class="sn">11</span><strong>Relier.</strong> Les enfants apprennent la nouvelle d’un adulte, en mots exacts, et reçoivent une tâche liée (<span class="ref">ch. 40, 5</span>-E). À la maison, on laisse entrer les voisins qui viennent. Au chalet, le signal « venez » part le soir même (<span class="ref">ch. 36</span>, point 7 ; <span class="ref">ch. 16</span>, étape 5), pas le signal d’absence, qui ne fait monter le voisin qu’une fois manqué : un voisin qui sait ne sert à rien s’il apprend au printemps.</p>
+<p class="step"><span class="sn">12</span><strong>Aucune décision qui ne se défait pas, ce soir-là.</strong> Ni partir, ni vendre, ni brûler, ni jeter. Seules exceptions : ce qui ne peut pas attendre — le feu, le corps (<span class="ref">ch. 35</span>), un danger réel (<span class="ref">ch. 2</span>).</p>
+<p class="step pk-d"><span class="sn">13</span><strong>Pas de benzodiazépine pour dormir ou se calmer pendant le premier mois.</strong> Ce sont par exemple le lorazépam, le diazépam, l’oxazépam : le nom est écrit sur la boîte. Le traitement qu’une personne prenait <strong>avant</strong> pour autre chose continue comme prescrit ; ce qui est visé, c’est le comprimé qu’on sort de la pharmacie pour passer la nuit après un choc ou une mort. L’interdit ne vise pas le sevrage d’alcool : pour lui, c’est au contraire cette classe de médicament qui sert de traitement (section 8, point 2). Et un calmant ou un somnifère, prescrit ou acheté sans ordonnance, pris avec l’alcool du soir, ralentit la respiration (étape 56).</p>
+<p class="step"><span class="sn">14</span><strong>La première nuit : dormir où on peut, tous ensemble si ça aide.</strong> Un lit devenu vide se quitte pour quelques nuits ; changer le lit de place aide certains. Le sommeil reviendra mal : c’est prévu (5-G).</p>
+<h3 class="sub">C — Les jours et les semaines qui suivent</h3>
+<p class="step"><span class="sn">15</span><strong>Dire une fois, à voix haute, ce qui est normal.</strong> Se sentir engourdi, fonctionner en automatique, refuser d’y croire ; oublier, mal se concentrer, perdre le fil ; dormir mal, manger mal ; sentir un serrement dans la poitrine ; être en colère, contre tout ; se sentir coupable d’avoir survécu ou de n’avoir rien pu empêcher ; ne plus se sentir en sécurité nulle part ; devenir hypervigilant et surprotéger les enfants ; avoir peur que ça recommence. Savoir que c’est ordinaire enlève la peur de devenir fou, qui est la moitié du poids.</p>
+<p class="step"><span class="sn">16</span><strong>Remettre la journée en place</strong> : lever à l’heure, trois repas, dehors tous les jours (<span class="ref">ch. 36, 5</span>-B). Pas parce qu’on en a envie ; parce que la routine est un des facteurs qui font tenir, et qu’elle se reprend avant l’envie.</p>
+<p class="step"><span class="sn">17</span><strong>Bouger tous les jours, et fort.</strong> Le bois, l’eau, la raquette. L’effort réduit l’anxiété et la tristesse ; au chalet, c’est le traitement qui ne s’épuise pas.</p>
+<p class="step"><span class="sn">18</span><strong>Les images qui reviennent</strong> (tableau de la section 3) : on ne les combat pas, on revient au présent par les sens (étape 9). Elles doivent s’espacer. Si elles ne s’espacent pas un mois après, on le marque d’un trait au calendrier, et ça pèse dans la décision de rester ou de descendre, comme un critère que ce chapitre ajoute à ceux du <span class="ref">ch. 2</span>.</p>
+<p class="step"><span class="sn">19</span><strong>Ce qui dit que ça dépasse une réaction ordinaire</strong> : plus d’une semaine sans dormir, avec confusion ; la personne ne mange plus et ne se lave plus alors que la nourriture et l’eau sont là, ou ne s’occupe plus des enfants ; elle agit de façon imprévisible et destructrice ; elle menace de se faire du mal ou d’en faire aux autres ; elle boit de plus en plus. On passe alors au 5-I et au <span class="ref">ch. 36</span>.</p>
+<h3 class="sub">D — Quand quelqu’un meurt : le deuil sans funérailles</h3>
+<p class="step"><span class="sn">20</span><strong>Le corps n’est pas ce chapitre.</strong> S’assurer que c’est bien une mort, l’heure, le froid, l’attente du dégel, l’enterrement provisoire : <span class="ref">ch. 35, 5</span>-F et 9-E. Et une personne froide n’est pas morte tant qu’elle n’a pas été réchauffée (<span class="ref">ch. 35</span>).</p>
+<p class="step"><span class="sn">21</span><strong>Faire l’adieu dans les jours qui suivent, même si l’enterrement attend le printemps.</strong> Il n’y a ni salon, ni église, ni service ; l’adieu, lui, ne dépend d’aucun des trois, et il se prépare à sa façon. Ce qui le fait tenir : tout le monde est là, les enfants compris, avec une tâche (<span class="ref">ch. 40, 5</span>-E) ; le nom et les dates sont dits à voix haute ; chaque adulte dit une chose vraie sur la personne ; les enfants apportent un dessin ou un objet ; si la famille prie, elle prie, et si elle chante, elle chante ; puis on mange ensemble. Un adieu fait en février et un enterrement fait en mai sont deux moments, pas un adieu remis à plus tard.</p>
+<p class="step"><span class="sn">22</span><strong>Écrire sur la chose même.</strong> Le nom et les dates se gravent sur la marque de la tombe ou de l’endroit où le corps attend, pas dans un cahier (section 4). C’est le seul registre qui survivra, et le seul qu’on retrouvera.</p>
+<p class="step"><span class="sn">23</span><strong>Une arme de plus est entrée dans le système des clés.</strong> La carabine de la personne morte est une arme dont plus personne ne se sent responsable. Elle rejoint le jour même le verrouillage du <span class="ref">ch. 36</span>, la culasse ou la pièce mobile retirée, munitions ailleurs.</p>
+<p class="step"><span class="sn">24</span><strong>Garder un objet ; se servir du reste.</strong> Au chalet, les mitaines, le couteau, les outils de la personne morte servent, et s’en servir ne la trahit pas, pas plus que souffrir moins. On garde une chose qui ne sert à rien, et celle-là ne sert à personne d’autre.</p>
+<p class="step"><span class="sn">25</span><strong>Nommer qui reprend ses tâches.</strong> Chaque tâche de la personne morte a un nouveau titulaire, dit à voix haute (<span class="ref">ch. 18</span>, étape 8 ; <span class="ref">ch. 40</span>, étape 41). Une tâche orpheline se fait en retard, et chaque retard rappelle l’absence.</p>
+<p class="step"><span class="sn">26</span><strong>Le deuil vient par vagues.</strong> Il n’a pas de durée fixe et pas d’ordre. Il revient aux anniversaires, qu’on inscrit au calendrier mural pour qu’ils n’arrivent pas par surprise. Quand la mort était attendue après une longue maladie, le soulagement du moment est ordinaire, et la peine peut arriver des mois plus tard, quand on mesure que c’est définitif.</p>
+<p class="step"><span class="sn">27</span><strong>La culpabilité et la colère font partie du deuil.</strong> « J’aurais dû voir », « c’est ma faute », la colère contre le sort, contre Dieu, contre la mort elle-même. Elles se disent ; elles ne se discutent pas. Contre la culpabilité, un seul argument vaut la peine d’être répété : ce qu’on sait maintenant, on ne le savait pas le jour même.</p>
+<p class="step"><span class="sn">28</span><strong>Le deuil se fait à plusieurs.</strong> Sur le territoire, on se rassemble autour de la famille qui souffre (section 3). Au chalet, le voisin monte, une famille regroupée prend les tâches pour quelques jours (<span class="ref">ch. 18</span>), et le contact de la semaine continue même quand on n’a rien à dire (<span class="ref">ch. 36</span>, point 20). Ne pas s’isoler complètement ; ne pas non plus s’interdire d’être seul.</p>
+<p class="step"><span class="sn">29</span><strong>Six mois.</strong> On marque la date au calendrier. Si, six mois après la mort, rien n’a bougé (note 2), ce n’est plus un deuil ordinaire. Au chalet, le critère ne commande pas un traitement qu’on n’a pas : il pèse dans la décision de rester ou de descendre à la maison du village, où il y a d’autres adultes, comme un critère que ce chapitre ajoute à ceux du <span class="ref">ch. 2</span>.</p>
+<h3 class="sub">E — Sans nouvelles : quand on ne sait pas s’il faut pleurer</h3>
+<p class="step"><span class="sn">30</span><strong>Nommer la chose.</strong> Quand on ne sait pas si une personne est morte ou vivante — les parents restés en ville, le fils parti chercher de l’aide, l’adulte évacué qui n’a pas donné signe de vie —, le deuil ordinaire ne peut pas commencer, et l’incertitude use sans relâche. On appelle ça une perte ambiguë. Le nom compte : il dit que ce qu’on vit est une chose connue, et pas une faiblesse de ne pas « passer à autre chose ».</p>
+<p class="step"><span class="sn">31</span><strong>Fixer quand on cherchera, et s’y tenir.</strong> Les nouvelles une fois par jour, à heure fixe, pas toute la journée à attendre un nom (<span class="ref">ch. 36</span>, point 13) ; une date pour la prochaine tentative de contact. Entre les deux, on s’occupe de ce qui est à portée. La question reste ouverte ; la vie, elle, ne peut pas rester en suspens.</p>
+<p class="step"><span class="sn">32</span><strong>Aux enfants, « on ne sait pas » est une réponse vraie</strong>, et c’est la seule qui tiendra (<span class="ref">ch. 40</span>, étape 13). Ce qu’on sait — qui s’occupe d’eux, où on dort, ce qu’on mange — se répète autant de fois qu’ils le demandent.</p>
+<p class="step"><span class="sn">33</span><strong>Écrire ce qu’on aurait à dire à la personne</strong> — les lettres qui partiront au printemps (<span class="ref">ch. 36</span>, point 21). Si elle revient, elle les lira ; sinon, elles auront été dites.</p>
+<h3 class="sub">F — La peur qui dure et l’anxiété</h3>
+<p class="step"><span class="sn">34</span><strong>Ce qui aide :</strong> l’effort physique quotidien (étape 17) ; une tâche qui change quelque chose de réel ; la routine tenue ; les nouvelles une fois par jour et pas plus (<span class="ref">ch. 36</span>) ; quelqu’un à qui parler qui n’est pas partie à la peur (<span class="ref">ch. 36</span>, point 20) ; et se rappeler ce qui a marché la dernière fois qu’on a traversé une mauvaise passe.</p>
+<p class="step"><span class="sn">35</span><strong>Ce qui empire, en ayant l’air d’aider :</strong> boire pour oublier ; rester couché ; s’isoler parce que tout paraît insurmontable ; et, le moins connu, <strong>se tenir occupé sans arrêt</strong> pour ne pas penser. Le premier jour, travailler du matin au soir ressemble à du courage ; la troisième semaine, c’est une fuite, et elle finit en épuisement à une époque où l’épuisement coûte un doigt dans une scie. S’y ajoutent la vigilance qui ne se relâche jamais — recompter le stock, ne plus laisser les enfants hors de vue — et la prise de risques : la motoneige menée trop vite, la glace douteuse traversée quand même.</p>
+<p class="step"><span class="sn">36</span><strong>Changer l’inquiétude en liste de gestes.</strong> Au conseil de maison (<span class="ref">ch. 36</span>, point 18), chaque peur se dit, puis se trie en deux : ce qu’on peut faire cette semaine, et ce qu’on ne peut pas faire. La première moitié reçoit un nom et un jour ; la deuxième se dit à voix haute et s’arrête là. Une peur qui a un geste attaché pèse moins qu’une peur qui tourne en rond.</p>
+<p class="step"><span class="sn">37</span><strong>La crise de panique qui revient</strong> se traite comme la première (étape 9). L’autre adulte reste, parle bas, respire à voix haute, et ne discute pas le contenu de la peur pendant la crise : on en parlera après, à la clarté.</p>
+<h3 class="sub">G — L’insomnie</h3>
+<p class="step"><span class="sn">38</span><strong>Les premières nuits après une mort ou un choc,</strong> mal dormir est ordinaire. On se couche quand même, on se relève si on veut, et on ne prend pas de benzodiazépine (étape 13).</p>
+<p class="step"><span class="sn">39</span><strong>Quand l’insomnie s’installe, on applique le contrôle du stimulus :</strong></p>
+<p class="li l2">se coucher quand on a <strong>sommeil</strong> — bâillements, paupières lourdes —, pas quand on est fatigué ;</p>
+<p class="li l2">si le sommeil n’est pas venu au bout de <strong>15 à 20 minutes</strong>, ou si on s’est réveillé et qu’il ne revient pas, <strong>se lever</strong> sans regarder l’heure, aller ailleurs — au chalet, la chaise près du poêle, à la lumière la plus faible — et faire quelque chose de calme ; revenir au lit quand le sommeil revient. Autant de fois qu’il le faut ;</p>
+<p class="li l2">se lever <strong>à la même heure</strong> tous les matins, quelle qu’ait été la nuit (<span class="ref">ch. 36</span>, point 8) ;</p>
+<p class="li l2">pas de sieste si on peut s’en passer : la nuit en a besoin. Si on tombe de sommeil — pas seulement de fatigue —, <strong>15 à 20 minutes</strong> au plus, <strong>avant 15 h</strong>.</p>
+<p class="stepc">C’est dur les premières nuits, et c’est ce qui défait l’habitude du lit où l’on ne dort pas.</p>
+<p class="step"><span class="sn">40</span><strong>Un verre fait tomber plus vite ; boire plus brise la deuxième moitié de la nuit.</strong> Le tabac qui finit brise le sommeil pendant <strong>une semaine</strong> ; le café le soir aussi.</p>
+<p class="step"><span class="sn">41</span><strong>La boisson chaude du soir se fait au sapin baumier (<em>Abies balsamea</em>) ou à l’épinette blanche (<em>Picea glauca</em>), jamais au cèdre (thuya, <em>Thuja occidentalis</em>).</strong> Il contient de la thuyone, qui donne des convulsions ; aucune dose sûre n’a pu être établie pour ce livre, donc l’espèce est écartée plutôt que dosée (<span class="ref">ch. 20</span>, <span class="ref">ch. 33</span>).</p>
+<p class="step"><span class="sn">42</span><strong>Plus d’une semaine sans dormir, avec confusion,</strong> dépasse l’insomnie ordinaire : 5-I, et d’abord le tour du monoxyde — un mal de tête au lever, chez une personne ou plusieurs, qui passe une fois dehors, est un cas du <span class="ref">ch. 83</span> avant d’être un cas de moral.</p>
+<h3 class="sub">H — La colère, le couple et le groupe enfermés</h3>
+<p class="step"><span class="sn">43</span><strong>Vérifier le corps avant le caractère.</strong> La colère est attendue après une perte. Mais trois choses la fabriquent de toutes pièces, et on les écarte avant de juger quelqu’un : le <strong>tabac qui finit</strong>, qui rend irritable pendant <strong>2 à 4 semaines</strong> ; le <strong>manque de sommeil</strong> — après 17 heures debout, on réagit comme avec 0,05 d’alcool dans le sang (<span class="ref">ch. 36</span>) ; et la <strong>faim</strong>.</p>
+<p class="step"><span class="sn">44</span><strong>Commencer par une demande, pas par un reproche.</strong> Une conversation difficile finit presque toujours comme elle commence : dans 96 % des cas, ses trois premières minutes en donnent l’issue. Une ouverture en critique ou en sarcasme finit mal. « J’ai besoin qu’on parle de l’eau : je la fais seul depuis dix jours » se règle ; « tu fais jamais rien » ne se règle pas. Une seule chose à la fois.</p>
+<p class="step pk-t"><span class="sn">45</span><strong>Le mot de pause, et la règle des vingt minutes.</strong> Quand le cœur dépasse <strong>100 battements par minute</strong>, on n’entend plus ce que l’autre dit, si fort qu’on essaie. Le pouls se prend au poignet, sous la base du pouce, avec l’index et le majeur posés à plat, compté 15 secondes et multiplié par 4. Il ne vaut qu’au repos, assis depuis une dizaine de minutes : au retour du bois ou de l’eau, un cœur à plus de 100 dit l’effort, pas la chicane. Sans montre, on se fie au cœur qu’on sent cogner et à la voix qui monte. Celui qui le sent dit le mot convenu (étape 2), et la discussion s’arrête sur-le-champ. La pause dure <strong>au moins 20 minutes</strong>, le temps que le corps redescende, <strong>à faire autre chose</strong> : une pause passée à préparer sa réplique ne calme rien. Celui qui a demandé la pause dit quand on reprend. Deux règles déjà écrites tiennent par-dessus : aucune chicane ne se règle après le souper (<span class="ref">ch. 36</span>, point 15), et personne ne sort fâché dans le froid (<span class="ref">ch. 36</span>, section 8, point 6).</p>
+<p class="step"><span class="sn">46</span><strong>Guetter l’ordre dans lequel un couple se défait :</strong> la critique, puis le mépris, puis la défensive, puis le mur — l’un des deux ne répond plus, se ferme, attend que ça passe. Le sarcasme n’est pas de l’humour : c’est déjà du mépris, et une discussion qui s’ouvre sur lui finit mal (étape 44). En face, les <strong>tentatives de réparation</strong> : une blague, une main sur l’épaule, « on recommence ». Elles se font maladroitement, et elles s’acceptent même maladroites ; un couple qui refuse les réparations de l’autre est un couple en panne (section 7).</p>
+<p class="step"><span class="sn">47</span><strong>Ce qui ne se dit pas devant les enfants se dit ailleurs, pas à voix basse devant eux</strong> : chuchoter devant eux est pire que se parler normalement ailleurs, parce qu’ils entendent le ton sans les mots (<span class="ref">ch. 40</span>, étape 49).</p>
+<p class="step"><span class="sn">48</span><strong>En groupe, un nom par domaine</strong> (<span class="ref">ch. 18</span>, étape 8), et la chicane entre deux familles se règle entre les deux adultes qui ont autorité sur la chose, pas devant tout le monde. Dans un groupe, il y a presque toujours quelqu’un qui n’est pas partie à la chicane : c’est lui qui préside la discussion. C’est l’avantage que deux adultes seuls n’ont pas (section 3).</p>
+<p class="step pk-d"><span class="sn">49</span><strong>Quand la colère devient une menace :</strong> ne pas rester seul avec la personne ; garder une distance ; surveiller ce qu’elle a à portée de main — hache, couteau, arme ; ne pas la toucher ; parler bas, lentement, sans provoquer, et lui dire fermement qu’elle ne fera de mal à personne, ni à elle-même. Si l’alcool est dans la pièce, c’est la section 8, point 1.</p>
+<h3 class="sub">I — Quelqu’un qui décroche</h3>
+<p class="step pk-d"><span class="sn">50</span><strong>Les signes et la conduite complète sont au <span class="ref">ch. 36</span></strong> (5-F, 5-G, section 7, section 8, point 1, section 9) : poser directement la question, ne pas garder le secret, verrouiller avant de parler, présence continue<sup class="fnr" data-fn="38-3">3</sup>. Ce chapitre-ci ajoute ce qui les entoure.</p>
+<p class="step"><span class="sn">51</span><strong>Les moments où le risque monte :</strong></p>
+<p class="li l2"><strong>après une perte</strong>, et aux anniversaires de la perte ;</p>
+<p class="li l2"><strong>le soir d’une chicane, avec de l’alcool.</strong> Chez des survivants de coups de feu tirés contre eux-mêmes, six sur dix environ reliaient leur geste à une chicane avec leur partenaire ou leur famille ; la plupart étaient des hommes jeunes, sans dépression importante, et le geste avait presque toujours été impulsif. Dans un autre groupe, six sur dix aussi avaient eu une chicane dans les 24 heures précédentes. L’absence de dépression visible ne protège pas ;</p>
+<p class="li l2"><strong>au printemps.</strong> Le pic est en avril-mai, pas en février (section 3). Quand la maisonnée revit avec la débâcle, celui qui ne remonte pas voit l’écart. On ne relâche pas la surveillance parce que la lumière revient.</p>
+<p class="step"><span class="sn">52</span><strong>Pourquoi le délai marche :</strong> un geste sur quatre suit la décision de moins de 5 minutes, près de la moitié de moins de 20, et sept sur dix de moins d’une heure. Une culasse ou une pièce mobile gardée sur l’autre adulte (<span class="ref">ch. 36</span>, section 9), ou, pour l’adulte seul, enfouie dans une boîte sous la neige loin du sentier (section 9 de ce chapitre), ne se récupère pas en cinq minutes : chaque minute qu’il faut pour l’avoir est une minute où la crise peut passer.</p>
+<p class="step"><span class="sn">53</span><strong>Poser la question soulage.</strong> La crainte de « donner l’idée » retient bien des gens, et elle est fausse : la plupart des gens qui y pensent se sentent soulagés et compris quand on leur demande. Après la réponse, on écoute sans discuter si c’est bien ou mal, on ne promet pas le secret, et on ne laisse pas la personne seule.</p>
+<p class="step pk-d"><span class="sn">54</span><strong>Le plan de la prochaine fois.</strong> Il se fait <strong>après</strong> la crise, quand la personne va mieux, à deux, à voix haute. S’il s’écrit, c’est sur une seule carte que la personne garde sur elle. Six questions, dans l’ordre : 1. <em>Mes signes à moi</em> : à quoi ça ressemble quand ça commence — une pensée, une humeur, un geste. C’est le signal pour sortir le plan. 2. <em>Ce que je fais seul pour laisser passer</em> : une corvée qui occupe les mains, dedans, ou dehors de jour et à portée de vue, n’importe quoi qui fait passer vingt minutes. Pas de sortie seul la nuit avec ces idées-là : dans le froid, le jugement lâche avant la douleur (<span class="ref">ch. 36</span>, section 8, point 6). 3. <em>Où je vais être avec du monde sans rien dire</em> : jouer avec les enfants, aller chez le voisin. 4. <em>À qui je le dis, avec les mots</em> : « ça revient ». L’autre adulte s’engage à répondre sans drame et sans reproche. 5. <em>Qui vient si ça ne passe pas</em> : le voisin et le signal convenu (<span class="ref">ch. 16</span>, <span class="ref">ch. 36</span>, point 7), à la place de la ligne d’aide qui n’existe pas. 6. <em>Ce qui s’éloigne</em> : la culasse ou la pièce mobile, les munitions, les comprimés comptés (<span class="ref">ch. 36</span>, section 9).</p>
+<p class="stepc">Et une septième, facultative, que la personne dit elle-même : <em>mes raisons de rester</em> — les enfants par leur nom, ce qu’on fera au printemps.</p>
+<p class="step"><span class="sn">55</span><strong>Garder en sécurité sans ligne d’aide</strong> : <span class="ref">ch. 36</span>, section 9, « Garder quelqu’un en danger ». Tout y est ; rien ne se recopie ici.</p>
+<h3 class="sub">J — L’alcool, le tabac et la fuite</h3>
+<p class="step"><span class="sn">56</span><strong>Ce que l’alcool fait vraiment au chalet.</strong> L’ivresse est une cause majeure de blessures par violence et de suicide : c’est le soir arrosé qui tue. Bu en quantité, l’alcool freine le deuil et fabrique de l’anxiété ; il brise aussi la deuxième moitié de la nuit (étape 40). Pris avec un calmant ou un somnifère, il ralentit la respiration (étape 13). Et dehors, il donne une fausse chaleur en ouvrant les vaisseaux de la peau (<span class="ref">ch. 25</span>).</p>
+<p class="step"><span class="sn">57</span><strong>Qui dépend de l’alcool ne s’arrête pas d’un coup.</strong> Le corps d’un buveur dépendant (étape 3) s’est ajusté à l’alcool ; quand celui-ci disparaît, le sevrage commence en quelques heures et peut aller jusqu’à la mort<sup class="fnr" data-fn="38-4">4</sup>. Ça arrive quand la réserve finit, quand la bouteille est mise sous clé, ou quand la personne décide d’arrêter le jour même. La descente se fait ainsi : 1. <strong>une semaine à dose fixe</strong>, versée par l’autre adulte, mesurée dans le contenant gradué ; 2. puis, <strong>tous les quatre jours, environ 10 % de la dose de départ en moins</strong>, en marches égales : à 10 verres par jour, 9 pendant quatre jours, puis 8, et ainsi de suite jusqu’à zéro ; 3. si les tremblements, les sueurs, la nausée ou le mal de tête reviennent, c’est trop vite : on <strong>remonte</strong> jusqu’à la dose où ils disparaissent, on <strong>tient une semaine</strong>, puis on descend d’une marche <strong>par semaine</strong>.</p>
+<p class="stepc">La réserve d’un buveur dépendant se calcule donc jusqu’à la fin de cette descente, pas jusqu’à la dernière bouteille (étape 3). Le calcul, pour 10 verres par jour : une semaine à 10, puis quatre jours à chaque marche de 9 à 1, soit 70 + 4 × 45 = <strong>250 verres sur 43 jours</strong>. C’est un plancher : une remontée ajoute sa semaine et fait passer chaque marche qui reste de quatre jours à sept. Pendant toute la descente, il boit beaucoup d’eau. La règle des clés du <span class="ref">ch. 36</span> ne veut pas dire « couper » : elle veut dire que c’est l’autre qui verse.</p>
+<p class="stepc">S’il convulse malgré tout : noter l’heure ; le coucher sur le côté, loin de ce qui cogne et du poêle ; ne pas le retenir ; rien entre les dents ; le garder sur le côté après. Ce sont les gestes du <span class="ref">ch. 28</span> (étape 13), et ils valent pour l’adulte. Plus de 5 minutes, ou une deuxième crise dans les 5 minutes : la vie est en jeu. Pendant et après une crise, il ne boit que bien éveillé (<span class="ref">ch. 35, 5</span>-D, étape 2).</p>
+<p class="step pk-d"><span class="sn">58</span><strong>Le cas qui n’a pas de solution au chalet :</strong> quelqu’un qui a déjà fait des convulsions ou vu des choses qui n’existent pas en arrêtant de boire. Pour lui, même une descente est dangereuse, et il n’y a rien pour traiter la crise si elle vient, à moins que la pharmacie ait ce qu’il faut (section 8, point 2). C’est une raison de ne pas hiverner au chalet, qui se pèse en septembre, pas en février : un critère que ce chapitre ajoute à la décision de rester ou partir (<span class="ref">ch. 2</span>).</p>
+<p class="step"><span class="sn">59</span><strong>Le tabac qui finit</strong> rend irritable <strong>2 à 4 semaines</strong>, laisse sans énergie et affamé aussi longtemps, et brise le sommeil <strong>une semaine</strong>. Chaque envie ne dure que <strong>quelques minutes</strong> : elle se laisse passer en sortant, en buvant de l’eau, en s’occupant les mains. La date où la réserve finira se dit d’avance à toute la maisonnée, pour que l’humeur de la troisième semaine soit lue comme un sevrage et non comme un caractère (étape 43).</p>
+<p class="step"><span class="sn">60</span><strong>Les fuites qui ne ressemblent pas à des fuites :</strong> le travail sans fin, le lit, l’isolement, la prise de risques (étape 35). Elles se reconnaissent à une chose : elles soulagent sur le moment et empirent à la semaine. Celle qui les voit en premier, c’est l’autre adulte ; la personne touchée est souvent la dernière à s’en rendre compte. D’où l’importance de le dire, en une phrase, au conseil de maison.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:16.4%"><col style="width:23.2%"><col style="width:21.0%"><col style="width:39.4%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Si c’est hors cible</th></tr></thead><tbody><tr><td class="c-item">Première heure après le choc</td><td>Blessures, froid, eau ; mal de tête, nausée, étourdissement chez quiconque est à l’intérieur, enfants compris</td><td>Regardées, pas demandées ; aucun mal de tête ni nausée sans cause</td><td>Mal de tête ou nausée, chez une personne ou plusieurs : dehors, section 8, point 3</td></tr><tr><td class="c-item">Crise de panique</td><td>Durée de la montée</td><td>Sommet en <strong>10 à 15 minutes</strong>, puis descente</td><td>Douleur à la poitrine qui persiste une fois la personne calmée, venue à l’effort, ou la première de sa vie : <span class="ref">ch. 35</span>, quelle que soit sa durée</td></tr><tr><td class="c-item">Premier mois après le choc</td><td>Benzodiazépine pour dormir ou se calmer après le choc</td><td><strong>Zéro</strong></td><td>Arrêter ; le traitement prescrit avant pour autre chose continue. Le sevrage d’alcool n’est pas visé (section 8, point 2)</td></tr><tr><td class="c-item">Chaque chicane</td><td>Pouls de celui qui parle</td><td>Sous <strong>100</strong> battements par minute</td><td>Mot de pause ; <strong>20 minutes au moins</strong>, à faire autre chose</td></tr><tr><td class="c-item">Chaque chicane</td><td>Les trois premières minutes</td><td>Une demande, pas un reproche</td><td>Arrêter et recommencer par la demande</td></tr><tr><td class="c-item">Chaque nuit, une fois l’insomnie installée</td><td>Temps éveillé au lit</td><td><strong>15 à 20 minutes</strong>, pas plus</td><td>Se lever, aller ailleurs, revenir quand le sommeil revient</td></tr><tr><td class="c-item">Chaque jour</td><td>Sommeil</td><td>Pas plus d’<strong>une semaine</strong> d’insomnie avec confusion</td><td>5-I, et le tour du monoxyde (<span class="ref">ch. 83</span>)</td></tr><tr><td class="c-item">Chaque jour, adulte en deuil</td><td>Tâche vraie faite ; repas avec du gras</td><td>Oui ; oui</td><td>Non deux jours de suite : 5-C, étape 19 ; section 8, point 4</td></tr><tr><td class="c-item">Un mois après le choc</td><td>Images qui reviennent</td><td>De moins en moins fréquentes</td><td>Trait au calendrier ; pèse dans la décision de rester ou de descendre (5-C, étape 18)</td></tr><tr><td class="c-item">En continu</td><td>Humeur basse sans deuil pour l’expliquer</td><td>Moins de <strong>2 semaines</strong></td><td>Seuil de la dépression : <span class="ref">ch. 36, 5</span>-E</td></tr><tr><td class="c-item">Six mois après la mort</td><td>Le deuil bouge-t-il ?</td><td>Oui, même un peu</td><td>Non : note 2 ; pèse dans la décision de rester ou de descendre (5-D, étape 29)</td></tr><tr><td class="c-item">Buveur dépendant, tous les quatre jours</td><td>Dose versée</td><td><strong>10 %</strong> de la dose de départ en moins, environ</td><td>Tremblements, sueurs : remonter, tenir <strong>1 semaine</strong>, puis une marche <strong>par semaine</strong></td></tr><tr><td class="c-item">Tabac fini</td><td>Irritabilité</td><td>S’éteint d’habitude en <strong>2 à 4 semaines</strong></td><td>Si ça dure bien au-delà, chercher une autre cause ; section 7</td></tr><tr><td class="c-item">Avril-mai</td><td>Surveillance de l’adulte qui a traversé un deuil ou une crise</td><td>Maintenue</td><td>On ne relâche pas parce que les autres vont mieux</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:35.9%"><col style="width:21.2%"><col style="width:42.9%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Mal de tête, nausée, étourdissements, chez une personne ou plusieurs, mis sur le compte du chagrin, meilleurs dehors ; un enfant mou, fatigué, de mauvais caractère</td><td><strong>Monoxyde de carbone jusqu’à preuve du contraire</strong></td><td>Section 8, point 3 : sortir, aérer, trouver la cause avant de rallumer (<span class="ref">ch. 83</span>)</td></tr><tr><td class="c-item">Douleur ou serrement à la poitrine qui persiste une fois la personne calmée, qui est venu ou revient à l’effort, ou le premier de sa vie</td><td>Se traite comme le cœur tant qu’on ne sait pas, quelle que soit sa durée</td><td><span class="ref">Ch. 35</span> ; <span class="ref">ch. 24</span>, section 8, point 1</td></tr><tr><td class="c-item">Tout le monde demande à la personne de « raconter ce qui s’est passé », encore et encore</td><td>Le réflexe qui nuit</td><td>Arrêter. Écouter qui parle ; ne faire parler personne (5-B, étape 8)</td></tr><tr><td class="c-item">Depuis la mort, un adulte travaille du matin au soir et ne s’arrête plus</td><td>Fuite par le travail</td><td>Le dire en une phrase au conseil de maison ; imposer une heure sans travail par jour ; lui retirer d’abord la scie à chaîne s’il est épuisé (<span class="ref">ch. 36</span>, point 35)</td></tr><tr><td class="c-item">Un adulte reste couché, ne mange plus, ne s’occupe plus des enfants</td><td>La réaction dépasse l’ordinaire</td><td>5-C, étape 19 ; 5-I ; <span class="ref">ch. 36</span></td></tr><tr><td class="c-item">On boit un peu plus chaque soir depuis l’événement</td><td>Fuite, et risque de la section 8, point 1</td><td>Contenant gradué, l’autre verse (5-J) ; armes verrouillées avant le soir</td></tr><tr><td class="c-item">Mains qui tremblent, sueurs, nausée quelques heures après la dernière bouteille</td><td><strong>Sevrage alcoolique</strong></td><td>Remonter à la dose sans signes s’il en reste, puis la descente de l’étape 57. S’il n’en reste plus : présence continue tant que les signes durent, et au moins trois jours, puisque le délire commence d’habitude entre 48 et 72 heures — trois jours sont un plancher, pas une fin ; rien de dangereux à portée ; de l’eau s’il est bien éveillé ; s’il convulse, les gestes de l’étape 57 ; convulsions et confusion sont des signes du <span class="ref">ch. 35</span> (5-B, étape 6). Section 8, point 2, pour la pharmacie et pour le lave-glace</td></tr><tr><td class="c-item">Chicanes pour des riens depuis que le tabac est fini</td><td>Sevrage de nicotine, <strong>2 à 4 semaines</strong></td><td>Le nommer ; marcher ; attendre la fin de la vague</td></tr><tr><td class="c-item">Sarcasme, roulement d’yeux, l’un des deux ne répond plus</td><td>Le couple suit l’ordre critique, mépris, défensive, mur</td><td>Mot de pause ; recommencer par une demande ; accepter les tentatives de réparation (5-H)</td></tr><tr><td class="c-item">Les tentatives de réparation — la blague, la main tendue — sont refusées</td><td>Le couple est en panne, pas un des deux</td><td>Conseil de maison forcé, contact extérieur (<span class="ref">ch. 36</span>) ; rotation des tâches</td></tr><tr><td class="c-item">Un adulte a peur d’un autre adulte</td><td>Ce n’est pas une chicane</td><td>Section 8, point 1. Les règles de la section 5-H ne s’appliquent pas</td></tr><tr><td class="c-item">Au printemps, la maisonnée revit et un adulte ne remonte pas, ou se calme d’un coup</td><td>Le moment où le risque est au plus haut</td><td>Question directe, règle des clés, présence (<span class="ref">ch. 36</span>)</td></tr><tr><td class="c-item">Rien ne bouge six mois après la mort</td><td>Deuil prolongé (note 2)</td><td>5-D, étape 29</td></tr><tr><td class="c-item">La journée d’un anniversaire, tout s’effondre à nouveau</td><td>Une vague, attendue</td><td>Rien à corriger. La date était au calendrier ; on allège la journée</td></tr><tr><td class="c-item">Les enfants ne parlent plus jamais de la personne morte</td><td>Ils ont compris que ça fait mal aux adultes</td><td><span class="ref">Ch. 40, 5</span>-E : en reparler, devant eux, avec les mots exacts</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">L’alcool, une chicane et une arme dans la même soirée.</strong> Trois faits mis bout à bout. L’ivresse est une cause majeure de blessures par violence et de suicide. Chez des survivants de coups de feu tirés contre eux-mêmes, six sur dix environ reliaient leur geste à une chicane avec leur partenaire ou leur famille ; dans un autre groupe, six sur dix en avaient eu une dans les 24 heures. Et un geste sur quatre suit la décision de moins de 5 minutes. Le soir où ces trois choses se trouvent dans la même pièce est celui qu’on prépare, pas le fond de février. Donc : les armes sont verrouillées <strong>avant</strong> le soir, pas pendant la chicane ; l’adulte qui boit ne garde pas les clés ; aucune chicane ne se règle après le souper (<span class="ref">ch. 36</span>, point 15). <strong>Quand un adulte a peur de l’autre</strong>, ce n’est plus un conflit à régler mais une situation de sécurité : on ne reste pas seul avec la personne, c’est l’adulte qui a peur qui garde sur lui la culasse ou la pièce mobile, et c’est lui qui s’éloigne avec les enfants, sans attendre que l’autre se calme : chez le voisin si le trajet peut se faire ce soir-là, dans le froid et le noir, avec les enfants ; sinon, il fait le signal « venez » (<span class="ref">ch. 16</span>, étape 5 ; <span class="ref">ch. 36</span>, point 7), qui fait monter le voisin dès qu’il le voit ou l’entend. Pas le signal d’absence : celui-là ne fait monter personne avant le lendemain.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Couper d’un coup l’alcool d’un buveur dépendant peut le tuer.</strong> Le buveur dépendant, c’est celui qui se sent mal quelques heures après son dernier verre — mains qui tremblent, sueurs, nausée, mal de tête —, ou qui boit beaucoup depuis longtemps. Le sevrage commence vers 6 heures après le dernier verre ; des convulsions peuvent venir entre 6 et 48 heures ; un délire commence d’habitude entre 48 et 72 heures, et il peut être mortel (note 4). Au chalet, il n’y a rien pour le traiter, sauf si la pharmacie contient une benzodiazépine : c’est la classe de médicament qui sert de base au traitement du sevrage, et l’interdit de l’étape 13, qui vise le sommeil et le calme après un choc, ne la vise pas. C’est la seule exception à la règle de ne jamais donner la médication d’ordonnance d’une autre personne (<span class="ref">ch. 35, 5</span>-D, étape 3). Elle ne va qu’à celui qui tremble et sue parce qu’il a arrêté, jamais par-dessus un verre, et jamais à celui qui a déjà convulsé ou déliré en arrêtant. Diazépam : 10 à 20 mg toutes les 6 à 12 heures le premier jour, puis 5 à 10 mg toutes les 6 à 12 heures pendant trois à cinq jours ; lorazépam : 0,5 à 1 mg toutes les 6 à 8 heures ; oxazépam : 15 à 30 mg toutes les 6 à 8 heures. Rien au-delà d’une semaine. Celui qui en prend dort trop, respire lentement, tombe ou délire si la dose est trop forte, et bien plus s’il reboit par-dessus : on ne redonne pas tant qu’il somnole, et l’autre adulte garde la boîte. L’arrêt brutal arrive dans trois situations banales : la réserve finit, la bouteille est mise sous clé par précaution, ou la personne décide d’arrêter du jour au lendemain. La réponse est la descente de l’étape 57 : environ 10 % de la dose de départ en moins tous les quatre jours, versés par l’autre adulte, et la réserve calculée jusqu’à la fin de la descente. Quelqu’un qui a déjà convulsé ou halluciné en arrêtant n’a pas de solution sûre au chalet.</p>
+<p class="pt cont0">Quand la réserve finit quand même, tout ce qui contient de l’alcool dans le chalet devient de l’alcool pour lui : lave-glace, antigel de conduite d’essence, hydrate de méthyle, combustible à réchaud en boîte, alcool à friction. Les quatre premiers contiennent souvent du méthanol, et le méthanol tue en retard : <strong>1 à 72 heures</strong> peuvent passer sans aucun signe, puis viennent somnolence, confusion, mal de tête, étourdissements et démarche qui titube — les signes de l’ivresse —, puis la vue qui se trouble<sup class="fnr" data-fn="38-5">5</sup> et la cécité, souvent pour de bon. <strong>60 à 240 mL</strong> peuvent tuer un adulte. La réponse reste la descente calculée jusqu’au bout ; et un trait de feutre au niveau du bidon, comme le compte des comprimés (<span class="ref">ch. 36</span>, section 9), dit si quelqu’un y boit.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le monoxyde de carbone se déguise en chagrin, en angoisse et en panique.</strong> Il est incolore, inodore, sans goût, et n’irrite rien : rien ne l’annonce. Ses premiers signes — maux de tête, fatigue, nausées, vomissements, étourdissements — sont aussi ceux du choc, de la crise de panique et du deuil. Une maisonnée qui vient de perdre quelqu’un attribue tout à la peine, et une maison en panne improvise son chauffage le premier soir, avec un appareil qui n’a jamais servi là. Chez l’enfant, le monoxyde a l’air de la fatigue ou du mauvais caractère, et un parent en deuil y voit le chagrin de l’enfant. Seul un avertisseur détecte ce gaz. Signes chez une personne ou plusieurs, et plus encore s’ils s’améliorent dehors : sortir tout le monde, aérer, et ne rien rallumer avant d’avoir trouvé la cause (<span class="ref">ch. 83</span>). <strong>La génératrice ne tourne jamais dans un bâtiment, un garage ni sous un auvent</strong> — c’est justement pendant les premiers jours d’un choc, à la maison en panne, qu’on la rentre pour la protéger de la neige.</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Le deuil coupe l’appétit, et un chalet sans appétit mange du maigre.</strong> Les gens en deuil oublient de manger, et celui qui cuisine sans cœur cuit ce qui est rapide : du lièvre (<em>Lepus americanus</em>), de l’orignal (<em>Alces americanus</em>) maigre, du poisson sans gras. La viande maigre seule donne le mal de caribou<sup class="fnr" data-fn="38-6">6</sup>, mortel en quelques semaines : le gras et les glucides ne sont pas un agrément, ils sont ce qui empêche la ration de tuer (<span class="ref">ch. 19</span>). L’épuisement fait sauter d’autres gestes : le gibier se cuit à <strong>74 °C à cœur</strong>, au thermomètre, même quand personne n’a la tête à ça ; on ne mange <strong>ni le foie ni les reins des cervidés</strong> — cadmium (<span class="ref">ch. 22</span>) ; et le lièvre se dépouille avec des gants étanches, parce que la tularémie entre par une main coupée (<span class="ref">ch. 48</span>).</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">Pas de cèdre dans la tisane du soir.</strong> La thuyone du thuya occidental donne des convulsions, et aucune dose sûre n’a pu être établie pour ce livre. Sapin baumier ou épinette seulement (5-G, étape 41).</p>
+</template>
+<template id="story-e">
+<p class="p0 ri"><strong class="runin">Tenir quand on est l’adulte qui reste seul avec les enfants.</strong> L’autre adulte est mort, ou il a été évacué blessé, ou il est parti chercher de l’aide et n’est pas revenu. Tout ce que le livre a monté pour deux adultes tombe d’un coup : les quarts de nuit, la règle des clés tenue par l’autre, le tiers à qui parler, la personne qui prend le relais d’une tâche ou d’un chagrin. Il reste un adulte, un enfant de 4 ans, un enfant de 6 ans, un poêle et un voisin. Ce qui suit se fait avec ça.</p>
+<h3 class="sub">Les vingt-quatre premières heures, dans l’ordre</h3>
+<p class="step"><span class="sn">1</span><strong>La chaleur.</strong> Le feu entretenu, et la nuit choisie honnêtement (<span class="ref">ch. 83</span>, étape 22) : jamais une grosse charge étouffée. Tout le reste se fait mieux dans une pièce chaude.</p>
+<p class="step"><span class="sn">2</span><strong>Les enfants.</strong> Dire, court et vrai, en mots exacts, sans personne pour se partager la phrase : « Maman est morte » — ou papa —, « moi, je reste avec vous. Ce soir, on dort tous dans la grande pièce. » Puis nommer qui fait quoi maintenant, parce que l’organigramme rassure plus que le réconfort (<span class="ref">ch. 40, 5</span>-F, étape 41). Une tâche à chacun dans l’heure.</p>
+<p class="step"><span class="sn">3</span><strong>Le corps</strong>, si c’est une mort : <span class="ref">ch. 35, 5</span>-F. Une personne retrouvée froide dans la neige n’est pas morte tant qu’elle n’a pas été réchauffée (<span class="ref">ch. 35</span>, section 2 et 5-F, étape 1). Les enfants voient le corps ou ne le voient pas, mais ils savent, et un mensonge ne tient pas dans une maison de trois personnes.</p>
+<p class="step"><span class="sn">4</span><strong>Le signal « venez » part ce soir, pas quand on sera à bout</strong> (<span class="ref">ch. 16</span>, étape 5 ; <span class="ref">ch. 36</span>, point 7) : pas le signal d’absence, qui ne ferait monter le voisin qu’une fois manqué. Un adulte seul avec des enfants est le cas pour lequel le regroupement du <span class="ref">ch. 18</span> existe. Le voisin qui sait peut venir, ou prendre les enfants une journée, ou accueillir tout le monde ; le voisin qui ne sait pas ne peut rien.</p>
+<p class="step"><span class="sn">5</span><strong>Manger soi-même</strong>, et quelque chose de gras. L’adulte qui tient la maison est la seule personne dont la ration ne sera surveillée par personne.</p>
+<p class="step"><span class="sn">6</span><strong>Aucune décision irréversible cette nuit.</strong> Rester ou partir se décide à la clarté, sur les critères du <span class="ref">ch. 2</span>. Seule exception : un danger qui ne peut pas attendre.</p>
+<h3 class="sub">Rétrécir la journée : ce qui reste et ce qui tombe</h3>
+<p class="p0">Seul, on ne fait plus tout. On choisit, et on choisit d’avance, parce qu’à la fin d’une journée seul, on choisit mal.</p>
+<table class="tspan"><colgroup><col style="width:27.5%"><col style="width:39.2%"><col style="width:33.3%"></colgroup><thead><tr><th>Ce qui reste, même à bout</th><th>Pourquoi</th><th>Ce qui tombe sans remords</th></tr></thead><tbody><tr><td class="c-item">Le feu, jamais étouffé la nuit</td><td>Le froid et le monoxyde n’attendent pas</td><td>Le rendement, les petites corvées d’entretien</td></tr><tr><td class="c-item">L’eau</td><td>Rien ne la remplace</td><td>L’eau charriée du lac : on fond la neige sur le poêle (<span class="ref">ch. 36</span>, section 9)</td></tr><tr><td class="c-item">Le gras à chaque repas</td><td>Le mal de caribou (section 8)</td><td>La variété, le pain, les repas longs</td></tr><tr><td class="c-item">74 °C au thermomètre ; les gants pour dépouiller le lièvre</td><td>La fatigue ne change rien à ce qui survit dans une viande mal cuite, ni à la tularémie qui entre par une main coupée (section 8, point 4)</td><td>—</td></tr><tr><td class="c-item">Les trois ancrages des enfants : lever, dîner, coucher (<span class="ref">ch. 40</span>, étape 2)</td><td>C’est leur seule mesure de sécurité</td><td>La plage d’école, les jeux organisés, le linge plié</td></tr><tr><td class="c-item">Le signal d’absence, matin et soir, et le sentier entretenu</td><td>C’est ce qui fait venir quelqu’un si l’adulte ne se relève pas (<span class="ref">ch. 36</span>, section 9)</td><td>Les ouvrages d’hiver, jusqu’à ce que ça aille mieux</td></tr><tr><td class="c-item">Dormir</td><td>Après 17 heures debout, on juge comme avec 0,05 d’alcool dans le sang ; après 24 heures, comme avec 0,10</td><td>Tout ce qui se fait « pendant que les enfants dorment » et qui n’est pas dormir</td></tr></tbody></table>
+<h3 class="sub">La nuit, sans quart</h3>
+<p class="li">On dort dans la même pièce que les enfants.</p>
+<p class="li">Le poêle se choisit honnêtement (<span class="ref">ch. 83</span>, étape 22) : accepter un matin froid et rallumer, ou ajouter de la masse autour du poêle, ou se lever une fois pour une petite charge vive. Jamais une grosse charge étouffée pour passer la nuit : c’est elle qui fabrique le monoxyde, et quand un seul adulte dort, l’avertisseur est le seul qui veille.</p>
+<p class="li">La sieste, si l’adulte en a besoin, se prend pendant la plage de silence des enfants, l’après-midi (<span class="ref">ch. 40</span>, étape 24) : 15 à 30 minutes, 7 à 9 heures après le lever ; si les nuits sont celles de l’étape 39, 15 à 20 minutes au plus, avant 15 h. C’est le seul moment de la journée où les deux horaires peuvent coïncider.</p>
+<p class="li">Les travaux qui blessent se font le matin, reposé, jamais le soir : la fatigue d’une journée seul avec deux enfants s’additionne heure par heure, et une nuit écourtée la fait partir de plus haut le lendemain.</p>
+<h3 class="sub">Ce que les enfants savent faire si l’adulte ne se relève pas</h3>
+<p class="p0">C’est la partie qui se prépare en septembre (5-A, étape 4) et qui se répète chaque mois comme un jeu, sans dramatiser, trajet jusqu’à l’abri compris. Ce n’est pas faire de l’enfant de 6 ans un soignant (<span class="ref">ch. 40</span>, étape 44) : c’est lui donner trois gestes, dans cet ordre.</p>
+<p class="step pk-d"><span class="sn">1</span><strong>Si l’avertisseur crie, ou s’il y a de la fumée ou du feu : on sort tout de suite.</strong> Avant tout le reste, sans essayer de réveiller l’adulte et sans s’habiller : ce qu’on a sur le dos, les sacs de couchage dans les bras, et on va à l’abri (plus bas). Deux minutes à chercher des tuques dans le monoxyde se paient en perte de conscience (<span class="ref">ch. 83</span>, section 8) : on s’habille à l’abri. Pour l’avertisseur, la porte reste grande ouverte derrière soi, et l’air entre jusqu’à l’adulte ; pour le feu, elle se ferme (<span class="ref">ch. 82, 5</span>-F).</p>
+<p class="step"><span class="sn">2</span><strong>Réveiller</strong> : secouer l’adulte et crier son nom. S’il ne répond pas, on ne réessaie pas dix fois : on passe au geste suivant.</p>
+<p class="step"><span class="sn">3</span><strong>Rester au chaud, dedans, ensemble</strong> : les deux habits de neige, puis les deux enfants dans les sacs de couchage rangés à leur portée (section 4), l’un contre l’autre. On ne touche pas au poêle. On mange ce qui est dans la boîte à hauteur d’enfant — du pemmican (<span class="ref">ch. 72</span>), des biscuits, rien à cuire — et on boit à la gourde qui dort dans le sac. Dehors, c’est le froid qui tue : on ne sort que pour le geste 1.</p>
+<p class="p0 ri"><strong class="runin">L’abri.</strong> Il se choisit en septembre et se montre aux enfants : un bâtiment fermé, hors du vent — la remise, le bûcher fermé, le hangar —, assez loin du chalet pour qu’un feu ne l’atteigne pas et assez près pour y arriver pieds nus, au point de rassemblement dehors (<span class="ref">ch. 18</span>, étape 12 ; <span class="ref">ch. 82, 5</span>-F). Dedans : la caisse d’évacuation du <span class="ref">ch. 82</span> — bottes, habits de neige, tuques, mitaines, sacs de couchage, une lampe — ; de quoi s’asseoir hors du plancher ou de la neige nue, parce qu’un corps posé sur la neige perd sa chaleur beaucoup plus vite que dans l’air (<span class="ref">ch. 82</span>, section 9) : un banc, un lit de branches de sapin, un matelas de sol ; et un sifflet. Là, les enfants s’habillent, se mettent à deux dans les sacs et font ce qu’ils savent déjà pour l’enfant perdu : <em>s’asseoir, souffler, rester</em> (<span class="ref">ch. 39</span>, étape 5). Trois coups de sifflet, une pause, trois coups (<span class="ref">ch. 16</span>, étape 5), puis on se tait pour écouter.</p>
+<p class="p0 ri"><strong class="runin">On ne rentre pas au chalet : c’est un adulte qui vient chercher les enfants.</strong> Après une alarme, le chalet n’est sûr que quand quelqu’un a lu l’avertisseur, et un enfant ne sait pas le lire (<span class="ref">ch. 83</span>, section 8). Ce qui fait venir quelqu’un : le sifflet, si le voisin est à portée d’oreille, et le signal d’absence, qui manquera au prochain rendez-vous (plus bas). Personne ne peut dire combien de temps deux enfants de 4 et 6 ans tiennent là à −35 °C : un petit corps a beaucoup de peau pour peu de masse et se refroidit plus vite qu’un adulte (<span class="ref">ch. 39</span>, section 3). Ce qui les garde, c’est le bâtiment fermé, les deux ensemble dans les sacs, le corps levé de la neige, et une attente aussi courte que possible : c’est tout le travail du signal réglé plus bas.</p>
+<p>Le reste, c’est le voisin qui le fait, et c’est pour ça que le signal d’absence est réglé autrement.</p>
+<h3 class="sub">Le signal, réglé pour un adulte seul</h3>
+<p class="p0">Il y a deux signaux, et ils ne font pas le même travail. Le signal « venez » (section 4) se fait quand on peut encore le faire, et fait monter le voisin dès qu’il le voit ou l’entend. Le signal d’absence couvre le cas où plus personne n’est en état de rien faire : c’est son absence qui parle. Le <span class="ref">ch. 36</span> règle ce signal d’absence pour deux adultes : la lumière qui manque deux soirs de suite fait monter le voisin. Pour un adulte seul avec deux jeunes enfants, <strong>un seul signal manqué suffit</strong>, parce qu’un adulte absent au signal veut dire deux enfants seuls. Si le voisin voit la fenêtre de chez lui, le signal se fait <strong>deux fois par jour</strong>, matin et soir : le temps le plus long que les enfants pourraient passer seuls devient celui qui sépare deux signaux, plus le trajet du voisin. Et le sentier se tape une fois par semaine même sans raison d’y aller (<span class="ref">ch. 36</span>, section 9) : c’est lui qui rend ce trajet court.</p>
+<h3 class="sub">Le chagrin de l’adulte, devant et derrière les enfants</h3>
+<p class="li"><strong>Pleurer devant eux n’est pas un échec, à condition de dire ce que c’est</strong> : « Je pleure parce que maman me manque. Ce n’est pas de ta faute. Je vais continuer à m’occuper de vous. » Un enfant lit le visage de l’adulte avant tout le reste (<span class="ref">ch. 40</span>) ; un chagrin nommé lui fait moins peur qu’un chagrin caché qu’il devine. Et les enfants aussi ont le droit d’être tristes, sans qu’on attende d’eux qu’ils soient forts.</p>
+<p class="li"><strong>Ce qui ne descend pas jusqu’à eux</strong> : les peurs de l’adulte sur la survie, les décisions à prendre (<span class="ref">ch. 40</span>, étape 49), les confidences. Un enfant de 6 ans à qui l’on confie ses angoisses devient le soutien de l’adulte, et c’est une charge hors de sa portée qui laisse des traces (<span class="ref">ch. 40</span>, étape 44).</p>
+<p class="li"><strong>Le chagrin de l’adulte vient souvent la nuit,</strong> quand les enfants dorment et que plus rien n’occupe les mains. C’est là que l’étape 39 s’applique : 15 à 20 minutes, puis se lever, s’asseoir près du poêle, écrire une lettre qui partira au printemps (<span class="ref">ch. 36</span>, point 21), revenir quand le sommeil revient.</p>
+<p class="li"><strong>Les anniversaires au calendrier,</strong> pour alléger d’avance les journées qui vont peser.</p>
+<h3 class="sub">Le travail qui blesse, fait seul</h3>
+<p class="p0">La règle du groupe — jamais de bûchage seul (<span class="ref">ch. 16</span>, étape 18) — ne peut pas tenir ; son mécanisme, lui, tient : quelqu’un doit savoir où l’on est et quand l’on revient. Seul, un adulte blessé laisse deux enfants seuls, et c’est ce qui décide de tout le reste :</p>
+<p class="li">on brûle d’abord le bois fendu à l’automne, et on ne bûche que près du chalet, à portée de voix, de jour et reposé ;</p>
+<p class="li">le trou dans la glace se fait au plus près du chalet, sur un chemin sondé (<span class="ref">ch. 58</span>) ; on ne traverse plus de glace douteuse, on ne part plus loin en motoneige, on ne chasse plus hors de vue du sentier ;</p>
+<p class="li">l’enfant de 6 ans sait où est l’adulte pendant ces travaux, et que si l’adulte n’est pas revenu au repas suivant, on applique les gestes 3 et, s’il le faut, 1 — rester au chaud dedans, et sortir seulement pour l’avertisseur, la fumée ou le feu —, et le signal d’absence manquera ;</p>
+<p class="li">on porte moins lourd et on fait plus de voyages : une entorse, seul, ce sont des jours sans eau ni bois.</p>
+<h3 class="sub">Mettre du délai entre soi et l’arme</h3>
+<p class="p0">L’adulte seul est aussi celui qui peut, un soir, avoir des idées noires, et il n’y a plus personne pour garder la clé. Ce qui reste de la règle, c’est la distance et le temps. Le <span class="ref">ch. 36</span> (section 9) envoie les armes chez le voisin et, s’il n’y a personne où les porter, garde la culasse ou la pièce mobile sur soi et met le reste dans une cache. Pour l’adulte seul, ce chapitre inverse la règle, parce qu’une pièce gardée sur soi ne met aucun délai entre soi et l’arme : c’est la culasse ou la pièce mobile qui va <strong>dans une boîte enfouie sous la neige, loin du sentier</strong>, ou <strong>chez le voisin</strong> avec les armes. Une arme qui ne se défait pas d’un geste va entière chez le voisin ou dans la cache. Un geste sur quatre suit la décision de moins de 5 minutes ; une pièce enfouie ne se récupère pas dans ce temps-là. Si la chasse est nécessaire, la pièce revient pour la chasse et repart après. Les comprimés de la pharmacie se comptent au feutre sur le contenant (<span class="ref">ch. 36</span>, section 9).</p>
+<p>Le plan de la prochaine fois (étape 54) se fait aussi pour soi, seul, pendant une bonne journée : ses signes à soi, ce qu’on fait seul pour laisser passer vingt minutes, où aller être avec du monde, qui vient, ce qui s’éloigne. Et la septième question, qui n’est pas facultative ici : les deux raisons de rester, qui dorment dans la même pièce.</p>
+<h3 class="sub">Partir ou rester, seul</h3>
+<p class="p0">Pas le soir même, pas en plein bouleversement, et jamais sur l’humeur : sur les critères du <span class="ref">ch. 2</span>, à la clarté, avec une date écrite au calendrier. Trois voies réelles : se regrouper avec le voisin (<span class="ref">ch. 18</span>, qui est écrit pour ce cas), descendre à la maison du village où il y a d’autres adultes, ou rester en rétrécissant tout comme plus haut. Rester seul tout un hiver avec deux enfants de 4 et 6 ans n’est pas impossible, mais c’est la voie qui laisse le moins de marge, et elle se choisit en le sachant.</p>
+<h3 class="sub">Ce qu’on perd, et ce qui ne se remplace pas</h3>
+<p class="li"><strong>La deuxième paire de mains et la deuxième paire d’yeux la nuit.</strong> Rien ne les remplace. On coupe tout ce qui demandait deux personnes, et on ne fait pas semblant du contraire.</p>
+<p class="li"><strong>Le tiers.</strong> Personne dans la maison n’est hors du chagrin ni hors des décisions. Le contact de la semaine avec le voisin (<span class="ref">ch. 36</span>, point 20) devient la seule conversation d’adulte : il ne se saute pas.</p>
+<p class="li"><strong>L’autre parent, pour les enfants.</strong> La routine les tient ; elle ne le remplace pas. C’est une raison de plus de ne pas rester seul tout l’hiver si une autre voie existe.</p>
+<p class="li"><strong>L’avertisseur de monoxyde de carbone.</strong> Quand un seul adulte dort, il est le seul qui veille. Rien de fabricable ne le remplace.</p>
+<p class="li"><strong>La marge.</strong> À deux, une erreur se rattrape par l’autre. Seul, chaque erreur se paie par les enfants, et c’est ce qui justifie de rétrécir la journée avant d’y être forcé.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="28-1"><span class="fnn">1</span>Chez l’enfant couché calme, torse nu : à chaque inspiration, le bas de la cage thoracique se creuse vers l’intérieur pendant que le haut du ventre se soulève. Ça compte seulement si c’est permanent et bien visible au repos ; un creux qui paraît quand l’enfant pleure ou mange, ou la peau qui se creuse seulement entre les côtes ou au-dessus de la clavicule, ne suffit pas. Chez l’adulte, c’est la peau qui se creuse entre les côtes ou au-dessus des clavicules.</p>
+<p class="fn" data-fn="28-2"><span class="fnn">2</span>Les narines s’ouvrent grand à chaque inspiration, comme chez quelqu’un qui vient de courir, alors que la personne est couchée au repos.</p>
+<p class="fn" data-fn="28-3"><span class="fnn">3</span>Un son court, répété, comme un petit grognement ou une plainte, à chaque expiration : l’enfant ferme à moitié sa gorge pour garder de l’air dans ses poumons.</p>
+<p class="fn" data-fn="28-4"><span class="fnn">4</span>Un son rauque et aigu qu’on entend quand la personne <strong>inspire</strong>, pas quand elle expire. Au repos, il veut dire que le passage de l’air dans la gorge est en train de se fermer.</p>
+<p class="fn" data-fn="28-5"><span class="fnn">5</span>Presser fermement le flanc d’un verre transparent sur la tache et regarder à travers. Une tache qui pâlit et disparaît sous la pression est une rougeur ordinaire. <strong>Une tache qui reste visible à travers le verre</strong> est du sang sorti sous la peau. Elle commence souvent en petits points rouges comme des piqûres d’épingle, puis s’étend en taches rouges ou violettes. Sur une peau foncée, on regarde les zones pâles : paumes, plantes des pieds, palais, blanc des yeux, intérieur des paupières. Tous les malades graves n’ont pas de taches : leur absence ne rassure pas.</p>
+<p class="fn" data-fn="28-6"><span class="fnn">6</span>La personne couchée ou assise, on lui demande d’amener le menton sur la poitrine, ou on soulève doucement sa tête pour le faire. Une nuque raide résiste : le geste est très douloureux, parfois impossible, alors que tourner la tête de côté l’est beaucoup moins. Le signe se cherche chez l’enfant plus vieux et l’adulte ; le tout-petit peut ne pas l’avoir.</p>
+<p class="fn" data-fn="28-7"><span class="fnn">7</span>Le bleu ou le gris se voit d’abord aux lèvres, à la langue, aux gencives et sous les ongles ; sur une peau foncée, aux paumes, aux lèvres, à la langue, aux gencives et autour des yeux. Il apparaît tard, quand il manque déjà beaucoup d’oxygène.</p>
+<p class="fn" data-fn="28-8"><span class="fnn">8</span>Une peau tachetée de violet, de gris et de pâle, comme du marbre ; sur une peau foncée, elle se voit mieux aux paumes et à la plante des pieds. Avec la fièvre et des mains et des pieds froids, c’est la circulation qui se ferme à la peau pour garder le sang au centre du corps (<span class="ref">ch. 26</span>, section 8).</p>
+<p class="fn" data-fn="28-9"><span class="fnn">9</span>Une fièvre qui dure au moins 5 jours et ne cède pas aux médicaments, le plus souvent chez un enfant de moins de 5 ans, avec plusieurs de ces signes : les yeux rouges <strong>sans écoulement</strong>, apparus au bout d’un ou deux jours ; les lèvres rouges, sèches et fendues, la langue rouge comme une fraise ; les paumes et la plante des pieds rouges ou violacées, les mains et les pieds enflés ; une éruption de taches rouges sur le tronc ; des ganglions enflés au cou. Vers le 10e jour, la peau du bout des doigts pèle.</p>
+<p class="fn" data-fn="28-10"><span class="fnn">10</span>Derrière l’oreille, sur l’os qu’on sent en arrière du pavillon : une bosse rouge, chaude, douloureuse au toucher, qui pousse le pavillon vers l’avant et le décolle de la tête. On compare avec l’autre côté, en regardant l’enfant de face puis de derrière. L’enfant est fatigué, irritable, entend moins de ce côté.</p>
+<p class="fn" data-fn="28-11"><span class="fnn">11</span>Des gestes brusques, sans but, que l’enfant ne contrôle pas, des mains d’abord, puis des pieds et du visage, avec des grimaces ; ils disparaissent pendant le sommeil. Dans les cas légers, l’enfant a seulement l’air maladroit et peine à s’habiller et à manger. Ils peuvent n’apparaître qu’une fois tous les autres signes disparus.</p>
+<p class="fn" data-fn="28-12"><span class="fnn">12</span>L’enfant a une forte fièvre apparue en moins d’une journée, il est anxieux, assis, penché en avant, la bouche ouverte, la salive qui coule parce qu’avaler fait trop mal. Il ne tousse pas et sa voix n’est pas rauque, ce qui le distingue du croup, où la toux aboie. Il refuse de se coucher : c’est sa façon de garder l’air ouvert.</p>
+<p class="fn" data-fn="28-13"><span class="fnn">13</span>Un mal de gorge qui s’aggrave au lieu de passer, plus fort d’un côté ; la voix étouffée, comme avec une patate chaude dans la bouche ; la bouche qui n’ouvre plus qu’à moitié parce que les mâchoires se contractent ; à la lampe, un côté du fond de la gorge bombe et pousse la luette — le petit bout de chair qui pend au milieu — vers l’autre côté.</p>
+<p class="fn" data-fn="28-14"><span class="fnn">14</span>On demande à la personne de suivre un doigt des yeux, à gauche, à droite, en haut, en bas. Dans l’infection de l’orbite, bouger l’œil fait mal, un œil suit moins bien que l’autre, elle voit le doigt en double ; vu de profil ou d’en haut, l’œil malade dépasse l’autre.</p>
+<p class="fn" data-fn="28-15"><span class="fnn">15</span>Aucune urine depuis plus de 8 heures ; pas de larmes quand il pleure ; les yeux enfoncés ; la bouche et la langue sèches ; une soif extrême, ou au contraire un enfant qui ne veut plus boire ; une respiration plus rapide ; étourdi ou confus ; une peau froide et bleutée qui, pincée doucement entre deux doigts, ne reprend pas sa place tout de suite.</p>
+<p class="fn" data-fn="28-16"><span class="fnn">16</span>Un vomi vert franc, ou jaune-vert comme de l’herbe écrasée : c’est de la bile. Chez un enfant, c’est un signe qui ne se discute pas, même si le reste a l’air d’une gastro ordinaire.</p>
+<p class="fn" data-fn="28-17"><span class="fnn">17</span>Des traînées rouges, chaudes et douloureuses partent de l’infection et remontent le long du bras ou de la jambe, vers l’aisselle ou l’aine, souvent avec fièvre et frissons : l’infection gagne les vaisseaux lymphatiques (<span class="ref">ch. 26</span>).</p>
+<p class="fn" data-fn="28-18"><span class="fnn">18</span>La peau craque sous le doigt quand on appuie, comme s’il y avait des bulles dessous : c’est du gaz que l’infection fabrique. Elle peut aussi virer au bronze, au violet ou au noir et se couvrir de cloques au liquide brun. La douleur est bien plus forte que ce que la peau laisse voir, puis la zone devient insensible (<span class="ref">ch. 26</span>).</p>
+<p class="fn" data-fn="28-19"><span class="fnn">19</span>Le triangle qui va des coins de la bouche jusqu’à la racine du nez, entre les yeux : le nez, la lèvre du haut, les ailes du nez, le creux à côté du nez. Les veines de cette zone se vident vers une grosse veine à la base du crâne, derrière les yeux.</p>
+<p class="fn" data-fn="37-1"><span class="fnn">1</span>Une douleur d’angine stable vient à un effort connu, toujours le même, reste courte et passe au repos. Celle qui interdit le sauna est prolongée et vient d’ordinaire au repos. Elle peut annoncer un infarctus : ce signe veut dire que la vie est en jeu, et la chaleur n’a rien à y faire.</p>
+<p class="fn" data-fn="37-2"><span class="fnn">2</span>Dans les premières minutes d’un arrêt du cœur, la personne inconsciente fait souvent encore des bouffées : des halètements bruyants, comme un ronflement, de plus en plus espacés, la bouche qui s’ouvre comme celle d’un poisson sorti de l’eau. Ce n’est pas une respiration, c’est le signe de l’arrêt.</p>
+<p class="fn" data-fn="38-1"><span class="fnn">1</span>On revit l’événement comme s’il recommençait : on revoit, on entend, parfois on sent la scène, et le corps réagit comme sur le moment — sursaut, cœur qui cogne, sueurs. Ça peut être assez réel pour faire croire qu’on hallucine ou qu’on devient fou. Ce n’est ni l’un ni l’autre : c’est une réaction ordinaire au stress.</p>
+<p class="fn" data-fn="38-2"><span class="fnn">2</span>La personne pense sans arrêt à la personne morte, s’ennuie d’elle au point d’avoir mal, reste en colère contre la mort, s’isole, désespère, et n’arrive plus à ressentir quoi que ce soit de bon ni à reprendre ses activités. Elle peut même ressentir dans son corps les malaises que la personne morte avait à la fin de sa maladie. Ce qui distingue ce deuil-là, c’est que rien ne change d’un mois à l’autre.</p>
+<p class="fn" data-fn="38-3"><span class="fnn">3</span>Les paroles qui alertent : « je veux en finir », « je vais me tuer », « vous seriez tellement mieux sans moi », « je suis inutile », « j’ai tout raté dans ma vie », « je serais bien mieux mort », « la vie ne vaut pas la peine d’être vécue ». Les comportements : s’isoler ; mettre de l’ordre dans ses affaires ; donner des objets personnels ; s’intéresser aux moyens de s’enlever la vie ; boire ou prendre des médicaments de façon inhabituelle ; être agité ou sans énergie ; écrire un testament ou un message d’adieu ; mal dormir, mal manger ; négliger son apparence et son hygiène ; et surtout, <strong>un regain d’énergie soudain après une période noire</strong>, que l’entourage prend pour une guérison.</p>
+<p class="fn" data-fn="38-4"><span class="fnn">4</span>Environ 6 heures après le dernier verre : les mains tremblent, on sue, on a la nausée, mal à la tête. Entre 6 et 48 heures, des convulsions peuvent survenir — la personne tombe, se raidit, puis ses membres se secouent. Entre 12 et 24 heures, certains voient des choses qui n’existent pas. D’habitude entre 48 et 72 heures commence le délire, qui peut tuer : confusion croissante, angoisse, sueurs abondantes, cauchemars, visions qui terrifient, impression que le plancher bouge ou que les murs tombent.</p>
+<p class="fn" data-fn="38-5"><span class="fnn">5</span>La vue devient floue, la lumière fait mal aux yeux ; on voit comme à travers une brume ou une peau posée sur l’œil, comme dans une tempête de neige, ou des points qui dansent et des éclairs. Puis la vue baisse, en partie ou au complet. Les pupilles restent grandes même à la lumière.</p>
+<p class="fn" data-fn="38-6"><span class="fnn">6</span>Nausée et diarrhée chez quelqu’un qui mange pourtant de la viande maigre à sa faim, avec des repas de plus en plus gros, une faim qui revient au bout de chacun, un ventre tendu et une agitation sans cause. Seul le gras arrête la diarrhée.</p>
+</template>
+<script type="application/json" id="meta">{"num": "38", "title": "Le deuil, le choc et la peur des adultes", "tome": "Tome 2 · Le corps", "tnum": 2, "tfond": "#5C1A15", "tencre": "#F3ECE5", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

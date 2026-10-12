@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>81 — La table aliment → méthode — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"81"}
+</style>
+</head>
+<body class="vA vB vC t4 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 4 · De la bête au garde-manger</span><span>Chapitre</span></div><div class="open-title"><div class="num">81</div><h1>La table aliment → méthode</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"></ol></div><p class="lieu-note">Le congélateur à −18 °C est à la maison, sur le réseau. Le sel, le fumoir, le froid de dehors, le caveau et le territoire sont au chalet.</p></header></template>
+<template id="story-main">
+<h2 class="sec"><span class="t">Les méthodes</span></h2>
+<table class="tspan"><colgroup><col style="width:9.8%"><col style="width:40.7%"><col style="width:30.7%"><col style="width:11.6%"><col style="width:7.3%"></colgroup><thead><tr><th>Méthode</th><th>Ce qui l’arrête en premier</th><th>Ce qu’elle rend</th><th>Où</th><th>Ch.</th></tr></thead><tbody><tr><td class="c-item"><strong>Frais</strong></td><td>0 à 4 °C jour et nuit. Poisson : sous glace, 4 °C à −1 °C dans la chair</td><td>Viande : quelques jours. Poisson : moins, et aucune durée n’est publiée</td><td>Les deux</td><td>66, 75</td></tr><tr><td class="c-item"><strong>Froid naturel</strong></td><td>L’air, jugé au <strong>maximum</strong> du thermomètre mini-max, jamais à la moyenne. Débiter et emballer <strong>avant</strong> le gel</td><td>Maximum à −18 °C ou moins : la saison. De −18 à 0 °C : des semaines</td><td>Chalet</td><td>73</td></tr><tr><td class="c-item"><strong>Congélateur</strong></td><td>Le courant. En panne, porte fermée : 48 h plein, 24 h à moitié</td><td>La saison</td><td>Maison</td><td>74</td></tr><tr><td class="c-item"><strong>Sel à sec</strong></td><td>Sel à 6 % du poids de la viande ; chambre de 1,7 à 7,3 °C, 40 jours au moins, jamais moins de 4,4 jours par kilo de pièce ; au-dessus de 15,6 °C, on jette</td><td>Des semaines au froid ; des mois sans froid une fois séché à fond, ce que le chalet ne mesure pas</td><td>Chalet, novembre à avril</td><td>67, 68</td></tr><tr><td class="c-item"><strong>Saumure</strong></td><td>0 à 4 °C du premier au dernier jour</td><td>Une pièce <strong>crue</strong>, salée à cœur, gardée au froid, puis cuite</td><td>Chalet</td><td>69</td></tr><tr><td class="c-item"><strong>Fumage à froid</strong></td><td>Pièce <strong>déjà salée</strong> ; du froid le jour même</td><td>Rien de plus que le sel. Poisson : <strong>sous 3 °C</strong>, ou congelé ; un frigo à 4 °C ne convient pas</td><td>Chalet, fin d’automne, début de printemps</td><td>70, 77</td></tr><tr><td class="c-item"><strong>Fumage à chaud</strong></td><td>Le cœur à la sonde : 74 °C gibier, 70 °C poisson. Le cœur ne dépasse jamais l’air de la chambre, et 60 °C ne fait que sortir de la zone de danger. Froid en aval</td><td>Un aliment <strong>cuit</strong>, gardé comme un reste. Poisson : 4 °C ou moins, 14 jours au plus, dans ce qui respire</td><td>Les deux</td><td>71, 77</td></tr><tr><td class="c-item"><strong>Séchage</strong></td><td>Maigre, lanières de 6 mm ou moins ; palier à 74 °C à cœur (gibier), avant ou après ; séchoir à 60 °C</td><td>Deux semaines à la pièce en contenant fermé</td><td>Les deux</td><td>71</td></tr><tr><td class="c-item"><strong>Pemmican, gras fondu</strong></td><td>Le gras disponible</td><td>Sans froid, jusqu’au rancissement ; durée non chiffrée</td><td>Chalet</td><td>72</td></tr><tr><td class="c-item"><strong>Conserve</strong></td><td>pH 4,6 ou moins<sup class="fnr" data-fn="81-2">2</sup> : eau bouillante. Au-dessus : autoclave, 116 °C sous 70 kPa, <strong>aucune variante</strong></td><td>Environ un an</td><td>Autoclave à la maison ; eau bouillante partout</td><td>78</td></tr><tr><td class="c-item"><strong>Lactofermentation</strong></td><td>Légume seulement ; 18 à 22 °C au départ</td><td>Plusieurs mois au froid, cru</td><td>Chalet</td><td>80</td></tr><tr><td class="c-item"><strong>Caveau</strong></td><td>Noir, 0 °C sans jamais descendre dessous, 98 à 100 % d’humidité ; ventilé avant d’y descendre</td><td>Des mois, le légume vivant</td><td>Chalet</td><td>79</td></tr></tbody></table>
+<p class="p0">Le sel, la balance, la sonde, le mini-max, l’autoclave et les couvercles : chapitre 00b.</p>
+<h2 class="sec"><span class="t">Gibier</span></h2>
+<table class="tspan"><colgroup><col style="width:12.4%"><col style="width:20.3%"><col style="width:23.7%"><col style="width:39.3%"><col style="width:4.4%"></colgroup><thead><tr><th>Aliment</th><th>Avant qu’il soit trop tard</th><th>Il va à</th><th>Jamais</th><th>Ch.</th></tr></thead><tbody><tr><td class="c-item"><strong>Orignal</strong> (<em>Alces americanus</em>)</td><td>Vider tout de suite. Sonde à cœur de cuisse ; si ça ne descend pas, fractionner</td><td>Intérieur de ronde : sel à sec, séchage. Extérieur de ronde paré, gros chef de l’épaule : sel à sec. Noix de ronde : séchage en petits morceaux. Longe : frais, congélation. Filet : premiers jours ; hampe, onglet : tout de suite</td><td>Rincer la carcasse. Empiler des quartiers chauds. Saler la pointe de surlonge entière</td><td>61, 62, 68</td></tr><tr><td class="c-item">— poitrine, langue, côtes, collier, jarrets</td><td>—</td><td>Poitrine, langue : saumure. Côtes : fumage à chaud. Collier, jarrets, parures : conserve, bouillon, haché cuit</td><td>Haché séché ou salé à sec. Séchage d’un morceau gras. Le trajet de la balle au haché ou au bouillon : paré de l’entrée à la sortie et jeté, le plomb s’éparpille autour du trou</td><td>62, 69, 71, 78</td></tr><tr><td class="c-item">— gras, moelle</td><td>Nappe avant qu’elle gèle sur la peau ; moelle à la découpe ; fondu en quelques jours</td><td>Fonte, pemmican</td><td>Jeter le gras sain : on pare le rance</td><td>62, 66, 72</td></tr><tr><td class="c-item">— abats</td><td>Avant les quartiers : les premiers jours, sinon congelés. Sang : cuit aussitôt ; en attendant, sous 3 °C. Cœur et langue tiennent plus : ce sont des muscles</td><td>Frais ; congelés en portions, jamais recongelés ; sel : langue et cœur</td><td><strong>Foie et reins de cervidés</strong> (cadmium). Cerveau, moelle épinière, ganglions : le prion ne se détruit pas à la cuisson</td><td>22</td></tr><tr><td class="c-item"><strong>Ours noir</strong> (<em>Ursus americanus</em>)</td><td>Dépouiller dès l’abri : le gras isole. Gras cru à 0-4 °C jusqu’à la fonte</td><td>Conserve à l’autoclave ; congélation ; confit cuit d’abord, à 0-4 °C ; fumage à chaud ; sel sur viande cuite. Paquet marqué OURS</td><td><strong>Rien sous 74 °C</strong> : trichinellose, que ni le sel, ni le fumage, ni le gel domestique ne détruisent. Viande séchée ou en pemmican</td><td>52, 68, 71, 72</td></tr><tr><td class="c-item"><strong>Phoque</strong></td><td>Lard enlevé tôt ; fondu le jour même, ou le lendemain s’il est au froid</td><td>Frais ; congélation ; fumage à chaud ; sel sur viande cuite. Huile au froid, au noir</td><td><strong>Rien sous 74 °C</strong> : trichinellose, que ni le sel, ni le fumage, ni le gel ne détruisent. Bête échouée, malade ou qui se laisse approcher : on n’y touche pas, l’influenza aviaire se prend par les mains et les yeux. Rien de fermé à température douce, lard compris : botulisme. Conserve maison, séchage. Viande vieillie : type E, elle vieillit au-dessus de 3 °C et ne s’acidifie jamais. Foie : vitamine A, que la cuisson ne détruit pas ; jamais aux enfants, pas un aliment ordinaire pour l’adulte</td><td>56, 68, 80</td></tr><tr><td class="c-item"><strong>Lièvre d’Amérique</strong> (<em>Lepus americanus</em>)</td><td>Suspendu à l’air, jamais en tas</td><td>Frais ; congélation ; autoclave ; cuit <strong>puis</strong> séché ; os au bouillon</td><td><strong>Mains nues</strong> : tularémie, que le gel ne tue pas. Points blancs de 2 mm ou plus sur le foie, la rate ou les poumons : on ne mange pas, on ne pare pas autour. Lièvre faible qui se laisse approcher, même gras. Séché cru. Lièvre seul, des semaines : mal de caribou</td><td>48, 78</td></tr><tr><td class="c-item"><strong>Castor</strong> (<em>Castor canadensis</em>)</td><td>Vider avant qu’il gèle dur, sinon ramener et dégeler au frais : gelé, il ne se vide plus. Mort depuis un temps inconnu : on ne mange pas</td><td>Frais ; congélation ; saumure ; fumage à chaud ; autoclave. Queue : fonte</td><td>Mains nues : tularémie, par une gerçure. Sous 74 °C : pas de version saignante</td><td>50, 69, 78</td></tr><tr><td class="c-item"><strong>Porc-épic</strong> (<em>Erethizon dorsatum</em>), <strong>rat musqué</strong> (<em>Ondatra zibethicus</em>)</td><td>Rat musqué : glandes sorties en premier</td><td>Frais, congélation ; gras : fonte</td><td>Mains nues : tularémie. Porc-épic : la rage aussi ; sain, il ne fuit déjà pas, et mort, il se présume porteur</td><td>51, 53</td></tr><tr><td class="c-item"><strong>Gélinotte huppée</strong> (<em>Bonasa umbellus</em>), <strong>tétras du Canada</strong> (<em>Canachites canadensis</em>)</td><td>Vider dans l’heure</td><td>Frais quelques jours ; congélation ; confit à 0-4 °C ; autoclave ; bouillon réduit</td><td>Mains nues : tularémie. Servi aux enfants sans avoir palpé chaque trajet de plomb : les éclats se mangent. Oiseau au sol, plumage gonflé, qui ne suit rien des yeux : on n’y touche pas ; le tétras qui regarde d’une branche, tête haute, est normal. Sel à sec, fumage à froid : trop mince</td><td>49, 78</td></tr><tr><td class="c-item"><strong>Outarde</strong> (bernache du Canada, <em>Branta canadensis</em>), <strong>canards</strong></td><td>Vider dans les minutes ; jamais entassés chauds dans un sac</td><td>Frais ; congélation ; saumure ; fumage à chaud ; gras : fonte</td><td>Plomb : ses éclats restent dans la chair et se mangent. Oiseau qui se laisse approcher : on n’y touche pas, ça se prend par les mains, au plumage. Confit hors du froid</td><td>54</td></tr></tbody></table>
+<h2 class="sec"><span class="t">Poisson</span></h2>
+<table class="tspan"><colgroup><col style="width:18.2%"><col style="width:21.1%"><col style="width:18.3%"><col style="width:37.5%"><col style="width:4.9%"></colgroup><thead><tr><th>Aliment</th><th>Avant qu’il soit trop tard</th><th>Il va à</th><th>Jamais</th><th>Ch.</th></tr></thead><tbody><tr><td class="c-item"><strong>Omble de fontaine</strong> (truite mouchetée, <em>Salvelinus fontinalis</em>), <strong>touladi</strong> (truite grise, <em>Salvelinus namaycush</em>)</td><td>Sur glace aussitôt, <strong>4 °C à −1 °C</strong> dans la chair derrière la tête. Vider compte plus que laver</td><td>Frais ; congélation ; sel, puis froid et cuisson ; fumage à chaud ; autoclave</td><td><strong>Sac ou sous-vide sur poisson non gelé</strong> : botulisme de type E, toxine dès 3 °C, donc au frigo. <strong>Cru, gravlax, séché, fumé à froid mangé tel quel</strong> sans −20 °C tenus 7 jours dans le poisson. Poisson fumé en pot. Touladi : mercure, qui s’accumule ; 2 repas de 230 g avant cuisson par mois ; pour un enfant, de temps en temps seulement : l’omble de fontaine, à 8 repas par mois, est le poisson des enfants</td><td>75, 76, 77</td></tr><tr><td class="c-item"><strong>Sous la glace</strong></td><td>Vider <strong>avant</strong> qu’il gèle</td><td>Gelé dehors en une couche, gardé au même endroit, côté nord</td><td>Rentrer et ressortir. Compter ce gel comme antiparasitaire</td><td>58, 75</td></tr><tr><td class="c-item"><strong>Hareng</strong> (<em>Clupea harengus</em>), <strong>maquereau</strong> (<em>Scomber scombrus</em>), <strong>capelan</strong> (<em>Mallotus villosus</em>)</td><td>En premier : ils rancissent en plus de pourrir. Tièdes : histamine</td><td>Congélation étanche à l’air ; saumure puis fumage à chaud</td><td>Au séchoir, capelan compris : le gras rancit. Poisson non vidé salé, séché ou boucané hors du froid : botulisme. Ramassé mort sur la grève</td><td>59, 75, 77</td></tr><tr><td class="c-item"><strong>Éperlan</strong> (<em>Osmerus mordax</em>), <strong>poulamon</strong> (<em>Microgadus tomcod</em>)</td><td>Dans la glace aussitôt, en couches minces ; pas vidés un par un sur la grève, mais à la table</td><td>Congelés entiers, à plat ; vidés : sel et séchage ; friture</td><td>Poisson non vidé salé, séché ou boucané hors du froid : botulisme. Un hiver de poisson maigre sans gras</td><td>59, 75</td></tr><tr><td class="c-item"><strong>Morue franche</strong> (<em>Gadus morhua</em>)</td><td>Saignée à la prise, vidée, sur glace</td><td>Frais ; congélation ; sel et séchage</td><td>Un hiver de poisson maigre sans gras</td><td>59, 75</td></tr><tr><td class="c-item"><strong>Pris au filet</strong></td><td>Le compteur part de la mort, pas de la levée</td><td>Raide, ouïes rouges : garde courte, cuit</td><td>Ouïes grises, œil laiteux, corps redevenu souple : jeter</td><td>60</td></tr><tr><td class="c-item"><strong>Moules</strong> (<em>Mytilus edulis</em>), <strong>myes</strong> (<em>Mya arenaria</em>)</td><td>Secteur coquillier ouvert <strong>ce jour-là</strong>, sinon rien</td><td>Cuites à 74 °C</td><td>Hors réseau, on ne ramasse pas. Juger à l’œil, à l’odeur ou à l’eau claire : la toxine vient de l’eau, rien ne la montre, et la cuisson ne la détruit pas</td><td>59</td></tr></tbody></table>
+<h2 class="sec"><span class="t">Récoltes</span></h2>
+<table class="tspan"><colgroup><col style="width:17.7%"><col style="width:19.6%"><col style="width:25.4%"><col style="width:32.9%"><col style="width:4.3%"></colgroup><thead><tr><th>Aliment</th><th>Avant qu’il soit trop tard</th><th>Il va à</th><th>Jamais</th><th>Ch.</th></tr></thead><tbody><tr><td class="c-item"><strong>Petits fruits</strong> : bleuet (<em>Vaccinium angustifolium</em>), airelle (graine rouge, <em>Vaccinium vitis-idaea</em>), atoca, chicoutai (plaquebière, <em>Rubus chamaemorus</em>)</td><td>Refroidir dans l’heure, trier ensuite</td><td>Congelés non lavés ; séchés à peau fendue ; pots à l’eau bouillante ; atoca et airelle cueillis gelés, gardés dehors</td><td>Autre chose que du fruit dans le pot. Une baie jugée à sa couleur. Fruit rasant cru, même gelé, en secteur à renards : le gel ne tue pas les œufs de ver</td><td>91, 78</td></tr><tr><td class="c-item"><strong>Racines et chou</strong></td><td>Récolter mûr, au frais. Blessé ou gelé au champ : table, pot ou lactofermentation</td><td>Caveau : carotte et chou 4 à 7 mois, rutabaga 4 à 8. Lactofermentation. Autoclave</td><td>Laver avant le caveau. Pommes à côté. <strong>Descendre sans avoir ventilé</strong> : le gaz carbonique s’accumule au fond, sans odeur, et qui descend chercher l’autre tombe à côté de lui. Aucune flamme au caveau</td><td>95, 79, 80</td></tr><tr><td class="c-item"><strong>Pomme de terre, oignon, courge</strong></td><td>Pomme de terre : 2 à 3 semaines à 10-15 °C d’abord</td><td>Pomme de terre à 7-8 °C, 4 à 8 mois. Oignon à 0 °C au sec. Courge à 10-13 °C au sec</td><td>Oignon parmi les racines humides. Le vert de la pomme de terre</td><td>95, 79</td></tr><tr><td class="c-item"><strong>Feuilles, pois, haricots</strong></td><td>Feuilles coupées le matin, au froid</td><td>Feuilles : se mangent, ne se gardent pas. Pois, haricots : frais ou séchés</td><td>Conserve sans autoclave</td><td>78, 95</td></tr><tr><td class="c-item"><strong>Crosses de fougère-à-l’autruche</strong> (<em>Matteuccia struthiopteris</em>) seulement, plantes du bois</td><td>4 °C ou moins : une verdure flétrit en heures</td><td>Crosses : 15 min à gros bouillon, eau jetée, à chaque service, sorties du congélateur comprises. Le blanchiment de 2 min ne sert qu’avant la congélation ; un an au plus</td><td>Crosses crues ; en conserve, même à l’autoclave. Cèdre (thuya, <em>Thuja occidentalis</em>) : thuyone, convulsivante, jamais en tasse ; sapin baumier (<em>Abies balsamea</em>) ou épinette. Jamais l’if du Canada (<em>Taxus canadensis</em>) : arbuste rampant du sous-bois des sapinières, aiguilles sans bandes blanches dessous, mortel en heures, sans antidote</td><td>20, 92</td></tr><tr><td class="c-item"><strong>Champignons</strong></td><td>0 à 4 °C, sac de papier. Des heures au chaud : déclasser</td><td>Cuits puis congelés ; séchés</td><td>Crus. Dans l’huile. En conserve, même à l’autoclave. Espèce connue à peu près. Alcool 72 h après un coprin noir d’encre</td><td>93</td></tr><tr><td class="c-item"><strong>Sève</strong> de bouleau (<em>Betula papyrifera</em>) ou d’érable (<em>Acer saccharum</em>, <em>Acer rubrum</em>)</td><td>Récoltée chaque jour, gardée sous 5 °C dans la neige, à l’ombre, couverte ; traitée en quelques jours, six au plus, sinon gelée</td><td>Érable : sirop à 66 °Brix<sup class="fnr" data-fn="81-3">3</sup>, durée non chiffrée. Sinon : gelé dehors pour la saison, ou sucre</td><td>Sève tournée<sup class="fnr" data-fn="81-4">4</sup>. Le 66 °Brix appliqué au bouleau</td><td>94</td></tr></tbody></table>
+<h2 class="sec"><span class="t">Quand il n’y a rien</span></h2>
+<p class="li"><strong>Le poisson vivant se garde seul</strong> : vieille nasse ou caisse ajourée, lestée, en eau froide et courante, visitée matin et soir (70).</p>
+<p class="li"><strong>La glace de l’hiver d’avant</strong>, sous le bran de scie, drain au point bas, donne un point à 0 °C en juillet (68).</p>
+<p class="li"><strong>Le glaçage remplace le sac</strong> : la pièce gelée trempée, ressortie, recommencée jusqu’à une coquille sans trou (45, 68).</p>
+<p class="li"><strong>Le fleuve fait la saumure</strong> : l’eau de mer qui gèle rejette son sel ; on jette la glace et on garde ce qui refuse de geler, sans une bûche. Le sel sec demande ensuite le feu, sur le poêle qui chauffe déjà. Puiser au large, loin d’un quai, d’une embouchure ou d’un émissaire : le gel concentre tout ce que l’eau porte, pas seulement le sel. Un sel maison ne se dose pas comme l’acheté : il se pèse (55, 62, 70).</p>
+<p class="li"><strong>Le vent sèche le poisson maigre</strong> fendu à plat ; il se mange cuit, 70 °C à cœur. Un feu de bois vert dessous chasse la mouche et ne conserve rien (70).</p>
+<p class="li"><strong>Sans sonde, on impose la température au lieu de la lire</strong> : morceaux minces, immergés, à gros bouillon jusqu’à ce que la chair se détache de l’os ; jamais rôti ni grillé ; hacher après, jamais avant. Le thermomètre à sirop et le multimètre à sonde thermocouple, étalonnés dans la glace et dans l’eau qui bout, lisent aussi le 74 °C (44, 48, 52).</p>
+<p class="li"><strong>Cuire d’abord, sécher ensuite</strong> le lièvre ; faire bouillir les os cassés pour leur gras. <strong>Réduire le bouillon</strong> de l’oiseau maigre jusqu’à ce qu’il fige ; il se garde au froid ou gelé, sinon ramené à gros bouillon chaque jour, à découvert, jamais couvert et tiède (44, 45).</p>
+<p class="p0 ri"><strong class="runin">Ce qui ne se remplace pas</strong> : une lecture à cœur pour tout ce qui rôtit, grille ou fume, parce que là le 74 °C ne s’estime pas ; le mini-max, sans lequel le tri à 4 °C se fait à l’aveugle ; l’autoclave pour tout ce qui est peu acide ; l’emballage qui respire sur le poisson non gelé — papier, coton, bois, écorce, ou rien (68, 70, 73).</p>
+</template>
+<template id="story-d">
+
+</template>
+<template id="story-e">
+
+</template>
+<template id="notes">
+<p class="fn" data-fn="45-1"><span class="fnn">1</span>Le renflement est un anneau où le canon a gonflé sous le choc de la balle contre l’obstacle. Il se voit parfois dehors, comme un anneau autour du canon. Sinon, l’âme bien propre, regardée par la chambre contre une lumière vive, y montre une ombre en anneau — une tache de graisse fait la même ombre, d’où l’âme propre — et les doigts passés doucement le long du canon le sentent comme une bosse. Deux balles restées dans l’âme : on présume le canon renflé. Un canon renflé ne s’arrange pas en tirant.</p>
+<p class="fn" data-fn="47-1"><span class="fnn">1</span><strong>Le tambourinage de la gélinotte.</strong> Un bruit sourd qui pulse, comme un tambour qu’on bat au loin. Le mâle le fait en comprimant l’air sous ses ailes, le plus souvent debout sur un billot, parfois sur une racine ou une roche. On l’entend surtout au printemps, et parfois à l’automne.</p>
+<p class="fn" data-fn="47-2"><span class="fnn">2</span><strong>La trace du lagopède.</strong> L’hiver, le dessous de ses pieds est couvert de plumes jusqu’au bout des doigts, au point de ressembler à une patte de lièvre, et seules ses longues griffes dépassent : l’empreinte est ronde et floue, sans doigts nets (<span class="ref">ch. 43</span>, <span class="ref">§5</span>-F). La gélinotte et le tétras n’ont pas le pied emplumé : l’hiver, la gélinotte porte seulement de petites franges en peigne le long des doigts, et ses doigts marquent.</p>
+<p class="fn" data-fn="81-1"><span class="fnn">1</span>Les premiers jours, les repas grossissent et la faim revient au bout de chacun : le repas complet de viande ne la coupe pas, le ventre est tendu, et l’envie de gras ne lâche pas. On maigrit alors que les portions sont grosses. Viennent ensuite la nausée et la diarrhée, que seul le gras arrête. Plus de viande maigre aggrave ; le gras renverse. L’enfant y arrive avant l’adulte : la part de protéines qu’il supporte plafonne plus bas (24).</p>
+<p class="fn" data-fn="81-2"><span class="fnn">2</span>Acides, donc à l’eau bouillante : petits fruits, confitures, gelées, marinades acidifiées. Peu acides, donc à l’autoclave : viande, poisson, bouillon, champignons de culture, haricots, betteraves, carottes, maïs, courges (73).</p>
+<p class="fn" data-fn="81-3"><span class="fnn">3</span>Le 66 °Brix ne se voit pas et ne se goûte pas : il se lit au réfractomètre ou au densimètre à sirop. Sans instrument, on ne fait pas de sirop de garde : on fait du sucre, qui se juge à l’œil et à la dent, ou un sirop léger gardé gelé dehors et mangé dans la saison (60).</p>
+<p class="fn" data-fn="81-4"><span class="fnn">4</span>Trouble laiteux, mousse qui ne retombe pas, odeur aigre, filaments dans la chaudière. Le froid qui concentre la sève concentre aussi ce qui a tourné (60).</p>
+</template>
+<script type="application/json" id="meta">{"num": "81", "title": "La table aliment → méthode", "tome": "Tome 4 · De la bête au garde-manger", "tnum": 4, "tfond": "#25414F", "tencre": "#EDF2F5", "lieu": "Les deux", "dsub": "", "secs": {}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

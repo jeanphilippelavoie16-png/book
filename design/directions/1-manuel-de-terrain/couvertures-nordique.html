@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>Le Grand Livre du Chalet — couvertures, direction 1 : manuel de terrain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   COUVERTURES — couverture souple Blurb, 8 × 10 po rogné.
+   Fond perdu 0,125 po partout sur la couverture complète.
+   Tranche supposée : 440 pages, papier standard -> 0,95 po (24 mm).
+   À recaler sur le calculateur de Blurb : une seule variable, --spine.
+   ===================================================================== */
+@page front { size: 585pt 738pt; margin: 0; }
+@page full  { size: 1238.4pt 738pt; margin: 0; }
+:root{
+  --spine:0.95in;
+  --sans:'IBM Plex Sans Condensed','Arial Narrow',sans-serif;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --ink:#111;
+}
+.t1{--c:#E2E7EA;--ink:#15222B;--fil:rgba(21,34,43,.45)}   /* Tenir — neige            */
+.t2{--c:#5C1A15;--ink:#F3ECE5;--fil:rgba(243,236,229,.45)} /* Le corps — sang de gibier */
+.t3{--c:#1D392E;--ink:#E9F0EA;--fil:rgba(233,240,234,.45)} /* Prélever — épinette       */
+.t4{--c:#25414F;--ink:#EDF2F5;--fil:rgba(237,242,245,.45)} /* Conserver et réparer — fleuve */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{position:relative;overflow:hidden;background:var(--c);color:var(--ink);break-after:page}
+.sheet:last-child{break-after:auto}
+.sheet.front{page:front;width:8.125in;height:10.25in}
+.sheet.full{page:full;width:calc(16.25in + var(--spine));height:10.25in}
+
+/* ---------- panneau (avant ou arrière), 8 × 10 rogné ---------- */
+.panel{position:absolute;top:0.125in;width:8in;height:10in}
+.front .panel{left:0}                       /* avant seul : dos à gauche, fond perdu à droite */
+.full .back{left:0.125in}
+.full .spine{left:8.125in;width:var(--spine)}
+.full .fr{left:calc(8.125in + var(--spine))}
+.in{position:absolute;left:0.5in;right:0.5in;top:0.5in;bottom:0.5in}
+
+.hd{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:6pt;border-bottom:5pt solid var(--ink);
+  font:700 13.5pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.hd .r{font-weight:600;font-size:11pt;letter-spacing:.14em}
+.num{position:absolute;right:-0.06in;bottom:0.66in;font:700 420pt/0.72 var(--sans);letter-spacing:-.03em;text-align:right}
+.ttl{position:absolute;left:0;right:0;top:0.62in}
+.ttl h1{margin:0;font:700 86pt/1.13 var(--sans);text-transform:uppercase;letter-spacing:-.005em;padding-bottom:10pt;border-bottom:2.5pt solid var(--ink)}
+.ttl .ch{display:flex;justify-content:space-between;align-items:baseline;padding-top:8pt}
+.ttl .ch b{font:700 17pt/1 var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.ttl .ch span{font:500 11pt/1.2 var(--sans);letter-spacing:.02em;text-align:right}
+
+/* barre de série : les quatre tomes au prorata des chapitres (23, 10, 27, 29) */
+.serie{position:absolute;left:0;right:0;bottom:0.02in;display:flex;gap:3pt}
+.serie div{display:flex;flex-direction:column;gap:3pt}
+.serie i{display:block;height:0.3in;border:1.25pt solid var(--ink);font:700 12pt/0.28in var(--sans);font-style:normal;padding-left:5pt}
+.serie div.on i{background:var(--ink);color:var(--c)}
+.serie small{font:600 8pt/1 var(--sans);letter-spacing:.06em}
+.s1{flex:23}.s2{flex:10}.s3{flex:27}.s4{flex:29}
+
+/* ---------- tranche ---------- */
+.spine .sp{position:absolute;inset:0.42in 0 0.45in 0;display:flex;flex-direction:column;align-items:center}
+.spine .sn{font:700 58pt/0.8 var(--sans);padding-top:4pt}
+.spine .rule{width:calc(100% - 0.22in);height:0;border-top:3pt solid var(--ink);margin:10pt 0 12pt}
+.spine .vt{flex:1;writing-mode:vertical-rl;display:flex;justify-content:space-between;align-items:center;width:100%}
+.spine .vt b{font:700 31pt/1 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.spine .vt span{font:700 8.5pt/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- quatrième ---------- */
+.back .txt{position:absolute;top:0.55in;left:0;right:0.3in;font:400 12.5pt/17pt var(--serif)}
+.back .txt p{margin:0 0 8pt}
+.back .txt strong{font-weight:700}
+.back .toc{position:absolute;top:2.2in;left:0;right:0}
+.back .toc h2{margin:0 0 5pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
+.back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.3in;font:500 10pt/13.2pt var(--sans)}
+.back .toc li{display:flex;gap:6pt;break-inside:avoid;border-bottom:0.5pt solid var(--fil)}
+.back .toc li b{width:16pt;font-weight:700}
+.back .trait{position:absolute;left:0;right:0;top:5.05in;height:2.9in;display:flex;flex-direction:column}
+.back .trait img{width:100%;height:2.66in;object-fit:contain;object-position:left bottom}
+.back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
+.back .blurb{position:absolute;right:0;bottom:-0.12in;width:1.9in;height:0.62in;outline:0.75pt dashed rgba(0,0,0,.0)}
+
+/* ---------- aperçus écran ---------- */
+@media screen{
+  body.v-fronts,body.v-shelf,body.v-full{background:#cfcfcf}
+  .trim{position:relative;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.2),0 6px 18px rgba(0,0,0,.18)}
+  .trim .sheet{position:absolute}
+  .v-fronts .row{zoom:.25;display:flex;gap:0.7in;padding:0.8in}
+  .v-fronts .trim{width:8in;height:10in}
+  .v-fronts .trim .sheet{left:0;top:-0.125in}
+  .v-full .row{zoom:.36;padding:0.7in}
+  .v-full .trim{width:calc(16in + var(--spine));height:10in}
+  .v-full .trim .sheet{left:-0.125in;top:-0.125in}
+  .v-shelf{padding:0}
+  .v-shelf .row{zoom:.5;display:flex;align-items:flex-end;gap:0;padding:0.6in 1.2in 0;border-bottom:0.6in solid #6b5a45}
+  .v-shelf .trim{width:var(--spine);height:10in;box-shadow:inset -6px 0 10px -6px rgba(0,0,0,.35),inset 6px 0 10px -6px rgba(255,255,255,.25)}
+  .v-shelf .trim .sheet{left:-8.125in;top:-0.125in}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ AVANT — TOME 1 ============ -->
+<section class="sheet front t1" id="f1"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 1 sur 4</span></div>
+  <div class="num">1</div>
+  <div class="ttl"><h1>Tenir</h1><div class="ch"><b>Chapitres 1 à 23</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1 on"><i>1</i><small>1–23</small></div><div class="s2"><i>2</i><small>24–33</small></div><div class="s3"><i>3</i><small>34–60</small></div><div class="s4"><i>4</i><small>61–89</small></div></div>
+</div></div></section>
+
+<!-- ============ AVANT — TOME 2 ============ -->
+<section class="sheet front t2" id="f2"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 2 sur 4</span></div>
+  <div class="num">2</div>
+  <div class="ttl"><h1>Le corps</h1><div class="ch"><b>Chapitres 24 à 33</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>1–23</small></div><div class="s2 on"><i>2</i><small>24–33</small></div><div class="s3"><i>3</i><small>34–60</small></div><div class="s4"><i>4</i><small>61–89</small></div></div>
+</div></div></section>
+
+<!-- ============ AVANT — TOME 3 ============ -->
+<section class="sheet front t3" id="f3"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 3 sur 4</span></div>
+  <div class="num">3</div>
+  <div class="ttl"><h1>Prélever</h1><div class="ch"><b>Chapitres 34 à 60</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>1–23</small></div><div class="s2"><i>2</i><small>24–33</small></div><div class="s3 on"><i>3</i><small>34–60</small></div><div class="s4"><i>4</i><small>61–89</small></div></div>
+</div></div></section>
+
+<!-- ============ AVANT — TOME 4 ============ -->
+<section class="sheet front t4" id="f4"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 4 sur 4</span></div>
+  <div class="num">4</div>
+  <div class="ttl"><h1>Conserver<br>et réparer</h1><div class="ch"><b>Chapitres 61 à 89</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>1–23</small></div><div class="s2"><i>2</i><small>24–33</small></div><div class="s3"><i>3</i><small>34–60</small></div><div class="s4 on"><i>4</i><small>61–89</small></div></div>
+</div></div></section>
+
+<!-- ============ COUVERTURE COMPLÈTE — TOME 4 : quatrième | tranche | avant ============ -->
+<section class="sheet full t4" id="full4">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 4 · Conserver et réparer</span></div>
+    <div class="txt">
+      <p>Quatre tomes, 89 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres 61 à 89</h2>
+      <ol>
+        <li><b>61</b>Pourquoi la viande pourrit</li><li><b>62</b>Le sel</li><li><b>63</b>Salaison à sec</li><li><b>64</b>Saumure</li>
+        <li><b>65</b>Fumage à froid</li><li><b>66</b>Fumage à chaud et séchage</li><li><b>67</b>Pemmican et graisses</li><li><b>68</b>Froid naturel</li>
+        <li><b>69</b>Un congélateur plein qui dégèle</li><li><b>70</b>Traiter le poisson à la sortie de l’eau</li><li><b>71</b>Saler et sécher la truite</li>
+        <li><b>72</b>Fumer le poisson</li><li><b>73</b>Conserves et marinades</li><li><b>74</b>Jardin nordique</li><li><b>75</b>Semences</li>
+        <li><b>76</b>Caveau à légumes</li><li><b>77</b>Fermentation</li><li><b>78</b>Petit élevage</li><li><b>79</b>De la peau au cuir</li>
+        <li><b>80</b>Babiche, tendons, cordage</li><li><b>81</b>Coudre et chausser</li><li><b>82</b>Affûter, limer, aiguiser</li>
+        <li><b>83</b>Scie à chaîne et petits moteurs</li><li><b>84</b>Souder, braser, réparer le métal</li><li><b>85</b>Le stock de pièces et de consommables</li>
+        <li><b>86</b>Leviers, poulies, treuils</li><li><b>87</b>Assemblages bois-bois</li><li><b>88</b>Trempe et travail du métal à chaud</li><li><b>89</b>Savon et chandelles</li>
+      </ol>
+    </div>
+    <div class="trait"><img src="trait-84-09-clair.svg" alt=""><div class="cap">Ch. 84 · Souder avec deux batteries</div></div>
+    <div class="serie"><div class="s1"><i>1</i><small>1–23</small></div><div class="s2"><i>2</i><small>24–33</small></div><div class="s3"><i>3</i><small>34–60</small></div><div class="s4 on"><i>4</i><small>61–89</small></div></div>
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">4</div><div class="rule"></div><div class="vt"><b>Conserver et réparer</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 4 sur 4</span></div>
+    <div class="num">4</div>
+    <div class="ttl"><h1>Conserver<br>et réparer</h1><div class="ch"><b>Chapitres 61 à 89</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+    <div class="serie"><div class="s1"><i>1</i><small>1–23</small></div><div class="s2"><i>2</i><small>24–33</small></div><div class="s3"><i>3</i><small>34–60</small></div><div class="s4 on"><i>4</i><small>61–89</small></div></div>
+  </div></div>
+</section>
+
+<script>
+(function(){
+  const faces=['700 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','400 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"'];
+  Promise.all(faces.map(f=>document.fonts.load(f,'aéÀ−'))).then(()=>document.fonts.ready).then(()=>{
+    const h=location.hash;
+    const wrap=(el)=>{const t=document.createElement('div');t.className='trim';t.appendChild(el);return t;};
+    if(h==='#avants'){
+      document.body.classList.add('v-fronts');
+      const row=document.createElement('div');row.className='row';
+      ['f1','f2','f3','f4'].forEach(id=>row.appendChild(wrap(document.getElementById(id))));
+      document.body.innerHTML='';document.body.appendChild(row);
+    } else if(h==='#complete'){
+      document.body.classList.add('v-full');
+      const row=document.createElement('div');row.className='row';row.appendChild(wrap(document.getElementById('full4')));
+      document.body.innerHTML='';document.body.appendChild(row);
+    } else if(h==='#tablette'){
+      /* les quatre tranches côte à côte : la tranche du tome 4 est la vraie, les trois autres en sont des copies recolorées */
+      document.body.classList.add('v-shelf');
+      const src=document.getElementById('full4');
+      const row=document.createElement('div');row.className='row';
+      const data=[['t1','1','Tenir'],['t2','2','Le corps'],['t3','3','Prélever'],['t4','4','Conserver et réparer']];
+      data.forEach(([c,n,t])=>{const s=src.cloneNode(true);s.removeAttribute('id');s.className='sheet full '+c;
+        s.querySelector('.spine .sn').textContent=n;s.querySelector('.spine .vt b').textContent=t;row.appendChild(wrap(s));});
+      document.body.innerHTML='';document.body.appendChild(row);
+    }
+    document.documentElement.dataset.ready='1';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,898 @@
+{
+  "_lisez-moi": "Tome 3 (Prélever, ch. 41 à 60), même format que placements.json, à y fusionner. Clés et numéros de planche : numérotation NOUVELLE ; une planche a/b/c fait une entrée par lettre (l'identifiant que build_chapitre.py lit dans le nom du fichier). « apres » = début du paragraphe (texte Markdown) après lequel la figure vient ; il se retrouve mot pour mot dans le chapitre. Photos : fichier depuis la racine du livre, apres, taille (quart | demi), legende (sans attribution). Dans chaque chapitre, les entrées sont dans l'ordre de lecture ; quand plusieurs figures partagent un « apres », elles doivent sortir dans l'ordre de la liste — build_chapitre.py (place) les insère aujourd'hui toutes juste après l'ancre, donc à l'envers, et les photos avant les planches. « _notes » : remarques, ignorées par le constructeur. Refait le 28 septembre 2026.",
+  "41": {
+    "planches": [],
+    "photos": [],
+    "_notes": "Aucune planche ni photo pour ce chapitre (ancien 34) : rien dans images/validees, a-valider, planche-*.svg, ni dans les photos téléchargées."
+  },
+  "42": {
+    "planches": [],
+    "photos": [
+      {
+        "fichier": "images/photos/lot4/35-05-glace-noire-lac.jpg",
+        "apres": "Glace claire et transparente : la plus solide.",
+        "taille": "quart",
+        "legende": "Glace claire et transparente : elle paraît noire parce qu'on voit l'eau à travers."
+      },
+      {
+        "fichier": "images/photos/lot4/35-08a-arbre-abattu-castor.jpg",
+        "apres": "**Comment s'en servir :**",
+        "taille": "quart",
+        "legende": "Étang de castor : arbre abattu, souche taillée en crayon."
+      },
+      {
+        "fichier": "images/photos/lot4/35-08b-barrage-castor.jpg",
+        "apres": "**Comment s'en servir :**",
+        "taille": "quart",
+        "legende": "Étang de castor : le barrage."
+      }
+    ],
+    "_notes": "Photos de l'ancien 35 (lot 4). La glace : une seule des trois couleurs prévues existe ; sa légende doit empêcher de la lire comme la « glace grise ou foncée » dangereuse de la même liste."
+  },
+  "43": {
+    "planches": [
+      {
+        "id": "43-01a",
+        "apres": "Deux sabots en cœur, la pointe dans le sens de la marche"
+      },
+      {
+        "id": "43-01b",
+        "apres": "Deux sabots en cœur, la pointe dans le sens de la marche"
+      },
+      {
+        "id": "43-01d",
+        "apres": "5-C. L'ours noir"
+      },
+      {
+        "id": "43-01e",
+        "apres": "5-C. L'ours noir"
+      },
+      {
+        "id": "43-01c",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière."
+      },
+      {
+        "id": "43-02a",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière."
+      },
+      {
+        "id": "43-03",
+        "apres": "**Le pékan** (*Pekania pennanti*)"
+      },
+      {
+        "id": "43-02b",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/35c/35c-01-orignal-empreinte.jpg",
+        "apres": "Deux sabots en cœur, la pointe dans le sens de la marche",
+        "taille": "quart",
+        "legende": "Orignal : deux croissants allongés et pointus."
+      },
+      {
+        "fichier": "images/photos/35c/35c-02-orignal-piste.jpg",
+        "apres": "Deux sabots en cœur, la pointe dans le sens de la marche",
+        "taille": "quart",
+        "legende": "Orignal : piste dans la neige profonde."
+      },
+      {
+        "fichier": "images/photos/35c/35c-05-orignal-crottes.jpg",
+        "apres": "Deux sabots en cœur, la pointe dans le sens de la marche",
+        "taille": "quart",
+        "legende": "Orignal : crottes d'hiver."
+      },
+      {
+        "fichier": "images/photos/35c/35c-07-caribou-empreinte.jpg",
+        "apres": "Deux sabots en cœur, la pointe dans le sens de la marche",
+        "taille": "quart",
+        "legende": "Caribou : plus large que long, deux demi-lunes écartées."
+      },
+      {
+        "fichier": "images/photos/35c/35c-08-caribou-crateres.jpg",
+        "apres": "Deux sabots en cœur, la pointe dans le sens de la marche",
+        "taille": "quart",
+        "legende": "Caribou : cratères creusés à la patte jusqu'aux lichens."
+      },
+      {
+        "fichier": "images/photos/35c/35c-09-ours-empreinte-avant.jpg",
+        "apres": "5-C. L'ours noir",
+        "taille": "quart",
+        "legende": "Ours noir : empreinte dans la boue."
+      },
+      {
+        "fichier": "images/photos/35c/35c-10-ours-empreinte-arriere.jpg",
+        "apres": "5-C. L'ours noir",
+        "taille": "quart",
+        "legende": "Ours noir : empreintes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-12-ours-crottes.jpg",
+        "apres": "5-C. L'ours noir",
+        "taille": "quart",
+        "legende": "Ours noir : crotte pleine de petits fruits."
+      },
+      {
+        "fichier": "images/photos/35c/35c-14-loup-empreinte.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Loup : empreinte, la main donne l'échelle."
+      },
+      {
+        "fichier": "images/photos/35c/35c-15-loup-piste.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Loup : pistes dans la neige."
+      },
+      {
+        "fichier": "images/photos/35c/35c-16-loup-crottes.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Loup : crottes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-17-coyote-empreinte.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Coyote : le dessin du loup, en plus petit."
+      },
+      {
+        "fichier": "images/photos/35c/35c-18-coyote-crottes.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Coyote : crottes, une règle pour l'échelle."
+      },
+      {
+        "fichier": "images/photos/35c/35c-19-renard-empreinte.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Renard roux : empreintes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-20-renard-piste.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Renard roux : une ligne droite, chaque pied arrière dans l'empreinte de l'avant."
+      },
+      {
+        "fichier": "images/photos/35c/35c-21-renard-plongeon.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Renard roux en plongeon : museau le premier, au bout d'un bond en arc, sur un campagnol entendu sous la neige."
+      },
+      {
+        "fichier": "images/photos/35c/35c-22-lynx-empreinte.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Lynx : ronde, aussi large que longue, sans griffes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-23-lynx-piste.jpg",
+        "apres": "Chez les quatre, le pied avant est plus grand que l'arrière.",
+        "taille": "quart",
+        "legende": "Lynx : piste dans une neige mince."
+      },
+      {
+        "fichier": "images/photos/manquantes/43-pekan-piste-neige.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Pékan : paires de bonds, une martre en plus gros ; des lunettes de soleil pour l'échelle.",
+        "_note": "29 septembre 2026 : ancré au paragraphe du pékan, la photo (en hauteur) sautait les deux planches pleine page et tombait trois pages plus loin, parmi les oiseaux. Rangée avec les mustélidés, inscrite avant la martre pour sortir juste après elle (les figures d’un même ancrage sortent à l’envers)."
+      },
+      {
+        "fichier": "images/photos/35c/35c-24-martre-empreinte.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Martre : empreintes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-25-martre-piste.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Martre : bonds par paires."
+      },
+      {
+        "fichier": "images/photos/35c/35c-26-vison-empreinte.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Vison : empreinte dans la boue, près d'un ruisseau."
+      },
+      {
+        "fichier": "images/photos/35c/35c-27-loutre-empreinte.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Loutre : empreintes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-28-loutre-glissade.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Loutre : bonds et glissades, la piste point-trait."
+      },
+      {
+        "fichier": "images/photos/35c/35c-29-loutre-latrine.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Loutre : latrine sur un point haut, faite ici de carapaces d'écrevisses."
+      },
+      {
+        "fichier": "images/photos/manquantes/43-loutre-latrine-ecailles.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Loutre : latrine faite d'écailles de poisson."
+      },
+      {
+        "fichier": "images/photos/35c/35c-30-hermine-piste.jpg",
+        "apres": "Cinq doigts un-trois-un, griffes, bonds par paires dans la neige.",
+        "taille": "quart",
+        "legende": "Belette : bonds par paires, courts et longs."
+      },
+      {
+        "fichier": "images/photos/35c/35c-31-castor-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Castor : pied arrière palmé."
+      },
+      {
+        "fichier": "images/photos/35c/35c-33-castor-hutte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Castor : hutte."
+      },
+      {
+        "fichier": "images/photos/manquantes/43-castor-reserve-branches.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Castor : réserve de branches dans l'eau, les bouts qui dépassent."
+      },
+      {
+        "fichier": "images/photos/35c/35c-34-rat-musque-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Rat musqué : empreintes, une carte pour l'échelle."
+      },
+      {
+        "fichier": "images/photos/35c/35c-35-rat-musque-hutte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Rat musqué : hutte de végétaux et de boue."
+      },
+      {
+        "fichier": "images/photos/35c/35c-36-porc-epic-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Porc-épic : empreinte."
+      },
+      {
+        "fichier": "images/photos/35c/35c-37-porc-epic-piste.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Porc-épic : sillon large et traînant dans la neige."
+      },
+      {
+        "fichier": "images/photos/35c/35c-39-porc-epic-crottes.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Porc-épic : crottes arquées comme une noix de cajou, une règle pour l'échelle."
+      },
+      {
+        "fichier": "images/photos/35c/35c-40-lievre-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Lièvre : les grands pieds arrière devant."
+      },
+      {
+        "fichier": "images/photos/35c/35c-42-lievre-crottes.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Lièvre : crottes rondes, un peu aplaties."
+      },
+      {
+        "fichier": "images/photos/35c/35c-43-ecureuil-piste.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Écureuil roux : groupe de quatre, un canif pour l'échelle."
+      },
+      {
+        "fichier": "images/photos/35c/35c-44-ecureuil-amas.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Écureuil roux : amas d'écailles et de rafles de cônes au pied d'un perchoir."
+      },
+      {
+        "fichier": "images/photos/35c/35c-45-gelinotte-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Gélinotte huppée : piste."
+      },
+      {
+        "fichier": "images/photos/35c/35c-46-gelinotte-trou-neige.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Gélinotte huppée : trou de neige et marques d'ailes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-47-gelinotte-crottes.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Gélinotte huppée : crottes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-48-tetras-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Tétras du Canada : empreintes, un ruban pour l'échelle."
+      },
+      {
+        "fichier": "images/photos/35c/35c-49-tetras-crottes.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Tétras du Canada : crottes d'hiver."
+      },
+      {
+        "fichier": "images/photos/35c/35c-50-lagopede-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Lagopède des saules : empreintes et marques d'ailes."
+      },
+      {
+        "fichier": "images/photos/35c/35c-51-outarde-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Outarde : trois doigts palmés, une carte pour l'échelle."
+      },
+      {
+        "fichier": "images/photos/35c/35c-52-canard-empreinte.jpg",
+        "apres": "5-F. Les rongeurs, le lièvre et les oiseaux",
+        "taille": "quart",
+        "legende": "Canard colvert : palmé, plus petit que l'outarde."
+      },
+      {
+        "fichier": "images/photos/35c/35c-03-orignal-brout.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Orignal : saule brouté en balai."
+      },
+      {
+        "fichier": "images/photos/35c/35c-04-orignal-ecorcage.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Orignal : écorçage."
+      },
+      {
+        "fichier": "images/photos/35c/35c-06-orignal-frottis.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Orignal mâle : frottis du rut, sur un sapin baumier."
+      },
+      {
+        "fichier": "images/photos/35c/35c-11-ours-griffades.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Ours noir : griffades sur un tronc."
+      },
+      {
+        "fichier": "images/photos/35c/35c-13-ours-ecorcage.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Ours noir : écorçage de printemps."
+      },
+      {
+        "fichier": "images/photos/manquantes/43-ours-arbre-frotte.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Ours noir : arbre de marquage, l'écorce usée par le frottement."
+      },
+      {
+        "fichier": "images/photos/manquantes/43-ours-poils-colles.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Ours noir : touffe de poils restée collée au bois frotté, ici sur un poteau."
+      },
+      {
+        "fichier": "images/photos/35c/35c-32-castor-souche.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Castor : souche en crayon, gros copeaux au pied."
+      },
+      {
+        "fichier": "images/photos/35c/35c-38-porc-epic-ecorcage.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Porc-épic : plaques d'écorce enlevées haut dans l'arbre."
+      },
+      {
+        "fichier": "images/photos/35c/35c-41-lievre-brout.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Lièvre : rameau coupé net en biais."
+      },
+      {
+        "fichier": "images/photos/manquantes/43-grand-pic-trous-rectangulaires.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Grand pic : grands trous oblongs creusés les uns au-dessus des autres."
+      },
+      {
+        "fichier": "images/photos/manquantes/43-pic-macule-puits-seve.jpg",
+        "apres": "Un arbre garde une trace des mois et des années.",
+        "taille": "quart",
+        "legende": "Pic maculé : rangées de petits trous à sève."
+      }
+    ],
+    "_notes": "Photos du dossier images/photos/35c (registre-35c.md) : empreintes, pistes, crottes et huttes avec leur fiche d'espèce (5-B à 5-F, avant le tableau, faute de paragraphe après lui), signes sur les arbres en 5-G. 5-C et 5-F n'ont pas de paragraphe d'ouverture : l'ancre est le titre. Les huit gabarits grandeur nature (pleine page, reportés à la page suivante par le paginateur) vont avec la fiche de leur espèce, là où l'étape 13 envoie « confronter à la fiche » : orignal et caribou en 5-B, ours avant et arrière en 5-C, loup et moyennes (lynx, renard, coyote, loutre) en 5-D, petites (lièvre, martre, vison, belette, gélinotte) à la fin de 5-E, juste avant 5-F, castor en 5-F. Le paragraphe §9 « Les gabarits à l'échelle » dit comment s'en servir, pas où ils sont ; si JP préfère un cahier de gabarits d'un seul tenant, les huit ancres deviennent « **Les gabarits à l'échelle.** ». Ajouts du 29 septembre 2026 (images/photos/manquantes, registre-manquantes.md, cases sans photo du registre-35c) : latrine d'écailles de poisson à côté de celle d'écrevisses (35c-29), piste de pékan sous son paragraphe, réserve de branches du castor après la hutte, arbre de marquage de l'ours et poils collés (la source dit un poteau électrique : la légende le dit) après l'écorçage de l'ours, grand pic et pic maculé en fin de 5-G, dans l'ordre du tableau. 43-renard-plongeon-trou n'est pas posée : le registre la marque « à défaut » (le renard pattes en l'air, pas le trou seul), et la 35c-21 montre déjà le plongeon."
+  },
+  "44": {
+    "planches": [
+      {
+        "id": "44-02",
+        "apres": "4. **Allonger et vieillir.**"
+      },
+      {
+        "id": "44-01",
+        "apres": "5. **La piste presque sans sang.**"
+      }
+    ],
+    "photos": []
+  },
+  "45": {
+    "planches": [
+      {
+        "id": "45-01a",
+        "apres": "**La forme.** Une longueur de"
+      },
+      {
+        "id": "45-01b",
+        "apres": "**Câbler le dos quand le bois est faible"
+      },
+      {
+        "id": "45-02",
+        "apres": "**L'empennage.**"
+      }
+    ],
+    "photos": [],
+    "_notes": "45-02 montre trois choses (corde, flèche mousse, pointe large) : posée entre la flèche mousse et la pointe, au milieu de ce qu'elle illustre."
+  },
+  "46": {
+    "planches": [],
+    "photos": [],
+    "_notes": "Aucune planche ni photo pour ce chapitre (ancien 43)."
+  },
+  "47": {
+    "planches": [
+      {
+        "id": "47-05",
+        "apres": "**10. Mettre les gants avant de le ramasser.**"
+      },
+      {
+        "id": "47-02",
+        "apres": "**31. Monter l'affût vent dans le dos.**"
+      },
+      {
+        "id": "47-03",
+        "apres": "**32. Poser les appelants pour qu'on les voie d'en haut.**"
+      },
+      {
+        "id": "47-01",
+        "apres": "**Lancer par-dessus l'épaule sur ce qui est perché.**"
+      },
+      {
+        "id": "47-04",
+        "apres": "**La haie de saules.**"
+      }
+    ],
+    "photos": [],
+    "_notes": "47-03 (appelant de fortune) et 47-05 (porter à l'air) ne sont décrits en détail que dans le tableau Matériel, où rien ne s'ancre : ils vont à l'étape qui s'en sert (32, et 10 qui dit « le porter pendu à l'extérieur du sac »)."
+  },
+  "48": {
+    "planches": [
+      {
+        "id": "48-08",
+        "apres": "Le sens se vérifie à la main, sur chaque collet"
+      },
+      {
+        "id": "48-09",
+        "apres": "Un jeune bouleau ou une épinette souple, plié vers le sentier"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/48-broutage-lievre-neige.jpg",
+        "apres": "**3. Lire le sentier avant de poser.**",
+        "taille": "quart",
+        "legende": "Broutage d'hiver du lièvre : tiges coupées net, à la hauteur de la neige."
+      },
+      {
+        "fichier": "images/photos/tri/48-broutage-lievre-coupe.jpg",
+        "apres": "**3. Lire le sentier avant de poser.**",
+        "taille": "quart",
+        "legende": "La coupe du lièvre, de près : nette et en biseau, comme au couteau."
+      },
+      {
+        "fichier": "images/photos/lot5/44-01-rat-musque-rate-tularemie.png",
+        "apres": "**13. Inspecter le foie, la rate et les poumons",
+        "taille": "demi",
+        "legende": "Tularémie confirmée chez un rat musqué : la flèche montre la rate, semée de fins points. Ce sont les points qu'on cherche sur le foie et la rate du lièvre."
+      }
+    ],
+    "_notes": "Broutage (tri 48·44-6) à l'étape 3, qui le décrit. 48-broutage-lievre-coupe : iNaturalist « needs_id » (aulne coupé, lièvre non confirmé par la communauté) ; la coupe en biseau est bien celle que décrit l'étape, mais l'auteur de la coupe n'est pas validé. 44-01 (rate de rat musqué tularémique) est aussi au ch. 53."
+  },
+  "49": {
+    "planches": [
+      {
+        "id": "49-17",
+        "apres": "La perche : une hampe sèche et légère"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/lot5/45-04a-gelinotte-tetras-fuertes-pl41.jpg",
+        "apres": "**1. Identifier avant de tirer",
+        "taille": "quart",
+        "legende": "En haut, le tétras du Canada, mâle et femelle ; en bas, la gélinotte huppée, le mâle queue en éventail."
+      },
+      {
+        "fichier": "images/photos/lot5/45-04b-tetras-canada-schmierer.jpg",
+        "apres": "**1. Identifier avant de tirer",
+        "taille": "quart",
+        "legende": "Tétras du Canada."
+      },
+      {
+        "fichier": "images/photos/lot5/45-04c-gelinotte-huppee-usfws.jpg",
+        "apres": "**1. Identifier avant de tirer",
+        "taille": "quart",
+        "legende": "Gélinotte huppée."
+      },
+      {
+        "fichier": "images/photos/lot5/45-09-jabot-poule-kaupp.jpg",
+        "apres": "**5. Sortir le jabot par le haut du cou.**",
+        "taille": "quart",
+        "legende": "Viscères de la poule : le jabot (5), poche à la base du cou, entre les deux portions de l'œsophage (4 et 6) ; la trachée (19)."
+      }
+    ],
+    "_notes": "45-09 est une page de livre de 1918 entière (texte anglais autour de la figure) : à recadrer sur la figure avant l'impression."
+  },
+  "50": {
+    "planches": [
+      {
+        "id": "50-40",
+        "apres": "**11. La queue se traite à part.**"
+      },
+      {
+        "id": "50-10",
+        "apres": "**Fabriquer l'engin : le collet de noyade.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/50-castor-entier.jpg",
+        "apres": "Le castor (*Castor canadensis*), de 16 à 32 kg",
+        "taille": "quart",
+        "legende": "Castor au bord de la glace, la queue plate et écailleuse derrière lui."
+      },
+      {
+        "fichier": "images/photos/lot5/46-02a-castor-glandes-male-morgan.jpg",
+        "apres": "**8. Repérer les glandes AVANT de couper.**",
+        "taille": "quart",
+        "legende": "Castor mâle, vu de dessous : sacs de castoréum (4) et glandes à huile (5), près de l'orifice (6)."
+      },
+      {
+        "fichier": "images/photos/lot5/46-02b-castor-glandes-femelle-morgan.jpg",
+        "apres": "**8. Repérer les glandes AVANT de couper.**",
+        "taille": "quart",
+        "legende": "Castor femelle : sacs de castoréum (5) et glandes à huile (6)."
+      }
+    ],
+    "_notes": "50-40 montre la queue (étape 11) et la nappe de gras (étape 16) : posée à la queue, qui vient d'abord. Les deux photos Morgan sont des pages de livre de 1868 entières, légende en anglais : à recadrer sur la figure avant l'impression. 50-castor-entier (tri 50·46-1) après le paragraphe d'ouverture, qui donne le poids : pas d'objet d'échelle dans la photo, donc quart."
+  },
+  "51": {
+    "planches": [
+      {
+        "id": "51-40",
+        "apres": "16. **Une seule incision, sur la ligne médiane du ventre**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/51-piquant-pointe-barbelures.jpg",
+        "apres": "6. **Couper le piquant à ras avant de tirer ne sert à rien**",
+        "taille": "demi",
+        "legende": "Pointe d'un piquant de porc-épic : les aiguillons, fines écailles couchées vers l'arrière."
+      }
+    ],
+    "_notes": "51-40 réunit le retournement (étape 9), l'ouverture (16) et le piquant ôté à la pince (§9, étapes 4 à 6) : posée à l'ouverture du ventre, dans la procédure. 51-piquant (tri 51·47-4) en demi : les aiguillons ne se voient qu'en grand, et l'étape 6 dit qu'ils sont au bout qui entre. 51-porc-epic-ecorcage-pied-feuillu n'est pas posée : un feuillu écorcé au pied contredit l'étape 3 (« en hauteur, pas au sol », sapin et épinette d'abord)."
+  },
+  "52": {
+    "planches": [],
+    "photos": [],
+    "_notes": "Aucune planche ni photo pour ce chapitre (ancien 48)."
+  },
+  "53": {
+    "planches": [],
+    "photos": [
+      {
+        "fichier": "images/photos/lot5/49-01-rat-musque-glande-musc-zhang.jpg",
+        "apres": "**7. Retirer les glandes, avant d'ouvrir le ventre.**",
+        "taille": "quart",
+        "legende": "Rat musqué mâle : les deux glandes de musc en place sous la peau (a) ; sorties entières à côté d'une règle (b), en saison de reproduction (B) et hors saison (NB)."
+      },
+      {
+        "fichier": "images/photos/lot5/44-01-rat-musque-rate-tularemie.png",
+        "apres": "**9. Le critère d'arrêt, et il est chiffré.**",
+        "taille": "demi",
+        "legende": "Tularémie confirmée chez un rat musqué : la flèche montre la rate, semée de fins points."
+      }
+    ],
+    "_notes": "49-01 est une figure de revue à six cases (coupes au microscope et graphiques en anglais) : à recadrer sur les cases a et b. Elle n'a que 675 px de large : quart seulement. 44-01 est la même photo qu'au ch. 48 : c'est un rat musqué, la bête de ce chapitre ; à retirer d'un des deux chapitres si les pages manquent."
+  },
+  "54": {
+    "planches": [
+      {
+        "id": "54-08",
+        "apres": "3. **La glacière à évaporation**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/lot5/50-01a-outarde-fuertes-pl22.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Outarde : le grand oiseau à cou noir et joue blanche."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01b-oie-des-neiges-fuertes-pl21.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Oie des neiges : les oiseaux blancs."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01c-canard-noir-colvert-fuertes-pl12.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Colvert, le mâle à tête verte au centre ; canard noir, le plus sombre, en haut à droite."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01d-sarcelle-fuertes-pl13.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Sarcelle d'hiver : le couple en bas à droite, le mâle à tête rousse et verte."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01e-eider-fuertes-pl19.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "En bas, l'eider à duvet, mâle blanc et noir, femelle brune ; à droite, l'arlequin plongeur. En haut, l'eider à tête grise."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01f-macreuses-harelde-fuertes-pl20.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Macreuses, les canards noirs ; en haut, la harelde kakawi, à longue queue."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01g-garrot-oeil-or-fuertes-pl18.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Garrot à œil d'or, mâle et femelle."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01i-garrot-islande-hines.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Mâles en vol : garrot d'Islande en haut, garrot à œil d'or en bas."
+      },
+      {
+        "fichier": "images/photos/lot5/50-01h-grand-harle-fuertes-pl10.jpg",
+        "apres": "**L'arlequin plongeur**",
+        "taille": "quart",
+        "legende": "Grand harle : le mâle blanc à tête verte, au premier plan."
+      }
+    ],
+    "_notes": "Les planches Fuertes (1910) après le tableau des espèces et le paragraphe sur l'identification à distance, dans l'ordre du tableau. 50-01i ne fait que 391 px de large : trop peu même en quart (environ 115 ppp)."
+  },
+  "55": {
+    "planches": [
+      {
+        "id": "55-03",
+        "apres": "11. **Dépouiller à plat**"
+      },
+      {
+        "id": "55-40",
+        "apres": "14. **Tendre.**"
+      },
+      {
+        "id": "55-08",
+        "apres": "**L'assommoir.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/55-martre-profil.jpg",
+        "apres": "5.1 Les cinq espèces, en un coup d'œil",
+        "taille": "quart",
+        "legende": "Martre d'Amérique : brun roux, bavette claire."
+      },
+      {
+        "fichier": "images/photos/tri/55-vison-profil.jpg",
+        "apres": "5.1 Les cinq espèces, en un coup d'œil",
+        "taille": "quart",
+        "legende": "Vison d'Amérique : brun presque noir, au bord de l'eau."
+      },
+      {
+        "fichier": "images/photos/tri/55-renard-profil.jpg",
+        "apres": "5.1 Les cinq espèces, en un coup d'œil",
+        "taille": "quart",
+        "legende": "Renard roux."
+      },
+      {
+        "fichier": "images/photos/tri/55-lynx-profil.jpg",
+        "apres": "5.1 Les cinq espèces, en un coup d'œil",
+        "taille": "quart",
+        "legende": "Lynx du Canada : longues pattes, grands pieds, queue courte."
+      },
+      {
+        "fichier": "images/photos/tri/55-loup-profil.jpg",
+        "apres": "5.1 Les cinq espèces, en un coup d'œil",
+        "taille": "quart",
+        "legende": "Loup gris."
+      }
+    ],
+    "_notes": "Les cinq portraits (tri 55·51-1) sous le titre 5.1, avant le tableau des cinq espèces, dans son ordre ; le tableau ne peut pas servir d'ancre. Le renard (Pays-Bas) et le loup (Autriche) sont de la même espèce que ceux de la Côte-Nord."
+  },
+  "56": {
+    "planches": [
+      {
+        "id": "56-02",
+        "apres": "15. **Décoller ensuite le lard de la peau, à plat**"
+      },
+      {
+        "id": "56-09",
+        "apres": "7. **Manche de bois franc fendu**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/lot5/52-01a-phoques-gris-commun-forillon.jpg",
+        "apres": "En cas de doute sur l'espèce,",
+        "taille": "quart",
+        "legende": "Phoques gris et phoques communs sur les mêmes roches : on compare la taille et la tête."
+      },
+      {
+        "fichier": "images/photos/lot5/52-01c-phoque-gris-tete-noaa.jpg",
+        "apres": "En cas de doute sur l'espèce,",
+        "taille": "quart",
+        "legende": "Phoque gris, tête hors de l'eau."
+      }
+    ],
+    "_notes": "52-01b (tête de phoque commun) n'est pas posée : la bête nage de dos, la tête n'occupe qu'un coin du cadre, et recadrée elle n'a plus assez de pixels."
+  },
+  "57": {
+    "planches": [
+      {
+        "id": "57-08",
+        "apres": "L'autre hameçon, celui qui ne demande ni lime ni trempe"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/lot5/53-01a-omble-fontaine-knepp.jpg",
+        "apres": "**Pour les enfants, il n'y a pas de chiffre, mais il y a une consigne.**",
+        "taille": "quart",
+        "legende": "Omble de fontaine (truite mouchetée)."
+      },
+      {
+        "fichier": "images/photos/lot5/53-01b-touladi-knepp.jpg",
+        "apres": "**Pour les enfants, il n'y a pas de chiffre, mais il y a une consigne.**",
+        "taille": "quart",
+        "legende": "Touladi (truite grise)."
+      },
+      {
+        "fichier": "images/photos/lot5/53-01d-omble-chevalier-copeland.jpg",
+        "apres": "**Pour les enfants, il n'y a pas de chiffre, mais il y a une consigne.**",
+        "taille": "quart",
+        "legende": "Omble chevalier."
+      },
+      {
+        "fichier": "images/photos/lot5/53-01c-truite-arc-en-ciel-knepp.jpg",
+        "apres": "**Pour les enfants, il n'y a pas de chiffre, mais il y a une consigne.**",
+        "taille": "quart",
+        "legende": "Truite arc-en-ciel."
+      }
+    ],
+    "_notes": "Les quatre salmonidés à la fin de 5-A, dans l'ordre du tableau qui les sépare."
+  },
+  "58": {
+    "planches": [
+      {
+        "id": "58-10a",
+        "apres": "2. **La dragonne avant le premier coup.**"
+      },
+      {
+        "id": "58-10b",
+        "apres": "7. **Garder le trou ouvert avec ce qui le rend dangereux.**"
+      },
+      {
+        "id": "58-09",
+        "apres": "13. **Le montage en gorge**"
+      },
+      {
+        "id": "58-07",
+        "apres": "17. **La brimbale de bois**"
+      }
+    ],
+    "photos": []
+  },
+  "59": {
+    "planches": [
+      {
+        "id": "59-03",
+        "apres": "24. Pour l'éperlan destiné à la friture"
+      },
+      {
+        "id": "59-08",
+        "apres": "21. **Le capelan se sèche entier**"
+      },
+      {
+        "id": "59-09",
+        "apres": "29. **La trappe de batture.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/59-batture-maree-basse.jpg",
+        "apres": "2. Décider du chemin de retraite depuis le point de pêche",
+        "taille": "demi",
+        "legende": "Batture à marée basse : les chenaux gardent l'eau, et c'est par eux que la mer revient."
+      },
+      {
+        "fichier": "images/photos/lot6/55-01a-capelan.jpg",
+        "apres": "17. Séparer physiquement, en trois tas sur la bâche",
+        "taille": "quart",
+        "legende": "Capelan : gras."
+      },
+      {
+        "fichier": "images/photos/lot6/55-01b-eperlan.jpg",
+        "apres": "17. Séparer physiquement, en trois tas sur la bâche",
+        "taille": "quart",
+        "legende": "Éperlan arc-en-ciel : maigre."
+      },
+      {
+        "fichier": "images/photos/lot6/55-01c-poulamon.jpg",
+        "apres": "17. Séparer physiquement, en trois tas sur la bâche",
+        "taille": "quart",
+        "legende": "Poulamon atlantique : maigre."
+      }
+    ],
+    "_notes": "59-batture (tri 59·55-7) en demi à l'étape 2, qui dit que la retraite passe entre des chenaux qui se remplissent avant le reste : il faut voir les chenaux. La photo est de la baie de Fundy, basse mer seulement ; la vue à mi-marée montante demandée par le tri manque. Les trois poissons du fleuve à l'étape 17, qui les trie."
+  },
+  "60": {
+    "planches": [
+      {
+        "id": "60-01",
+        "apres": "**7. Poser les ailes en V ouvert vers l'amont"
+      },
+      {
+        "id": "60-40",
+        "apres": "**10. Lever à deux, du bon bord du bateau.**"
+      },
+      {
+        "id": "60-08a",
+        "apres": "**La chambre.** Au sommet du V"
+      },
+      {
+        "id": "60-08b",
+        "apres": "**Sur la batture du fleuve, le piège de marée.**"
+      },
+      {
+        "id": "60-10a",
+        "apres": "**L'outil se fabrique avant la nappe.**"
+      },
+      {
+        "id": "60-10b",
+        "apres": "**Un trou dans une nappe se ramende"
+      }
+    ],
+    "photos": []
+  }
+}

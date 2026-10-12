@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>24 — Le corps qui travaille — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t6       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+/* Tomes 5 et 6 : proposition du 24 septembre 2026 (design/choix.md), à valider par JP.
+   Tome 5, écorce : l'aplat est trop sombre pour les petits éléments, qui prennent un brun plus clair (comme le tome 1).
+   Tome 6, rouille : même prudence que le tome 2 — la rouille ne va qu'aux aplats, filets et teintes ; carrés et bandeau 9 noirs. */
+body.t5{--tf:#4B3A28;--tfi:#F2EBDF;--tfn:#F2EBDF;--ta:#6B5238;--tsq:#6B5238;--t9:#4B3A28;--tp:#F2EBDF;--tp2:#E3D6C3;--tx:rgba(242,235,223,.07);--tx9:rgba(255,255,255,.07)}
+body.t6{--tf:#7A4424;--tfi:#F5ECE2;--tfn:#F5ECE2;--ta:#7A4424;--tsq:#000;--t9:#000;--tp:#F5ECE2;--tp2:#EBD8C8;--tx:rgba(245,236,226,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"24"}
+</style>
+</head>
+<body class="vA vB vC t2 lieu-2">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 2 · Le corps</span><span>Chapitre</span></div><div class="open-title"><div class="num">24</div><h1>Le corps qui travaille</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span>Chalet</span><span class="on">Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div><p class="lieu-note">À la maison, le corps travaille par à-coups : une bordée à pelleter, un tour de rein en rentrant les réserves avant la tempête, une cheville tordue sur la glace de l’entrée. Tout ce qui suit s’y applique tel quel, avec un lit, de l’eau chaude et des voisins pour prendre la pelle. Au chalet, le même corps travaille tous les jours jusqu’au printemps — le bois, l’eau, la neige, la raquette — et personne ne le relaie. C’est là que le chapitre compte : une tendinite laissée s’installer en décembre coûte le bois de février.</p></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Garder un corps capable de fendre, porter et marcher en raquettes jusqu’au printemps, et le remettre au travail après un tour de rein, une tendinite ou une entorse en dosant la charge au lieu de l’arrêter : la plupart de ces blessures vont mieux en deux semaines, et une tendinite mal menée dure plus d’un an.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">La douleur est venue avec le travail et non avec un choc : un coude qui chauffe au fendage, un dos raide après une journée de bois, un talon qui frotte dans la raquette. Ça se soigne en changeant la charge, pas en la supprimant.</p>
+<p class="li">Le blessé fait quatre pas seul et aucun os ne fait mal sous le doigt aux endroits que nomme l’étape 41. C’est une entorse ou un muscle froissé, et ça se soigne ici.</p>
+<p class="li">Le dos a « barré » en levant, et les jambes, la vessie et l’entrejambe répondent comme d’habitude (étape 22).</p>
+<p class="li">La saison de bois commence. La section 5-A se prend avant la blessure.</p>
+<h4 class="choix">C’est un mauvais choix quand :</h4>
+<p class="li">Le mal de dos vient avec une perte de sensibilité entre les cuisses ou autour de l’anus<sup class="fnr" data-fn="24-1">1</sup>, une urine qui ne vient plus ou qui part toute seule, ou une faiblesse des deux jambes. Ce n’est plus le dos, ce sont les nerfs des jambes et de la vessie qui sont écrasés : étape 22.</p>
+<p class="li">La « douleur musculaire » est dans la poitrine, la mâchoire ou le bras, ou elle vient avec un souffle court, pendant qu’on pellette ou qu’on fend, même si elle passe en s’assoyant : section 8.</p>
+<p class="li">L’urine devient brune après une grosse journée : section 8.</p>
+<p class="li">Le dos fait mal après une chute de hauteur : étape 20.</p>
+<p class="li">Une bosse à l’aine est devenue dure et douloureuse et ne se repousse plus, avec des nausées : section 8.</p>
+<p class="li">Le genou a paru déformé un instant avant de « reprendre sa place », ou il a enflé en quelques heures et se dérobe : étapes 49 et 51. Le fait qui trompe : la rupture complète d’un ligament du genou fait parfois moins mal qu’une déchirure partielle, et le blessé marche.</p>
+<p class="li">L’articulation est rouge, chaude et gonflée, et la fièvre monte. Ce n’est pas le travail, c’est une infection, et sans antibiotique elle ne se renverse pas (<span class="ref">ch. 26</span>, section 9, « Ce qui ne se remplace pas »).</p>
+<p class="li">La douleur de dos réveille la nuit et ne cède pas au repos, siège entre les omoplates, ou vient avec fièvre, frissons ou amaigrissement sans raison. Ce n’est probablement pas mécanique, et doser la charge n’y changera rien.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0 ri"><strong class="runin">Le corps se fait à la charge qu’on lui donne.</strong> Un muscle se renforce vite. Un tendon et un ligament, peu irrigués, se refont lentement : après une entorse, le tissu neuf se forme entre la sixième et la douzième semaine et se remodèle jusqu’à un an. Le repos complet affaiblit ce qui guérit ; la pleine charge déchire ce qui n’a pas fini, et un tendon partiellement déchiré qui travaille à plein peut finir en rupture complète. La bonne dose est entre les deux, et c’est la douleur qui la mesure : pas plus de 5 sur 10 pendant l’effort, et le lendemain matin pas pire que la veille. Cette jauge ne demande ni papier ni appareil.</p>
+<p class="p0 ri"><strong class="runin">Le dos est un levier, et la distance compte plus que le poids.</strong> La charge qu’un dos accepte tombe de moitié quand les mains passent de 25 cm à 50 cm devant les chevilles. Tourner le tronc d’un quart de tour en levant en enlève encore près du tiers. Et la répétition l’écrase : un lever aux dix secondes, tenu plus d’une heure, ne tolère plus que le quart de ce qu’on lève sans peine une seule fois. Une brassée tenue contre le ventre et une brassée tenue à bout de bras ne sont pas la même charge. Ce qui se lève facilement une fois ne se lève pas mille fois.</p>
+<p class="p0 ri"><strong class="runin">Le froid enlève de la force avant de faire mal.</strong> Un muscle dont la température descend sous 27 °C perd de sa force, et le froid aggrave aussi ce que les vibrations font aux doigts. Un corps froid fait avec des muscles moins forts le même geste qu’il faisait chaud. C’est tout l’argument de l’échauffement.</p>
+<p class="p0 ri"><strong class="runin">La fatigue et le manque de sommeil blessent.</strong> Chez les travailleurs qui dorment mal, le risque de se blesser au travail est 1,6 fois plus élevé. Une nuit coupée par le poêle se paie à la hache du lendemain.</p>
+<p class="p0 ri"><strong class="runin">L’enflure cache la blessure.</strong> Les premiers jours, la douleur et l’enflure empêchent de juger une entorse ; au quatrième ou au cinquième jour, un examen fait à la main trouve 96 % des ligaments rompus. On soigne donc d’abord à l’aveugle, puis on regarde. À l’inverse, une articulation qui n’a pas enflé après quelques heures a peu de chances d’avoir un ligament gravement atteint.</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<p class="p0">Ce qui s’achète, en quelle quantité et dans quel ordre, est au chapitre 00b. Ce tableau ne liste que ce que les gestes du chapitre demandent ; presque tout se remplace par ce qui traîne, et la section 9 dit comment.</p>
+<table class="tspan"><colgroup><col style="width:22.6%"><col style="width:11.5%"><col style="width:57.5%"><col style="width:8.4%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Bandes élastiques de 5,1 et de 7,6 cm (les deux de la trousse, <span class="ref">ch. 26</span>)</td><td>2</td><td>Drap déchiré droit fil en bandes ; bas coupé aux deux bouts en bandage tubulaire (<span class="ref">ch. 26</span>, section 4)</td><td>Oui</td></tr><tr><td class="c-item">Support de cheville lacé</td><td>1 par adulte qui marche en forêt</td><td>Botte de cuir montante lacée serré par-dessus la cheville bandée ; étrier d’écorce les premiers jours (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Ruban de papier (ruban chirurgical)</td><td>2 rouleaux</td><td>Pansement adhésif ; n’importe quel ruban qui tient sur peau sèche, posé avant la marche</td><td>Oui</td></tr><tr><td class="c-item">Aiguille à coudre</td><td>1</td><td>Épingle ou bout de fil de fer passé au rouge et refroidi à l’air (<span class="ref">ch. 26</span>, section 9)</td><td>Oui</td></tr><tr><td class="c-item">Vaseline</td><td>1 pot par lieu</td><td>Baume de cire d’abeille fondue dans du suif (section 9). Il ferme moins bien la peau</td><td>Oui</td></tr><tr><td class="c-item">Colle instantanée (cyanoacrylate)</td><td>1 tube par lieu</td><td>Rien ne scelle une crevasse aussi vite. Baume gras sous un doigtier taillé dans un vieux gant (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Anti-inflammatoire et acétaminophène</td><td>Le stock du <span class="ref">ch. 32</span> (section 5-B)</td><td>Écorce de saule en décoction, adulte seulement, jamais avec l’ibuprofène ni l’aspirine ; ses interdits sont au <span class="ref">ch. 34</span> (étapes 32 à 34, section 8). Jamais de cèdre (thuya, <em>Thuja occidentalis</em>) dans une tisane : sa thuyone est toxique ; le sapin baumier (<em>Abies balsamea</em>) ou l’épinette (<em>Picea mariana</em>, <em>P. glauca</em>) pour tout le reste</td><td>Oui</td></tr><tr><td class="c-item">Sac étanche pour le froid</td><td>2</td><td>Neige mouillée d’eau jusqu’à la gadoue, dans un sac de plastique : sèche, elle est aussi froide que l’air (section 9) ; linge trempé dans l’eau du lac et renouvelé. Toujours un linge entre le froid et la peau</td><td>Oui</td></tr><tr><td class="c-item">Source de chaleur douce</td><td>1</td><td>Bouteille d’eau chaude roulée dans un linge ; pierre ou bas de riz chauffés près du poêle (<span class="ref">ch. 25</span>, section 9)</td><td>Oui</td></tr><tr><td class="c-item">Béquille ou bâton de marche</td><td>1</td><td>Béquille de fourche (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Genouillères</td><td>1 paire</td><td>Feutre, peau de mouton ou d’orignal pliée et nouée ; sac de toile bourré de sapinage (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Poids léger pour le poignet</td><td>1</td><td>Boîte de conserve ; bouteille d’eau qu’on remplit un peu plus à mesure (section 3) ; pierre dans un bas</td><td>Oui</td></tr><tr><td class="c-item">Bracelet de contre-appui pour le coude</td><td>1</td><td>Bande de cuir ou de chambre à air nouée sur l’avant-bras (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Courroie de front</td><td>1 par porteur</td><td>Taillée dans une peau (<span class="ref">ch. 90</span>, section 9)</td><td>Oui</td></tr><tr><td class="c-item">Deux paires de bas secs par jour et par personne</td><td>Selon la maisonnée (<span class="ref">ch. 25</span>, étape 30)</td><td>Aucune : un bas mouillé fait l’ampoule et le pied d’immersion</td><td><span class="non">NON</span></td></tr></tbody></table>
+<p class="p0">Rien d’autre n’est non négociable ici. Le chapitre se fait avec ce qui traîne ; ce qui ne se remplace pas, c’est l’ordre des gestes.</p>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">A — La routine qui garde le corps capable tout l’hiver (1 à 7)</h3>
+<p class="step"><span class="sn">1</span><strong>S’échauffer avant la première bûche, pas après la première douleur.</strong> Marcher jusqu’au tas, rouler les épaules, plier les genoux, faire les premiers gestes à vide ou sur du menu bois, et ne passer au gros que quand les mains et le dos ont chaud sans suer. Un muscle refroidi tire moins fort (section 3). Refaire quelques gestes à vide après chaque pause longue.</p>
+<p class="step"><span class="sn">2</span><strong>Changer de tâche avant que la douleur le demande.</strong> Scier, corder, fendre, tirer le toboggan : chaque tâche repose ce que l’autre use. Un même geste répété aux dix secondes pendant plus d’une heure ne tolère plus que le quart de la charge qu’il supporte une fois (section 3). Une heure de fendage suivie d’une heure à corder use moins que deux heures de fendage.</p>
+<p class="step"><span class="sn">3</span><strong>Prendre la pause au chaud avant d’avoir froid.</strong> Le travail continu dehors s’alterne avec des pauses à l’abri, prises avant d’avoir froid et non après. Garder un rythme qui ne fait pas ruisseler : la sueur mouille la couche du dessous, et un vêtement mouillé isole beaucoup moins (<span class="ref">ch. 104</span>, section 3). Les tableaux de temps d’exposition sont au chapitre 25.</p>
+<p class="step"><span class="sn">4</span><strong>Placer les gros travaux aux heures chaudes de la journée</strong>, et le travail fin — affûter, coudre — en début et en fin de journée, à l’intérieur.</p>
+<p class="step"><span class="sn">5</span><strong>Une grosse journée se paie les jours suivants.</strong> Un tendon qui a travaillé fort se remodèle dans les jours qui suivent. Après une journée de fendage, les tâches des jours suivants reposent les mêmes bras : l’eau, la trace, la raquette.</p>
+<p class="step"><span class="sn">6</span><strong>Dormir sept heures, pas moins.</strong> C’est le minimum d’un adulte. Les nuits d’hiver en donnent le temps ; ce qui le vole, c’est le poêle à recharger à trois heures du matin. À deux adultes, on alterne les nuits du poêle. Le corps qui travaille mange aussi pour la corvée : le calcul est au chapitre 21, et de la viande maigre seule mène au mal de caribou, mortel en quelques semaines (<span class="ref">ch. 19</span>) — il faut du gras avec la viande.</p>
+<p class="step"><span class="sn">7</span><strong>Le soir, regarder ses pieds et ses mains.</strong> En retirant les bottes : une plaque rouge qui chauffe est l’ampoule de demain (étape 57) ; un coin d’ongle rouge est l’ongle incarné de la semaine prochaine (étape 62) ; une peau blanche et plissée est le début du pied d’immersion (<span class="ref">ch. 25</span>, section 5-E). Aux mains : graisser les crevasses avant de dormir (étape 35). Rien ne s’écrit : ce qui se voit se soigne le soir même.</p>
+<h3 class="sub">B — Lever, porter, fendre, scier, pelleter (8 à 14)</h3>
+<p class="step"><span class="sn">8</span><strong>Lever près, lever droit, lever sans tourner.</strong> S’approcher de la charge, plier les genoux au lieu de plier le dos, garder la colonne droite — ni cambrée ni ronde —, prendre à deux mains, lever d’un mouvement continu et non d’un coup sec, la charge contre le ventre. Pour changer de direction, ce sont les pieds qui tournent, jamais le tronc sous la charge.</p>
+<p class="step"><span class="sn">9</span><strong>Lever entre les genoux et les épaules.</strong> C’est la zone où le dos travaille le moins ; sous les genoux et au-dessus des épaules, le risque monte. La bûche se fend donc sur un billot, le bois se corde à hauteur de hanche, et la brassée se prend sur le dessus de la pile plutôt que dans le rang du bas.</p>
+<p class="step"><span class="sn">10</span><strong>Porter contre soi, ou ne pas porter.</strong> La brassée se tient contre la poitrine. Un porte-bûches (section 9) garde la charge près du corps sans que les bras aient à la serrer. Ce qui peut se tirer se tire : le toboggan, tiré de la poitrine, garde le dos droit et les deux mains libres (<span class="ref">ch. 89</span>, section 5-K). La bille trop lourde se roule à la corde double ou se lève au levier (<span class="ref">ch. 109</span>, section 9). L’eau se porte en deux demi-seaux, un dans chaque main, plutôt qu’en un seau plein d’un seul côté.</p>
+<p class="step"><span class="sn">11</span><strong>Fendre avec le poids du corps, pas avec les bras.</strong> Pieds écartés, la bûche debout sur un billot. Le premier coup va dans une fente de séchage déjà ouverte : la première fente est toujours la plus dure. Frapper droit vers le bas, en laissant le poids du corps descendre avec la hache et les genoux se placer d’un coup au moment de l’impact, puis donner une légère torsion au manche quand le fer entre : la bûche s’ouvre et la hache ne reste pas prise. Commencer détendu. La précision du coup compte plus que la force. <strong>Un coup bien placé ne donne aucun choc dans les mains ni dans les épaules</strong> ; le choc qui remonte les bras est un coup raté, et mille coups ratés font le coude de l’étape 28. <strong>Le coup qui rate continue sa course.</strong> Le fer qui dévie ou qui traverse la bûche garde sa vitesse et finit son arc vers le tibia et le pied. C’est à ça que servent les pieds écartés — les jambes hors de la trajectoire — et le billot : la bûche est plus haute, le manche arrive à l’horizontale au moment de l’impact, et le fer qui traverse finit dans le billot plutôt que dans la botte. Une hache émoussée dévie plus qu’elle ne coupe : elle s’affûte avant le fendage (<span class="ref">ch. 105</span>). Une hache coincée se libère d’un coup sec de la paume vers le bas sur le bout du manche, sans le tenir, et non en forçant le manche comme un levier. Le vieux pneu posé sur le billot garde les quartiers debout, ce qui épargne de se pencher entre deux coups (<span class="ref">ch. 83</span>, section 9).</p>
+<p class="step pk-d"><span class="sn">12</span><strong>Scier sans se plier.</strong> La bille se scie sur un chevalet, à hauteur de hanche (section 9), et non au sol, dos plié. Au godendard, personne ne pousse : chacun tire à son tour (<span class="ref">ch. 83</span>, section 9). Scier un genou au sol use le genou : genouillère et pauses (étape 38). À la scie à chaîne, la prise ferme que demande le rebond ne se relâche pas (<span class="ref">ch. 106</span>, section 8) ; ce qui ménage les mains, ce sont des gants chauds, la scie posée entre les coupes et des chaînes affûtées, parce qu’une chaîne émoussée fait forcer.</p>
+<p class="step pk-d"><span class="sn">13</span><strong>Pelleter en poussant, pas en levant.</strong> Le lendemain d’une bordée de 20 cm, les hommes du Québec meurent d’infarctus un tiers plus souvent : pelleter fait monter le pouls au-delà des trois quarts de son maximum, avec le souffle bloqué, les bras qui forcent et le froid qui serre les vaisseaux. Pousser la neige au lieu de la lancer, prendre de petites pelletées, s’arrêter souvent, et ne jamais « finir juste l’entrée » avec une douleur dans la poitrine, même une douleur qui passe quand on s’arrête (section 8).</p>
+<p class="step"><span class="sn">14</span><strong>Ce qui ne se lève pas seul se lève à deux, ou attend.</strong> Au chalet, attendre est presque toujours possible ; un dos brisé en janvier ne l’est pas.</p>
+<h3 class="sub">C — Porter à la courroie de front (15 à 19)</h3>
+<p class="step"><span class="sn">15</span><strong>Ce que fait la courroie.</strong> Une bande large passe sur le front, ses deux bouts noués à la charge, qui s’appuie au creux des reins (<span class="ref">ch. 90</span>, étape 26). La charge est appuyée au dos, mais son poids pend du front : il descend par le cou et la colonne au lieu de tirer les épaules vers l’arrière. Les épaules sont soulagées et la poitrine reste libre de respirer. Au Népal, des porteurs montent ainsi pendant des jours des charges d’une à deux fois leur propre poids ; les porteuses y portent plus lourd que des Africaines qui portent sur la tête, en dépensant un quart moins d’énergie, et ces Africaines portent déjà plus économiquement que des soldats au sac à dos.</p>
+<p class="step"><span class="sn">16</span><strong>La longueur, c’est celle du cou.</strong> C’est la courroie de portage des Innus : elle se coupe à la longueur du cou de celui qui la porte. Épaules haussées, la charge passe aux épaules ; épaules relâchées, elle revient au front. On alterne en marchant, et on repose l’un pendant que l’autre travaille, sans jamais poser la charge (<span class="ref">ch. 90</span>, étape 24). De l’écorce de bouleau glissée sous la bande ne se détrempe pas de sueur, et le front ne chauffe pas (<span class="ref">ch. 90</span>, étape 25).</p>
+<p class="step"><span class="sn">17</span><strong>Le cou s’apprend.</strong> L’économie des porteurs n’est pas un truc mécanique : c’est une adresse acquise depuis l’enfance, à tenir le haut du corps chargé en équilibre au-dessus des hanches. Un adulte qui n’a jamais porté au front commence léger et court, et allonge d’une semaine à l’autre. La courroie est l’outil du portage et de la charge qu’on ramène du bois, pas celui d’une journée entière le premier jour.</p>
+<p class="step"><span class="sn">18</span><strong>La tête doit pouvoir sortir.</strong> Dans une chute, la tête glisse hors de la bande et la charge part seule. Une courroie passée sur le front et attachée de façon que la tête ne puisse pas en sortir tire le cou quand la charge tombe (<span class="ref">ch. 90</span>, étape 24).</p>
+<p class="step"><span class="sn">19</span><strong>L’avertissement.</strong> Tout ce que le front retient passe par les vertèbres du cou. Chez des femmes qui portaient du bois sur la tête depuis des années, les disques du cou étaient plus minces, les becs osseux plus nombreux à mesure que les années de portage s’allongeaient, et le canal où passe la moelle rétréci chez près de la moitié des plus âgées. Des jeunes d’une douzaine d’années qui portaient autour de 8 kg sur la tête avaient presque tous mal quelque part, le cou en tête de liste. Ce qui semble épargner le cou de ceux qui la portent depuis l’enfance — un cou formé petit à petit, une courroie coupée à sa mesure, la charge qui passe du front aux épaules et retour — n’a jamais été mesuré à part ; c’est en tout cas exactement ce qui manque à un adulte qui s’y met un matin avec une pleine charge. <strong>Pas de courroie de front avec un cou douloureux, des fourmis dans les bras, ou après un coup reçu au cou.</strong> Pas de charge d’adulte au front pour un enfant : s’il s’y met, léger et court, comme l’adulte qui débute (étape 17).</p>
+<h3 class="sub">D — Le tour de rein, les premiers jours (20 à 26)</h3>
+<p class="step"><span class="sn">20</span><strong>Trier d’abord.</strong> Un dos qui barre en levant, qui fait mal selon la position et soulage selon une autre, c’est un dos mécanique, et il se soigne ici. Ce qui n’en est pas un : l’entrejambe qui ne sent plus (note 1), l’urine qui ne vient plus ou qui part seule, les deux jambes faibles, un pied qui tombe<sup class="fnr" data-fn="24-2">2</sup> : c’est l’étape 22. La fièvre ou les frissons, la douleur entre les omoplates, la douleur qui réveille la nuit et ne change avec aucune position : ce n’est pas un dos mécanique, et la décision de rester se reprend (<span class="ref">ch. 2</span>). <strong>Après une chute de hauteur, c’est autre chose : une vertèbre peut être cassée, et elle peut bouger.</strong> On ne fait ni lever ni marcher le blessé. Couché, on vérifie qu’il sent qu’on lui touche les deux pieds, qu’il remue les orteils et relève les deux pieds (note 2). Puis c’est un départ (<span class="ref">ch. 2</span>), couché, à plat, déplacé d’un bloc, avec le montage du <span class="ref">ch. 26</span> (section 9, « Le moyen de déplacer un blessé ») : surface rigide, rouleaux de linge de chaque côté de la tête, et roulé d’un bloc sur le côté s’il vomit. Les étapes 21 à 26 ne valent que pour le dos qui a barré sans aucun des signes de cette étape.</p>
+<p class="step"><span class="sn">21</span><strong>Le premier jour, bouger quand même.</strong> Pas plus de 24 heures au lit. Se lever, marcher dans la maison, se recoucher dans la position qui soulage, se relever. Bouger fait mal et ne fait pas de tort : c’est le corps qui reste couché qui guérit le plus lentement.</p>
+<p class="step"><span class="sn">22</span><strong>Les signes qui ferment ce chapitre.</strong> L’entrejambe qui ne sent plus, la vessie qui ne se vide plus ou qui fuit, les deux jambes faibles ou un pied qui tombe : c’est la queue de cheval, le faisceau de nerfs du bas de la colonne, qui est écrasée, le plus souvent par un disque. Sans chirurgie, elle peut paralyser les deux jambes pour de bon, et c’est la rapidité de la décompression qui décide de ce qui revient. Aucun geste du chalet ne la soulage : c’est un départ, le jour même (<span class="ref">ch. 2</span> ; <span class="ref">ch. 35</span>).</p>
+<p class="step"><span class="sn">23</span><strong>La chaleur pour le muscle qui serre, le froid pour la douleur vive.</strong> Une bouillotte roulée dans un linge sur le bas du dos relâche le spasme ; de la neige mouillée en gadoue, dans un sac et un linge, calme une douleur aiguë (section 9). Vingt minutes, puis on bouge. Le dos, le blessé ne le voit pas : quelqu’un regarde la peau après chaque séance.</p>
+<p class="step pk-d"><span class="sn">24</span><strong>L’anti-inflammatoire, pas l’acétaminophène seul.</strong> Pour le dos, l’acétaminophène seul n’est pas le bon choix ; il sert ajouté à un anti-inflammatoire. La dose se lit sur l’étiquette ; le <span class="ref">ch. 32</span> (5-B) donne les catégories. Deux interdits comptent au chalet. Pas d’anti-inflammatoire quand on a manqué d’eau ou que l’urine est brune (section 8, point 2) : le rein qui manque de sang tient grâce à des substances que l’anti-inflammatoire bloque, et il peut lâcher ; ce jour-là, l’acétaminophène seul. Et jamais en même temps que l’aspirine ou l’écorce de saule : c’est la même famille, et les effets s’additionnent (<span class="ref">ch. 34</span>, étape 34).</p>
+<p class="step"><span class="sn">25</span><strong>La jambe qui brûle.</strong> Une douleur vive qui descend derrière une seule jambe, parfois jusqu’au pied, avec des fourmis, c’est le nerf sciatique. Même règle : bouger, ne pas rester assis ni couché longtemps, chaleur sur ce qui fait mal, mais jamais sur une peau qui fourmille ou sent mal : elle brûle sans prévenir. La sciatique dure de quelques semaines à quelques mois. Des deux côtés à la fois, ou avec les deux jambes qui faiblissent : étape 22.</p>
+<p class="step"><span class="sn">26</span><strong>Le retour au bois.</strong> Travailler debout, à hauteur, sans rien lever du sol : le menu bois fendu sur un billot haut, le bois cordé à la hanche, le toboggan tiré au lieu de la brassée portée. Monter la charge d’un jour à l’autre avec la jauge de la section 3. La plupart des dos vont mieux en quelques semaines. Un dos qui n’a pas changé en quatre à six semaines se revoit avec la liste de l’étape 20, et la décision de rester se reprend (<span class="ref">ch. 2</span>).</p>
+<h3 class="sub">E — Épaules, coudes, poignets (27 à 33)</h3>
+<p class="step"><span class="sn">27</span><strong>L’épaule : garder le bras en mouvement.</strong> Corder haut, lancer des bûches, travailler les bras au-dessus de la tête l’usent. Ne pas cesser de s’en servir : l’épaule qu’on immobilise raidit, et l’épaule, le coude et le genou sont les articulations qui raidissent le plus facilement. La bouger doucement, froid ou chaleur vingt minutes deux ou trois fois par jour, et les exercices tous les jours pendant six à huit semaines. Il faut en général deux semaines avant que ça commence à céder, et parfois six mois ou plus pour en finir. Un bras qu’on ne peut pas tenir à l’horizontale, sur le côté, quand quelqu’un appuie doucement dessus, c’est un tendon de l’épaule rompu : il ne se répare pas au chalet, et c’est l’autre bras qui prend la hache.</p>
+<p class="step"><span class="sn">28</span><strong>Le coude du bûcheron.</strong> Une douleur à la pointe osseuse extérieure du coude, qui descend dans l’avant-bras, pire quand on serre un manche, qu’on tord le poignet, qu’on lève un seau. C’est le mal des gestes où l’on serre en tournant, et il frappe surtout entre 35 et 54 ans. Le test : bras tendu, paume vers le bas, on lève le majeur contre la résistance de l’autre main ; une douleur sur l’os extérieur du coude le confirme. Le même mal existe du côté intérieur, sur les tendons qui plient le poignet. Son test : assis, l’avant-bras à plat sur la table, paume vers le haut, on essaie de lever le poing en pliant le poignet pendant que l’autre main le retient ; une douleur autour de l’os intérieur du coude le confirme. Il se soigne de la même façon, avec l’exercice et l’étirement paume vers le haut de l’étape 30. Le bracelet de l’étape 29, lui, n’est établi que pour le côté extérieur.</p>
+<p class="step"><span class="sn">29</span><strong>Réduire ce qui fait mal, sans arrêter.</strong> Éviter les gestes qui réveillent la douleur, le poignet en extension et la main qui tourne en particulier. Pour le coude extérieur, un bracelet de contre-appui serré sur le gras de l’avant-bras, juste sous le coude, soulage la prise (section 9). Un manche trop mince fait serrer plus fort : on le grossit (section 9). Apprendre à fendre et à couper des deux mains n’est pas un luxe : ça évite bien des ennuis dans le bois, et ça repose le coude qui fait mal. De l’autre main, le coup est moins sûr : les pieds écartés, le billot et la hache affûtée de l’étape 11 comptent double.</p>
+<p class="step"><span class="sn">30</span><strong>Les exercices qui refont le tendon.</strong> Quand la douleur s’est calmée, une fois par jour : l’avant-bras à plat sur la table, paume vers le bas, le poignet dépassant du bord, un poids dans la main. Lever le poignet en comptant jusqu’à 2, puis le laisser redescendre lentement en comptant jusqu’à 4. C’est la descente qui soigne. Trois séries de dix. On commence sans poids, puis avec une boîte de conserve. Pour le côté intérieur, même exercice paume vers le haut : on plie le poignet vers le haut en 2, on le laisse redescendre en 4. Étirement, trois fois par jour : coude tendu, l’autre main plie le poignet vers le bas, trente secondes, quatre fois ; pour le côté intérieur, paume vers le haut, l’autre main ramène doucement la main et les doigts vers l’arrière. Et une serviette roulée, tordue dans un sens puis dans l’autre, trois séries de dix.</p>
+<p class="step"><span class="sn">31</span><strong>Compter en mois, pas en jours.</strong> Le coude du bûcheron passe souvent en quelques semaines de bras reposé, mais il peut durer plus d’un an ; même en ville, on n’opère qu’après un an de soins sans résultat. Le but au chalet n’est pas de guérir vite, c’est de continuer à fendre pendant qu’il guérit.</p>
+<p class="step"><span class="sn">32</span><strong>Le poignet côté pouce.</strong> Une douleur sourde au bord du poignet, côté pouce, pire quand le pouce bouge : la gaine de deux tendons du pouce qui frotte. Le test : on replie le pouce dans la paume, on referme les doigts dessus, puis on plie doucement le poignet vers le petit doigt ; une douleur vive au bord du poignet côté pouce le confirme. Repos du geste, bains chauds, anti-inflammatoire, et une attelle qui tient le pouce et le poignet (section 9).</p>
+<p class="step"><span class="sn">33</span><strong>Les doigts qui s’engourdissent la nuit.</strong> Des fourmis, un engourdissement et une douleur dans la main, un pouce qui serre mal, pires la nuit : c’est le nerf du poignet qui est pincé. Une attelle qui garde le poignet droit, portée la nuit (section 9), jusqu’à six semaines avant que ça aille mieux. Réduire tout ce qui plie le poignet ou fait serrer fort, et la scie à chaîne en premier.</p>
+<h3 class="sub">F — Les mains (34 à 37)</h3>
+<p class="step"><span class="sn">34</span><strong>L’ampoule de manche.</strong> Elle se soigne comme celle du pied (étape 58). Elle se prévient par des gants au fendage et au sciage, et par un manche lisse : une écharde de manche ou un nœud mal poncé frotte au même endroit à chaque coup.</p>
+<p class="step"><span class="sn">35</span><strong>Les crevasses.</strong> L’eau, le froid et le frottement enlèvent à la peau les graisses qui la ferment ; elle sèche, fend au pli des doigts et au bout des pouces, et chaque flexion rouvre la fente. La sueur qui reste dans un gant mouillé aggrave. Deux gestes. Le jour, sceller : la fente propre et sèche, une goutte de colle instantanée dedans, les lèvres rapprochées le temps qu’elle prenne ; la douleur tombe et la peau guérit dessous. Le soir, fermer : une couche épaisse de vaseline, qui arrête presque toute l’eau qui sort de la peau, et des gants de coton ou de vieux bas par-dessus pour la nuit. Entre les deux, graisser avant de sortir, sécher les mains après tout travail mouillé, et changer les gants trempés de sueur.</p>
+<p class="step"><span class="sn">36</span><strong>Les doigts blancs : quatre choses qui se ressemblent.</strong></p>
+<table class="tcol nest"><colgroup><col style="width:44.3%"><col style="width:24.6%"><col style="width:31.1%"></colgroup><thead><tr><th>Ce qu’on voit</th><th>Ce que c’est</th><th>Ce qu’on fait</th></tr></thead><tbody><tr><td>Au froid, des doigts qui blanchissent, puis bleuissent, puis rougissent en se réchauffant ; ça dure de quelques minutes à quelques heures, et ça revient chaque fois</td><td>La circulation qui se ferme au froid (phénomène de Raynaud)</td><td>Mains au chaud avant de sortir, pas de passage brusque du chaud au froid, pas de tabac</td></tr><tr><td>La même chose chez qui tient une scie à chaîne depuis des saisons, avec des doigts qui picotent, un toucher émoussé, une prise qui faiblit</td><td>Le doigt mort des vibrations</td><td>Étape 37. Au début, ça va et vient ; si la scie continue, ça peut rester pour de bon</td></tr><tr><td>Un doigt blanc, dur, cireux, insensible, qui ne se recolore pas en se réchauffant</td><td>Une gelure</td><td>Chapitre 25, section 5-C</td></tr><tr><td>Quelques heures après le froid, des doigts ou des orteils rouges ou violacés, qui démangent ou brûlent</td><td>Une lésion du froid sans gel : les vaisseaux profonds restent serrés pendant que ceux de la surface se rouvrent</td><td>Réchauffer lentement, jamais sur le poêle ni sous l’eau chaude ; ça passe en deux à trois semaines</td></tr></tbody></table>
+<p class="step"><span class="sn">37</span><strong>Le doigt mort se prévient.</strong> Il s’installe en des mois ou des années. Il commence par le bout d’un doigt, les matins froids ; puis il gagne le milieu des doigts ; puis les doigts entiers, souvent ; puis la peau du bout des doigts change. Le froid l’aggrave. Au début, les signes vont et viennent ; si les vibrations continuent, ils peuvent durer, puis rester pour de bon. Ce qui le freine : des mains au chaud avant et pendant la coupe, des gants secs, une prise pas plus forte que ce que la sécurité demande, des amortisseurs en bon état (<span class="ref">ch. 106</span>), des pauses, pas de tabac, et un manche moins dur au toucher. <strong>Le premier bout de doigt qui blanchit un matin de froid, après une saison de scie, est le moment de couper les heures de scie et de passer à la sciotte</strong> (<span class="ref">ch. 106</span>, section 9-A) : c’est en coupant à ce moment-là qu’on évite l’infirmité.</p>
+<h3 class="sub">G — Les genoux (38 et 39)</h3>
+<p class="step"><span class="sn">38</span><strong>À genoux, un coussin.</strong> Scier un genou au sol, percer la glace, fendre l’allumage, entretenir le feu : le genou posé sur du dur enfle devant la rotule, chaud et sensible, pire quand on s’agenouille ou qu’on plie. Genouillère ou coussin (section 9), et des pauses pour se relever. S’il est là : ménager l’appui, froid dix minutes plusieurs fois par jour, et il passe en quelques semaines. Une éraflure au genou se lave tout de suite : c’est par elle que ce coussin de liquide s’infecte.</p>
+<p class="step"><span class="sn">39</span><strong>Le genou qui craque.</strong> Un craquement sans douleur est normal. Un genou qui bloque, qui se dérobe ou qui craque en faisant mal ne l’est pas : section H. Un genou rouge, chaud, gonflé, avec de la fièvre : infection, qui ne se renverse pas sans antibiotique (<span class="ref">ch. 26</span>, section 9).</p>
+<h3 class="sub">H — L’entorse : cheville et genou (40 à 53)</h3>
+<p class="step"><span class="sn">40</span><strong>Sur place, quatre pas.</strong> Le blessé se relève et fait quatre pas, même en boitant. S’il n’y arrive pas tout de suite, et qu’il n’y arrive toujours pas un moment plus tard, on traite comme une fracture.</p>
+<p class="step"><span class="sn">41</span><strong>Sur place, le bout des doigts sur l’os.</strong> Appuyer du bout du doigt le long du bord arrière des 6 derniers centimètres du tibia et du péroné, jusqu’à la pointe des deux chevilles<sup class="fnr" data-fn="24-3">3</sup>, puis sur la bosse du bord extérieur du pied et sur celle du bord intérieur, devant la cheville. Un os qui fait mal sous le doigt à l’un de ces endroits, ou les quatre pas impossibles : attelle, comme pour une fracture (<span class="ref">ch. 26</span>, section 9). Sinon, c’est très probablement une entorse : même parmi les chevilles tordues qu’on amène aux urgences, moins de 15 % sont cassées.</p>
+<p class="step"><span class="sn">42</span><strong>Chez un enfant, dans le doute, l’attelle.</strong> Ces règles, faites pour les adultes, tiennent moins bien chez l’enfant. Un enfant de 4 ou 6 ans qui ne remarche pas normalement se traite comme une fracture jusqu’à preuve du contraire.</p>
+<p class="step"><span class="sn">43</span><strong>Les deux ou trois premiers jours : protéger, refroidir, serrer, lever.</strong> Protéger la cheville (support ou étrier, étape 46) et marcher le moins possible. Froid, toujours à travers un linge, jusqu’à vingt minutes toutes les deux ou trois heures ; jamais sur une peau déjà engourdie par le froid, qui ne sentirait pas qu’elle gèle. La neige d’hiver ne se pose pas telle quelle : elle est aussi froide que l’air, et on la mouille d’eau jusqu’à la gadoue (section 9). Bande élastique le jour, desserrée la nuit. Pied plus haut que le cœur, le plus souvent possible. Pas de chaleur, pas d’alcool, pas de massage les deux premiers jours : tous trois font enfler. Dès qu’on peut bouger la cheville sans que la douleur arrête le geste, on la bouge, pour qu’elle ne raidisse pas. Après 48 heures, la chaleur devient permise : quinze à vingt minutes, quelques fois par jour.</p>
+<p class="step"><span class="sn">44</span><strong>Au quatrième ou cinquième jour, examiner.</strong> Toujours en comparant avec l’autre cheville. On cherche trois choses : un bleu sur le côté de la cheville ; une douleur précise quand on appuie sur le ligament, dans le creux juste devant la pointe de la cheville extérieure ; et du jeu. Le jeu se teste assis, genou plié, pied légèrement pointé : une main tient le bas du tibia, l’autre empoigne le talon et le tire vers l’avant. Un talon qui avance plus que celui de l’autre pied, avec le bleu et la douleur au ligament, c’est un ligament rompu. Attention au piège : un ligament complètement rompu fait parfois <strong>moins</strong> mal au test qu’un ligament étiré, parce que plus rien ne tire.</p>
+<p class="step"><span class="sn">45</span><strong>L’entorse haute.</strong> Une douleur devant et un peu au-dessus de la cheville, côté extérieur, pire quand on relève le pied vers le tibia. Le test : serrer le tibia et le péroné l’un contre l’autre un peu au-dessus du milieu du mollet ; une douleur qui se réveille en bas, au-dessus de la cheville, ce sont les attaches qui tiennent les deux os ensemble. Elle guérit plus lentement qu’une entorse ordinaire et handicape davantage : on compte plus long à chaque étape.</p>
+<p class="step"><span class="sn">46</span><strong>Soutenir, pas plâtrer.</strong> Un support qui laisse la cheville travailler dans l’axe, porté quatre à six semaines, fait mieux qu’une immobilisation ou qu’une simple bande élastique. Les supports lacés font mieux dégonfler. Au chalet : l’étrier d’écorce les premiers jours, puis la botte de cuir montante, lacée serré sur la cheville bandée (section 9). Même le ligament rompu ne s’immobilise pas plus de dix jours avant de repasser au support. Rien qui fasse le tour complet et rigide de la jambe tant qu’elle enfle : une attelle qui laisse un côté libre laisse de la place à l’enflure ; un plâtre fermé peut étrangler le membre qui gonfle dessous.</p>
+<p class="step"><span class="sn">47</span><strong>Remettre en charge tôt.</strong> Marcher dès que possible, avec un bâton ou une béquille tenus du côté du bon pied (section 9), en mettant chaque jour un peu plus de poids sur le pied. Puis les mouvements : tracer des cercles avec le pied, le pointer, le relever. Puis la force : se hisser sur la pointe des pieds. Puis l’équilibre : se tenir sur le pied blessé près d’un mur, puis sur une couverture pliée, puis sur une planche d’équilibre (section 9). C’est l’équilibre qui empêche la suivante.</p>
+<p class="step"><span class="sn">48</span><strong>Le calendrier.</strong> La plupart des entorses vont mieux en deux semaines, et la plupart des sportifs reprennent en moins de quatre. Pas d’effort violent — courir, sauter, porter lourd en terrain accidenté — avant huit semaines. Le ligament se refait jusqu’à un an, et jusqu’à quatre blessés sur dix gardent quelque chose. Une première entorse multiplie par deux à cinq le risque d’une deuxième : le support et les exercices d’équilibre se gardent toute la saison de raquette.</p>
+<p class="step"><span class="sn">49</span><strong>Le genou : ce que dit le claquement.</strong> Un claquement entendu ou senti au moment de la torsion, le pied planté au sol, puis un genou qui enfle en quelques heures, c’est d’ordinaire le ligament croisé antérieur. Un genou qui se bloque et refuse de plier ou de se tendre, c’est un ménisque. Un genou qui semble vouloir se dérober, c’est un ligament. Et le piège de la section 2 : la rupture complète fait parfois moins mal que la déchirure partielle, et le blessé marche.</p>
+<p class="step"><span class="sn">50</span><strong>Le genou : ce qui dit fracture.</strong> Un blessé de 55 ans ou plus ; une douleur sous le doigt sur la tête du péroné<sup class="fnr" data-fn="24-4">4</sup> ; une douleur sur la rotule seule, sans douleur ailleurs ; un genou qui ne plie pas jusqu’à l’angle droit ; quatre pas impossibles. Un seul de ces signes : attelle de fracture (<span class="ref">ch. 26</span>, section 9). Et un genou qu’on ne peut pas tendre soi-même — couché sur le dos, la jambe ne se lève pas tendue — c’est le tendon de la cuisse ou celui de la rotule qui a lâché, ou la rotule qui est cassée : attelle droite, et ça ne se répare pas au chalet.</p>
+<p class="step"><span class="sn">51</span><strong>Le genou qui a eu l’air déformé.</strong> Une déformation qui s’est corrigée seule avant qu’on ait eu le temps de regarder était une vraie luxation, remise en place toute seule. Une grosse enflure et un genou qui ballotte dans tous les sens la font soupçonner aussi. L’artère qui passe derrière le genou a pu être blessée, et <strong>un pouls présent ne l’écarte pas</strong> : à l’hôpital, cette artère se vérifie tout de suite, avec des appareils, pas au bout des doigts. Une artère déchirée à l’intérieur peut laisser passer un pouls normal, puis se boucher dans les heures qui suivent. <strong>La luxation probable est donc un départ en soi, pouls ou non</strong> : attelle droite (section 9), et en route on compare le pied blessé avec l’autre — couleur, chaleur, pouls sur le dessus du pied ou derrière la cheville intérieure, sensibilité des orteils — à chaque arrêt. Un pied qui devient plus froid, plus pâle ou sans pouls, c’est le membre qui est en jeu, sur l’horloge en heures (<span class="ref">ch. 26</span> ; <span class="ref">ch. 35</span>).</p>
+<p class="step"><span class="sn">52</span><strong>Soigner le genou.</strong> Protection, froid, bande élastique et jambe surélevée, comme la cheville. L’attelle droite et rigide est pour la fracture et le gros ligament rompu, pas pour l’entorse ordinaire : celle-là se plie et se déplie doucement dès les premiers jours, pour ne pas raidir. L’entorse grave peut demander six semaines d’attelle, ou davantage (section 9).</p>
+<p class="step"><span class="sn">53</span><strong>Ce qui ne guérit pas tout seul.</strong> Un ligament complètement rompu peut laisser une articulation instable, qui se dérobe, handicape et s’use plus vite. Au chalet, on vit avec en la protégeant — support, pas plus lourd que le genou ne tient, jamais de pivot le pied planté, qui est le geste même de la blessure — et on la fait réparer quand ce sera possible.</p>
+<h3 class="sub">I — Le muscle froissé (54 à 56)</h3>
+<p class="step pk-d"><span class="sn">54</span><strong>Le reconnaître.</strong> Une douleur vive et soudaine dans le ventre d’un muscle, pendant l’effort — le mollet en montée, la cuisse en poussant le toboggan, le bas du dos en levant —, puis un muscle qui ne veut plus tirer. Parfois un creux sous le doigt, là où le muscle a cédé, et un bleu qui descend les jours suivants. <strong>Ce qui n’en est pas un : la bosse à l’aine.</strong> Un tiraillement dans l’aine après avoir levé, avec une bosse molle au pli de l’aine ou dans les bourses, qui sort quand on force ou qu’on tousse et se repousse du doigt, c’est une hernie<sup class="fnr" data-fn="24-5">5</sup> : le contenu du ventre qui passe par un point faible de la paroi. Lever lourd ne la crée pas, mais la fait sortir. Elle ne se referme pas seule, et un bandage qui la tient rentrée soulage sans rien empêcher. Ce qui compte au chalet, c’est le jour où elle ne rentre plus (section 8, point 5).</p>
+<p class="step"><span class="sn">55</span><strong>Le soigner comme l’entorse.</strong> Protéger, froid, serrer, lever pendant deux ou trois jours ; ni chaleur, ni alcool, ni massage les deux premiers jours ; puis bouger dans la limite de la douleur, étirer doucement, et chaleur après 48 heures.</p>
+<p class="step"><span class="sn">56</span><strong>Reprendre.</strong> La plupart vont mieux en deux semaines. Pas d’effort violent avant huit semaines ; les grosses déchirures prennent des mois. La jauge de la section 3 décide de chaque retour.</p>
+<h3 class="sub">J — Les pieds (57 à 64)</h3>
+<p class="step"><span class="sn">57</span><strong>L’ampoule se prévient au point chaud.</strong> Elle vient du frottement, et une peau humide fait des ampoules plus vite qu’une peau sèche. On arrête à la première brûlure ou à la première rougeur, pas à l’ampoule. Avant de partir, du ruban de papier sur les endroits qui ont déjà fait des ampoules — orteils et talon surtout — : il réduit les ampoules de 40 %. Les bas du système du chapitre 104 (section 5-I), changés dès qu’ils sont humides : un bas trop mince laisse la botte trop lâche, et c’est le jeu dans la botte qui frotte.</p>
+<p class="step"><span class="sn">58</span><strong>L’ampoule qui est là.</strong> Petite et fermée : on la laisse fermée, protégée par un coussinet en beigne découpé en rond autour d’elle, le tout couvert d’un pansement. Grosse et douloureuse : une aiguille passée au rouge (<span class="ref">ch. 26</span>, section 9), un trou au bord de l’ampoule, on presse doucement pour faire sortir le liquide, <strong>et on laisse la peau du dessus en place</strong> : c’est elle qui protège la chair à vif. Laver à l’eau et au savon, vaseline, pansement. Une ampoule guérit en une à deux semaines, et elle ne guérit pas dans la botte qui l’a faite : on change ce qui frotte avant de repartir. Chaude, pleine de pus vert ou jaune, rouge autour : infection (<span class="ref">ch. 26</span>, section 5-D). L’ampoule de gelure est une autre affaire (<span class="ref">ch. 25</span>, étape 22).</p>
+<p class="step"><span class="sn">59</span><strong>Les ampoules de raquette.</strong> Elles viennent de l’attache : trop serrée, elle écrase le tendon du talon ; trop lâche, le pied glisse et bute. On règle par le talon, et les orteils ne descendent dans le trou que pour agripper en montée (<span class="ref">ch. 89</span>, étapes 36 à 38). Du ruban de papier sur le dessus des orteils là où la bride porte.</p>
+<p class="step"><span class="sn">60</span><strong>Le mal de raquette.</strong> Les voyageurs appelaient ainsi la boiterie des pieds et des chevilles que donne la raquette « sans mesure » : les premières longues sorties de la saison, la neige profonde, la trace à ouvrir seul. Il se prévient en allongeant les sorties de semaine en semaine et en se relayant pour ouvrir la trace (<span class="ref">ch. 89</span>, étape 42). Il se soigne comme un tendon : moins de distance, la jauge de la section 3, et on reprend quand le matin redevient normal.</p>
+<p class="step"><span class="sn">61</span><strong>L’ongle incarné commence aux ciseaux.</strong> Couper droit, jamais en arrondi dans les coins, et pas trop court : le coin de l’ongle doit dépasser la peau. Un ongle coupé court laisse la chair bomber par-dessus, et l’ongle qui repousse s’y enfonce.</p>
+<p class="step"><span class="sn">62</span><strong>L’ongle qui rentre : soulever, pas couper.</strong> Tant qu’il n’y a qu’une rougeur et de la douleur : tremper le pied dans de l’eau tiède salée, puis le garder sec le reste de la journée, et desserrer la botte. On ne coupe pas le coin qui rentre : on le laisse pousser au-delà de la peau, en l’aidant. Trois façons de l’aider, de la plus simple à la plus solide. Glisser sous le coin de l’ongle un petit tampon de coton, pour le soulever. Glisser une bande étroite de ruban entre le bord de l’ongle et le bourrelet de peau, et la tirer vers le bas pour écarter la peau de l’ongle, en la tenant par un tour de bande autour de l’orteil ; on la garde jusqu’à ce que l’ongle ait poussé par-dessus le bourrelet. Ou enfiler sur le bord de l’ongle un petit tube fendu sur sa longueur (section 9). Du pus, de la fièvre : infection (<span class="ref">ch. 26</span>, section 5-D). Une chair rouge et boursouflée qui a poussé sur le côté de l’ongle : ces mesures-là ne suffisent plus souvent.</p>
+<p class="step"><span class="sn">63</span><strong>Le pied d’immersion, qu’on appelait pied de tranchée.</strong> Il n’a pas besoin de gel : des pieds mouillés des heures durant, même au-dessus de zéro, suffisent. Le chapitre 25 (section 5-E) le reconnaît et le soigne. Il se voit au moment de l’étape 7, le soir, quand la peau blanche et plissée n’a encore rien de plus.</p>
+<p class="step"><span class="sn">64</span><strong>Les bottes se sèchent chaque soir.</strong> Doublure retirée, bottes ouvertes, bourrées de ce qui boit (<span class="ref">ch. 25</span>, section 9). Un pied qui entre le matin dans une botte humide refait l’ampoule, le pied d’immersion et le pied froid en même temps.</p>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:20.7%"><col style="width:19.0%"><col style="width:29.5%"><col style="width:30.9%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Hors cible</th></tr></thead><tbody><tr><td class="c-item">Avant la première bûche</td><td>Mains et dos</td><td>Chauds sans suer</td><td>Continuer les gestes à vide</td></tr><tr><td class="c-item">Pendant un effort répété</td><td>La douleur de la zone blessée ou fatiguée</td><td>5 sur 10 au plus</td><td>Charge plus légère, ou autre tâche</td></tr><tr><td class="c-item">Le lendemain matin</td><td>Douleur et raideur</td><td>Pas pires que la veille</td><td>Journée légère pour cette partie du corps</td></tr><tr><td class="c-item">Chaque lever</td><td>Distance entre les mains et les chevilles</td><td>Charge contre le ventre ; à 50 cm, le dos n’en accepte plus que la moitié</td><td>Se rapprocher, alléger, faire deux voyages</td></tr><tr><td class="c-item">Chaque lever</td><td>Hauteur de prise</td><td>Entre les genoux et les épaules</td><td>Remonter la pile, le billot, le chevalet</td></tr><tr><td class="c-item">Travail dehors</td><td>Chaleur du corps, sueur</td><td>Pause à l’abri avant d’avoir froid ; aucune sueur qui ruisselle</td><td>Rentrer, ralentir, changer la couche mouillée</td></tr><tr><td class="c-item">Chaque nuit, pour chaque adulte</td><td>Sommeil</td><td>7 h ou plus</td><td>Alterner la nuit du poêle</td></tr><tr><td class="c-item">Pelletage</td><td>Poitrine, souffle</td><td>Aucune douleur, aucun souffle court</td><td>Section 8, point 1, même si ça passe au repos</td></tr><tr><td class="c-item">Tour de rein, premier jour</td><td>Temps couché</td><td>24 h au plus</td><td>Se lever et marcher, même en boitant</td></tr><tr><td class="c-item">Tour de rein, 4 à 6 semaines</td><td>Évolution</td><td>Mieux</td><td>Étape 20 relue, décision de rester reprise (<span class="ref">ch. 2</span>)</td></tr><tr><td class="c-item">Cheville ou genou tordus, sur place</td><td>Pas, os</td><td>4 pas ; aucun point osseux douloureux (étapes 41 et 50)</td><td>Attelle de fracture (<span class="ref">ch. 26</span>, section 9)</td></tr><tr><td class="c-item">Entorse, jours 1 à 3</td><td>Froid</td><td>20 min au plus, toutes les 2 à 3 h, à travers un linge ; neige en gadoue, jamais sèche</td><td>Peau engourdie ou blanche : enlever</td></tr><tr><td class="c-item">Entorse, jour 4 ou 5</td><td>Bleu, douleur au ligament, jeu du talon</td><td>Comparés à l’autre côté</td><td>Les trois : ligament rompu, support 4 à 6 semaines</td></tr><tr><td class="c-item">Entorse, 2 semaines</td><td>Marche</td><td>Nettement mieux</td><td>Revoir l’os (étape 41) et l’entorse haute (étape 45)</td></tr><tr><td class="c-item">Entorse, avant la raquette</td><td>Équilibre sur le pied blessé</td><td>Aussi stable que l’autre</td><td>Continuer les exercices, garder le support</td></tr><tr><td class="c-item">Coude, pendant la guérison</td><td>Exercice du poignet</td><td>3 séries de 10 par jour ; 4 temps à la descente, 2 à la montée</td><td>Douleur au-dessus de 5 sur 10 : sans poids</td></tr><tr><td class="c-item">Béquille</td><td>Hauteur</td><td>Taille moins 40 cm ; 5 cm, deux ou trois doigts, sous l’aisselle</td><td>Recouper ou rehausser</td></tr><tr><td class="c-item">Chaque soir</td><td>Pieds et mains</td><td>Peau sèche, sans rougeur ni fente</td><td>Étapes 7, 35, 57, 62</td></tr><tr><td class="c-item">Matin froid, saison de scie</td><td>Bouts des doigts</td><td>Aucun ne blanchit</td><td>Étape 37</td></tr><tr><td class="c-item">Après une grosse journée</td><td>Couleur de l’urine</td><td>Claire</td><td>Brune : section 8, point 2</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:42.9%"><col style="width:24.4%"><col style="width:32.7%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">La douleur augmente d’un jour à l’autre malgré les tâches changées</td><td>Charge encore trop forte pour le tissu</td><td>Baisser d’un cran de plus ; reprendre la jauge de la section 3</td></tr><tr><td class="c-item">Douleur soudaine dans un tendon qui faisait déjà mal, et la force part</td><td>Déchirure partielle devenue complète</td><td>Attelle ; le geste perdu ne revient pas au chalet</td></tr><tr><td class="c-item">Épaule, coude ou genou qui ne retrouve plus son amplitude</td><td>Raideur d’une articulation trop ménagée</td><td>Bouger chaque jour dans toute l’amplitude possible</td></tr><tr><td class="c-item">Cheville qui se dérobe encore après six semaines</td><td>Ligament mal refait, équilibre perdu</td><td>Exercices d’équilibre, support pour tout terrain inégal</td></tr><tr><td class="c-item">Genou qui se bloque à répétition</td><td>Ménisque</td><td>Pas de pivot, pas de charge accroupie ; réparation dès que possible</td></tr><tr><td class="c-item">Orteils ou doigts froids, pâles ou qui picotent sous une attelle ou une bande</td><td>Trop serré : garrot involontaire</td><td>Desserrer tout de suite (<span class="ref">ch. 26</span>, section 7)</td></tr><tr><td class="c-item">Aisselle engourdie, main qui picote avec la béquille</td><td>Le poids repose sur l’aisselle</td><td>Béquille à raccourcir ; le poids va dans les mains</td></tr><tr><td class="c-item">Ampoule chaude, rouge autour, pus</td><td>Infection</td><td>Chapitre 26, section 5-D</td></tr><tr><td class="c-item">Traînée rouge qui monte d’une ampoule ou d’un ongle</td><td>Infection qui gagne</td><td>Chapitre 26</td></tr><tr><td class="c-item">Les doigts blanchissent plus loin qu’avant, ou plus souvent</td><td>Le doigt mort progresse</td><td>Arrêter la scie à chaîne, passer à la scie à bras</td></tr><tr><td class="c-item">Peau des pieds blanche, plissée, enflée, puis rouge et douloureuse</td><td>Pied d’immersion</td><td>Chapitre 25, section 5-E</td></tr><tr><td class="c-item">Engourdissement qui descend dans les deux jambes, entrejambe qui ne sent plus</td><td>Queue de cheval</td><td>Étape 22 : départ</td></tr><tr><td class="c-item">Genou qui a eu l’air déformé, ou grosse enflure et genou qui ballotte</td><td>Luxation remise en place seule ; artère peut-être blessée</td><td>Étape 51 : départ, même avec un pouls</td></tr><tr><td class="c-item">Bosse à l’aine dure, douloureuse, qui ne se repousse plus, nausées</td><td>Hernie coincée</td><td>Section 8, point 5 : départ</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">Le cœur lâche dans la neige, et il se déguise en muscle.</strong> Le lendemain d’une bordée de 20 cm, les hommes du Québec meurent d’infarctus un tiers plus souvent. Pelleter fait monter le pouls au-delà des trois quarts de son maximum ; on lève en bloquant son souffle, ce qui fait monter la pression d’un coup ; les bras forcent sans arrêt ; et le froid serre les vaisseaux et l’air froid réduit le sang qui nourrit le cœur lui-même. Même derrière une souffleuse, le cœur travaille plus qu’au repos. <strong>Une douleur qui écrase ou serre la poitrine et peut gagner un bras, le cou ou la mâchoire, un souffle court, une nausée, une brûlure « d’indigestion » dans la poitrine, une sueur, une peau pâle ou grise pendant l’effort ne sont pas un muscle froissé.</strong> Le réflexe est de finir la tâche, et c’est lui qui tue : on arrête sur-le-champ, on s’assoit, genoux pliés, le dos appuyé. On ne remonte pas le chemin à pied : l’autre adulte ramène le malade sur le toboggan (<span class="ref">ch. 26</span>, section 9) ; seul, on rentre au pas le plus lent, avec des arrêts, sans rien porter. Au chaud, assis, le dos appuyé. <strong>L’aspirine se croque</strong> : un comprimé de 325 mg ou deux de 81 mg, croqués puis avalés, sauf allergie ou intolérance à l’aspirine, y compris l’asthme qu’elle déclenche (<span class="ref">ch. 34</span>). Le reste est au chapitre 35 : l’infarctus est sur l’horloge en heures.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">La douleur qui passe en s’assoyant ne rassure pas.</strong> Une douleur de poitrine qui vient à l’effort ou au froid et cède en quelques minutes de repos, c’est le cœur qui manque de sang quand on lui en demande, et c’est le signe d’un risque plus grand d’infarctus. Le pelleteur conclut que ce n’était rien et reprend la pelle ; la douleur revient avec elle. On ne reprend pas la pelle ce jour-là, et la décision de rester se reprend (<span class="ref">ch. 2</span>).</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">L’urine brune après la grosse journée.</strong> Un effort extrême peut défaire assez de muscle pour que son contenu passe dans le sang et bouche les reins. Le signe : une urine couleur de thé ou brun-rouge, avec des muscles douloureux et faibles — les épaules, les cuisses, le bas du dos, les mollets. Mais ce trio complet ne se voit que dans moins d’un cas sur dix, et beaucoup n’ont même pas mal aux muscles : <strong>l’urine brune seule suffit à s’arrêter.</strong> Les reins lâchent chez 15 à 50 % de ceux qui font des complications, et plus souvent quand le corps manque d’eau. On arrête tout effort, on boit, et on urine dans un contenant gradué : le but est environ 1 L toutes les 6 heures. Si on n’y arrive pas malgré ce qu’on boit, ou si l’urine reste brune, c’est un départ (<span class="ref">ch. 35</span>). À l’hôpital, le traitement est du liquide dans les veines, que rien au chalet ne remplace. <strong>Le lendemain d’une grosse journée, le réflexe est de prendre un anti-inflammatoire pour les muscles. Avec une urine brune ou un corps qui a manqué d’eau, jamais : ni anti-inflammatoire, ni écorce de saule, qui est de la même famille ; l’acétaminophène seulement.</strong> Le rein qui manque de sang tient grâce à des substances que l’anti-inflammatoire bloque, et il peut lâcher d’un coup.</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le tour de rein qui n’en est pas un.</strong> Le dos qui barre avec l’entrejambe qui ne sent plus (note 1), la vessie qui ne se vide plus ou qui fuit, ou les deux jambes faibles : ce sont les nerfs du bas de la colonne qui sont écrasés. Le réflexe dit « c’est juste un tour de rein » ; sans chirurgie rapide, les jambes peuvent rester paralysées et les dégâts devenir permanents. Départ le jour même (étape 22).</p>
+<p class="pt"><span class="pn">4</span><strong class="plead">Le genou qui a eu l’air déformé.</strong> Une déformation qui s’est remise seule, ou une grosse enflure avec un genou qui ballotte : c’était probablement une luxation, et l’artère derrière le genou a pu être blessée. Un pouls présent ne l’écarte pas. C’est le membre qui est en jeu : attelle et départ (étape 51).</p>
+<p class="pt"><span class="pn">5</span><strong class="plead">La bosse à l’aine qui ne rentre plus.</strong> Une hernie de l’aine (étape 54) qui devient dure, douloureuse au toucher, qui ne se repousse plus, avec une douleur qui monte sans arrêt, des nausées ou des vomissements : l’intestin est coincé et son sang est coupé. Il peut mourir en 6 heures seulement, puis se rompre. C’est l’horloge en heures (<span class="ref">ch. 35</span>) : départ tout de suite.</p>
+</template>
+<template id="story-e">
+<p class="p0">La situation que ce chapitre prépare : un adulte seul, blessé, deux enfants de 4 et 6 ans, et un poêle qui demande du bois chaque jour. L’autre adulte est malade, parti, ou blessé lui aussi. Le bois se rentre quand même. Voici comment, et avec quoi.</p>
+<h3 class="sub">L’ordre, quand on est seul et blessé</h3>
+<p class="p0 ri"><strong class="runin">Ne faire que le bois du jour, et le faire en premier.</strong> Deux jours de bois gardés près du poêle (<span class="ref">ch. 83</span>, section 9) sont ce qui rend une blessure supportable : la première journée se passe à se soigner, pas à fendre. Ensuite, une seule corvée de bois par jour, en plein jour, aux heures chaudes. L’eau vient après. Le reste attend.</p>
+<p class="p0 ri"><strong class="runin">Choisir la tâche selon la blessure, pas selon l’habitude.</strong> Le dos : rien du sol, tout à hauteur de hanche, tout tiré, rien porté — le toboggan chargé au tas, tiré de la poitrine jusqu’à la porte (<span class="ref">ch. 89</span>, section 5-K). La cheville : le travail qui se fait debout sur place, avec la béquille à portée, jamais sur la glace ni en terrain inégal ; le bois se fait tomber du dessus de la pile plutôt que d’aller le chercher. Le coude : l’autre main, le manche grossi, le bracelet pour le côté extérieur, et le bois fendu plus gros, qui demande moins de coups par bûche au prix d’un feu plus lent à prendre ; de l’autre main, fatigué, le coup rate plus souvent, et les pieds écartés, le billot et la hache affûtée de l’étape 11 ne se négligent plus. Le genou : aucun travail à genoux ni accroupi.</p>
+<p class="p0 ri"><strong class="runin">Donner aux enfants une vraie tâche à leur taille.</strong> L’enfant de 6 ans peut tirer son propre toboggan, à sa taille, avec une charge à sa mesure (<span class="ref">ch. 89</span>, étape 60) : l’allumage, le petit bois, les bûches une à une. Celui de 4 ans porte le menu bois dans la boîte. Un enfant qu’on écarte conclut qu’il est de trop : quand un adulte tombe, on augmente ses tâches, on ne les diminue pas (<span class="ref">ch. 40</span>, étapes 4 et 43).</p>
+<p class="p0 ri"><strong class="runin">Refaire le calcul de rester.</strong> Un adulte seul, blessé, avec deux enfants, c’est exactement la situation où s’organiser à plusieurs familles (<span class="ref">ch. 18</span>) ou partir (<span class="ref">ch. 2</span>) devient la bonne réponse. Le chapitre 26 le dit du soignant : celui qui devient le deuxième patient double le problème.</p>
+<h3 class="sub">La béquille de fourche</h3>
+<p class="p0">Un jeune aulne, un bouleau ou un érable qui fourche naturellement. La fourche part un peu sous la hauteur de la main ; les deux branches montent de chaque côté du bras et se referment à l’aisselle. <strong>La longueur : la taille du blessé moins 40 cm, jusqu’à l’appui de l’aisselle</strong>, et cet appui s’arrête à environ 5 cm sous le creux de l’aisselle, deux ou trois doigts. Une traverse liée entre les deux branches, à l’endroit où tombe la main, sert de poignée. Les deux branches se lient ensemble au sommet, rembourrées d’un linge plié ou d’un bout de fourrure. Au pied, dans la neige, un anneau de branche souple lacé en croix, comme une petite raquette, empêche le bâton de s’enfoncer.</p>
+<p class="p0 ri"><strong class="runin">Le poids va dans les mains, coudes tendus, jamais dans l’aisselle.</strong> L’appui qui écrase le creux de l’aisselle, jour après jour, blesse l’artère et les nerfs du bras qui passent là ; une béquille trop longue fait exactement ça. Le haut de la béquille se serre contre les côtes, il ne porte pas. <strong>Une béquille seule, comme un bâton, se tient sous le bras du côté sain.</strong> C’est ce qui permet d’avancer la béquille et le pied blessé ensemble, en appuyant sur la béquille pour soulager le pied, puis de faire passer le bon pied devant. On tourne en pivotant sur le bon pied.</p>
+<p><em>Ce qu’on perd :</em> une béquille seule soulage moins que deux, et une fourche ne se règle pas : si elle est trop longue, on recoupe le pied ; trop courte, on cloue ou on lie une cale dessous.</p>
+<h3 class="sub">L’étrier de cheville</h3>
+<p class="p0">C’est l’attelle en pince, en forme de U : une longue bande qui part de l’intérieur du mollet, passe sous le talon et remonte à l’extérieur du mollet. Dans une plaque d’écorce de bouleau à papier (<em>Betula papyrifera</em>) trempée dans l’eau chaude jusqu’à devenir souple, moulée sur la jambe et laissée sécher en place (<span class="ref">ch. 26</span>, section 9) ; à défaut, deux épaisseurs de carton ou deux bardeaux reliés sous le talon par une bande de cuir. Rembourrer les deux chevilles osseuses. Tenir le tout par une bande élastique en huit autour de la cheville, <strong>sans fermer l’attelle sur le devant</strong> : c’est le côté ouvert qui laisse de la place à l’enflure. La bande se desserre pour la nuit. Les premiers jours, l’enflure monte, et c’est la nuit que l’attelle bien serrée devient un garrot : couleur et chaleur des orteils se regardent au lever, au coucher et, les deux premières nuits, à chaque réveil pour le poêle (<span class="ref">ch. 26</span>, section 7).</p>
+<p><em>Ce qu’on perd :</em> l’étrier tient la cheville droite mais ne l’empêche pas de pointer ; il sert les premiers jours, pas pour marcher en forêt.</p>
+<h3 class="sub">La botte comme support</h3>
+<p class="p0">Après les premiers jours, la botte de cuir montante fait le support lacé : la cheville bandée, la botte lacée serré sur le cou-de-pied et autour de la cheville, plus lâche sur les orteils. Une botte trop serrée écrase le pied et gèle les orteils (<span class="ref">ch. 104</span>, section 3) : si les orteils refroidissent, on délace le bas. <em>Ce qu’on perd :</em> un support acheté tient mieux sur le côté, et la botte ne se porte pas la nuit ; la nuit, la cheville repose surélevée, sans rien.</p>
+<h3 class="sub">L’attelle de genou</h3>
+<p class="p0">Deux perches droites ou deux planches, de la mi-cuisse à au-dessus de la cheville, une de chaque côté, rembourrées là où elles touchent les os, liées en trois points au moins, jamais sur la rotule. Elle sert pour la fracture, le gros ligament rompu, le tendon qui a lâché (étapes 50 et 52), pas pour l’entorse ordinaire. <em>Ce qu’on perd :</em> chaque semaine d’attelle se paie en raideur, et le genou est une des articulations qui raidissent le plus ; c’est pour ça qu’elle est réservée aux grosses blessures.</p>
+<h3 class="sub">Le bracelet de contre-appui</h3>
+<p class="p0">Une bande de cuir ou de chambre à air, nouée ou bouclée serrée autour du gras de l’avant-bras, juste sous le coude. Elle doit se faire sentir quand on serre le poing ; si les doigts picotent, elle est trop serrée. Elle se porte pour travailler, pas pour dormir.</p>
+<h3 class="sub">Grossir le manche</h3>
+<p class="p0">Un manche trop mince fait serrer plus fort, et c’est un des facteurs du coude du bûcheron. Enrouler une lanière de cuir, du ruban ou une corde serrée, puis du cuir par-dessus, jusqu’à ce que les doigts ne se referment plus complètement sur le manche. Un manche plus souple au toucher transmet aussi un peu moins de vibrations aux doigts. <em>Ce qu’on perd :</em> un manche grossi se tient moins précisément ; on le grossit là où la main serre, pas là où elle glisse.</p>
+<h3 class="sub">Les attelles de pouce et de poignet</h3>
+<p class="p0">Pour le pouce : une bande d’écorce de bouleau trempée chaude, moulée autour du pouce et du bord du poignet, et laissée sécher en place, le pouce légèrement écarté comme pour tenir un verre. Pour le poignet de la nuit : une latte de bois mince ou une écorce moulée sous l’avant-bras et la paume, le poignet droit, tenue par une bande. <strong>Jamais de peau crue mouillée moulée autour d’un membre qui enfle</strong> : la babiche serre en séchant (<span class="ref">ch. 103</span>), et elle ferait garrot pendant la nuit.</p>
+<h3 class="sub">Le froid et la chaleur sans rien</h3>
+<p class="p0">Le froid : <strong>la neige d’hiver est à la température de l’air</strong>, bien plus froide que la glace qui fond, et posée vingt minutes à travers un linge, elle peut geler la peau qu’elle engourdit. On la mouille d’eau jusqu’à en faire une gadoue, qui reste à 0 °C tant qu’il y a de la glace dedans, ou on la laisse dans la maison le temps qu’elle commence à fondre ; puis dans un sac de plastique. Ou un linge trempé dans l’eau du lac et renouvelé quand il tiédit. Toujours un linge entre le froid et la peau, et jamais sur une peau déjà engourdie. La chaleur, après 48 heures : une bouteille d’eau chaude roulée dans un linge, une pierre sèche ou un bas de riz chauffés <strong>près</strong> du poêle et non dessus, la pierre enveloppée épais (<span class="ref">ch. 25</span>, section 9). Même règle que pour le froid : jamais sur une peau qui fourmille ou qui sent mal, parce qu’elle brûle sans prévenir.</p>
+<h3 class="sub">Les poids, la planche d’équilibre</h3>
+<p class="p0">Les poids des exercices du coude : une boîte de conserve, une bouteille d’eau qu’on remplit un peu plus à mesure que la douleur le permet, une pierre dans un bas. La planche d’équilibre : une planche posée à plat sur une bûche fendue en deux, face plate au sol, pour qu’elle bascule d’un côté à l’autre sans rouler. On y monte près d’un mur ou d’une table, une main prête, sur le pied blessé seulement quand il tient déjà sur une couverture pliée.</p>
+<h3 class="sub">Le chevalet de sciage</h3>
+<p class="p0">Deux paires de perches solides croisées en X et liées à la croisée, reliées l’une à l’autre par une traverse basse et une perche en diagonale pour qu’elles ne s’écartent pas ; les croisées s’assemblent à mi-bois (<span class="ref">ch. 110</span>). La bille se couche dans les deux X, à hauteur de hanche. On scie debout, le dos droit, et la bille ne pince pas la lame si on coupe à l’extérieur des appuis. C’est la pièce qui sauve le dos de toute une saison de sciotte.</p>
+<h3 class="sub">Le porte-bûches</h3>
+<p class="p0">Un rectangle de toile épaisse ou de peau, un bâton glissé dans un ourlet à chaque bout pour faire deux poignées. On y couche la brassée, on prend les deux poignées d’une main ou des deux, et la charge pend contre la jambe au lieu d’être serrée à bout de bras. <em>Ce qu’on perd :</em> on en porte moins à la fois qu’avec un toboggan.</p>
+<h3 class="sub">La genouillère</h3>
+<p class="p0">Un carré de feutre épais, de peau de mouton ou de peau d’orignal pliée en trois, noué derrière le genou par deux lacets, ou un sac de toile bourré de sapinage posé au sol là où l’on s’agenouille. Le sapinage s’écrase en quelques jours et se change.</p>
+<h3 class="sub">Le coussinet en beigne</h3>
+<p class="p0">Un rond de feutre, de carton double ou de cuir mince, plus grand que l’ampoule, percé au centre d’un trou de la taille de l’ampoule, posé autour d’elle et tenu par du ruban. La pression se reporte sur l’anneau, l’ampoule ne touche plus rien.</p>
+<h3 class="sub">Le baume</h3>
+<p class="p0">De la cire d’abeille fondue dans du suif ou de la graisse d’ours, au bain-marie, versée dans un petit pot. La cire fait film sur la peau ; la graisse la rend tartinable. <em>Ce qu’on perd :</em> la vaseline arrête presque toute l’eau qui sort de la peau, et l’huile d’olive cent soixante-dix fois moins. La lanoline, la graisse de la laine de mouton, n’en arrête que 20 à 30 % ; le suif et la graisse d’ours n’ont pas été mesurés. C’est la cire qui rapproche le baume de la vaseline ; plus il y en a, plus il ferme, et plus il est dur à étendre.</p>
+<h3 class="sub">Quand la colle manque</h3>
+<p class="p0">Rien ne scelle une crevasse aussi vite. On la couvre de baume le soir, sous un doigtier taillé dans le doigt d’un vieux gant et tenu par un tour de ruban, pour que le baume reste dans la fente toute la nuit. <em>Ce qu’on perd :</em> la crevasse se rouvre au premier geste du matin, et guérit en plus de temps.</p>
+<h3 class="sub">La gouttière d’ongle</h3>
+<p class="p0">Un bout de gaine de fil électrique, de la grosseur qui coiffe le bord de l’ongle, fendu sur toute sa longueur au couteau et enfilé sur le bord de l’ongle incarné, entre l’ongle et la peau. Il garde la peau loin de l’ongle pendant qu’il pousse. Un bout de soie dentaire ou de fil fin glissé sous le coin de l’ongle le soulève de la même façon, en plus petit. <em>Ce qu’on perd :</em> ça tient mal dans une botte qui frotte ; on vérifie chaque soir, à l’étape 7.</p>
+<h3 class="sub">Ce qu’on perd en tout</h3>
+<p class="p0">La précision. Sans radiographie, les règles des étapes 41 et 50 laissent passer quelques fractures, et plus chez l’enfant : dans le doute, on traite comme une fracture et on accepte d’avoir immobilisé pour rien. Le temps. Un tendon, un dos ou une cheville qui guérit en travaillant guérit plus lentement qu’au repos avec quelqu’un pour rentrer le bois à sa place ; on le compte en semaines de plus, et on ne s’en étonne pas. La marge. Un corps seul, sans relève, finit par casser au même endroit : la vraie substitution à un physiothérapeute, c’est une deuxième paire de bras (<span class="ref">ch. 18</span>).</p>
+<h3 class="sub">Ce qui ne se remplace pas</h3>
+<p class="p0">Le ligament croisé rompu, le ménisque qui bloque, le tendon de la rotule ou de l’épaule qui a lâché : rien de ce chapitre ne les recoud, et la section 5-H dit comment vivre avec jusqu’à ce qu’on puisse les faire réparer. La queue de cheval écrasée demande une chirurgie, vite (étape 22), et la hernie coincée aussi (section 8). Le doigt mort des vibrations, une fois installé, peut rester pour de bon. Et le cœur qui lâche dans la neige ne se soigne pas au chalet (section 8) : ce qui s’y fait, c’est de s’arrêter à temps.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="24-1"><span class="fnn">1</span>L’« anesthésie en selle » : la peau que toucherait une selle — l’intérieur des cuisses, les fesses, le pourtour de l’anus et les organes génitaux — ne sent plus, ou sent « à travers un gant ». Elle se teste en effleurant ces zones d’un brin de foin ou du bout d’un doigt, des deux côtés, et en comparant avec le bas de la cuisse.</p>
+<p class="fn" data-fn="24-2"><span class="fnn">2</span>Le pied qui tombe : assis, talon au sol, on relève la pointe du pied vers le tibia, puis on marche quelques pas sur les talons. Un pied qui ne se relève pas, qui claque au sol à chaque pas ou dont la pointe accroche, c’est un nerf qui ne commande plus le muscle.</p>
+<p class="fn" data-fn="24-3"><span class="fnn">3</span>La pointe de la cheville, ce sont les deux bosses osseuses de chaque côté de la cheville : l’intérieure est le bout du tibia, l’extérieure le bout du péroné. La bosse du bord extérieur du pied se trouve à mi-longueur du pied, là où le bord s’élargit ; celle du bord intérieur, un peu en avant et en dessous de la cheville intérieure.</p>
+<p class="fn" data-fn="24-4"><span class="fnn">4</span>La tête du péroné est la petite bosse osseuse du côté extérieur de la jambe, juste sous le genou, un peu vers l’arrière.</p>
+<p class="fn" data-fn="24-5"><span class="fnn">5</span>La hernie de l’aine se cherche debout, la main à plat sur le pli de l’aine : on tousse, ou on pousse comme pour forcer. Une bosse qui vient pousser contre la main et repart quand on se détend, c’est elle. Elle est plus fréquente chez l’homme, et chez lui elle peut descendre dans les bourses et les faire enfler d’un seul côté.</p>
+</template>
+<script type="application/json" id="meta">{"num": "24", "title": "Le corps qui travaille", "tome": "Tome 2 · Le corps", "tnum": 2, "tfond": "#5C1A15", "tencre": "#F3ECE5", "lieu": "Les deux", "dsub": "", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>

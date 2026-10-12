@@ -1,0 +1,255 @@
+{
+  "_lisez-moi": "Tome 1 (Tenir, ch. 00, 00b, 1 à 18), à fusionner dans placements.json. Même format : clés et numéros de planche en numérotation NOUVELLE ; « apres » = début du paragraphe (texte Markdown) après lequel la figure vient ; photos : fichier, apres, taille (quart | demi), legende. Le constructeur insère chaque figure juste après son ancrage : deux figures sur le même paragraphe s'inversent. Les planches a et b ont donc chacune leur paragraphe ; les deux photos du ch. 13 partagent le leur et sont inscrites dans l'ordre inverse de la lecture (gomme, puis bouleau) pour sortir bouleau, puis gomme. Photos : les quatre fichiers de images/photos/tri/ qui portent un numéro ACTUEL du tome 1 (04, 05, 13), donnés par leur chemin complet parce que le constructeur cherche les noms courts sous l'ANCIEN numéro (tri/04-… tomberait au ch. 03, ancien 04). Les 100 images que credits.md demande aux anciens ch. 00 à 23 restent « à acquérir ». Vérifié le 28 septembre 2026 : chaque « apres » tombe sur un seul bloc, avec la logique même de place() dans build_chapitre.py. Ajout du 29 septembre 2026 : images/photos/manquantes/ (registre-manquantes.md). Posée : 10-hutte-castor. Non posées, raison dans la note _photos du chapitre : 10-barrage-castor, 10-gros-bouillons, 10-trou-puisage-glace, 05-boites-rouillees-serti.",
+  "00": {
+    "planches": [],
+    "photos": []
+  },
+  "00b": {
+    "planches": [],
+    "photos": []
+  },
+  "01": {
+    "planches": [],
+    "photos": [],
+    "_planches": "01-01 (fiche des quatre horloges) non posée : c'est un formulaire (images/formulaires/01-01.pdf), le chapitre ne demande plus de feuille à remplir, et la bande du haut porte un numéro de téléphone. Si JP la garde : après « 1. **Écrire l'heure sur la porte du congélateur.** »."
+  },
+  "02": {
+    "planches": [],
+    "photos": []
+  },
+  "03": {
+    "planches": [
+      {
+        "id": "03-08",
+        "apres": "Trois conditions, et elles ne se négocient pas."
+      },
+      {
+        "id": "03-09",
+        "apres": "Ce qui se tend au-dessus vaut moins que ce qui se glisse dessous."
+      },
+      {
+        "id": "03-10",
+        "apres": "Deux substituts remettent le joint d'eau sans antigel du commerce."
+      }
+    ],
+    "photos": []
+  },
+  "04": {
+    "planches": [
+      {
+        "id": "04-01a",
+        "apres": "*Le toit est le côté faible.*"
+      },
+      {
+        "id": "04-01b",
+        "apres": "*Ventiler quand même.*"
+      },
+      {
+        "id": "04-40",
+        "apres": "Le sas se monte avec deux bâches ou deux couvertures accrochées en chicane"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/04-lichen-caribous-tapis.jpg",
+        "apres": "20. **Traiter le gibier par ordre décroissant de risque :**",
+        "taille": "quart",
+        "legende": "Lichen des caribous en tapis. Il prend le césium du sol, et le caribou qui s'en nourrit l'hiver passe en tête du tri."
+      }
+    ]
+  },
+  "05": {
+    "planches": [],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/05-boite-bombee.jpg",
+        "apres": "Toute boîte bombée, rouillée ou bosselée sur le serti se jette",
+        "taille": "quart",
+        "legende": "Boîte bombée : le gaz formé dedans pousse le couvercle. Elle se jette sans être ouverte et sans être goûtée."
+      }
+    ],
+    "_photos": "La photo va sous l'encadré du botulisme (section 8) et non sous le tableau de la section 7, qui la demandait : le constructeur ne peut pas ancrer sur un tableau (source vide dans render()), et la section 7 n'a que ce tableau. L'étiquette de la boîte (hareng fermenté suédois, bombé exprès) se voit : à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. 05-boites-rouillees-serti (images/photos/manquantes/, 29 septembre 2026) n'est pas posée : une palette de boîtes rouillées de partout, marques lisibles ; la rouille se reconnaît sans photo et l'image n'apprend rien que « rouillée » ne dise déjà."
+  },
+  "06": {
+    "planches": [],
+    "photos": []
+  },
+  "07": {
+    "planches": [],
+    "photos": []
+  },
+  "08": {
+    "planches": [],
+    "photos": []
+  },
+  "09": {
+    "planches": [
+      {
+        "id": "09-08",
+        "apres": "**Ce qu'on perd :** tout le reste. Le cuir durcit au froid"
+      }
+    ],
+    "photos": []
+  },
+  "10": {
+    "planches": [
+      {
+        "id": "10-01",
+        "apres": "**La chaîne complète, version dégradée.**"
+      },
+      {
+        "id": "10-02",
+        "apres": "**Puiser un puits quand la pompe est morte.**"
+      },
+      {
+        "id": "10-07",
+        "apres": "**Le filtre à sable.**"
+      },
+      {
+        "id": "10-03",
+        "apres": "**L'alambic de fortune.**"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/manquantes/10-hutte-castor.jpg",
+        "apres": "1. Puiser **en amont** de tout ce qui vit",
+        "taille": "quart",
+        "legende": "Hutte de castor en hiver : un dôme de branches sous la neige. Toute eau prise en aval, glace comprise, bout cinq minutes."
+      }
+    ],
+    "_photos": "Photos de images/photos/manquantes/ (29 septembre 2026). Posée : 10-hutte-castor, à l'étape 1 qui la nomme ; en hiver, sous la neige, la hutte n'a l'air que d'un tas de branches. Non posées : 10-barrage-castor (le chapitre ne parle pas de barrage ; le registre la destine aussi aux ch. 43 et 50), 10-gros-bouillons (une marmite qui bout sur une cuisinière : rien que « la surface roule » ne dise), 10-trou-puisage-glace (un trou ouvert et une chaudière, sans le couvercle ni la neige de l'étape 33, que la planche 58-10 dessine). Les fichiers 13-* de images/photos/58 et /60 sont l'image n° 13 des anciens chapitres 58 (salicorne) et 60 (chaudière galvanisée « celle-ci, jamais »), pas des photos de ce chapitre."
+  },
+  "11": {
+    "planches": [
+      {
+        "id": "11-03",
+        "apres": "**Les vitres cassent par le rayonnement avant que la flamme n'arrive**"
+      }
+    ],
+    "photos": []
+  },
+  "12": {
+    "planches": [
+      {
+        "id": "12-01a",
+        "apres": "7. **Dehors, le tuyau monte plus haut que le faîte**"
+      },
+      {
+        "id": "12-01b",
+        "apres": "8. **La première flambée se fait vive"
+      },
+      {
+        "id": "12-02",
+        "apres": "6. **Rien autour du poêle**"
+      },
+      {
+        "id": "12-03",
+        "apres": "10. **Dedans :**"
+      },
+      {
+        "id": "12-04",
+        "apres": "11. **Le feu reste petit.**"
+      },
+      {
+        "id": "12-05a",
+        "apres": "6. **Colmater tous les joints**"
+      },
+      {
+        "id": "12-05b",
+        "apres": "9. **Percer le trou d'aération**"
+      },
+      {
+        "id": "12-06a",
+        "apres": "11. **Sur le banc :**"
+      },
+      {
+        "id": "12-06b",
+        "apres": "Il n'y a pas de bois sec, ou le vent tourne et rabat la fumée dans l'appentis."
+      }
+    ],
+    "photos": []
+  },
+  "13": {
+    "planches": [
+      {
+        "id": "13-01",
+        "apres": "Le palier du dessus est l'autre pièce qu'on fabrique"
+      },
+      {
+        "id": "13-07",
+        "apres": "**L'amadou carbonisé sans boîte à couvercle.**"
+      },
+      {
+        "id": "13-08",
+        "apres": "**La boîte à braise, pour se déplacer.**"
+      },
+      {
+        "id": "13-09",
+        "apres": "La pierre, c'est un caillou de grève assez dur pour rayer le verre"
+      },
+      {
+        "id": "13-40",
+        "apres": "12. Déposer le nid en flammes sous le tas fin déjà monté"
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/13-gomme-epinette.jpg",
+        "apres": "Ce qui reçoit l'étincelle se ramasse toute l'année et se garde au sec",
+        "taille": "quart",
+        "legende": "Gomme d'épinette sur une blessure du tronc. Pour le feu, on prend celle qui a figé."
+      },
+      {
+        "fichier": "images/photos/tri/13-bouleau-ecorce-rubans.jpg",
+        "apres": "Ce qui reçoit l'étincelle se ramasse toute l'année et se garde au sec",
+        "taille": "quart",
+        "legende": "Écorce externe de bouleau à papier qui pèle en rubans. Elle brûle mouillée."
+      }
+    ]
+  },
+  "14": {
+    "planches": [
+      {
+        "id": "14-01",
+        "apres": "Côté terre, la règle qui surprend"
+      }
+    ],
+    "photos": []
+  },
+  "15": {
+    "planches": [
+      {
+        "id": "15-01",
+        "apres": "34. Si on tombe à travers la glace, appliquer le budget 1-10-1"
+      }
+    ],
+    "photos": []
+  },
+  "16": {
+    "planches": [
+      {
+        "id": "16-07",
+        "apres": "**Où se prend le fil.**"
+      },
+      {
+        "id": "16-08",
+        "apres": "*Deux brancards rigides valent mieux qu'une corde.*"
+      }
+    ],
+    "photos": []
+  },
+  "17": {
+    "planches": [
+      {
+        "id": "17-06",
+        "apres": "Si la porte ouvre vers l'extérieur, ses pentures sont dehors"
+      }
+    ],
+    "photos": []
+  },
+  "18": {
+    "planches": [],
+    "photos": []
+  }
+}

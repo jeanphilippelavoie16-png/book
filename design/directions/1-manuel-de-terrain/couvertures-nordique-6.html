@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>Le Grand Livre du Chalet — couvertures des six tomes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&text=%E2%86%92%E2%88%92&display=block" rel="stylesheet">
+<!-- Généré par outils/build_couvertures_6.py : ne pas modifier à la main. -->
+<style>
+/* =====================================================================
+   COUVERTURES DES SIX TOMES — couverture souple Blurb, 8 × 10 po rogné.
+   Fond perdu 0,125 po partout sur la couverture complète.
+   TRANCHE : variable --spine, posée sur chaque couverture complète par le générateur à partir du nombre de
+   pages RÉEL du tome (PAGES, tomes réassemblés le 29 septembre 2026) et du tableau du calculateur de Blurb
+   (sources/blurb-specifications.md). Largeur du PDF = 16,25 po + tranche.
+   Page d'impression : la couverture plus un demi-point au moins, en points entiers (Edge ne rend pas la
+   taille au point près) ; --decouper remet chaque couverture à la mesure exacte de Blurb.
+   ===================================================================== */
+@page front { size: 585pt 738pt; margin: 0; }
+@page full  { size: 1242pt 738pt; margin: 0; }
+@page full1 { size: 1226pt 738pt; margin: 0; }  /* tome 1 : 332 p. -> tranche 0.75 po (entre 320 p. (0.75) et 340 p. (0.806) du tableau : palier de la ligne 320) ; PDF 17.000 po */
+@page full2 { size: 1239pt 738pt; margin: 0; }  /* tome 2 : 416 p. -> tranche 0.931 po (entre 400 p. (0.931) et 420 p. (0.931) du tableau : palier de la ligne 400) ; PDF 17.181 po */
+@page full3 { size: 1226pt 738pt; margin: 0; }  /* tome 3 : 334 p. -> tranche 0.75 po (entre 320 p. (0.75) et 340 p. (0.806) du tableau : palier de la ligne 320) ; PDF 17.000 po */
+@page full4 { size: 1221pt 738pt; margin: 0; }  /* tome 4 : 284 p. -> tranche 0.681 po (entre 280 p. (0.625) et 300 p. (0.681) du tableau : palier de la ligne 300) ; PDF 16.931 po */
+@page full5 { size: 1244pt 738pt; margin: 0; }  /* tome 5 : 438 p. -> tranche 1.0 po (entre 420 p. (0.931) et 440 p. (1.0) du tableau : palier de la ligne 440) ; PDF 17.250 po */
+@page full6 { size: 1208pt 738pt; margin: 0; }  /* tome 6 : 200 p. -> tranche 0.5 po (ligne 200 p. du tableau) ; PDF 16.750 po */
+:root{
+  --spine:1.0in;
+  --sans:'IBM Plex Sans Condensed','Arial Narrow',sans-serif;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --ink:#111;
+}
+.t1{--c:#E2E7EA;--ink:#15222B;--fil:rgba(21,34,43,.45)} /* neige */
+.t2{--c:#5C1A15;--ink:#F3ECE5;--fil:rgba(243,236,229,.45)} /* sang de gibier */
+.t3{--c:#1D392E;--ink:#E9F0EA;--fil:rgba(233,240,234,.45)} /* épinette */
+.t4{--c:#25414F;--ink:#EDF2F5;--fil:rgba(237,242,245,.45)} /* fleuve */
+.t5{--c:#4B3A28;--ink:#F2EBDF;--fil:rgba(242,235,223,.45)} /* écorce */
+.t6{--c:#363432;--ink:#EEEBE6;--fil:rgba(238,235,230,.45)} /* fonte */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{position:relative;overflow:hidden;background:var(--c);color:var(--ink);break-after:page}
+.sheet:last-of-type{break-after:auto}
+.sheet.front{page:front;width:8.125in;height:10.25in}
+/* + 1px : Chrome arrondit la largeur du fond au pixel inférieur (17,181 po -> 1649 px = 17,177 po), ce qui laissait
+   un filet blanc de 0,3 pt au bord du fond perdu ; le pixel de plus déborde dans la bande que --decouper retire */
+.sheet.full{page:full;width:calc(16.25in + var(--spine) + 1px);height:10.25in}
+
+/* ---------- panneau (avant ou arrière), 8 × 10 rogné ---------- */
+.panel{position:absolute;top:0.125in;width:8in;height:10in}
+.front .panel{left:0}
+.full .back{left:0.125in}
+.full .spine{left:8.125in;width:var(--spine)}
+.full .fr{left:calc(8.125in + var(--spine))}
+.in{position:absolute;left:0.5in;right:0.5in;top:0.5in;bottom:0.5in}
+
+.hd{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:6pt;border-bottom:5pt solid var(--ink);
+  font:700 13.5pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.hd .r{font-weight:600;font-size:11pt;letter-spacing:.14em}
+.num{position:absolute;right:-0.06in;bottom:0.66in;font:700 420pt/0.72 var(--sans);letter-spacing:-.03em;text-align:right}
+.ttl{position:absolute;left:0;right:0;top:0.62in}
+.ttl h1{margin:0;font:700 86pt/1.13 var(--sans);text-transform:uppercase;letter-spacing:-.005em;padding-bottom:10pt;border-bottom:2.5pt solid var(--ink);white-space:nowrap}
+.ttl .ch{display:flex;justify-content:space-between;align-items:baseline;padding-top:8pt}
+.ttl .ch b{font:700 17pt/1 var(--sans);letter-spacing:.04em;text-transform:uppercase}
+.ttl .ch span{font:500 11pt/1.2 var(--sans);letter-spacing:.02em;text-align:right}
+
+/* barre de série : les six tomes au prorata des chapitres (20, 22, 20, 21, 20, 11) */
+.serie{position:absolute;left:0;right:0;bottom:0.02in;display:flex;gap:3pt}
+.serie div{display:flex;flex-direction:column;gap:3pt;min-width:0}
+.serie i{display:block;height:0.3in;border:1.25pt solid var(--ink);font:700 12pt/0.28in var(--sans);font-style:normal;padding-left:5pt}
+.serie div.on i{background:var(--ink);color:var(--c)}
+.serie small{font:600 8pt/1 var(--sans);letter-spacing:.06em;white-space:nowrap}
+.s1{flex:20}.s2{flex:22}.s3{flex:20}.s4{flex:21}.s5{flex:20}.s6{flex:11}
+
+/* ---------- tranche ---------- */
+/* titre de tranche : 26 pt pour les six (31 pt sur les quatre tomes d'avant) — « La forêt, le jardin et le chalet »
+   est le plus long et doit laisser la place au nom de la série en pied */
+.spine .sp{position:absolute;inset:0.42in 0 0.45in 0;display:flex;flex-direction:column;align-items:center}
+/* chiffre de tranche : 58 pt, réduit sur une tranche mince pour garder 1/16 po de chaque côté des plis (la
+   tolérance de coupe de Blurb ; le titre de 26 pt, capitales ≈ 18 pt, garde la même marge sur la plus mince).
+   Le chiffre fait environ 0,55 em de large. Seul le tome 6 descend : 200 p., 0,5 po -> ≈ 49 pt.
+   Le filet suit : jamais plus court que 70 % de la tranche, la largeur du chiffre sur la plus mince. */
+.spine .sn{font:700 58pt/0.8 var(--sans);font-size:min(58pt, calc((var(--spine) - 0.125in) / 0.55));padding-top:4pt;
+  height:calc(46.4pt + 4pt);box-sizing:border-box;display:flex;align-items:flex-end}  /* boîte fixe : le filet reste à la même hauteur sur les six */
+.spine .rule{width:max(calc(100% - 0.22in), calc(var(--spine) * 0.7));height:0;border-top:3pt solid var(--ink);margin:10pt 0 12pt}
+.spine .vt{flex:1;writing-mode:vertical-rl;text-orientation:sideways;display:flex;justify-content:space-between;align-items:center;width:100%}
+.spine .vt b{font:700 26pt/1 var(--sans);text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+.spine .vt span{font:700 8.5pt/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+
+/* ---------- quatrième ---------- */
+.back .txt{position:absolute;top:0.55in;left:0;right:0.3in;font:400 12.5pt/17pt var(--serif)}
+.back .txt p{margin:0 0 8pt}
+.back .txt strong{font-weight:700}
+.back .toc{position:absolute;top:2.2in;left:0;right:0}
+.back .toc h2{margin:0 0 5pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
+.back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.3in;font:500 10pt/13.2pt var(--sans)}
+.back .toc li{display:flex;gap:6pt;break-inside:avoid;border-bottom:0.5pt solid var(--fil)}
+.back .toc li b{width:22pt;flex:none;font-weight:700}
+.back .trait{position:absolute;left:0;right:0;top:5.05in;height:2.9in;display:flex;flex-direction:column}
+.back .trait img{display:block;flex:none}
+.back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
+
+/* ---------- aperçus écran ---------- */
+@media screen{
+  body.v{background:#cfcfcf;min-height:100vh}
+  .trim{position:relative;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.2),0 6px 18px rgba(0,0,0,.18);flex:none}
+  .trim .sheet{position:absolute}
+  .front-trim{width:8in;height:10in}.front-trim .sheet{left:0;top:-0.125in}
+  .full-trim{width:calc(16in + var(--spine));height:10in}.full-trim .sheet{left:-0.125in;top:-0.125in}
+  .spine-trim{width:var(--spine);height:10in;box-shadow:inset -6px 0 10px -6px rgba(0,0,0,.35),inset 6px 0 10px -6px rgba(255,255,255,.25)}
+  .spine-trim .sheet{left:-8.125in;top:-0.125in}
+  .lab{font:600 22px/1.25 var(--sans);color:#2b2b2b;letter-spacing:.02em}
+  .lab b{font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .lab i{font-style:normal;color:#555}
+  .shelf{display:flex;align-items:flex-end;gap:0;padding:0.6in 1.2in 0;border-bottom:0.6in solid #6b5a45}
+  /* vues */
+  .v-avants .wrap{zoom:.25;display:flex;gap:0.7in;padding:0.8in}
+  .v-56 .wrap{zoom:.5;display:flex;flex-direction:column;gap:0.55in;padding:0.6in 0.7in}
+  .v-56 .lab{font-size:30px}
+  .v-tab .wrap{zoom:.5}
+  .v-tab .shelf{justify-content:center}
+  .v-six .wrap{zoom:.3;display:grid;grid-template-columns:auto auto;gap:0.5in 0.8in;padding:0.7in 0.9in;justify-content:start;align-items:end}
+  .v-six .col{display:flex;flex-direction:column;gap:0.2in}
+  .v-six .lab{font-size:52px}
+  .v-un .wrap{zoom:.5;padding:0.3in}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ LES SIX AVANTS ============ -->
+<section class="sheet front t1" id="f1" data-tome="1"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 1 sur 6</span></div>
+  <div class="num">1</div>
+  <div class="ttl"><h1 style="font-size:86pt">Tenir</h1><div class="ch"><b>Chapitres 00 à 18</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1 on"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+</div></div></section>
+<section class="sheet front t2" id="f2" data-tome="2"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 2 sur 6</span></div>
+  <div class="num">2</div>
+  <div class="ttl"><h1 style="font-size:86pt">Le corps</h1><div class="ch"><b>Chapitres 19 à 40</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2 on"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+</div></div></section>
+<section class="sheet front t3" id="f3" data-tome="3"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 3 sur 6</span></div>
+  <div class="num">3</div>
+  <div class="ttl"><h1 style="font-size:86pt">Prélever</h1><div class="ch"><b>Chapitres 41 à 60</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3 on"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+</div></div></section>
+<section class="sheet front t4" id="f4" data-tome="4"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 4 sur 6</span></div>
+  <div class="num">4</div>
+  <div class="ttl"><h1 style="font-size:57pt">De la bête<br>au garde-manger</h1><div class="ch"><b>Chapitres 61 à 81</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4 on"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+</div></div></section>
+<section class="sheet front t5" id="f5" data-tome="5"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 5 sur 6</span></div>
+  <div class="num">5</div>
+  <div class="ttl"><h1 style="font-size:66pt;line-height:1.02">La forêt,<br>le jardin<br>et le chalet</h1><div class="ch"><b>Chapitres 82 à 101</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5 on"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+</div></div></section>
+<section class="sheet front t6" id="f6" data-tome="6"><div class="panel"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 6 sur 6</span></div>
+  <div class="num">6</div>
+  <div class="ttl"><h1 style="font-size:86pt">L’atelier</h1><div class="ch"><b>Chapitres 102 à 112</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6 on"><i>6</i><small>102–112</small></div></div>
+</div></div></section>
+<!-- ============ COUVERTURES COMPLÈTES : quatrième | tranche | avant ============ -->
+<section class="sheet full t1" id="full1" data-tome="1" style="--spine:0.75in;page:full1">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 1 · Tenir</span></div>
+    <div class="txt">
+      <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres 00 à 18</h2>
+      <ol><li><b>00</b>Le chapitre principal</li><li><b>00b</b>Acheter par priorité</li><li><b>01</b>Les quatre horloges</li><li><b>02</b>Rester ou partir</li><li><b>03</b>Panne majeure d’Hydro en janvier</li><li><b>04</b>Retombées radioactives</li><li><b>05</b>Le stock permanent du chalet</li><li><b>06</b>La liste de 72 heures</li><li><b>07</b>Quand on a un préavis</li><li><b>08</b>Listes par scénario</li><li><b>09</b>Ce qui manque toujours</li><li><b>10</b>Eau : puiser, filtrer, désinfecter</li><li><b>11</b>Le feu de forêt</li><li><b>12</b>La tente d’hiver et l’abri de neige</li><li><b>13</b>Feu sans allumettes</li><li><b>14</b>Communiquer et savoir</li><li><b>15</b>Se déplacer et le carburant</li><li><b>16</b>Le voisinage et le groupe de chasse</li><li><b>17</b>Qui cogne à la porte</li><li><b>18</b>S’organiser à plusieurs familles</li></ol>
+    </div>
+    <div class="trait"><img src="trait-13-01-neige.svg" alt="" style="width:4.306in;height:2.660in;margin-top:auto"><div class="cap">Ch. 13 · L’arc à feu</div></div>
+    <div class="serie"><div class="s1 on"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">1</div><div class="rule"></div><div class="vt"><b>Tenir</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 1 sur 6</span></div>
+  <div class="num">1</div>
+  <div class="ttl"><h1 style="font-size:86pt">Tenir</h1><div class="ch"><b>Chapitres 00 à 18</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1 on"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+</section>
+<section class="sheet full t2" id="full2" data-tome="2" style="--spine:0.931in;page:full2">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 2 · Le corps</span></div>
+    <div class="txt">
+      <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres 19 à 40</h2>
+      <ol><li><b>19</b>Le mal de caribou</li><li><b>20</b>Le scorbut et l’arbre de vie</li><li><b>21</b>Ce qu’un corps demande l’hiver</li><li><b>22</b>Abats et organes</li><li><b>23</b>Ce que personne ne garde</li><li><b>24</b>Le corps qui travaille</li><li><b>25</b>Le froid lui-même</li><li><b>26</b>Soigner quand il n’y a personne</li><li><b>27</b>Les dents</li><li><b>28</b>Les maladies ordinaires qui durent</li><li><b>29</b>La santé des femmes</li><li><b>30</b>Épidémie</li><li><b>31</b>Hygiène et eaux usées</li><li><b>32</b>Bâtir la pharmacie</li><li><b>33</b>Plantes médicinales boréales</li><li><b>34</b>Soigner avec la forêt, par symptôme</li><li><b>35</b>Ce qu’on ne peut pas soigner</li><li><b>36</b>Tenir le moral tout un hiver</li><li><b>37</b>Le sauna et le bien-être</li><li><b>38</b>Le deuil, le choc et la peur des adultes</li><li><b>39</b>Des enfants de 4 et 6 ans</li><li><b>40</b>Les enfants, la peur et la routine</li></ol>
+    </div>
+    <div class="trait"><img src="trait-26-08-sang.svg" alt="" style="width:2.970in;height:2.660in;margin-top:auto"><div class="cap">Ch. 26 · L’attelle d’écorce moulée</div></div>
+    <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2 on"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">2</div><div class="rule"></div><div class="vt"><b>Le corps</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 2 sur 6</span></div>
+  <div class="num">2</div>
+  <div class="ttl"><h1 style="font-size:86pt">Le corps</h1><div class="ch"><b>Chapitres 19 à 40</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2 on"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+</section>
+<section class="sheet full t3" id="full3" data-tome="3" style="--spine:0.75in;page:full3">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 3 · Prélever</span></div>
+    <div class="txt">
+      <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres 41 à 60</h2>
+      <ol><li><b>41</b>Calendrier annuel de prélèvement</li><li><b>42</b>Lire le territoire autour du chalet</li><li><b>43</b>Les traces et les signes des animaux</li><li><b>44</b>Pister et retracer une bête</li><li><b>45</b>Les armes, les munitions et l’arc</li><li><b>46</b>Comment lire une fiche d’espèce</li><li><b>47</b>Chasser le petit gibier</li><li><b>48</b>Lièvre d’Amérique</li><li><b>49</b>Gélinotte huppée et tétras du Canada</li><li><b>50</b>Castor</li><li><b>51</b>Porc-épic</li><li><b>52</b>Ours noir</li><li><b>53</b>Rat musqué, écureuil roux, marmotte</li><li><b>54</b>Outarde, canards, oiseaux d’eau</li><li><b>55</b>Martre, vison, renard, lynx, loup</li><li><b>56</b>Phoque du Saint-Laurent</li><li><b>57</b>Truite et omble au lac</li><li><b>58</b>Pêche blanche</li><li><b>59</b>Éperlan et poisson du fleuve</li><li><b>60</b>Nasses, filets, verveux</li></ol>
+    </div>
+    <div class="trait"><img src="trait-60-01-epinette.svg" alt="" style="width:6.231in;height:1.862in;margin-top:auto"><div class="cap">Ch. 60 · Le verveux sur cerceaux</div></div>
+    <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3 on"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">3</div><div class="rule"></div><div class="vt"><b>Prélever</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 3 sur 6</span></div>
+  <div class="num">3</div>
+  <div class="ttl"><h1 style="font-size:86pt">Prélever</h1><div class="ch"><b>Chapitres 41 à 60</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3 on"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+</section>
+<section class="sheet full t4" id="full4" data-tome="4" style="--spine:0.681in;page:full4">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 4 · De la bête au garde-manger</span></div>
+    <div class="txt">
+      <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres 61 à 81</h2>
+      <ol><li><b>61</b>Abattage, saignée, éviscération</li><li><b>62</b>Carte de la carcasse</li><li><b>63</b>Quartier arrière</li><li><b>64</b>Quartier avant</li><li><b>65</b>Le dos</li><li><b>66</b>Pourquoi la viande pourrit</li><li><b>67</b>Le sel</li><li><b>68</b>Salaison à sec</li><li><b>69</b>Saumure</li><li><b>70</b>Fumage à froid</li><li><b>71</b>Fumage à chaud et séchage</li><li><b>72</b>Pemmican et graisses</li><li><b>73</b>Froid naturel</li><li><b>74</b>Un congélateur plein qui dégèle</li><li><b>75</b>Traiter le poisson à la sortie de l’eau</li><li><b>76</b>Saler et sécher la truite</li><li><b>77</b>Fumer le poisson</li><li><b>78</b>Conserves et marinades</li><li><b>79</b>Caveau à légumes</li><li><b>80</b>Fermentation</li><li><b>81</b>La table aliment → méthode</li></ol>
+    </div>
+    <div class="trait"><img src="trait-71-02-fleuve.svg" alt="" style="width:6.920in;height:2.288in;margin-top:auto"><div class="cap">Ch. 71 · Le fumoir de baril sur conduit enterré</div></div>
+    <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4 on"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">4</div><div class="rule"></div><div class="vt"><b>De la bête au garde-manger</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 4 sur 6</span></div>
+  <div class="num">4</div>
+  <div class="ttl"><h1 style="font-size:57pt">De la bête<br>au garde-manger</h1><div class="ch"><b>Chapitres 61 à 81</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4 on"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+</section>
+<section class="sheet full t5" id="full5" data-tome="5" style="--spine:1.0in;page:full5">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 5 · La forêt, le jardin et le chalet</span></div>
+    <div class="txt">
+      <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres 82 à 101</h2>
+      <ol><li><b>82</b>Le feu au chalet</li><li><b>83</b>Poêles à bois et rendement</li><li><b>84</b>Ouvrir et fermer le chalet</li><li><b>85</b>Éclairage</li><li><b>86</b>L’électricité du chalet et le froid mécanique</li><li><b>87</b>Sans propane</li><li><b>88</b>Le pain</li><li><b>89</b>Raquettes et toboggan</li><li><b>90</b>Le canot : réparer, porter, en refaire un</li><li><b>91</b>Petits fruits</li><li><b>92</b>Plantes comestibles boréales</li><li><b>93</b>Champignons</li><li><b>94</b>Sève, gomme, écorces</li><li><b>95</b>Jardin nordique</li><li><b>96</b>Faire la terre sans rien acheter</li><li><b>97</b>Allonger la saison</li><li><b>98</b>Ce qui nourrit un hiver</li><li><b>99</b>Les façons de faire d’autrefois</li><li><b>100</b>Semences</li><li><b>101</b>Petit élevage</li></ol>
+    </div>
+    <div class="trait"><img src="trait-95-09-ecorce.svg" alt="" style="width:4.027in;height:2.092in;margin-top:auto"><div class="cap">Ch. 95 · Le châssis froid</div></div>
+    <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5 on"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">5</div><div class="rule"></div><div class="vt"><b>La forêt, le jardin et le chalet</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 5 sur 6</span></div>
+  <div class="num">5</div>
+  <div class="ttl"><h1 style="font-size:66pt;line-height:1.02">La forêt,<br>le jardin<br>et le chalet</h1><div class="ch"><b>Chapitres 82 à 101</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5 on"><i>5</i><small>82–101</small></div><div class="s6"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+</section>
+<section class="sheet full t6" id="full6" data-tome="6" style="--spine:0.5in;page:full6">
+  <div class="panel back"><div class="in">
+    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 6 · L’atelier</span></div>
+    <div class="txt">
+      <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
+      <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
+    </div>
+    <div class="toc"><h2>Dans ce tome · chapitres 102 à 112</h2>
+      <ol><li><b>102</b>De la peau au cuir</li><li><b>103</b>Babiche, tendons, cordage</li><li><b>104</b>Coudre et chausser</li><li><b>105</b>Affûter, limer, aiguiser</li><li><b>106</b>Scie à chaîne et petits moteurs</li><li><b>107</b>Souder, braser, réparer le métal</li><li><b>108</b>Le stock de pièces et de consommables</li><li><b>109</b>Leviers, poulies, treuils</li><li><b>110</b>Assemblages bois-bois</li><li><b>111</b>Trempe et travail du métal à chaud</li><li><b>112</b>Savon et chandelles</li></ol>
+    </div>
+    <div class="trait"><img src="trait-107-09-fonte.svg" alt="" style="width:7.000in;height:2.379in;margin-top:auto"><div class="cap">Ch. 107 · Souder avec deux batteries</div></div>
+    <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6 on"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">6</div><div class="rule"></div><div class="vt"><b>L’atelier</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel fr"><div class="in">
+  <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome 6 sur 6</span></div>
+  <div class="num">6</div>
+  <div class="ttl"><h1 style="font-size:86pt">L’atelier</h1><div class="ch"><b>Chapitres 102 à 112</b><span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>
+  <div class="serie"><div class="s1"><i>1</i><small>00–18</small></div><div class="s2"><i>2</i><small>19–40</small></div><div class="s3"><i>3</i><small>41–60</small></div><div class="s4"><i>4</i><small>61–81</small></div><div class="s5"><i>5</i><small>82–101</small></div><div class="s6 on"><i>6</i><small>102–112</small></div></div>
+  </div></div>
+</section>
+
+<script>
+(function(){
+  const faces=['700 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','400 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"'];
+  const NOMS={1:'Neige',2:'Sang de gibier',3:'Épinette',4:'Fleuve',5:'Écorce',6:'Fonte'};
+  const HEX={1:'#E2E7EA',2:'#5C1A15',3:'#1D392E',4:'#25414F',5:'#4B3A28',6:'#363432'};
+  const INFO={1:'332 p., tranche 0,75 po',2:'416 p., tranche 0,931 po',3:'334 p., tranche 0,75 po',4:'284 p., tranche 0,681 po',5:'438 p., tranche 1,0 po',6:'200 p., tranche 0,5 po'};
+  Promise.all(faces.map(f=>document.fonts.load(f,'aéÀ−’→'))).then(()=>document.fonts.ready).then(()=>{
+    const h=location.hash;
+    const el=(t,c,html)=>{const e=document.createElement(t);if(c)e.className=c;if(html!=null)e.innerHTML=html;return e;};
+    const trim=(sheet,kind)=>{const t=el('div','trim '+kind+'-trim');const sp=sheet.style.getPropertyValue('--spine');if(sp)t.style.setProperty('--spine',sp);t.appendChild(sheet);return t;};
+    const cl=id=>{const s=document.getElementById(id).cloneNode(true);s.removeAttribute('id');return s;};
+    const etagere=()=>{const r=el('div','shelf');[1,2,3,4,5,6].forEach(k=>r.appendChild(trim(cl('full'+k),'spine')));return r;};
+    const lab=(k,extra)=>el('div','lab','<b>'+NOMS[k]+'</b> '+HEX[k]+' <i>· tome '+k+', '+INFO[k]+(extra?' · '+extra:'')+'</i>');
+    const go=(cls,wrap)=>{document.body.innerHTML='';document.body.className='v '+cls;document.body.appendChild(wrap);};
+    let m;
+    if(h==='#avants'){
+      const w=el('div','wrap');[1,2,3,4,5,6].forEach(k=>w.appendChild(trim(cl('f'+k),'front')));go('v-avants',w);
+    } else if(h==='#couvertures-5-6'){
+      const w=el('div','wrap');
+      [5,6].forEach(k=>{w.appendChild(lab(k,'quatrième | tranche | avant'));w.appendChild(trim(cl('full'+k),'full'));});
+      go('v-56',w);
+    } else if(h==='#completes'){
+      const w=el('div','wrap');
+      [1,2,3,4,5,6].forEach(k=>{const c=el('div','col');c.appendChild(lab(k));c.appendChild(trim(cl('full'+k),'full'));w.appendChild(c);});
+      go('v-six',w);
+    } else if(h==='#tablette'){
+      const w=el('div','wrap');w.appendChild(etagere());go('v-tab',w);
+    } else if((m=h.match(/^#tome-(\d)$/))){
+      const w=el('div','wrap');w.appendChild(trim(cl('full'+m[1]),'full'));go('v-un',w);
+    }
+    document.documentElement.dataset.ready='1';
+  });
+})();
+</script>
+</body>
+</html>

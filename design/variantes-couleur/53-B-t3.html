@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<title>53 — Truite et omble au lac — Le Grand Livre du Chalet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=block" rel="stylesheet">
+<style>
+/* =====================================================================
+   GRILLE — 8 × 10 po rogné, fond perdu 0,125 po en tête, en pied et au
+   petit fond (bord extérieur). Page PDF : 8,125 × 10,25 po.
+   Zone utile : 7 × 8,5 po — 0,5 po sur les côtés, 0,75 po en tête et en
+   pied. C'est la zone des planches ; le texte s'y pose tel quel.
+   ===================================================================== */
+@page { size: 585pt 738pt; margin: 0; }
+:root{
+  --red:#9B2C1E;          /* le seul rouge : danger, et rien d'autre */
+  --k:#000;
+  --k70:#4d4d4d;          /* gris = noir tramé, jamais pour du texte courant */
+  --k40:#999;
+  --sans:'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --serif:'IBM Plex Serif', Georgia, serif;
+  --lh:13pt;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--k);
+  font-variant-numeric:lining-nums;font-optical-sizing:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  text-rendering:geometricPrecision}
+.page{position:relative;width:8.125in;height:10.25in;overflow:hidden;background:#fff;break-after:page;page-break-after:always}
+.page:last-of-type{break-after:auto}
+/* recto : reliure à gauche, fond perdu à droite ; verso : l'inverse */
+.recto .block,.recto .rh,.recto .ft{left:0.5in}
+.verso .block,.verso .rh,.verso .ft{left:0.625in}
+.block{position:absolute;top:0.875in;width:7in;height:8.5in;display:flex;flex-direction:column}
+
+/* ---------- titre courant ---------- */
+.rh{position:absolute;top:0.36in;width:7in;height:0.3in;display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1.5pt solid var(--k);padding-bottom:3pt;font-family:var(--sans);text-transform:uppercase}
+.rh .fo{font-weight:700;font-size:12.5pt;letter-spacing:.02em;line-height:1}
+.rh .ch{font-weight:600;font-size:8.5pt;letter-spacing:.09em;line-height:1}
+.rh .to{font-weight:500;font-size:7.5pt;letter-spacing:.09em;color:var(--k70);line-height:1}
+.rh .grp{display:flex;align-items:flex-end;gap:10pt}
+.recto .rh,.recto .rh .grp{flex-direction:row-reverse}   /* recto : folio au bord extérieur, comme le pied */
+
+/* ---------- pied : échelle des neuf sections ---------- */
+.ft{position:absolute;top:9.52in;width:7in;height:0.2in;display:flex;align-items:center;justify-content:space-between;font-family:var(--sans)}
+.recto .ft{flex-direction:row-reverse}
+.lad{display:flex;align-items:center;gap:6pt}
+.recto .lad{flex-direction:row-reverse}
+.lad ol{display:flex;gap:1.5pt;margin:0;padding:0;list-style:none}
+.lad li{width:12pt;height:12pt;border:0.75pt solid var(--k);font:600 7.5pt/11pt var(--sans);text-align:center}
+.lad li.on{background:var(--k);color:#fff}
+.lad li.on.d{background:var(--red);border-color:var(--red)}
+.lad .lab{font:700 7.5pt/1 var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.lieu-ft{font:600 7pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--k70)}
+.fo-ft{font:700 12.5pt/1 var(--sans)}
+
+/* ---------- repère de tranche : rouge = danger, noir = section 9 ---------- */
+.edge{position:absolute;width:0.3in;background:var(--k)}
+.edge.d{background:var(--red)}
+.recto .edge{right:0}.verso .edge{left:0}
+
+/* ---------- cadres de texte ---------- */
+.frame{flex:1 1 0;min-height:0;columns:2;column-gap:0.22in;column-fill:auto;column-rule:0.5pt solid var(--k40);overflow:hidden}
+.frame.auto{flex:none;column-fill:balance;overflow:visible}
+.frame.one{columns:1;column-rule:none}
+
+p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+strong{font-weight:700}
+.ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
+.av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}
+
+/* titres de section : pleine largeur, numéro en carré noir */
+h2.sec{column-span:all;display:flex;align-items:center;gap:7pt;margin:9pt 0 6.5pt;padding-top:4pt;border-top:2.5pt solid var(--k);
+  font:700 13pt/1 var(--sans);text-transform:uppercase;letter-spacing:.04em;break-after:avoid}
+h2.sec:first-child{margin-top:0}
+h2.sec .n{display:inline-block;width:19pt;height:19pt;background:var(--k);color:#fff;text-align:center;font:700 14pt/19pt var(--sans);letter-spacing:0}
+h2.sec.s9{background:var(--k);color:#fff;padding:5pt 6pt 5pt 5pt;border-top:none;justify-content:flex-start}
+h2.sec.s9 .n{background:#fff;color:var(--k)}
+h2.sec.s9 .sub9{margin-left:auto;font:500 8pt/1.1 var(--sans);letter-spacing:.06em;text-transform:none;opacity:1}
+h2.sec.s8 .n{background:var(--red)}
+
+h3.sub{font:700 10pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.05em;margin:8pt 0 4pt;padding-top:3pt;border-top:0.75pt solid var(--k);break-after:avoid}
+.frame > h3.sub:first-child{margin-top:0}
+h4.choix{font:700 9pt/12pt var(--sans);text-transform:uppercase;letter-spacing:.06em;margin:6pt 0 3pt;break-after:avoid}
+h4.choix:first-child{margin-top:0}
+
+p.lead{column-span:all;font-size:12pt;line-height:15.5pt;text-indent:0;margin:0 0 4pt;hyphens:manual}
+
+p.li{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt}
+p.li::before{content:"";position:absolute;left:1pt;top:4.4pt;width:4.6pt;height:4.6pt;background:var(--k)}
+p.li.cont::before{display:none}
+
+p.step{position:relative;padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.step .sn{position:absolute;left:0;top:0;width:14pt;text-align:right;font:700 11pt/13pt var(--sans)}
+p.step > strong:first-of-type{font-weight:700}
+
+p.ri{margin-top:3pt}
+strong.runin{font-family:var(--sans);font-weight:700;font-size:10.2pt;letter-spacing:.01em}
+
+/* ---------- tableaux ---------- */
+table{column-span:all;width:100%;border-collapse:collapse;font-size:8.6pt;line-height:10.8pt;margin:2pt 0 8pt;font-variant-numeric:lining-nums tabular-nums;hyphens:auto}
+thead th{font:700 7.6pt/1.15 var(--sans);text-transform:uppercase;letter-spacing:.07em;text-align:left;vertical-align:bottom;
+  border-top:2pt solid var(--k);border-bottom:1pt solid var(--k);padding:4pt 7pt 3pt 0}
+td{border-bottom:0.5pt solid var(--k40);padding:3.2pt 7pt 3.4pt 0;vertical-align:top}
+tbody tr:last-child td{border-bottom:1.5pt solid var(--k)}
+td.c-item{font-weight:600}
+td.c-neg{white-space:normal}
+.non{display:inline-block;background:var(--k);color:#fff;font:700 7.4pt/1 var(--sans);letter-spacing:.08em;padding:2pt 3pt 1.6pt}
+.negx{font-size:8pt;color:var(--k)}
+caption.tsuite{caption-side:bottom;text-align:right;font:italic 600 7.5pt/1.3 var(--sans);letter-spacing:.03em;padding-top:2pt}
+table.suite caption{display:none}
+
+/* ---------- ouverture de chapitre ---------- */
+.open{flex:none;margin-bottom:10pt}
+.open-top{display:flex;justify-content:space-between;font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding-bottom:5pt;border-bottom:0.75pt solid var(--k)}
+.open-title{display:flex;align-items:flex-end;gap:12pt;padding:8pt 0 7pt;border-bottom:5pt solid var(--k)}
+.open-title .num{font:700 92pt/0.74 var(--sans);letter-spacing:-.02em}
+.open-title h1{margin:0;font:700 38pt/0.95 var(--sans);text-transform:uppercase;letter-spacing:.01em;padding-bottom:1pt}
+.open-meta{display:grid;grid-template-columns:1.95in 1fr;gap:0 0.2in;padding-top:7pt}
+.lieu{display:flex;flex-direction:column;gap:3pt}
+.lieu b{font:700 7.5pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lieu .opts{display:flex;gap:3pt}
+.lieu .opts span{flex:1;border:0.75pt solid var(--k);font:600 8.6pt/17pt var(--sans);text-transform:uppercase;letter-spacing:.04em;text-align:center;color:var(--k70);white-space:nowrap}
+.lieu .opts span.on{background:var(--k);color:#fff;border-color:var(--k)}
+.toc{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:column;grid-template-rows:repeat(3,auto);gap:1.5pt 9pt;font:500 7.9pt/12.5pt var(--sans)}
+.toc li{display:flex;align-items:baseline;gap:4pt;border-bottom:0.5pt solid var(--k40)}
+.toc .n{flex:none;display:inline-block;width:11pt;height:11pt;border:0.75pt solid var(--k);font:700 7.5pt/10pt var(--sans);text-align:center;align-self:center}
+.toc .t{flex:1;white-space:nowrap}
+.toc .f{font-weight:700}
+.toc li.d .n{background:var(--red);border-color:var(--red);color:#fff}
+.toc li.h .n{background:var(--k);color:#fff}
+.toc li.h{font-weight:700}
+
+/* ---------- planche ---------- */
+.planche{width:7in;height:8.5in;display:block}
+
+/* ---------- encadré DANGER ---------- */
+.danger{border:1.5pt solid var(--red);display:flex;flex-direction:column;min-height:0}
+.danger.full{flex:1 1 0}
+.dhead{flex:none;background:var(--red);color:#fff;display:flex;align-items:center;gap:8pt;padding:5pt 8pt 5pt 7pt;
+  font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.dhead svg{flex:none;width:17pt;height:15pt}
+.dhead.small{font-size:12pt;padding:3pt 8pt 3pt 7pt}
+.dhead .sj{font-weight:600;letter-spacing:.03em}
+.danger .frame{padding:8pt 9pt 2pt;column-gap:0.24in;column-rule:none}
+.pt{position:relative;padding-left:17pt;text-indent:0;margin:0 0 6pt}
+.pt .pn{position:absolute;left:0;top:0;color:var(--red);font:700 14pt/13pt var(--sans)}
+.pt .plead{display:block;font-weight:700;font-size:10.2pt;margin-bottom:1pt}
+.dcut{flex:none;border-top:1pt dashed var(--red);margin:0 9pt;padding:3pt 0 4pt;text-align:right;font:italic 600 8pt/1 var(--sans);color:var(--k);letter-spacing:.03em}
+.s9wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;margin-top:11pt}
+.s9wrap h2.sec{margin-top:0}
+
+/* ---------- chapitre principal ---------- */
+.cp .block{padding-right:0.42in}
+.thumb{position:absolute;width:0.545in;height:0.62in;background:var(--k);color:#fff;display:flex;align-items:center;justify-content:flex-start;padding-left:0.07in;font:700 17pt/1 var(--sans)}
+.recto .thumb{right:0}
+.cphead{display:flex;align-items:stretch;gap:12pt;border-bottom:5pt solid var(--k);padding-bottom:8pt}
+.cpnum{flex:none;width:0.95in;height:0.95in;background:var(--k);color:#fff;font:700 70pt/0.95in var(--sans);text-align:center}
+.cptitle{display:flex;flex-direction:column;justify-content:space-between}
+.cpkicker{font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.cptitle h1{margin:3pt 0 5pt;font:700 30pt/0.98 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.cptitle .lieu{flex-direction:row;align-items:center;gap:8pt}
+.cptitle .lieu .opts{width:2.6in}
+.cpintro{padding:8pt 0 2pt;font-size:10.6pt;line-height:13.8pt}
+.cpintro p{text-indent:0;margin:0 0 5pt}
+ol.cppoints{list-style:none;margin:2pt 0 0;padding:0}
+.cppoints li{display:grid;grid-template-columns:0.3in 1fr 0.62in;grid-template-areas:"b c r" "b e r";border-top:2pt solid var(--k);padding:5pt 0 7pt}
+.cppoints li::before{content:"";grid-area:b;width:10pt;height:10pt;background:var(--k);margin-top:4pt}
+.cppoints .cmd{grid-area:c;font:700 14.5pt/16.5pt var(--sans);letter-spacing:.005em}
+.cppoints .exp{grid-area:e;font-size:9.8pt;line-height:12.6pt;margin-top:3pt;padding-right:4pt}
+.cppoints .refs{grid-area:r;display:flex;flex-direction:column;align-items:flex-end;gap:3pt;padding-top:2pt}
+.cppoints .refs span{font:700 9.5pt/1 var(--sans);border:1pt solid var(--k);padding:3pt 4pt 2pt;white-space:nowrap}
+.cpsans{margin-top:auto;background:var(--k);color:#fff;padding:6pt 9pt 7pt;display:grid;grid-template-columns:1.45in 1fr;gap:0 12pt}
+.cpsans .go{font-family:var(--sans);font-size:9pt;margin-top:3pt}
+.cpsans .go b{font-weight:700}
+.cpsans h3{margin:0;font:700 12pt/14pt var(--sans);text-transform:uppercase;letter-spacing:.05em}
+.cpsans h3 small{display:block;font:500 8pt/11pt var(--sans);letter-spacing:.06em;margin-top:3pt}
+.cpsans p{text-indent:0;font-size:10pt;line-height:13pt;margin:0}
+.cpsans ul{margin:0;padding:0;list-style:none;font-size:9.6pt;line-height:12.4pt}
+.cpsans li{position:relative;padding-left:10pt;margin-bottom:2pt}
+.cpsans li::before{content:"";position:absolute;left:0;top:4pt;width:4.4pt;height:4.4pt;background:var(--k)}
+
+/* ---------- notes de bas de page ----------
+   L'appel est un chiffre en exposant, collé au mot. La note tombe au pied de la
+   colonne où se trouve l'appel (au pied de la page dans un cadre à une colonne),
+   sous un filet court, en corps plus petit. Numérotation par chapitre. */
+sup.fnr{position:relative;top:-.42em;vertical-align:baseline;font:700 .7em/0 var(--sans);letter-spacing:0;margin-left:.6pt}
+.fnz{flex:none;display:none;grid-template-columns:1fr 1fr;column-gap:0.22in;align-items:end;margin-top:6pt}
+.fnz.on{display:grid}
+.fnz.one{grid-template-columns:1fr}
+.fnc{min-width:0}
+.fnc:not(:empty)::before{content:"";display:block;width:0.9in;border-top:0.75pt solid var(--k);margin-bottom:4pt}
+p.fn{position:relative;padding-left:11pt;text-indent:0;margin:0 0 3pt;font-size:7.8pt;line-height:10pt}
+p.fn:last-child{margin-bottom:0}
+p.fn .fnn{position:absolute;left:0;top:0;font:700 7.8pt/10pt var(--sans)}
+.danger .fnz{padding:0 9pt 6pt}
+
+/* ---------- modes d'aperçu écran ---------- */
+@media screen{
+  body.contact{background:#cfcfcf;padding:0.6in}
+  body.contact .sheet{zoom:.25;display:flex;flex-wrap:wrap;gap:1.2in 1.2in;width:33.3in}
+  body.contact .spread{display:flex;gap:0;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .trim{position:relative;width:8in;height:10in;overflow:hidden;background:#fff}
+  .trim.empty{background:transparent;box-shadow:none}
+  .trim .page{position:absolute;top:-0.125in}
+  .trim.r .page{left:0}.trim.v .page{left:-0.125in}
+  .trim.r{box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.35)}
+  .trim.v{box-shadow:inset -18px 0 22px -18px rgba(0,0,0,.35)}
+  body.single{background:#fff}
+  body.single .trim{box-shadow:none}
+}
+#stats{display:none}
+
+/* =====================================================================
+   Ajouts du constructeur général (build_chapitre.py). Tout le reste vient
+   tel quel de interieur.tpl.html.
+   ===================================================================== */
+/* régions d'une page : texte courant, encadré danger, variante d'urgence */
+.rg{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.rg.fin{flex:none}
+.block > .rg:not(:first-child){margin-top:10pt}
+.block > .frame.auto + .rg, .block > .fnz + .rg{margin-top:12pt}
+.rg .danger.full{flex:1 1 0}
+.s9wrap.cont, .block > .s9wrap:first-child{margin-top:0}
+.dcut:not(.on){display:none}
+
+/* ouverture : titre long, note de lieu */
+.open-title h1{hyphens:manual;line-height:1}   /* sur deux lignes, l’accent de la seconde touchait la première */
+.lieu-note{margin:0;padding-top:6pt;text-indent:0;font:500 8.8pt/11.6pt var(--sans);letter-spacing:.01em;color:var(--k)}
+
+/* étapes : paragraphe de suite, puce sous une étape, tableau sous une étape */
+p.stepc{padding-left:19pt;text-indent:0;margin:0 0 4pt}
+p.li.l2{padding-left:30pt}
+p.li.l2::before{left:20pt}
+p.lab{margin:5pt 0 3pt}
+p.lab strong.runin{font-size:9.6pt;text-transform:uppercase;letter-spacing:.05em}
+table.tcol{column-span:none;margin:3pt 0 7pt;break-inside:avoid}
+table.tcol.nest{margin-left:19pt;width:calc(100% - 19pt)}
+table.tcol td, table.tcol th{padding-right:5pt}
+p.step + table.tcol, p.stepc + table.tcol{margin-top:1pt}
+
+/* planches et photos dans le fil */
+.fig{margin:0;break-inside:avoid}
+.fig.pl.demi{column-span:all;margin:4pt 0 10pt}
+.fig.pl.demi img{display:block;width:7in}
+.fig.ph{margin:3pt 0 8pt}
+.fig.ph img{display:block;width:100%;height:auto}
+.fig.ph.demi{column-span:all}
+.fig.ph figcaption{font:italic 600 7.8pt/10pt var(--sans);letter-spacing:.02em;margin-top:3pt}
+
+/* encadré ordinaire (> hors section 8) */
+.encadre{border:1pt solid var(--k);padding:5pt 7pt 3pt;margin:4pt 0 8pt;break-inside:avoid}
+.encadre p{text-indent:0}
+.danger .pt{orphans:4}   /* l’amorce en gras ne reste pas seule au pied d’une colonne */
+.danger .pt .plead{break-after:avoid}
+
+/* =====================================================================
+   ÉTUDE DE COULEUR — trois variantes posées PAR-DESSUS le CSS du livre
+   (interieur.tpl.html + chapitre.css, non modifiés). Injecté par
+   variante.py. Classes de body :
+     vA            A — discrète : la couleur du tome en accent
+     vA vB         B — affirmée : A + aplat d'ouverture, teintes, bandeau 9
+     vA vB vC      C — caractère : B + pictogrammes, chiffres clés, trame
+     t1 … t4       couleur du tome ; lieu-m | lieu-c | lieu-2 : ligne de lieu
+   Le rouge #9B2C1E reste le seul rouge, réservé au danger.
+   ===================================================================== */
+
+/* ---------- jetons de tome ----------
+   --tf  aplat d'ouverture (le fond de la couverture)   --tfi encre sur l'aplat
+   --tfn chiffre géant sur l'aplat                      --ta  filets, titre courant
+   --tsq carrés, numéros d'étape, échelle               --t9  bandeau et tranche de la section 9
+   --tp  teinte pâle (encadrés)   --tp2 teinte d'en-tête de tableau   --tx trame sur aplat
+   Tome 2 : le bordeaux ne va qu'aux aplats, aux filets et aux teintes ; les carrés et
+   le bandeau 9 restent noirs, pour que rien de petit et de plein ne ressemble au rouge. */
+body.t1{--tf:#E2E7EA;--tfi:#15222B;--tfn:#2B5876;--ta:#2B5876;--tsq:#2B5876;--t9:#2B5876;--tp:#E8EDF0;--tp2:#D5DEE4;--tx:rgba(21,34,43,.075);--tx9:rgba(255,255,255,.07)}
+body.t2{--tf:#5C1A15;--tfi:#F3ECE5;--tfn:#F3ECE5;--ta:#5C1A15;--tsq:#000;--t9:#000;--tp:#F3ECE5;--tp2:#E8DBD0;--tx:rgba(243,236,229,.07);--tx9:rgba(255,255,255,.07)}
+body.t3{--tf:#1D392E;--tfi:#E9F0EA;--tfn:#E9F0EA;--ta:#2B5A45;--tsq:#2B5A45;--t9:#1D392E;--tp:#E9F0EA;--tp2:#D5E3D8;--tx:rgba(233,240,234,.07);--tx9:rgba(255,255,255,.07)}
+body.t4{--tf:#25414F;--tfi:#EDF2F5;--tfn:#EDF2F5;--ta:#25414F;--tsq:#25414F;--t9:#25414F;--tp:#EDF2F5;--tp2:#D6E2E9;--tx:rgba(237,242,245,.07);--tx9:rgba(255,255,255,.07)}
+
+/* =============================== A — DISCRÈTE =============================== */
+.vA .rh{border-bottom-color:var(--ta)}
+.vA .rh .to{color:var(--ta)}
+.vA h2.sec{border-top-color:var(--ta)}
+.vA h2.sec .n{background:var(--tsq)}
+.vA h2.sec.s8 .n{background:var(--red)}
+.vA h2.sec.s9 .n{background:#fff;color:var(--k)}
+.vA h3.sub{border-top-color:var(--ta)}
+.vA p.step .sn{color:var(--tsq)}
+.vA p.li::before{background:var(--tsq)}
+.vA thead th{border-top-color:var(--ta)}
+.vA tbody tr:last-child td{border-bottom-color:var(--ta)}
+.vA .lad li{border-color:var(--tsq)}
+.vA .lad li.on{background:var(--tsq);color:#fff}
+.vA .lad li.on.d{background:var(--red);border-color:var(--red)}
+.vA .open-top{border-bottom-color:var(--ta)}
+.vA .open-title{border-bottom-color:var(--ta)}
+.vA .open-title .num{color:var(--tsq)}
+.vA .toc .n{border-color:var(--tsq)}
+.vA .toc li.d .n{border-color:var(--red)}
+.vA .lieu .opts span{border-color:var(--tsq)}
+.vA .lieu .opts span.on{background:var(--tsq);border-color:var(--tsq)}
+.vA .encadre{border-color:var(--ta)}
+/* onglet : haut de la tranche, dans la marge de tête (les bandes 8 et 9 ne montent jamais
+   au-dessus de la zone utile, elles ne se touchent pas) */
+.vA .page::after{content:"";position:absolute;top:0;width:0.3in;height:0.66in;background:var(--ta)}
+.vA .recto::after{right:0}
+.vA .verso::after{left:0}
+
+/* =============================== B — AFFIRMÉE =============================== */
+/* ouverture : l'aplat de la couverture du tome, à fond perdu en tête */
+.vB .open-top{position:relative;z-index:1;color:var(--tfi);border-bottom-color:var(--tfi)}
+.vB .open-title{position:relative;z-index:0;flex-direction:row;justify-content:flex-start;align-items:flex-end;gap:14pt;
+  padding:16pt 0 17pt;border-bottom:none;color:var(--tfi)}
+.vB .open-title::before{content:"";position:absolute;z-index:-1;top:-3in;bottom:0;background:var(--tf)}
+.vB .recto .open-title::before{left:-0.5in;right:-0.625in}
+.vB .verso .open-title::before{left:-0.625in;right:-0.5in}
+.vB .open-title .num{font-size:150pt;line-height:.72;color:var(--tfn);letter-spacing:-.03em}
+.vB .open-title h1{color:var(--tfi);padding-bottom:0}
+.vB .open-meta{padding-top:10pt}
+.vB .lieu .opts span.on{color:#fff}
+/* tableaux : en-tête sur la teinte du tome */
+.vB thead th{background:var(--tp2);border-top:2pt solid var(--ta);border-bottom:none;padding-left:4pt;color:var(--k)}
+.vB td{padding-left:4pt}
+/* encadré ordinaire (bon à savoir) : teinte pâle, filet de tome à gauche */
+.vB .encadre{border:none;border-left:3pt solid var(--ta);background:var(--tp);padding:6pt 8pt 4pt 9pt}
+/* section 9 : couleur du tome au lieu du noir, bandeau et tranche */
+.vB h2.sec.s9{background:var(--t9)}
+.vB h2.sec.s9 .n{background:#fff;color:var(--t9)}
+.vB .edge:not(.d){background:var(--t9)}
+.vB .toc li.h .n{background:var(--t9);border-color:var(--t9)}
+/* onglet de tranche : plein, avec le numéro du chapitre ; se voit livre fermé */
+.vB .page::after{content:var(--chnum);width:0.5in;height:0.84in;display:flex;align-items:flex-end;
+  font:700 15pt/1 var(--sans);color:#fff;padding-bottom:6pt;box-sizing:border-box}
+.vB .recto::after{justify-content:flex-start;padding-left:6pt}
+.vB .verso::after{justify-content:flex-end;padding-right:6pt}
+
+/* =============================== C — CARACTÈRE =============================== */
+/* trame fine sur les aplats : hachure au trait, comme dans les planches */
+.vC .open-title::before{background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
+.vC h2.sec.s9{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--t9)}
+.vC .page::after{background:repeating-linear-gradient(135deg,var(--tx9) 0 1.1px,transparent 1.1px 5px),var(--ta)}
+
+/* pictogrammes : SVG au trait (variante.py fournit --i-…), teints par la couleur du texte */
+.vC .pk{display:inline-block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+/* ligne de lieu : pictogramme au-dessus du mot */
+.vC .lieu .opts span{display:flex;flex-direction:column;align-items:center;gap:2pt;padding:5pt 0 3pt;line-height:1}
+.vC .lieu .opts span::before{content:"";height:15pt;width:26pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC .lieu .opts span:nth-child(1)::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC .lieu .opts span:nth-child(2)::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC .lieu .opts span:nth-child(3)::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pied : lieu avec son pictogramme */
+.vC .lieu-ft{display:flex;align-items:center;gap:4pt}
+.vC .lieu-ft::before{content:"";width:17pt;height:11pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC.lieu-m .lieu-ft::before{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
+.vC.lieu-c .lieu-ft::before{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
+.vC.lieu-2 .lieu-ft::before{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* sommaire : le 8 porte le triangle */
+.vC .toc li.d .t::after{content:"";display:inline-block;width:8pt;height:7.5pt;margin-left:3pt;vertical-align:-0.5pt;background:var(--red);
+  -webkit-mask:var(--i-danger) center/contain no-repeat;mask:var(--i-danger) center/contain no-repeat}
+/* étapes clés : sous le numéro, minuteur (durée en gras), thermomètre (température en gras),
+   triangle (renvoi au danger) */
+.vC p.step.pk-t::after,.vC p.step.pk-c::after,.vC p.step.pk-d::after{content:"";position:absolute;left:2.5pt;top:14.5pt;width:13pt;height:13pt;
+  background:var(--tsq);-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.vC p.step.pk-t::after{-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.vC p.step.pk-c::after{-webkit-mask-image:var(--i-thermo);mask-image:var(--i-thermo)}
+.vC p.step.pk-d::after{-webkit-mask-image:var(--i-danger);mask-image:var(--i-danger);background:var(--red)}
+.vC p.step.pk-t,.vC p.step.pk-c,.vC p.step.pk-d{min-height:28pt}
+
+/* chiffres clés en exergue */
+.exergue{break-inside:avoid;margin:3pt 0 9pt;background:var(--tp);border-top:2.5pt solid var(--ta);padding:6pt 8pt 6pt;font-family:var(--sans)}
+.exergue .ex-h{display:flex;align-items:center;gap:5pt;font:700 8pt/1.1 var(--sans);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4pt}
+.exergue .ex-h .pk{width:13pt;height:13pt;color:var(--tsq);-webkit-mask-image:var(--i-minuteur);mask-image:var(--i-minuteur)}
+.exergue .ex-r{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 8pt;padding:3pt 0;border-top:0.5pt solid var(--k40)}
+.exergue .ex-h + .ex-r{border-top:none}
+.exergue .ex-n{font:700 34pt/0.9 var(--sans);color:var(--tsq);letter-spacing:-.01em;white-space:nowrap}
+.exergue .ex-n small{font:700 11pt/1 var(--sans);letter-spacing:.04em;margin-left:2pt}
+.exergue .ex-l{font:500 8.8pt/11pt var(--sans);color:var(--k)}
+.exergue .ex-l b{font-weight:700}
+.exergue .ex-f{font:italic 600 8pt/10.4pt var(--sans);margin-top:3pt;padding-top:4pt;border-top:0.5pt solid var(--k40)}
+
+body{--i-maison:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6%27/%3E%3C/svg%3E");--i-chalet:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 31 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5%27/%3E%3C/svg%3E");--i-deux:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4%27/%3E%3C/svg%3E");--i-minuteur:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Ccircle cx=%2712%27 cy=%2713.5%27 r=%278%27/%3E%3Cpath d=%27M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4%27/%3E%3C/svg%3E");--i-thermo:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.8%27 stroke-linejoin=%27round%27 stroke-linecap=%27square%27%3E%3Cpath d=%27M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z%27/%3E%3Ccircle cx=%2712%27 cy=%2718.1%27 r=%271.9%27 fill=%27%23000%27/%3E%3Cpath d=%27M12 16V9M17 6h2M17 9h2M17 12h2%27/%3E%3C/svg%3E");--i-danger:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 22%27%3E%3Cpath d=%27M12 1 23.5 21H.5z%27 fill=%27%23000%27/%3E%3Cpath d=%27M10.7 7.5h2.6l-.5 7.5h-1.6z%27 fill=%27%23fff%27/%3E%3Crect x=%2710.8%27 y=%2716.4%27 width=%272.4%27 height=%272.4%27 fill=%27%23fff%27/%3E%3C/svg%3E")}
+body{--chnum:"53"}
+</style>
+</head>
+<body class="vA vB t3 lieu-c">
+<div id="book"></div>
+<template id="open"><header class="open"><div class="open-top"><span>Tome 3 · Prélever</span><span>Chapitre</span></div><div class="open-title"><div class="num">53</div><h1>Truite et omble au lac</h1></div><div class="open-meta"><div class="lieu"><b>Lieu</b><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div><ol class="toc"><li class="" data-n="1"><span class="n">1</span><span class="t">En une ligne</span><span class="f"></span></li><li class="" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span><span class="f"></span></li><li class="" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span><span class="f"></span></li><li class="" data-n="4"><span class="n">4</span><span class="t">Matériel</span><span class="f"></span></li><li class="" data-n="5"><span class="n">5</span><span class="t">Procédure</span><span class="f"></span></li><li class="" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span><span class="f"></span></li><li class="" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span><span class="f"></span></li><li class="d" data-n="8"><span class="n">8</span><span class="t">Danger</span><span class="f"></span></li><li class="h" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="f"></span></li></ol></div></header></template>
+<template id="story-main">
+<h2 class="sec" data-n="1"><span class="n">1</span><span class="t">En une ligne</span></h2>
+<p class="lead">Prendre au lac l’omble de fontaine (truite mouchetée) et le touladi (truite grise), puis les amener du bord de l’eau au froid — 0 à 4 °C jusqu’à la transformation, −18 °C ou moins pour l’hiver — assez vite pour que la chair vaille encore le déplacement, sachant qu’un poisson perd en quelques heures ce qu’un quartier d’orignal met une journée à perdre.</p>
+<h2 class="sec" data-n="2"><span class="n">2</span><span class="t">Quand l’utiliser</span></h2>
+<h4 class="choix">C’est le bon choix quand :</h4>
+<p class="li">Le chalet a besoin de protéine fraîche à intervalles courts sans entamer le stock permanent (<span class="ref">ch. 8</span>). Un lac se repêche ; un orignal ne se retue pas.</p>
+<p class="li">Le froid naturel manque et qu’il faut manger ce qui se prend aujourd’hui. Une truite prise le matin et mangée le soir ne demande aucune installation de conservation.</p>
+<p class="li">Il y a du monde disponible et peu d’énergie. Une ligne demande un corps assis, pas un moteur ni une génératrice.</p>
+<p class="li">Les enfants participent. C’est le seul prélèvement du livre où un enfant de 6 ans fait une partie réelle du travail, et où l’échec ne coûte qu’une journée.</p>
+<p class="li">On monte un volume pour le sel ou le fumoir (<span class="ref">ch. 71</span>, <span class="ref">ch. 72</span>). Vingt petites truites se salent ensemble ; un seul gros poisson ne se sale pas de la même manière.</p>
+<p class="li">La viande disponible est maigre et l’hiver est long. Voir la section 3 sur le gras, et le <span class="ref">ch. 24</span>.</p>
+<h4 class="choix">C’est un mauvais choix quand :</h4>
+<p class="li">Il n’y a pas un vêtement de flottaison individuel porté par personne à bord, enfants compris. Pas « à bord » : <strong>porté</strong>. Voir l’encadré DANGER.</p>
+<p class="li">Personne ne reste à terre pour savoir quel lac, quelle baie, quelle heure de retour. Le <strong>1-10-1</strong> de l’encadré DANGER donne la raison : la fenêtre utile se compte en minutes, et une recherche qui commence par chercher le lac commence trop tard.</p>
+<p class="li">Il fait chaud et il n’y a ni glace, ni eau froide courante, ni ombre. Une prise qu’on ne peut pas refroidir est une prise qu’on ne garde pas.</p>
+<p class="li">L’objectif est de constituer un stock d’hiver à lui seul. Le poisson demande plus de manipulation par kilogramme entré au saloir que n’importe quelle viande de ce livre, et il pardonne moins les retards.</p>
+<p class="li">L’espèce n’est pas certaine. Omble de fontaine et touladi se pêchent au même endroit et ne se mangent pas au même rythme : <strong>8 repas par mois</strong> d’un côté, <strong>2</strong> de l’autre. Une fiche lue sur la mauvaise bête donne la mauvaise consigne (<span class="ref">ch. 43</span>).</p>
+<p class="li">La glace est prise ou en train de prendre : ce n’est plus ce chapitre-ci, c’est le <span class="ref">ch. 54</span>, et la différence entre les deux se compte en vies.</p>
+<p class="li">Le plan d’eau est en eau à marée : le fleuve, c’est le <span class="ref">ch. 55</span>.</p>
+<h2 class="sec" data-n="3"><span class="n">3</span><span class="t">Pourquoi ça marche</span></h2>
+<p class="p0">Les ombles sont des poissons d’eau froide et d’eau oxygénée. Le touladi « fréquente surtout les lacs d’eau froide et bien oxygénée » et l’omble de fontaine « fréquente les lacs, les rivières et les ruisseaux de toutes tailles ». Ces deux phrases contiennent toute la stratégie de pêche du chapitre : plus l’eau de surface se réchauffe, moins elle retient d’oxygène et moins elle convient à l’omble, qui se déplace alors vers ce qui reste froid — le fond, une fosse, une arrivée de ruisseau, une source. Chercher le poisson revient à chercher l’eau froide, pas le poisson.</p>
+<p>Un lac est une réserve qui se recharge, et c’est ce qui le distingue de tout le reste du tome 3. Un orignal, c’est une décision par année ; une truite, c’est une décision par jour. Cette propriété a un revers : un petit lac de tête, froid, pauvre et lent, se vide pour de vrai si on le traite comme une épicerie. La règle de prélèvement du chalet vient donc de ce qu’on voit d’une année à l’autre — taille moyenne des prises, nombre de coups de ligne pour une prise (<span class="ref">ch. 34</span>, <span class="ref">ch. 35</span>).</p>
+<p>Le poisson se dégrade plus vite que la viande rouge, et pas pour des raisons de propreté. Sa flore bactérienne est adaptée au froid : elle continue de travailler à des températures où celle d’un quartier d’orignal ralentirait. C’est la logique même du seuil du poisson fumé, qui n’est pas 4 °C mais <strong>sous 3 °C</strong>, parce que le <em>Clostridium botulinum</em> non protéolytique de type E, celui du milieu aquatique, pousse au-dessus de 3 °C. Un frigo de chalet réglé à 5 °C n’est pas un frigo à poisson.</p>
+<p>Le ventre est le point faible, et l’éviscération est donc une opération de conservation avant d’être une opération de cuisine. Les enzymes digestives d’un poisson qui vient de manger continuent de digérer après la mort, et elles ne font pas la différence entre le contenu de l’estomac et la paroi de l’estomac. Un poisson non vidé se perce de l’intérieur.</p>
+<p>Enfin, la truite compte parmi les « poissons gras ayant une teneur élevée en oméga-3, comme le saumon, la sardine, la truite et le maquereau ». C’est une affaire d’oméga-3, pas de calories : l’omble de fontaine cru ne porte que <strong>2,7 g de gras pour 100 g</strong>, contre 21 g de protéines. Pour le ventre, c’est de la viande maigre. Le touladi est plus gras, d’autant plus qu’il est gros, mais sans chiffre qui tienne d’un lac à l’autre. La règle du livre reste celle du <span class="ref">ch. 24</span> : une alimentation faite presque uniquement de chair maigre dépasse la capacité du foie à évacuer l’azote des protéines, et c’est <strong>mortel en quelques semaines</strong>. Une prise de truites n’annule pas cette règle : il faut une source de gras venue d’ailleurs (<span class="ref">ch. 41</span>, <span class="ref">ch. 67</span>).</p>
+<h2 class="sec" data-n="4"><span class="n">4</span><span class="t">Matériel</span></h2>
+<table class="tspan"><colgroup><col style="width:25%"><col style="width:11%"><col style="width:48%"><col style="width:16%"></colgroup><thead><tr><th>Item</th><th>Quantité</th><th>Substitution possible</th><th>Négociable</th></tr></thead><tbody><tr><td class="c-item">Vêtement de flottaison individuel, <strong>porté</strong>, ajusté à la taille de chacun</td><td>1 par personne à bord, dont 2 tailles enfant</td><td>Aucune. Une fois à l’eau, « il vous sera presque impossible d’attraper un gilet de sauvetage ou un VFI, et encore moins de l’enfiler ». Sans VFI porté, on pêche du bord : c’est la seule substitution honnête</td><td><strong>Non négociable</strong></td></tr><tr><td class="c-item">Embarcation et avirons</td><td>1</td><td>Pêche du bord, à gué, ou d’un quai. Une perche de bois couvre le bord et c’est là que l’eau froide arrive (section 9)</td><td>Oui — voir la section 9</td></tr><tr><td class="c-item">Canne et moulinet</td><td>1 par pêcheur</td><td>Perche d’aulne ou d’épinette, fil noué à la pointe et repris en spirale sur le dernier bras ; ou ligne à main sur planchette fendue en V (section 9)</td><td>Oui</td></tr><tr><td class="c-item">Leurres et hameçons</td><td>Une boîte</td><td>Bande de fer-blanc martelée creuse et percée aux deux bouts ; cuillère de table au manche coupé ; touffe de poil de lièvre (<span class="ref">ch. 44</span>) ou plume de gélinotte (<span class="ref">ch. 45</span>) ligaturée sur une hampe</td><td>Oui</td></tr><tr><td class="c-item">Pinces à long bec</td><td>1 par embarcation</td><td>Un clou gros et long recourbé en crochet, ou la ligne coupée au ras de l’hameçon : les deux valent mieux qu’une main dans la gueule</td><td>Oui, l’objet ; non, la fonction</td></tr><tr><td class="c-item">Épuisette</td><td>1</td><td>Main mouillée sous le ventre ; cerceau d’aulne plié, ligaturé de babiche mouillée et habillé d’un vieux filet ou d’un sac de jute</td><td>Oui</td></tr><tr><td class="c-item">Couteau à fileter souple + pierre ou fusil</td><td>1 de chaque</td><td>Couteau de poche bien affûté (<span class="ref">ch. 82</span>). Sans lame : vider par les ouïes, à deux doigts (section 9)</td><td>Non pour le tranchant, oui pour le modèle</td></tr><tr><td class="c-item">Glacière</td><td>1, assez grande pour coucher les prises à plat sans les empiler</td><td>Chaudière avec couvercle, doublée d’un jute mouillé, à l’ombre. Ou une caisse dans une caisse, l’espace et le couvercle bourrés de bran de scie sec (section 9)</td><td><strong>Non négociable</strong> dès qu’il fait chaud</td></tr><tr><td class="c-item">Glace, ou blocs d’eau congelée</td><td>Au moins 1 kg de glace pour 2 kg de poisson, 1 pour 1 quand il fait chaud, en couches dessous, autour et dessus. S’il n’en reste plus en arrivant, il en manquait</td><td>Neige tassée de névé, eau de source, sac étanche lesté dans le fond froid du lac, niche creusée dans la berge d’un ruisseau</td><td><strong>Non négociable</strong> dès qu’il fait chaud</td></tr><tr><td class="c-item">Thermomètre à sonde à lecture instantanée</td><td>2 (un de rechange)</td><td>Aucune. Aucun signe visuel ne remplace une lecture à cœur</td><td><strong>Non négociable</strong></td></tr><tr><td class="c-item">Thermomètre d’ambiance pour la glacière et le frigo</td><td>1</td><td>La sonde instantanée laissée à demeure dans la glacière, lue au réveil et au coucher. Le seuil du poisson fumé est sous 3 °C, et ça ne s’évalue pas à la main</td><td><strong>Non négociable</strong></td></tr><tr><td class="c-item">Balance 0 à 5 kg, précision au gramme</td><td>1</td><td>Balance romaine improvisée : une perche, un point d’appui, la prise d’un bord et un contrepoids connu de l’autre — un contenant d’eau pleine, puisqu’un litre d’eau pèse un kilogramme</td><td>Oui, mais le repas de 230 g et tous les pourcentages de sel du tome 4 deviennent des estimations</td></tr><tr><td class="c-item">Sacs ou bacs à couvercle, lavables</td><td>3 à 4</td><td>Chaudières rincées, doublées d’un sac de plastique ; écorce de bouleau cousue en panier pour le transport court</td><td>Oui</td></tr><tr><td class="c-item">Eau propre pour les mains et la planche</td><td>De quoi se laver et rincer après chaque poisson</td><td>Eau du lac pour les mains, eau traitée pour le reste (<span class="ref">ch. 13</span>)</td><td>Oui</td></tr></tbody></table>
+<h2 class="sec" data-n="5"><span class="n">5</span><span class="t">Procédure</span></h2>
+<h3 class="sub">5-A. Les quatre salmonidés, et ce qui les sépare</h3>
+<table class="tspan"><colgroup><col style="width:8.9%"><col style="width:20.6%"><col style="width:24.2%"><col style="width:24.6%"><col style="width:21.7%"></colgroup><thead><tr><th></th><th>Omble de fontaine</th><th>Touladi</th><th>Omble chevalier</th><th>Truite arc-en-ciel</th></tr></thead><tbody><tr><td class="c-item"><strong>Nom latin</strong></td><td><em>Salvelinus fontinalis</em></td><td><em>Salvelinus namaycush</em></td><td><em>Salvelinus alpinus</em></td><td><em>Oncorhynchus mykiss</em></td></tr><tr><td class="c-item"><strong>Noms d’usage</strong></td><td>Truite mouchetée, truite de mer pour la forme anadrome</td><td>Truite grise</td><td>Omble de l’Arctique</td><td>Truite arc-en-ciel</td></tr><tr><td class="c-item"><strong>Statut</strong></td><td>Indigène</td><td>Indigène, « le salmonidé indigène le plus répandu naturellement » en Amérique du Nord</td><td>Indigène, arctique et subarctique</td><td><strong>Exotique introduite</strong> au Québec « à la fin du 19e siècle »</td></tr><tr><td class="c-item"><strong>Où</strong></td><td>Lacs, rivières et ruisseaux « de toutes tailles »</td><td>« Lacs d’eau froide et bien oxygénée », grands cours d’eau</td><td>Lacs et rivières du Nord ; en mer, estuaires et côtes près des embouchures</td><td>Rivières peu profondes à fond de gravier, eau claire et fraîche</td></tr><tr><td class="c-item"><strong>Taille observée au Québec</strong></td><td>15 à 32 cm, spécimens de plus de 55 cm possibles</td><td>34 à 72 cm, peut dépasser 1 m</td><td>20 à 50 cm, plus de 90 cm pour des anadromes</td><td>14 à 47 cm</td></tr><tr><td class="c-item"><strong>Masse</strong></td><td>100 à 1 000 g, jusqu’à 2 kg</td><td>0,5 à 1,5 kg, plus de 5 kg « pas exceptionnel »</td><td>0,5 à 4,5 kg, plus de 12 kg pour des anadromes</td><td>—</td></tr><tr><td class="c-item"><strong>Sur la Côte-Nord</strong></td><td>Partout. C’est l’espèce du chapitre</td><td>Présent dans les lacs profonds et froids</td><td><strong>Non.</strong> Répartition québécoise « depuis la baie James jusqu’à l’extrémité nord de la province au Nunavik »</td><td>Suivi des captures fait sur la Côte-Nord, sans ensemencement de la région</td></tr><tr><td class="c-item"><strong>Mercure</strong></td><td><strong>8 repas par mois</strong></td><td><strong>2 repas par mois</strong>, au même rang que le doré et le brochet</td><td>Non nommé</td><td>8 repas par mois, sous « les autres truites »</td></tr><tr><td class="c-item"><strong>Cuisson</strong></td><td><strong>70 °C</strong> à cœur</td><td><strong>70 °C</strong></td><td><strong>70 °C</strong></td><td><strong>70 °C</strong></td></tr></tbody></table>
+<p class="p0 ri"><strong class="runin">Ce que le tableau dit et qu’on lit mal.</strong> Le gros poisson du lac, le touladi, est le plus restreint des quatre : <strong>2 repas par mois</strong>, un repas valant <strong>230 g avant cuisson</strong>, et le mois compte toutes les espèces ensemble. C’est exactement l’inverse du réflexe de pêche, qui garde le gros et remet le petit. Les cinq espèces d’eau douce à 2 repas par mois — doré, brochet, touladi, achigan, maskinongé — sont toutes des prédateurs de grande taille. L’omble de fontaine, de son côté, est au palier le moins restreint, <strong>8 repas par mois</strong>. Ces paliers valent pour un lac sans avis propre ; ils ne veulent pas dire « mesuré dans ce lac-ci » : la teneur change d’un lac à l’autre et grimpe avec la taille du poisson. Des recommandations existent lac par lac pour près de 1 400 sites au Québec : celles des lacs du chalet se cherchent pendant qu’on le peut, et s’écrivent ici.</p>
+<p class="p0 ri"><strong class="runin">Pour les enfants, il n’y a pas de chiffre, mais il y a une consigne.</strong> Les recommandations ne donnent pas aux jeunes enfants de limite plus basse pour les espèces d’eau douce, contrairement à ce qu’elles font pour les espèces marines. Elles disent que les espèces à 2 repas par mois, le touladi compris, se donnent aux jeunes enfants de temps en temps seulement, et qu’on leur préfère celles à 4 et 8 repas. Avec deux enfants de 4 et 6 ans à table, ça tranche : l’omble de fontaine va aux enfants, le touladi reste aux adultes.</p>
+<h3 class="sub">5-B. La sortie, du chalet au chalet</h3>
+<p class="step"><span class="sn">1</span><strong>Vider le coffre à pêche de tout poisson appât.</strong> Une chaudière vidée au bord d’un lac « peut introduire des espèces exotiques envahissantes et des maladies dans un plan d’eau », et l’erreur se commet en trois secondes pour un siècle. Un lac de tête contaminé ne se décontamine pas.</p>
+<p class="step"><span class="sn">2</span><strong>Charger la glacière avant de charger les cannes.</strong> Une glacière qu’on prépare après la première prise arrive toujours trop tard.</p>
+<p class="step"><span class="sn">3</span><strong>Enfiler les VFI à terre</strong>, avant de pousser l’embarcation. Dire à quelqu’un qui reste quel lac, quelle baie, quelle heure de retour.</p>
+<p class="step"><span class="sn">4</span><strong>Chercher l’eau froide, pas le poisson.</strong> Arrivées de ruisseau, sorties de source, fosses, bordures de fond dur, ombre des parois. Plus l’été avance, plus les ombles se tiennent profond, sous l’eau chaude de surface : la profondeur dépend du lac et s’apprend d’une année à l’autre.</p>
+<p class="step"><span class="sn">5</span><strong>Décider de garder ou de remettre avant de sortir le poisson de l’eau.</strong> La manipulation hors de l’eau se limite à <strong>moins de 15 secondes</strong> : peser, mesurer, admirer et délibérer prennent plus que ça. Un poisson dont on hésite est un poisson qu’on remet.</p>
+<p class="step"><span class="sn">6</span><strong>Pour remettre :</strong> se rincer les mains avant de toucher le poisson, « afin de préserver la couche protectrice de mucus sur son corps » — une main sèche arrache cette barrière par friction. Retirer l’hameçon avec les pinces ; « s’il est trop profondément engagé, coupez la ligne au plus près de l’hameçon ».</p>
+<p class="step"><span class="sn">7</span><strong>Pour garder : tuer immédiatement.</strong> Un coup sec et unique sur le dessus de la tête, en arrière des yeux. Un poisson laissé mourir d’asphyxie au fond de la chaloupe se débat, chauffe et rougit sa chair.</p>
+<p class="step"><span class="sn">8</span><strong>Saigner tout de suite</strong> en sectionnant l’arc branchial d’un côté, et laisser saigner dans l’eau du lac quelques minutes. Le sang qui reste dans la chair est ce qui prend le goût fort en premier.</p>
+<p class="step"><span class="sn">9</span><strong>Éviscérer sur place ou au débarcadère</strong>, dès que la pêche s’arrête. Ouvrir du cloaque vers les branchies, retirer les viscères d’un bloc avec les branchies, gratter la ligne de sang foncée le long de l’arête avec l’ongle du pouce ou le dos de la lame. Ne pas rincer la cavité à l’eau non traitée si le poisson ne s’en va pas directement à la cuisson (<span class="ref">ch. 13</span>, <span class="ref">ch. 70</span>).</p>
+<p class="step"><span class="sn">10</span><strong>Laisser la peau.</strong> Elle sert deux fois : c’est elle qui dit encore, sur la planche, si c’est de l’omble de fontaine ou du touladi, et un filet peau en dessous se manipule, se sale et se pend sans se déchirer, ce qu’un filet nu ne fait pas. Filets avec peau, ou poisson entier vidé.</p>
+<p class="step"><span class="sn">11</span><strong>Au froid, immédiatement.</strong> Poisson couché sur le flanc, cavité vers le bas, <strong>enrobé</strong> de glace et non posé dessus, dans une glacière fermée, à l’ombre, avec un bouchon de vidange ouvert pour que l’eau de fonte s’écoule. Le poisson qui baigne dans son eau de fonte se délave et perd sa tenue.</p>
+<p class="step"><span class="sn">12</span><strong>Trier à l’arrivée selon la destination</strong>, et pas selon la taille : ce qui se mange bientôt reste au frigo à <strong>0 à 4 °C</strong>, et pas plus de <strong>1 à 2 jours</strong> cru, 5 à 7 jours une fois cuit ; ce qui passe l’hiver descend à <strong>-18 °C ou moins</strong>, où la durée ne change plus la salubrité, seulement le goût ; ce qui s’en va au sel ou au fumoir part <strong>tout de suite</strong> vers le <span class="ref">ch. 71</span> ou le <span class="ref">ch. 72</span>, pas le lendemain. Le poisson qui se mangera cru, ou fumé sans atteindre 70 °C à cœur, passe d’abord au congélateur contre les parasites : <strong>-20 °C pendant au moins 7 jours</strong>, ou <strong>-35 °C pendant au moins 15 heures</strong>. Un congélateur à −18 °C n’y arrive pas : c’est au thermomètre qu’on le sait.</p>
+<p class="step"><span class="sn">13</span><strong>Ranger la glacière ouverte et sèche.</strong> Une glacière refermée sur un fond d’eau de poisson est ce qui gâtera la prise suivante, avant tout le reste.</p>
+<h3 class="sub">5-C. Ce que le livre n’imprime pas</h3>
+<table class="tspan"><colgroup><col style="width:27.4%"><col style="width:57.6%"><col style="width:15.0%"></colgroup><thead><tr><th>Ce qui n’est pas ici</th><th>Pourquoi</th><th>Où c’est</th></tr></thead><tbody><tr><td class="c-item">Pourcentages de sel et durées de saumure</td><td>Un pourcentage de sel se calcule <strong>toujours sur le poids de la chair</strong>, et il dépend de la méthode, pas de l’espèce</td><td><span class="ref">Ch. 62, 64, 71</span></td></tr><tr><td class="c-item">Quantités de salpêtre (nitrate de potassium)</td><td>Le salpêtre et sa forme moderne équivalente, le sel de salaison nitrité (nitrite de sodium), <strong>ne se dosent pas pareil</strong>. Une quantité écrite ici serait lue hors de son contexte</td><td><span class="ref">Ch. 62</span>, et seulement là</td></tr></tbody></table>
+<figure class="fig plf" data-plate="full" data-id="53-08" data-src="../../images/planche-53-08-hamecons-qu-on-fait.svg"></figure>
+<h2 class="sec" data-n="6"><span class="n">6</span><span class="t">Points de contrôle</span></h2>
+<table class="tspan"><colgroup><col style="width:13.9%"><col style="width:24.3%"><col style="width:20.3%"><col style="width:41.6%"></colgroup><thead><tr><th>Moment</th><th>Ce qu’on vérifie</th><th>Cible chiffrée</th><th>Hors cible → quoi faire</th></tr></thead><tbody><tr><td class="c-item">Avant de partir</td><td>VFI portés, ajustés, y compris ceux des enfants</td><td>1 par personne, porté</td><td>Non porté : l’embarcation ne part pas</td></tr><tr><td class="c-item">Avant de partir</td><td>Thermomètre à sonde dans l’eau et la glace fondante</td><td><strong>0 °C</strong>, écart toléré ± 1 °C</td><td>Hors tolérance : il sort du chalet. Un thermomètre faux est pire qu’aucun</td></tr><tr><td class="c-item">Avant de partir</td><td>Glacière chargée de glace</td><td>Assez pour <strong>enrober</strong> les prises prévues</td><td>Pas assez : on pêche pour le repas du jour seulement</td></tr><tr><td class="c-item">À la prise</td><td>Temps hors de l’eau pour un poisson qu’on remet</td><td><strong>moins de 15 secondes</strong></td><td>Dépassé : le poisson se garde, il ne se remet plus</td></tr><tr><td class="c-item">À la prise</td><td>Poisson gardé : mort et saigné</td><td>Immédiat</td><td>Retardé : la chair sera plus rouge et se gardera moins</td></tr><tr><td class="c-item">Fin de pêche</td><td>Éviscération faite</td><td>Tous les poissons gardés</td><td>Non faite : ils passent avant le rangement, avant le dîner, avant tout</td></tr><tr><td class="c-item">Au transport</td><td>Peau présente sur la chair</td><td>Espèce identifiable à l’œil</td><td>Filets nus : plus d’identification possible, et une chair qui se déchire au salage et à la pendaison</td></tr><tr><td class="c-item">Dans la glacière</td><td>Température de l’enceinte</td><td><strong>0 à 4 °C</strong></td><td>Au-dessus : ajouter de la glace, fermer, mettre à l’ombre, ou transformer tout de suite</td></tr><tr><td class="c-item">Au chalet, frigo</td><td>Température du frigo</td><td><strong>0 à 4 °C</strong> ; la zone de danger va de <strong>4 à 60 °C</strong></td><td>Au-dessus de 4 °C : la destination change (sel, fumoir, cuisson), le poisson n’attend pas</td></tr><tr><td class="c-item">Au congélateur</td><td>Température de l’enceinte</td><td><strong>-18 °C ou moins</strong></td><td>Au-dessus : <span class="ref">ch. 69</span></td></tr><tr><td class="c-item">Poisson fumé, entreposage</td><td>Température de conservation</td><td><strong>sous 3 °C</strong> ; <strong>4 °C ou moins</strong> au réfrigérateur</td><td>Au-dessus : le lot sort. Ce seuil ne se négocie pas (<span class="ref">ch. 72</span>)</td></tr><tr><td class="c-item">À la cuisson</td><td>Température à cœur, point le plus épais</td><td><strong>70 °C</strong></td><td>En dessous : ça retourne au feu. La couleur de la chair et le fait qu’elle s’effeuille ne sont pas des mesures</td></tr><tr><td class="c-item">À table, sur un mois</td><td>Repas de touladi servis aux adultes</td><td><strong>2 repas par mois</strong>, 1 repas = <strong>230 g avant cuisson</strong></td><td>Au-dessus : le reste part au congélateur, et la pêche se reporte sur l’omble de fontaine</td></tr></tbody></table>
+<h2 class="sec" data-n="7"><span class="n">7</span><span class="t">Signes d’échec</span></h2>
+<table class="tspan"><colgroup><col style="width:32.4%"><col style="width:26.8%"><col style="width:40.8%"></colgroup><thead><tr><th>Observation</th><th>Diagnostic</th><th>Action</th></tr></thead><tbody><tr><td class="c-item">Chair molle qui garde l’empreinte du doigt, ne reprend pas sa forme</td><td>Autolyse avancée : le poisson a été trop longtemps au chaud ou non vidé</td><td>Ne pas saler, ne pas fumer, ne pas conserver. Cuisson immédiate à 70 °C à cœur, ou rejet</td></tr><tr><td class="c-item">Ventre creux, paroi abdominale verdâtre ou percée de l’intérieur</td><td>Les enzymes digestives ont traversé la paroi</td><td>Rejet. Une paroi percée a laissé passer le contenu intestinal dans la chair</td></tr><tr><td class="c-item">Œil enfoncé et opaque, branchies brunes ou grises, mucus épais et collant</td><td>Le poisson est vieux de plusieurs heures dans de mauvaises conditions</td><td>Cuisson immédiate au mieux. Jamais de salaison ni de fumage : on ne conserve pas un produit déjà entamé</td></tr><tr><td class="c-item">Odeur ammoniaquée ou piquante</td><td>Dégradation protéique installée</td><td>Rejet. Cette odeur-là ne s’enlève ni au vinaigre, ni au sel, ni à la fumée</td></tr><tr><td class="c-item">Chair délavée, blanchâtre, détrempée, filets qui se défont</td><td>Le poisson a baigné dans l’eau de fonte</td><td>Pertes de tenue et de goût ; comestible si le froid a tenu, mais impropre au sel et au fumoir</td></tr><tr><td class="c-item">Traces de gel puis de dégel<sup class="fnr" data-fn="53-1">1</sup> sur un poisson censé être resté froid</td><td>Rupture de chaîne</td><td><span class="ref">Ch. 69</span>. Ne pas recongeler</td></tr><tr><td class="c-item">Poisson fumé gardé au-dessus de <strong>3 °C</strong>, même quelques jours, même « au frigo »</td><td>Fenêtre de croissance du <em>C. botulinum</em> type E</td><td>Le lot sort. Voir l’encadré DANGER : rien ne se verra, ne se sentira, ni ne se goûtera</td></tr><tr><td class="c-item">Espèce incertaine au moment de garder</td><td>Toute la fiche est hors sujet, mercure compris</td><td>Remise à l’eau si le poisson est encore vivable, sinon la prise ne sert pas de base à une décision de consommation</td></tr></tbody></table>
+</template>
+<template id="story-d">
+<p class="pt"><span class="pn">1</span><strong class="plead">L’eau froide, avant la noyade.</strong> Les eaux d’ici sont froides toute l’année : « environ 94 % des plaisanciers canadiens qui se sont noyés se trouvaient dans des eaux d’une température inférieure à 20 °C ». Le mécanisme n’est pas la fatigue, c’est une cascade en trois temps, le principe <strong>1-10-1</strong> :</p>
+<p class="li"><strong>1 minute — le choc thermique.</strong> « Une personne prend une respiration soudaine et profonde, puis commence à faire de l’hyperventilation », avec une respiration « de 600 à 1 000 % plus rapide que la normale ». Une seule de ces inspirations prise sous la surface suffit. « Même un bon nageur peut succomber aux effets d’un choc thermique. »</p>
+<p class="li"><strong>10 minutes — la perte de mobilité.</strong> « Vos bras, vos jambes et vos doigts perdront leur motricité […] vous perdrez probablement toute capacité de nager. » Et le point qui décide de tout : « une fois dans l’eau, il vous sera presque impossible d’attraper un gilet de sauvetage ou un VFI, et encore moins de l’enfiler ». <strong>C’est pour ça que le VFI se porte, pas se transporte.</strong> Un gilet rangé sous le banc est un objet décoratif.</p>
+<p class="li"><strong>1 heure — l’hypothermie</strong>, soit la chute de la température corporelle sous <strong>35 °C</strong>.</p>
+<p class="pt cont0">Dans l’eau : ne pas nager pour se réchauffer, garder les voies respiratoires hors de l’eau, grimper sur tout ce qui flotte, se mettre en position fœtale, ou en position caucus si on est plusieurs (<span class="ref">ch. 3</span>, <span class="ref">ch. 20</span>).</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Sur un enfant, le VFI lui-même se comporte autrement.</strong> Un gilet trop grand flotte plus fort que le corps qu’il porte : dans l’eau, il remonte sous les aisselles et arrive aux oreilles pendant que l’enfant glisse par en dessous. La pièce qui empêche ça est la sangle d’entrejambe. L’essai se fait à terre, en levant le gilet par les épaules, enfant dedans : s’il monte au menton, il ne tiendra pas une tête hors de l’eau.</p>
+<p class="pt"><span class="pn">2</span><strong class="plead">Le botulisme de type E, après la pêche.</strong> <em>Clostridium botulinum</em> non protéolytique, celui des milieux aquatiques, n’a pas besoin d’une conserve pour produire sa toxine : il lui faut un milieu sans oxygène — un poisson sous vide, un poisson dans l’huile, un poisson fumé emballé, un ventre non vidé — et une température au-dessus de <strong>3 °C</strong>. L’inhibition demande « une température d’entreposage gardée en deçà de 3 °C », et le poisson fumé prêt à manger doit être « réfrigéré et maintenu continuellement à une température égale ou inférieure à 4 °C ». <strong>Un frigo ordinaire à 4 °C n’est donc pas un frigo à poisson fumé.</strong></p>
+<p class="pt cont0">Et la seule phrase de ce livre qu’il faut savoir par cœur : <strong>« Le botulisme n’altère pas la couleur, l’odeur ou le goût des aliments »</strong>. Il n’existe aucun geste — sentir, goûter du bout de la langue, regarder, chauffer légèrement — qui donne l’information cherchée. La décision se prend sur l’historique de température, jamais sur les sens. Dans le doute, le lot sort (<span class="ref">ch. 72</span>, <span class="ref">ch. 73</span>).</p>
+<p class="pt"><span class="pn">3</span><strong class="plead">Le troisième chiffre, celui qui n’est pas un danger de mort mais une erreur facile :</strong> le poisson se cuit à <strong>70 °C</strong> à cœur, le gibier à <strong>74 °C</strong>. Se tromper dans un sens donne une truite sèche ; se tromper dans l’autre sens, sur un rôti d’ours ou de castor, met en jeu la trichinellose — que ni le sel, ni le fumage, ni le gel domestique ne détruisent (<span class="ref">ch. 46</span>, <span class="ref">ch. 48</span>, <span class="ref">ch. 52</span>).</p>
+</template>
+<template id="story-e">
+<p class="p0">Sans embarcation, sans canne, sans glacière, sans glace, sans congélateur : on pêche <strong>du bord</strong>, on prend <strong>moins</strong>, et on transforme <strong>tout de suite</strong>. La règle qui remplace toute la logistique de froid : <em>ce qui se prend le matin se mange ou se sale avant la nuit.</em> Tout le reste de cette section est ce qui se fabrique, ce qui se répare et ce qui se remplace — et la courte liste de ce qui ne se remplace pas.</p>
+<h3 class="sub">9-A. Prendre le poisson avec ce qui traîne</h3>
+<p class="p0 ri"><strong class="runin">La perche.</strong> Une jeune épinette ou un aulne de la longueur de deux bras, ébranché, la pointe laissée souple. Le fil se noue à la pointe, puis se reprend en deux ou trois demi-clés espacées sur le dernier bras de perche : quand la pointe casse — et elle casse —, la prise reste tenue par le reste de la perche au lieu de partir avec le bout. Le fil se fait un peu plus court que la perche, sinon rien ne se ramène tout seul à la main. Ça pêche les embouchures, les bordures ombragées et les fosses de rive, c’est-à-dire exactement là où l’eau froide arrive — et c’est aussi là qu’on pourra garder la prise au frais.</p>
+<p class="p0 ri"><strong class="runin">La ligne à main.</strong> Une planchette fendue en V aux deux bouts, le fil enroulé en huit autour des deux fentes. Ça se lance en faisant tourner le leurre au bout d’un bras de fil, et ça se ramène à la main, le fil retombant en boucles lâches aux pieds. Le fil se pince entre le pouce et l’index, <strong>jamais enroulé autour d’un doigt</strong> : un touladi qui plonge referme la boucle sur la phalange et ne la rouvre pas.</p>
+<p class="p0 ri"><strong class="runin">Le fil, quand il n’y a plus de fil.</strong> Fil de tente, fil à coudre en plusieurs brins commis ensemble et frottés de gomme d’épinette (<span class="ref">ch. 60</span>) pour qu’ils travaillent en un seul, tendon fendu et assoupli, babiche fine (<span class="ref">ch. 80</span>) — en sachant que la babiche mouillée s’allonge et se ramollit, donc qu’elle fait un corps de ligne et jamais un bas de ligne. Le fil de cuivre fin d’un bobinage de moteur tient n’importe quelle truite, mais il se vrille en boucles dures au premier ramené : il fait une ligne dormante, pas une ligne qu’on lance.</p>
+<p class="p0 ri"><strong class="runin">Les hameçons.</strong> Un clou à finir, une épingle de sûreté, un rayon de roue, un bout de broche : chauffer au rouge pour attendrir, plier à froid sur la panne d’un marteau, limer la pointe et la barbe à la lime fine à trois faces (<span class="ref">ch. 82</span>), puis rendre la dureté par chauffe au rouge sombre et trempe (<span class="ref">ch. 88</span>). Un hameçon de broche douce qu’on n’a pas retrempé s’ouvre sur un gros poisson : ça se sait d’avance et ça se compense en freinant moins du pouce.</p>
+<p>L’autre hameçon, celui qui ne demande ni lime ni trempe, est la <strong>broche avalée</strong> : un bâtonnet d’os ou de bois dur de la longueur d’un pouce, taillé en pointe aux deux bouts, ligaturé en son milieu au fil et enfoui dans l’appât. Le poisson l’avale en long ; quand la ligne tend, il se met en travers du gosier. Il tue le poisson — aucune remise à l’eau n’est possible —, donc il ne sort que le jour où tout ce qui mord est gardé.</p>
+<p class="p0 ri"><strong class="runin">Les leurres.</strong> Une bande de fer-blanc découpée dans une boîte de conserve, martelée creuse sur une bûche et percée aux deux bouts, brille et vibre comme une cuillère ; le bord de coupe s’émousse à la pierre, sinon il tranche le fil au premier lancer. Une cuillère de table fait encore mieux : manche coupé au ciseau à froid, deux trous percés, bords adoucis — c’est l’objet dont la cuillère de pêche tire son nom. Pour l’omble de fontaine, qui monte en surface une bonne partie de l’été, une touffe de poil de lièvre (<span class="ref">ch. 44</span>) ou une fibre de plume de gélinotte (<span class="ref">ch. 45</span>) ligaturée serré sur la hampe avec du fil à coudre, un tour de gomme sur le nœud. L’appât de chair se prend sur la première prise : une languette de peau du ventre, coupée en pointe, travaille toute seule dans le courant.</p>
+<p class="p0 ri"><strong class="runin">La foène.</strong> C’est le nigog des Innus et des Mi’kmaq, l’outil du saumon, de la truite et de l’anguille : un manche, une pointe au milieu et, de chaque côté, une mâchoire courbe dont le bout vient presque toucher le bout de la pointe. Le coup écarte les mâchoires, le poisson s’enfile sur la pointe, et les mâchoires se referment seules derrière lui, parce que rien d’autre que la force du coup ne les ouvre. C’est ce qui manque au harpon simple : une pointe qui n’accroche pas d’os ressort, et le poisson part avec. Les mâchoires tiennent le corps, que la pointe ait trouvé l’os ou non. Ni hameçon, ni fil, ni appât.</p>
+<p class="p0 ri"><strong class="runin">Faire la foène.</strong> Le manche est une perche droite d’épinette de deux ou trois doigts d’épais, plus longue que l’eau n’est creuse là où on pêche. On en refend le bout, on loge la pointe au fond de la fente et on ligature serré, dessus et dessous, à la babiche posée mouillée (<span class="ref">ch. 80</span>). La pointe se tire d’un long clou, d’un rayon de roue, d’un bout de fer à béton ou d’une vieille lime, et s’amène en aiguille à la lime (<span class="ref">ch. 82</span>). Les mâchoires : deux bâtons qui ont déjà la courbe — une branche courbe se trouve plus vite qu’elle ne se cintre —, ou deux bandes de fer plat, liées de part et d’autre du manche, écartées au pied et ramenées vers la pointe au bout. Chacune porte près du bout une dent tournée vers l’intérieur et vers le manche : une encoche taillée qui laisse un crochet, ou un clou à finir planté et recourbé. C’est la dent qui empêche le poisson de glisser hors de la prise. Pour l’échelle, une tête de fer de la fin du XIXe siècle mesure 25 cm de mâchoires sur 8 cm de large. Les Innus y attachaient une ligne de peau : un manche échappé la nuit, dans le courant, ne se retrouve pas. L’essai se fait à terre, sur un paquet de mousse ficelé serré, de la grosseur du poisson visé : au coup, les mâchoires doivent s’ouvrir, se refermer seules et retenir le paquet quand on relève la foène. Une mâchoire qui reste ouverte ne tient rien.</p>
+<p class="p0 ri"><strong class="runin">Où et quand frapper.</strong> En eau peu profonde, jamais plus loin que le manche. La nuit, au flambeau d’écorce de bouleau (<span class="ref">ch. 18</span>) planté à la pince du canot, devant tout le monde, parce que l’écorce qui brûle crache des fragments : la lumière attire la truite et le saumon, qui viennent tourner autour du canot et montent vers la surface. Une personne reste à l’arrière à l’aviron, l’autre se tient debout à l’avant, la foène en main. C’est la pêche des fosses de rivière où le saumon et la truite se reposent entre deux rapides ; au lac, c’est la bordure peu profonde. Le jour, elle marche aussi quand l’eau est calme et sans reflet. Du bord ou à gué, on avance lentement, les pieds levés juste assez pour ne pas traîner sur le fond : ce qui remue le fond fait fuir le poisson. Et elle a une qualité qu’aucun engin du <span class="ref">ch. 56</span> n’a : on voit le poisson avant de le prendre. Le petit passe, le poisson de table se frappe.</p>
+<p class="p0 ri"><strong class="runin">Viser sous le poisson.</strong> Le poisson est plus creux qu’il ne paraît : la lumière qui sort de l’eau se casse à la surface, et l’œil place le poisson plus haut qu’il n’est. On frappe donc sous le poisson qu’on voit, d’autant plus bas qu’il est creux. Le remède le plus simple est de se placer au-dessus de lui : une lumière qui traverse la surface à la verticale ne se casse pas, le poisson est juste sous son image, et la foène poussée droit vers le bas passe dessus. Plus le regard est rasant, plus l’erreur grandit. Le coup s’apprend sur une pierre du fond ou une feuille coulée, avant le premier poisson.</p>
+<p class="p0 ri"><strong class="runin">La foène d’hiver.</strong> C’est un autre outil pour un autre poisson : l’anguille, qui passe l’hiver enfouie dans la vase molle, et qui se pêche à l’aveugle. Un trou d’un demi-mètre de large, une foène de 3 à 5 m aux dents recourbées vers le haut, enfoncée doucement dans la vase, encore et encore, jusqu’à avoir couvert tout le cercle que le manche atteint. L’anguille piquée se sent dans le manche comme une vibration, et les dents la crochent quand on remonte. Le cercle vidé, on ouvre un autre trou. Tout ce qui monte se garde, petit compris, puisqu’on ne l’a pas vu avant de le piquer.</p>
+<p class="p0 ri"><strong class="runin">Ce qui la rend sûre, et ce qui la rend dangereuse.</strong> Trois conditions la rendaient sûre et payante : la lumière amène le poisson au canot au lieu qu’on aille le chercher ; les mâchoires tiennent ce que la pointe seule perdrait ; et on y allait à deux, l’un à l’aviron pour tenir le canot, l’autre debout pour frapper. Qu’une de ces conditions change, et la méthode se retourne.</p>
+<p class="li"><strong>Debout dans un canot, la nuit, en eau froide.</strong> Le coup de foène déplace le poids du corps au moment même où on se penche au-dessus de l’eau. C’est l’eau froide de la section 8, avec le noir en plus : personne ne voit tomber personne. Sans VFI porté par les deux, la foène se pratique du bord ou à gué, jamais debout dans un canot.</p>
+<p class="li"><strong>Le poisson piqué qui se décroche ne survit pas à ses blessures.</strong> Il n’y a pas de remise à l’eau avec une foène : on ne frappe que ce qu’on garde, et un poisson piqué ne va pas au vivier — il se saigne et se vide dans la minute.</p>
+<p class="li"><strong>Sur la glace, la bonne pêche est au mauvais endroit.</strong> La vase à anguille d’une embouchure est sous une glace que le courant garde mince, et plus la glace est mince, plus le manche fouille loin dans la vase : la faim pousse exactement là où la glace porte le moins. C’est la glace à courant que le <span class="ref">ch. 54</span> écarte, et une anguille au bout du manche ne change rien à la règle.</p>
+<p class="p0 ri"><strong class="runin">Le vivier.</strong> Garder le poisson <strong>vivant</strong> le plus tard possible : un panier d’osier ou une chaudière percée, immergée dans le courant froid, à l’ombre, jamais dans une eau de bordure réchauffée. Un poisson vivant est un poisson à zéro heure de dégradation, et c’est le meilleur froid disponible sans glace. À défaut de vivier : tuer, saigner et vider dans la minute, parce que c’est le ventre plein qui part en premier (section 3). Et on pêche tôt : une prise faite au petit jour a une demi-journée d’avance sur la chaleur qui s’en vient, ce qui est un choix de conservation avant d’être un choix de pêche.</p>
+<h3 class="sub">9-B. Refroidir sans glace</h3>
+<p class="p0">Le lac est sa propre glacière, et la section 3 dit pourquoi : c’est l’eau du fond qui reste froide tout l’été, et c’est pour ça que le touladi s’y tient.</p>
+<p class="p0 ri"><strong class="runin">Le trou d’eau froide.</strong> Un sac étanche, ou une chaudière couverte, lestée d’une pierre et descendue au bout d’une corde dans le creux du lac ou dans le trou d’une source. La température se mesure, elle ne s’estime pas : la cible reste <strong>0 à 4 °C</strong>. Une eau de bordure à l’ombre reste une eau tiède à l’ombre.</p>
+<p class="p0 ri"><strong class="runin">La niche de berge.</strong> Creuser dans le sable saturé de la rive d’un ruisseau, du côté nord, sous un surplomb ou un paquet de racines ; les poissons dans un sac, recouverts de sable mouillé et de mousse. Le sable en contact avec l’eau courante prend la température de l’eau courante.</p>
+<p class="p0 ri"><strong class="runin">Le jute mouillé.</strong> Poisson vidé, ouvert, suspendu à l’ombre dans un courant d’air, enveloppé d’une toile mouillée qu’on remouille. C’est l’évaporation qui prend la chaleur, ce qui veut dire que le procédé ne marche que dans un air sec et en mouvement. Par temps lourd, humide et sans vent, la toile ne refroidit rien du tout et se contente d’entretenir une surface humide et tiède, ce qui est pire que rien. Dans le meilleur des cas, c’est quelques degrés — jamais une chambre froide.</p>
+<p class="p0 ri"><strong class="runin">La glacière fabriquée.</strong> Une caisse dans une caisse, l’espace entre les deux bourré de bran de scie sec, de mousse de sphaigne séchée ou de foin. Le couvercle se bourre pareil, sinon tout le froid part par le haut et le reste de l’ouvrage ne sert à rien. Ce qui isole n’est pas la matière, c’est l’air immobile qu’elle retient : un bourrage tassé, mouillé ou affaissé n’isole plus. C’est aussi pour ça qu’une glacière de fortune se rouvre et se sèche entre deux usages, exactement comme une vraie.</p>
+<p class="p0 ri"><strong class="runin">La glace qu’on fait soi-même.</strong> L’hiver, l’eau se coule dans des chaudières et les blocs démoulés s’empilent <strong>serrés</strong> en cube dans une fosse drainée, creusée à l’ombre du côté nord, les joints bouchés à la neige damée — jamais de bran de scie entre les rangs —, sur 30 cm de bran de scie sec (<span class="ref">ch. 68</span>), avec 30 cm autour et dessus (60 cm s’il faut du foin ou de la paille). Bien fait, le tas passe l’été et en perd jusqu’à près du tiers : on en empile la moitié de plus que ce qu’on compte utiliser, et on recharge les côtés au printemps quand le bran s’est tassé. C’est le seul moyen d’avoir de la glace en juillet sans machine, et c’est un ouvrage de janvier : la variante d’urgence de l’été se prépare en hiver, ou elle ne se prépare pas. À défaut, un névé de ravin exposé au nord tient tard en saison.</p>
+<h3 class="sub">9-C. Vider sans lame, réparer sans pièce</h3>
+<p class="p0 ri"><strong class="runin">Vider par les ouïes.</strong> Deux doigts crochés sous l’arc branchial d’un côté, le pouce de l’autre : on pince l’ensemble des branchies et on tire d’un coup ferme vers l’arrière et vers le bas. Les branchies viennent avec l’œsophage, et les viscères suivent d’un bloc parce qu’ils y sont attachés. Le ventre reste fermé, ce qui limite le dessèchement et la saleté. Ce qui reste, et qui ne s’enlève pas sans ongle ni lame, c’est la ligne de sang foncée le long de l’arête — et c’est elle qui tourne en premier. Méthode pour le poisson du jour, donc, pas pour celui qu’on garde.</p>
+<p class="p0 ri"><strong class="runin">Une lame se retrouve vite.</strong> Un éclat de verre épais, une lame de scie à métal cassée emmanchée dans une fente de bois et ligaturée, une bande de fer-blanc pliée en deux sur sa longueur pour se raidir. Aucune ne lève un filet propre ; toutes ouvrent un ventre. L’affûtage sans pierre se fait sur le fond non émaillé d’une tasse ou sur une pierre de rivière grise à grain serré, mouillée, le morfil redressé ensuite sur un bout de cuir (<span class="ref">ch. 82</span>).</p>
+<p class="p0 ri"><strong class="runin">La canne cassée.</strong> Deux éclisses de bois franc de part et d’autre de la cassure et une ligature de babiche posée <strong>mouillée</strong> : en séchant, elle se rétracte et serre, ce qu’aucun fil sec ne fait (<span class="ref">ch. 80</span>). Une douille de fer-blanc roulée serré autour de la cassure, ligaturée par-dessus, tient encore mieux. Le moulinet qui perd son cliquet devient un dévidoir libre — on freine la bobine au pouce — et une manivelle cassée se remplace par un bout de bois dur percé et boulonné.</p>
+<p class="p0 ri"><strong class="runin">L’hameçon ouvert par un gros poisson.</strong> Le replier à froid casse l’acier trempé. Chauffer au rouge sombre, replier, retremper (<span class="ref">ch. 88</span>) : il ne reprendra pas sa dureté d’origine, et ça se saura au poisson suivant.</p>
+<h3 class="sub">9-D. Garder sans sel acheté</h3>
+<p class="p0">Le fleuve est salé, et le sel s’en tire. L’eau se filtre sur un tissu et du sable (<span class="ref">ch. 13</span>), puis se fait réduire dans un chaudron large jusqu’à ce qu’il ne reste que le sel — sur le poêle qui chauffe de toute façon, parce que l’opération coûte plus de bois que n’importe quoi d’autre dans ce livre. L’eau du fleuve devant la Côte-Nord porte de l’ordre de 27 à 29 g de sels par litre, et le sel de table n’en est que la plus grosse part : un litre ne rend donc pas 29 g de sel, et un kilo en demande bien plus de 35 L. L’eau est moins salée près des rives et des embouchures qu’au large, et au printemps, quand la fonte et la crue l’adoucissent en surface.</p>
+<p>Ce sel-là fonctionne, avec une limite qui change la méthode. Sa pureté est inconnue, et <strong>tous les pourcentages de sel du tome 4 se calculent sur le poids de la chair, avec un sel dont on connaît la pureté</strong>. Un sel de mer maison ne se dose donc pas au pourcentage : il se travaille en salage à saturation — on en remet tant que la chair en prend — sur des filets minces et ouverts. Ça donne un poisson de conservation courte, à surveiller, et non une pièce de garde. Pour une pièce épaisse, ça ne remplace ni le <span class="ref">ch. 62</span> ni le <span class="ref">ch. 71</span>.</p>
+<p class="p0 ri"><strong class="runin">Sécher au vent et à la boucane.</strong> Filets minces, peau en dessous, sur une claie au vent, au-dessus d’une boucane froide d’aulne ou de bois franc. La fumée n’est pas là pour conserver : elle est là pour que les mouches ne pondent pas dans la chair. Ça demande un air sec et frais ; par temps lourd, le poisson pourrit avant d’avoir séché, et c’est une des rares opérations du livre dont il faut accepter certains jours qu’elle ne se fait pas. Le reste du procédé est au <span class="ref">ch. 66</span> et au <span class="ref">ch. 72</span>.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’il ne faut surtout pas improviser :</strong> le poisson cuit, tassé dans un pot et scellé sous une couche de gras fondu. Le réflexe vient du confit de viande et il est exactement à l’envers ici. C’est un milieu sans oxygène, et le <em>Clostridium botulinum</em> non protéolytique de type E, celui du milieu aquatique, n’a besoin de rien d’autre pour travailler dès <strong>3 °C</strong>. Rien ne se verra, rien ne se sentira, rien ne se goûtera. Le gras est pour la viande (<span class="ref">ch. 67</span>), pas pour le poisson. Le fumage à froid tombe sous la même règle : il ne cuit pas, il ramène le type E et les parasites, et il ne s’improvise pas sans le <span class="ref">ch. 72</span>. Le fumage à chaud, lui, cuit — c’est la porte de sortie du surplus, avec le sel (<span class="ref">ch. 66</span>, <span class="ref">ch. 71</span>, <span class="ref">ch. 72</span>).</p>
+<h3 class="sub">9-E. Ce qui ne se remplace pas</h3>
+<p class="li"><strong>Le thermomètre.</strong> Aucune main, aucune couleur de chair, aucun geste ne donne une température, et les trois seuils du chapitre — <strong>0 à 4 °C</strong> et <strong>-18 °C</strong>, <strong>sous 3 °C</strong>, <strong>70 °C</strong> à cœur — sont tous des mesures. C’est le seul objet de toute cette section qui n’a aucun substitut, et le seul dont l’absence change les décisions au lieu de changer la méthode : sans thermomètre, tout ce qui se prend se mange dans la journée.</p>
+<p class="li"><strong>Le VFI porté.</strong> Un bidon vide bien bouché et sanglé sur la poitrine tient une tête hors de l’eau, et ne fait rien contre la première minute, qui est celle du choc thermique et de l’inspiration réflexe. Sans VFI pour chacun, l’embarcation reste à terre et on pêche du bord. C’est une perte de territoire, pas une perte de sécurité.</p>
+<p class="li"><strong>La certitude de l’espèce.</strong> Omble de fontaine et touladi ne se mangent pas au même rythme, et aucune débrouille ne remplace le fait de savoir lequel est sur la planche.</p>
+<p class="p0 ri"><strong class="runin">Ce qu’on perd, honnêtement.</strong> On perd le volume : sans glacière, une famille ne rapporte pas une journée de pêche, elle rapporte un repas et un peu de salaison. On perd le choix de la destination : tout se décide dans l’heure, et un poisson qu’on aurait fumé demain se sale aujourd’hui. On perd la marge d’erreur : la chaîne de froid, quand elle existe, absorbe une erreur de jugement, et là il n’y a plus rien qui l’absorbe. On perd aussi le gros poisson — garder un touladi de 3 kg sans froid n’a pas de sens, et le remettre à l’eau est la bonne décision, pas un gaspillage. Et on gagne une seule chose, mais elle est réelle : une source de nourriture fraîche qui ne dépend d’aucune machine, d’aucun carburant et d’aucun stock.</p>
+</template>
+<template id="notes">
+<p class="fn" data-fn="53-1"><span class="fnn">1</span>Du givre ou des cristaux de glace dans le sac, sur la chair ou entre les poissons : soit le poisson a passé longtemps au congélateur, soit il a dégelé puis regelé. Le signe ne dit pas lequel des deux, et c’est le thermomètre de l’enceinte qui tranche. Un poisson censé être congelé qui plie au lieu d’être dur est en train de dégeler.</p>
+</template>
+<script type="application/json" id="meta">{"num": "53", "title": "Truite et omble au lac", "tome": "Tome 3 · Prélever", "lieu": "Chalet", "dsub": "Deux choses tuent dans ce chapitre, et aucune des deux n’est le poisson", "secs": {"1": "En une ligne", "2": "Quand l’utiliser", "3": "Pourquoi ça marche", "4": "Matériel", "5": "Procédure", "6": "Points de contrôle", "7": "Signes d’échec", "8": "Danger", "9": "Variante d’urgence"}}</script>
+<pre id="stats"></pre>
+<script>
+(function(){
+const OVER = f => (f.scrollHeight > f.clientHeight + 1) || (f.scrollWidth > f.clientWidth + 1);
+function stops(el){
+  const out=[]; const tw=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+  while((n=tw.nextNode())){ const t=n.data; for(let i=0;i<t.length;i++){ if(t[i]===' '||t[i]==='\n') out.push([n,i]); } }
+  return out;
+}
+function part(el, s, first){
+  const r=document.createRange();
+  if(first){ r.setStart(el,0); r.setEnd(s[0],s[1]); } else { r.setStart(s[0],s[1]+1); r.setEnd(el, el.childNodes.length); }
+  const c=el.cloneNode(false); c.appendChild(r.cloneContents());
+  if(!first){ c.classList.add('cont'); }
+  return c;
+}
+function splitPara(el, f){
+  const st=stops(el); if(st.length<14) return null;
+  let lo=0, hi=st.length-1, best=-1;
+  while(lo<=hi){ const mid=(lo+hi)>>1; const a=part(el,st[mid],true); f.appendChild(a); syncNotes(f); const ok=!OVER(f); f.removeChild(a); syncNotes(f); if(ok){best=mid;lo=mid+1;} else hi=mid-1; }
+  if(best<11) return null;
+  if(st.length-best<6) best=st.length-7;
+  if(best<11) return null;
+  return [part(el,st[best],true), part(el,st[best],false)];
+}
+function splitTable(tb, f){
+  const rows=Array.from(tb.tBodies[0].rows);
+  const mk=(rs,kind)=>{ const t=tb.cloneNode(false); const cg=tb.querySelector('colgroup'); if(cg) t.appendChild(cg.cloneNode(true));
+    if(kind==='first'){ const cap=document.createElement('caption'); cap.className='tsuite'; cap.textContent='Le tableau continue page suivante'; t.appendChild(cap); }
+    t.appendChild(tb.tHead.cloneNode(true)); const b=document.createElement('tbody'); rs.forEach(r=>b.appendChild(r.cloneNode(true))); t.appendChild(b);
+    if(kind==='rest') t.classList.add('suite'); return t; };
+  let best=0;
+  for(let k=1;k<=rows.length;k++){ const t=mk(rows.slice(0,k),'first'); f.appendChild(t); syncNotes(f); const ok=!OVER(f); f.removeChild(t); syncNotes(f); if(ok) best=k; else break; }
+  if(best<2) return null;
+  return [mk(rows.slice(0,best),'first'), mk(rows.slice(best),'rest')];
+}
+/* ---------- notes de bas de page ----------
+   Chaque cadre a, juste après lui, une zone de notes à deux cases (une par colonne).
+   On la resynchronise à chaque essai de remplissage : la note prend sa place dans la
+   hauteur du cadre avant qu'on juge si le bloc tient. Si l'appel passe à la page
+   suivante, sa note le suit. */
+const NOTES={};
+document.getElementById('notes').content.querySelectorAll('p.fn').forEach(n=>NOTES[n.dataset.fn]=n);
+function noteZone(f, make){
+  let z=f.nextElementSibling;
+  if(z && z.classList.contains('fnz')) return z;
+  if(!make) return null;
+  z=document.createElement('div'); z.className='fnz';
+  if(getComputedStyle(f).columnCount==='1') z.classList.add('one');
+  z.innerHTML='<div class="fnc" data-side="l"></div><div class="fnc" data-side="r"></div>';
+  f.after(z); return z;
+}
+function sideOf(c, f, z){
+  if(z.classList.contains('one')) return 'l';
+  const fr=f.getBoundingClientRect(), r=c.getBoundingClientRect();
+  return (r.left-fr.left) < fr.width/2 ? 'l' : 'r';
+}
+function syncNotes(f){
+  const seen=new Set();
+  const calls=Array.from(f.querySelectorAll('sup.fnr')).filter(c=>NOTES[c.dataset.fn] && !seen.has(c.dataset.fn) && seen.add(c.dataset.fn));
+  let z=noteZone(f, calls.length>0);
+  if(!z) return;
+  if(!calls.length){ z.remove(); return; }
+  for(let it=0; it<4; it++){
+    const want=calls.map(c=>c.dataset.fn+'|'+sideOf(c,f,z)).join(' ');
+    const cur=Array.from(z.querySelectorAll('p.fn')).map(n=>n.dataset.fn+'|'+n.parentNode.dataset.side).join(' ');
+    if(want===cur) break;
+    z.querySelectorAll('.fnc').forEach(c=>c.textContent='');
+    want.split(' ').forEach(w=>{ const [id,sd]=w.split('|'); z.querySelector('.fnc[data-side="'+sd+'"]').appendChild(NOTES[id].cloneNode(true)); });
+    z.classList.add('on');
+  }
+}
+
+/* =====================================================================
+   Moteur de chapitre (build_chapitre.py). Les fonctions au-dessus
+   (OVER, splitPara, splitTable, noteZone, syncNotes) sont celles de
+   interieur.tpl.html, recopiées à la construction. Ici : les pages se
+   créent à la volée, trois histoires se suivent (texte courant, encadré
+   danger, variante d'urgence), les planches pleine page prennent la page
+   qui suit leur mention, les demi-planches et les photos flottent au
+   premier endroit où elles tiennent, jamais au milieu d'un paragraphe.
+   ===================================================================== */
+const C = JSON.parse(document.getElementById('meta').textContent);
+const BOOK = document.getElementById('book');
+const WARN = [];
+const PAGES = [];
+let P = null;                 // page courante
+let pendingPlates = [];       // planches pleine page qui attendent la fin de la page courante
+const DSVG = '<svg viewBox="0 0 34 30" aria-hidden="true"><path d="M17 1.5 L32.5 28.5 H1.5 Z" fill="#fff"/><path d="M15.2 10 H18.8 L18.1 20.5 H15.9 Z" fill="#9B2C1E"/><rect x="15.4" y="22.3" width="3.2" height="3.2" fill="#9B2C1E"/></svg>';
+const PT = 96/72;
+
+function mkPage(kind, plate){
+  const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';
+  const el = document.createElement('section'); el.className = 'page ' + side; el.id = 'p' + C.num + '-' + n;
+  if(kind !== 'open') el.innerHTML = '<div class="rh"><div class="grp"><span class="fo">' + C.num + '-' + n + '</span><span class="ch">' + C.num + ' · ' + C.title + '</span></div><span class="to">' + C.tome + '</span></div>';
+  const bl = document.createElement('div'); bl.className = 'block'; el.appendChild(bl);
+  if(kind === 'open') bl.innerHTML = document.getElementById('open').innerHTML;
+  if(kind === 'plate'){
+    const img = document.createElement('img'); img.className = 'planche'; img.src = plate.dataset.src; img.alt = 'Planche ' + plate.dataset.id;
+    bl.appendChild(img);
+  }
+  BOOK.appendChild(el);
+  const p = {el, bl, kind, n, deferred: [], plate: plate ? plate.dataset.id : null};
+  PAGES.push(p); return p;
+}
+function nextPage(){
+  const pl = pendingPlates; pendingPlates = [];
+  pl.forEach(b => { const pp = mkPage('plate', b); pp.story = P.story; });
+  P = mkPage('text'); return P;
+}
+function free(p){       // hauteur libre sous le dernier élément du bloc, en px
+  const br = p.bl.getBoundingClientRect(); const last = p.bl.lastElementChild;
+  return last ? br.bottom - last.getBoundingClientRect().bottom : br.height;
+}
+function region(p, kind, first){
+  const frame = document.createElement('div'); frame.className = 'frame';
+  let box = frame;
+  if(kind === 'd'){
+    box = document.createElement('div'); box.className = 'rg';
+    if(first) box.innerHTML = '<h2 class="sec s8" data-n="8"><span class="n">8</span><span class="t">Danger</span></h2>';
+    const dg = document.createElement('div'); dg.className = 'danger full'; dg.dataset.edge = 'd';
+    dg.innerHTML = '<div class="dhead' + (first ? '' : ' small') + '">' + DSVG + '<span>' +
+      (first ? 'Danger' + (C.dsub ? ' — <span class="sj">' + C.dsub + '</span>' : '') : 'Danger <span class="sj">(suite)</span>') + '</span></div>';
+    dg.appendChild(frame);
+    const cut = document.createElement('div'); cut.className = 'dcut on'; cut.textContent = 'L’encadré continue page suivante';
+    dg.appendChild(cut); box.appendChild(dg);
+  } else if(kind === 'e'){
+    box = document.createElement('div'); box.className = 'rg s9wrap' + (first ? '' : ' cont'); box.dataset.edge = 'k';
+    if(first) box.innerHTML = '<h2 class="sec s9" data-n="9"><span class="n">9</span><span class="t">Variante d’urgence</span><span class="sub9">Sans courant, sans matériel acheté, sans personne à appeler</span></h2>';
+    box.appendChild(frame);
+  }
+  p.bl.appendChild(box);
+  return {box, frame};
+}
+function pour(f, q, p){
+  while(q.length){
+    const b = q.shift();
+    if(b.dataset && b.dataset.plate === 'full'){ pendingPlates.push(b); continue; }
+    f.appendChild(b); syncNotes(f);
+    if(!OVER(f)) continue;
+    f.removeChild(b); syncNotes(f);
+    if(b.classList.contains('fig')){ p.deferred.push(b); continue; }   // la figure attend, le texte continue
+    let parts = null;
+    if(b.tagName === 'P') parts = splitPara(b, f); else if(b.tagName === 'TABLE') parts = splitTableBal(b, f);
+    if(parts){ f.appendChild(parts[0]); syncNotes(f); q.unshift(parts[1]); } else q.unshift(b);
+    break;
+  }
+  if(q.length){
+    // pas de titre ni d'amorce seule en bas de page
+    while(f.lastElementChild && (/^H[234]$/.test(f.lastElementChild.tagName) || f.lastElementChild.classList.contains('kh')))
+      q.unshift(f.removeChild(f.lastElementChild));
+    syncNotes(f);
+  }
+  if(p.deferred.length){   // après la fin du paragraphe coupé, jamais au milieu
+    const k = (q[0] && q[0].classList && q[0].classList.contains('cont')) ? 1 : 0;
+    q.splice(k, 0, ...p.deferred); p.deferred = [];
+  }
+  return q.length ? 'full' : 'done';
+}
+function splitTableBal(tb, f){   // jamais une rangée seule en haut de la page suivante
+  const parts = splitTable(tb, f); if(!parts) return null;
+  const A = parts[0].tBodies[0], B = parts[1].tBodies[0];
+  if(B.rows.length === 1 && A.rows.length >= 4) B.insertBefore(A.rows[A.rows.length - 1], B.firstChild);
+  return parts;
+}
+function finish(R, kind){
+  if(kind === 'main'){ R.frame.classList.add('auto'); return; }
+  R.box.classList.add('fin'); R.frame.classList.add('auto');
+  if(kind === 'd'){ const dg = R.box.querySelector('.danger'); dg.classList.remove('full'); dg.querySelector('.dcut').classList.remove('on'); }
+}
+function story(kind){
+  const tpl = document.getElementById('story-' + kind);
+  const q = Array.from(tpl.content.children).map(n => n.cloneNode(true));
+  if(!q.length) return;
+  const H = P.bl.getBoundingClientRect().height;
+  let first = true, guard = 0;
+  while(q.length && guard++ < 120){
+    const fr = free(P), fresh = P.kind === 'text' && !P.bl.children.length;
+    // seuils de départ : l'encadré danger et la variante d'urgence ne commencent pas dans un fond de page
+    if(first && !fresh && ((kind === 'd' && fr < 2.2 * 96) || (kind === 'e' && fr < 1.8 * 96) || (kind === 'main' && fr < 1.2 * 96))){ nextPage(); continue; }
+    P.story = kind;
+    const snapQ = q.slice(), snapPl = pendingPlates.slice();
+    const R = region(P, kind, first);
+    const r = pour(R.frame, q, P);
+    if(!R.frame.children.length){
+      if(fresh){   // rien ne tient même sur une page vide : on force, et on le signale
+        WARN.push(P.el.id + ' : bloc trop grand, ' + (q[0].textContent || q[0].className).slice(0, 40));
+        R.frame.appendChild(q.shift()); first = false;
+        if(!q.length){ finish(R, kind); break; }
+        nextPage(); continue;
+      }
+      R.box.remove(); const z = R.frame.nextElementSibling; if(z && z.classList.contains('fnz')) z.remove();
+      q.splice(0, q.length, ...snapQ); pendingPlates = snapPl;
+      nextPage(); continue;
+    }
+    // l'encadré danger ne se coupe pas s'il tiendrait entier sur la page suivante
+    if(kind === 'd' && first && r === 'full' && !fresh && fr < 0.62 * H){
+      R.box.remove(); q.splice(0, q.length, ...snapQ); pendingPlates = snapPl; nextPage(); continue;
+    }
+    first = false;
+    if(r === 'done'){ finish(R, kind); break; }
+    nextPage();
+  }
+}
+
+/* ---------- après la coulée : pieds de page, sommaire, renvois, tranche ---------- */
+function ladder(on, label, folio){
+  let lis = '';
+  Object.keys(C.secs).forEach(k => { lis += '<li class="' + (on.has(+k) ? 'on' + (k === '8' ? ' d' : '') : '') + '">' + k + '</li>'; });
+  return '<div class="ft">' + (folio ? '<span class="fo-ft">' + folio + '</span>' : '') + '<div class="lad"><ol>' + lis + '</ol><span class="lab">' + label + '</span></div><span class="lieu-ft">Lieu · ' + C.lieu + '</span></div>';
+}
+function finishPages(){
+  let cur = 0; const start = {};
+  PAGES.forEach(p => {
+    const on = new Set();
+    const flow = p.el.querySelectorAll('.block h2.sec[data-n], .block .frame > *');
+    const startsNew = flow.length && flow[0].matches('h2.sec[data-n]');
+    if(cur && !startsNew) on.add(cur);
+    p.el.querySelectorAll('.block h2.sec[data-n]').forEach(h => { const n = +h.dataset.n; on.add(n); cur = n; if(!start[n]) start[n] = p.n; });
+    if(!on.size && p.kind === 'open') on.add(1);
+    const mx = Math.max(...on);
+    let label = (on.has(8) && on.has(9)) ? C.secs['8'] + ' · ' + C.secs['9'] : (C.secs[String(mx)] || '');
+    if(p.plate) label += ' · Planche ' + p.plate;
+    p.el.insertAdjacentHTML('beforeend', ladder(on, label, p.kind === 'open' ? C.num + '-' + p.n : null));
+    if(p.plate && p.story === 'e') p.bl.querySelector('img').dataset.edge = 'k';
+    if(p.plate && p.story === 'd') p.bl.querySelector('img').dataset.edge = 'd';
+  });
+  document.querySelectorAll('.toc li').forEach(li => { const n = li.dataset.n; li.querySelector('.f').textContent = start[n] ? C.num + '-' + start[n] : ''; });
+  // « l'encadré continue page … » et « le tableau continue page … »
+  PAGES.forEach((p, i) => {
+    const nxt = PAGES.slice(i + 1).find(q => q.kind === 'text');
+    p.el.querySelectorAll('.dcut.on').forEach(c => { if(nxt) c.textContent = 'L’encadré continue page ' + C.num + '-' + nxt.n; });
+    p.el.querySelectorAll('caption.tsuite').forEach(c => { if(nxt && nxt.n !== p.n + 1) c.textContent = 'Le tableau continue page ' + C.num + '-' + nxt.n; });
+  });
+}
+function fitTitle(){
+  const h = document.querySelector('.open-title h1'); if(!h) return;
+  let s = 38;
+  while(s > 24 && h.getBoundingClientRect().height > 3 * 1.0 * s * PT + 4){ s -= 1; h.style.fontSize = s + 'pt'; }
+}
+function edges(){
+  document.querySelectorAll('[data-edge]').forEach(el => {
+    const pg = el.closest('.page'); const pr = pg.getBoundingClientRect(); const r = el.getBoundingClientRect();
+    const e = document.createElement('div'); e.className = 'edge' + (el.dataset.edge === 'd' ? ' d' : '');
+    e.style.top = (r.top - pr.top) + 'px'; e.style.height = r.height + 'px'; pg.appendChild(e);
+  });
+}
+function checks(){
+  // texte qui sort de la zone utile, page presque vide
+  PAGES.forEach(p => {
+    const br = p.bl.getBoundingClientRect();
+    p.bl.querySelectorAll('.frame').forEach(f => { if(!f.classList.contains('auto') && OVER(f)) WARN.push(p.el.id + ' : cadre qui déborde'); });
+    const last = p.bl.lastElementChild;
+    if(last && last.getBoundingClientRect().bottom > br.bottom + 1) WARN.push(p.el.id + ' : sort de la zone utile');
+    if(p.kind === 'text' && p !== PAGES[PAGES.length - 1] && free(p) > 0.4 * br.height) WARN.push(p.el.id + ' : page à moitié vide');
+  });
+}
+function views(){
+  const h = location.hash;
+  const wrap = (pg) => { const c = document.createElement('div'); c.className = 'trim ' + (pg.classList.contains('recto') ? 'r' : 'v'); c.appendChild(pg); return c; };
+  if(h === '#stats'){
+    const st = document.getElementById('stats'); st.style.cssText = 'display:block;position:fixed;top:0;left:0;z-index:99;background:#fff;font:15px/1.35 monospace;white-space:pre-wrap;width:760px;height:100vh;margin:0;padding:8px';
+    st.textContent = st.textContent.replace(/,"/g, ',\n"');
+  } else if(h.startsWith('#page=')){
+    document.body.classList.add('single');
+    const pg = document.getElementById(h.slice(6));
+    document.querySelectorAll('.page').forEach(p => { if(p !== pg) p.style.display = 'none'; });
+    if(pg) document.body.insertBefore(wrap(pg), document.body.firstChild);
+  }
+}
+function words(t){ return t.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length; }
+const faces = ['400 10pt "IBM Plex Serif"','600 10pt "IBM Plex Serif"','700 10pt "IBM Plex Serif"','italic 400 10pt "IBM Plex Serif"','italic 600 10pt "IBM Plex Serif"',
+  '400 10pt "IBM Plex Sans Condensed"','500 10pt "IBM Plex Sans Condensed"','600 10pt "IBM Plex Sans Condensed"','700 10pt "IBM Plex Sans Condensed"','italic 600 10pt "IBM Plex Sans Condensed"'];
+const imgs = Array.from(document.querySelectorAll('template')).flatMap(t => Array.from(t.content.querySelectorAll('img')).map(i => i.getAttribute('src')));
+const imgLoads = imgs.map(src => new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; }));
+Promise.all(faces.map(f => document.fonts.load(f, 'aéÀ§«»—'))).then(() => document.fonts.ready).then(() => Promise.all(imgLoads)).then(() => {
+  P = mkPage('open'); fitTitle();
+  ['main', 'd', 'e'].forEach(story);
+  if(pendingPlates.length){ const pl = pendingPlates; pendingPlates = []; pl.forEach(b => { const pp = mkPage('plate', b); pp.story = 'e'; }); }
+  finishPages(); edges(); checks();
+  const st = {pages: PAGES.length, reste: 0, warn: WARN, mots: {}};
+  PAGES.forEach(p => st.mots[p.n] = words(p.bl.innerText));
+  document.getElementById('stats').textContent = JSON.stringify(st);
+  views();
+  document.documentElement.dataset.ready = '1';
+});
+
+})();
+</script>
+<script>
+(function(){
+  if(!location.hash.startsWith('#rapport')) return;
+  const CIB = JSON.parse(decodeURIComponent(location.hash.slice(9)) || '{}');
+  const t = setInterval(() => {
+    if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
+    const out = [];
+    const st = JSON.parse(document.getElementById('stats').textContent);
+    out.push('pages=' + st.pages);
+    Object.keys(CIB).forEach(k => {
+      const [sel, txt] = CIB[k];
+      const el = Array.from(document.querySelectorAll('.page ' + sel)).find(e => ((e.textContent || '') + ' ' + (e.alt || '')).toLowerCase().includes(txt.toLowerCase()));
+      out.push(k + '=' + (el ? el.closest('.page').id : 'absent'));
+    });
+    const s9 = document.querySelector('.page h2.sec.s9'); out.push('s9=' + (s9 ? s9.closest('.page').id : 'absent'));
+    st.warn.forEach(w => out.push('ATTENTION ' + w));
+    document.body.innerHTML = '<pre style="font:11px monospace;white-space:pre-wrap">' + out.map(l => '@@' + l + '@@').join('\n') + '</pre>';
+  }, 20);
+})();
+</script>
+</body>
+</html>
