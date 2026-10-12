@@ -1,0 +1,337 @@
+1. Br J Gen Pract. 2012 Jul;62(600):e473-7. doi: 10.3399/bjgp12X652337.
+
+Steam inhalation therapy: severe scalds as an adverse side effect.
+
+Baartmans M(1), Kerkhof E, Vloemans J, Dokter J, Nijman S, Tibboel D, 
+Nieuwenhuis M.
+
+Author information:
+(1)Maasstad Hospital, Paediatrics, Maasstadweg 21, Rotterdam, 3079DZ, the 
+Netherlands. baartmansm@maasstadziekenhuis.nl
+
+Comment in
+    Br J Gen Pract. 2012 Nov;62(604):571. doi: 10.3399/bjgp12X658179.
+
+BACKGROUND: Steam inhalation therapy is often recommended in the treatment of a 
+common cold. However, it has no proven benefit and may in fact have serious 
+adverse side effects in terms of burn injuries.
+AIM: To quantify the human and economic costs of steam inhalation therapy in 
+terms of burn injury.
+DESIGN AND SETTING: A prospective database study of all patients admitted to the 
+burn centres (Beverwijk, Groningen, Rotterdam) and the hospital emergency 
+departments in the Netherlands.
+METHOD: Number and extent of burn injuries as a result of steam inhalation 
+therapy were analysed, as well as an approximation made of the direct costs for 
+their medical treatment.
+RESULTS: Annually, on average three people are admitted to in one of the Dutch 
+burn centres for burns resulting from steam inhalation therapy. Most victims 
+were children, and they needed skin grafting more often than adults. The total 
+direct medical costs for burn centre and emergency department treatment were 
+€115,500 (£93,000), emotional costs are not reflected.
+CONCLUSION: As steam inhalation therapy has no proven benefit and the number and 
+extent of complications of this therapy in terms of burn injury are significant, 
+especially in children, steam inhalation therapy should be considered a 
+dangerous procedure and not recommended anymore in professional guidelines and 
+patient brochures.
+
+DOI: 10.3399/bjgp12X652337
+PMCID: PMC3381273
+PMID: 22781995 [Indexed for MEDLINE]
+
+
+2. Br J Gen Pract. 2016 Mar;66(644):e193-9. doi: 10.3399/bjgp16X684289.
+
+Home remedy or hazard?: management and costs of paediatric steam inhalation 
+therapy burn injuries.
+
+Al Himdani S(1), Javed MU(1), Hughes J(1), Falconer O(2), Bidder C(2), 
+Hemington-Gorse S(1), Nguyen D(1).
+
+Author information:
+(1)Consultant burns and plastic surgeon, Welsh Centre for Burns and Plastic 
+Surgery, Swansea, Wales.
+(2)Department of Paediatrics, Morriston Hospital, Swansea, Wales.
+
+Comment in
+    Br J Gen Pract. 2016 Mar;66(644):118-9. doi: 10.3399/bjgp16X683893.
+
+BACKGROUND: Steam inhalation has long been considered a beneficial home remedy 
+to treat children with viral respiratory tract infections, but there is no 
+evidence to suggest a benefit and children are at risk of serious burn injuries.
+AIM: To determine the demographics, mechanism, management, and costs of steam 
+inhalation therapy scalds to a regional burns centre in the UK, and to ascertain 
+whether this practice is recommended by primary care providers.
+DESIGN AND SETTING: A retrospective study of all patients admitted to a regional 
+burns centre in Swansea, Wales, with steam inhalation therapy scalds.
+METHOD: Patients who attended the burns centre for steam inhalation therapy 
+scalds between January 2010 and February 2015 were identified using the burns 
+database and data on patient demographics, treatment, and costs incurred were 
+recorded. In addition, an electronic survey was e-mailed to 150 local GPs to 
+determine whether they recommended steam inhalation therapy to patients.
+RESULTS: Sixteen children attended the burns centre with steam inhalation 
+scalds. The average age attending was 7.4 years (range 1-15 years) and, on 
+average, three children per year were admitted. The most common indication was 
+for the common cold (n = 9). The average size of the burns was 3.1% (range: 
+0.25-17.0%) of total body area. One child was managed surgically; the remainder 
+were treated with dressings, although one patient required a stay in a 
+high-dependency unit. The total cost of treatment for all patients was £37,133. 
+All in all, 17 out of 21 GPs surveyed recommended steam inhalation to their 
+patients; eight out of 19 GPs recommended it for children aged <5 years.
+CONCLUSION: Steam inhalation incurs a significant cost to patients and the 
+healthcare system. Its practice continues to be recommended by GPs but children, 
+due to their limited motor skills, curiosity, and poor awareness of danger, are 
+at significant risk of burn injuries and this dangerous practice should no 
+longer be recommended.
+
+© British Journal of General Practice 2016.
+
+DOI: 10.3399/bjgp16X684289
+PMCID: PMC4758499
+PMID: 26917659 [Indexed for MEDLINE]
+
+
+3. Cochrane Database Syst Rev. 2017 Aug 29;8(8):CD001728. doi: 
+10.1002/14651858.CD001728.pub6.
+
+Heated, humidified air for the common cold.
+
+Singh M(1), Singh M, Jaiswal N, Chauhan A.
+
+Author information:
+(1)Department of Pediatrics, Post Graduate Institute of Medical Education and 
+Research, Sector 12, Chandigarh, India, 160012.
+
+Update of
+    Cochrane Database Syst Rev. 2013 Jun 04;(6):CD001728. doi: 
+10.1002/14651858.CD001728.pub5.
+
+BACKGROUND: Heated, humidified air has long been used by people with the common 
+cold. The theoretical basis is that steam may help congested mucus drain better 
+and that heat may destroy the cold virus as it does in vitro. This is an update 
+of a review last published in 2013.
+OBJECTIVES: To assess the effects of inhaling heated water vapour (steam) in the 
+treatment of the common cold by comparing symptoms, viral shedding, and nasal 
+resistance.
+SEARCH METHODS: We searched the Cochrane Central Register of Controlled Trials 
+(CENTRAL) (to February 2017), MEDLINE (1966 to 24 February 2017), Embase (1990 
+to 24 February 2017), and Current Contents (1998 to 24 February 2017). We also 
+searched World Health Organization International Clinical Trials Registry 
+Platform (WHO ICTRP) (8 March 2017) and ClinicalTrials.gov (8 March 2017) as 
+well as reference lists of included studies.
+SELECTION CRITERIA: Randomised controlled trials using heated water vapour in 
+participants with the common cold or experimentally induced common cold were 
+eligible for inclusion.
+DATA COLLECTION AND ANALYSIS: We used standard methodological procedures 
+expected by Cochrane. Three review authors independently screened titles and 
+abstracts for inclusion of potential studies identified from the search. We 
+recorded the selection process in sufficient detail to complete a PRISMA flow 
+diagram. We used a data collection form for study characteristics and outcome 
+data that was developed and used for previous versions of this review. Two 
+review authors independently extracted data, and a third review author resolved 
+any disagreements. We used Review Manager 5 software to analyse data.
+MAIN RESULTS: We included six trials from five publications involving a total of 
+387 participants. We included no new studies in this 2017 update. The 'Risk of 
+bias' assessment suggested an unclear risk of bias in the domain of 
+randomisation and a low risk of bias in performance, detection, attrition, and 
+reporting.It was uncertain whether heated, humidified air provides symptomatic 
+relief for the common cold, as the fixed-effect analysis showed evidence of an 
+effect (odds ratio (OR) 0.30, 95% confidence interval (CI) 0.16 to 0.56; 2 
+studies, 149 participants), but the random-effects analysis showed no 
+significant difference in the results (OR 0.22, 95% CI 0.03 to 1.95). There is 
+an argument for using either form of analysis. No studies demonstrated an 
+exacerbation of clinical symptom scores. One study conducted in the USA 
+demonstrated worsened nasal resistance, but an earlier Israeli study showed 
+improvement. One study examined viral shedding in nasal washings, finding no 
+significant difference between treatment and placebo groups (OR 0.47, 95% CI 
+0.04 to 5.19). As judged by the subjective response to therapy (i.e. therapy did 
+not help), the number of participants reporting resolution of symptoms was not 
+significantly higher in the heated humidified group (OR 0.58, 95% CI 0.28 to 
+1.18; 2 studies, 124 participants). There was significant heterogeneity in the 
+effects of heated, humidified air on different outcomes, therefore we graded the 
+quality of the evidence as low. Some studies reported minor adverse events 
+(including discomfort or irritation of the nose).
+AUTHORS' CONCLUSIONS: The current evidence does not show any benefits or harms 
+from the use of heated, humidified air delivered via the RhinoTherm device for 
+the treatment of the common cold. There is a need for more double-blind, 
+randomised trials that include standardised treatment modalities.
+
+DOI: 10.1002/14651858.CD001728.pub6
+PMCID: PMC6483632
+PMID: 28849871 [Indexed for MEDLINE]
+
+Conflict of interest statement: Meenu Singh: none known.  Manvi Singh: none 
+known.  Nishant Jaiswal: none known.  Anil Chauhan: none known.
+
+
+4. Cochrane Database Syst Rev. 2018 Apr 10;4(4):CD007094. doi: 
+10.1002/14651858.CD007094.pub5.
+
+Honey for acute cough in children.
+
+Oduwole O(1), Udoh EE, Oyo-Ita A, Meremikwu MM.
+
+Author information:
+(1)Institute of Tropical Diseases Research and Prevention, University of Calabar 
+Teaching Hospital (ITDR/P), Moore Road, Calabar, Cross River State, Nigeria.
+
+Update of
+    Cochrane Database Syst Rev. 2014 Dec 23;(12):CD007094. doi: 
+10.1002/14651858.CD007094.pub4.
+
+BACKGROUND: Cough causes concern for parents and is a major cause of outpatient 
+visits. Cough can impact quality of life, cause anxiety, and affect sleep in 
+children and their parents. Honey has been used to alleviate cough symptoms. 
+This is an update of reviews previously published in 2014, 2012, and 2010.
+OBJECTIVES: To evaluate the effectiveness of honey for acute cough in children 
+in ambulatory settings.
+SEARCH METHODS: We searched CENTRAL (2018, Issue 2), which includes the Cochrane 
+Acute Respiratory Infections Group's Specialised Register, MEDLINE (2014 to 8 
+February 2018), Embase (2014 to 8 February 2018), CINAHL (2014 to 8 February 
+2018), EBSCO (2014 to 8 February 2018), Web of Science (2014 to 8 February 
+2018), and LILACS (2014 to 8 February 2018). We also searched ClinicalTrials.gov 
+and the World Health Organization International Clinical Trial Registry Platform 
+(WHO ICTRP) on 12 February 2018. The 2014 review included searches of AMED and 
+CAB Abstracts, but these were not searched for this update due to lack of 
+institutional access.
+SELECTION CRITERIA: Randomised controlled trials comparing honey alone, or in 
+combination with antibiotics, versus no treatment, placebo, honey-based cough 
+syrup, or other over-the-counter cough medications for children aged 12 months 
+to 18 years for acute cough in ambulatory settings.
+DATA COLLECTION AND ANALYSIS: We used standard methodological procedures 
+expected by Cochrane.
+MAIN RESULTS: We included six randomised controlled trials involving 899 
+children; we added three studies (331 children) in this update.We assessed two 
+studies as at high risk of performance and detection bias; three studies as at 
+unclear risk of attrition bias; and three studies as at unclear risk of other 
+bias.Studies compared honey with dextromethorphan, diphenhydramine, salbutamol, 
+bromelin (an enzyme from the Bromeliaceae (pineapple) family), no treatment, and 
+placebo. Five studies used 7-point Likert scales to measure symptomatic relief 
+of cough; one used an unclear 5-point scale. In all studies, low score indicated 
+better cough symptom relief.Using a 7-point Likert scale, honey probably reduces 
+cough frequency better than no treatment or placebo (no treatment: mean 
+difference (MD) -1.05, 95% confidence interval (CI) -1.48 to -0.62; I² = 0%; 2 
+studies; 154 children; moderate-certainty evidence; placebo: MD -1.62, 95% CI 
+-3.02 to -0.22; I² = 0%; 2 studies; 402 children; moderate-certainty evidence). 
+Honey may have a similar effect as dextromethorphan in reducing cough frequency 
+(MD -0.07, 95% CI -1.07 to 0.94; I² = 87%; 2 studies; 149 children; 
+low-certainty evidence). Honey may be better than diphenhydramine in reducing 
+cough frequency (MD -0.57, 95% CI -0.90 to -0.24; 1 study; 80 children; 
+low-certainty evidence).Giving honey for up to three days is probably more 
+effective in relieving cough symptoms compared with placebo or salbutamol. 
+Beyond three days honey probably had no advantage over salbutamol or placebo in 
+reducing cough severity, bothersome cough, and impact of cough on sleep for 
+parents and children (moderate-certainty evidence). With a 5-point cough scale, 
+there was probably little or no difference between the effects of honey and 
+bromelin mixed with honey in reducing cough frequency and severity.Adverse 
+events included nervousness, insomnia, and hyperactivity, experienced by seven 
+children (9.3%) treated with honey and two children (2.7%) treated with 
+dextromethorphan (risk ratio (RR) 2.94, 95% Cl 0.74 to 11.71; I² = 0%; 2 
+studies; 149 children; low-certainty evidence). Three children (7.5%) in the 
+diphenhydramine group experienced somnolence (RR 0.14, 95% Cl 0.01 to 2.68; 1 
+study; 80 children; low-certainty evidence). When honey was compared with 
+placebo, 34 children (12%) in the honey group and 13 (11%) in the placebo group 
+complained of gastrointestinal symptoms (RR 1.91, 95% CI 1.12 to 3.24; I² = 0%; 
+2 studies; 402 children; moderate-certainty evidence). Four children who 
+received salbutamol had rashes compared to one child in the honey group (RR 
+0.19, 95% CI 0.02 to 1.63; 1 study; 100 children; moderate-certainty evidence). 
+No adverse events were reported in the no-treatment group.
+AUTHORS' CONCLUSIONS: Honey probably relieves cough symptoms to a greater extent 
+than no treatment, diphenhydramine, and placebo, but may make little or no 
+difference compared to dextromethorphan. Honey probably reduces cough duration 
+better than placebo and salbutamol. There was no strong evidence for or against 
+using honey. Most of the children received treatment for one night, which is a 
+limitation to the results of this review. There was no difference in occurrence 
+of adverse events between the honey and control arms.
+
+DOI: 10.1002/14651858.CD007094.pub5
+PMCID: PMC6513626
+PMID: 29633783 [Indexed for MEDLINE]
+
+Conflict of interest statement: Olabisi Oduwole: none known.  Ekong E Udoh: none 
+known.  Angela Oyo‐Ita: none known.  Martin M Meremikwu: none known.
+
+
+5. Respir Physiol Neurobiol. 2006 Jul 28;152(3):340-8. doi: 
+10.1016/j.resp.2005.10.004. Epub 2005 Dec 2.
+
+Mechanisms of the placebo effect of sweet cough syrups.
+
+Eccles R(1).
+
+Author information:
+(1)Common Cold Centre, Cardiff School of Biosciences, Cardiff University, 
+Cardiff CF10 3US, UK. eccles@cardiff.ac.uk
+
+The review discusses the large placebo effect associated with cough medicines 
+and speculates on the observation that most cough medicines are formulated as 
+sweet syrups rather than capsules or tablets. The review proposes that the major 
+benefit of cough medicines for treatment of cough associated with common cold is 
+related to the placebo effect rather than the pharmacological effect of an 
+active ingredient. The placebo effect is discussed in terms of physiological 
+effects of cough syrups associated with the taste of the medicine and true 
+placebo effects associated with belief in the therapy. The idea is developed 
+that a sweet taste may modulate cough at the level of the nucleus tractus 
+solitarius, possibly by influencing the production of endogenous opioids.
+
+DOI: 10.1016/j.resp.2005.10.004
+PMID: 16326149 [Indexed for MEDLINE]
+
+
+6. Chin Med. 2009 Aug 24;4:17. doi: 10.1186/1749-8546-4-17.
+
+Significant differences in alkaloid content of Coptis chinensis (Huanglian), 
+from its related American species.
+
+Kamath S(1), Skeels M, Pai A.
+
+Author information:
+(1)Department of Chemistry, St Lawrence University, Canton, New York 13617, USA. 
+sakama04@stlawu.edu
+
+BACKGROUND: The growing popularity of Chinese herbal medicine in the United 
+States has prompted large-scale import of raw herbs from Asia. Many of the Asian 
+herbs have phylogenetically related North American species. We compared three 
+phylogenetically related species, namely Coptis chinensis (Huanglian), Hydrastis 
+canadensis and Coptis trifolia to show whether they can be substituted by one 
+another in terms of alkaloid content.
+METHODS: We used microwave assisted extraction to obtain alkaloids berberine, 
+coptisine, palmatine and hydrastine. High performance liquid chromatography 
+(HPLC) was used to quantify each alkaloid.
+RESULTS: Hydrastis canadensis has the most berberine, whereas Coptis trifolia 
+has the most coptisine. Hydrastine and palmatine were unique to Hydrastis 
+canadensis and Coptis chinensis respectively.
+CONCLUSION: Neither Hydrastis canadensis nor Coptis trifolia contains all the 
+alkaloids found in Coptis chinensis used in Chinese medicine. Substitutes of 
+this Chinese species by its American relatives are not recommended.
+
+DOI: 10.1186/1749-8546-4-17
+PMCID: PMC2744916
+PMID: 19703289
+
+
+7. J Ethnopharmacol. 2000 Jul;71(1-2):1-21. doi: 10.1016/s0378-8741(00)00212-9.
+
+The traditional uses, chemical constituents and biological activities of 
+Plantago major L. A review.
+
+Samuelsen AB(1).
+
+Author information:
+(1)Department of Pharmacognosy, School of Pharmacy, University of Oslo, P.O. Box 
+1068, Blindern, N-0316, Oslo, Norway. a.b.samuelsen@farmasi.uio.no
+
+Plantago major L. leaves have been used as a wound healing remedy for centuries 
+in almost all parts of the world and in the treatment of a number of diseases 
+apart from wound healing. These include diseases related to the skin, 
+respiratory organs, digestive organs, reproduction, the circulation, against 
+cancer, for pain relief and against infections. P. major contains biologically 
+active compounds such as polysaccharides, lipids, caffeic acid derivatives, 
+flavonoids, iridoid glycosides and terpenoids. Alkaloids and some organic acids 
+have also been detected. A range of biological activities has been found from 
+plant extracts including wound healing activity, anti-inflammatory, analgesic, 
+antioxidant, weak antibiotic, immuno modulating and antiulcerogenic activity. 
+Some of these effects may attribute to the use of this plant in folk medicine.
+
+DOI: 10.1016/s0378-8741(00)00212-9
+PMCID: PMC7142308
+PMID: 10904143 [Indexed for MEDLINE]

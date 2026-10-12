@@ -1,0 +1,759 @@
+                                     Coleman Camp Fuel
+
+                                     Safety Data Sheet
+
+                                     according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+                                     Issue date: 03/01/2006  Revision date: 04/07/2022  Version: 5.1
+
+SECTION 1: Identification
+
+1.1.  Identification
+
+Product form                              : Mixture
+                                          : Coleman Camp Fuel
+Product name
+
+1.2.  Recommended use and restrictions on use
+
+Use of the substance/mixture              : Recreational Fuel, Stove or Lantern
+
+Restrictions on use                       : None known.
+
+1.3.  Supplier
+
+The Coleman Company, Inc.
+
+3600 N Hydraulic
+
+Wichita, KS 67219
+
+United States
+
+Telephone: 1-800-835-3278
+
+Email: colemanproductsafety@newellco.com
+
+1.4.  Emergency telephone number
+
+Emergency number                          : CHEMTREC - (800) 424-9300 / (703) 527-3887
+
+SECTION 2: Hazard(s) identification
+
+2.1.  Classification of the substance or mixture
+
+GHS-US classification
+
+Flam. Liq. 2         H225
+Repr. 2              H361
+STOT SE 3            H336
+Asp. Tox. 1          H304
+Aquatic Chronic 2    H411
+
+2.2.  GHS Label elements, including precautionary statements
+
+GHS US labelling
+
+Hazard pictograms (GHS US)                :
+
+Signal word (GHS US)                      : Danger
+Hazard statements (GHS US)
+Precautionary statements (GHS US)         : H225 - Highly flammable liquid and vapour.
+                                            H304 - May be fatal if swallowed and enters airways.
+04/07/2022                                  H336 - May cause drowsiness or dizziness.
+                                            H361 - Suspected of damaging fertility or the unborn child.
+                                            H411 - Toxic to aquatic life with long lasting effects.
+
+                                          : P201 - Obtain special instructions before use.
+                                            P202 - Do not handle until all safety precautions have been read and understood.
+                                            P210 - Keep away from heat, hot surfaces, sparks, open flames and other ignition sources. No
+                                            smoking.
+                                            P233 - Keep container tightly closed.
+                                            P240 - Ground/Bond container and receiving equipment.
+                                            P241 - Use explosion-proof electrical/ventilating/lighting equipment.
+                                            P242 - Use only non-sparking tools.
+                                            P243 - Take precautionary measures against static discharge.
+                                            P261 - Avoid breathing dust/fume/gas/mist/vapours/spray.
+                                            P271 - Use only outdoors or in a well-ventilated area.
+                                            P273 - Avoid release to the environment.
+                                            P280 - Wear eye protection, face protection, protective clothing, protective gloves.
+                                            P301+P310 - IF SWALLOWED: Immediately call a doctor, a poison center
+                                            P303+P361+P353 - IF ON SKIN (or hair): Take off immediately all contaminated clothing.
+                                            Rinse skin with water/shower
+                                            P304+P340 - IF INHALED: Remove person to fresh air and keep comfortable for breathing
+                                            P308+P313 - If exposed or concerned: Get medical advice/attention.
+                                            P312 - Call a poison center or doctor if you feel unwell.
+                                            P331 - Do NOT induce vomiting.
+                                            P370+P378 - In case of fire: Use media other than water to extinguish.
+                                            P391 - Collect spillage.
+
+                                                               Coleman Camp Fuel                                                       Page 1
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+                                                                       P403+P233 - Store in a well-ventilated place. Keep container tightly closed.
+                                                                       P403+P235 - Store in a well-ventilated place. Keep cool.
+                                                                       P405 - Store locked up.
+                                                                       P501 - Dispose of contents/container to a licensed hazardous-waste disposal contractor or
+                                                                       collection site except for empty clean containers which can be disposed of as non-hazardous
+                                                                       waste.
+
+2.3.        Other hazards which do not result in classification
+
+No additional information available
+
+2.4.        Unknown acute toxicity (GHS US)
+
+Not applicable
+
+SECTION 3: Composition/information on ingredients
+
+3.1.        Substances
+
+Not applicable
+
+3.2.        Mixtures
+
+                      Name                                                                         Product identifier    %
+
+                      Distillates, petroleum, light distillate hydrotreating process, low-boiling  (CAS-No.) 68410-97-9  60 - 100
+                      Pentane                                                                      (CAS-No.) 109-66-0    5 - 10
+                      Isopentane                                                                   (CAS-No.) 78-78-4     5 - 10
+                      Cyclohexene                                                                  (CAS-No.) 110-83-8    5 - 10
+                      Petroleum distillates, hydrotreated light                                    (CAS-No.) 64742-47-8  1 - 5
+                      Hexane                                                                       (CAS-No.) 110-54-3    1 - 5
+                      Naphtha, petroleum, hydrotreated light                                       (CAS-No.) 64742-49-0  1 - 5
+
+*In accordance with paragraph (i) of the OSHA Hazard Communication Standard (29 CFR §1910.1200), the specific chemical identity or exact
+weight % has been withheld as a trade secret.
+
+SECTION 4: First-aid measures
+
+4.1.        Description of first aid measures
+
+First-aid measures general                     : If exposed or concerned, get medical attention/advice. Show this safety data sheet to the
+                                                 doctor in attendance. Wash contaminated clothing before re-use. Never give anything to an
+First-aid measures after inhalation              unconscious person.
+
+First-aid measures after skin contact          : IF INHALED: Remove to fresh air and keep at rest in a position comfortable for breathing. Get
+First-aid measures after eye contact             medical attention. If breathing is difficult, supply oxygen. If breathing has stopped, give artificial
+                                                 respiration.
+First-aid measures after ingestion
+                                               : IF ON SKIN (or clothing): Remove affected clothing and wash all exposed skin with water for at
+                                                 least 15 minutes. If irritation develops or persists, get medical attention.
+
+                                               : IF IN EYES: Immediately flush with plenty of water for at least 15 minutes. Remove contact
+                                                 lenses if present and easy to do so. Continue rinsing if pain, blinking, or irritation develops or
+                                                 persists, get medical attention. Continue rinsing.
+
+                                               : IF SWALLOWED: rinse mouth thoroughly. Do not induce vomiting without advice from poison
+                                                 control center or medical professional. Get medical attention immediately.
+
+4.2.        Most important symptoms and effects (acute and delayed)
+
+Symptoms/effects                               : May be fatal if swallowed and enters airways. May damage fertility. May damage the unborn
+                                                 child. May cause damage to organs through prolonged or repeated exposure. May cause
+                                                 drowsiness or dizziness.
+
+Symptoms/effects after inhalation              : May be fatal if swallowed and enters airways. May cause drowsiness or dizziness.
+
+Symptoms/effects after skin contact            : May cause skin irritation.
+
+Symptoms/effects after eye contact             : Direct contact with eyes is likely to be irritating.
+
+Symptoms/effects after ingestion               : May be fatal if swallowed and enters airways.
+
+Chronic symptoms                               : May damage fertility. May damage the unborn child. May cause damage to organs through
+                                                 prolonged or repeated exposure.
+
+4.3.        Immediate medical attention and special treatment, if necessary
+
+No additional information available.
+
+SECTION 5: Fire-fighting measures
+
+5.1.        Suitable (and unsuitable) extinguishing media
+
+Suitable extinguishing media                   : Foam. Carbon dioxide. Dry chemical. Water fog.
+
+Unsuitable extinguishing media                 : None known.
+
+04/07/2022                                                           Coleman Camp Fuel                                                  2/9
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+5.2.        Specific hazards arising from the chemical
+
+Fire hazard                                : Highly flammable liquid and vapour.
+
+Explosion hazard                           : Vapors are heavier than air and may travel considerable distances to ignition sources to flash
+                                             or explode. Vapor may explode if it is exposed to heat or flame in an enclosed area . Closed
+                                             container may forcibly rupture under extreme heat or when contents contaminated with water.
+
+Reactivity                                 : No dangerous reactions known under normal conditions of use.
+
+5.3.        Special protective equipment and precautions for fire-fighters
+
+Precautionary measures fire                : Keep away from heat, hot surfaces, sparks, open flames and other ignition sources. No
+                                             smoking.
+
+Firefighting instructions                  : Use water spray or fog for cooling exposed containers. Exercise caution when fighting any
+                                             chemical fire. Do not dispose of fire-fighting water in the environment. Prevent human exposure
+                                             to fire, fumes, smoke and products of combustion.
+
+Protection during firefighting             : Do not enter fire area without proper protective equipment, including respiratory protection.
+                                             Self-contained breathing apparatus.
+
+SECTION 6: Accidental release measures
+
+6.1.        Personal precautions, protective equipment and emergency procedures
+
+General measures                           : Evacuate area. Keep upwind. Ventilate area. Spill should be handled by trained cleaning
+                                             personnel properly equipped with respiratory and eye protection. Use special care to avoid
+                                             static electric charges. Avoid breathing fumes or vapours. No flames, no sparks. Eliminate all
+                                             sources of ignition. Vapor may cause flash fires. Vapors are heavier than air and can travel
+                                             long distances to ignition sources.
+
+6.1.1. For non-emergency personnel         : Wear Protective equipment as described in Section 8.
+Protective equipment                       : Evacuate unnecessary personnel.
+Emergency procedures
+
+6.1.2. For emergency responders            : Wear suitable protective clothing, gloves and eye or face protection. Approved supplied-air
+Protective equipment                         respirator, in case of emergency.
+
+6.2.        Environmental precautions
+
+Prevent entry to sewers and public waters. Notify authorities if liquid enters sewers or public waters. Avoid release to the environment.
+
+6.3.        Methods and material for containment and cleaning up
+
+For containment                            : Contain any spills with dikes or absorbents to prevent migration and entry into sewers or
+                                             streams. Eliminate all ignition sources (no smoking, flares, sparks or flames in immediate area).
+                                             Use only non-sparking tools.
+
+Methods for cleaning up                    : Eliminate ignition sources. Soak up spills with inert solids, such as clay or diatomaceous earth
+                                             as soon as possible. This material and its container must be disposed of in a safe way, and as
+                                             per local legislation. Notify authorities if product enters sewers or public waters.
+
+6.4.        Reference to other sections
+
+See Sections 8 and 13.
+
+SECTION 7: Handling and storage
+
+7.1.        Precautions for safe handling
+
+Precautions for safe handling              : Do not handle until all safety precautions have been read and understood. Keep away from
+                                             heat, hot surfaces, sparks, open flames and other ignition sources. No smoking. Provide good
+                                             ventilation in process area to prevent formation of vapour. Avoid breathing vapours, mist. Wash
+                                             hands and other exposed areas with mild soap and water before eating, drinking or smoking
+                                             and when leaving work.
+
+7.2.        Conditions for safe storage, including any incompatibilities
+
+Technical measures                         : Do not use pressure to empty container or it may rupture with explosive force. Empty
+                                             containers retain product residue and can be hazardous.
+
+Storage conditions                         : Store in a well-ventilated place. Keep cool. Keep away from heat, hot surfaces, sparks, open
+                                             flames and other ignition sources. No smoking.
+
+SECTION 8: Exposure controls/personal protection
+
+8.1.        Control parameters
+
+                    Petroleum distillates, hydrotreated light (64742-47-8)
+
+                    ACGIH                  Remark (ACGIH)                                         OELs not established
+                                                                                                  OELs not established
+                    OSHA                   Remark (OSHA)
+
+04/07/2022                                                                  Coleman Camp Fuel                                               3/9
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+            Hexane (110-54-3)       ACGIH OEL TWA [ppm]                                           50 ppm
+            ACGIH                   Remark (ACGIH)                                                TLV® Basis: CNS impair; peripheral
+            ACGIH                                                                                 neuropathy; eye irr. Notations: Skin; BEI
+                                    Regulatory reference                                          ACGIH 2022
+            ACGIH                   OSHA PEL TWA [1]                                              1800 mg/m³
+            OSHA                    OSHA PEL TWA [2]                                              500 ppm
+            OSHA                    Regulatory reference (US-OSHA)                                OSHA Annotated Table Z-1
+            OSHA                    IDLH [ppm]                                                    1100 ppm (10% LEL)
+            IDLH                    NIOSH REL TWA                                                 180 mg/m³
+            NIOSH                   NIOSH REL TWA [ppm]                                           50 ppm
+            NIOSH
+
+            Naphtha, petroleum, hydrotreated light (64742-49-0)
+
+            ACGIH                   Remark (ACGIH)                                                OELs not established
+                                                                                                  OELs not established
+            OSHA                    Remark (OSHA)
+
+            Pentane (109-66-0)      ACGIH OEL TWA [ppm]                                           600 ppm (listed under Pentane, all
+            ACGIH                                                                                 isomers)
+                                    OSHA PEL TWA [1]                                              2950 mg/m³
+            OSHA                    OSHA PEL TWA [2]
+            OSHA                                                                                  1000 ppm
+
+            Isopentane (78-78-4)    ACGIH OEL TWA [ppm]                                           600 ppm (listed under Pentane, all
+            ACGIH                                                                                 isomers)
+
+            OSHA                    Remark (OSHA)                                                 OELs not established
+
+            Cyclohexene (110-83-8)
+
+            ACGIH                   Remark (ACGIH)                                                OELs not established
+                                                                                                  OELs not established
+            OSHA                    Remark (OSHA)
+
+            Distillates, petroleum, light distillate hydrotreating process, low-boiling (68410-97-9)
+
+            ACGIH                   Remark (ACGIH)                                                OELs not established
+
+            OSHA                    Remark (OSHA)                                                 OELs not established
+
+8.2.        Appropriate engineering controls
+
+Appropriate engineering controls              : Provide adequate general and local exhaust ventilation. Use process enclosures, local exhaust
+                                                ventilation, or other engineering controls to control airborne levels below recommended
+                                                exposure limits. Use explosion-proof equipment with flammable materials. Ensure adequate
+                                                ventilation, especially in confined areas.
+
+8.3.        Individual protection measures/Personal protective equipment
+
+Personal protective equipment symbol(s):
+
+Personal protective equipment:
+Gloves. Protective goggles. Protective clothing. Insufficient ventilation: wear respiratory protection.
+
+Hand protection:
+
+Use gloves chemically resistant to this material when prolonged or repeated contact could occur. Gloves should be classified under Standard EN
+374 or ASTM F1296. Suggested glove materials are: Neoprene, Nitrile/butadiene rubber, Polyethylene, Ethyl vinyl alcohol laminate, PVC or
+vinyl. Suitable gloves for this specific application can be recommended by the glove supplier.
+
+Eye protection:
+
+Wear eye protection, including chemical splash goggles and a face shield when possibility exists for eye contact due to spraying liquid or
+airborne particles.
+
+Skin and body protection:
+Wear long sleeves, and chemically impervious PPE/coveralls to minimize bodily exposure.
+
+04/07/2022                                                       Coleman Camp Fuel                                                           4/9
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+    Respiratory protection:
+
+    Use NIOSH (or other equivalent national standard) -approved dust/particulate respirator. Where vapour, mist, or dust exceed PELs or other
+    applicable OELs, use NIOSH-approved respiratory protective equipment.
+
+SECTION 9: Physical and chemical properties
+
+9.1.        Information on basic physical and chemical properties
+
+Physical state                               : Liquid
+
+Appearance                                   : Liquid.
+Colour                                       : Pale Green
+
+Odour                                        : Hydrocarbon Characteristic
+
+Odour threshold                              : No data available
+
+pH                                           : No data available
+
+Melting point                                : No data available
+
+Freezing point                               : No data available
+
+Boiling point                                : > 38 °C (>100 °F)
+
+Flash point                                  : < -18 °C (-0.4°F)
+
+Relative evaporation rate (butylacetate=1)   : No data available
+
+Flammability (solid, gas)                    : Extremely flammable vapour.
+
+Vapour pressure                              : 5.3 psi @ 38 °C
+
+Relative vapour density at 20 °C             : No data available
+
+Relative density                             : ~ 0.69
+
+Solubility                                   : Insoluble water.
+
+Partition coefficient n-octanol/water (Log Pow) : No data available
+
+Auto-ignition temperature                    : No data available
+
+Decomposition temperature                    : No data available
+
+Viscosity, kinematic                         : No data available
+Viscosity, dynamic                           : No data available
+
+Explosive limits                             : No data available
+
+Explosive properties                         : No data available
+
+Oxidising properties                         : No data available
+
+9.2.        Other information
+
+No additional information available
+
+SECTION 10: Stability and reactivity
+10.1. Reactivity
+No dangerous reactions known under normal conditions of use.
+
+10.2. Chemical stability
+Stable under recommended handling and storage conditions (see section 7).
+
+10.3. Possibility of hazardous reactions
+None known.
+
+10.4. Conditions to avoid
+
+No flames, no sparks. Eliminate all sources of ignition. Elevated temperature. Prevent vapour accumulation. Do not pressurize, cut, weld, braze, solder,
+drill, grind or expose containers to heat or sources of ignition.
+
+10.5. Incompatible materials
+Strong oxidizing agents, reducing agents.
+
+10.6. Hazardous decomposition products
+Under normal conditions of storage and use, hazardous decomposition products should not be produced.
+
+SECTION 11: Toxicological information
+
+11.1. Information on toxicological effects
+
+Acute toxicity (oral)                        : Not classified
+Acute toxicity (dermal)                      : Not classified
+Acute toxicity (inhalation)                  : Not classified
+
+04/07/2022                                                                 Coleman Camp Fuel                                                   5/9
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+Petroleum distillates, hydrotreated light (64742-47-8)
+
+LD50 oral rat                             > 5000 mg/kg
+
+LD50 dermal rabbit                        > 2000 mg/kg
+
+LC50 Inhalation - Rat                     > 5.2 mg/l/4h
+
+Hexane (110-54-3)                         25 g/kg
+LD50 oral rat                             > 2000 mg/kg Source: ECHA
+LD50 dermal rat                           3000 mg/kg
+LD50 dermal rabbit                        48000 ppm/4h
+LC50 Inhalation - Rat [ppm]
+
+Naphtha, petroleum, hydrotreated light (64742-49-0)
+
+LD50 oral rat                             > 5000 mg/kg
+
+LD50 dermal rabbit                        > 3160 mg/kg
+
+LC50 Inhalation - Rat [ppm]               73680 ppm/4h
+
+Pentane (109-66-0)                        > 2000 mg/kg
+LD50 oral rat                             3000 mg/kg
+LD50 dermal rabbit                        364 g/m³ 4 h
+LC50 Inhalation - Rat
+
+Isopentane (78-78-4)                      280000 mg/m³ 4 h
+LC50 Inhalation - Rat
+
+Cyclohexene (110-83-8)                    1000 - 2000 mg/kg
+LD50 oral rat
+
+Distillates, petroleum, light distillate hydrotreating process, low-boiling (68410-97-9)
+
+LD50 oral rat                             5170 mg/kg
+
+LD50 dermal rabbit                        > 3000 mg/kg
+
+LC50 Inhalation - Rat [ppm]               > 12408 ppm/4h
+
+Skin corrosion/irritation                 : Not classified
+Serious eye damage/irritation             : Not classified
+Respiratory or skin sensitisation         : Not classified
+Germ cell mutagenicity                    : Not classified
+Carcinogenicity                           : Not classified
+
+Reproductive toxicity                     : Suspected of damaging fertility or the unborn child.
+STOT-single exposure                      : May cause drowsiness or dizziness.
+
+STOT-repeated exposure                    : Not classified
+
+Naphtha, petroleum, hydrotreated light (64742-49-0)
+
+LOAEC (inhalation, rat, vapour, 90 days)  4.71 mg/l air Animal: rat, Guideline: EU Method B.29 (Sub-Chronic Inhalation Toxicity:90-Day
+                                          Study)
+
+NOAEC (inhalation, rat, vapour, 90 days)  2355 mg/l air Animal: rat, Guideline: EU Method B.29 (Sub-Chronic Inhalation Toxicity:90-Day
+                                          Study)
+
+Aspiration hazard                         : May be fatal if swallowed and enters airways.
+
+Viscosity, kinematic                      : No data available
+
+Symptoms/effects                          : May be fatal if swallowed and enters airways. May damage fertility. May damage the unborn
+                                            child. May cause damage to organs through prolonged or repeated exposure. May cause
+Symptoms/effects after inhalation           drowsiness or dizziness.
+Symptoms/effects after skin contact
+Symptoms/effects after eye contact        : May be fatal if swallowed and enters airways. May cause drowsiness or dizziness.
+Symptoms/effects after ingestion
+Chronic symptoms                          : May cause skin irritation.
+
+                                          : Direct contact with eyes is likely to be irritating.
+
+                                          : May be fatal if swallowed and enters airways.
+
+                                          : May damage fertility. May damage the unborn child. May cause damage to organs through
+                                            prolonged or repeated exposure.
+
+SECTION 12: Ecological information
+
+12.1. Toxicity
+
+Petroleum distillates, hydrotreated light (64742-47-8)
+
+LC50 - Fish [1]                           45 mg/l (Exposure time: 96 h - Species: Pimephales promelas [flow-through])
+
+LC50 - Fish [2]                           2.2 mg/l (Exposure time: 96 h - Species: Lepomis macrochirus [static])
+
+04/07/2022                                                     Coleman Camp Fuel                                       6/9
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+Hexane (110-54-3)                                2.1 - 2.98 mg/l 96 Hr LC50 Pimephales promelas [flow-through]
+LC50 - Fish [1]
+
+Naphtha, petroleum, hydrotreated light (64742-49-0)
+
+LC50 - Fish [1]                                  8.41 mg/l (Exposure time: 96 h - Species: Oncorhynchus mykiss [semi-static, closed])
+
+LC50 - Other aquatic organisms [1]               2.6 mg/l Source: IUCLID
+
+Distillates, petroleum, light distillate hydrotreating process, low-boiling (68410-97-9)
+
+LC50 - Fish [1]                                  0.854 mg/l Source: Ecological Structure Activity Relationships
+
+12.2. Persistence and degradability
+
+Coleman Camp Fuel                                No information available.
+Persistence and degradability
+12.3. Bioaccumulative potential
+
+Coleman Camp Fuel                                No information available.
+Bioaccumulative potential
+
+Petroleum distillates, hydrotreated light (64742-47-8)
+
+BCF - Fish [1]                                   61 - 159
+
+Partition coefficient n-octanol/water (Log Pow) 3.3 - 6 Source: IUCLID
+
+Hexane (110-54-3)                                3.9 Source: ICSC
+Partition coefficient n-octanol/water (Log Pow)
+
+Naphtha, petroleum, hydrotreated light (64742-49-0)
+Partition coefficient n-octanol/water (Log Pow) 2.1 - 6 Source: IUCLID
+12.4. Mobility in soil
+
+Coleman Camp Fuel                                No information available.
+Ecology - soil
+
+Hexane (110-54-3)                                2187.76 Source: ECHA
+Mobility in soil
+
+12.5. Other adverse effects                      : No data available.
+Other adverse effects
+
+SECTION 13: Disposal considerations              : Do not discharge to public wastewater systems without permit of pollution control authorities.
+13.1. Disposal methods                             No discharge to surface waters is allowed without an NPDES permit.
+Waste treatment methods
+                                                 : Dispose in a safe manner in accordance with local/national regulations. Do not allow the
+Product/Packaging disposal recommendations         product to be released into the environment. Container under pressure. Do not drill or burn
+                                                   even after use.
+SECTION 14: Transport information
+                                                 : UN1268 Petroleum products, n.o.s, 3, II
+Department of Transportation (DOT)               : UN1268
+In accordance with DOT                           : Petroleum products, n.o.s
+Transport document description (DOT)             : 3 - Class 3 - Flammable and combustible liquid 49 CFR 173.120
+UN-No.(DOT)                                      : II - Medium Danger
+Proper Shipping Name (DOT)                       : 3 - Flammable liquid
+Class (DOT)
+Packing group (DOT)
+Hazard labels (DOT)
+
+Dangerous for the environment                    : Yes
+
+04/07/2022                                                                  Coleman Camp Fuel                                          7/9
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+Marine pollutant                            : Yes
+
+DOT Quantity Limitations Passenger aircraft/rail : 5 L
+(49 CFR 173.27)
+
+DOT Quantity Limitations Cargo aircraft only (49 : 60 L
+CFR 175.75)
+
+DOT Vessel Stowage Location                 : B - (i) The material may be stowed ``on deck'' or ``under deck'' on a cargo vessel and on a
+                                              passenger vessel carrying a number of passengers limited to not more than the larger of 25
+                                              passengers, or one passenger per each 3 m of overall vessel length; and (ii) ``On deck only'' on
+                                              passenger vessels in which the number of passengers specified in paragraph (k)(2)(i) of this
+                                              section is exceeded.
+
+Emergency Response Guide (ERG) Number : 128
+
+Other information                           : No supplementary information available.
+
+Transportation of Dangerous Goods
+
+Transport document description (TDG)        : UN1268 PETROLEUM DISTILLATES, N.O.S., 3, II
+
+UN-No. (TDG)                                : UN1268
+
+Proper Shipping Name (TDG)                  : PETROLEUM DISTILLATES, N.O.S.
+
+TDG Primary Hazard Classes                  : 3 - Class 3 - Flammable Liquids
+
+Packing group (TDG)                         : II - Medium Danger
+
+TDG Special Provisions                      : 91 - Repealed, SOR/2017-137,92 - (1) The consignor must classify these dangerous goods on
+                                              the basis of samples.
+                                              (2) The consignor must make available to the Minister, on reasonable notice given by the
+                                              Minister, a document that explains the sampling method and includes the following information:
+                                              (a) the scope of the method;
+                                              (b) the sampling apparatus;
+                                              (c) the sampling procedures;
+                                              (d) the frequency and conditions of sampling; and
+                                              (e) a description of the quality control management system in place,150 - An approved ERAP is
+                                              required for the dangerous goods referred to in paragraph 7.2(1)(f) of Part 7 (Emergency
+                                              Response Assistance Plan). SOR-2019-101
+
+Explosive Limit and Limited Quantity Index  : 1L
+
+Passenger Carrying Road Vehicle or Passenger : 5 L
+Carrying Railway Vehicle Index
+
+Transport by sea (IMDG)                     : UN 1268 PETROLEUM DISTILLATES, N.O.S., 3, II
+                                            : 1268
+Transport document description (IMDG)       : PETROLEUM DISTILLATES, N.O.S.
+UN-No. (IMDG)                               : 3 - Flammable liquids
+Proper Shipping Name (IMDG)                 : II - substances presenting medium danger
+Class (IMDG)                                : 1L
+Packing group (IMDG)                        : Yes
+Limited quantities (IMDG)
+Marine pollutant
+
+Air transport (IATA)                        : UN 1268 Petroleum distillates, n.o.s., 3, II
+                                            : 1268
+Transport document description (IATA)       : Petroleum distillates, n.o.s.
+UN-No. (IATA)                               : 3 - Flammable Liquids
+Proper Shipping Name (IATA)                 : II - Medium Danger
+Class (IATA)
+Packing group (IATA)
+
+04/07/2022                                                        Coleman Camp Fuel               8/9
+Coleman Camp Fuel
+
+Safety Data Sheet
+
+according to Federal Register / Vol. 77, No. 58 / Monday, March 26, 2012 / Rules and Regulations
+
+  SECTION 15: Regulatory information
+  15.1. US Federal regulations
+
+Coleman Camp Fuel
+
+All chemical substances in this product are listed as "Active" in the EPA (Environmental Protection Agency) "TSCA Inventory Notification (Active-
+Inactive) Requirements Rule" ("the Final Rule") of Feb 2019, as amended Feb 2021 or are otherwise exempt, or regulated by other agencies
+such as FDA or FIFRA
+
+SARA Section 311/312 Hazard Classes                  Physical hazard - Flammable (gases, aerosols, liquids, or solids)
+                                                     Health hazard - Aspiration hazard
+                                                     Health hazard - Reproductive toxicity
+                                                     Health hazard - Specific target organ toxicity (single or repeated exposure)
+
+15.2. International regulations
+No additional information available
+
+15.3. US State regulations
+
+     WARNING:        This product can expose you to Hexane, which is known to the State of California to cause birth defects or other
+  Component          reproductive harm. For more information go to www.P65Warnings.ca.gov.
+
+  Hexane (110-54-3)  Carcinogenicity  Developmental  Reproductive                                 Reproductive  No significant     Maximum
+                                      toxicity       toxicity male                                toxicity      risk level (NSRL)  allowable
+\                                                                                                 female                           dose level
+                                                              X                                                                    (MADL)
+  Component
+                                                                                                                                   28000 µg/day
+                                                                                                                                   oral
+
+                                      State or local regulations
+
+  Hexane (110-54-3)                   U.S. - New Jersey - Right to Know Hazardous Substance List; U.S. - Pennsylvania -
+  Pentane (109-66-0)                  RTK (Right to Know) List
+  Isopentane (78-78-4)
+  Cyclohexene (110-83-8)              U.S. - Massachusetts - Right To Know List; U.S. - New Jersey - Right to Know
+                                      Hazardous Substance List; U.S. - Pennsylvania - RTK (Right to Know) List
+SECTION 16: Other information
+                                      U.S. - Massachusetts - Right To Know List; U.S. - New Jersey - Right to Know
+                                      Hazardous Substance List; U.S. - Pennsylvania - RTK (Right to Know) List
+
+                                      U.S. - Massachusetts - Right To Know List; U.S. - New Jersey - Right to Know
+                                      Hazardous Substance List; U.S. - Pennsylvania - RTK (Right to Know) List
+
+Revision date                          : 04/07/2022
+Other information                      : Author: JMM.
+NFPA health hazard
+NFPA fire hazard                      : 2 - Materials that, under emergency conditions, can cause
+                                        temporary incapacitation or residual injury.
+NFPA reactivity
+                                      : 3 - Liquids and solids (including finely divided suspended
+                                        solids) that can be ignited under almost all ambient
+                                        temperature conditions.
+
+                                      : 0 - Material that in themselves are normally stable, even
+                                        under fire conditions.
+
+HMIS Hazard Rating                    : 2
+Health                                  * - Chronic (long-term) health effects may result from repeated overexposure
+
+Flammability                          : 3
+Physical                              : 0
+
+This information is based on our current knowledge and is intended to describe the product for the purposes of health, safety and environmental requirements only. It should not therefore be construed as
+guaranteeing any specific property of the product.
+
+04/07/2022                                           Coleman Camp Fuel                                                                 9/9
+

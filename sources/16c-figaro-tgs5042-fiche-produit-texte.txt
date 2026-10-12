@@ -1,0 +1,130 @@
+                                                                                             PRODUCT INFORMATION
+
+          TGS 5042 - for the detection of Carbon Monoxide
+
+Features:                                                         Applications:
+
+* Battery operable                                                * Residential and commercial CO detectors
+* High repeatability/selectivity to CO                            * CO monitors for industrial applications
+* Linear relationship between CO gas                              * Ventilation control for indoor parking garages
+                                                                  * Fire detection
+         concentration and sensor output
+* Simple calibration
+* Long life
+* UL recognized component
+* Meets UL2034, EN50291, and RoHS
+
+         requirements
+
+Figaro's TGS5042 is a battery operable electrochemical sensor which offers several
+advantages over traditional electrochemical sensors. Its electrolyte is environmentally
+friendly, it poses no risk of electrolyte leakage, can detect concentrations as high
+as 1% CO, operates in a range from -5° and +55°C, and it has lower sensitivity to
+interferant gases. With a long life, good long term stability, and high accuracy, this
+sensor is the ideal choice for CO detectors with digital display. OEM customers will
+find individual sensors data printed on each sensor in bar code from, enabling users
+to skip the costly gas calibration process and allowing for individual sensor tracking.
+TGS5042 utilizes a standard AA battery-sized package.
+
+The figure below represents typical sensitivity characteristics,  The figure below represents typical temperature dependency
+all data having been gathered at standard test conditions (see    characteristics. The Y-axis shows the sensor output ratio (I/Io)
+reverse side of this sheet). The Y-axis shows theoutput current   as defined below. The linear relationship between I/Io and CO
+of the sensor (Iout/µA) in each gas. Output current is linear     concentration is constant regardless of the CO concentration
+to CO concentration, with a deviation of less than ±5% in the     range.
+range of 0~1000ppm.
+                                                                            I = Sensor output current in 400ppm of CO at various
+Sensitivity Characteristics:                                                              temperatures
+
+                                                                            Io = Sensor output current in 400ppm at 20°C/50%RH
+
+                                                                  Temperature Dependency:
+
+2.0                                                               2.0
+
+  1.5                                         CO                    1.5
+  1.0                                         H2                  I/I1o.0
+Iout(µA)                                      Ethanol
+  0.5                                         CH4                   0.5
+  0.0                                         Iso-butane
+
+-0.5                                                              0.0
+       0
+           200  400  600                 800  1000                         -10  0        10  20  30            40  50  60
+
+                Gas concentration (ppm)                                                      Temperature (°C)
+
+IMPORTANT NOTE: OPERATING CONDITIONS IN WHICH FIGARO SENSORS ARE USED WILL VARY WITH EACH CUSTOMER'S SPECIFIC APPLICATIONS. FIGARO STRONGLY
+RECOMMENDS CONSULTING OUR TECHNICAL STAFF BEFORE DEPLOYING FIGARO SENSORS IN YOUR APPLICATION AND, IN PARTICULAR, WHEN CUSTOMER'S TARGET
+GASES ARE NOT LISTED HEREIN. FIGARO CANNOT ASSUME ANY RESPONSIBILITY FOR ANY USE OF ITS SENSORS IN A PRODUCT OR APPLICATION FOR WHICH SENSOR HAS
+NOT BEEN SPECIFICALLY TESTED BY FIGARO.
+                                                                                                                                       PRODUCT INFORMATION
+
+Basic Measuring Circuit:                                                     Working                                                                    C1
+                                                                          TGS5042                                                                             1µF
+The diagram at the right shows the basic measuring circuit of
+TGS5042. The sensor generates a minute electric current which is              Counter                                                                   R1
+converted into sensor output voltage (Vout) by an op-amp/resistor
+(R1) combination.                                                                                                                                            1M
+
+Figaro recommends the following electrical parts:                                                                                                 - IC
+             R1 : 1M
+             C1 : 1µF                                                                                                                             +
+             IC : AD708                                                                                                                                                                                 Vout
+
+NOTE: When voltage is applied to the sensor output terminal, the
+sensor may be damaged. Voltage applied to the sensor should be
+strictly limited to less than ±10mV. An additional resistor or FET is
+required to prevent polarization of the sensor when Vc is off.
+
+Specifications:                                                                        Basic measuring circuit of TGS5042
+                                                                                       Structure and Dimensions:
+                  Item
+            Model number                  Specification                                                                                20.9±0.05
+             Target gases                 TGS5042-A00
+      Typical detection range           Carbon monoxide                   Top view     0.8±0.05                                                                               8.3±0.05
+        Output current in CO              0 ~ 10,000ppm
+         Baseline offset(*1)              1.2~2.4nA/ppm                                                                                                  4.15±0.8
+                                      <±10ppm equivalent
+  Operating temperature(*2,*3)     0°C ~ +50°C (continuous)                            4.0±0.1
+                                  -5°C ~ +55°C (intermittent)
+         Operating humidity     5 ~ 99%RH (no condensation)                                                                                              90±4°
+       Response time (T90)              within 60 seconds
+    Storage conditions (*2,*3)             -5°C ~ +55°C                                                                                                                       Working electrode
+
+                 Weight                     approx. 12g                                                                                ø8.5±0.3
+     Standard test conditions         20±2°C, 40±10%RH
+                                                                                                                                                         1.25±0.25
+
+                                                                                                                                                                                        Insulation tube
+
+                                                                          Side view    50.2±1.5                                                                     49.7±1.0
+
+(*1) Represents sensor output in air under operating conditions                                                                        ø14.1±0.6
+(*2) If the water in the reservoir should freeze very rapidly (typically
+occurs only under artifically created conditions), irreversible change                                                                 20.9±0.05                              Counter electrode
+to sensor characteristics would occur. To avoid this risk, the sensor is
+recommended to be positioned with its cap (working electrode) facing                                                         0.8±0.05                    4.15±0.8
+up.
+(*3) Please contact Figaro for more information if the required           Bottom view  7.5±0.1                                                                      8.3±0.05
+temperature range would exceed the specified limits.
+                                                                                                                    4.0±0.1  0.8±0.05
+.
+
+                                                                                                                                                  90±4°
+
+                                                                                                                                                                                        unit: mm
+
+                                                                          NOTE 1: Sensors are shipped in an open-circuit condition, so stabilization time of one hour
+                                                                          (typical) is recommended (please refer to Technical Information for TGS5042 for further
+                                                                          information).
+
+For information on warranty, please refer to      Before purchasing this product,                                                      FIGARO USA, INC. 
+Standard Terms and Conditions of Sale of Figaro   please read the Warranty Statements
+USA Inc. All sensor characteristics shown in      shown in our webpage by scanning                                                     121 S. Wilke Rd. Su1it-e5-31010
+this brochure represent typical characteristics.  this QR code.                                                                        Arlingto5n62H-e8i5g0h5ts, Illinois 60005
+Actual characteristics vary from sensor to                                                                                             Phone:81-7(824-72)-88-3220-414701
+sensor. The only characteristics warranted are    https://figarosensor.com/pdf/Figaro_USA_Sales_T&C.pdf
+those in the Specification table above.                                                                                                URLwww.figarosensor.com
+
+REV: 09/21
+

@@ -1,0 +1,1402 @@
+WITH MORE THAN 60 YEARS OF  APPLYING ADVANCED COMPRESSOR
+EXPERIENCE IN COMPRESSOR    TECHNOLOGIES TO ACHIEVE
+TECHNOLOGY AND HIGHLY       STANDARD SETTING PERFORMANCE
+DEDICATED EMPLOYEES, OUR    FOR LEADING PRODUCTS AND
+FOCUS IS ON DEVELOPING AND  BUSINESSES AROUND THE WORLD.
+
+REPAIR OF HERMETIC
+REFRIGERATION SYSTEMS
+
+GUIDELINE
+
+www.secop.com                                             SETTING THE STANDARD
+ TABLE
+ OF CONTENTS
+
+                                         1. General....................................................................................................... 3
+                                               1.1 Locating faults........................................................................................4
+                                               1.2 Replacing the thermostat......................................................................5
+                                               1.3 Replacing electrical equipment.............................................................6
+                                               1.4 Replacing the compressor.....................................................................6
+                                               1.5 Replacing refrigerant.............................................................................6
+
+                                         2. Instructions for repair work....................................................................... 8
+                                               2.1 Opening the system ...............................................................................8
+                                               2.2 Brazing under an inert protective gas...................................................9
+                                               2.3 Filter drier.............................................................................................10
+                                               2.4 Moisture penetration during repair ....................................................11
+                                               2.5 Preparing the compressor and electrical equipment.........................11
+                                               2.6 Brazing..................................................................................................13
+                                               2.7 LOKRING® connections .....................................................................15
+                                               2.8 Evacuation............................................................................................16
+                                               2.9 Vacuum pump and vacuum gauge......................................................18
+
+                                         3. Handling refrigerants .............................................................................. 19
+                                               3.1 Charging with refrigerant.....................................................................19
+                                               3.2 Maximum refrigerant charge ..............................................................20
+                                               3.3 Test........................................................................................................20
+                                               3.4 Leak test...............................................................................................20
+
+                                         4. Replacing a defective compressor...............................................................21
+                                               4.1 Preparing components ........................................................................21
+                                               4.2 Removing the charge...........................................................................21
+                                               4.3 Removing the defective compressor...................................................21
+                                               4.4 Removing refrigerant residue..............................................................21
+                                               4.5 Removing the filter drier......................................................................21
+                                               4.6 Cleaning the brazing joints and reassembly.......................................21
+
+                                         5. Conversions ............................................................................................. 22
+                                               5.1 From R404A to R452A..........................................................................22
+                                               5.2 From R134a to R600a or R290.............................................................22
+                                               5.3 From R134a to R1234y.........................................................................22
+
+                                         6. Systems contaminated with moisture .....................................................23
+                                               6.1 Low level of contamination..................................................................23
+                                               6.2 High level of contamination ................................................................23
+                                               6.3 Evacuation............................................................................................24
+                                               6.4 Drying the compressor.........................................................................24
+                                               6.5 Oil charge..............................................................................................25
+
+                                         7. Lost refrigerant charge ........................................................................... 26
+
+                                         8. Burnt compressor motor..........................................................................27
+                                               8.1 Oil acidity..............................................................................................27
+                                               8.2 Burnt system........................................................................................27
+
+                                         9. Locating faults on PL / DL / TL / NL / FR compressors............................ 28
+                                               9.1 Location of fault....................................................................................28
+                                               9.2 Electrical quick check..........................................................................28
+
+                                         10. Locating faults - detectable faults........................................................... 29
+                                               10.1 Checking the main and start winding..................................................29
+                                               10.2 Check protector....................................................................................29
+                                               10.3 Check relay...........................................................................................29
+                                               10.5 Check PTC............................................................................................29
+
+                                         11. Locating faults – Table I........................................................................... 30
+
+                                         12. Locating faults – Table II.......................................................................... 31
+
+2
+1.
+GENERAL
+
+                                    Refrigerator and freezer repair work requires skilled technicians to perform this service on a variety of dif-
+                                    ferent refrigerator types. Previously service and repair was not as heavily regulated as now due to the new
+                                    refrigerants, some of which are flammable.
+
+                                                                     Fig. 1: Hermetic refrigeration system with capillary tubes
+                                    Fig. 1 shows a hermetic refrigeration system with a capillary tube as the expansion device. This system type
+                                    is used in most household refrigerators, small commercial refrigerators, ice cream freezers, and bottle
+                                    coolers.
+                                    Fig. 2 shows a refrigeration system using a thermostatic expansion valve. This type of system is mainly used
+                                    in commercial refrigeration systems.
+
+                                                                    Fig. 2: Hermetic refrigeration system with expansion valve
+                                    Repair and service is more difficult than with a new assembly, as conditions “in the field” are normally
+                                    more severe than on a production site or in a workshop. A requirement for satisfactory service work is that
+                                    the technicians have the right qualifications, i.e. good workmanship, thorough knowledge of the product,
+                                    precision, and intuition.
+                                    The purpose of this guide is to improve knowledge of repair work by going through the basic rules. The
+                                    subject matter primarily deals with reference to repair of refrigeration systems for household refrigerators
+                                    “in the field“ but many of the procedures can also be transferred to commercial hermetic refrigeration
+                                    installations.
+
+                                                                                                                                                                                                                                         3
+1.1              Before performing any work on a refrigeration system, the progress of the repair should be planned, i.e.
+Locating faults  all necessary replacement parts and all resources must be available. The fault in the system needs to be
+                 detected to be able to plan any such work.
+
+                 To locate the fault, tools such as a suction and discharge manometer, service valves, a multimeter (voltage,
+                 current, and resistance), and a leak tester (see Fig. 3) must be available. In many cases, the potential faults
+                 can be deduced from the user’s statements and for most faults a relatively accurate diagnosis can be made.
+                 However, the service technician must have the necessary knowledge of the product's function and the right
+                 resources must be available. An exhaustive procedure for locating faults will not be handled in this section,
+                 instead, the most common faults that cause the compressor to not start or run are described below.
+
+                                                                    Fig. 3: Pressure gauges, service valve, multimeter, and leak tester
+
+                                         Main switch released
+                                         One potential fault could be a defective fuse, and the reason may be a fault in the motor windings/motor
+                                         protector, a short circuit, or a burnt current lead-in on the compressor. These faults require the compressor
+                                         to be replaced.
+
+                                         Compressor
+                                         The starting device and compressor motor may be a wrong choice. The compressor motor or winding
+                                         protector may be defective, and the compressor may be mechanically blocked.
+                                         Frequent reasons for reduced refrigeration capacity are coking or copper platings due to moisture or non-
+                                         condensable gases in the system.
+                                         Blown gaskets or broken valve plates are due to peak pressures being too high and short-time pressure
+                                         peaks as a result of liquid hammering in the compressor, which may be due to a high refrigerant charge in
+                                         the system or a blocked capillary tube.
+                                         The voltage may be too low or the pressure too high for the compressor.
+                                         Pressure that is not equalized causes the motor protector to cut out after each start and will eventually
+                                         result in a burnt motor winding.
+                                         A defective fan will also affect the compressor load and may cause the motor protector to cut out or a gasket
+                                         to blow. If the compressor will not start or is cold, up to 15 minutes may pass until the winding protector
+                                         cuts the compressor out. If the winding protector cuts out when the compressor is hot, up to 45 minutes may
+                                         pass until the protector switches the compressor on again.
+                                         Before starting to systematically locate the fault, it is a good rule to cut off the voltage to the compressor
+                                         for 5 minutes. This ensures the PTC starting device, if present, is cooled sufficiently to be able to start the
+                                         compressor.
+                                         Should a brief power failure occur within the first few minutes of the refrigeration process, a conflict situation
+                                         (interlocking) may arise between the protector and the PTC. A compressor with a PTC starting device cannot
+                                         start in a system whose pressure is not equalized, and the PTC cannot cool quickly enough. In some cases,
+                                         it could take up to 1 hour until the refrigerator runs normally again.
+
+                                         High and low pressure switches
+                                         The high pressure switch may cut out due to a condensing pressure that is too high, probably caused by lack
+                                         of cooling by the fan.
+                                         The low pressure switch may cut out due to insufficient refrigerant charge, leakage, evaporator frost
+                                         formation, or partial blockage of the expansion device.
+                                         The cut out may also be due to a mechanical failure, wrong difference setting, wrong cut-out pressure
+                                         setting, or irregularities in pressure.
+
+4
+1.2            Thermostat
+Replacing the  A defective or incorrectly set thermostat may have caused the compressor to cut out. If the thermostat loses
+thermostat     the sensor charge or if the temperature setting is too high, the compressor will not start. The fault may also
+               be caused by a wrong electrical connection.
+               A differential (difference between cut in and cut out temperature) that is too low will cause short compressor
+               idle periods, and in connection with a LST compressor (low starting torque) this might lead to starting
+               problems.
+               See also point 1.2 “Replacing the thermostat”.
+
+               Carefully determining the fault is necessary before opening the system, and especially before removing the
+               compressor from the system. Repairs requiring work on a refrigeration system are rather costly. Before
+               opening old refrigeration systems, it may therefore make sense to make sure that the compressor is not
+               close to breaking down although it is still functional.
+               An analysis can be made by checking the compressor oil charge. A little oil is drained into a clean test
+               glass and is compared with a new oil sample. If the drained oil is dark, opaque, and contains impurities, the
+               compressor should be replaced.
+
+               Before replacing the compressor it is a good idea to check the thermostat. A simple test can be made by
+               short-circuiting the thermostat so the compressor gets power directly. If the compressor can operate like
+               this then the thermostat must be replaced.
+               During replacement, it is essential to find a suitable type, which may be bit of a challenge with so many
+               thermostat types on the market. To make this choice as easy as possible several manufacturers, i.e. Danfoss,
+               have designed so-called “service thermostats” supplied in packages with all accessories necessary for
+               thermostat service.
+               With eight packages, each covering one type of refrigerator and application, service can be performed on
+               almost all common refrigerators. See Fig. 4.
+
+                                                              Fig. 4: Service thermostat package
+               The application area of each thermostat covers a wide range of thermostat types. Moreover, the thermostats
+               have a temperature differential between cut in and cut out sufficient to ensure sufficient pressure equalization
+               during system idle periods.
+               In order to achieve the desired function the thermostat sensor (the last 100 mm of the capillary tube)
+               must always be in close contact with the evaporator. When replacing a thermostat it is important to check
+               whether the compressor operates satisfactorily both in warm and cold position, and whether the idle period
+               is sufficient for system pressure equalization when using a LST compressor.
+               With most thermostats it is possible to obtain a higher temperature differential by adjusting the differential
+               screw. Before doing this, it is recommended to consult the thermostat data sheet to learn which way the
+               screw must be turned.
+               Another way of obtaining a higher differential is to place a piece of plastic between the sensor and the
+               evaporator, since 1 mm plastic results in approx. 1 °C higher.
+
+                                                                                                                                                                                                         5
+   1.3                   The cause of faults may also be found in the electrical equipment of the compressor, where it is possible to
+   Replacing             replace the starting relay/PTC starting device, motor protector, or starting or run capacitor.
+   electrical equipment  A damaged starting capacitor may be caused by the thermostat differential setting being too low, since the
+                         starting capacitor must be maximum cut in 10 times/hour. If a fault is found on the winding protector built
+                         into many hermetic compressors, the entire compressor must be replaced.
+
+                         When replacing a compressor, the electrical equipment must be replaced as well, since old electrical
+                         equipment used with a new compressor may cause a compressor to breakdown later.
+
+   1.4                   If the failure is a defective compressor, the technician must pay attention to selecting a compressor with the
+   Replacing the         correct characteristics for the appliance.
+   compressor            If a compressor corresponding to the defective one is available, and if it is intended for a non-regulated
+                         refrigerant, no further problems will arise. However, in many cases it is impossible to provide the same
+                         compressor type as the defective one, and in this case the service technician must be aware of some factors.
+                         If it is a question of changing from one compressor to another, it can be difficult to select the correct
+                         compressor, and therefore different parameters have to be considered. Compressor voltage and frequency
+                         must correspond to voltage and frequency on location. Then the application area must be considered (low,
+                         medium, or high evaporating temperatures).
+
+                         The cooling capacity must correspond to the one of the previous compressor, but if the capacity is unknown,
+                         a comparison of the compressor displacements will be applicable. It would be appropriate to select a
+                         compressor slightly larger than the defective one.
+                         For a capillary tube system with pressure equalization during idle periods, a LST compressor (low starting
+                         torque) can be used, and for a system with expansion valve or no pressure equalization a HST ­compressor
+                         (high starting torque) is to be chosen. Of course a HST compressor may also be used in a capillary tube
+                         system.
+                         Finally the compressor cooling conditions must also be considered. If the system has an oil cooling setup, a
+                         compressor with an oil cooler must be selected.
+                         When performing service work, a compressor with an oil cooler instead of a compressor without oil cooler
+                         can be used without any problems, since the spiral can be completely ignored when it is not required.
+
+   1.5                   The best solution for performing repairs is to select the same refrigerant as used in the present system.
+   Replacing             Secop compressors are supplied or were supplied in versions for the refrigerants R12, R22, R502, R134a,
+                         R404A/R507/R407C and for the flammable refrigerants R290 and R600a.
+   refrigerant           The refrigerants R12 and R502, which are covered by the regulations in the Montreal Protocol, may only be
+                         used in a very few countries, and the refrigerants will eventually be phased out of production altogether.
+                         For heat pump systems, the refrigerant R407C is now used instead of R22 and R502.
+                         The more environmentally acceptable refrigerant R134a has replaced R12, and the refrigerants R404A and
+                         R507 have replaced R22 and R502 in many applications.
+
+                         The flammable refrigerants R290 and R600a
+                         Maximum charge of these refrigerants in a system is 150 g according to today’s relevant appliance standards,
+                         and they may only be used in small refrigerators.
+                         The flammable refrigerants may only be used in refrigeration systems meeting the requirements of EN/IEC
+                         60335-2-24 or -2-89, including demands for flammable refrigerants. Service personnel must be specially
+                         trained to handle them. This implies knowledge of tools, transporting compressors, and refrigerants as well
+                         as all relevant rules and safety regulations.
+                         If open fire or electrical tools are used near the refrige­rants R600a and R290, this may only take place in
+                         conformity with current regulations.
+                         The refrigeration systems must always be opened with a tube cutter.
+
+                         Changing from the refrigerants R12 or R134a to R600a is not permitted, since the refrigerators are not
+                         approved for use with flammable refrigerants, and the electrical safety has not been tested according to
+                         current standards. The same applies to change from the refrigerants R22, R502 or R134a to R290.
+
+6
+Refrigerant blends
+Some refrigerant blends for service purposes were also introduced at the same time as the new
+environmentally acceptable refrigerants (R134a and R404A) were introduced. They are more environmentally
+acceptable than the previously used CFC refrigerants (R12 and R502).
+In many countries, the refrigerant blends were only permitted for a short period, which meant that they were
+not widely used in connection with small hermetic refrigeration systems.
+Use of these refrigerants cannot be recommended for series production but they can be used for repair in
+many cases (see the table below).
+
+Refrigerant  Trade name  Composition     Replacing Application area Applicable oils
+
+R401A        Suva MP39 R22, R152a, R124  R12   L - M  Alkylbenzene
+
+R401B        Suva MP66 R22, R152a, R124  R12     L    Alkylbenzene
+R402A        Suva HP80 R22, R125, R290   R502    L
+R402B        Suva HP81 R22, R125, R290   R502  L - M   Polyolester
+                                                      Alkylbenzene
+                                                       Polyolester
+                                                      Alkylbenzene
+
+Add in
+This designation is used when filling up an existing refrigeration system with another refrigerant than the
+one originally charged. This is especially the case when problems arise which must be solved with as little
+work as possible.
+Correspondingly, R22 systems were replenished with a small amount of R12 in order to improve the flow
+of oil back to the compressor. In several countries, it is not allowed to add in to CFC systems (R12, R502,...)
+
+Drop in
+This term means that during service on an existing refrigeration system i.e. > 90 % of the original mineral
+oil is poured out and replaced by synthetic oil, and a new suitable filter drier is mounted. Furthermore, the
+system is charged with another compatible refrigerant (i.e. blend).
+
+Retrofit
+The term retrofit is used with service on refrigeration systems, replacing the CFC refrigerant by an
+environmentally acceptable HFC refrigerant. The refrigeration system is flushed, and the compressor is
+replaced by an HFC compressor. Alternatively the compressor oil is replaced by a suitable ester oil. The oil
+must be changed several times after short operating periods, and the filter drier must be replaced.
+
+When replacing the oil, a statement from the compressor manufacturer on material compatibility is
+necessary.
+
+                                                                                                                 7
+2.
+INSTRUCTIONS FOR REPAIR WORK
+
+                    To enable a hermetic refrigeration system to work as intended and to achieve a reasonable service
+                    life, the content of impurities, moisture and non-condensable gases must be kept at a low level. When
+                    assembling a new system, these requirements are relatively easy to meet, but when repairing a defective
+                    refrigeration system, the matter is more complicated. Among other things, this is due to the fact that faults
+                    in a refrigeration system often start adverse chemical processes, and that opening a refrige­ration system
+                    creates possibilities for contamination.
+                    A series of preventive measures is necessary if repair work is to be successful. Before stating any details
+                    about the repair work, some general rules and conditions have to be explained.
+
+2.1
+Opening the system
+
+                                                     Fig. 5: Hermetic refrigeration system with capillary tube
+
+                    If the refrigeration system contains a flammable refriger­ ant such as R600a or R290, for example, this will
+                    appear on the type label. A Secop compressor will be provided with a label as shown in Fig. 6.
+
+                                                                                 Fig. 6: Label on compressor for R600a & R290
+                                         Servicing and repairing such systems demand specially trained personnel. This implies knowledge of tools,
+                                         transporting a compressor, and refrigerants as well as the relevant guidelines and safety rules.
+                                         When working with the refrigerants R600a and R290, open fire may only occur as described in existing
+                                         guidelines.
+                                         Fig. 7 shows a piercing valve for mounting on the pro­cess tube, thus creating an opening in the system for
+                                         draining off and collecting the refrigerant as per instructions.
+
+8
+                        Fig. 7: Piercing valve
+
+                                                                      Fig. 8: Recovery unit for refrigerants
+
+                        Before starting to cut tubes in the refrigeration system it is recommended to clean the tubes with an emery
+                        cloth in the places to be cut. This prepares the tubes for subsequent brazing and prevents grains of dirt from
+                        entering the system.
+                        Only use tube cutter, never metal-cutting saw, for cutting tubing in a refrigeration system. Merely a small
+                        burr left in the system can cause a subsequent breakdown of the compressor. All refrigerants must be
+                        collected as per instructions.
+                        When a capillary tube is cut, it is essential to avoid burrs or deformations to the tube. The capillary tube can
+                        be cut with special pliers (see Fig. 9), or with a file a trace can be produced in the tube which can then be
+                        broken.
+
+                        Fig. 9: Special pliers for capillary tubes
+
+2.2                     A system charged with refrigerant must never be heated or brazed, especially not when the refrigerant is
+Brazing under an inert  flammable. Brazing on a system containing refrigerant will cause the formation of refrigerant decomposition
+protective gas          products.
+                        Once the refrigerant is drained off, an inert protective gas must be filled into the system. This is done by a
+                        thorough blow-through with dry nitrogen. Before the blow-through, the system must be opened in one more
+                        place.
+
+                        If the compressor is defective, it would be advisable to cut the suction and pressure tube outside the
+                        compressor connectors, not opening the process tube. However, if the compressor is working properly, it is
+                        recommended to cut the process tube. Blow-through must be done first through the evaporator and then
+                        through condenser. An inlet pressure of approx. 5 bar and a blow-through of approx. 1–2 minutes would be
+                        sufficient for appliances.
+
+                                                                                                                                          9
+2.3           The filter drier absorbs the small water amounts released through the life of the system. It acts as a trap
+Filter drier  strainer and prevents the capillary tube inlet from blockage and problems with dirt in the expansion valve.
+
+              If a refrigeration system has been opened, the filter drier must always be replaced to ensure sufficient
+              dryness in the repaired system.
+
+              The filter drier must always be replaced without the use of a torch. When heating the filter drier, there is a
+              risk of transferring the absorbed moisture amount to the system. The possibility of a flammable refriger­ ant
+              being present must also be considered.
+              In case of a non-flammable refrigerant, a blowpipe flame may be used, but the capillary tube must be
+              broken, and then dry nitrogen must be blown through the filter towards the open air while the filter drier is
+              detached.
+              Normally, a filter drier can absorb a water amount of approx. 10% of the desiccant weight. In most systems,
+              the capacity is not utilized, but in cases of doubt about the filter size, it is better to use an oversized filter
+              than one with a small capacity.
+              The new filter drier must be dry. Normally this is no problem, but it must always be ensured that the filter
+              drier sealing is intact to prevent moisture collection during storage and transport. The filter drier must be
+              mounted in a way so that the flow direction and gravitation have an effect in the same direction.
+
+              This prevents the Molecular Sieve (MS) balls from wearing against each other and producing dust, which
+              could block the capillary tube inlet. This vertical position also ensures quicker pressure equalization in
+              capillary tube systems. See Fig. 10.
+
+                                                                                     7469
+
+                                                           Fig. 10: Correct location of filter drier
+
+              As water has a molecule size of 2.8 Ångstrøm, molecular sieve filters with a pore size of 3 Ångstrøm are
+              suitable for commonly used refrigerants. The water molecules are absorbed in the pores of the desiccant,
+              whereas the refrigerant can freely pass through the filter.
+
+                                                                 Compressor          Filter drier
+                                                                 P and T             6 gram or more
+                                                                 F and N             10 gram or more
+                                                                 SC                  15 gram or more
+
+              UOP Molecular Sieve Division, USA                              4A-XH6        4A-XH7          4A-XH9
+              (earlier Union Carbide)
+
+              R12                                                            x                        x    x
+
+              R22, R502                                                      x                             x
+
+              R134a, R404A                                                                            x    x
+
+              HFC/HCFC blends                                                                              x
+
+              R290, R600a                                                                             x    x
+
+              Grace Davision Chemical, USA                                                            574  594
+
+              R12, R22, R502                                                                  x                    x
+              R134a                                                                        NL30R                   x
+              HFC/HCFC blends                                                                                      x
+              R290, R600a                                                                                          x
+              CECA S.A., France                                                                            Siliporite H3R
+
+                                                R12, R22, R502                                        x    x
+                                                R134a
+                                                HFC/HCFC blends                                       x    x
+                                                R290, R600a
+10                                                                                                         x
+
+                                                                                                           x
+2.4                   A repair must always be done quickly, and no refrigeration system must be open to the atmosphere for more
+Moisture penetration  than 15 minutes, to avoid moisture intake. Therefore, it is a good rule to have all replacement parts ready
+during repair         before the system is opened.
+
+                      If it is not possible to complete the repair continuously, the open system must be carefully sealed off and
+                      charged with a slight overpressure of dry nitrogen to avoid moisture penetration.
+
+2.5                   Rubber grommets should be mounted in the compressor base plate while the compressor is standing on
+Preparing the         its base plate. If the compressor is placed upside down, oil will gather in the connectors, which leads to
+compressor and        brazing problems. Never use rubber grommets from a defective compressor because they are often aged
+electrical equipment  and harder than new rubber grommets.
+                      Remove the cap (capsolute) from the process connector of the new compressor and braze a process tube
+                      into the connector. Leave the compressor closed until it is to be brazed into the system.
+                      It is recommended to plug all connectors on compressor, filter drier, and system if for some reason the
+                      repair is delayed.
+
+                      The aluminum caps on the connectors must not be left in the finished system.
+
+                      The caps are only intended to protect the compressor during storage and transport and do not provide
+                      tightness in a system under pressure. The caps make sure that the compressor has not been opened after it
+                      has left Secop. If the caps are missing or are damaged, the compressor should not be used until it has been
+                      dried and the oil has been replaced.
+
+                      Never reuse old electrical equipment.
+
+                      It is always recommended to use new electrical equipment with a new compressor, since the use of old
+                      electrical equipment with a new compressor may lead to the compressor developing defects.
+                      The compressor must not be started without a complete starting device. Since part of the starting circuit
+                      resistance lies in the starting device, starting without the complete starting device does not provide good
+                      starting torque and may result in the compressor's start winding to heat very quickly, causing it to be
+                      damaged.
+
+                      The compressor must not be started in a vacuum.
+                      Starting the compressor in vacuum may cause a breakdown inside between the pins of the current lead-in,
+                      since the insulation property of the air is reduced at falling pressure.
+
+                      Fig. 11 shows a wiring diagram with PTC starting device and winding protector. A run capacitor connected to
+                      the terminals N and S will reduce energy consumption on compressors designed for this purpose.
+
+                      Fig. 11: Wiring diagram with PTC and winding protector
+
+                                                                                                                                                                    11
+                                          Fig. 12 shows a wiring diagram with starting relay and starting capacitor as well as a motor protector
+                                          mounted outside the compressor.
+                                          Fig. 13 shows a wiring diagram for large SC compressors with CSR motor.
+
+                                                                      Fig. 12: Wiring diagram with starting relay and starting capacitor
+
+                                                                                       Fig. 13: Wiring diagram for CSR motor
+
+12
+2.6      Creation of the correct brazing fit is important. Recommended brazing gaps for brazing joints.
+Brazing
+         If the connection tube is made of steel a solder without phosphor and with a melting point below 740 °C
+         must be used.
+
+         Silver brazing solder  Material        Material
+         Easy-flo               Copper tubes    Steel tubes
+         Argo-flo               0.05 - 0.15 mm  0.04 - 0.15 mm
+         Sil-fos                0.05 - 0.25 mm  0.04 - 0.2 mm
+                                0.04 - 0.2 mm   Not suitable
+
+         The connectors of most Secop compressors are copper plated steel tubes welded into the compressor
+         housing. The welded connections cannot be damaged by overheating during brazing.
+         It is possible to drift the 6.2 mm connectors to 6.5 mm, which fits a ¼” (6.35 mm) tube, but it is not
+         recommended to drift the connectors more than 0.3 mm. During drifting a backstop is necessary to prevent
+         the connector from breaking off. See Fig. 14.
+
+                                                            Fig. 14: Drifting of connector
+         Instead of drifting the connectors a reducing pipe as shown in Fig. 15 can be used.
+
+                                                                Fig. 15: Reducing pipe
+
+         Brazing connectors to a copper tube may be done with a solder containing 2% silver. Phosphorus solder may
+         also be used provided that the connected tube is made of copper.
+
+         It may also be sufficient to use just one solder for all joints, and in this case it is recommended to use
+         a solder with a silver content of at least 30% to keep the melting temperature in the solder as low as
+         possible. This prevents the brazing joints from overheating. A flux must be used with the solder, and it is
+         recommended to stir this into alcohol instead of water (approx. 1/3 flux in 2/3 alcohol). In this way the risk of
+         water entering the system is reduced.
+         After brazing the flux residues must be removed by brushing the joint.
+
+                                                                                                                                                                                                  13
+                                          To achieve a sufficiently high torch flame temperature, it is recommended to use both acetylene and oxygen
+                                          or propane and oxygen since bottled gas, for example, provides a temperature that is too low.
+                                          Brazing steel connectors is slightly different from brazing of copper connectors.
+                                          Below you will find guidelines for brazing steel connectors:
+                                          During heating, the temperature must be kept as close to the solder melting point as possible. Overheating
+                                          will cause damage to the tube surface, which reduces the chances for a good joint.
+                                          Use the soft heat in the torch flame when the joint is heated.
+                                          Distribute the flame in a way that at least 90% of the heat is concentrated around the connector and approx.
+                                          10% around the connection tube. See Fig. 16.
+
+                                                                                    Fig. 16: Brazing process for steel connector
+                                          When the connector is cherry red (approx. 750 °C), the flame must be moved to the connection tube for a
+                                          few seconds. See Fig. 17.
+
+                                                                                    Fig. 17: Brazing process for steel connector
+                                          Continue heating the joint with a soft flame and add solder. See Fig. 18.
+
+                                                                                    Fig. 18: Brazing process for steel connector
+                                          Draw the solder into the brazing gap by slowly moving the flame towards the compressor and then removing
+                                          the flame. See Fig. 19.
+
+                                                                                    Fig. 19: Brazing process for steel connector
+                                          Brazing capillary tubes requires quite some precision, partly because overheating will quickly occur, and
+                                          partly because the capillary tube is easily blocked.
+
+14
+                       When the capillary tube is inserted into the filter drier, it can be put so far in that it pushes against the filter
+                       mesh. On the one hand, this may cause blockages, as the refrigerant can only pass a limited part of the
+                       filter mesh. On the other hand, the capillary tube may not be put far enough into the filter drier, thus risking
+                       it to be closed by solder. These problems can be avoided by using capillary tube pliers as shown in Fig. 20.
+
+                                                        Fig. 20: Capillary tube correctly located in the filter drier
+
+                       Depending on the routine a large or small torch size must be used. In some cases it may be necessary to use
+                       a double torch as shown in Fig. 21, as both sides of the joint can then be heated at the same time.
+
+                                                                             Fig. 21: Double blowpipe
+
+                       Refrigeration systems containing the flammable refrigerants R600a and R290 must not be brazed. In these
+                       cases a LOKRING® connection can be used.
+
+2.7                    When servicing systems with flammable refrigerants, LOKRING® connections may be used for tube joints,
+LOKRING® connections   especially for closing the process tube. With a LOKRING® connection as shown in Fig. 22 tight tube joints can
+                       be established in aluminum, copper, and steel. Before assembly, the tube ends must be carefully cleaned
+(VULKAN Lokring        with steel wool or an emery cloth, and cleaning must be using rotating movements to avoid scratches along
+Rohrverbindungen GmbH  the tubes, which may complicate sealing. Make sure that no dirt enters the system.
+& Co. KG)
+
+                                                                         Fig. 22: LOKRING® connection
+
+                       To ensure a tight seal, the tube ends must be moistened with LOKPREP®, since this material fills any
+                       irregularities present in the tube surface. Once the tube ends have been inserted in the LOKRING®
+                       connection until they reach their final position, the tubes must be turned to obtain a good distribution of
+                       LOKPREP® ® on the tube surfaces. The joint must then be pressed together with a special tool as shown
+                       in Fig. 23.
+
+                                                                                                                                                                                                                15
+2.8                                                             Fig. 23: Tool for LOKRING®
+Evacuation
+            After 2–3 minutes, the LOKPREP® will harden, and the joint will be stable.
+
+            When a refrigeration system is assembled it must be carefully evacuated, i.e. the air is removed from the
+            system, before it is charged with refrigerant. This is necessary to achieve a good repair result. The primary
+            purpose of the evacuation is to reduce the amount of non-condensable gasses (NCG) in the system, and
+            secondly, limited drying will take place. Moisture in the system may cause ice blocking, a reaction with the
+            refrigerant, aging of the oil, acceleration of oxidation processes, and hydrolysis with insulation materials.
+
+            Evacuation of refrigerating system.
+            Non-condensable gasses (NCG) in a refrigeration system may mean increased condensing pressure and
+            thus greater risk of coking processes and a higher energy consumption.
+            The content of NCG must be kept below 1 vol. %.
+
+            Evacuation may be done in different ways depending on the volume conditions on the suction and discharge
+            side of the system. If the evaporator and compressor have a large volume, one-sided evacuation may be
+            used, otherwise double-sided evacuation is recommended.
+
+            One-sided evacuation is done through the compressor process tube, however this method means slightly
+            worse vacuum and a slightly higher content of NCG. The air must be removed through the capillary tube
+            From the discharge side of the refrigeration system, thus resulting in substantial restriction. The result will
+            be higher pressure on the discharge side than on the suction side.
+            The main factor for the NCG content after evacuation is the equalized pressure in the system, which is
+            determined by the distribution of volumes. Typically, the volume on the discharge side will constitute 10-20 %
+            of the total volume, and therefore the high end pressure has less influence on the equalized pressure here
+            than the large volume and low pressure on the suction side.
+
+                                                                                              Fig. 24: Evacuation process
+
+16
+Sample calculation concerning the amount of NCG after evacuation in a system with:
+• Discharge side: pD = 50 mbar volume VD = 15 %
+• Suction side: ps = 0.3 mbar volume Vs = 85 %
+
+Example:                        V = 2.25 l
+After evacuation
+• Total volume                  p1 = 50 mbar
+• Discharge side                V1 = 15% = 0.3375 l
+                                p2 = 0.3 mbar
+• Suction side                  V2 = 85% = 1.9125 l
+
+Pequilized = p1 · V1 + p2 · V2
+                  Vtotal
+
+Pequilized = 50 · 0.3375 + 0.3 · 1.9125 = 7.755 mbar
+                        2.25
+
+Typical operating point of example appliance with R134a.
+
+Evaporating temperature -30 ˚C suction pressure 0.844 bar.
+Condensing temperature +44 ˚C discharge pressure 11.30 bar.
+Pressure ratio 13.39.
+
+NCG will be pumped with the refrigerant and be compressed with the same pressure ratio.
+
+(p · V)NCG = 7.755 · 2.25 = 17.45 mbar I
+
+(p · V)R134a = p1 · V1 + p2 · V2 =
+0.844 · 1.9125 + 11.30 · 0.3375 = 5.4279 bar I
+
+NCGvol = (p · V)NCG = 17.45     · 0.0032 = 0.32 %
+(p · V)R134a 5.4279 · 100
+
+This calculation does not take into account the quantity of air absorbed in the compressor's oil filling, which
+can vary from 0 to 10 vol.%. This means that the NCG content will be slightly higher in practice.
+
+One-sided evacuation must be done until a sufficiently low pressure is obtained in the condenser. Here it
+might be necessary to do one or more short evacuations with intervening pressure equalizations.
+
+Double-sided evacuation must be done until a sufficiently low pressure is obtained.
+These procedures require the parts to have a low moisture content when being mounted.
+It is possible to obtain a low pressure in the system within a reasonable time by doing a double-sided
+evacuation. This means that a leak test is possible before charging the refrigerant.
+
+Fig. 24 shows a typical course of a one-sided evacuation from the compressor process tube. It also shows
+a pressure difference in the condenser, which may be remedied by increasing the number of pressure
+equalizations.
+The broken line shows a procedure in which the two sides are evacuated at the same time. When time is
+limited, the final vacuum depends only on the vacuum pump capacity and the content of volatile components
+or non-condensable gasses in the oil charge.
+
+Fig. 25 shows an example of an evacuation process with a built-in leak test. The vacuum obtained depends
+on the process chosen.
+
+Double-sided evacuation gives the best result and must be recommended.
+
+Once a vacuum below 1 mbar is obtained, the system must be pressure equalized before the final evacuation
+and charge of refrigerant.
+Normally mbar is used as an expression of a vacuum but other entities are also used, e.g.:
+1 mbar = 0.75 torr = 0.75 mmHg
+1 mbar = 100 Pascal = 7.5E2 micron
+
+There will always be a certain increase in pressure in a tight system when the connection to the vacuum
+pump is closed due to desorption of moisture from inner surfaces in the system and evaporation of volatile
+components from the compressor oil charge. In practice, a pressure rise of approx. 0.1 mbar is anticipated.
+This pressure rise is often used as an indication of the degree of dryness and tightness in the system and is
+very much used during service.
+
+                                                                                                                 17
+2.9                                                         Fig. 25: Evacuation process with leak test
+Vacuum pump and  A good vacuum pump must be available to perform sufficient evacuation. See Fig. 26.
+vacuum gauge
+
+                                                                        Fig. 26: Vacuum pump
+
+                 For stationary use, a two-stage 20 m3/h vacuum pump can be recommended but for service, a smaller two-
+                 stage 10 m3/h vacuum pump is better suited due to its lower weight.
+                 A hermetic refrigeration compressor is not suitable for the purpose since it is not able to produce a sufficiently
+                 low pressure. Also, a compressor used as a vacuum pump would become overheated and damaged.
+                 The insulation resistance of the air is reduced at falling pressure, and therefore an electrical breakdown at
+                 the current lead-in or in the motor of the hermetic compressor will quickly occur.
+                 The same vacuum pump may be used for all types of refrigerants provided that it is charged with ester oil.
+                 A flameproof vacuum pump must be used for refrige­ration systems containing the flammable refrigerants
+                 R600a and R290.
+
+                 There is no point in having a suitable vacuum pump available if the vacuum obtained cannot be measured.
+                 Therefore, it is strongly recommended to use an appropriate robust vacuum gauge (Fig. 27) able to measure
+                 pressure below 1 mbar.
+
+                                                                                                 Fig. 27: Vacuum gauge
+
+18
+3.
+HANDLING REFRIGERANTS
+
+3.1            To ensure a reasonable refrigeration system life the refrigerant must have a maximum moisture content of
+Charging with  max 20 ppm (20 mg/kg).
+refrigerant    Do not fill refrigerant from a large container into a filling bottle through several container sizes, since the
+               water content in the refrigerant is increased considerably with every drawing-off.
+
+               Flammable refrigerants R290 and R600a
+               R600a must be stored and transported in approved containers only and must be handled according to
+               existing guidelines.
+
+               Do not use open fire near the refrigerants R600a and R290.
+               The refrigeration systems must be opened with a tube cutter.
+
+               Conversion from refrigerants R12 or R134a to R600a is not permitted, since the refrigerators are not
+               approved for operation with flammable refrigerants, and the electrical safety has not been tested according
+               to existing standards either. The same applies to conversion from refrigerants R22, R502 or R134a to R290.
+
+               Normally, charging with refrigerant is no problem with a suitable charging equipment which displays the
+               current charging amount. The current refrigeration charge of the system has to be known. See Fig. 28.
+
+                                                            Fig. 28: Charging board for refrigerant
+
+               Always charge the refrigerant amount and type stated by the refrigerator manufacturer. In most cases, this
+               information is stated on the refrigerator type label.
+               The different compressor brands contain different amounts of oil, so when converting to another brand it
+               may be advisable to adapt the amount of refrigerant.
+               Refrigerant can be charged by weight or by volume. Flammable refrigerants such as R600a and R290 must
+               always be charged by weight. Charging by volume must be done with a refrigerant charging cylinder.
+               The refrigerant R404A and all other refrigerants in the 400 series must always be charged as liquid.
+
+               If the charging amount is not known, charging must be done gradually until the temperature distribution
+               above the evaporator is correct. However, it will be often times more appropriate to overcharge the system
+               and then gradually draw off refrigerant until the correct charge has been obtained. The refrigerant charge
+               must be made with a running compressor, refrigerator without load, and with the door closed.
+
+               The correct charge is characterized by the temperature being the same from inlet to outlet of the evaporator.
+               At the compressor suction connector the temperature must be approx. ambient temperature. This prevents
+               moisture from being transferred to the refrigerator insulation. See Fig. 29.
+
+                                                                                                                                                                                                        19
+                                                                     Fig. 29: Evaporator temperatures
+
+                     Systems with an expansion valve must be charged with refrigerant until there are no bubbles in the sight
+                     glass, which should be placed as close to the expansion valve as possible.
+
+3.2                  If the permissible limit of refrigerant charge stated in the compressor data sheet is exceeded, the oil will
+Maximum refrigerant
+charge               foam in the compressor after a cold start and may result in a damaged valve system in the compressor.
+
+3.3                  The refrigerant charge must never exceed the amount that can be contained in the condenser side of the
+Test
+                     system.
+
+                              Compressor          Max. refrigerant charge
+
+                              type        R134a   R600a  R290                                                             R404A
+
+                              P           300 g.  120 g    -                                                                 -    * Single types with
+                              T           400 g*  150 g  150 g                                                            600 g     higher limits available,
+                              DELTA               150 g                                                                             see data sheets.
+                              X              -    150 g    -                                                                 -
+                              D, DLV         -    150 g    -                                                                 -
+                              TL ... G       -    150 g  150 g                                                               -
+                              KAPPA       600 g   150 g  150 g                                                               -
+                              N, NLV         -    150 g    -                                                                 -
+                              F           400 g*  150 g  150 g                                                               -
+                              S, SLV      900 g.           -                                                              850 g
+                              G           1300 g    -    150 g                                                            300 g
+                              SC Twin     2000 g    -      -                                                              2000 g
+                                          2200 g    -      -                                                              2200 g
+
+                     Please also refer to the compressor data sheets, since the present maximum refrigerant charge may deviate
+                     on single types from the information in the form. The maximum charge of 150 g for R600a and R290 is an
+                     upper safety limit of the appliance standards, whereas the other weights are stated to avoid liquid hammer.
+                     Before completing repair work, the entire refrigerator must be tested to make sure that the expected
+                     result has been achieved. It must be ensured that the evaporator can be cooled down and thus enable the
+                     requested temperatures to be obtained.
+                     For systems with a capillary tube as the throttling device it is important to check if the compressor runs
+                     satisfactorily on the thermostat. In addition, it must be checked if the thermostat differential allows for
+                     sufficient idle periods for pressure equalization so an LST compressor (low starting torque), if any, can start
+                     and operate without tripping on the motor protector.
+                     In areas where undervoltage may occur, it is important to test operating conditions at 85% of the nominal
+                     voltage, since both starting and stall torque of the motor will decline when the voltage is falling.
+
+3.4                  A hermetic refrigeration system must be tight, and if a refrigerator is to have a reasonable lifetime it is
+Leak test            necessary to keep any leaks below 1 gram refrigerant annually.
+                     Many refrigeration systems with the flammable refrigerants R600a and R290 have charging amounts below
+                     50 g, in these cases the leaks should be below 0.5 g refrigerant annually. This requires high-quality electronic
+                     testing equipment that can measure these small leak rates.
+                     It is relevant to test all brazed joints of the system, also in places where no repair has been made. The joints
+                     on the discharge side of the system (from the compressor discharge connector until condenser and filter
+                     drier) must be examined during operation of the compressor, which results in the highest pressures.
+                     Evaporator, suction tube, and compressor must be examined while the compressor is not operating and the
+                     pressure in the system is equalized, as this results in the highest pressures here (see Fig. 30).
+                     If no electronic detector (Fig. 30) is available, the joints may be examined using soapy water or with spray,
+                     but of course small leaks cannot be found with these methods.
+
+                                                                                                  Fig. 30: Leak detector
+
+20
+4.
+REPLACING A DEFECTIVE
+COMPRESSOR
+
+                        A procedure for replacing a defective compressor in a hermetic refrigeration system is outlined below
+                        according to the basic guidelines. A precondition is that there is a refrigerant overpressure in the system
+                        and that the system is not contaminated with moisture. The refrigerant must correspond to the original
+                        refrigerant.
+                        During fault finding the compressor is found to be defective. If it turns out that the motor has burnt resulting
+                        in strong contamination of the system then another procedure is required.
+
+4.1                     By starting with preparing the replacement parts later, prevents delays with opened systems, and thus also
+Preparing               poses increased risk for admission of moisture and impurities.
+components              A process tube with process valve must be mounted into the process connector of the new compressor.
+                        In some cases, it may be an advantage to insert a piece of connecting tube into the compressor suction
+                        connector.
+                        By doing so, the later connection of the suction tube to the compressor can take place further away from the
+                        compressor if mounting conditions in the machine compartment are narrow.
+                        When the compressor is ready, process valve and connectors must be closed. Further, the correct filter drier
+                        type must be ready but the cover must remain intact.
+
+4.2                     Place a piercing valve connection to a recovery unit on the compressor process tube. Puncture the tube and
+Removing the charge     collect the refrigerant according to the guidelines. Follow the rules described earlier.
+
+4.3                     Cut the compressor suction and discharge tube with a tube cutter approx. 25-30 mm from the connectors in
+Removing the defective  question. Beforehand, the places to be cut must be trimmed with emery cloth preparing the brazing.
+compressor              If the compressor is to be tested later, the tube ends must be closed with rubber plugs.
+                        To facilitate any analysis or guarantee repair later the compressor must be provided with the cause for the
+                        fault and the refrigerator production date. Compressors for R600a and R290 must always be evacuated and
+                        sealed before they are returned to refrigerator manufacturer or dealer.
+
+4.4                     To avoid decomposition of any refrigerant residues in the system during the subsequent brazing operations
+Removing refrigerant    the system must be thoroughly blown through with dry nitrogen. This is done by connecting the connection
+residue                 tube from the bottle with dry nitrogen first to the cut suction tube and afterwards to the cut discharge tube.
+
+4.5                     The filter drier at the condenser outlet should be cut with a tube cutter but another method may also be
+Removing the filter     used. Produce a slight flow of dry nitrogen through the discharge tube to the condenser and maintain this
+drier                   flow while the filter is carefully removed with a torch. Avoid heating the filter enclosure itself.
+
+4.6                     Soldering silver must be removed from the condenser outlet. This is best done by brushing it off while the
+Cleaning the braze      soldering silver is still liquid. The other tube ends are to be prepared for brazing in case this has not yet been
+joints and reassembly   done. Take care that grains of dirt or metal do not enter the system when trimming brazed joints.
+                        If necessary, blow through with dry nitrogen while trimming.
+                        The new filter drier must be mounted at the condenser outlet, and the filter must be kept covered until
+                        assembly can take place. Avoid heating the filter enclosure itself with the flame.
+                        Before brazing the capillary tube into the filter a slight stop must be produced on the tube as described
+                        earlier to ensure the tube end is in the right place in the filter to avoid blockage. Be careful when brazing
+                        the capillary tube to avoid any burning.
+                        Mount the compressor, which should be fitted with rubber grommets during preparation. Mount the
+                        electrical equipment and connect the wires. Evacuation and charge are to be done as described in chapters
+                        2.8 and 3.1. Test to be made as described in chapters 3.3 and 3.4. The process valve must be removed when
+                        the process tube is squeezed and brazed.
+
+                                                                                                                                            21
+    5.
+    CONVERSIONS
+
+    5.1                   At Secop, product development is focused on high efficiency and eco-friendly products. We believe, like all
+    From R404A to R452A   the major market stakeholders, that hydrocarbon refrigerants (isobutane R600a and propane R290) are the
+                          best solution for DC-powered applications.
+                          The use of R404A is under pressure due to global regulations, however, special attention is given to F-gas
+                          regulation in Europe. Secop recommends the move to hydrocarbon refrigerant solutions (R600a and R290)
+                          which perfectly meet the increasing market demand for high efficiency while utilizing natural refrigerants
+                          with very low GWPs.
+                          We understand that there is a transition period, where specific applications will use different refrigerants
+                          while application redesign to hydrocarbons is not possible within a short period of time. Tests have so far
+                          shown good results with refrigerant R452A as a drop-in replacement for R404A.
+                          Based on this information, Secop allows the use of R452A on all its R404A released compressors. It is the
+                          customer’s responsibility to validate the application and they should carefully consider the requirements
+                          and constrains when changing the R404A to R452A in their application.
+                          (Please refer to Product Bulletin "Refrigerant R452A in Secop Compressors")
+
+    5.2                   Conversions from refrigerants R134a to R600a are not permitted as 1:1 replacements, as the refrigerator
+    From R134a to R600a   must be approved for operation with flammable refrigerants, and the electrical safety has to be tested
+    or R290               according to existing standards. The same applies to conversions from refrigerants R502 or R134a to R290.
+                          In many cases of transition from non-flammable to flammable refrigerants the appliance cabinet must be
+                          modified for safety or other reasons.
+                          Refrigerant containing system parts according to IEC / EN 60335 must withstand a specified pressure
+                          without leaking. The high pressure side must withstand saturation overpressure of 70 °C times 3.5, and the
+                          low pressure side must withstand saturation overpressure of 20 °C times 5.
+                          Secop has been a pioneer and early adopter of hydrocarbons as refrigerants and offers a variety of suitable
+                          compressors for R600a and R290.
+                          (Please refer to Application Guideline "Practical Application of Refrigerants R600a and R290 in Small
+                          Hermetic Systems").
+
+    5.3                   R1234yf is a future refrigerant candidate in auto air conditioning replacing R134a. Likewise it might be used
+    From R134a to R1234y  in DC-powered applications where a redesign of the system to propane is not possible.
+                          R1234yf is classified as flammable in the relevant safety standards. It is more expensive than R134a, yet
+                          holds remarkably less greenhouse potential than R134a.
+                          Our R134a compressors can be used for testing with this refrigerant and we are ready to support you in your
+                          investigation and approval procedure.
+                          Investigations on material compatibility have so far shown good results with refrigerant R1234yf in Secop
+                          R134a compressors. These results must be confirmed in ongoing long term tests.
+                          At present, testing system performance can be carried out with the compressors originally designed for
+                          R134a. The same application limits as described on the R134a data sheet may be used.
+                          The compressors designed for R134a do currently (07/2017) not have a safety approval for flammable
+                          refrigerants like R1234yf, but might be available in approved variants within the near future.
+                          (Please refer to Product Bulletin "Refrigerant R1234yf in Secop Compressors")
+
+22
+6.
+SYSTEMS CONTAMINATED WITH
+MOISTURE
+
+6.1             Systems contaminated with moisture can vary in the degree of contamination, and the scope of repair work
+Low level of    will vary accordingly. Systems containing moisture can be divided into two categories: namely the ones with
+contamination   a low degree of contamination and the ones with a high degree of contamination.
+                Systems with a low degree of contamination are intact and maintain refrigerant overpressure. Systems with
+6.2             a high degree of contamination, have been in contact with the atmosphere or moisture has been added
+High degree of  directly. The two types of defect will be treated independently.
+contamination
+                This defect is usually characterized by cooling often interrupted due to ice blockage in the capillary tube
+                or in the expansion valve. With heat supply the ice blocking is gradually removed, but if the refrigerant
+                circulates the blockage will quickly build up again.
+                This defect may be due to the following reasons:
+
+                The system has not been assembled carefully enough.
+                The components used may have been moist.
+                A refrigerant with a moisture content that is too high may have been used.
+                The system will often be new or it has just been repaired. Usually the moisture amounts are small, and
+                therefore the defect can normally be remedied by replacing refrigerant and the filter drier. The procedure
+                is as follows:
+
+                a) Open the system at the process tube and collect the refrigerant.
+                It is beneficial to first let the compressor run until it is hot. In this way the moisture and refrigerant amount
+                left in the motor or in the oil is reduced.
+                If ice is blocking capillary tube or expansion valve, it is possible to run the compressor hot, however, the
+                system will not run.
+                If the capillary tube or expansion valve are accessible, the blockage may be kept hot with a heating lamp or
+                a cloth with hot water to cause the refrigerant to circulate.
+                The evaporating temperature in the system may also be increased by heating the evaporator. Do not use an
+                open flame for heating.
+
+                b) After collecting the refrigerant, the system must be blown through with dry nitrogen. Nitrogen injection
+                must take place through the compressor process tube, and first the suction side and then the discharge side
+                must be blown through, first directing the nitrogen flow from the compressor through the suction tube and
+                evaporator and out through the capillary tube, then through compressor and condenser and out through the
+                filter drier at the condenser outlet. It is beneficial to blow through with so much pressure that any oil in the
+                components is removed.
+
+                c) Replace the filter drier and process tube as described above. It pays to use an oversized filter drier.
+
+                d) When the system is reassembled, evacuation must be carried out very carefully. Charge and test according
+                to earlier mentioned guidelines.
+
+                If there is a rupture in a refrigeration system and the refrigerant overpressure escapes, moisture contamination
+                will take place. The longer the system is exposed to the atmosphere, the higher the degree of contamination.
+                If the compressor is operating at the same time, conditions will worsen further. The moisture amount
+                admitted will distribute in the compressor, filter drier, and other system components depending on their
+                ability to hold the moisture.
+                The oil charge, in particular, in the compressor will absorb the water. Contamination in the evaporator,
+                condenser, and tubes will primarily be determined by the oil amounts present there. Of course the largest
+                water amounts will be present in compressor and filter drier. There is also a high risk that valve coking
+                has begun damaging the compressor. Therefore, compressor and filter drier must be replaced during the
+                normal repair procedure.
+
+                                                                                                                                                                                                         23
+                           a) Remove the compressor from the system with a tube cutter.
+                           b) Break the capillary tube at the condenser outlet, and blow through the condenser with dry nitrogen as
+
+                              protective gas.
+                              Remove the filter drier.
+                              Repeat the blow-through with increased pressure to remove oil from the condenser, if any.
+                              Cover condenser inlet and outlet.
+
+                           c) Treat suction line heat exchanger and evaporator in the same way. The opportunity of an efficient blow-
+                              through is improved if the capillary tube is broken off at the evaporator inlet. Blow-through with
+                              nitrogen will then take place in two paces; first suction tube and evaporator, then capillary tubes.
+                              If the reason for the repair is a broken capillary tube, the operations must be changed to replace the
+                              entire heat exchanger.
+
+                           d) Reassemble the system with a new compressor and a new filter drier in the right size.
+
+    6.3                    Evacuation must be done with special care, and subsequently charged and tested according to the general
+    Evacuation             guidelines. The outlined procedure is best suited for simple refrigeration systems.
+                           If the system has difficult access and the design is complex the following procedure may be better suited.
+
+                           e) Remove the compressor from the system and treat it according to point a.
+
+                           f) Break the capillary tube at the condenser outlet. Blow through with nitrogen through suction and
+                              discharge tube.
+
+                           g) Mount a new oversized filter drier at the condenser outlet. Connect the capillary tube to the filter drier.
+
+                           h) When the system, excl. compressor, is intact again carry out a drying. This is done at the same time by
+                              connecting suction and discharge tube to a vacuum pump and evacuating to a pressure lower than 10 mbar.
+                              Equalize pressure with dry nitrogen. Repeat evacuation and equalization of pressure.
+
+                           i) Mount the new compressor. Then evacuate, charge, and test.
+
+    6.4                    In some markets, it may be necessary to repair a moist compressor in a workshop, and one is then obliged
+    Drying the compressor  to manage somehow. The drying process described here can offer the desired result, provided that the
+                           process is closely complied with.
+
+                           Draw off the compressor oil charge.
+                           Then flush the compressor inside with ½-1 liters of a non-flammable low pressure refrigerant or solvent.
+                           Plug the compressor with the solvent inside and shake it thoroughly in all directions so that the refrigerant
+                           coats all inside surfaces.
+                           Collect the solvent as explained.
+                           Repeat the operation once or twice to ensure that no substantial oil residues are left in the compressor.
+                           Blow through the compressor with dry nitrogen.
+                           Connect the compressor to an arrangement as shown in Fig. 31.
+
+                           Plug the discharge connector.
+                           The connections to the compressor suction connector must be vacuum tight. This can be achieved by using
+                           brazed joints or a suitable vacuum hose.
+                           Bring the compressor up to a temperature between 115 °C and 130 °C before starting evacuation. Then start
+                           the evacuation that must bring the pressure in the compressor down to 0.2 mbar or lower.
+                           The joints in the vacuum system must be tight in order to achieve the required vacuum. The moisture
+                           content in the compressor will also influence the time for reaching the vacuum.
+                           If the compressor is highly contaminated a few pressure equalizations with dry nitrogen to atmospheric
+                           pressure will enhance the process.
+                           Shut off the connection to the vacuum instrument during the pressure equalization.
+                           Temperature and vacuum must be maintained for approx. 4 hours.
+                           Upon finishing the drying process, the pressure in the compressor must be equalized to atmospheric
+                           pressure with dry nitrogen and the connectors must be sealed.
+                           Charge the compressor with the specified oil type and amount and mount it into the refrigeration system.
+
+24
+6.5                                                            Fig. 31: Drying of compressor
+Oil charge
+            In some cases it can be necessary to replenish a compressor with oil if it has lost some of the charge.
+            On some older Secop compressors, the amount of oil is indicated on the type label, however, not on all, so
+            the present oil type and amount must be found in the compressor data sheet.
+
+            It is absolutely essential to use the oil approved for the compressor in question. If a lost oil charge in a
+            compressor must be replaced, it must generally be assumed that approx. 50 ccm of the oil charge will be
+            left in the compressor when it is emptied completely by draining oil off from a connector.
+
+                                                                                                                          25
+ 7.
+ LOST REFRIGERANT CHARGE
+
+                                          The term “lost charge” covers cases in which the desired cooling function is not achieved because there is
+                                          no sufficient amount of refrigerant in the system.
+                                          The repair procedure implies a refrigerant overpressure in the system so that the contamination problems
+                                          that may be caused by penetrating moisture can be disregarded. “Lost charge” is characterized by the
+                                          fact that the intended cooling is not achieved. The running time is long, and the compressor may run
+                                          continuously. The build-up of rime on the evaporator is only partly and perhaps only around the injection
+                                          area. The compressor will operate at low evaporating pressures, and this means low power and current
+                                          consumption. The compressor will have a higher temperature than normal due to the reduced refrigerant
+                                          transport.
+                                          The difference between “lost charge” and “blocked capillary tube” consists in the prevailing condenser
+                                          pressure, however, after some time, the pressure will be the same in both cases.
+                                          “Blocked capillary tube” results in the refrigerant being pumped into the condenser, and the pressure
+                                          reaches a high level. As the evaporator is pumped empty, however, the condenser will become cold.
+                                          If the blockage is complete pressure will not be equalized when the compressor is in an idle state. With “lost
+                                          charge”, however, the pressure in the condenser will be lower than normal.
+                                          A considerable part of the repair procedure consists of finding the cause of the defect. If this is not done, it
+                                          will only be a question of time until the defect occurs again.
+                                          If the capillary tube in small systems is blocked, they will normally be scrapped, but if large expensive
+                                          systems are concerned, it may be necessary to replace the suction line heat exchanger.
+                                          The main steps for conducting repairs may be as ­follows (for non-flammable refrigerants only).
+                                          a) Mount a service valve on the compressor process tube.
+
+                                              Mount a pressure gauge and use this for fault determination.
+                                          b) Increase the refrigerant pressure in the system to 5 bar.
+                                          c) Examine all joints to see if there is any oil oozing out.
+
+                                              Perform a thorough search with leak test equipment until the leak is found.
+                                          d) Release the overpressure from the system.
+
+                                              Break the capillary tube at the condenser outlet.
+                                              Blow through the system with dry nitrogen.
+                                          e) Replace filter drier as described earlier.
+                                              Replace the process tube and repair the leak.
+                                          f) Evacuate the system and charge it with refrigerant.
+                                              Subsequently make a new leak test and test out the system.
+                                              After a pressure test of the system with high pressure perform a slowly starting evacuation with a large
+                                              vacuum pump since otherwise the oil can be pumped out of the system.
+
+26
+8.
+BURNT COMPRESSOR MOTOR
+
+8.1           A burnt motor has destroyed the wire insulation. Burning means motors where the wire insulation has
+Oil acidity   eroded. A real burning is characterized by the wire insulation in the motor having been exposed to critical
+              temperatures for a long time. If the temperature conditions in a compressor are changed in a way that the
+8.2           insulation material is exposed to a critical temperature for a long time, then burning will occur.
+Burnt system  Such critical conditions may arise when the ventilation conditions are reduced (e.g. due to a defective fan),
+              when the condenser is dirty or under abnormal voltage conditions.
+
+              The fault “lost charge” may have a corresponding effect. A part of motor cooling is done by causing the
+              refrigerant to circulate. When the refrigeration system loses charge, the evaporating pressure becomes
+              abnormally low, less refrigerant is circulated per time unit, and cooling is reduced. In many cases a motor
+              protector mounted in the electrical equipment cannot protect against such conditions. The motor protector
+              is activated both by current and by temperature. If the current consumption is low, a high temperature
+              is required around the protector to cause cut-out. However, at falling evaporating temperatures, the
+              temperature difference between motor and compressor housing will increase due to the poorer heat
+              transmission. Winding protectors placed directly in most motors provide a better protection in this situation,
+              since they are primarily activated by the motor winding temperature.
+
+              If the wire insulation has eroded, very high temperatures will arise at the short-circuited wires. This may
+              cause further decomposition of refrigerant and oil. As long as the compressor is functional, the entire
+              process may cause circulation of breakdown products and thus contaminate the system.
+              The break down of certain refrigerants may produce acid. If no cleaning is done when replacing a compressor,
+              the start of the next breakdown is sure to occur.
+              Motor defects in hermetic compressors in household refrigerators are relatively rare.
+              Normally, failures in the start winding do not cause contamination to the system but a short-circuit in the
+              main winding may very well result in contamination.
+
+              As a burnt motor may result in contamination to the system by acid products, the acidity can be taken as a
+              criterion whether the system requires a thorough cleaning. The compressor itself and the discharge side
+              of the system up to the filter drier will be the most contaminated part of the system. Once the refrigerant is
+              removed from the system the compressor oil will show contamination or acidity. A simple assessment can
+              be made with an oil sample in a clean test glass. If the oil is dark, sludgy, and perhaps contaminated with
+              decomposed particles from the motor insulation and there is an acidic smell, there is something wrong.
+
+              Repairing a burnt system with products of decomposition is not recommended, and if a repair has to be
+              performed nevertheless, it is absolutely essential to remove the decomposed products from the system
+              to avoid contamination and thus breakdown of the new compressor. The following procedure can be used.
+              a) Remove the defective compressor.
+
+                 Blow through the tubes to remove old oil.
+              b) Mount a new compressor and a Danfoss DAS suction line burnout filter in the suction tube in front of
+
+                 the compressor to protect it against contamination products.
+                 Replace the filter drier at the condenser with a DAS filter.
+              c) Evacuate and charge the system.
+                 Then let the system operate continuously for at least 6 hours.
+              d) Check the oil for acidity.
+                 If the oil is ok no further cleaning is required.
+                 Remove the filter in the suction line.
+                 Blow through the capillary tube thoroughly.
+                 Mount a new filter drier at the condenser outlet, e.g. Danfoss DML.
+                 Evacuate the system and charge it with refrigerant.
+              e) If the oil is acid under item d, replace the suction line filter and let the system operate for another 48
+                 hours and then check the oil. If the oil is ok, follow the instructions in d).
+
+                                                                                                                                                                                                       27
+    9.
+    LOCATING FAULTS ON
+    PL / DL / TL / NL / FR COMPRESSORS
+
+                                        This chapter is directed especially to the service network, for household appliances and similar. For detailed
+                                        information on compressors see the specific data sheets.
+                                        Compressors type PL, DL, TL, NL, FR, and partly SC are equipped with a PTC starting device (Fig. 32) or a
+                                        relay and start capacitor (Fig. 33). The motor protector is built into the windings.
+                                        In the event of a start failure with a cold compressor, up to 15 minutes can elapse before the protector cuts
+                                        out the compressor.
+                                        When the protector cuts out and the compressor is warm, it can take up to 1 hour before the protector cuts
+                                        in the compressor again.
+                                        The compressor must not be started without the electrical equipment.
+
+                            Fig. 32: PTC starting device  Fig 33.: Starting relay
+
+    9.1                     Before beginning systematic fault location, a good rule is to cut the supply voltage for at least 5 minutes. This
+    Location of fault       ensures that the PTC starting device has cooled off and is ready for start.
+                            A voltage drop or blackout within the first minutes of a pull down of the appliance with cold compressor, can
+                            lead to an interlocking situation. A compressor with PTC cannot start at non-equalized pressure and the PTC
+                            does not cool down so fast. It can take more than 1 hour until the appliance then operates normally again.
+
+    9.2                     To avoid unnecessary protector operation and consequent waiting time, it is important to carry out fault
+    Electrical quick check  location in the sequence given below. Tests are made according to descriptions on following page.
+                            • Remove electrical equipment
+                            • Check electrical connection between main and start pins of compressor terminal
+                            • Check electrical connection between main and common pins of compressor terminal
+                            • Replace compressor, if above connection checks failed
+                            • Else, replace electrical equipment
+
+                            If the compressor still will not operate, most probably there is no electrical compressor failure. For more
+                            detailed information on locating faults, please see the tables in chapter 11 and 12.
+
+28
+10.
+LOCATING FAULTS –
+DETECTABLE FAULTS
+
+10.1
+Check main and start
+winding
+
+                      Fig. 34: Compressor terminals                                Fig 35: Windings and protector
+
+                      Resistance between pins M (main) and S (start) on compressor terminals is measured with an ohm-meter
+
+                      (see Figure 34)
+
+                      • Connection:    Main and start
+
+                                       windings normally OK
+
+                      • No connection: Main or start winding
+
+                                       defective:                                    Replace compressor
+
+                      At cold compressor (ca. 25 °C) the values are ca. 10 to 100 Ohm for 220-240 V compressors. For partial short
+                      circuit detection, exact values are needed from data sheets of the specific compressor, which can be found
+                      on our website.
+
+10.2                  Resistance between pins M (main) and C (common) on compressor terminals is measured with an ohm-
+Check protector
+                      meter (see figure 34 and 35.)
+10.3
+Check relay           • Connection:    Protector OK
+
+10.4                  • No connection: Compressor cold: Protector defective: Replace compressor
+Check PTC
+                                       Compressor hot:           Protector could be
+
+                                                                 OK, but cut out:    Wait for reset
+
+                      Remove relay from compressor. Measure connection between connectors 10 and 12 (see figure 36):
+
+                      • No connection: Relay defective:          Replace relay
+
+                      Measure connection between connectors 10 and 11:
+
+                      In normal vertical position (like mounted, solenoid upward):
+
+                      • Connection:    Relay defective:          Replace relay
+
+                      • No connection: OK
+
+                      In top-down position (solenoid downward):
+
+                      • Connection:    OK
+
+                      • No connection: Relay defective:          Replace relay
+
+                      Remove PTC from compressor. Shake by hand. Pin C can slightly rattle.
+
+                      • Internal rattle noise
+
+                      (except pin C): PTC defective:             Replace PTC
+
+                      Measure resistance between pins M and S (see figure 37). Resistance value between 10 and 100 Ohm at
+
+                      room temperature for 220 V PTC.
+
+                      • Connection:    PTC working:              OK
+
+                      • No connection: PTC defective:            Replace PTC
+
+                      Fig. 36: Relay connections                                   Fig 37: PTC connections (backside)
+
+                                                                                                                                                                        29
+    11.
+    LOCATING FAULTS
+    TABLE I
+
+    Customer    First analysis  Possible cause         Check                                 Activity
+    claim       Compressor                                                                   (depends on result)
+                does not run
+    No/reduced                  Compressor gets no     Voltage at plug and fuse
+    cooling     Compressor      or bad power supply    Appliance energized
+                runs 100%                              Thermostat function
+                                Defective starting     Cables and connections in appliance   Replace relay
+                Compressor      equipment              Voltage at compressor terminals
+                runs on/off                            Relay function by shaking to hear if  Replace start capacitor
+                                Compressor with PTC    armature is working                   Replace if noise appears
+                                can not start at       Start capacitor function              Replace PTC
+                                pressure difference    PTC by shaking
+                                PTC defective          PTC resistance 10 to 100 Ohm          Adjust thermostat
+                                                       between M and S pin                   difference
+                                Relay defective        Stop time long enough for pressure
+                                                       equalization                          Replace PTC
+                                Compressor
+                                overloaded             PTC resistance 10 to 100 Ohm          Replace relay and
+                                                       between M and S pin                   capacitor
+                                Defective motor        Relay function by shaking, to hear    Ensure proper ventilation
+                                windings               moving of armature
+                                Defective protector    Condenser pressure and ventilation    Replace compressor
+                                Mechanically blocked   Ambient temperature too high
+                                compressor             according to type label of appliance  Replace compressor
+                                                       Check winding resistances             Replace compressor
+                                No or low refrigerant
+                                charge                 Check protector with ohmmeter         Ensure leakfree system
+                                                       Start with proper starting equip-     and proper charge,
+                                Too high ambient       ment, voltage and conditions,         replace drier
+                                temperature            windings and protector OK
+                                Too high condensing    Recharge and search for leaks         Ensure proper ventilation
+                                temperature                                                  and wall distance
+                                Capillary partly       Ambient temperature according to
+                                blocked                type label of appliance               Replace compressor, if
+                                                       Condenser and compressor              still not cooling properly
+                                Valves coked or        ventilation                           Replace thermostat
+                                damaged                Recharge and search for leaks,        Ensure leakfree system
+                                Thermostat not OK      measure suction pressure. Capillary   and proper charge,
+                                Wrong refrigerant      blocked, if pressure very low         replace drier
+                                charge                 Recharge and search for leaks         Defrost properly
+                                                                                             Replace thermostat
+                                Ice block built up on  Thermostat type and function
+                                evaporator             Recharge and search for leaks         Ensure proper ventilation
+                                                                                             and wall distance
+                                Compressors trips on   Check for ice on evaporator           Ensure proper power
+                                motor protector        Thermostat function and settings      supply
+                                                       Internal no-frost fan function        Fix all connections
+                                                       Compressor load, compressor and
+                                                       condenser ventilation                 Replace compressor
+                                                       Compressor voltage supply for
+                                                       minimum 187 V
+                                                       Compressor voltage supply for drop
+                                                       outs. Check thermostat and appli-
+                                                       ance cables for loose connections
+                                                       Motor windings resistance for partly
+                                                       short circuit or earth connection
+
+30
+12.
+LOCATING FAULTS
+TABLE II
+
+Customer   First analysis Possible cause              Check                                  Activity
+claim                                                                                        (depends on result)
+Noise
+           Rattle or         Tube touching cabinet    Tube placing                           Bend tube to their right
+Fuses are  humming                                                                           place, carefully
+blown by                     Compressor touching      Compressor mounting and rubber         Place rubber feet and
+appliance  Banging at        cabinet                  feet                                   mounting accessories
+           start or stop of                                                                  correctly
+           compressor        Broken internal          Listen to compressor with screw-       Replace compressor, if
+                             suspension spring or     driver against compressor with edge    abnormal sounds
+           Relay clicking    discharge tube           and to your ear with grip
+           frequently after  Resonance                Find vibrating mounting parts          Place or fix correctly
+           start             Fan noise                Vibration of fan or fan mounting       Fix fan and blade, replace,
+           Short circuit in                                                                  if defective
+           appliance         Compressor block hit-    Compressor overload by pressure        Clean condenser if dusty.
+                             ting housing internally                                         Make sure, that ventilation
+           Short circuit in                           Fan function                           gaps for air circulation are
+           compressor        Compressor over-         Refrigerant charge                     satisfactory
+                             loaded                   Pressure equalization before start
+           Fuse blows at                              and number of on/off cycles            Recharge, if too high
+           compressor        Relay defective          Ambient temperature according to       Adjust thermostat, if stop
+           start             Defective cabling in     type label                             time less than 5 min
+                             appliance                                                       Take appliance out of
+           Starting capa-                             Ventilation to compressor and con-     function, if ambient too
+           citor exploded    Defective thermostat     denser. Check fan function             hot
+                             Ground connection                                               Clean condenser if dusty.
+           Starting relay    Defective terminals      Right relay type for compressor        Make sure, that ventilation
+           cap blown off                              All connecting cables and power        gaps for air circulation are
+                             Short circuit between    supply cord for loose connections,     satisfactory
+                             cables at terminals      short circuits                         Replace relay, if wrong
+                             Short circuit in         Thermostat connections                 Fix connections properly
+                             compressor motor         Resistance from line/neutral to earth
+                                                      For burns on the terminal pins         Fix connections properly
+                             Supply voltage too
+                             low                      Connectors and cables at com-          Replace electrical
+                             Fuse loaded by too       pressor                                accessories
+                             many appliances          Resistance values in windings          Insulate cables and
+                             Resettable fuse too      Resistance between terminals and       connectors
+                             quick acting             earth                                  Replace compressor, if
+                             Partly short circuit to  Supply voltage at compressor start     short circuited
+                             earth                    >187 V
+                             Defective relay          Total fuse load                        Connect appliance to
+                                                                                             different fuse
+                             Wrong relay type         Fuse load and type                     If possible replace by
+                             Extremely many starts                                           slightly slower type
+                             and stops of com-        Resistance between terminals and       Replace compressor, if
+                             pressor                  earth                                  short circuited
+                             Short circuit in com-    Relay function by shaking, to hear     Replace relay and
+                             pressor motor            moving of armature                     capacitor
+                                                      Relay type                             Replace relay and cap
+                                                      Relay type                             Replace relay and cap
+                                                      Thermostat defect or differences too   Adjust or replace
+                                                      small                                  thermostat
+                                                      Compressor motor resistances           Replace compressor
+
+                                                                                                                           31
+www.secop.com
+
+                                      OUR IDENTITY
+                                      At Secop we are committed to our industry and are genuinely passionate about the difference we are able to
+                                      make for our customers. We understand their business and objectives and the challenges of today's world of
+                                      refrigeration and cooling systems.
+                                      We work in a straightforward way, being open, direct and honest because we want to make things clear and easy.
+                                      Our people are committed to increasing value for our customers and constantly strive for better performance,
+                                      knowing that our own progression and success is dependent on theirs.
+
+                                      A NEWCOMER WITH 60 YEARS OF EXPERIENCE
+                                      Formerly known as Danfoss Compressors, Secop is one of the founding fathers of modern compressor
+                                      technology with an experience that goes back to the beginning of the 1950s.
+                                      For more than 25 years, Secop has been setting the standard in compressor technology by developing highly
+                                      efficient variable speed compressors and by compressors working with hydrocarbons.
+
+OUR JOURNEY SO FAR
+
+1956                        1970                           1990                1992                    1999                      2005                2008                 2013
+
+Production facility and     Introduction of SC             Introduction of NL  Introduction of PL      Start of production with  Introduction of GS  Production facility  Introduction of the XV compressor
+headquarters in Flensburg,  compressors.                   compressors.        compressors.            natural refrigerant       compressors.        in Wuqing, China     - opening a new chapter in
+Germany founded.            The birth of a standard-                                                   R290 (propane).                               founded.             refrigeration history.
+                            setting platform in the light                                                                                                                 Secop acquires ACC Fürstenfeld,
+                            commercial market.                                                                                                                            Austria.
+
+1958                        1972                1977                           1993                                    2002                          2010                           2015
+
+Start of production for     Introduction of FR  Introduction TL and BD         Start of production with                Production facility in Zlate  Introduction SLV-CNK.2         New generation of
+PW compressors.             compressors.        compressors.                   natural refrigerant R600a (isobutane).  Moravce, Slovakia founded.    and SLV-CLK.2 variable         energy-efficient propane
+                                                                               Production facility in Crnomelj,                                      speed compressors.             compressors.
+                                                                               Slovenia founded.                                                     Introduction BD1.4F            New variable speed platforms
+                                                                                                                                                     Micro DC compressor.           for household and light
+                                                                                                                                                     Introduction of DLX and        commercial applications.
+                                                                                                                                                     NLU compressors.
+
+Low                                                                                   Cooling Capacity                                                                                        High
+
+ HOUSEHOLD                                                                                         LIGHT COMMERCIAL
+
+ AC
+
+       P-Series             T-Series  DELTA                X-Series            KAPPA                   D-Series                  N-Series            F-Series             S-Series  G-Series
+DC
+
+                                                                     BD Micro                      BD  BD
+
+                                                                               P-Housing T-Housing
+
+                                                                     DC-POWERED
+
+                                      Secop GmbH · Mads-Clausen-Str. 7 · 24939 Flensburg · Germany · Tel: +49 461 4941 0 · www.secop.com
+
+                                      Secop accepts no responsibility for possible errors in catalogs, brochures, and other printed material. Secop reserves the right to alter its products without notice. This also applies to products already
+                                      on order provided that such alterations can be made without subsequential changes being necessary to specifications already agreed. All trademarks in this material are the property of the respective
+                                      companies. Secop and the Secop logotype are trademarks of Secop GmbH. All rights reserved.
+
+                                      Produced by Secop | May 2018                                                                                                                  DES.G.620.A2.02
+

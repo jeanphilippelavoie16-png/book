@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta name="title" content="Pemmican">
+    
+    <meta property="og:title" content="Pemmican">
+    <meta property="og:description" content="Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranbe...">
+    <meta property="og:image" content="https://d3d0lqu00lnqvz.cloudfront.net/media/media/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pemmican">
+    <meta name="twitter:description" content="Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranbe...">
+    <meta name="twitter:image" content="https://d3d0lqu00lnqvz.cloudfront.net/media/media/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg">
+
+        <!-- Google Tag Manager -->
+    <script async>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NT3GRKD');
+    </script>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT3GRKD" height="0" width="0" style="display:none;visibility:hidden" ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Push user ID -->
+    <script>
+        if (document.querySelector('.mainUserSubMenu') !== null) {
+            dataLayer.push({
+                'userID': ''
+            });
+        }
+    </script>
+    <script>
+        const Laravel = {
+            csrfToken: null,
+            locale: "en"
+        };
+
+        // Fetch CSRF token asynchronously
+        (function() {
+            var csrfTokenPromise = null;
+
+            window.getCsrfToken = function() {
+                if (Laravel.csrfToken) {
+                    return Promise.resolve(Laravel.csrfToken);
+                }
+
+                if (!csrfTokenPromise) {
+                    csrfTokenPromise = fetch('/csrf-token', {
+                        credentials: 'same-origin'
+                    })
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        .then(function(data) {
+                            Laravel.csrfToken = data.token;
+                            return Laravel.csrfToken;
+                        })
+                        .finally(function() {
+                            csrfTokenPromise = null;
+                        });
+                }
+
+                return csrfTokenPromise;
+            };
+
+            window.getCsrfToken().catch(function(error) {
+                console.error('Error fetching CSRF token:', error);
+            });
+
+            // Auto-inject CSRF token into forms before submission
+            document.addEventListener('submit', function(event) {
+                var form = event.target;
+                if (!form.method || form.method.toLowerCase() !== 'post') {
+                    return;
+                }
+
+                function upsertTokenInput(token) {
+                    var existingInput = form.querySelector('input[name="_token"]');
+                    if (!existingInput) {
+                        existingInput = document.createElement('input');
+                        existingInput.type = 'hidden';
+                        existingInput.name = '_token';
+                        form.appendChild(existingInput);
+                    }
+                    existingInput.value = token;
+                }
+
+                if (Laravel.csrfToken) {
+                    upsertTokenInput(Laravel.csrfToken);
+                    return;
+                }
+
+                event.preventDefault();
+                window.getCsrfToken()
+                    .then(function(token) {
+                        if (!token) {
+                            return;
+                        }
+
+                        upsertTokenInput(token);
+                        form.submit();
+                    })
+                    .catch(function(error) {
+                        console.error('Error loading CSRF token before submit:', error);
+                    });
+            });
+        })();
+    </script>
+
+    
+        <title>Pemmican | The Canadian Encyclopedia</title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="https://thecanadianencyclopedia.ca/manifest.json">
+    <meta name="description" content="Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranbe...">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-57x57.png?v=f22552fe571739798798bb695565903f">
+<link rel="apple-touch-icon" sizes="60x60" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-60x60.png?v=f417df6dda9ce41f908afc590778f94b">
+<link rel="apple-touch-icon" sizes="72x72" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-72x72.png?v=3af0c2e4ca8c973438f91f44e7a58d6c">
+<link rel="apple-touch-icon" sizes="76x76" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-76x76.png?v=41438835e152256cf9b311eb7eb116c0">
+<link rel="apple-touch-icon" sizes="192x192" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-precomposed.png?v=6d047b2f33e6b90d2af0b41ac01b0566">
+<link rel="apple-touch-icon" sizes="192x192" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon.png?v=6d047b2f33e6b90d2af0b41ac01b0566">
+<link rel="apple-touch-icon" sizes="114x114" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-114x114.png?v=91501eda47ce85d33e0feae1630a4e99">
+<link rel="apple-touch-icon" sizes="120x120" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-120x120.png?v=43adb2769c1827f1dda68db736544ec4">
+<link rel="apple-touch-icon" sizes="144x144" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-144x144.png?v=670a8df278b4101e8bf081d7b9ebb258">
+<link rel="apple-touch-icon" sizes="152x152" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-152x152.png?v=db581da4dde2d406e52a132691b14680">
+<link rel="apple-touch-icon" sizes="180x180" href="https://thecanadianencyclopedia.ca/images/favicon/apple-icon-180x180.png?v=8d4920caa59ad54fb454f2cd80ebfc1c">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://thecanadianencyclopedia.ca/images/favicon/android-icon-192x192.png?v=6d047b2f33e6b90d2af0b41ac01b0566">
+<link rel="icon" type="image/png" sizes="36x36"  href="https://thecanadianencyclopedia.ca/images/favicon/android-icon-36x36.png?v=3e9842d534281da81a0f4b4c81a17592">
+<link rel="icon" type="image/png" sizes="48x48"  href="https://thecanadianencyclopedia.ca/images/favicon/android-icon-48x48.png?v=7eb74dc9409ece0737d81a8ba5841bf7">
+<link rel="icon" type="image/png" sizes="72x72"  href="https://thecanadianencyclopedia.ca/images/favicon/android-icon-72x72.png?v=3af0c2e4ca8c973438f91f44e7a58d6c">
+<link rel="icon" type="image/png" sizes="36x36"  href="https://thecanadianencyclopedia.ca/images/favicon/android-icon-36x36.png?v=3e9842d534281da81a0f4b4c81a17592">
+<link rel="icon" type="image/png" sizes="44x44"  href="https://thecanadianencyclopedia.ca/images/favicon/android-icon-44x44.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://thecanadianencyclopedia.ca/images/favicon/favicon-96x96.png?v=a46206812744ada382bc23a1bc4f1357">
+<link rel="icon" type="image/png" sizes="96x96" href="https://thecanadianencyclopedia.ca/images/favicon/favicon-96x96.png?v=a46206812744ada382bc23a1bc4f1357">
+<link rel="icon" type="image/png" sizes="16x16" href="https://thecanadianencyclopedia.ca/images/favicon/favicon-16x16.png?v=ff43d9c7c67bb75a3d9a471a65e6724f">
+<link rel="manifest" href="https://thecanadianencyclopedia.ca/images/favicon/manifest.json?v=de0c530598b698ec2dbe765b440b7479">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png')}}">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="shortcut icon" href="https://thecanadianencyclopedia.ca/images/favicon/favicon.ico?v=45c5ae5e358dcde8acbbf3140859fb18" type="image/x-icon">
+<link rel="icon" href="https://thecanadianencyclopedia.ca/images/favicon/favicon.ico?v=45c5ae5e358dcde8acbbf3140859fb18" type="image/x-icon">
+
+        <link rel="canonical" href="https://thecanadianencyclopedia.ca/en/article/pemmican">
+        <link rel="alternate" hreflang="fr" href="https://thecanadianencyclopedia.ca/fr/article/pemmican">
+        
+    <!-- preload fonts -->
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/publico/Publico-Roman.ttf?v=da5cf4834925266e3fe9373d7c20987a" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/publico/Publico-Bold.ttf?v=3ad7881260304548a929a8add091efad" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/publico/Publico-Italic.ttf?v=a670bc7591f940131b96c1427a8bfcf9" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/publico/Publico-BoldItalic.ttf?v=1e6ee343e8f0d8d4784e7adaf55be5ed" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/avenir/Avenir-Roman.ttf?v=c4ed2390b8880049113ca6b174e5393e" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/avenir/Avenir-Heavy.ttf?v=6880b7f440fee3d3d23778d295fda4fc" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/avenir/Avenir-Oblique.ttf?v=b934234a7cf41ebc3b0ed646c856d94a" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://thecanadianencyclopedia.ca/fonts/avenir/Avenir-HeavyOblique.ttf?v=86f5c8cc80dbc9fdac444dacf0798808" as="font" type="font/ttf" crossorigin>
+    <!-- end preload fonts -->
+
+    <link rel="stylesheet" type="text/css" href="https://thecanadianencyclopedia.ca/css/styles.css?v=694c67c93c4b542cf362e14581ccc395">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.20.0/ui/trumbowyg.min.css">
+        <script>
+            // Polyfill if IE11
+            var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+            if (isIE11) {
+                document.write('<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js"><\/script>');
+            }
+
+            if ('serviceWorker' in navigator ) {
+              window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                      // Registration was successful
+                      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                  }, function(err) {
+                      // registration failed :(
+                      console.log('ServiceWorker registration failed: ', err);
+                  });
+              });
+          }
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- schema.org definitions -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "mainEntityOfPage": "https://thecanadianencyclopedia.ca/en/article/pemmican",
+            "headline": "Pemmican",
+            "description": "Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranberries, and even cherries, currants, chokeberries or blueberries.",
+            "image": [
+                "https://d3d0lqu00lnqvz.cloudfront.net/media/media/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg"
+            ],
+                        "author": [
+                            {
+                    "@type": "Person",
+                    "name": "John E. Foster",
+                    "url": "https://thecanadianencyclopedia.ca/en/author/john-e-foster"
+                }                        ],
+                                    "revisor": {
+                "@type": "Person",
+                "name": "Daniel Baird"
+            },
+                                    "publisher": {
+                "@type": "Organization",
+                "@id":"https://thecanadianencyclopedia.ca/#organization",
+                "name": "The Canadian Encyclopedia",
+                "url": "https://thecanadianencyclopedia.ca",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://thecanadianencyclopedia.ca/images/logo-en.svg"
+                }
+            },
+            "datePublished": "2006-02-07 19:00:00",
+            "dateModified": "2015-03-04 19:02:49"
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "additionalType": "Charity",
+            "@id": "https://thecanadianencyclopedia.ca/#organization",
+            "name": "The Canadian Encyclopedia",
+            "url": "https://thecanadianencyclopedia.ca",
+            "description": "The Canadian Encyclopedia is a free, bilingual online resource and the only established national encyclopedia of its kind in the world. It offers the largest collection of authored, accurate and continually updated articles focused on Canada’s history and culture.",
+            "nonprofitStatus": "Nonprofit",
+            "logo": "https://thecanadianencyclopedia.ca/images/logo-en.svg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10 Adelaide Street East, Suite 400",
+                "addressLocality": "Toronto",
+                "addressRegion": "ON",
+                "postalCode": "M5C 1J3",
+                "addressCountry": "CA"
+            },
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "contactType": "Customer Service",
+                    "telephone": "+1-866-701-1867",
+                    "contactOption": "TollFree",
+                    "areaServed": "CA",
+                    "availableLanguage": [
+                        "English"
+                    ],
+                    "email": "mailto:info@historicacanada.ca"
+                }
+            ],
+            "sameAs": [
+                "https://www.facebook.com/TheCanadianEncyclopedia"
+            ]
+        }
+    </script>
+</head>
+<body id="body" data-lang="en" class="haveSidebar en ">
+    
+    <header id="header" class="header">
+	<nav class="nav" role="navigation">
+		<div id="nav-top" class="nav-menu--top">
+			<div class="nav-logo--en">
+				<a aria-label="The Canadian Encyclopedia homepage" class="nav-logo__link" href="https://thecanadianencyclopedia.ca/en">
+				</a>
+			</div>
+			<button class="nav-icon--search js-search-tab" aria-label="Search in Canadian Encyclopedia"></button>
+
+			<button id="nav-menu-toggle" class="nav-icon--hamburger-menu" aria-label="open main navigation">
+				<div class="icon-container">
+					<span class="top"></span>
+					<span class="middle"></span>
+					<span class="bottom"></span>
+				</div>
+			</button>
+		</div>
+
+		<div id="nav-mid" class="nav-menu--mid">
+
+			
+			<section class="nav-menu--mid__item dropdown-group">
+					<button class="nav-menu--mid__item__heading dropdown-toggler" aria-haspopup="true" >
+						<span class="top-level-link">
+							topics
+						</span>
+						<span class="toggle-icon"></span>
+					</button>
+				<div class="sub-menu--topics dropdown-body" aria-expanded="false">
+					<div class="sub-menu__container">
+                    <section id="People" class="sub-menu__wrapper nav-menu--mid__item dropdown-group">
+            <div class="sub-menu__heading">
+                <a href="https://thecanadianencyclopedia.ca/en/browse/people" aria-label="Browse topic: People">
+                    People
+                </a>
+                <button class="sub-menu__button dropdown-toggler accordion-toggler" aria-label="expand section People">
+                    <span class="toggle-icon"></span>
+                </button>
+            </div>
+            <ul class="sub-menu nested dropdown-body" aria-expanded="false">
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/arts-culture"
+                       aria-label="Browse topic: People, category Arts &amp; Culture"
+                    >
+                        Arts &amp; Culture
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/business-economics"
+                       aria-label="Browse topic: People, category Business &amp; Economics"
+                    >
+                        Business &amp; Economics
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/communities-sociology"
+                       aria-label="Browse topic: People, category Communities &amp; Sociology"
+                    >
+                        Communities &amp; Sociology
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/education"
+                       aria-label="Browse topic: People, category Education"
+                    >
+                        Education
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/history-historical-figures"
+                       aria-label="Browse topic: People, category History/Historical Figures"
+                    >
+                        History/Historical Figures
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/military"
+                       aria-label="Browse topic: People, category Military"
+                    >
+                        Military
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/nature-geography"
+                       aria-label="Browse topic: People, category Nature &amp; Geography"
+                    >
+                        Nature &amp; Geography
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/politics-law"
+                       aria-label="Browse topic: People, category Politics &amp; Law"
+                    >
+                        Politics &amp; Law
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/science-technology"
+                       aria-label="Browse topic: People, category Science &amp; Technology"
+                    >
+                        Science &amp; Technology
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/people/sports-recreation"
+                       aria-label="Browse topic: People, category Sports &amp; Recreation"
+                    >
+                        Sports &amp; Recreation
+                    </a>
+                </li>
+                            </ul>
+        </section>
+                    <section id="Places" class="sub-menu__wrapper nav-menu--mid__item dropdown-group">
+            <div class="sub-menu__heading">
+                <a href="https://thecanadianencyclopedia.ca/en/browse/places" aria-label="Browse topic: Places">
+                    Places
+                </a>
+                <button class="sub-menu__button dropdown-toggler accordion-toggler" aria-label="expand section Places">
+                    <span class="toggle-icon"></span>
+                </button>
+            </div>
+            <ul class="sub-menu nested dropdown-body" aria-expanded="false">
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/arts-culture"
+                       aria-label="Browse topic: Places, category Arts &amp; Culture"
+                    >
+                        Arts &amp; Culture
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/buildings-monuments"
+                       aria-label="Browse topic: Places, category Buildings &amp; Monuments"
+                    >
+                        Buildings &amp; Monuments
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/cities-populated-places"
+                       aria-label="Browse topic: Places, category Cities &amp; Populated Places"
+                    >
+                        Cities &amp; Populated Places
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/geographical-features"
+                       aria-label="Browse topic: Places, category Geographical Features"
+                    >
+                        Geographical Features
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/historic-sites"
+                       aria-label="Browse topic: Places, category Historic Sites"
+                    >
+                        Historic Sites
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/military"
+                       aria-label="Browse topic: Places, category Military"
+                    >
+                        Military
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/parks-nature-reserves"
+                       aria-label="Browse topic: Places, category Parks &amp; Nature Reserves"
+                    >
+                        Parks &amp; Nature Reserves
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/provinces-territories"
+                       aria-label="Browse topic: Places, category Provinces &amp; Territories"
+                    >
+                        Provinces &amp; Territories
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/places/transportation"
+                       aria-label="Browse topic: Places, category Transportation"
+                    >
+                        Transportation
+                    </a>
+                </li>
+                            </ul>
+        </section>
+                    <section id="Things" class="sub-menu__wrapper nav-menu--mid__item dropdown-group">
+            <div class="sub-menu__heading">
+                <a href="https://thecanadianencyclopedia.ca/en/browse/things" aria-label="Browse topic: Things">
+                    Things
+                </a>
+                <button class="sub-menu__button dropdown-toggler accordion-toggler" aria-label="expand section Things">
+                    <span class="toggle-icon"></span>
+                </button>
+            </div>
+            <ul class="sub-menu nested dropdown-body" aria-expanded="false">
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/arts-culture"
+                       aria-label="Browse topic: Things, category Arts &amp; Culture"
+                    >
+                        Arts &amp; Culture
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/business-economics"
+                       aria-label="Browse topic: Things, category Business &amp; Economics"
+                    >
+                        Business &amp; Economics
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/communities-sociology"
+                       aria-label="Browse topic: Things, category Communities &amp; Sociology"
+                    >
+                        Communities &amp; Sociology
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/education"
+                       aria-label="Browse topic: Things, category Education"
+                    >
+                        Education
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/history"
+                       aria-label="Browse topic: Things, category History"
+                    >
+                        History
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/military"
+                       aria-label="Browse topic: Things, category Military"
+                    >
+                        Military
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/nature-geography"
+                       aria-label="Browse topic: Things, category Nature &amp; Geography"
+                    >
+                        Nature &amp; Geography
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/politics-law"
+                       aria-label="Browse topic: Things, category Politics &amp; Law"
+                    >
+                        Politics &amp; Law
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/science-technology"
+                       aria-label="Browse topic: Things, category Science &amp; Technology"
+                    >
+                        Science &amp; Technology
+                    </a>
+                </li>
+                                <li class="sub-menu__heading">
+                    <a href="https://thecanadianencyclopedia.ca/en/browse/things/sports-recreation"
+                       aria-label="Browse topic: Things, category Sports &amp; Recreation"
+                    >
+                        Sports &amp; Recreation
+                    </a>
+                </li>
+                            </ul>
+        </section>
+        </div>
+
+				</div>
+			</section>
+
+			
+			<section class="nav-menu--mid__item dropdown-group">
+				<button class="nav-menu--mid__item__heading dropdown-toggler" aria-haspopup="true" >
+					<span class="top-level-link">
+						Collections
+					</span>
+					<span class="toggle-icon"></span>
+				</button>
+				<div class="sub-menu--cta dropdown-body" aria-expanded="false">
+
+					<div class="sub-menu__container">
+						<ul class="sub-menu__wrapper nav-menu--mid__item dropdown-group">
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/collections">
+                                    All Collections
+								</a>
+							</li>
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/the-memory-project">
+                                    The Memory Project
+								</a>
+							</li>
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/cdc">
+                                    Canada During COVID-19
+								</a>
+							</li>
+						</ul>
+                                                    <div class="sub-menu__image">
+                                <div class="image-container">
+                                    <img src="https://d14fiu1i7ba797.cloudfront.net/950x479/MohawkInstitute/15054127924_92486c0870_o.jpg"
+                                        data-src="https://d14fiu1i7ba797.cloudfront.net/950x479/MohawkInstitute/15054127924_92486c0870_o.jpg"
+                                        alt="Mohawk Institute"
+                                    />
+                                </div>
+                                <a href="https://thecanadianencyclopedia.ca/en/collection/reconciliation-in-canada" class="sub-menu__image__link"> Explore the  Reconciliation in Canada  collection
+                                <span class="link-arrow"></span>
+                                </a>
+                            </div>
+                        					</div>
+				</div>
+			</section>
+
+			
+			<section class="nav-menu--mid__item dropdown-group">
+				<a href="https://thecanadianencyclopedia.ca/en/educators" class="nav-menu--mid__item__heading dropdown-toggler">
+					<span class="top-level-link">
+						Educators
+					</span>
+				</a>
+			</section>
+
+			
+			<section class="nav-menu--mid__item dropdown-group">
+				<button class="nav-menu--mid__item__heading dropdown-toggler" aria-haspopup="true" >
+					<span class="top-level-link">
+						Timelines
+					</span>
+					<span class="toggle-icon"></span>
+				</button>
+				<div class="sub-menu--cta dropdown-body" aria-expanded="false">
+
+					<div class="sub-menu__container">
+						<ul class="sub-menu__wrapper nav-menu--mid__item dropdown-group">
+                            <li class="sub-menu__heading">
+                                <a href="https://thecanadianencyclopedia.ca/en/timelines">
+                                    All Timelines
+                                </a>
+                            </li>
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/timelines/people">
+                                    People
+								</a>
+							</li>
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/timelines/places">
+                                    Places
+								</a>
+							</li>
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/timelines/things">
+                                    Things
+								</a>
+							</li>
+						</ul>
+                                                    <div class="sub-menu__image">
+                                <div class="image-container">
+                                    <img src="https://d14fiu1i7ba797.cloudfront.net/950x579/media/media/4b5beb76-524c-45d8-81fb-a0228fb51abf.jpg" data-src="https://d14fiu1i7ba797.cloudfront.net/950x579/media/media/4b5beb76-524c-45d8-81fb-a0228fb51abf.jpg" alt="Family during Great Depression"/>
+                                </div>
+                                <a href="https://thecanadianencyclopedia.ca/en/timeline/canada-in-the-1930s" class="sub-menu__image__link">Explore the  Canada in the 1930s  timeline
+                                    <span class="link-arrow" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        					</div>
+				</div>
+			</section>
+
+
+			
+			<section class="nav-menu--mid__item dropdown-group">
+				<button class="nav-menu--mid__item__heading dropdown-toggler" aria-haspopup="true" >
+					<span class="top-level-link">
+						Quizzes
+					</span>
+					<span class="toggle-icon"></span>
+				</button>
+				<div class="sub-menu--cta dropdown-body" aria-expanded="false">
+
+					<div class="sub-menu__container">
+						<ul class="sub-menu__wrapper nav-menu--mid__item dropdown-group">
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/quizzes">
+                                    Quizzes
+								</a>
+							</li>
+							<li class="sub-menu__heading">
+								<a href="https://thecanadianencyclopedia.ca/en/quiz/cc-quiz-citizenship">
+                                    The Challenge
+								</a>
+							</li>
+						</ul>
+                                                    <div class="sub-menu__image">
+                                <div class="image-container">
+                                    <img
+									src="https://d14fiu1i7ba797.cloudfront.net/950x579/e010947274-v8.jpg"
+									data-src="https://d14fiu1i7ba797.cloudfront.net/950x579/e010947274-v8.jpg"
+									alt=""/>
+                                </div>
+                                <a href="https://thecanadianencyclopedia.ca/en/quiz/fashion-history-in-canada" class="sub-menu__image__link">Fashion History in Canada
+                                    <span class="link-arrow"></span>
+                                </a>
+                            </div>
+                        					</div>
+				</div>
+			</section>
+
+			
+			<button class="nav-icon--search js-search-tab" aria-label="Search in Canadian Encyclopedia"></button>
+		</div>
+
+		<ul id="nav-low" class="nav-menu--low">
+			<li class="nav-menu--low__item">
+									<a class="articleNavPopupEvent btn-login nav-link" href="#" data-target="popup-login" data-toggle="modal" aria-haspopup="dialog">
+						Sign in
+					</a>
+							</li>
+			<li class="nav-menu--low__item">
+				<a class="nav-link help-btn" href="/en/about/faq" id="nav-help">
+					<i class="i-help"></i>Help
+				</a>
+			</li>
+			<li class="nav-menu--low__item--btn">
+				<a class="b b-sm b-monochrome b-icon-heart" href="https://thecanadianencyclopedia.ca/en/donate" target="_blank">
+					Donate
+				</a>
+			</li>
+										<li class="nav-menu--low__item--lang-toggle">
+					<a class="nav-link" href="https://thecanadianencyclopedia.ca/fr/article/pemmican" aria-label="Toggle site language">fr</a>
+				</li>
+								</ul>
+
+	</nav>
+</header>
+
+<div id="search" class="searchContainer"  >
+    <div class="searchPanel">
+        <div class="searchPanel-head">
+            <img src="https://thecanadianencyclopedia.ca/images/logo-tce.svg?v=96550f8de20f4537bc4ad37b01dff7f1" alt="The Canadian Encyclopedia">
+            <h2 class="searchPanel-title">Search The Canadian Encyclopedia</h2>
+        </div>
+        <div class="searchPanel-input-wrap">
+            <form id="form-search" name="form-search" method="get" data-action="https://thecanadianencyclopedia.ca/en/search">
+                <input data-getsearchroute="/en/json/search" name="query" type="text" class="input-search input-xl input-fullSpan searchPanel-input" id="inputSearch" />
+                <button class="searchPanel-searchBtn">
+                    <img src="https://thecanadianencyclopedia.ca/images/i-search.svg?v=a1e99ea3dd07831352832b022428584e" alt="Search">
+                </button>
+                <button class="searchPanel-exit">
+                    <img src="https://thecanadianencyclopedia.ca/images/i-exit.svg?v=2601c4155c28e62e1eb2ebc7de9bd1ee" alt="Exit search">
+                </button>
+            </form>
+
+            <ul class="search-results">
+
+            </ul>
+        </div>
+        <p aria-hidden="true" role="alert" class="searchPanel-errorMsg">Enter your search term</p>
+        <div></div>
+    </div>
+</div>
+
+
+<div id="popup-login" class="modal">
+    <div class="popup-wrapper">
+        <div class="popup-content">
+            <div class="popup-connect">
+                <h2 class="popup-title">Login</h2>
+                                <form method="POST" action="https://thecanadianencyclopedia.ca/en/members" accept-charset="UTF-8" id="tceLogin" class="form"><input name="_token" type="hidden" value="btkR39DDrl2g82WhVXcQOSHBVy2GLhDPNgszxCOW">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <input class="form-login-email form-control input input-fullSpan" placeholder="Email" name="email" type="email" value="">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                        <div class="input-group">
+                            <input class="form-login-password form-control form-password input input-fullSpan" placeholder="Password" name="password" type="password" value="">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="js-login-error error"></div>
+                    <div class="popup-login-option">
+                        <div class="popup-helpers-container">
+                            <div class="form-remember">
+                                <input name="remember_me" type="checkbox" value="1">
+                                <label for="remember_me">Remember me</label>
+                            </div>
+                            <div class="form-forgot-pass">
+                                <a href="https://thecanadianencyclopedia.ca/auth/password/reset" class="b-link">I forgot my password</a><br>
+                            </div>
+                        </div>
+                        <input class="b b-md b-invert btn-login-submit" type="submit" value="Submit">
+                        <p class="text-line">or</p>
+                        <a href="https://thecanadianencyclopedia.ca/auth/facebook" class="btn btn-facebook"><img src="https://thecanadianencyclopedia.ca/images/i-facebook-white.svg?v=3decbb62f20c49bf2a86d220cbf213d8" alt="Share on Facebook" title="Share on Facebook"> Login With Facebook</a>
+                        <a href="https://thecanadianencyclopedia.ca/auth/twitter" class="btn btn-twitter"><img src="https://thecanadianencyclopedia.ca/images/i-twitter-x-white.svg?v=762dd4e2da316070386a19085588add2" alt="Share on X" title="Share on X"> Login With X</a>
+                    </div>
+                </form>
+            </div>
+            <div class="popup-body login-popup-body">
+                <a class="popup-close" data-dismiss="modal"></a>
+                <h3>Why sign up?</h3>
+                <p>Signing up enhances your TCE experience with the ability to save items to your personal reading list, and access the interactive map.</p>
+                <a href="https://thecanadianencyclopedia.ca/en/members/register" class="b b-md b-primary">Create Account </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <div class="sidebar-layout">
+            <div class="sidebar js-sidebar" id="article-sidebar">
+        <article-sidebar
+
+            
+            initial-article-data="{&quot;article&quot;:{&quot;id&quot;:&quot;79201&quot;,&quot;author_text&quot;:&quot;John E. Foster&quot;,&quot;revisor&quot;:&quot;Daniel Baird&quot;,&quot;major_update&quot;:null,&quot;trigger_warning&quot;:0,&quot;views&quot;:0,&quot;shares&quot;:0,&quot;type&quot;:&quot;article&quot;,&quot;itunes_songs&quot;:&quot;&quot;,&quot;indigo&quot;:&quot;&quot;,&quot;itunes_title_en&quot;:&quot;&quot;,&quot;itunes_title_fr&quot;:&quot;&quot;,&quot;indigo_title_en&quot;:&quot;&quot;,&quot;indigo_title_fr&quot;:&quot;&quot;,&quot;status&quot;:&quot;published&quot;,&quot;schedule_from&quot;:null,&quot;schedule_until&quot;:null,&quot;created_at&quot;:&quot;2006-02-08T00:00:00.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T16:30:30.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;title&quot;:&quot;Pemmican&quot;,&quot;slug&quot;:&quot;pemmican&quot;,&quot;alt_slug&quot;:&quot;&quot;,&quot;summary&quot;:&quot;Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranberries, and even cherries, currants, chokeberries or blueberries.&quot;,&quot;body&quot;:&quot;&lt;div&gt;&lt;img src=\&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg\&quot; title=\&quot;Bison Pemmican\&quot; alt=\&quot;Bison Pemmican\&quot;&gt;\r\n\t&lt;figcaption&gt;Credit: are you gonna eat that\/flickr cc.&lt;\/figcaption&gt;\r\n&lt;\/div&gt;\r\n&lt;p&gt;Pemmican (&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cree\/#h3_jump_2\&quot;&gt;Cree&lt;\/a&gt;&lt;em&gt;pimikan&lt;\/em&gt;, meaning \&quot;manufactured grease\&quot;) is dried meat, traditionally &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/bison\/\&quot;&gt;bison&lt;\/a&gt; (&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/moose\/\&quot;&gt;moose&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/caribou\/\&quot;&gt;caribou&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/deer\/\&quot;&gt;venison&lt;\/a&gt; or beef can be used as well), pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatoon-berry\/\&quot;&gt;saskatoon berries&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cranberry\/\&quot;&gt;cranberries&lt;\/a&gt;, and even (for special occasions) &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cherry\/\&quot;&gt;cherries&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/\&quot;&gt;currants&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;chokeberries&lt;\/a&gt; or &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;blueberries&lt;\/a&gt;. Cooled and sewn into bison-hide bags in 41 kg lots, pemmican was a dense, high-protein and high-energy food that could be stored and shipped with ease to provision &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/voyageur\/\&quot;&gt;voyageurs&lt;\/a&gt; in the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/fur-trade\/\&quot;&gt;fur trade&lt;\/a&gt; travelling in the prairie regions where, especially in winter, food could be scarce.&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;History&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/peter-pond\/\&quot;&gt;Peter Pond&lt;\/a&gt; is credited with introducing this vital food to the trade in 1779, having obtained it from the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/chipewyan\/\&quot;&gt;Chipewyans&lt;\/a&gt; in the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/athabasca\/\&quot;&gt;Athabasca&lt;\/a&gt; region. Later, posts along the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river\/\&quot;&gt;Red&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/assiniboine-river\/\&quot;&gt;Assiniboine&lt;\/a&gt; and &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatchewan-river\/\&quot;&gt;North Saskatchewan&lt;\/a&gt; Rivers were devoted to acquiring pemmican from Aboriginal peoples living in the region as well as the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/metis\/\&quot;&gt;M\u00e9tis&lt;\/a&gt;. M\u00e9tis travelled onto the prairie in &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-cart\/\&quot;&gt;Red River carts&lt;\/a&gt; (carts constructed entirely of wood and lashed together with leather), &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/buffalo-hunt\/\&quot;&gt;killed and butchered bison&lt;\/a&gt;, converted the meat into pemmican, and shipped it in bags to such fur &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/trading-post\/\&quot;&gt;trading posts&lt;\/a&gt; as Fort Alexander, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cumberland-house\/\&quot;&gt;Cumberland House&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/upper-fort-garry\/\&quot;&gt;Fort Garry&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/norway-house\/\&quot;&gt;Norway House&lt;\/a&gt; and Edmonton House. Pemmican was sufficiently important to the regional economy that, in 1814, Governor &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/miles-macdonell\/\&quot;&gt;Miles Macdonell&lt;\/a&gt; passed the disastrous but short-lived &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/pemmican-proclamation\/\&quot;&gt;Pemmican Proclamation&lt;\/a&gt;, which forbade the export of any food supplies, including pemmican, from the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-colony\/\&quot;&gt;Red River Colony&lt;\/a&gt;, nearly starting a war with the M\u00e9tis.&lt;\/p&gt;\r\n\r\n&lt;p&gt;\r\n\tPemmican was also made and used outside the region, by the Royal Navy, for example, which provisioned several &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/arctic-exploration\/\&quot;&gt;Arctic expeditions&lt;\/a&gt; with beef pemmican made in England.\r\n&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;Recipe&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;\r\n\tPemmican can still be useful snack when exploring the backcountry, and it can be made in reasonable quantities and in a reasonable amount of time in a modern kitchen. While there are several variations on the dish \u2014 depending upon the meat used and what\r\n\tis being added \u2014 what follows is relatively standard.\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n\t&lt;img src=\&quot;https:\/\/i.imgur.com\/MS4cnR5.png\&quot;&gt;\r\n&lt;\/p&gt;&quot;,&quot;twitter_summary&quot;:null,&quot;translations&quot;:[{&quot;id&quot;:&quot;cfbce864-5426-470a-be6d-e19e25f1708f&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;title&quot;:&quot;Pemmican&quot;,&quot;summary&quot;:&quot;Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranberries, and even cherries, currants, chokeberries or blueberries.&quot;,&quot;body&quot;:&quot;&lt;div&gt;&lt;img src=\&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg\&quot; title=\&quot;Bison Pemmican\&quot; alt=\&quot;Bison Pemmican\&quot;&gt;\r\n\t&lt;figcaption&gt;Credit: are you gonna eat that\/flickr cc.&lt;\/figcaption&gt;\r\n&lt;\/div&gt;\r\n&lt;p&gt;Pemmican (&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cree\/#h3_jump_2\&quot;&gt;Cree&lt;\/a&gt;&lt;em&gt;pimikan&lt;\/em&gt;, meaning \&quot;manufactured grease\&quot;) is dried meat, traditionally &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/bison\/\&quot;&gt;bison&lt;\/a&gt; (&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/moose\/\&quot;&gt;moose&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/caribou\/\&quot;&gt;caribou&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/deer\/\&quot;&gt;venison&lt;\/a&gt; or beef can be used as well), pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatoon-berry\/\&quot;&gt;saskatoon berries&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cranberry\/\&quot;&gt;cranberries&lt;\/a&gt;, and even (for special occasions) &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cherry\/\&quot;&gt;cherries&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/\&quot;&gt;currants&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;chokeberries&lt;\/a&gt; or &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;blueberries&lt;\/a&gt;. Cooled and sewn into bison-hide bags in 41 kg lots, pemmican was a dense, high-protein and high-energy food that could be stored and shipped with ease to provision &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/voyageur\/\&quot;&gt;voyageurs&lt;\/a&gt; in the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/fur-trade\/\&quot;&gt;fur trade&lt;\/a&gt; travelling in the prairie regions where, especially in winter, food could be scarce.&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;History&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/peter-pond\/\&quot;&gt;Peter Pond&lt;\/a&gt; is credited with introducing this vital food to the trade in 1779, having obtained it from the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/chipewyan\/\&quot;&gt;Chipewyans&lt;\/a&gt; in the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/athabasca\/\&quot;&gt;Athabasca&lt;\/a&gt; region. Later, posts along the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river\/\&quot;&gt;Red&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/assiniboine-river\/\&quot;&gt;Assiniboine&lt;\/a&gt; and &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatchewan-river\/\&quot;&gt;North Saskatchewan&lt;\/a&gt; Rivers were devoted to acquiring pemmican from Aboriginal peoples living in the region as well as the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/metis\/\&quot;&gt;M\u00e9tis&lt;\/a&gt;. M\u00e9tis travelled onto the prairie in &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-cart\/\&quot;&gt;Red River carts&lt;\/a&gt; (carts constructed entirely of wood and lashed together with leather), &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/buffalo-hunt\/\&quot;&gt;killed and butchered bison&lt;\/a&gt;, converted the meat into pemmican, and shipped it in bags to such fur &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/trading-post\/\&quot;&gt;trading posts&lt;\/a&gt; as Fort Alexander, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cumberland-house\/\&quot;&gt;Cumberland House&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/upper-fort-garry\/\&quot;&gt;Fort Garry&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/norway-house\/\&quot;&gt;Norway House&lt;\/a&gt; and Edmonton House. Pemmican was sufficiently important to the regional economy that, in 1814, Governor &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/miles-macdonell\/\&quot;&gt;Miles Macdonell&lt;\/a&gt; passed the disastrous but short-lived &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/pemmican-proclamation\/\&quot;&gt;Pemmican Proclamation&lt;\/a&gt;, which forbade the export of any food supplies, including pemmican, from the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-colony\/\&quot;&gt;Red River Colony&lt;\/a&gt;, nearly starting a war with the M\u00e9tis.&lt;\/p&gt;\r\n\r\n&lt;p&gt;\r\n\tPemmican was also made and used outside the region, by the Royal Navy, for example, which provisioned several &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/arctic-exploration\/\&quot;&gt;Arctic expeditions&lt;\/a&gt; with beef pemmican made in England.\r\n&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;Recipe&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;\r\n\tPemmican can still be useful snack when exploring the backcountry, and it can be made in reasonable quantities and in a reasonable amount of time in a modern kitchen. While there are several variations on the dish \u2014 depending upon the meat used and what\r\n\tis being added \u2014 what follows is relatively standard.\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n\t&lt;img src=\&quot;https:\/\/i.imgur.com\/MS4cnR5.png\&quot;&gt;\r\n&lt;\/p&gt;&quot;,&quot;slug&quot;:&quot;pemmican&quot;,&quot;alt_slug&quot;:&quot;&quot;,&quot;twitter_summary&quot;:null,&quot;locale&quot;:&quot;en&quot;,&quot;automated&quot;:false,&quot;hidden&quot;:0,&quot;views&quot;:0,&quot;created_at&quot;:&quot;2006-02-08T00:00:00.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T16:30:30.000000Z&quot;},{&quot;id&quot;:&quot;e0cec4b3-d773-44af-84bb-126c30d84881&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;title&quot;:&quot;Pemmican&quot;,&quot;summary&quot;:&quot;Le pemmican (du cri pimikan, qui signifie \u00ab graisse pr\u00e9par\u00e9e \u00bb) est \u00e0 base de viande s\u00e9ch\u00e9e, traditionnellement du bison (on peut \u00e9galement utiliser de l\u2019orignal, du caribou, du cerf ou du b\u0153uf), r\u00e9duite en poudre grossi\u00e8re puis m\u00e9lang\u00e9e en parts \u00e9gales \u00e0 du saindoux et, parfois, \u00e0 des am\u00e9lanches, des canneberges et m\u00eame, pour les grandes occasions, \u00e0 des cerises, des groseilles, des cerises de Virginie ou des bleuets.&quot;,&quot;body&quot;:&quot;&lt;p&gt;\r\n\t&lt;\/p&gt;&lt;p&gt;&lt;img src=\&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg\&quot; title=\&quot;Bison Pemmican\&quot; alt=\&quot;Bison Pemmican\&quot;&gt;&lt;br&gt;&lt;\/p&gt;&lt;div&gt;&lt;figcaption&gt;Cr\u00e9dit: are you gonna eat that\/flickr cc.&lt;\/figcaption&gt;&lt;\/div&gt;&lt;p&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;Le pemmican (du &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/cree\/#h3_jump_2\&quot;&gt;cri&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt; &lt;\/span&gt;&lt;em style=\&quot;background-color: initial;\&quot;&gt;pimikan&lt;\/em&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;, qui signifie \u00ab graisse pr\u00e9par\u00e9e \u00bb) est \u00e0 base de viande s\u00e9ch\u00e9e, traditionnellement du &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/bison\/\&quot;&gt;bison&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt; (on peut \u00e9galement utiliser de l\u2019&lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/moose\/\&quot;&gt;orignal&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;, du &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/caribou\/\&quot;&gt;caribou&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;, du &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/deer\/\&quot;&gt;cerf&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt; ou du b\u0153uf), r\u00e9duite en poudre grossi\u00e8re puis m\u00e9lang\u00e9e en parts \u00e9gales \u00e0 du saindoux et, parfois, \u00e0 des &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/saskatoon-berry\/\&quot;&gt;am\u00e9lanches&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;, des &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/cranberry\/\&quot;&gt;canneberges&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt; et m\u00eame, pour les grandes occasions, \u00e0 des &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/cherry\/\&quot;&gt;cerises&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;, des &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/wild-berries\/#h3_jump_5\&quot;&gt;groseilles&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;, des &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;cerises de Virginie&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt; ou des &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/wild-berries\/#h3_jump_3\&quot;&gt;bleuets&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt;. Une fois refroidi, le m\u00e9lange est ins\u00e9r\u00e9 par lot de 41 kg dans des sacs en peau de bison. Le pemmican \u00e9tait une nourriture dense, riche en prot\u00e9ines et en \u00e9nergie qui pouvait \u00eatre facilement conserv\u00e9e et exp\u00e9di\u00e9e pour ravitailler les &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/voyageur\/\&quot;&gt;voyageurs&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt; de la &lt;\/span&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/fur-trade\/\&quot;&gt;traite des fourrures&lt;\/a&gt;&lt;span style=\&quot;background-color: initial;\&quot;&gt; qui fr\u00e9quentaient les r\u00e9gions des prairies o\u00f9 la nourriture pouvait se faire rare, surtout en hiver.&lt;\/span&gt;&lt;br&gt;&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;Historique&lt;\/strong&gt;&lt;\/h3&gt;\r\n&lt;p&gt;\r\n\tC\u2019est &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/peter-pond\/\&quot;&gt;Peter Pond&lt;\/a&gt; qui aurait introduit ce mets vital dans le circuit de la &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/fur-trade\/\&quot;&gt;traite des fourrures&lt;\/a&gt;en 1779 apr\u00e8s en avoir obtenu des &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/chipewyan\/\&quot;&gt;Chipewyans&lt;\/a&gt;, dans la r\u00e9gion d\u2019&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/athabasca\/\&quot;&gt;Athabasca&lt;\/a&gt;. Plus tard, plusieurs postes de traite le long des rivi\u00e8res &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/red-river\/\&quot;&gt;Rouge&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/assiniboine-river\/\&quot;&gt;Assiniboine&lt;\/a&gt; et &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/saskatchewan-river\/\&quot;&gt;Saskatchewan Nord&lt;\/a&gt; se consacrent \u00e0 l\u2019acquisition de pemmican aupr\u00e8s des Autochtones qui vivent dans la r\u00e9gion, ainsi qu\u2019aupr\u00e8s des &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/metis\/\&quot;&gt;M\u00e9tis&lt;\/a&gt;. Les M\u00e9tis se d\u00e9pla\u00e7aient dans les prairies \u00e0 l\u2019aide de &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/red-river-cart\/\&quot;&gt;charrettes de la rivi\u00e8re Rouge&lt;\/a&gt; (charrettes construites enti\u00e8rement en pi\u00e8ces de bois assembl\u00e9es avec des ligatures de cuir). Ils &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/buffalo-hunt\/\&quot;&gt;chassaient le bison&lt;\/a&gt; et utilisaient sa viande pour pr\u00e9parer du pemmican qu\u2019ils livraient dans des sacs aux &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/trading-post\/\&quot;&gt;postes de traite&lt;\/a&gt; tels que Fort Alexander, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/cumberland-house\/\&quot;&gt;Cumberland House&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/upper-fort-garry\/\&quot;&gt;Fort Garry&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/norway-house\/\&quot;&gt;Norway House&lt;\/a&gt; et Edmonton House. Le pemmican \u00e9tait important pour l\u2019\u00e9conomie r\u00e9gionale. En 1814, le gouverneur &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/miles-macdonell\/\&quot;&gt;Miles Macdonell&lt;\/a&gt; adopte la &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/pemmican-proclamation\/\&quot;&gt;proclamation sur le pemmican&lt;\/a&gt;, qui interdit l\u2019exportation de toute nourriture, y compris le pemmican, \u00e0 partir de la &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/red-river-colony\/\&quot;&gt;colonie de la rivi\u00e8re Rouge&lt;\/a&gt;. Ce faisant, il manque de peu de d\u00e9clencher une guerre avec les M\u00e9tis.\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n\tLe pemmican \u00e9tait \u00e9galement pr\u00e9par\u00e9 et utilis\u00e9 ailleurs, par exemple par la Royal Navy, qui a approvisionn\u00e9e plusieurs &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/fr\/article\/arctic-exploration\/\&quot;&gt;exp\u00e9ditions dans l\u2019Arctique&lt;\/a&gt; avec du pemmican de b\u0153uf fabriqu\u00e9 en Angleterre.\r\n&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;Recette&lt;\/strong&gt;&lt;\/h3&gt;\r\n&lt;p&gt;\r\n\t&lt;img src=\&quot;https:\/\/i.imgur.com\/anT7LUV.png\&quot;&gt;\r\n&lt;\/p&gt;&quot;,&quot;slug&quot;:&quot;pemmican&quot;,&quot;alt_slug&quot;:&quot;&quot;,&quot;twitter_summary&quot;:null,&quot;locale&quot;:&quot;fr&quot;,&quot;automated&quot;:false,&quot;hidden&quot;:0,&quot;views&quot;:0,&quot;created_at&quot;:&quot;2006-02-08T00:00:00.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T16:30:30.000000Z&quot;},{&quot;id&quot;:&quot;9fa24b6b-1bab-4200-a26a-8fa4095d1471&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;title&quot;:&quot;Pemmican&quot;,&quot;summary&quot;:&quot;Pemmican \u662f\u4e7e\u8089\uff0c\u50b3\u7d71\u4e0a\u7684\u91ce\u725b\u8089\u88ab\u58d3\u6210\u7c97\u7c89\uff0c\u4e26\u8207\u76f8\u7b49\u91cf\u878d\u5316\u7684\u8102\u80aa\u6df7\u5408\uff0c\u5076\u723e\u9084\u6709\u85a9\u65af\u5361\u901a\u6f3f\u679c\uff0c\u8513\u8d8a\u8393\uff0c\u751a\u81f3\u6afb\u6843\uff0c\u52a0\u4f96\u5b50\uff0c\u9ed1\u8393\u6216\u85cd\u8393\u3002&quot;,&quot;body&quot;:&quot;&lt;div&gt;&lt;img src=\&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg\&quot; title=\&quot;\u91ce\u725b\u76ae\u7c73\u5361\&quot; alt=\&quot;\u91ce\u725b\u76ae\u7c73\u5361\&quot;&gt;\r\n\t&lt;figcaption&gt;\u4fe1\u7528\uff1a\u4f60\u6703\u5403\u90a3\u500b\/Flickr cc \u55ce\uff1f&lt;\/figcaption&gt;\r\n&lt;\/div&gt;\r\n&lt;p&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/moose\/\&quot;&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/caribou\/\&quot;&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/deer\/\&quot;&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cherry\/\&quot;&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/\&quot;&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;Pemmican\uff08&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cree\/#h3_jump_2\&quot;&gt;Cree&lt;\/a&gt; &lt;em&gt;pimikan&lt;\/em&gt;\uff0c\u610f\u601d\u662f\u300c\u88fd\u9020\u6cb9\u8102\u300d\uff09\u662f\u4e7e\u8089\uff0c\u50b3\u7d71&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/bison\/\&quot;&gt;\u4e0a&lt;\/a&gt;\u91ce\u725b\uff08\u4e5f\u53ef\u4ee5\u4f7f\u7528\u9e7f\uff0c\u5361\u91cc\u5e03\uff0c\u9e7f\u8089\u6216\u725b\u8089\uff09\uff0c\u5c07\u5176\u58d3\u6210\u7c97\u7c89\u4e26\u8207\u76f8\u7b49\u91cf\u878d\u5316\u7684\u8102\u80aa\u6df7\u5408\uff0c\u5076\u723e\u662f&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatoon-berry\/\&quot;&gt;\u85a9\u65af\u5361\u901a\u6f3f\u679c\uff0c\u8513\u8d8a\u8393\uff0c\u751a\u81f3\uff08\u7279\u6b8a\u5834\u5408\uff09\u6afb\u6843\uff0c\u52a0\u4f96\u5b50\uff0c\u7126\u7cd6\u6f3f&lt;\/a&gt;\u6216\u85cd&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cranberry\/\&quot;&gt;\u8393&lt;\/a&gt;\u3002&lt;\/a&gt;&lt;\/a&gt;&lt;\/a&gt;&lt;\/a&gt;&lt;\/a&gt;&lt;\/a&gt;&lt;\/a&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/voyageur\/\&quot;&gt;\u57f9\u7c73\u5361\u662f\u4e00\u7a2e\u5bc6\u96c6\u3001\u9ad8\u86cb\u767d\u8cea\u548c\u9ad8\u80fd\u91cf\u7684\u98df\u7269\uff0c\u4ee5 41 \u516c\u65a4\u7684\u91ce\u725b\u76ae\u888b\u88fd\u6210\uff0c\u53ef\u4ee5\u8f15\u9b06\u5132\u5b58\u548c\u904b\u8f38\uff0c\u4ee5\u4fbf\u5728\u8349\u539f\u5730\u5340\u65c5\u884c\u7684&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/fur-trade\/\&quot;&gt;\u76ae\u8349\u8cbf\u6613&lt;\/a&gt;\u65c5\u884c\u8005\u63d0\u4f9b\uff0c\u5c24\u5176\u662f\u5728\u51ac\u5b63\uff0c\u98df\u7269\u53ef\u80fd\u5f88\u5c11\u3002&lt;\/a&gt;&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;\u6b77\u53f2&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/peter-pond\/\&quot;&gt;Peter Pond \u5728&lt;\/a&gt; &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/athabasca\/\&quot;&gt;1779 \u5e74\u5f9e\u963f\u85a9\u5df4\u65af\u5361\u5730\u5340\u7684\u5947\u73c0\u7dad\u4e9e\u4eba\u90a3\u88e1\u7372\u5f97\u4e86\u9019\u7a2e\u91cd\u8981\u98df\u7269\uff0c\u56e0\u6b64\u5728 1779 \u5e74\u5c07\u9019\u7a2e\u91cd&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/chipewyan\/\&quot;&gt;\u8981\u7684\u98df\u7269\u5f15\u5165\u8cbf&lt;\/a&gt;\u6613\u3002&lt;\/a&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/metis\/\&quot;&gt;\u5f8c\u4f86\uff0c\u6cbf\u8457&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river\/\&quot;&gt;\u7d05\u6cb3\u3001\u963f&lt;\/a&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/assiniboine-river\/\&quot;&gt;\u897f\u5c3c\u535a\u56e0\u6cb3\u548c\u5317\u85a9\u65af&lt;\/a&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatchewan-river\/\&quot;&gt;\u5580\u5fb9\u6eab\u6cb3\u6d41\u5411\u5c45\u4f4f\u7684&lt;\/a&gt;\u539f\u4f4f\u6c11\u548c\u6885\u8482\u65af\u4eba\u90a3\u88e1\u7372\u5f97\u57f9\u7c73\u5361\u6069\u3002&lt;\/a&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/upper-fort-garry\/\&quot;&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/norway-house\/\&quot;&gt;\u6885\u8482\u65af\u4e58\u8457&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-cart\/\&quot;&gt;\u7d05\u6cb3\u99ac\u8eca&lt;\/a&gt;\uff08\u5168\u7531\u6728\u6750\u88fd\u6210\u4e26\u7528\u76ae\u9769\u7d81\u5728\u4e00\u8d77\u7684\u8eca\uff09\u9032\u5165\u8349\u539f\uff0c&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/buffalo-hunt\/\&quot;&gt;\u6bba\u6b7b\u4e26\u5c60&lt;\/a&gt;\u5bb0\u91ce\u725b\uff0c\u5c07\u8089\u8f49\u63db\u70ba\u57f9\u7c73\u5361\uff0c\u7136\u5f8c\u5c07\u5176\u7528\u888b\u88dd\u904b\u5230\u4e9e\u6b77\u5c71\u5927\u5821\u3001&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cumberland-house\/\&quot;&gt;\u574e\u4f2f\u862d\u4e4b\u5bb6\u3001\u52a0\u91cc\u5821\u3001\u632a\u5a01\u4e4b\u5bb6\u548c\u57c3\u5fb7\u8499\u9813\u4e4b\u5bb6\u7b49\u76ae\u8349\u8cbf&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/trading-post\/\&quot;&gt;\u6613&lt;\/a&gt;\u7ad9\u3002&lt;\/a&gt;&lt;\/a&gt;&lt;\/a&gt;\u5f6d\u7c73\u574e\u5c0d\u5340\u57df\u7d93\u6fdf\u8db3\u5920\u91cd\u8981\uff0c\u5230 1814 \u5e74\uff0c\u7e3d\u7763\u9081\u723e\u65af\u00b7&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/miles-macdonell\/\&quot;&gt;\u9ea5\u514b\u591a\u5167\u723e&lt;\/a&gt;\u901a\u904e\u4e86\u707d\u96e3\u4f46\u77ed\u66ab\u7684&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/pemmican-proclamation\/\&quot;&gt;\u5f6d\u7c73&lt;\/a&gt;\u574e\u5ba3\u8a00\uff0c\u8a72\u5ba3\u8a00\u7981\u6b62\u5f9e&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-colony\/\&quot;&gt;\u7d05\u6cb3&lt;\/a&gt;\u6b96\u6c11\u5730\u51fa\u53e3\u4efb\u4f55\u98df\u54c1\u4f9b\u61c9\uff0c\u5305\u62ec\u5f6d\u7c73\u5eb7\uff0c\u5e7e\u4e4e\u8207\u6885\u8482\u65af\u4eba\u958b\u59cb\u6230\u722d\u3002&lt;\/p&gt;\r\n\r\n&lt;p&gt;\r\n\u4f8b\u5982\uff0c\u7687\u5bb6\u6d77\u8ecd\u5728\u8a72\u5730\u5340\u5916\u88fd\u9020\u548c\u4f7f\u7528\uff0c\u4f8b\u5982\uff0c\u7687\u5bb6\u6d77\u8ecd\u70ba\u5e7e\u6b21\u5317\u6975\u63a2\u96aa\u63d0\u4f9b\u4e86\u82f1\u683c\u862d&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/arctic-exploration\/\&quot;&gt;\u88fd\u9020\u7684\u725b&lt;\/a&gt;\u8089\u57f9\u7c73\u5eb7\u3002\r\n&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;\u98df\u8b5c&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;\r\n\u5728\u63a2\u7d22\u504f\u9060\u5730\u5340\u6642\uff0cPemmican \u4ecd\u7136\u53ef\u4ee5\u662f\u6709\u7528\u7684\u96f6\u98df\uff0c\u4e26\u4e14\u53ef\u4ee5\u5728\u73fe\u4ee3\u5eda\u623f\u4e2d\u4ee5\u5408\u7406\u7684\u6578\u91cf\u548c\u5408\u7406\u7684\u6642\u9593\u5167\u88fd\u4f5c\u3002\u96d6\u7136\u83dc\u991a\u6709\u5e7e\u7a2e\u8b8a\u5316-\u53d6\u6c7a\u65bc\u4f7f\u7528\u7684\u8089\u985e\u548c\u6dfb\u52a0\u7684\r\n\u6771\u897f-\u4f46\u4ee5\u4e0b\u83dc\u662f\u76f8\u5c0d\u6a19\u6e96\u7684\u3002\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n&lt;img src=\&quot;https:\/\/i.imgur.com\/MS4cnR5.png\&quot;&gt;\r\n&lt;\/p&gt;&quot;,&quot;slug&quot;:&quot;1&quot;,&quot;alt_slug&quot;:&quot;&quot;,&quot;twitter_summary&quot;:null,&quot;locale&quot;:&quot;zh-TW&quot;,&quot;automated&quot;:true,&quot;hidden&quot;:0,&quot;views&quot;:1,&quot;created_at&quot;:&quot;2025-08-14T17:53:08.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-14T17:53:08.000000Z&quot;}],&quot;widgets&quot;:[],&quot;links&quot;:[{&quot;id&quot;:&quot;9fac3cca-5f7a-42a6-bbca-a752fc73ce11&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;body&quot;:&quot;&lt;p&gt;\r\n\t &lt;a href=\&quot;http:\/\/peel.library.ualberta.ca\/bibliography\/113\/92.html\&quot;&gt;&lt;strong&gt;Proclamation&lt;\/strong&gt;A digitized copy of a proclamation that banned fur traders and others from exporting pemmican from the Assiniboia region beyond that needed for personal sustenance on their journey to their destination. From the University of Alberta website.&lt;\/a&gt;\r\n&lt;\/p&gt;&quot;,&quot;locale&quot;:&quot;en&quot;},{&quot;id&quot;:&quot;9fac3cca-630e-4d01-acc4-82e0c58a639d&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;body&quot;:&quot;&lt;p&gt;\r\n\t &lt;a href=\&quot;http:\/\/books.google.ca\/books?id=b7yZBAAAQBAJ&amp;source=gbs_navlinks_s\&quot;&gt;&lt;strong&gt;Pemmican Empire: Food, Trade, and the Last Bison Hunts in the North American Plains, 1780\u20131882&lt;\/strong&gt;See online excerpts from a book on the history of the pemmican trade which led to the near extinction of wild bison on the plains. From Google Books.&lt;\/a&gt;\r\n&lt;\/p&gt;&quot;,&quot;locale&quot;:&quot;en&quot;},{&quot;id&quot;:&quot;9fac3cca-67dc-4cca-9f2a-9d1ea36a7cd6&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;body&quot;:&quot;&quot;,&quot;locale&quot;:&quot;fr&quot;},{&quot;id&quot;:&quot;9fac3cca-6bbd-4f4a-ba66-f788a270af9d&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;body&quot;:&quot;&quot;,&quot;locale&quot;:&quot;fr&quot;}],&quot;recommended_readings&quot;:[],&quot;tags&quot;:[],&quot;sponsors&quot;:[],&quot;translation&quot;:{&quot;id&quot;:&quot;cfbce864-5426-470a-be6d-e19e25f1708f&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;title&quot;:&quot;Pemmican&quot;,&quot;summary&quot;:&quot;Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranberries, and even cherries, currants, chokeberries or blueberries.&quot;,&quot;body&quot;:&quot;&lt;div&gt;&lt;img src=\&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg\&quot; title=\&quot;Bison Pemmican\&quot; alt=\&quot;Bison Pemmican\&quot;&gt;\r\n\t&lt;figcaption&gt;Credit: are you gonna eat that\/flickr cc.&lt;\/figcaption&gt;\r\n&lt;\/div&gt;\r\n&lt;p&gt;Pemmican (&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cree\/#h3_jump_2\&quot;&gt;Cree&lt;\/a&gt;&lt;em&gt;pimikan&lt;\/em&gt;, meaning \&quot;manufactured grease\&quot;) is dried meat, traditionally &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/bison\/\&quot;&gt;bison&lt;\/a&gt; (&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/moose\/\&quot;&gt;moose&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/caribou\/\&quot;&gt;caribou&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/deer\/\&quot;&gt;venison&lt;\/a&gt; or beef can be used as well), pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatoon-berry\/\&quot;&gt;saskatoon berries&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cranberry\/\&quot;&gt;cranberries&lt;\/a&gt;, and even (for special occasions) &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cherry\/\&quot;&gt;cherries&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/\&quot;&gt;currants&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;chokeberries&lt;\/a&gt; or &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/wild-berries\/#h3_jump_3\&quot;&gt;blueberries&lt;\/a&gt;. Cooled and sewn into bison-hide bags in 41 kg lots, pemmican was a dense, high-protein and high-energy food that could be stored and shipped with ease to provision &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/voyageur\/\&quot;&gt;voyageurs&lt;\/a&gt; in the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/fur-trade\/\&quot;&gt;fur trade&lt;\/a&gt; travelling in the prairie regions where, especially in winter, food could be scarce.&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;History&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;&lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/peter-pond\/\&quot;&gt;Peter Pond&lt;\/a&gt; is credited with introducing this vital food to the trade in 1779, having obtained it from the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/chipewyan\/\&quot;&gt;Chipewyans&lt;\/a&gt; in the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/athabasca\/\&quot;&gt;Athabasca&lt;\/a&gt; region. Later, posts along the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river\/\&quot;&gt;Red&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/assiniboine-river\/\&quot;&gt;Assiniboine&lt;\/a&gt; and &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/saskatchewan-river\/\&quot;&gt;North Saskatchewan&lt;\/a&gt; Rivers were devoted to acquiring pemmican from Aboriginal peoples living in the region as well as the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/metis\/\&quot;&gt;M\u00e9tis&lt;\/a&gt;. M\u00e9tis travelled onto the prairie in &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-cart\/\&quot;&gt;Red River carts&lt;\/a&gt; (carts constructed entirely of wood and lashed together with leather), &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/buffalo-hunt\/\&quot;&gt;killed and butchered bison&lt;\/a&gt;, converted the meat into pemmican, and shipped it in bags to such fur &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/trading-post\/\&quot;&gt;trading posts&lt;\/a&gt; as Fort Alexander, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/cumberland-house\/\&quot;&gt;Cumberland House&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/upper-fort-garry\/\&quot;&gt;Fort Garry&lt;\/a&gt;, &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/norway-house\/\&quot;&gt;Norway House&lt;\/a&gt; and Edmonton House. Pemmican was sufficiently important to the regional economy that, in 1814, Governor &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/miles-macdonell\/\&quot;&gt;Miles Macdonell&lt;\/a&gt; passed the disastrous but short-lived &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/pemmican-proclamation\/\&quot;&gt;Pemmican Proclamation&lt;\/a&gt;, which forbade the export of any food supplies, including pemmican, from the &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/red-river-colony\/\&quot;&gt;Red River Colony&lt;\/a&gt;, nearly starting a war with the M\u00e9tis.&lt;\/p&gt;\r\n\r\n&lt;p&gt;\r\n\tPemmican was also made and used outside the region, by the Royal Navy, for example, which provisioned several &lt;a href=\&quot;https:\/\/www.thecanadianencyclopedia.ca\/en\/article\/arctic-exploration\/\&quot;&gt;Arctic expeditions&lt;\/a&gt; with beef pemmican made in England.\r\n&lt;\/p&gt;\r\n&lt;h3&gt;&lt;strong&gt;Recipe&lt;\/strong&gt;&lt;\/h3&gt;\r\n\r\n&lt;p&gt;\r\n\tPemmican can still be useful snack when exploring the backcountry, and it can be made in reasonable quantities and in a reasonable amount of time in a modern kitchen. While there are several variations on the dish \u2014 depending upon the meat used and what\r\n\tis being added \u2014 what follows is relatively standard.\r\n&lt;\/p&gt;\r\n&lt;p&gt;\r\n\t&lt;img src=\&quot;https:\/\/i.imgur.com\/MS4cnR5.png\&quot;&gt;\r\n&lt;\/p&gt;&quot;,&quot;slug&quot;:&quot;pemmican&quot;,&quot;alt_slug&quot;:&quot;&quot;,&quot;twitter_summary&quot;:null,&quot;locale&quot;:&quot;en&quot;,&quot;automated&quot;:false,&quot;hidden&quot;:0,&quot;views&quot;:0,&quot;created_at&quot;:&quot;2006-02-08T00:00:00.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T16:30:30.000000Z&quot;},&quot;media&quot;:[{&quot;id&quot;:&quot;9961&quot;,&quot;disk&quot;:&quot;s3&quot;,&quot;directory&quot;:&quot;media\/media&quot;,&quot;filename&quot;:&quot;a1f44020-1c87-4f0d-a8a9-e5a005bb459a&quot;,&quot;extension&quot;:&quot;jpg&quot;,&quot;mime_type&quot;:&quot;image\/jpeg&quot;,&quot;aggregate_type&quot;:&quot;image&quot;,&quot;size&quot;:100000,&quot;variant_name&quot;:null,&quot;original_media_id&quot;:null,&quot;created_at&quot;:&quot;2014-11-24T20:35:13.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-11-24T20:45:18.000000Z&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Credit: are you gonna eat that\/flickr cc.\r\n&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;conversion_urls&quot;:{&quot;original&quot;:&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg&quot;},&quot;url&quot;:&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;pivot&quot;:{&quot;mediable_type&quot;:&quot;App\\Models\\Article&quot;,&quot;mediable_id&quot;:&quot;79201&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;tag&quot;:&quot;feature&quot;,&quot;order&quot;:1},&quot;translations&quot;:[{&quot;id&quot;:&quot;a40b49ab-cf39-4f2b-80e3-ba2cf2ac77ae&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Credit: are you gonna eat that\/flickr cc.\r\n&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;},{&quot;id&quot;:&quot;15305ead-ad32-4cf9-b7e5-1ef7b9efe9ff&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Cr\u00e9dit: are you gonna eat that\/flickr cc.&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;}]},{&quot;id&quot;:&quot;9961&quot;,&quot;disk&quot;:&quot;s3&quot;,&quot;directory&quot;:&quot;media\/media&quot;,&quot;filename&quot;:&quot;a1f44020-1c87-4f0d-a8a9-e5a005bb459a&quot;,&quot;extension&quot;:&quot;jpg&quot;,&quot;mime_type&quot;:&quot;image\/jpeg&quot;,&quot;aggregate_type&quot;:&quot;image&quot;,&quot;size&quot;:100000,&quot;variant_name&quot;:null,&quot;original_media_id&quot;:null,&quot;created_at&quot;:&quot;2014-11-24T20:35:13.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-11-24T20:45:18.000000Z&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Credit: are you gonna eat that\/flickr cc.\r\n&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;conversion_urls&quot;:{&quot;original&quot;:&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg&quot;},&quot;url&quot;:&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;pivot&quot;:{&quot;mediable_type&quot;:&quot;App\\Models\\Article&quot;,&quot;mediable_id&quot;:&quot;79201&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;tag&quot;:&quot;gallery&quot;,&quot;order&quot;:1},&quot;translations&quot;:[{&quot;id&quot;:&quot;a40b49ab-cf39-4f2b-80e3-ba2cf2ac77ae&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Credit: are you gonna eat that\/flickr cc.\r\n&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;},{&quot;id&quot;:&quot;15305ead-ad32-4cf9-b7e5-1ef7b9efe9ff&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Cr\u00e9dit: are you gonna eat that\/flickr cc.&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;}]},{&quot;id&quot;:&quot;9961&quot;,&quot;disk&quot;:&quot;s3&quot;,&quot;directory&quot;:&quot;media\/media&quot;,&quot;filename&quot;:&quot;a1f44020-1c87-4f0d-a8a9-e5a005bb459a&quot;,&quot;extension&quot;:&quot;jpg&quot;,&quot;mime_type&quot;:&quot;image\/jpeg&quot;,&quot;aggregate_type&quot;:&quot;image&quot;,&quot;size&quot;:100000,&quot;variant_name&quot;:null,&quot;original_media_id&quot;:null,&quot;created_at&quot;:&quot;2014-11-24T20:35:13.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-11-24T20:45:18.000000Z&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Credit: are you gonna eat that\/flickr cc.\r\n&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;conversion_urls&quot;:{&quot;original&quot;:&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg&quot;},&quot;url&quot;:&quot;https:\/\/d3d0lqu00lnqvz.cloudfront.net\/media\/media\/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;pivot&quot;:{&quot;mediable_type&quot;:&quot;App\\Models\\Article&quot;,&quot;mediable_id&quot;:&quot;79201&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;tag&quot;:&quot;tweet&quot;,&quot;order&quot;:1},&quot;translations&quot;:[{&quot;id&quot;:&quot;a40b49ab-cf39-4f2b-80e3-ba2cf2ac77ae&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Credit: are you gonna eat that\/flickr cc.\r\n&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;},{&quot;id&quot;:&quot;15305ead-ad32-4cf9-b7e5-1ef7b9efe9ff&quot;,&quot;media_id&quot;:&quot;9961&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;caption&quot;:&quot;Cr\u00e9dit: are you gonna eat that\/flickr cc.&quot;,&quot;creator&quot;:&quot;&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;locale&quot;:&quot;fr&quot;,&quot;credit&quot;:&quot;are you gonna eat that\/flickr cc.&quot;}]}],&quot;authors&quot;:[{&quot;id&quot;:&quot;1500&quot;,&quot;full_name&quot;:&quot;John E. Foster&quot;,&quot;first_name&quot;:&quot;John E.&quot;,&quot;last_name&quot;:&quot;Foster&quot;,&quot;email&quot;:&quot;&quot;,&quot;home_phone&quot;:&quot;&quot;,&quot;work_phone&quot;:&quot;&quot;,&quot;mobile_phone&quot;:&quot;&quot;,&quot;slug&quot;:&quot;john-e-foster&quot;,&quot;featured_article_id&quot;:null,&quot;is_deceased&quot;:0,&quot;created_at&quot;:&quot;2013-11-15T15:58:59.000000Z&quot;,&quot;updated_at&quot;:&quot;2015-07-24T16:14:45.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;title&quot;:&quot;&quot;,&quot;bio&quot;:&quot;&quot;,&quot;subject_expertise&quot;:&quot;&quot;,&quot;pivot&quot;:{&quot;article_id&quot;:&quot;79201&quot;,&quot;author_id&quot;:&quot;1500&quot;,&quot;position&quot;:1},&quot;translations&quot;:[{&quot;id&quot;:&quot;8c250da9-d42c-4ecc-a5c7-f46da5935000&quot;,&quot;author_id&quot;:&quot;1500&quot;,&quot;title&quot;:&quot;&quot;,&quot;subject_expertise&quot;:&quot;&quot;,&quot;bio&quot;:&quot;&quot;,&quot;locale&quot;:&quot;en&quot;},{&quot;id&quot;:&quot;a4751176-b511-4c21-a9e8-fda69f97c4a1&quot;,&quot;author_id&quot;:&quot;1500&quot;,&quot;title&quot;:&quot;&quot;,&quot;subject_expertise&quot;:&quot;&quot;,&quot;bio&quot;:&quot;&quot;,&quot;locale&quot;:&quot;fr&quot;}],&quot;media&quot;:[]}],&quot;revisions&quot;:[{&quot;id&quot;:&quot;082f3f66-bc61-48a7-a83a-138447009b6e&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;3766&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2018-12-20T16:42:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2018-12-20T16:42:38.000000Z&quot;},{&quot;id&quot;:&quot;19c21484-a6f5-48dc-9df8-a72a2113a9e1&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;5020&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2019-01-28T17:09:47.000000Z&quot;,&quot;updated_at&quot;:&quot;2019-01-28T17:09:47.000000Z&quot;},{&quot;id&quot;:&quot;26222&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;41&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-03T20:38:39.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-03T20:38:39.000000Z&quot;},{&quot;id&quot;:&quot;26223&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;41&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-03T20:39:10.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-03T20:39:10.000000Z&quot;},{&quot;id&quot;:&quot;26246&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;425&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-04T19:41:17.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-04T19:41:17.000000Z&quot;},{&quot;id&quot;:&quot;26248&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;41&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-04T19:59:26.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-04T19:59:26.000000Z&quot;},{&quot;id&quot;:&quot;26249&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;41&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-04T19:50:25.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-04T19:50:25.000000Z&quot;},{&quot;id&quot;:&quot;26251&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;41&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-04T20:00:29.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-04T20:00:29.000000Z&quot;},{&quot;id&quot;:&quot;26253&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;41&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-04T20:01:06.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-04T20:01:06.000000Z&quot;},{&quot;id&quot;:&quot;26271&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;425&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-05T14:41:52.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-05T14:41:52.000000Z&quot;},{&quot;id&quot;:&quot;26361&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;38&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-08T21:15:49.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-08T21:15:49.000000Z&quot;},{&quot;id&quot;:&quot;26362&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;38&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-08T21:15:42.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-08T21:15:42.000000Z&quot;},{&quot;id&quot;:&quot;26363&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;38&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-08T21:16:14.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-08T21:16:14.000000Z&quot;},{&quot;id&quot;:&quot;26374&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;38&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-09T13:58:02.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-09T13:58:02.000000Z&quot;},{&quot;id&quot;:&quot;26439&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;425&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2014-12-10T15:50:02.000000Z&quot;,&quot;updated_at&quot;:&quot;2014-12-10T15:50:02.000000Z&quot;},{&quot;id&quot;:&quot;4f4374c1-8e46-482e-9b48-ef2c7d302ad7&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:null,&quot;revision_type&quot;:&quot;major_update&quot;,&quot;created_at&quot;:&quot;2015-03-05T00:02:49.000000Z&quot;,&quot;updated_at&quot;:&quot;2015-03-05T00:02:49.000000Z&quot;},{&quot;id&quot;:&quot;6047db68-b4c1-4391-b84f-aa21d5381670&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;5020&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2019-01-18T22:24:46.000000Z&quot;,&quot;updated_at&quot;:&quot;2019-01-18T22:24:46.000000Z&quot;},{&quot;id&quot;:&quot;8399c3d3-c706-4a36-8299-4bf03462af77&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;5020&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2019-01-28T17:09:18.000000Z&quot;,&quot;updated_at&quot;:&quot;2019-01-28T17:09:18.000000Z&quot;},{&quot;id&quot;:&quot;9f906b62-99cc-40ca-8cad-b313da51f065&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;3c92085a-ea4b-4cba-b2ae-07943d12bfe0&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2025-08-05T20:37:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-05T20:37:37.000000Z&quot;},{&quot;id&quot;:&quot;9f906c6a-700c-408c-807c-85e57bae41d8&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;3c92085a-ea4b-4cba-b2ae-07943d12bfe0&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2025-08-05T20:40:30.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-05T20:40:30.000000Z&quot;},{&quot;id&quot;:&quot;9f906c76-9000-4bca-a454-8ddc8068e84e&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;3c92085a-ea4b-4cba-b2ae-07943d12bfe0&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2025-08-05T20:40:38.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-05T20:40:38.000000Z&quot;},{&quot;id&quot;:&quot;9f906c7d-dec7-4da9-bf94-ae80904ddfe0&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;3c92085a-ea4b-4cba-b2ae-07943d12bfe0&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2025-08-05T20:40:42.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-05T20:40:42.000000Z&quot;},{&quot;id&quot;:&quot;9fabd94e-4f9a-4259-aaf6-261f745bbb0f&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;853e81c4-ce3d-4cae-81f2-e86d1728c6cf&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2025-08-19T11:52:20.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T11:52:20.000000Z&quot;},{&quot;id&quot;:&quot;9fac3cc9-f96b-4c0f-a2db-e8158fafa793&quot;,&quot;article_id&quot;:&quot;79201&quot;,&quot;made_by_id&quot;:&quot;853e81c4-ce3d-4cae-81f2-e86d1728c6cf&quot;,&quot;revision_type&quot;:&quot;content_change&quot;,&quot;created_at&quot;:&quot;2025-08-19T16:30:30.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T16:30:30.000000Z&quot;}],&quot;related_collections&quot;:[]},&quot;related_articles&quot;:[],&quot;associated_collections&quot;:[]}"
+            header="Content"
+        ></article-sidebar>
+    </div>
+
+        <div class="main-content">
+            
+            <input class="js-picture-information" type="hidden" value="[{&quot;filename&quot;:&quot;a1f44020-1c87-4f0d-a8a9-e5a005bb459a&quot;,&quot;title&quot;:&quot;Bison Pemmican&quot;,&quot;alt&quot;:&quot;Bison Pemmican&quot;,&quot;source&quot;:&quot;are you gonna eat that\/flickr cc.&quot;,&quot;creator&quot;:&quot;&quot;,&quot;caption&quot;:&quot;Credit: are you gonna eat that\/flickr cc.\r\n&quot;}]">
+
+<main class="main-grid">
+    <article class="article main-grid__content">
+        
+                <input type="hidden" id="isUserLogin" name="loginuser" value="">
+
+<aside id="articlewidgets" class="article-widgets">
+    <input type="checkbox" class="menu-open" name="menu-open" id="menu-open"/>
+    <label class="widget-open-button" for="menu-open">
+        <span class="dot--1"></span>
+        <span class="dot--2"></span>
+        <span class="dot--3"></span>
+    </label>
+
+            <button data-target="popup-citation" data-toggle="modal" class="widget-item articleNavPopupEvent">
+            <div class="widget-item__icon--citation"></div>
+            <span class="widget-item__title">Citation</span>
+        </button>
+                    <button data-toggle="modal" class="widget-item articleNavPopupEvent js-edit-submit">
+                <div class="widget-item__icon--edit"></div>
+                <span class="widget-item__title">Suggest an Edit</span>
+            </button>
+                            <button data-target="popup-translation" data-toggle="modal" class="widget-item articleNavPopupEvent js-translation">
+                <div class="widget-item__icon--translate"></div>
+                <span class="widget-item__title">Request translation</span>
+            </button>
+            
+            <button id="popup-translation__original" class="widget-item hide-widget">
+                    <div class="widget-item__icon--revert"></div>
+                    <span class="widget-item__title">Revert to English</span>
+            </button>
+            </aside>
+
+
+
+    <div id="popup-translation" class="modal">
+        <div class="popup-wrapper">
+            <div class="popup-content">
+                <div class="popup-title">
+                    <div role="heading">Request a Translation</div>
+                    <div>
+                        <a class="popup-close" data-dismiss="modal"></a>
+                    </div>
+                </div>
+                <div class="g-recaptcha"
+                    data-sitekey="'6LeIWwglAAAAANriZBXJ8HgScx2u6jGAx0gY0GKm'"
+                    data-callback="onSubmit"
+                    data-size="invisible">
+                </div>
+
+                <div class="popup-body">
+                    <div id="translation-language-picker">
+                        <translation-select recaptcha-site-key="6LeIWwglAAAAANriZBXJ8HgScx2u6jGAx0gY0GKm" slug=pemmican locale=en></translation-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="translation-rating-snackbar">
+        <translation-rating show-rating=0 slug=pemmican></translation-rating>
+    </div>
+
+
+<div id="popup-edit" class="modal">
+    <div class="popup-wrapper">
+        <div class="popup-content">
+            <div class="popup-title">
+                <div>Suggest an Edit</div>
+                <div>
+                    <a class="popup-close" data-dismiss="modal"></a>
+                </div>
+            </div>
+            <div class="popup-body">
+                <div class="contact-form edit-form">
+                    
+                    <div class="form-error-list">
+                        <ul></ul>
+                    </div>
+
+                    <form method="POST" action="https://thecanadianencyclopedia.ca/en/submitArticle" accept-charset="UTF-8" class="form form-submit-edit form-main"><input name="_token" type="hidden" value="btkR39DDrl2g82WhVXcQOSHBVy2GLhDPNgszxCOW">
+
+
+                    <input name="aid" type="hidden" value="79201">
+                    <input name="edit" type="hidden" value="true">
+
+                    <div class="input-group ">
+                    <label for="description">Enter your suggested edit(s) to this article in the form field below</label>
+                    <p class="disclaimer">Please note that all edits are made at the discretion of our editors. For more information, please see our  
+                        <a href=https://thecanadianencyclopedia.ca/en/privacy-policy>
+                        editorial policy. 
+                        </a>
+                    </p>
+
+                        <textarea id="text-editor" class="form-control input input-fullSpan" placeholder="Write your message here..." name="description" cols="50" rows="10"></textarea>
+                                            </div>
+
+                    <div class="btn-container">
+                        <div>
+                            <input class="disabled js-submitedit-submit b b-md b-invert" type="submit" value="Submit">
+                        </div>
+                        <div>
+                            <a href="#" data-dismiss="modal" class="js-popup-close b-link">Cancel</a>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="popup-citation" class="modal">
+    <div class="popup-wrapper">
+        <div class="popup-content">
+            <div class="popup-title">
+                <div>
+                    Citation
+                </div>
+                <div>
+                    <a class="popup-close" data-dismiss="modal"></a>
+                </div>
+            </div>
+            <div class="popup-body">
+                <ul class="list">
+                    <li>
+                        <ul class="citation-reference">
+                            <input id="copy1" type="text" value="MLA 8TH EDITION | Foster, John E.. &quot;Pemmican&quot;.  <em>The Canadian Encyclopedia</em>, 04 March 2015, <em>Historica Canada</em>. thecanadianencyclopedia.ca/en/article/pemmican. Accessed 24 September 2026.">
+                            <li class="title">MLA 8TH EDITION</li>
+                            <li class="description">Foster, John E.. &quot;Pemmican&quot;.  <em>The Canadian Encyclopedia</em>, 04 March 2015, <em>Historica Canada</em>. thecanadianencyclopedia.ca/en/article/pemmican. Accessed 24 September 2026.</li>
+                            <li class="link"><a data-text="Foster, John E.. &quot;Pemmican&quot;.  <em>The Canadian Encyclopedia</em>, 04 March 2015, <em>Historica Canada</em>. thecanadianencyclopedia.ca/en/article/pemmican. Accessed 24 September 2026." href="#" class="js-copy-clipboard b b-md b-invert b-modal-copy">Copy</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="citation-reference">
+                            <input id="copy2" type="text" value="APA 6TH EDITION | Foster, J. (2015). Pemmican.  In <em>The Canadian Encyclopedia</em>. Retrieved from https://thecanadianencyclopedia.ca/en/article/pemmican">
+                            <li class="title">APA 6TH EDITION</li>
+                            <li class="description">Foster, J. (2015). Pemmican.  In <em>The Canadian Encyclopedia</em>. Retrieved from https://thecanadianencyclopedia.ca/en/article/pemmican</li>
+                            <li class="link"><a data-text="Foster, J. (2015). Pemmican.  In <em>The Canadian Encyclopedia</em>. Retrieved from https://thecanadianencyclopedia.ca/en/article/pemmican" href="#" class="js-copy-clipboard b b-md b-invert b-modal-copy">Copy</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="citation-reference">
+                            <input id="copy3" type="text" value="CHICAGO 17TH EDITION | Foster, John E.. &quot;Pemmican.&quot;  <em>The Canadian Encyclopedia</em>. Historica Canada. Article published February 07, 2006; Last Edited March 04, 2015.">
+                            <li class="title">CHICAGO 17TH EDITION</li>
+                            <li class="description">Foster, John E.. &quot;Pemmican.&quot;  <em>The Canadian Encyclopedia</em>. Historica Canada. Article published February 07, 2006; Last Edited March 04, 2015.</li>
+                            <li class="link"><a data-text="Foster, John E.. &quot;Pemmican.&quot;  <em>The Canadian Encyclopedia</em>. Historica Canada. Article published February 07, 2006; Last Edited March 04, 2015." href="#" class="js-copy-clipboard b b-md b-invert b-modal-copy">Copy</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="citation-reference">
+                            <input id="copy4" type="text" value="TURABIAN 8TH EDITION | <em>The Canadian Encyclopedia</em>, s.v. &quot;Pemmican,&quot; by John E. Foster, Accessed September 24, 2026, https://thecanadianencyclopedia.ca/en/article/pemmican">
+                            <li class="title">TURABIAN 8TH EDITION</li>
+                            <li class="description"><em>The Canadian Encyclopedia</em>, s.v. &quot;Pemmican,&quot; by John E. Foster, Accessed September 24, 2026, https://thecanadianencyclopedia.ca/en/article/pemmican</li>
+                            <li class="link"><a data-text="<em>The Canadian Encyclopedia</em>, s.v. &quot;Pemmican,&quot; by John E. Foster, Accessed September 24, 2026, https://thecanadianencyclopedia.ca/en/article/pemmican" href="#" class="js-copy-clipboard b b-md b-invert b-modal-copy">Copy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="popup-share" class="modal">
+    <div class="popup-wrapper">
+        <div class="popup-content">
+            <div class="popup-title">
+                <div>Share</div>
+                <div>
+                    <a class="popup-close" data-dismiss="modal"></a>
+                </div>
+            </div>
+            <div class="popup-body">
+                <ul class="list">
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://thecanadianencyclopedia.ca/en/article/pemmican" target="_blank"><img class="popup-share-facebook" src="https://thecanadianencyclopedia.ca/images/i-facebook.svg?v=7fb8b09ec62e4de8848271514745bd2a" alt="Share on Facebook" title="Share on Facebook"> Share on Facebook</a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=https://thecanadianencyclopedia.ca/en/article/pemmican" target="_blank"><img src="https://thecanadianencyclopedia.ca/images/i-twitter-x.svg?v=deacd0b3626a2053dbdc3843f1e13d44" alt="Share on X" title="Share on X"> Share on X</a></li>
+                    <li><a href="mailto:?body=https://thecanadianencyclopedia.ca/en/article/pemmican"><img src="https://thecanadianencyclopedia.ca/images/i-email.svg?v=c763267e8d2e1fab14f745261b8a8c7a" alt="Share by Email" title="Share by Email"> Share by Email</a></li>
+                    <li class="share-classroom"><a target="_blank" href="https://classroom.google.com/share?url='https://thecanadianencyclopedia.ca/en/article/pemmican'"
+                        >
+                        <img src="https://thecanadianencyclopedia.ca/images/i-google.svg?v=657db3c0413ddd5da4c7a6ee570546f7" alt="Share on Google Classroom" title="Share on Google Classroom" style="filter: grayscale(100%);"> Share on Google Classroom
+                    </a>
+
+                    <g:sharetoclassroom url="https://thecanadianencyclopedia.ca/en/article/pemmican" size="20"></g:sharetoclassroom>
+
+                </li>
+                <div id="widget-div"></div>
+
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<div id="popup-thankyou" class="modal">
+    <div class="popup-wrapper">
+        <div class="popup-content">
+            <div class="popup-body">
+                <div class="contact-form feedback-form">
+                    <h2>Thank you for your submission</h2>
+                    <p>Our team will be reviewing your submission <br/>and get back to you with any further questions.</p>
+                    <p>Thanks for contributing to The Canadian Encyclopedia.</p>
+                    <a href="#" data-dismiss="modal" class="js-popup-close b-link">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+                
+        <div class="article-heading">
+            <p class="article-heading__type">Article</p>
+            <h1 id="article-title" class="article-heading__title">Pemmican</h1>
+        </div>
+
+
+        <div class="article-info" >
+                            <div class="article-info__column">
+                                            <p class="info-text">Article by
+                            <span class="info-text__value">
+                                <a href='https://thecanadianencyclopedia.ca/en/author/john-e-foster' class='b-link'>John E. Foster</a>
+                            </span>
+                        </p>
+                    
+                                            <p class="info-text">Updated by
+                            <span class="info-text__value">
+                                Daniel Baird
+                            </span>
+                        </p>
+                                    </div>
+            
+            <div class="article-info__column--dates">
+                <p class="info-text">Published Online
+                    <span class="info-text__value--date">
+                        February  7, 2006
+                    </span>
+                </p>
+                <p class="info-text">Last Edited
+                    <span class="info-text__value--date">
+                        March  4, 2015
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        
+        
+        
+        
+        <div class="article-toolbar">
+            
+            <button data-target="popup-share" data-toggle="modal" class="article-toolbar__item articleNavPopupEvent">
+                <div class="article-toolbar__item__icon--share"></div>
+                <span class="article-toolbar__item__title">Share</span>
+            </button>
+            
+            <button id="js-print" class="article-toolbar__item">
+                <div class="article-toolbar__item__icon--print"></div>
+                <span class="article-toolbar__item__title">Print</span>
+            </button>
+        </div>
+
+
+        <div class="article-content">
+            <div class="article-content__summary">
+                Pemmican  is dried meat, traditionally bison pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally saskatoon berries, cranberries, and even cherries, currants, chokeberries or blueberries.
+            </div>
+                        <div class="article-content-body">
+        <div id="article-content-def">
+        <div><img src="https://d3d0lqu00lnqvz.cloudfront.net/media/media/a1f44020-1c87-4f0d-a8a9-e5a005bb459a.jpg" title="Bison Pemmican" alt="Bison Pemmican">
+	<figcaption>Credit: are you gonna eat that/flickr cc.</figcaption>
+</div>
+<p>Pemmican (<a href="https://www.thecanadianencyclopedia.ca/en/article/cree/#h3_jump_2">Cree</a><em>pimikan</em>, meaning "manufactured grease") is dried meat, traditionally <a href="https://www.thecanadianencyclopedia.ca/en/article/bison/">bison</a> (<a href="https://www.thecanadianencyclopedia.ca/en/article/moose/">moose</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/caribou/">caribou</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/deer/">venison</a> or beef can be used as well), pounded into coarse powder and mixed with an equal amount of melted fat, and occasionally <a href="https://www.thecanadianencyclopedia.ca/en/article/saskatoon-berry/">saskatoon berries</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/cranberry/">cranberries</a>, and even (for special occasions) <a href="https://www.thecanadianencyclopedia.ca/en/article/cherry/">cherries</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/wild-berries/">currants</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/wild-berries/#h3_jump_3">chokeberries</a> or <a href="https://www.thecanadianencyclopedia.ca/en/article/wild-berries/#h3_jump_3">blueberries</a>. Cooled and sewn into bison-hide bags in 41 kg lots, pemmican was a dense, high-protein and high-energy food that could be stored and shipped with ease to provision <a href="https://www.thecanadianencyclopedia.ca/en/article/voyageur/">voyageurs</a> in the <a href="https://www.thecanadianencyclopedia.ca/en/article/fur-trade/">fur trade</a> travelling in the prairie regions where, especially in winter, food could be scarce.</p>
+<h3><strong>History</strong></h3>
+
+<p><a href="https://www.thecanadianencyclopedia.ca/en/article/peter-pond/">Peter Pond</a> is credited with introducing this vital food to the trade in 1779, having obtained it from the <a href="https://www.thecanadianencyclopedia.ca/en/article/chipewyan/">Chipewyans</a> in the <a href="https://www.thecanadianencyclopedia.ca/en/article/athabasca/">Athabasca</a> region. Later, posts along the <a href="https://www.thecanadianencyclopedia.ca/en/article/red-river/">Red</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/assiniboine-river/">Assiniboine</a> and <a href="https://www.thecanadianencyclopedia.ca/en/article/saskatchewan-river/">North Saskatchewan</a> Rivers were devoted to acquiring pemmican from Aboriginal peoples living in the region as well as the <a href="https://www.thecanadianencyclopedia.ca/en/article/metis/">Métis</a>. Métis travelled onto the prairie in <a href="https://www.thecanadianencyclopedia.ca/en/article/red-river-cart/">Red River carts</a> (carts constructed entirely of wood and lashed together with leather), <a href="https://www.thecanadianencyclopedia.ca/en/article/buffalo-hunt/">killed and butchered bison</a>, converted the meat into pemmican, and shipped it in bags to such fur <a href="https://www.thecanadianencyclopedia.ca/en/article/trading-post/">trading posts</a> as Fort Alexander, <a href="https://www.thecanadianencyclopedia.ca/en/article/cumberland-house/">Cumberland House</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/upper-fort-garry/">Fort Garry</a>, <a href="https://www.thecanadianencyclopedia.ca/en/article/norway-house/">Norway House</a> and Edmonton House. Pemmican was sufficiently important to the regional economy that, in 1814, Governor <a href="https://www.thecanadianencyclopedia.ca/en/article/miles-macdonell/">Miles Macdonell</a> passed the disastrous but short-lived <a href="https://www.thecanadianencyclopedia.ca/en/article/pemmican-proclamation/">Pemmican Proclamation</a>, which forbade the export of any food supplies, including pemmican, from the <a href="https://www.thecanadianencyclopedia.ca/en/article/red-river-colony/">Red River Colony</a>, nearly starting a war with the Métis.</p>
+
+<p>
+	Pemmican was also made and used outside the region, by the Royal Navy, for example, which provisioned several <a href="https://www.thecanadianencyclopedia.ca/en/article/arctic-exploration/">Arctic expeditions</a> with beef pemmican made in England.
+</p>
+<h3><strong>Recipe</strong></h3>
+
+<p>
+	Pemmican can still be useful snack when exploring the backcountry, and it can be made in reasonable quantities and in a reasonable amount of time in a modern kitchen. While there are several variations on the dish — depending upon the meat used and what
+	is being added — what follows is relatively standard.
+</p>
+<p>
+	<img src="https://i.imgur.com/MS4cnR5.png">
+</p>
+    </div>
+</div>
+
+<div id="def" class="article-content-body hide"></div>
+
+        </div>
+
+        <div id="article-definitions">
+            <definitions route="https://thecanadianencyclopedia.ca/en/json/define" id="pemmican"></definitions>
+        </div>
+
+        
+        
+        
+    </article>
+</main>
+
+
+
+<div id="modal-overlay" class="overlay"></div>
+
+<div id="article-image" class="article-img-modal" role="dialog" aria-labelledby="article-modal-title">
+    <button class="article-img-modal__close" aria-label="close image modal"></button>
+    <div id="js-article-modal-image" class="article-img-modal__container">
+
+        <div class="image-container">
+            <img class="article-img-modal__img" src="" alt="">
+        </div>
+
+        <div class="text-container">
+            <span role="heading" aria-level="3" id="article-modal-title" class="article-img-modal__title"></span>
+            <span class="article-img-modal__description"></span>
+            <span class="article-img-modal__creator"></span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main-grid article-related">
+    <div id="external_links" class="article-related-two-column main-grid__content--wide">
+        <h3 class="article-related-two-column__title">External Links</h3>
+        <ul class="article-related-two-column__list">
+                                                <li class="article-related-two-column__list__item"><p>
+	 <a href="http://peel.library.ualberta.ca/bibliography/113/92.html"><strong>Proclamation</strong>A digitized copy of a proclamation that banned fur traders and others from exporting pemmican from the Assiniboia region beyond that needed for personal sustenance on their journey to their destination. From the University of Alberta website.</a>
+</p></li>
+                                                                <li class="article-related-two-column__list__item"><p>
+	 <a href="http://books.google.ca/books?id=b7yZBAAAQBAJ&source=gbs_navlinks_s"><strong>Pemmican Empire: Food, Trade, and the Last Bison Hunts in the North American Plains, 1780–1882</strong>See online excerpts from a book on the history of the pemmican trade which led to the near extinction of wild bison on the plains. From Google Books.</a>
+</p></li>
+                                    </ul>
+    </div>
+
+<!-- Related Collections -->
+
+<!-- Related Articles -->
+ 
+</div>
+
+        </div>
+    </div>
+    
+    
+    <div id="donation_banner" class="donation-banner">
+        <button id="donation-banner-expand-btn" class="donation-banner__expand-btn" aria-label="expand donation banner window">
+        </button>
+        <div class="donation-banner__container">
+            <div class="text-container">
+                <h3 class="text-container__title">Show your support this school year!</h3>
+                <div class="text-container__text"><p>Since The Canadian Encyclopedia is an approved online source for Canadian school boards (and 35% of its users are students and teachers), we are kicking off this school year by asking our supporters to start a monthly donation to help TCE reach even more users this year! Your monthly donation will help us create new articles and update existing articles and timelines, to ensure Canadian students and teachers have access to accurate and fact-checked information written and edited by Canadians. </p></div>
+            </div>
+            <a class="b-invert solid b-sm donation-banner__button" href="/en/donate">
+                Donate today!
+            </a>
+        </div>
+    </div>
+
+    
+<footer id="footer">
+    <div class="full-width footer-first-part">
+        <div class="wrap--narrow">
+            
+            <div class="footer-information grid--col2">
+                <div class="divider">
+                    <h6>Updates? Omissions? Article suggestions?</h6>
+                    <a href="https://thecanadianencyclopedia.ca/en/contact" class="b b-md b-primary">We want to hear from you</a>
+                </div>
+                <div>
+                    <h6>Did you like your experience?</h6>
+                    <a href="https://www.cognitoforms.com/HistoricaCanada1/TheCanadianEncyclopediaUserSurvey" target="_blank" class="b b-md b-primary">Take our survey</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full-width full-width-grey footer-second-part">
+        <div class="wrap--narrow footer-sub-first">
+            
+    
+                        <div class="footer-utilities">
+                
+                <form class="newsletter" action="https://HistoricaCanada.us1.list-manage.com/subscribe/post" method="POST">
+                    <input type="hidden" name="u" value="8b239f6d4c109489e40480d52">
+                    <input type="hidden" name="id" value="307fa49399">
+
+                    <input type="hidden" style="display: none" name="MERGE1" id="MERGE1" value="a">
+                    <input type="hidden" style="display: none" name="MERGE2" id="MERGE2" value="a">
+
+                    <select type="hidden" style="display: none" class="select-small" id="MERGE17" name="MERGE17">
+                        <option selected=true value="English | Anglais">English | Anglais</option>
+                        <option  value="French | Français">French | Français</option>
+                    </select>
+
+                    <label for="MERGE0" class="newsletter__label">Subscribe to our newsletter</label>
+                    <div class="newsletter__container">
+                        <input type="email" name="MERGE0" id="MERGE0" placeholder="Enter your email" class="newsletter__input">
+                        <button class="newsletter__button b b-md b-primary">Subscribe</button>
+                    </div>
+                </form>
+                <div class="randomize-12">
+                                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>64,328</b> images</div>
+                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>25,665</b> articles</div>
+                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>83</b> collections</div>
+                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>4,178</b> primary sources</div>
+                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>53</b> quizzes</div>
+                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>77</b> timelines</div>
+                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>85</b> Education Guides</div>
+                    <div class="footer-articles-count randomBlock" style="display: none;">We have <b>5,206</b> authors</div>
+                </div>
+                            <div class="footer-socials">
+                    <h4 class="footer-socials__title">Follow us elsewhere</h4>
+                    <ul>
+                        <li><a href="https://twitter.com/HistoricaCanada" class="footer-social-twitter" target="_blank"><i class="i i-invert i-twitter" aria-label="X"></i></a></li>
+                        <li><a href="https://www.facebook.com/TheCanadianEncyclopedia" class="footer-social-facebook" target="_blank"><i class="i i-invert i-facebook" aria-label="Facebook"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCtagGjDO8X1rBROhmSQXZsA" class="footer-social-youtube" target="_blank"><i class="i i-invert i-youtube" aria-label="Youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="wrap--narrow container-grey top-divider-footerlinks footer-sub-second">
+            <ul class="footer-links">
+                <li><a href="https://thecanadianencyclopedia.ca/en/about">About</a></li>
+                <li><a href="https://thecanadianencyclopedia.ca/en/contributors">Contribute</a></li>
+                <li><a href="https://thecanadianencyclopedia.ca/en/contact">Contact</a></li>
+                <li><a href="https://thecanadianencyclopedia.ca/en/sitemap">Sitemap</a></li>
+                <li><a href="https://thecanadianencyclopedia.ca/en/privacy-policy">policies</a></li>
+            </ul>
+        </div>
+        <div class="wrap--narrow container-grey top-divider footer-sub-third">
+            
+            <div class="footer-sitemap grid--col12">
+                <div class="footer-copyright">
+                    <a href="/en/copyright">The Canadian Encyclopedia © 2026 <span class="copyright-separator-spacing">|</span> Historica Canada</a>
+                </div>
+                <div class="footer-canada-logos">
+                    <ul>
+                        <li tabindex="0" class="footer-image-submenu">
+                            <img src="https://thecanadianencyclopedia.ca/images/historica-canada-logo.png?v=d8609094fb353837d01f458c7a6f905b" alt="Historica Canada" title="Historica Canada" loading="lazy"> 
+                            <ul class="external_links">
+                                <li><a href="https://www.historicacanada.ca/" target="_blank">Historica Canada</a></li>
+                                <li><a href="/en/quiz/cc-quiz-citizenship" target="_blank">Citizenship challenge</a></li>
+                                <li><a href="https://www.historicacanada.ca/heritageminutes" target="_blank">Heritage minutes</a></li>
+                                <li><a href="http://www.thememoryproject.com/" target="_blank">The memory project</a></li>
+                            </ul>
+                        </li>
+                        <li class="footer-image-submenu">
+                            <a href="https://www.canada.ca/en.html" target="_blank">
+                                <img src="https://thecanadianencyclopedia.ca/images/gov-canada-en.png?v=27482cc22e9cde9cd75e14977f5e9b25" alt="Funded by the government of Canada" title="Funded by the government of Canada" loading="lazy">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <div id="highlight-menu" style="display:none;">
+        <a href="#">Suggest an Edit</a>
+        <div class="caret"></div>
+    </div>
+
+    <div id="overlayPopup"></div>
+    <div id="definitionOverlayPopup"></div>
+
+    
+    <div id="overlay"></div>
+
+    <div class="fullpageLoader">
+        <svg class="circular-loader" viewBox="25 25 50 50">
+            <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#FFFFFF" stroke-width="4" />
+        </svg>
+    </div>
+
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/manifest.js?v=069add80cc340895762d04c204a6279a"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/vendor.js?v=bad4c73f65ec1c7706543fa4a9ea4830"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/app.js?v=732c999e84505f3f97f812be32adbaba"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/layout.js?v=beaebd25c9a5059050695d1edaf766de"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/header.js?v=cf920b9df19b6923030539053092c22a"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/event-bus.js?v=5e4c1d3e6f42f0c3e6c9410dd9164894"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/image-scale.js?v=9c719b6e3da705632a5f6afd99100d6d"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.20.0/trumbowyg.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeIWwglAAAAANriZBXJ8HgScx2u6jGAx0gY0GKm"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/translation.js?v=a3f9725a0fa63532641e92a0a162c819"></script>
+
+
+<script type="text/javascript">
+    // Don't have choice to let this here to use blade helper
+            //======== Send Edit form in a Ajax Call ========
+        $("form.form-submit-edit").submit(function(e){
+
+            var form = $(this);
+            var url = form.attr('action');
+            var articleID = $('#articleID').val();
+
+            $('.form-error-list ul').empty();
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function(data){
+                    // Trigger Close Popup
+                    // Show Thank You Popup + Overlay
+                    $('#popup-edit .popup-close').trigger('click');
+                    $('#popup-thankyou').addClass('open');
+                    $('#overlayPopup').show();
+                    // location.reload();
+                },
+                error: function(data) {
+                    var getErrors = data.responseJSON.errors;
+                    var errorObj = $.parseJSON(getErrors);
+
+                    $.each(errorObj, function () {
+                        var createErrorList = '<li>'+this+'</li>';
+                        $('.form-error-list ul').append(createErrorList);
+                    });
+
+                }
+            });
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+    </script>
+
+    <script src="https://thecanadianencyclopedia.ca/js/media-player.js?v=b88d5e9621d421da17ae8b3a843de13d"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/definitions.js?v=28d0129e9c4b87f954874a5d2b5b7a97"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/lazyload.min.js?v=c1238b309b71a0d2a1f46179635b599d"></script>
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/paginations.js?v=6905777e811467f41e2e088210176316"></script>
+
+<script src="https://thecanadianencyclopedia.ca/js/jquery.bxslider.min.js?v=bfd4910619ed60fb9b0845febda829d5"></script>
+<script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/article-sidebar.js?v=e97e053cb7e4027e6a61608b40931fe7"></script>
+<script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/article.js?v=01c826076785255e1e3fc8e97d14f8a0"></script>
+
+    <script type="text/javascript" src="https://thecanadianencyclopedia.ca/js/search.js?v=eacb3b1a84123051ec61eb857ff19bed"></script>
+        <script defer type="text/javascript" src="https://thecanadianencyclopedia.ca/js/donation-banner.js?v=5e68bfdf44f6a88764acc893bd050a88"></script>
+        </body>
+</html>

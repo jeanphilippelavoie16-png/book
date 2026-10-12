@@ -1,0 +1,946 @@
+Cylindrical Primary Lithium                                     Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents Introduction:
+
+ (click to view chapter)
+
+Introduction  Energizer® lithium iron disulfide differs from    AA "Ultimate"
+              alkaline batteries in chemistry and               Lithium 4-Pack
+   Battery    construction. They are built in a spiral
+ Description  construction featuring two long, thin
+              electrodes rolled together to form a jellyroll
+Temperature   shape. This shape provides almost 20 times
+   Effects    more interfacial surface area than a standard
+              alkaline. This large interface helps to meet
+   System     the power demands of many of today's
+Comparisons   devices. Lithium is the lightest, most active
+              metal. When this powerful metal is paired
+   Internal   with iron disulfide, this energy is available at
+ Resistance   a voltage suitable for 1.5 volt applications.
+
+  Capacity    Energizer® successfully produced the first
+              commercially available "AA" size 1.5 volt
+  Shelf Life  lithium battery in 1989. The 1.5 volt "AAA"
+              size followed in 2004.
+Testing and
+    Care
+
+Environment
+and Shipping
+
+              Electrodes in lithium iron disulfide batteries are isolated from one another by a highly
+              engineered microporous polymer membrane. This membrane allows ions to move
+              easily during normal use, but restricts this movement in certain abuse situations to
+              ensure superior product performance and safety. Lithium iron disulfide batteries contain
+              a non-aqueous electrolyte designed to operate even in extreme temperatures from as
+              low as -40°C up to +60°C. They also include a resettable overcurrent safety device
+              that protects the user by switching the battery off if it is misused in devices.
+
+              Some of the advantages of the lithium iron disulfide (LiFeS2) system over the alkaline
+              chemistry are:
+
+               Direct drop-in compatibility in applications using primary 1.5 volt "AA" and "AAA"
+                  battery sizes.
+
+               Far greater power than other primary battery types.
+
+               Provides longer service than other primary battery types in moderate to heavy
+
+©Energizer Brands, LLC           This document contains typical information specific to products manufactured at the time of its  Page 1
+                                           publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                            Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents             drain applications.
+                           Greater service advantage over other primary battery types at low temperature
+ (click to view chapter)
+                              extremes operating at -40°C.
+   Introduction            Higher operating voltage and flatter discharge curve than other primary battery
+
+      Battery                 types.
+    Description            Superior leakage resistance compared to other primary battery types.
+                           Outstanding service maintenance when stored at ambient conditions.
+   Temperature             Considerably lighter than other battery types.
+      Effects              Good service maintenance after high temperature storage up to +60°C.
+                           No added mercury, cadmium, or lead.
+      System
+  Comparisons             As power demands of new devices continue to increase and high drain devices
+                          become more prevalent with consumers, Energizer® lithium iron disulfide batteries
+      Internal            provide the optimum performance consumers demand.
+    Resistance
+                          Battery Description:
+     Capacity
+                          Cylindrical lithium iron disulfide batteries use lithium for the anode, iron disulfide for the
+     Shelf Life           cathode, and a lithium salt in an organic solvent blend as the electrolyte. A cutaway
+                          (Fig. 1) of a typical cylindrical LiFeS2 battery is illustrated in the following diagram:
+   Testing and            Click here for larger view
+       Care
+
+   Environment
+   and Shipping
+
+                                                                                       Anode - lithium metal
+                                                                                       Cathode - iron disulfide on an aluminum foil substrate
+                                                                                       Separator - polyolefin
+                                                                                       Electrolyte - lithium salt / organic solvent
+                                                                                       Jellyroll construction - spiral wound multiple layers of
+                                                                                       anode/separator/cathode material to produce a high
+                                                                                       surface area for high power cell design
+                                                                                       Vent ball - safety mechanism that provides internal
+                                                                                       pressure release
+                                                                                       Positive and negative contact surfaces - nickel-
+                                                                                       plated steel
+                                                                                       Non-conductive plastic film label - electrically
+                                                                                       insulates the battery
+                                                                                       Positive Temperature Coefficient (PTC) - over
+                                                                                       current safety device
+
+                          (Fig. 1) Typical Cylindrical Lithium Iron Disulfide Battery
+
+©Energizer Brands, LLC    This document contains typical information specific to products manufactured at the time of its                        Page 2
+                                    publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium       Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         The term "lithium battery" refers to many different chemistries utilizing lithium as the
+                          anode but differing in cathode material, electrolyte, and construction. They may be
+ (click to view chapter)  classified in several ways, but one convenient method is by the cathode material and
+                          voltage. Using an iron disulfide cathode gives a battery with a nominal voltage of 1.5
+   Introduction           volts. Most other lithium batteries are 3.0 volt systems using cathodes comprising
+                          either solids (manganese dioxide or carbon monofluoride) or highly toxic liquids (sulfur
+      Battery             dioxide or thionyl chloride). Finally, lithium batteries should not be confused with lithium
+    Description           ion rechargeable batteries. Lithium ion batteries do not contain metallic lithium.
+
+   Temperature            Under rating current drain rates (~200mA), typical of many commercial devices, the
+      Effects             "AA" size LiFeS2 battery has a specific energy density of ~297 Wh/kg compared to a
+                          comparable size alkaline of ~143 Wh/kg.
+      System
+  Comparisons
+
+ Internal                 The characteristics that make lithium an exceptional electrode material for high energy
+Resistance                density batteries include, low electrode potential and very high conductivity. It is soft
+                          and malleable and can be extruded into thin foils. Lithium reacts with water and for this
+ Capacity                 reason must be used with a non-aqueous electrolyte.
+
+Shelf Life
+
+Testing and               The choice of cathode materials is critical when considering voltage, high energy
+    Care                  density, high rate performance, and electrolyte compatibility. Other considerations
+                          include low cost, environmentally friendly, and stability. The choice of FeS2 as a
+Environment               cathode material is unique because the chemical reaction with lithium results in an
+and Shipping              open circuit voltage (OCV) of 1.8 volts. Other cathode materials combined with lithium
+                          will produce battery voltages above 2.0 volts.
+
+                          Although the higher OCV of the LiFeS2 system is 1.8 volts, the nominal or rated voltage
+                          is 1.5 volts which makes it a suitable replacement for alkaline and nickel systems. The
+                          battery voltage will drop when it is placed under load. For this reason, the higher OCV
+                          will typically not damage electronic components, but device designers should take into
+                          consideration that the OCV of fresh batteries can range from 1.79 to 1.83V. LiFeS2
+                          batteries fully meet the ANSI specification for a 1.5V battery. When a drain has been
+                          applied to the battery, the OCV drops dramatically and then slowly recovers with time.
+                          The OCV for a battery can be misleading. A "good" battery will generally have an OCV
+                          >1.74 volts. Any battery with an OCV <1.70 (after it has been allowed to recover) is
+                          completely discharged. Although an alkaline battery may read "good" at 1.6 volts, this
+                          reading on a LiFeS2 battery indicates the product has been discharged. The jellyroll
+                          battery design gives the battery excellent high rate performance. The non-aqueous
+                          electrolyte used in LiFeS2 battery provides excellent low temperature performance.
+
+©Energizer Brands, LLC    This document contains typical information specific to products manufactured at the time of its  Page 3
+                                    publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium       Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         Under high temperature operating or storage, it is not uncommon to experience some
+                          electrolyte odor. This odor is due to transmission of ethers (i.e. 1, 2-dimethoxyethane
+ (click to view chapter)  and 1, 3-dioxolane) through the seal. The odor threshold for these organics is on the
+                          order of a few parts per million, which does not indicate leakage. The ethers can have
+   Introduction           a noticeable odor, but the actual amount of vapors present is very low. Potential
+                          exposure is well below the American Conference of Governmental Industrial Hygienists
+      Battery             (ACGIH) time weighted average limit and other industry standards.
+    Description
+                          The overall discharge reaction of the LiFeS2 construction takes place in two steps. The
+   Temperature            first step: 2Li+FeS2Li2FeS2. The second step follows: 2Li+Li2FeS2Fe+2Li2S.
+      Effects             Typically the two step discharge can be seen at low drain rates of approximately ten
+                          milliamps or less and during higher drains at elevated temperatures.
+      System
+  Comparisons
+
+   Internal               The discharge characteristics of batteries can vary depending upon whether they are
+ Resistance               discharged at a constant resistance, constant current, or constant power drain. Due to
+                          the unique characteristics of the lithium chemical system, the battery will maintain a
+  Capacity                high average operating voltage compared to other systems throughout the life of the
+                          discharge. This is particularly important for constant power devices that can better take
+  Shelf Life              advantage of the higher voltage. As the battery voltage decreases, the current drain
+                          increases to maintain constant power to the device. Therefore, the higher voltage of
+Testing and               lithium iron disulfide lowers the current drain on the battery and longer run times.
+    Care
+                          Temperature Effects on Performance:
+Environment
+and Shipping
+
+                          Lithium iron disulfide (LiFeS2) batteries have a much lower sensitivity to temperature
+                          compared to other chemical systems. The recommended operating temperature range
+                          is -40°C to +60°C (-40°F to +140°F). As with all battery systems, service life is
+                          reduced as the discharge temperature is lowered below room temperature (Fig. 2).
+
+                          Batteries generate power through chemical reactions and these typically run much
+                          more slowly at lower temperatures. However, even at -40°C, the LiFeS2 batteries
+                          perform well at the rating drain 200 mA. LiFeS2 batteries can deliver approximately full
+                          rated capacity at -40°C if they are discharged at 25 mA. Thus, at these rates, the
+                          batteries give comparable performance over the entire 100°C operating range.
+
+©Energizer Brands, LLC    This document contains typical information specific to products manufactured at the time of its  Page 4
+                                    publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                              Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents                                     AA Lithium Iron Disulfide Battery
+                                                     Impact of Temperature on Capacity
+ (click to view chapter)
+                                          4000
+
+Introduction              Capacity (mAh)  3000                                                                 50 mA
+                                          2000                                                                 250 mA
+   Battery                                1000                                                                 500 mA
+ Description                                                                                                   1000 mA
+
+Temperature                               0
+   Effects
+                                                -40  -20              0     20                             40           60
+   System
+Comparisons                                                           Temperature (°C)
+
+   Internal               (Fig. 2) Temperature Effect on Capacity
+ Resistance
+                          Cold temperatures also lower the operating voltage thereby reducing the energy output
+  Capacity                (Fig 3). Battery capacity is not lost due to cold temperature use, rather it is more
+                          difficult to access the battery's full potential due to the slowing of the electrochemical
+  Shelf Life              reactions, reducing capacity at high drain rates.
+
+Testing and                                                             AA Lithium Iron Disulfide Battery
+    Care                                                                  250 mA Continuous Discharge
+                                                                                (temperature range)
+Environment
+and Shipping                              2.0
+
+                                          1.8                                                                  -40°C
+                                                                                                               -30°C
+                          Voltage (V)     1.6                                                                  -20°C
+                                                                                                               0°C
+                                          1.4                                                                  21°C
+                                                                                                               60°C
+                                          1.2
+                                                                                                                       16
+                                          1.0
+
+                                          0.8   0         4              8                                 12
+
+                                                                      Runtime (hours)
+
+                          (Fig. 3) Temperature Effect on Performance
+
+©Energizer Brands, LLC                               This document contains typical information specific to products manufactured at the time of its  Page 5
+                                                               publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                                             Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         When comparing cold temperature performance of the LiFeS2 battery versus an
+                          alkaline based aqueous system, the LiFeS2 system is affected much less across a
+ (click to view chapter)  range of drain rates (Fig. 4) and operates at temperatures where alkaline batteries do
+                          not run at all. This is due to the use of a non-aqueous electrolyte and the high surface
+   Introduction           area jellyroll construction. In particular, Energizer® patented electrolyte has the unique
+                          property of actually increasing in conductivity as the temperature drops, in contrast to
+      Battery             electrolytes used in other lithium batteries.
+    Description
+                                                             AA Lithium Iron Disulfide Battery
+   Temperature                              Temperature Performance / Continuous Discharge to 0.9 Volts
+      Effects
+                          5000
+      System                                                                        AA Lithium
+  Comparisons
+                          4000                                                        AA Alkaline
+      Internal
+    Resistance                       Low Drain (25 mA)                                                  HighDrain (1000 mA)
+                          Capacity (mAh)
+     Capacity             3000
+                                                                                      Page 6
+     Shelf Life           2000
+
+                          1000
+
+Testing and               0
+   Care
+                                -20  21                 60                                         -20  21                   60
+
+                                                            Temperature (°C)
+
+Environment               (Fig. 4) Temperature Effect on Performance versus Alkaline
+and Shipping
+
+                          Conversely, warm temperatures can boost battery performance in very high drain
+                          continuous applications that increase the battery temperature (Fig.5).
+
+                          In some applications there may be further limits on the maximum discharge
+                          temperature due to current limiting safety features of the battery. The LiFeS2 battery
+                          utilizes a PTC (positive temperature coefficient over current safety device) that is
+                          designed to reversibly shut down the battery at high temperatures.
+
+                          Both ambient temperature and the internal battery heating that occurs during discharge
+                          will affect the operation of the PTC.
+
+©Energizer Brands, LLC               This document contains typical information specific to products manufactured at the time of its
+                                               publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                 Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         The higher the rate of                              AA Lithium Iron Disulfide Battery
+                          discharge (a heavy                              1 Watt Continuous Discharge at 21/60C
+ (click to view chapter)  drain or load on the                  2.0
+
+   Introduction           battery), the more heat               1.8                                              21C
+
+      Battery             is generated that could                                                                60C
+    Description
+                          cause the PTC to                      1.6
+   Temperature
+      Effects             activate. In low to      Voltage (V)  1.4
+
+      System              moderate  drain                       1.2
+  Comparisons
+                          applications, less than
+      Internal
+    Resistance            500 mA, the heat                      1.0
+
+     Capacity             dissipates and should
+                          not activate the PTC. 0.8 0 1 2 3 4 5 6
+     Shelf Life           However, a high
+                          ambient temperature                               Runtime (hours)
+   Testing and
+       Care               combined with a high (Fig. 5) Elevated Temperature Effect on Performance
+
+   Environment            drain application increases the likelihood of PTC activation. Moreover, many
+   and Shipping
+                          applications use power intermittently and this can greatly mitigate any temperature rise
+
+                          and prevent PTC activation. While PTC activation in these rare scenarios may be a
+
+                          nuisance, the PTC is critical to battery safety.
+
+                          The batteries and device should once again perform normally once the battery has time
+                          to cool down.
+
+                          Device manufacturers must consider all of the following that can affect internal heating
+                          of LiFeS2 batteries during discharge.
+
+                                   - Surrounding air temperature
+                                   - Thermal insulating properties of the battery container
+                                   - Heat generated by equipment components
+                                   - Cumulative heating effects of multiple batteries
+                                   - Discharge rate(s) and duration(s)
+                                   - Frequency and length of rest periods
+
+                          Comparison to other Chemical Systems:
+
+                          Lithium iron disulfide batteries have a higher operating voltage than alkaline and
+                          rechargeable nickel metal hydride (NiMH) batteries and flatter discharge profile versus
+                          alkaline. These characteristics result in higher energy density (Wh/L) and specific
+
+©Energizer Brands, LLC              This document contains typical information specific to products manufactured at the time of its  Page 7
+                                              publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                                Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         energy (Wh/kg), especially in heavier drain applications where the operating voltage
+                          differences are the greatest.
+ (click to view chapter)
+                          The flatter discharge curve allows for consistent performance throughout the life of the
+   Introduction           battery. The performance advantages of lithium over alkaline increases dramatically as
+                          drain rates increase due to the jellyroll construction and better high rate efficiency.
+      Battery             The following chart (Fig. 6) shows the relative constant power performance of an AA
+    Description           size battery for the lithium, alkaline and NiMH chemistries.
+
+   Temperature                                                           AA Lithium Iron Disulfide Battery
+      Effects                                          Chemistry Comparison / 250 mW Continuous Discharge at 21C
+                                       2.0
+      System
+   Comparisons            Voltage (V)  1.8 Alkaline
+                                                                                                                             Lithium
+      Internal                         1.6
+    Resistance                                                                                                               NiMH
+
+     Capacity                          1.4
+
+     Shelf Life                        1.2
+
+   Testing and                         1.0
+       Care
+                                       0.8      5  10                                 15                              20                  25
+
+                                             0
+
+                                                   Runtime (hours)
+
+                          (Fig. 6) Relative Constant Power Performance of an AA Size Battery (different chemistries)
+
+Environment               Lithium iron disulfide batteries are                    AA Lithium Iron Disulfide Battery
+and Shipping              suitable for use across a broad                       Chemistry-Temperature Comparison
+                          temperature range. While at elevated
+                          temperatures, all chemistries show                        250 mA Continuous Discharge at 21C
+                          minimal change in performance versus                  4000
+                          ambient. At low temperatures, the
+                          lithium battery offers more                                      Alkaline                          NiMH         Lithium
+                          performance than alkaline or NiMH
+                          chemistries. The following graph      Capacity (mAh)  3000
+                          (Fig. 7) shows the impact of
+                          temperature on AA size lithium,                       2000
+                          alkaline and NiMH under a 250 mA
+                          drain rate to a 0.9 volt cutoff.                      1000
+
+                                                                                0     -40  -20                            0           20           40
+
+                                                                                                Temperature (°C)
+
+                                                                (Fig. 7) Impact of Temperature on AA Size Lithium, Alkaline and
+
+                          Additional performance comparisons can be found on the individual datasheets listed
+                          on the Technical Information Website. Additional LiFeS2 advantages are listed in the
+                          following table:
+
+©Energizer Brands, LLC                          This document contains typical information specific to products manufactured at the time of its        Page 8
+                                                          publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                            Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         Characteristics              Lithium         Alkaline                                            NiMH
+                          Cold Temp Performance        Superior         Good                                              Superior
+ (click to view chapter)
+
+Introduction              Weight                 33% < Alkaline        33% > Lithium                                      33% > Alkaline
+                          Shelf Life               20+ Years           5 to 10 Years                                       3 to 5 Years
+  Battery                 Leakage Resistance        Superior                                                                   Good
+Description                                                                Good
+
+Temperature               Discharge Curve                Flat          Sloping                                              Flat
+   Effects                High Rate Capability         Superior         Good                                              Superior
+
+   System                 Internal Resistance:
+Comparisons
+                          Another method used to estimate true IR uses a current interrupt technique (CIT),
+   Internal               whereby the rapid change in battery voltage during discharge is periodically and briefly
+ Resistance               interrupted to estimate the battery IR. This has the advantage of measuring the battery
+                          IR under realistic drain rates and also enables one to measure the change in battery IR
+  Capacity                during discharge. The following graph (Fig. 9) shows that there is very little change in
+                          battery IR during discharge and in fact it actually improves slightly.
+  Shelf Life
+                                                                    AA Lithium Iron Disulfide Battery
+Testing and                                                              1 Amp Discharge at 21°C
+    Care
+                                    0.8
+Environment
+and Shipping
+
+                          0.6Ohmic Resistance (ohms)
+
+                          0.4                                                       Page 9
+
+                          0.2
+
+                          0.0                    1000            2000            3000                                               4000
+
+                                0
+
+                                                                 Discharge Capacity (mAh)
+
+                          (Fig. 9) True IR of a typical AA size lithium iron disulfide battery during a 1 amp discharge.
+
+                          True IR is not adversely affected by temperature (almost no change between -20 and
+                          40°C), discharge current, depth of discharge, battery age or storage at elevated
+                          temperatures.
+
+©Energizer Brands, LLC                          This document contains typical information specific to products manufactured at the time of its
+                                                          publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                                                   Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         The resistance to current flow that a battery exhibits can depend on the current drain
+                          being applied and especially on the time scale of the measurement. The methods
+ (click to view chapter)  described above measure battery IR over a very short time scale. In actual device
+                          applications, various polarization effects occurring over longer times will reduce the
+   Introduction           battery's operating voltage and appear as resistance contributors. From a design
+                          engineers' point of view, a more important metric of the battery's performance may be
+      Battery             the effective IR which is the impedance during actual usage.
+    Description
+                          Typically, effective IR is greater than the true IR. However, since the effective IR
+   Temperature            depends on the load and timescale, any measurement that relies upon the OCV of the
+      Effects             battery prior to a test should not be used. A commonly used method whereby the
+                          resistance is calculated as shown below must not be used with AA size lithium iron
+      System              disulfide batteries as the values are much higher than the real values. This is due to the
+  Comparisons             initial OCV of AA size lithium iron disulfide batteries being higher than the OCV of the
+                          chemistry that actually controls the battery's discharge performance.
+      Internal
+    Resistance            Effective IR = (OCV - CCV) / Current Applied (not valid for lithium iron disulfide
+                          batteries) Effective IR can be calculated by using a double current pulse CCV
+     Capacity             measurement whereby the system first applies a low current drain pulse to reduce the
+                          OCV and then applies a heavier pulse. The effective IR at the higher drain rate can
+     Shelf Life           then be calculated by the voltage difference between the two pulses. The timing of the
+                          pulses should reflect the timescale of interest to the application. For example, apply a
+   Testing and            10 mA pulse for 50 ms followed by a 500 mA pulse for 100 ms (Fig. 10). Values of
+       Care               effective battery IR measured using this regime are about 100 m.
+
+   Environment
+   and Shipping
+
+                                                                   AA Lithium Iron Disulfide Battery                   0.7
+                                                         10 mA Discharge / IR Test (10mA / 500 mA Pulse)
+                                                                                                                   IR  0.6
+                                       1.6
+                          Voltage (V)                                                                                  0.5      IR (Ohms)
+                                                                                                            Volts
+
+                                       1.4
+
+                                       1.2                                                                             0.4
+
+                                                                                                                       0.3
+
+                                       1.0                                                                             0.2
+
+                                                                                                                       0.1
+
+                                       0.8                                                                                 0.0
+                                                                                                                       16
+                                            0  4  8                                                           12
+                                                  Time (Hours)
+
+                          (Fig. 10) IR of a typical AA size lithium iron disulfide battery during discharge.
+
+                          Effective IR = (CCV1 - CCV2) / (Current2 - Current1)
+
+©Energizer Brands, LLC                         This document contains typical information specific to products manufactured at the time of its   Page 10
+                                                         publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                       Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         Again, caution must be exercised in comparing true IR values to effective IR readings
+                          or those obtained using other measurement methods. In particular, impedance
+ (click to view chapter)  measurements at 1 kHz or resistance values based on OCV-CCV differences typically
+                          overestimate the IR for lithium iron disulfide batteries. Overall, the lithium iron disulfide
+   Introduction           battery IR changes very little with age, discharge rate, depth of discharge and
+                          temperatures of -20 to 40°C. While impedance at lower frequencies can increase
+      Battery             during aging, this has very little effect on the impedance of the battery when it is
+    Description           subsequently placed under load.
+
+   Temperature            Capacity:
+      Effects
+                          Battery capacity is       Voltage (V)                  AA Lithium Iron Disulfide Battery
+      System              typically expressed in                 1.8 100 mA Continuous Discharge at 21°C
+   Comparisons            terms of milli-Amp
+                          hours (mAh). This is                   1.6
+      Internal            an indication of how
+    Resistance            long a battery will                    1.4
+
+     Capacity                                                    1.2
+
+     Shelf Life           provide service at a                   1.0
+
+   Testing and            specific drain rate to a               0.8  0  10       20          30                                      40
+       Care
+                          specific cutoff voltage.                           Runtime (hours)
+   Environment
+   and Shipping           For example, the (Fig. 11) 100 mA Continuous Discharge
+                          following discharge
+
+                          curve (Fig. 11) is for the AA size lithium iron disulfide battery being discharged at 100
+
+                          mA to a 0.9 volt cutoff.
+
+                          The available capacity can then be calculated by multiplying the drain rate (mA) by the
+                          hours to the cutoff voltage. For example, this AA battery would have a capacity of (100
+                          mA X 36 hours) 3600 mAh at a 100 mA drain to a 0.9 volt cutoff.
+
+                          The mAh capacity of lithium iron disulfide batteries will vary with the drain rate and the
+                          cutoff voltage. Due to the jellyroll construction and multiple layers of active material, the
+                          lithium iron disulfide battery is extremely efficient across multiple drains and is much
+                          less sensitive to both the drain rate and voltage cut than alkaline batteries. The flat
+                          discharge profile and high operating voltage of lithium iron disulfide allow for longer,
+                          consistent run times in high drain / high power devices as shown below (Fig. 12).
+
+©Energizer Brands, LLC               This document contains typical information specific to products manufactured at the time of its      Page 11
+                                               publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                                 Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents                    1.8          AA Lithium Iron Disulfide Battery
+                                                1 Watt Continuous Discharge at 21°C
+
+(click to view chapter)                                                                        Alkaline
+                                                                                               Lithium
+                                1.6                                                            NiMH
+
+Introduction            Voltage (V)  1.4
+
+Battery                              1.2
+
+Description
+                             1.0
+
+Temperature
+
+Effects                              0.8  0  1                          2                3  4            5
+
+System                                                                  Runtime (hours)
+
+Comparisons        (Fig. 12) Chemistry Discharge Curve Characteristics
+
+   Internal        The application cutoff voltage will also impact the amount of service delivered by the
+ Resistance        battery. A high cutoff voltage will result in leaving more of the battery's capacity
+                   unused. To maximize usage of the available capacity, it is recommended that devices
+  Capacity         should be designed with a voltage cutoff of 0.8 volts per battery. At this point, a majority
+                   of the battery's usable capacity has been removed. However, lithium iron disulfide
+  Shelf Life       operates at a higher voltage and is well suited for high cutoff devices. Ideally, to avoid
+                   deep discharging batteries, one should not discharge them below 0.5 volts.
+Testing and        In high drain pulse applications, the duty cycle can impact battery efficiency. A very
+    Care           light duty cycle will typically allow the battery more time to recover and extend service
+                   compared to a continuous drain. The amount of additional service will depend on the
+Environment        drain rate, and the duty cycle (ON time and OFF time of the pulse). Due to LiFeS2 high
+and Shipping       rate capability, the effect of intermittent duty cycles is relatively modest compared to
+                   other chemical systems. The modest effect of duty cycle on capacity delivered can be
+                   seen in the graph (Fig. 13).
+
+                   The maximum recommended pulse drain for LiFeS2 is based on the battery's ability to
+                   deliver high current over a range of 100 milliseconds to 2 seconds. The "AA" size can
+                   deliver up to a 3 Amp pulse. At these rates, it is important to consider heat generation
+                   by adjacent batteries and consider the effect on the PTC. This part will change from
+                   low to high impedance when activated during abusive conditions that cause a
+                   temperature rise. Actual testing is needed to determine the amount of additional
+                   service expected in pulse applications since there is no simple equation to accurately
+                   calculate the impact of duty cycle on service.
+
+©Energizer Brands, LLC                       This document contains typical information specific to products manufactured at the time of its  Page 12
+                                                       publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                                            Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+                                                   AA Lithium Iron Disulfide Batteries                 In ultra-low drain applications
+                                                                                                       (i.e. currents in micro amps,
+                                               Continuous vs. 10% Duty Cycle (10 Sec On / 90 Sec Off)  where the battery is expected
+                                                                                                       to run several months), the
+Table of Contents                         4000  1K and 1.5K mA Continuous Discharge to 0.9 Volts
+
+ (click to view chapter)                                                       Continuous  Pulse
+
+   Introduction           Capacity (mAh)                                                               discharge curve has a distinct
+
+      Battery                                                                                      two stage profile. The first
+   Description                            2000 step occurs at slightly higher
+
+   Temperature                                                                                         voltage (nominally 1.79V @
+      Effects
+                                                                                                       21°C,    dictated                                   by
+      System
+  Comparisons                             0                                                            thermodynamics)          that
+
+      Internal                                             1000 mA                         1500 mA     increases with temperature
+    Resistance
+                          (Fig. 13) Effect of Duty Cycle                                               and is nearly independent of
+     Capacity
+                                                                                                       depth of discharge. The
+
+                          second step occurs at a slightly lower voltage (nominally 1.7V @ 21° C) that decreases
+
+                          with temperature and is a function of depth of discharge. At low drain rates, the lithium
+
+                          iron disulfide battery will provide approximately full rated capacity over its lifetime.
+
+  Shelf Life              The two stage discharge profile can benefit the device manufacturer as a method to
+                          implement fuel gauging in low drain applications. The discharge curve below shows the
+Testing and               distinct plateaus where voltage, impedance, coulomb counting or combination of these
+    Care                  methods could be used to determine depth of discharge needed to calculate remaining
+                          battery life. It should be noted that the lithium iron disulfide battery has a steep voltage
+Environment               drop off at the end of life (Fig. 14). Please contact your Energizer® sales representative
+and Shipping              for further information on this subject.
+
+                                                                     AA Lithium Iron Disulfide Batteries
+                                          2.0 1 mA Continuous Discharge at 21°C
+
+                                          1.8
+
+                          Voltage (V)     1.6
+
+                                          1.4
+
+                                          1.2
+
+                                          1.0
+
+                                          0.8                            1000              2000           3000            4000
+
+                                                0
+
+                                                                               Runtime (hours)
+
+                                          (Fig. 14) Two Stage Discharge
+
+©Energizer Brands, LLC                                    This document contains typical information specific to products manufactured at the time of its      Page 13
+                                                                    publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                                      Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         Shelf Life:
+
+ (click to view chapter)  Shelf life can be defined as                                        AA Lithium Iron Disulfide Batteries
+                          the time at which a battery                                           Impact of Storage on Capacity
+   Introduction           will deliver approximately
+                                                          % of Original Performance  100%
+      Battery
+    Description           95% of its original capacity
+
+   Temperature            (Fig. 15). The lithium iron
+      Effects             disulfide battery will retain 95%
+
+      System              approximately 95% of its
+  Comparisons
+                          capacity after 20+ years of                                90%      4  8  12 16 20
+      Internal            storage. Because of the very                                     0
+    Resistance            low level of impurities in the
+                                                                                                 Years Storage
+     Capacity
+                          materials used and the high (Fig. 15) Impact of Storage
+     Shelf Life
+                          degree of seal effectiveness
+   Testing and
+       Care               used with lithium batteries, the shelf life after high temperature storage is far better
+
+   Environment            compared to aqueous systems. The recommended storage temperature for lithium
+   and Shipping
+                          batteries is -40°C to 60°C. Exposing lithium batteries to temperatures above 60°C can
+
+                          cause the insulating label to shrink and expose the battery's steel can to potential
+
+                          external short circuits. Cold temperatures will have little impact on shelf life.
+
+                          Predicting battery shelf life is done in various ways. Typically, elevated temperature
+                          storage is used to accelerate those processes that cause degradation. This method is
+                          convenient, but is not always reliable because increasing cell temperature can
+                          introduce a new mode of degradation that is not present in batteries stored at lower
+                          temperatures. This could yield an underestimate of the true shelf life. Another method
+                          for predicting shelf life is microcalorimetry that measures the heat output from batteries
+                          and provides an estimate of the chemical changes occurring inside the battery.
+
+                          Energizer has tested LiFeS2 cells using all of these methods.
+
+                          Testing / Care / Warnings:
+
+                          The lithium iron disulfide construction incorporates many safety features and extensive
+                          quality checks during manufacture on each and every battery. The design includes two
+                          safety devices to provide protection against abusive conditions such as short circuit,
+                          charging, forced discharge and overheating.
+
+©Energizer Brands, LLC                 This document contains typical information specific to products manufactured at the time of its  Page 14
+                                                 publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium                                                                Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         These two safety devices are a resettable thermal switch or PTC (Positive Thermal
+                          Coefficient) and a pressure relief vent. The PTC protects against electrical abuse
+ (click to view chapter)  scenarios by limiting the current when the PTC temperature exceeds 85°C. As the
+                          battery heats during abuse, the resistance of the PTC rapidly increases and
+   Introduction           significantly limits the amount of current flowing through the battery, thus allowing the
+                          battery to cool. When the PTC cools to below the activation temperature, its resistance
+      Battery             returns to a normal level allowing normal battery use. The PTC is extremely effective in
+    Description           safely handling electrical abuse conditions. Here is an example of an "AA" size lithium
+                          iron disulfide battery subjected to a direct short showing that the PTC reduces the
+   Temperature            current within seconds to a safe level (Fig 16).
+      Effects
+
+   System                 The PTC can rarely activate                        AA Lithium Iron Disulfide Batteries
+Comparisons
+                          during non-abuse conditions,                       Short Circuit Current (0.01 ohms) at 21°C
+   Internal               depending on how quickly the 12                                                                   140
+ Resistance
+                          battery can dissipate heat 10                                    Amps                   120
+  Capacity                generated from discharge. A 8
+                          combination of high discharge   Current (Amps)                   Temp °C                               Temperature (°C)
+  Shelf Life              rate (which generates more 6
+                                                                                                           100
+Testing and
+    Care                                                                                                          80
+
+Environment               heat) and high ambient 4                                                                60
+and Shipping
+                          temperature can cause the 2                                                             40
+                          PTC to limit current.
+                                                                          0                                       20
+
+                          In addition, insulation within                     0 200 400 600 800 1,000
+                                                                                               Time (Seconds)
+                          the battery compartment,
+                          proximity to adjacent batteries (Fig. 16) Short Circuit Current
+
+                          and neighboring electronic components can generate or retain additional heat.
+
+                          Intermittency, which is common for many applications, can greatly alleviate the internal
+
+                          heating affect.
+
+                          During use, all batteries generate heat. On light loads the heat dissipates and is not
+                          noticeable, but on heavy drains the battery may become noticeably warm to the touch.
+                          This is expected and normal and also true of alkaline batteries. Extended exposure to
+                          heat may also cause shrinkage of the label. Label shrinkage can occur when the
+                          battery is exposed to extreme conditions and is not indicative of battery failure.
+
+                          The vent mechanism operates at ~150°C and allows a controlled release of pressure
+                          thus preventing the battery from exploding in the event of abuse conditions, such as
+
+©Energizer Brands, LLC                           This document contains typical information specific to products manufactured at the time of its   Page 15
+                                                           publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium       Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         internal short circuits. This venting also limits the current the battery can carry and
+                          prevents additional heat generation.
+ (click to view chapter)
+                          The maximum continuous current drain for the "AA" size is 2.0 amps. Higher drain rates
+   Introduction           can be used for short periods of time. Because of the number of other variables
+                          involved, it is difficult to predict in advance whether lithium iron disulfide batteries can
+      Battery             operate under extreme load conditions. In order to determine the highest pulse rate
+    Description           achievable, testing the batteries in the device under worst case conditions is
+                          recommended. While the PTC does impose some limitations on high rate applications
+   Temperature            for which lithium iron disulfide batteries are suitable, it is a critical element in ensuring
+      Effects             that the battery is safe and protects the battery, the equipment and the user.
+                          Although the safety mechanisms described above will limit the potential for battery
+      System              failure due to abuse, there are additional handling considerations for the proper safe
+  Comparisons             use of lithium iron disulfide batteries:
+
+      Internal             Avoid potting or encapsulation as this obstructs the pressure relief vent. The vent is
+    Resistance                required to prevent excessive heat or pressure buildup if the battery is exposed to
+                              abusive conditions.
+     Capacity
+                           Avoid charging as lithium iron disulfide batteries are not designed to be recharged.
+     Shelf Life
+                           Use of pressure contact for batteries is recommended in the device compartment.
+   Testing and                If welded connections are needed, they should be made to the nickel-plated
+       Care                   positive cap and the nickel-plated bottom using a capacitor discharge welder.
+                              Solder connections should be avoided because of the intense heat that needs to
+   Environment                be applied to the battery.
+   and Shipping
+
+                           Battery labels insulate the battery to reduce the incidence of a potential direct short
+                              circuit or inadvertent charging. Battery compartment contacts and welded tab
+                              connections must not have sharp edges/burrs that could cut through the battery
+                              label especially adjacent to the positive terminal.
+
+                           Do not open battery, dispose of in fire, heat above 100°C (212°F), expose contents
+                              to water, recharge, install backwards, mix with used or other battery types. These
+                              conditions may cause personal injury.
+
+                           There is no risk of hydrogen generation with lithium iron disulfide batteries and they
+                              can be used safely in water tight applications.
+
+©Energizer Brands, LLC    This document contains typical information specific to products manufactured at the time of its  Page 16
+                                    publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+Cylindrical Primary Lithium       Application.Support@Energizer.com
+
+Handbook and Application Manual
+
+Lithium/Iron Disulfide (Li/FeS2)
+
+Table of Contents         Lithium iron disulfide batteries can safely undergo ethylene oxide or gamma
+                          radiation sterilization.
+ (click to view chapter)
+
+Introduction  For additional information it is imperative to read the section "Design and Safety
+              Considerations" to assure that other safety considerations are not overlooked.
+   Battery
+ Description  Environmental Compliance and Global Directives:
+
+Temperature   Current information on environmental compliance, EU Battery Directive, REACH
+   Effects    Directive Summary, RoHS-WEEE Directive and Compliance with Industry Standards
+              can be reviewed on the Energizer®:
+   System
+Comparisons   Technical Information Web Site under the "General Information" tab.
+
+   Internal   Shipping:
+ Resistance
+              Shipping and transportation, including US DOT travelling with lithium battery guidelines,
+  Capacity    can be reviewed on the Energizer® Technical Information Web Site under the "General
+              Information" tab.
+  Shelf Life  There is also information on:
+
+Testing and
+    Care
+
+Environment
+and Shipping
+
+              Lithium Battery Transportation for commercial aviation and IATA guidelines.
+
+©Energizer Brands, LLC    This document contains typical information specific to products manufactured at the time of its  Page 17
+                                    publication for reference only. Contents herein do not constitute a warranty.
+Form No. 12004-A
+

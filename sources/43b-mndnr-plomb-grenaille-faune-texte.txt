@@ -1,0 +1,612 @@
+Kimmel, R. 0., and M. A. Tranel. 2007. Evidence of lead shot problems for wildlife, the environment, and human health – implications for Minnesota. In M. W. DonCarlos et al, editors. Summaries of Wildlife Research Findings 2007. Minnesota Department of Natural Resources. Wildlife Populations and Research Unit. St. Paul. In press.
+Evidence of Lead Shot Problems for Wildlife, the Environment, and Human Health -- Implications for Minnesota
+Richard O. Kimmel and Molly A. Tranel, Minnesota Department of Natural Resources, Farmland Wildlife Population and Research Group, 35365 800th Ave, Madelia, MN 56062, email richard.kimmel@dnr.state.mn.us, phone 507-642-8478x225
+Abstract: There is considerable evidence published in professional scientific journals demonstrating that lead shot negatively impacts the health of wildlife, humans, and the environment. More than 100 species of birds (including upland birds, raptors, and waterfowl) have been weakened or killed by ingesting lead shot. The impacts of lead shot on wildlife include decreased survival, poor body condition, behavioral changes, and impaired reproduction. Studies in Canada, Greenland, and Russia have linked lead shot found in game animals to higher levels of lead in people who eat those game animals. Recent evidence shows that meat far from entry wounds may contain lead fragments. Effective nontoxic alternatives to lead shot are available at a similar cost. Countries such as Denmark and The Netherlands, as well as some states in Australia have banned the use of lead shot. In North American, federal regulations prohibit the use of lead shot for waterfowl hunting and 26 states and provinces have additional nontoxic shot regulations for hunting doves, pheasants, and other species.
+Introduction
+Our nation has taken great strides to reduce environmental and human exposure to lead through restricting use of lead in gasoline and paints and restricting imported goods containing lead. However, lead continues to enter the environment and the diet of people through lead shot used by hunters.
+Multiple reports published in professional scientific journals document that more than 100 species of birds (both waterfowl and upland birds) ingest lead ammunition that both weakens and kills them (Table 1). Some wildlife species, such as raptors (e.g., hawks, eagles, and condors), are “secondarily poisoned” by consuming animals that either ate or were shot with lead ammunition.
+Thomas (1997) wrote that despite an awareness of the problems of lead shot to wildlife, regulatory action has been slow, “…due to hunters and international sport shooting organizations opposing the use of non-toxic substitutes and overt emphasis by government agencies on the burden of scientific proof for every situation, rather than
+Evidence of Lead Shot Problems - Page 1
+
+taking preventative action according to the Precautionary Principle.” (The precautionary principle supports decision-making processes involving serious or irreversible damage that are reasonable, rational, and responsible responses.)
+Wildlife mortality from ingestion of lead shot was first reported more than 100 years ago. In 1876, H. S. Calvert published “Pheasants Poisoned by Swallowing Shot” in The Field. In 1882, a second article about pheasant poisoning by lead shot appeared in the same publication (Holland 1882). In 1894, G. B. Grinnell published an article entitled, “Lead Poisoning,” in Forest and Stream. Since that time, professional journals have carried many manuscripts documenting wildlife being negatively impacted by hunters’ use of lead shot: including die-offs from ingestion of lead shot, scientific studies regarding the toxicity of lead shot to wildlife, and lead accumulation in wildlife and human tissues resulting from lead shot. The impacts of lead shot on wildlife, the environment, and human health are of concern to many hunters and other people (Nontoxic Shot Advisory Committee 2006).
+This report summarizes studies regarding ingestion of lead shot by wildlife species and the impacts of lead poisoning. Table 1 lists more than 100 species that have ingested and been poisoned by lead shot. Table 2 lists 15 recent examples of lead shot impacts on human health. A companion to this document is a Literature Review (Kimmel and Tranel 2008) containing more than 500 references related to wildlife ingesting lead, wildlife being poisoned by lead ammunition, and lead impacts on the environment and human health.
+Impacts of lead shot on wildlife
+There are hundreds of manuscripts published in the professional literature that provide scientific evidence of lead ingestion by wildlife, toxicity to wildlife, and lead accumulation in wildlife tissues from ingesting lead shot (Kimmel and Tranel 2008). Impacts of lead shot on wildlife include decreased survival, poor body condition, behavioral changes, and impaired reproduction. Tavecchia et al. (2001) reported decreased survival of mallards from lead ingestion in France. Spahn and Sherry (1999) noted increased nestling mortality was related to exposure of lead in little blue heron chicks in a wetland contaminated by heavy metals in Louisiana. Sileo et al. (1973) reported 25-45% reduction in body weight followed by death for Canada geese dosed with lead shot. Death as a result of poisoning from lead shot has been demonstrated for species including doves (Schulz et al 2006a, Schulz et al. 2007), mallards (Finley and Dieter 1978, Anderson and Havera 1985), and Canada geese (Cook and Trainer 1966). Fisher et al. (2006) suggested that behavioral changes resulting from lead poisoning can influence susceptibility to predation, disease, and starvation, which increases the probability of death. Experimental evidence has demonstrated impaired reproduction from lead shot ingestion for captive doves (Buerger et al. 1986) and domestic mallards (Elder 1954).
+Lead shot impacts on wildlife were most obvious in heavily hunted areas, such as wetlands that were popular waterfowl hunting areas. Because grit is essential for the
+Evidence of Lead Shot Problems - Page 2
+
+digestive systems of waterfowl (and most upland game birds) and birds do not differentiate between lead shot and grit of a similar size, wildlife feeding and gathering grit in these wetlands also pick up lead shot (Osmer 1940). Wilson (1937) reported lead poisoning in ducks, geese, and swans discovered in Back Bay, Virginia, and Currituck Sound, North Carolina. He analyzed gizzards; some of which contained more than 100 full-sized No. 4 lead shot and partly ground remains. Osmer (1940) noted that “ingestion of 6 No. 5 shot by a duck is fatal. Even 2 or 3 shot are often fatal.” Massive waterfowl die-offs were reported during the 20th century (Bellrose 1959).
+Studies in Minnesota documented lead shot problems for bald eagles and Canada geese (Minnesota Department of Natural Resources 1981, Bengston 1984, Hennes 1985). Problems were considered severe enough at that time for a Steel Shot Zone to be established for Canada goose hunting at Lac Qui Parle Wildlife Management Area (Bengston 1984). Hennes (1985) noted that lead shot poisoning of bald eagles decreased, but wasn’t eliminated. A Trumpeter swan die-off in 2007 at Grass Lake in Wright County, Minnesota was attributed to poisoning from lead shot (Minnesota Department of Natural Resources 2007).
+Impacts of lead shot at a population level are variable. Butler et al. (2005) noted that 3% of pheasants on shooting estates in Great Britain had lead in their gizzards. Kreager et al. (2007) examined gizzards from upland game birds harvested in Ontario, Canada and found lead pellets ingested by 8% of the chukars and 34% of the pheasants. They found that 13% of the livers (from chukars, pheasants, wild turkey, and Hungarian partridge) had elevated lead concentrations. Schulz et al. 2007 found that birds may expel lead shot after ingesting it, indicating incidence of lead exposure in wildlife may be lower than reported. Conversely, birds that expelled lead quickly suffered no obvious symptoms of lead poisoning (Schulz et al. 2007).
+Fisher et al. (2006) suggested that a lack of evidence of poisoned species does not suggest a lack of poisoning. Die-offs and evidence of lead poisoning may not be apparent, because wildlife affected by lead poisoning may seek isolation and protective cover (Friend and Franson 1999). Furthermore, mortality due to non-lethal effects such as reproductive problems, lowered immunity, anemia, and weakened muscles could be higher than losses from direct lead poisoning (Michigan Department of Natural Resources 2002).
+Wildlife species ingesting lead shot
+In the “World Symposium on Lead in Ammunition,” held in Rome, Italy in 2004, John Harradine from the United Kingdom, reported, “The issue of lead poisoning in wildlife as a consequence of shooting activities has long been debated as to its occurrence, its impact and how it should be managed. On the basis of evidence to date, and in general terms, waterfowl, some non-waterfowl species, and birds of prey are the groups of wildlife most at risk of poisoning by virtue of being most exposed to spent lead shot and vulnerable to its effects” (Harradine 2004). Table 1 documents lead ingestion or secondary lead poisoning for more than 100 wildlife species, including waterfowl, upland game birds, raptors, songbirds, mammals, and reptiles.
+Evidence of Lead Shot Problems - Page 3
+
+Bellrose (1959) summarized historic information on duck die-offs from lead poisoning. Die-offs ranged from hundreds of ducks in Indiana (1922) and in Louisiana (1930) to as many as 16,000 birds in Missouri (1945-1957) and Arkansas (1953-1954). Current use of lead shot for small game hunting (not waterfowl) potentially continues to deposit lead in wetlands continuing to impact waterfowl.
+There is evidence that the problem extends to upland birds and raptors. Butler et al. (2005) reported lead exposure over a number of years (1996-2002) for ring-necked pheasants in Great Britain. Fisher et al. (2006) provides a review of 59 terrestrial bird species that have been documented to have ingested lead or suffered lead poisoning from ammunition sources. Nine were threatened species. Impacts of lead shot on doves and pheasants are considered by some scientists to rival the problem in waterfowl (Kendall et al. 1996, Harradine 2004). Ingestion of lead by wildlife, other than waterfowl and birds of prey, “appears to be extensive” and “some species, such as mourning dove and pheasant, however, which are subject to substantial hunting and which feed in those hunted areas, are exposed to relatively high levels of ingestion and its predictable consequences” (Harradine 2004).
+Lead shot ingestion and toxicity problems for wildlife have been documented throughout the world where bird hunting exists. Tavecchia et al. (2001) found lead pellets in the muscles and gizzards of 11% of the mallards captured in France. In Spain, Mateo et al. (2003) reported lead poisoning from exposure to lead shot from prey species in 8 upland raptor species. Morner and Petersson (1999) found lead poisoning in 2 woodpecker species in forested areas in Sweden suggesting that the woodpeckers searching for food removed lead pellets shot into trees.
+Lead shot may secondarily poison wildlife that feed on hunted species. Studies have linked the likelihood of a species ingesting lead shot to feeding habits, with scavengers and predators that take game species the most susceptible (Pain and Amiard-Triquet 1993). Clark and Scheuhammer (2003) examined lead exposure in 184 dead raptors (16 species) found across Canada. They determined that, of the 3 most commonly encountered species, 3-4% died as a result of lead poisoning. They concluded that upland birds of prey and scavengers that eat game birds and mammals are at risk for lead poisoning from ingestion of lead ammunition used in upland hunting. They suggested that use of nontoxic ammunition for hunting upland game would effectively remove the only serious source of high lead exposure and lead poisoning for upland-foraging raptors.
+Knopper et al. (2006) reported that carcasses from squirrel populations managed by shooting had lead levels lethal to raptors and suggested either collection of carcasses shot with lead or the use of nontoxic shot. Similar to the lead shot problems described by Clark and Scheuhammer (2003), deer carcasses containing lead fragments from bullets impact California condors (Cade 2007) and bald eagles (Franson 2007). Hunt et al. (2006) examined the remains of 38 deer killed with rifles and found that all deer killed with lead-based bullets contained bullet fragments. Mateo et al. (2003) analyzed bones
+Evidence of Lead Shot Problems - Page 4
+
+from 229 birds of prey in Spain (11 species) and diagnosed lead poisoning in 8 raptor species that feed on wildlife targeted by hunters in upland habitats.
+Lead shot problems for humans
+Lead poisoning in humans has occurred for at least 2,500 years (Eisler 1988). Today, it is widely known that lead is toxic to humans and can cause permanent developmental problems and death. Haldimann et al. (2002) concluded that frequent consumption of wild game meat had no effect on blood lead levels. However, studies in Canada, Greenland, and Russia have linked lead shot found in game animals to higher levels of lead in people who eat those game animals (Table 2). Levesque et al. (2003) stated, “lead shots may be a major source of lead exposure to humans that consume hunted game animals.” This study found that lead shot was a source of lead exposure in the Inuit population; lead blood concentrations in 7% of Inuit newborns were higher than government-recommended levels. Studies linking game meat containing lead shot and elevated lead blood levels in children (Odland et al. 1999, Smith and Rea 1995) and newborns (Dewailly et al 2000, Hanning et al 2003) are of particular interest.
+Breurec et al. (1998) diagnosed lead poisoning in an adult patient who had frequently eaten game birds containing lead shot. Professional medical literature contains many references of humans carrying lead shot in their digestive tracts (Engstad 1932, Horton 1933, Hillman 1967, Madsen et al. 1988, Spitale and D’Olivo 1989, Moore 1994, Tsuji and Nieboer 1999, and Larsen and Blanton 2000). In animals shot for human consumption, meat far from the entry wound may contain lead. Scheuhammer et al. (1998) found fragments of lead far from wounds from shotgun pellets. Hunt et al. (2006) found lead fragments in meat away from rifle bullet wounds in game animals. Lead fragments, likely from bullets, were found in 53 of 95 packages of ground venison in North Dakota. This prompted North Dakota Health, Game and Fish, and Agriculture Departments to advise food pantries not to distribute or use donated ground venison because of the potential for lead contamination (North Dakota Department of Health 2008). Also, lead from shot may accumulate in tissues of game animals. In upland game birds and waterfowl killed by hunters using lead shot, 40% of 123 livers (Kreager et al. 2007) and 9% of 371 gizzard tissue samples (Tsuji et al. 1999) showed lead levels greater than Health Canada’s guidelines for fish. Currently, no lead level guidelines exist for meat.
+Tsuji et al. (1999) reported that, “People who consume any game species harvested with lead shot risk exposure to this metal by way of ingestion of tissue-embedded lead pellets and fragments.” With alternatives to lead shot readily available (Sanborn n.d.), human exposure to lead through game meat is unnecessary (Rodrigue et al. 2005). Levesque et al. (2003) showed significant decreases in lead concentrations in umbilical cord blood after a public health intervention to reduce the use of lead shot by the Inuit population. Tsuji et al. (1999) suggested banning lead shot for all game hunting because of potential human health concerns.
+Evidence of Lead Shot Problems - Page 5
+
+Lead shot impacts in the environment
+The Minnesota Pollution Control Agency (1999) estimated that 2,610,720 pounds (1,184 metric tons) of lead shot were used annually in Minnesota in hunting and shooting ranges. In their legislative report on sources and effects of lead, they state, “The fact that lead ammunition is estimated to be the single largest source of lead released to the environment qualifies it as a concern that should be examined more closely."
+De Francisco et al. (2003) estimated that lead shot can take 100 to 300 years to disappear from a site, allowing for concentration of large amounts of lead in areas of heavy hunting pressure. Although the breakdown is slow, lead shot pellets accumulating in the environment are not inert and ultimately the lead will be deposited as particles in soil and water (Scheuhammer and Norris 1995). Uptake of this lead by terrestrial and aquatic plants and animals can occur, leading to elevated lead concentrations.
+Guitart et al. (2002) reported that a single lead shot could raise 12,000 liters of water to the European Union threshold guideline for lead in drinking water. Surface water contamination by lead shot from shooting ranges has been well documented (Stansley et al. 1992, Dames and Moore Canada 1993, Emerson 1994, USEPA 1994). Strait et al. (2007) found that shooting ranges contained areas where lead occurred at “concentrations significantly in excess of the Michigan Department of Environmental Quality criteria and therefore pose a potential risk to the human users of the land as well as to the native wildlife.” While shooting ranges contain far more spent shot than typical hunting areas, these studies demonstrate the ability of lead to accumulate over time and contaminate the surrounding environment and wildlife. Areas with acidic waters or soils are at particularly high risk for contamination from lead shot, as lead is more easily mobilized at a lower pH (Stanley et al. 1992).
+Contamination of human food sources due to lead shot deposition has also been documented. Guitart (2002) suggested that the high lead content of rice produced in Spain was a result of hunting with lead shot near rice fields. Rice et al. (1987) reported lead poisoning of cattle from ingestion of silage contaminated with lead shot. In addition, milk production decreased and stillbirths increased in cattle ingesting lead contaminated hay cut from a field used for clay pigeon shooting (Frape and Pringle 1984).
+Alternatives to lead shot
+Substituting nontoxic shot for lead shot could reduce lead shot impacts on the health of wildlife, humans, and the environment. Friend and Franson (1999) noted, “The use of nontoxic shot is the only long-term solution for significantly reducing migratory bird losses from lead poisoning.” Migratory birds that have been shown to be impacted by lead shot include doves, waterfowl, and other species. Upland birds, such as ring-necked pheasants, are also impacted by lead shot.
+Evidence of Lead Shot Problems - Page 6
+
+Alternatives to lead shot were not readily available in the past, especially prior to the federal ban on lead shot for waterfowl hunting in the United States (US). However, other types of shot, particularly steel shot, are now available at a cost comparable to lead shot ammunition (Sanborn n.d.). Nontoxic shot is now also available for safe use in vintage and older shotguns (Cabela’s 2008). Scheuhammer and Norris (1995) found that, while nontoxic alternatives to lead shot are more expensive than lead, they represent only a 12% increase in the average hunter’s yearly expenses. There are currently 11 types of shot approved as nontoxic by the US Fish and Wildlife Service (US Fish and Wildlife Service 2006). Recent studies have demonstrated the effectiveness of steel shot. For example, Schulz et al. (2006b) evaluated crippling rates in waterfowl prior to and following implementation of nontoxic-shot regulations in the US. They found that, after a 5-year phase-in period, crippling rates for ducks and geese were lower after non-toxic shot restrictions were implemented.
+Small game hunters have already begun to switch to nontoxic shot. In Minnesota, a recent survey, conducted by the University of Minnesota, Schroeder et al. (2008) found that 40% of pheasant hunters reported they are currently voluntarily using nontoxic shot.
+Nontoxic shot regulations
+Despite numerous reports of negative impacts of lead shot on wildlife worldwide, restrictions on the use of lead shot have been minimal (Thomas 1997). Interest in nontoxic shot regulations has resulted in discussions on restricting lead ammunition and some legislation on different continents.
+Thomas and Twiss (1995) felt that lead contamination of Canadian lakes, a problem for waterfowl and other birds, could be reduced by regulating production and commerce in lead shot and sinkers. They suggested regulations from Canada, the US, and Mexico on a continental scale. In Europe, Denmark and The Netherlands have banned all uses of lead shot (Thomas 1997). Broad regulatory action to restrict lead shot across Europe has been discussed by various cross-continental groups, such as the European Council, the Bonn and Bern Conservations, and by the European Union (Thomas and Owen 1996). In Australia, lead shot restrictions vary by state from a total ban on lead shot to lead shot restrictions for waterfowl hunting similar to the US or suggesting nontoxic alternatives and leaving the choice of shot up to the hunters (Green 2004).
+The most significant nontoxic shot regulation in the US was the federal ban on the use of lead shot for hunting waterfowl in 1991. This ban has been demonstrated to have a positive impact on wildlife. For example, Stevenson et al. (2005) found that lead concentrations in the bones of 2 species of ducks decreased after the federal ban on lead shot for waterfowl hunting. In comparison, they noted that bone lead concentrations showed no change for woodcock, a migratory upland species not impacted by the lead shot ban for waterfowl hunting.
+Case et al. (2006) surveyed US states and Canadian provinces regarding nontoxic shot regulations and found that 45% (26) of surveyed states and provinces have nontoxic shot
+Evidence of Lead Shot Problems - Page 7
+
+regulations beyond federal waterfowl regulations. Nine states and provinces that have nontoxic shot regulations were discussing additional regulations. Regulations for species other than waterfowl include 15 states and provinces with regulations for dove hunting, 22 for snipe, 13 for grouse, 12 for quail, and 12 for pheasants. Currently, Minnesota’s nontoxic shot regulations beyond federal waterfowl regulations are for managed dove fields, which included 4 Wildlife Management Areas for 2007.
+Conclusions
+There is considerable evidence that lead shot negatively impacts the health of wildlife, humans, and the environment. This manuscript includes more than 175 citations related to this problem. More than 100 species of birds (including upland birds, raptors, and waterfowl) have been weakened or killed by ingesting lead shot (Table 1). The impacts of lead shot on wildlife include decreased survival, poor body condition, behavioral changes, and impaired reproduction. Humans can be exposed to lead in game meat, even when the shot is no longer present. Meat far from the entry wound may contain high levels of lead. Children and pregnant women are especially sensitive to lead exposure. Studies in Canada, Greenland, and Russia have linked lead shot found in game animals to higher levels of lead in people who eat those game animals (Table 2).
+Effective nontoxic alternatives are available at a cost comparable to lead. Some countries (Denmark, The Netherlands, and some states in Australia) have banned the use of lead shot. In the US, federal legislation prohibits use of lead shot for waterfowl hunting and many states have additional nontoxic shot regulations for hunting doves, pheasants, and other species.
+Acknowledgments
+We thank Bill Healy (U.S. Forest Service, retired), Steve Hennes (Minnesota Pollution Control Agency), John Schulz (Missouri Department of Conservation), and Erik Zabel (Minnesota Department of Health) for reviews of this manuscript. Also, Tom Conroy, Kathy DonCarlos, Mike DonCarlos, Kurt Haroldson, Tonya Klinkner, Jeff Lawrence, Bill Penning, and Dennis Simon from Minnesota Department of Natural Resources provided reviews. Roxanne Franke and Dan Smedberg (Student Interns from Minnesota State University-Mankato) developed a lead shot literature review and summaries used in this manuscript.
+Evidence of Lead Shot Problems - Page 8
+
+Literature Cited
+Anderson, W.L. 1975. Lead poisoning in waterfowl at Rice Lake, Illinois. Journal of Wildlife Management 39:264-270.
+Anderson, W.L. and S. P. Havera. 1985. Blood lead, protoporphyrin, and ingested shot for detecting lead poisoning in waterfowl. Wildlife Society Bulletin 13(1):26- 31.
+Anderson, W.L. and S.P. Havera. 1989. Lead poisoning in Illinois waterfowl (1977-1988) and implementation of nontoxic shot regulations. Illinois Natural History Survey Biological Notes 133.
+Artmann, J.W. and E.M. Martin. 1975. Incidence of ingested lead shot in sora rails. Journal of Wildlife Management 39(3):514-519.
+Battaglia, A., S. Ghidini, G. Campanini, and R. Spaggiari. 2005. Heavy metal contamination in little owl (Athene noctua) and common buzzard (Buteo buteo) from northen Italy. Ecotoxicology and Environmental Safety 60(1):61-66
+Baxter, G.S., C. Melzer, D. Byrne, D. Fielder, and R. Loutit. 1998. The prevalence of spent lead shot in wetland sediments and ingested by wild ducks in coastal Queensland. The Sunbird 28(2):21-25.
+Bellrose, F.C. 1959. Lead poisoning as a mortality factor in waterfowl populations. Illinois Natural History Survey Bulletin 27(1):235-288.
+Bengtson, F.L. 1984. Studies of lead toxicity in Bald eagles at the Lac Qui Parle Wildlife Refuge. Master’s thesis. University of Minnesota.
+Best, T.L., T.E. Garrison, and C.G. Schmidt. 1992. Ingestion of lead pellets by scaled quail (Callieppla squamata) and northern bobwhite (Colinus virginianus) in southeastern New Mexico. Texas Journal of Science 44:99-107.
+Bjerregaard, P., P. Johansen, G. Mulvad, H.S. Pedersen, and J.C. Hansen. 2004. Lead sources in human diet in Greenland. Environmental Health Perspectives 112(15):1496-1498.
+Blus, L.J. 1994. A review of lead poisoning in swans. Comparative Biochemistry and Physiology, Part C 108(3):259-267.
+Bowen, J.E. and S.A. Petrie. 2007. Incidence of artifact ingestion in Mute Swans and Tundra Swans on the lower Great Lakes, Canada. Ardea 95(1):135–142.
+Breurec, J.Y., A. Baert, J.P. Anger, and J.P. Curtes. 1998. Unusual diagnosis: non occupationnal adult lead poisoning. Toxicology Letters 95(1):76.
+Brinzal. 1996. SOS venenos: bu´ho chico. Quercus 124:45.
+Brown, C.S., J.Luebbert, D. Mulcahy, J. Schamber, and D.H. Rosenberg. 2006. Blood lead levels of wild Steller’s eiders (Polysticta stelleri) and black scoters (Melanitta nigra) in Alaska using a portable blood lead analyzer. Journal of Zoo and Wildlife Medicine 37(3):361-365.
+Buerger, T., R.E. Mirarchi, and M.E. Lisano. 1986. Effects of lead shot ingestion on captive mourning dove survivability and reproduction. Journal of Wildlife Management 50(1):1-8.
+Butler, D.A. 2005. Incidence of lead shot ingestion in red-legged partridges (Alectoris rufa) in Great Britain. Veterinary Record: Journal of the British Veterinary Association 157(21):661.
+Evidence of Lead Shot Problems - Page 9
+
+Butler, D.A., R.B. Sage, R.A.H. Draycott, J.P. Carroll, and D. Pottis. 2005. Lead exposure in ring-necked pheasants on shooting estates in Great Britain. Wildlife Society Bulletin 33(2):583-589.
+Cabela’s. 2008. Cabela’s Shooting and Reloading (catalogue). Cabela’s, Sidney, Nebraska.
+Cade, T.J. 2007. Exposure of California condors to lead from spent ammunition. Journal of Wildlife Management 71(1):2125-2133.
+Calvert, H.S. 1876. Pheasants poisoned by swallowing shot. The Field. 47:189.
+Campbell, H. 1950. Quail picking up lead shot. Journal of Wildlife Management 14:243-244.
+Camus, A.C., M.M. Mitchell, J.F. Williams and P.L.H. Jowett. 1998. Elevated lead levels in farmed American alligators Alligator mississippiensis consuming nutria Myocastor coypus meat contaminated by lead bullets. Journal of the World Aquaculture Society 3:370–376.
+Case, D.J. and Associates. 2006. Non-toxic shot regulation inventory of the United States and Canada. D.J. Case and Associates, Mishawaka, IN. 29 pp.
+Chiba, A., N. Shibuya, and R. Honma. 1999. Description of a Lead-poisoned Middendorff's Bean Goose, Anser fabalis middendorffii, Found at Fukushima-gata, Niigata Prefecture, Japan. Japanese Journal of Ornithology 47:87-96.
+Church, M.E., Gwiazda, R., Risebrough, R.W., Sorenson, K., Chamberlain, C.P., Farry, S., Heinrich, W., Rideout, B.A., and Smith, D.R. 2006. Ammunition is the principal source of lead accumulated by California condors re-introduced to the wild. Environmental Science and Technology 40(19):61436150.
+Clark, A.J., and A.M. Scheuhammer. 2003. Lead poisoning in upland foraging birds of prey in Canada. Ecotoxicology 12:23–30.
+Clausen, B. and C. Wolstrup. 1979. Lead poisoning in game from Denmark. Danish Review of Game Biology 11:1-22.
+Cook, R.S., and D.O. Trainer. 1966. Experimental lead poisoning of Canada geese. Journal of Wildlife Management 30:1-8.
+Craig, T.H., J.W. Connelly, E.H. Craig, and T.L. Parker. 1990. Lead concentrations in Golden and Bald eagles. Wilson Bulletin 102(1):130-133.
+Dames and Moore Canada. 1993. Field investigations and environmental site assessment of outdoor military small arms ranges. Prepared for the Dept. of National Defence. Project 24903-021, Mississauga, Ontario. 75 pp.
+Decker, R.A., A.M. McDermid, and J.W. Prideaux. 1979. Lead poisoning in two captive king vultures. Journal of the American Veterinary Medical Association 175:1009.
+De Francisco, N., Troya, J.D. Ruiz and E.I. Agüera. 2003. Lead and lead toxicity in domestic and free living birds. Avian Pathology, 32:1, 3 -13
+DeMent, S.H., J.J. Chisolm, Jr., M.A. Eckhaus and J.D. Strandberg. 1987. Toxic lead exposure in the urban rock dove. Journal of Wildlife Diseases 23:273-278.
+Dewaily, E., B. Levesque, J-F. Duchesnes, P. Dumas, A. Scheuhammer, C. Gariepy, M. Rhainds, J-F. Proulx. 2000. Lead shot as a source of lead poisoning in the Canadian Artic. Epidemiology 11(4):146.
+Evidence of Lead Shot Problems - Page 10
+
+Dewailly, E., P. Ayotte, S. Bruneau, G. Lebel, P. Levallois, and J.P. Weber. 2001. Exposure of the Inuit population of Nunavik (Arctic Quebec) to lead and mercury. Archives of Environmental Health 56(4):350-7.
+Donázar, J.A., C.J. Palacios, L. Gangoso, O. Ceballos, M.J. Gonzalez, and F. Hiraldo. 2002. Conservation status and limiting factors in the endangered population of Egyptian vulture (Neophron percnopterus) in the Canary Islands. Biological Conservation 107(1):89-97.
+Durlach, V., F.Lisovoski, A. Gross, G. Ostermann, and M. Leutenegger. 1986. Appendicectomy in an unusual case of lead poisoning. Lancet I(8482):687-688.
+Eisler, R. 1988. Lead hazards to fish, wildlife, and invertebrates: a synoptic review. United States Fish and Wildlife Service. Biological Report 85(1.14). 134 pages.
+Elder, W.H. 1954. The effect of lead poisoning on the fertility and fecundity of domestic mallard ducks. Journal of Wildlife Management 18(3):315-323.
+Emerson, R. 1994. Contamination of soil from gun shot: St. Thomas Gun Club (1993). Technical Memorandum, Rep. No. SDB 052-4304-94 TM, Standards Development Branch, Phytotoxicology Section, Ontario Ministry of Environment and Energy, Brampton, Ont. 15 pp.
+Engstad, J.E. 1932. Foreign bodies in the appendix. Minnesota Medicine 15:603-ppp.
+Estabrooks, S.R. 1987. Ingested lead shot in Northern red-billed whistling ducks (Dendrocygna autumnalis) and northern pintails (Anas acuta) in Sinaloa, Mexico. Journal of Wildlife Diseases 23(1):169.
+Finley, M.T., and M.P. Dieter. 1978. Toxicity of experimental lead-iron shot versus commercial lead shot in mallards. Journal of Wildlife Management 42(1):32-39.
+Fisher, I.J., D.J. Pain, and V.G. Thomas. 2006. A review of lead poisoning from ammunition sources in terrestrial birds. Biological Conservation 131:421-432.
+Flint, P.L., M.R. Petersen, and J.B. Grand. 1997. Exposure of spectacled eiders and other diving ducks to lead in western Alaska. Canadian Journal of Zoology 75:439-443.
+Franson, C. 2007. Lead poisoning in wild birds: exposure, clinical signs, lesions, and diagnosis. 68th Midwest Fish and Wildlife Conference (presentation and abstract). Madison, WI. December 11, 2007.
+Franson, J.C., and S.G. Hereford. 1994. Lead poisoning in a Mississippi sandhill crane. Wilson Bulletin. 106:766-768.
+Franson, J.C., M.R. Petersen, C.U. Meteyer, and M.R. Smith. 1995. Lead poisoning of spectacled eiders (Somateria fischeri) and of a common eider (Somateria mollissima) in Alaska. Journal of Wildlife Diseases 31(2):268–271.
+Frape, D.L., and J.D. Pringle. 1984. Toxic manifestations in a dairy herd consuming haylage contaminated by lead. Vet. Rec. 114:615-616.
+Friend, M. and J.C. Franson, editors. 1999. Field manual of wildlife diseases, General field procedures and diseases of birds. U.S. Geological Survey. Available online: http//www.nwhc.usgs.gov/publications/field_manual/index.jsp.
+Evidence of Lead Shot Problems - Page 11
+
+Garcia-Fernandez, A.J., E. Martinez-Lopez, D. Romero, P. Maria-Mojica, A. Godino, and P. Jimenez. 2005. High levels of blood lead in griffon vultures (Gyps fulvus) from Cazorla Natural Park (southern Spain). Environmental Toxicology 20(4):459-463.
+Golden, N.H. and B.A. Rattner. 2002. Ranking terrestrial vertebrate species for utility in biomonitoring and vulnerability to environmental contaminants. In: Reviews of Environmental Contamination and Toxicology. Albert, L. A. (ed.). Vol 176.
+Grand, J.B., P.L. Flint, M.R. Petersen, and C.L. Moran. 1998. Effect of lead poisoning on spectacled eider survival rates. Journal of Wildlife Management 62(3):1103-1109.
+Green, B. 2004. The Situation in Australia. Page 73-76 In: Proceedings of the World Symposium on Lead Ammunition. World Forum on the Future of Sport Shooting Activities. September 9-10, 2004. Rome, Italy.
+Grinnell, G.B. 1894. Lead-poisoning. Forest and Stream 42(6):117-118.
+Guitart, R., J. Serratosa, V.G. Thomas. 2002. Lead poisoned wildfowl in Spain: A significant threat for human consumers. International Journal of Environmental Health Research 12(4):301-309.
+Haldimann, M., A. Baumgartner, and B. Zimmerli. 2002. Intake of lead from game meat – a risk to consumers’ health. European Food Research and Technology 215(5):375-379.
+Hall, S. L., and F. M. Fisher. 1985. Lead concentrations in tissues of marsh birds: relationship of feeding habits and grit preference to spent shot ingestion. Bulletin of Environmental Contamination and Toxicology 35:1-8.
+Hammerton, K.M., N. Jayasinghe, R.A. Jeffree and R.P. Lim. 2003. Experimental study of blood lead kinetics in estuarine crocodiles (Crocodylus porosus) exposed to ingested lead shot. Archives of Environmental Contamination and Toxicology 45:390–398.
+Hanning, R.M., R. Sandhu, A. MacMillan, L. Moss, L.J.S. Tsuji, and E. Nieboer Jr. 2003. Impact on blood Pb levels of maternal and early infant feeding practices of First Nation Cree in the Mushkegowuk Territory of northern Ontario, Canada. Journal of Environmental Monitoring 5:241 – 245.
+Harradine, J. (2004). Spent lead shot and wildlife exposure and risks. Pages 119-130 In Proceedings of the World Symposium on Lead Ammunition. World Forum on the Future of Sport Shooting Activities. September 9-10, 2004. Rome, Italy.
+Havera, S.P., R.M. Whitton, and R.T. Shealy. 1992. Blood lead and ingested and embedded shot in diving ducks during spring. Journal of Wildlife Management 56(3):539-545.
+Hennes, S.K. 1985. Lead shot ingestion and lead residues in migrant bald eagles at the Lac Qui Parle Wildlife Management Area, Minnesota. Master’s thesis. University of Minnesota.
+Hillman, F.E. 1967. A rare case of chronic lead poisoning: polyneuropathy traced to lead shot in the appendix. Ind. Med. Surg. 36(7):488-492.
+Holland, G. 1882. Pheasant poisoning by swallowing shot. The Field 59:232.
+Honda, K., D. P. Lee, and R. Tasukawa. 1990. Lead poisoning in swans in Japan. Environmental Pollution 65(3):209-218.
+Horton, B.T. 1933. Bird shot in verminform appendix: a cause of chronic appendicitis. Surgical Clinics of North America 13:1005-1006.
+Evidence of Lead Shot Problems - Page 12
+
+Hunt, W. G., W. Burnham, C. N. Parish, K. K. Burnham, B. Mutch, and J. L. Oaks. 2006. Bullet fragments in deer remains: implications for lead exposure in avian scavengers. Wildlife Society Bulletin 34(1):167-170.
+Hunter, B. F., and M. N. Rosen. 1965. Occurrence of lead poisoning in a wild pheasant (Phasianus colchicus). California Fish and Game 51:207.
+Jacobson, E., J. W. Carpenter, and M. Novilla. 1977. Suspected lead toxicosis in a bald eagle. Journal of American Veterinary Medical Associates 171:952-954.
+Johansen, P., G. Asmund, and F. Riget. 2001. Lead contamination of seabirds harvested with lead shot — implications to human diet in Greenland. Environmental Pollution 112(3):501-504.
+Johansen, P., G. Asmund, and F. Riget. 2004. High human exposure to lead through consumption of birds hunted with lead shot. Environmental Pollution 127(1):125-9.
+Johansen, P., H.S. Pedersen, G. Asmund, and F. Riget. 2006. Lead shot from hunting as a source of lead in human blood. Environmental Pollution 142(1):93-7.
+Jones, J. C. 1939. On the occurrence of lead shot in stomachs of North American gruiformes. Journal of Wildlife Management 3:353-357.
+Kaiser, G. W., K. Fry, and J. G. Ireland. 1980. Ingestion of lead shot by dunlin. The Murrelet 61(1):37.
+Keel, M.K., W.R. Davidson, G.L. Doster, and L.A. Lewis. 2002. Northern bobwhite and lead shot deposition in an upland habitat. Archives of Environmental Contamination and Toxicology 43:318322.
+Kendall, R.J., G.W. Norman, and P.F Scanlon. 1984. Lead concentration in ruffed grouse collected from Southwestern Virginia. Northwest Science 58:14-17.
+Kendall, R. J., T. E. Lacher, Jr., C. Bunck, B. Daniel, C. Driver, C. E. Grue, F. Leighton, W. Stansley, P. G. Watanabe, and M. Whitworth. 1996. An Ecological Risk Assessment of Lead Shot Exposure in NonWaterfowl Avian Species: Upland Game Birds and Raptors. Environmental Toxicology and Chemistry 15(1):4-20.
+Kenntner, N., Y. Crettenand, H-J. Fünfstück, M. J. Janovsky, and F. Tataruch. 2007. Lead poisoning and heavy metal exposure of golden eagles (Aquila chrysaetos) from the European Alps. Journal of Ornithology 148(2):173-177.
+Keymer, I.F., and R. St .J. Stebbings. 1987. Lead poisoning in a partridge (Perdix perdix) after ingestion of gunshot. Veterinary Record 120:276-277.
+Kimmel, R.O. and M.A. Tranel. 2008. Nontoxic and lead shot literature review-draft. Minnesota Department of Natural Resources. Madelia, MN. 41 pp.
+Kingsford, R.T., J. L. Kacprzak, and J. Ziaziaris. 1994. Lead in livers and gizzards of waterfowl shot in New South Wales, Australia. Environmental Pollution 85(3):329-335.
+Knopper, L.D., P. Mineau, A.M. Scheuhammer, D.E. Bond, and D.T. McKinnon. 2006. Carcasses of shot Richardson’s ground squirrels may pose lead hazards to scavenging hawks. Journal of Wildlife Management 70(1):295-299.
+Koh, T.S., and Harper, M.J. 1988. Lead-poisoning in Black Swans, Cygnus atratus, exposed to lead shot at Bool lagoon Game Reserve, South Australia. Australian Wildlife Research 15:395-403.
+Evidence of Lead Shot Problems - Page 13
+
+Kreager, N., B.C. Wainman, R.K. Jayasinghe, and L.J.S. Tsuji. 2007. Lead pellet ingestion and liver-lead concentrations in upland game birds from southern Ontario, Canada. Archives of Environmental Contamination and Toxicology (published online, ahead of print).
+Krone, O., Willie, F., Kenntner, N., Boertmann, D., Tataruch, F. 2004. Mortality factors, environmental contaminants, and parasites of white-tailed sea eagles from Greenland. Avian Diseases 48:417-424.
+Kurosawa, N. 2000. Lead poisoning in Steller’s Sea Eagles and White-tailed Sea Eagles. In: Ueta, M. and McGrady, M.J. (eds). First Symposium on Steller’s and White-tailed Sea Eagles in East Asia. pp. 107-109.
+Lance, V.A., T.R. Horn, R.M. Elsey and A. de Peyster. 2006. Chronic incidental lead ingestion in a group of captive-reared alligators (Alligator mississippiensis): possible contribution to reproductive failure. Toxicology and Pharmacology 142:30–35.
+Larsen, A.R. and R.H. Blanton. 2000. Appendicitis due to bird shot ingestion: a case study. American Surgeon 66(6):589-591.
+Larsen, R.T. 2006. Ecological investigations of chukars (Alectoris chukar) in western Utah. Master’s thesis. Brigham Young University, Provo, UT. 77 pp.
+Lemay, A., P. McNicholl, and R. Ouellet. 1989. Incidence de la grenaille de plomb dans les gesiers de canards, d’oies et de bernaches recoltes au Quebec. Direction de la gestion des especes et des habitats. Ministere du Loisir de la Chasse et de la Peche, Quebec.
+Lévesque, B., J.F. Duchesne, c. Gariépy, M. Rhainds, P. Dumas, A.M. Scheuhammer, J.F. Proulx, S. Déry, G. Muckle, F. Dallaire, and É. Dewailly. 2003. Monitoring of umbilical cord blood lead levels and sources of assessment among the Inuit. Occupational and Environmental Medicine 60:693-695.
+Lewis, J. C., and E. Legler, Jr. 1968. Lead shot ingestion by mourning doves and incidence in soil. Journal of Wildlife Management 32(3):476-482.
+Lewis, L.A., R.J. Poppenga, W.R. Davidson, J.R. Fischer, and K.A. Morgan. 2001. Lead toxicosis and trace element levels in wild birds and mammals at a firearms training facility. Archives of Environmental Contamination and Toxicology 41(2):208-214.
+Locke, L.N., G.E. Bagley, D.N. Fricke, and L.T. Young. 1969. Lead poisoning and aspergillosis in an Andean condor. Journal of American Veterinary Medical Associates 155(7):1052-1056.
+Locke, L. N., and M. Friend. 1992. Lead poisoning of avian species other than waterfowl. Pages 19-22 in D. J. Pain (ed.), Lead poisoning in waterfowl. IWRB Spec. Publ. No. 16, Slimbridge, U.K.
+Lumeij, J.T. 1985. Clinicopathologic aspects of lead poisoning in birds: A review. Veterinary Quarterly 7:133-138.
+Madsen, H., T. Kkjom, P.J. Jorgensen, and P. Grandjean. 1988. Blood lead levels in patients with lead shot retained in the appendix. Acta Radiologica 29:745-746.
+MacDonald, J. W., C. J. Randall, H. M. Ross, G. M. Moon, and A. D. Ruthven. 1983. Lead poisoning in captive birds of prey. Veterinary Records 113:65-66.
+Martin, P.A., D. Campbell, K. Hughes, and T. Daniel. 2008. Lead in the tissues of terrestrial raptors in southern Ontario, Canada, 1995-2001. Science of the Total Environment 391(1):96-103.
+Evidence of Lead Shot Problems - Page 14
+
+Martin, P.A. and G.C. Barrett. 2001. Exposure of terrestrial raptors to environmental lead - determining sources using stable isotope ratios. International Association for Great Lakes Research Conference Program and Abstracts 44. IAGLR, Ann Arbor, MI. P. 84.
+Mateo, R., J. Belliure, J.C. Dolz, J.M. Aguilar Serrano, and R. Guitart. 1998. High prevalences of lead poisoning in wintering waterfowl in Spain. Archives of Environmental Contaminants Toxicology 35(2):342-347.
+Mateo, R., J.C. Dolz, J.M. Aguilar Serrano, J. Belliure, and R. Guitart. 1997. An epizootic of lead poisoning in greater flamingos (Pheonicopterus rubber roseus) in Spain. Journal of Wildlife Diseases 33(1):131-134.
+Mateo, R., J. Estrada, J-Y. Paquet, X. Riera, L. Domínguez, R. Guitart, and A. Martínez-Vilalta. 1999. Lead shot ingestion by marsh harriers Circus aeruginosus from the Ebro delta, Spain. Environmental Pollution 104(3):435-440.
+Mateo, R., R., A.J. Green, C.W. Jeske, V. Urios, and C. Gerique. 2001. Lead poisoning in the globally threatened marbled teal and white-headed duck in Spain. Environmental Toxicology Chemisty 20(12):2860-2868.
+Mateo, R., R. Guitart, and A.J. Green. 2000. Determinants of lead shot, rice, and grit ingestion in ducks and coots. Journal of Wildlife Management 64(4):939-947.
+Mateo, R., M. Rodríguez-de la Cruz, M. Reglero, and P. Camarero. 2007. Transfer of lead from shot pellets to game meat during cooking. Science of the Total Environment 372(2-3):480-485.
+Mateo, R., M. Taggart, and A.A. Meharg. 2003. Lead and arsenic in bones of birds of prey in Spain. Environmental Pollution 126(1):107-114.
+Merendino, M.T., Lobpries, D.S., Neaville, J.E., Ortego, J.D., and Johnson, W.P. 2005. Regional differences and long-term trends in lead exposure in mottled ducks. Wildlife Society Bulletin 33(3):1002-1008.
+Michigan Department of Natural Resources. 2002. Michigan wildlife disease manual. Michigan Department of Natural Resources Wildlife Disease Laboratory, Lansing, MI. Accessed Feb. 22, 2008. Available online: http://www.michigan.gov/dnr/0,1607,7-153-10370_12150_12220---,00.html.
+Minnesota Department of Natural Resources. 1981. Study of the presence and toxicity of lead shot at the Lac qui Parle Wildlife Refuge, Watson, Minnesota from 1978 to 1979. Minnesota Department of Natural Resources.
+Minnesota Department of Natural Resources. 2007. Trumpeter swan die-off at Grass Lake, Wright County. DNR Fact Sheet. February 28, 2007. Division of Ecological Services, St. Paul, MN.
+Minnesota Pollution Control Agency. 1999. Legislative report on sources and effects of lead presented to the Committees on the Environment and Natural Resources. Minnesota Pollution Control Agency, 520 Lafayette Road, St. Paul, MN 55155-4194. 88 pp. Accessed 4/3/08. Available online: http://www.pca.state.mn.us/hot/legislature/reports/1999/lead.pdf ,
+Moore, C.S. 1994. Lead shot passed per urethrem [letter]. British Medical Journal 308:414.
+Mörner, T., and L. Petersson. 1999. Lead poisoning in woodpeckers in Sweden. Journal of Wildlife Diseases 35(4):763-765.
+Mudge, G. P. 1983. The incidence and significance of ingested lead pellet poisoning in British wildfowl. Biological Conservation 27:333-372.
+Evidence of Lead Shot Problems - Page 15
+
+National Wildlife Health Laboratory. 1985. Lead poisoning in non-waterfowl avian species. Unpub. Rpt. U.S. Fish and Wildlife Service, Washington, D.C. 12 pp.
+Nontoxic Shot Advisory Committee. 2006. Report submitted to Minnesota Department of Natural Resources, December 12, 2006.
+North Dakota Department of Health. 2008. News release: Food pantries notified about lead fragments discovered in donated ground venison. News Release, March 26, 2008. North Dakota Department of Health. Bismarck, N.D. 2 pp.
+Ochiai, K., K. Jin, C. Itakura, M. Goryo, K. Yamashita, N. Mizuno, T. Fujinaga, and T. Tsuzuki. 1992. Pathological study of lead poisoning in whooper swans (Cygnus cygnus) in Japan. Avian Diseases 36(2):313-323.
+Ochiai, K., K. Jin, M. Goryo, T. Tsuzuki, and C. Itakura. 1993. Pathomorphologic findings of lead poisoning in white-fronted geese (Anser albifrons). Veterinary Pathology 30(6):522-528.
+Odland et al. 1999. Elevated blood lead concentrations in children living in isolated communities of the Kola Peninsula, Russia. Ecosystem Health 5(2):75-81.
+Olivier, G.-N. 2006. considerations on the use of lead shot over wetlands. In Waterbirds around the world. Eds. G.C. Boere, C.A. Balbraith, and D.A. Stroud. The Stationery Office, Edinburgh, UK. pp. 866-867.
+Orlic, I., R. Siegele, K. Hammerton, R.A. Jeffree, and D.D. Cohen. 2003. Nuclear microprobe analysis of lead profile in crocodile bones. Nuclear Instruments and Methods in Physics Research Section B: Beam Interactioins with Materials and Atoms 210:330-335. Eight International Conference of Nuclear Microprobe Technology and Applications.
+Osmer, T. L. G. 1940. Lead shot: its danger to water-fowl. The Scientific Monthly 50(5):455-459 .
+Pain, D. J. 1990. Lead shot ingestion by waterbirds in the Camargue, France: an investigation of levels and interspecific differences. Environmental Pollution 66:273-285.
+Pain, D.J. and C. Amiard-Triquet. 1993. Lead poisoning of raptors in France and elsewhere. Ecotoxicology and Environmental Safety 25:183-192.
+Pain, D.J., I. Carter, A.W. Sainsbury, R.F. Shore, P. Eden, M.A. Taggart, S. Konstantinos, L.A. Walker, A.A. Meharg, and A. Raab. 2007. Contamination and associated disease in captive and reintroduced red kites Milvus milvus in England. Science of the Total Environment 376:116-127.
+Pain, D.J., A.A. Meharg, M. Ferrer, M. Taggart and V. Penteriani. 2005. Lead concentrations in bones and feathers of the globally threatened Spanish imperial eagle. Biological Conservation 121(4):603-610.
+Pain, D. J., J. Sears, and I. Newton. 1994. Lead concentrations in birds of prey in Britain. Environ. Pollut. 87:173-180.
+Perry, M. C., and J. W. Artmann. 1979. Incidence of embedded shot and ingested shot in oiled ruddy ducks. Journal of Wildlife Management 43(1):266-269.
+Quortrup, E.R. and J.E. Shillinger. 1941. 3,000 wild bird autopsies on western lake areas. American Veterinary Medical Association Journal.
+Reddy, E.R. 1985. Retained lead shot in the appendix. Journal of the Canadian Association of Radiologists 36:47-48.
+Evidence of Lead Shot Problems - Page 16
+
+Redig, P.T., C.M. Stowe, D.M. Barnes, and T.D. Arent. 1980. Lead toxicosis in raptors. Journal of American Veterinary Medical Associates 177:941-943.
+Rice, D.A., M.F. McLoughlin, W.J. Blanchflower, T.R. Thompson. 1987. Chronic lead poisoning in steers eating silage contaminated with lead shot – diagnostic criteria. Bulletin of Environmental Contaminant Toxicology 39(4):622–629.
+Rodrigue, J., R. McNicoll, D. Leclair, and J. F. Duchesne. 2005. Lead concentrations in ruffed grouse, rock ptarmigan, and willow ptarmigan in Quebec. Archives of Environmental Contamination and Toxicology 49(1):334-340.
+Sanborn, W. n.d. Lead Poisoning of North American Wildlife from lead shot and lead fishing tackle. Draft. HawkWatch International, 1800 South West Temple, Suite 226, Salt Lake City, UT 84115. 31 pp.
+Sanderson, G. C. and F. C. Bellrose. 1986. A Review of the Problem of Lead Poisoning in Waterfowl. Illinois Natural History Survey, Champaign, Illinois. Special Publication 4. 34 pp. Jamestown ND: Northern Prairie Wildlife Research Center Online. http://www.npwrc.usgs.gov/resource/birds/pbpoison/index.htm (Version 17OCT97).
+Scanlon, P. F., V. D. Stotts, R. G. Oderwald, T. J. Dietrich, and R. J. Kendall. 1980. Lead concentrations in livers of Maryland waterfowl with and without ingested lead shot present in gizzards. Bulletin of Environmental Contamination and Toxicology 25(6):855-860.
+Scheuhammer, A. M., D. E. Bond, N. M. Burgess, and J. Rodrigue. 2003. Lead and stable lead isotope ratios in soil, earthworms, and bones of American woodcock (Scolopax minor) from Eastern Canada. Environmental Toxicology and chemistry 22:2585-2591.
+Scheuhammer, A. M., and S.L. Norris. 1995. A review of the environmental impacts of lead shotshell ammunition and lead fishing weights in Canada. Occasional Paper Number 88, Canadian Wildlife Service. National Wildlife Research Centre, Hull, Quebec. 56 pp.
+Scheuhammer, A. M., J. A. Perrault, E. Routhier, B. M. Braune, and G. D. Campbell. 1998. Elevated lead concentrations in edible portions of game birds harvested with lead shot. Environmental Pollution 102:251-257.
+Schmitz, R.A., A.A. Aguirre, R.S. Cook, and G.A. Baldassarre. 1990. Lead poisoning of Caribbean flamingos in Yucatan, Mexico. Wildlife Society Bulletin 18(4):399-404.
+Schroeder, S. A., D.C. Fulton, W. Penning, and K. DonCarlos. 2008. Small Game Hunter Lead Shot Study. U.S. Geological Survey. University of Minnesota, Minnesota Cooperative Fish and Wildlife Research Unit, Department of Fisheries, Wildlife, and Conservation Biology. Draft manuscript.
+Schulz, J. H., J. J. Millspaugh, A. J. Bermudez, X. Gao, T. W. Bonnot, L. G. Britt, and M. Paine. 2006a. Acute lead toxicosis in mourning doves. Journal of Wildlife Management 70(2):413-421.
+Schulz, J. H., P. I. Padding, and J. J. Millspaugh. 2006b. Will mourning dove crippling rates increase with nontoxic-shot regulations? Wildlife Society Bulletin 34(3), 861-864.
+Schulz, J. H., J. J. Millspaugh, X. Gao, and A. J. Bermudez. 2007. Experimental lead pellet ingestion in mourning doves (Zenaida macroura). American Midland Naturalist 158:177-190.
+Schwab, Sr., D. and T.M. Padgett. 1988. Lead poisoning in free ranging pekin duck (Anas platyrhychos) from Chesapeake, VA. Virginia Journal of Science 39:412-413.
+Evidence of Lead Shot Problems - Page 17
+
+Skerratt, L.F., C. Franson, C.U. Meteyer, and T.E. Hollmen. 2005. Causes and mortality in sea ducks (Mergini) necropsied at the USGS-National Wildlife Health Center. Waterbirds 28(2):193-207.
+Sikarskie, J. 1977. The case of the red-tailed hawk. Intervet 8:4.
+Sileo, L., R. N. Jones, and R. C. Hatch. 1973. The effect of ingested lead shot on the electrocardiogram of Canada geese. Avian Diseases 17(2):308-313.
+Smith, L.F. and E. Rea. 1995. Low blood levels in northern Ontario-what now? Canadian Journal of Public Health 86:373-376.
+Spahn, S.A. and T.W. Sherry. 1999. Cadmium and Lead Exposure Associated with Reduced Growth Rates, Poorer Fledging Success of Little Blue Heron Chicks (Egretta caerulea) in South Louisiana Wetlands. Archives of Environmental Contamination and Toxicology 37(3):377-384.
+Spitale, L.S. and M.A. D'Olivo. 1989. Cecal appendix with pellets. Revista de la Facultad de Ciencias Médicas de Córdoba 47(1-2):23-25.
+Stansley, W., L. Widjeskog, and D. E. Roscoe. 1992. Lead contamination and mobility in surface water at trap and skeet ranges. Bulletin of Environmental Contamination and Toxicology 49:640-647.
+Stendell, R.C., J. W. Artmann, and E. Martin. 1980. Lead residues in sora rails from Maryland. Journal of Wildlife Management 44(2):525-527.
+Stevenson, A.L., A.M. Scheuhammer, and H.M. Chan. 2005. Effects of nontoxic shot regulations on lead accumulation in ducks and American woodcock in Canada. Archives of Environmental Contamination and Toxicology 48(3):405-413.
+Stone, W.B. and S.A. Butkas. 1972. Lead poisoning in a wild turkey. New York Fish Game Journal 25:169.
+Svanberg, F., R. Mateo, L. Hillström, A.J. Green, M.A. Taggart, A. Raab, A.A. Meharg. 2006. Lead isotopes and lead shot ingestion in the globally threatened marbled teal (Marmaronetta angustirostris) and white-headed duck (Oxyura leucocephala). Science of the Total Environment 370(2-3):416-24.
+Szymczak, M.R., and W.J. Adrian. 1978. Lead poisoning in Canada geese in southeast Colorado. Journal of Wildlife Management 42:299-306.
+Tavecchia, G., R. Pradel, J. Lebreton, A.R. Johnson, and J. Mondain-Monval. 2001. The effect of lead exposure on survival of adult mallards in the Camargue, southern France. Journal of Applied Ecology 38(6):1197-1207.
+Thomas, V.G. 1997. The environmental and ethical implications of lead shot contamination of rural lands in North America. Journal of Agricultural and Environmental Ethics 10(1):41-54.
+Thomas, V.G., and M. Owen. 1996. Preventing lead toxicosis of European waterfowl by regulatory and non-regulatory means. Environmental Conservation 23(4):358-364.
+Thomas. V.G. and M. P. Twiss. 1995. Preventing lead contamination of lakes through international trade regulations. Lake and Reservoir Management 11(2):196.
+Trainer, D.O., and R. A. Hunt. 1965. Lead poisoning of whistling swans in Wisconsin. Avian Diseases 9(2):252-264.
+Trebel, R.G. and T.S. Thompson. 2002. Case Report: Elevated blood lead levels resulting from the ingestion of air rifle pellets. Journal of Analytical Toxicology 26(6):370-373.
+Evidence of Lead Shot Problems - Page 18
+
+Tsuji, L.S., & N. Nieboer. 1997. Lead pellet ingestion in First Nation Cree of western James Bay region of Northern Ontario, Canada: implications for nontoxic shot alternative. Ecosystem Health 3:54-61.
+Tsuji, L.J.S., E. Nieboer, J.D. Karagatzides, R.M. Hanning, B. Katapatuk. 1999. Lead Shot Contamination in Edible Portions of Game Birds and Its Dietary Implications Ecosystem Health 5 (3):183–192.
+USEPA (United States Environmental Protection Agency). 1994. Proceeding Under Section 7003 of the Solid Waste Disposal Act. Westchester Sportemen’s Center. Administrative Order of Consent. Docket No. II RCPA-94-7003-0204. 25 pp.
+US Fish and Wildlife Service. 2006. Nontoxic shot regulations for hunting waterfowl and coots in the U.S.. USFWS, Division of Migratory Bird Management. Accessed on Feb. 22, 2008. Available online: http://www.fws.gov/migratorybirds/issues/nontoxic_shot/nontoxic.htm
+Vyas, N.B., J.W. Spann, G.H. Heinz, W.N. Beyer, J.A. Jaquette, and J.M. Mengelkoch. 2000. Lead poisoning of passerines at a trap and skeet range. Environmental Pollution 107 (1):159-166.
+Walter, H., and K.P. Reese. 2003. Fall diet of Chukars (Alectoris chukar) in eastern Oregon and discovery of ingested lead pellets. Western North American Naturalist 63:402-405.
+Westemeier, R.L. 1966. Apparent lead poisoning in a wild bobwhite. Wilson Bulletin 78(4):471-472. White, D.H., and R.C. Stendell. 1977. Waterfowl exposure to lead and steel shot on selected hunting
+areas. Journal of Wildlife Management 41(3):469-475. Whitehead, P.J. and K. Tschirner. 1991. Lead shot ingestion and lead poisoning of magpie geese
+Anseranas semipalmata foraging in a northern Australian hunting reserve. Biological Conservation 58:99-118. Windingstad, R.M., S.M. Kerr, and L.N. Locke. 1984. Lead poisoning in sandhill cranes (Grus canadensis). Prairie Naturalist 16:21-24. Wilson, I.D. 1937. An early report of lead poisoning in waterfowl. Science, New Series 86(2236):423. Wilson, H.M., J.L. Oyen, and L. Sileo. 2004. Lead shot poisoning of a Pacific loon in Alaska. Journal of Wildlife Diseases 40(3):600-602. Yamamoto, K., M. Hayashi, M. Yoshimura, H. Hayashi, A. Hiratsuka, and Y. Isii. 1993. The prevalence and retention of lead pellets in Japanese quail. Archives of Environmental Contamination and Toxicology 24:478-482. Zwank, P.J., V.L. Wright, P.M. Shealy, and J.D. Newsom. 1985. Lead toxicosis in waterfowl in two major wintering areas in Louisiana. Wildlife Society Bulletin 13(1):17-26.
+Evidence of Lead Shot Problems - Page 19
+
+Table 1. Species documented as ingesting or poisoned by lead shot. Due to the large amount of literature for many species, only selected references are listed.
+
+SPECIES
+
+SCIENTIFIC NAME
+
+REFERENCE
+
+LOCATION
+
+Birds
+
+American black duck
+
+Anas rubripes
+
+White & Stendell (1977); Zwank et al. (1985)
+
+North America
+
+American coot CAmerican crow BAndean condor BBald eagle
+
+Fulica americana Corvus brachyrhynchos Vultur gryphus Haliaeetus leucocephalus
+
+Jones (1939); Anderson (1975) NYDEC (2000) as read in Golden & Rattner (2002) Locke et al. (1969) Jacobson et al. (1977); Clark & Scheuhammer (2003)
+
+North America; Illinois, USA New York, USA Captive North America
+
+Black-bellied whistling duck Dendrocygna autumnalis
+
+Black-necked stilt
+
+Himantopus mexicanus
+
+Estabrooks (1987) Hall & Fisher (1985)
+
+Sinaloa, Mexico Texas, USA
+
+Black scoter
+
+Melanitta nigra
+
+Lemay et al. (1989) as translated in Brown et al. (2006) Quebec, Canada
+
+Black swan
+
+Cygnus atratus
+
+Koh & Harper (1988)
+
+Australia
+
+Black-tailed godwit
+
+Limosa limosa
+
+Pain (1990)
+
+France
+
+Blue-headed vireo
+
+Vireo solitarius
+
+Lewis et al. (2001)
+
+Georgia, USA
+
+Blue-winged teal
+
+Anas discors
+
+Bellrose (1959); Zwank et al. (1985)
+
+North America
+
+Brant goose
+
+Branta bernicla
+
+National Wildlife Health Laboratory (1985)
+
+North America
+
+Brown thrasher
+
+Toxostoma rufum
+
+Lewis et al. (2001)
+
+Georgia, USA
+
+Brown-headed cowbird
+
+Molothrus atar
+
+Vyas et al. (2000)
+
+North America
+
+Bufflehead ACalifornia condor
+
+Bucephala albeola Gymnogyps californianus
+
+Scanlon et al. (1980); Sandersen and Belrose (1986) Church et al. (2006); Cade (2007)
+
+North America North America
+
+California gull
+
+Larus californicus
+
+Quortrup & Shillinger (1941)
+
+North America
+
+Canada goose
+
+Branta canadensis & B. hutchinsii Bellrose (1959); Szymczak & Adrian (1978)
+
+North America
+
+Canvasback
+
+Aythya valisineria
+
+Bellrose (1959); Havera et al. (1992)
+
+North America
+
+Chukar
+
+Alectoris chukar
+
+Larsen et al. (2006); Walter & Reese (2003)
+
+Oregon, USA
+
+Cinnamon teal
+
+Anas cyanoptera
+
+Bellrose (1959)
+
+North America
+
+Clapper rail BCommon buzzard
+
+Rallus longirostris Buteo buteo
+
+Jones (1939) MacDonald et al. (1983); Battaglia et al. (2005)
+
+North America France; Italy
+
+Common coot
+
+Fulica atra
+
+Mateo et al. (2000)
+
+Spain
+
+Common eider
+
+Somateria mollissima
+
+Franson et al. (1995); Flint et al. (1997)
+
+Alaska, USA
+
+Common goldeneye
+
+Bucephala clangula
+
+Bellrose (1959); Anderson (1975)
+
+North America
+
+Common moorhen
+
+Gallinula chloropus
+
+Jones (1939); Locke & Friend (1992)
+
+North America
+
+Common pochard B, ACommon raven
+
+Aythya ferina Corvus corax
+
+Mateo et al. (2000) Scheuhammer & Norris (1995); Craighead & Bedrosian (2008)
+
+Spain Canada; Wyoming, USA
+
+Common snipe
+
+Gallinago gallinago
+
+Pain (1990); Olivier (2006)
+
+France
+
+Evidence of Lead Shot Problems - Page 20
+
+SPECIES Common teal Common wood-pigeon CCooper's hawk Dark-eyed junco Dunlin BEgyptian vulture BEurasian eagle owl BEurasian griffon BEurasian sparrowhawk C,BEuropean honey-buzzard Gadwall Glaucous-winged gull A, BGolden eagle CGray-headed woodpecker Greylag goose BGreat horned owl Greater & Carribean flamingo Greater scaup Greater white-fronted goose Green-winged teal Hardhead (duck) Herring gull Hungarian partridge Jack Snipe Japanese quail King rail BKing vulture BLaggar falcon Lesser scaup Long billed dowitcher BLong-eared owl Long-tailed duck Magpie goose Mallard
+
+SCIENTIFIC NAME Anas crecca Columba palumbus Accipiter cooperii Junco hyemalis Calidris alpina Neophron percnopterus Bubo bubo Gyps fulvus Accipiter nisus Pernis apivorus Anas strepera Larus glaucescens Aquila chrysaetos Picus canus Anser anser Bubo virginianus Pheonicopterus ruber Aythya marila Anser albifrons Anas carolinensis Aythya australis Larus argentatus Perdix perdix Lymnocryptes minimus Coturnix coturnix Rallus elegans Sarcorhampus papa Falco jugger Aythya affinis Limnodromus scolopaceus Asio otus Clangula hyemalis Anseranas semipalmata Anas platrhynchos
+
+REFERENCE Mateo et al. (2000) Clausen & Wolstrop (1979) Martin & Barrett (2001) Vyas et al. (2000) Kaiser et al. (1980) Donazar et al. (2002) Mateo et al. (2003) Mateo et al. (2003); Garcia-Fernandez et al. (2005) MacDonald et al. (1983) Lumeij (1985) Bellrose (1959); Mateo et al. (2000) National Wildlife Health Laboratory (1985) Craig et al.(1990); Kenntner et al. (2007) Morner and Petersson 1999 Mudge (1983); DeFrancisco (2003) Clark & Scheuhammer (2003) Schmitz et al. (1990); Mateo et al. 1997 Bellrose (1959) Zwank et al. (1985) Bellrose (1959); Zwank et al. (1985) Baxter et al. (1998) National Wildlife Health Laboratory (1985) Keymer & Stebbings (1987); Kreager et al. (2007) Olivier (2006) Yamamoto et al. (1993) Jones (1939) Decker et al. (1979) MacDonald et al. (1983) Bellrose (1959); Havera et al. (1992) Hall & Fisher (1985) Brinzal (1996) Flint et al. (1997); Skerratt et al. (2005) Whitehead & Tschirner (1991) Bellrose (1959), Mateo et al. (2000)
+
+Evidence of Lead Shot Problems - Page 21
+
+LOCATION Spain Denmark Canada USA British Columbia, Canada Canary Islands Spain Spain France Netherlands North America; Spain North America Idaho, USA; Switzerland Sweden England; Spain Canada Yucatan, Mexico; Spain North America Louisiana, USA North America Australia North America England; Canada France Japan North America Captive Captive North America Texas, USA Spain Alaska, USA; North America Australia North America; Spain
+
+SPECIES Maned duck Marbled godwit Marbled teal Merganser Middendorff’s bean goose Mottled duck Mourning dove Mute swan Northern bobwhite quail A, BNorthern goshawk Northern pintail Northern shoveler Pacific black duck Pacific loon BPeregrine falcon Pink-footed goose BPrairie falcon BRed kite Red tailed hawk Red-crested pochard Red-legged partridge Redhead Ring-necked duck Ring-necked pheasant Rock dove Rough-legged hawk Ruddy duck Ruffed grouse Sandhill crane Scaled quail Snow goose ASnowy owl Sora rail Spanish Imperial eagle
+
+SCIENTIFIC NAME Chenonetta jubata Limosa fedoa Marmaronetta angustirostris Mergus spp. Anser fabalis middendorffii Anas fulvigula Zenaida macroura Cygnus olor Colinus virginianus Accipiter gentillis Anas acuta Anas clypeata Anas superciliosa Gavia pacifica Falco peregrinus Anser brachyrhynchus Falco mexicanus Milvus milvus Buteo jamaicensis Netta rufina Alectoris rufa Aythya americana Aythya collaris Phasianus colchicus Columba livia Buteo lagopus Oxyura jamaicensis Bonasa umbellus Grus canadensis Callipepla squamata Anser caerulescens Nyctea scandiaca Porzana carolina Aquila adalberti
+
+REFERENCE Kingsford et al. (1994) Hall & Fisher (1985); Locke et al. (1991) Mateo et al. (2001); Svanberg et al. (2006) Bellrose (1959); Skerratt et al. (2005) Chiba et al. (1999) Merendino et al. (2005) Lewis & Legler (1968); Best et al. (1992) Bowen & Petrie (2007) Westemeier (1966); Keel et al. (2002) Martin & Barrett (2001); Kennter et al. (2003) Bellrose (1959); Mateo et al. (2000) Bellrose (1959); Mateo et al. (2000) Baxter et al. (1998) Wilson et al. (2004) MacDonald et al. (1983); Pain et al. (1994) Mudge (1983) Redig (1980); MacDonald et al. (1983) Mateo et al. (2003); Pain et al. (2007) Sikarskie (1977); Clark & Scheuhammer (2003) Mateo et al. (2000) Butler (2005) Bellrose (1959); Zwank et al. (1985) Anderson (1975); Havera et al. (1992) Hunter & Rosen (1965); Butler et al. (2005) DeMent et al. (1987) Locke & Friend (1992) Perry & Artmann (1979); Sanderson & Bellrose (1986) Rodrigue et al. (2005); Kendall et al. (1984) Windingstad et al. (1984); Franson & Hereford (1994) Campbell (1950); Best et al. (1992) Bellrose (1959); Zwank et al. (1985) MacDonald et al. (1983) Artmann & Martin (1975); Stendell et al. (1980) Mateo et al. (2000); Pain et al. (2005)
+
+LOCATION Australia Texas, USA; North America Spain North America Japan Texas, USA North America Great Lakes, Canada Illinois, USA Canada; Germany North America; Spain North America; Spain Australia Alaska, USA Captive; England England Captive England Canada Spain England North America North America North America; England New York, USA North America North America Virginia, USA; Canada North America New Mexico, USA North America Captive Maryland, USA Spain
+
+Evidence of Lead Shot Problems - Page 22
+
+SPECIES Spectacled eider ASteller’s sea eagle Trumpeter swan Tufted duck Tundra swan BTurkey vulture Virginia rail BWestern marsh-harrier CWhite-backed woodpecker White-faced ibis White-fronted goose White-headed duck White pekin (wild) AWhite-tailed eagle White-throated sparrow Whooper swan Whooping crane Wigeon Wild turkey Wood duck BWoodcock
+Yellow-rumped warbler
+Mammals
+Gray squirrel BDomestic cattle White tailed deer
+Reptiles
+A, BAmerican alligator BCrocodile
+
+SCIENTIFIC NAME Somateria fischeri Haliaeetus pelagicus Cygnus buccinator Aytha fuligula Cygnus columbianus Cathartes aura Rallus limicola Circus aeruginosus Dendrocopus leucotos Plegadis chihi Anser albifrons Oxyura leucocephala Anas platyrhychos Haliaeetus albicilla Zonotrichia albicollis Cygnus cygnus Grus americana Anas americana Meleagris gallopavo Aix sponsa Scolopax minor Dendroica coronata
+Sciurus carolinensis
+Odocoileus virginianus
+Alligator mississippiensis Crocodylus porosus
+
+A Evidence of secondary poisoning from lead bullets. B Evidence of secondary poisoning from lead shot. C Source of lead unknown, lead shot suspected.
+
+REFERENCE Franson et al. (1995); Grand et al. (1998) Kurosawa (2000) Bellrose (1959); Blus (1994) Mudge (1983); DeFrancisco et al. (2003) Trainer & Hunt (1965); Blus (1994) Clark & Scheuhammer (2003); Martin et al. (2008) Jones (1939) Pain & Amiard-Triquet (1993); Mateo et al. (1999) Morner & Petersson 1999 Hall & Fisher (1985) Bellrose (1959); Ochiai et al. (1993) Mateo et al. (2001); Svanberg et al. (2006) Schwab & Padgett (1988) Kurosawa (2000); Krone et al. (2004) Vyas et al. (2000) Ochiai et al. (1992); Honda et al. (2007) Hall & Fisher (1985) Zwank et al. (1985); Mateo et al. (2000) Stone & Butkas (1972); Kreager et al. (2007) Bellrose (1959); Sanderson & Bellrose (1986) Scheuhammer et al. (2003) Lewis et al. (2001)
+Lewis et al. (2001) Rice et al. (1987) Lewis et al. (2001)
+Camus et al. (1998); Lance et al. (2006) Hammerton et al. (2003); Orlic et al. (2003)
+
+LOCATION Alaska, USA Japan North America England; Spain Wisconsin, USA; North America North America North America France; Spain Sweden Texas, USA North America; Japan Spain Virginia, USA Japan; Greenland North America Japan North America Louisiana, USA; Spain New York, USA; Canada North America Canada Georgia, USA
+Georgia, USA
+Georgia, USA
+North America; Captive North America; Australia
+
+Evidence of Lead Shot Problems - Page 23
+
+Table 2. Selected literature of elevated lead levels in humans consuming game meat harvested with lead shot.
+
+Author
+
+Country
+
+Findings
+
+Breurec et al. 1998
+
+Not reported
+
+Patient diagnosed with adult lead poisoning by ingestion of game birds with small lead shots.
+
+Bjerregaard et al. 2004
+
+Greenland
+
+Blood lead adjusted for age and sex was found to be associated with the reported consumption of sea birds.
+
+Dewaily et al. 2000
+
+Canada, Artic
+
+Ingestion of lead shot/fragments in game meat may be responsible for higher lead levels found in Inuit new-borns. Pb isotopes of shotgun cartridges were similar to those of Inuit new-borns.
+
+Dewailly et al. 2001
+
+Evaluated 492 blood levels of lead and mercury in Inuit adults, revealed Quebec, Canada that smoking, age, and consumption of waterfowl were associated with
+lead concentrations (r2 = .30, p < .001).
+
+Guitart et al. 2002
+
+Spain
+
+Approximately 30,000 waterfowl hunters and their families, especially children, are at risk of secondary lead poisoning from lead poisoned birds in Spain.
+
+Hanning et al. 2003
+
+Canada
+
+Traditional animal food intake, especially wild fowl, correlated significantly with umbilical cord blood lead, and reflected the legacy of using lead-containing ammunition.
+
+Johansen et al. 2001
+
+Breast meat lead values in birds killed with lead shot were 10 times Ontario, Canada higher than birds not killed with lead shot. Shot is a significant source of
+Pb in many people in Greenland.
+
+Johansen et al. 2004
+
+Greenland
+
+Lead intake of Greenland bird eaters can largely exceed the tolerable lead intake guidelines, and the shot is a more important source of lead than previously estimated.
+
+Johansen et al. 2006
+
+Greenland
+
+Found clear relationship pointing to lead shot as the dominating lead source to people in Greenland.
+
+Levesque et al. Quebec, Canada Lead from game hunting was a major source of human exposure to lead.
+
+2003
+
+Calls for international ban on lead shotgun ammo.
+
+Mateo et al. 2007
+
+Spain
+
+Consumption of half a pickled quail/week with embedded shot may cause the provisional tolerable weekly intake of lead by the Spanish consumer to be exceeded.
+
+Odland et al. 1999
+
+Russia
+
+Suggests lead shot as the main source of lead in population in the Kola Peninsula, Russia.
+
+Smith and Rea 1995
+
+Canada
+
+Elevated lead blood levels in children probably due to consumption of birds containing lead shot, suggest use of alternative shot.
+
+Trebel and Thompson 2002
+
+Canada
+
+Young child exhibited elevated blood lead levels after ingesting spent air rifle pellets.
+
+Tsuji et al. 1999
+
+Consumption of any game species harvested with lead shot risks Ontario, Canada exposure by way of ingestion of tissue-embedded lead pellets and
+fragments.
+
+Evidence of Lead Shot Problems - Page 24
+
+

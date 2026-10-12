@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en" class="hunt ">
+  <head>
+    <meta charset="utf-8">
+    <title>Stretching or Freezing | National Hunter Safety Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-cfasync="false" data-report-only="off" data-prompt="1" data-ui-shadow-root="open" data-tracker-overrides="GoogleConsentMode:analytics_storage=SaleOfInfo,Analytics;ad_storage=SaleOfInfo,Advertising;ad_personalization=SaleOfInfo,Advertising" src="https://transcend-cdn.com/cm/83b16c33-9e0f-4235-a30b-542ff0278e7f/airgap.js"></script>
+    <script src="https://unpkg.com/stimulus@2.0.0/dist/stimulus.umd.js"></script><script src="/assets/gtm-data-layer-463da5ae7e414d9cfe21ef206ce6fb5c962280efd95223ede095409f320661ff.js"></script><script src="/assets/segment-analytics-97efc38ddebf4c56c508d30026e0f681a8e3dd985a656fa389288336c752ac21.js"></script><script src="/assets/huntwise-form-controller-f9782db0408a71c46201d96ff8d0447687f23a7649b58cfdeb01d09176360216.js"></script><script src="/assets/partner-card-controller-81b81dfbad6ba7bfd37070f3886be6b614909bafae1441caca8f4b84996b4d4e.js"></script><script src="/assets/partner-perks-tracking-controller-0de4f8f869c82eaad91c458084eb8eb71a1ddf2f9cb726c903c734aa54f276aa.js"></script>
+    <script>
+  var KELP = KELP || {};
+  KELP.env = {
+    environment : "production",
+    assetsUrl   : "https://assets.kalkomey.com",
+    segmentWriteKey : "VP1lxd8dSuQBZSFFoDJSzHJnJifdpESu",
+    segmentEnabled : true
+  }
+  
+</script>
+<script>
+  (function() {
+    var MAX_REPORTS = 10;
+    // Null prototype so error-derived keys like "__proto__" can't hit
+    // inherited properties and break the dedupe map.
+    var reported = Object.create(null);
+    var count = 0;
+
+    function send(payload) {
+      try {
+        var key = payload.name + "|" + payload.message + "|" + payload.line + "|" + payload.column;
+        if (count >= MAX_REPORTS || reported[key]) return;
+        reported[key] = true;
+        count += 1;
+        payload.url = window.location.href;
+        var body = JSON.stringify(payload);
+        if (window.fetch) {
+          window.fetch("/js_errors", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: body,
+            keepalive: true
+          })["catch"](function() {});
+        } else if (window.XMLHttpRequest) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/js_errors", true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(body);
+        }
+      } catch (e) {
+        // The error reporter must never break the page itself.
+      }
+    }
+
+    window.addEventListener("error", function(event) {
+      if (!event || !event.message) return;
+      // Cross-origin scripts only expose "Script error." with no details.
+      if (event.message === "Script error." || event.message === "Script error") return;
+      send({
+        name: (event.error && event.error.name) || "Error",
+        message: String(event.message).slice(0, 1000),
+        backtrace: (event.error && event.error.stack) ? String(event.error.stack).slice(0, 8000) : "",
+        file: event.filename || "",
+        line: event.lineno || 0,
+        column: event.colno || 0
+      });
+    });
+
+    window.addEventListener("unhandledrejection", function(event) {
+      var reason = event && event.reason;
+      // Only null/undefined carry zero information (and would throw on the
+      // property accesses below) — falsy primitives like 0 or "" are still
+      // real rejection reasons worth reporting.
+      if (reason === null || reason === undefined) return;
+      send({
+        name: reason.name || "UnhandledRejection",
+        message: (String(reason.message || reason) || "(empty rejection reason)").slice(0, 1000),
+        backtrace: reason.stack ? String(reason.stack).slice(0, 8000) : "",
+        file: "",
+        line: 0,
+        column: 0
+      });
+    });
+  })();
+</script>
+
+    
+      <link rel="icon" type="image/png" sizes="32x32" href="/hunter/favicon-32x32.png?v=n7TXlnjj18">
+  <link rel="icon" type="image/png" sizes="16x16" href="/hunter/favicon-16x16.png?v=n7TXlnjj18">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/hunter/apple-touch-icon.png?v=n7TXlnjj18">
+<link rel="manifest" href="/hunter/site.webmanifest?v=n7TXlnjj18">
+<link rel="mask-icon" href="/hunter/hunter-pinned-tab.svg?v=n7TXlnjj18" color="#f8971d">
+<link rel="shortcut icon" href="/hunter/favicon.ico?v=n7TXlnjj18">
+<meta name="apple-mobile-web-app-title" content="Hunter Ed">
+<meta name="application-name" content="Hunter Ed">
+
+
+        <link rel="canonical" href="https://www.hunter-ed.com/nationaltrapper/studyGuide/Stretching-or-Freezing/221099_87963/">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.hunter-ed.com/#organization","name":"Hunter Ed","url":"https://www.hunter-ed.com/","sameAs":["https://www.facebook.com/hunteredcom","https://twitter.com/hunter_ed","https://www.youtube.com/user/hunteredcom"],"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"IHEA-USA developed curriculum","credentialCategory":"certification","recognizedBy":{"@type":"Organization","name":"International Hunter Education Association (IHEA-USA)","url":"https://www.ihea-usa.org/"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.hunter-ed.com/#website","url":"https://www.hunter-ed.com/","name":"Hunter Ed","publisher":{"@id":"https://www.hunter-ed.com/#organization"}}</script>
+
+    
+    
+    <link rel="stylesheet" href="/assets/application-c809d4c70fe8664338f035f09fbdad36d1c6fe9a7b040aa67bce4a3b1cb74e59.css" media="all" />
+    <link rel="stylesheet" href="/assets/hunter/site_bs3-48c0b4368b5e337641ef8e6918f4bd4ff262c1e5f0cb6bc8efde9e4cb51641e0.css" media="all" />
+    <link rel="stylesheet" href="/assets/bootstrap-icons-5a463c1b66bcd0d324419361ee24cc512b228ed9c0200b0743e8d6549ebee86f.css" media="all" />
+    
+    
+      <script>
+    window.dataLayer = window.dataLayer || []
+    dataLayer.push({
+      'state': 'US',
+      'course_name': 'Today&#39;s Trapper Course',
+      'course_id': '221099',
+      'student_first_name': '',
+      'student_last_name': '',
+      'student_email': '',
+      'student_postal_code': '',
+      'student_phone': '',
+      'student_age': '',
+      'unit': '6',
+      'topic': '0',
+      'page_rank': '3'
+    });
+    window.dataLayer.push({'studentID': 'NULL'});
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://metrics.hunter-ed.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQZ746FB');
+  </script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GTM-PQZ746FB");
+      gtag("set", "developer_id.dODQ2Mj", true);
+      gtag('config', "GTM-PQZ746FB", { "ads_data_redaction": true });
+    </script>
+
+    
+    <script src="//static.tapfiliate.com/tapfiliate.js" type="text/javascript" async></script>
+<script type="text/javascript">
+  (function(t,a,p){t.TapfiliateObject=a;t[a]=t[a]||function(){
+  (t[a].q=t[a].q||[]).push(arguments)}})(window,'tap');
+
+  tap('create', '4377-e8d9e6');
+  tap('detect');
+</script>
+    <script type='text/javascript' src='/transifex.js?v=2026-06-22'></script>
+<script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeTransifex(
+      null,
+      221099,
+      "Today's Trapper Course",
+      "nationaltrapper",
+      false,
+      "en",
+      null
+    );
+  });
+</script>
+
+    
+    <script src="/assets/hunter/preload-616489e68374c8e2dc919a4d2b89feff7e38943e7249fe8f6198d770c0c9671a.js"></script>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="oGGfxBmp_Y5rUps0JRL_t1C7Uk6j_0JxkicCED2eS5BUNVulRA6-gOnzJUgsX_Ym8hhRVfMg3qinvWpDPgIgGg" />
+      <script>
+    !function(c,n,r,t){if(!c[r]){var i,d,p=[];d="PROD"!==t&&t?"STAGING"===t?"https://cdn.gladly.qa/gladly/chat-sdk/widget.js":t:"https://cdn.gladly.com/chat-sdk/widget.js",c[r]={init:function(){i=arguments;var e={then:function(t){return p.push({type:"t",next:t}),e},catch:function(t){return p.push({type:"c",next:t}),e}};return e}},c.__onHelpAppHostReady__=function(t){if(delete c.__onHelpAppHostReady__,(c[r]=t).loaderCdn=d,i)for(var e=t.init.apply(t,i),n=0;n<p.length;n++){var a=p[n];e="t"===a.type?e.then(a.next):e.catch(a.next)}},function(){try{var t=n.getElementsByTagName("script")[0],e=n.createElement("script");e.async=!0,e.src=d+"?q="+(new Date).getTime(),t.parentNode.insertBefore(e,t)}catch(t){}}()}}
+    (window,document,'Gladly','PROD');
+
+    window.gladlyConfig = {
+      appId: 'kalkomey.com-Hunter-ed'
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+      function checkForGladlyChatContainer() {
+        const gladlyChatContainer = document.getElementById("gladlyChat_container");
+        if (gladlyChatContainer) {
+          clearInterval(intervalId);
+          ignoreGladlyContainerForTransifex(gladlyChatContainer);
+        }
+      }
+
+      const intervalId = setInterval(checkForGladlyChatContainer, 1000);
+
+      function ignoreGladlyContainerForTransifex(gladlyChatContainer) {
+        gladlyChatContainer.classList.add('notranslate');
+      }
+    });
+  </script>
+
+  
+  <body id="top" class="" data-controller="gtm-data-layer segment-analytics cross-domain-tracking">
+
+      <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://metrics.hunter-ed.com/ns.html?id=GTM-PQZ746FB" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <!--[if lt IE 11]>
+<div class="container center" style="margin-bottom: 18px;">
+  <p class="alert alert-warning"><strong>Your browser is <em>out-of-date!</em></strong> You must <a href="https://browsehappy.com/">upgrade to a different browser</a> to experience this site.</p>
+</div>
+<![endif]-->
+
+    
+<a href="#main" class="sr-only sr-only-focusable skip-to-main">Skip to main content</a>
+
+<nav class="navbar navbar-inverse navbar-fixed-top d-flex justify-content-between" aria-label="global">
+  <div class="navbar-header d-flex justify-content-between align-items-between" style="flex: 1 0 auto;">
+    <div id="navbar-responsive" class="container-fluid d-flex w-100 justify-content-between align-items-between" style="flex-direction: column;">
+      <div class="d-flex justify-content-between align-items-center" style="flex-grow: 1;">
+        <div class="d-flex justify-content-between" style="flex: 1 0 auto; margin-right: 1rem;">
+          
+<a class="navbar-brand" href="/">
+  <img class="img-fluid" src="https://assets.kalkomey.com/hunter/images/fm/hunter-ed-logo-rev.svg?v=2" alt="Hunter-ed.com" width="165" height="32">
+</a>
+
+        </div>
+      <div style="align-self: center;">
+      </div>
+        <button type="button" class="navbar-toggle collapsed" style="flex-grow: 0;" data-toggle="collapse" data-target="#header-nav-items" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" style="flex-grow: 0;" id="header-nav-items">
+        <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a href="/nationaltrapper/studyGuide/221099/"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Study Guide</a>
+        </li>
+
+
+      <li>
+        <p class="navbar-btn">
+          <a href="https://www.hunter-ed.com/accounts/sign_in/" class="btn btn-primary">Log In</a>
+        </p>
+      </li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+    <main id="main">
+      
+      <div class="alert-banner">
+  <noscript>
+    <div class="container">
+      <div class="alert alert-warning" role="alert">
+        <p><strong>This site requires JavaScript.</strong> Your browser either doesn’t support JavaScript or you have it turned off.</p>
+        <p>For this page to function correctly, please enable JavaScript and then refresh the page.</p>
+      </div>
+    </div>
+  </noscript>
+
+
+</div>
+
+      
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/nationaltrapper/">Today&#39;s Trapper Course</a></li>
+                <li class="breadcrumb-item"><a href="/nationaltrapper/studyGuide/221099/">Study Guide</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Stretching or Freezing</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.hunter-ed.com/"},{"@type":"ListItem","position":2,"name":"Today's Trapper Course","item":"https://www.hunter-ed.com/nationaltrapper/"},{"@type":"ListItem","position":3,"name":"Study Guide","item":"https://www.hunter-ed.com/nationaltrapper/studyGuide/221099/"},{"@type":"ListItem","position":4,"name":"Stretching or Freezing"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","@id":"https://www.hunter-ed.com/nationaltrapper/studyGuide/Stretching-or-Freezing/221099_87963#chapter","name":"Stretching or Freezing","url":"https://www.hunter-ed.com/nationaltrapper/studyGuide/Stretching-or-Freezing/221099_87963","learningResourceType":"Chapter","isPartOf":{"@id":"https://www.hunter-ed.com/nationaltrapper/#course"},"provider":{"@id":"https://www.hunter-ed.com/#organization"}}</script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <article class="course-content">
+        <header id="course-content-header" class="page-header">
+          <h1>Stretching or Freezing</h1>
+        </header> <!-- end .page-header -->
+        <div class="content">
+          <figure tx-content="translate_urls">
+	<img src="https://ke-courses-production.s3.amazonaws.com/asset_files/production/3391/attachments/original/trap-stretched-pelt.jpg?1574694563" alt="Trapping Stretched Pelt"
+   width="150"
+  
+   />
+</figure>
+<span tx-content="translate_urls" style="display: contents;">
+  <p>After fleshing is completed, the pelt is ready to be stretched and dried.</p>
+<ul>
+<li>Stretchers can be wire frames or wooden boards.
+<ul>
+<li>Wire stretchers are most commonly used today. They are relatively inexpensive.</li>
+<li>Some trappers prefer to make their own wooden stretchers. Many commercial trapping books explain how this is done.</li>
+</ul>
+</li>
+<li>Stretchers come in various shapes and sizes. Choose one that fits the size and shape of your pelt.</li>
+</ul>
+
+<p>Follow these steps to stretch your pelts.</p>
+<ul>
+<li>Pull the pelt taut over the stretcher. For some animals, such as fox, coyote, or bobcat, place the pelt on the stretcher with the fur side in for a couple of days. Then turn the fur side out and put it back on the stretcher. For other furbearers, place on the stretcher with the fur side out.
+<ul>
+<li>Keep in mind that pelts are not really being “stretched” at this point. They are simply being held taut to prevent shriveling or shrinking as they dry.</li>
+<li>Do not overstretch the pelt. Overstretching thins the fur and stretches the pelt out of shape. If you try to stretch a muskrat pelt too far, the belly will tear and destroy the value of the pelt.</li>
+</ul>
+</li>
+<li>Be sure the pelt is centered over the stretcher.
+<ul>
+<li>The forelegs and belly should be on one side of the stretcher.</li>
+<li>The eyeholes, ears, and back should be on the other side.</li>
+</ul>
+</li>
+<li>Secure the pelt in place on the stretcher.
+<ul>
+<li>Use pins or tacks on a wooden board.</li>
+<li>Use the arms of the stretcher if using a wire frame.</li>
+</ul>
+</li>
+</ul>
+<p>After being pulled over a stretcher, pelts must be hung up to dry.</p>
+<ul>
+<li>Make sure the drying area is well-ventilated and cool (55&deg; to 60&deg; Fahrenheit).
+<ul>
+<li>Never place pelts in a hot room or near a furnace. Overheating will cause them to shrivel and spoil.</li>
+<li>Use a fan to increase air circulation and decrease drying time.</li>
+</ul>
+</li>
+<li>Leave about an inch of air space between pelts hung next to each other.</li>
+<li>Never hang pelts against a wall. Stretch a length of wire between two beams, and hang your fur on the wire.</li>
+<li>Keep your pelts out of reach of mice and dogs.</li>
+<li>Leave pelts hanging on stretchers until the hide is completely dry and hard. This could take a few days to a week.</li>
+</ul>
+<p>After removing them from stretchers, leave most pelts with the fur side in. Ask your buyer whether he or she wants to see pelts “fur in” or “fur out.”</p>
+
+<h2 class="h3">Freezing</h2>
+<p>Instead of stretching pelts, you can quick-freeze them.</p>
+<ul>
+<li>Do this carefully. Otherwise, the pelts may be ruined.</li>
+<li>Always freeze pelts flat and with the fur side out. No flesh should be exposed.
+<ul>
+<li>Never roll furs. Keep them flat.</li>
+<li>Never freeze or thaw furs in plastic.</li>
+</ul>
+</li>
+<li>When you are ready to sell your fur, thaw animals with heavy flesh (coyote, raccoon, and beaver) for five to six hours in a cool room. Never allow pelts to thaw enough that the grease melts or the skin gets slimy. Keep muskrat pelts frozen.</li>
+<li>Small furbearers (muskrat and mink) can be frozen whole (without skinning). Allow to thaw partially before selling. For muskrats, only the feet need to be thawed.</li>
+</ul>
+<p>Your fur buyer may have specific instructions for freezing pelts or whole animals. Check ahead of time.</p>
+</span>
+
+
+        </div>
+      </article>
+
+      <div id="course-progress-nav">
+        <hr class="mt-3 mb-0 border-b border-gray-700">
+        <div class="panel panel-default course-nav">
+          <div class="panel-heading sr-only" id="course-nav-heading">
+            <h2 class="panel-title">Course Outline</h2>
+          </div>
+          <div id="course-nav-panel" class="panel-collapse collapse" aria-labelledby="course-nav-heading">
+            <div class="panel-body" id="course-outline">
+              <nav aria-label="study guide">
+  <ul>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u87838" aria-expanded="false" aria-controls="u87838">Unit 1: History and Benefits of Trapping</button>
+        <ul id="u87838" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87838-t87845" aria-expanded="false" aria-controls="u87838-t87845">Topic 1: History of Trapping</button>
+                <ul id="u87838-t87845" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Early-Trapping-in-North-America/221099_87868/">Early Trapping in North America</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/How-Trapping-Led-to-Settlement/221099_87869/">How Trapping Led to Settlement</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87838-t87846" aria-expanded="false" aria-controls="u87838-t87846">Topic 2: Managing Natural Resources</button>
+                <ul id="u87838-t87846" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Attitudes-About-Wildlife-Management/221099_87870/">Attitudes About Wildlife Management</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Renewable-Resources-and-Wildlife-Management/221099_87871/">Renewable Resources and Wildlife Management</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/What-Happens-Without-Wildlife-Management/221099_87872/">What Happens Without Wildlife Management?</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Role-of-Hunters-and-Trappers/221099_87873/">Role of Hunters and Trappers</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Conservation-Benefits-of-Trapping/221099_87874/">Conservation Benefits of Trapping</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87838-t87847" aria-expanded="false" aria-controls="u87838-t87847">Topic 3: Future of Trapping</button>
+                <ul id="u87838-t87847" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Future-of-Furbearers%E2%80%99-Habitat/221099_87875/">Future of Furbearers’ Habitat</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Public-Acceptance-of-Trapping/221099_87876/">Public Acceptance of Trapping</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u87839" aria-expanded="false" aria-controls="u87839">Unit 2: Trapping Ethics and Responsibilities</button>
+        <ul id="u87839" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87839-t87848" aria-expanded="false" aria-controls="u87839-t87848">Topic 1: Trapping Ethically</button>
+                <ul id="u87839-t87848" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Trapping-Is-a-Privilege/221099_87877/">Trapping Is a Privilege</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Code-of-Ethics/221099_87878/">Code of Ethics</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/The-Purpose-of-Trapping-Regulations/221099_87879/">The Purpose of Trapping Regulations</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Knowing-Trapping-Rules-and-Regulations/221099_87880/">Knowing Trapping Rules and Regulations</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87839-t87849" aria-expanded="false" aria-controls="u87839-t87849">Topic 2: Trapping Responsibly</button>
+                <ul id="u87839-t87849" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Respect-the-Furbearer-and-Other-Wildlife/221099_87881/">Respect the Furbearer and Other Wildlife</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Respect-Landowners/221099_87882/">Respect Landowners</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Respect-the-Public/221099_87883/">Respect the Public</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Respect-Hunters-Outdoor-Users-and-Other-Trappers/221099_87884/">Respect Hunters, Outdoor Users, and Other Trappers</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Responsibility-and-Best-Management-Practices/221099_87885/">Responsibility and Best Management Practices</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87839-t87850" aria-expanded="false" aria-controls="u87839-t87850">Topic 3: Getting Ready for the Season</button>
+                <ul id="u87839-t87850" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Finding-a-Location/221099_87886/">Finding a Location</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Public-Lands-and-Private-Land/221099_87887/">Public Lands and Private Land</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Scouting/221099_87888/">Scouting</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u87840" aria-expanded="false" aria-controls="u87840">Unit 3: Choosing and Preparing Equipment</button>
+        <ul id="u87840" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87840-t87851" aria-expanded="false" aria-controls="u87840-t87851">Topic 1: The Right Equipment</button>
+                <ul id="u87840-t87851" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Selection-and-Maintenance/221099_87889/">Selection and Maintenance</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Overview-of-Traps/221099_87890/">Overview of Traps</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87840-t87852" aria-expanded="false" aria-controls="u87840-t87852">Topic 2: Types of Traps</button>
+                <ul id="u87840-t87852" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Foothold-Traps/221099_87891/">Foothold Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Types-of-Foothold-Traps/221099_87892/">Types of Foothold Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Jaws-and-Sizes-of-Foothold-Traps/221099_87893/">Jaws and Sizes of Foothold Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Bodygrip-Traps/221099_88799/">Bodygrip Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Cage-Traps/221099_87895/">Cage Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Cable-Devices/221099_87896/">Cable Devices</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87840-t87853" aria-expanded="false" aria-controls="u87840-t87853">Topic 3: Anchoring Systems</button>
+                <ul id="u87840-t87853" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Stakes-and-Earth-Anchors/221099_87897/">Stakes and Earth Anchors</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Drags-Grapples-Shock-Springs-and-Swivels/221099_87898/">Drags, Grapples, Shock Springs, and Swivels</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87840-t87854" aria-expanded="false" aria-controls="u87840-t87854">Topic 4: Other Equipment</button>
+                <ul id="u87840-t87854" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Equipment-for-Water-Trapping/221099_87899/">Equipment for Water Trapping</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Equipment-for-Land-Trapping/221099_87900/">Equipment for Land Trapping</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87840-t87855" aria-expanded="false" aria-controls="u87840-t87855">Topic 5: Preparing Traps</button>
+                <ul id="u87840-t87855" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Tuning-Foothold-and-Bodygrip-Traps/221099_87901/">Tuning Foothold and Bodygrip Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Conditioning-Traps/221099_87902/">Conditioning Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Treating-Cable-Devices/221099_87903/">Treating Cable Devices</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87840-t87856" aria-expanded="false" aria-controls="u87840-t87856">Topic 6: Setting and Releasing Traps</button>
+                <ul id="u87840-t87856" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Learning-How-to-Set-Traps/221099_87904/">Learning How to Set Traps</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Setting-a-Coil-Spring-Foothold-Trap/221099_87905/">Setting a Coil-Spring Foothold Trap</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Setting-a-Bodygrip-Trap/221099_87906/">Setting a Bodygrip Trap</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Measuring-Jaw-Spread/221099_87907/">Measuring Jaw Spread</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87840-t87857" aria-expanded="false" aria-controls="u87840-t87857">Topic 7: Lures, Urine, and Bait</button>
+                <ul id="u87840-t87857" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Overview-of-Lures-Urine-and-Bait/221099_87908/">Overview of Lures, Urine, and Bait</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/About-Lures-Urine-and-Bait/221099_87909/">About Lures, Urine, and Bait</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Using-Lures-Urine-and-Bait/221099_87910/">Using Lures, Urine, and Bait</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u87841" aria-expanded="false" aria-controls="u87841">Unit 4: Knowing the Furbearers</button>
+        <ul id="u87841" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87841-t87858" aria-expanded="false" aria-controls="u87841-t87858">Topic 1: North American Furbearers</button>
+                <ul id="u87841-t87858" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Know-the-Species-for-Legal-Trapping/221099_87911/">Know the Species for Legal Trapping</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Muskrat/221099_87912/">Muskrat</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Nutria/221099_87913/">Nutria</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Beaver/221099_87914/">Beaver</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Raccoon/221099_87915/">Raccoon</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Weasel/221099_87916/">Weasel</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Mink/221099_87917/">Mink</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Skunk/221099_87918/">Skunk</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Opossum/221099_87919/">Opossum</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/American-Marten/221099_87920/">American Marten</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Fisher/221099_87921/">Fisher</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Northern-River-Otter/221099_87922/">Northern River Otter</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Red-Fox/221099_87923/">Red Fox</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Gray-Fox/221099_87924/">Gray Fox</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Coyote/221099_87925/">Coyote</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Bobcat/221099_87926/">Bobcat</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u87842" aria-expanded="false" aria-controls="u87842">Unit 5: Making Sets</button>
+        <ul id="u87842" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87842-t87859" aria-expanded="false" aria-controls="u87842-t87859">Topic 1: Sets for Water Habitats</button>
+                <ul id="u87842-t87859" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Setting-Traps-In-or-Near-Water/221099_87927/">Setting Traps In or Near Water</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Submersion-Trapping-Systems-Overview/221099_87928/">Submersion Trapping Systems Overview</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Other-Submersion-Trapping-Techniques/221099_87929/">Other Submersion Trapping Techniques</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Using-Cable-Devices-In-or-Near-Water/221099_87930/">Using Cable Devices In or Near Water</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87842-t87860" aria-expanded="false" aria-controls="u87842-t87860">Topic 2: Sets for Land Habitats</button>
+                <ul id="u87842-t87860" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Setting-Traps-on-Land/221099_87931/">Setting Traps on Land</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Using-Foothold-Traps-on-Land/221099_87932/">Using Foothold Traps on Land</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Using-Bodygrip-Traps-on-Land/221099_87933/">Using Bodygrip Traps on Land</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Using-Cable-Devices-on-Land/221099_87934/">Using Cable Devices on Land</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87842-t87861" aria-expanded="false" aria-controls="u87842-t87861">Topic 3: Trap Set Guide</button>
+                <ul id="u87842-t87861" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Muskrat-Sets/221099_87935/">Muskrat Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Nutria-Sets/221099_87936/">Nutria Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Beaver-Sets/221099_87937/">Beaver Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Raccoon-Sets/221099_87938/">Raccoon Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Weasel-Sets/221099_87939/">Weasel Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Mink-Sets/221099_87940/">Mink Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Skunk-and-Opossum-Sets/221099_87941/">Skunk and Opossum Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/American-Marten-Sets/221099_87942/">American Marten Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Fisher-Sets/221099_87943/">Fisher Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Northern-River-Otter-Sets/221099_87944/">Northern River Otter Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Fox-Sets/221099_87945/">Fox Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Coyote-Sets/221099_87946/">Coyote Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Bobcat-Sets/221099_87947/">Bobcat Sets</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Trap-Sets-Guides-by-Furbearer-and-Location/221099_87948/">Trap Sets Guides by Furbearer and Location</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u87843" aria-expanded="false" aria-controls="u87843">Unit 6: Running a Trapline</button>
+        <ul id="u87843" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87843-t87862" aria-expanded="false" aria-controls="u87843-t87862">Topic 1: Treating Animals Humanely</button>
+                <ul id="u87843-t87862" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Humane-Killing-Methods/221099_87949/">Humane Killing Methods</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Avoiding-Non-Target-Captures/221099_87950/">Avoiding Non-Target Captures</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Releasing-Non-Target-Catches/221099_87951/">Releasing Non-Target Catches</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87843-t87863" aria-expanded="false" aria-controls="u87843-t87863">Topic 2: Rules of Conduct for Trappers</button>
+                <ul id="u87843-t87863" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Daily-Trap-Checks-Are-Essential/221099_87952/">Daily Trap Checks Are Essential</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Preventing-Trap-Theft/221099_87953/">Preventing Trap Theft</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87843-t87864" aria-expanded="false" aria-controls="u87843-t87864">Topic 3: Safety on the Trapline</button>
+                <ul id="u87843-t87864" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Hypothermia/221099_87954/">Hypothermia</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Frostbite/221099_87955/">Frostbite</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Ice-Covered-Water/221099_87956/">Ice-Covered Water</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Other-Outdoor-Hazards/221099_87957/">Other Outdoor Hazards</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Rules-of-Survival/221099_87958/">Rules of Survival</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/First-Aid-Kits/221099_87959/">First-Aid Kits</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u87844" aria-expanded="false" aria-controls="u87844">Unit 7: Handling the Catch</button>
+        <ul id="u87844" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87844-t87865" aria-expanded="false" aria-controls="u87844-t87865">Topic 1: Preparing Pelts</button>
+                <ul id="u87844-t87865" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Proper-Handling-of-Fur-Pelts/221099_87960/">Proper Handling of Fur Pelts</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Skinning/221099_87961/">Skinning</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Fleshing/221099_87962/">Fleshing</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Stretching-or-Freezing/221099_87963/">Stretching or Freezing</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Preparing-Beaver-Pelts/221099_87964/">Preparing Beaver Pelts</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Disposing-of-Animal-Carcasses/221099_87965/">Disposing of Animal Carcasses</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87844-t87866" aria-expanded="false" aria-controls="u87844-t87866">Topic 2: Grading Pelts</button>
+                <ul id="u87844-t87866" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Grading-Factors/221099_87966/">Grading Factors</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Primeness-and-Size/221099_87967/">Primeness and Size</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Types-of-Fur-Damage/221099_87968/">Types of Fur Damage</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u87844-t87867" aria-expanded="false" aria-controls="u87844-t87867">Topic 3: Selling Pelts</button>
+                <ul id="u87844-t87867" class="collapse complete">
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Selling-Considerations/221099_87969/">Selling Considerations</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Ways-to-Sell-Your-Pelts/221099_87970/">Ways to Sell Your Pelts</a></li>
+                    <li><a class="page" href="/nationaltrapper/studyGuide/Home-Use-of-Furs/221099_87971/">Home Use of Furs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+  </ul>
+</nav>
+
+            </div>
+          </div>
+          <div class="panel-footer text-center">
+            <button id="course-nav-toggle" class="btn btn-default" type="button" data-toggle="collapse" data-target="#course-nav-panel" aria-expanded="false" aria-controls="course-nav-panel">
+              View Course Outline
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="list-inline course-location">
+        <li><span class="label label-primary">Unit 7 of 7</span></li>
+        <li><span class="label label-primary">Topic 1 of 3</span></li>
+        <li><span class="label label-primary">Page 4 of 6</span></li>
+      </ul>
+      <div class="course-controls-group">
+        <a class="btn btn-lg btn-default"
+            href="/nationaltrapper/studyGuide/Fleshing/221099_87962/"
+            rel="prev">
+          Previous
+        </a>
+        <a class="btn btn-lg btn-success"
+            href="/nationaltrapper/studyGuide/Preparing-Beaver-Pelts/221099_87964/"
+            rel="next">
+          Next
+        </a>
+        <a class="btn btn-lg btn-block-xs btn-default study-guide-link"
+            href="/nationaltrapper/studyGuide/221099/">
+          Back to the Study Guide Index
+        </a>
+      </div><!-- end .course-controls-group -->
+
+      
+    </div>
+  </div>
+</div>
+
+
+<!--  -->
+
+    </main>
+
+    <footer class="course-footer">
+  <div class="container">
+    <div class="row">
+      <div id="about-program" class="col-sm-6">
+          <a href="/">
+            <img loading="lazy" class="wordmark" src="https://assets.kalkomey.com/hunter/images/fm/hunter-ed-logo.svg?v=2" alt="hunter-ed.com" width="163" height="32" />
+          </a>
+        <p>Hunter-ed.com is produced by Kalkomey Enterprises, LLC. Kalkomey is an official state-delegated provider that provides hunting education courses and certification and publishing hunting safety education materials.</p>
+        <div class="social">
+          <p class="h3">Follow Us</p>
+          <ul class="list-inline list-social">
+  <li>
+    <a class="blog btn btn-info" href="https://www.hunter-ed.com/blog/" rel="external noopener" target="_blank" title="Check out the latest on the Hunter Ed blog" >Hunter Ed blog</a>
+  </li>
+  <li>
+    <a class="facebook" href="https://www.facebook.com/hunterEdcom" rel="external noopener" target="_blank" title="Follow us on Facebook">Facebook</a>
+  </li>
+  <li>
+    <a class="twitter" href="https://twitter.com/hunter_ed" rel="external noopener" target="_blank" title="Follow us on Twitter">Twitter</a>
+  </li>
+  <li>
+    <a class="pinterest" href="https://pinterest.com/hunteredcom/" rel="external noopener" target="_blank" title="Follow us on Pinterest">Pinterest</a>
+  </li>
+  <li>
+    <a class="youtube" href="https://www.youtube.com/user/kalkomey" rel="external noopener" target="_blank" title="Subscribe to our YouTube channel">YouTube</a>
+  </li>
+</ul>
+
+        </div>
+      </div>
+      <div id="state-course" class="col-sm-6">
+        
+      </div>
+    </div>
+
+    <nav aria-label="footer">
+      <ul class="list-unstyled">
+        <li class="top"><a href="#top">Top ⬆</a></li>
+
+        <li><a href="/site/login/">Log In</a></li>
+        <li><a href="/#select-your-course">Select Another State Course</a></li>
+
+          <li><a href="//">Home</a></li>
+        <li><a href="/partners/">Partners</a></li>
+        <li><a href="https://todayshunter.com/" target="_blank" rel="external noopener">Today’s Hunter</a></li>
+      </ul>
+    </nav>
+
+    <div class="kalkomey-info row">
+      <div class="col-sm-6 col-md-4">
+        <p class="h3">More Online Recreational Safety Courses from Kalkomey</p>
+        <ul id="program-sites" class="list-unstyled">
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/boater/images/fm/boat-ed-logo.svg" height="24" width="107" alt="Online Boating License Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/bowhunter/images/fm/bowhunter-ed-logo.svg" height="24" width="164" alt="Bowhunting Education Certificates">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/crossbow/images/fm/crossbow-ed-logo.svg" height="24" width="158" alt="Official State Crossbow Education Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/offroader/images/fm/offroad-ed-logo.svg" height="24" width="131" alt="Official State Offroad Vehicle Education Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/snowmobiler/images/fm/snowmobile-ed-logo.svg" height="24" width="179" alt="Official State Snowmobile Vehicle Education Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/concealedcarry/images/fm/concealedcarry-ed-logo.svg" height="24" width="196" alt="Comprehensive Online Concealed Carry Course">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/ilearntoboat/images/fm/ilearntoboat-logo.svg" height="20" width="144" alt="Interactive Boating Course">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/ilearntohunt/images/fm/ilearntohunt-logo-color.png" height="20" width="144" alt="Interactive Hunting Course">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/shared/images/logos/dronecourse-logo.svg" height="24" width="146" alt="Drone License Course">
+  </li>
+</ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <p class="h3">Customer Support</p>
+        <p>We provide support Monday through Friday from 8AM to 8PM CST and Saturday and Sunday from 8AM to 5PM CST.</p>
+        <p class="h4">Phone</p>
+        <a href="tel:1-800-830-2268" class="notranslate">1-800-830-2268</a>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <p class="h3">About Kalkomey Enterprises, LLC</p>
+        <p>Kalkomey is the official provider of recreational safety education materials for all 50 states. We provide online boating and hunting and other recreational safety education. <a rel="external" title="Kalkomey’s press resources" href="https://www.kalkomey.com/#home-news">View press releases.</a></p>
+        <p>Hunter Ed is produced by <a href="https://www.kalkomey.com" rel="external">Kalkomey Enterprises, LLC</a>.</p>
+        <address class="notranslate">
+          224 W. Campbell Rd. #512<br>
+          Richardson, TX 75080<br>
+          1-800-830-2268<br>
+        </address>
+      </div>
+    </div>
+
+    <small class="copyright">
+      <a href="https://www.kalkomey.com" rel="external">
+        <img loading="lazy" class="kalkomey-logo" src="https://assets.kalkomey.com/shared/images/logos/kalkomey-logo.svg?v=2026" alt="Kalkomey logo" width="128" height="32" />
+      </a>
+      <a class="text-nowrap" href="/copyright/">&copy; 2004&ndash;2026 All rights reserved.</a>
+      <span id="privacy-and-terms-of-use"><a class="text-nowrap" id="accessibility-link" href="/accessibility/">Accessibility</a><span>, </span><a class="text-nowrap" rel="nofollow" id="privacy-policy-link" href="https://privacy.kalkomey.com/policies/en/?name=privacy-policy">Privacy Policy</a><span class="with-privacy-choices">, </span><span class="no-privacy-choices"> and </span><a class="text-nowrap" rel="nofollow" href="https://privacy.kalkomey.com/policies/en/?name=terms-of-service">Terms of Use</a><span class="with-privacy-choices"> and </span><a class="your-privacy-choices with-privacy-choices text-nowrap" href="#">Your Privacy Choices</a><span>.</span></span>
+    </small>
+  </div>
+</footer>
+
+
+    
+
+    <script src="/assets/hunter/site_bs3-564e99ecb6c7e055b6553ee24fbaac8ffdad39b0a99ae419a9442ec9583153b2.js" data-turbolinks-track="true"></script>
+    <script src="/assets/application-44063ace0391621ccf11d2a30c05a8a942b7477a00f4e3e480349fb1cbaf4f9f.js"></script>
+      <script src="/assets/course_content-f8f8b71fc8dd164b0a4d7e73f05d0cbc7c7708096913bbf3c9a8114ae589af16.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+  <script>
+    $(function(){
+      $('#course-nav-panel').on('show.bs.collapse', function(){
+        $('#course-nav-toggle').html('Close Course Outline');
+      }).on('hide.bs.collapse', function(){
+        $('#course-nav-toggle').html('View Course Outline');
+      })
+    });
+  </script>
+
+<script>
+  $('document').ready(function() {
+    var ContentsNavigator = {
+      init: function() {
+        this.$toggle_container = $('#contents-toggle-container');
+        this.$contents_list_container = $('#contents-list-container');
+
+        this.setupListeners();
+      },
+      setupListeners: function() {
+        var self = this;
+        $('.contents-toggle-text').on('click', function(e) {
+          self.toggleContents(e);
+        });
+      },
+      toggleContents: function(e) {
+        e.preventDefault();
+
+        var self = this;
+
+        if (this.$toggle_container.hasClass('opened')) {
+          this.$toggle_container.removeClass('opened');
+          this.$contents_list_container.css('height', 0);
+        }
+        else {
+          this.$toggle_container.addClass('opened');
+          this.$contents_list_container.css('height', this.getAdjustedContainerHeight());
+        }
+      },
+      getAdjustedContainerHeight: function() {
+        return ($(window).height() - this.$toggle_container.offset().top - 110);
+      }
+    };
+    ContentsNavigator.init();
+    $('#intro-modal').modal('show');
+    $('#intro-modal').on('hidden', function() {
+      $.ajaxSetup({
+        timeout: 5000,
+        cache: false,
+        dataType: 'script',
+        async: true,
+        type: 'POST'
+      });
+    });
+  });
+</script>
+  <script>
+    $(document).on('click','.navbar-collapse.in',function(e) {
+      if( $(e.target).is('a') ) {
+          $(this).collapse('hide');
+      }
+    });
+    $(document).on('click', function(event) {
+      if (!$(event.target) != '.dropdown-menu') {
+        $('.dropdown').removeClass('open');
+      }
+    });
+    $(document).on('click','.dropdown-menu',function(e) {
+      if( $(e.target).is('a') ) {
+        $(this).closest('.dropdown').removeClass('open');
+      }
+    });
+  </script>
+
+    
+    
+    
+
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNNAOurIfJGm3qlkI2CN_6YCg4hQ0kxrM&amp;libraries=places&amp;callback=setGooglePlacesApiLoaded" async="async" defer="defer" data-turbo-eval="false"></script>
+  </body>
+</html>

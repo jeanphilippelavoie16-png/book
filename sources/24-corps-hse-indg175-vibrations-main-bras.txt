@@ -1,0 +1,173 @@
+Health and Safety Executive
+Hand-arm vibration at work
+A brief guide
+
+Introduction
+This leaflet explains what you, as an employer, may need to do to protect your employees from the risk of hand-arm vibration. It will also be useful to employees and their representatives. The leaflet will help you identify when exposure to handarm vibration may cause harm. It introduces practical steps for controlling the risks and will help you understand what you need to do to comply with the Control of Vibration at Work Regulations 2005 (the Vibration Regulations).
+
+This is a web-friendly version of leaflet INDG175(rev3), published 11/12
+
+What is hand-arm vibration?
+Hand-arm vibration is vibration transmitted into workers' hands and arms. This can come from use of hand-held power tools (such as grinders or road breakers), handguided equipment (such as powered lawnmowers or pedestrian controlled floor saws) or by holding materials being worked by hand-fed machines (such as pedestal grinders or forge hammers).
+
+Why is hand-arm vibration an issue?
+Regular and frequent exposure to hand-arm vibration can lead to two forms of permanent ill health known as:
+ hand-arm vibration syndrome (HAVS); and  carpal tunnel syndrome (CTS).
+Symptoms and effects of HAVS include:
+ tingling and numbness in the fingers which can result in an inability to do fine
+work (for example, assembling small components) or everyday tasks (for example, fastening buttons);
+ loss of strength in the hands which might affect the ability to do work safely;  the fingers going white (blanching) and becoming red and painful on recovery,
+reducing ability to work in cold or damp conditions, eg outdoors.
+Symptoms and effects of CTS can also occur and include:
+ tingling, numbness, pain and weakness in the hand which can interfere with
+work and everyday tasks and might affect the ability to do work safely.
+Symptoms of both may come and go, but with continued exposure to vibration they may become prolonged or permanent and cause pain, distress and sleep disturbance. This can happen after only a few months of exposure, but in most cases it will happen over a few years.
+
+Page 1 of 6
+
+Health and Safety Executive
+
+What the law says
+
+The Vibration Regulations require you to:
+
+ make sure that risks from vibration are controlled;  provide information, instruction and training to employees on the risk and the
+actions being taken to control risk; and
+ provide suitable health surveillance.
+The Vibration Regulations include an exposure action value (EAV) and an exposure limit value (ELV) based on a combination of the vibration at the grip point(s) on the equipment or work-piece and the time spent gripping it. The exposure action and limit values are:
+
+ a daily EAV of 2.5 m/s2 A(8) that represents a clear risk requiring management;
+and
+ a daily ELV of 5 m/s2 A(8) that represents a high risk above which employees
+should not be exposed.
+
+Preventing disability
+
+Your duties are to reduce the risks from vibration to the lowest level reasonably practicable and to reduce exposure to as low as is reasonably practicable if it is above the EAV. You must not allow exposures to exceed the ELV.
+
+If you comply with the Vibration Regulations you will prevent disability from HAVS and vibration-related CTS. Some people will develop early signs and symptoms of HAVS or CTS even at low exposures (for example, if they are susceptible to vibration injury and are regularly exposed to vibration at around the exposure action value, usually for some years). Your health surveillance should identify any harm early on, so appropriate action by you at this point will prevent disability.
+
+Make sure you consult your trade union safety representative or employee representative on your proposals to:
+
+ control risk; and  provide health surveillance.
+Certain cases of HAVS and all cases of vibration-related CTS must be reported to HSE in accordance with the Reporting of Injuries, Diseases and Dangerous Occurrences Regulations (RIDDOR) - see `Find out more'.
+
+Duties of manufacturers and suppliers
+
+Manufacturers and suppliers have duties under the Supply of Machinery (Safety) Regulations to provide health and safety information in equipment handbooks.
+
+They also have a duty to list the vibration emission in literature describing equipment performance. This should be, but is not always, suitable for estimating vibration exposure - check, for example, with the manufacturer or your supplier.
+
+When you buy work equipment you should expect your supplier to provide the following:
+
+ warning of any vibration-related risks from using the equipment;  information on safe use and, where necessary, training requirements;  information on how to maintain the equipment;  information on the vibration emission of the equipment.
+Hand-arm vibration at work: A brief guide
+
+Page 2 of 6
+
+Health and Safety Executive
+
+Is hand-arm vibration a problem in my workplace?
+In some industries, assessment will often show that the operating time of equipment is actually very short and that the EAV is not exceeded.
+Which jobs are most likely to create a risk?
+Jobs involving regular and frequent exposure to vibration above the EAV are found in a wide range of industries, for example:
+ construction and civil work;  engineering;  forestry;  foundries;  motor vehicle manufacture and repair;  maintenance of parks, gardens, verges, grounds etc;  shipbuilding and ship repair;  utilities (eg gas, water, telecommunications).
+Which tools are most likely to create a risk?
+Users of the types of equipment listed below and similar equipment will often be exposed above the EAV:
+ chainsaws;  grinders (all types and sizes, eg angle, die, straight, vertical etc);  hand-fed equipment, eg pedestal linishers, grinders, mops;  impact drills;  scaling hammers including needle scalers;  pedestrian controlled equipment including mowers, floor saws, floor polishers;  powered hammers for chipping, demolition, road breaking etc;  sanders and polishers;  hand-held saws for concrete, metal, ground clearance etc.
+Damaged and very old models of equipment may be hazardous even when used for very short periods. Most types of hand-held, hand-guided or hand-fed powered equipment can cause ill health from vibration if used incorrectly.
+For powered hand-tools, regular and frequent use of modern, well-designed, wellmaintained tools is likely to result in exposure at or above the EAV after:
+ the use of a hammer action tool for about 15 minutes; or  the use of non-hammer action tools for about one hour.
+The exposure limit value is likely to be reached after:
+ use of a hammer action tool for about one hour; or  use of non-hammer action tools for about four hours.
+How can I control the risks from HAVS?
+You can reduce vibration exposure by reducing one or both of:
+ the vibration transmitted to the hand; and  the time spent holding vibrating equipment or work-pieces.
+
+Hand-arm vibration at work: A brief guide
+
+Page 3 of 6
+
+Health and Safety Executive
+Assess where risks are most likely
+The industry, type of equipment, duration of use and reported signs or symptoms of HAVS or CTS are all good guides to the likelihood of vibration risk. Once you have established the likelihood of risk you should look more closely at which workers, or groups of workers, are likely to be at risk and what can be done to reduce those risks.
+Assess who is at risk
+You should:
+ carry out a brief survey of the workplace. Find out who is exposed to hand-arm
+vibration and what is causing the exposure;
+ estimate the time workers spend holding the equipment or work-piece while it
+is vibrating. Begin to set priorities:  very short periods may not be a problem; but  the longer the equipment or work-piece is held the higher the exposure will be
+so it is more important that the vibration is low.
+ ask users of equipment if they feel tingling or numbness during or after
+exposure to vibration. If they do, their exposure to vibration could be causing them harm.
+Use the guidelines above to determine when users of powered hand-tools are likely to reach the EAV and if there could be a risk.
+You should find out if any of your employees already have HAVS or CTS. If they do, you will need to take steps to stop their symptoms getting worse, even if they are exposed below the EAV.
+How should I use this information?
+Having decided that employees have vibration exposures which must be managed, you will need to look at how risks from vibration can be reduced, finalise your priorities and put in place those steps that are reasonably practicable. You should:
+ look for ways of working that avoid or reduce the need to hold vibrating
+equipment or work-pieces;
+ consider vibration emissions when purchasing or hiring equipment for example:
+ check the vibration of available equipment in technical sales literature or the handbook. Avoid types with high vibration when there are suitable lower vibration alternatives;
+ keep an inventory of equipment and its vibration emission;
+ maintain equipment in accordance with its manufacturer's instructions;  plan work schedules to minimise vibration exposures and make sure exposures
+are below the ELV;
+ organise work and design workstations to avoid uncomfortable postures and
+the need for high manual effort to grip, push or pull equipment;
+ help employees maintain good blood circulation, for example, by providing
+clothing to help them keep warm and dry.
+
+Hand-arm vibration at work: A brief guide
+
+Page 4 of 6
+
+Health and Safety Executive
+
+Information, instruction and training
+Your information, instruction and training for employees should cover:
+ the health effects of hand-arm vibration;  the sources of hand-arm vibration and how the vibration has been minimised,
+eg the choice of process or equipment;
+ whether they are at risk, including how their exposure compares with the
+exposure action and limit values;
+ how to recognise and report symptoms;  how health surveillance can help them remain at work and what your
+arrangements are for health surveillance (see below);
+ the steps you have taken, or plan to take, to minimise the risk;  where necessary, training in how to use equipment to minimise vibration and
+how to reduce grip force etc.
+
+Health surveillance
+You must provide health surveillance when exposures are at or above the EAV and in other circumstances where there is risk, for example, after diagnosis of HAVS and exposure continues but below the EAV. Health surveillance can involve just a short set of questions until, for example, signs or symptoms are reported. A health surveillance scheme must include access to a competent occupational physician. Make sure that your providers have the right qualifications and training and that you will:
+ receive feedback, including notification of fitness for work with HAV for each
+employee under health surveillance;
+ receive anonymised health surveillance results (unless groups of employees are
+too small to get this type of information);
+ be informed of new or deteriorating cases of HAVS that are being diagnosed
+(with the consent of the affected person).
+You must report cases of HAVS and CTS under RIDDOR (see `Find out more').
+Prompt action by you to revise your controls - when finding new cases or worsening of existing cases - will help keep skilled people in work and should prevent disability.
+
+Next steps
+This leaflet has helped you decide if hand-arm vibration is likely to be causing harm in your workplace. It has outlined practical steps required by law that will control the risk of harm. You now need to decide whether the steps you have taken are sufficient and what actions need to be taken to minimise the risk in your workplace.
+
+Find out more
+
+You can find vibration information and good practice examples of vibration control at www.hse.gov.uk/vibration. If you need help managing vibration, you may choose to hire a competent advisor to select appropriate control measures and/or estimate vibration exposures.
+
+More detailed guidance on controlling the risk is contained in Hand-arm vibration. Control of Vibration at Work Regulations 2005. Guidance on Regulations L140 HSE Books 2005 ISBN 978 0 7176 6125 1 www.hse.gov.uk/pubns/books/l140.htm.
+
+Hand-arm vibration at work: A brief guide
+
+Page 5 of 6
+
+Health and Safety Executive
+Consulting workers on health and safety. Safety Representatives and Safety Committees Regulations 1977 (as amended) and Health and Safety (Consultation with Employees) Regulations 1996 (as amended). Approved Codes of Practice and guidance L146 HSE Books 2012 ISBN 978 0 7176 6461 0 www.hse.gov.uk/pubns/books/L146.htm.
+www.hse.gov.uk/riddor
+Further information
+For information about health and safety, or to report inconsistencies or inaccuracies in this guidance, visit www.hse.gov.uk/. You can view HSE guidance online and order priced publications from the website. HSE priced publications are also available from bookshops.
+This guidance is issued by the Health and Safety Executive. Following the guidance is not compulsory, unless specifically stated, and you are free to take other action. But if you do follow the guidance you will normally be doing enough to comply with the law. Health and safety inspectors seek to secure compliance with the law and may refer to this guidance.
+This leaflet is available at: www.hse.gov.uk/pubns/indg175.htm.
+© Crown copyright If you wish to reuse this information visit www.hse.gov.uk/copyright.htm for details. First published 11/12.
+
+Published by the Health and Safety Executive 11/12 INDG175(rev3)
+
+Page 6 of 6
+
+

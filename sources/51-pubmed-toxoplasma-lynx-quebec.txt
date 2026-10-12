@@ -1,0 +1,65 @@
+1. J Parasitol. 2001 Oct;87(5):1194-6. doi: 
+10.1645/0022-3395(2001)087[1194:SOATTG]2.0.CO;2.
+
+Seroprevalence of antibodies to Toxoplasma gondii in lynx (Lynx canadensis) and 
+bobcats (Lynx rufus) from Québec, Canada.
+
+Labelle P(1), Dubey JP, Mikaelian I, Blanchette N, Lafond R, St-Onge S, 
+Martineau D.
+
+Author information:
+(1)Canadian Cooperative Wildlife Health Centre, Saint-Hyacinthe, Québec.
+
+The seroprevalence of antibodies to Toxoplasma gondii was investigated in 
+trapped lynx (Lynx canadensis) and bobcats (Lynx rufus) from Québec, Canada. 
+Forty-seven of 106 (44%) lynx and 4 of 10 (40%) bobcats had positive titers for 
+T. gondii (> or = 25) by means of the modified agglutination test incorporating 
+mercaptoethanol and formalin-fixed tachyzoites. Seroprevalence was significantly 
+higher (P < 0.0001) in adult lynx than in juvenile lynx. The presence of 
+antibodies to T. gondii in lynx and bobcats suggests that this organism is 
+widespread in the wild and that exposure to wild felids and game animals from 
+Québec may represent a potential source of infection for humans.
+
+DOI: 10.1645/0022-3395(2001)087[1194:SOATTG]2.0.CO;2
+PMID: 11695397 [Indexed for MEDLINE]
+
+
+2. J Wildl Dis. 2013 Jan;49(1):39-48. doi: 10.7589/2012-02-048.
+
+Spatiotemporal dynamics of Toxoplasma gondii infection in Canadian lynx (Lynx 
+canadensis) in western Québec, Canada.
+
+Simon A(1), Bigras Poulin M, Rousseau AN, Dubey JP, Ogden NH.
+
+Author information:
+(1)Groupe de Recherche en Epidémiologie des Zoonoses et Santé Publique, Faculté 
+de médecine vétérinaire, Université de Montréal, 3200 Sicotte, CP 5000, 
+Saint-Hyacinthe, J2S 7C6, Québec, Canada. audrey.simon@umontreal.ca
+
+Toxoplasma gondii, one of the more common zoonotic parasites in the world, can 
+cause serious illness in humans and other animals worldwide. Felids are the only 
+known host that can shed T. gondii oocysts, which are essential to the 
+perpetuation of the parasite. In much of boreal Canada, the Canadian lynx (Lynx 
+canadensis) is the only wild felid host that could contribute to environmental 
+contamination with T. gondii oocysts. We estimated the prevalence of T. gondii 
+antibodies in Canadian lynx from western Québec and compared our results with 
+earlier findings in the same region 12 yr earlier. We investigated factors 
+associated with seroconversion, including age, sex, geographic location, and 
+possible co-occurrence with domestic cats (Felis catus), and we assessed the 
+proportion of lynx shedding T. gondii oocysts. Blood and fecal samples were 
+collected from 84 lynx harvested by trappers in the eastern part of the study 
+area during winter 2009-2010. Sera were tested for antibodies to T. gondii by 
+the modified agglutination test (cutoff titer 1:50) and fecal samples for 
+parasite eggs by fecal flotation. Antibodies to T. gondii were detected in sera 
+of 14% of 84 lynx. Numerous helminth ova and coccidian oocysts were found in 
+feces, whereas T. gondii-like oocysts were not detected. Antibody prevalence 
+increased with age class (odds ratio [OR]=4.33, 95% confidence interval 
+[CI]=1.57-11.99, P<0.01). Antibody prevalence (14%) in our study was 
+significantly lower than in 84 lynx (36%) trapped in the western part of the 
+study area during winter 1997-1998 (OR=0.18, 95% CI=0.08-0.44, P<0.001). Our 
+results suggest there may be significant spatiotemporal dynamics of T. gondii 
+infection in lynx in Canada, and we review possible abiotic and biotic ecologic 
+factors supporting these findings.
+
+DOI: 10.7589/2012-02-048
+PMID: 23307370 [Indexed for MEDLINE]

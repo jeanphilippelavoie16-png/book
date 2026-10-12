@@ -1,0 +1,2289 @@
+BATTERY USER
+     MANUAL
+
+                Recommended installation, charging and maintenance
+                procedures for Rolls deep cycle Flooded,VRLA AGM
+                & OPzV GEL batteries.
+FLOODED    AGM     GEL
+
+RENEWABLE  MARINE  MOTIVE
+  ENERGY           POWER
+TABLE OF CONTENTS
+
+02 Equipment & Safe Handling Procedure, Inspection
+03 Quick Check List, Disposal Procedure
+04 Provisions Against Electrolyte Hazard
+05 Battery Orientation
+05 Cable Sizing
+05 Terminals & Cable Connections
+07 Parallel & Series Connections
+09 Installation
+09 Battery Enclosures for Residential Battery-Based PV Systems
+12 Battery Capacity & Temperature
+14 Temperature Compensation & Sensor Installation
+15 End Amp or Return Amps
+16 Low Voltage Disconnect
+18 Inspection & Initial Charge of Flooded Lead-Acid Batteries
+19 Rolls Flooded Lead-Acid Battery Charging
+19 Bulk Charge, Absorption Charge
+20 Absorption Charge Time - Flooded
+20 Float Charge
+21 Rolls Flooded Battery Charge Voltage Parameters
+22 Specific Gravity
+23 Battery Maintenance & Storage
+23 Electrolyte - Adding Distilled Water
+24 Maintenance Schedule, Storage
+25 Cleaning Vent Caps
+26 Equalization, Corrective Equalization
+28 Preventative Equalization & Frequency
+30 Rolls VRLA AGM Battery Charging Instructions
+31 VRLA AGM Absorption Charge Time, Battery Charge Voltage Parameters
+32 VRLA AGM Battery Capacity & Temperature
+34 Rolls OPzV GEL Battery Installation & Charging, Charge Voltage Parameters
+36 OPzV GEL Absorption Charge Time, Battery Capacity & Temperature
+38 Renewable Energy Applications - Off-grid & Grid-tied
+44 Warranty
+46 Lead-Acid Battery Glossary
+48 Troubleshooting & Frequently Asked Questions
+53 Contacts
+
+                                                                                                 1
+Rolls Battery has been manufacturing deep cycle lead-acid batteries since 1935.
+Experience and commitment to quality has helped us achieve an unmatched
+reputation in the industry. Our goal is to provide our customers with a premium
+product providing dependable performance and long-lasting cycle life. This manual
+provides the recommended setup, charging, Equalization and preventive
+maintenance procedures necessary to maximize the life of your Rolls batteries. If you
+have battery-related questions beyond the contents of this manual, we encourage
+you to visit our online Technical Support Desk (support.rollsbattery.com) for
+additional information or file a support ticket and our Technical Support team will be
+happy to assist you.
+
+EQUIPMENT & SAFE HANDLING PROCEDURE
+
+· Goggles, rubber gloves & rubber boots  · hydrometer, refractometer
+· Distilled water                        · voltmeter, ammeter
+· Baking soda, soda ash                  · battery charger
+
+To prevent injury, always wear acid-resistant clothing, PVC gloves, goggles and
+rubber boots. Flooded batteries must be maintained in an upright position at all times.
+Always have plenty of water and baking soda on hand in the event of an acid spill
+during transport.
+
+INSPECTION
+
+When receiving shipment of your batteries, it is important to thoroughly inspect each
+pallet, battery and packaging. Before signing acceptance of the shipment, remove the
+shrink-wrap from the pallet and inspect each battery for damage (i.e. cracks, dents,
+punctures, deformations, acid leaks or other visible abnormalities).
+
+Do not accept shipment if the batteries appear to have been damaged in any
+way. Confirm that connection terminals are secure and clean. If the battery is dirty,
+or if any minor amount of acid has spilled onto the case due to loose bayonets, refer to
+the cleaning instructions in this manual to properly neutralize and clean as necessary.
+Wet pallets or signs of acid leak on or around the batteries could indicate shipping
+damage or improperly sealed battery casing. Perform a voltage check to confirm the
+battery polarity and marking of the terminals are accurate.
+
+In the event of a suspected leak or damage, do not accept the shipment.
+Contact your battery retailer or Rolls Battery to determine whether the batter(ies)
+require replacement.
+
+Battery shipments which are known to be damaged, but accepted, will not
+be replaced under the terms of Rolls Battery manufacturer warranty.
+
+2
+QUICK CHECK LIST
+
+SHIPPING/RECEIVING (MUST INSPECT PRIOR TO DRIVER RELEASE!)
+· All parts are included
+· No acid spill
+· No visual damage to the batteries
+· Verify electrolyte levels
+
+INSTALLATION
+· Protective equipment should be worn
+· All electrical components should be turned off
+· Acid spill cleanup material should be readily available
+
+INITIAL CHARGE
+· Verify electrolyte levels (add distilled water as necessary)
+· Measure specific gravity
+· Set up battery charge voltage/current limits
+
+GENERAL
+· Safety first!
+
+DISPOSAL PROCEDURE
+
+Batteries must NEVER be disposed of in household waste. To reduce environmental
+impact, bring your spent lead-acid batteries to a certified recycling depot. Lead-acid
+batteries are 97% recyclable and are the most recycled consumer product in the
+world. Closed-loop manufacturing and recycling programs allows nearly all of the
+components to be recycled or re-purposed. A credit by weight for lead may be offered
+by recycling depots or facilities for spent batteries.
+
+When processed safely, recycling batteries reduces
+the release of lead to the environment and conserves
+natural resources. Recycled lead production takes
+only 35-40% of the energy necessary to produce
+primary lead from ore. Lead may be recovered and re-
+purposed multiple times.
+
+For more information on lead-acid battery recycling,
+visit https://batterycouncil.org
+
+                                                                                                 3
+PROVISIONS AGAINST ELECTROLYTE HAZARD
+
+ELECTROLYTE AND WATER
+Electrolyte used in lead-acid batteries is an aqueous solution of sulphuric acid.
+
+Electrolyte used in NiCd and NiMH batteries is an aqueous solution of potassium
+hydroxide. Distilled or demineralised water is used when topping up the cells.
+
+PROTECTIVE CLOTHING
+In order to avoid personal injury from electrolyte splashes when handling electrolyte
+and/or vented cells or batteries, protective clothing shall be worn, such as
+
+   - protective glasses or face shields,
+   - protective gloves and aprons.
+In the case of valve-regulated or gastight sealed batteries, at least protective glasses
+and gloves shall be worn.
+
+ACCIDENTAL CONTACT, "FIRST AID"
+GENERAL
+Acid and alkaline electrolytes create burns in eyes and on the skin. A source of clean
+water, from tap or a dedicated sterile reservoir, shall be provided in the vicinity of the
+battery under charging or maintenance for removing electrolyte splashed onto body
+parts.
+
+EYE CONTACT
+In the event of accidental contact with electrolyte, the eyes shall be immediately
+flooded with large quantities of water for an extended period of time. In all cases
+immediate medical attention shall be obtained.
+
+SKIN CONTACT
+In the event of accidental skin contact with electrolyte, the affected parts shall be
+washed with large quantities of water or with adequate neutralising solutions. If
+irritation of skin persists medical attention shall be obtained.
+
+BATTERY ACCESSORIES AND MAINTENANCE TOOLS
+Materials used for battery accessories, battery stands or enclosures, and components
+inside battery rooms shall be resistant to or protected from the chemical effects of the
+electrolyte.
+
+In the event of electrolyte spillage, the liquids shall be removed promptly from all
+surfaces with absorbing and neutralizing material.
+
+Maintenance tools such as funnels, hydrometers, thermometers which come in contact
+with electrolyte shall be dedicated either to the lead-acid or NiCd-batteries and shall
+not be used for any other purpose.
+
+4
+BATTERY ORIENTATION
+
+Flooded lead-acid batteries must be kept in an upright position at all times as
+electrolyte may spill if tilted more than 20 degrees. Rolls VRLA AGM batteries should
+be installed upright for best performance and may not be mounted upside down or
+horizontally on the end (shortest side) of the case. Models installed horizontally should
+not rest on the cover or case/cover seam and must be supported fully on the long side
+of the case.
+
+Rolls OPzV GEL models must be installed upright unless otherwise specified. Special
+order models compatible with horizontal installation, as well as racking systems,
+are available upon request. Models installed horizontally may not be mounted on
+the end (shortest side), should not rest on the cover or case/cover seam, and must
+be supported fully on the long side of the case. Use caution not to cover or apply
+pressure to valves located on the top of the batteries when using strapping to install
+or secure cells as damage may occur.
+
+CABLE SIZING
+
+Cabling should be proportionate to the amperage of your system. The following
+table notes the maximum current carrying capacity based on cable gauge. Battery
+cables should be selected allowing a maximum voltage drop of 2% or less across the
+entire length of the cable. Interconnection cables (battery to battery) should also be
+sized at the same gauge and of equal length between connections. When choosing
+interconnect cables or custom bus bars, size to allow adequate spacing between
+batteries for airflow as outlined above.
+
+TABLE 1: Wire gauge sizing by amperage
+
+   Amperage 25 30 40 55 75 95 130 150 195 260
+
+  Wire Gauge 14 12 10 8 6 4 2 1 0 0000
+
+TERMINALS & CABLE CONNECTIONS
+
+All cable connections should be adequately sized, insulated and free of damage. The
+cable connectors should be clean and properly mated with the battery terminals to
+ensure a snug connection.
+
+Electrolyte spills and corrosion buildup will damage cable connectors and terminals. It is
+recommended that terminal connections are disconnected, cleaned and re-torqued
+periodically as part of the regular maintenance routine. This also applies to connections
+using bus bars. Check and recalibrate the torque wrench for accuracy before use.
+
+                                                                                                 5
+Visual inspections may not always detect poor connections. The use of an Infrared (IR
+temperature) sensor may assist in identifying poor connections when testing under load
+or during charge. Connections which have overheated and/or developed problems will
+often be welded to the terminal. Loose connections may result in ignition of hydrogen
+gas during charging or cause a short, melting the terminals.
+Loose or overtightened connections may also cause high resistance. The result is an
+unwanted voltage drop as well as excessive terminal heating which causes the terminal
+to melt or even catch fire. To limit the possibility of damage or fire, use a torque wrench
+to properly adjust terminal connections during your regular maintenance schedule.
+As batteries are cycled and heat up during charge, under-torqued connections may
+become loose over time as the terminals heat & cool, causing possible arching and a
+risk of spark. Over-torqued connections may indent, crack or bend the terminal and/or
+washers or terminal connectors.
+Damage to terminals and/or batteries caused by under/over-torque is often unrepairable
+and is not covered under manufacturer warranty. Follow the recommended torque
+settings for each terminal type. Battery distributors or dealers may offer replacement or
+repair, where possible, at the customer's expense.
+
+TERMINALS
+
+Inspection of battery terminal connections is also important. Loose connections
+may result in ignition of hydrogen gases or cause a short, melting the terminals. It is
+important to inspect, disconnect, clean and properly torque these connections on a
+regular basis. Use a proper torque wrench, noting the required torque setting for the
+particular terminal.
+
+TERMINAL TORQUE SETTINGS
+Refer to the chart below for the recommended torque setting for the battery terminal
+(see battery specifications). To prevent terminal damage, contact Rolls Battery
+Technical Support for torque recommendations if the specific terminal type is not
+listed. Calibrate the torque wrench before use to ensure accuracy.
+NOTE: Damage to terminals and/or batteries caused by under/over-torque is often
+unrepairable and is not covered under manufacturer warranty. Distributors or Dealers
+may offer replacement or repair, where possible, at the customer's expense.
+
+6
+              BATTERY      RECOMMENDED TORQUE SETTING
+
+     FLOODED TERMINALS                N-m                  lb-ft
+        FLAG, PADDLE RR    27 N-m (max: 33 N-m)  20 lb-ft (max: 25 lb-ft)
+                  LT       24 N-m (max: 33 N-m)  18 lb-ft (max: 25 lb-ft)
+                  DT       11 N-m (max: 16 N-m)  8 lb-ft (max: 12 lb-ft)
+                 UTL       11 N-m (max: 16 N-m)  8 lb-ft (max: 12 lb-ft)
+        AGM TERMINALS
+                                      N-m                  lb-ft
+ THREADED FEMALE F8 (M8)            10 N-m               7.4 lb-ft
+THREADED FEMALE F10 (M10)           13 N-m               9.5 lb-ft
+                                                         5.1 lb-ft
+                  AP                 7 N-m               7.4 lb-ft
+                  LT                10 N-m               5.1 lb-ft
+                  DT                                     3.3 lb-ft
+        M6 (TP06) BRASS              7 N-m               7.4 lb-ft
+        M8 (TP08) BRASS             4.5 N-m
+     OPzV GEL TERMINALS             10 N-m                 lb-ft
+
+THREADED FEMALE F10 (M10)             N-m
+
+                           21 N-m                15 lb-ft
+
+PARALLEL & SERIES CONNECTIONS
+
+Applications often demand more voltage or more ampere capacity than the
+capacity of one battery. By connecting multiple batteries of the same make/model/
+capacity in series, parallel or series parallel configurations, output voltage or battery
+bank amperage may be increased as needed.
+
+To increase voltage, batteries are connected in series. Capacity of the battery bank
+remains the same as voltage increases. To increase the available amount of current
+and capacity, batteries are connected in parallel. In this situation it is best to use
+lower voltage, higher capacity cells to minimize the amount of parallel strings.
+
+To increase voltage, connect the batteries in series as shown in Figure 1.
+
+- + FIGURE 1:
+                              Voltage Increase
+
++  -
+
+                                                                                           7
+To increase capacity and voltage, connect the batteries in series parallel
+as shown in Figure 2.
+
+EXAMPLE:                                         +        +
+
+Battery = 6-volt (S6 L16-HC)                        -     -     FIGURE 2:
+Battery Voltage = 6V each                                       Voltage/Capacity
+Battery Capacity = 445 AH each                      +     +     Increase
+System Voltage = 12V System
+Capacity = 890 AH total                             -     -
+
+EXAMPLE:
+Twenty-four (24) 2-volt batteries at 2527 AH each = 2527 AH at 48 Volts
+
+++  +     +     +        +     +        +     +  +     +  +  +  FIGURE 3:
+
+    ------------                                                Single Series String
+
+- - - - - - - - - +- - - -
+    + + + + + + + + +- + + + + "Best Option"
+
+EXAMPLE:
+
+Two (2) strings of eight (8) 6-volt batteries at 445 AH each
+= 2 x 445 AH at 48 Volts = 890 AH at 48 Volts
+
+++     +     +     +        +        +     +     +              FIGURE 4:
+                                                                Two Parallel Strings.
+           --------                                             Series/Parallel
+-+ ++ + + ++ +
+
+    --------
+
+EXAMPLE:
+
+Three (3) strings of four (4) 12-volt batteries at 371 AH each
+= 3 x 371 AH at 48 Volts = 1113 AH at 48 Volts
+
+++        +           +           +
+
+        ----                                                    FIGURE 5:
+    ++++                                                        Three Parallel Strings.
+                                                                Series/Parallel
+
+        ----
+    ++++
+
+-      ----
+
+NOTE: Connecting more than three (3) series strings in parallel is not recommended. Multiple
+parallel connections increase resistance between batteries and strings, causing an imbalance of
+charge and discharge currents and may result in cell damage or premature failure which is not
+covered under Rolls Battery manufacturer warranty.
+
+8
+INSTALLATION
+
+Rolls flooded lead-acid and sealed VRLA AGM & GEL deep cycle batteries are
+proven to be safe for use in a variety of applications including industrial and motive
+power equipment, marine, rail and residential energy storage applications. In all
+cases, it is important that applicable code requirements are followed, as well as
+the manufacturer's instructions for safe & proper operation, and the battery is
+installed securely, free of contaminants and that all connections are in good
+contact with the terminals.
+
+For all Rolls models it is recommended that the batteries are separated 2.5cm-7.5cm
+(1"-3") inches apart to allow proper airflow, cooling and ease of maintenance. Flooded
+batteries should be installed in a temperature-controlled room or enclosure with
+adequate battery spacing to allow cooling and/or insulating to prevent freezing in
+very cold temperatures. Excessive heat will reduce cycle life due to cell degradation.
+Batteries should never be installed in a completely sealed enclosure. Enclosures
+for Valve Regulated batteries (VRLA) such as sealed AGM & GEL models, should, at
+minimum, be passively ventilated. Enclosures for Flooded models should be actively
+ventilated with both positive and negative airflow installed to remove and replace
+any hydrogen gas generated during charging (produced as cell voltage reaches 2.25
+VPC or above. Every effort should be made to avoid hydrogen accumulation as
+concentrations in excess of 2-4% may ignite with electrical spark and are explosive.
+
+The outer container of Rolls Series 5000 models is molded with handles to safely
+lift and transport the battery. This also provides structural support to maintain cell
+shape and offers an added layer of protection. Rolls individual 2V industrial cells are
+typically housed in steel or plastic trays. These cells must be properly supported on
+each side to protect against puncture, prevent bulging and should not be lifted by
+the terminals as this may damage the posts or compromise the cells internally.
+When moving, support straps should be used to safely and securely lift the cell
+from the bottom.
+
+Dual-container models are better-suited and strongly recommended over industrial
+cells for use in Renewable Energy and Marine applications as the stand-alone case
+design allows easier transport and the ability to install the batteries with adequate
+spacing for airflow. Series 5000 dual-container models are backed by a 5-year
+(60 month) full replacement warranty, offering an additional 2 years of coverage over
+the equivalent 2V industrial cell.
+
+BATTERY ENCLOSURES FOR RESIDENTIAL
+BATTERY-BASED PV SYSTEMS
+
+Residential battery-based PV systems have been installed by certified PV Professionals
+for decades. With rising utility costs and system components becoming more readily
+available and affordable, off-grid and grid-connected backup systems have become
+more popular than ever.
+
+                                                                                                 9
+A battery bank that is properly sized, maintained and installed in a well-designed
+enclosure will provide many years of service. Following guidelines and the
+manufacturer's recommendations for proper design and placement of the battery
+enclosure, while adhering to all code requirements and necessary precautions, will
+ensure the system operates efficiently and safely.
+
+Lead-acid batteries, like other battery technologies, will offer the best performance
+when operating temperatures are maintained at 20°C (68°F). Higher operating
+temperatures cause cell degradation which shortens the cycle life of the battery. Lower
+operating temperatures will reduce capacity.
+
+Flooded lead-acid batteries off-gas hydrogen while charging. This includes the Bulk and
+Absorption phase of a 3-phase charge profile and any routine corrective equalizations.
+Hydrogen is explosive and may ignite if exposed to open flame or spark and is also
+corrosive to electronics. For this reason, active ventilation must be installed in the
+battery enclosure to prevent the buildup of hydrogen gas.
+
+When operating at 20°C (68°F) ambient temperature, sealed (VRLA) batteries such as
+AGM or GEL models do not require active ventilation as hydrogen off-gassing during
+charge is minimal. However, passive airflow in the enclosure is required, at a minimum,
+as these batteries will off-gas small amounts of hydrogen during heavy charging. At
+higher ambient temperatures, ventilation also prevents overheating which accelerates
+cell degradation and shortens battery life.
+
+CONSIDERATIONS:
+
+Location:
+- Review and follow all local code requirements.
+
+- Flooded lead-acid batteries required active ventilation to remove hydrogen off-
+   gassing. Sealed VRLA batteries require passive airflow at a minimum. In an
+   installation where ambient temperatures are greater than 25°C (77°F) active
+   ventilation should also be installed.
+
+- The location of a battery enclosure should always be the first consideration. The
+   battery bank should not be installed in a living space.
+
+- If the battery enclosure is located inside a storage room or garage, the active
+   ventilation system must exhaust outside, away from windows, doors or fresh air
+   intake. Please consult your local codes and standards for specific requirements as
+   you are exhausting gasses that are potentially explosive.
+
+- Ventilation systems must exhaust outside and may exit via a ceiling or wall-mounted
+   vent. Wall-mounted exhaust should be as close to the ceiling height as possible.
+
+10
+- Fire code requires that flooded lead-acid batteries are not installed in the same room
+   as the inverter or any other electrical device, appliance, pilot light or heating system
+   which may pose a risk of spark or fire. Although an active ventilation system will be
+   installed, do not install the battery enclosure directly below a wall-mounted charger
+   or inverter as hydrogen is corrosive and may damage this equipment.
+
+- If the battery enclosure is on the exterior wall of a home or other structure it must
+   not be positioned in direct sunlight to prevent overheating.
+
+Zephyr Industries offers a variety of 12V, 24V & 48V power vent fans specifically
+designed for battery enclosures. These fans may be operated from the auxiliary relay
+on high-end charge controllers or by a voltage-controlled switch. When connected to
+a voltage-controlled relay, the fan operates only when the batteries are being charged
+and blows gas vapours out. These units also include a built-in damper when not in use
+to minimize back drafting.
+
+1. SIZE: When building a custom battery enclosure or purchasing a pre-built cabinet it is
+essential that the enclosure allows sufficient spacing around and between the batteries.
+Most lead-acid battery manufacturers recommend a minimum of 1"-3" spacing on each
+side of the battery to allow adequate cooling as the batteries heat up during charge, to
+allow proper airflow for removal of hydrogen off-gassing, and ease of maintenance. The
+height of the enclosure should also allow adequate space for easy installation/removal,
+routine inspection, watering and space for battery cabling.
+2. DESIGN & ACCESS: Easy access to the battery bank is important as routine
+maintenance such as watering (flooded models) and cleaning & re-torquing terminal
+connections will be required. The enclosure should have a hinged slanted lid to ensure
+easy access and discourage placing or storing items on top of the lid. When working
+with larger, heavier batteries, a removable or hinged front entry is also preferred as this
+will allow easier access for installation & future battery replacement.
+
+                                                                                               11
+3. INSULATION: foam or rubber weather stripping should be used around all openings
+at the top to seal and prevent hydrogen gas from escaping the enclosure as well as
+preventing rodents from getting inside. Batteries will self-discharge when not in use
+which poses a risk of damage due to freezing in cold temperatures. If the enclosure
+will not be in a climatized space and the system operates in very cold temperatures,
+rigid foam insulation may be installed under the bottom of the enclosure and/or around
+the interior, as well as the space between the batteries to reduce the risk of freezing.
+Insulation should be removed in warmer months to prevent overheating.
+
+4. SPILL CONTAINMENT: a spill-proof liner should be installed in the enclosure. This
+will contain any electrolyte overflows due to leaks from the batteries in the case of
+overfilling, puncture or cracked cases from freezing.
+
+5. SAFETY: For safety, the enclosure must include a latch and/or lock. Removable pin(s)
+may be used to secure the hinged front wall in place when unlocked and the lid is open.
+
+6. VENTILATION: when using flooded lead-acid batteries the enclosure must have
+active ventilation. If the battery enclosure is located inside a storage room or garage,
+the active ventilation system must exhaust outside via a ceiling or wall-mounted vent,
+a minimum 2m (6.5 ft) from any opening (doors or windows) or fresh air intake. Wall-
+mounted exhaust should be as close to the ceiling height as possible.
+
+7. AIR INTAKE: intake vents should be installed along the bottom 1/3 of the enclosure
+to allow proper airflow when the fan is active. Installing screen or vent inserts is
+recommended to keep rodents out of the enclosure.
+
+8. WIRING: use conduit to run wiring in/out of the enclosure, including battery
+connections and the battery temperature sensor, to protect wiring.
+
+9. TEMPERATURE SENSOR: most charge controllers and inverters use a battery
+temperature sensor to regulate charge voltage. This sensor should be mounted on the
+side of a battery cases in the middle of battery bank, as shown. See detailed installation
+instructions TEMPERATURE COMPENSATION & SENSOR INSTALLATION on pg. 14
+
+BATTERY CAPACITY & TEMPERATURE
+
+Ideal operating temperature for deep cycle lead-acid batteries is 25°C (77°F).
+Battery capacity and cycle life is affected by operating temperature. Operating at higher
+temperatures will reduce cycle life due to cell degradation. A cycle life reduction of ~50%
+for every 10°C over 25°C (77°F) is expected. Loss of cycle life is not recoverable.
+
+12
+Ex. Continuous operation at 35°C (95°F) will typically reduce battery cycle life by 50%.
+
+OPERATING TEMPERATURE        25ºC  30ºC        35ºC
+
+EXPECTED LOSS OF CYCLE LIFE  0%    25%         50%
+
+Cooler operating temperatures will prolong cycle life. However, low temperatures will
+reduce available battery capacity. Capacity is regained as operating temperatures rise.
+
+OPERATING TEMPERATURE        25ºC  0ºC         -15ºC
+PERCENTAGE OF AVAILABLE
+                             100%  75%         50%
+           CAPACITY
+
+Operating temperature is considered when sizing a battery bank to meet a required
+available Amp-Hour (AH) capacity. As continuous operating temperature drops, the
+required rated AH capacity of the battery bank will increase to meet the equivalent
+capacity. To calculate the adjusted capacity, use the multiplier in the table below.
+
+ºC    ºF                           MULTIPLIER
+
+25º   77º                               1.00
+                                        1.02
+20º   68º                               1.06
+                                        1.13
+15º   59º                               1.21
+                                        1.35
+10º   50º                               1.49
+                                        1.65
+5º    41º                               1.95
+                                        2.21
+0º    32º                              2.25
+
+-5º   23º
+
+-10º  14º
+
+-15º  5º
+
+-20º  -4º
+
+-25º  -11º
+
+TABLE 3: Cold Temperature Capacity Multiplier
+
+EXAMPLE: Calculated loads require 500 AH usable capacity. With an operating
+temperature of 25°C (77°F), a battery bank with 1000 AH rated capacity is needed. (max
+50% DOD)
+
+1000 AH capacity battery bank with a continuous operating temperature of -10°C (14°F)
+1000 AH x 1.65 = 1650 AH adjusted capacity
+
+NOTE: as operating temperatures may vary considerably over a 12-month period, the
+average temperature and corresponding multiplier may be used to calculate an adjusted
+capacity. Cycling frequency, seasonal changes in loads & desired depth of discharge
+(DOD) should also be considered when sizing a battery bank to meet a required Amp-Hour
+capacity.
+
+                                                                                               13
+TEMPERATURE COMPENSATION
+& SENSOR INSTALLATION
+
+For charge accuracy and safety, many systems use a sensor mounted to the battery
+to measure cell temperature and adjust charge voltage accordingly. Temperature
+sensors should be installed directly on the side of a cell or battery in the center of the
+bank and must be securely mounted below the electrolyte level to determine accurate
+cell temperature. See Figure 6 Temperature Sensor below. When using chargers that
+do not feature temperature compensation, voltage settings should be monitored
+and adjusted based on actual cell temperature. Failure to use or properly install the
+provided sensor may cause damage due to over/undercharge which is not covered
+under Rolls Battery manufacturer warranty. As a precaution, this sensor may also
+trigger a programmed safety charge cut-off as the battery bank should not exceed an
+operating temperature of 52ºC (125ºF).
+
+NOTE: FOR ACCURACY, THE TEMPERATURE SENSOR SHOULD NOT BE MOUNTED
+TO THE BATTERY TERMINAL OR TOP OF THE BATTERY CASE.
+
+Series 4000, 4500, VRLA AGM & OPzV GEL models - the temperature sensor
+should be mounted on a battery in the middle of the string or battery bank. To ensure
+an accurate reading of cell temperature, the sensor must be mounted below the liquid
+level on Flooded models and not attached to a terminal or top of the battery case as
+these areas are generally cooler than the internal cell. For traditional Flooded, VRLA
+AGM & OPzV GEL models, Rolls recommends attaching the sensor half way down the
+side of the battery and/or 10-12cm (4-5") from the top of the case for the most accurate
+temperature reading.
+
+Dual-Container Models - If the battery has a modular, dual-container construction,
+such as Series 5000 models, the temperature sensor must be mounted directly to the
+side of an internal cell. To access the cell, disconnect the terminal connections and
+remove the outer cover which snaps on to the case or may use small removable plastic
+pins. Mount the sensor to the internal cell and run the connecting cable between the
+case, being careful not to pinch or damage the wire when placing the cover back on.
+Automotive silicone is used to seal around each terminal to protect against spills, dust &
+debris. This may be reapplied when the case has been reassembled.
+
+                                                                      FIGURE 6:
+                                                                      Temperature
+                                                                      Sensor
+
+Dual-Container Models - Remove case cover. Mount sensor to the side of internal
+cell below liquid level. Replace the cover and re-seal around terminals with silicone.
+
+14
+END AMPS OR RETURN AMPS
+
+As batteries near full capacity, charge current decreases. End Amps, Return Amps or
+Tail Current refers to the lowest output of current (Amps) flowing to the batteries as
+they have reached full capacity. Some chargers will determine this set point has been
+reached by monitoring current output to the battery bank. If the charge current
+drops, reaching the End Amps/Return Amps/Tail Current set point before the
+programmed Absorption time has completed, this will trigger the charger to shut off
+or switch to the Float voltage phase which holds the battery bank at 100% SOC. The
+charger will complete the full programmed Absorption time if this set point is too low
+or programmed at 0%.
+The recommended End Amps/Return Amps/Tail Current set point for Rolls Flooded
+models is 2% of the 20 Hr AH rating (C/20) of the battery bank. Typically, when
+current drops to the 2% set point for 1 hour, the battery bank has reached 100% SOC.
+Rolls Flooded models with Advanced NAM may have a slightly higher End Amps/
+Return Amps/Tail Current set point as the cells are less resistant to charge and
+current output will remain slightly higher at 100% SOC. (2% recommended, 2-5%
+range) An adjustment to this set point may be required when these models replace
+other Flooded batteries. Test specific gravity at Float Charge to confirm 100% SOC.
+The recommended End Amps/Return Amps/Tail Current set point for Rolls VLRA
+AGM and OPzV GEL models is 3-4%.
+WARNING: The End Amps/Return Amps/Tail Current setting, combined with sulfated
+batter(ies), may confuse the charger as added resistance will reduce the flow of
+current. This may falsely trigger the charge to end the Absorption charge prior to
+reaching 100% SOC. Test specific gravity regularly to confirm the battery bank has
+reached 100% SOC and adjust this set point and/or Absorption time as necessary.
+
+                                                                                               15
+LOW VOLTAGE DISCONNECT (LVD OR LVCO)
+
+Many charging systems offer the ability to program a Low Voltage Disconnect (LVD)
+or Cut Off (LVCO) which triggers an alternate power source (often a generator) to turn
+on and begin charging the battery bank. When the programmed low voltage setting
+is reached, the system initiates the charge source which then safeguards from over-
+discharge. By default, this may be set by the charger manufacturer at 1.75 volts per
+cell (VPC). Always verify the default settings and adjust as required.
+
+LVD/LVCO setting is often a personal preference. Deep cycle batteries are intended
+to be discharged no more than 50%. Allowing the battery bank to discharge to a
+lower voltage will reduce over all cycle life. Alternatively, a higher set point may result
+in more frequent use of the alternate charging source (ex: generator) when discharge
+reaches the low voltage cut-off. To maintain cycle life and prevent heavy-discharge,
+Rolls recommends setting LVD/LVCO between 1.90-1.95 volts per cell (VPC). This may
+be adjusted up or down, depending how often you wish to run the alternate charging
+source (generator or alternative power) when the voltage of the battery bank reaches the
+programmed set point.
+
+WARNING: LVD/LVCO only cuts off the draw from the inverter/ charger. It does not
+disconnect all loads from the battery bank. A prolonged draw will eventually lead
+to over-discharge and possible battery failure or damage.
+
+OTHER CHARGER MODES
+Inverter and charge controller manufacturers may include additional settings. Rolls
+recommends contacting the manufacturer for guidance and to better understand how
+these settings function. Default settings are typically not in line with the required
+charge voltages and time. Charge & Float voltages and Absorption time calculations
+are provided by the battery manufacturer and are specific to the make & model.
+
+See Table 2 (a & 2 (b Flooded Charging Parameters for Flooded Models
+See Table 6: VRLA AGM Charge Voltage for AGM Models
+See Table 8: OPzV GEL Charge Voltage for GEL Models
+
+FLOODED LEAD-ACID BATTERY - CHARGE EFFICIENCY / CHARGE FACTOR
+
+Charge efficiency is a measure of the energy you may take out of a charged battery
+divided by the energy required to charge it. Charge efficiency will depend on a
+number of factors including the rate of charging or discharging. Charge efficiency for
+traditional Flooded deep cycle models is typically 80%. This should be reduced 1%
+per year after the third (3) year of operation.
+
+16
+ FLOODED
+LEAD-ACID
+BATTERIES
+
+                                                                     17
+INSPECTION & INITIAL CHARGE OF FLOODED
+LEAD-ACID BATTERIES
+
+WARNING
+
+· A LWAYS WEAR THE PROPER PERSONAL PROTECTIVE EQUIPMENT
+ (GOGGLES, GLOVES, CLOTHING) WHEN HANDLING FLOODED BATTERIES
+ AND ELECTROLYTE.
+
+· WET BATTERIES MUST BE FULLY CHARGED BEFORE BEING DELIVERED
+ TO THE END USER.
+
+· UNLESS INSTRUCTED BY ROLLS TECHNICAL SUPPORT, NEVER ADD ACID
+ TO THE BATTERIES AT ANY TIME. USE DISTILLED WATER ONLY.
+
+F AILURE TO FOLLOW THESE INSTRUCTIONS MAY RESULT IN MALFUNCTION
+AND WILL VOID WARRANTY.
+
+A battery may not be fully charged when received. An initial charge brings the battery to
+an operational state. Before charging, inspect for physical damage, check polarity and
+electrolyte levels in each cell. Ensure the electrolyte (liquid) covers the plates
+completely. It is normal for electrolyte levels to lower as the battery case will relax
+(bulge) slightly after filling. If the plates are exposed, add distilled water until all are
+just submerged. It is important not to overfill each cell as the electrolyte level will
+rise during the charging process. Charge voltages are indicated in Table 2 (a) & 2 (b)
+Flooded Charging Parameters.
+
+INITIAL INSPECTION & CHARGING
+
+1. Inspect the batteries for damage. Important: read all warning labels on batteries
+  before proceeding.
+
+2. F looded batteries are fully charged and tested before shipping. However, deep cycle
+  batteries will self-discharge when not in use during transportation and storage. Upon
+  installation, the initial charge brings the battery to an operational state. Before this
+  charging process, electrolyte levels should be checked, making sure the plates are
+  covered in each cell. If required, add distilled water until the plates are fully submerged.
+  It is important not to overfill as the electrolyte level will rise slightly during charge.
+
+3. C heck for correct polarity. Attaching the positive and negative voltmeter lead to the
+  positive and negative battery terminal should provide a positive voltage reading. If it
+  is negative, a reverse polarity condition exists, and you should contact your dealer or
+  Rolls Battery Technical Support to advise.
+
+4. Place batteries on charge. Please see Table 2(a) & 2(b) Flooded Charging Parameters
+  for required charging parameters. Do not let the cell temperature exceed 52°C (125°F).
+  If the temperature becomes excessive or the cells begin to gas vigorously, reduce the
+  rate of charge. Continue charging until all cells reach the specific gravity of the filling
+  acid. All cell specific gravities should be even (1.260-1.280) when resting at full charge.
+
+18
+FLOODED LEAD-ACID BATTERY CHARGING
+
+INITIAL CHARGE
+
+Although all Rolls batteries are tested and charged prior to shipping, batteries will
+self-discharge when stored and not in use. Upon installation, the initial charging
+may take 10+ hours or more depending on the size of the battery bank and charge
+current. Once the battery is fully charged, recheck the electrolyte level in the cell.
+The fluid should be 6-13mm (1/4"-1/2") below the vent tube on each cell as shown
+in Figure 7. Carefully add distilled water to adjust as needed.
+
+MULTI-PHASE CHARGING
+
+The most common charge method for Flooded deep cycle batteries is a three-phase
+charge cycle with periodic equalizations. Always be sure to follow the recommended
+charging parameters as these will vary. Often, pre-programmed default settings
+are not in line with the battery manufacturer's recommended voltage settings.
+Using these may result in damage or battery failure which is not covered under the
+manufacturer warranty. Refer to the charger manufacturer for specific programming
+instructions.
+
+BULK CHARGE
+
+The first of the three-phase charging process is the Bulk charge. During this stage the
+maximum amount of current flows into the battery bank until a desired programmed
+voltage is reached. For Flooded models, the recommended Bulk charge current is 10%
+of the AH capacity of the battery bank, based on the 20 Hr AH rate (C/20) (min 5%,
+max 20%). Higher charge current may cause the battery bank to overheat or damage
+the cells. A lower charge current may be used, however, this will prolong the required
+charge time and increase the potential for sulfation buildup. Bulk charge voltage set
+points are outlined in Table 2 (a) & 2 (b) Flooded Charging Parameters.
+
+ABSORPTION CHARGE
+
+The second and most important phase of the charge cycle is the Absorption charge.
+The Bulk charge typically brings the battery bank to approximately 80% SOC. Once
+reached, the charger will then switch to the programmed Absorption voltage to
+complete the charging cycle. Most three-phase chargers include an Absorption charge
+time setting allowing the user to program the duration of time needed to reach a full
+state of charge (100% SOC). To set the Absorption charge time, a calculation is done
+using the 20 Hr AH rating of the battery bank (C/20) and the actual measured charge
+current and/or max charger output. As the battery bank nears 100% SOC, internal
+resistance in the battery increases and charge current begins to decrease. It is
+assumed that over the time of the Absorption charge that 50% of your maximum charge
+current will be available. The Absorption Charge Time calculation uses a multiplier of
+0.42 for Flooded models which factors in assumed loss of current during the Absorption
+charge phase.
+
+                                                                                               19
+ABSORPTION CHARGE TIME - FLOODED
+Where: T = 0.42 x C /I T = ABSORPTION CHARGE TIME
+C = 20 hr RATED CAPACITY (total AH capacity of battery bank)
+I = Charging Current (Amps) (*see Note: CHARGING CURRENT below)
+0.42 = (factors in assumed current loss during Absorption charge phase)
+
+EXAMPLE:
+
+2 strings of 6 Volt 6 CS 25P models
+C = 20 hr AH rate = 853 AH x (2 strings) = 1706 AH
+I = 10% (recommended) of 1706 AH = 170 Amps
+T = 0.42 x 1706/170 = 4.2 hrs
+However, if actual measured current is less (~160 Amps), or maximum charger output
+is limited to 160 Amps, 160 is used. (Ex. 2 x 80 Amp controllers)
+T = 0.42 x 1706/160 = 4.48 hrs
+
+Recommended charge current for Flooded models is 10% of the 20 Hr AH rating of the
+battery bank (C/20) (min 5%, max 20%) Charge source(s) and chargers should be
+properly sized, based on the rated capacity of the battery bank, to ensure adequate
+charge output.
+
+NOTE: CHARGING CURRENT - Actual measured current output (Amps) to the battery
+bank should be used in this calculation as this is often less than the output limit of the
+charger. Using the average measured charge current generated during the Bulk phase
+is recommended as this is representative of actual output from the charge source.
+Maximum charger output applies when the generated output meets or exceeds this
+threshold.
+
+FLOAT CHARGE
+
+When the Absorption charge phase has completed and the batteries have reached
+100% SOC, the charger will continue to output at a lower voltage setting known as
+Float. Float voltage maintains the battery bank at a constant 100% SOC until the charge
+output diminishes (Ex: solar) and/or a load is applied which begins to discharge the
+battery bank. The amount of time the batteries are held at Float will vary depending on
+charge current output and loads. For charging equipment with a Float time setting, 1-2
+hours is generally sufficient. To prolong battery life, the Float settings on the power
+supply should be adjusted to the voltage indicated in Table 2 (a) & 2 (b) Flooded
+Charging Parameters. Higher or lower voltage settings may result in unnecessary
+overcharge or sulfation buildup.
+
+FLOODED LEAD-ACID BATTERY - CHARGE EFFICIENCY / CHARGE FACTOR
+
+Charge efficiency is a measure of the energy you may take out of a charged battery
+divided by the energy required to charge it. Charge efficiency will depend on a number
+of factors including the rate of charging or discharging. Charge efficiency for traditional
+Flooded deep cycle models is typically 80%. This should be reduced 1% per year after
+the third (3) year of operation.
+
+20
+ROLLS FLOODED BATTERY CHARGE VOLTAGE
+PARAMETERS
+
+NOTE: Use the highlighted voltage set points when charge equipment is supplied with a
+temperature sensor. Set at 5mV/ºC/Cell...(+/- 120mV per ºC from a 25ºC Delta - 48V System)
+
+     REGULAR CYCLING         0°C    10°C    20°C       25°C (77°F)  30°C     40°C
+            OFF-GRID        (32°F)  (50°F)  (68°F)   TEMP SENSOR    (86°F)  (104°F)
+
+           CHARGE / BULK /  2.63 V 2.58 V 2.53 V     2.50 V         2.48 V 2.43 V
+            ABSORPTION /
+                            2.38 V 2.33 V 2.28 V     2.25 V         2.23 V 2.18 V
+           BOOST VOLTAGE
+2V                          2.55V - 2.65V Refer to CORRECTIVE EQUALIZATION pg 26
+
+           FLOAT VOLTAGE    15.75 V 15.45 V 15.15 V  15.00 V        14.85 V 14.55 V
+
+            EQUALIZATION    14.25 V 13.95 V 13.65 V  13.50 V        13.35 V 13.05 V
+
+           CHARGE / BULK /  15.3V - 15.9V Refer to CORRECTIVE EQUALIZATION pg 26
+            ABSORPTION /
+                            31.50 V 30.90 V 30.30 V  30.00 V        29.70 V 29.10 V
+           BOOST VOLTAGE
+12V                         28.50 V 27.90 V 27.30 V  27.00 V        26.70 V 26.10 V
+
+           FLOAT VOLTAGE    30.6V - 31.8V Refer to CORRECTIVE EQUALIZATION pg 26
+
+            EQUALIZATION    63.00 V 61.80 V 60.60 V  60.00 V        59.40 V 58.20 V
+
+           CHARGE / BULK /  57.00 V 55.80 V 54.60 V  54.00 V        53.40 V 52.20 V
+            ABSORPTION /
+                            61.2V - 63.6V Refer to CORRECTIVE EQUALIZATION pg 26
+           BOOST VOLTAGE
+24V
+
+           FLOAT VOLTAGE
+
+            EQUALIZATION
+
+           CHARGE / BULK /
+            ABSORPTION /
+
+           BOOST VOLTAGE
+48V
+
+           FLOAT VOLTAGE
+
+            EQUALIZATION
+
+TABLE 2 (a): Flooded Charging Parameters: Regular Cycling - daily to 48-hour cycling (max 50% DOD) with
+limited charge time (solar). Example: full-time off-grid applications and Partial State of Charge (PSOC) recovery.
+
+  INFREQUENT CYCLING         0°C    10°C    20°C       25°C (77°F)  30°C     40°C
+             BACKUP         (32°F)  (50°F)  (68°F)   TEMP SENSOR    (86°F)  (104°F)
+
+           CHARGE / BULK /  2.55 V 2.51 V 2.47 V     2.45 V         2.43 V  2.39 V
+            ABSORPTION /
+                            2.35 V 2.31 V 2.27 V     2.25 V         2.23 V 2.19 V
+           BOOST VOLTAGE
+2V                          2.55V - 2.65V Refer to CORRECTIVE EQUALIZATION pg 26
+
+           FLOAT VOLTAGE    15.30 V 15.06 V 14.82 V  14.70 V        14.58 V 14.34 V
+
+            EQUALIZATION    14.10 V 13.86 V 13.62 V  13.50 V        13.38 V 13.14 V
+
+           CHARGE / BULK /  15.3V - 15.9V Refer to CORRECTIVE EQUALIZATION pg 26
+            ABSORPTION /
+                            30.60 V 30.12 V 29.64 V  29.40 V        29.16 V 28.68 V
+           BOOST VOLTAGE
+12V                         28.20 V 27.72 V 27.24 V  27.00 V        26.76 V 26.28 V
+
+           FLOAT VOLTAGE    30.6V - 31.8V Refer to CORRECTIVE EQUALIZATION pg 26
+
+            EQUALIZATION    61.20 V 60.24 V 59.28 V  58.8 V         58.32 V 57.36V
+
+           CHARGE / BULK /  56.40 V 55.44 V 54.48 V  54.00 V        53.52 V 52.56 V
+            ABSORPTION /
+                            61.2V - 63.6V Refer to CORRECTIVE EQUALIZATION pg 26
+           BOOST VOLTAGE
+24V
+
+           FLOAT VOLTAGE
+
+            EQUALIZATION
+
+           CHARGE / BULK /
+            ABSORPTION /
+
+           BOOST VOLTAGE
+48V
+
+           FLOAT VOLTAGE
+
+            EQUALIZATION
+
+TABLE 2 (b): Flooded Charging Parameters: Infrequent Cycling - infrequent cycling with grid-connected charging
+(Marine/RV/Industrial), off-season/part-time off-grid solar applications or grid-tied battery-backup systems.
+
+                                                                                     21
+SPECIFIC GRAVITY
+
+The specific gravity of electrolyte in a battery is the most accurate measurement of actual
+state of charge. To determine if the batteries have reached full SOC, testing should be done
+when the charge cycle has been completed and the battery bank is resting a Float voltage.
+The specific gravity (SG) reading should remain constant for 3+ hours for an accurate 100%
+SOC reading.
+
+*Test and record specific gravity readings regularly to confirm charging parameters are
+properly programmed and to avoid possible over/undercharge, cell damage and/or battery
+failure. Rolls Battery provides a Flooded Deep Cycle Battery Maintenance log book
+to track these readings and includes reminders to perform regular system inspections.
+Request a copy from your Rolls Battery Distributor or Dealer.
+
+Recommended testing: every 45-60 days
+Minimum: every 90 days
+
+Routine testing of specific gravity in Flooded models provides an opportunity to quickly
+identify any notable changes in battery performance caused by charge-related issues
+such as over/undercharging, sulfation buildup, capacity loss or cell/battery performance
+or failures. Regular testing and tracking offers peace of mind and is expected as part of
+the normal maintenance procedures. When monitored, necessary system adjustments
+may be made to quickly correct & prevent any further issue or damage.
+
+NOTE: Failure to adhere to ongoing maintenance requirements, including routine testing
+and logging of specific gravity and voltage readings, may result in denial of a filed warranty
+claim where the performance history and cause of cell/battery failure cannot be determined.
+
+    % Charge  Specific Gravity* (SG)
+
+         100           1.255 - 1.275
+         75            1.215 - 1.235
+         50            1.180 - 1.200
+         25             1.155 - 1.165
+          0             1.110 - 1.130
+
+TABLE 4: Specific Gravity vs State of Charge @ 25°C (77°F)
+
+NOTE: Specific Gravity is dependent on the temperature of electrolyte. The values
+noted in the table above are based on an electrolyte temperature of 25°C (77°F). Some
+refractometers will factor temperature correction automatically.
+
+Refer to the article "Specific Gravity Temperature Correction" found on Rolls Battery
+Technical Support page for correction values. Alternatively, add/subtract 0.003 for every
+5°C (10°F) increase/decrease from 25°C (77°F) as a general guideline.
+
+22
+BATTERY MAINTENANCE & STORAGE
+
+Batteries should be kept clean at all times. If installed or stored in a dirty location, regular
+cleaning should be performed. Before doing so, assure that all the vent caps are tightly
+fastened. Using a solution of water and baking soda (100g per litre), gently wipe the
+battery and terminals with a damp sponge, then rinse with water and wipe dry.
+
+A common cause of failure with Flooded battery banks is poor maintenance. Systems are
+often professionally installed and maintenance left to homeowners who are unaware of
+the requirements or simply choose not to complete the proper maintenance procedures.
+To maintain cycle life and protect your investment, Flooded batteries should be
+inspected regularly and, if required, cells should be topped up with distilled water as
+they near full state-of-charge. Customers will often neglect this for extended periods of
+time, and when doing so, over-water the cells resulting in loss of electrolyte, overflow
+during charging and/or corrosion issues. Failing to top up cells may result in plate
+exposure, overheating and possible explosion.
+
+ELECTROLYTE - ADDING DISTILLED WATER
+
+Only distilled (preferred), deionized or reverse osmosis water should be used in Flooded
+battery cells. cells. As required, water should be added to each cell as the batteries near
+full state-of-charge. Improper watering may cause internal cell damage. Test water to
+confirm a PH reading of 7 or less and no Total Dissolved Solids (TDS < 5 PPM).
+
+NOTEM: DaxoimnoutmadedlescutlrfoulryictealceivdetlosFpleocoidfieedd battery cells during normal top up. In the case
+of accidebntyatlhsepiblla, tptreermy imxeadnueflaeccttruorleyrte may be used to refill cells. 1.265
+S.G. for Series 4000, 4500 & 5000 models. 1.280 S.G. for FS models.
+
+        Open cell
+
+             6mm - 13mm           EleElcecttrroolylytetesholeulvdebel skehpot uld  FIGURE 7:
+             11//44""- -1/12/"2"  beatk1e/2p"tbbeloewlovwentvtuebne.t              Electrolyte level
+                                  tube to prevent overflow
+Electrolyte                       during charge.
+   level
+
+CAUTION: Do not add water or electrolyte to cells before initial charging unless plates are
+exposed. If so, add distilled water until plates are submerged. Please contact Rolls
+Technical Support if you have any questions or concerns.
+
+NOTE: If the battery cells require watering more than once every two (2) months the
+programmed charging voltages may be too high. Adjust and monitor accordingly. If a
+particular cell requires significantly more water than others this may be a sign of charge
+imbalance in the battery bank caused by resistance and/or cell failure. Typically, Series
+4000 & 4500 models will require watering every 30-60 days. Series 5000 batteries
+generally require watering every 60-90 days as these models are designed with a higher
+electrolyte reserve allowing longer watering intervals. However, watering frequency may
+vary considerably due to operating temperature, depth of discharge, cycle frequency and
+humidity.
+
+                                                                                                      23
+MAINTENANCE SCHEDULE
+
+For the first 12 months of usage, the following tests should be completed:
+
+MONTHLY
+
+· Measure and record resting/loaded voltage
+· Check electrolyte levels and top up with distilled water as necessary
+· Test and record specific gravity measurements in Float charge
+· Record ambient temperature where the batteries are installed
+· Inspect to ensure temperature sensor is securely attached
+· Inspect cell integrity for corrosion at terminal, connection, racks or cabinets
+· Check battery monitoring equipment to verify operation
+
+QUARTERLY
+
+· Test Ventilation
+· Check terminals/connections, remove corrosion and properly re-torque
+· Check for high resistive connections
+· Check cabling for broken or frayed cables
+· Verify Charge Output, Bulk/Absorption voltage of Inverter/Charge Controller
+· Check cells for cracks or indication of a possible leak
+· Check Ground connections
+
+Deep cycle batteries will increase in capacity during the initial break-in period of 60-
+90 cycles. Adjustments to charging parameters may be necessary during this time.
+Battery performance, charging and maintenance requirements will depend on usage.
+Following the break-in period, a regular maintenance routine will be established
+after 9-12 months of service.
+
+Following these recommendations will ensure the batteries reach their rated
+capacity and operate in good working order.
+
+STORAGE
+
+When not in use, it is normal to expect 10-12% self-discharge per month at 25ºC
+(77ºF) for Flooded models. This rate slows as ambient temperatures decrease and
+increases at higher temperatures. Stored Flooded batteries should be recharged
+every 3 months until the battery is put in service to avoid sulfation buildup and
+possible freezing in cold temperatures.
+
+Rolls Flooded models with Advanced NAM carbon additive may see an increased
+self-discharge rate of 20-25% per month at 25ºC (77ºF) when not in use. A refresher
+charge may be necessary every 2-3 months.
+
+NOTE: battery damage or failure caused by over-discharge, sulfation buildup,
+electrolyte stratification or excessive electrolyte loss while in extended storage
+without proper charging is not covered under the manufacturer warranty.
+
+24
+WINTER STORAGE
+
+Prior to placing Flooded batteries into winter storage, charge to 100% SOC and
+make certain the liquid level is approximately 13 mm (1/2") above the top of
+the separators. Electrolyte in a very cold battery will be lower than normal.
+Allow the battery to warm to a normal ambient temperature before judging
+electrolyte levels. Self-discharge rate will vary by ambient temperature. Apply
+a refresher charge as necessary when stored for extended periods.
+
+Example: Electrolyte may freeze if the batteries become discharged
+to approximately 50% SOC at -20ºC (-4ºF).
+
+Specific Gravity  Freezing Temperature
+       1.280             -69ºC (-92ºF)
+       1.265
+       1.250          -57.4ºC (-72.3ºF)
+       1.200            -52.2ºC (-62ºF)
+       1.150            -26.7ºC (-16ºF)
+       1.100
+                          -15ºC (5ºF)
+                          -7ºC (19ºF)
+
+TABLE 5: Specific Gravity vs Freezing
+
+CLEANING VENT CAPS:
+
+You might notice a sticky dark gray residue on the inside of the standard 1/4-turn
+bayonet, R-Caps or Watermiser vent caps on Flooded battery cells. This buildup
+of dirt and dried electrolyte is fairly common and may clog the vent holes, preventing
+the release of hydrogen off-gas during charge. Inspect the caps and clean using
+a neutralizing baking soda and water solution as necessary.
+
+CLEANING STEPS:
+
+1. C lean the caps by soaking in a solution of water and baking soda (100g per litre) in
+  a bucket or small bowl. Let the vents sit overnight to neutralize and break down any
+  electrolyte in the caps.
+
+2. F lush the caps clean by forcing water through the vent holes. Water should drip
+  freely. A trickle of water should flow from all vent holes, indicating the cap is clear
+  of debris.
+
+3. A llow the vents to dry completely. Once dried, shake recombination caps to make
+  sure the condensing beads on the inside of the cap rattle slightly. If you do not hear
+  the beads, let the cap dry for an additional 12 hours or repeat the process above.
+
+                                                                                 25
+EQUALIZATION
+
+Over time, individual cell readings may vary slightly in specific gravity due to charge
+imbalance or sulfation buildup. Individual cell readings will vary slightly in specific
+gravity after a charging cycle. Equalization, or a "controlled overcharge", is required
+to bring each battery plate to a fully charged condition. This reduces stratification
+and buildup of sulfation on the plates; two circumstances that shorten battery life.
+
+One of the most commonly asked questions is "When is it time to equalize my battery
+bank?" As usage is unique for each system, this will depend on several factors
+including depth of discharge, cycle frequency, operating temperature, charging
+voltage and current. Monitor specific gravity and voltage regularly as these readings
+will indicate when an Equalization may be necessary.
+
+NOTE: Running frequent equalizations on batteries that do not require balancing or
+desulfation will overcharge and deteriorate the cells prematurely, shortening the life
+of the battery.
+
+An Equalization should be completed when the specific gravity of individual cells
+within the battery bank are varied by more than .025 -.030.(Ex. 1.265, 1.235,
+1.260, 1.210...) Do not attempt to equalize a battery bank with failed cells or missing
+batteries as this will force an overcharge on the remaining cells which may cause
+permanent damage.
+
+When resting in Float charge, if specific gravity readings are consistently lower than
+recommended it may be necessary to adjust Bulk/Absorption voltages slightly and/or
+Absorption time to increase charge time.
+
+To properly equalize the battery bank, follow the Correction Equalization procedure
+using the recommended Equalization set point in Table 2 (a) & 2 (b) Flooded
+Charging Parameters starting at the lower end of the provided voltage range.
+
+CORRECTIVE EQUALIZATION
+
+Corrective Equalizations should be performed when the battery bank is at 100% SOC.
+Review and complete the provided preparations before initiating the Equalization
+charge.
+
+Equalization time will vary depending on the level of sulfation, balance of charge, size
+of the battery bank and available charging source. Typically, a corrective Equalization
+is necessary every 60 to 180 days to desulfate and balance a battery bank in systems
+which are deficit cycled and/or charged at lower charge currents. If multiple parallel
+strings show charge imbalance it may be necessary to equalize each string individually.
+
+It is important to monitor specific gravity and voltage throughout the Equalization
+process. When specific gravity readings remain constant for 45-60 minutes this
+generally indicates completion.
+
+26
+NOTE: Series 4000, 4500 & 5000 models are shipped with electrolyte reaching 1.265
+specific gravity at full charge. Rolls FS models are shipped with electrolyte reaching
+1.280 at full charge. This is noted on the battery label for reference.
+
+PREPARATION:
+
+- Required Equipment: protective goggles, rubber gloves & rubber boots, hydrometer
+ or refractometer, voltmeter, distilled water, baking soda or soda ash for possible
+ overflow or spills
+
+- Standard 1/4-turn bayonet caps and Rolls R-Cap flip-top recombination caps may
+ be left on during this procedure. Dirty or clogged caps may prevent the release of
+ hydrogen gas. Inspect and clean caps as necessary. Hydrocaps must be removed.
+
+- Check each cell for low electrolyte levels and/or exposed plates and top up with
+ distilled water as necessary. If the cells require watering, do so before starting
+ the Equalization process to allow sufficient mixing with the existing electrolyte.
+ Be careful not to overfill as the electrolyte will bubble and may overflow during
+ the process.
+
+- P rogram the Equalization voltage as recommended in Table 2 (a) & 2 (b) Flooded
+ Charging Parameters starting at the lower end of the voltage range for newer
+ models.
+
+PROCEDURE:
+
+1. Complete a Bulk & Absorption charge to bring the battery bank to 100% SOC before
+   starting a corrective Equalization.
+
+2. Measure the temperature of a test cell and record the specific gravity of each cell in
+   the battery bank. Identify cells with high/low readings.
+
+NOTE: Do not attempt to equalize a battery bank with known failed batteries or cells
+as this may force a severe overcharge, damaging the remaining cells.
+
+3. Initiate the Equalization charge mode at a steady low DC current (5-10% of C/20
+   battery capacity). If grid power is not available, use a DC power source (generator)
+   or PV array with sufficient current when possible.
+
+4. Specific gravity will rise across the battery bank, ideally 1.265-1.270 (Series
+   4000/4500/5000) or 1.280-1.285 (FS models) in each cell upon completion.
+   Readings in some cells may be slightly elevated due to electrolyte temperature
+   (+0.05) and will return to normal when cooled but should not exceed 1.30. If the
+   cell temperature rises above 46ºC (115ºF) and approaches 52ºC (125ºF), terminate
+   the Equalization process and allow the batteries to cool. If available, check
+   individual cell temperatures using an IR temp sensor to isolate any possible
+   damaged cells.
+
+5. If cells are severely sulfated it may take several hours for the specific gravity to rise
+   and/or balance. If the readings plateau for 45-60 minutes, but do not reach the
+
+                                                                                               27
+   ideal range of 1.265-1.270 (Series 4000/4500/5000) or 1.280-1.285 (FS models),
+   stop the process to prevent cell damage and allow the batteries to cycle normally
+   for 2-4 weeks before repeating. The cells will continue to desulfate following an
+   Equalization as sulfate dissolves during normal charging.
+
+Allow the battery bank to cool for 1-2 hours. Check and record the specific gravity of
+each cell. The gravities should be 1.265-1.270 (Series 4000/4500/5000) or 1.280-1.285
+(FS models) or lower. Check electrolyte levels and add distilled water as necessary.
+
+It is recommended that a specific gravity reading of one pilot cell is measured and
+recorded on a regular basis when it is thought that the bank is fully charged. The
+measurement should be compared to previous readings. If the measurement is lower
+than the previous reading, a longer absorption time and/or higher voltage setting
+should be used. The longer the Absorption time and the higher the Bulk voltage,
+the more water will be consumed but less Equalization will be required.
+
+NOTE: The specific gravity should rise as the cells use water. Look for trends in the
+specific gravity over a period of time and make small adjustments as necessary.
+
+PREVENTATIVE EQUALIZATION & FREQUENCY
+
+Most multi-phase charge controllers offer pre-programmed Equalization schedules
+commonly referred to as preventative equalizations. These are typically set to run for a
+shorter 1-2 hour period every 30, 60 or 90 days and may be beneficial in balancing
+and removing small amounts of accumulated sulfation on an ongoing basis.
+
+It should be noted that running frequent equalizations on batteries which do not
+require balancing or desulfation will overcharge and deteriorate the cells prematurely,
+shortening the life of the battery. For this reason, Rolls recommends monitoring
+specific gravity and voltage on a regular basis to ensure scheduled Equalization times
+are appropriately set. Alternatively, a corrective Equalization may be necessary if
+symptoms arise such as running a backup generator more frequently (low capacity) or
+the battery bank will "no longer hold a charge". These symptoms are typical of heavy,
+accumulated sulfation. If a battery is not being fully charged on a regular basis or
+limited or inadequate Equalization is performed using a generator, sulfating will occur
+from "deficit" cycling`. This undercharge and buildup will gradually lower available
+capacity. It is best to monitor the condition of the bank regularly as accumulation of
+sulfation may take months to reach a point where the loss is noticeable.
+
+NOTE: Properly charging a battery bank with sufficient voltage and current on each
+cycle is essential to long cycle life. Equalizations may be required periodically to
+balance and desulfate but should not be relied on to compensate for insufficient
+charging sources. This procedure may not fully recover a loss of capacity from a
+buildup of sulfation over time. Repeated Equalizations may be required in situations
+where the battery bank has been consistently undercharged. Recovered capacity,
+generally partial, may take 1-3 months with monitoring and repeated procedures
+in battery banks with consistently low specific gravity measurements.
+
+28
+VRLA AGM
+BATTERIES
+
+                                                                 29
+ROLLS VRLA AGM BATTERY
+CHARGING INSTRUCTIONS
+
+To maximize the life of your Rolls VRLA AGM battery, it is important that it is properly
+charged. Over or undercharging a VRLA AGM battery will result in shortened cycle life.
+The best protection from improper charging is to use a quality charger and routinely
+checking that the charge current and manufacturer-recommended voltage settings
+are properly maintained.
+
+VRLA AGM CHARGING GUIDELINES
+
+To maintain good health, VRLA AGM batteries should be brought to a full charge on each
+cycle or, at minimum, once every 6-7 days. Charge should be completed in a ventilated
+area as hydrogen gas may still be released through the pressure relief valve if the
+batteries are excessively overcharged. Never charge a frozen battery. Ideal charging
+temperatures: 0°C-40°C (32°F-104°F).
+
+VRLA AGM CHARGING CHARACTERISTICS
+
+To maximize your battery life, a voltage regulated charger with temperature
+compensation is strongly recommended. Refer to Table 6 VRLA AGM Charge Voltage
+for the recommended charging parameters. Charge voltage should be set to 2.45vpc
+@ 25°C (77°F) to allow the charger to properly adjust voltage with temperature
+compensation. Temperature compensation should be programmed as specified in
+Table 6 with adjustment in increments of 4mv/ºC/Cell. Without temperature compensation,
+voltage settings should be manually adjusted for temperatures varying from 25°C (77°F).
+As temperature decreases, the voltage should increase and vice versa. If the charger
+has a preset charge profile for VRLA AGM type batteries, verify that these voltage
+settings follow the battery manufacturer's specific charging parameters.
+
+VRLA AGM BULK & ABSORPTION CHARGE
+
+VRLA AGM batteries have a lower internal resistance than Flooded models, allowing
+them to accept current more efficiently. It is recommended that the initial charge current
+is set at 20% of C/20 of the battery bank (min 10% / max 30% of C/20) in order to fully
+charge the batteries within a reasonable amount of time. It may be set lower; however,
+this will increase the required charge time. Refer to the recommended & maximum charge
+current noted on the product label as these may be lower than 20% of C/20 / max 30% on
+larger 2-volt AGM models. It is very important that VRLA AGM batteries are brought to a
+full charge frequently to prevent capacity loss. It should also be noted that, unlike Flooded
+models, these batteries should NOT be equalized to recover capacity loss. This program
+setting should be disabled in the charge controller to prevent accidental overcharge.
+
+The charger should deliver the initial max current at the programmed Bulk voltage
+until the voltage limit is reached, then switching to the Absorption charge phase.
+The charger should maintain the Absorption voltage until current tapers to the
+programmed End Amps/Return Amps/Tail Current set point (3% is recommended for
+VRLA AGM models). To set the Absorption charge time, a calculation is done using the
+20 Hr AH rating of the battery bank (C/20) and the actual measured charge current
+and/or max charger output.
+
+30
+VRLA AGM ABSORPTION CHARGE TIME
+
+Where: T = 0.38 x C /I T = ABSORPTION CHARGE TIME
+C = 20 hr RATED CAPACITY (total AH capacity of battery bank)
+I = Charging Current (Amps) (*see Note: CHARGING CURRENT on pg 11 for details)
+0.38 = (factors in assumed current loss during Absorption charge phase)
+
+EXAMPLE:                                                NOTE:
+                                                        If actual measured current is
+2 strings of 6 Volt S6-460AGM-RE models                 120 Amps, or the maximum
+C = 20 hr AH rate = 415 AH x (2 strings) = 830 AH       charger output is limited to
+I = 20% (recommended) of 830 AH = 166 Amps              120 Amps, 120 is used.
+T = 0.38 x 830/166 = 1.9 hrs                            (Ex. 2 x 60 Amp controllers)
+                                                        T = 0.38 x 830/120 = 2.6 hrs
+VRLA AGM FLOAT STAGE AND TERMINATION
+
+To maintain 100% SOC, the charger continues output to the battery bank at the
+programmed Float voltage and End Amps/Return Amps/Tail Current indefinitely or
+until the charger is shut off or unplugged. The profile in Table 6: VRLA AGM Charge
+Voltage may be used with or without the Float stage. Without the Float stage,
+recharge may be terminated based on time. This will vary by depth of discharge and
+charge current, or percentage recharge (105-110%).
+
+ROLLS VRLA AGM BATTERY CHARGE
+VOLTAGE PARAMETERS
+
+VRLA AGM CHARGING 0°C (32°F)      10°C          20°C    25°C (77°F)   30°C     40°C
+                                  (50°F)       (68°F)      TEMP      (86°F)   (104°F)
+
+       CHARGE / BULK /   2.55 V   2.51 V       2.47 V    SENSOR      2.43 V    2.39 V
+         ABSORPTION /                          2.32 V      2.45 V    2.28 V   2.24 V
+                                               14.84 V     2.30 V    14.58 V  14.34 V
+2V BOOST VOLTAGE                               13.92 V     14.70 V   13.68 V  13.44 V
+                                               29.64 V    13.80 V    29.16 V  28.68 V
+FLOAT VOLTAGE            2.40 V   2.36 V       27.84 V    29.40 V    27.36 V  26.88 V
+                                               59.28 V     27.60 V   58.32 V  57.36 V
+        CHARGE / BULK /  15.30 V  15.06 V      55.68 V    58.80 V    54.72 V  53.76 V
+          ABSORPTION /                                    55.20 V
+
+12V BOOST VOLTAGE
+
+FLOAT VOLTAGE 14.40 V 14.16 V
+
+        CHARGE / BULK /  30.60 V  30.12 V
+          ABSORPTION /
+
+24V BOOST VOLTAGE
+
+FLOAT VOLTAGE 28.80 V 28.32 V
+
+          CHARGE / BULK /
+            ABSORPTION / 61.20 V 60.24 V
+
+TA48BV LEB6O:OVSRTLVAOLATGAGME Charge Voltage
+
+           FLOAT VOLTAGE 57.60 V 56.64 V
+
+NOTE: Use the highlighted voltage set points when charge equipment is supplied
+with a temperature sensor. Set at 4mV/ºC/Cell...(+/- 96mV per ºC from a 25ºC
+Delta - 48V System) Higher or lower settings may cause incorrect adjustments in
+charge voltage. Without a temperature sensor, charge settings must be adjusted
+manually based on the battery temperature when in use, not just ambient
+temperatures.
+
+                                                                                       31
+VRLA AGM CHARGE EFFICIENCY/CHARGE FACTOR
+
+Charge efficiency is a measure of the energy you may take out of a charged battery
+divided by the energy required to charge it. Charge efficiency will depend on a
+number of factors including the rate of charging or discharging. VRLA AGM batteries
+have an average charge efficiency of ~80%. This should be reduced 1% per year
+after the third (3) year of operation.
+
+VRLA AGM REFRESH CHARGE
+
+If Rolls VRLA AGM batteries are properly charged they should not experience varied
+capacity loss or require balancing. If they were not properly charged and there is a
+decrease in capacity, fully recharge the batteries at the recommended voltage. It is
+important to prevent heavy-discharge. If the batteries will be stored for extended
+periods of time, apply a periodic refresh charge. Frequency will depend on storage
+temperature as noted below.
+
+STORAGE
+
+NOTE: When not in use, it is normal to expect 2% self-discharge per month (at 25ºC
+(77ºF) for sealed VRLA AGM models. This rate slows as ambient temperatures
+decrease and increases at higher temperatures. Stored batteries should be
+recharged every 3-4 months until the battery is put in service to avoid sulfation
+buildup and possible freezing in cold temperatures.
+
+    Storage Temperature        Refresh Charge Interval
+
+        Below 20ºC (68ºF)                 9 Months
+    20ºC (68ºF) - 30ºC (86ºF)             6 Months
+     Higher than 30ºC (86ºF)              3 Months
+
+TABLE 7: VRLA AGM Storage Temperature & Refresh Charge
+
+DISPOSAL PROCEDURE
+
+Batteries must NEVER be disposed of in household waste. To reduce environmental impact,
+bring your spent VRLA AGM batteries to a certified recycling depot to be recycled.
+
+VRLA AGM BATTERY CAPACITY & TEMPERATURE
+
+Ideal operating temperature for VRLA AGM batteries is 25°C (77°F). Note that higher
+operating temperatures will reduce cycle life due to cell degradation. Cycle life loss
+is not recoverable.
+
+Ex. Continuous operation at 35°C (95°F) will typically reduce cycle life by 50%.
+
+Cooler operating temperatures will reduce battery capacity. Capacity is regained as
+operating temperatures rise. To calculate the adjusted capacity, refer to Table 3:
+Cold Temperature Capacity Multiplier
+
+32
+ OPzV GEL
+BATTERIES
+
+                                                                 33
+ROLLS OPzV GEL BATTERY INSTALLATION
+& CHARGING
+
+Designed and well-suited for regular cycling as well as float and backup applications,
+Rolls sealed OPzV GEL batteries have a low internal resistance than Flooded deep
+cycle models allowing quick recharge and a low self-discharge rate (2% per month).
+Rolls OPzV GEL batteries perform well in installations requiring frequent cycling even
+under extreme operating conditions and offer more than 20-year cycle life in float
+applications at 25ºC (77ºF).
+
+INSTALLATION
+
+Rolls OPzV GEL batteries should be installed upright unless otherwise specified and
+should not be mounted upside down or horizontally on the end (shortest side) of the
+case. Models compatible with horizontal installation (longest side) as well as custom
+racking systems are available upon request. Contact your Rolls Battery Distributor
+or Dealer for more information.
+
+Use caution not to cover or apply pressure to valves located on the top of the batteries
+when using strapping to move or secure the batteries as damage may occur.
+
+OPzV GEL BATTERY CHARGING
+
+Rolls OPzV GEL batteries have similar installation and charging requirements as VRLA
+AGM models with the exception of unique Bulk, Absorption and Float voltage set points.
+
+ROLLS OPzV GEL BATTERY CHARGE
+VOLTAGE PARAMETERS
+
+OPZV GEL CHARGING         0°C     10°C          20°C    25°C (77°F)   30°C     40°C
+                         (32°F)   (50°F)       (68°F)      TEMP      (86°F)   (104°F)
+                                               2.40 V                2.37 V    2.34 V
+        CHARGE / BULK /  2.46 V   2.43 V       2.30 V    SENSOR      2.27 V   2.24 V
+         ABSORPTION /                          14.37 V     2.38 V    14.19 V  14.01 V
+                                               13.77 V     2.28 V    13.59 V  13.41 V
+2V BOOST VOLTAGE                               28.74 V    14.28 V    28.38 V  28.02 V
+                                               27.54 V    13.68 V    27.18 V  26.82 V
+    FLOAT VOLTAGE        2.36 V   2.33 V       57.48 V    28.56 V    56.76 V  56.04 V
+                                               55.08 V     27.36 V   54.36 V  53.64 V
+        CHARGE / BULK /  14.73 V  14.55 V                  57.12 V
+          ABSORPTION /                                    54.72 V
+
+12V BOOST VOLTAGEE
+
+    FLOAT VOLTAGE 14.13 V 13.95 V
+
+        CHARGE / BULK /  29.46 V  29.10 V
+          ABSORPTION /
+
+24V BOOST VOLTAGE
+
+    FLOAT VOLTAGE 28.26 V 27.90 V
+
+          CHARGE / BULK /
+            ABSORPTION / 58.92 V 58.20 V
+
+T4A8BV LEB8O:OOSPT zVVOLGTEAGLECharge Voltage
+
+          FLOAT VOLTAGE 56.52 V 55.80 V
+
+NOTE: Use the highlighted voltage set points when charge equipment is supplied with a
+
+temperature sensor. Set at 3mV/ºC/Cell...(+/- 72mV per ºC from a 25ºC Delta - 48V
+System) Higher or lower settings may cause incorrect adjustments in charge voltage. Without
+a temperature sensor, charge settings must be adjusted manually based on the battery
+
+temperature when in use, not just ambient temperatures.
+
+34
+OPzV GEL CHARGER INSPECTION
+
+The charger cabling should be insulated and free of breaks or cuts. The cable
+connectors should be clean and properly mated with the battery terminals to ensure
+a snug connection. The charger's AC cord should be free of breaks or cuts and the
+wall plug should be clean.
+
+OPzV GEL CHARGING GUIDELINES
+
+To maintain good health, OPzV GEL batteries should be brought to a full charge
+on each cycle or, at minimum, once every 6-7 days. Charge should be completed
+in a ventilated area as gasses may still be released through the pressure relief
+valve if the batteries are excessively overcharged. Never charge a frozen battery.
+Ideal charging temperatures: 0°C-40°C (32°F-104°F).
+
+OPzV GEL CHARGING CHARACTERISTICS
+
+To maximize your battery life, a voltage regulated charger with temperature
+compensation is strongly recommended. Refer to Table 8 OPzV GEL Charge
+Voltage for the recommended voltage regulated charge profile. If using battery
+temperature compensation, charger voltage should be set to 2.38vpc - 25°C
+(77°F) to allow the proper voltage adjustment by the charger (3mv/ºC/Cell). If the
+charger has a preset charge profile for OPzV GEL type batteries, verify that these
+voltage settings follow the battery manufacturer's specific recommendations.
+
+OPzV GEL BULK & ABSORPTION CHARGE
+
+OPzV GEL batteries have a lower internal resistance than Flooded models, allowing
+them to accept current more efficiently. It is recommended that the initial charge
+current is set at 20% of C/20 of the battery bank (min 10% / max 30% of C/20) in
+order to fully charge the batteries within a reasonable amount of time. It may be set
+lower; however, this will increase the required charge time. It is very important that
+OPzV GEL batteries are brought to a full charge frequently to prevent capacity loss.
+It should also be noted that, unlike Flooded models, these batteries should NOT be
+equalized to recover capacity loss. This program setting should be disabled in the
+charge controller to prevent accidental overcharge.
+
+The charger should deliver the initial max current at the programmed Bulk voltage
+until the voltage limit is reached, then switching to the Absorption charge phase.
+The charger should maintain the Absorption voltage until current tapers to the
+programmed End Amps/Return Amps/Tail Current set point (3-4% is recommended
+for OPzV GEL models). To set the Absorption charge time, a calculation is done
+using the 20 Hr AH rating of the battery bank (C/20) and the actual measured
+charge current and/or max charger output.
+
+OPzV CHARGE EFFICIENCY/CHARGE FACTOR
+
+Charge efficiency is a measure of the energy you may take out of a charged battery
+divided by the energy required to charge it. OPzV GEL batteries have an average
+charge efficiency of ~85%. This should be reduced 1% per year after the third
+(3) year of operation.
+
+                                                                                               35
+OPzV GEL ABSORPTION CHARGE TIME
+
+Where: T = 0.38 x C /I T = ABSORPTION CHARGE TIME
+C = 20 hr RATED CAPACITY (total AH capacity of battery bank)
+I = Charging Current (Amps) (*see Note: CHARGING CURRENT on pg 11 for details)
+0.38 = (factors in assumed current loss during Absorption charge phase)
+
+EXAMPLE:                                    NOTE:
+
+1 string of 2-Volt S2-690GEL models         If actual measured current is
+C = 20 hr AH rate = 785 AH                  120 Amps, or the maximum
+I = 20% (recommended) of 785 AH = 157 Amps  charger output is limited to
+T = 0.38 x 785/157 = 1.9 hrs                120 Amps, 120 is used.
+                                            (Ex. 2 x 60 Amp controllers)
+OPzV GEL FLOAT STAGE AND TERMINATION        T = 0.38 x 785/120 = 2.5 hrs
+
+To maintain the battery bank at 100% SOC, the charger continues to apply a Float
+charge to the battery bank at the End Amps/Return Amps/Tail Current indefinitely
+or until the charger is shut off or unplugged.
+
+OPzV GEL REFRESH CHARGE
+
+If Rolls OPzV GEL batteries are properly charged they should not experience
+varied capacity loss or require balancing. If they were not properly charged and
+there is a decrease in capacity, fully recharge the batteries at the recommended
+voltage. It is important to prevent heavy-discharge. If the batteries will be stored for
+extended periods of time, apply a periodic refresh charge. Frequency will depend
+on storage temperature as noted:
+
+    Storage Temperature        Refresh Charge Interval
+
+        Below 20ºC (68ºF)                 9 Months
+    20ºC (68ºF) - 30ºC (86ºF)             6 Months
+     Higher than 30ºC (86ºF)              3 Months
+
+TABLE 9: OPzV GEL Storage Temperature & Refresh Charge
+
+DISPOSAL PROCEDURE
+
+Batteries must NEVER be disposed of in household waste. To reduce environmental impact,
+bring your spent OPzV GEL batteries to a certified recycling depot to be recycled.
+
+OPzV GEL BATTERY CAPACITY & TEMPERATURE
+
+Ideal operating temperature for OPzV GEL batteries is 25°C (77°F). Note that higher
+operating temperatures will reduce cycle life due to cell degradation. Cycle life loss
+is not recoverable.
+
+Ex. Continuous operation at 35°C (95°F) will typically reduce cycle life by 50%.
+
+Cooler operating temperatures will reduce battery capacity. Capacity is regained as
+operating temperatures rise. To calculate the adjusted capacity, refer to Table 3:
+Cold Temperature Capacity Multiplier
+
+36
+ RENEWABLE
+     ENERGY
+
+APPLICATIONS
+
+                                                                          37
+RENEWABLE ENERGY APPLICATIONS
+
+NOTE: To ensure the proper sizing, installation and ongoing maintenance of your battery
+bank, and that your system installation follows all code requirements and manufacturer
+recommendations and warranty terms, we recommend working with a reputable
+boardcertified PV Professional.
+
+Most deep cycle batteries used in the Renewable Energy Industry were originally
+designed and manufactured for use in commercial and industrial applications where
+consistent charge cycles are carried out from six to twelve hours until the batteries
+reach a full state of charge. In Renewable Energy (RE) applications, a lengthy
+charge time is not typical and in most instances a maximum of 4-6 hours of peak
+charge is achieved each day due to limited daylight and varying weather conditions. To
+ensure the batteries received sufficient charge, charging systems must be adequately
+sized or additional charge sources added to prevent undercharge, deficit cycling and
+premature battery failure.
+
+There are two definitive types of battery-based systems used in Renewable Energy
+applications; off-grid and grid-connected. Off-grid systems are often used where a
+customer does not have access or chooses not to connect to a public utility. This
+customer may live remotely and have chosen to install a renewable energy system
+from a single or combination of renewable sources to generate and store adequate
+power to run all electrical requirements within the home.
+
+With grid-connected systems, a customer typically lives in an area where they may
+experience frequent or extended service interruptions from their public utility. This
+may be a result of poor weather conditions, an unreliable power grid or natural
+disasters. The renewable energy system is used as a backup power supply, meant to
+supplement power to support critical loads (e.g. lighting and refrigeration) during brief
+outages and/or to reduce energy costs by selling excess power generated from the
+system back to the utility.
+
+DEPTH OF DISCHARGE
+Depth of Discharge (DOD), is used to describe how deeply the battery has been
+discharged. A battery which is 100% fully charged would have a DOD of 0%. A battery
+which has been discharged by 20% of its capacity, maintaining 80% of its capacity,
+would have a DOD of 20%. If a battery has been completely discharged with no
+remaining capacity, the DOD is 100%.
+
+CYCLE LIFE
+Battery manufacturers rate the cycle life of their batteries by comparing the level of
+discharge on the battery and the frequency of cycling. Higher battery discharge will
+result in shorter cycle life. In reverse, a smaller discharge percentage will extend the
+expected cycle life of the battery as the battery will provide more charge/discharges.
+To provide an example of cycle life, a 48V string of 8 x 6-volt S6 L16-HC models in
+series (445 AH capacity @ C/20 ) which are consistently discharged to 50% state of
+charge (222 AH of capacity drawn) and consistently recharged to a full state of charge
+should provide approximately 1995 cycles before end of life.
+
+38
+     CYCLE LIFE VS. DEPTH OF DISCHARGE - ROLLS BATTERY ENGINEERING
+    SERIES 5000 WITH ADVANCED NAM
+
+Off-grid Renewable Energy systems are typically sized to operate between 20%
+and 50% DOD. Deep cycle batteries should be used to a maximum 50% DOD as
+this offers a balance between capacity vs. cycle life, also taking into consideration
+the cost of replacement.
+For grid-connected backup systems, Installers will typically size battery banks to
+operate to a greater depth of discharge to lower initial installation costs. Cycling of
+grid-connected systems is significantly less frequent than off-grid applications
+where this typically occurs on a daily basis. With infrequent cycling, a maximum
+80% DOD is acceptable as long as the customer understands that the overall
+cycle life is affected when the battery bank is discharged beyond 50% SOC.
+These systems should not be designed to fully discharge the battery bank.
+
+                                                                                                39
+BATTERY SELECTION FOR OFF-GRID SYSTEMS
+
+Choosing the appropriate battery for the application is key to long battery life and
+performance. Once the load is calculated, a battery bank should be selected to meet
+the system design as well as installation requirements. Flooded lead-acid models
+using lead-antimony plates require frequent cycling to maintain capacity and prevent
+sulfation buildup.
+Lead-Calcium plates used in VRLA AGM and GEL models are more tolerant and better
+suited to float applications where the battery may not be cycled as often. If a battery
+bank of a specific capacity is needed, it is important to select a battery model which
+offers sufficient capacity, without oversizing, and also minimizes the number of
+parallel strings required to accomplish the desired voltage and capacity.
+Systems with multiple parallel strings will often experience an imbalance of charge.
+These banks will also require additional maintenance as this increases the number
+of terminal connections requiring cleaning as well as the number of Flooded cells
+to inspect, test and water. When a charge imbalance is not addressed through
+adjustments in charge time and corrective Equalizations this will lead to capacity loss
+and premature battery failure.
+Determining the capacity requirement for off-grid systems is done by completing
+an audit of energy consumption based on actual load requirements. The load is
+calculated by the total amount of power necessary to support the load for a 1-day
+period and then factors in how many days it may be required before recharging. In
+a Renewable Energy system, the 20 hr AH rate (C/20) is used when sizing systems
+to cover three days of autonomy or less. The 100 hr AH rate (C100) is used when
+designing systems to cover more than 3 days of autonomy.
+Most systems are designed for 1-2 days of autonomy due to the cost of batteries
+verses the cost of adding a generator and/or additional renewable energy sources.
+This is also most typical for solar applications as these systems allow the battery
+bank to be charged each day.
+Deep cycle batteries will perform best when maintained at a full charge. By
+holding at a 100% SOC this will extend the overall life of the battery bank. For
+float applications such as backup systems, it is important to discharge and charge
+the battery bank periodically to exercise the battery bank as this will prevent
+stratification and sulfation buildup.
+Backup systems are often sized to meet the load requirement at the time of install.
+It is important to note that as load profiles change this will also affect how quickly
+battery capacity will be reduced.
+
+40
+DISCHARGE RATES
+
+Discharge and recharge rates should be considered when selecting and sizing
+a battery bank. Battery manufacturers publish multiple discharge rates for each
+battery model, which range from 100 hrs to 1 hr. These are often referenced for
+various type of applications. The most common in Renewable Energy applications
+is the 20 hr rate as this closely matches a 1-day period. The rating, (ex C/20)
+refers to a controlled load (Amps) which can be placed on the battery for a period
+of time before the battery voltage reaches 1.75 VPC (volts per cell). A high amp
+draw may be run for a shorter period of time and vice versa.
+
+As an example, a 400 AH battery can support a controlled 20 Amp draw for 20
+hours (C/20). Alternatively, the same battery can support a controlled 34 Amp
+draw over a 10-hour period (C/10), meaning it supplies 340 AH capacity for that
+period of time. Batteries which are discharged should be recharged as promptly
+as possible.
+
+An off-grid PV system should be designed to provide a charge current that is
+capable of recharging the batteries quickly, efficiently and within the window of
+time when the system is generating peak power (peak sun). The charge current
+should be within 10-20% of the 20 Hr AH rate (C/20) rate of the battery bank,
+or the C/4, C/5, or C/6 rate of the battery. Using the Absorption charge time
+calculation (charge current of 10% of the C/20 rate of the battery bank will take
+approximately 4.2 hours, plus the Bulk phase (usually 1-2 hours) to bring the bank
+from 50% to 100% SOC. This is an ideal scenario as a lower charge current will
+often increase the required charge time beyond the available sun hours
+causing deficit cycling and/or the use of supplemental charging such as a
+generator. Often customers who need to supplement charge with a generator
+do not run it long enough to allow the batteries to reach 100% SOC on a regular
+basis, causing sulfation problems and capacity loss which then needs to be
+addressed through corrective equalizations.
+
+In some situations, after and energy audit has been completed and the system
+is sized and installed, the customers will inadvertently add additional and/
+or unexpected loads. As system size is calculated with a desired depth of
+discharge and charge requirement based on expected usage, this increases both
+the storage needs and subsequent charge source to bring the battery bank to a
+full charge.
+It will often cause problems as a result of deficit cycling and over-discharge which
+will shorten cycle life.
+
+To avoid this, the customer should be made aware of the importance of properly
+sizing the system to meet their specific needs. Discuss any expected short/long-
+term changes in usage and set the expectation that storage and charging needs
+may increase to meet their changing requirements.
+
+                                                                                               41
+GRID-CONNECTED BACKUP
+There are two distinct uses for a grid-connected battery bank. The first, and the
+most common is a power backup system. The purpose is to provide temporary
+power in the instance of grid loss. This is similar to a UPS system, but is typically
+on a much larger scale with higher storage capacity.
+The second is a grid-tied system with battery backup. This system setup is used
+to generate and sell excess power produced by a renewable source to your
+utility provider when you are connected to the grid. In the event of a grid failure,
+the battery bank then provides storage power for the critical loads during the
+outage. Systems are configured according to how much power is to be sold to the
+utility vs. how much will be stored. If a higher percentage of the power generated
+is pushed to the utility, this will decrease the remaining amount available for
+backup and vice versa. This may be determined by personal preference or may
+be limited or regulated by the utility.
+For grid-tied battery backup systems, the battery bank should only be sized
+to handle the loads supported for the duration of a temporary outage. These
+systems are commonly used to run household necessities such as limited
+lighting and refrigeration, etc. It is ideal to limit the size of the supported
+load to essential services only as higher capacity battery banks require more
+maintenance as well as power usage to hold at full charge, reducing the amount
+of generated power which can be sold to the utility.
+Typically, because outages are infrequent and occur only a few times per year
+in many regions, these backup systems are designed for greater depth of
+discharge than a typical off-grid application. In some cases, the system may be
+designed to discharge the battery bank as low as 80% DOD over a relatively
+short period of time.
+In regions where the grid may not be reliable and extended or intermittent
+outages occur frequently, it is necessary to size the battery bank and charging
+source(s) to support a larger load over a longer period of time. This prevents the
+battery bank from overdischarging and/or deficit cycling.
+
+42
+WARRANTY
+ GLOSSARY
+
+   & FAQ'S
+
+                                                                    43
+WARRANTY
+
+We build one mean battery and we back them with comprehensive warranties
+that lead the industry in length of coverage. We're confident that our batteries
+will perform time after time, year after year. However, should a problem arise,
+you may be assured that you're covered better than any other battery warranty
+in the business.
+Surrette Battery Company warrants that Rolls-branded batteries sold by it are
+quality tested, merchantable and free of defects in workmanship and material
+at the time they are shipped from the Company's factory.
+In the event that the Company makes a drop shipment to a distributor's customer,
+that customer must be instructed to perform an inspection of the goods BEFORE
+signing the delivery slip. The Company is not responsible for damaged product
+reported after shipment has been signed "Received in Good Condition".
+NOTE: ALL SHIPMENTS SHOULD BE THOROUGHLY INSPECTED FOR DAMAGE
+BEFORE SIGNING THE DELIVERY SLIP.
+The Company will replace or, at its option, repair any Rolls Battery sold by it that
+fails to conform to the warranty stated above on a NO CHARGE BASIS as follows:
+For warranty terms, conditions and model-specific details, please refer to the
+warranty document found on the Rolls Battery website.
+www.rollsbattery.com/technical-resources
+A copy of the Rolls Battery Warranty Claim Form & Battery Test Sheet
+is also available for download in PDF format.
+To claim a manufacturing warranty, proof of purchase must be presented,
+showing the date of purchase and the battery's model & date of manufacture
+(date code). A completed Rolls Battery Warranty Claim Form & Battery Test Sheet
+must also be provided. Upon review, it may be necessary to have the battery
+returned to the manufacturer or inspected and tested by an authorized battery
+outlet for actual defect. All valid claims must be approved by Rolls Battery
+Technical Support before replacement product may be issued.
+The warranty does not cover shipping damage, cracked covers, cracked cases,
+bulged cases from heat, freezing or explosion, discharged batteries or the use
+of undersized batteries damaged from electrical equipment.
+This warranty covers only manufacturing defects.
+The Company makes no warranty with respect to its batteries other than
+the warranty stated above. All implied warranties of merchantability and all
+expressed and implied warranties of any other kind are hereby excluded.
+
+44
+ROLLS BATTERY WARRANTY PROCEDURE
+
+Please refer to product warranty for the specific model as terms and conditions
+may vary.
+
+For warranty requests and inquiries, please submit your request via support ticket
+(www.rollsbattery.com/support) or by email to support@rollsbattery.com.
+
+DAMAGED BATTERY                YES           Damaged batteries DO NOT qualify
+                                             for Rolls Battery product warranty
+
+NO
+
+Check individual               < 2.1 VPC      Charge battery at
+  cell voltages                              0.1/C/20 for 10 hours
+
+    > 2.1 VPC
+
+Check                              Cells      Charge battery at
+specific                       < 1.250 S.G.  0.1/C/20 for 10 hours
+gravities
+
+All cells > 1.250 S.G.           All cells     Equalize                    YES
+      and even                 > 1.250 S.G.  @ 2.58 VPC
+                               and uneven    for 2 hours*                First time
+                                                                       through cycle
+ Submit support ticket or                                   NO
+call Rolls Battery Technical                                               NO
+Support at 1-800-681-9914.
+                                                                        One cell is
+Holds >1.75 VPC                                                     0.040 points lower
+   for C/10 or
+    C/20 rate                                                           than others
+
+                                                                           YES
+
+ Battery does NOT meet                                              Complete and submit Rolls
+warranty criteria. Battery is                                       Battery warranty claim form
+
+ charging and discharging                                             via support ticket (www.
+properly. Product warranty                                          rollsbattery.com/support) or
+does not apply. Please refer                                        by fax (1-800-681-9915) for
+
+  to dealer for assistance.                                              further instruction.
+
+                                                                                        45
+LEAD-ACID BATTERY GLOSSARY
+
+ABSORBED (OR ABSORPTIVE) GLASS MAT
+A type of sealed lead-acid batteries. The electrolyte is absorbed in
+a matrix of glass fibers which holds the electrolyte next to the plate and
+immobilizes it, preventing spills. AGM batteries tend to offer good power
+characteristics, low internal resistance and high charge efficiency.
+
+AMP, AMPERE
+Unit of electrical current. Abbreviated "A".
+
+AMP-HOUR, AMPERE-HOUR
+Unit of electrical energy, one Amp of current flowing for one hour.
+Abbreviated AH.
+
+CELL
+A single battery canister usually grouped together with other cells to form batteries
+of various voltage configurations. Open circuit voltage (OCV) of a charged and rested
+lead-acid battery is 2.1V/cell.
+
+CYCLE
+A "cycle" is a somewhat arbitrary term used to describe the process of
+discharging a fully charged battery down to a particular state of discharge. The
+term "deep cycle" refers to batteries in which the cycle is from full charge to
+80% discharge. A cycle for an automotive battery is about 5%, and for telephone
+batteries is usually 10%.
+
+ELECTROLYTE
+An electrically conductive medium in which current flow is due to the movement
+of ions. In a Flooded lead-acid battery the electrolyte is a solution of sulfuric acid
+and water.
+
+FLOODED CELL
+A traditional lead-acid battery. The electrolyte is an ordinary liquid solution of acid
+and water. Flooded cells are prone to off-gassing hydrogen during charge. They
+must be periodically checked for fluid level and distilled water added as necessary.
+Flooded cells are also typically less expensive than AGM or GEL-type lead-acid
+batteries.
+
+GEL
+A sealed VRLA lead-acid battery. The gel electrolyte used in these models is a
+mixture of sulfuric acid and fumed silica. GEL batteries typically offer extended
+cycle life over sealed VRLA AGM batteries when operating in higher temperatures
+and are better suited to slower, deep discharge applications.
+
+46
+HYDROMETER
+A tool for testing the specific gravity of a fluid such as the electrolyte in a Flooded
+battery. Hydrometers use a squeeze-bulb to suck up a sample of the fluid and a
+float indicates the specific gravity of the electrolyte.
+
+REFRACTOMETER
+A tool for testing the specific gravity of a fluid such as the electrolyte in
+a Flooded battery. Refractometers are hand-held devices which provide
+a visual reading of specific gravity using a sample of the electrolyte placed
+on a glass slide. Refractometers are generally thought to provide a more accurate
+measurement of specific gravity than traditional hydrometers.
+
+OPzV
+O = Ortsfest (stationary) Pz = PanZerplatte (tubular plate) V = Verschlossen (closed)
+A sealed VRLA GEL battery offered in individual 2-volt cell options, typically used for
+stationary backup and cycling applications.
+
+SPECIFIC GRAVITY
+The density of a material, expressed as the ratio of the mass of a given volume of the
+material and the mass of the same volume of water; a specific gravity greater than 1
+means heavier than water, less than 1 means lighter than water. The specific gravity of
+the electrolyte in a battery can be used to measure the state of charge of the battery.
+
+SULFATION
+Even though lead sulfate is created in the materials of plates during normal
+discharging, this term is used to describe the generation of a different form (large
+crystals) of lead sulfate which will not readily convert back to normal material
+when the battery is charged. Sulfation occurs when a battery is stored too long
+in a discharged condition, if it is never fully charged, or if electrolyte has become
+abnormally low due to excessive water loss from overcharging and/or evaporation.
+
+VOLT
+The unit of measurement of electrical potential or "pressure". Most batteries come
+in 2, 4, 6, 8 or 12 volt configurations.
+
+VRLA
+Valve-regulated lead-acid battery which is sometimes referred to as a sealed
+or maintenance-free battery. VRLA batteries may be sealed wet cell, Absorbed Glass
+Mat (AGM) or GEL (ex: OPzV models).
+
+                                                                                               47
+TROUBLESHOOTING & FREQUENTLY
+ASKED QUESTIONS
+
+The following is a list of common scenarios, questions and concerns relating to
+system setup, battery charging and maintenance procedures. Please refer to these
+as general guidelines. For assistance with your specific system setup, please
+contact your Installer.
+
+NOTE: specific gravity readings should be taken at full charge after the
+batteries have cooled and are resting in a Float voltage charge for 1-2 hours.
+
+· S pecific Gravity readings vary significantly when charge has completed and
+ the bank has been resting at Float voltage for 1 hour. (greater than .030)
+
+   · This may be caused by multiple parallel strings of batteries in a bank as this
+     often results in charge imbalance. It is not recommended that a battery bank
+     exceed 3 series strings of batteries connected in parallel.
+
+   · Charge voltage settings may be too low. Verify they meet Rolls-recommended
+     charging parameters for Flooded models.
+
+   · A n increase in Absorption charge time may be necessary. Increase in 15 to 30
+     minute increments.
+
+   · Indicates there may be failing or dead cell(s) in the battery bank causing a
+     charge imbalance. Test individual battery voltage and specific gravity of each
+     cell to identify weak or failed cells.
+
+· Specific gravity readings taken for all cells in the battery bank indicate low
+ state of charge while resting at Float voltage. Readings vary by cell, but not
+ greater than .020 between the cells.
+
+   · C harging voltages may be too low and/or Absorption time may need to be
+     increased. Usage (load) may have increased, resulting in increased depth
+     of discharge (DOD) and sulfation.
+
+   · Increase Bulk/Absorption/Boost Voltage in .2v to .4v volts increments.
+
+   · Increase Absorption Time by 15 to 30 minutes increments as necessary.
+
+   · Decrease DC load usage.
+
+· S pecific gravity readings are consistently higher than recommended while
+ resting at Float voltage. (Ex 1.300, 1.295, 1.295, 1.290, 1.300...)
+
+   · Decrease DC load usage.
+
+   · Charging voltages may be too high. End Amps/Return Amps/Tail Current set
+     point may not be properly programmed to trigger Float charge. Absorption
+     time may need to be reduced to prevent overcharge. Usage (load) may have
+     decreased, reducing depth of discharge (DOD) and the time required to
+     recharge, causing the batteries to overcharge.
+
+48
+   · C onfirm End Amps/Return Amps/Tail Current is programmed to the recommended
+    2% of C/20. Models with Advanced NAM may require a slightly higher set point.
+    (2-5% range)
+
+   · Decrease Bulk/Absorption/Boost Voltage in .2v to .4v volts increments.
+   · D ecrease Absorption Time by 15 to 30 minutes increments as necessary.
+
+     Clean and inspect all cabling and connections. Physically disconnect cable,
+     inspect for terminal concaving (Over torqued), grease and re-torque connections.
+
+· S pecific gravity readings on individual cell(s) in a battery bank with multiple
+ series strings vary more than .020 while resting at Float voltage. (Ex 1.265,
+ (1.265, 1.240, 1.265...)
+   · Indicates there may be an imbalance of charge between parallel strings
+     of batteries.
+   · Disconnect parallel strings and charge each string individually to balance
+     charging. For systems with more than two parallel strings of batteries you
+     may find this is necessary 1-2 times a year to maintain balanced charging.
+   · Indicates there may be connection issues within each series connection
+     or parallel strings.
+   · Increase Bulk/Absorption/Boost Voltage by 0.2V increments.
+   · C lean and inspect all cabling and connections. Physically disconnect
+     cable, inspect for terminal concaving (Over torqued), grease and
+     re-torque connections.
+
+*S pecific gravity readings varying more than .030 in multiple strings of
+ batteries indicates an imbalance of charge. If specific gravity readings
+ continue to vary after charging each string individually a Corrective
+ Equalization may be necessary.
+
+· Capacity of the battery bank has decreased.
+   · Capacity loss may be due to sulfation. A balance charge and/or
+     Equalization may be necessary.
+   · Capacity loss may be due to overheating. Verify that temperature sensors
+     are properly mounted and verify cell temperatures.
+   · Capacity loss may be due to over-discharging the battery bank.
+   · Capacity of the battery bank may no longer support an increase in load.
+
+                                                                                               49
+· B attery(s) temperatures are very high.
+    · If at or near 51°C (125°F) shut off charge and allow batteries to cool.
+
+    · If a single battery or cell in a string is hot, this may indicate a cell failure or
+     short. Verify specific gravity for all cells and take voltage readings from each
+     battery and perform a load test to identity any cell failures and verify proper
+     cell operation.
+
+· Battery cases are bulging on the sides.
+   · If case bulging is a concern upon receipt of new product, please notify your
+     Distributor and/or forward clear photos via a Technical Support Ticket or email
+     to support@rollsbattery.com for review.
+
+   · D ue to the weight of electrolyte, some case bulging is normal. New battery
+     cases will "relax" after filling. Verify that electrolyte levels have not dropped
+     below the top of the plates before attempting to charge and top up with distilled
+     water as necessary.
+
+   · In the case of excessive bulging - your batteries may have been exposed to
+     temperatures of over 51°C (125°F). This high temperature has caused the plates/
+     chassis to swell and expand. There is no fix for this and eventually
+     the batteries will fail prematurely and require replacement.
+
+   · Your batteries may have frozen due to excessive cold temperatures. A fully
+     charged battery (specific gravity of 1.265) may freeze at -70°C (-94°F) or more.
+     A battery at 50% SOC may freeze at -20ºC (-4ºF).
+
+· Battery Terminal has melted.
+   · This is most common with loose connections, causing a highly resistant
+     connection. This resistance has caused heat buildup and melted the
+     terminal connection.
+
+   · This can be caused by:
+     - Loose connections
+     - Over-tightened connections
+     - Improper sized cables (too small)
+     - Corroded connections
+     - Improper use of washers/lock washers
+     - Too many connections on the same terminal
+
+· Battery case has split or cracked originating from the sides.
+   · T he battery may have frozen in the past, which has weakened
+     the case structure.
+
+50
+· Battery cover has cracked, shattered and/or dislodged from the case
+
+   · (Not affecting positive and negative terminals or connections).
+
+   · Ignition of hydrogen gas may have caused the battery cover to crack
+     or explode.
+
+   · This sometimes occurs during a charge where a loose connection at the
+     terminal sparked, igniting hydrogen gas from the cell.
+
+   · This may be the result of low electrolyte levels causing high cell temperature
+     and increased hydrogen gas. Check each cell and top up with distilled water
+     as necessary.
+
+· A battery and/or cell(s) in the battery bank does not require watering.
+
+   · The battery may have a cell that has failed and no longer accepts
+     a charge.
+
+   · Verify specific gravity of all cells and voltage reading of each battery.
+
+   · Perform a load test to identify any cell failures.
+
+· W hile charging, the battery bank does not reach the programmed
+ Bulk voltage.
+
+   · If the system is not reaching Bulk voltage the charge voltage and/or
+      Amp output to the battery bank may be too low. Verify that these meet Rolls-
+      recommended charging parameters for Flooded, AGM or GEL models and that
+      charge output (Amps) is sufficient to meet the capacity of the battery bank. To
+      ensure sufficient charge, output should be approximately 10% of the Amp Hour
+      capacity for Flooded battery banks. (Example: 1200AH Battery Bank = 120 A
+      charge output).
+
+   · Indicates that DC loads running on the system during the charge cycle may
+     be reducing the charge output to the battery bank, slowing down the
+     charging process.
+
+· When a charge is initiated the voltage of the battery bank rises very quickly
+ and the charger goes quickly into the Absorption charge cycle or shuts off
+ charge to the batteries completely.
+
+· This is often an indication of sulfated batteries which may be causing alower
+ than normal impedance in reference to the charger. Capacity of the bank will
+ be reduced and may be confirmed by running a load test.
+
+· An increase in Absorption time may be necessary to desulfate the battery bank.
+
+· If the battery bank is heavily sulfated, a corrective Equalization may be necessary.
+ Perform a corrective Equalization if specific gravity readings vary by more than
+ .030 between cells. Battery case has split or cracked originating from the sides.
+
+                                                                                               51
+· Charging current to the battery bank (Amp output) is low.
+   · Charging current will decrease as the batteries become fully charged. If charge
+     current is low the battery bank may have reached the end of the charge cycle.
+     Verify that the charger is nearing the end of Absorption time or in Float voltage
+     phase. Low current is normal this stage of charging.
+   · The battery bank self-regulates charge current. Voltage settings may be forced
+     (too high/low). However, Amp output to the battery bank cannot be forced and
+     will drop as the batteries reach 100% SOC. When the charge current reaches
+     the programmed End Amps/Return Amps/Tail Current set point (recommended
+     2% of the 20 Hr AH rate (C/20) capacity of a healthy Flooded battery bank) for a
+     1-hour period the charge is complete. (Ex. 500 AH battery bank. Charge current
+     is reduced to 10 Amps). This set point may be programmed in the charge
+     controller to trigger Float charge if the battery bank reaches 100% SOC before
+     the Absorption Time has been completed.
+   · Test specific gravity.
+      - If specific gravity readings are at 1.250 or greater the batteries are nearing
+         completion or finished the Absorption charge phase.
+      - If the specific gravity is lower than 1.250 following a charge, perform a load
+         test to ensure all cells are operating correctly.
+
+      - Varying specific gravity readings may indicate a buildup of sulfation.
+         Perform a corrective Equalization to balance and desulfate and monitor
+         changes in specific gravity.
+
+· When performing a corrective Equalization, the battery bank does not reach
+ Equalization voltage.
+   · Complete a full Bulk & Absorption charge prior to initiating an Equalization.
+   · Indicates the charge output may be too low. Verify the voltage and charge
+     output meet Rolls-recommended charging parameters for Flooded models.
+   · Indicates the possibility of a failed or dead cell which may be causing
+     resistance. Verify specific gravity of each cell and voltage reading for each
+     battery in the bank.
+
+52
+CONTACTS
+
+Surrette Battery Company Ltd.
+Box 2020, 58 Lisgar St.
+Springhill, Nova Scotia, Canada
+B0M 1X0
+PHONE:
+1 902 597 3767 (local)
+1 800 681 9914 (toll free)
+FAX:
+1 902 597 8447 (local)
+1 800 681 9915 (toll free)
+CUSTOMER SERVICE:
+1 902 597 4005
+customerservice@rollsbattery.com
+SALES:
+1 902 597 3767 (local)
+1 800 681 9914 (toll free)
+sales@rollsbattery.com
+TECHNICAL SERVICE:
+1 902 597 3767 (phone)
+1 800 681 9914 (toll free)
+support@rollsbattery.com
+TECHNICAL SUPPORT TICKET:
+support.rollsbattery.com
+
+                                                                                               53
+NOTES:
+
+54
+NOTES:
+
+                                                                                               55
+NOTES:
+
+                                                                                                                           ver.7.4 (08/24)
+
+56
+57
+RO L L S B AT T E RY. C O M
+

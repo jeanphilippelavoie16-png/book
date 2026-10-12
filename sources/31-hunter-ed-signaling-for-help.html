@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="en" class="hunt ">
+  <head>
+    <meta charset="utf-8">
+    <title>Signaling for Help | National Hunter Safety Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-cfasync="false" data-report-only="off" data-prompt="1" data-ui-shadow-root="open" data-tracker-overrides="GoogleConsentMode:analytics_storage=SaleOfInfo,Analytics;ad_storage=SaleOfInfo,Advertising;ad_personalization=SaleOfInfo,Advertising" src="https://transcend-cdn.com/cm/83b16c33-9e0f-4235-a30b-542ff0278e7f/airgap.js"></script>
+    <script src="https://unpkg.com/stimulus@2.0.0/dist/stimulus.umd.js"></script><script src="/assets/gtm-data-layer-463da5ae7e414d9cfe21ef206ce6fb5c962280efd95223ede095409f320661ff.js"></script><script src="/assets/segment-analytics-97efc38ddebf4c56c508d30026e0f681a8e3dd985a656fa389288336c752ac21.js"></script><script src="/assets/huntwise-form-controller-f9782db0408a71c46201d96ff8d0447687f23a7649b58cfdeb01d09176360216.js"></script><script src="/assets/partner-card-controller-81b81dfbad6ba7bfd37070f3886be6b614909bafae1441caca8f4b84996b4d4e.js"></script><script src="/assets/partner-perks-tracking-controller-0de4f8f869c82eaad91c458084eb8eb71a1ddf2f9cb726c903c734aa54f276aa.js"></script>
+    <script>
+  var KELP = KELP || {};
+  KELP.env = {
+    environment : "production",
+    assetsUrl   : "https://assets.kalkomey.com",
+    segmentWriteKey : "VP1lxd8dSuQBZSFFoDJSzHJnJifdpESu",
+    segmentEnabled : true
+  }
+  
+</script>
+<script>
+  (function() {
+    var MAX_REPORTS = 10;
+    // Null prototype so error-derived keys like "__proto__" can't hit
+    // inherited properties and break the dedupe map.
+    var reported = Object.create(null);
+    var count = 0;
+
+    function send(payload) {
+      try {
+        var key = payload.name + "|" + payload.message + "|" + payload.line + "|" + payload.column;
+        if (count >= MAX_REPORTS || reported[key]) return;
+        reported[key] = true;
+        count += 1;
+        payload.url = window.location.href;
+        var body = JSON.stringify(payload);
+        if (window.fetch) {
+          window.fetch("/js_errors", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: body,
+            keepalive: true
+          })["catch"](function() {});
+        } else if (window.XMLHttpRequest) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/js_errors", true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(body);
+        }
+      } catch (e) {
+        // The error reporter must never break the page itself.
+      }
+    }
+
+    window.addEventListener("error", function(event) {
+      if (!event || !event.message) return;
+      // Cross-origin scripts only expose "Script error." with no details.
+      if (event.message === "Script error." || event.message === "Script error") return;
+      send({
+        name: (event.error && event.error.name) || "Error",
+        message: String(event.message).slice(0, 1000),
+        backtrace: (event.error && event.error.stack) ? String(event.error.stack).slice(0, 8000) : "",
+        file: event.filename || "",
+        line: event.lineno || 0,
+        column: event.colno || 0
+      });
+    });
+
+    window.addEventListener("unhandledrejection", function(event) {
+      var reason = event && event.reason;
+      // Only null/undefined carry zero information (and would throw on the
+      // property accesses below) — falsy primitives like 0 or "" are still
+      // real rejection reasons worth reporting.
+      if (reason === null || reason === undefined) return;
+      send({
+        name: reason.name || "UnhandledRejection",
+        message: (String(reason.message || reason) || "(empty rejection reason)").slice(0, 1000),
+        backtrace: reason.stack ? String(reason.stack).slice(0, 8000) : "",
+        file: "",
+        line: 0,
+        column: 0
+      });
+    });
+  })();
+</script>
+
+    
+      <link rel="icon" type="image/png" sizes="32x32" href="/hunter/favicon-32x32.png?v=n7TXlnjj18">
+  <link rel="icon" type="image/png" sizes="16x16" href="/hunter/favicon-16x16.png?v=n7TXlnjj18">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/hunter/apple-touch-icon.png?v=n7TXlnjj18">
+<link rel="manifest" href="/hunter/site.webmanifest?v=n7TXlnjj18">
+<link rel="mask-icon" href="/hunter/hunter-pinned-tab.svg?v=n7TXlnjj18" color="#f8971d">
+<link rel="shortcut icon" href="/hunter/favicon.ico?v=n7TXlnjj18">
+<meta name="apple-mobile-web-app-title" content="Hunter Ed">
+<meta name="application-name" content="Hunter Ed">
+
+
+        <link rel="canonical" href="https://www.hunter-ed.com/national/studyGuide/Signaling-for-Help/201099_93100/">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.hunter-ed.com/#organization","name":"Hunter Ed","url":"https://www.hunter-ed.com/","sameAs":["https://www.facebook.com/hunteredcom","https://twitter.com/hunter_ed","https://www.youtube.com/user/hunteredcom"],"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"IHEA-USA developed curriculum","credentialCategory":"certification","recognizedBy":{"@type":"Organization","name":"International Hunter Education Association (IHEA-USA)","url":"https://www.ihea-usa.org/"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.hunter-ed.com/#website","url":"https://www.hunter-ed.com/","name":"Hunter Ed","publisher":{"@id":"https://www.hunter-ed.com/#organization"}}</script>
+
+    
+    
+    <link rel="stylesheet" href="/assets/application-c809d4c70fe8664338f035f09fbdad36d1c6fe9a7b040aa67bce4a3b1cb74e59.css" media="all" />
+    <link rel="stylesheet" href="/assets/hunter/site_bs3-48c0b4368b5e337641ef8e6918f4bd4ff262c1e5f0cb6bc8efde9e4cb51641e0.css" media="all" />
+    <link rel="stylesheet" href="/assets/bootstrap-icons-5a463c1b66bcd0d324419361ee24cc512b228ed9c0200b0743e8d6549ebee86f.css" media="all" />
+    
+    
+      <script>
+    window.dataLayer = window.dataLayer || []
+    dataLayer.push({
+      'state': 'US',
+      'course_name': 'National Hunter Ed Course',
+      'course_id': '201099',
+      'student_first_name': '',
+      'student_last_name': '',
+      'student_email': '',
+      'student_postal_code': '',
+      'student_phone': '',
+      'student_age': '',
+      'unit': '7',
+      'topic': '2',
+      'page_rank': '5'
+    });
+    window.dataLayer.push({'studentID': 'NULL'});
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://metrics.hunter-ed.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQZ746FB');
+  </script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GTM-PQZ746FB");
+      gtag("set", "developer_id.dODQ2Mj", true);
+      gtag('config', "GTM-PQZ746FB", { "ads_data_redaction": true });
+    </script>
+
+    
+    <script src="//static.tapfiliate.com/tapfiliate.js" type="text/javascript" async></script>
+<script type="text/javascript">
+  (function(t,a,p){t.TapfiliateObject=a;t[a]=t[a]||function(){
+  (t[a].q=t[a].q||[]).push(arguments)}})(window,'tap');
+
+  tap('create', '4377-e8d9e6');
+  tap('detect');
+</script>
+    <script type='text/javascript' src='/transifex.js?v=2026-06-22'></script>
+<script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeTransifex(
+      null,
+      201099,
+      "National Hunter Ed Course",
+      "national",
+      false,
+      "en",
+      null
+    );
+  });
+</script>
+
+    
+    <script src="/assets/hunter/preload-616489e68374c8e2dc919a4d2b89feff7e38943e7249fe8f6198d770c0c9671a.js"></script>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="GpRl1Dvm2GspkvDbancpNMU7_erNwUJJrP4uBiPOy87ba6EyDhxHBAg8OOSC4Lzn6pNR-QDarB2bEHDQC14dAQ" />
+      <script>
+    !function(c,n,r,t){if(!c[r]){var i,d,p=[];d="PROD"!==t&&t?"STAGING"===t?"https://cdn.gladly.qa/gladly/chat-sdk/widget.js":t:"https://cdn.gladly.com/chat-sdk/widget.js",c[r]={init:function(){i=arguments;var e={then:function(t){return p.push({type:"t",next:t}),e},catch:function(t){return p.push({type:"c",next:t}),e}};return e}},c.__onHelpAppHostReady__=function(t){if(delete c.__onHelpAppHostReady__,(c[r]=t).loaderCdn=d,i)for(var e=t.init.apply(t,i),n=0;n<p.length;n++){var a=p[n];e="t"===a.type?e.then(a.next):e.catch(a.next)}},function(){try{var t=n.getElementsByTagName("script")[0],e=n.createElement("script");e.async=!0,e.src=d+"?q="+(new Date).getTime(),t.parentNode.insertBefore(e,t)}catch(t){}}()}}
+    (window,document,'Gladly','PROD');
+
+    window.gladlyConfig = {
+      appId: 'kalkomey.com-Hunter-ed'
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+      function checkForGladlyChatContainer() {
+        const gladlyChatContainer = document.getElementById("gladlyChat_container");
+        if (gladlyChatContainer) {
+          clearInterval(intervalId);
+          ignoreGladlyContainerForTransifex(gladlyChatContainer);
+        }
+      }
+
+      const intervalId = setInterval(checkForGladlyChatContainer, 1000);
+
+      function ignoreGladlyContainerForTransifex(gladlyChatContainer) {
+        gladlyChatContainer.classList.add('notranslate');
+      }
+    });
+  </script>
+
+  
+  <body id="top" class="" data-controller="gtm-data-layer segment-analytics cross-domain-tracking">
+
+      <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://metrics.hunter-ed.com/ns.html?id=GTM-PQZ746FB" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+    <!--[if lt IE 11]>
+<div class="container center" style="margin-bottom: 18px;">
+  <p class="alert alert-warning"><strong>Your browser is <em>out-of-date!</em></strong> You must <a href="https://browsehappy.com/">upgrade to a different browser</a> to experience this site.</p>
+</div>
+<![endif]-->
+
+    
+<a href="#main" class="sr-only sr-only-focusable skip-to-main">Skip to main content</a>
+
+<nav class="navbar navbar-inverse navbar-fixed-top d-flex justify-content-between" aria-label="global">
+  <div class="navbar-header d-flex justify-content-between align-items-between" style="flex: 1 0 auto;">
+    <div id="navbar-responsive" class="container-fluid d-flex w-100 justify-content-between align-items-between" style="flex-direction: column;">
+      <div class="d-flex justify-content-between align-items-center" style="flex-grow: 1;">
+        <div class="d-flex justify-content-between" style="flex: 1 0 auto; margin-right: 1rem;">
+          
+<a class="navbar-brand" href="/national">
+  <img class="img-fluid" src="https://assets.kalkomey.com/hunter/images/fm/hunter-ed-logo-rev.svg?v=2" alt="Hunter-ed.com" width="165" height="32">
+</a>
+
+        </div>
+      <div style="align-self: center;">
+      </div>
+        <button type="button" class="navbar-toggle collapsed" style="flex-grow: 0;" data-toggle="collapse" data-target="#header-nav-items" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" style="flex-grow: 0;" id="header-nav-items">
+        <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a href="/national/studyGuide/201099/"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Study Guide</a>
+        </li>
+          <li>
+            <a href="/national/#card-replacement"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> Lost Your Card?</a>
+          </li>
+
+
+      <li>
+        <p class="navbar-btn">
+          <a href="https://www.hunter-ed.com/accounts/sign_in/" class="btn btn-primary">Log In</a>
+        </p>
+      </li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+    <main id="main">
+      
+      <div class="alert-banner">
+  <noscript>
+    <div class="container">
+      <div class="alert alert-warning" role="alert">
+        <p><strong>This site requires JavaScript.</strong> Your browser either doesn’t support JavaScript or you have it turned off.</p>
+        <p>For this page to function correctly, please enable JavaScript and then refresh the page.</p>
+      </div>
+    </div>
+  </noscript>
+
+
+</div>
+
+      
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/national/">National Hunter Ed Course</a></li>
+                <li class="breadcrumb-item"><a href="/national/studyGuide/201099/">Study Guide</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Signaling for Help</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.hunter-ed.com/"},{"@type":"ListItem","position":2,"name":"National Hunter Ed Course","item":"https://www.hunter-ed.com/national/"},{"@type":"ListItem","position":3,"name":"Study Guide","item":"https://www.hunter-ed.com/national/studyGuide/201099/"},{"@type":"ListItem","position":4,"name":"Signaling for Help"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","@id":"https://www.hunter-ed.com/national/studyGuide/Signaling-for-Help/201099_93100#chapter","name":"Signaling for Help","url":"https://www.hunter-ed.com/national/studyGuide/Signaling-for-Help/201099_93100","learningResourceType":"Chapter","isPartOf":{"@id":"https://www.hunter-ed.com/national/#course"},"provider":{"@id":"https://www.hunter-ed.com/#organization"}}</script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <article class="course-content">
+        <a href="#course-content-header" class="sr-only sr-only-focusable">Skip audio player</a>
+        <link rel="stylesheet" href="/assets/course-audio-bcbeb7a037af4a629ad95fd4259b2409dd502d1c168f33cf20c7d18059a7eaa3.css" />
+<audio id="courseAudio" class="mejs__bootstrap" controls lang="en"
+  data-available-languages="EN,ES">
+	<source id="defaultAudioSrc" src="https://d29ezfz2s63yuo.cloudfront.net/en/audio/national/HE-Signaling-for-Help.mp3" type="audio/mpeg" />
+	<source id="mp4AudioSrc" src="https://d29ezfz2s63yuo.cloudfront.net/en/audio/national/HE-Signaling-for-Help.m4a" type="audio/mp4" />
+	<source id="oggAudioSrc" src="https://d29ezfz2s63yuo.cloudfront.net/en/audio/national/HE-Signaling-for-Help.ogg" type="audio/ogg" />
+</audio>
+
+        <header id="course-content-header" class="page-header">
+          <h1>Signaling for Help</h1>
+        </header> <!-- end .page-header -->
+        <div class="content">
+          <figure tx-content="translate_urls">
+	<img src="https://ke-courses-production.s3.amazonaws.com/asset_files/production/176/attachments/original/sound-devices-whistle.jpg?1479748864" alt="Whistle"
+   width="250"
+   height="148"
+   />
+</figure>
+<span tx-content="translate_urls" style="display: contents;">
+  <p>When you decide to stay put and wait for rescue, prepare help signals as soon as possible.</p>
+<ul>
+<li>The international emergency sign for distress is three of any signal: three shots, three blasts on a whistle, three flashes with a mirror, or three fires evenly spaced.</li> 
+<li>If you’re near an open space, walk an X in the snow, grass, or sand. Make it as large as possible so that it can be seen easily from the air. Placing branches, logs, or rocks along the X will make it more visible.</li> 
+<li>Do not light signal fires until you hear an aircraft. Adding green boughs, preferably pine if available, to the fire will help create smoke.</li>
+</ul>
+</span>
+
+<span tx-content="translate_urls" style="display: contents;">
+  <h2 class="h3">Personal Locator Beacons</h2>
+<p>Personal locator beacons (PLBs) provide a distress and alerting system for use in a life-and-death situation. A PLB is a small transmitter that sends out a personalized emergency distress signal to a monitored satellite system. When you buy a PLB, you must register it with the National Oceanic and Atmospheric Administration (NOAA). PLBs are a highly effective and internationally recognized way to summon help.</p>
+</span>
+
+<figure tx-content="translate_urls">
+	<img src="https://ke-courses-production.s3.amazonaws.com/asset_files/production/175/attachments/original/beacon-personal-locator.jpg?1479748862" alt="Personal Locator Beacon"
+   width="400"
+  
+   />
+</figure>
+
+        </div>
+      </article>
+
+      <div id="course-progress-nav">
+        <hr class="mt-3 mb-0 border-b border-gray-700">
+        <div class="panel panel-default course-nav">
+          <div class="panel-heading sr-only" id="course-nav-heading">
+            <h2 class="panel-title">Course Outline</h2>
+          </div>
+          <div id="course-nav-panel" class="panel-collapse collapse" aria-labelledby="course-nav-heading">
+            <div class="panel-body" id="course-outline">
+              <nav aria-label="study guide">
+  <ul>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u92781" aria-expanded="false" aria-controls="u92781">Unit 1: Introduction to Hunter Education</button>
+        <ul id="u92781" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92781-t92782" aria-expanded="false" aria-controls="u92781-t92782">Topic 1: Firearm Safety Rules</button>
+                <ul id="u92781-t92782" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Video-Welcome-to-Hunter-Ed/201099_92783/">Video: Welcome to Hunter Ed</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-Four-Primary-Rules-of-Firearm-Safety/201099_93163/">The Four Primary Rules of Firearm Safety</a></li>
+                    <li><a class="page" href="/national/studyGuide/Additional-Rules-About-Firearm-Safety/201099_93164/">Additional Rules About Firearm Safety</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92781-t92784" aria-expanded="false" aria-controls="u92781-t92784">Topic 2: The Importance of Hunter Education</button>
+                <ul id="u92781-t92784" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Why-Hunter-Education/201099_92785/">Why Hunter Education?</a></li>
+                    <li><a class="page" href="/national/studyGuide/Responsibility-Safety-Skills-Knowledge-and-Involvement/201099_92786/">Responsibility, Safety Skills, Knowledge, and Involvement</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92781-t92787" aria-expanded="false" aria-controls="u92781-t92787">Topic 3: Funding for Hunter Education</button>
+                <ul id="u92781-t92787" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Hunter-Education-Funding-Sources/201099_92788/">Hunter Education Funding Sources</a></li>
+                    <li><a class="page" href="/national/studyGuide/Pittman%E2%80%93Robertson-Act/201099_92789/">Pittman–Robertson Act</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92781-t92790" aria-expanded="false" aria-controls="u92781-t92790">Topic 4: Summary</button>
+                <ul id="u92781-t92790" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_92791/">What You Learned</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u92793" aria-expanded="false" aria-controls="u92793">Unit 2: Know Your Firearm Equipment</button>
+        <ul id="u92793" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92794" aria-expanded="false" aria-controls="u92793-t92794">Topic 1: What Is a Firearm?</button>
+                <ul id="u92793-t92794" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Defining-a-Firearm/201099_92795/">Defining a Firearm</a></li>
+                    <li><a class="page" href="/national/studyGuide/Basic-Parts-of-a-Firearm/201099_92796/">Basic Parts of a Firearm</a></li>
+                    <li><a class="page" href="/national/studyGuide/Animation-Parts-of-a-Bolt-Action-Rifle/201099_92797/">Animation: Parts of a Bolt-Action Rifle</a></li>
+                    <li><a class="page" href="/national/studyGuide/Animation-Parts-of-a-Pump-Action-Shotgun/201099_92798/">Animation: Parts of a Pump-Action Shotgun</a></li>
+                    <li><a class="page" href="/national/studyGuide/Animation-Parts-of-a-Double-Action-Revolver/201099_92799/">Animation: Parts of a Double-Action Revolver</a></li>
+                    <li><a class="page" href="/national/studyGuide/Animation-Parts-of-a-Semi-Automatic-Pistol/201099_92800/">Animation: Parts of a Semi-Automatic Pistol</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92801" aria-expanded="false" aria-controls="u92793-t92801">Topic 2: What Is Ammunition?</button>
+                <ul id="u92793-t92801" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Defining-Ammunition/201099_92802/">Defining Ammunition</a></li>
+                    <li><a class="page" href="/national/studyGuide/Basic-Components-of-Ammunition/201099_92803/">Basic Components of Ammunition</a></li>
+                    <li><a class="page" href="/national/studyGuide/Selecting-the-Correct-Ammunition/201099_93170/">Selecting the Correct Ammunition</a></li>
+                    <li><a class="page" href="/national/studyGuide/Rifle-and-Handgun-Cartridges/201099_92804/">Rifle and Handgun Cartridges</a></li>
+                    <li><a class="page" href="/national/studyGuide/Centerfire-and-Rimfire-Ammunition/201099_92805/">Centerfire and Rimfire Ammunition</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shotshells/201099_92806/">Shotshells</a></li>
+                    <li><a class="page" href="/national/studyGuide/Choosing-the-Correct-Type-and-Size-of-Shot/201099_92807/">Choosing the Correct Type and Size of Shot</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shot-Sizes/201099_92808/">Shot Sizes</a></li>
+                    <li><a class="page" href="/national/studyGuide/Non-Toxic-Shot/201099_92809/">Non-Toxic Shot</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92810" aria-expanded="false" aria-controls="u92793-t92810">Topic 3: How a Firearm Works</button>
+                <ul id="u92793-t92810" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/The-Basic-Firing-Process/201099_92811/">The Basic Firing Process</a></li>
+                    <li><a class="page" href="/national/studyGuide/How-the-Rifle-and-Handgun-Fire/201099_92812/">How the Rifle and Handgun Fire</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-How-a-Cartridge-Is-Fired/201099_92813/">Video: How a Cartridge Is Fired</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-How-the-Rifle-and-Handgun-Fire/201099_92814/">Video: How the Rifle and Handgun Fire</a></li>
+                    <li><a class="page" href="/national/studyGuide/How-the-Shotgun-Shoots/201099_92815/">How the Shotgun Shoots</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92816" aria-expanded="false" aria-controls="u92793-t92816">Topic 4: Common Features of Firearms: Firearm Actions</button>
+                <ul id="u92793-t92816" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-Firearm-Actions/201099_92817/">Introduction to Firearm Actions</a></li>
+                    <li><a class="page" href="/national/studyGuide/Bolt-Action/201099_92818/">Bolt Action</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-How-a-Bolt-Action-Rifle-Fires/201099_92819/">Video: How a Bolt-Action Rifle Fires</a></li>
+                    <li><a class="page" href="/national/studyGuide/Lever-Action/201099_92820/">Lever Action</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-How-a-Lever-Action-Rifle-Fires/201099_92821/">Video: How a Lever-Action Rifle Fires</a></li>
+                    <li><a class="page" href="/national/studyGuide/Pump-Action/201099_92822/">Pump Action</a></li>
+                    <li><a class="page" href="/national/studyGuide/Semi-Automatic-or-Autoloading-Action/201099_92823/">Semi-Automatic (or Autoloading) Action</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-How-a-Semi-Automatic-Handgun-Fires/201099_92824/">Video: How a Semi-Automatic Handgun Fires</a></li>
+                    <li><a class="page" href="/national/studyGuide/Break-or-Hinge-Action/201099_92825/">Break (or Hinge) Action</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-How-a-Break-Action-Shotgun-Fires/201099_92826/">Video: How a Break-Action Shotgun Fires</a></li>
+                    <li><a class="page" href="/national/studyGuide/Revolving-Action/201099_92827/">Revolving Action</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-How-a-Double-Action-Revolver-Fires/201099_92828/">Video: How a Double-Action Revolver Fires</a></li>
+                    <li><a class="page" href="/national/studyGuide/Common-Actions-on-Rifles-and-Shotguns/201099_92829/">Common Actions on Rifles and Shotguns</a></li>
+                    <li><a class="page" href="/national/studyGuide/Common-Actions-on-Handguns/201099_92830/">Common Actions on Handguns</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92831" aria-expanded="false" aria-controls="u92793-t92831">Topic 5: Common Features of Firearms: Firearm Safeties</button>
+                <ul id="u92793-t92831" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Safety-Mechanisms/201099_92832/">Safety Mechanisms</a></li>
+                    <li><a class="page" href="/national/studyGuide/Typical-Locations-of-Safeties/201099_92833/">Typical Locations of Safeties</a></li>
+                    <li><a class="page" href="/national/studyGuide/Types-of-Safeties/201099_92834/">Types of Safeties</a></li>
+                    <li><a class="page" href="/national/studyGuide/Safeties-Don-t-Replace-Safe-Handling/201099_92835/">Safeties Don't Replace Safe Handling</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92836" aria-expanded="false" aria-controls="u92793-t92836">Topic 6: Common Features of Firearms: Magazines and Sights</button>
+                <ul id="u92793-t92836" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Magazines/201099_92837/">Magazines</a></li>
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-Sights/201099_92838/">Introduction to Sights</a></li>
+                    <li><a class="page" href="/national/studyGuide/Sights-Bead-and-Open/201099_92839/">Sights: Bead and Open</a></li>
+                    <li><a class="page" href="/national/studyGuide/Sights-Aperture-Peep/201099_92840/">Sights: Aperture (Peep)</a></li>
+                    <li><a class="page" href="/national/studyGuide/Sights-Telescopic-Scope-and-Dot/201099_92841/">Sights: Telescopic (Scope) and Dot</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92842" aria-expanded="false" aria-controls="u92793-t92842">Topic 7: Differences Between Firearms</button>
+                <ul id="u92793-t92842" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Differences-Between-Rifles-Shotguns-and-Handguns/201099_92843/">Differences Between Rifles, Shotguns, and Handguns</a></li>
+                    <li><a class="page" href="/national/studyGuide/Rifling-in-the-Rifle-or-Handgun-Bore/201099_92844/">Rifling in the Rifle or Handgun Bore</a></li>
+                    <li><a class="page" href="/national/studyGuide/A-Rifle-s-or-Handgun-s-Caliber/201099_92845/">A Rifle's or Handgun's Caliber</a></li>
+                    <li><a class="page" href="/national/studyGuide/A-Shotgun-s-Gauge/201099_92846/">A Shotgun's Gauge</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shotgun-Choke-and-Shot-String/201099_92847/">Shotgun Choke and Shot String</a></li>
+                    <li><a class="page" href="/national/studyGuide/Types-of-Chokes/201099_92848/">Types of Chokes</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shot-String-at-Various-Distances/201099_92849/">Shot String at Various Distances</a></li>
+                    <li><a class="page" href="/national/studyGuide/Steel-Shot/201099_92850/">Steel Shot</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92851" aria-expanded="false" aria-controls="u92793-t92851">Topic 8: Using the Correct Ammunition</button>
+                <ul id="u92793-t92851" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Match-Firearms-and-Ammunition...Correctly!/201099_92852/">Match Firearms and Ammunition...Correctly!</a></li>
+                    <li><a class="page" href="/national/studyGuide/Safety-Practices-to-Help-You-Avoid-Using-Wrong-Ammunition/201099_92853/">Safety Practices to Help You Avoid Using Wrong Ammunition</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-Danger-of-Using-Wrong-Ammunition/201099_92854/">The Danger of Using Wrong Ammunition</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92856" aria-expanded="false" aria-controls="u92793-t92856">Topic 9: A Firearm's Range</button>
+                <ul id="u92793-t92856" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Know-Your-Firearm-s-Range/201099_92857/">Know Your Firearm's Range</a></li>
+                    <li><a class="page" href="/national/studyGuide/Maximum-Projectile-Range-Rifle/201099_92858/">Maximum Projectile Range: Rifle</a></li>
+                    <li><a class="page" href="/national/studyGuide/Maximum-Projectile-Range-Shotgun/201099_92859/">Maximum Projectile Range: Shotgun</a></li>
+                    <li><a class="page" href="/national/studyGuide/Maximum-Projectile-Range-Handgun/201099_92860/">Maximum Projectile Range: Handgun</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Understanding-Ballistics/201099_93150/">Video: Understanding Ballistics</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92861" aria-expanded="false" aria-controls="u92793-t92861">Topic 10: Cleaning and Storing Firearms</button>
+                <ul id="u92793-t92861" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Firearm-Cleaning-Basics/201099_92862/">Firearm Cleaning Basics</a></li>
+                    <li><a class="page" href="/national/studyGuide/A-Cleaning-Kit/201099_92863/">A Cleaning Kit</a></li>
+                    <li><a class="page" href="/national/studyGuide/General-Cleaning-Instructions/201099_92864/">General Cleaning Instructions</a></li>
+                    <li><a class="page" href="/national/studyGuide/Steps-for-Cleaning-a-Firearm/201099_92865/">Steps for Cleaning a Firearm</a></li>
+                    <li><a class="page" href="/national/studyGuide/Where-to-Use-a-Brush-Cleaning-Rod-and-Cleaning-Cable/201099_92866/">Where to Use a Brush, Cleaning Rod, and Cleaning Cable</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Cleaning-a-Firearm/201099_92867/">Video: Cleaning a Firearm</a></li>
+                    <li><a class="page" href="/national/studyGuide/Storing-Your-Firearm/201099_92868/">Storing Your Firearm</a></li>
+                    <li><a class="page" href="/national/studyGuide/Storing-Ammunition/201099_92869/">Storing Ammunition</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92793-t92870" aria-expanded="false" aria-controls="u92793-t92870">Topic 11: Summary</button>
+                <ul id="u92793-t92870" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_92871/">What You Learned</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_92872/">What You Learned (cont.)</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_93167/">What You Learned (cont.)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u92874" aria-expanded="false" aria-controls="u92874">Unit 3: Basic Shooting Skills</button>
+        <ul id="u92874" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92874-t92875" aria-expanded="false" aria-controls="u92874-t92875">Topic 1: Good Marksmanship and Accuracy</button>
+                <ul id="u92874-t92875" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Fundamentals-of-Good-Marksmanship/201099_92876/">Fundamentals of Good Marksmanship</a></li>
+                    <li><a class="page" href="/national/studyGuide/Selecting-the-Proper-Firearm-and-Ammunition/201099_93171/">Selecting the Proper Firearm and Ammunition</a></li>
+                    <li><a class="page" href="/national/studyGuide/Determining-Accuracy-Limits/201099_92877/">Determining Accuracy Limits</a></li>
+                    <li><a class="page" href="/national/studyGuide/Protecting-Your-Vision-and-Hearing/201099_92910/">Protecting Your Vision and Hearing</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92874-t92878" aria-expanded="false" aria-controls="u92874-t92878">Topic 2: Rifle Firing</button>
+                <ul id="u92874-t92878" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Sight-Alignment/201099_92879/">Sight Alignment</a></li>
+                    <li><a class="page" href="/national/studyGuide/Aligning-an-Open-Sight/201099_92880/">Aligning an Open Sight</a></li>
+                    <li><a class="page" href="/national/studyGuide/Determining-Your-Dominant-or-Master-Eye/201099_92881/">Determining Your Dominant or Master Eye</a></li>
+                    <li><a class="page" href="/national/studyGuide/Sighting-In-a-Rifle/201099_92882/">Sighting-In a Rifle</a></li>
+                    <li><a class="page" href="/national/studyGuide/Optional-Sighting-In-Techniques/201099_92883/">Optional Sighting-In Techniques</a></li>
+                    <li><a class="page" href="/national/studyGuide/Sighting-In-Procedure/201099_92884/">Sighting-In Procedure</a></li>
+                    <li><a class="page" href="/national/studyGuide/Adjusting-Your-Sight/201099_92885/">Adjusting Your Sight</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Sighting-In-a-Rifle/201099_92886/">Video: Sighting-In a Rifle</a></li>
+                    <li><a class="page" href="/national/studyGuide/Rifle-Firing-Techniques/201099_92887/">Rifle-Firing Techniques</a></li>
+                    <li><a class="page" href="/national/studyGuide/Firing-Positions-Prone/201099_92888/">Firing Positions: Prone</a></li>
+                    <li><a class="page" href="/national/studyGuide/Firing-Positions-Standing/201099_92889/">Firing Positions: Standing</a></li>
+                    <li><a class="page" href="/national/studyGuide/Firing-Positions-Sitting/201099_92890/">Firing Positions: Sitting</a></li>
+                    <li><a class="page" href="/national/studyGuide/Firing-Positions-Kneeling/201099_92891/">Firing Positions: Kneeling</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92874-t92892" aria-expanded="false" aria-controls="u92874-t92892">Topic 3: Shotgun Shooting</button>
+                <ul id="u92874-t92892" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Shooting-a-Shotgun-vs.-a-Rifle/201099_92893/">Shooting a Shotgun vs. a Rifle</a></li>
+                    <li><a class="page" href="/national/studyGuide/Choosing-the-Proper-Choke/201099_92894/">Choosing the Proper Choke</a></li>
+                    <li><a class="page" href="/national/studyGuide/Matching-Choke-to-Your-Quarry/201099_92895/">Matching Choke to Your Quarry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Patterning-Your-Shotgun/201099_92896/">Patterning Your Shotgun</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-Patterning-Procedure/201099_92897/">The Patterning Procedure</a></li>
+                    <li><a class="page" href="/national/studyGuide/When-Is-Your-Shot-Patterning-Correct/201099_92898/">When Is Your Shot Patterning Correct?</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shotgun-Shooting-Stance/201099_92899/">Shotgun-Shooting Stance</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shouldering-Pointing-and-Pulling-the-Trigger-of-a-Shotgun/201099_92900/">Shouldering, Pointing, and Pulling the Trigger of a Shotgun</a></li>
+                    <li><a class="page" href="/national/studyGuide/Leading-the-Target-Swing-Through-Method/201099_92901/">Leading the Target: Swing-Through Method</a></li>
+                    <li><a class="page" href="/national/studyGuide/Leading-the-Target-Sustained-Lead/201099_92902/">Leading the Target: Sustained Lead</a></li>
+                    <li><a class="page" href="/national/studyGuide/Snap-Shooting/201099_92903/">Snap-Shooting</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92874-t92904" aria-expanded="false" aria-controls="u92874-t92904">Topic 4: Handgun Shooting</button>
+                <ul id="u92874-t92904" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Handgun-Loading-and-Handling/201099_92905/">Handgun Loading and Handling</a></li>
+                    <li><a class="page" href="/national/studyGuide/Handgun-Shooting-Position-and-Grip/201099_92906/">Handgun-Shooting Position and Grip</a></li>
+                    <li><a class="page" href="/national/studyGuide/Handgun-Sight-Alignment-and-Aiming/201099_92907/">Handgun Sight Alignment and Aiming</a></li>
+                    <li><a class="page" href="/national/studyGuide/Handgun-Shooting-Techniques/201099_92908/">Handgun-Shooting Techniques</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92874-t92909" aria-expanded="false" aria-controls="u92874-t92909">Topic 5: Summary</button>
+                <ul id="u92874-t92909" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_92911/">What You Learned</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_92912/">What You Learned (cont.)</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_93168/">What You Learned (cont.)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u92914" aria-expanded="false" aria-controls="u92914">Unit 4: Basic Hunting Skills</button>
+        <ul id="u92914" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92914-t92915" aria-expanded="false" aria-controls="u92914-t92915">Topic 1: Planning and Preparation</button>
+                <ul id="u92914-t92915" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Steps-You-Should-Take-to-Prepare-for-a-Hunt/201099_92916/">Steps You Should Take to Prepare for a Hunt</a></li>
+                    <li><a class="page" href="/national/studyGuide/Know-Your-Quarry/201099_92917/">Know Your Quarry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Understand-Animal-Characteristics/201099_92918/">Understand Animal Characteristics</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92914-t92919" aria-expanded="false" aria-controls="u92914-t92919">Topic 2: Hunting Strategies</button>
+                <ul id="u92914-t92919" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-Hunting-Strategies/201099_93172/">Introduction to Hunting Strategies</a></li>
+                    <li><a class="page" href="/national/studyGuide/Still-Hunting/201099_92920/">Still Hunting</a></li>
+                    <li><a class="page" href="/national/studyGuide/Stalking/201099_92921/">Stalking</a></li>
+                    <li><a class="page" href="/national/studyGuide/Posting/201099_92922/">Posting</a></li>
+                    <li><a class="page" href="/national/studyGuide/Using-Ground-Blinds/201099_92923/">Using Ground Blinds</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Hunting-From-a-Ground-Blind/201099_93152/">Video: Hunting From a Ground Blind</a></li>
+                    <li><a class="page" href="/national/studyGuide/Using-Elevated-Stands/201099_92924/">Using Elevated Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/Game-Calling/201099_92925/">Game Calling</a></li>
+                    <li><a class="page" href="/national/studyGuide/Driving/201099_92926/">Driving</a></li>
+                    <li><a class="page" href="/national/studyGuide/Flushing-and-Hunting-With-Dogs/201099_92927/">Flushing and Hunting With Dogs</a></li>
+                    <li><a class="page" href="/national/studyGuide/Trapping/201099_92928/">Trapping</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92914-t92929" aria-expanded="false" aria-controls="u92914-t92929">Topic 3: Vital Shots</button>
+                <ul id="u92914-t92929" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Where-to-Shoot/201099_92930/">Where to Shoot</a></li>
+                    <li><a class="page" href="/national/studyGuide/Animation-Choosing-the-Proper-Shot-Angle/201099_92931/">Animation: Choosing the Proper Shot Angle</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shot-Angles-Broadside/201099_92932/">Shot Angles: Broadside</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shot-Angles-Quartering-Away/201099_92933/">Shot Angles: Quartering-Away</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shot-Angles-Quartering-Toward/201099_92934/">Shot Angles: Quartering-Toward</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shot-Angles-Head-On/201099_92935/">Shot Angles: Head-On</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shot-Angles-Rear-End/201099_92936/">Shot Angles: Rear-End</a></li>
+                    <li><a class="page" href="/national/studyGuide/Trailing-Wounded-Game/201099_92937/">Trailing Wounded Game</a></li>
+                    <li><a class="page" href="/national/studyGuide/Approaching-Downed-Game/201099_92938/">Approaching Downed Game</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92914-t92939" aria-expanded="false" aria-controls="u92914-t92939">Topic 4: Field Care of Game</button>
+                <ul id="u92914-t92939" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Field-Care-Basics/201099_92940/">Field Care Basics</a></li>
+                    <li><a class="page" href="/national/studyGuide/Field-Dressing-Techniques/201099_92941/">Field Dressing Techniques</a></li>
+                    <li><a class="page" href="/national/studyGuide/A-Game-Care-Kit/201099_92942/">A Game Care Kit</a></li>
+                    <li><a class="page" href="/national/studyGuide/Field-Dressing-Larger-Game/201099_92943/">Field Dressing Larger Game</a></li>
+                    <li><a class="page" href="/national/studyGuide/Transporting-Game/201099_92944/">Transporting Game</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92914-t92945" aria-expanded="false" aria-controls="u92914-t92945">Topic 5: Summary</button>
+                <ul id="u92914-t92945" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_92946/">What You Learned</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u92948" aria-expanded="false" aria-controls="u92948">Unit 5: Primitive Hunting Equipment and Techniques</button>
+        <ul id="u92948" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92948-t92949" aria-expanded="false" aria-controls="u92948-t92949">Topic 1: Know Your Muzzleloader</button>
+                <ul id="u92948-t92949" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-Primitive-Equipment/201099_93173/">Introduction to Primitive Equipment</a></li>
+                    <li><a class="page" href="/national/studyGuide/Parts-of-a-Muzzleloader-Firearm/201099_92950/">Parts of a Muzzleloader Firearm</a></li>
+                    <li><a class="page" href="/national/studyGuide/Muzzleloader-Locks/201099_92951/">Muzzleloader Locks</a></li>
+                    <li><a class="page" href="/national/studyGuide/In-Line-Muzzleloaders/201099_92952/">In-Line Muzzleloaders</a></li>
+                    <li><a class="page" href="/national/studyGuide/Muzzleloading-Rifles-Shotguns-and-Handguns/201099_92953/">Muzzleloading Rifles, Shotguns, and Handguns</a></li>
+                    <li><a class="page" href="/national/studyGuide/Powders-for-Muzzleloaders/201099_92954/">Powders for Muzzleloaders</a></li>
+                    <li><a class="page" href="/national/studyGuide/Projectiles-for-Muzzleloaders/201099_92955/">Projectiles for Muzzleloaders</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92948-t92956" aria-expanded="false" aria-controls="u92948-t92956">Topic 2: Basic Muzzleloader Safety and Skills</button>
+                <ul id="u92948-t92956" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Basic-Muzzleloader-Safety/201099_92957/">Basic Muzzleloader Safety</a></li>
+                    <li><a class="page" href="/national/studyGuide/Loading-a-Muzzleloader/201099_92958/">Loading a Muzzleloader</a></li>
+                    <li><a class="page" href="/national/studyGuide/Steps-for-Loading-a-Muzzleloader/201099_92959/">Steps for Loading a Muzzleloader</a></li>
+                    <li><a class="page" href="/national/studyGuide/Steps-for-Loading-an-In-Line-Muzzleloader/201099_92960/">Steps for Loading an In-Line Muzzleloader</a></li>
+                    <li><a class="page" href="/national/studyGuide/Unloading-a-Muzzleloader/201099_92961/">Unloading a Muzzleloader</a></li>
+                    <li><a class="page" href="/national/studyGuide/Firing-a-Muzzleloader/201099_92962/">Firing a Muzzleloader</a></li>
+                    <li><a class="page" href="/national/studyGuide/Muzzleloader-Hang-Fire-Situations/201099_92963/">Muzzleloader Hang Fire Situations</a></li>
+                    <li><a class="page" href="/national/studyGuide/Cleaning-a-Muzzleloader/201099_92964/">Cleaning a Muzzleloader</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Modern-In-Line-Muzzleloading-Safety/201099_93165/">Video: Modern In-Line Muzzleloading Safety</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92948-t92965" aria-expanded="false" aria-controls="u92948-t92965">Topic 3: Know Your Bow and Arrow</button>
+                <ul id="u92948-t92965" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Speed-and-Range-of-Modern-Bows/201099_92966/">Speed and Range of Modern Bows</a></li>
+                    <li><a class="page" href="/national/studyGuide/Common-Bow-Types-Longbow-Stick-Bow/201099_92967/">Common Bow Types: Longbow (Stick Bow)</a></li>
+                    <li><a class="page" href="/national/studyGuide/Common-Bow-Types-Recurve-Bow/201099_92968/">Common Bow Types: Recurve Bow</a></li>
+                    <li><a class="page" href="/national/studyGuide/Common-Bow-Types-Compound-Bow/201099_92969/">Common Bow Types: Compound Bow</a></li>
+                    <li><a class="page" href="/national/studyGuide/Stringing-a-Bow/201099_92970/">Stringing a Bow</a></li>
+                    <li><a class="page" href="/national/studyGuide/Parts-of-an-Arrow/201099_92971/">Parts of an Arrow</a></li>
+                    <li><a class="page" href="/national/studyGuide/Common-Types-of-Arrowheads-Points/201099_92972/">Common Types of Arrowheads: Points</a></li>
+                    <li><a class="page" href="/national/studyGuide/Common-Types-of-Arrowheads-Broadheads/201099_92973/">Common Types of Arrowheads: Broadheads</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-Crossbow/201099_92974/">The Crossbow</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92948-t92975" aria-expanded="false" aria-controls="u92948-t92975">Topic 4: Bowhunting Safety and Skills</button>
+                <ul id="u92948-t92975" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Preparing-for-Safety-Before-You-Go-Out/201099_92976/">Preparing for Safety Before You Go Out</a></li>
+                    <li><a class="page" href="/national/studyGuide/Bow-Shooting-Safety/201099_92977/">Bow-Shooting Safety</a></li>
+                    <li><a class="page" href="/national/studyGuide/Broadhead-Safety/201099_92978/">Broadhead Safety</a></li>
+                    <li><a class="page" href="/national/studyGuide/Safety-Accessories/201099_92979/">Safety Accessories</a></li>
+                    <li><a class="page" href="/national/studyGuide/Bow-Shooting-Position/201099_92980/">Bow-Shooting Position</a></li>
+                    <li><a class="page" href="/national/studyGuide/Nocking-an-Arrow/201099_92981/">Nocking an Arrow</a></li>
+                    <li><a class="page" href="/national/studyGuide/Drawing-and-Anchoring-the-Bow/201099_92982/">Drawing and Anchoring the Bow</a></li>
+                    <li><a class="page" href="/national/studyGuide/Aiming-the-Bow/201099_92983/">Aiming the Bow</a></li>
+                    <li><a class="page" href="/national/studyGuide/Holding-and-Releasing-the-Bow/201099_92984/">Holding and Releasing the Bow</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92948-t92985" aria-expanded="false" aria-controls="u92948-t92985">Topic 5: History of Primitive Hunting Equipment</button>
+                <ul id="u92948-t92985" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/History-of-Firearms/201099_92986/">History of Firearms</a></li>
+                    <li><a class="page" href="/national/studyGuide/History-of-the-Bow-and-Arrow/201099_92987/">History of the Bow and Arrow</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92948-t92988" aria-expanded="false" aria-controls="u92948-t92988">Topic 6: Summary</button>
+                <ul id="u92948-t92988" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_92989/">What You Learned</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_92990/">What You Learned (cont.)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u92992" aria-expanded="false" aria-controls="u92992">Unit 6: Be a Safe Hunter</button>
+        <ul id="u92992" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t92993" aria-expanded="false" aria-controls="u92992-t92993">Topic 1: Why Firearm Safety Is Important</button>
+                <ul id="u92992-t92993" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-Firearm-Safety/201099_92994/">Introduction to Firearm Safety</a></li>
+                    <li><a class="page" href="/national/studyGuide/Firearm-Safety-in-the-Home/201099_92995/">Firearm Safety in the Home</a></li>
+                    <li><a class="page" href="/national/studyGuide/Hunting-Incidents/201099_92996/">Hunting Incidents</a></li>
+                    <li><a class="page" href="/national/studyGuide/Main-Causes-of-Hunting-Incidents/201099_92997/">Main Causes of Hunting Incidents</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Staying-Safe-After-the-Shot/201099_93154/">Video: Staying Safe After the Shot</a></li>
+                    <li><a class="page" href="/national/studyGuide/Importance-of-Safe-Backstops/201099_93174/">Importance of Safe Backstops</a></li>
+                    <li><a class="page" href="/national/studyGuide/Firearm-Safety-at-the-Shooting-Range/201099_92998/">Firearm Safety at the Shooting Range</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t92999" aria-expanded="false" aria-controls="u92992-t92999">Topic 2: Safely Carrying Firearms in the Field</button>
+                <ul id="u92992-t92999" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-Safe-Carries/201099_93000/">Introduction to Safe Carries</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Safe-Firearm-Carries/201099_93155/">Video: Safe Firearm Carries</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Trail-Carry/201099_93001/">Proper Field Carries: Trail Carry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Sling-Carry/201099_93002/">Proper Field Carries: Sling Carry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Elbow-or-Side-Carry/201099_93003/">Proper Field Carries: Elbow or Side Carry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Two-Handed-or-Ready-Carry/201099_93004/">Proper Field Carries: Two-Handed or "Ready" Carry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Cradle-Carry/201099_93005/">Proper Field Carries: Cradle Carry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Shoulder-Carry/201099_93006/">Proper Field Carries: Shoulder Carry</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Three-Hunters-Side-by-Side/201099_93007/">Proper Field Carries: Three Hunters, Side by Side</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Three-Hunters-Walking-Single-File/201099_93008/">Proper Field Carries: Three Hunters, Walking Single File</a></li>
+                    <li><a class="page" href="/national/studyGuide/Proper-Field-Carries-Hunters-Facing-One-Another/201099_93009/">Proper Field Carries: Hunters Facing One Another</a></li>
+                    <li><a class="page" href="/national/studyGuide/Crossing-Obstacles-Alone/201099_93010/">Crossing Obstacles: Alone</a></li>
+                    <li><a class="page" href="/national/studyGuide/Crossing-Obstacles-With-Others/201099_93176/">Crossing Obstacles: With Others</a></li>
+                    <li><a class="page" href="/national/studyGuide/Passing-a-Firearm-to-Another-Person/201099_93175/">Passing a Firearm to Another Person</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Safe-Fence-Crossing/201099_93156/">Video: Safe Fence Crossing</a></li>
+                    <li><a class="page" href="/national/studyGuide/Checking-for-Obstructions/201099_93011/">Checking for Obstructions</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Clearing-Plugged-Gun-Barrels/201099_93157/">Video: Clearing Plugged Gun Barrels</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93012" aria-expanded="false" aria-controls="u92992-t93012">Topic 3: Safely Loading and Unloading Firearms</button>
+                <ul id="u92992-t93012" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Loading-Firearms/201099_93013/">Loading Firearms</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Loading-and-Unloading-Firearms/201099_93158/">Video: Loading and Unloading Firearms</a></li>
+                    <li><a class="page" href="/national/studyGuide/Unloading-Firearms/201099_93014/">Unloading Firearms</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93015" aria-expanded="false" aria-controls="u92992-t93015">Topic 4: Transporting Firearms</button>
+                <ul id="u92992-t93015" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Safely-Transporting-Firearms/201099_93016/">Safely Transporting Firearms</a></li>
+                    <li><a class="page" href="/national/studyGuide/Gun-Cases-for-Transporting-Firearms/201099_93017/">Gun Cases for Transporting Firearms</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Transporting-Firearms-Safely/201099_93159/">Video: Transporting Firearms Safely</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93018" aria-expanded="false" aria-controls="u92992-t93018">Topic 5: Safe Zone-of-Fire</button>
+                <ul id="u92992-t93018" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-Is-a-Zone-of-Fire/201099_93019/">What Is a Zone-of-Fire?</a></li>
+                    <li><a class="page" href="/national/studyGuide/Determining-Your-Safe-Zone-of-Fire/201099_93020/">Determining Your Safe Zone-of-Fire</a></li>
+                    <li><a class="page" href="/national/studyGuide/Maintaining-Your-Safe-Zone-of-Fire/201099_93021/">Maintaining Your Safe Zone-of-Fire</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Safe-Zones-of-Fire/201099_93160/">Video: Safe Zones-of-Fire</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93022" aria-expanded="false" aria-controls="u92992-t93022">Topic 6: Other Safety Considerations</button>
+                <ul id="u92992-t93022" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Self-Control-and-Target-Identification/201099_93023/">Self-Control and Target Identification</a></li>
+                    <li><a class="page" href="/national/studyGuide/Shooting-Accuracy/201099_93024/">Shooting Accuracy</a></li>
+                    <li><a class="page" href="/national/studyGuide/Alcohol-and-Drugs/201099_93025/">Alcohol and Drugs</a></li>
+                    <li><a class="page" href="/national/studyGuide/Beware-of-Hang-Fires/201099_92855/">Beware of Hang Fires</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93026" aria-expanded="false" aria-controls="u92992-t93026">Topic 7: Hunting From Elevated Stands</button>
+                <ul id="u92992-t93026" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-Elevated-Stands/201099_93027/">Introduction to Elevated Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/Pros-and-Cons-of-Elevated-Stands/201099_93028/">Pros and Cons of Elevated Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/Types-of-Portable-Tree-Stands/201099_93029/">Types of Portable Tree Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/Portable-Tree-Stands-Hang-On-Stands/201099_93030/">Portable Tree Stands: Hang-On Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/Portable-Tree-Stands-Climbing-Stands/201099_93031/">Portable Tree Stands: Climbing Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/Portable-Tree-Stands-Ladder-Stands/201099_93032/">Portable Tree Stands: Ladder Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/Tripods-Quadpods-or-Tower-Stands-Freestanding/201099_93033/">Tripods, Quadpods, or Tower Stands (Freestanding)</a></li>
+                    <li><a class="page" href="/national/studyGuide/Elevated-Stand-Location/201099_93034/">Elevated Stand Location</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Preparing-to-Hunt-From-a-Tree-Stand/201099_93161/">Video: Preparing to Hunt From a Tree Stand</a></li>
+                    <li><a class="page" href="/national/studyGuide/Fall-Arrest-Systems-FAS/201099_93035/">Fall-Arrest Systems (FAS)</a></li>
+                    <li><a class="page" href="/national/studyGuide/Fall-Arrest-System-Safety-Guidelines/201099_93036/">Fall-Arrest System Safety Guidelines</a></li>
+                    <li><a class="page" href="/national/studyGuide/Avoiding-Suspension-Trauma/201099_93037/">Avoiding Suspension Trauma</a></li>
+                    <li><a class="page" href="/national/studyGuide/Hauling-Hunting-Equipment-Into-a-Stand/201099_93038/">Hauling Hunting Equipment Into a Stand</a></li>
+                    <li><a class="page" href="/national/studyGuide/Elevated-Stand-Safety/201099_93039/">Elevated Stand Safety</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Tree-Stand-Hunting-Safety/201099_93162/">Video: Tree Stand Hunting Safety</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93040" aria-expanded="false" aria-controls="u92992-t93040">Topic 8: Hunting With Boats</button>
+                <ul id="u92992-t93040" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Trip-Preparation-When-Hunting-With-Boats/201099_93041/">Trip Preparation When Hunting With Boats</a></li>
+                    <li><a class="page" href="/national/studyGuide/Transporting-Firearms-in-a-Boat/201099_93042/">Transporting Firearms in a Boat</a></li>
+                    <li><a class="page" href="/national/studyGuide/Zone-of-Fire-in-a-Boat/201099_93043/">Zone-of-Fire in a Boat</a></li>
+                    <li><a class="page" href="/national/studyGuide/Surviving-Water-Emergencies/201099_93044/">Surviving Water Emergencies</a></li>
+                    <li><a class="page" href="/national/studyGuide/Types-of-Personal-Flotation-Devices/201099_93045/">Types of Personal Flotation Devices</a></li>
+                    <li><a class="page" href="/national/studyGuide/Dealing-With-Cold-Water-Immersion/201099_93046/">Dealing With Cold Water Immersion</a></li>
+                    <li><a class="page" href="/national/studyGuide/Survival-Steps-If-You-Cannot-Get-Out-of-the-Water/201099_93047/">Survival Steps If You Cannot Get Out of the Water</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93048" aria-expanded="false" aria-controls="u92992-t93048">Topic 9: Hunting With All-Terrain Vehicles</button>
+                <ul id="u92992-t93048" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Introduction-to-All-Terrain-Vehicles/201099_93049/">Introduction to All-Terrain Vehicles</a></li>
+                    <li><a class="page" href="/national/studyGuide/Rules-for-Safe-and-Ethical-Operation-When-Hunting-With-ATVs/201099_93050/">Rules for Safe and Ethical Operation When Hunting With ATVs</a></li>
+                    <li><a class="page" href="/national/studyGuide/Know-the-Law-Before-Hunting-With-ATVs/201099_93051/">Know the Law Before Hunting With ATVs</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u92992-t93052" aria-expanded="false" aria-controls="u92992-t93052">Topic 10: Summary</button>
+                <ul id="u92992-t93052" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_93053/">What You Learned</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_93054/">What You Learned (cont.)</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_93169/">What You Learned (cont.)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u93056" aria-expanded="false" aria-controls="u93056">Unit 7: Be a Responsible and Ethical Hunter</button>
+        <ul id="u93056" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93056-t93057" aria-expanded="false" aria-controls="u93056-t93057">Topic 1: Why Do We Have Hunting Laws?</button>
+                <ul id="u93056-t93057" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Before-Hunting-Laws/201099_93058/">Before Hunting Laws</a></li>
+                    <li><a class="page" href="/national/studyGuide/Benefits-of-Hunting-Laws/201099_93059/">Benefits of Hunting Laws</a></li>
+                    <li><a class="page" href="/national/studyGuide/Fair-Chase/201099_93177/">Fair Chase</a></li>
+                    <li><a class="page" href="/national/studyGuide/How-Hunting-Laws-Are-Passed/201099_93060/">How Hunting Laws Are Passed</a></li>
+                    <li><a class="page" href="/national/studyGuide/Hunting-Law-Resources/201099_93178/">Hunting Law Resources</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-Hunter-s-Image-Matters/201099_93061/">The Hunter's Image Matters</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93056-t93062" aria-expanded="false" aria-controls="u93056-t93062">Topic 2: Hunter Ethics</button>
+                <ul id="u93056-t93062" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Being-an-Ethical-Hunter/201099_93063/">Being an Ethical Hunter</a></li>
+                    <li><a class="page" href="/national/studyGuide/Respect-Natural-Resources/201099_93064/">Respect Natural Resources</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Approached-by-a-Conservation-Officer/201099_93151/">Video: Approached by a Conservation Officer</a></li>
+                    <li><a class="page" href="/national/studyGuide/Respect-Other-Hunters/201099_93065/">Respect Other Hunters</a></li>
+                    <li><a class="page" href="/national/studyGuide/Respect-Landowners/201099_93066/">Respect Landowners</a></li>
+                    <li><a class="page" href="/national/studyGuide/Respect-Non-Hunters/201099_93067/">Respect Non-Hunters</a></li>
+                    <li><a class="page" href="/national/studyGuide/Hunter-s-Personal-Code-of-Conduct/201099_93179/">Hunter's Personal Code of Conduct</a></li>
+                    <li><a class="page" href="/national/studyGuide/Gray-Areas-of-Ethical-Behavior/201099_93068/">Gray Areas of Ethical Behavior</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93056-t93069" aria-expanded="false" aria-controls="u93056-t93069">Topic 3: The Five Stages of Hunter Development</button>
+                <ul id="u93056-t93069" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Becoming-a-True-Sportsman/201099_93070/">Becoming a True Sportsman</a></li>
+                    <li><a class="page" href="/national/studyGuide/Five-Stages-Shooting-Stage/201099_93071/">Five Stages: Shooting Stage</a></li>
+                    <li><a class="page" href="/national/studyGuide/Five-Stages-Limiting-Out-Stage/201099_93072/">Five Stages: Limiting-Out Stage</a></li>
+                    <li><a class="page" href="/national/studyGuide/Five-Stages-Trophy-Stage/201099_93073/">Five Stages: Trophy Stage</a></li>
+                    <li><a class="page" href="/national/studyGuide/Five-Stages-Method-Stage/201099_93074/">Five Stages: Method Stage</a></li>
+                    <li><a class="page" href="/national/studyGuide/Five-Stages-Sportsman-Stage/201099_93075/">Five Stages: Sportsman Stage</a></li>
+                    <li><a class="page" href="/national/studyGuide/True-Sportsmen-Become-Involved/201099_93076/">True Sportsmen Become Involved</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93056-t93077" aria-expanded="false" aria-controls="u93056-t93077">Topic 4: Summary</button>
+                <ul id="u93056-t93077" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_93078/">What You Learned</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u93080" aria-expanded="false" aria-controls="u93080">Unit 8: Preparation and Survival Skills</button>
+        <ul id="u93080" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93080-t93081" aria-expanded="false" aria-controls="u93080-t93081">Topic 1: Importance of Planning and Preparation</button>
+                <ul id="u93080-t93081" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Preparing-for-Risks/201099_93082/">Preparing for Risks</a></li>
+                    <li><a class="page" href="/national/studyGuide/Four-Key-Parts-of-Preparing/201099_93083/">Four Key Parts of Preparing</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-Hunting-Plan/201099_93084/">The Hunting Plan</a></li>
+                    <li><a class="page" href="/national/studyGuide/Physical-Conditioning/201099_93085/">Physical Conditioning</a></li>
+                    <li><a class="page" href="/national/studyGuide/Clothing/201099_93086/">Clothing</a></li>
+                    <li><a class="page" href="/national/studyGuide/Video-Effectiveness-of-Blaze-Orange/201099_93153/">Video: Effectiveness of Blaze Orange</a></li>
+                    <li><a class="page" href="/national/studyGuide/Day-Pack-Survival-Kit-and-Equipment/201099_93087/">Day Pack-Survival Kit and Equipment</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93080-t93088" aria-expanded="false" aria-controls="u93080-t93088">Topic 2: Topographic Maps and Compasses</button>
+                <ul id="u93080-t93088" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Reading-a-Topographic-Map/201099_93089/">Reading a Topographic Map</a></li>
+                    <li><a class="page" href="/national/studyGuide/Selecting-a-Compass/201099_93090/">Selecting a Compass</a></li>
+                    <li><a class="page" href="/national/studyGuide/Understanding-Declination/201099_93091/">Understanding Declination</a></li>
+                    <li><a class="page" href="/national/studyGuide/Plotting-Your-Progress/201099_93092/">Plotting Your Progress</a></li>
+                    <li><a class="page" href="/national/studyGuide/Global-Positioning-System-GPS/201099_93093/">Global Positioning System (GPS)</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93080-t93094" aria-expanded="false" aria-controls="u93080-t93094">Topic 3: Survival Skills</button>
+                <ul id="u93080-t93094" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Switching-Into-Survival-Mode/201099_93095/">Switching Into Survival Mode</a></li>
+                    <li><a class="page" href="/national/studyGuide/Rules-of-Survival/201099_93096/">Rules of Survival</a></li>
+                    <li><a class="page" href="/national/studyGuide/S.T.O.P.-Stop-Think-Observe-Plan/201099_93097/">S.T.O.P.: Stop, Think, Observe, Plan</a></li>
+                    <li><a class="page" href="/national/studyGuide/Preparing-a-Shelter/201099_93098/">Preparing a Shelter</a></li>
+                    <li><a class="page" href="/national/studyGuide/Starting-a-Fire/201099_93099/">Starting a Fire</a></li>
+                    <li><a class="page" href="/national/studyGuide/Signaling-for-Help/201099_93100/">Signaling for Help</a></li>
+                    <li><a class="page" href="/national/studyGuide/Drinking-Enough-Water/201099_93101/">Drinking Enough Water</a></li>
+                    <li><a class="page" href="/national/studyGuide/Finding-Food/201099_93102/">Finding Food</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93080-t93103" aria-expanded="false" aria-controls="u93080-t93103">Topic 4: Coping With Extreme Weather</button>
+                <ul id="u93080-t93103" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Hypothermia/201099_93104/">Hypothermia</a></li>
+                    <li><a class="page" href="/national/studyGuide/Symptoms-and-Treatment-of-Hypothermia/201099_93105/">Symptoms and Treatment of Hypothermia</a></li>
+                    <li><a class="page" href="/national/studyGuide/Frostbite/201099_93106/">Frostbite</a></li>
+                    <li><a class="page" href="/national/studyGuide/Basics-of-Cold-Survival-Without-Fire/201099_93107/">Basics of Cold Survival Without Fire</a></li>
+                    <li><a class="page" href="/national/studyGuide/Heat-Exhaustion-and-Heat-Stroke/201099_93108/">Heat Exhaustion and Heat Stroke</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93080-t93109" aria-expanded="false" aria-controls="u93080-t93109">Topic 5: First Aid</button>
+                <ul id="u93080-t93109" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Basic-First-Aid/201099_93110/">Basic First Aid</a></li>
+                    <li><a class="page" href="/national/studyGuide/First-Aid-Bleeding/201099_93111/">First Aid: Bleeding</a></li>
+                    <li><a class="page" href="/national/studyGuide/First-Aid-Broken-Bones/201099_93112/">First Aid: Broken Bones</a></li>
+                    <li><a class="page" href="/national/studyGuide/First-Aid-Burns-CO-Poisoning-and-Chest-Wounds/201099_93113/">First Aid: Burns, CO Poisoning, and Chest Wounds</a></li>
+                    <li><a class="page" href="/national/studyGuide/First-Aid-Drownings-Heart-Attacks-and-Falls-From-Tree-Stands/201099_93180/">First Aid: Drownings, Heart Attacks, and Falls From Tree Stands</a></li>
+                    <li><a class="page" href="/national/studyGuide/First-Aid-Shock/201099_93181/">First Aid: Shock</a></li>
+                    <li><a class="page" href="/national/studyGuide/First-Aid-Snakebite/201099_93114/">First Aid: Snakebite</a></li>
+                    <li><a class="page" href="/national/studyGuide/First-Aid-Kit/201099_93115/">First-Aid Kit</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93080-t93116" aria-expanded="false" aria-controls="u93080-t93116">Topic 6: Summary</button>
+                <ul id="u93080-t93116" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_93117/">What You Learned</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_93118/">What You Learned (cont.)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <button class="btn btn-link unit" type="button" data-toggle="collapse" data-target="#u93120" aria-expanded="false" aria-controls="u93120">Unit 9: Understanding Wildlife</button>
+        <ul id="u93120" class="collapse">
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93120-t93121" aria-expanded="false" aria-controls="u93120-t93121">Topic 1: Wildlife Conservation</button>
+                <ul id="u93120-t93121" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Conservation-and-Preservation/201099_93122/">Conservation and Preservation</a></li>
+                    <li><a class="page" href="/national/studyGuide/Lessons-in-Wildlife-Management/201099_93123/">Lessons in Wildlife Management</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-North-American-Model-of-Wildlife-Conservation/201099_93166/">The North American Model of Wildlife Conservation</a></li>
+                    <li><a class="page" href="/national/studyGuide/Causes-of-Threatened-and-Endangered-Species/201099_93124/">Causes of Threatened and Endangered Species</a></li>
+                    <li><a class="page" href="/national/studyGuide/Habitat-Management/201099_93125/">Habitat Management</a></li>
+                    <li><a class="page" href="/national/studyGuide/Habitat-Balancing-Act/201099_93126/">Habitat Balancing Act</a></li>
+                    <li><a class="page" href="/national/studyGuide/Carrying-Capacity/201099_93127/">Carrying Capacity</a></li>
+                    <li><a class="page" href="/national/studyGuide/Factors-That-Affect-Surplus-of-Game-Animals/201099_93128/">Factors That Affect Surplus of Game Animals</a></li>
+                    <li><a class="page" href="/national/studyGuide/The-Hunter-s-Role-in-Wildlife-Conservation/201099_93129/">The Hunter's Role in Wildlife Conservation</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93120-t93130" aria-expanded="false" aria-controls="u93120-t93130">Topic 2: Wildlife Management and Conservation Principles</button>
+                <ul id="u93120-t93130" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/The-Wildlife-Manager-s-Role/201099_93131/">The Wildlife Manager's Role</a></li>
+                    <li><a class="page" href="/national/studyGuide/Wildlife-Management-Practices/201099_93132/">Wildlife Management Practices</a></li>
+                    <li><a class="page" href="/national/studyGuide/Beneficial-Habitat-Management-Practices/201099_93133/">Beneficial Habitat Management Practices</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93120-t93134" aria-expanded="false" aria-controls="u93120-t93134">Topic 3: Wildlife Identification</button>
+                <ul id="u93120-t93134" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/Developing-Wildlife-Identification-Skills/201099_93135/">Developing Wildlife Identification Skills</a></li>
+                    <li><a class="page" href="/national/studyGuide/Wildlife-Categories/201099_93182/">Wildlife Categories</a></li>
+                    <li><a class="page" href="/national/studyGuide/Large-Mammals/201099_93136/">Large Mammals</a></li>
+                    <li><a class="page" href="/national/studyGuide/Small-Mammals/201099_93137/">Small Mammals</a></li>
+                    <li><a class="page" href="/national/studyGuide/Upland-Birds/201099_93138/">Upland Birds</a></li>
+                    <li><a class="page" href="/national/studyGuide/Waterfowl/201099_93139/">Waterfowl</a></li>
+                    <li><a class="page" href="/national/studyGuide/Wetland-Birds/201099_93140/">Wetland Birds</a></li>
+                    <li><a class="page" href="/national/studyGuide/Birds-of-Prey/201099_93141/">Birds of Prey</a></li>
+                    <li><a class="page" href="/national/studyGuide/Rare-Protected-or-Endangered-Species/201099_93142/">Rare, Protected, or Endangered Species</a></li>
+                    <li><a class="page" href="/national/studyGuide/Continue-Your-Wildlife-Education/201099_93143/">Continue Your Wildlife Education</a></li>
+                </ul>
+            </li>
+            <li>
+              <button class="btn btn-link topic" type="button" data-toggle="collapse" data-target="#u93120-t93144" aria-expanded="false" aria-controls="u93120-t93144">Topic 4: Summary</button>
+                <ul id="u93120-t93144" class="collapse complete">
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned/201099_93145/">What You Learned</a></li>
+                    <li><a class="page" href="/national/studyGuide/What-You-Learned-cont./201099_93146/">What You Learned (cont.)</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+  </ul>
+</nav>
+
+            </div>
+          </div>
+          <div class="panel-footer text-center">
+            <button id="course-nav-toggle" class="btn btn-default" type="button" data-toggle="collapse" data-target="#course-nav-panel" aria-expanded="false" aria-controls="course-nav-panel">
+              View Course Outline
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="list-inline course-location">
+        <li><span class="label label-primary">Unit 8 of 9</span></li>
+        <li><span class="label label-primary">Topic 3 of 6</span></li>
+        <li><span class="label label-primary">Page 6 of 8</span></li>
+      </ul>
+      <div class="course-controls-group">
+        <a class="btn btn-lg btn-default"
+            href="/national/studyGuide/Starting-a-Fire/201099_93099/"
+            rel="prev">
+          Previous
+        </a>
+        <a class="btn btn-lg btn-success"
+            href="/national/studyGuide/Drinking-Enough-Water/201099_93101/"
+            rel="next">
+          Next
+        </a>
+        <a class="btn btn-lg btn-block-xs btn-default study-guide-link"
+            href="/national/studyGuide/201099/">
+          Back to the Study Guide Index
+        </a>
+      </div><!-- end .course-controls-group -->
+
+      
+    </div>
+  </div>
+</div>
+
+
+<!--  -->
+
+    </main>
+
+    <footer class="course-footer">
+  <div class="container">
+    <div class="row">
+      <div id="about-program" class="col-sm-6">
+          <a href="/">
+            <img loading="lazy" class="wordmark" src="https://assets.kalkomey.com/hunter/images/fm/hunter-ed-logo.svg?v=2" alt="hunter-ed.com" width="163" height="32" />
+          </a>
+        <p>Hunter-ed.com is produced by Kalkomey Enterprises, LLC. Kalkomey is an official state-delegated provider that provides hunting education courses and certification and publishing hunting safety education materials.</p>
+        <div class="social">
+          <p class="h3">Follow Us</p>
+          <ul class="list-inline list-social">
+  <li>
+    <a class="blog btn btn-info" href="https://www.hunter-ed.com/blog/" rel="external noopener" target="_blank" title="Check out the latest on the Hunter Ed blog" >Hunter Ed blog</a>
+  </li>
+  <li>
+    <a class="facebook" href="https://www.facebook.com/hunterEdcom" rel="external noopener" target="_blank" title="Follow us on Facebook">Facebook</a>
+  </li>
+  <li>
+    <a class="twitter" href="https://twitter.com/hunter_ed" rel="external noopener" target="_blank" title="Follow us on Twitter">Twitter</a>
+  </li>
+  <li>
+    <a class="pinterest" href="https://pinterest.com/hunteredcom/" rel="external noopener" target="_blank" title="Follow us on Pinterest">Pinterest</a>
+  </li>
+  <li>
+    <a class="youtube" href="https://www.youtube.com/user/kalkomey" rel="external noopener" target="_blank" title="Subscribe to our YouTube channel">YouTube</a>
+  </li>
+</ul>
+
+        </div>
+      </div>
+      <div id="state-course" class="col-sm-6">
+        <h3 class="fs-4 fw-normal">The National Hunter Ed Course</h3>
+<p>Hunter Ed is committed to Hunting education safety. We work with the IHEA–Approved Course to produce Hunting safety education that&rsquo;s accurate, interesting, and easy to understand.</p>
+      </div>
+    </div>
+
+    <nav aria-label="footer">
+      <ul class="list-unstyled">
+        <li class="top"><a href="#top">Top ⬆</a></li>
+
+        <li><a href="/site/login/">Log In</a></li>
+        <li><a href="/#select-your-course">Select Another State Course</a></li>
+
+          <li><a href="/national/">Home</a></li>
+        <li><a href="/partners/">Partners</a></li>
+        <li><a href="https://todayshunter.com/" target="_blank" rel="external noopener">Today’s Hunter</a></li>
+      </ul>
+    </nav>
+
+    <div class="kalkomey-info row">
+      <div class="col-sm-6 col-md-4">
+        <p class="h3">More Online Recreational Safety Courses from Kalkomey</p>
+        <ul id="program-sites" class="list-unstyled">
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/boater/images/fm/boat-ed-logo.svg" height="24" width="107" alt="Online Boating License Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/bowhunter/images/fm/bowhunter-ed-logo.svg" height="24" width="164" alt="Bowhunting Education Certificates">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/crossbow/images/fm/crossbow-ed-logo.svg" height="24" width="158" alt="Official State Crossbow Education Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/offroader/images/fm/offroad-ed-logo.svg" height="24" width="131" alt="Official State Offroad Vehicle Education Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/snowmobiler/images/fm/snowmobile-ed-logo.svg" height="24" width="179" alt="Official State Snowmobile Vehicle Education Courses">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/concealedcarry/images/fm/concealedcarry-ed-logo.svg" height="24" width="196" alt="Comprehensive Online Concealed Carry Course">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/ilearntoboat/images/fm/ilearntoboat-logo.svg" height="20" width="144" alt="Interactive Boating Course">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/ilearntohunt/images/fm/ilearntohunt-logo-color.png" height="20" width="144" alt="Interactive Hunting Course">
+  </li>
+  <li class="mt-2 mb-3">
+      <img loading="lazy" src="https://assets.kalkomey.com/shared/images/logos/dronecourse-logo.svg" height="24" width="146" alt="Drone License Course">
+  </li>
+</ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <p class="h3">Customer Support</p>
+        <p>We provide support Monday through Friday from 8AM to 8PM CST and Saturday and Sunday from 8AM to 5PM CST.</p>
+        <p class="h4">Phone</p>
+        <a href="tel:1-800-830-2268" class="notranslate">1-800-830-2268</a>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <p class="h3">About Kalkomey Enterprises, LLC</p>
+        <p>Kalkomey is the official provider of recreational safety education materials for all 50 states. We provide online boating and hunting and other recreational safety education. <a rel="external" title="Kalkomey’s press resources" href="https://www.kalkomey.com/#home-news">View press releases.</a></p>
+        <p>Hunter Ed is produced by <a href="https://www.kalkomey.com" rel="external">Kalkomey Enterprises, LLC</a>.</p>
+        <address class="notranslate">
+          224 W. Campbell Rd. #512<br>
+          Richardson, TX 75080<br>
+          1-800-830-2268<br>
+        </address>
+      </div>
+    </div>
+
+    <small class="copyright">
+      <a href="https://www.kalkomey.com" rel="external">
+        <img loading="lazy" class="kalkomey-logo" src="https://assets.kalkomey.com/shared/images/logos/kalkomey-logo.svg?v=2026" alt="Kalkomey logo" width="128" height="32" />
+      </a>
+      <a class="text-nowrap" href="/copyright/">&copy; 2004&ndash;2026 All rights reserved.</a>
+      <span id="privacy-and-terms-of-use"><a class="text-nowrap" id="accessibility-link" href="/accessibility/">Accessibility</a><span>, </span><a class="text-nowrap" rel="nofollow" id="privacy-policy-link" href="https://privacy.kalkomey.com/policies/en/?name=privacy-policy">Privacy Policy</a><span class="with-privacy-choices">, </span><span class="no-privacy-choices"> and </span><a class="text-nowrap" rel="nofollow" href="https://privacy.kalkomey.com/policies/en/?name=terms-of-service">Terms of Use</a><span class="with-privacy-choices"> and </span><a class="your-privacy-choices with-privacy-choices text-nowrap" href="#">Your Privacy Choices</a><span>.</span></span>
+    </small>
+  </div>
+</footer>
+
+
+    
+
+    <script src="/assets/hunter/site_bs3-564e99ecb6c7e055b6553ee24fbaac8ffdad39b0a99ae419a9442ec9583153b2.js" data-turbolinks-track="true"></script>
+    <script src="/assets/application-44063ace0391621ccf11d2a30c05a8a942b7477a00f4e3e480349fb1cbaf4f9f.js"></script>
+      <script src="/assets/course_content-f8f8b71fc8dd164b0a4d7e73f05d0cbc7c7708096913bbf3c9a8114ae589af16.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+  <script>
+    $(function(){
+      $('#course-nav-panel').on('show.bs.collapse', function(){
+        $('#course-nav-toggle').html('Close Course Outline');
+      }).on('hide.bs.collapse', function(){
+        $('#course-nav-toggle').html('View Course Outline');
+      })
+    });
+  </script>
+
+<script>
+  $('document').ready(function() {
+    var ContentsNavigator = {
+      init: function() {
+        this.$toggle_container = $('#contents-toggle-container');
+        this.$contents_list_container = $('#contents-list-container');
+
+        this.setupListeners();
+      },
+      setupListeners: function() {
+        var self = this;
+        $('.contents-toggle-text').on('click', function(e) {
+          self.toggleContents(e);
+        });
+      },
+      toggleContents: function(e) {
+        e.preventDefault();
+
+        var self = this;
+
+        if (this.$toggle_container.hasClass('opened')) {
+          this.$toggle_container.removeClass('opened');
+          this.$contents_list_container.css('height', 0);
+        }
+        else {
+          this.$toggle_container.addClass('opened');
+          this.$contents_list_container.css('height', this.getAdjustedContainerHeight());
+        }
+      },
+      getAdjustedContainerHeight: function() {
+        return ($(window).height() - this.$toggle_container.offset().top - 110);
+      }
+    };
+    ContentsNavigator.init();
+    $('#intro-modal').modal('show');
+    $('#intro-modal').on('hidden', function() {
+      $.ajaxSetup({
+        timeout: 5000,
+        cache: false,
+        dataType: 'script',
+        async: true,
+        type: 'POST'
+      });
+    });
+  });
+</script>
+  <script>
+    $(document).on('click','.navbar-collapse.in',function(e) {
+      if( $(e.target).is('a') ) {
+          $(this).collapse('hide');
+      }
+    });
+    $(document).on('click', function(event) {
+      if (!$(event.target) != '.dropdown-menu') {
+        $('.dropdown').removeClass('open');
+      }
+    });
+    $(document).on('click','.dropdown-menu',function(e) {
+      if( $(e.target).is('a') ) {
+        $(this).closest('.dropdown').removeClass('open');
+      }
+    });
+  </script>
+
+    
+    
+    
+
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNNAOurIfJGm3qlkI2CN_6YCg4hQ0kxrM&amp;libraries=places&amp;callback=setGooglePlacesApiLoaded" async="async" defer="defer" data-turbo-eval="false"></script>
+  </body>
+</html>

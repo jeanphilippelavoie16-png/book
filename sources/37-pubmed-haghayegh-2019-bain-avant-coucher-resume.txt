@@ -1,0 +1,47 @@
+1. Sleep Med Rev. 2019 Aug;46:124-135. doi: 10.1016/j.smrv.2019.04.008. Epub 2019
+ Apr 19.
+
+Before-bedtime passive body heating by warm shower or bath to improve sleep: A 
+systematic review and meta-analysis.
+
+Haghayegh S(1), Khoshnevis S(2), Smolensky MH(3), Diller KR(2), Castriotta 
+RJ(4).
+
+Author information:
+(1)Department of Biomedical Engineering, Cockrell School of Engineering, The 
+University of Texas at Austin, USA. Electronic address: shahab@utexas.edu.
+(2)Department of Biomedical Engineering, Cockrell School of Engineering, The 
+University of Texas at Austin, USA.
+(3)Department of Biomedical Engineering, Cockrell School of Engineering, The 
+University of Texas at Austin, USA; Department of Internal Medicine, Division of 
+Pulmonary and Sleep Medicine, McGovern School of Medicine, The University of 
+Texas Health Science Center at Houston, USA.
+(4)Department of Internal Medicine, Division of Pulmonary and Sleep Medicine, 
+McGovern School of Medicine, The University of Texas Health Science Center at 
+Houston, USA; Department of Medicine, Division of Pulmonary, Critical Care and 
+Sleep Medicine, Keck School of Medicine, University of Southern California, Los 
+Angeles, USA.
+
+Water-based passive body heating (PBHWB) as a warm shower or bath before bedtime 
+is often recommended as a simple means of improving sleep. We searched PubMed, 
+CINAHL, Cochran, Medline, PsycInfo, and Web of Science databases and extracted 
+pertinent information from publications meeting predefined inclusion and 
+exclusion criteria to explore the effects of PBHWB on sleep onset latency (SOL), 
+wake after sleep onset, total sleep time, sleep efficiency (SE), slow wave 
+sleep, and subjective sleep quality. The search yielded 5322 candidate articles 
+of which 17 satisfied inclusion criteria after removing duplicates, with 13 
+providing comparable quantitative data for meta-analyses. PBHWB of 40-42.5 °C 
+was associated with both improved self-rated sleep quality and SE, and when 
+scheduled 1-2 h before bedtime for little as 10 min significant shortening of 
+SOL. These findings are consistent with the mechanism of PBHWB effects being the 
+extent of core body temperature decline achieved by increased blood perfusion to 
+the palms and soles that augments the distal-to-proximal skin temperature 
+gradient to enhance body heat dissipation. Nonetheless, additional investigation 
+is required because the findings regarding PBHWB are limited by the relative 
+scarcity of reported research, especially its optimal timing and duration plus 
+exact mechanisms of effects.
+
+Copyright © 2019 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.smrv.2019.04.008
+PMID: 31102877 [Indexed for MEDLINE]

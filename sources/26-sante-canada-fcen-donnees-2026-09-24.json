@@ -1,0 +1,8072 @@
+{
+ "organisme": "Santé Canada — Fichier canadien sur les éléments nutritifs (FCÉN), API publique",
+ "url_liste": "https://food-nutrition.canada.ca/api/canadian-nutrient-file/food/?lang=fr&type=json",
+ "url_api": "https://food-nutrition.canada.ca/api/canadian-nutrient-file/nutrientamount/?id=<code>&lang=fr&type=json",
+ "consulte_le": "2026-09-24",
+ "aliments": [
+  {
+   "food_code": 3587,
+   "description": "Gibier, viande, autochtone, orignal, cru",
+   "nutriments": [
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.01,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.02,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.03,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.03,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.06,
+     "n_obs": 3,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.07,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.09,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.13,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.14,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.14,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.15,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.22,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.24,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.27,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.569,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 0.7,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.747,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.797,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.819,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.904,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.961,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.972,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 1.021,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 1.068,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 1.21,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 1.281,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 1.438,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 1.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 1.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 1.957,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 2.018,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 2.089,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 3.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 3.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 3.602,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 4.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 5.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 5.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 6.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 9.03333,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 22.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 30.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 33.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 59.0,
+     "n_obs": 33,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 65.0,
+     "n_obs": 27,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 73.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 124.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 158.0,
+     "n_obs": 30,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 317.0,
+     "n_obs": 27,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 519.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Mannitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sorbitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Monosaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Disaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    }
+   ]
+  },
+  {
+   "food_code": 4501,
+   "description": "Grains céréaliers, farine de blé, blanche, tout usage, blanchie",
+   "nutriments": [
+    {
+     "nom": "22:1c",
+     "valeur": 0.0,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "22:2",
+     "valeur": 0.0,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "14:1",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "16:1t",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "24:1c",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "17:1",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "15:1",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2cla",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:3i",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 0
+    },
+    {
+     "nom": "21:5",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:4n-6",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:3",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:1t",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2t,t",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.0,
+     "n_obs": 19,
+     "source_id": 3
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "24:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Alpha-carotène",
+     "valeur": 0.0,
+     "n_obs": 1,
+     "source_id": 5
+    },
+    {
+     "nom": "Bêta-cryptozanthine",
+     "valeur": 0.0,
+     "n_obs": 1,
+     "source_id": 5
+    },
+    {
+     "nom": "Lycopène",
+     "valeur": 0.0,
+     "n_obs": 1,
+     "source_id": 5
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.001,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:1t",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "16:1c",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:2cc",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:3",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.001,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.002,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "15:0",
+     "valeur": 0.002,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "17:0",
+     "valeur": 0.002,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2i",
+     "valeur": 0.002,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras trans monoénoïques totaux",
+     "valeur": 0.002,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Acides gras trans polyénoïques totaux",
+     "valeur": 0.002,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "20:0",
+     "valeur": 0.003,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras trans totaux",
+     "valeur": 0.003,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "24:0",
+     "valeur": 0.004,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:0",
+     "valeur": 0.006,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.018,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Tocophérol, delta",
+     "valeur": 0.02,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.022,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.032,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.035,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.036,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Omega 3",
+     "valeur": 0.037,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Monosaccharides totaux",
+     "valeur": 0.054,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.059,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.06,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Tocophérol, béta",
+     "valeur": 0.07,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "18:1c",
+     "valeur": 0.14,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.142,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.143,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.143,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.153,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.166,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.179,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.21,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 0.293,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.294,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 0.3,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.308,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.319,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.359,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.361,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.366,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.373,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 0.375,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Tocophérol, gamma",
+     "valeur": 0.38,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.394,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 0.421,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.421,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 0.429,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 0.43,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.438,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Valine",
+     "valeur": 0.45,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.462,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 0.504,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Disaccharides totaux",
+     "valeur": 0.54,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.552,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.594,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.691,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.705,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2n6ccc",
+     "valeur": 0.729,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Omega 6",
+     "valeur": 0.729,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.735,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.774,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 0.925,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 0.971,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Proline",
+     "valeur": 1.617,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 2.491,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 2.667,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 4.712,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 4.796,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 5.838,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 8.22133,
+     "n_obs": 17,
+     "source_id": 107
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 12.079,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Eau",
+     "valeur": 13.583,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 14.394,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 18.0,
+     "n_obs": 1,
+     "source_id": 5
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 28.556,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 29.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 50.983,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 71.417,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 98.471,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 116.424,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 180.056,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 209.056,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 335.0952,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 364.0,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 1522.0,
+     "n_obs": 0,
+     "source_id": 107
+    }
+   ]
+  },
+  {
+   "food_code": 6642,
+   "description": "Grains céréaliers, farine de blé, blanche, tout usage, non blanchie",
+   "nutriments": [
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "22:1c",
+     "valeur": 0.0,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "14:1",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "16:1t",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:2cc",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "17:1",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "15:1",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:3i",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "21:5",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:4n-6",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:3",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:2",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:1t",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.0,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Alpha-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Bêta-cryptozanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Lycopène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "16:1c",
+     "valeur": 0.001,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:1t",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "24:1c",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:3",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2t,t",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.001,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Acides gras trans monoénoïques totaux",
+     "valeur": 0.001,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "24:1",
+     "valeur": 0.001,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "15:0",
+     "valeur": 0.002,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "20:0",
+     "valeur": 0.003,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "17:0",
+     "valeur": 0.003,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.003,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2cla",
+     "valeur": 0.003,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2i",
+     "valeur": 0.003,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras trans polyénoïques totaux",
+     "valeur": 0.003,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "24:0",
+     "valeur": 0.005,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras trans totaux",
+     "valeur": 0.005,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "22:0",
+     "valeur": 0.006,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.017,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.02,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Tocophérol, delta",
+     "valeur": 0.02,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.024,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.035,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.036,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Omega 3",
+     "valeur": 0.038,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Monosaccharides totaux",
+     "valeur": 0.044,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.06,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.063,
+     "n_obs": 118,
+     "source_id": 3
+    },
+    {
+     "nom": "Tocophérol, béta",
+     "valeur": 0.07,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "18:1c",
+     "valeur": 0.135,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.136,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.144,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.145,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.149,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.163,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.166,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.184,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.272,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 0.282,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 0.3,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.309,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.32,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.334,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 0.377,
+     "n_obs": 16,
+     "source_id": 3
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.378,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Tocophérol, gamma",
+     "valeur": 0.38,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.401,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.404,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.424,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 0.436,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.438,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Valine",
+     "valeur": 0.443,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 0.447,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 0.45,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.459,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.491,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 0.492,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Disaccharides totaux",
+     "valeur": 0.5,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.544,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.64,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.672,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2n6ccc",
+     "valeur": 0.705,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.708,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.714,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Omega 6",
+     "valeur": 0.74,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 0.75,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.783,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 0.817,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 0.971,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Proline",
+     "valeur": 1.661,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 2.241,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 2.733,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 4.218,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 4.991,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 6.066,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 8.54933,
+     "n_obs": 18,
+     "source_id": 107
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 12.171,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Eau",
+     "valeur": 12.789,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 13.888,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 18.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 29.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 29.067,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 52.161,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 72.349,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 103.183,
+     "n_obs": 18,
+     "source_id": 3
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 119.959,
+     "n_obs": 17,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 185.167,
+     "n_obs": 0,
+     "source_id": 3
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 214.167,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 343.7839,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 366.0,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 1531.0,
+     "n_obs": 0,
+     "source_id": 107
+    }
+   ]
+  },
+  {
+   "food_code": 2505,
+   "description": "Pomme de terre, chair et pelure, crue",
+   "nutriments": [
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 11,
+     "source_id": 5
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, béta",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 5
+    },
+    {
+     "nom": "Tocophérol, gamma",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 5
+    },
+    {
+     "nom": "Tocophérol, delta",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 5
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1c",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1t",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.001,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.001,
+     "n_obs": 37,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.001,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.002,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.003,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.004,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.01,
+     "n_obs": 2,
+     "source_id": 5
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.01,
+     "n_obs": 59,
+     "source_id": 4
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.01,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.016,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.021,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.024,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.026,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.03,
+     "n_obs": 11,
+     "source_id": 4
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.03,
+     "n_obs": 59,
+     "source_id": 4
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.031,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.034,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.04,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.047,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide oxalique",
+     "valeur": 0.05,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.056,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 0.062,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.062,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.065,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.066,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.073,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.08,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.08,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 0.09,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 0.096,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 0.099,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 0.101,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 0.105,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.108,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.153,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.17,
+     "n_obs": 11,
+     "source_id": 5
+    },
+    {
+     "nom": "Bétaïne",
+     "valeur": 0.2,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.27,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 0.29,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.295,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.296,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.33,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 0.345,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 0.472,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 0.78,
+     "n_obs": 11,
+     "source_id": 4
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.78,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 1.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 1.05,
+     "n_obs": 10,
+     "source_id": 4
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 1.08,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 1.4,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 1.61,
+     "n_obs": 40,
+     "source_id": 3
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 2.02,
+     "n_obs": 11,
+     "source_id": 4
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 2.27,
+     "n_obs": 3,
+     "source_id": 10
+    },
+    {
+     "nom": "Stérols végétaux totaux",
+     "valeur": 5.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 6.0,
+     "n_obs": 73,
+     "source_id": 4
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 8.0,
+     "n_obs": 10,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 12.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Choline, totale",
+     "valeur": 12.1,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 15.44,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 16.0,
+     "n_obs": 11,
+     "source_id": 5
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 16.0,
+     "n_obs": 11,
+     "source_id": 5
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 16.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 17.47,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 19.7,
+     "n_obs": 141,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 23.0,
+     "n_obs": 11,
+     "source_id": 4
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 57.0,
+     "n_obs": 11,
+     "source_id": 4
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 77.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Eau",
+     "valeur": 79.34,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 321.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 421.0,
+     "n_obs": 11,
+     "source_id": 4
+    }
+   ]
+  },
+  {
+   "food_code": 5284,
+   "description": "Pomme de terre, Russet, chair et pelure, crue",
+   "nutriments": [
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Alpha-carotène",
+     "valeur": 0.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-cryptozanthine",
+     "valeur": 0.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Lycopène",
+     "valeur": 0.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, béta",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, gamma",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, delta",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Acides gras trans totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "14:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "15:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "17:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "24:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Acides gras trans monoénoïques totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1c",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1t",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Acides gras trans polyénoïques totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Vitamine B-12, ajoutée",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Alpha-tocophérol, ajouté",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Vitamin D2 (ergocalciférol)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.001,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.001,
+     "n_obs": 37,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.001,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.002,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.003,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.004,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.01,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.01,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.01,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.016,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.022,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.025,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.026,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.032,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.033,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.033,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.036,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.043,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.05,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.059,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 0.065,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.065,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.069,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.07,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.078,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 0.08,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.082,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.085,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 0.102,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.103,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 0.105,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 0.107,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 0.111,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.13,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.157,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Bétaïne",
+     "valeur": 0.2,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.23,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.25,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 0.29,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.301,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.345,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 0.365,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 0.4,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 0.499,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.62,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 0.86,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 1.035,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 1.13,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 1.3,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 1.40167,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 1.8,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 2.14,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 5.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Stérols végétaux totaux",
+     "valeur": 5.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 5.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 5.7,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Choline, totale",
+     "valeur": 12.6,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 13.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 14.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 14.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 14.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 15.86,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 18.07,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 23.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 55.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 78.58,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 79.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 332.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 417.0,
+     "n_obs": 4,
+     "source_id": 0
+    }
+   ]
+  },
+  {
+   "food_code": 2417,
+   "description": "Pomme de terre, chair, crue",
+   "nutriments": [
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, béta",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, gamma",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, delta",
+     "valeur": 0.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 5,
+     "source_id": 0
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1c",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1t",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.001,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.001,
+     "n_obs": 18,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.001,
+     "n_obs": 37,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.001,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.002,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.003,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.004,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.01,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.01,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.01,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.016,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.026,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.026,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.032,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.032,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.032,
+     "n_obs": 59,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.033,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.043,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.045,
+     "n_obs": 9,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.062,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 0.064,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.074,
+     "n_obs": 8,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.075,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.077,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.08,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.084,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 0.09,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.09,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.092,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 0.095,
+     "n_obs": 9,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.108,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 0.117,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 0.124,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 0.126,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.153,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.17,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.27,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 0.29,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.295,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.296,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 0.3,
+     "n_obs": 299,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.33,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 0.347,
+     "n_obs": 8,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 0.506,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 0.78,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.78,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 1.054,
+     "n_obs": 10,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 1.08,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 1.505,
+     "n_obs": 20,
+     "source_id": 3
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 1.58733,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 1.9,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 2.02,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Stérols végétaux totaux",
+     "valeur": 5.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 6.0,
+     "n_obs": 73,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 12.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 15.44,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 16.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 16.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 16.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 17.47,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 18.85,
+     "n_obs": 80,
+     "source_id": 3
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 23.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 57.0,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 77.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 79.34,
+     "n_obs": 11,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 322.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 421.0,
+     "n_obs": 11,
+     "source_id": 0
+    }
+   ]
+  },
+  {
+   "food_code": 3064,
+   "description": "Poisson, éperlan, arc-en-ciel (d'amérique), cru",
+   "nutriments": [
+    {
+     "nom": "Glucides",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alpha-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-cryptozanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lycopène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Mannitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sorbitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Monosaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Disaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.001,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.002,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.01,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.018,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.025,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.028,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2n6ccc",
+     "valeur": 0.04,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.04,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.041,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.045,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.049,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.05,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.055,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.078,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 6",
+     "valeur": 0.09,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.12,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.139,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.15,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.189,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.197,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.199,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.275,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.328,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.407,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.418,
+     "n_obs": 12,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.452,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.5,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.519,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.522,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.595,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.623,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.638,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.641,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.688,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.7,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.719,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 3",
+     "valeur": 0.73,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.773,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.784,
+     "n_obs": 10,
+     "source_id": 3
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.812,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.846,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.885,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 0.9,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 0.908,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 1.055,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 1.066,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 1.4,
+     "n_obs": 46,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 1.433,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 1.45,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 1.619,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 1.65,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 1.805,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 2.42,
+     "n_obs": 52,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 2.632,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 3.44,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 4.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 4.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 4.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 4.73333,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 15.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 15.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 17.63,
+     "n_obs": 47,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 30.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 31.36,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 36.5,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 60.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 60.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Choline, totale",
+     "valeur": 65.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 70.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 78.77,
+     "n_obs": 47,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 97.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 230.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 290.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 406.0,
+     "n_obs": 0,
+     "source_id": 0
+    }
+   ]
+  },
+  {
+   "food_code": 3065,
+   "description": "Poisson, éperlan, arc-en-ciel (d'amérique), cuit au four ou grillé",
+   "nutriments": [
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Mannitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sorbitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Monosaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Disaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.001,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.003,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.01,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.023,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.032,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.036,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2n6ccc",
+     "valeur": 0.05,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.053,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.058,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.06,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.063,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.07,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.071,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 6",
+     "valeur": 0.12,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.146,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.17,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.178,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.242,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.253,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.255,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.353,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.421,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.522,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.536,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.579,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.64,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.665,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.669,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.74,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.763,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.799,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.822,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.882,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.9,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.922,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 3",
+     "valeur": 0.96,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.991,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 1.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 1.041,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 1.085,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 1.135,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 1.15,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 1.164,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 1.19952,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 1.352,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 1.367,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 1.766,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 1.79,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 1.837,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 2.076,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 2.12,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 2.314,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 3.1,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 3.374,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 3.97,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 5.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 5.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 5.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 5.98267,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 17.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 17.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 22.6,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 38.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 40.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 46.8,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 72.79,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 77.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 77.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 90.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 124.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 295.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 372.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 519.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    }
+   ]
+  },
+  {
+   "food_code": 3225,
+   "description": "Poisson, saumon, rose, conserve, chair avec arêtes et liquide, sans sel",
+   "nutriments": [
+    {
+     "nom": "Vitamine C",
+     "valeur": 0.0,
+     "n_obs": 22,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Mannitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sorbitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Monosaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Disaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.018,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.02,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.023,
+     "n_obs": 36,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.048,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.048,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.058,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.058,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2n6ccc",
+     "valeur": 0.058,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.058,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.077,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.077,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.102,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.135,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.135,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.186,
+     "n_obs": 36,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.212,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.222,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 6",
+     "valeur": 0.268,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.272,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.3,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.466,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.55,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.582,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.586,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.668,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.699,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.772,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.806,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.807,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 0.84,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.845,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.867,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.912,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 0.92,
+     "n_obs": 25,
+     "source_id": 7
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.95,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 1.019,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 1.068,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 1.184,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 1.196,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "16:0",
+     "valeur": 1.35,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 1.38,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 1.535,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 1.608,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 1.817,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 1.825,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 3",
+     "valeur": 1.941,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 2.026,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 2.049,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 2.953,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 4.4,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 6.05,
+     "n_obs": 26,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 6.536,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "Biotine",
+     "valeur": 9.4,
+     "n_obs": 4,
+     "source_id": 3
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 10.236,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 14.51,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 15.0,
+     "n_obs": 3,
+     "source_id": 0
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 15.0,
+     "n_obs": 3,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 15.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 17.0,
+     "n_obs": 14,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 17.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 19.78,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 33.2,
+     "n_obs": 10,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 34.0,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 55.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 70.03,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 75.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 139.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 213.0,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 326.0,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 329.0,
+     "n_obs": 25,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 580.34,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 582.0,
+     "n_obs": 0,
+     "source_id": 0
+    }
+   ]
+  },
+  {
+   "food_code": 7082,
+   "description": "Poisson, saumon, rose, conserve, égoutté, sans peau et os",
+   "nutriments": [
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "15:1",
+     "valeur": 0.0,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alpha-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-cryptozanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lycopène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamin D2 (ergocalciférol)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.001,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "24:0",
+     "valeur": 0.001,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1t",
+     "valeur": 0.001,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.002,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "22:0",
+     "valeur": 0.002,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "14:1",
+     "valeur": 0.002,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.003,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.003,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "22:4n-6",
+     "valeur": 0.003,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2cla",
+     "valeur": 0.004,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.005,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "20:0",
+     "valeur": 0.006,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1t",
+     "valeur": 0.006,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.006,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2i",
+     "valeur": 0.007,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2t,t",
+     "valeur": 0.007,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.007,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras trans polyénoïques totaux",
+     "valeur": 0.007,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1t",
+     "valeur": 0.008,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "17:1",
+     "valeur": 0.008,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "24:1c",
+     "valeur": 0.008,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "24:1",
+     "valeur": 0.008,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.011,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "20:3",
+     "valeur": 0.011,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "20:2cc",
+     "valeur": 0.012,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "17:0",
+     "valeur": 0.013,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras trans monoénoïques totaux",
+     "valeur": 0.014,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.019,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "15:0",
+     "valeur": 0.019,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.019,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Acides gras trans totaux",
+     "valeur": 0.022,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.027,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.039,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.042,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1c",
+     "valeur": 0.042,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.043,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2n6ccc",
+     "valeur": 0.06,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.071,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.074,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.077,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 6",
+     "valeur": 0.09,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.094,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.105,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.108,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1c",
+     "valeur": 0.111,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.117,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.134,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.191,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.203,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.266,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.274,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.338,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1c",
+     "valeur": 0.447,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.455,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.467,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 0.57,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 0.65,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.652,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.681,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.693,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.749,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.891,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.971,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 1.014,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 1.041,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 3",
+     "valeur": 1.068,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 1.087,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 1.146,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 1.28,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 1.28,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 1.298,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 1.321,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 1.516,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 1.546,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 1.57,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 1.877,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 1.9,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 2.113,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 3.092,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 3.487,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 4.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 4.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 4.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 4.21,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 4.96,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 7.43,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 11.86333,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 14.1,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 20.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 20.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 24.0,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 24.62,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 39.6,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 60.0,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 70.63,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 83.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Choline, totale",
+     "valeur": 88.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 136.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 253.0,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 326.0,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 378.0,
+     "n_obs": 17,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 563.0,
+     "n_obs": 3,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 570.0,
+     "n_obs": 0,
+     "source_id": 0
+    }
+   ]
+  },
+  {
+   "food_code": 3203,
+   "description": "Poisson, sardine, Atlantique, conserve, dans l' huile, égoutté avec arêtes",
+   "nutriments": [
+    {
+     "nom": "Glucides",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alpha-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-cryptozanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lycopène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucrose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Glucose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fructose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Lactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Maltose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Mannitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sorbitol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Galactose",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Monosaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Disaccharides totaux",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Amidon",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:4n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.08,
+     "n_obs": 9,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.108,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.125,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.167,
+     "n_obs": 3,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.186,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.192,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.22,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.227,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.264,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.276,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.343,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.423,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.473,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.49,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.498,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.509,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.511,
+     "n_obs": 4,
+     "source_id": 3
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.725,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.729,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.831,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.87,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.961,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.993,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 1.004,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 1.079,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1",
+     "valeur": 1.081,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 1.134,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 1.181,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 1.268,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 1.31,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Omega 3",
+     "valeur": 1.46,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 1.473,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 1.489,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 1.528,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 2.001,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 2.04,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 2.145,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 2.26,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 2.33,
+     "n_obs": 11,
+     "source_id": 3
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 2.52,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 2.6,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 2.92,
+     "n_obs": 7,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 3.38,
+     "n_obs": 35,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2n6ccc",
+     "valeur": 3.54,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Omega 6",
+     "valeur": 3.54,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "18:2",
+     "valeur": 3.543,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 3.674,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 3.869,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 5.148,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 5.245,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 7.7,
+     "n_obs": 4,
+     "source_id": 3
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 7.7,
+     "n_obs": 0,
+     "source_id": 3
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 7.7,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 8.94,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Biotine",
+     "valeur": 9.1,
+     "n_obs": 4,
+     "source_id": 3
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 9.845,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 11.45,
+     "n_obs": 13,
+     "source_id": 0
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 24.62,
+     "n_obs": 13,
+     "source_id": 0
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 32.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 32.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 39.0,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 52.7,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 59.61,
+     "n_obs": 13,
+     "source_id": 0
+    },
+    {
+     "nom": "Choline, totale",
+     "valeur": 75.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 93.2,
+     "n_obs": 0,
+     "source_id": 107
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 142.0,
+     "n_obs": 4,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 208.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 307.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 382.0,
+     "n_obs": 22,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 397.0,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 490.0,
+     "n_obs": 22,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 871.0,
+     "n_obs": 0,
+     "source_id": 0
+    }
+   ]
+  },
+  {
+   "food_code": 2204,
+   "description": "Algue, varech (kelp, kombu, tangle), crue",
+   "nutriments": [
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "4:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "6:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "8:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "10:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "12:0",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alpha-carotène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-cryptozanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lycopène",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Lutéine et zéaxanthine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1c",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "22:1t",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 0.002,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.004,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.004,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.004,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.004,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.004,
+     "n_obs": 0,
+     "source_id": 14
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.012,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:2",
+     "valeur": 0.02,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Histidine",
+     "valeur": 0.024,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Méthionine",
+     "valeur": 0.025,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Tyrosine",
+     "valeur": 0.026,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "14:0",
+     "valeur": 0.031,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phénylalanine",
+     "valeur": 0.043,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.047,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tryptophane",
+     "valeur": 0.048,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.05,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Thréonine",
+     "valeur": 0.055,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Arginine",
+     "valeur": 0.065,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Valine",
+     "valeur": 0.072,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Proline",
+     "valeur": 0.073,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Isoleucine",
+     "valeur": 0.076,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Lysine",
+     "valeur": 0.082,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Leucine",
+     "valeur": 0.083,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.086,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.086,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.098,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cystine",
+     "valeur": 0.098,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Sérine",
+     "valeur": 0.098,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Glycine",
+     "valeur": 0.1,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.11,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Alanine",
+     "valeur": 0.122,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide aspartique",
+     "valeur": 0.125,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 0.13,
+     "n_obs": 8,
+     "source_id": 0
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 0.15,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 0.2,
+     "n_obs": 5,
+     "source_id": 0
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.247,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide glutamique",
+     "valeur": 0.268,
+     "n_obs": 1,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 0.47,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 0.56,
+     "n_obs": 2,
+     "source_id": 0
+    },
+    {
+     "nom": "Sucres totaux",
+     "valeur": 0.6,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Acide pantothénique",
+     "valeur": 0.642,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 0.7,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 1.23,
+     "n_obs": 5,
+     "source_id": 0
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 1.27,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 1.3,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 1.49,
+     "n_obs": 2,
+     "source_id": 10
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 1.68,
+     "n_obs": 3,
+     "source_id": 0
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 2.85,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 3.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 6.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 6.61,
+     "n_obs": 9,
+     "source_id": 0
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 9.57,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Choline, totale",
+     "valeur": 12.8,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 42.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 43.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Vitamine K",
+     "valeur": 66.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Bêta-carotène",
+     "valeur": 70.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Eau",
+     "valeur": 81.58,
+     "n_obs": 8,
+     "source_id": 0
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 89.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 121.0,
+     "n_obs": 3,
+     "source_id": 0
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 168.0,
+     "n_obs": 6,
+     "source_id": 0
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 180.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 180.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 180.0,
+     "n_obs": 0,
+     "source_id": 0
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 180.0,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 233.0,
+     "n_obs": 3,
+     "source_id": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5788,
+   "description": "Gibier, viande, autochtone, phoque annelé, foie, cru",
+   "nutriments": [
+    {
+     "nom": "Acide folique, forme synthétique",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Alcool",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Caféine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Théobromine",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Fibres alimentaires totales",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "18:3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "18:4",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "22:1",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "20:2cc",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "18:3n3cccn-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "18:3n6cccn-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-6",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "20:3n-3",
+     "valeur": 0.0,
+     "n_obs": 0,
+     "source_id": 12
+    },
+    {
+     "nom": "Sélénium, Se",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "22:6n-3",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "20:1",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "22:5n-3",
+     "valeur": 0.1,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "20:4",
+     "valeur": 0.2,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "16:1",
+     "valeur": 0.2,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "20:5n-3",
+     "valeur": 0.2,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "16:0",
+     "valeur": 0.3,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Tocophérol, alpha",
+     "valeur": 0.38,
+     "n_obs": 3,
+     "source_id": 10
+    },
+    {
+     "nom": "18:0",
+     "valeur": 0.4,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "18:1",
+     "valeur": 0.4,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Thiamine",
+     "valeur": 0.45,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Glucides",
+     "valeur": 0.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Acides gras polyinsaturés totaux",
+     "valeur": 0.6,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Acides gras saturés totaux",
+     "valeur": 0.7,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Acides gras monoinsaturés totaux",
+     "valeur": 0.7,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Cuivre, Cu",
+     "valeur": 1.25,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Riboflavine",
+     "valeur": 1.55,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Vitamine B-6",
+     "valeur": 1.87,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Cendres",
+     "valeur": 2.55,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Lipides totaux",
+     "valeur": 3.45,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Zinc, Zn",
+     "valeur": 3.85,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Vitamine C",
+     "valeur": 7.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Calcium, Ca",
+     "valeur": 7.05,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Vitamine D",
+     "valeur": 10.7,
+     "n_obs": 3,
+     "source_id": 10
+    },
+    {
+     "nom": "Vitamine B-12",
+     "valeur": 11.88,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Niacine",
+     "valeur": 18.69,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Niacine, équivalents",
+     "valeur": 22.90667,
+     "n_obs": 0,
+     "source_id": 4
+    },
+    {
+     "nom": "Protéines",
+     "valeur": 23.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Magnésium, Mg",
+     "valeur": 23.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Manganèse, Mn",
+     "valeur": 36.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Fer, Fe",
+     "valeur": 49.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Eau",
+     "valeur": 71.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Sodium, Na",
+     "valeur": 97.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Énergie (kcal)",
+     "valeur": 138.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Potassium, K",
+     "valeur": 281.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Phosphore, P",
+     "valeur": 295.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Cholestérol",
+     "valeur": 300.0,
+     "n_obs": 0,
+     "source_id": 5
+    },
+    {
+     "nom": "Vitamine D (UI)",
+     "valeur": 428.0,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Énergie (kJ)",
+     "valeur": 577.0,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Folacine, totale",
+     "valeur": 1003.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Folates présents naturellement",
+     "valeur": 1003.5,
+     "n_obs": 0,
+     "source_id": 10
+    },
+    {
+     "nom": "Équivalents de folate alimentaire (EFA)",
+     "valeur": 1003.5,
+     "n_obs": 0,
+     "source_id": 2
+    },
+    {
+     "nom": "Rétinol",
+     "valeur": 3710.0,
+     "n_obs": 3,
+     "source_id": 10
+    },
+    {
+     "nom": "Équivalents d'activité du rétinol (EAR)",
+     "valeur": 3710.0,
+     "n_obs": 3,
+     "source_id": 10
+    }
+   ]
+  }
+ ]
+}

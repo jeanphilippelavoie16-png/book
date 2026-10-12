@@ -1,0 +1,143 @@
+Nutrition of Rabbits - Exotic and Laboratory Animals - MSD Veterinary Manual
+honeypot link
+skip to main content
+MSD MANUAL
+Veterinary Manual
+VETERINARY PROFESSIONALS
+PET OWNERS
+RESOURCES
+QUIZZES
+ABOUT
+VETERINARY PROFESSIONALS
+PET OWNERS
+<
+Rabbits
+PROFESSIONAL VERSION
+Nutrition of Rabbits
+Full Review:
+Jul 2021
+By
+Joerg Mayer
+,
+DVM, DABVP (ECM), DECZM, DACZM
+,
+Department of Small Animal Medicine and Surgery, College of Veterinary Medicine,
+University of Georgia
+Last updated: Sept 2024
+v3306426
+Water Requirements
+|
+Calculation of Calorie Intake
+|
+Carbohydrates
+|
+Pelleted Diets
+|
+Recommended Fiber Levels
+|
+Multimedia
+|
+Rabbits are small herbivores with specialized feeding needs and digestive systems. They are selective eaters and choose nutrient-rich leaves and new plant shoots over mature plant material that is higher in fiber. Rabbits are therefore considered concentrate selectors, because they naturally pick and choose foods higher in energy density, which predisposes them to obesity in captivity. Anatomically, rabbits are nonruminant herbivores with an enlarged hindgut (hindgut fermenters). The large cecum supports a population of microorganisms that uses nutrients not digested in the small intestine.
+Most of the bacterial population in the cecum is made up of the gram-positive
+Bacteroides
+sp. This makes the rabbit very sensitive to oral antibiotics; administration of oral antibiotics can disturb the
+Bacteroides
+population and lead to fatal GI upsets. Separation of digesta on the basis of particle size occurs in the hindgut. Peristaltic action rapidly moves large particles (>0.5 mm), primarily lignocellulose, through the colon and excretes them as hard fecal pellets. This is the "indigestible fiber" component of the diet.
+The clinical importance of a diet high in long particle length is to maintain the motility of the cecum and colon. This is why these fibers are sometimes referred to as "scratch factor," because they mechanically stimulate GI motility. Antiperistaltic action moves smaller particles (
+<
+0.3 mm) and soluble material into the cecum, where they undergo fermentation. This component of the diet is known as "digestible" or "fermentable" fiber. At intervals, the cecal contents are expelled as “soft feces” or cecotrophs and consumed by the rabbit directly from the anus. Cecotroph ingestion is highest when rabbits are fed a diet high in nondigestible fiber. This reingested material provides microbial protein, vitamins (including all the B vitamins needed), and small quantities of volatile fatty acids, which are essential in rabbit nutrition. However, because amino acids obtained in this manner make only a minor contribution to the rabbits’ protein needs (particularly young, growing rabbits), the diet must supply the additional amino acids, although the requirements for essential amino acids in rabbits have not yet been defined.
+Rabbit with hay
+Image
+A rabbit should always have an unlimited supply of hay, because they frequently need to nibble on it to keep peristalsis active.
+Courtesy of Dr. Joerg Mayer.
+Rabbits digest fiber poorly because of the selective separation and rapid excretion of large particles in the hindgut. A generous amount of dietary fiber (~15% crude fiber) is needed to promote intestinal motility and minimize intestinal disease. High-fiber intake can be provided by use of ad lib timothy hay (~30%–35% fiber). Fiber may also absorb bacterial toxins and eliminate them via the hard feces. Diets low in fiber promote an increased incidence of intestinal problems, eg, enterotoxemia. Carbohydrates will actually inhibit motilin release. Motilin is a polypeptide hormone secreted by cells of the duodenum and jejunum, which stimulates the GI smooth muscle. Excess starch can also be substrate for the proliferation of pathogenic bacteria such as
+Clostridium spiroforme
+, which produce a potent toxin. Cecum fermentation produces volatile fatty acids, which are responsible for 40% of the rabbits' calorie requirement. Volatile fatty acids also aid in the control of pathogenic organisms by helping to maintain the normal pH (6–7) in the cecum.
+Table
+Nutrient Requirements of Rabbits
+Table
+Nutrient Requirements of Rabbits
+Nutrient Requirements of Rabbits
+Total (and Digestible) Protein %
+Fat %
+Fiber %
+Digestible Carbohydrate % (NFE
+a
+)
+Total Digestible Nutrient %
+Maintenance
+12 (9)
+1.5–2
+14–20
+40–45
+50–60
+Growth and finishing
+16 (12)
+2–4
+14–16
+45–50
+60–70
+Gestation
+15 (11)
+2–3
+14–16
+45–50
+55–65
+Lactation (with litter of 7–8)
+17 (13)
+2.5–3.5
+12–14
+45–50
+65–75
+a
+NFE = nitrogen-free extract
+a
+NFE = nitrogen-free extract
+A dietary supply of vitamins A, D, and E is necessary. Bacteria in the gut synthesize B vitamins and vitamin K in adequate quantities; thus, dietary supplements are unnecessary. Disease and stress may increase the daily vitamin requirements. Feed preparation and storage must be done in a manner that will reduce losses from oxidation, which destroys vitamins A and E more readily than other vitamins. Diets containing ≥30% of alfalfa meal generally provide sufficient vitamin A. Levels of vitamin A in the diet must be >5,000 IU/kg and
+<
+75,000 IU/kg. Levels out of this range may cause abortion, resorbed litters, and fetal hydrocephalus. Vitamin E deficiency has been associated with infertility, muscular dystrophy, and fetal and neonatal death. Pet rabbit diets sold in pet stores or even in bulk at feed stores may not have adequate turnover, which may result in nutritional deficiency. Hay packaged for small mammals may have been sitting on the shelf for an extended period.
+All the components of the basic diet (ie, protein, fiber, fat, and energy) should be managed in consideration of the life stage (growth, gestation, lactation, maintenance), breed, condition, and lifestyle of the rabbit. Ratios should meet the nutrient requirements of the National Research Council (
+see Table:
+Nutrient Requirements of Rabbits
+). Pelleted rabbit feeds provide good nutrition at reasonable cost. Fresh, clean water should always be available. Prolonged intake of typical commercial diets containing alfalfa meal by laboratory or pet rabbits kept for extended periods under maintenance conditions may lead to kidney damage and calcium carbonate deposits in the urinary tract. Ad lib timothy hay is usually recommended for the maintenance diet of adult rabbits. Reducing the calcium level to 0.4%–0.5% of the diet for nonlactating rabbits helps reduce these problems. This can be accomplished by feeding pelleted diets with a timothy hay base. Adult pet rabbits not intended for breeding should be fed a high-fiber pelleted diet, restricted to ¼ cup/5 lb body wt/day to prevent obesity and maintain GI health.
+Water Requirements for Rabbits
+Rabbit drinking from bowl
+video
+It has been shown in metabolic studies that a rabbit will consume water at a rate of approximately 120 mL/kg/day. This is about twice the amount usually calculated for an equally sized dog or cat. The higher water consumption makes sense when considering the physiology of the GI tract and metabolic scaling. Dehydrated rabbits should receive twice the maintenance fluids (240 mL/kg/day, or 10 mL/kg/hr) for at least 24 hours of hospitalization. If a rabbit is presented for anorexia, it is most often also dehydrated. It has also been shown that a rabbit will drink significantly more water from an open bowl than a sipper bottle.
+Calculation of Calorie Intake for Rabbits
+To establish the daily maintenance calorie requirement for a rabbit, the animal’s basal metabolic rate (BMR) should first be calculated as follows: BMR = kW to the power of 0.75 (BMR= kcal/kg/day; k = kcal/kg constant; W = weight in kg; for placental mammals, the k constant is 70). The BMR is the amount of calories necessary only to maintain the rabbit, not taking into consideration the clinical presentation. The BMR is multiplied by an illness factor of 1.2–2.0 to account for metabolic needs greater than maintenance. Growth also increases the metabolic rate (illness factor of 1.5–3.0). However, starvation and emaciation decrease the metabolic rate, lowering the caloric requirement (illness factor of 0.5–0.9).
+Carbohydrates for Rabbits
+The role of carbohydrates in rabbit diets is often oversimplified, and generalized statements such as "carbohydrates are bad for rabbits" do not paint an adequate picture. The sensitivity to high-starch diets is controversial in adult rabbits, and the role of starch as a predisposing factor for dysbiosis remains unclear. However, it has been shown that adult rabbits seem to digest starch more efficiently than young ones. Polysaccharides, such as gluco-oligosaccharides (starches that release glucose after hydrolysis), have been shown to cause diarrhea in young rabbits. Other starches, such as fructo-oligosaccharides (composed of short chains of fructose, found in many fruits and vegetables, such as onion, chicory, garlic, asparagus, banana, artichoke, and many others) or galacto-oligosaccharides (short chains of galactose, found in the group of prebiotics) do not have the same effect. Diet supplemented with fructo-oligosaccharides was shown to decrease morbidity in rabbits after the introduction of pathogenic
+Escherichia coli
+. Thus, fructo-oligosaccharides are now included in many rabbit foods. In addition, it has been shown that 15% of molasses in the food is well tolerated by growing rabbits. Molasses is also rich in calcium, iron, and magnesium.
+Pelleted Diets for Rabbits
+Hypercalciuria, rabbit
+Image
+A) Typical urinary sludge from a rabbit mainly fed pellets that were not balanced. B) Hypercalciuria seen in a survey radiograph: the content of the bladder appears radio-opaque, resembling a positive contrast study. This is highly abnormal, and a diet adjustment is needed.
+Courtesy of Dr. Joerg Mayer.
+When pellets are made, the ingredients need to be ground and pressed together to form a cylinder. Extruded or expanded diets are coarse ground, maintaining intact longer fibers, then cooked to form a paste, which is forced into a shaped pellet. The process of extruding food results in a lightweight biscuit. The advantage is that long-fiber particles can be incorporated without the pellets becoming friable and disintegrating. The heat treatment applied while cooking the raw ingredients increases starch digestibility. In addition, extruded diets are more palatable and digestible than pelleted rations. Pelleted diets should be fed according to the manufacturer's recommendations, because an overconsumption of pellets can cause obesity or hypercalciuria.
+Recommended Fiber Levels for Rabbits
+Indigestible fiber is important for stimulating GI motility, preventing behavioral problems (eg, fur chewing), providing dental wearing, and stimulating appetite and ingestion of cecotrophs. Up to 20% of crude fiber, with 12.5% of indigestible fiber, is generally recommended for pet rabbits. Because crude fiber is mainly a measurement of the lignin and cellulose component of the diet (indigestible fiber), it is not helpful for determining the fermentable or digestible fiber.
+Test your Knowledge now
+Take a Quiz!
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+About
+Disclaimer
+Cookie Preferences
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+About
+Disclaimer
+Permissions
+Privacy
+Cookie Preferences
+Terms Of Use
+Partnerships
+Contact Us
+Human Health Manuals
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.

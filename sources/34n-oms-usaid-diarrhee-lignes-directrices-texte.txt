@@ -1,0 +1,2356 @@
+Diarrhoea Treatment Guidelines
+
+Including new recommendations
+for the use of ORS and zinc supplementation
+
+for Clinic-Based Healthcare Workers
+
+                                 Not yet field-tested
+This publication was made possible through support provided by
+the Center for Population, Health and Nutrition of the Bureau for
+Global Programs, Field Support and Research of the U.S. Agency
+for International Development (USAID).
+
+MOST is managed by the International Science and Technology
+Institute, Inc. (ISTI) under the terms of Cooperative Agreement No.
+HRN-A-00-98-0047-00. Partners are the Academy for Educational
+Development (AED), Helen Keller International (HKI), the
+International Food Policy Research Institute (IFPRI), and Johns
+Hopkins University (JHU). Resource institutions are CARE, the
+International Executive Service Corps (IESC), Population Services
+International (PSI), Program for Appropriate Technology in Health
+(PATH), and Save the Children.
+
+The opinions expressed in this document are those of the author(s)
+and do not necessarily reflect the views of the U.S. Agency for
+International Development.
+
+January 2005
+
+The MOST Project
+1820 N. Fort Myer Drive, Suite 600
+Arlington, VA 22209 USA
+Telephone: (703) 807-0236 Fax: (703) 807-0278
+Web site: http://www.mostproject.org
+E-mail: most@istiinc.com
+Diarrhoea Treatment Guidelines
+
+Including new recommendations
+for the use of ORS and zinc supplementation
+
+for Clinic-Based Healthcare Workers
+
+                            Not yet field-tested
+These guidelines are designed to prepare clinic-
+based health workers to implement the new
+WHO/UNICEF recommendations for the use of
+ORS and zinc supplementation in the clinical
+management of diarrhoea. The information
+is meant to complement, not replace, more
+comprehensive policy guidance available from
+WHO on the management of diarrhoea. The
+guidelines presented here are generic, that is, they
+will be most effective when modified to support
+the particular strategy being used to introduce the
+new recommendations in each country.
+Table of Contents
+
+Preface                                                            i
+
+Introduction                                                       iii
+
+1. Overview of the Management of Diarrhoea                         1
+
+1.1 What is diarrhoea?                                             1
+
+1.2 Acute and persistent diarrhoea                                 1
+
+1.3 Why is diarrhoea dangerous?                                    1
+
+1.4 How diarrhoea causes dehydration                               2
+
+1.5 Zinc and diarrhoea                                             2
+
+1.6 Treating diarrhoea                                             2
+
+1.6.1 Preventing dehydration                                       2
+
+1.6.2 Treating dehydration                                         3
+
+1.6.3 Zinc supplementation                                         3
+
+1.6.4 Feeding                                                      3
+
+1.6.5 Other treatments                                             3
+
+1.7 Preventing diarrhoea                                           4
+
+2. Assessing a Child with Diarrhoea                                7
+
+2.1 Ask, look and feel for signs of dehydration or other problems  7
+
+2.2 Decide how to treat                                            8
+
+3. Treating Diarrhoea                                              11
+
+3.1 Child with NO Dehydration                                      11
+
+3.2 Child with SOME Dehydration                                    11
+
+3.3 Child with SEVERE Dehydration                                  12
+
+3.4 Child with BLOOD IN THE STOOLS                                 12
+
+3.5 Child with suspected CHOLERA                                   12
+
+3.6 Child with PERSISTENT Diarrhoea                                13
+
+3.7 Other signs and symptoms                                       13
+
+4. Home-Based Treatment                                            15
+
+4.1 Steps for advising families                                    15
+
+4.1.1 Ask, Praise, Advise, Check                                   15
+
+4.1.2 Explaining the four rules of home treatment                  16
+
+4.1.3 Preventing Diarrhoea                                         17
+
+4.2 Four rules for home treatment of diarrhoea                     17
+
+4.2.1 Rule 1: Give the child more fluids than usual                17
+
+4.2.2 Rule 2: Zinc supplementation                                 18
+
+4.2.3 Rule 3: Continue to feed the child                           19
+
+4.2.4 Rule 4: When to return to the clinic                         20
+
+Annex 1: Assess and Classify Chart                                 21
+
+Annex 2: Treatment Charts                                          22
+
+Annex 3: Advising Mothers for Home Treatment                       27
+
+Annex 4: Frequently Asked Questions                                37
+
+Annex 5: Potential Local Adaptations                               41
+
+Annex 6: A WHO/UNICEF Joint Statement                              42
+Preface
+
+The need for guidance on how to implement the new WHO/
+UNICEF recommendations for the use of ORS and zinc
+supplementation in the clinical management of diarrhoea was
+articulated at a meeting at Johns Hopkins University in June,
+2004. On behalf of USAID, MOST initiated the effort to prepare
+the needed guidance in anticipation of the introduction of zinc
+supplementation into the protocol for treating diarrhoea in several
+countries.
+
+These guidelines are designed to prepare clinic-based health
+workers to implement the new recommendations. The information
+is meant to complement, not replace, more comprehensive policy
+guidance available from WHO on the management of diarrhoea.
+The guidelines presented in this document are generic, that is,
+they will be most effective when modified to support the particular
+strategy being used to introduce the new recommendations in each
+country.
+
+Both WHO and UNICEF have reviewed and endorsed these
+guidelines. This version is to be field-tested and subsequently
+revised and reproduced in a finalized form.
+
+MOST wishes to acknowledge the major contribution of Christa
+Fischer Walker, a graduate student at Johns Hopkins University, to
+completing the first draft of the guidelines. MOST would also like
+to thank Olivier Fontaine at WHO and Nancy Terreri at UNICEF for
+their highly valued suggestions and revisions to these guidelines.
+
+MOST Headquarters
+Arlington VA
+January 2005
+
+Diarrhoea Treatment Guidelines                                       i
+Introduction
+
+Diarrhoea remains a leading cause of child death around the world.
+Two recent advances in managing diarrhoeal disease can drastically
+reduce the number of child deaths:
+
+  1) Newly formulated Oral Rehydration Salts (ORS) solution, con-
+      taining lower concentrations of glucose and salts, to prevent
+      dehydration and the need for intravenous therapy
+
+  2) Zinc supplementation to decrease the duration and severity of
+      diarrhoea and the likelihood of future diarrhoea episodes in
+      the 2-3 months following supplementation
+
+Changes being made
+
+ORS has been an important part of diarrhoea management for over
+25 years, keeping millions of children from unnecessary dehydration
+and subsequent death as a result of diarrhoea. The new formula
+for ORS has been scientifically proven to be more efficacious than
+the old one, and is now the formula recommended by WHO and
+UNICEF. Packets of the new ORS are being produced by UNICEF
+for global distribution and local manufacturers are encouraged to
+produce only this new formula.
+Zinc supplementation is a new addition to the diarrhoea treatment
+strategy and one that promises to greatly improve diarrhoea
+management. Zinc supplementation is now being recommended by
+WHO, UNICEF, and countries around the world for the treatment
+of all diarrhoea episodes among children. Treatment guidelines
+published by WHO, including the guidelines for the Integrated
+Management of Childhood Illness (IMCI) are being modified to
+include these new findings and will be available shortly.
+
+Purpose of this guide
+
+As a clinic-based healthcare worker YOU are an essential element
+in the promotion and implementation of improved diarrhoea
+management. With the information provided in this document you
+will be well prepared to implement in your clinic these changes in
+the management of diarrhoea. This document aims to emphasize
+the role of increased fluids, including ORS solution, and continued
+feeding, and to introduce the use of zinc supplementation as
+part of the comprehensive treatment of diarrhoea. In addition,
+this document urges you to counsel caregivers on the ways of
+preventing future diarrhoea.
+
+                                                                                          Diarrhoea Treatment Guidelines iii
+        Structure of the guide
+        This document is divided in four parts plus a series of annexes:
+
+           1) Overview of the management of diarrhoea: This section
+               reviews the basics of diarrhoea assessment and the use
+               of ORS, home fluids and continued feeding for diarrhoea
+               management. This section also introduces the inclusion
+               of zinc supplementation as treatment for diarrhoea by
+               providing technical information about the dose, duration,
+               and administration. Finally, the key means of preventing
+               diarrhoea are introduced, namely: exclusive breastfeeding for
+               infants less than 6 months of age, introduction of nutritious
+               and hygienic complementary foods along with continued
+               breastfeeding through the second year of life, use of safe
+               water, handwashing, use of latrines, proper disposal of faeces,
+               and measles immunization.
+
+           2) Assess the child with diarrhoea: This section reviews the steps
+               to assess the clinical status of a child with diarrhoea.
+
+           3) Treat diarrhoea: This section reviews in detail the
+               management of a child with diarrhoea in the health facility.
+
+           4) Home-based treatment of diarrhoea: This section describes the
+               four rules for treating diarrhoea at home.
+
+           5) Annexes --
+               Annex 1: Table entitled "Does the child have diarrhoea?"
+               Annex 2: Table entitled "Give extra fluid for diarrhoea..."
+               Annex 3: A short guide on how to teach mothers about home
+                            treatment and prevention of diarrhoea
+               Annex 4: Answers to Frequently Asked Questions to assist the
+                            healthcare worker in explaining the addition of zinc,
+                            a new treatment, to diarrhoea management
+               Annex 5: Potential local adaptations
+               Annex 6: The WHO/UNICEF Joint Statement
+
+        The WHO document entitled "The Treatment of Diarrhoea - A
+        manual for physicians and other senior health workers" has been
+        updated to include these changes and should serve as the reference
+        for the management of diarrhoea. This guide is distributed by WHO
+        and can be found by contacting WHO or on the WHO website
+        (http://www.who.int/child-adolescent-health/New_Publications/
+        CHILD_HEALTH/WHO_FCH_CAH_03.7.pdf).
+
+iv MOST The USAID Micronutrient Program
+1. Overview of the Management of
+  Diarrhoea
+
+1.1 What is diarrhoea?
+
+The number of stools normally passed in a day varies with
+     the diet and the age of the child. In diarrhoea, stools contain
+more water than normal -- they are often called loose or watery
+stools. They may also contain blood, in which case the diarrhoea
+is called dysentery.
+Mothers usually know when their children have diarrhoea. When
+diarrhoea occurs they may say that the stools smell strong or
+pass noisily, as well as being loose and watery. By talking to
+mothers you can often find one or more useful local definitions
+of diarrhoea. In many societies, diarrhoea is 3 or more loose or
+watery stools in a day.
+Diarrhoea is most common in children, especially those between
+6 months and 2 years of age. It is also common in babies under 6
+months who are drinking cow's milk or infant feeding formulas.
+Frequent passing of normal stools is not diarrhoea.
+Babies who are breastfed often have stools that are soft; this is
+not diarrhoea.
+
+1.2 Acute and persistent diarrhoea
+
+Acute diarrhoea starts suddenly and may continue for several
+days. It is caused by infection of the bowel.
+Persistent diarrhoea is diarrhoea that starts like acute diarrhoea
+but lasts for 14 days or more.
+
+1.3 Why is diarrhoea dangerous?
+
+Two main dangers of diarrhoea are dehydration and malnutrition
+which can lead to death.
+Death from acute diarrhoea is most often caused by loss of a
+large amount of water and salt from the body. This loss is called
+dehydration.
+Dysentery is another important cause of death related to
+diarrhoea.
+Diarrhoea is worse in children with malnutrition. Diarrhoea can
+cause malnutrition and can make it worse because:
+
+      Nutrients are lost from the body in diarrhoea,
+      A child with diarrhoea may not be hungry, and
+      Mothers may not feed children while they have diarrhoea, or
+      even for some days after the diarrhoea is better.
+
+                                                                             Diarrhoea Treatment Guidelines 1
+          To reduce this malnutrition, foods should be given to children
+          with diarrhoea as soon as dehydration has been corrected.
+
+       1.4 How diarrhoea causes dehydration
+
+          The body normally takes in the water and salts it needs (input)
+          through drinks and food. It normally loses water and salts
+          (output) through stool, urine and sweat.
+          When the bowel is healthy, water and salts pass from the bowel
+          into the blood. When there is diarrhoea, the bowel does not work
+          normally. Less water and salts pass into the blood, and more
+          pass from the blood into the bowel. Thus, more than the normal
+          amount of water and salts are passed in the stool.
+          This larger than normal loss of water and salts from the body
+          results in dehydration. It occurs when the output of water and
+          salts is greater than the input. The more diarrhoea stools a child
+          passes, the more water and salts he/she loses. Dehydration can
+          also be caused by a lot of vomiting, which often accompanies
+          diarrhoea.
+          Dehydration occurs faster in infants and young children, in hot
+          climates, and when there is fever.
+
+       1.5 Zinc and diarrhoea
+
+          Zinc is an important micronutrient for a child's overall health
+          and development. Zinc is lost in greater quantities during
+          diarrhoea. Replacing the lost zinc is important to help the child
+          recover and to keep the child healthy in the coming months.
+
+       1.6 Treating diarrhoea
+
+          The most important parts of treatment of diarrhoea are:
+                 Prevent dehydration from occurring if possible,
+                 Treat dehydration quickly if it does occur,
+                 Give zinc supplements for 10/14 days, depending on the
+                 availability of supplies and national policy (please see
+                 Annex 5), to reduce the severity of the episode and to
+                 reduce the incidence of diarrhoea episodes in the following
+                 2 to 3 months, and
+                 Feed the child.
+
+         1.6.1 Preventing dehydration
+          In the home, dehydration can usually be prevented by drinking
+          more fluids as soon as the diarrhoea starts. To do this, give the
+
+2 MOST The USAID Micronutrient Program
+recommended home fluids or give available food-based fluids,
+such as gruel, soup or rice-water. Also increase the frequency of
+breastfeeding, or give milk feeds prepared with twice the usual
+amount of water. The types of fluids or solutions used in your
+area for preventing dehydration in the home will depend on:
+
+      local traditions for treatment of diarrhoea,
+      availability of a suitable food-based fluid,
+      availability of salt and sugar,
+      access of people to health services, and
+      availability of oral rehydration salts (ORS).
+
+1.6.2 Treating dehydration
+If dehydration occurs, the child should be brought to a
+community health worker or health centre for treatment. The best
+treatment for dehydration is oral therapy with a solution made
+with ORS. For breastfeeding children, the frequency and duration
+of feedings should be increased. The baby should be encouraged
+to feed as many times and for as long as she or he wants.
+This treatment will be described in this document. Although
+this document talks mostly about treating children, the same
+treatment is also good for adults with diarrhoea. For treating
+dehydration, ORS should always be used if possible.
+
+1.6.3 Zinc supplementation
+It has been shown that zinc supplements given during an episode
+of diarrhoea reduce the duration and severity of the episode, and
+lower the incidence of diarrhoea in the following 2-3 months. For
+these reasons, all patients with diarrhoea should be given zinc
+supplements as soon as possible after the diarrhoea has started.
+This will be described later in these guidelines.
+
+1.6.4 Feeding
+The child should be offered small amounts of nutritious, easily
+digestible food frequently. If the child is breastfed, try to increase
+the frequency and duration of feeds. Feeding during the diarrhoea
+episode provides nutrients the child needs to be strong and grow,
+and prevents weight loss during diarrhoea. Fluids given to the
+child do not replace the need for food. After the diarrhoea has
+stopped, an extra meal each day for a week will help the child
+regain weight loss during the illness.
+
+                                                                             Diarrhoea Treatment Guidelines 3
+         1.6.5 Other treatments
+
+          There are no drugs at the present time which will safely and
+          effectively stop diarrhoea.
+
+          Antibiotics are not effective against most diarrhoea-causing
+          organisms. They rarely help and can make some people sicker in
+          the long term. Their indiscriminate use may increase resistance
+          of some disease-causing organisms to antibiotics. In addition,
+          antibiotics are costly, so money is wasted. Therefore, antibiotics
+          should not be used routinely. Their appropriate use for dysentery
+          and cholera is described later in this document.
+
+          Adsorbents (such as kaolin, pectin, activated charcoal) are
+          not useful for treatment of acute diarrhoea. Adsorbents have
+          been shown to induce only a slight change in stool consistency.
+          However, they do not reduce fluid and salt losses.
+
+          Antimotility drugs (such as tincture of opium or loperamide)
+          may be harmful, especially in children less than 5 years of age.
+          They temporarily reduce cramps and pain but delay elimination
+          of organisms causing the diarrhoea and may prolong the illness.
+          They can be dangerous and even fatal if used improperly in
+          infants.
+
+       1.7 Preventing diarrhoea
+
+          Mothers bringing a child to the clinic are likely to be a receptive
+          audience for information about preventing future diarrhoea.
+          Clinic workers should select the messages from the list of well-
+          established preventive strategies that are most appropriate for
+          each child. Breast milk not only provides the most nutritious
+          food for infants and young children, but also helps protect
+          them from infections and reduces exposure to the pathogens
+          that cause diarrhoea. Safe water and hygienic practices also
+          greatly reduce exposure to pathogens. The preventive messages
+          include: encouraging exclusive breastfeeding for infants up to
+          6 months of age; continuing breastfeeding through at least the
+          second year of life; introducing complementary foods that are
+          nutritious and hygienically prepared at 6 months of age; using
+          the cleanest available water and protecting it from contamination;
+          properly treating water when necessary; regularly and properly
+          handwashing with soap; disposing of faeces in a latrine or potty;
+          and ensuring measles immunization at the appropriate age.
+
+          As you go through this document, think about how these
+          recommendations can be adapted and used where you live and
+          work. Take into account the different foods and drinks that are
+          normally available and how they are usually used. Think about
+          the traditional methods for treatment of diarrhoea and the beliefs
+          from which you know or suspect these methods are derived.
+
+4 MOST The USAID Micronutrient Program
+The steps to treat diarrhoea are shown in the chart below.
+
+1                   2                    3
+
+ Assess child       Treat child with     Advise family
+ with diarrhoea     diarrhoea            members about
+                                         home treatment
+Assess degree       Select treat-        and prevention of
+of dehydration      ment and treat       diarrhoea
+                    appropriately for
+Ask for symptoms    degree of dehy-       Counsel mother
+and look for signs  dration
+indicating other                         Teach mother to
+problems            Treat for any other  give ORS and zinc.
+                    problems             Explain good food
+                                         choices, including
+                                         breastfeeding
+
+                                         Diarrhoea Treatment Guidelines 5
+2. Assessing a Child with Diarrhoea
+
+When a child comes to a health worker or a health centre
+         because of diarrhoea, the first step is to assess the child for
+signs of dehydration. The health worker should also ask if there
+is diarrhoea when a child comes with an illness which often is
+accompanied by diarrhoea, such as measles.
+As you read this section, look at the table entitled "Does the child
+have diarrhoea?" (Annex 1).
+
+2.1 Ask, look and feel for signs of dehydration
+       or other problems
+
+ASK
+How many liquid stools per day has the child had?
+For how long has the child had diarrhoea?
+Is there blood (more than 1 or 2 streaks) in the stool?
+
+Has there been vomiting?
+If so, has there been more than a small amount?
+How frequently has the child vomited?
+
+Is the child able to drink?
+If so, is he/she thirstier than normal, does he/she drink eagerly?
+
+LOOK
+What is the child's general condition?
+Is he/she well and alert?
+Is he/she restless or irritable?
+Is he/she lethargic or unconscious?
+Is he/she severely malnourished?
+Are his/her eyes normal or sunken?
+
+FEEL
+When the skin is pinched, does it go back quickly, slowly, or
+very slowly (longer than 2 seconds)? In a baby, the health worker
+should pinch the skin of the abdomen or thigh.
+
+Note: Pinching the skin may give misleading information --
+      In the severely malnourished patient, the skin may go back
+      slowly even if the patient is not dehydrated.
+      In the obese patient, the skin may go back quickly even if
+      the patient is dehydrated.
+
+                                                                             Diarrhoea Treatment Guidelines 7
+          WEIGH the child, if a scale is available
+          If a scale is available, carefully weigh the child unclothed or
+          lightly clothed. If the child has been weighed routinely and his
+          weight has been recorded, compare the child's present weight
+          with his last recorded weight.
+          Has there been any weight loss during the diarrhoea?
+          If so, were less than 25 grams lost for each kilogram of the
+          child's weight?
+          Were 25-100 grams lost for each kilogram of the child's weight?
+          More than 100 grams for each kilogram of weight?
+
+          Note: Loss of fluid causes loss of weight. Assessing weight loss
+                  is useful if a health worker has a very accurate scale and
+                  knows how to use the scale correctly. If a child has been
+                  weighed recently, his weight loss will give some idea about
+                  how much fluid he/she has lost. Weighing the child again
+                  later can help to assess his/her progress. However, it is
+                  more useful to rely on clinical signs than on weight loss
+                  determination to make a judgment about dehydration.
+
+          If a scale is not available, do not delay treatment.
+
+          TAKE TEMPERATURE
+
+          Does the child have a fever (more than 38.5°C or 101°F)?
+          Note: Rectal temperature should be taken if the health worker
+
+                  is used to that procedure and is able to disinfect the
+                  thermometer after each use. Otherwise, the axillary
+                  (armpit) temperature should be taken. Add 0.8°C to the
+                  axillary temperature to obtain the equivalent of the rectal
+                  temperature.
+
+       2.2 Decide how to treat
+
+          After you have examined a child, you can decide how to treat
+          him/her.
+
+                 Find on the table "Does the child have diarrhoea?" (Annex
+                 1) the signs which describe the child's condition.
+                 If there is blood in the stool and diarrhoea for less than 14
+                 days, give antibiotics.
+                 If there is diarrhoea for longer than 14 days with or without
+                 blood in the stool or if there is severe malnutrition (see
+                 section 3.7), continue feeding the child and refer the child
+                 for treatment.
+                 If there is fever, show the mother how to cool the child
+
+8 MOST The USAID Micronutrient Program
+with a wet cloth and fanning, then look for and treat other
+causes (for example, malaria).
+Determine the degree of dehydration. To classify the child's
+dehydration, begin with the pink (or top) row in the chart
+entitled "Does the child have diarrhoea?" (Annex 1).
+» If 2 or more of the signs in the pink row of the table to
+
+     the left are present, conclude that the child has severe
+     dehydration.
+» If 2 or more signs are not present, look at the yellow
+     (or middle) row of the same chart. If 2 or more of the
+     signs are present, conclude that the patient has some
+     dehydration.
+» If 2 or more signs from the middle row are not present,
+     conclude that the patient has no signs of dehydration.
+     This child does not have enough signs to be classified as
+     having some dehydration. Some of these children may
+     have one sign of dehydration or have lost fluid without
+     showing signs.
+Select the appropriate treatment plan based on the degree
+of dehydration. These treatment plans are described on the
+tables entitled "Give extra fluid for diarrhoea and continue
+feeding" (Annex 2).
+» For no signs of dehydration, select Treatment Plan A to
+     treat diarrhoea.
+» For some dehydration, select Treatment Plan B to treat
+     diarrhoea.
+» For severe dehydration, select Treatment Plan C to treat
+     diarrhoea.
+
+                                                                    Diarrhoea Treatment Guidelines 9
+3. Treating Diarrhoea
+
+As you read this section, look at the table entitled "Give extra
+      fluid for diarrhoea..." (Annex 2).
+
+3.1 Child with NO Dehydration
+
+This child needs extra fluid to prevent dehydration. A child with
+no signs of dehydration needs home treatment. The four rules
+of home treatment are:
+
+      Give extra fluids, ORS solution or recommended home
+      fluids.
+
+      Continue feeding, encourage ongoing breastfeeding when
+      applicable.
+
+      Give zinc supplementation for 10/14 days in the
+      recommended dose for the child's age. The first tablet
+      should be given in the health centre, demonstrating to
+      the mother how to dissolve it in water or breastmilk, if
+      necessary.
+
+      Advise the mother on when to return to the health facility.
+
+"Plan A: Treat Diarrhoea at Home" (Annex 2) describes what
+fluids to teach the mother to use and how much she should give.
+It also emphasizes the importance of giving zinc supplements
+during diarrhoea to reduce the severity of the episode and after
+the diarrhoea has stopped to reduce the incidence of diarrhoea in
+the next 2 to 3 months. A child with NO DEHYDRATION also
+needs food, and the mother needs advice about when to return to
+the clinic.
+
+3.2 Child with SOME Dehydration
+
+A child with some signs of dehydration needs extra fluids and
+food. Treat the child with ORS first in the health facility and then,
+when all signs of dehydration have disappeared, the child should
+be sent home for continued treatment.
+
+      Give ORS in the clinic until the skin pinch is normal, the
+      thirst is over, the child is calm. Four hours of rehydration are
+      usually necessary for this.
+
+      Give the first zinc supplement in the clinic. Instruct the
+      mother that zinc should be continued for 10/14 days with
+      the recommended dose dependent on the child's age.
+      Zinc should be given as soon as the child can eat and has
+      successfully completed 4 hours of rehydration.
+
+      In addition to fluid the child with SOME DEHYDRATION
+      needs food. Breastfed children should continue
+
+                                                                             Diarrhoea Treatment Guidelines 11
+                 breastfeeding. Other children should receive their usual milk
+                 or some nutritious food after 4 hours of treatment with ORS.
+          This treatment is described in "Plan B: Treat some dehydration
+          with ORS" (Annex 2).
+
+       3.3 Child with SEVERE Dehydration
+
+          Any child with signs of severe dehydration needs extra fluids.
+          A child classified with SEVERE DEHYDRATION needs fluids
+          quickly. Treat with IV (intravenous) fluids. "Plan C: Treat
+          severe dehydration quickly " (Annex 2) describes how to give
+          fluids to severely dehydrated children. Children with SEVERE
+          DEHYDRATION should be treated by IV drip and admitted
+          to the hospital or health centre. If a health facility with an
+          IV is not within 30 minutes, the use of an nasogastric tube is
+          recommended.
+
+                 ORS should be given as soon as the child can take it, even
+                 while the IV is running.
+          When severe dehydration is corrected, the patient should be
+          managed as above including zinc therapy when he/she can eat.
+
+       3.4 Child with BLOOD IN THE STOOLS
+
+          A child with blood in the stools should be treated for
+          dehydration and Shigella infection.
+
+                 Children with severe dehydration and/or severe malnutrition
+                 should be admitted to the hospital and treated immediately
+                 for these problems.
+                 Prescribe antibiotics effective against Shigella. You can
+                 assume that Shigella caused the dysentery because Shigella
+                 causes about 60% of dysentery cases seen in the clinic
+                 and Shigella causes nearly all cases of life-threatening
+                 dysentery. Finding the specific cause of dysentery requires
+                 a stool culture and it can take at least 2 days to obtain the
+                 laboratory test results.
+                 Manage dehydration in the clinic and then advise for home
+                 management as described above for children with no or
+                 some signs of dehydration.
+                 Prescribe zinc supplementation as above for children with
+                 no or some signs of dehydration.
+
+       3.5 Child with suspected CHOLERA
+
+          A child with suspected cholera should be managed as above for
+          children with some or severe dehydration.
+
+12 MOST The USAID Micronutrient Program
+      Careful monitoring of dehydration is required.
+      IV drips are often needed.
+      Prescribe oral antimicrobials effective against local strains of
+      V. cholerae as soon as vomiting stops.
+      Prescribe zinc supplementation as soon as vomiting stops as
+      directed above.
+
+3.6 Child with PERSISTENT Diarrhoea
+
+A child with persistent diarrhoea should be managed on a case-
+by-case basis for other symptoms and malnutrition.
+
+      Zinc supplementation can be given to children with
+      persistent diarrhoea as part of a more comprehensive
+      treatment program.
+      Specific considerations for treatment of these children are
+      more thoroughly described in the complete WHO guide for
+      treating diarrhoea.
+
+3.7 Other signs and symptoms
+
+When treating diarrhoea you should also look for other signs
+and symptoms. ORS and zinc can be given if other signs and
+symptoms are present, but the child may need additional
+medication for additional problems. Some common problems are
+described below.
+
+      FEVER. Paracetamol can be given to lower the fever. In
+      areas with malaria, fever is often a sign of malaria and the
+      child will need the appropriate malaria treatment. Treat
+      or refer for malaria. Zinc supplementation should not be
+      a substitute for malaria treatment; but it is safe to give it
+      simultaneously.
+      SEVERE MALNUTRITION. If you weigh children in the
+      clinic, this will alert you that a child may need nutritional
+      management. If measuring is not done, observe the child
+      and determine if the child looks wasted, has generalized
+      swelling, or sparse hair. Refer for nutritional management.
+      RESPIRATORY PROBLEMS. Children who have signs of
+      respiratory problems should be assessed for pneumonia.
+      Children with pneumonia should be given an antibiotic and
+      treated appropriately for the pneumonia or referred to a
+      treatment facility.
+
+                                                                             Diarrhoea Treatment Guidelines 13
+4. Home-Based Treatment
+
+Mothers and other family members can often treat diarrhoea
+        themselves with fluids and food that they have at home.
+Health workers can help if they show mothers how to do this.
+The four rules for treating diarrhoea in the home are explained
+below. Briefly, these rules are to increase fluids, to give zinc
+supplements, to continue to feed the child, and to bring the child
+to a health worker if he/she is not getting better. These four rules
+are also given in the table entitled "PLAN A: Treat Diarrhoea at
+Home" (Annex 2).
+
+4.1 Steps for advising families
+
+4.1.1 Ask, Praise, Advise, Check
+In Annex 3, we have inserted a guide to reinforce the World
+Health Organization's recommended method for communicating
+with mothers:
+
+Step 1. ASK
+The first step when giving guidance to the mother should be to
+find out what she is already doing that is good and what she is
+doing that needs improvement. By asking the mother first the
+healthcare worker takes the time to find out more about the
+mother and the care she is giving her child concerning feeding,
+medications, and seeking healthcare.
+
+Step 2. PRAISE
+The second step is to praise the mother for doing the good things
+she is doing. Praising helps the mother feel good about her care.
+She will be more responsive to your advice and will feel more
+confident in her ability to go home and continue giving quality
+care to her child. The mother may not be doing everything
+correctly; later you can address what she is doing wrong. When
+giving praise find something that she is doing well, and praise
+her for it.
+
+Step 3. ADVISE
+The third step is to advise the mother how to treat her child at
+home. At this point you have asked questions, praised her for the
+good things she has done, and now are ready to help her treat
+her child. Give her advice and when possible demonstrate how
+she will do these things. Show her how to make ORS and zinc
+
+                                                                             Diarrhoea Treatment Guidelines 15
+          while she is with you. Use pictures to describe what foods are
+          appropriate for the age of her child and how to prepare them.
+
+          Step 4. CHECK
+          The fourth step is to check to see that the mother understood
+          your advice. This is your final chance to clarify any uncertainties
+          she has and any confusion about the treatment for her child.
+          Ask open-ended questions when checking to give the mother
+          a chance to show what she knows. Be sure to encourage and
+          praise at this level as well.
+
+         4.1.2 Explaining the four rules of home treatment
+          Health workers should explain the four rules of home treatment
+          (next page) to mothers and other family members whenever they
+          have the opportunity, for example, when a mother comes for
+          prenatal care or brings her child for immunization.
+
+                 Remember the community's beliefs about diarrhoea and
+                 ways of treating it. Relate your advice to current practices
+                 and use words the mother will understand.
+                 Explain the four rules for treating diarrhoea at home.
+                 Show the mother what to do (for example, show how much
+                 fluid to give the child after each stool).
+                 Use teaching aids which are familiar (for example, use the
+                 mother's own child to show her how to look for sunken
+                 eyes; use commonly available containers to demonstrate
+                 how to mix ORS).
+                 Let the mother show you what she is learning while you
+                 watch (for example, feeding the fluid with a spoon, or
+                 administering zinc supplement) to be sure that she can do it
+                 and to help her remember.
+                 Ask her to tell you, in her own words, things that she has
+                 learned but not practiced, to be sure that she remembers.
+                 For example, she can tell what food she will give and how
+                 often.
+                 Ask her if she has any questions and try to answer them.
+                 Ask her about any problems she may have following the
+                 four rules. Listen to what she says and try to help her find a
+                 solution to them.
+                 Tell the mother what to expect (for example, how long it
+                 will take for the child to get well).
+
+16 MOST The USAID Micronutrient Program
+4.1.3 Preventing Diarrhoea
+
+Clinic workers are well placed to teach family members and
+motivate them to adopt preventive measures. Mothers of children
+being treated for diarrhoea are likely to be particularly receptive
+to such messages. It is best to emphasize only one or two of the
+following points to avoid overloading mothers with information.
+Select those that are most appropriate for the particular child.
+
+      Breastfeeding is important for preventing diarrhoea as well
+      as for avoiding dehydration. During the first 6 months of
+      life, infants should be exclusively breastfed. Exclusively
+      breastfed infants are much less likely to get diarrhoea or
+      to die from it than infants who are not breastfed at all or
+      are partially breastfed. Breastfeeding also protects against
+      the risk of allergies early in life, helps in child spacing
+      and provides protection against other infections (e.g.,
+      pneumonia). Breastfeeding should be continued until at
+      least 2 years of age.
+
+      Complementary foods should be introduced when a child
+      is 6 months old. Good weaning practices involve selecting
+      nutritious foods and using hygienic practices when
+      preparing those foods.
+
+      Diarrhoea reduction can be achieved by using water for
+      drinking and food preparation that is obtained from a safe
+      source and is properly stored.
+
+      Water should be properly treated (e.g., chlorinated) when
+      necessary, acceptable available and affordable.
+
+      Handwashing with soap and water after defecation or
+      cleaning a baby's bottom, and before eating, feeding a child
+      or preparing food will reduce diarrhoea.
+
+      Dispose of children's faeces in a sanitary latrine or potty.
+
+      Measles immunization can substantially reduce diarrhoeal
+      disease; therefore, every infant should be immunized against
+      measles at the recommended age.
+
+4.2 Four rules for home treatment of diarrhoea
+
+4.2.1 Rule 1: Give the child more fluids than usual
+
+      What fluids?
+
+       » If it is available at home, the mother should give ORS
+            solution, as ORS can not only treat dehydration but it
+            can also prevent dehydration to occur in a child with
+            diarrhoea. If ORS is not available at home she should
+            give the recommended home fluid or food-based fluids,
+            such as gruel, soup, or rice water.
+
+                                                                             Diarrhoea Treatment Guidelines 17
+» If an infant or child is breastfed -- continue to
+    breastfeed, but more frequently and for longer each
+    feed.
+
+» If the infant is exclusively breastfed -- give ORS in
+    addition to the breast milk.
+
+» If an infant is not breastfed -- give one or more of the
+    following: ORS solution, food-based fluids (such as
+    soup, rice water, and yoghurt drinks), or clean water.
+
+Good Liquids Without Salt                Good Liquids With Salt
+Clean Water                              ORS Solutions
+Unsalted rice water                      Salted Soup
+Unsalted yoghurt drink                   Salted yoghurt drink
+Green coconut water                      Salted rice water
+Weak tea
+Unsweetened fresh fruit juice
+
+Advise the mother what liquids not to give.
+
+Do not Give
+    Soft drinks
+    Sweetened tea
+    Sweetened fruit drinks
+    Coffee
+    Some local medicinal teas or infusions
+
+How much?
+
+» Give children under 2-years-old, approximately 50-100ml
+    (¼ large cup) of fluid after each loose stool. Give older
+    children ½ to 1 large cup.
+
+» Older children and adults should drink as much as they
+    want.
+
+When to stop
+
+» ORS or recommended home-fluids should be given until
+    the diarrhoea stops. This may last several days.
+
+4.2.2 Rule 2: Zinc supplementation (these recommenda-
+        tions are based on a 20 milligram tablet)
+
+      Why?
+
+       » Zinc decreases the length and severity of the diarrhoea.
+            Zinc is important for the child's immune system and
+            will help the child fight off new episodes of diarrhoea
+            in the 2-3 months following treatment. Zinc improves
+            appetite and growth.
+
+18 MOST The USAID Micronutrient Program
+      How much?
+       » Children less than 6 months of age should receive ½
+
+            tablet once a day for 10/14 days. Children 6 months and
+            older receive 1 tablet per day for 10/14 days.
+      How is it administered?
+       Describe how to give and demonstrate with the first tablet
+       in the clinic:
+       » Infants: Dissolve the tablet in a small amount (5 mil)
+            of expressed breastmilk, ORS, or clean water in a small
+            spoon.
+       » Older children: Tablets can be chewed or dissolved in a
+            small amount of clean water in a small spoon.
+      Importance of giving the entire dose
+       » Remind the mother that it is important to give the full
+            10/14-day dose to the child even if the diarrhoea ends.
+            Again tell the mother that zinc will improve the overall
+            health, growth, and appetite. Emphasize the importance
+            of the entire zinc dose for this sick child, not to be
+            saved for later cases or other children.
+
+4.2.3 Rule 3: Continue to feed the child
+
+      What foods?
+       » If the child is breastfeding, breastfeed more frequently
+
+            and for longer at each feed.
+       » Give the child above 6 months of age foods with the
+
+            highest amount of nutrients and calories relative to bulk.
+            Depending on the child's age, these should be mixes of
+            cereal and locally available beans, or mixes of cereal
+            and meat or fish. Add oil to these foods to make them
+            energy-rich. Dairy products and eggs are also suitable.
+            Fresh fruit juices and bananas are helpful because they
+            contain potassium.
+      Avoid:
+       » High fibre or bulky foods, such as coarse fruits and
+            vegetables, fruits and vegetable peels, and whole grain
+            cereals. These are hard to digest.
+       » Very dilute soups. These are recommended as fluids,
+            but are not sufficient as foods because they fill up the
+            child without providing sufficient nutrients.
+       » Foods with a lot of sugar. These foods can worsen
+            diarrhoea.
+
+                                                                             Diarrhoea Treatment Guidelines 19
+                 How to prepare the food
+                 » Prepare foods by cooking well, fermenting, mashing or
+
+                      grinding. This will make the food easier to digest.
+                 » Give freshly prepared foods to minimize chance of
+
+                      contamination. If previously prepared foods must be
+                      offered, first reheat them to a boil.
+                 How much food?
+                 » Encourage the child to eat as much as he/she wants.
+                      Offer food every 3 to 4 hours (six times each day) or
+                      more often to a young child. Small frequent feedings are
+                      best because they are more easily digested and preferred
+                      by the child.
+                 » After the diarrhoea has stopped, give the child one
+                      extra meal each day for a week. This extra food helps
+                      the child regain the weight lost during the illness. Some
+                      children will continue to need extra foods to reach their
+                      pre-illness weight, or a normal weight for height.
+                 Why feed the child?
+                 » Starving a child who has diarrhoea can cause
+                      malnutrition or make it worse. Mothers may withhold
+                      food, believing this will decrease diarrhoea. But it is
+                      more important to give nutrients the child needs to stay
+                      strong and grow. A strong child will resist illness better.
+                 » During and after diarrhoea give special attention to
+                      feeding the child nutritious food frequently. Even though
+                      absorption of nutrients from food is lessened somewhat
+                      during diarrhoea, most of the nutrients will be absorbed.
+                      Fluids given to the child do not replace the need for
+                      food.
+
+         4.2.4 Rule 4: When to return to the clinic
+          The mothers should bring the child to a health worker if the child
+          shows any of the following:
+
+                 Passes many stools,
+                 Is very thirsty,
+                 Has sunken eyes,
+                 (The above 3 signs suggest your child is dehydrated)
+                 Seems not to be getting better after 3 days,
+                 Has a fever,
+                 Does not eat or drink normally.
+
+20 MOST The USAID Micronutrient Program
+                                   Does the child have diarrhoea?                                                                                                       Annex 1
+
+                                   IF YES, ASK: LOOK AND FEEL:                                    Two of the following signs:                    If child has no other severe classification:
+                                                                                                                                                 - Give fluid for severe dehydration (Plan C).
+                                   · For how       · Look at the child's        for DEHYDRATION   · Lethargic or unconscious             SEVERE
+                                     long?           general condition. Is                                                         DEHYDRATION                                             OR
+                                                     the child:                                   · Sunken eyes                                  If child also has another severe classification:
+                                   · Is there
+                                     blood in the         Lethargic or                            · Not able to drink or drinking                - Refer URGENTLY to hospital with mother giving
+                                     stool?               unconscious?                               poorly                                        frequent sips of ORS on the way. Advise the mother
+                                                                                                                                                   to continue breastfeeding.
+                                                   Restless and                                   · Skin pinch goes back very
+                                                   irritable?                                        slowly.                                     If child is 2 years old or over and there is cholera in
+                                                                                                                                                 your area, give antibiotic for cholera.
+                                                   · Look for sunken eyes.      Classify          Two of the following signs:
+                                                                                DIARRHOEA                                                        Give fluid, zinc supplements and food for some dehydration
+                                                   · Offer the child fluid. Is                    · Restless, irritable                          (Plan B).
+                                                      the child:                                                                          SOME   If child also has a severe classification:
+                                                                                                  · Sunken eyes                    DEHYDRATION   - Refer URGENTLY to hospital with mother giving frequent
+                                                   Not able to drink or
+                                                   drinking poorly?                               · Drinks eagerly, thirsty                  NO    sips of ORS on the way. Advise the mother to continue
+                                                                                                                                   DEHYDRATION     breastfeeding.
+                                                   Drinking eagerly,                              · Skin pinch goes back slowly.                 Advise mother when to return immediately.
+                                                   thirsty?                                       Not enough signs to
+                                                                                                  classify as some or severe                     Give fluid, zinc supplements and food to treat diarrhoea at
+                                                   · Pinch the skin of the                        dehydration.                                   home (Plan A).
+                                                     abdomen. Does it go                                                                         Advise mother when to return immediately.
+                                                     back:
+                                                                                                                                                 Treat dehydration before referral unless the child has
+Diarrhoea Treatment Guidelines 21                  Very slowly (longer          and if diarrhoea  · Dehydration present.               SEVERE    another severe classification.
+                                                   than 2 seconds)?             14 days or more   · No dehydration.                PERSISTENT    Refer to hospital.
+                                                   Slowly?                                                                         DIARRHOEA
+                                                                                                                                                 Advise the mother on feeding a child who has PERSISTENT
+                                                                                                                                   PERSISTENT    DIARRHOEA.
+                                                                                                                                   DIARRHOEA     Give multivitamin and minerals (including zinc) for 14 days.
+                                                                                                                                                 Follow-up in 5 days.
+                                                                                and if blood in   · Blood in the stool.
+                                                                                stool                                                            Treat for 5 days with an oral antimicrobial
+                                                                                                                                   BLOOD IN      recommended for Shigella in your area. Treat
+                                                                                                                                     STOOL       dehydration and give zinc
+                                                                                                                                                 Follow-up in 2 days.
+Annex 2
+
+GIVE EXTRA FLUID FOR DIARRHOEA
+AND CONTINUE FEEDING
+
+Plan A: Treat Diarrhoea at Home
+
+Counsel the mother on the 4 Rules of Home Treatment:
+
+Give Extra Fluid, Give Zinc Supplements, Continue Feeding,
+When to Return
+
+1) GIVE EXTRA FLUID (as much as the child will take)
+
+TELL THE MOTHER:
+
+- Breastfeed frequently and for longer at each feed.
+- If the infant is exclusively breastfed, give ORS in addition to
+
+  breastmilk.
+- If the child is not exclusively breastfed, give one or more of the
+
+  following: ORS solution, food-based fluids (such as soup, rice
+  water, and yoghurt drinks), or clean water.
+
+It is especially important to give ORS at home when:
+
+- the child has been treated with Plan B or Plan C during this
+  visit.
+
+- the child cannot return to a clinic if the diarrhoea gets worse.
+
+TEACH THE MOTHER HOW TO MIX AND GIVE ORS. GIVE THE
+MOTHER 2 PACKETS OF ORS TO USE AT HOME.
+
+SHOW THE MOTHER HOW MUCH FLUID TO GIVE IN ADDITION TO
+THE USUAL
+
+FLUID INTAKE:
+
+Up to 2 years 50 to 100 ml after each loose stool and between
+                        them
+
+2 years or more 100 to 200 ml after each loose stool and
+                            between them
+
+   Tell the mother to:
+
+   - Give frequent small sips from a cup.
+   - If the child vomits, wait 10 minutes. Then continue, but more
+
+     slowly.
+   - Continue giving extra fluid until the diarrhoea stops.
+
+2) GIVE ZINC SUPPLEMENTS
+
+TELL THE MOTHER HOW MUCH ZINC TO GIVE:
+
+Up to 6 months 1/2 tablet per day for 14 days
+
+6 months or more 1 tablet per day for 14 days
+
+SHOW THE MOTHER HOW TO GIVE ZINC SUPPLEMENTS
+
+Infants  dissolve the tablet in a small amount of expressed
+         breastmilk, ORS or clean water, in a small cup or spoon
+
+Older children  tablets can be chewed or dissolved in a small
+                amount of clean water in a cup or spoon
+
+REMIND THE MOTHER TO GIVE THE ZINC SUPPLEMENTS FOR THE
+FULL 14 DAYS
+
+3) CONTINUE FEEDING
+
+4) WHEN TO RETURN
+
+22 MOST The USAID Micronutrient Program
+GIVE EXTRA FLUID FOR DIARRHOEA
+AND CONTINUE FEEDING
+
+Plan B: Treat Some Dehydration with ORS
+
+Give in clinic recommended amount of ORS over 4-hour period
+   DETERMINE AMOUNT OF ORS TO GIVE DURING FIRST 4 HOURS.
+
+AGE*   Up to 4     4 months up to 12 months up 2 years up
+       months
+                   12 months            to 2 years    to 5 years
+
+WEIGHT < 6 kg      6 - < 10 kg          10 - < 12 kg 12 - 19 kg
+
+In ml  200 - 400 400 - 700              700 - 900     900 - 1400
+
+* Use the child's age only when you do not know the weight. The
+  approximate amount of ORS required (in ml) can also be calculated by
+  multiplying the child's weight (in kg) times 75.
+
+· If the child wants more ORS than shown, give more.
+
+· For infants under 6 months who are not breastfed, also give 100-200
+     ml clean water during this period.
+
+SHOW THE MOTHER HOW TO GIVE ORS SOLUTION.
+
+· Give frequent small sips from a cup.
+
+· If the child vomits, wait 10 minutes. Then continue, but more slowly.
+
+· Continue breastfeeding whenever the child wants.
+
+AFTER 4 HOURS:
+
+· Reassess the child and classify the child for dehydration.
+
+· Select the appropriate plan to continue treatment.
+
+· Begin feeding the child in clinic.
+
+IF THE MOTHER MUST LEAVE BEFORE COMPLETING TREATMENT:
+
+· Show her how to prepare ORS solution at home.
+
+· Show her how much ORS to give to finish 4-hour treatment at home.
+
+· Give her enough ORS packets to complete rehydration. Also give her
+     2 packets as recommended in Plan A.
+
+· Explain the 4 Rules of Home Treatment:
+
+1) GIVE EXTRA FLUID (see Plan A for recommended fluids)
+
+2) GIVE ZINC SUPPLEMENTS
+
+3) CONTINUE FEEDING
+
+4) WHEN TO RETURN
+
+                                                    Diarrhoea Treatment Guidelines 23
+GIVE EXTRA FLUID FOR DIARRHOEA AND
+CONTINUE FEEDING
+
+  Plan C: Treat Severe Dehydration Quickly
+
+     FOLLOW THE ARROWS. IF ANSWER IS "YES", GO ACROSS. IF "NO", GO DOWN.
+
+                                      Start IV fluid immediately. If the child can drink,
+                                      give ORS by mouth while the drip is set up. Give
+                                      100 ml/kg Ringer's Lactate Solution (or, if not
+                                      available, normal saline), divided as follows:
+
+Can you give YES                      AGE                  First give 30 Then give
+intravenous                                                  ml/kg in: 70 ml/kg in:
+(IV) fluid
+immediately?                          Infants (under 12    1 hour*      5 hours
+                                      months)
+          NO
+
+                                      Children (12 months  30 minutes*  2 1/2 hours
+                                      up to 5 years)
+
+                                      * Repeat once if radial pulse is still very weak or not
+                                        detectable.
+
+                                      · Reassess the child every 1- 2 hours. If hydration
+                                        status is not improving, give the IV drip more
+                                        rapidly.
+
+                                      · Also give ORS (about 5 ml/kg/hour) as soon as the
+                                        child can drink: usually after 3-4 hours (infants) or
+                                        1-2 hours (children).
+
+                                      · Reassess an infant after 6 hours and a child
+                                        after 3 hours. Classify dehydration. Then choose
+                                        the appropriate plan (A, B, or C) to continue
+                                        treatment.
+
+Is IV treatment
+
+available nearby                      · Refer URGENTLY to hospital for IV treatment.
+
+(within 30        YES                 · If the child can drink, provide the mother with
+                                         ORS solution and show her how to give frequent
+minutes)?                                sips during the trip.
+
+NO
+
+Are you                               · Start rehydration by tube (or mouth) with ORS
+trained to use                           solution: give 20 ml/kg/hour for 6 hours (total of
+a naso-gastric                           120 ml/kg).
+(NG) tube for
+rehydration?                          · Reassess the child every 1-2 hours:
+                                         - If there is repeated vomiting or increasing
+          NO                               abdominal distension, give the fluid more slowly.
+                                 YES     - If hydration status is not improving after 3
+                                           hours, send the child for IV therapy.
+  Can the
+  child drink?                        · After 6 hours, reassess the child. Classify
+                                         dehydration. Then choose the appropriate plan (A,
+          NO                             B, or C) to continue treatment.
+
+Refer URGENTLY                        NOTE:
+to hospital for IV
+or NG treatment                       · If possible, observe the child at least 6 hours after
+                                        rehydration to be sure the mother can maintain
+                                        hydration giving the child ORS solution by mouth.
+
+                                                         IMMUNIZE
+                                                        EVERY SICK
+                                                         CHILD, AS
+
+                                                           NEEDED
+
+24 MOST The USAID Micronutrient Program
+                                   GIVE FOLLOW-UP CARE
+
+                                   Care for the child who returns for follow-up using all the boxes that match the child's previous classifications.
+
+                                   If the child has any new problem, assess, classify and treat the new problem as on the ASSESS AND CLASSIFY chart.
+
+                                   PNEUMONIA                                                                                                PERSISTENT DIARRHOEA
+
+                                   After 2 days:                                                                                            After 5 days:
+                                                                                                                                            ASK:
+                                   } Check the child for general danger signs.         See ASSESS and                                       - Has the diarrhoea stopped?
+                                                                                       CLASSIFY chart                                       - How many loose stools is the child having per day?
+                                   Assess the child for cough or difficult breathing.                                                       Treatment:
+
+                                   ASK:                                                                                                       If the diarrhoea has not stopped (child is still having 3 or more
+                                                                                                                                              loose stools per day), do a full reassessment of the child. Give
+                                   - Is the child breathing slower? - Is there less fever?  - Is the child eating better?                     any treatment needed. Then refer to hospital.
+                                                                                                                                              If the diarrhoea has stopped (child having less than 3 loose
+                                   Treatment:                                                                                                 stools per day), tell the mother to follow the usual feeding
+                                                                                                                                              recommendations for the child's age.
+                                   If chest indrawing or a general danger sign, give a dose of second-line antimicrobial or intramuscular
+                                   chloramphenicol. Then refer URGENTLY to hospital.                                                        FEVER
+
+                                   If breathing rate, fever and eating are the same, change to the second-line antimicrobial and advise     If fever persists after 2 days:
+                                   the mother to return in 2 days or refer. (If this child had measles within the last 3 months refer.)     Do full reassessment of the child > See ASSESS & CLASSIFY chart
+                                                                                                                                            Assess for other causes of fever
+                                   BLOOD IN STOOL                                                                                           Treatment:
+
+                                   After 2 days:                                                                                              If the child has any general danger signs or stiff neck, treat as
+                                                                                                                                              VERY SEVERE FEBRILE DISEASE.
+                                   Assess the child for diarrhoea. > See ASSESS & CLASSIFY chart.                                             If the child has any apparent cause of fever, provide treatment.
+                                                                                                                                              If fever has been present for 5 days, refer for assessment.
+Diarrhoea Treatment Guidelines 25  ASK:                                                                                                       If there is no apparent cause of fever and it has not been pres-
+                                                                                                                                              ent for 5 days, advise mother to return in 2 days if fever per-
+                                   - Are there fewer stools?  - Is there less abdominal pain?          - Is there less fever?                 sists. Make sure that the child is given increased amounts of
+                                                                                                                                              fluid and offered food.
+                                   - Is there less blood in the stool? - Is the child eating better?
+
+                                   Treatment:
+
+                                   If the child is dehydrated, treat dehydration.
+
+                                   Continue giving zinc supplements for 14 days.
+
+                                   If number of stools, amount of blood in stools, fever, abdominal pain, or eating is the same or worse,
+                                   refer to hospital.
+
+                                   If fewer stools, less blood in the stools, less fever, less abdominal pain, and eating better, continue
+                                   giving the same antibiotic until finished.
+26 MOST The USAID Micronutrient Program  FLUID
+
+                                           Advise the Mother to Increase Fluid During Illness
+                                         FOR ANY SICK CHILD:
+
+                                           Breastfeed more frequently and for longer at each feed.
+                                           If not exclusively breastfed, increase fluid. For example, give soup, rice water, yoghurt drinks or clean water.
+                                         FOR CHILD WITH DIARRHOEA:
+                                           Giving extra fluid can be lifesaving. Give fluid according to Plan A or Plan B on TREAT THE CHILD chart.
+
+                                         WHEN TO RETURN
+
+                                           Advise the Mother When to Return to Health Worker
+                                         FOLLOW-UP VISIT: Advise the mother to come for follow-up at the earliest time listed for the child's problems.
+
+                                         If the child has:                        Return for follow-up in:  WHEN TO RETURN IMMEDIATELY
+                                                                                  2 days
+                                         PNEUMONIA                                                          Advise mother to return immediately if the child has any of
+                                         DYSENTERY                                5 days                    these signs:
+                                         FEVER, if fever persists
+                                         MEASLES with EYE or MOUTH COMPLICATIONS  14 days                   Any sick child                                   · Not able to drink or breastfeed
+                                                                                  30 days
+                                         PERSISTENT DIARRHOEA                                                                                                · Becomes sicker
+                                         ACUTE EAR INFECTION
+                                         CHRONIC EAR INFECTION                                                                                               · Develops a fever
+                                         FEEDING PROBLEM
+                                         ANY OTHER ILLNESS, if not improving                                If child has NO PNEUMONIA:                       · Fast breathing
+
+                                         PALLOR                                                             COUGH OR COLD, also return if: · Difficult breathing
+
+                                         LOW WEIGHT FOR AGE                                                 If child has Diarrhoea, also                     · Blood in stool
+                                         RICKETS                                                            return if:                                       · Drinking poorly
+
+                                         NEXT WELL-CHILD VISIT: Advise mother when to return for next immunization according to immunization schedule.
+Annex 3
+
+Advising Mothers for Home Treatment
+
+Teaching mothers how to care for their children in the home is
+an extremely important part of diarrhoea management. How well
+you are able to communicate with the mother to ensure that she
+fully understands your guidance will determine how well the
+mother is able to successfully carry out ORS, zinc treatment, and
+continued feeding in the home.
+
+This guide will reinforce the World Health Organization's
+recommended method for communicating with mothers: ASK,
+PRAISE, ADVISE, CHECK.
+
+Review of Ask, Praise, Advise, Check
+
+When talking to the mother about her care for the child there are
+2 important things to remember:
+
+  1) Use simple language that the mother will understand. Do not
+      use difficult words or technical language that is difficult to
+      understand. The mother may not be comfortable telling you
+      she does not understand and will leave without knowing
+      what she is to do or why she is to do something.
+
+      Simple language should always be used (Example):
+      I am going to give you zinc supplements for your baby's
+      diarrhoea. The zinc is good for your baby during diarrhoea
+      and will help your baby become well faster.
+
+      Difficult language should never be used (Example): Zinc
+      supplementation is now recommended for the treatment
+      of diarrhoea. Zinc is an essential micronutrient and is lost
+      at a high rate during diarrhoea. Zinc supplementation will
+      decrease the duration and severity of the diarrhoea episode.
+
+  2) Ask open-ended questions to give the mother the
+      opportunity to speak freely, not just agree or disagree with
+      a question. Open-ended questions allow mothers to offer
+      the information first and speak truthfully about the care
+      they have been giving their children. Closed questions
+      are questions that often end in a yes/no and give little
+      information about what is actually happening in the
+      home. A mother may answer yes or no according to what
+      she believes she should be doing, not what is actually
+      happening.
+
+      Open-ended question should always be used (Example):
+      What have you been feeding your child while he/she is ill?
+
+      Closed questions should never be used (Example): Are
+      you giving your child frequent small meals to ensure he/she
+      stays strong during the diarrhoea?
+
+                                                                             Diarrhoea Treatment Guidelines 27
+         Step 1. ASK
+          The first step when giving guidance to the mother should be to
+          find out what she is already doing that is good and what she is
+          doing that needs improvement. By asking the mother first the
+          healthcare worker takes the time to find out more about the
+          mother and the care she is giving her child concerning feeding,
+          medications, and seeking healthcare.
+
+         Step 2. PRAISE
+          The second step is to praise the mother for doing the good things
+          she is doing. Praising helps the mother feel good about her care.
+          She will be more responsive to your advice and will feel more
+          confident in her ability to go home and continue giving quality
+          care to her child. The mother may not being doing everything
+          correctly; later you can address what she is doing wrong. When
+          giving praise find something that she is doing well and praise her
+          for it.
+
+         Step 3. ADVISE
+          The third step is to advise the mother how to treat her child at
+          home. At this point you have asked questions, praised her for the
+          good things she has done, and now are ready to help her treat
+          her child. Give her advice and when possible demonstrate how
+          she will do these things. Show her how to make ORS and zinc
+          while she is with you. Use pictures to describe what foods are
+          appropriate for the age of her child and how to prepare them.
+
+         Step 4. CHECK
+          The fourth step is to check to see that the mother understood
+          your advice. This is your final chance to clarify any uncertainties
+          she has and any confusion about the treatment for her child. Ask
+          open-ended questions when checking to give the mother a chance
+          to show what she knows. Be sure to encourage and praise at this
+          level as well.
+
+          Giving Advice on ORS and Increased Liquids
+
+          The importance of giving ORS to dehydrated children and plenty
+          of fluids for any child with diarrhoea has been described in Part
+          3. To ensure that the mother understands how to give ORS and
+          what fluids are appropriate use ASK, PRAISE, ADVISE, CHECK to
+          find out the quantity and what types of fluids she has been giving
+          her child and to give appropriate advice.
+
+          SITUATION: Mother comes in with an 8-month-old boy with
+          some dehydration.
+
+28 MOST The USAID Micronutrient Program
+ASK:     Have you been giving your child anything to drink
+         since the diarrhoea started?
+
+MOTHER: I gave a cup of ORS yesterday but he did not really
+              want it.
+
+PRAISE: It is good that you tried to give your baby ORS. ORS
+              will help to prevent dehydration in your son.
+
+ADVISE:  Today your son needs more fluids and needs more
+         ORS to become well. I need you to give ORS to him
+         even if he does not appear to want it. You have to be
+         patient. Every time he has a loose stool give him ¼ to
+         ½ of a large cup of ORS. (Show cup size.) Give other
+         fluids too such as clean water and (locally appropriate)
+         liquids throughout the day. This will prevent your son
+         from becoming too dry.
+
+CHECK: When you go home, what liquids are you going to give
+              him?
+
+MOTHER: I can give ORS and water.
+
+CHECK 2: How much ORS will you give your son?
+
+MOTHER: I will give ½ of a big cup every time he has a loose
+              stool
+
+It is now clear that the mother understands your advice. You
+should follow up with more questions regarding options for other
+liquids to ensure she truly understands why additional fluids are
+necessary.
+
+Giving Advice on Zinc Treatment
+
+Zinc supplementation for the treatment of diarrhoea will be new
+to most mothers and each mother may need extra guidance and
+time from the healthcare worker to ensure she is comfortable
+giving the tablets to her child and to ensure she understands
+the importance of giving a tablet daily, even when the diarrhoea
+is over. Zinc tablets can and should be promoted instead of
+antidiarrhoeals and unnecessary antibiotics.
+
+SITUATION: Mother brings breastfed 4-month-old baby girl to
+clinic with non-bloody diarrhoea.
+
+ASK:     Have you given your baby any medication for the
+         diarrhoea?
+
+MOTHER: No, I have not. I came here for medication.
+
+PRAISE: It is good that you came here and have not given your
+              small baby any medications which can harm her.
+
+ADVISE:  Today I am giving you zinc supplementation along
+         with ORS for your baby's diarrhoea. These tablets
+         will help your baby's diarrhoea stop and will help
+         her stay healthy in the coming months. It is really
+
+                                   Diarrhoea Treatment Guidelines 29
+              important that you give her one dose on all the 10/14
+              days and do not stop when the diarrhoea stops. The
+              zinc can help prevent sickness in the coming months
+              and is good for your baby. Please give her ½ of a
+              tablet every day for 10/14 days. You can dissolve the
+              tablet in breastmilk. (Demonstrate how to dissolve in
+              breastmilk.)
+
+CHECK: How are you going to give the tablet to the baby?
+
+MOTHER: I am going to dissolve ½ tablet every day in
+              breastmilk, just like we did today.
+
+CHECK 2: When will you stop the tablets?
+
+MOTHER: I will give her ½ tablet for 10/14 days.
+
+The mother has understood your instructions. By demonstrating
+how to give the tablet and discussing with her the reasons she
+must give the tablet we can be hopeful that she will follow our
+directions and give all 10/14 doses. Further questions to assess
+the mother's knowledge may be helpful and may help ensure
+that she knows all she should to follow your directions for 10/14
+days.
+
+Giving Advice on Continued Feeding
+
+Mothers need to know the importance of continued feeding
+during diarrhoea. Be sure to know which healthy foods are
+available, acceptable and affordable in your area and promote
+these foods when giving advice. Children with diarrhoea over 6
+months of age need to be offered frequent small meals and must
+be encouraged to eat.
+
+SITUATION: Mother brings her 2-year-old boy to the clinic with
+diarrhoea and some dehydration.
+
+ASK:     What foods have you been giving your child during
+         the diarrhoea?
+
+MOTHER: I give him thin porridge, but he does not want it.
+
+PRAISE:  It is good that you are offering porridge to your child.
+         Keep offering foods to your child and encourage him
+         to eat.
+
+ADVISE:  It would be good if you could offer other foods as
+         well (know local foods, demonstrate or show picture
+         if appropriate). Porridge alone, especially when too
+         thin, might not be enough to help him get better.
+         You might have to help him eat more than usual by
+         feeding him and sitting with him while he eats.
+
+CHECK: How can you help your child become stronger?
+
+MOTHER: I can sit with him while he eats and encourage him. I
+               think I will also try a new food that he might like.
+
+30 MOST The USAID Micronutrient Program
+It is now clear that the mother understands the importance of
+giving good, quality foods to her son while he has diarrhoea.
+Remember always suggest foods that are very easy to make and
+foods you know the mother can afford.
+
+Giving Advice on Coming Back to the Clinic
+
+When a mother is sent home to manage her child's diarrhoea she
+must know when she should return to the clinic. She must know
+how to assess her child for signs that the diarrhoea is worsening
+or that her child develops any additional problems that need
+medical attention.
+
+ASK:     When will you bring your baby back to the health
+         clinic?
+
+MOTHER: I will bring my baby back if the diarrhoea gets worse.
+
+PRAISE: That is a good reason and do bring your baby back if
+              the diarrhoea gets worse.
+
+ADVISE:  Also, you should bring your baby back if your baby's
+         diarrhoea does not seem to improve in 3 days, if you
+         see any blood in the stool, if he/she develops a high
+         fever, begins to have severe vomiting, has a marked
+         thirst or begins eating or drinking poorly
+
+CHECK:   It's very important that you know when you have to
+         bring your baby back to the clinic. What will you look
+         for to bring your baby back to see me?
+
+MOTHER: Fever, vomiting, and if he/she is not better in 3 days.
+
+The mother appears to understand the basics. You may want to
+restate the signs she forgot so she hears them a second time.
+
+Giving Advice on Unnecessary Antibiotics and Antidiarrhoeals
+(assuming that zinc tablets are available only at the clinic)
+
+Many mothers think their baby needs an antibiotic or some
+sort of `drug' to treat the diarrhoea episode. Antibiotics are
+only recommended for children with bloody diarrhoea and
+episodes of cholera. Giving the mother zinc supplementation
+will likely help with this because zinc decreases the duration
+of the diarrhoea. Continue to discourage the mother from going
+to local pharmacies or markets for additional antibiotics or
+antidiarrhoeals.
+
+ASK:     Have you given your baby any medicines for the
+         diarrhoea?
+
+MOTHER: I gave him/her these small pills from the pharmacy.
+
+PRAISE: It is good that you are concerned for your baby and
+              are trying to help him/her.
+
+                                            Diarrhoea Treatment Guidelines 31
+ADVISE:  The pills you bought for your baby might actually
+         hurt him/her. I have something that we know is good
+         for your baby and will help the diarrhoea. I want you
+         to give these zinc tablets to your baby instead of the
+         ones you bought from the pharmacy. When your baby
+         has diarrhoea you need to come to us for ORS and
+         zinc and stay away from other pills and syrups that
+         may be harmful to your baby.
+
+CHECK: The next time your baby has diarrhoea where will you
+              go for medicine?
+
+MOTHER: I will come here instead of the pharmacy to get ORS
+              and zinc.
+
+The mother understands that she needs to come to the clinic and
+stay away from the pharmacy. Zinc can and should be promoted
+as a beneficial `drug' which will encourage mothers to avoid
+antibiotics and antidiarrhoeals. You can explain further why the
+antibiotics and antidiarrhoeals are not good for the baby.
+
+Giving Advice on Diarrhoea Prevention
+
+There are numerous things mothers can do to decrease the
+chances of someone in her family getting sick with diarrhoea.
+Listing these for the mother may not be the best way to get
+her to remember all of them. Instead, find out how much the
+mother knows and what she is already doing and then add to her
+knowledge. As a healthcare worker, you will want to ensure the
+mother knows about the basic diarrhoea prevention strategies:
+
+       » Exclusive breastfeeding for babies under 6 months of
+            age
+
+      » Improved weaning practices
+
+      » Use of clean water for drinking and washing
+
+      » Handwashing
+
+      » Use of latrines
+
+      » Quick and sanitary disposal of babies' stools
+
+      » Measles immunization
+
+Help the mother by assessing what she knows and building on
+her knowledge and skills. An example is below.
+
+SITUATION: Mother comes to you with a 9-month-old girl who
+is mildly malnourished.
+
+ASK:     I want to help you to prevent diarrhoea in the future.
+         Did you know that there are things mothers and
+         fathers can do to help prevent their children from
+
+32 MOST The USAID Micronutrient Program
+         getting diarrhoea? Are you doing anything at home to
+         help prevent diarrhoea?
+
+MOTHER: I breastfeed my baby a little and give her formula with
+              clean bottle and always use clean water.
+
+PRAISE:  It is good that you give your baby breastmilk and
+         formula. It is also good that you use clean water all
+         the time.
+
+ADVISE:  It is better if you give the formula to the baby from
+         a cup and small spoon. The nipple on the bottle is
+         difficult to clean well, it is safer to use a cup and
+         spoon to prevent diarrhoea. You should also be giving
+         your baby soft mashed foods (locally defined) to help
+         her grow better.
+
+CHECK: When you go home and give formula to your baby
+              today what can you do help prevent diarrhoea?
+
+MOTHER: I will use a cup and spoon instead of the bottle. I will
+              also give her porridge when the family eats.
+
+The mother understood your advice. Additional questions
+following the Ask, Praise, Advise, Check recommendations to
+address other aspects of diarrhoea prevention should follow.
+
+         Diarrhoea Treatment Guidelines 33
+Sample conversation
+
+All preceding examples were short elements of a conversation
+between a mother and a healthcare worker. Let us look now at
+an example of a full conversation that may happen between a
+healthcare worker and a mother. In this example, the healthcare
+worker has already examined the child, named Sami, and has
+found he has mild diarrhoea and is not dehydrated. Sami is 9
+months old and is still breastfeeding.
+
+Health worker Has Sami been drinking anything?
+
+Mother          Yes.
+
+Health worker What has he had to drink?
+
+Mother          Some water, rice water, and a little guava-leaf tea.
+
+Health worker In general, has he been drinking more than usual,
+                    less than usual, or about the same amount?
+
+Mother          About the same amount.
+
+Health  worker  It is very good that you give him water and rice
+                water. With the diarrhoea, what do you notice
+                about Sami's stools? They are very watery, no?
+                This means he is losing water, and drinking will
+                help replace this so he will not dry up and get
+                weak. You should continue to encourage him to
+                drink, maybe even a bit more than usual.
+
+                Now, has he been eating, or breastfeeding?
+
+Mother          He hasn't eaten anything, only breastmilk.
+
+Health worker What seems to be the problem?
+
+Mother          He is not hungry.
+
+Health  worker  Yes, this often seems so. It is good that you are
+                still breastfeeding him, and you should keep on
+                doing that. But it is important that Sami eats, to
+                stay strong. What could you give him, in addition
+                to the breast?
+
+Mother          Rice.
+
+Health  worker  Rice is very good. Maybe you could try mixing
+                the rice with some mashed vegetable, and a little
+                oil. If you make the food very soft, it will be
+                easier for Sami to eat. Try to get him to eat a little
+                bit at a time, several times a day. Be patient in
+                encouraging him to eat; he will need the food to
+                stay strong.
+
+                Has he taken any medicine, or other treatments?
+
+Mother          Yes, I gave him these small pills from the
+                pharmacy.
+
+34 MOST The USAID Micronutrient Program
+Health worker  It is good that you are concerned for your child
+               and are trying to help him. However, the pills you
+               bought for your child might actually hurt him. I
+               have something that we know is good for your
+               child and will help the diarrhoea. Today I am
+               giving you zinc supplementation for your child's
+               diarrhoea. These tablets will help your child's
+               diarrhoea stop and will help him stay healthy in
+               the coming months. It is really important that you
+               give him one dose every day for the next 10-14
+               days. You should continue giving him these zinc
+               tablets even when the diarrhoea stops. The zinc
+               can help prevent sickness in the coming months
+               and is good for your child. Please give him 1
+               tablet every day for 10-14 days. [Demonstrate
+               how to dissolve the tablet in a little bit of water.]
+
+               How are you going to give the tablet to your
+               child?
+
+Mother         I am going to dissolve 1 tablet every day in a
+               little bit of water, just like we did today.
+
+Health worker When will you stop the tablets?
+
+Mother         I will give him 1 tablet every day for 10-14 days.
+
+Health worker That is very good. Sami will be well in a few
+                    days if you give him plenty to drink, help him to
+                    eat and give zinc tablets to stay strong.
+
+               Here is how you will know if he needs medical
+               care:
+
+                     If he cannot drink or eat, or
+
+                     If he is very thirsty;
+
+                     If he has many watery stools, or
+
+                     If he is vomiting a lot, or
+
+                     If he has fever, or
+
+                     If there is blood in his stools.
+               If you notice any of these things, continue to give
+               Sami food and drink if you can, and bring him
+               back to see me.
+
+               Now, can you tell me what to do for Sami at
+               home?
+
+Mother         I will help him to eat, drink and I am going to
+               giving the zinc tablets as you showed me before.
+
+Health worker Anything else?
+
+Mother         And breastfeed.
+
+Health worker How much should he drink?
+
+Mother         He should drink more than usual.
+
+                                         Diarrhoea Treatment Guidelines 35
+Health worker Right. How can you encourage him to eat?
+
+Mother  I will make soft, mashed food, and try giving him
+        little bits at a time.
+
+Health worker Good. And eventually, why would you need to
+                    come back here?
+
+Mother  I will watch to see if he has fever or if there is
+        blood in his stools.
+
+Health worker Good, but also watch to see if he is very thirsty,
+                    if he can't eat or drink, if he vomits frequently, or
+                    if he has a lot of watery diarrhoea.
+
+        Since you live quite far from here, I'll give you
+        two packets of this medicine (ORS) to take home
+        and to give to Sami. Each packet must be mixed
+        carefully with 1 litre of water. I am also giving
+        you enough zinc tablets for 10-14 days.
+
+36 MOST The USAID Micronutrient Program
+Annex 4
+
+Frequently Asked Questions About Zinc
+Supplementation
+
+Zinc supplements are a new treatment for diarrhoea so
+mothers may have difficult questions regarding the treatment.
+As a healthcare worker you can calm fears and address
+issues by counseling the mother. Below are a few issues and
+concerns expressed by mothers in past research regarding zinc
+supplementation.
+
+Zinc and ORS
+Q: Can I give zinc and ORS at the same time?
+A: Yes. In countries like Egypt, zinc is added to some locally
+produced ORS. But using the ORS containing zinc does not
+result in a dose of zinc that is adequate to achieve the benefits
+observed with daily 20 mg zinc supplements given for 10 to
+14 days. Indeed, ORS is usually consumed for an average of
+two days; and the average quantity consumed by a child with
+diarrhoea is about 400 to 500 ml per day. Therefore, if ORS
+contains 40 mg of zinc per liter, this means that a child will only
+consume 16 to 20 mg of zinc per day for two days
+
+Q: Should I give less ORS since I am giving zinc?
+A: No, you should continue to give plenty of ORS, as
+recommended, even though you are giving zinc. ORS will help to
+replace fluids lost during diarroea. Zinc will speed up recovery,
+and will help the child fight off new episodes of diarroea in the
+2-3 months following treatment. Zinc will also improve appetite
+and growth.
+
+Length of time to use zinc
+Q: Why do I give zinc after my child is better?
+A: Zinc is good for your sick child, but it is important to give
+to your child after he is better too. The zinc will help your child
+grow and will improve his appetite. Remember, even though
+your child does not have loose stools, he will still need to
+continue to take the zinc AND eat and drink more than usual
+for 2 weeks after the diarrhoea, all of this will help replace lost
+nutrients. Zinc will help your child not get diarrhoea again soon.
+
+                                                                             Diarrhoea Treatment Guidelines 37
+          Vomiting
+          Q: If my child vomits the zinc should I give another one?
+          A: Yes, try to give the child one more tablet. Wait until he/
+          she is calm again and vomiting stops. Make sure your child is
+          keeping down ORS. When he/she takes ORS with no problems,
+          give the next zinc tablet. If he/she vomits after the second tablet
+          do not give anymore on that day, wait to give the next tablet
+          until the next day. Give zinc again the next day and daily until
+          there are no more tablets in the pack.
+
+          Q: If my child is vomiting other things, like ORS, should I try to
+          give the child zinc?
+          A: No, if your child is vomiting ORS and all food and other
+          liquids you should bring him/her to the health centre.
+
+          Side effects
+          Q: Can zinc have any bad side effects?
+          A: The only side effect of zinc supplementation is sometimes
+          vomiting. You should not expect any other side effects. As
+          always, you should come back to the health centre if your child
+          has any danger signs with or without the zinc supplements.
+
+          Q: I think tablets are bad for babies, what do I do?
+          A: This tablet should be dissolved in breastmilk, ORS, or clean
+          water. When you do that you will make a syrup to give to your
+          baby. Babies like this very much, especially in breastmilk.
+
+          Q: What if my child takes more than one tablet?
+          A: You should keep the tablets away from any children in the
+          house to prevent this from happening. If your child takes too
+          many tablets she will probably vomit them up. Your child should
+          take 1 per day. One or two extra taken by mistake will likely not
+          hurt your child, but you should come to the clinic and discuss
+          what happened with a healthcare worker, just to be safe.
+
+          Q: Are vitamins/minerals harmful for my child who has a bad
+          stomach?
+          A: No, vitamins and minerals are very important while your
+          child is sick and will help your child get better faster. You should
+          give the zinc to your child even though his stomach is bad.
+
+38 MOST The USAID Micronutrient Program
+Q: I give a multivitamin to my child; can I give zinc on top of
+that?
+A: Yes, your child is losing a lot of zinc in his stools right now,
+so giving more than usual zinc is good while he/she is sick. After
+the diarrhoea is over it will help replace lost nutrients. You can
+continue to give the multivitamin and give the zinc as diarrhoea
+treatment for the full 10/14 days. This will not harm your child.
+
+Other Medicines
+Q: Can zinc be given with other medicines?
+A: Yes, you can give zinc with other medicines. Only give
+your child medicines that are prescribed at the clinic or by a
+community healthcare worker.
+
+Q: Should I get an antibiotic for the diarrhoea?
+A: Only children with bloody diarrhoea need antibiotics. If you
+have not been given any at this time, your child does not need
+one. If you start to see blood in your child's stool, bring him/her
+to a healthcare centre for further treatment.
+
+Persistent Diarrhoea
+Q: What do I do if my child does not get better? Could this be
+because of the zinc?
+A: If your child does not improve continue to give the zinc. If
+your child does not get better that is not because of the zinc, but
+some other reason. If he/she does not improved in 3 days, come
+back to the health centre. Also, come to the health clinic at any
+time should he/she show any danger signs.
+
+Blood in the stools
+Q: Can I give zinc if my child has blood in the stools?
+A: Yes, zinc can be given if your child has bloody stools. If your
+child develops bloody stools, you should come back to the health
+centre for more medicine. Your child will need an antibiotic.
+
+Feeding
+Q: Should I feed my child as usual?
+A: Yes, continue to feed your child and offer an extra meal each
+day. If your child will eat more than usual, allow him/her to do
+that. Increased foods will help him. Do not restrict eating.
+
+                                                                            Diarrhoea Treatment Guidelines 39
+          Q: Should I give breastmilk?
+          A: Yes, allow your baby to breastfeed as much as he/she wants.
+          This might be more than usual and that is good. Allow him/her
+          to eat as many times as she wants for as long as she wants.
+          Q: Does breastmilk cause diarrhoea?
+          A: No, breastmilk is not the cause of diarrhoea. Keep
+          breastfeeding your child. Breastfeeding can prevent diarrhoea.
+          Babies under 6 months of age should get only breastmilk to
+          prevent diarrhoea.
+          Q: Can I still give my child milk?
+          A: Yes, if your child already drinks cow's milk, you can keep
+          giving this to him/her. Be sure to also give plenty of ORS and
+          plain clean water as well.
+
+40 MOST The USAID Micronutrient Program
+Annex 5
+
+Potential Local Adaptations
+
+Supplement Availability
+Ten or fourteen days
+The WHO recommendation found in the publication, "The
+treatment of diarrhoea -- a manual for physicians and other
+senior health workers," is for a 14-day dose of zinc. However,
+some manufacturers may produce a 10-day tablet pack to be
+promoted in a local or country-wide setting. To account for each
+scenario in this document, the dose is designated as 10/14 and
+should be read as one or the other, in concordance with the local
+product and policy.
+
+Tablets and/or syrup
+The most convenient delivery system for zinc treatment is a
+dispersible tablet. Currently, there is only one producer which
+has such a tablet available, meeting international product
+standards. Efforts will be made to encourage other producers.
+However, there might be other zinc products locally available in
+either tablet or syrup form. These products may or may not meet
+minimum standards. Promotion of zinc products should be based
+upon quality assurance and product safety and must be reviewed
+at the national and/or local level.
+
+Social Marketing and Promotion
+Sponsored social marketing and promotion strategies
+accompanying this training manual will be in accordance with
+products endorsed after meeting international safety standards.
+Additional efforts to market additional products may be done by
+private bodies.
+
+Local Food and Drink
+Foods and fluids during diarrhoea are very important. The
+lists provided in this manual are meant to serve as a guide
+and can not include all appropriate food and beverages for all
+local situations around the world. Food and drink vary from
+country to country and region to region. The health worker is
+expected to be able to use these lists as a guide to develop his/
+her local version of these suggestions, taking into consideration
+availability, accessibility, and acceptability by mothers during
+diarrhoea episodes.
+
+                                                                            Diarrhoea Treatment Guidelines 41
+Annex 6
+
+Clinical Management of Acute Diarrhoea
+
+A WHO/UNICEF Joint Statement
+
+T wo recent advances in managing diarrhoeal disease --
+         newly formulated oral rehydration salts (ORS) containing
+         lower concentrations of glucose and salt, and success
+in using zinc supplementation -- can drastically reduce the
+number of child deaths. The new methods, used in addition to
+prevention and treatment of dehydration with appropriate fluids,
+breastfeeding, continued feeding and selective use of antibiotics,
+will reduce the duration and severity of diarrhoeal episodes
+and lower their incidence. Families and communities are key to
+achieving the goals set for managing the disease by making the
+new recommendations routine practice in the home and health
+facility.
+
+     23%                                 25%
+
+4%        Deaths associated
+ 5%        with malnutrition
+
+                    54%
+
+                                         18%
+
+     10%
+
+                                        15%
+
+Major causes of death among children
+under five in developing countries, 2002
+
+     Other                               Measles
+     Acute respiratory infections        HIV/AIDS
+     Diarrhoea                           Perinatal
+     Malaria
+
+Sources: For cause-specific mortality: The World Health Report 2003,WHO, Geneva.
+For malnutrition: Pelletier, D. L., E. A. Frongillo, and J. P. Habicht, `Epidemiologic
+evidence for a potentiating effect of malnutrition on child mortality', American
+Journal of Public Health,vol. 83, no. 8, August 1993, pp. 1130-1133.
+
+Note: The figures for proportional mortality related to children under five are
+currently under review by UNICEF and WHO.
+
+42 MOST The USAID Micronutrient Program
+Acute Diarrhoea Still a Leading Cause of Child
+Deaths
+
+Though the mortality rate for children under five suffering from
+acute diarrhoea has fallen from 4.5 million deaths annually in
+1979 to 1.6 million deaths in 2002, acute diarrhoea continues to
+exact a high toll on children in developing countries.
+
+  Oral rehydration salts (ORS) and oral rehydration therapy
+(ORT), adopted by UNICEF and WHO in the late 1970s, have
+been successful in helping manage diarrhoea among children.
+It is estimated that in the 1990s, more than 1 million deaths
+related to diarrhoea may have been prevented each year, largely
+attributable to the promotion and use of these therapies. Today,
+however, there are indications that in some countries knowledge
+and use of appropriate home therapies to successfully manage
+diarrhoea, including ORT, may be declining.
+
+The Goals
+
+The revised recommendations will help reduce mortality from
+diarrhoea, in line with global goals that aim to:
+
+      Reduce by one half deaths due to diarrhoea among children
+      under five by 2010 compared to 2000 (`A World Fit for
+      Children', outcome document of the UN Special Session on
+      Children)
+
+      Reduce by two thirds the mortality rate among children
+      under five by 2015 compared to 1990 (United Nations
+      Millennium Development Goals)
+
+Joint Statement
+
+More than 1.5 million children under five continue to die
+each year as a result of acute diarrhoea. The number can
+be dramatically reduced through critical therapies such as
+prevention and treatment of dehydration with ORS and fluids
+available in the home, breastfeeding, continued feeding, selective
+use of antibiotics and zinc supplementation for 10-14 days.
+
+These new recommendations, formulated by UNICEF and WHO
+in collaboration with the United States Agency for International
+Development (USAID) and experts worldwide, take into account
+new research findings while building on past recommendations.
+Success in reducing death and illness due to diarrhoea depends
+on acceptance of the scientific basis and benefits of these
+therapies by governments and the medical community. It also
+depends on reinforcing family knowledge of prevention and
+treatment of diarrhoea, and providing information and support to
+underserved families.
+
+                                                                            Diarrhoea Treatment Guidelines 43
+       Progress and Challenges
+
+         New Developments
+
+          Recent scientific advances have informed these revised
+          recommendations. They are:
+
+                 Development of an improved formula for ORS solution
+                 with reduced levels of glucose and salt, which shortens
+                 the duration of diarrhoea and the need for unscheduled
+                 intravenous fluids1
+
+                 Demonstration that zinc supplements given during an
+                 episode of acute diarrhoea reduce the duration and severity
+                 of the episode,2 and
+
+                 Findings that zinc supplementation given for 10-14 days
+                 lowers the incidence of diarrhoea in the following 2-3
+                 months3
+
+          Many more lives can be saved if these advances are used
+          in conjunction with effective home treatment and use of
+          appropriate health services. To be most effective, these revised
+          recommendations must become routine practice both in the
+          home and health facility. (See the Technical Annex on page 6 for
+          additional details.)
+
+         Building on Past Successes
+
+          ORS, ORT and other components of clinical management of
+          diarrhoea have made a significant contribution to reducing deaths
+          from diarrhoea. However, if the global goals are to be met, there
+          is still much to do.
+
+          Family knowledge about diarrhoea must be reinforced in
+          areas such as prevention, nutrition, ORT/ORS use, zinc
+          supplementation, and when and where to seek care. Where
+          feasible, families should be encouraged to have ORS ready-to-mix
+          packages and zinc (syrup or tablet), readily available for use, as
+          needed. Breastfeeding should continue simultaneously with the
+          administration of appropriate fluids or ORS.
+
+              1. Department of Child and Adolescent Health and Development, World Health
+                 Organization, `Reduced osmolarity oral rehydration salts (ORS) formulation
+                 - Report from a meeting of experts jointly organized by UNICEF and WHO'
+                 (WHO/FCH/CAH/01.22), New York, 18 July 2001 <http://www.who.int/
+                 child-adolescent-health/New_Publications/NEWS/Expert_consultation.htm>.
+
+              2. Bahl, R., et al., `Effect of zinc supplementation on clinical course of acute
+                 diarrhoea` - Report of a Meeting, New Delhi, 7-8 May 2001. Journal of
+                 Health, Population and Nutrition,vol. 19, no. 4, December 2001, pp. 338-346.
+
+              3. Bhutta Z.A., Black, R.E., Brown K. H., et al., `Prevention of diarrhoea and
+                 pneumonia by zinc supplementation in children in developing countries:
+                 Pooled analysis of randomized controlled trials', Zinc Investigators'
+                 Collaborative Group, Journal of Paediatrics,vol. 135, no. 6, December 1999,
+                 pp. 689-697.
+
+44 MOST The USAID Micronutrient Program
+Recommendations
+
+The revised recommendations emphasize family and community
+understanding of managing diarrhoea. When they become
+routine practice, caretakers will act quickly at the first sign of
+diarrhoea, rather than waiting before treating the child. The aim
+is that the recommendations become routine practice both in the
+home and health-care facility.
+
+Mothers and Caregivers Should:
+
+      Prevent dehydration through the early administration of
+      increased amounts of appropriate fluids available in the
+      home, and ORS solution, if on hand
+
+      Continue feeding (or increase breastfeeding) during, and
+      increase all feeding after the episode
+
+      Recognize the signs of dehydration and take the child to
+      a health-care provider for ORS or intravenous electrolyte
+      solution, as well as familiarize themselves with other
+      symptoms requiring medical treatment (e.g., bloody
+      diarrhoea)
+
+      Provide children with 20 mg per day of zinc
+      supplementation for 10-14 days (10 mg per day for infants
+      under six months old).
+Health-Care Workers Should:4
+
+      Counsel mothers to begin administering suitable available
+      home fluids immediately upon onset of diarrhoea in a child
+
+      Treat dehydration with ORS solution (or with an intravenous
+      electrolyte solution in cases of severe dehydration)
+
+      Emphasize continued feeding or increased breastfeeding
+      during, and increased feeding after the diarrhoeal episode
+
+      Use antibiotics only when appropriate, i.e. in the presence
+      of bloody diarrhoea or shigellosis, and abstain from
+      administering anti-diarrhoeal drugs
+
+      Provide children with 20 mg per day of zinc
+      supplementation for 10-14 days (10 mg per day for infants
+      under six months old)
+
+      Advise mothers of the need to increase fluids and continue
+      feeding during future episodes.
+
+Health-care workers treating children for diarrhoea are
+encouraged to provide caretakers with two 1-litre packets of the
+new ORS, for home-use until the diarrhoea stops. Caretakers
+should also be provided with enough zinc supplements to
+continue home treatment for 10-14 days. Printed material
+
+4. For more details on the management of acute diarrhoea, consult `The
+   Treatment of Diarrhoea - A manual for physicians and other senior health
+   workers', WHO/CAH/03.7, World Health Organization, Geneva.
+
+                                                                            Diarrhoea Treatment Guidelines 45
+(including text and illustrations) with advice on preventing and
+treating diarrhoea at home should accompany the ORS and zinc
+supplements.
+
+Countries Should:
+
+      Develop a 3-5 year plan to reduce mortality rates from
+      diarrhoeal diseases
+
+      Assess progress in controlling diarrhoeal diseases by
+      monitoring usage rates of ORT/ORS, home-based treatment
+      and zinc supplementation
+
+      Using the media and face-to-face communication, promote
+      and refine messages on diarrhoea prevention, home
+      management of diarrhoea and appropriate care-seeking
+
+      Prioritize improving the availability of the new ORS solution
+      and zinc supplements through private and public channels
+
+      Craft suitable strategies to educate health-care workers at
+      all levels about using the new ORS and zinc supplements in
+      treating diarrhoea
+
+      Promote the availability of a zinc formulation that is
+      cost-effective and easily administered to both infants and
+      children
+
+      Identify obstacles to the use of ORS, zinc supplements and
+      home-based treatments in managing acute diarrhoea.
+
+Unicef, WHO and Other Partners Will Support These
+Actions by:
+
+      Advocating, facilitating and investing resources to ensure
+      country adoption and implementation of these revised
+      recommendations
+
+      Working with governments and the private sector, including
+      non-governmental organizations and businesses, to rapidly
+      disseminate these recommendations
+
+      Supplying new ORS and zinc supplements to countries that
+      cannot manufacture them to quality standards
+
+      Helping with communication efforts aimed at enhancing
+      prevention and management of diarrhoea, including
+      promoting routine use of new ORS and zinc supplements.
+
+Joy Phumaphi                             Joe Judd
+Assistant Director General               Director
+Family and Community Health              Programme Division
+World Health Organization                United Nations Children's Fund
+Geneva                                   New York
+
+46 MOST The USAID Micronutrient Program
+

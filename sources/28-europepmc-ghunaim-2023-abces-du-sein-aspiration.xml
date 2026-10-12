@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?><article xml:lang="en" article-type="review-article"><front><journal-meta><journal-id journal-id-type="pmc-domain-id">2514</journal-id><journal-id journal-id-type="pmc-domain">jmrs</journal-id><journal-title-group><journal-title>Journal of Medical Radiation Sciences</journal-title><abbrev-journal-title>J Med Radiat Sci</abbrev-journal-title></journal-title-group><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC10500119</article-id><article-id pub-id-type="pmcaid">10500119</article-id><article-id pub-id-type="pmcaiid">10500119</article-id><article-id pub-id-type="pmid">37118650</article-id><article-id pub-id-type="doi">10.1002/jmrs.682</article-id><title-group><article-title>Percutaneouse ultrasound‐guided needle aspiration for management of breast abscesses – a review</article-title></title-group><contrib-group content-type="author"><contrib><name name-style="western"><surname>Ghunaim</surname><given-names initials="H">Hadeel</given-names></name><degrees>MBBS</degrees><xref ref-type="aff" rid="jmrs682-aff-0001">1</xref><xref ref-type="author-notes" rid="_fncrsp93pmc__">✉</xref></contrib></contrib-group><aff id="jmrs682-aff-0001"><label>
+<sup>1</sup>
+</label>Taibah University, Madina, Saudi Arabia</aff><author-notes><fn id="correspondenceTo"><label>*</label><p>
+
+<bold>Correspondence</bold>
+, 
+Hadeel Ghunaim, Department of Radiology, Faculty of Medicine, Taibah University, P.O. Box 7295, 42361 Madina, Saudi Arabia. Tel: +966 50 6338406; +966 014 8618888; E‐mail: <email>hghunaim@taibahu.edu.sa</email>; <email>dr.had.g@hotmail.com</email>
+
+</p></fn><fn id="_fncrsp93pmc__"><label>✉</label><p>Corresponding author.</p></fn></author-notes><pub-date><day>28</day><month>4</month><year>2023</year></pub-date><volume>70</volume><issue>3</issue><fpage>327</fpage><page-range>327–337</page-range><pub-history><event event-type="pmc-release"><date><day>15</day><month>9</month><year>2023</year></date></event></pub-history><permissions><copyright-statement>© 2023 The Author. <italic>Journal of Medical Radiation Sciences</italic> published by John Wiley &amp; Sons Australia, Ltd on behalf of Australian Society of Medical Imaging and Radiation Therapy and New Zealand Institute of Medical Radiation Technology.</copyright-statement><license><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://creativecommons.org/licenses/by/4.0/" ext-link-type="uri">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JMRS-70-327.pdf" content-type="pmc-pdf"><?cloudpmc-path aa4e/10500119/44662e5fef22/JMRS-70-327.pdf?><?cloudpmc-bucket app?><?size 224082?></self-uri><abstract id="abstract1"><title>Abstract</title><p>Breast abscesses are still a common cause of morbidity among lactational females. Over the years, there has been an increase in the incidence of non‐lactational breast abscesses and a decrease in lactational breast abscesses. The management could be the use of the conventional method of surgical incision and drainage or the newer techniques of needle aspiration or suction drain or catheter in addition to the administration of antibiotics. The use of needle aspiration as the minimal‐invasive conservative technique is generally recommended for abscesses less than 3–5 cm in diameter. However, recent studies have compared the two methods for abscesses larger than 3 cm and among patients with risk factors for breast abscesses. We aim to present the clinical evidence showing the comparison between needle aspiration and incision and drainage for breast abscesses irrespective of the size of the abscesses. There is a lack of comparative information on the two treatment modalities for breast abscesses larger than 3 cm in diameter; however, needle aspiration is being tried because of its advantages like cosmetic preference, short hospital stay and healing time, and no stoppage of breastfeeding.</p><sec id="kwd-group1" sec-type="kwd-group" disp-level="2"><p><bold>Keywords:</bold> Breast abscess, incision and drainage, lactation, ultrasound‐guided aspiration</p></sec></abstract><abstract id="abstract2" abstract-type="graphical"><p>Breast abscesses are a common cause of morbidity. Management includes the use of the conventional surgical incision with drainage and minimal‐invasive techniques of needle aspiration. Reviewing present clinical evidence to compare between them, needle aspiration considered more advantageous.</p><boxed-text id="jmrs682-blkfxd-1001" position="anchor"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" content-type="image" id="jats-graphic-1" xlink:href="JMRS-70-327-g001.jpg"><?cloudpmc-path blobs/aa4e/10500119/1535d008cc5a/JMRS-70-327-g001.jpg?><?cloudpmc-bucket cdn?><?image-server-status NEVER_LOAD?><?original-height 409?><?original-width 311?><?scaled-height 409?><?scaled-width 311?></graphic></boxed-text></abstract><custom-meta-group><custom-meta><meta-name>status</meta-name><meta-value>released</meta-value></custom-meta><custom-meta><meta-name>display-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>is-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-journal-matter</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-scanned</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>is-retracted</meta-name><meta-value>no</meta-value></custom-meta></custom-meta-group></article-meta><notes notes-type="article-notes"><sec id="historyarticle-meta1" sec-type="history" disp-level="2"><p>Received 2022 Jun 1; Accepted 2023 Mar 31; Issue date 2023 Sep.</p></sec></notes></front><body><sec id="jmrs682-sec-0001" disp-level="1"><title>Introduction</title><p>Breast abscesses are one of the common causes of morbidity and interruption of breastfeeding among lactating women.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="jmrs682-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref> Approximately 0.4% of lactating women develop breast abscesses, and 3%–11% of women with mastitis may develop lactational breast abscesses.<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="jmrs682-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref> Although the incidence of breast abscesses is low and is further decreasing in developed countries, these are still common causes of morbidity among women in developing countries.<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref> The incidence of lactational breast abscesses seems to be decreasing, with a corresponding increase in the incidence of non‐lactational abscesses.<xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> Breast abscesses are most commonly caused by infections around the nipple due to biting by the child during feeding; bacterial colonisation due to improper nursing techniques, milk stasis, lactational breast inflammation, lack of proper hygiene and poor economic living, and delay in getting appropriate treatment.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="jmrs682-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>, <xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> Emergency treatment of breast abscesses might be required to restore normal feeding among lactational females and also to avoid the onset of complications.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>
+</p><p>The traditional management of breast abscesses included surgical incision and drainage (I&amp;D); however, over time, aspiration with a needle or catheter drainage or suction drainage, or vacuum‐assisted biopsy has replaced I&amp;D, especially for breast abscesses smaller than 3 cm in diameter.<xref rid="jmrs682-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="jmrs682-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>, <xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>, <xref rid="jmrs682-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>, <xref rid="jmrs682-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref> One of the initial comparator clinical studies comparing needle aspiration (NA) with I&amp;D was published more than 25 years ago.<xref rid="jmrs682-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref> In the early years of this century, the emergency medical treatment guidelines for breast abscesses concluded that NA might be considered an effective first‐line treatment in small breast abscesses.<xref rid="jmrs682-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref> However, there are lack of guidelines and algorithms for the management of breast abscesses for larger sizes. Additionally, the frontline healthcare workers are not fully trained in the protocols for allocating the patients into different treatment groups.<xref rid="jmrs682-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>
+</p><p>Both Ultrasound (US)‐guided NA and I&amp;D have been compared in various clinical studies and reviews.<xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>, <xref rid="jmrs682-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>, <xref rid="jmrs682-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref> Management with NA is associated with a lower incidence of recurrence, low cost, and better cosmetic results, especially for abscesses &lt;3 cm in diameter.<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>, <xref rid="jmrs682-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>, <xref rid="jmrs682-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> However, repeated aspirations and the large size of the breast abscess have been considered possible limiting factors. However, I&amp;D is the traditional, invasive, and frequently used method for larger breast abscesses; it requires the use of general anaesthesia, the healing time is prolonged, regular dressings are required, restoration of breastfeeding is difficult, patients are unsatisfied with cosmetic outcomes as there is a high chance of wound granulation, there is a risk of rupture and recurrence of breast abscesses (10%–38%), and lastly, the increased cost is a financial burden on the patient.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+</p><p>Although the comparative studies and reviews have shown the benefits of NA compared to I&amp;D for small (&lt;3 cm in diameter) abscesses, there is a need to compare the management techniques, especially for larger breast abscesses, and to help formulate a management algorithm according to the presentation of breast abscesses.<xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>, <xref rid="jmrs682-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> We aimed to evaluate the currently available clinical evidence for the management of breast abscesses of different sizes and identify the limitations and strengths of these clinical studies for their future use in formulating treatment algorithms.</p></sec><sec id="jmrs682-sec-0002" disp-level="1"><title>Characteristic features of breast abscesses</title><p>Lactational breast abscesses are generally located in the peripheral breast, and these are commonly reported among women having their first pregnancy, and generally occur in the second or third decade, while the non‐lactational breast abscesses are mainly of sub‐areolar type and generally occur toward the end of the reproductive years.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> The most common causative organism is <italic>Staphylococcus aureus</italic>; however, Methicillin‐Resistant <italic>Staphylococcus aureus</italic> (MRSA) is also increasing the disease burden, followed by <italic>Staphylococci epidermidis</italic> and <italic>Streptococcus</italic>.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> The most common site of breast abscesses is the upper outer quadrant, and some studies have shown a higher occurrence in the left breasts.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref> As mothers with cracked or sore nipples usually avoid breastfeeding from the affected side, there is a high risk of milk stasis, which further becomes another cause of breast infection. In addition to the signs of mastitis, like pain, warmth, redness of breasts, asymmetry of breasts, and difficulty in feeding, a fluctuant mass may also be present in patients with breast abscesses.<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="jmrs682-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> Non‐lactational breast abscesses often have a chronic course and have a higher risk of developing into fistulas.<xref rid="jmrs682-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> Both lactational and non‐lactational breast abscesses generally need to be drained or aspirated.</p></sec><sec id="jmrs682-sec-0003" disp-level="1"><title>Management of breast abscesses</title><p>The general measures include using analgesics, antibiotics, breast support, breast emptying (through pumping or nursing), and continuation of breastfeeding among lactating females.<xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Patients are generally instructed to continue breastfeeding from the unaffected breast, and the affected breast is routinely emptied with pumps.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> US should be performed to identify the location and pockets of the abscess. The specific measures include the drainage or aspiration of the abscesses, which can be either by the NA technique (performed with or without US guidance) or the I&amp;D of the abscess.<xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> A patient is considered clinically recovered when no fever, no breast tenderness, or erythema is present.</p><sec id="jmrs682-sec-0004" disp-level="2"><title>Needle aspiration</title><p>Needle aspiration can be performed with or without US guidance. US‐guided aspiration assists in locating the breast abscesses, and in needle positioning and thus enables visualisation of loculi and the adequacy of drainage.<xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> After local anaesthesia, the needle is inserted (can be in the range of 14–18 G, and a 20 mL syringe), and the pus is drained with syringes.<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> The aspiration procedure is carried out until no further pus can be aspirated, and then the aspiration is repeated daily or on alternate days for the coming days.<xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref> If the abscess does not resolve after 5 aspirations, then it is considered a case of treatment failure, and another treatment modality is planned.<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0005" disp-level="2"><title>Incision and drainage</title><p>An incision is made at the site of maximum fluctuation, the whole of the abscess cavity is evacuated, loculi are broken, and, lastly, the wound is packed.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Patients need frequent dressings and proper cleaning.<xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="jmrs682-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>
+</p></sec></sec><sec id="jmrs682-sec-0006" disp-level="1"><title>Clinical studies evaluating various techniques for management of breast abscesses</title><p>Since the introduction of NA for breast abscesses, various comparisons have been made in retrospective or prospective clinical studies.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="jmrs682-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jmrs682-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jmrs682-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jmrs682-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jmrs682-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>, <xref rid="jmrs682-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>, <xref rid="jmrs682-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>, <xref rid="jmrs682-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>, <xref rid="jmrs682-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>, <xref rid="jmrs682-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>, <xref rid="jmrs682-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>, <xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> However, the clinical studies not only differ in study designs but also have different baseline characteristics. We did not limit our inclusion criteria based on clinical study design, duration of symptoms, or quality of clinical studies.</p><p>We used MEDLINE, Google Scholar, and The Cochrane Library as sources for evidence. Additional studies were searched using the reference lists from the clinical trials and reviews. The details of the clinical studies can be found in Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>.</p><table-wrap id="jmrs682-tbl-0001" position="float"><?disp-level 2?><label>Table 1</label><caption><p>Characteristics of the clinical studies.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><col align="left" span="1"/><thead valign="bottom"><tr style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1">Study</th><th align="left" valign="bottom" rowspan="1" colspan="1">Study design and intervention</th><th align="left" valign="bottom" rowspan="1" colspan="1">Participants</th><th align="left" valign="bottom" rowspan="1" colspan="1">Abscess size</th><th align="left" valign="bottom" rowspan="1" colspan="1">Results</th></tr></thead><tbody valign="top"><tr><td align="left" valign="top" rowspan="1" colspan="1">Berna‐Serna et al. (2003)<xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Retrospective study of patients with breast abscesses being treated with percutaneous NA</td><td align="left" valign="top" rowspan="1" colspan="1">Patients (<italic>n</italic> = 39) lactating and non‐lactating</td><td align="left" valign="top" rowspan="1" colspan="1">NA was carried out when the maximum diameter was ≤3 cm, and catheter drainage was planned for abscesses &gt;3 cm in diameter</td><td align="left" valign="top" rowspan="1" colspan="1">There was no significant difference in the resolution of breast abscesses with NA or catheter drainage, and a similar percentage of patients needed repeat aspiration or surgery after NA or catheter drainage, respectively</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Colin et al. (2019)<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Retrospective analysis to determine recovery with US‐guided procedures without surgical I&amp;D for lactational breast abscesses. Single arm study</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Patients (<italic>n</italic> = 95)</p>
+<p>Total of 105 abscesses and a total of 202 US‐guided percutaneous procedures</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">The median diameter of abscesses was 4.5 cm, 78% were more than 3 cm, and 38% were larger than 5 cm; the choice of the technique for NA did not have any cut‐off according to the size of the abscess</td><td align="left" valign="top" rowspan="1" colspan="1">The US‐guided treatment was successful in 96% of cases, irrespective of the size of the abscesses. 53% of patients needed more than one drainage, and 4% had to undergo surgery under general anaesthesia. 91% of patients continued breastfeeding after NA</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Chandika et al. (2012)<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A randomised open‐label controlled clinical trial to establish whether US‐guided NA is a feasible alternative treatment for breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">Patient (<italic>n</italic> = 65) were divided into NA group (<italic>n</italic> = 33) and I&amp;D group (<italic>n</italic> = 32)</td><td align="left" valign="top" rowspan="1" colspan="1">Breast abscess size ≤5 cm in diameter</td><td align="left" valign="top" rowspan="1" colspan="1">66.2% patients were lactating; there was no difference in breast abscess healing rate by survival analysis (Log rank 0.24 df1; <italic>P</italic> = 0.63). I&amp;D was costlier compared to NA treatment</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">David et al. (2018)<xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Retrospective analysis of cases over 12 years to compare NA with I&amp;D as the initial treatment option for breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">127 abscesses in 114 patients</td><td align="left" valign="top" rowspan="1" colspan="1">Mean diameter of the breast abscesses was 3.8 cm</td><td align="left" valign="top" rowspan="1" colspan="1">87 abscesses were &gt;3 cm in diameter; 57 abscesses contained gram‐positive organisms. Smoking (<italic>P</italic> = 0.021), and the presence of nipple rings (<italic>P</italic> = 0.005) were significantly correlated with the repeat procedure</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Dayal et al. (2019)<xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A prospective randomised controlled clinical trial to compare US‐guided NA and I&amp;D</td><td align="left" valign="top" rowspan="1" colspan="1">Patient (<italic>n</italic> = 100) were divided equally into NA and I&amp;D groups</td><td align="left" valign="top" rowspan="1" colspan="1">The size of the abscesses is not mentioned</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>The average pain score was significantly less in the NA group (VAS score 4.22) compared to the I&amp;D group (VAS score 5.72) on day one. The difference continued till day 14.</p>
+<p>The duration of hospital stay was 3.08 and 2.48 days in NA and I&amp;D groups respectively</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Dener et al. (2003)<xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A prospective study among lactating patients with breast abscesses and the outcomes were compared between the</td><td align="left" valign="top" rowspan="1" colspan="1">Lactating patients (<italic>n</italic> = 26); US‐guided NA (<italic>n</italic> = 10) and I&amp;D group (<italic>n</italic> = 16)</td><td align="left" valign="top" rowspan="1" colspan="1">The size of the abscesses is not mentioned.</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>The mean healing time was shorter in the NA group (<italic>P</italic> = 0.22).</p>
+<p>
+<italic>S. aureus</italic> was isolated from 38% cases of breast abscesses. Recurrence rates were 10% and 6.2% in NA and I&amp;D groups respectively</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Ding et al. (2020)<xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A retrospective study of patients treated with US‐guided NA and a comparison of characteristics of all breast abscesses caused by MSSA and MRSA</td><td align="left" valign="top" rowspan="1" colspan="1">Lactating patients; MSSA (<italic>n</italic> = 132) and MRSA (<italic>n</italic> = 39)</td><td align="left" valign="top" rowspan="1" colspan="1">Abscesses &gt;5 cm in diameter were also included</td><td align="left" valign="top" rowspan="1" colspan="1">There were no significant differences in abscess cavity location, abscess cavity amount, and abscess cavity size in the two groups (MRSA and MSSA groups)</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Eryilmaz et al. (2004)<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Prospective randomised clinical study to compare the effectiveness of NA with I&amp;D</td><td align="left" valign="top" rowspan="1" colspan="1">Lactating (<italic>n</italic> = 45) patients; NA (<italic>n</italic> = 22) and I&amp;D (<italic>n</italic> = 23)</td><td align="left" valign="top" rowspan="1" colspan="1">The mean abscess size was 6.9 ± 2.7 cm (I&amp;D) group and 6.1 ± 2.8 cm (NA group)</td><td align="left" valign="top" rowspan="1" colspan="1">The mean healing time was significantly longer in the I&amp;D group; 70% of patients of the I&amp;D group did not like cosmetic outcome; 41% of the NA group needed I&amp;D</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Egbe et al. (2020)<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Observational prospective single arm clinical study to estimate the incidence of lactational breast abscesses and describe the management by percutaneous aspiration</td><td align="left" valign="top" rowspan="1" colspan="1">
+<italic>N</italic> = 25</td><td align="left" valign="top" rowspan="1" colspan="1">The size of the abscesses is not mentioned</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>44% of the patients required 3 aspirations, and 24%–28% of patients required 8–9 days for resolution of abscesses</p>
+<p>76% of patients continued breastfeeding after NA</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Elagili et al. (2007)<xref rid="jmrs682-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Prospective clinical study to assess US‐guided NA as an alternative to surgical I&amp;D</td><td align="left" valign="top" rowspan="1" colspan="1">31 abscesses in 30 patients; lactating (14) and non‐lactating (16)</td><td align="left" valign="top" rowspan="1" colspan="1">Median diameter of the abscesses was 4 cm (range 1–15 cm)</td><td align="left" valign="top" rowspan="1" colspan="1">50% of the patients had complete resolution after one aspiration, multiloculation was significantly related to treatment failure (<italic>P</italic> = 0.002)</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Fardhus et al. (2018)<xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A prospective study to compare the outcome and effectiveness of I&amp;D with NA in the treatment of breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">50 female patients; equally divided into NA group and I&amp;D group</td><td align="left" valign="top" rowspan="1" colspan="1">The mean diameter of the abscesses was 5.7 cm</td><td align="left" valign="top" rowspan="1" colspan="1">Mean time taken for the procedure for the NA group (6.62 ± 1.5 min) was significantly shorter than the I&amp;D (18.81 ± 2.10 min) group. A significant difference (<italic>P</italic> = 0.001) in cosmetic outcomes was also reported. Pain and fever get relieved faster at day10 in the NA group (96%) compared to the I&amp;D group (92%). No recurrence in the NA group compared to 3.3% in the I&amp;D group</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Giess et al. (2014)<xref rid="jmrs682-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A retrospective review of the database (3 years) of the patients who had undergone aspiration with or without I&amp;D for breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">A total of 41 abscesses (40 patients)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Mean diameter of the abscesses for the NA group: 4.3 cm (range 0.9–10 cm)</p>
+<p>Mean diameter of the abscesses of NA + I&amp;D groups: 4.1 cm (range 2.2–7.5 cm)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Out of total, 22 abscesses were treated with NA only, and 19 required aspirations with I&amp;D. Out of the latter group, 15 abscesses were &gt;3 m in diameter; the reasons for I&amp;D included: lack of clinical improvement and recurrence; and fistula development</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Hussain et al. (2018)<xref rid="jmrs682-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A comparative analysis of percutaneous aspiration and I&amp;D procedures for the management of breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">Lactating women; (<italic>n</italic> = 90); divided into two groups, NA (<italic>n</italic> = 45) and I&amp;D (<italic>n</italic> = 45)</td><td align="left" valign="top" rowspan="1" colspan="1">Abscesses ≤3 cm were included</td><td align="left" valign="top" rowspan="1" colspan="1">Breastfeeding was restored significantly early in the NA group (<italic>P</italic> = 0.011) compared to the I&amp;D group</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Li and Ma (2021)<xref rid="jmrs682-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A retrospective clinical study to analyse the risk factors of US‐guided fine‐needle aspiration treatment failure</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Patient (<italic>n</italic> = 1472)</p>
+<p>Lactational breast abscesses</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Abscess size is not mentioned</td><td align="left" valign="top" rowspan="1" colspan="1">Risk factors for treatment failure included: abscess in the centre area, volume of pus &gt;50 mL, frequency of aspiration &gt;3 times, and treatment time &gt; 14 days</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Karvande et al. (2016)<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A prospective clinical study to compare outcome and effectiveness of NA and I&amp;D</td><td align="left" valign="top" rowspan="1" colspan="1">Patients (<italic>n</italic> = 60) were equally divided into NA and I&amp;D groups</td><td align="left" valign="top" rowspan="1" colspan="1">Abscesses &lt;10 cm was included; mean diameter was 5.7 cm</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Mean healing time was significantly shorter in the NA group (4.27 days) compared to the I&amp;D group (7.60 days, <italic>P</italic> = 0.001).</p>
+<p>No recurrence in NA compared to 3.3% in I&amp;D. The time taken for procedure significantly less in the NA group compared to the I&amp;D group (<italic>P</italic> = 0.001). Pain and fever get relieved faster at day10 in the NA group (96.7%) compared to the I&amp;D group (93.3%). Cosmetic outcome was significantly (<italic>P</italic> = 0.001) good in patients treated with NA compared to I&amp;D. Failure seen in 13.3% of patients in the NA group and 3% in the I&amp;D group. No recurrence in the NA group compared to 3.3% in the I&amp;D group</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Naeem et al. (2012)<xref rid="jmrs682-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">To compare the US‐guided NA with I&amp;D in the treatment of breast abscesses.</td><td align="left" valign="top" rowspan="1" colspan="1">Patients (<italic>n</italic> = 64) were equally divided into US‐guided NA group and I&amp;D group</td><td align="left" valign="top" rowspan="1" colspan="1">Abscesses &lt;5 cm were included</td><td align="left" valign="top" rowspan="1" colspan="1">The mean healing time was significantly less (<italic>P</italic> = 0.001) in the NA group compared to the I&amp;D group. The healing rate was also higher in the NA group; breastfeeding was interrupted in the I&amp;D group</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Patil and Vagger (2019)<xref rid="jmrs682-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>A prospective non‐randomised controlled trial to compare US‐guided NA and I&amp;D in treating breast abscesses.</p>
+<p>Lactating female patients</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Patient (<italic>n</italic> = 100) were equally divided into the US‐guided NA group and the I&amp;D group</td><td align="left" valign="top" rowspan="1" colspan="1">Abscess size &lt;5 cm</td><td align="left" valign="top" rowspan="1" colspan="1">The hospital stay was longer in the I&amp;D group; breastfeeding was interrupted in the I&amp;D group; the mean pain score was less in the NA group.</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Randhawa et al. (2019)<xref rid="jmrs682-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A randomised controlled clinical trial to compare the frequency of success rate of multiple needle aspirations under antibiotic cover against I&amp;D of breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">70 female patients were equally divided into NA and I&amp;D groups</td><td align="left" valign="top" rowspan="1" colspan="1">The size of the abscesses is not mentioned</td><td align="left" valign="top" rowspan="1" colspan="1">The success rate in the NA group was 97.1% compared to 82.9% (<italic>P</italic> = 0.046) in the I&amp;D group</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Rigourd et al. (2022)<xref rid="jmrs682-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A retrospective study of management of breast abscesses among lactating females with US‐NA to suggest an algorithm</td><td align="left" valign="top" rowspan="1" colspan="1">28 lactating female patients</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Size of the abscesses which underwent US‐NA: 4.1 ± 1 cm</p>
+<p>Size of the abscesses which underwent I&amp;D: 3.9 ± 2 cm</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>75% were managed by NA and the rest 25% were referred for surgical drainage</p>
+<p>All patients managed with NA continued breast feeding</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Saeed et al. (2021)<xref rid="jmrs682-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">To compare the outcome and effectiveness of NA with I&amp;D for breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">Lactating and non‐lactating women (<italic>n</italic> = 50) were divided equally into two groups on NA and I&amp;D</td><td align="left" valign="top" rowspan="1" colspan="1">Abscess size ≤5 cm</td><td align="left" valign="top" rowspan="1" colspan="1">The mean healing time was 8.59 + 1.89 and 18.16 + 5.00 days in NA and I&amp;D groups respectively. Good cosmetic outcome in patients treated with NA (no scar) compared to (scar) in the I&amp;D group</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Sarhan and Ibraheem (2012)<xref rid="jmrs682-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A prospective study to evaluate the clinical outcome of US‐guided percutaneous NA</td><td align="left" valign="top" rowspan="1" colspan="1">Patients (<italic>n</italic> = 43) with breast abscesses</td><td align="left" valign="top" rowspan="1" colspan="1">The average size of the abscesses was 2.8 cm (range 0.8–7 cm)</td><td align="left" valign="top" rowspan="1" colspan="1">53.4% showed resolution after one aspiration; and 7% required surgical I&amp;D</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Sushel et al. (2020)<xref rid="jmrs682-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A cross‐sectional study to evaluate the clinical outcome of US‐guided percutaneous NA</td><td align="left" valign="top" rowspan="1" colspan="1">Patients with lactational breast abscesses (<italic>n</italic> = 68)</td><td align="left" valign="top" rowspan="1" colspan="1">The size of the abscesses ranged from 2 to 10 cm</td><td align="left" valign="top" rowspan="1" colspan="1">73.5% of abscesses responded to US‐guided NA along with antibiotics. 26.4% underwent I&amp;D after failure with NA</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Suthar et al. (2012)<xref rid="jmrs682-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A randomised clinical study to compare the management of puerperal breast abscesses by percutaneous US‐guided NA versus open surgical drainage</td><td align="left" valign="top" rowspan="1" colspan="1">70 lactating female patients were randomly divided into US guided NA (<italic>n</italic> = 35) and I&amp;D groups (<italic>n</italic> = 35)</td><td align="left" valign="top" rowspan="1" colspan="1">The mean abscess size was 4.97 ± 2.5 cm</td><td align="left" valign="top" rowspan="1" colspan="1">A failure rate of 17.14% was reported in NA group; resolution time was less in the NA group. Fistula formation was main complication in the I&amp;D group (10%)</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Singh et al. (2012)<xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A prospective single‐arm study to evaluate the treatment of breast abscesses with NA and antibiotics</td><td align="left" valign="top" rowspan="1" colspan="1">Lactating (<italic>n</italic> = 31) and non‐lactating (<italic>n</italic> = 19) female patients</td><td align="left" valign="top" rowspan="1" colspan="1">78% of patients had breast abscesses of 4 cm, and 22% of cases had a size &gt;4 cm</td><td align="left" valign="top" rowspan="1" colspan="1">78% of the abscesses resolved without recurrence. 16% needed I&amp;D after failure with NA</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Sikander et al. (2020)<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">A randomised prospective study to compare the outcome of percutaneous NA with I&amp;D</td><td align="left" valign="top" rowspan="1" colspan="1">Lactating patients (<italic>n</italic> = 80); equal number in each group</td><td align="left" valign="top" rowspan="1" colspan="1">Patients with breast abscess size &lt;4 cm were included</td><td align="left" valign="top" rowspan="1" colspan="1">Cessation of breastfeeding was significantly (<italic>P</italic> &lt; 0.05) less in the NA group; the healing rate was comparable in the two groups; and there was 90% and 100% resolution of abscess in the NA and I&amp;D groups, respectively, after first intervention</td></tr></tbody></table><table-wrap-foot><fn id="jmrs682-note-0001"><p>I&amp;D, incision and drainage; MRSA, methicillin‐resistant <italic>Staphylococcus aureus</italic>; MSSA, methicillin‐sensitive <italic>Staphylococcus aureus</italic>; NA, needle aspiration; US, ultrasound; VAS, visual analogue scale.</p></fn></table-wrap-foot></table-wrap></sec><sec id="jmrs682-sec-0007" disp-level="1"><title>Clinical evidence</title><sec id="jmrs682-sec-0008" disp-level="2"><title>Outcome measures</title><p>The reviewed clinical studies have included success rates, mean healing time and effect of breastfeeding, and cosmetic effects as the major outcome measures. Other outcome measures include the time taken for procedure and hospital stay, post‐intervention symptoms, the incidence of complications, and cost analysis.</p><sec id="jmrs682-sec-0009" disp-level="3"><title>Success rate</title><p>The success rate (absence of symptoms and resolution of pus) has been widely used as an outcome measure in most of the clinical studies. Complete resolution of the abscess was considered a successful treatment with NA.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Most of studies have reported higher success rate with US guided procedure (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>). In one of the recent landmark clinical trials by Colin et al.,<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> US‐guided percutaneous drainage included NA and/or use of pigtail catheter. Colin et al. found that 92% (37/40) of lactational abscesses larger than 5 cm were successfully treated with US‐guided procedure as a first‐line treatment, and none of the cases needed any surgery. The number of percutaneous NA procedures per abscess ranged from 1 to 6 in the study.<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> Additionally, abscesses of &gt;3 cm and advanced abscesses in a pre‐fistula stage were also successfully treated with one or serial aspirations.<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> Retrospective analysis by Giess et al.<xref rid="jmrs682-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref> shows that there was no statistically significant difference in the success of the treatment based on the abscess size (Fisher's exact test, <italic>P</italic> = 0.727). Approx. 72.2% of abscesses among lactating and pregnant women and only 39.1% of the abscesses among non‐lactating and non‐pregnant females responded to NA treatment (Fisher's exact test, <italic>P</italic> = 0.058).<xref rid="jmrs682-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref> Similar results were reported by Karvande et al., as a success rate of 86.6% was achieved in the NA group. The mean size of breast abscesses (5.58 cm) in the NA group was significantly larger than in the I&amp;D group (<italic>P</italic> = 0.028).<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref> Karvande et al.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref> also reported that US‐guided NA has great value even in the treatment of breast abscesses with large volumes as approx. 77% of the patients were successfully treated with two aspirations. Another study of US‐guided NA by Kielar et al.<xref rid="jmrs682-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref> showed that 21 out of 22 cases healed without complications, and the patients could breastfeed and there was no milk retention. Fardhus et al. observed an 88% success rate in the US‐guided NA group and Rigourd et al. reported that 64.3% patients were managed with one inspiration, and the rest needed two (28.6%) or three (3.6%) punctures.<xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref> Additionally, there was no significant difference in the mean amount of pus drained and the diameter of the abscesses.<xref rid="jmrs682-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>, <xref rid="jmrs682-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref> Suthar et al.<xref rid="jmrs682-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref> have reported an 82.86% success rate in the US‐guided NA group. Chandika et al.<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref> mention 93.1% as a success rate as only 6.9% of patients were re‐aspirated, and no abscess was converted to the I&amp;D group from the NA group. Sikandar et al.<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> report that 5% of patients from the NA group needed re‐aspiration, 5% had to undergo I&amp;D, and the rest of the 90% had successful treatment. Eryilmaz et al. reported that a mean of 3.5 (range 1–5) aspirations were performed in the NA group; 45% of patients required multiple aspirations, and I&amp;D technique was used among 41% of patients after failure with NA technique.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Although Eryilmaz et al.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> had conducted NA without US guidance, NA was successful among all patients with abscess diameter smaller than 5 cm; and it was also successful among 25% of patients with abscesses larger than 5 cm in diameter (<italic>P</italic> &lt; 0.05). Randhawa et al.<xref rid="jmrs682-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref> found that both NA and I&amp;D techniques led to successful results (<italic>P</italic> = 0.046) among both lactating and non‐lactating female patients. Ding et al.<xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> reported no significant difference between the methicillin‐sensitive Staphylococcus aureus (MSSA) and methicillin‐resistant Staphylococcus aureus (MRSA) groups regarding abscess sites, number, and size of abscess cavities. Although all patients were treated with US‐guided aspiration, and no comparison could be drawn with I&amp;D, the results show that all the abscesses were treated successfully, irrespective of the size of the abscesses.<xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> Sushel et al.<xref rid="jmrs682-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref> show that the number of aspirations increases with the increase in the size of the abscesses. Abscess sizes in all non‐responders were &gt;5 cm in diameter.<xref rid="jmrs682-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref> Berna‐Serna et al.<xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref> found that 86.4% of the patients who underwent US‐guided NA had been relieved from acute symptoms within 24–48 hours of the drainage. Elagili et al.<xref rid="jmrs682-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref> reported a success rate of 83.3% with NA and 13.3% were referred for surgical I&amp;D. Similarly, Singh et al.<xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> also mention that there was no treatment failure with NA for abscesses of 4 cm diameter, whereas 7 out of 11 abscesses with sizes &gt;4 cm I&amp;D had to be performed after failure with NA.</p><p>Other studies have shown lower success rates with NA (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>), as Saeed et al.<xref rid="jmrs682-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref> have reported a failure rate of 20% in the NA group and no failure in the I&amp;D group. Egbe et al.<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref> found that 44% of participants from the NA group (without US‐guidance) were aspirated three times, and in 24%–28% of patients, the abscesses resolved in 8–9 days. Singh et al.<xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> found no treatment failure in cases with abscesses of 4 cm, and 64% of those abscesses larger than 4 cm had a treatment failure. Mean number of aspirations required for all patients was 3, (ranging from 1‐to 5).<xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> The success rate was 78% with NA, 16% needed I&amp;D, and the remaining 6% had a recurrence of abscesses.<xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0010" disp-level="3"><title>Mean healing time</title><p>Healing time for I&amp;D has been defined as the time from incision and drainage to wound closure.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Several clinical studies have reported significant shorter mean healing time with NA compared to I&amp;D (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>). Significant differences were found by Karvande et al. (<italic>P</italic> = 0.001), Eryilmaz et al. (Mann–Whitney <italic>U</italic> test, <italic>P</italic> &lt; 0.001), and Saeed et al. (<italic>P</italic> = 0.001).<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref> However, the comparison will be biased as they did not include 41% of the patients in analysis from the NA group who had treatment failure.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Similarly, Suthar et al.<xref rid="jmrs682-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref> found the mean healing time to be significantly shorter; however, they had excluded the treatment failures from the analysis. Dener et al.<xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref> also showed a shorter mean healing time in the US‐guided NA group (8.6 days, range 5–12 days) compared to the I&amp;D group (10 days, range 6–15 days, <italic>P</italic> = 0.22).</p><p>Chandika et al. did not find any significant difference in the mean healing rate, as 65.5% from the US‐guided‐NA group and 58.1% from the I&amp;D group were healed by the 3rd visit.<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref> Clinical study by Egbe et al.<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref> report 6–10 days as the resolution time with NA without US guidance respectively. Fardhus et al.<xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref> also showed that mean healing time was significantly shorter in the NA group (4.27 days) compared to the I&amp;D group (7.60 days).</p></sec><sec id="jmrs682-sec-0011" disp-level="3"><title>Breastfeeding</title><p>It is crucial to continue breastfeeding for the mother and infant's health as milk stasis is a risk factor for further development of mastitis and breast abscesses.<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> Additionally, separating the baby from the mother has a psychological effect on the mother.<xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> Breastfeeding should be resumed after aspiration and can be continued even with a drain in place with proper precautions. Although there are concerns about the risk of infection to the infants, only a few clinical reports have suggested transmission of infections to the infants.<xref rid="jmrs682-bib-0039" ref-type="bibr">
+<sup>39</sup>
+</xref> However, Most of the clinical studies report uninterrupted breastfeeding in NA with or without US‐guided procedure,<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> in addition to studies that compared the NA group with the I&amp;D group<xref rid="jmrs682-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jmrs682-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jmrs682-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>, <xref rid="jmrs682-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref> (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>). Sikandar et al. reported that a significantly lower number of patients had cessation of breastfeeding in the NA group than in the I&amp;D group (<italic>P</italic> &lt; 0.05). About 66% of patients continued breastfeeding during treatment with NA in Sikander et al. study.<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> Colin et al.<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> have also shown that 91% of women continued breastfeeding when patients underwent NA or NA and pigtail catheter drainage for breast abscesses. Egbe et al.<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref> recorded continuation of breastfeeding among 76% of the patients after NA without US guidance. Even early (within 24 hours) restoration of breastfeeding is also significantly more in the US‐guided NA group compared to the I&amp;D group (<italic>P</italic> = 0.011).<xref rid="jmrs682-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0012" disp-level="3"><title>Time taken for procedure and hospital stay</title><p>The shorter hospital stay decreases the separation time between the mother and the child. The use of general anaesthesia for I&amp;D compared to the use of local anaesthesia for NA helps in decreasing the hospital stay. All the clinical studies measuring the duration of the procedure and hospital stay show a lesser time during NA procedures and, shorter hospital stays in the NA group (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>).<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0013" disp-level="3"><title>Cosmetic outcomes</title><p>There was a significant difference in the level of satisfaction among patients from the NA group and the I&amp;D group (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>).<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref> A clinical study compared the scars with the Manchester scar scale, and the NA group had alower mean score (<italic>P</italic> = 0.0008) than the I&amp;D group.<xref rid="jmrs682-bib-0038" ref-type="bibr">
+<sup>38</sup>
+</xref> Patients of the NA group have reported high satisfaction with the aesthetic effect of the treatment, and after three months there were no visible scars or breast deformations.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>, <xref rid="jmrs682-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>, <xref rid="jmrs682-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>, <xref rid="jmrs682-bib-0038" ref-type="bibr">
+<sup>38</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0014" disp-level="3"><title>Post‐intervention symptoms</title><p>The duration of pain and fever was less, varying from significant to non‐significant levels in the NA group (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>).<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref> Patients undergoing NA did not have to be separated from their babies thus preventing any psychological disturbances among the lactating females.<xref rid="jmrs682-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> Residual abscess was higher in the NA group compared to the I&amp;D group, whereas incomplete wound healing was more prevalent in the I&amp;D group in an analysis by Patil and Vanger.<xref rid="jmrs682-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0015" disp-level="3"><title>Post‐procedural complications</title><p>Complications in either of the techniques include incomplete clearance, recurrence, fistula formation, and milk suppression.</p><sec id="jmrs682-sec-0016" disp-level="4"><title>Failure of the procedure</title><p>Failure was seen in 13.3% of patients in the NA group and in 3% in the I&amp;D group in the study by Karvande et al.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref> Eryilmaz et al. reported treatment failure of 41% in the NA without US guidance group, and all these patients had abscesses &gt;5 cm diameter.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Duration of symptoms, the volume of pus aspirated, frequency of aspirations (&gt;3), multiloculations, size of the abscesses (&gt;5 cm), and treatment time (&gt;14 days) are considered risk factors for failure.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jmrs682-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref> In contrast, other factors like a cracked nipple, the presence of <italic>S. aureus</italic> in pus culture, history of abscess, and mastitis during earlier periods of lactation are not considered risk factors for failure of treatment.<xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0017" disp-level="4"><title>Recurrence</title><p>Variable recurrence rates have been observed and reported in the clinical studies (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>). Recurrence rate was higher in the NA group (10%) compared to 6.2% in I&amp;D groups without significant difference in the study by Dener et al.<xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref> Five percent of patients had re‐aspiration, and another 5% of patients underwent I&amp;D from the NA group in the study by Sikandar et al.<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> However, no secondary intervention was required in the I&amp;D group.<xref rid="jmrs682-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> Both Fardhus et al. and Karvande et al. did not find recurrence in the NA group and 3.3% in the I&amp;D group.<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+</p></sec><sec id="jmrs682-sec-0018" disp-level="4"><title>Fistula formation</title><p>Reviews and clinical studies have shown that the risk of fistula formation is lower with US‐guided NA.<xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> A systematic review of milk fistula among lactating mothers shows that milk fistulae are more frequent following I&amp;D than after needle aspirations.<xref rid="jmrs682-bib-0040" ref-type="bibr">
+<sup>40</sup>
+</xref> Naeem et al.<xref rid="jmrs682-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> have also reported a higher number of complications (milk fistula) in the I&amp;D group compared to the NA group.</p></sec></sec><sec id="jmrs682-sec-0019" disp-level="3"><title>Cost analysis</title><p>Although it is well documented that I&amp;D is costlier than NA, only a few studies have included the financial aspect and found that NA is cost‐effective compared to the I&amp;D method for breast abscesses.<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+</p></sec></sec></sec><sec id="jmrs682-sec-0020" disp-level="1"><title>Discussion</title><p>Review of clinical outcomes with US‐guided NA and I&amp;D procedures shows that the former technique is the first choice for breast abscesses &lt;3 cm in diameter. Additionally, recent studies favour the use of US guided‐NA for abscesses &gt;5 cm in diameter as well.<xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="jmrs682-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref> NA with or without US guidance has shown better success rates and cosmetic outcomes, shorter mean healing times and duration of procedures, among abscesses &gt;5 cm in diameter as well.<xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="jmrs682-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref> Early restoration of breastfeeding or non‐interruption of breastfeeding is significantly better in the NA group compared to I&amp;D groups in all studies.<xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jmrs682-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> US‐guided NA has been successful in both MSSA or MRSA‐infected breast abscesses.<xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> I&amp;D is especially considered among cases of recurrences after NA or if NA is not successful because of thick pus or the large size of the abscess.<xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref> Review of the available studies also shows that the patients could continue breastfeeding during NA percutaneous treatment. While the patients undergoing I&amp;D need regular dressings, there is a cessation of breastfeeding, and there is a high risk of fistula formation and post‐operative scarring is also observed.<xref rid="jmrs682-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="jmrs682-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref> Breast abscesses have been commonly located in the upper outer quadrant and in the left breasts.<xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+</p><p>Some clinical studies have also reported the risk (or predisposing) factors for the occurrence of breast abscesses. Lactation, cracked nipples, milk stasis, primiparous females, first 12 weeks in the post‐partum period, second‐trimester pregnancy, advanced maternal age, recent breast intervention (biopsy or nipple piercing or lumpectomy), subareolar abscess, smoking, immunocompromised state, diabetes, duration of symptoms before treatment, and increasing age have been suggested as the possible risk factors for occurrence and reoccurrence of breast abscesses.<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="jmrs682-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jmrs682-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jmrs682-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref> Failure of treatment has been linked with smoking, the presence of nipple rings, multiloculation, and abscess size.<xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jmrs682-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>
+</p><p>Additionally, the review brings forth the limitations and strengths of the two procedures. Recent studies highlight the need to stratify the patients according to baseline features like the size of the abscess and viscosity of the pus before deciding the treatment modality. The benefits and risks of NA and I&amp;D should be weighed before opting for one of the two treatment options. The use of NA for abscesses larger than &gt;5 cm may require a higher number of re‐aspirations; however, the duration of hospital stay, time for the procedure, effect on breastfeeding, cosmetic outcomes, and the cost are all favourable for the NA method compared to the I&amp;D technique (Table <xref rid="jmrs682-tbl-0001" ref-type="table">1</xref>).<xref rid="jmrs682-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jmrs682-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jmrs682-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="jmrs682-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref> The use of US guidance for diagnosis and during the procedure can help stratify the patients for selecting the treatment method. Irrigation with saline solution and local use of antibiotics helps in decreasing the viscosity of the pus and high concentrations of antibiotics act directly on the microorganisms.<xref rid="jmrs682-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref> Aspiration of the breast abscess can be successfully done as the initial mode of management in the treatment, but I&amp;D may remain the final resort for non‐responders.</p><p>Another interesting aspect of the review includes the update about the newer techniques and management strategies for breast abscesses. Vacuum‐assisted biopsy (VAB), or Mammotome, has been used in cases of failure with NA or as a substitute for NA.<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="jmrs682-bib-0041" ref-type="bibr">
+<sup>41</sup>
+</xref> Some authors have reported that a Mammotome may be used along with NA if the abscess is too viscous or it is loculated.<xref rid="jmrs682-bib-0042" ref-type="bibr">
+<sup>42</sup>
+</xref> Use of catheters for larger breast abscesses can help to decrease the failure rate and hospital stay.<xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jmrs682-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>, <xref rid="jmrs682-bib-0043" ref-type="bibr">
+<sup>43</sup>
+</xref> Other studies have suggested open drainage followed by primary closure with negative suction drain placement as a safe and better alternative to the standard I&amp;D as there is reduced post‐operative pain, shorter hospital stay, and fewer dressings required.<xref rid="jmrs682-bib-0044" ref-type="bibr">
+<sup>44</sup>
+</xref> Also, aspiration of the breast abscess through a wide bore cannula can be done, although this technique might require multiple aspirations. No mode of anaesthesia is required, and it can be done on an outpatient department basis. Apart from the newer techniques, proper stratification of patients according to the size of breast abscess, and viscosity of the pus while choosing the management technique for breast abscesses may also improve the outcomes.<xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>
+</p><p>The descriptive review has some limitations and strengths. Although decades have passed since the introduction of US‐guided NA for breast abscesses, comparative analysis of the treatment techniques is marred by the limiting factors of the clinical studies. First and foremost, most of the clinical studies have not distinguished lactational and non‐lactational patients as two separate groups.<xref rid="jmrs682-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref> Most of the clinical studies are retrospective, or open labelled, or single‐arm clinical studies with small sample size.<xref rid="jmrs682-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="jmrs682-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> Additionally, there are differences in the procedures adopted in the clinical trials, as some have used both NA and pigtail catheter, and some used NA with or without US‐guidance.<xref rid="jmrs682-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jmrs682-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> There were no inclusion criteria concerning abscess size and duration of breast abscesses in most of the clinical studies. Many clinical studies had not included breast abscesses with a larger diameter. The strengths include a wider data search without any restriction of time or language. We tried to include clinical studies without restricting language, patient population, and outcome analysis. Overall, the currently available clinical evidence is insufficient to compare the available treatment options for breast abscesses. Thus, we require data from large sample‐sized real‐world studies or randomised controlled clinical trials.</p><p>Future directions: There is a need to formulate protocols for treating breast abscesses (both lactational and non‐lactational), according to the presence of various risk factors and comorbid conditions. The algorithm should include the status of all procedures like suction and drainage, and use of pigtail catheter in addition to the commonly used NA and I&amp;D. This should also include the number of recommended reaspirations before considering the failure of treatment with NA. Additionally, there is a need to establish the benefits of local infiltration of antibiotics compared to oral administration. There is also a need to compare the advantages and disadvantages of US‐guided percutaneous catheter drainage treatment modality compared to US‐guided NA and I&amp;D. The current clinical evidence is also deficient in the preference for the US guidance or palpation method. Maintenance of disease and treatment registries in hospitals can help generate clinical evidence.</p></sec><sec id="jmrs682-sec-0021" disp-level="1"><title>Conclusions</title><p>The available clinical studies suggest that the percutaneous US‐guided NA, a minimally invasive technique, is associated with a shorter mean healing time and mean duration of hospital stay, higher success rate, acceptable cosmetic results, minimal effects on breastfeeding, acceptable patient satisfaction, and emotional stability among patients with breast abscesses. The review highlights the need to generate comparative data of NA and I&amp;D as treatment modalities for breast abscesses more than 5 cm in diameter. Multi‐centred randomised clinical trials with a larger sample size can help in generating comparative results.</p></sec><sec id="jmrs682-sec-0022" disp-level="1"><title>Conflict of interest</title><p>The authors declare no conflict of interest.</p></sec><sec id="jmrs682-sec-0026" disp-level="1"><title>Data availability statement</title><p>Data available on request from the authors.</p></sec><sec id="jmrs682-bibl-0001" sec-type="ref-list" disp-level="1"><title>References</title><sec id="jmrs682-bibl-0001_sec2" disp-level="2"><ref-list><ref id="jmrs682-bib-0001"><label>1.</label><mixed-citation id="jmrs682-cit-0001"><named-content content-type="citation-string">
+Karvande R, Ahire M, Bhole M, Rathod C. Comparison between aspiration and incision and drainage of breast abscess. Int Surg J
+2016; 3: 1773–80.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Int Surg J&amp;title=Comparison between aspiration and incision and drainage of breast abscess&amp;author=R Karvande&amp;author=M Ahire&amp;author=M Bhole&amp;author=C Rathod&amp;volume=3&amp;publication_year=2016&amp;pages=1773-80&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0002"><label>2.</label><mixed-citation id="jmrs682-cit-0002"><named-content content-type="citation-string">
+Randhawa SR, Akram M, Akram H, Sajid M. Comparison of needle aspirations and incision and drainage of breast abscesses. J Univ Med Dent Coll
+2019; 10: 40–4.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Univ Med Dent Coll&amp;title=Comparison of needle aspirations and incision and drainage of breast abscesses&amp;author=SR Randhawa&amp;author=M Akram&amp;author=H Akram&amp;author=M Sajid&amp;volume=10&amp;publication_year=2019&amp;pages=40-4&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0003"><label>3.</label><mixed-citation id="jmrs682-cit-0003"><named-content content-type="citation-string">
+Patani N, MacAskill F, Eshelby S, et al. Best‐practice care pathway for improving management of mastitis and breast abscess. Br J Surg
+2018; 105: 1615–22.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1002/bjs.10919"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29993125"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Br J Surg&amp;title=Best‐practice care pathway for improving management of mastitis and breast abscess&amp;author=N Patani&amp;author=F MacAskill&amp;author=S Eshelby&amp;volume=105&amp;publication_year=2018&amp;pages=1615-22&amp;pmid=29993125&amp;doi=10.1002/bjs.10919&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0004"><label>4.</label><mixed-citation id="jmrs682-cit-0004"><named-content content-type="citation-string">
+Egbe TO, Njamen TN, Essome H, Tendongfor N. The estimated incidence of lactational breast abscess and description of its management by percutaneous aspiration at the Douala General Hospital, Cameroon. Int Breastfeed J
+2020; 15: 26.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1186/s13006-020-00271-2"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC7146872"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="32276628"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Int Breastfeed J&amp;title=The estimated incidence of lactational breast abscess and description of its management by percutaneous aspiration at the Douala General Hospital, Cameroon&amp;author=TO Egbe&amp;author=TN Njamen&amp;author=H Essome&amp;author=N Tendongfor&amp;volume=15&amp;publication_year=2020&amp;pages=26&amp;pmid=32276628&amp;doi=10.1186/s13006-020-00271-2&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0005"><label>5.</label><mixed-citation id="jmrs682-cit-0005"><named-content content-type="citation-string">
+Cusack L, Brennan M. Lactational mastitis and breast abscess: Diagnosis and management in general practice. Aust Fam Phys
+2011; 40: 976–9.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="22146325"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Aust Fam Phys&amp;title=Lactational mastitis and breast abscess: Diagnosis and management in general practice&amp;author=L Cusack&amp;author=M Brennan&amp;volume=40&amp;publication_year=2011&amp;pages=976-9&amp;pmid=22146325&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0006"><label>6.</label><mixed-citation id="jmrs682-cit-0006"><named-content content-type="citation-string">
+Kataria K, Srivastava A, Dhar A. Management of lactational mastitis and breast abscesses: Review of current knowledge and practice. Indian J Surg
+2013; 75: 430.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s12262-012-0776-1"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3900741"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="24465097"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Indian J Surg&amp;title=Management of lactational mastitis and breast abscesses: Review of current knowledge and practice&amp;author=K Kataria&amp;author=A Srivastava&amp;author=A Dhar&amp;volume=75&amp;publication_year=2013&amp;pages=430&amp;pmid=24465097&amp;doi=10.1007/s12262-012-0776-1&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0007"><label>7.</label><mixed-citation id="jmrs682-cit-0007"><named-content content-type="citation-string">
+Dener C, Inan A. Breast abscesses in lactating women. World J Surg
+2003; 27: 130–3.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s00268-002-6563-6"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="12616423"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=World J Surg&amp;title=Breast abscesses in lactating women&amp;author=C Dener&amp;author=A Inan&amp;volume=27&amp;publication_year=2003&amp;pages=130-3&amp;pmid=12616423&amp;doi=10.1007/s00268-002-6563-6&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0008"><label>8.</label><mixed-citation id="jmrs682-cit-0008"><named-content content-type="citation-string">
+Irusen H, Rohwer AC, Steyn DW, Young T. Treatments for breast abscesses in breastfeeding women. Cochrane Database Syst Rev
+2015; 2015: CD010490.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1002/14651858.CD010490.pub2"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC9226721"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="26279276"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Cochrane Database Syst Rev&amp;title=Treatments for breast abscesses in breastfeeding women&amp;author=H Irusen&amp;author=AC Rohwer&amp;author=DW Steyn&amp;author=T Young&amp;volume=2015&amp;publication_year=2015&amp;pages=CD010490&amp;pmid=26279276&amp;doi=10.1002/14651858.CD010490.pub2&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0009"><label>9.</label><mixed-citation id="jmrs682-cit-0009"><named-content content-type="citation-string">
+Chandika AB, Gakwaya AM, Kiguli‐Malwadde E, Chalya PL. Ultrasound guided needle aspiration versus surgical drainage in the management of breast abscesses: A Ugandan experience. BMC Res Notes
+2012; 5: 1–7.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1186/1756-0500-5-12"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC3284878"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="22226127"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=BMC Res Notes&amp;title=Ultrasound guided needle aspiration versus surgical drainage in the management of breast abscesses: A Ugandan experience&amp;author=AB Chandika&amp;author=AM Gakwaya&amp;author=E Kiguli‐Malwadde&amp;author=PL Chalya&amp;volume=5&amp;publication_year=2012&amp;pages=1-7&amp;pmid=22226127&amp;doi=10.1186/1756-0500-5-12&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0010"><label>10.</label><mixed-citation id="jmrs682-cit-0010"><named-content content-type="citation-string">
+Berna‐Serna JD, Madrigal M, Berna‐Serna JD. Percutaneous management of breast abscesses. An experience of 39 cases. Ultrasound Med Biol
+2004; 30: 1–6.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.ultrasmedbio.2003.10.003"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="14962601"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Ultrasound Med Biol&amp;title=Percutaneous management of breast abscesses. An experience of 39 cases&amp;author=JD Berna‐Serna&amp;author=M Madrigal&amp;author=JD Berna‐Serna&amp;volume=30&amp;publication_year=2004&amp;pages=1-6&amp;pmid=14962601&amp;doi=10.1016/j.ultrasmedbio.2003.10.003&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0011"><label>11.</label><mixed-citation id="jmrs682-cit-0011"><named-content content-type="citation-string">
+Dayal P, Lal M. A comparative study of outcomes in management of breast abscess by ultrasound guided needle aspiration against incision and drainage. Int J Med Biomed Stud
+2019; 3: 117–21.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Int J Med Biomed Stud&amp;title=A comparative study of outcomes in management of breast abscess by ultrasound guided needle aspiration against incision and drainage&amp;author=P Dayal&amp;author=M Lal&amp;volume=3&amp;publication_year=2019&amp;pages=117-21&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0012"><label>12.</label><mixed-citation id="jmrs682-cit-0012"><named-content content-type="citation-string">
+David M, Handa P, Castaldi M. Predictors of outcomes in managing breast abscesses‐A large retrospective single‐center analysis. Breast J
+2018; 24: 755–63.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1111/tbj.13053"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="29781232"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Breast J&amp;title=Predictors of outcomes in managing breast abscesses‐A large retrospective single‐center analysis&amp;author=M David&amp;author=P Handa&amp;author=M Castaldi&amp;volume=24&amp;publication_year=2018&amp;pages=755-63&amp;pmid=29781232&amp;doi=10.1111/tbj.13053&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0013"><label>13.</label><mixed-citation id="jmrs682-cit-0013"><named-content content-type="citation-string">
+Sikander A, Bano HS, Abdullah M, Najam R, Rasheeqa M, Farooq UM. Comparison of outcome between percutaneous aspiration and incision and drainage in cases of lactational breast abscess. Pak J Surg
+2020; 36: 135–40.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Pak J Surg&amp;title=Comparison of outcome between percutaneous aspiration and incision and drainage in cases of lactational breast abscess&amp;author=A Sikander&amp;author=HS Bano&amp;author=M Abdullah&amp;author=R Najam&amp;author=M Rasheeqa&amp;volume=36&amp;publication_year=2020&amp;pages=135-40&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0014"><label>14.</label><mixed-citation id="jmrs682-cit-0014"><named-content content-type="citation-string">
+Eryilmaz R, Sahin M, Tekelioglu MH, Daldal E. Management of lactational breast abscesses. Breast
+2005; 14: 375–9.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.breast.2004.12.001"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="16216739"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Breast&amp;title=Management of lactational breast abscesses&amp;author=R Eryilmaz&amp;author=M Sahin&amp;author=MH Tekelioglu&amp;author=E Daldal&amp;volume=14&amp;publication_year=2005&amp;pages=375-9&amp;pmid=16216739&amp;doi=10.1016/j.breast.2004.12.001&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0015"><label>15.</label><mixed-citation id="jmrs682-cit-0015"><named-content content-type="citation-string">
+Ulitzsch D, Nyman MKG, Carlson RA. Breast abscess in lactating women: US‐guided treatment. Radiology
+2004; 232: 904–9.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1148/radiol.2323030582"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="15284435"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Radiology&amp;title=Breast abscess in lactating women: US‐guided treatment&amp;author=D Ulitzsch&amp;author=MKG Nyman&amp;author=RA Carlson&amp;volume=232&amp;publication_year=2004&amp;pages=904-9&amp;pmid=15284435&amp;doi=10.1148/radiol.2323030582&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0016"><label>16.</label><mixed-citation id="jmrs682-cit-0016"><named-content content-type="citation-string">
+Kielar M, Raczek‐Pakuła K, Waligóra J, Lewczuk A, Woźniak W, Taranta I. Low invasive treatment of breast abscess in lactating women. Polish Journal of Surgery
+2009; 81: 225–9.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Polish Journal of Surgery&amp;title=Low invasive treatment of breast abscess in lactating women&amp;author=M Kielar&amp;author=K Raczek‐Pakuła&amp;author=J Waligóra&amp;author=A Lewczuk&amp;author=W Woźniak&amp;volume=81&amp;publication_year=2009&amp;pages=225-9&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0017"><label>17.</label><mixed-citation id="jmrs682-cit-0017"><named-content content-type="citation-string">
+Tewari M, Shukla HS. An effective method of drainage of puerperal breast abscess by percutaneous placement of suction drain. Indian J Surg
+2006;68:330–3.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Indian J Surg&amp;title=An effective method of drainage of puerperal breast abscess by percutaneous placement of suction drain&amp;author=M Tewari&amp;author=HS Shukla&amp;volume=68&amp;publication_year=2006&amp;pages=330-3&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0018"><label>18.</label><mixed-citation id="jmrs682-cit-0018"><named-content content-type="citation-string">
+O'Hara RJ, Dexter SPL, Fox JN. Conservative management of infective mastitis and breast abscesses after ultrasonographic assessment. Br J Surg
+1996; 83: 1413–4.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1002/bjs.1800831028"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="8944458"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Br J Surg&amp;title=Conservative management of infective mastitis and breast abscesses after ultrasonographic assessment&amp;author=RJ O'Hara&amp;author=SPL Dexter&amp;author=JN Fox&amp;volume=83&amp;publication_year=1996&amp;pages=1413-4&amp;pmid=8944458&amp;doi=10.1002/bjs.1800831028&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0019"><label>19.</label><mixed-citation id="jmrs682-cit-0019"><named-content content-type="citation-string">
+Mackway-Jones K. Towards evidence based emergency medicine: best BETs from the Manchester Royal Infirmary. Aspiration of breast abscesses. Emerg Med J
+2004;21:333–8.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC1756369"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="14734386"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Emerg Med J&amp;title=Towards evidence based emergency medicine: best BETs from the Manchester Royal Infirmary. Aspiration of breast abscesses&amp;author=K Mackway-Jones&amp;volume=21&amp;publication_year=2004&amp;pages=333-8&amp;pmid=14734386&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0020"><label>20.</label><mixed-citation id="jmrs682-cit-0020"><named-content content-type="citation-string">
+Bing F, Jie L. Ultrasound guided needle aspiration and cavity washing versus incision and drainage to treat breast abscesses: A meta‐analysis. Int J Clin Exp Med
+2017: 8656–65.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Int J Clin Exp Med&amp;title=Ultrasound guided needle aspiration and cavity washing versus incision and drainage to treat breast abscesses: A meta‐analysis&amp;author=F Bing&amp;author=L Jie&amp;publication_year=2017&amp;pages=8656-65&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0021"><label>21.</label><mixed-citation id="jmrs682-cit-0021"><named-content content-type="citation-string">
+Boakes E, Woods A, Johnson N, Kadoglou N. Breast infection: A review of diagnosis and management practices. Eur J Breast Health
+2018; 14: 136.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.5152/ejbh.2018.3871"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC6092150"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="30123878"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Eur J Breast Health&amp;title=Breast infection: A review of diagnosis and management practices&amp;author=E Boakes&amp;author=A Woods&amp;author=N Johnson&amp;author=N Kadoglou&amp;volume=14&amp;publication_year=2018&amp;pages=136&amp;pmid=30123878&amp;doi=10.5152/ejbh.2018.3871&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0022"><label>22.</label><mixed-citation id="jmrs682-cit-0022"><named-content content-type="citation-string">
+Lam E, Chan T, Wiseman SM. Breast abscess: Evidence based management recommendations. Expert Rev Anti Infect Ther
+2014; 12: 753–62.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1586/14787210.2014.913982"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="24791941"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Expert Rev Anti Infect Ther&amp;title=Breast abscess: Evidence based management recommendations&amp;author=E Lam&amp;author=T Chan&amp;author=SM Wiseman&amp;volume=12&amp;publication_year=2014&amp;pages=753-62&amp;pmid=24791941&amp;doi=10.1586/14787210.2014.913982&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0023"><label>23.</label><mixed-citation id="jmrs682-cit-0023"><named-content content-type="citation-string">
+Fardhus ‐ MD, Sharfuzzaman A, Dewan MN, Kirttania DC, Hasan ASA, Rab JZ. Comparison between aspiration and incision and drainage of breast abscess. J Surg Sci
+2018; 22: 11–5.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Surg Sci&amp;title=Comparison between aspiration and incision and drainage of breast abscess&amp;author=MD Fardhus ‐&amp;author=A Sharfuzzaman&amp;author=MN Dewan&amp;author=DC Kirttania&amp;author=ASA Hasan&amp;volume=22&amp;publication_year=2018&amp;pages=11-5&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0024"><label>24.</label><mixed-citation id="jmrs682-cit-0024"><named-content content-type="citation-string">
+Colin C, Delov AG, Peyron‐Faure N, Rabilloud M, Charlot M. Breast abscesses in lactating women: Evidences for ultrasound‐guided percutaneous drainage to avoid surgery. Emerg Radiol
+2019; 26: 507–14.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1007/s10140-019-01694-z"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="31154537"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Emerg Radiol&amp;title=Breast abscesses in lactating women: Evidences for ultrasound‐guided percutaneous drainage to avoid surgery&amp;author=C Colin&amp;author=AG Delov&amp;author=N Peyron‐Faure&amp;author=M Rabilloud&amp;author=M Charlot&amp;volume=26&amp;publication_year=2019&amp;pages=507-14&amp;pmid=31154537&amp;doi=10.1007/s10140-019-01694-z&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0025"><label>25.</label><mixed-citation id="jmrs682-cit-0025"><named-content content-type="citation-string">
+Ding ST, He XP, Ma XJ, Zhang Y, Liu XX, Qin J. Lactational breast abscesses caused by methicillin‐resistant or methicillin‐sensitive Staphylococcus aureus infection and therapeutic effect of ultrasound‐guided aspiration. Breastfeed Med
+2020; 15: 471–4.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1089/bfm.2020.0003"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="32412775"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Breastfeed Med&amp;title=Lactational breast abscesses caused by methicillin‐resistant or methicillin‐sensitive Staphylococcus aureus infection and therapeutic effect of ultrasound‐guided aspiration&amp;author=ST Ding&amp;author=XP He&amp;author=XJ Ma&amp;author=Y Zhang&amp;author=XX Liu&amp;volume=15&amp;publication_year=2020&amp;pages=471-4&amp;pmid=32412775&amp;doi=10.1089/bfm.2020.0003&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0026"><label>26.</label><mixed-citation id="jmrs682-cit-0026"><named-content content-type="citation-string">
+Giess CS, Golshan M, Flaherty K, Birdwell RL. Clinical experience with aspiration of breast abscesses based on size and etiology at an academic medical center. J Clin Ultrasound
+2014; 42: 513–21.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1002/jcu.22191"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="24975466"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Clin Ultrasound&amp;title=Clinical experience with aspiration of breast abscesses based on size and etiology at an academic medical center&amp;author=CS Giess&amp;author=M Golshan&amp;author=K Flaherty&amp;author=RL Birdwell&amp;volume=42&amp;publication_year=2014&amp;pages=513-21&amp;pmid=24975466&amp;doi=10.1002/jcu.22191&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0027"><label>27.</label><mixed-citation id="jmrs682-cit-0027"><named-content content-type="citation-string">
+Rigourd V, Benoit L, Paugam C, et al. Management of lactating breast abscesses by ultrasound‐guided needle aspiration and continuation of breastfeeding: A pilot study. J Gynecol Obstet Hum Reprod
+2022; 51: 102214.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/j.jogoh.2021.102214"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="34469779"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Gynecol Obstet Hum Reprod&amp;title=Management of lactating breast abscesses by ultrasound‐guided needle aspiration and continuation of breastfeeding: A pilot study&amp;author=V Rigourd&amp;author=L Benoit&amp;author=C Paugam&amp;volume=51&amp;publication_year=2022&amp;pages=102214&amp;pmid=34469779&amp;doi=10.1016/j.jogoh.2021.102214&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0028"><label>28.</label><mixed-citation id="jmrs682-cit-0028"><named-content content-type="citation-string">
+Elagili F, Abdullah N, Fong L, Pei T. Aspiration of breast abscess under ultrasound guidance: Outcome obtained and factors affecting success. Asian J Surg
+2007; 30: 40–4.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1016/S1015-9584(09)60126-3"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="17337370"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Asian J Surg&amp;title=Aspiration of breast abscess under ultrasound guidance: Outcome obtained and factors affecting success&amp;author=F Elagili&amp;author=N Abdullah&amp;author=L Fong&amp;author=T Pei&amp;volume=30&amp;publication_year=2007&amp;pages=40-4&amp;pmid=17337370&amp;doi=10.1016/S1015-9584(09)60126-3&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0029"><label>29.</label><mixed-citation id="jmrs682-cit-0029"><named-content content-type="citation-string">
+Hussain N, Khan I, Ahmed T, et al. Comparison of the restoration of breast feeding after percutaneous aspiration vs incision and drainage for management of breast abscess. J Liaquat Univ Med Heal Sci
+2018; 17: 47–51.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Liaquat Univ Med Heal Sci&amp;title=Comparison of the restoration of breast feeding after percutaneous aspiration vs incision and drainage for management of breast abscess&amp;author=N Hussain&amp;author=I Khan&amp;author=T Ahmed&amp;volume=17&amp;publication_year=2018&amp;pages=47-51&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0030"><label>30.</label><mixed-citation id="jmrs682-cit-0030"><named-content content-type="citation-string">
+Li Y, Ma XJ. Risk factors for failure of ultrasound‐guided fine‐needle aspiration therapy for lactational breast abscess. Breastfeed Med
+2021; 16: 894–8.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1089/bfm.2021.0060"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="34165329"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Breastfeed Med&amp;title=Risk factors for failure of ultrasound‐guided fine‐needle aspiration therapy for lactational breast abscess&amp;author=Y Li&amp;author=XJ Ma&amp;volume=16&amp;publication_year=2021&amp;pages=894-8&amp;pmid=34165329&amp;doi=10.1089/bfm.2021.0060&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0031"><label>31.</label><mixed-citation id="jmrs682-cit-0031"><named-content content-type="citation-string">
+Naeem M, Rahimnajjad MK, Rahimnajjad NA, Ahmed QJ, Fazel PA, Owais M. Comparison of incision and drainage against needle aspiration for the treatment of breast abscess. Randomized Controlled Trial
+2012; 78: 1224–7.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="23089439"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Randomized Controlled Trial&amp;title=Comparison of incision and drainage against needle aspiration for the treatment of breast abscess&amp;author=M Naeem&amp;author=MK Rahimnajjad&amp;author=NA Rahimnajjad&amp;author=QJ Ahmed&amp;author=PA Fazel&amp;volume=78&amp;publication_year=2012&amp;pages=1224-7&amp;pmid=23089439&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0032"><label>32.</label><mixed-citation id="jmrs682-cit-0032"><named-content content-type="citation-string">
+Patil SB, Vagger VM. To compare the effectiveness of conventional incision and drainage versus USG guided percutaneous needle aspiration in treatment of breast abscess. J Evolution Med Dent Sci
+2019; 8: 1358–61.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Evolution Med Dent Sci&amp;title=To compare the effectiveness of conventional incision and drainage versus USG guided percutaneous needle aspiration in treatment of breast abscess&amp;author=SB Patil&amp;author=VM Vagger&amp;volume=8&amp;publication_year=2019&amp;pages=1358-61&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0033"><label>33.</label><mixed-citation id="jmrs682-cit-0033"><named-content content-type="citation-string">
+Saeed S, Naumani AR, Khalid R, Naqi SA, Kazmi A. Comparison between needle aspiration versus incision and drainage in management of breast abscess. Pakistan J Surg
+2021; 37: 56–8.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Pakistan J Surg&amp;title=Comparison between needle aspiration versus incision and drainage in management of breast abscess&amp;author=S Saeed&amp;author=AR Naumani&amp;author=R Khalid&amp;author=SA Naqi&amp;author=A Kazmi&amp;volume=37&amp;publication_year=2021&amp;pages=56-8&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0034"><label>34.</label><mixed-citation id="jmrs682-cit-0034"><named-content content-type="citation-string">
+Sarhan HH, Ibraheem OM. Percutaneous needle aspiration of breast abscesses. J Fac Med Bagdad
+2012; 54: 118–21.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Fac Med Bagdad&amp;title=Percutaneous needle aspiration of breast abscesses&amp;author=HH Sarhan&amp;author=OM Ibraheem&amp;volume=54&amp;publication_year=2012&amp;pages=118-21&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0035"><label>35.</label><mixed-citation id="jmrs682-cit-0035"><named-content content-type="citation-string">
+Sushel C, Kalhoro N, Luxmi S, Das K, Khaskheli GA, Mallah Q. Outcome of percutaneous needle aspiration in the treatment of lactational breast abscess. J Liaquat Univ Med Health Sci
+2020; 19.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Liaquat Univ Med Health Sci&amp;title=Outcome of percutaneous needle aspiration in the treatment of lactational breast abscess&amp;author=C Sushel&amp;author=N Kalhoro&amp;author=S Luxmi&amp;author=K Das&amp;author=GA Khaskheli&amp;volume=19&amp;publication_year=2020&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0036"><label>36.</label><mixed-citation id="jmrs682-cit-0036"><named-content content-type="citation-string">
+Suthar K, Mewada B, Surati K, Shah J. Comparison of percutaneous ultrasound guided needed aspiration and open surgical drainage in management of puerperal breast abscess. Int J Med Sci Public Health
+2013; 2: 69.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Int J Med Sci Public Health&amp;title=Comparison of percutaneous ultrasound guided needed aspiration and open surgical drainage in management of puerperal breast abscess&amp;author=K Suthar&amp;author=B Mewada&amp;author=K Surati&amp;author=J Shah&amp;volume=2&amp;publication_year=2013&amp;pages=69&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0037"><label>37.</label><mixed-citation id="jmrs682-cit-0037"><named-content content-type="citation-string">
+Singh G, Singh G, Singh LR, Rahul S, Singh S, Lekhachandra KS. Management of breast abscess by repeated aspiration and antibiotics. J Med Soc
+2012; 26: 2012–4.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Med Soc&amp;title=Management of breast abscess by repeated aspiration and antibiotics&amp;author=G Singh&amp;author=G Singh&amp;author=LR Singh&amp;author=S Rahul&amp;author=S Singh&amp;volume=26&amp;publication_year=2012&amp;pages=2012-4&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0038"><label>38.</label><mixed-citation id="jmrs682-cit-0038"><named-content content-type="citation-string">
+SRH R
+. Analytical study of drainage of breast abscess by open drainage with primary suturing with negative suction drain and conventional incision and drainage. Int J Surg Sci
+2019; 3: 397–9.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Int J Surg Sci&amp;title=Analytical study of drainage of breast abscess by open drainage with primary suturing with negative suction drain and conventional incision and drainage&amp;volume=3&amp;publication_year=2019&amp;pages=397-9&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0039"><label>39.</label><mixed-citation id="jmrs682-cit-0039"><named-content content-type="citation-string">
+WHO 2000
+. World Health Organization: Mastitis: Causes and Management. Number WHO/FCH/CAH/00.13. 2000. Available at: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://apps.who.int/iris/bitstream/handle/10665/66230/WHO_FCH_CAH_00.13_eng.pdf?sequence=1%26isAllowed=y" ext-link-type="uri">https://apps.who.int/iris/bitstream/handle/10665/66230/WHO_FCH_CAH_00.13_eng.pdf?sequence=1&amp;isAllowed=y</ext-link>.</named-content></mixed-citation></ref><ref id="jmrs682-bib-0040"><label>40.</label><mixed-citation id="jmrs682-cit-0040"><named-content content-type="citation-string">
+Alipour S, Dinas K. A systematic review of milk fistula in nursing mothers: modifying the perspective toward maintenance of breastfeeding. Clin Lactat
+2020; 11: 150–63.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Clin Lactat&amp;title=A systematic review of milk fistula in nursing mothers: modifying the perspective toward maintenance of breastfeeding&amp;author=S Alipour&amp;author=K Dinas&amp;volume=11&amp;publication_year=2020&amp;pages=150-63&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0041"><label>41.</label><mixed-citation id="jmrs682-cit-0041"><named-content content-type="citation-string">
+Chen C, Luo LB, Gao D, et al. Surgical drainage of lactational breast abscess with ultrasound‐guided Encor vacuum‐assisted breast biopsy system. Breast J
+2019; 25: 889–97.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1111/tbj.13350"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmcid" xlink:href="PMC6851758"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="31148346"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Breast J&amp;title=Surgical drainage of lactational breast abscess with ultrasound‐guided Encor vacuum‐assisted breast biopsy system&amp;author=C Chen&amp;author=LB Luo&amp;author=D Gao&amp;volume=25&amp;publication_year=2019&amp;pages=889-97&amp;pmid=31148346&amp;doi=10.1111/tbj.13350&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0042"><label>42.</label><mixed-citation id="jmrs682-cit-0042"><named-content content-type="citation-string">
+Varey AHR, Shere MH, Cawthorn SJ. Treatment of loculated lactational breast abscess with a vacuum biopsy system. Br J Surg
+2005; 92: 1225–6.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.1002/bjs.5075"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="15997452"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=Br J Surg&amp;title=Treatment of loculated lactational breast abscess with a vacuum biopsy system&amp;author=AHR Varey&amp;author=MH Shere&amp;author=SJ Cawthorn&amp;volume=92&amp;publication_year=2005&amp;pages=1225-6&amp;pmid=15997452&amp;doi=10.1002/bjs.5075&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0043"><label>43.</label><mixed-citation id="jmrs682-cit-0043"><named-content content-type="citation-string">
+Afridi SP, Alam SN, Ainuddin S. Aspiration of breast abscess through wide bore 14‐gauge intravenous cannula. J Coll Phys Surg Pak
+2014; 24: 719–21.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="doi" xlink:href="10.2014/JCPSP.719721"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmid" xlink:href="25327913"/><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Coll Phys Surg Pak&amp;title=Aspiration of breast abscess through wide bore 14‐gauge intravenous cannula&amp;author=SP Afridi&amp;author=SN Alam&amp;author=S Ainuddin&amp;volume=24&amp;publication_year=2014&amp;pages=719-21&amp;pmid=25327913&amp;doi=10.2014/JCPSP.719721&amp;"/></mixed-citation></ref><ref id="jmrs682-bib-0044"><label>44.</label><mixed-citation id="jmrs682-cit-0044"><named-content content-type="citation-string">
+Raj M, Arya S, Chejara RK, Chaudhary R, Mani V. Management of breast abscess by open drainage with primary closure versus standard incision and drainage – a randomised trial. J Clin Diagn Res
+2021; 3: 397–9.</named-content><ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="google-scholar" xlink:href="journal=J Clin Diagn Res&amp;title=Management of breast abscess by open drainage with primary closure versus standard incision and drainage – a randomised trial&amp;author=M Raj&amp;author=S Arya&amp;author=RK Chejara&amp;author=R Chaudhary&amp;author=V Mani&amp;volume=3&amp;publication_year=2021&amp;pages=397-9&amp;"/></mixed-citation></ref></ref-list></sec></sec><sec id="_ad93_" xml:lang="en" sec-type="associated-data" disp-level="1"><title>Associated Data</title><sec id="_adda93_" xml:lang="en" sec-type="data-availability-statement" disp-level="2"><title>Data Availability Statement</title><p>Data available on request from the authors.</p></sec></sec></body></article>

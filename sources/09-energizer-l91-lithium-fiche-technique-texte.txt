@@ -1,0 +1,168 @@
+PRODUCT DATASHEET
+
+             ENERGIZER L91                                                            Specifications                                  AA
+
+                     Ultimate Lithium                        Classification:          "Cylindrical Primary Lithium"
+         Industry Standard Dimensions
+                                                             Chemical System:         Lithium/Iron Disulfide (Li/FeS2)
+                                   mm (inches)               Designation:             ANSI 15-LF, IEC-FR14505 (FR6)
+                                                             Nominal Voltage:         1.5 Volts
+            Cells are tested against ANSI-19 C18.3M.         Sizing Compatibility     E91 NH15 1215
+                                                             Storage Temp:            -40°C to 60°C (-40°F to 140°F)
+                                                             Operating Temp:          -40°C to 60°C (-40°F to 140°F)*
+                                                             Typical Weight:          15 grams (0.5 oz.)
+                                                             Typical Volume:          8.0 cubic centimeters (0.49 cubic inch)
+                                                             Max Discharge:           2.5 amps continuous
+                                                                                      4.0 amps pulse (2 sec on / 8 sec off)
+                                                             (single battery only)    Less than 1 gram
+                                                                                      120 to 240 milliohms (depending on method)
+                                                             Lithium Content:         25 years at 21°C
+                                                             Typical IR:              On-Line Catalog-Application Manual (Li/FeS2)
+                                                             Shelf Life:              Please refer to PSDS Document
+                                                             More Details:
+                                                             Shipping:
+                                                             Certifications:
+
+                                                                                                   II 1G
+
+                                                                                      800045             Ex ia IIC Ga
+                                                                                                  Baseefa 14ATEX0107U
+
+                                                                             *All data shown tested at 21°C unless otherwise stated.
+
+                                                                                      Milliamp-Hours Capacity
+
+                                                                                       Constant Current Discharge to 0.8 Volts
+
+                                                                                      AA Lithium          AA Alkaline
+
+                                                                             5000
+
+                                                             Capacity (mAh)  4000
+
+                                                                             3000
+
+                                                                             2000
+
+                                                                             1000
+
+                                                                             0
+
+                                                                                   0  200     400  600                           800  1000
+
+                                                                                      Continuous Discharge Drain (mA)
+                                                                                         (alkaline shown for comparison)
+
+                  Discharge Profile                                          Temperature Effects on Capacity
+
+                   Constant Current Discharge                                                  Constant Current Discharge
+
+                  1 mA  10 mA                  100 mA                                 25 mA        250 mA                             1000 mA
+
+                                                                             4000
+
+         1.8                                                 Capacity (mAh)  3000
+         1.6
+Voltage  1.4                                                                 2000
+         1.2
+         1.0                                                                 1000
+         0.8
+                  1000  2000                   3000    4000                  0                                                   10 20 30
+               0                                                               -50 -40 -30 -20 -10 0
+
+                        Capacity (mAh)                                                              Temperature (°C)
+
+                                                              Important Notice
+
+                  This datasheet contains typical information specific to products manufactured at the time of its publication.
+                                  Contents herein do not constitute a warranty and are for reference only.
+
+Form No. L91GL1222                                                                                                               Page 1 of 2
+PRODUCT DATASHEET
+
+                                                                                      ENERGIZER L91                                                                                                     AA
+
+Resistance (ohms)                         Internal Resistance Profile                                                                               Pulse Response
+
+                                             Cell Ohmic Resistance - Dual Pulse Method                                                        Open Circuit Voltage - 100/500/1k mA Pulse
+                                        0.40
+                                                                                                                                          2
+                                        0.30
+                                                                                                                                        1.8
+
+                                        0.20                                                          Voltage (volts)                   1.6
+
+                                        0.10                                                                                            1.4
+
+                                        0.00      800 1600 2400 3200                         4000                                       1.2      250                     500         750       1000
+                                               0                                                                                              0
+                                                  Discharge Capacity (mAh)
+                                                                                                                                                 Time (milliseconds)
+
+                                                                                                                                                 (E91 AA alkaline shown for comparison)
+
+                                        Constant Power Performance                                                                            Constant Current Performance
+
+                                                  Typical Characteristics to 0.8 Volts                                                                   Typical Characteristics to 0.8 Volts
+
+10000                                                                                                                  10000
+
+Service (hours)  1000                                                                                 Service (hours)                   1000
+
+                   100                                                                                                                  100
+
+                                    10                                                                                                  10
+
+                                    1                                                                                                   1
+                                        1
+                                                      10               100                 1000                                               1            10                      100         1000
+                                    1.8
+                                    1.6                  Discharge (mW)                                                                                           Discharge (mA)
+                                    1.4
+                                    1.2           Application Tests                                                                              Application Tests
+                                    1.0
+                                    0.8               REMOTE/RADIO /CLOCK                                                                            CD/GAMES                 DIGITAL AUDIO
+                                                             Remote                                                                              250 mA 1 hr/day              100 mA 1 hr/day
+                                          0
+                                                        50 mA 1 hr/8 hrs day
+
+Voltage (volts)                                                        REMOTE/RADIO/CLOCK                              Voltage (volts)  1.8      CD/GAMES                     DIGITAL AUDIO
+                                                                                                                                        1.6
+                                                  15      30           45     60             75                                         1.4           10                 20             30              40
+                                                                                                                                        1.2
+                                                                                                                                        1.0
+                                                                                                                                        0.8
+
+                                                                                                                                              0
+
+                                                          Service (hours)                                                                                         Service (hours)
+
+                                                  Application Tests                                                                              Industry Standard Tests
+
+                                                PORTABLE LIGHTING                    TOY                                                         PERSONAL GROOMING                    DIGITAL CAMERA
+                                                       3.3 ohm LIF         3.9 ohm 1 hr/day                                                   750 mA 2 min/hr 8 hrs/day       1.5/.65K mW 2/.1/27.9s 10X
+
+                   Voltage (volts)  1.8                                                                                Voltage (volts)  1.8
+                                                                                                                                        1.6
+                                    1.6                                                                                                 1.4
+                                                                                                                                        1.2
+                                    1.4                                                                                                 1.0                                             DIGITAL CAMERA
+                                                                                                                                        0.8
+                                    1.2
+                                                                                                                                              0
+                                    1.0                                    LIGHT           TOY                                                                           GROOMING
+
+                                    0.8                                            9              12
+
+                                             0        3             6                                                                            100                     200            300             400
+
+                                                          Service (hours)                                                                                         Service (minutes)
+
+                                                                                              Important Notice
+
+                                                  This datasheet contains typical information specific to products manufactured at the time of its publication.
+
+                                                                  Contents herein do not constitute a warranty and are for reference only.
+
+                   Form No. L91GL1222                                                                                                                                                        Page 2 of 2
+

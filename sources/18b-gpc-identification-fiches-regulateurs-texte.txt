@@ -1,0 +1,487 @@
+Voltage Regulator                                                                  Alternators & Starters
+Plug Identification
+                                         CHRYSLER       DELCO          DUCELLIER   FORD      HITACHI
+                               BOSCH     F(1), F(2), F              (PARIS RHONE)
+                                                          2, S
+Positive (+)  B+, Bat                                     I, IG              B+    Bat, B+
+                                                          P, R
+Negative (–)  D–                                                    D–
+                                                            1
+Sense (+)                                                   F       +                     A      S
+                                                            F
+Ignition (+)     R                                          L                                R, IG
+                                                            D
+Stator        W                                                     +              Stat, S       N
+
+Indicator     D+, L                                                 L                            L
+
+Field         DF                                                    D+, D–         FLD, F        F
+
+Computer
+
+Lamp                                                                                      I
+                                                                                                                  D
+Not Used
+
+              LUCAS    MANDO MARELLI                    MITSUBISHI  MOTOROLLA  NIPPONDENSO SEV MARCHAL
+                 B+                                             A         BAT                                     B+
+Positive (+)
+Negative (–)  B–                                        E           D–             E         D–
+Sense (+)
+Ignition (+)  S                       S                 S, A                       S
+Stator
+Indicator                             R                 R, IG, D                   IG, R
+Field
+Computer                              P                 N, P                       N, P
+Lamp
+Not Used      D+                      L  30, D+         L           D+             L         61, D+
+
+                                         67             F           DF             F         DF
+
+                                                        C, G, Fr                   C, FR
+
+                                                        I
+
+                                                        D                          D
+Alternators & Starters                     B 2                        B 3                   Voltage Regulator
+  BOSCH                                                                                     Plug Identification
+             B 1                     DF                                     D+
+                                                                                  B+                       B 4
+              B+ B+
+                                                              D–                                          DF
+                                                                                  DF
+    DF        D+                 B+                       D–                                B+ D–
+                                                                 Reg. Type: ER
+Reg. Type: ER                                         D+                                    Reg. Type: ER
+                                                                    B 6–S
+                                     Reg. Type: ER                                               B 7
+                                                                       B+ B+
+        B 5                             B 6                                                         D–
+
+    DF        D–
+
+                   D+                      B+ B+
+
+                                             D+ DF            D+  DF                        DF             D+
+                                            D–
+B+            B+                                                       D–
+                                     Reg. Type: ER
+Reg. Type: ER                                                 Reg. Type: ER                    Reg. Type: ER
+                                         B 11
+        B 10                                                      B 13                             B 14
+                                                                                            D–
+    D–                                          D+
+                             D+
+                             B+                       B+          D+ DF                                     B–
+                             B+      Reg. Type: ER             Reg. Type: ER
+                                                                                            Reg. Type: ER
+DF D+                                  B 15-W                      B 16
+                                                                                                 B 17
+      Reg. Type: ER                                              D–
+                                                                                        D+  R
+         B 15                                                                           B+  L
+
+D+                                   D+                       DF D+                          Reg. Type: IR
+B+                                   B+
+B+                                   B+ W                      Reg. Type: ER                   B 19-L
+
+Reg. Type: IR                        Reg. Type: IR              B 19-DF                                     B+
+
+    B 18                                 B 19                            B+
+
+              BAT                               B+                                    DF
+
+       D+                            D+                                                     B+        L
+    Reg. Type: IR                     Reg. Type: IR
+                                                              D+                            Reg. Type: IR
+      B 19-W                               B 20                Reg. Type: IR
+
+              B+                        Fits Chrysler            B 21                           B22
+                                     AL122X, AL584X
+                                     AL588X, AL589X           Fits AL595X
+
+                                                              L   S                             D+ W
+
+D+                 W                 F          F
+
+    Reg. Type: IR                    Reg. Type: ER            Reg. Type: IR                 Reg. Type: IR
+Voltage Regulator              B 24                              B 25                       Alternators & Starters
+Plug Identification
+                                 D–                                                                       B 26
+ BOSCH (cont’d)
+                                                                                                                       L
+             B 23
+
+    W
+
+    D+                 B+  DF        D+
+
+    Free                                                      L        PFM                      B+
+                                                                                            Reg. Type: IR
+    Reg. Type: IR          Reg. Type: ER                      Reg. Type: IR
+                                                                                                B 31
+    B 27                       B 29                              B 30
+     L 15
+
+    Reg. Type: IR               D+ DF                         L                             COM DFM
+                                                                                            Reg. Type: IR
+    B 32                        Reg. Type: IR                   Reg. Type: IR
+                                                                                                B 35
+IG        S                        B 33                             B 34
+                                                                                                       B+
+L         M(DF)                             D+61                            B+
+                                                         B+1                             R                        W
+    Reg. Type: IR                                                                           D+
+                               B+2                               D+
+        B 36               B-                                                               Reg. Type: IR
+                                                                Reg. Type: IR
+     F1 F2                              R                                                       B 39
+                                                                    B 38
+                                Reg. Type: IR
+
+                                   B 37
+
+    Reg. Type: ER            FR L                             Reg. Type: IR                 Reg. Type: IR
+
+        B 40               Reg. Type: IR                          B 42                          B 78
+
+                               B 41                           Reg. Type: IR                     Fits VW
+
+    Reg. Type: ER          Reg. Type: ER                                                      BAT
+
+        B 82                                                                                              B+
+
+        Fits VW                                                                             D+
+
+              D+                                                                            Reg. Type: IR
+
+DF                 D–
+
+    Reg. Type: ER
+Alternators & Starters                                                                       Voltage Regulator
+  CHRYSLER                                                                                   Plug Identification
+               C1
+                                    C2                              C3
+
+                               FLD      FLD                    F
+
+F(1)                     F(2)                                            F
+                                                            Plug or Screw On Style
+        Reg. Type: ER              Reg. Type: ER                                                    DR 4
+                                                                Reg. Type: ER
+DELCO                                  DR 2                                                      Fits AL523X
+           DR 1                                                     DR 3
+                                        Type CS
+             Type SI                                                 Type CS
+                                                         S
+      1                  2                               I                            S          R       F
+                                                         L                            F
+     Reg. Type: IR                                       P                            L         Reg. Type: ER
+                                                                                      P
+        DR 6                        Reg. Type: IR                                                   DR 9
+                                                                 Reg. Type: IR
+Type CS Fits Geo Only                  DR 7                                                      Fits CS130D
+                                                                    DR 8
+                    D          Type CS Fits Geo Only
+                                                                  Fits CS130D
+                                                   S
+                                                                       P
+IG L IG L                                                               L                        P
+                                                                        I                        L
+                                                                        S
+                                                                                                 F
+                                                                 Reg. Type: ER                   S
+
+     Reg. Type: ER             Reg. Type: ER                                                    Reg. Type: ER
+
+         DR10                      DR11
+
+                                      L IG
+
+B+
+                     D+
+
+     Reg. Type: IR                 FR C
+
+                               Reg. Type: IR
+
+DUCELLIER (Paris-Rhone)
+
+         DPR 1                 DPR 2                           DPR 4                                DPR 5
+
+                                                                                             Fits AL400X, AL401X
+
+                                                                                             B+               D–
+
+              L                     L   +                      D+ DF                     B+                         D+
+         Reg. Type: IR
+                               Reg. Type: IR                   Reg. Type: ER                    Reg. Type: ER
+FORD
+             F 1                          F 2                  F 3                                  F 4
+
+                                        B+                  I           STA                  S
+                               I STA
+GRD      FLD                   S                            S                                F              B+
+                               A                            A BAT
+BAT STA
+                                      Reg. Type: IR            Reg. Type: IR                    Reg. Type: ER
+ Reg. Type: ER
+Voltage Regulator                  F 6                                F 7                  Alternators & Starters
+Plug Identification                                                                                      F 8
+                                                    A                             A
+ FORD (cont’d)                                      S                            S                               B+
+             F5                                     I                             I                     I
+                                                                 Reg. Type: IR
+                     A        Reg. Type: IR                                                           Reg. Type: IR
+                                                                       F11
+                      I             F10
+         Reg. Type: IR                                             (+) FR SIG
+                                L/IG D (+)
+               F9
+
+             L/IG FR (+)
+
+        Reg. Type: IR            Reg. Type: IR                   Reg. Type: IR
+
+HITACHI                               H 2                        H 3                          H 4
+           H 1
+
+   NS                                                         L                      D     L       R
+
+   F                          L                               S                            S
+                                                                                                  (Diesel)
+      Reg. Type: ER           Reg. Type: IR                      Reg. Type: IR
+                                                                                              Reg. Type: IR
+
+           H 7                   H 8                             H 9                                  H 10
+
+   S                       S                           L   S                            D  D
+   L                                                                                       P
+                                                       IG  IG                           L
+      Reg. Type: IR                                                                                Reg. Type: IR
+                                 Reg. Type: IR                   Reg. Type: IR
+
+      H 11                           H 12
+                                    LS
+C                      D
+                                 Reg. Type: IR
+S                      IG
+
+      Reg. Type: IR
+Alternators & Starters              L 2                              L 3                  Voltage Regulator
+  LUCAS                                                                                   Plug Identification
+              L 1                          BAT                 D+
+                                           D+                  B+                                       L 8
+                      D+                                       S
+                               Reg. Type: IR                                                 B+
+           Reg. Type: IR                                        Reg. Type: IR                  B– D+ D+
+                                                                                                                            S
+                                                                                                     Reg. Type: IR
+
+           L 15                   MD 3                             MD 5                         MD 7
+
+        D+                        LS                           R                          S
+        B+                     Reg. Type: IR                   L                          L
+        B+
+                                    M 8                         Reg. Type: IR               Reg. Type: IR
+        Reg. Type: IR             LS
+                                                                     M 9
+MANDO
+        MD 2–P                                                        FLS G
+
+      S                        Reg. Type: IR                   Reg. Type: IR
+      L
+                                       MA 2                    MA 3
+                            P
+        Reg. Type: IR                          #67                          To Rectifier
+                                               Field              D+
+        MD 7–P
+                               #30                    To Reg.
+   S                           Stator
+   L
+
+                            P
+        Reg. Type: IR
+
+MARELLI
+          MA 1
+
+                      #67
+                      Field
+    #30
+    Trio
+
+Reg. Type: ER                  Reg. Type: ER                   Reg. Type: IR
+Voltage Regulator                                                                Alternators & Starters
+Plug Identification
+                                  MI 2                      MI 2–P                  MI 3
+ MITSUBISHI
+            MI 1             S                           S                       E        N
+                             L                           L
+         N                                                                       F        A
+         F                    Reg. Type: IR                                   P
+                                                          Reg. Type: IR          Reg. Type: IR
+          Reg. Type: IR          MI 5-P
+                                                              MI 6                  MI 7
+             MI 5               Fits AL391X
+                                                         IG                      S
+       R                     R                           L                       L
+       L                     L
+                                                          Reg. Type: IR              Reg. Type: IR
+          Reg. Type: IR                           P
+                              Reg. Type: IR
+
+          MI 8                   MI 9                       MI 10                      MI 11
+
+      Fits Ford Only     Fits AL563X, AL564X                   FLS G             F(1)
+                                                                                 F(2)
+    I                           B+ I                     Reg. Type: IR
+    A                                                                               Reg. Type: ER
+                                      S
+      Reg. Type: IR
+                                      A
+
+                             Reg. Type: ER
+
+    MI 12                    MI 15                       MI 17                         MI 18
+
+       D                                                                                             D
+                                                                                                     P
+                         C                  FR       D                  FR          Reg. Type: IR
+
+IG                    L  IG                 L        IG                 L              MI 22
+
+    Reg. Type: IR            Reg. Type: IR               Reg. Type: IR           FR
+                                                                                 IG
+    MI 19                    MI 20                           MI 21               L
+    L IG
+                                                         D                          Reg. Type: IR
+                                                         S
+                                                         L
+
+      FR C                    F (1) F (2)                Reg. Type: IR
+                             Reg. Type: IR
+    Reg. Type: IR
+Alternators & Starters                                                                    Voltage Regulator
+  MOTOROLA                                                                                Plug Identification
+
+         M 1                       M 2                            M 10                           M 15
+
+D–             D–                       BAT                  D–                               D+
+                                        D+                                            D+      B+
+    BAT        D+                                                                     B+      B+
+                                                                                      B+
+
+                                                         DF D+
+
+NIPPONDENSO                           N 2                       N 3                                N 4
+
+            N 1                    “B” Circuit               “B” Circuit                          “A” Circuit
+
+           “B” Circuit                             F                         F            F
+
+    E
+
+    F              N            E                 N      E                    N           E                    P
+
+    Reg. Type: IR                  Reg. Type: IR             Reg. Type: IR                    Reg. Type: IR
+
+         N 5                         N 6                            N 7                              N 8
+
+       “A” Circuit                 “A” Circuit               L                                IG
+                                                             IG                               N
+                         L                          L
+                                                               Reg. Type: IR                    Reg. Type: IR
+E                     F     E                     F
+
+    Reg. Type: IR                  Reg. Type: IR
+
+N 9 Toyota Type                     N 10                           N 11                       N 12
+
+       “A” Circuit                 Fits Isuzu                R                                 D
+                                                             L
+L                               L
+                                                               Reg. Type: IR
+S                  IG           S              IG                                         IG                   L
+                                                                   N 15
+    Reg. Type: IR                  Reg. Type: IR                                              Reg. Type: IR
+
+         N 13                      N 14                                                       N 16
+
+           S                          C
+
+                                                         C                    FR          S                    FR
+
+IG                 L        IG                        L  IG                     L         IG                      L
+
+    Reg. Type: IR                  Reg. Type: IR             Reg. Type: IR                    Reg. Type: IR
+Voltage Regulator                                                                             Alternators & Starters
+Plug Identification
+
+NIPPONDENSO (cont’d)
+
+      N 17                           N 18                                        N 19                       N 20
+
+                                Fits Toyota MR2                             Fits Toyota MR2      Fits Nippondenso 1993-94
+                                                                                                                  IG
+                                L                   S                                 E
+
+D                    FR
+
+                                        S
+
+IG                   L                     IG          L                 F                 P     S                      L
+
+                                           Harness            Regulator
+                                                    Inside
+                            Outside IG
+
+      Reg. Type: IR             Reg. Type: IR                               Reg. Type: IR              Reg. Type: IR
+
+       N 21                                N 22                                N 23                         N 24
+
+      AL6522X                              L IG                                 L IG                              IG
+
+           F(1)
+
+F(2)                                                                                                C                   L
+
+     Reg. Type: IR                FR S                                         FR C                    Reg. Type: IR
+                                Reg. Type: IR                               Reg. Type: IR
+
+      N 25                                 N 26                             N 27                             N 28
+
+                                             IG                                 S                      M IG L
+
+F(1)                    F(2) D                            LD                                  L          Reg. Type: IR
+
+      Reg. Type: IR             Reg. Type: IR                               Reg. Type: IR
+
+      N 29                           N 30                                       N 31
+
+   SFL                          D+ (L)                                          L IG
+
+       Reg. Type: IR             Reg. Type: IR                                FRMSS
+                                                                            Reg. Type: IR
+SEV MARCHAL
+           SEV 1
+
+           DF
+
+D+                      D–
+
+61
+
+      B+
+      Reg. Type: ER
+Alternators & Starters                                         Voltage Regulator
+  VALEO                                                        Plug Identification
+
+ V 1                           V 2           V 3                      V 4
+LS
+                        S                     IG               D
+                                                               P
+                        L                 C                 L
+                                                                 Reg. Type: IR
+Reg. Type: IR              Reg. Type: IR     Reg. Type: IR
+

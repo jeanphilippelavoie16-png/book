@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Altitude and Azimuth of the Sun or Moon During One Day</title>
+
+
+    <link rel="stylesheet" href="/uswds/css/uswds.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/aa.css">
+    <link rel="stylesheet" href="/css/pretty_out.css">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+</head>
+
+<body>
+    
+
+<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+
+<div class="site-banner usa-banner">
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img class="usa-banner__header-flag" src="/uswds/img/us_flag_small.png" alt="U.S. flag">
+                </div>
+                <div class="grid-col-fill tablet:grid-col-auto">
+                    <p class="usa-banner__header-text">An official website of the United States government</p>
+                    <p class="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
+                </div>
+                <button class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">
+            <span class="usa-banner__button-text">Here’s how you know</span>
+            </button>
+            </div>
+        </header>
+        <div class="usa-banner__content usa-accordion__content" id="gov-banner">
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img" src="/uswds/img/icon-dot-gov.svg" alt="Dot gov">
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>The .gov means it’s official.</strong>
+                            <br> Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.
+                        </p>
+                    </div>
+                </div>
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img" src="/uswds/img/icon-https.svg" alt="Https">
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>The site is secure.</strong>
+                            <br> The <strong>https://</strong> ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="usa-overlay"></div>
+<header class="usa-header site-header site-header-dark" role="banner">
+    <div class="usa-navbar site-header-navbar">
+        <div class="usa-logo site-logo" id="logo">
+            <em class="usa-logo__text">
+                <a class="margin-right-05" href="/" title="Home" aria-label="USNO Astronomical Applications Home">
+                <span aria-hidden="true" class="site-title-short">AA Dept</span>
+                <span class="site-title">Astronomical Applications Department</span>
+                </a>
+            </em>
+        </div>
+        <div class="urania-logo-container">
+            <a href="https://www.cnmoc.usff.navy.mil/usno/">
+                <img class="urania-logo" src="/graphics/urania_logo_circle.png" alt="Urania Logo">
+            </a>
+        </div>
+        <button class="usa-menu-btn">Menu</button>
+    </div>
+
+</header>
+<nav class="site-nav-secondary sticky">
+    <ul>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/index"><span>Main</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/data/index"><span>Data Services</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/faq/index"><span>Information Center</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/publications/index"><span>Publications</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/software/index"><span>Software</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/about/index"><span>About Us</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/sitemap/"><span>Site Map</span></a>
+        </li>
+        
+    </ul>
+</nav>
+    
+
+<nav role="navigation" aria-label="Mobile Navigation" class="usa-nav site-nav sidenav-mobile">
+    <div class="usa-nav__inner"><button class="usa-nav__close"><img src="/uswds/img/close.svg" role="img" alt="close"></button>
+    <ul class="usa-nav__primary">
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/index"><span>Main</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/data/index"><span>Data Services</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/faq/index"><span>Information Center</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/publications/index"><span>Publications</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/software/index"><span>Software</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/about/index"><span>About Us</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/sitemap/"><span>Site Map</span></a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+<main class="usa-layout-docs usa-section" id="main-content">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="usa-layout-docs__main desktop:grid-col-12 usa-prose">
+                
+
+<h1>Altitude and Azimuth of the Sun or Moon During One Day</h1>
+<div style="text-align: center">
+    
+    <table class="tableA">
+        <tr class="trA">
+            <td class="tdAleft"></td>
+    </table>
+    
+        
+            <table>
+                <tr>
+                    <th colspan="3">Altitude and Azimuth of the Sun
+                        <br> Sept-Iles
+                        <br> N 50° 13&#39;, W 66° 23&#39;
+                        <br>
+                        <br> 2026-11-15
+                        <br> Zone: 5.0 hours West of Greenwich</th>
+                </tr>
+                <tr>
+                    <td><strong>Time</strong></td>
+                    <td><strong>Altitude</strong></td>
+                    <td><strong>Azimuth (E&nbsp;of&nbsp;N)</strong></td>
+                </tr>
+                
+                    
+                        <tr>
+                            <td>05:30</td>
+                            <td>-11.1°</td>
+                            <td>105.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>05:40</td>
+                            <td>-9.5°</td>
+                            <td>107.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>05:50</td>
+                            <td>-8.0°</td>
+                            <td>109.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>06:00</td>
+                            <td>-6.5°</td>
+                            <td>111.3°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>06:10</td>
+                            <td>-5.0°</td>
+                            <td>113.2°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>06:20</td>
+                            <td>-3.6°</td>
+                            <td>115.0°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>06:30</td>
+                            <td>-2.1°</td>
+                            <td>116.9°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>06:40</td>
+                            <td>-0.1°</td>
+                            <td>118.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>06:50</td>
+                            <td>1.1°</td>
+                            <td>120.7°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>07:00</td>
+                            <td>2.3°</td>
+                            <td>122.7°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>07:10</td>
+                            <td>3.6°</td>
+                            <td>124.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>07:20</td>
+                            <td>4.8°</td>
+                            <td>126.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>07:30</td>
+                            <td>6.1°</td>
+                            <td>128.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>07:40</td>
+                            <td>7.3°</td>
+                            <td>130.7°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>07:50</td>
+                            <td>8.4°</td>
+                            <td>132.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>08:00</td>
+                            <td>9.6°</td>
+                            <td>134.9°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>08:10</td>
+                            <td>10.7°</td>
+                            <td>137.0°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>08:20</td>
+                            <td>11.7°</td>
+                            <td>139.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>08:30</td>
+                            <td>12.8°</td>
+                            <td>141.3°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>08:40</td>
+                            <td>13.7°</td>
+                            <td>143.5°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>08:50</td>
+                            <td>14.6°</td>
+                            <td>145.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>09:00</td>
+                            <td>15.5°</td>
+                            <td>148.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>09:10</td>
+                            <td>16.3°</td>
+                            <td>150.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>09:20</td>
+                            <td>17.1°</td>
+                            <td>152.7°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>09:30</td>
+                            <td>17.8°</td>
+                            <td>155.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>09:40</td>
+                            <td>18.4°</td>
+                            <td>157.5°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>09:50</td>
+                            <td>19.0°</td>
+                            <td>159.9°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>10:00</td>
+                            <td>19.5°</td>
+                            <td>162.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>10:10</td>
+                            <td>20.0°</td>
+                            <td>164.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>10:20</td>
+                            <td>20.3°</td>
+                            <td>167.3°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>10:30</td>
+                            <td>20.7°</td>
+                            <td>169.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>10:40</td>
+                            <td>20.9°</td>
+                            <td>172.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>10:50</td>
+                            <td>21.1°</td>
+                            <td>174.9°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>11:00</td>
+                            <td>21.2°</td>
+                            <td>177.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>11:10</td>
+                            <td>21.2°</td>
+                            <td>180.0°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>11:20</td>
+                            <td>21.2°</td>
+                            <td>182.5°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>11:30</td>
+                            <td>21.1°</td>
+                            <td>185.0°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>11:40</td>
+                            <td>20.9°</td>
+                            <td>187.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>11:50</td>
+                            <td>20.7°</td>
+                            <td>190.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>12:00</td>
+                            <td>20.3°</td>
+                            <td>192.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>12:10</td>
+                            <td>20.0°</td>
+                            <td>195.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>12:20</td>
+                            <td>19.5°</td>
+                            <td>197.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>12:30</td>
+                            <td>19.0°</td>
+                            <td>200.0°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>12:40</td>
+                            <td>18.4°</td>
+                            <td>202.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>12:50</td>
+                            <td>17.8°</td>
+                            <td>204.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>13:00</td>
+                            <td>17.1°</td>
+                            <td>207.2°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>13:10</td>
+                            <td>16.3°</td>
+                            <td>209.5°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>13:20</td>
+                            <td>15.5°</td>
+                            <td>211.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>13:30</td>
+                            <td>14.6°</td>
+                            <td>214.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>13:40</td>
+                            <td>13.7°</td>
+                            <td>216.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>13:50</td>
+                            <td>12.7°</td>
+                            <td>218.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>14:00</td>
+                            <td>11.7°</td>
+                            <td>220.8°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>14:10</td>
+                            <td>10.7°</td>
+                            <td>222.9°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>14:20</td>
+                            <td>9.6°</td>
+                            <td>225.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>14:30</td>
+                            <td>8.4°</td>
+                            <td>227.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>14:40</td>
+                            <td>7.2°</td>
+                            <td>229.2°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>14:50</td>
+                            <td>6.0°</td>
+                            <td>231.3°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>15:00</td>
+                            <td>4.8°</td>
+                            <td>233.3°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>15:10</td>
+                            <td>3.5°</td>
+                            <td>235.2°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>15:20</td>
+                            <td>2.3°</td>
+                            <td>237.2°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>15:30</td>
+                            <td>1.0°</td>
+                            <td>239.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>15:40</td>
+                            <td>-0.8°</td>
+                            <td>241.1°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>15:50</td>
+                            <td>-2.2°</td>
+                            <td>243.0°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>16:00</td>
+                            <td>-3.6°</td>
+                            <td>244.9°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>16:10</td>
+                            <td>-5.1°</td>
+                            <td>246.7°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>16:20</td>
+                            <td>-6.6°</td>
+                            <td>248.6°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>16:30</td>
+                            <td>-8.1°</td>
+                            <td>250.4°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>16:40</td>
+                            <td>-9.6°</td>
+                            <td>252.3°</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <td>16:50</td>
+                            <td>-11.1°</td>
+                            <td>254.1°</td>
+                        </tr>
+                    
+                
+            </table>
+            
+     &nbsp; 
+
+</div>
+
+            </div>
+        </div> 
+    </div>
+
+     
+
+<footer class="usa-footer usa-footer--slim">
+    <div class="usa-footer">
+      <div class="usa-footer grid-row">
+        <div class="mobile-lg:grid-col-12 bg-gold padding-y-1 line-height-sans-3 font-lang-4">
+          <nav class="usa-footer__nav" aria-label="Footer navigation">
+            <ul class="grid-row grid-gap">
+              <li class="mobile-lg:grid-col-6 desktop:grid-col-3 usa-footer">
+                <p class="usa-footer">This is an official 
+
+<a href='https://www.navy.mil' target="_blank" rel="noreferrer">U.S. Navy</a>
+
+ Web site</p>
+              </li>
+              <li class="mobile-lg:grid-col-6 desktop:grid-col-7 usa-footer">
+                <p class="usa-footer">
+                  Hyperlinks do not constitute endorsement by the U.S. Navy of non-U.S.Government sites or the information, products, or services contained therein.
+                </p>
+              </li>
+              <li class="mobile-lg:grid-col-6 desktop:grid-col-2 usa-footer">
+                <p><a class="usa-footer" href="/about/PrivacyNotice">Privacy and Security Notice</a></p>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer> 
+
+    
+</main>
+
+
+
+<script src="/js/aa.js"></script>
+<script src="/uswds/js/uswds.min.js"></script>
+</body>
+
+</html>

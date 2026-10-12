@@ -1,0 +1,684 @@
+Freescale Semiconductor                                                 AN4289
+Application Note                                             Rev. 2.0, 3/2011
+
+LIN Alternator Regulator Devices
+
+1 Overview                                                   Contents
+
+Basic functionality for Freescale’s family of LIN            1 Overview . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+alternator regulators is provided along with a               2 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+detailed description for practical applications.
+Parameters are available by fuse providing product             2.1 Protection and Diagnostics . . . . . . . . . . . 2
+alignment with your application profile.                       2.2 Operational Modes . . . . . . . . . . . . . . . . . . 2
+                                                             3 Fuse Options . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2 Introduction                                               4 LIN Protocol. . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+                                                               4.1 Message Frame . . . . . . . . . . . . . . . . . . . . . 8
+The LIN alternator regulator family of devices is              4.2 Bit Rate . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+specially designed to work in adverse                        5 Operational Mode Examples . . . . . . . . . . . . 10
+environments. It supplies a current through a high           6 Packaging . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+side MOSFET to the excitation coil of the alternator           6.1 Die Dimensions . . . . . . . . . . . . . . . . . . . . 12
+and provides an internal freewheeling diode. It’s              6.2 Die Characteristics . . . . . . . . . . . . . . . . . 13
+main functionality is to keep the battery at its               6.3 Assembly Recommendations . . . . . . . . 13
+nominal value, whatever the vehicle demand. The
+protection and diagnosis may be programmed
+using OTP (non-volatile Memory).
+
+Additionally, these devices have a fail-safe mode
+for continuous battery charging in the event LIN is
+disconnected.
+
+© Freescale Semiconductor, Inc., 2011. All rights reserved.
+Introduction
+
+2.1 Protection and Diagnostics
+
+These devices incorporate the following protections and diagnostics, some of which are
+programmable and can be reported using LIN (version 1.3) to the Engine Control Unit (ECU). For
+more information please refer the device’s data sheet. (www.freescale.com)
+
+    • Thermal protection
+    • Thermal compensation
+    • Over-current detection (LIN and EXC)
+    • Over-voltage
+    • Resistive short-circuit detection (excitation to ground)
+    • High phase level missing
+    • LIN protocol errors (checksum, slave not responding, sync break error, parity)
+    • LIN bus time-out
+
+2.2 Operational Modes
+
+The LIN alternator regulator family has four operating modes: Standby mode (car parking),
+Pre-excitation mode (with LIN and no phase activity), Default mode (without LIN communication
+and with phases) and Normal mode.
+
+These devices change its current consumption and capabilities depending on the operational
+mode. Detailed information for each of the modes can be found in the device’s data sheet.
+
+   LIN Alternator Regulator Devices, Rev. 2.0
+
+2                                              Freescale Semiconductor
+                                                                                                                                              Fuse Options
+
+3 Fuse Options
+
+                                     Table 1. Version Determined Electrical Parameters
+
+Self-Start  Self-start    Phase        Default    Fstart   Fstop  LRC     LRC        Crest      BUS        Thermal       thermal Special LIN  Alternator   Slave
+            Threshold   sensitivity  regulation   (RPM)    (RPM)  Rates  disable  Regulation  inactivity     Fault   compensation Feature     Pole-Pair   Address
+                                     voltage (V)                         (RPM)                                       threshold (°C)
+              (RPM)         (V)                                                     Active /    1.3/3     Threshold                               6/8        A/B
+                                                                         2400/    Not Active
+Active/ 3000 / 4000 0.45/0.9/1.3     13.5 to 15 800/1050/ 500/650/ 0/3/  3000/                            135/145/   135/145/    Active/
+                                                                         4000/                             150/160   150/160   Not active
+Not Active              5/1.8        (100 mV 1300/1550/1 850/1000 6.4/   never
+
+                                     steps) 800/2050/23           12.3
+
+                                                  00/2500
+
+3.1 Self-Start Option (Active / Not Active)
+
+                                                           NOTE
+                  If the LIN communication recovers during self-start operation, the LIN
+                  immediately takes the priority and new parameters coming from the
+                  Master (ID #29) will be considered.
+
+Self-start option allows the product to start the regulation whereas there is no LIN communication
+between the master and the slave (LIN wire disconnection or ECU not functional). In that case
+the product takes internal default parameters programed at Freescale production line as new
+reference and apply them as soon as the phase frequency reaches the self-start threshold.
+
+3.2 Self-start Threshold (3000 / 4000 RPM)
+
+Two selectable values are available in the product indicating at which rotation speed the device
+will start the regulation. Those values are the same whatever the number of poles of the
+alternator. This is present only when the self-start option has been activated by the fuse.
+
+The signal used for speed measurement are coming from stator windings (Phase1 and Phase2).
+For more information, please refer to the application diagram in the device data sheet.
+
+3.3 Phase Sensitivity (0.45 V / 0.9 V / 1.35 V / 1.8 V)
+
+Phase sensitivity is linked to the phase signal voltage level coming from the stator windings.
+Phase signals are naturally out of phase by 120°. The device measures, in real time, the delta
+voltage between Phase 1 and Phase 2.
+
+As soon as the voltage level difference between Phase 1 and Phase 2 reaches the desired phase
+sensitivity level AND if phase frequency is high enough (fstart), the product will start regulation.
+
+3.4 Default Regulation Voltage (From 13.5 V to 15 V with 100m V
+         Steps)
+
+The default regulation voltage is used only if the LIN communication between the master and
+slave (LIN wire disconnection or ECU not functional) is lost during operation. In that case, the
+target regulation voltage becomes the one programmed in the default regulation voltage (in
+normal operation). The target regulation voltage is the one present in LIN MID#29 coming from
+the master.
+
+                                                  LIN Alternator Regulator Devices, Rev. 2.0
+
+Freescale Semiconductor                                                                                                                                            3
+Fuse Options
+
+3.5 Fstart (800, 1050, 1300, 1550, 1800, 2050, 2300, 2500 RPM)
+
+Engine speed is reflected on the phase signals. The phase frequency depends on both engine
+speed and the number of poles in the alternator. The regulator uses this information to start the
+regulation voltage.
+
+This Fstart value is used only if LIN communication is valid otherwise the self-start speed
+threshold is considered.
+
+3.6 Fstop (500, 650, 850, 1000 RPM)
+
+This parameter indicates to the regulator at which alternator rotation speed it must stop the
+battery regulation function. This value corresponds usual to vehicle stops.
+
+3.7 LRC Rate (0, 3, 6.4, 12.3s)
+
+Load Response Control (LRC) function is very useful when there is a high vehicle load demand
+combined with a low engine speed. The LRC function controls the rotor current increase at the
+specified rate up to the LRC disable frequency. This function is only active for duty cycle
+increases: if there is a load unballasting, the excitation duty cycle is instantly reduced to the duty
+cycle corresponding to the new battery charge state. The alternator responds to loads
+commutation in the vehicle, slowly increasing the current in the rotor (EXC duty cycle). The LRC
+is mainly present at idle speed to avoid stalling the car.
+
+3.8 LRC Disable (2400, 3000, 4000, Never RPM)
+
+This specifies the rotation speed the LRC function is disabled. Above this rotation speed the
+changes in the duty cycle will be instantly done.
+
+3.9 BUS inactivity (1.3, 3 s)
+
+The regulator is checking continuously the activity on the BUS. If there is no LIN activity during
+the specified period, the regulator takes the following actions:
+
+    • If there is phase activity coming from stator, the regulator loads the internal default
+         parameter and acts accordingly
+
+    • If there is no phase activity, the regulator goes back in Standby mode.
+
+3.10 Default LIN Readout (T°, Current)
+
+The regulator, under the MID#11 LIN command from master, can send back to the ECU junction
+temperature (Tj) OR rotor current (not both). The choice must be specified through this option
+and programmed at Freescale.
+
+   LIN Alternator Regulator Devices, Rev. 2.0
+
+4                                              Freescale Semiconductor
+                                                                                                       Fuse Options
+
+                                                                MID #11
+
+                                                                   Byte 1
+
+    7                              6         5               4              3    2       1         0
+                                                                               F_EL  F_MEC       F_HT
+    7                                     EXC Duty Cycle
+                                                                                                   0
+LIN Bus                                                            Byte 2
+Time-Out
+                                   6         5               4              3  2              1
+
+                                   Com                    Measured Current OR Temperature
+                                   Error
+
+                         Figure 1. Temperature or Current Data Location in MID#11
+
+3.11 Thermal Fault Threshold (135, 145, 150, 160 °C)
+
+This option is important for the ECU and indicates if the system reaches a certain level of
+temperature. In that case, the ECU can takes appropriate actions and decide, for example, to
+reduce current in the rotor and by consequence, duty cycle on the EXCitation pin. The global
+system temperature should decrease slowly.
+
+The information is available in the MID#11 (see below).This thermal fault threshold is
+independent of the thermal shutdown specified, which stays active at the same level
+(185 °C +/- 10 °C).
+
+                                                                   MID #11
+
+                                                                   Byte 1
+
+                             7            6     5               4           3    2       1         0
+                                                                               F_EL  F_MEC       F_HT
+                             7               EXC Duty Cycle
+                         LIN Bus                                                                   0
+                         Time-Out                                  Byte 2
+
+                                          6     5               4           3  2     1
+
+                                      Com                    Measured Current OR Temperature
+                                      Error
+
+                         Figure 2. Flag High Temperature Data Location in MID#11
+
+                                          LIN Alternator Regulator Devices, Rev. 2.0
+
+Freescale Semiconductor                                                                                5
+Fuse Options
+
+3.12 Thermal Compensation Threshold (135, 145, 150, and 160 °C)
+
+The thermal compensation feature reduces the target regulation voltage when the system
+temperature increases. This compensation is activated according to threshold programmed in
+the circuit.
+
+    • Four main slew rates have been defined for this function which are: -50, -100, -200 and
+         -400 mV/°C
+
+    • Thermal compensation starts when the temperature threshold is reached
+    • Four regulation target categories are defined: 10.6 - 12.1 V, 12.2 - 13.7 V, 13.8 - 15.3 V,
+
+         and 15.4 - 16 V.
+    • Final slope choice for the thermal compensation is chosen according to the temperature
+
+         threshold and the target regulation voltage.
+
+Thermal compensation on the regulation voltage is clamped at 10.6V. The thermal flag is sent
+back by the regulator as soon as the thermal compensation is active.
+
+.
+
+   Slew Rate                    Temperature threshold
+   (mV/°C)                          (degree Celsius)
+
+                           135°C 145°C 150°C 160°C
+
+                10.6 V     -50  -50  -50  -100
+                to 12.1 V
+   Regulation              -100 -100 -100 -200
+   Voltage (V)  12.2 V
+                to 13.7 V
+                           -100 -200 -200 -400
+                13.8 V
+                to 15.3 V  -200 -200 -200 -400
+
+                15.4 V
+                to 16.0 V
+
+                                Figure 3. Thermal Compensation Curves
+
+                                LIN Alternator Regulator Devices, Rev. 2.0
+
+6                                                                           Freescale Semiconductor
+                                                                                                                                                      Fuse Options
+
+3.13 Special LIN feature (Active / Not Active)
+
+This function, when activated by fuse, allows the master (ECU) to command the regulator to not
+charge the rotor (no current) whatever the conditions are in the vehicle (load, speed, battery
+charge level). Sending a 10.6 V target regulation voltage in MID#29, enables this feature. If
+another target regulation voltage is asked by the ECU, the product will regulate the battery at the
+required voltage then, if a new 10.6 V command is sent, the EXC will be switched off.
+
+It is important to note that if this command is programmed not active, the 10.6 V command
+(EXC=0) is available only one-time after a cranking and if the ECU did not change the target
+regulation from 10.6 V to other ones (up to 16 V). Once the product started a regulation cycle,
+the 10.6 V command is then no more available and 10.6 V becomes a target regulation voltage
+like others.
+
+                                            MID #29
+
+                                            Byte 1
+
+                         7  6  5         4           3  2               1             0
+
+                         X  X               Target Regulation Voltage
+
+                                            Byte 2
+
+                         7  6  5         4           3  2               1             0
+
+                            Ramp Cutoff                 Ramp Rate
+
+                                            Byte 3
+
+                         7  6  5         4           3  2               1             0
+
+                         X  X  X         X              Current Limitation
+
+                                            Byte 4
+
+                         7  6  5         4           3  2               1             0
+
+                         X  X  X         X           X  X               X             X
+
+                         Figure 4. Target Regulation Voltage Data Location in MID#29
+
+3.14 Alternator Pole Pair (6, 7, 8, 9 Poles)
+
+Depending on the machine type, and to adapt the frequency conversion on the phase signal
+compared to real RPM, the alternator pole pair number must be programmed.
+
+3.15 Crest Regulation (Active, Not Active)
+
+Crest regulation fuse not active: in the case of a load dump, EXC is stopped when the internal
+filter reaches the load dump detection threshold (~21 V typ.). The delay is given by the internal
+filter (~1.0 ms).
+
+Crest regulation fuse active: in the case of a load dump, EXC is stopped immediately when the
+internal ADC reaches 21 V typical. The delay is given by the ADC conversion (~16 µs).
+
+                            LIN Alternator Regulator Devices, Rev. 2.0
+
+Freescale Semiconductor                                                                   7
+LIN Protocol
+
+4 LIN Protocol
+
+The version of LIN protocol used in our product is REV 1.3 (available on demand on the Web)
+
+4.1 Message Frame
+
+                                                Figure 5. LIN standard Message Frame
+
+Three identifier field are recognized by the product which are MID#29, MID #11, MID #12.
+MID#29 is a writing command (4 bytes) then MID#11 and MID#12 are read commands (2 bytes).
+the data in the MID are fixed and must be respected and are organized in the following way.
+
+                      MID #29
+
+                      Byte 1
+
+   7  6  5         4           3  2                  1  0
+
+   X  X               Target Regulation Voltage
+
+                      Byte 2
+
+   7  6  5         4           3  2                  1  0
+
+      Ramp Cutoff                 Ramp Rate
+
+                      Byte 3
+
+   7  6  5         4           3  2                  1  0
+
+   X  X  X         X              Current Limitation
+
+                      Byte 4
+
+   7  6  5         4           3  2                  1  0
+
+   X  X  X         X           X  X                  X  X
+
+         Figure 6. LIN MID#29 Writing Command
+
+         LIN Alternator Regulator Devices, Rev. 2.0
+
+8                                                          Freescale Semiconductor
+                                                                                                 LIN Protocol
+
+                                                        MID #11
+
+                                                        Byte 1
+
+     7                      6      5                 4           3    2       1             0
+                                                                    F_EL  F_MEC           F_HT
+     7                         EXC Duty Cycle
+                                                                                            0
+ LIN Bus                                                Byte 2
+Time-Out
+                            6      5                 4           3  2          1
+
+                            Com                Measured Current OR Temperature
+                            Error
+
+                               Figure 7. LIN MID#11 Reading Command
+
+                                                        MID #12
+
+                                                        Byte 1
+
+                         7  6      5                 4           3  2          1          0
+
+                                   Alternator Class                    Manufacturer ID
+
+                                                        Byte 2
+
+                         7  6      5                 4           3  2          1          0
+
+                                                        Slave not              ID Parity  Sync
+
+                         0 0 0 0 responding Checksum Fault Break
+                                                                                          Fault
+
+                                               Figure 8. LIN MID#12 Reading Command
+
+4.2 Bit Rate
+
+The maximum bit rate is 20 kbit/s. the minimum bit rate is 1.0 kbits/s.
+
+     S lo w                             Bit Rate                                Fast
+2400 bit/sec                             M edium                          19200 bit/sec
+                                      9600 bit/sec
+
+                                                Figure 9. LIN Bit Rate Recommendation
+
+For more details regarding LIN protocol, please refer to the LIN Specification Package, Revision
+1.3 (www.lin-subbus.de/). The physical layer parameter of the LIN, designed in the product, is
+also in line with the LIN Specification Package, Revision 1.3. Conformance reports are available
+upon request from the C&S group GmbH (http://www.cs-group.de/) which is an accredited
+testhouse by the LIN administration.
+
+                                   LIN Alternator Regulator Devices, Rev. 2.0
+
+Freescale Semiconductor                                                                          9
+Operational Mode Examples
+
+5 Operational Mode Examples
+
+              LIN activity start  Cranking
+                (at Key ON)
+
+    No LIN
+    activity
+
+              MID#29              MID#11    MID#12  MID#29                         MID#11  LIN
+
+              No Rotation                               VP-H (High phase voltage)          Phase
+                                                                                           Voltage
+                         DCSTARTUP (13.5%)  100% DC
+                                                         LRC                                    EXC
+                      ~12V
+    0% DC
+
+                                                                                   Vreg target (From MID #29)
+
+                                                                                                       VB+A
+
+    Stdby             Pre-Excitation                Normal mode
+    mode                    mode
+
+                      Figure 10. Standard Operation at Vehicle Cranking
+
+    1. Standby mode: no activity on phase (no alternator rotation) and no LIN communication
+        enabled (car parking).
+
+    2. As soon as the ignition key is ON, LIN commands are sent by the master to the regulator.
+        As a consequence, state machine is switching from Standby mode to Pre-excitation
+        Operational mode by sending 13.5% duty cycle on EXC (Rotor).
+
+    3. Finally, the cranking appears leading a battery voltage drop down to few volts. Phase
+        voltage appears when alternator rotation and EXC duty cycle is at 100% during 100 ms
+        max, to increase phase voltage level and reach high phase voltage (~8.0 V). The product
+        starts the regulation of the battery with LRC if programmed.
+
+                                  LIN Alternator Regulator Devices, Rev. 2.0
+
+10                                                                                 Freescale Semiconductor
+                                                                                 Operational Mode Examples
+
+     C ra n kin g        N o LIN ac tiv ity     S e lf s ta rt T h re s h o ld         L IN
+                         0% D C                 (3 0 0 0 o r 4 0 0 0 R P M )
+N o R otation                                                                        P h ase
+0% D C                                                                           F req u en cy
+
+    ~ 12V                                        40% D C                         EXC
+                                                (ex am ple)
+
+                                                            V re g ta rg e t
+                                                (p ro gra m m ed b y de fa ult)
+
+                                                                        V B +A
+
+S td b y m o d e               S elf-start      D efau lt m o d e
+                           P h a s e a c tiv e
+                         but no LIN com
+
+                         Figure 11. Self-start Operation (No LIN Communication)
+
+1. Standby mode: no activity on phase (no alternator rotation) and no LIN communication
+    enabled (car parking)
+
+2. During cranking, the device detects phase signal, and the device is activated, but don’t
+    see any activity on LIN pin. It is taking as reference all default parameter programmed
+    and is waiting phase frequency for witch it must start the regulation.
+
+3. As soon as the self-start threshold speed is reached (3000 or 4000 RPM), the device
+    starts the battery regulation.
+
+                         LIN Alternator Regulator Devices, Rev. 2.0
+
+Freescale Semiconductor                                                                         11
+Packaging
+
+6 Packaging
+
+6.1 Die Dimensions
+
+                                              5050μm
+
+                                                                                1 PH2
+
+                                                                                2 PH1
+
+                             BUS 3            ORIGIN (0,0)                                                      Y Axis
+
+    6080 μm SGND 4                                                           5
+
+                                                                                B + A
+
+            PGND                                                    6 EXC
+                                              7
+
+                                                   X Axis                              SCALE = Approximately 20:1
+
+                                              Figure 12. Die floor plan
+
+                                         Table 2. Pad Coordinates
+
+    Pad           Function                                                            Die Coordinate
+                                                                                (Origin at center of Die)
+
+                                                      X/µm                                                 Y/µm
+
+    1                               PH2               2166                                                 2158
+
+    2                               PH1               2098                                                 1217
+
+    3                               BUS               -1989                                                834
+
+    4             SIGNAL GROUND          (1)          -1989                                                0
+
+    5                               B+A               1179                                                 -840
+
+    6                               EXC               1179                                                 -1987
+                                                      -367                                                 -2631
+    7             POWER GROUND           (1)
+
+    Notes:
+
+    1. Signal Ground, POWER ground, and die backside must be connected all together and must be bonded
+          on the same pad on package lead frame to avoid any resistance path between grounds
+
+                                    LIN Alternator Regulator Devices, Rev. 2.0
+
+12                                                                                                         Freescale Semiconductor
+                                                                                                                                                          Packaging
+
+6.2 Die Characteristics
+
+The die is designed to be fitted into a customer designed package however, as so many wiring
+configurations exist, not all may be possible from the same die design. Due to thermal
+considerations, soldering is the preferred die attach method, but under some circumstances,
+conductive epoxy may be acceptable.
+
+                            Table 3. Physical Die Characteristics
+
+                                 Mechanical Data                     Lenght            Width      Units
+
+Bonding Pad Size                                                        0.66                 0.5    mm
+Die Size (lenght x Width)                                               6.08                5.05    mm
+Die Back Metal Composition                                                         Cr/CrAg/Ag
+Die Back Metal Thickness, Typical                                     99.5 Al  2.1                  µm
+Die Top Metal Thickness, Typical                                               2.0                  µm
+Die Top Metal Composition                                                                  0.5Cu     %
+Die Thickness                                                                  0.36                 mm
+
+6.3 Assembly Recommendations
+
+    Values below are for information only and are based on Freescale experiments. A complete
+characterization/validation by the customer is needed to fully qualify the assembly process.
+Freescale will not be responsible of the customer’s assembly process.
+
+                                          Table 4. Mechanical Data
+
+                         Mechanical Data                                     Description
+
+Wire Bonding                                      Aluminum, 8 Mils Diameter
+
+Assembly Process Type                             Wedgebond Process
+Maximum End Force to apply                        320 Gr(2)
+Minimum End Force to apply                        180 Gr(3)
+
+Notes:
+
+2. To avoid any mechanical damage to the part, the end force pressure must be controlled ensuring the
+      assembly process and should not exceed this value.
+
+3. Lower value could degrade wire shear performance.
+
+                            LIN Alternator Regulator Devices, Rev. 2.0
+
+Freescale Semiconductor                                                                                  13
+Packaging
+
+6.3.1 Ground Connections
+
+Signal Ground, Power Ground, and Die Backside must be connected all together and must be bonded on the same pad on the
+package lead frame to avoid any resistance path between grounds
+
+                                                     Figure 13. Ground Connections
+
+    LIN Alternator Regulator Devices, Rev. 2.0
+
+14                                              Freescale Semiconductor
+How to Reach Us:                                        RoHS-compliant and/or Pb-free versions of Freescale products have the
+                                                        functionality and electrical characteristics of their non-RoHS-compliant
+Home Page:                                              and/or non-Pb-free counterparts. For further information, see
+www.freescale.com                                       http://www.freescale.com or contact your Freescale sales representative.
+
+Web Support:                                            For information on Freescale’s Environmental Products program, go to
+http://www.freescale.com/support                        http://www.freescale.com/epp.
+
+USA/Europe or Locations Not Listed:                     Information in this document is provided solely to enable system and
+Freescale Semiconductor, Inc.                           software implementers to use Freescale Semiconductor products. There are
+Technical Information Center, EL516                     no express or implied copyright licenses granted hereunder to design or
+2100 East Elliot Road                                   fabricate any integrated circuits or integrated circuits based on the
+Tempe, Arizona 85284                                    information in this document.
+1-800-521-6274 or +1-480-768-2130
+www.freescale.com/support                               Freescale Semiconductor reserves the right to make changes without further
+                                                        notice to any products herein. Freescale Semiconductor makes no warranty,
+Europe, Middle East, and Africa:                        representation or guarantee regarding the suitability of its products for any
+Freescale Halbleiter Deutschland GmbH                   particular purpose, nor does Freescale Semiconductor assume any liability
+Technical Information Center                            arising out of the application or use of any product or circuit, and specifically
+Schatzbogen 7                                           disclaims any and all liability, including without limitation consequential or
+81829 Muenchen, Germany                                 incidental damages. “Typical” parameters that may be provided in Freescale
++44 1296 380 456 (English)                              Semiconductor data sheets and/or specifications can and do vary in different
++46 8 52200080 (English)                                applications and actual performance may vary over time. All operating
++49 89 92103 559 (German)                               parameters, including “Typicals”, must be validated for each customer
++33 1 69 35 48 48 (French)                              application by customer’s technical experts. Freescale Semiconductor does
+www.freescale.com/support                               not convey any license under its patent rights nor the rights of others.
+                                                        Freescale Semiconductor products are not designed, intended, or authorized
+Japan:                                                  for use as components in systems intended for surgical implant into the body,
+Freescale Semiconductor Japan Ltd.                      or other applications intended to support or sustain life, or for any other
+Headquarters                                            application in which the failure of the Freescale Semiconductor product could
+ARCO Tower 15F                                          create a situation where personal injury or death may occur. Should the
+1-8-1, Shimo-Meguro, Meguro-ku,                         Buyer purchase or use Freescale Semiconductor products for any such
+Tokyo 153-0064                                          unintended or unauthorized application, the Buyer shall indemnify and hold
+Japan                                                   Freescale Semiconductor and its officers, employees, subsidiaries, affiliates,
+0120 191014 or +81 3 5437 9125                          and distributors harmless against all claims, costs, damages, and expenses,
+support.japan@freescale.com                             and reasonable attorney fees arising out of, directly or indirectly, any claim of
+                                                        personal injury or death associated with such unintended or unauthorized
+Asia/Pacific:                                           use, even if such claim alleges that Freescale Semiconductor was negligent
+Freescale Semiconductor China Ltd.                      regarding the design or manufacture of the part.
+Exchange Building 23F
+No. 118 Jianguo Road
+Chaoyang District
+Beijing 100022
+China
++86 10 5879 8000
+support.asia@freescale.com
+
+For Literature Requests Only:
+Freescale Semiconductor Literature Distribution Center
+P.O. Box 5405
+Denver, Colorado 80217
+1-800-441-2447 or +1-303-675-2140
+Fax: +1-303-675-2150
+LDCForFreescaleSemiconductor@hibbertgroup.com
+
+                                                        Freescale™ and the Freescale logo are trademarks of
+                                                        Freescale Semiconductor, Inc. All other product or service names
+                                                        are the property of their respective owners.
+
+                                                        © Freescale Semiconductor, Inc., 2011. All rights reserved.
+
+                                                        AN4289
+                                                        Rev. 2.0
+                                                        5/2011
+

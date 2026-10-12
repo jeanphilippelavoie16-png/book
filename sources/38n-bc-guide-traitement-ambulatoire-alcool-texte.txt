@@ -1,0 +1,186 @@
+QUICK GUIDE TO OUTPATIENT TREATMENT OF ALCOHOL USE DISORDER
+General Approach
+Assessment
+If a patient sometimes drinks beer, wine, other alcoholic beverages or non beverage alcohol (e.g., mouthwash, rubbing alcohol, cologne), screen using: 
+• Single Alcohol Screening Question (SASQ) 
+How many times in the past year have you had (4 for women, or 5 for men) or more drinks in a day
+• AUDIT-C 
+• AUDIT – Patient Self-Test
+Treatment
+Medications:DSM-5-TR AUD Criteria:1
+Monitoring
+Confirm alcohol use disorder (AUD) using DSM-5 criteria:1
+Substance use history with special attention to other
+sedatives (e.g., opioids, benzodiazepines),
+past treatments, patient’s goals, and barriers
+Consider complete physical to assess
+medical complications of alcohol use
+Consider detox if appropriate and  
+patient is willing (see next page)
+Be prepared to consider continuing  
+medication for 6–24 months
+Moderate to severe AUD: Offer trial of naltrexone or 
+acamprosate to reduce drinking; support patient’s 
+abstinence while considering contraindications and 
+patient factors. Provide all patients with information  
+on and referrals to psychosocial treatments  
+and community-based supports
+Offer follow-up appointments to offer   
+support, monitor progress and relapses
+Review investigations (special consideration to
+ALT, AST, GGT, creatinine/GFR, MCV,
+urine drug screen, HIV, hepatitis C)
+Trial medication: titrate  
+or switch as needed
+Offer or facilitate referral to psychosocial  
+support per patient preference
+Psychosocial supports:
+• Patients benefit from access to 
+comprehensive treatment approach, 
+including medication, primary 
+care visits, and community-based 
+psychosocial supports.
+• Psychosocial supports:  
+counseling, group therapy, mutual 
+help groups (12-step [e.g., AA] or 
+secular [e.g., SMART Recovery, LifeRing]), 
+inpatient treatment facilities, intensive 
+outpatient day programs.
+• Motivational interviewing is an evidence-
+based approach that family physicians 
+can use to help patients achieve their 
+goals.
+Medication coverage:
+• Effective April 20, 2023, naltrexone 
+50 mg and acamprosate 333 mg are 
+now regular benefit.
+Naltrexone:
+• Opioid antagonist; reduces pleasurable 
+effects of alcohol.
+• NNT = 10–12 to reduce heavy drinking.
+• Often preferred due to simple dosing.
+• Target dose 50 mg once daily.  
+Expert clinical practice suggests 
+patients may benefit (improved 
+tolerance) from a graduated titration 
+approach 25 mg PO daily × 3 days, 
+then increase to 50 mg.
+• Usual dose is 50 mg, rarely up to 
+150 mg; sometimes used as PRN on 
+drinking days when stable.
+• Can start at any time  
+(no need to abstain from alcohol).
+• Contraindications: concurrent opioid 
+use (consider Rx or illicit), severe liver 
+dysfunction.
+• Side effects: N/V, headache, fatigue, 
+elevated enzymes, naltrexone may 
+cause reversible elevation monitor 
+more closely at baseline.
+Acamprosate:
+• GABA agonist/glutamate antagonist; 
+rebalances neuronal brain changes 
+from chronic alcohol use.
+• Target dose is 666 mg PO TID.  
+Expert clincal practice suggests 
+patients may benefit (improved 
+tolerance) from a graduated titration 
+approach of 333 mg PO TID × 3 days 
+then 666 mg PO TID.
+• Contraindications: severe renal failure.
+• Side effects: diarrhea (common), 
+nausea, headache.
+Medication notes:
+• If patient resumes alcohol use, they 
+should still continue medication.
+• Disulfiram (Antabuse) rarely used 
+anymore; exceptions include patient 
+request.
+• Emerging evidence for topiramate  
+and gabapentin.
+• Pregnancy: safety of acamprosate 
+and naltrexone has not been well 
+established; balance risk of ongoing 
+use. Topiramate use during pregnancy 
+has established risks.
+A problematic sequence of alcohol use 
+resulting in clinically significant distress/
+impairment is present by a minimum of 
+two or more of the following:
+• More use than intended
+• Difficulty cutting down
+• Lots of time spent drinking
+• Cravings
+• Tolerance
+• Withdrawal
+• Continued use despite physical or 
+mental consequences
+• Failure to fulfill major obligations
+• Interpersonal problems
+• Activities given up
+• Use in physically hazardous situations
+Mild: 2–3
+Moderate: 4–5
+Severe: 6 or more (within 12-month period)
+1 Please refer to full DSM-5 criteria, refer to BCCSU guideline page 110
+QUICK GUIDE TO OUTPATIENT TREATMENT OF ALCOHOL USE DISORDER
+Alcohol Withdrawal as an Outpatient
+PAWSS ≥ 4PAWSS < 4
+Considering patient for withdrawal from alcohol
+Assess Prediction of Alcohol Withdrawal Severity Scale (PAWSS) score
+High risk for severe alcohol withdrawal syndromeLow risk for severe alcohol withdrawal syndrome
+Recommend prescribing benzodiasepines (3 to 7 days) to 
+manage acute withdrawal. See below. Recommend care 
+provided in medically monitored setting.
+Consider suitable for trial of outpatient treatment if no 
+contraindications. Follow guidelines below;  
+consider using gabapentin for symptomatic relief.
+Contraindications to outpatient management include:
+• Any history of withdrawal seizure or delirium.
+• Unstable medical or psychiatric conditions.
+• Concurrent sedative use disorders.
+• Pregnancy.
+• Multiple unsuccessful attempts.
+Tips for managing outpatient alcohol withdrawal:
+• Patient should have a reliable caregiver or access to intensive 
+supportive daily outpatient services.
+• Start early in the week and assess the patient daily × 3–4 days 
+for vitals, withdrawal symptoms, hydration, orientation, sleep, 
+and general condition.
+• Consider prescribing gabepentin 300mg PO TID +/- 300mg at 
+HS; can add 300mg PRN per dose to a maximum of 2400mg 
+and consider dailying dispensing; caution in renal impairment. 
+See. p. 2 of BCCSU's pharmacotherapy table for more 
+information.
+• Prescribe thiamine 100 mg PO TID × 1 week, then daily × 
+2 months, as well as a daily multivitamin (may need to pay out 
+of pocket).
+Note on benzodiazepines:
+• Benzodiazepines should not be prescribed beyond the acute 
+withdrawal period. Prolonged benzodiazepines have not been 
+found to be effective and are potentially harmful. 
+• Prescribe benzodiazepines to those with a high risk of withdrawal.
+• However, they pose significant risk in an unsupervised setting, 
+including oversedation, respiratory depression, falls, delirium 
+(especially if patient relapses to drinking) .
+• 80% of alcohol withdrawal syndrome does not require aggressive 
+medical intervention, such as with benzodiazepines; hence why we 
+screen with PAWSS.
+• See Tips for managing outpatient alcohol withdrawal box.
+Medication notes:
+If a patient has a PAWSS ≥ 4 but inpatient treatment is not feasible 
+due to patient preference or scarcity of beds, clinicians should 
+arrange for: 
+• community-based monitoring and support during treatment
+- (e.g., home withdrawal programs, intensive outpatient 
+programs, connection with community pharmacist, involve 
+family members, friends, caregivers, or community support 
+person) and 
+• monitor patient closely 
+- (daily phone calls, telehealth check-ins, frequent clinical visits).
+References and Resources:
+• Adapted from Molavi A, Guruge S, Kelly P . Outpatient treatment for alcohol use disorders. BC Medical Journal. 2020;62(8):272-6.
+• For consultative support, contact the RACE line for Addiction Medicine: 1-877-696-2131.
+1 Prediction of Alcohol Withdrawal Severity Scale is an evidence-based screening tool for assessing the likelihood that a patient will experience severe 
+alcohol withdrawal syndrome: https://www.mdcalc.com/prediction-alcohol-withdrawal-severity-scale
+* Inpatient withdrawal management facility

@@ -1,0 +1,144 @@
+ 
+ Les propriétés physiques des divers produits | Viabilité hivernale 
+ Accéder au contenu 
+ Accéder au menu 
+ Accéder à la recherche 
+ Accéder au pied de page 
+ Ministère
+de l'Aménagement
+du territoire et
+de la Décentralisation
+ Rechercher
+ Menu
+ Viabilité hivernale
+ Contact 
+ Fermer 
+ Recherche 
+ Recherche
+ Fermer 
+ Initiation à la VH 
+ Cours de physique
+ La Viabilité Hivernale de A à Z
+ Fiches pratiques aide-mémoire
+ Les différents domaines 
+ Les matériaux
+ Les matériels d’intervention
+ Les systèmes et technologies
+ Décision et traitement
+ Organisation
+ Les problèmes juridiques
+ Les usagers
+ Route et VH
+ Neige et congères
+ Activités internationales
+ Recherches
+ La VH sur les plateformes aéroportuaires
+ La viabilité hivernale en milieu urbain
+ Développement Durable
+ Les Documents de référence 
+ Le Cerema et les guides techniques du Cerema
+ Les normes utilisables sur la thématique
+ Viabilis, l’infolettre dédiée à la viabilité hivernale
+ Indicateurs Viabilité Hivernale 
+ IVH et IVH 100 en France
+ Occurrence Neige
+ Les IVH en mutation
+ Les évenements de la VH 
+ 2026
+ 2025
+ 2024
+ 2023
+ 2022
+ 2019
+ 2018
+ 2017
+ 2016
+ 2014
+ 2013
+ 2012 et années antérieures
+ Voir le fil d'Ariane 
+ Accueil 
+ Les différents domaines 
+ Les matériaux 
+ Fondants routiers – Généralités 
+ Les propriétés physiques des divers produits 
+ Dans cette rubrique 
+ Le chlorure de sodium NaCl (référence à la norme NF EN 16 811-1 
+ La saumure de chlorure de sodium (référence à la norme NF EN 16 811-1 
+ Le chlorure de calcium CaCl 2 (référence à la norme NF EN 16 811-2 
+ Le chlorure de magnésium (référence à la norme NF EN 16 811-2 
+ L’acétate de potassium (référence à la spécification technique TS 16 811-3) 
+ Le formiate de potassium (référence à la spécification technique TS 16 811-3) 
+ Les propriétés physiques des divers produits
+ Publié le 22/04/2005 
+ | Mis à jour le 05/12/2018 
+ Les fondants routiers sont utilisés de façons différentes :
+ - seuls, sous forme solide (grains ou granules plus ou moins grosses) ou sous forme liquide (saumure) directement déversé ou pulvérisé ;
+ - multiple en particulier par l’association des deux formes liquides et solides (technique dite de la bouillie de sel par exemple).
+ La forme la plus courante utilisée sur le réseau ordinaire est le chlorure de sodium NaCl (objet d’une norme NF EN 16 811-1 )
+ Le chlorure de sodium NaCl (référence à la norme NF EN 16 811-1
+ Il constitue l’essentiel des fondants utilisés en France (>99,5%). La consommation varie de 400 000 à plus de 2 millions de tonnes par hiver. Concernant les sites français, il provient pour l’essentiel :
+ - de la mine de sel de Varangéville (Meurthe et Moselle)
+ - des marais salants méditerranéens. Divers sels internationaux (Tunisie, Espagne…) sont aussi présents sur le marché.
+ Caractéristiques du sel sec Densité réelle : 2,12 Densité apparente : 1,13 Masse volumique des fondants routiers de type NaCl en grains : 1,3 à 1,5 tonne/m3 Pour du sel de déneigement foisonné : d= 1,13 (valable pour le calcul du chargement d’une saleuse) 1 tonne de sel est dissoute par 2,78 tonnes d’eau 1 tonne de sel donne 3,17 m3 de saumure saturée
+ Solubilité à 0°C : 35,6 (en g pour 100 g d’eau) Solubilité à - 5°C : 34,2 Solubilité à -10°C : 32,8 Point eutectique : - 21,1 °C (-6°F) à une concentration massique de 23%. Dissolution endothermique Hygroscopicité faible Capacité de fonte pour 1 kg de glace à
+ - -2°C -> 39 g
+ - -5°C -> 90 g
+ - -10°C -> 165 g Humidité relative d’équilibre des solutions saturées entre 0 et -10°C : 75-80% Limite d’efficacité (température de l’air) : -7 à -8°C
+ La saumure de chlorure de sodium (référence à la norme NF EN 16 811-1
+ La saumure est caractérisée par le rapport de la masse de NaCl dissous dans l’eau sur la masse de mélange ; ce rapport est appelé titre massique (et non concentration comme on le dit souvent). Le titre massique maximal pour une saumure de chlorure de sodium à 0°C est de 26,3%. Malheureusement, en cas de refroidissement important, une partie du sel dissous va recristalliser sous forme de dihydrate. Cette recristallisation se dépose dans les cuves, les pompes et les buses. Pour empêcher le phénomène, on limite le titre massique à 23%. La saumure de chlorure de sodium est active immédiatement. Par contre, elle atteint très vite par dilution sa limite d’efficacité. Il est déconseillé de l’employer en dessous de -3, -4 °C 
+ Diagramme de phases NaCl - H2O 
+ Caractéristiques de la saumure Densité 1,2 à 20°C 1 m3 de saumure contient 270 kg de sel 1 m3 de saumure contient 903 kg d’eau 1 épandage de 12,5 cm3/m² donne environ 4 g de sel/m²
+ Tableau de densité des saumures de chlorure de sodium à 20°C
+ pdf - 94.4 kio
+ Obtention d'une saumure de concentration déterminée par dilution de saumure saturée (à 20°C)
+ pdf - 102.2 kio
+ - Tableau - 
+ Obtention d'une saumure saturée à 20°C par concentration de saumure diluée
+ pdf - 115.9 kio
+ - Tableau - Le chlorure de calcium CaCl 2 (référence à la norme NF EN 16 811-2
+ La fabrication du carbonate de soude nécessite la réalisation d’une chaîne d’opérations, notamment celles qui visent à la régénération de l’ammoniac. Pour réaliser cette réaction, la solution de chlorure d’ammonium est mélangée avec un lait de chaux ; ce mélange chauffé donne de l’ammoniac et une solution impure de CaCl 2 . Cette solution est purifiée et concentrée dans des évaporateurs et donne naissance à différents type d’hydrate de CaCl 2 .
+ Le CaCl 2 que l’on trouve dans le commerce pour le salage se présente sous forme de paillettes de di- et monohydrates contenant entre 77 et 80% de CaCl 2 anhydre. Les paillettes sont gris-blanchâtre, d’une longueur d’environ 3 à 3,5 mm et d’une épaisseur de l’ordre de 1,2 mm. Vu son hygroscopicité, il est indispensable de prendre certaines précautions lors du stockage en vrac.
+ A partir des silos, le CaCl 2 est utilisé directement sous forme solide (paillettes) ou sous forme liquide après transformation.
+ Caractéristiques du CaCl 2 
+ Solubilité à 0°C(en g pour 100 g d’eau) : 59,7 (anhydre) Solutbilité à - 5°C : 57,6 Solubilité à -10°C : 55,6 Point eutectique : - 51,6 °C (-60°F) à une concentration massique de 30%. Dissolution exothermique Hygroscopicité élevée Capacité de fonte pour 1 kg de glace à
+ - -2°C -> 62 g
+ - -5°C -> 134g
+ - -10°C -> 224 g Humidité relative d’équilibre des solutions saturées entre 0 et -10°C : 45-50% Limite d’efficacité (température de l’air) : -15 à -20°C
+ Usage du chlorure de calcium 
+ Le chlorure de magnésium (référence à la norme NF EN 16 811-2
+ MgCl 2 est un produit sous forme de flocons ou d’écailles et est plus hygroscopique que la chlorure de calcium. Aussi la manipulation de ce produit en environnement sec requiert-elle un soin considérable et entraîne-t-elle des dépenses importantes. Son point eutectique se situe à -33°C, la forme liquide est la seule manière simple d’utiliser ce produit. Il est également plus coûteux que le sel ordinaire. Les effets corrosifs de ce produit sont particulièrement importants.
+ Point eutectique : - 33 °C (-28°F) à une concentration massique de 22%.
+ L’acétate de potassium (référence à la spécification technique TS 16 811-3)
+ _ Liquide incolore, sans odeur Densité relative 1,28 pH : 10 – 11 Solubilité dans l’eau : complètement soluble Conductivité électrique : 105-150 mS.cm-1 Viscosité dynamique : 6 mPa.s (20°C) Point éclair > 100°C Point eutectique : - 60 °C environ (-76°F) à une concentration massique de 49%. Rapport Demande Chimique en Oxygène (DCO) / Demande Biochimique en Oxygène (DBO 5 ) : 1,5
+ Le formiate de potassium (référence à la spécification technique TS 16 811-3)
+ Liquide légèrement coloré, pratiquement sans odeur, pH = 9-11 Point éclair > 100°C Densité relative 1,34 Conductivité électrique : 210-235 mS.cm-1 Solubilité dans l’eau : complètement soluble Viscosité dynamique : 2,85 mPas (250°C) Point de congélation -58°C Température de décomposition > 167°C Rapport Demande Chimique en Oxygène (DCO) / Demande Biochimique en Oxygène (DBO 5 ) : 7
+ Remarque : La salinité moyenne de l’eau de mer est de 35 g/kg, et reste généralement comprise entre 30 g/kg (Atlantique Nord) et 40 g/kg (Mer Rouge) ; les exceptions concernent des mers fermées ou semi-fermées, comme pour les valeurs extrêmes de :
+ - 6 g/kg dans les eaux de surface de la Mer Baltique ; 
+ - 330 g/kg dans la Mer Morte. L’eau de mer n’est donc pas une saumure saturée et ne constitue donc pas un fondant routier ! 
+ Vous pouvez nous poser des questions
+ ici 
+ Partager la page
+ Partager sur Facebook 
+ Partager sur X 
+ Partager sur LinkedIn 
+ Partager par email 
+ https://www.viabilite-hivernale.developpement-durable.gouv.fr/les-proprietes-physiques-des-divers-produits-a4286.html 
+ Copier le lien de la page dans le presse-papier 
+ S'abonner
+ Haut de page
+ X 
+ Ministère
+de l'Aménagement
+du territoire et
+de la Décentralisation
+ Le site Viabilité hivernale est destiné avant tout aux professionnels qui, par leur métier et dans leurs diverses fonctions, exploitent la route en hiver. C'est un lieu de capitalisation et de partage des savoirs et savoir-faire, afin de faciliter la mobilité et la sécurité des usagers.
+ info.gouv.fr 
+ service-public.gouv.fr 
+ legifrance.gouv.fr 
+ data.gouv.fr 
+ Plan du site 
+ Glossaire 
+ Info Editeur - Contact 
+ Accessibilité : non conforme 
+ Sauf mention contraire, tous les contenus de ce site sont sous licence etalab-2.0 

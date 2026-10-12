@@ -1,0 +1,256 @@
+
+FM 31-70 Chptr 5 Movement
+ Please enable JavaScript and refresh the page
+ body {
+ position: relative;
+ }
+ #noscript {
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ z-index: 100000;
+ position: fixed;
+ }
+ #noscript>div {
+ display: block;
+ height: 100%;
+ background-color: white;
+ }
+-->
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #topleader1 {display: none;}
+}
+ Site Map
+ Military
+ Introduction
+ World Wide Military
+ Weapon Systems
+ Facilities
+ Agencies
+ Operations
+ News & Reports
+ WMD
+ Introduction
+ World Wide WMD
+ Weapon Systems
+ Facilities
+ Agencies
+ Operations
+ News & Reports
+ Intelligence
+ Introduction
+ World Wide Intelligence
+ Intelligence Systems
+ Operations
+ News & Reports
+ Space
+ Introduction
+ World Wide Space
+ Space Systems
+ Facilities
+ News & Reports
+ Homeland Security
+ Systems
+ Operations
+ News & Reports
+ About GlobalSecurity.org
+ Search
+ AI Answers
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #kiosk, #kiosk2 {display: none;}
+}
+ -->
+ -->
+Subscribe for 1 year - Get 2 months FREE!!     TRY IT NOW
+-->
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #left {display: none;}
+}
+ -->
+ Home :: 
+Military :: 
+Library :: 
+Policy :: 
+Army :: 
+Field Manuals :: 
+31-70 :: 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #searchbox {display: none;}
+}
+ Military Menu                       
+ Introduction
+ Systems
+ Facilities
+ Agencies
+ Industry
+ Operations
+ Countries
+ Hot Documents
+ News
+ Reports
+ Policy
+ Budget
+ Congress
+ Links
+ WMD
+ Intelligence
+ Homeland Security
+ Space
+ Public Eye-->
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #leftad, #ask2 {display: none;}
+}
+ Military
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #ask3, #ask4 {display: none;}
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #cntnt1 {display: none;}
+}
+CHAPTER 5 
+MOVEMENT 
+Section I. PROBLEMS AFFECTING MOVEMENT 
+5-1. General 
+The lack of roads, the soft, wet terrain prevalent in the summer, the snow and blizzards in winter, thick forests in mountains and bilk, and the innumerable waterways are some of the barriers to movement in most cold areas of the world. The ability to overcome the many obstacles to movement may well be the deciding factor in winning or losing a war in these cold areas. Mobility begins with the individual. 
+5-2. Influence of Seasonal Changes in Weather and Terrain on Mobility 
+a. Spring Breakup and Fall Freezeup 
+(1) The spring breakup and fall freezeup periods are by far the most difficult seasons in which to maintain mobility. The period of breakup may last from 3 to 6 weeks and will present restrictions to movement (fig. 5-1). The snow becomes slush and will support little weight. Winter roads break down, the ice in waterways melts, rivers are swollen and become torrents. Movement at this time of year poses many problems, however, movement is possible in cold areas at all times. Normally, at this time of year, temperatures drop at night, freezing the surface, and mobility during this period can be maintained. During the day caution should be exercised in shady areas as they may contain ice and snow even though daytime temperatures are above freezing. 
+(2) The period of freezeup with rain and open or half-frozen waterways will also present barriers to movement. Complete freezeup may take up to 3 months, often restricting the movement of heavy equipment across lakes until late January. 
+(3) The early winter period, when there is little snow and the ground and waterways are firmly frozen, will provide excellent trafficability for foot soldiers and vehicles. 
+b. Winter. The low temperatures, snow, blustery winds, and bulky clothing and equipment required during winter hinder movement as it is known in more temperate climates. By the proper use of specialized equipment for cold weather operations, mobility can be maintained. Using skis, snowshoes, oversnow vehicles, and aircraft, mobility is possible. In the barren tundra or on icecaps the hard snow found in these areas will readily support an individual on foot as well as oversnow vehicles. In the forested areas the snow will normally be deeper and the temperatures lower. The depth of the snow and the trees in these areas will prove to be the greatest obstacles to mobility. With oversnow equipment such as skis and snowshoes, properly trained, equipped, motivated and conditioned troops can maintain mobility. 
+c. Forested Areas. A great portion of the North is covered with evergreen forests and with numerous swamps and water courses. Few trails exist through the forests and those that do exist are of poor construction, making progress difficult and slow. The numerous waterways, once they become frozen, will normally provide excellent routes for foot and some vehicle movement. Whenever possible they should be used to the maximum for the ease of movement they offer. 
+Section II. FOOT MOVEMENT 
+5-3. General 
+Winter cross-country travel in the North is difficult and complex. Of necessity, travel will be slower, However, with the proper training in the use and maintenance of equipment, the proper enthusiastic leadership, and the will to accomplish the mission, nothing is impossible. 
+5-4. Basic Rules for Foot Movement 
+The following guides are based on experience factors and should be considered in preparing for cross-country movements in the northern areas. 
+a. Insure that all personnel participating in the move are fully aware of the mission, route, etc. Equipment must be checked and loads evenly distributed. Dispatch trailbreaking teams far enough in advance to insure continuous, uninterrupted movement of the main body. Men should be dressed as lightly as possible consistent with the weather to reduce excessive perspiring and subsequent chilling. Complete cold weather uniforms must be available while operating in cold environments. A large proportion of cold weather casualties result from too few clothes being available to individuals at such time as a severe change in the weather occurs. Therefore, unit clothing discipline must be enforced consistent with prevailing weather. 
+b. The first halt after initiating a march should be made in approximately 15 minutes. This will allow adjustment of clothing and equipment. Subsequent halts should be frequent and of short duration to insure rest and to prevent chilling. Halts should, so far as possible, be made in sheltered places which will provide protection from the elements. Warm drinks should be provided during the march if possible. 
+c. The buddy system is mandatory in the North and men must be instructed to watch their buddy carefully for early signs of frostbite. Individuals must not be allowed to fall out of the line of march, except in an extreme emergency. If this should occur, proper care must be taken to insure that he does not become a cold weather casualty. Normally, the second-in-command will bring up the rear of the column and, in each halt, will check the men and report their condition to the leader. 
+d. Prior detailed reconnaissance is most important to insure successful mobility in the northern areas. Maps may or may not exist and those that do exist may not always be accurate. In planning a move, maximum advantage must be taken of map studies, aerial photographs, ground and aerial reconnaissance. Without detailed reconnaissance and prior planning, unit movement may be slowed or stopped by long detours or obstacles. 
+e. Marching in single file is often the best formation. It maintains track discipline, camouflage, and reduces the number of trailbreakers and reconnaissance parties required. Natural obstacles may limit the use of other formations. Large units in single file however, become excessively long and will be slow to react to enemy action to the front or rear. Tactical considerations will often require the use of other formations. The double track of vehicles may be used as pathways for foot troops, but will rarely afford ease of movement for ski or snowshoe mounted troops. 
+Section III. TRAILBREAKING 
+5-5. General 
+a. Purpose. 
+(1) The purpose of trailbreaking is to make the march of the main body as easy and fast as possible in order that the troops will arrive at their destination in good fighting condition. Trailbreaking accomplished at any time of the day or night through deep snow and difficult terrain is hard and time-consuming work. The progress of trailbreaking is dependent on the terrain, weather and snow conditions, vegetation, physical condition of the trailbreaking detachment and, finally, on the tactical situation. Therefore, plans must be carefully made and trailbreaking parties well organized. 
+(2) In addition to trailbreaking, the mission of providing frontal security for the main body is a normal function of the trailbreaking party. Approximately one-fourth of a unit is given the mission of trailbreaking and frontal security for the march, For example, the battalion normally assigns one rifle company this mission. The quartering party may accompany the trailbreaking party or may follow later. The company in turn assigns one rifle platoon to lead, functioning simultaneously as a trailbreaking party for the lead company. Since the trailbreaking unit is the first to arrive in the new bivouac area, its commander is also responsible for establishing temporary security of the area. When the quartering party arrives in the bivouac area they will perform the normal functions of a quartering party as outlined in FM 7-20. 
+b. Planning. Based upon an estimate of the tactical situation, terrain, weather and snow conditions, the most suitable route is selected for the movement. As a general rule terrain features which offer least resistance will be followed. In selecting a route, consideration must be given to all of the following: 
+(1) Open terrain. In order to keep the main body sufficiently dispersed, ski trails are more widely separated in open terrain. For concealment, normally only one ski trail is broken across open terrain. When possible the trail is broken close to the edge of the forest so shadows will help conceal the trail and troops moving over it. In open terrain light tracked vehicles should be used for breaking trail and for towing the trailbreaking party by skijoring to the maximum extent to save time and energy of the individuals. At times it may be desirable to break additional trails to expedite troop movement across open areas. 
+(2) Covered terrain. Whenever possible, time and situation permitting, the trail should follow along forest terrain with little or no underbrush. It provides good concealment and protection against wind. The trail should be broken close to bushy trees in order to provide better concealment. Thickets and windfall forest areas should be avoided, as it requires a great amount of effort to break a trail in areas of this type. If a triple trail is broken for sleds, wide curves must be made when changing direction and the bushes and branches must be cut from the inside of the curve. The thoroughness with which the small trees, bushes, and branches on both sides of the broken trail are cleared will depend on the time allowed the trailbreaking party. 
+(3) Hilly and mountainous terrain. When the situation permits, valleys will most often provide the easiest route. Frozen rivers frequently afford the easiest route in this type of terrain. If the valleys cannot be used, the trail may be broken on the lee side of the ridge line or hill mass that dominates the valley. Care must be exercised to detect avalanche snow conditions and bypass these areas as necessary. Use gentle inclines when climbing uphill or descending. When trails are broken downhill the speed of the trailbreaking party is often slow, because of soft and deep snow. However, when packed, the same trails may make the speed of the skiers in the main body too fast. This will result in many falls, especially during darkness. 
+(4) Water routes. Frozen lakes, rivers, and creeks offer the most suitable routes for the trails. They also help in land navigation. For best protection and concealment, the trailbreaking party skis very close to the shore or on the bank, as this facilitates better concealment of the individuals and units, their trail, and any quick movements into the wooded areas of the shore. Sometimes in winter, and especially in the spring, there may be water under the snow surface on surfaces on the lakes and rivers, thus causing the running surfaces of the skis to freeze. Check for concealed water under the snow before starting to break trail across the ice. Areas in which water is found under snow should be bypassed. If this is not possible, the crossing site must be reinforced with snow or with a combination of brush and snow. Also, the thickness of the ice must be carefully checked before using any ice route. The minimum thickness of ice for one rifleman on skis is 5 cm (2"); for an infantry column in single file on foot, 10 cm (4"); and for the single light artillery piece or ï¿½-ton truck, 4 x 4, 20 cm (8"). See load bearing capacity tables in FM 31-71. Warm water springs are prevalent in northern areas of operations and create a hazard to both foot and vehicle movement. Many of these springs do not freeze, even in extremely low temperatures, and may cause streams to have little or no ice and some lakes to have only thin ice. Their presence in muskeg or tundra areas can cause weak spots in otherwise trafficable terrain. These areas should be either bridged, reinforced, or bypassed. 
+(5) Obstacles. Since even minor obstacles retard the march, they are bypassed whenever possible. If a wide obstacle is met, such as a ridge or a steep riverbank, several trails are broken over the obstacle so that the main body can cross it on a broad front. Trees and brush are cut well below the bottom of ski tracks in order to avoid twigs and branches entangling in ski bindings and tow ropes. Obstructions such as fences may be cut in order to allow the skier to pass through. 
+(6) Weather and snow conditions. In early winter there is more snow in open terrain than in dense forest; therefore, the trail should be broken close to the forest edge. In late winter the reverse is true. In early spring more snow can be found in ditches, ravines, and on the shadowy side of hills. Maximum advantage should be taken for movement during periods of reduced visibility, such as snowstorms. These storms will conceal movement and at times completely camouflage the trail after the unit has moved over it. Care should be exercised to preclude moving directly into a strong wind. Movement in the same direction of the wind usually requires much less effort. Under the most adverse conditions, navigation will also become extremely difficult. Trails may become covered very quickly after being broken, requiring the distance between the trailbreaking unit and the main body to be shortened. Adverse conditions such as driving snowstorms will slow the movement but will facilitate security. 
+(7) Darkness. Skiing and snowshoeing at night is slow and exhausting. Therefore, the trail for a night march must be broken along the easiest terrain available. Avoid all rough terrain if possible. Navigation of the trailbreaking party demands special skill in darkness and during periods of reduced visibility. Rivers, creeks, ridge lines, and forest boundaries should be used as aids to navigation in spite of the fact that the broken trail might become longer. Because of the darkness it may be necessary to leave guides posted at locations where the main body may take the wrong course. 
+(8) Enemy activity. 
+(a) When breaking trail within the frontline area, the requirements for concealment are most important. Therefore, the trailbreaking party is forced to ski along covered terrain whenever possible. However, if the mission requires fast movement, a trail is broken along the shortest course, paying less attention to concealment. The security mission normally given the trailbreaking unit will take on added importance and may require more support for this unit. 
+(b) These responsibilities affect the course of trail. In frontline areas the trail should be broken along terrain features which facilitate observation and deployment of the main body. Also, the route should follow terrain which offers a sound approach and suitable places for temporary defense. Sometimes it is necessary to check critical terrain features located near the trail before the trailbreaking party moves forward. Elements of the trailbreaking party may occupy certain security positions and remain stationary until the main body has passed these critical points, at which time they may rejoin the rear of the column. For the purpose of deceiving the enemy, it may be desirable to create numerous false trails crisscrossing and angling off in all directions. In burned-over areas or thin deciduous forests, concealment from aerial observation is practically impossible. A single trail clearly indicates the whereabouts and approximate size of the unit making it. Miscellaneous trails, therefore, create confusion. Of course, the breaking of false trails is time consuming and will also acquaint the enemy to the fact that a sizable unit was required for the amount of work accomplished. 
+(9) Number of trails used. The number of trails to be broken depends upon the size of the column using them, the tactical situation, and time available for trailbreaking. An organization of battalion size normally requires two or more march trails and one or more communication trails for messenger service and control of the march column. In cases where time is very limited for preparations, only one trail may be established for a battalion. When contact with the enemy becomes imminent, greater emphasis is placed on security and less emphasis placed on trailbreaking. The possibility for a rapid deployment of the troops requires that the number of trails or tracks be increased from that of a routine cross-country march. 
+c. Organization. The trailbreaking party preceding units mounted on skis should also be mounted on skis. The trailbreakers of elements on snowshoes should also be mounted on snowshoes. Mixing of skiers and snowshoes on the same track is not recommended. Snowshoes tend to compact the snow on ski trails making it difficult for the main body to follow on skis. 
+(1) The lead company normally will be assigned the mission of breaking trail for one complete day. It is replaced by another company on the following morning. One rifle platoon at a time is assigned as lead platoon and is called a Trailbreaking Party. It may also include engineers whose duties would include reconnoitering ice routes, seeking suitable terrain for permanent type winter roads, preparing ice reinforcements, and performing other engineer tasks. Forward observers may also accompany the trailbreaking party. 
+(2) Depending on terrain conditions, 1 to 2 oversnow vehicles, when available, should be assigned to the party to be used for breaking trail in open terrain, skijoring, and carrying individual loads and platoon equipment. In unfavorable terrain conditions the vehicles remain under company control or with the higher echelon. The trailbreaking party consists of its organic rifle squads, called Trailbreaking Squads. A trailbreaking party is expected to break trail approximately a half a day at a time, but may be rotated sooner depending on local conditions. Trailbreaking squads, in turn, are normally rotated as often as necessary in order to maintain the speed necessary to complete the mission in time. 
+d. Trailbreaking Squad. The organization, duties, and special equipment of the trailbreaking squad are indicated in figure 5-2. Squad leaders must insure that their men have a sufficient number of tools of proper size before moving out. The tools are part of the tent group equipment and are used in preference to entrenching tools. To conserve energy and to assure an uninterrupted march, the leading man (breaker) of the squad is regularly relieved. In very deep and heavy snow a relief may become necessary every 150 meters (150 yds). When the change is ordered by the team leader, the man to be relieved steps sideways out of the path and falls in at the rear of the team. The man following him then becomes the breaker. Special equipment is exchanged by passing it to the next man in line during the rotation. The breaking team will be relieved by the reserve team as directed by the squad leader whenever the point team tends to slow down due to fatigue. 
+Figure 5-2. Organization of trailbreaking squad.
+Editor's Note: This graphic is not viewable in HTML format. Check "Download Document" at the top of this file for an alternate format or obtain a printed copy of the document.
+e. Trailbreaking Party. The trailbreaking party consists of two or more trailbreaking squads. Normally a rifle platoon will be assigned this mission, especially if the snow is heavy and the weather severe. 
+(1) One of the squads is always designated as the base squad and is responsible for navigation and the general direction to be followed. The platoon leader and the navigation detail directly under his control will follow the base squad. When dead reckoning is required, the base squad breaks the center trail and works slightly ahead of the other squads for the purpose of maintaining the proper direction of the squads which are moving on both sides of the track made by the base squad (fig. 5-3). In cases where the party follows easily recognizable terrain features, such as small creeks or the edge of open terrain, the base squad follows next to this terrain feature, making navigation easier. The other squads are echeloned to the right or left, and their breaker (the first man) to the right or left of the last man of the squad ahead (fig. 5-4). 
+(2) Interval between the trails varies from about 15 meters (15 yds) in covered terrain to approximately 100 meters (100 yds) in open areas, depending on the local situation. The depth of the party varies from 100 to 200 meters (100 to 200 yds). Members of the weapons squad may be assigned to the navigation detail, to flank security missions, to assist the vehicles in breaking their trail off the ski trails, and similar duties. The weapons squad may follow and improve the trails being established, as directed by the leader of the trailbreaking party. From the area where vehicles are temporarily halted due to the close proximity of the enemy, one track may be widened into a triple track to facilitate the movement of heavy weapons, ammunition, and warming tents. This equipment is usually moved forward by man-drawn sleds. 
+(3) The trailbreaking party moves far enough ahead of the column to permit a steady rate of march by the main body. This distance varies according to the tactical situation, snow, weather conditions, and terrain encountered. For covered movements through territory controlled by friendly troops, the trailbreaking party normally precedes the main body by 1 hour for each 5 km (3 miles) of marching distance. For example, if a 25 km (15 miles) march is planned, the trailbreakers leave 5 hours in advance of the parent unit. For uncovered moves, the trailbreakers precede the main body by a distance dictated by the tactical situation. 
+f. Techniques. The trailbreaking squad may break a normal or triple track as required. On normal track the first man makes his tracks so that the grooves are a little wider apart than usual, approximately 30 cm (1'). The trailbreaker usually uses the one step technique. In deep and soft snow, however, his steps will be shorter than normal and he will be forced to lift his skis at each step to prevent the tips from running under the surface of the snow. Progress will be slow and may be exhausting. Therefore, the man in the breaker position must be rotated often. 
+(1) When track-laying vehicles and cargo sleds cannot be used any further due to the tactical situation, the crew-served weapons, ammunition and warming tents must be moved to the units in man-drawn sleds. Therefore a triple track is broken because the normal trail is too narrow. When starting a triple trail (1, fig. 5-5), the leading three men of the breaking team will break a normal trail of two grooves. The third groove is started by the fourth man who keeps one ski in the already broken groove and makes a new groove with his left (right) ski, depending on which side of the original groove the new track will be broken. Alternate men behind the fourth man, both in breaking and reserve teams, ski along the original tracks made by the first three leading men, the others following the tracks made by the fourth man. This creates a trail with three tracks, a triple trail (2, fig. 5-5). This provides the proper type of trail for pulling man-drawn sleds. Due to the fact that sleds tend to destroy the ski trails, only one of the ski trails will be prepared as a triple trail and this trail will be used for man-drawn sleds only. 
+(2) Ski trails must be kept separate from the trails and roads established for vehicles and cargo sleds, due to the fact that the vehicles tend to destroy the ski trails and, conversely, the skiers on the winter road tend to harass the vehicular traffic. Signal wire layed alongside the ski trail must be located far enough to the side so as not to become entangled with skis and ski poles. When crossing the ski trail the wire must be buried well below the trail or secured overhead, whichever is most desirable. 
+5-6. Marking the Trails 
+a. The trailbreaking squad marks its trails as uniformly as possible. The types of markings used must be known to the unit that follows. When several squads are operating, marking by the base squad is usually sufficient. The marking is simple, and recognizable by night as well as by day. Temporary trails through new snow need simple markings only where the trails or roads are crossed by other trails. Trails that are frequently used for long periods are more permanently marked. The following can be used as trailmarkers: 
+(1) Twigs on trees and shrubs broken in a predetermined manner, or blazes (nicks) in tree trunks made by using a hatchet or machete. 
+(2) Poles or guiding arrows planted in the snow. 
+(3) Markers made of rags or colored paper. 
+(4) Trailmarkers (willow wands). 
+b. Snowfalls, fog, poor observation, and uniformity of the terrain necessitate thorough and frequent markers spaced at uniform intervals and numbered successively in the direction of march. To avoid the destruction of trailmarkers by traffic, the markers are placed about 1 meter (3') off the trail. When strange tracks cross the trail of the unit they are obliterated at the point of crossing. Guides are posted at crossings, if necessary, to direct units that follow. 
+Section IV. LAND NAVIGATION 
+5-7. Effects of Environment 
+a. General. Basically, mapreading, as well as navigation under cold weather conditions, follows the same principles as in the temperate zones. In addition to the normal procedures, every individual must be most familiar with certain conditions peculiar to the cold weather regions and the techniques applicable to navigation. Due to the fact that a technical failure or human error may easily, and especially in the winter, be fatal to the individual or to a unit, great care must be exercised when navigating in low temperatures. 
+b. Navigation Problems. The following conditions, characteristic of the cold weather regions, will make accurate navigation very difficult: 
+(1) Lack of adequate large scale maps in the sparsely populated areas which will increase the requirements for and the use of aerial photographs. 
+(2) Photos of many areas will be difficult to read and interpret because of the absence of relief and contrast, and absence of manmade works for use as reference points. 
+(3) Dense forests and wildernesses offer few landmarks and limit visibility. Also, barren, monotonous tundra areas north of the tree line are characterized by lack of landmarks as aids for navigation. 
+(4) In winter, short daylight, fogs, snowfall, blizzards, drifting snow, especially in the barren areas, drastically limit visibility. At times an overcast sky and snow-covered terrain create a phenomenon called whiteout which makes recognition of irregularities in terrain extremely difficult. 
+(5) Heavy snow may completely obliterate existing tracks, trails, outlines of small lakes, and similar landmarks. Because the appearance of the terrain is quite different in winter from that in summer, particular attention must be paid to identifying landmarks, both on the ground and in aerial photos. 
+(6) Magnetic disturbances are encountered, making magnetic compass readings difficult and sometimes unreliable. 
+(7) Magnetic declination in different localities varies considerably, and must be taken into consideration when transposing from a map to a compass. 
+(8) Handling maps, compass, and other navigation instruments in low temperatures with bare hands is difficult. Removing handgear may often be possible for a very short period of time only. 
+5-8. Methods of Land Navigation 
+a. The normal methods of land navigation under cold weather conditions remain the same as anywhere else. Maps and aerial photos may be used alone during daylight in terrain which offers enough distinctive terrain features to serve as useful landmarks. They may also be used in conjunction with a compass, especially in terrain which contains insufficient landmarks or under circumstances when visibility is limited. However, in most instances, utilizing the map and compass together will provide for the surest land navigation in northern areas of operation. 
+b. Depending on various conditions, certain supplementary methods, such as position of the sun in daytime, North Star and Big Dipper at night, as described in FM 21-26, may be used to aid in land navigation. Where possible, these methods should be employed in conjunction with the normal methods described above. 
+c. It is obvious that on vast barren grounds as well as in wide forest, navigation by dead reckoning often becomes the only practical method. Dead reckoning is the process by which position at any instant is found by applying to the last determined position the direction and distance of the course traveled. This method should also be used in areas where landmarks are very limited or totally nonexistent. It is also desirable when the landmarks are obliterated by the limited visibility. 
+5-9. Navigation by Dead Reckoning 
+Navigation by dead reckoning is performed in accordance with FM 21-26. Due to the peculiarities of the cold weather regions, the following hints should be observed when applicable: 
+a. Responsibility for navigation is assigned to a detail of one officer or noncommissioned officer and 1 to 2 men, all thoroughly experienced in navigation techniques. The detail is placed directly under the control of the unit commander and must be released from the carrying of individual heavy loads and from details such as trailbreaking in order to perform their duties properly. Using a small detail rather than a single navigator is based upon the fact that the method of pacing distances in deep snow has to be modified as described in c below. 
+b. In general, the navigation detail is responsible for--
+(1) Accumulating necessary instruments and equipment. 
+(2) Keeping instruments and equipment serviceable. 
+(3) Performing the detailed duties of taking and recording necessary data for precise location at all times. 
+(4) Maintaining liaison with the commander of the unit. 
+(5) Supplying data to keep the column on course. 
+c. Due to the sliding capacity of the skis, normal pacing system is very inaccurate or, in certain cases, such as on steep slopes, entirely useless. Pacing on snowshoes can be done in emergency. It must be borne in mind, however, that an individual mounted on snowshoes takes much shorter paces than on foot. The only recommended method for accurate ground measurements is a piece of line or field wire preferably 50 meters long (50 yds) used by two navigators. 
+d. Keeping a log is mandatory. The preparation of the log, as well as plotting the route from the log data on the face of the map or on a separate piece of paper at the same scale as the map, must be completed prior to the departure to minimize the use of instruments and equipment in low temperatures with bare hands. 
+e. Certain mechanized aids are highly valuable for navigation by dead reckoning. 
+(1) A magnetic compass has been developed for mounting in all vehicles. 
+(2) Odograph M1 is an instrument which automatically plots the course of a moving vehicle. It consists of three principal units--the compass; the plotting unit; and the powerpack. All components are interconnected by electric cable and flexible shafts. It was originally designed for use in the ï¿½-ton truck, but can be used in other vehicles to include track-laying vehicles and sleds for operation under winter conditions. 
+(3) Odograph M2 is much more accurate and convenient to use than the M1. It utilizes the miniature gyro-compass for the input of direction. In normal operations, if the map coordinates of the starting point are set on the instrument, it will provide the true coordinates of any point along the course of travel. 
+(4) The use of rotary wing aircraft for "pathfinding" in bush country greatly assists in land navigation. From the tactical point of view, however, it is less feasible because it tends to disclose the movement. Troops can reveal their position to the aircraft by the use of colored smoke. The pilot can then give them their position location by radio or dropped message. 
+Section V. ACTION WHEN LOST 
+5-10. General 
+Prior march reconnaissance includes memorizing details of the country to be traversed. Routes should be plotted and as many landmarks located as possible to insure that personnel will not be without recognizable features for any appreciable length of time. If on barren terrain, all navigation instruments must be thoroughly checked and one of the most experienced men should be given the job of navigating and maintaining the "dead reckoning log." It is possible to become temporarily lost while operating in friendly areas of enemy terrain, as on a long range patrol. Each situation should be considered separately, and the main point to remember in any case is to remain calm. 
+5-11. When Lost Within Known Locality 
+If the sector is quiet and there is an absence of war noises or aircraft to guide the patrol toward friendly lines, stop in place. In a wooded area steps should be retraced to the last known point. If this is not practical, estimate the present location and send a small detail in search of the next known point. Opinions should be taken from the group as a whole if it is felt they will contribute. Search parties must mark their trail carefully in order that they may return and guide the main group forward or rejoin the group should their search be fruitless. In the meantime, the remainder of the group should seek shelter. If it is still not possible to locate the route, carry out the group action discussed in paragraph 5-12. 
+5-12. Conduct When Lost 
+At the first suspicion that a patrol or unit is not on the right course, it should not keep moving in the hope that it will come across a known landmark. The leader should halt the patrol, not cause unnecessary panic by appearing concerned, and immediately make a detailed check of the route starting at the last known point passed. If extensive checking of the position does not clarify the situation, inform all concerned personnel of the circumstances. When it has been determined the group is definitely lost, the patrol leader must accomplish the following: 
+a. Seek a shelter, evaluate the situation, and formulate a plan. 
+b. Gather all food and drink and institute a rationing system. 
+c. Send a few selected personnel to search for a route, while the balance of the party remains in a sheltered position. 
+d. Arrange necessary ground-to-air signals appendix B. 
+Section VI. MECHANIZED AID TO MOVEMENT 
+5-13. Track-Laying Vehicles 
+a. General. So far as small units and individuals are concerned, vehicles of the track-laying type are the best aid to movement in northern regions. Deep snow and extreme cold impose special problems of operations and maintenance (app. F). Mandatory characteristics of any vehicle to be used in support of small units and individuals in the Far North during all seasons are mobility over muskeg and tundra, through brush and light timber, and the ability to break trail in deep snow. A complete discussion of these problems is beyond the scope of this manual. This manual is limited to a brief discussion of the general capabilities and employment of vehicles which are capable of tactical cross-country movement during all seasons. In order to conserve the energy of troops, mechanized transportation of heavy weapons, ammunition, tentage, sleeping equipment, rations, and individual packs must be utilized to the maximum. Troops burdened with carrying or pulling these items soon become exhausted and lose their mobility and fighting capacity. Wheeled vehicles are generally restricted to road movements and have little use in cross-country operations of small units. The series of pictures contained in figures 5-6 through 5-12 illustrate construction problems entailed in negotiating winter trails with track-laying vehicles. 
+b. Tractor Trains. The purpose of tractor trains is to furnish oversnow movement of supplies and equipment. Tractor trains will be utilized normally from a railhead, truckhead, or airhead to the division or brigade support area. The tractor train is a means of moving large quantities of supplies cross-country. The trains are composed of cargo sleds drawn by construction type tractors and normally, due to their size and slow rate of march, are not used forward of the brigade support area. The tractor train in no way takes the place of wheeled cargo carriers that may be able to operate on roads or trails. 
+5-14. The Full Track Personnel Carried 
+The full track cross-country carriers are considered to be the best vehicles for use by combat troops in the North. The armored and unarmored carriers are capable of transporting a complete rifle squad together with its equipment and impedimenta. In an emergency these vehicles can furnish limited heat, shelter, and sleeping accommodations. The design of these carriers permits their functioning as cargo and weapons carriers, as command posts, or for evacuation of litter patients. While the armored carrier is capable of reconnaissance, mounts armament, and has armor protection from small arms fire, the unarmored carrier provides better mobility and greater range on less fuel. The inclosed watertight hulls provide an amphibious capability and some protection against radioactive fallout. 
+5-15. Tanks 
+Tanks are designed for cross-country mobility to include traveling in deep snow. In addition to their normal tactical missions they may be employed to transport personnel in an approach march and, in an emergency, to tow skiers. Windchill factors must be taken into consideration prior to moving troops on tanks for any appreciable distance to insure against frostbite. Tanks may also be used to pull cargo sleds; however, damage can be caused to sled tongues by the fast, jerky starting which is characteristic of tanks. Tank tracks may provide routes of advance for troops, especially in the assault phase of the attack. 
+Section VII. SLEDS 
+5-16. Man Hauled Sleds 
+a. Sled, Scow-Type 200-Pound Capacity. (Ahkio). Man-hauled sleds are necessarily light. They can carry a load of 200 pounds over difficult terrain and are used for carrying tents, stoves, fuel, rations, and other necessary items of each tent group. They are also used for carrying weapons and ammunition. They may be used as a firing platform for machine guns in deep snow and are particularly useful in the evacuation of casualties. Sleds are seldom used by small reconnaissance patrols because of the decreased speed of the individuals. Strong combat patrols, however, frequently use them for carrying their equipment or for evacuation in cases when faster means are not available. Sleds are provided with white canvas covers for camouflage, to hold the contents in place and protect them from the elements (figs. 4-36, 4-37, 5-13). 
+(1) The sled has an approximate weight of 38 pounds, is 223.5 cm (88") long, 61.0 cm (24") wide, and has a depth of 20.3 cm (8"). It is towed by a team of four men. For the purpose of towing, a harness, sled, single trace, is provided. It consists of a loose-fitting web belt which is fastened at the side by a quick release buckle, an adjustable shoulder strap which supports the belt at the desired position on the hips, and a 2.75 meter (9') towing rope with snap buckles at each end. Metal D-rings are positioned at the front and rear of the belt. 
+(2) Normally, sleds are towed by manpower only for short distances over prepared trails during an approach march or a similar type movement. Usually, the sled and equipment is transported on cargo sleds or by tracked vehicles. A number of loaded sleds, can be placed in cargo sleds (1 ton or heavier) or, in an emergency, can be hooked on improvised tow bars and towed behind the tracked vehicles. A triangle made of green poles and attached to the rear of the vehicle or cargo sled provides an excellent "tow-bar." Four small sleds can be towed by each vehicle when sleds are tied in tandem to allow two sleds to follow each vehicle track. 
+(3) The sled, because of its boatlike shape, is easily maneuverable under a variety of snow and terrain conditions. It is superior to flat surfaced toboggans in maneuvering over difficult terrain, especially in deep snow and in heavily wooded areas. 
+(4) It is important to distribute the load of the sled properly (fig. 5-13). In loading, place heavy equipment on the bottom and slightly to the rear and lighter equipment toward the top, in order to prevent the loaded sled from being top heavy. After the sled has been loaded, the canvas covers of the sled should be folded over the load. To keep snow from getting under the canvas and to keep the load from shifting, lash the load tightly by crisscrossing the lashing rope from the lashing ring on one side of the sled to the other. Place tools such as shovels, axes, and saws on top of the load outside the canvas so that they are readily available for trailbreaking and similar purposes during the movement. 
+b. Improvised Sleds. Different types of sleds can be improvised from skis, plywood, lumber, or metal sheeting. 
+5-17. Cargo Sleds 
+a. For military purposes sleds are classified light or heavy. Lightsleds are under 5-ton payload capacity, and sleds with payload capacity of 5 tons or over are considered heavy. 
+b. Light sleds presently in use are designed to carry 1- or 2-ton payloads. The 1-ton cargo sled (fig. 5-14) is normally used with a light tracked vehicle as a prime mover; and 2-ton sleds (available in limited quantities but not a standard item) with the squad carrier or tractor as a prime mover. Care must be exercised, when towing these sleds with tracked vehicles, to avoid snapping the sled tongues in quick starting, Light sleds are suitable for use when rapid travel is involved and in areas where the freezing season has mean temperatures which do not form more than moderate thicknesses of ice on rivers and lakes. 
+c. Heavy sleds (of a commercial type) which may be used are of 10- to 20-ton payload capacity. It is anticipated that the bulk of supply will be transported on heavy sleds as opposed to light sleds. The operating radius of sleds is restricted only by the terrain and capability of the prime mover. The heavy sled is best suited for use over flat or gently rolling terrain and in areas where rivers and lakes are frozen to sufficient depths to permit use as "highway." In some cases specially constructed "iced roads" are required to operate motorized sled trains with heavy sleds.
+Section VIII. AIRCRAFT
+5-18. Aircraft
+The lack of ground communication routes in the northern latitudes causes an extensive use of air transportation. Both fixed-wing and rotary-wing type aircraft are used. Troops and supplies may be transported from one existing or improvised airfield to another. In some situations both supply and evacuation by air may be the only feasible method. Bad weather may limit air operations for short periods of time. 
+a. Fixed-Wing. The vast stretches of the northern regions can be reconnoitered with a minimum time and effort by liaison fixed-wing aircraft. The ability of the ski-equipped aircraft to land on frozen lakes, streams, and in open fields in winter affords advantages and opportunities to supplement the ground reconnaissance. In addition to reconnaissance, fixed-wing aircraft are used to supplement the overland movement of troops and supplies, evacuation, and many other purposes. 
+b. Rotary-Wing. The dominant characteristics of this type craft, such as vertical ascent and descent and requirement for short landing areas, make it valuable for reconnaissance, evacuation, troop movements, command control, resupply, and many other types of missions. Aviators must exercise caution when hovering over loose snow as it may swirl up and cause loss of visual reference. 
+5-19. Airfields 
+There are many potential landing sites in the area of northern operations. Runways can be constructed by grading and compacting snow. In general, airplanes equipped with skis require about 15 percent more landing and takeoff space than those equipped with wheels. Aircraft can use airfields constructed on frozen lakes and rivers, after a suitable ice reconnaissance has been made (FM 31-71). Design criteria for Pioneer, Hasty, and Deliberate Army airfields and heliports are listed in TM 6330. As a rule of thumb for planning purposes, the airfield for liaison type aircraft (0-1 and U-6) should be a minimum of 30 meters (30 yards) wide and 400 meters (400 yards) long. Refer to the Flight Handbook for exact landing and takeoff distances of various aircraft. 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ #ga-ad {display: none;}
+}
+NEWSLETTER
+Join the GlobalSecurity.org mailing list
+Enter Your Email Address
+Do Not Sell My Personal Information
+Advertise with Us |
+About Us |
+GlobalSecurity.org In the News |
+Internships |
+-->
+Site Map |
+Privacy
+Copyright © 2000-2026 GlobalSecurity.org All rights reserved.
+ Site maintained by: John Pike
+Privacy Manager

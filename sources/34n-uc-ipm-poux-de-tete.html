@@ -1,0 +1,928 @@
+<!-- INF10\startRequest.cfm -->
+
+<!-- page-view-home-and-landscape\index.cfm -->
+
+<!-- ck:4488 --><!-- rp:/home-and-landscape/head-lice --><!-- isPA:false --> 
+
+<!-- // Debug: ~infVer:10.0.0~/home-and-landscape/head-lice~ck:4488~sk:9~v:0~pk:HLS~pv:01~tn:pn-qt-2x8~tv:2025~tk:1~ -->
+
+<!-- INF10\header-v5.cfm -->
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,latin-ext" type="text/css" />
+	
+	
+	
+	<link rel="stylesheet" href="/assets_v7/styles/bootstrap-1.css" type="text/css" />
+	<link rel="icon" type="image/png" href="/assets_v7/images/favicon.ico" />
+			
+	
+	
+	
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	
+		<script src="https://unpkg.com/htmx.org@1.6.1"></script>
+	
+		<link href="/assets_v7/fontawesome7_1_0/css/fontawesome.min.css" rel="stylesheet">
+  		<link href="/assets_v7/fontawesome7_1_0/css/brands.min.css" rel="stylesheet">
+  		<link href="/assets_v7/fontawesome7_1_0/css/solid.min.css" rel="stylesheet">
+		<link href="/assets_v7/fontawesome7_1_0/css/regular.min.css" rel="stylesheet">
+	
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NPR7B4');</script>
+		<!-- End Google Tag Manager -->
+	
+	
+	
+
+	<script async src="https://cse.google.com/cse.js?cx=005318318591192111806:oa2cd9kjx8k"></script>
+
+	<style>	
+		.icon-bar {
+		position: fixed;
+		z-index: 500;
+		top: calc(100vh - (100vh - 40%));
+		right: 0;
+		left: calc(100vw - 105px);
+		width: 140px;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+		transform: rotate(-90deg);
+		}
+
+		.icon-bar a {
+		display: block;
+		text-align: center;
+		padding: 14px;
+		transition: all 0.3s ease;
+		color: white !important;
+		font-size: 14px;
+		border-bottom: none;
+		}
+		
+		.icon-bar a:hover {
+		background-color: #000;
+		}
+		
+		.pdf {
+		background: #bb0000;
+		color: white;
+		}
+
+		.print {
+		background: #008EAA;
+		color: white;
+		}
+		
+		.feedback {
+		background: #008EAA;
+		color: white;
+		}
+
+		@media print { 
+			.icon-bar {
+				display: none !important;
+			}
+		}
+	</style>
+	
+	
+		
+	<title>Head Lice / Home and Landscape / UC Statewide IPM Program (UC IPM)</title>
+</head>
+
+<body>
+	
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPR7B4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	<!-- WWW03\Templates\WWW_headerNav_3_2023.cfm -->
+
+<div class="modal fade" id="notificationsModal" tabindex="-1" aria-labelledby="notificationsModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header flex-wrap">
+                <div class="modal-title" id="notificationsModalLabel">Notifications</div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="notificationsModalContent">
+                Loading...
+
+            </div>
+            <div class="modal-footer d-block">
+                <button type="button" class="btn btn-text float-start" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-light shadow megamenu-nav" id="nav"  >
+    <div class="container-fluid">
+        
+            <a class="navbar-brand" href="/" onclick="_sz.push(['event', 'Mega Menu', 'Logo', 'UC IPM']);"><img src="/assets_v7/images/logo/header-logo-ipm.png" width="150px" alt="UC IPM logo"></a>
+            
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-label="mobile menu" onclick="_sz.push(['event', 'Mega Menu', 'Manage Pests', 'Collapsed']);">
+            <div class="hamburger-toggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown dropdown-mega position-static">
+                    <a class="nav-link dropdown-toggle toggle-animation" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" onclick="_sz.push(['event', 'Mega Menu', 'Manage Pests', '/page-view-home-and-landscape/index.cfm?requestPage=/home-and-landscape/head-lice/']);">Manage
+                        Pests<i class="fas fa-chevron-down ms-1"></i></a>
+                    <div class="nav-dropdown dropdown-menu">
+                        <div class="mega-content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12 col-md-12 mb-1 mt-1">
+                                        <p data-bs-toggle="collapse" href="#collapseExample-1" role="button" aria-expanded="false" aria-controls="collapseExample" class="toggle-animation mb-0 mt-3 mb-3 no-click">Home &amp; Landscape<i class="fas fa-chevron-down ms-1 d-inline d-lg-none"></i></p>
+                                        <div class="list-group collapse hidden-collapse" id="collapseExample-1">
+
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/" class="dropdown-item">Home, Garden, Turf and Landscape Pests</a>
+                                            <a href="https://ucanr.edu/blogs/UCIPMurbanpests/" class="dropdown-item">Blog</a>
+                                            <a href="https://ucanr.edu/site/urban-community-ipm-webinars" class="dropdown-item">Webinars</a>
+                                            <a href="https://ipm.ucanr.edu/IPMPROJECT/videolibrary.html" class="dropdown-item">Video</a>
+                                            
+                                            <a href="https://ipm.ucanr.edu/invasive-and-exotic-pests/" class="dropdown-item">Invasive and Exotic Pests</a>
+
+                                            <h6 class="dropdown-header mt-4">Tools</h6>
+                                            
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/pesticide-active-ingredients-database/" class="dropdown-item">Pesticide Active Ingredient Database</a>
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/plant-problem-diagnostic-tool/" class="dropdown-item">Plant Problem Diagnostic Tool</a>
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/seasonal-landscape-ipm-checklist/" class="dropdown-item">Seasonal Landscape IPM Checklist</a>
+                                            
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/wildlife-pest-identification/" class="dropdown-item">Wildlife Identification Tool</a>
+                                            <a href="https://ipm.ucanr.edu/natural-enemies/" class="dropdown-item">Natural Enemies Gallery</a>
+                                            <a href="https://ipm.ucanr.edu/PMG/weeds_intro.html" class="dropdown-item">Weed Gallery</a>
+                                            <h6 class="dropdown-header mt-4">Resources</h6>
+                                            
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/resources-for-landscape-professionals/" class="dropdown-item">Landscape Professionals</a>
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/resources-for-multi-unit-housing-managers/" class="dropdown-item">Multi-unit Housing Managers</a>
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/retail-nursery-and-garden-center-ipm-news/" class="dropdown-item">Retail Nurseries and Garden Centers</a>
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/resources-for-schools-and-child-care-centers/" class="dropdown-item">Schools and Child Care Centers</a>
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/resources-for-structural-pest-management-professionals/" class="dropdown-item">Structural Pest Management Professionals</a>
+                                            <a href="https://ipm.ucanr.edu/home-and-landscape/master-gardeners/" class="dropdown-item">UC Master Gardeners</a>
+                                            
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12 col-md-12 mb-1 mt-1">
+                                        <p data-bs-toggle="collapse" href="#collapseExample-2" role="button" aria-expanded="false" aria-controls="collapseExample" class="toggle-animation mb-0 mt-3 mb-3 no-click">Agriculture<i class="fas fa-chevron-down ms-1 d-inline d-lg-none"></i></p>
+                                        <div class="list-group collapse hidden-collapse" id="collapseExample-2">
+                                            <a href="https://ipm.ucanr.edu/agriculture/" class="dropdown-item">Pest Management Guidelines</a>
+                                            <a href="https://ipm.ucanr.edu/invasive-and-exotic-pests/" class="dropdown-item">Invasive and Exotic Pests</a>
+                                            <a href="https://ipm.ucanr.edu/GENERAL/pesticides.html" class="dropdown-item">Pesticide Information</a>
+                                            <h6 class="dropdown-header mt-4">Tools</h6>
+                                            <a href="https://ipm.ucanr.edu/bee-precaution-pesticide-ratings/" class="dropdown-item">Bee Precaution Pesticide Ratings</a>
+                                            <a href="https://ipm.ucanr.edu/agriculture/pest-manage/" class="dropdown-item">PestManage Decision Support Tool</a>
+                                            <a href="https://ipm.ucanr.edu/WEATHER/" class="dropdown-item">Weather, Models and Degree Days</a>
+                                            <span class="border-top"></span>
+                                            <h6 class="dropdown-header mt-4 mb-2">Resources</h6>
+                                            <a href="https://ipm.ucanr.edu/PMG/glossary.html" class="dropdown-item">Glossary</a>
+                                            <a href="https://ipm.ucanr.edu/mitigation/" class="dropdown-item">Mitigating Pesticides</a>
+                                            <a href="https://ipm.ucanr.edu/natural-enemies/" class="dropdown-item">Natural Enemies Gallery</a>
+                                            <a href="https://ipm.ucanr.edu/GENERAL/links.html" class="dropdown-item">Pest Management Sites</a>
+                                            <a href="https://ipm.ucanr.edu/PMG/weeds_intro.html" class="dropdown-item">Weed Gallery</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12 col-md-12 mb-1 mt-1">
+                                        <p data-bs-toggle="collapse" href="#collapseExample-3" role="button" aria-expanded="false" aria-controls="collapseExample" class="toggle-animation mb-0 mt-3 mb-3 no-click">Natural Areas<i class="fas fa-chevron-down ms-1 d-inline d-lg-none"></i></p>
+                                        <div class="list-group collapse hidden-collapse" id="collapseExample-3">
+                                            <a href="https://ipm.ucanr.edu/natural-area-pests/" class="dropdown-item">Natural Area Pests</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ipm.ucanr.edu/events/" onclick="_sz.push(['event', 'Mega Menu', 'Events and Trainings', '/page-view-home-and-landscape/index.cfm?requestPage=/home-and-landscape/head-lice/']);">Events
+                        and Trainings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ipm.ucanr.edu/about/" aria-disabled="true" onclick="_sz.push(['event', 'Mega Menu', 'About', '/page-view-home-and-landscape/index.cfm?requestPage=/home-and-landscape/head-lice/']);">About</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-flex ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#searchModal" aria-disabled="true" onclick="_sz.push(['event', 'Mega Menu', 'Search', '/page-view-home-and-landscape/index.cfm?requestPage=/home-and-landscape/head-lice/']);"><i class="fa-solid fa-magnifying-glass me-2"></i>Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ipm.ucanr.edu/make-a-gift/" onclick="_sz.push(['event', 'Mega Menu', 'Donate', '/page-view-home-and-landscape/index.cfm?requestPage=/home-and-landscape/head-lice/']);">Donate</a>
+                </li>
+                
+                
+                
+                
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Account Settings Modal -->
+<div class="modal fade" id="accountSettingsModal" tabindex="-1" aria-labelledby="accountSettingsModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" >
+            <div class="modal-header" >
+                <div class="modal-title" id="accountSettingsModalLabel">Account Settings</div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="accountSettingsModalBody">
+
+            </div>
+            <div class="modal-footer d-block">
+                <button type="button" class="btn btn-text float-start" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                <button type="button" class="btn btn-primary float-end" hx-trigger="click" hx-post="htmx-INF-10-htmx-accountSettingsModalContent.cfm?submit=submit" hx-target="#accountSettingsModalBody" name="submit" value="submit" hx-include="[name='firstName'],[name='lastName']">
+                    Save
+                </button>
+            </div>
+		</div>
+	</div>
+</div>
+
+<script>
+    document.addEventListener('click', function (e) {
+        // Hamburger menu
+        if (e.target.classList.contains('hamburger-toggle')) {
+            e.target.children[0].classList.toggle('active');
+        }
+    })
+    var dropDownToggle = document.querySelectorAll('.toggle-animation');
+    dropDownToggle.forEach((dropdown) => {
+        dropdown.addEventListener('click', function () {
+            var icon = this.querySelector('.fas');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        });
+    });
+    //change for medium and below
+    var adjustIconFloat = () => {
+        var breakpoint = 992;
+        var icons = document.querySelectorAll('.fa-chevron-down');
+        if (window.innerWidth <= breakpoint) {
+            icons.forEach(icon => {
+                icon.style.float = 'right';
+            });
+        } else {
+            icons.forEach(icon => {
+                icon.style.float = '';
+            });
+        }
+    }
+    window.addEventListener('resize', adjustIconFloat);
+    adjustIconFloat();
+</script>
+
+
+
+
+
+
+
+
+	
+
+	
+
+	<!-- Search Modal -->
+	<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<p class="h1 modal-title fs-5" id="searchModalLabel">Search</p>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="_sz.push(['event', 'Search Modal', 'Button', 'X']);"></button>
+				</div>
+				<div class="modal-body">
+					<form class="row g-3" onsubmit="location.href = '#gsc.tab=0&gsc.q=' + document.getElementById('searchInput').value + '&gsc.sort='; return false;">
+						<div class="col">
+							<label for="searchInput" class="visually-hidden">search</label>
+							<input type="search" class="form-control" id="searchInput" placeholder="What's your pest problem?">
+						</div>
+						<div class="col-auto">
+							<button type="button" class="btn btn-primary" onclick="location.href = '#gsc.tab=0&gsc.q=' + document.getElementById('searchInput').value + '&gsc.sort='; _sz.push(['event', 'Search Modal', 'Button', 'Search']);">Search</button>
+						</div>
+					</form>
+					<div class="gcse-searchresults-only"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+<!-- HLS01\Templates\HLS_pn-qt-2x8_1_2025.cfm -->
+
+<!-- INF10\inf_contents-v10.cfm -->
+
+
+
+ 
+<main>
+    <div class="content-header-wrap urban">
+       <!-- INF10\inf_breadcrumb-v10.cfm -->
+
+
+
+<div class="breadcrumb-wrapper">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-10 col-sm-12">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/">UC IPM</a></li><li class="breadcrumb-item"><a href="/home-and-landscape/">Home and Landscape</a></li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+       
+        <header>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-sm-12">
+                        <p class="eyebrow">Home and Landscape</p>
+                        <h1>Head Lice</h1>
+                        <div class="info">
+                            
+                            
+                            
+                            <!--<div>Published on January 25, 2022</div>-->
+                            <div>Updated: 07/2020</div>
+                        </div>
+                        <div class="icons">
+                            <a href="https://ipm.ucanr.edu/PDF/PESTNOTES/pnheadlice.pdf" aria-label="Open PDF document"><i class="fa-solid fa-file-pdf"></i></a> 
+            <a href="https://www.linkedin.com/shareArticle/?mini=true&url=https://ipm.ucanr.edu/home-and-landscape/head-lice/" target="_blank" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+        
+            <a href="https://bsky.app/intent/compose?text=Learn%20about%20Head%20Lice%20at%20UC%20IPM%2E%20https%3A%2F%2Fipm%2Eucanr%2Eedu%2Fhome%2Dand%2Dlandscape%2Fhead%2Dlice%2F" target="_blank"  aria-label="Share on Bluesky"><i class="fa-brands fa-square-bluesky"></i></a>
+        
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://ipm.ucanr.edu/home-and-landscape/head-lice/" target="_blank" aria-label="Share on Facebook"><i class="fab fa-facebook-square"></i></a>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+            <div class="banner mb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-sm-12">
+                            <img class="img-fluid" src='/PMG/IMAGES/P/I-AN-PHUM-CO.001banner.jpg' width="100%" height="100%" border="0" alt='Small cylindrical wingless insects with curved legs. Credit: Dr. Shujuan (Lucy) Li' title='Eggs, nymphs, and adults of head lice, Pediculus humanus capitis. Credit: Dr. Shujuan (Lucy) Li'>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 d-none d-md-block">
+                <div class="position-sticky sticky-top side-nav-wrap-scroll" style="top:30px; z-index:0;">
+                    <nav id="navbar-example3" class="side-nav">
+                        <div class="h3 mb-3">On this page</div>
+                            
+                                <a class="nav-link" href="#QUICK_233_1">Quick Tips</a>
+                                <a class="nav-link" href="#INTRODUCTION_65_1">Pest Notes: Introduction</a>
+                            
+                                <a class="nav-link" href="#IDENTIFICATION_433_1">Identification and Life Cycle</a>
+                            
+                                <a class="nav-link" href="#MANAGEMENT_52_1">Management</a>
+                            
+                                <a class="nav-link" href="#IMPACT_357_1">Impact</a>
+                            
+                                <a class="nav-link" href="#REFERENCES_266_1">References</a>
+                            
+                            <a class="nav-link" href="#RESOURCES">Resources</a>
+                            <a class="nav-link" href="#PUBLICATIONINFORMATION">Publication Information</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-8 col-sm-12 content-body">
+                <span class="in-nav-mobile d-block d-md-none">
+                    <a class="heading" data-bs-toggle="collapse" href="#HeaderSection" aria-expanded="false" aria-controls="HeaderSection">On this page<i class="fas fa-chevron-down float-end"></i>
+                    </a>
+                    <ul class="collapse" id="HeaderSection">
+                        
+                            <li class="nav-item"><a href="#QUICK_233_1">Quick Tips</a></li>
+                            <li class="nav-item"><a href="#INTRODUCTION_65_1">Pest Notes: Introduction</a></li>
+                        
+                            <li class="nav-item"><a href="#IDENTIFICATION_433_1">Identification and Life Cycle</a></li>
+                        
+                            <li class="nav-item"><a href="#MANAGEMENT_52_1">Management</a></li>
+                        
+                            <li class="nav-item"><a href="#IMPACT_357_1">Impact</a></li>
+                        
+                            <li class="nav-item"><a href="#REFERENCES_266_1">References</a></li>
+                        
+                        <li class="nav-item"><a href="#RESOURCES">Resources</a></li>
+                        <li class="nav-item"><a href="#PUBLICATIONINFORMATION">Publication Information</a></li>
+                    </ul>
+                </span>
+                
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0">
+                     
+                        <div class="callout" id="item-0">
+                            <div class="callout-title">
+                                <span id="QUICK_233_1"></span>
+                                <p class="h3">Quick Tips</p>
+                            </div>
+                            <div class="callout-body" id="calloutBody">
+                                <p><b>Anyone can get h</b><b>ead lice, but children are more prone to infestations because they play closely with one another</b>. Head lice are usually spread through direct head-to-head contact and more rarely from contact with infested hats or combs. Head lice  are not known to transmit any infectious diseases, but  infestations can cause discomfort, anxiety, and embarrassment. Control  lice by using a combination of treatment with an effective insecticide (to kill live lice) and combing to remove eggs (nits).</p>
+<p class="h3">
+Head lice facts
+</p>
+      <ul>
+         <li>Head lice cannot hop, fly, or jump; they crawl.</li>
+         <li>They can only survive off a human head for about 1 or 2 days.</li>
+         <li>Head lice cannot live on family pets.</li>
+         <li>Nits more than 1/4 inch from the scalp are probably dead or have already hatched.</li>
+
+      </ul>
+        
+	 <p class="h3">What should I look for?</p>
+  <ul>
+	  <li>Eggs glued to the hair near the scalp. Developing eggs are dark in color, but white after hatching</li>
+	  <li>Adult head lice are about the size of a sesame seed and crawl rapidly.</li>
+	  <li>Some infestations may cause intense scratching on the back of the head or neck, although not everyone has this symptom.</li>
+	 </ul>
+
+<p class="h3">
+How do I manage a head lice infestation?
+</p> 
+      
+     <ul>
+        <li>Remove eggs (nits) by combing hair with a specially designed metal comb. This is key to successful control, regardless of the any insecticide treatment used. 
+<ul class="nospc">
+	<li>Comb wet, conditioned hair. </li>
+<li>Repeat daily as long as you find live lice or eggs within 1/4 inch of the scalp</li>
+</ul>
+        </li>
+			
+        <li> Remove lice and eggs from any infested areas. 
+			   
+			   <ul>
+				   <li>Wash clothing and bedding in hot water and dry in a hot dryer. </li>
+                   <li>Freeze items like headphones, hats, and bike helmets in plastic bags for at least 10 hours. </li>
+                   <li>Clean stuffed animals, car seats, and other objects that might have come in contact with the infested person&rsquo;s head. Vacuum carpets and upholstery. </li>
+                  
+                       <li>Pesticide       sprays are not necessary.</li>
+                 
+			   </ul>
+        </li>
+			
+			   <li> Avoid head-to-head contact with the infested person.
+			   <ul>
+	               <li>Inform anyone       who has been in close contact in the recent past.</li>
+                
+<li>It&rsquo;s not necessary to  keep children home from school unless an extreme infestation is found.</li>
+</ul>
+            </li>
+      <li>Consider treating infested scalps with a head louse insecticidal product. 
+		 <ul>
+			 <li>Effective, less toxic products contain dimethicone, benzyl alcohol, or spinosad.</li>
+               <li>Avoid products containing permethrin, malathion, pyrethrin, and lindane, since head lice are often resistant to them (reducing their effectiveness). Lindane and malathion are also more toxic to humans.
+			 </li>
+			 </ul>
+				
+		   </li>
+      <li>Check heads and remove eggs daily until infestation is gone. 
+		 <ul>
+			     <li>Follow with weekly head checks to detect reinfestation.</li>
+		  </ul>
+		  
+			 <li>Some people never itch so itching is not a reliable way to tell if someone is infested.  </li>     
+		
+		 </li>
+     </ul> <p>Download a <a href="https://ipm.ucanr.edu/PDF/QT/qtheadlice.pdf">PDF of this Quick Tips</a>. Descargue un <a href="https://ipm.ucanr.edu/PDF/QTSP/qtspheadlice.pdf">PDF de estos Notas Breves</a>.</p>
+                            </div>
+                            <div class="p-3 text-center">
+                                <a href="#" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="gradient-vertical" id="expandContent"  onclick="expandQuickTips(event, 'calloutBody', 'expandContent', 'gradient-vertical')">
+                                    Read more Quick Tips for this pest
+                                </a>
+                            </div>
+                        </div>
+                    
+                                        <h2 id="INTRODUCTION_65_1">Pest Notes: Introduction</h2>
+                                    
+                                <!-- cot:1/cse:65/muc:1-->
+                                <p>The head louse, <i>Pediculus humanus capitis</i>, can infest people of all ages, but most commonly affects children 4 to 12 years of age since they often play in close contact with one another. However, teens and adults can also be hosts for these unwelcome pests. </p>
+      <p>Many families with young children have at least one encounter with head lice. While head lice infestation causes limited health impacts for most people, it can cause a great deal of anxiety and embarrassment. Head lice are not a health hazard and do not transmit disease-causing pathogens, nor do they indicate poor hygiene. </p>
+      <p>Head lice are mainly acquired through direct head-to-head contact with an infested person&rsquo;s hair. Objects such as combs, hats, brushes, or helmets rarely harbor or transmit head lice or their eggs (nits), but it may occur under certain circumstances, so cleaning of items is recommended. Head lice cannot live off the human body for more than 1 to 2 days.</p>
+      <p>Diagnosis of a head lice infestation requires the detection of a living louse crawling on the scalp. The presence of nits is not a reliable indication of an active infestation that needs to be treated.</p> 
+                <img class="img-fluid-content" src='/PMG/IMAGES/P/I-AN-PHUM-AD.001.jpg' alt='Adult female head louse.; Maricopa, AZ Credit: Dr. Shujuan (Lucy) Li' title='Adult female head lice. Credit: Dr. Shujuan (Lucy) Li'>
+                <figcaption >Adult female head lice. Credit: Dr. Shujuan (Lucy) Li</figcaption>
+            
+                                    <!-- CSE:27/2 -->
+                                
+                                        <h2 id="IDENTIFICATION_433_1">Identification and Life Cycle</h2>
+                                    
+                                <!-- cot:1/cse:433/muc:1-->
+                                <p><a href="/PMG/P/I-AN-PHUM-CO.001.html" target="_self">Head lice</a> spend their entire life on the hairy part of the human head. Lice can survive off a head on inanimate objects and surfaces for only a very short amount of time. Therefore, direct head-to-head (hair-to-hair) contact with an infested person, or recently contaminated object is usually needed to become infested. They cannot live on family pets. </p>
+      <p><strong>What do head lice look like?</strong> Head lice are wingless insects that measure between 1/12 to 1/8 inch in length as adults. The <a href="/PMG/P/I-AN-PHUM-AD.003.html" target="_self">adult head louse</a> is about the size of a sesame seed and ranges in color from beige to gray. Each of its six legs ends in a claw that is used to grasp the hair shaft. While head lice can crawl relatively quickly, they cannot hop, fly, or jump. Head lice feed on the human scalp, taking tiny blood-meals every few hours and injecting saliva into the skin as they feed. </p>
+      <p>Lice eggs are called nits. Nits are oval, 1/32 inch long (0.8 mm), and camouflaged (for light-colored hair) with the host’s own hair pigment. Most eggs are laid at night. Each adult female produces about 5 or more eggs in a 24-hour period. The egg is coated with a glue-like substance that cements it to the hair shaft. The female louse most frequently glues the nits to individual hairs close to the scalp. Eggs will hatch in 7 to 10 days under normal conditions. </p>
+      <p>To survive, a newly hatched louse must have a blood meal within minutes of birth. Developing lice, or nymphs, take about 7 to 10 days to mature into adults. After an additional day, the adult females start laying eggs. Lice live for 3 to 4 weeks, and adult females can lay about 100 eggs before they die. Because people have a constant body temperature, head lice reproduce continuously throughout the year. </p>
+      <p>Head lice found in the United States prefer hair that is round in cross section. Because of this, Afro-textured hair is much less susceptible to lice infestation. Afro-textured hair in which the cross-section of a hair shaft is distinctly flattened as opposed to round or ellipse is difficult for lice in North America to hold on to. However, braiding maximizes opportunities for head lice on all kinds of hair.</p>
+      <p><strong>How do I know if head lice are present?</strong> The most common sign of head lice infestation is itching on the back of the head or neck, which begins 1 to 4 weeks after the initial infestation. It takes that amount of time for sensitivity to louse saliva to develop. However, if a person has already been a host for head lice previously, itching can begin right away. Immediately examine children who repeatedly scratch their heads. Secondary infections from scratching may also occur. Some children never experience itching and therefore have no symptoms. </p>
+      <p>Detecting head lice can be time consuming, especially when the number of lice present is low. The best way to inspect for head lice is by wet combing the head (see instructions below). Because lice can be hard to spot, examine a head with the aid of good light, especially at the nape of the neck and behind the ears. With a hand-held magnification tool, look for tiny yellow-white nits glued to the hair near the scalp and quickly crawling, small, flat insects. </p>
+      <p><strong>How can you tell the difference between hatched and unhatched nits?</strong> Lice and nits can be seen without magnification, but in order to differentiate hatched and <a href="/PMG/P/I-AN-PHUM-EG.002.html">unhatched nits</a>, use a magnifying lens. An empty nit casing can be distinguished from a flake of dandruff because it sticks to the hair, while other particles can be flicked or washed off. </p>
+      <p>Nits further than 1/4 inch away from the scalp have probably already hatched. <a href="/PMG/P/I-AN-PHUM-EG.002.html" target="_self">Unhatched nits</a> can be found further from the scalp if the hair is particularly thick, braided, or on individuals who constantly wear hats. In warmer climates, nits may be attached further out on the hair shaft.</p> 
+                                        <h2 id="MANAGEMENT_52_1">Management</h2>
+                                    
+                                <!-- cot:1/cse:52/muc:1-->
+                                <p>Normal shampooing, hair-conditioning, brushing, and hair-drying will kill a large number of lice and is likely a significant reason why not all louse transfer results in an infestation. </p>
+      <p>There are seven critical steps to controlling an infestation of head lice:</p>
+      <ol type="1">
+        <li>Accurately diagnosing an active head lice infestation—this means finding live head lice on the head. Take action as soon as head lice are noticed.</li>
+        <li>Using an effective head louse treatment, with all infested individuals treated at the same time, to prevent re-infestation from others. In most cases, nits will require re-treatment in 7 to 10 days. No treatment is 100% effective at killing the nits.</li>
+        <li>Removing nits from the head by combing with a metal nit comb. Removing nits with a nit comb is easier on wet, well-conditioned hair. Active lice are challenging to physically catch and remove when running around the scalp. Carefully blow-drying the hair on the head can slow them down, but they are still difficult to remove from the head and relatively few are removed by nit-combing.</li>
+        <li>Removing lice and nits from the household environment by vacuuming, washing, or freezing objects suspected of being infested. Vacuum car seats, pillows, furniture (do not use insecticidal sprays). Wash linens, towels and clothing used within the last 48 hours in hot water and dry in a hot dryer (140°F). Items that cannot be washed can be bagged in plastic for 2 weeks (any nits that may have survived would have hatched during this time and nymphs would die without a source for feeding) or frozen for 10 hours.</li>
+        <li>Soaking hair care items (such as combs, brushes, and hair clips) in hot water (at least 130°F) for at least 15 minutes to kill any lice or eggs.</li>
+        <li>Reducing head-to-head contact with family members, caregivers, and friends.</li>
+        <li>Checking hair and scalp daily and removing nits until infestation is gone, followed by weekly checks to detect re-infestation. </li>
+      </ol>
+    
+    <p><span id="MA4"></span></p>
+      <h3>Hair Combing</h3>
+      <p>Removing nits and lice that survive treatment is the key to successfully controlling this pest. If live lice are found a day after a treatment, then it’s likely they are resistant to the particular product that was used, and a change in active ingredient is recommended. Many families can get rid of head lice using only diligent and regular combing with a special comb, and thorough hair-drying, avoiding exposing their children to insecticidal shampoos. But curly hair, and abundant thick hair can be a challenge. If viable nits are not removed with hair combing, the infestation will reoccur. </p>
+      <p>Nits are most effectively removed by combing wet hair with a specially designed nit comb. The most effective nit comb is a metal one specially designed for removing nits. Metal lice combs can be found at drug stores. Plastic combs may or may not be effective. Enzymatic nit removal products help facilitate nit removal, but nit combing is still required. Thick hair conditioner can also be used to facilitate nit combing. Dimethicone products work well, even on curly hair. The National Pediculosis Association recommends a specially designed nit comb called the LiceMeister. They also have a useful video describing the combing process (see Resources).</p>
+      <p>If the infestation is not extensive, selectively cutting those hairs to which eggs are attached with small safety scissors is an option, but this is rarely practical.</p>
+      <p><strong>How do I comb out nits?</strong> Seat the person near a good light source. The materials needed for hair combing are:</p>
+      <ul>
+        <li>A box of tissues and plastic bag</li>
+        <li>A good nit comb or a pair of safety scissors</li>
+        <li>A lamp that can be directed onto the head</li>
+        <li>Hair clips to pin up the sections of hair that have been combed</li>
+        <li>Something to entertain the person being treated—especially if a child</li>
+      </ul>
+      <p>When using dimethicone products (for example, LiceMD) instead of an insecticidal shampoo, comb the head while the product is still on the head. Because dimethicone is very slippery, it makes combing much easier. </p>
+      <p>Begin by gently detangling hair. Starting at the crown of the head, separate out a section of hair that is about 1 inch by 1/2 inch, and hold it out from the head. Insert the louse comb at the base of the hair section as close as possible to the scalp and pull the comb slowly through the hair. Be sure to slant the comb so that the curved side of the teeth are towards the head. If the comb snags in knotted hair it is not likely to be effectively removing nits. </p>
+      <p>When not using a comb, go through each small section of hair and use fingernails to pull the eggs off the hair, or cut the individual hairs off. Use tissues to clean nits, lice and debris from the comb following each combing. Put the tissues in the plastic bag. </p>
+      <p>Continue to comb the section of hair until it appears to be free of nits, then pin it out of the way with a hair clip and start on the next section of hair. </p>
+      <p>If the hair dries during the combing process, wet it again with water to reduce pulling and hair loss. When all the hair has been combed, rinse it thoroughly with water and then dry. After the hair is completely dry, check the entire head for stray nits and remove them individually.</p>
+      <p>To clean up, boil the metal comb for 15 minutes. An old toothbrush is useful in removing the debris lodged in the teeth of the comb, as is dental floss. Combs and hair clips can also be washed in hot soapy water, placed in a sealable plastic storage bag, and left in a kitchen freezer overnight. Seal and dispose of plastic bags after use.</p>
+      <p>It is not necessary to shave or cut short an infested person’s hair. However, the shorter the hair, the easier it is to comb for lice. If successive treatments for lice have been made and the infestation persists, or to control the infestation quickly, this is an option to consider.</p>
+      <p>The combing process is time consuming but combing means control is more likely to be effective. It should be repeated daily for as long as nits and lice are still found on the head. If nit removal is not possible, ensure treatments occur on time and per label directions or the infestation may persist indefinitely.</p> 
+                <img class="img-fluid-content" src='/PMG/IMAGES/P/I-AN-PHUM-LC.004.jpg' alt='Use a head lice comb to remove nits.; Sacramento, Sacramento County Credit: Gil Rojas, Used by permission' title='Use a head lice comb to remove nits. Credit: Gil Rojas, Used by permission'>
+                <figcaption >Use a head lice comb to remove nits. Credit: Gil Rojas, Used by permission</figcaption>
+            
+                                    <!-- CSE:27/2 -->
+                                
+                                <!-- cot:1/cse:52/muc:2-->
+                                <h3>Treatment Options</h3>
+      <p>It is very important that the methods used to control head lice not cause more health problems than the head lice themselves. There are many options that have ingredients that are effective, affordable, and safe for children, you, and the environment, however treatment options change over time. See Tables 1 and 2 for common products and approaches available at the time of this publication. Topical products are by far the most commonly used and fall into two categories: those that are toxic to the louse’s nervous system, and those that smother or dry them out. Those having a smothering or drying effect on lice generally have fewer side-effects to humans, and fewer head lice resistance issues. </p>
+      <p><strong>Dimethicone</strong>, mentioned earlier in the section on combing, is a silicone-based polymer that lubricates the hair, making removal of nits and lice easier. The polymer also causes physical blockage of the respiratory system of the louse and has been documented as highly effective at killing head lice. No head lice resistance has been reported or is likely to occur with this product.</p>
+      <p>Published studies have confirmed the efficacy of 4% dimethicone in the treatment of head lice. In several randomized trials, 70% to 97% of patients were lice-free after 2 weeks. Dimethicone is not absorbed through the skin and is associated with very few adverse effects. Dimethicone is effective, safe, and affordable and can also be used in all age groups. </p>
+      <p>There are several dimethicone-based products, available without a prescription online and in some pharmacies, such as LiceMD, Rapunzel’s Lice Neutralizer, and others (see Table 2). Since it is an effective treatment (particularly when used in conjunction with manual nit removal), and non-toxic to people, many consider this an ideal first line treatment for head lice. Similar to other treatment protocols, the head should be inspected closely for 10 days, and a second treatment after 7 days is advisable.</p>
+      <p><strong>Heat.</strong> Another non-toxic option with no head lice resistance potential is the use of heat to desiccate (dry out) head lice. A device called AirAllé is available that kills lice and lice eggs by desiccating them with heated air. One study showed use of the device resulted in nearly 100% mortality of eggs and 80% mortality of hatched lice. The machine is expensive, and the operator requires special training to use the machine, but maybe be worthwhile for those who treat head lice frequently as part of their job. The treatment of individual cases is only available through commercial lice control services, and the cost of a treatment may be relatively high. </p>
+      <p><strong>Insecticidal Shampoos.</strong> Treatment with pesticides can be harmful to human health and the environment and is often not the most effective solution for head lice. The most commonly used products contain pesticides that are toxic to the louse’s nervous system. These products may kill lice, but not eggs, so a second application is usually necessary 7 to 10 days later. People who skip the second insecticide treatment take the chance of having lice reinfest. This would result in having to start another round of treatment, further increasing a person’s exposure to pesticides. </p>
+      <p>Select insecticidal shampoo products carefully. Always read the label carefully and follow the directions. People who have asthma or are treating an asthmatic dependent should take extra care to monitor for allergic reactions.</p>
+      <p>Minimize body exposure by confining the insecticide shampoo to the head and hair. Do not use it in the bath or shower: wash the infested person’s hair in a basin or sink so insecticide residues do not reach other parts of the body. Rinse with warm rather than hot water which causes blood vessels to dilate and increases absorption of the insecticide into the body. The scalp is one of the most absorbent parts of the body. </p>
+      <p>Use regular shampoo and conditioner to wash the hair after using insecticidal shampoo, unless the label directs otherwise. Leave the conditioner in and towel-dry the hair, then comb the wet hair using a regular comb to remove snarls and the accumulation of any suds. After shampoo treatment, follow up with wet combing of the hair using a nit comb as described above. Clean the home and personal belongings the infected person may have had contact with on the same day as the treatment. </p>
+      <p>Many insecticide treatments can be harsh on a person’s hair and very drying to the scalp, which in turn can cause an increase in dried scalp flakes and dandruff that might be mistaken for nits. A coal tar shampoo and over-the-counter oral diphenhydramine (Benadryl or generic) will help calm an itchy scalp. If a person scratches their scalp severely leaving open wounds, many of the insecticide products cannot be used until the scalp heals. Although diphenhydramine can be used to reduce the itchiness of the scalp, it may take a few days for wounds to heal well enough for treatment.</p>
+      <p><strong>Can head lice be resistant to insecticidal shampoos?</strong> Lice should die within a day of treatment with a pyrethrin or permethrin application. If live lice are found a day after treatment, suspect that resistance is occurring and discontinue use of that product. If a follow-up treatment is needed according to the product label, switch to a product with different ingredients that kill lice in a different way (Tables 1 and 2). </p>
+      <p>Additional use of failing insecticidal shampoo products will increase the treated person’s exposure to the insecticide unnecessarily and risk creating head lice resistant to the insecticide. Head lice which are resistant to the active ingredients will survive. Lice are increasingly resistant to pyrethrin and permethrin. The efficacy of a treatment also depends on the number of lice present. Therefore, insecticide shampoos may be less effective if a child has a severe infestation. Researchers conducting research on head lice resistance to permethrin (e.g., Nix and others) found 100% of head lice were resistant in 42 states in the U.S. Head lice have developed significant resistance to permethrin, malathion, pyrethrin, and lindane active ingredients. Resistance is now the most common cause of treatment failure. Select a product with an active ingredient that head lice have not developed resistance to, for example, products containing benzyl alcohol, spinosad, and dimethicone. </p>
+      <p>Insecticidal shampoos should not be used unless live head lice are observed on the scalp and should never be used as a preventative measure. Misdiagnosis and treatment of non-existent head lice, or the incomplete, or improper, treatment of head lice, have led to over-exposure of children to insecticidal shampoos used to treat head lice. </p>
+      <p>Never resort to dangerous practices such as applying household aerosol or spray insecticides not registered for lice treatment. Never use flea or tick shampoos for pets, or materials such as kerosene. Serious injuries have occurred to children and adults when chemicals not intended for lice are used in attempts to treat head lice.</p>
+  
+<p><strong>Treating Braids, Dreadlocks, Hair Extensions, and Hair that Cannot be Combed</strong><br>
+        An effective treatment protocol for treating heads of hair that cannot be combed include using a dimethicone-based product. A series of 3 dimethicone treatments made 5 to 6 days apart can reliably eliminate lice without the need to comb nits out.</p>
+    
+<table class="table table-bordered table-striped table-content-wrap">
+<caption>Table 1. Prescription treatments for head lice.</caption>
+          <thead>
+        <tr>
+          <th scope="col">Active   ingredient</th>
+          <th scope="col">Mode   of action</th>
+          <th scope="col">Product   example</th>
+        </tr>
+        </thead>
+          <tbody>
+        <tr>
+          <td scope="row">Ivermectin</td>
+          <td>Disrupts   nervous system</td>
+          <td>Stromectol, Sklice, and generics </td>
+        </tr>
+        <tr>
+          <td scope="row"><a href="/home-and-landscape/pesticide-active-ingredients-database/active-ingredient-details/?uaiKey=64">Spinosad</a></td>
+          <td>Disrupts   nervous system</td>
+          <td>Natroba</td>
+        </tr>
+        <tr>
+          <td scope="row">Pyrethroid-based<sup>1,2</sup></td>
+          <td>Disrupts   nervous system</td>
+          <td>Elimite</td>
+        </tr>
+        <tr>
+          <td scope="row"><a href="/home-and-landscape/pesticide-active-ingredients-database/active-ingredient-details/?uaiKey=28">Malathion</a><sup>2</sup> </td>
+          <td>Disrupts   nervous system</td>
+          <td>Ovide   and generics</td>
+        </tr>
+      </tbody>
+        </table>
+    <p class="visually-hidden">Footnotes</p>
+<ul class="list-no-bullet ms-0">
+<li><sup>1</sup> Although there are pyrethroid-based products available over-the-counter, medical professionals still prescribe these to caregivers bringing infested patients for evaluation. </li>
+<li><sup>2</sup> Widespread head lice resistance has been documented. </li></ul>
+    
+<table class="table table-bordered table-striped table-content-wrap">
+		  <caption>Table 2. Non-prescription treatments for head lice. </caption>
+        <thead><tr>
+          <th scope="col">Active   ingredient or strategy</th>
+          <th scope="col">Mode   of action</th>
+          <th scope="col">Product   example</th>
+        </tr>
+       </thead>
+         <tbody>
+        <tr>
+          <td scope="row">Dimethicone   (dimeticone)</td>
+          <td>Disruption   of water homeostasis and suffocation</td>
+          <td>Dimethicone LiceMD gel, Rapunzel’s   Lice Neutralizer, Hedrin 4% Dimeticone Head Lice Lotion, KaPOW! Lice Attack   Solution</td>
+        </tr>
+       <tr>
+          <td scope="row">Natrum Muriaticum (sodium chloride)   (in benzyl alcohol<sup>1</sup>)</td>
+          <td>Dehydrates   or suffocates lice</td>
+          <td>Vamousse Lice Treatment, Licefreee!</td>
+        </tr>
+        <tr>
+          <td scope="row">Pyrethroid-based<sup>2</sup></td>
+          <td>Disrupts   nervous system</td>
+          <td>Nix, Pronto, Rid</td>
+        </tr>
+        <tr>
+          <td scope="row">Enzymes <br>
+          (vegetable   extracts)</td>
+          <td>Helps   to dissolve or soften<br>
+            the   glue that attaches the nit to the hair shaft</td>
+          <td>LiceLogic, Lice B Gone, Safe   Solutions Lice R Gone</td>
+        </tr>
+        <tr>
+          <td scope="row">Heat</td>
+          <td>Desiccates   lice and nits</td>
+          <td>AirAllé</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p class="visually-hidden">Footnotes</p>
+<ul class="list-no-bullet ms-0">
+<li><sup>1</sup> Benzyl alcohol may be listed as an active ingredient or product additive and is found in some prescription and over-the-counter products. It is highly effective at killing head lice, but the following should be noted: benzyl alcohol is flammable, keep away from open flames. Allergic reaction is very rare but seek emergency medical help if a treatment causes: hives; difficult breathing; swelling of face, lips, tongue, or throat.</li>
+    <li><sup>2</sup> Widespread head lice resistance has been documented. </li>
+    </ul>
+    
+	
+      <h3>Cleaning the Home</h3>
+      <p>It is important to wash the clothing, stuffed toys, and bedding of the infested person at the time he or she is initially treated. Only items that have been in contact with the head of the infested person in the 48 hours before treatment need to be cleaned. Head lice cannot live off the human body for more than 48 hours. Vacuum car seats, couches, chairs, and other places where the head lays regularly.</p>
+      <p>Kill head lice by washing infested articles in hot water (at least 140°F) and drying in a hot dryer. Items that cannot be laundered such as headgear, earphones, and bike helmets, can be placed in a plastic bag and put in a freezer. If the freezer is 5°F or lower, all lice and eggs should be dead within 10 hours. Also, keep items and areas off-limits to people for 48 hours to limit exposure to any live lice. </p>
+      <p>While it is important to clean objects that come in contact with the head, in general, lice tend to remain on the head. Therefore, it's not necessary to completely clean the home. Also, do not spray insecticides on furniture, clothing, bedding, and carpeting since they are not effective at controlling head lice in these situations. </p>
+      <h3>Environmental Concerns</h3>
+      <p>Products containing permethrin and lindane also pollute our waterways. Permethrin is highly toxic to fish and other aquatic animals, and to bees and other beneficial insects. Lindane is particularly persistent and requires special treatment to be removed from the environment.</p>
+      <h3>Contacting Friends and Schools</h3>
+      <p>If your child has a head louse infestation, it is important to inform anyone your child has had close contact with in the recent past. If the sources, or other recently infested people, are not treated, your child can become re-infested when contact is renewed, which means you will need to go through all of the above treatment procedures again. Synchronized treatment where all infested individuals are treated at the same time, interrupts transmission and prevents re-infestation, particularly in school or childcare-based control programs.</p>
+      <p>A “no nit” policy has not been found to be necessary. Both the American Academy of Pediatrics and the Centers for Disease Control and Prevention recommend that children with lice and nits NOT be excluded from school. Children found to have live head lice at school should not be sent home. It is recommended that they go home at the end of the day, get treated, and return the next day after treatment. The negative impacts of excluding children from school for head lice exceed the risks posed by head lice. Since nits further than 1/4 inch from the scalp have probably hatched or are no longer viable, the “no nit” policy enforced by some school districts does not have a biological basis. Children should not be excluded from school for head lice unless an extreme infestation is found. </p>
+      <p>If head louse infestations are occurring at your child’s school, check your child’s head nightly using a metal lice comb and a good light source. Some children never develop itching, so it is not a reliable indicator that a child has lice. The earlier an infestation is discovered, the easier it will be to treat. </p> 
+                                        <h2 id="IMPACT_357_1">Impact</h2>
+                                    
+                                <!-- cot:1/cse:357/muc:1-->
+                                <p>Head lice are the most prevalent human parasitic infestation in industrialized countries. The problem can be so significant among preschool and school-aged children that often schools must work together with many families to control an infestation. An individual family may be able to control head lice at home, but the child can be re-infested when they come in contact with an untreated, infested child again. A 1997 Centers for Disease Control (CDC) report based on sales of insecticides estimated that between 6 to 12 million head louse infestations occur annually in the United States among children 3 to 11 years of age, but this number is considered to be an overestimation of the actual number of infestations that occur because many infestations are incorrectly diagnosed based on non-viable nits observed in the hair. However, head lice infestation incidence is indeed increasing due to widespread resistance to many of the commonly used over-the-counter pyrethrin or pyrethroid-based insecticidal shampoos. </p>
+      <p>Individuals, families, schools, and employers all incur substantial costs as a result of head lice treatment expenses, school absenteeism, and missed workdays. The annual cost of treating head lice in the U.S. is estimated to be up to $1 billion.</p>
+      <p>Lice infestations are very commonly misdiagnosed, leading to unnecessary treatment with pesticide-containing shampoos. In a Harvard study of 600 samples of presumed lice or nits submitted by teachers, parents, nurses, and physicians, lice or nits were present in fewer than two-thirds of these samples and only one half of those contained viable lice or nits. </p> 
+                                            <div class="alert alert-warning mt-3">The pesticide information on this page may become out of date as products and active ingredients change or become unavailable. Some of the pesticides listed are only available for use by licensed pesticide applicators. No endorsements of named products are intended, nor is criticism implied of products not mentioned.</div>
+                                        
+                                        <h2 id="REFERENCES_266_1">References</h2>
+                                    
+                                <!-- cot:1/cse:266/muc:1-->
+                                <p>American Academy of Pediatrics. 2015. <a href="https://publications.aap.org/pediatrics/article-pdf/doi/10.1542/peds.2022-059282/1677524/peds_2022059282.pdf">AAP updates treatments for head lice.</a> (Accessed February 25, 2025)</p>
+      <p>Balcioglu IC, Karakus M, Arserim SK, Limoncu ME, Töz S, Bastemur S, Öncel K, Özbel Y. 2015.  Comparing the efficacy of commercially available insecticide and dimeticone based solutions on head lice, <em>Pediculus capitis</em>: <em>in vitro</em> trials. <a href="http://Pubmed.ncbi.nlm.nih.gov/26809918/">Turkiye Parazitol Derg, 39(4), 305-309</a>. (Accessed June 30, 2020)</p>
+      <p>Burgess IF, Brunton ER, Burgess NA. 2013. Single application of 4% dimeticone liquid gel versus two applications of 1% permethrin creme rinse for treatment of head louse infestation: a randomised controlled trial. <a href="http://bmcdermatol.biomedcentral.com/articles/10.1186/1471-5945-13-5">BMC Dermatol., 13, 5</a>. (Accessed June 30, 2020)</p>
+      <p>Burgess IF, Burgess NA. 2011. Dimeticone 4% liquid gel found to kill all lice and eggs with a single 15-minute application. <a href="http://biomedcentral.com/1756-0500/4/15">BMC Research Notes 4:15</a>. (Accessed June 30, 2020)</p>
+      <p>California Department of Public Health. 2018. <a href="http://cdph.ca.gov/Programs/CID/DCDC/CDPH%20Document%20Library/SchoolGuidanceonHeadLice2018.pdf">Guidance on head lice prevention and control for school districts and child care facilities</a>. (Accessed June 30, 2020) </p>
+     <p>Centers for Disease Control & Prevention. 2015. <a href="https://www.cdc.gov/lice/about/head-lice.html">Head lice FAQs – who is at risk for getting head lice?</a> (Accessed February 25, 2025)</p>
+      <p>Cummings C, Finlay JC, MacDonald NE. 2018. Head lice infestations: A clinical update. <a href="http://pubmed.ncbi.nlm.nih.gov/29479286/">Paediatrics & Child Health, 2018</a>. (Accessed June 30, 2020)</p>
+      <p>Devore, CD, Schutze GE. 2015. Head lice. Pediatrics 135(5): e1355-1365. </p>
+      <p>Feldmeier H. 2014. Treatment of pediculosis capitis: a critical appraisal of the current literature. <a href="http://Researchgate.net/publication/265691185_Treatment_of_Pediculosis_Capitis_A_Critical_Appraisal_of_the_Current_Literature">American Journal of Clinical Dermatology, 15(5), 401-412</a>. (Accessed June 30, 2020)</p>
+      <p>Frankowski BL, Bocchini JA. 2010. Clinical report—head lice. Pediatrics Volume 126, Number 2, August 2010.</p>
+      <p>Goates BM, Atkin JS, Wilding KG, Birch KG, Cottam MR, Bush SE, Clayton DH. 2006. An effective nonchemical treatment for head lice: a lot of hot air. <a href="http://Pediatrics.aappublications.org/content/118/5/1962">Pediatrics, 118(5), 1962-1970</a>. (Accessed June 30, 2020)</p>
+      <p>Gur I, Schneeweiss R. 2009. Head lice treatments and school policies in the US in an era of emerging resistance: A cost-effectiveness analysis. Pharmacoeconomics 27(9):725–34.</p>
+      <p>Hansen RC, O’Haver J. 2004. Economic considerations associated with <em>Pediculus humanus capitis</em> infestation. Clin Pediatr (Phila). 43(6):523–527.</p>
+      <p>Heukelbach J, Sonnberg S, Becher H, Melo I, Speare R, Araujo Oliveira F. 2011. Ovicidal efficacy of high concentration dimeticone: a new era of head lice treatment. <a href="http://Pubmed.ncbi.nlm.nih.gov/21414492/">J. Am. Acad. Dermatol., 64(4), e61-62</a>. (Accessed June 30, 2020)</p>
+      <p>Ihde ES, Boscamp JR, Loh JM, Rosen L. 2015. Safety and efficacy of a 100% dimethicone pediculocide in school-age children. <a href="http://Bmcpediatr.biomedcentral.com/articles/10.1186/s12887-015-0381-0">BMC Pediatr., 15, 70</a>. (Accessed June 30, 2020)</p>
+      <p>Mac-Mary S, Messikh R, Jeudy A, Lihoreau T, Sainthillier J-M, Gabard B, Schneider C, Auderset P, Humbert P. 2012. Assessment of the efficacy and safety of a new treatment for head lice. <a href="http://Ncbi.nlm.nih.gov/pmc/articles/PMC3503300/">ISRN Dermatol., 2012, 460467</a>. (Accessed June 30, 2020)</p>
+      <p>Meister L, Ochsendorf F. 2016. Head lice: epidemiology, biology, diagnosis, and treatment. <a href="http://doi.org/10.3238/arztebl.2016.0763">Deutsches Ärzteblatt International, 113(45), 763–772</a>. (Accessed June 30, 2020)</p>
+      <p>Pollack RJ, Kiszewski AE, Spielman A. 2000. Overdiagnosis and consequent mismanagement of head louse infestations in North America. Pediatr. Infect. Dis. J., 19(8), 689-693; discussion 694. </p>
+      <p>Smith CH, Goldman RD. 2012. An incurable itch: head lice. Can. Fam. Physician, 58(8), 839-841. </p>
+
+ <h4>RESOURCES</h4>
+      <p><a href="http://Headlice.org/video/index.php">National Pediculosis Association</a>. Videos page. (Accessed June 30, 2020)</p>
+      <p><a href="http://Cdc.gov/parasites/lice/head/index.html">The Centers for Disease Control web page on head lice</a>. (Accessed June 30, 2020)</p> 
+
+                    <h2 id="RESOURCES">Resources</h2>
+                    <ul>
+                        <li><a href="/IPMPROJECT/about_urban.html">About Pest Notes</a></li>
+                        <li><a href="/PMG/glossary.html">Glossary</a></li>
+                        <li><a href="https://ipm.ucanr.edu/home-and-landscape/pesticide-active-ingredients-database/compare-active-ingredients/?conKey=4488">Compare Risks from Pesticides Mentioned</a></li>
+                        <li><a href="/PMG/PESTNOTES/warning.html">WARNING ON THE USE OF PESTICIDES</a></li>
+                        <li><a href="/PMG/PESTNOTES/index.html">List of other Pest Notes</a></li>
+                    </ul>
+
+					
+
+                    <h2 id="PUBLICATIONINFORMATION">Publication Information</h2>
+                    <div class="authors bg-color-light-blue">
+                        <img src="https://ipm.ucanr.edu/assets_v7/images/uc-peer-reviewed.png" title="UC Peer Reviewed Logo" alt="UC Peer Reviewed Logo">
+                        <p><strong>Pest Notes</strong>: Head Lice</p>
+                        <p><strong>UC ANR Publication 7446</strong></p>
+                        
+                            <p><strong>Author(s)</strong></p>
+                            
+                                    <p>V. Leonard, University of California, San Francisco, Western States Pediatric Environmental Health Specialty Unit</p>
+                                
+                                    <p>D.G. Gouge, University of Arizona, Entomology</p>
+                                
+                            <p><strong>Technical Editor</strong></p>
+                            
+                                    <p><a href="https://ucanr.edu/people/karey-windbiel">K. Windbiel-Rojas</a>, UC Statewide IPM Program</p>
+                                
+                            <p><strong>ANR Associate Editor</strong></p>
+                            
+                                    <p><a href="https://ucanr.edu/people/andrew-m-sutherland">A.M. Sutherland</a>, UC IPM and UC Cooperative Extension, San Francisco Bay Area</p>
+                                
+                            <p><strong>Editor</strong></p>
+                            
+                                    <p><a href="https://ucanr.edu/people/belinda-messenger-sikes">B. Messenger-Sikes</a>, UC IPM</p>
+                                
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+<meta property="og:url"                content="https://ipm.ucanr.edu/home-and-landscape/head-lice/" />
+<meta property="og:type"               content="website" />
+<meta property="og:title"              content="Head Lice / Home and Landscape / UC Statewide IPM Program (UC IPM)" />
+<meta property="og:description"        content="The head louse, Pediculus humanus capitis, can infest people of all ages, but most commonly affects children 4 to 12 years of age since they often play in close contact with one another. However, teens and adults can also be hosts for these unwelcome pests. 
+      Many families with young children have at least one encounter with head lice. While head lice infestation causes limited health impacts for most people, it can cause a great deal of anxiety and embarrassment. Head lice are not a health hazard and do not transmit disease-causing pathogens, nor do they indicate poor hygiene. 
+      Head lice are mainly acquired through direct head-to-head contact with an infested person&rsquo;s hair. Objects such as combs, hats, brushes, or helmets rarely harbor or transmit head lice or their eggs (nits), but it may occur under certain circumstances, so cleaning of items is recommended. Head lice cannot live off the human body for more than 1 to 2 days.
+      Diagnosis of a head lice infestation requires the detection of a living louse crawling on the scalp. The presence of nits is not a reliable indication of an active infestation that needs to be treated." />
+<meta property="og:image"              content="https://ipm.ucanr.edu/PMG/IMAGES/P/I-AN-PHUM-AD.001.jpg" />
+
+<script>
+    //$(document).ready(function () {
+       // /*
+       // $("#collapseExample").on("hide.bs.collapse", function(){
+       //   $("#multiCollapseExampleText").html('<span class="glyphicon glyphicon-collapse-down"></span> Open');
+       // });
+       // */
+        //$("#collapseExample").on("show.bs.collapse", function () {
+            //$("#multiCollapseExampleText").html('');
+        //});
+    //}); 
+
+    const expandQuickTips = (e, contentId, expandLinkId, gradientClass) => {
+    e.preventDefault();
+    const content = document.getElementById(contentId); //content div to expand/collapse
+    const expandLink = document.getElementById(expandLinkId); //expand link el
+
+    content.classList.remove(gradientClass); // css for gradient
+    content.style.maxHeight = 'none';
+    expandLink.style.display = 'none';
+};
+
+// intially hide content
+const setInitQuickTipsHeight = (contentId,expandLinkId) => {
+    const expandLink = document.getElementById(expandLinkId); //expand link el
+    const content = document.getElementById(contentId); 
+    const totalHeight = content.scrollHeight; 
+    const initialHeight = totalHeight * 0.25; 
+    const threshold = 200;
+    if (totalHeight > threshold) {
+        content.style.maxHeight = initialHeight + 'px';
+        content.style.overflow = 'hidden';
+    } else {
+        content.style.maxHeight = totalHeight + 'px'; 
+        expandLink.style.display = 'none';
+    }
+};
+setInitQuickTipsHeight('calloutBody','expandContent');
+</script><!-- INF10\footer-v5.cfm -->
+
+<!-- # WWW03\Templates\WWW_footerNav_3_2023.cfm -->
+
+
+
+
+
+<footer class="footer-old">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6">
+        <h2 class="h3">Managing Pests</h2>
+        <ul class="footer-links-wrap">
+          <li><a href="/agriculture/">Agriculture</a></li>
+          <li><a href="/home-and-landscape/">Home and Landscape</a></li>
+          <li><a href="/natural-area-pests/">Natural Area Pests</a></li>
+          <li><a href="/GENERAL/pesticides.html">Pesticide Safety</a></li>
+          <li><a href="/invasive-and-exotic-pests/">Invasive and Exotic Pests</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6">
+        <h2 class="h3">About</h2>
+        <ul class="footer-links-wrap">
+          <li><a href="/about/">About UC IPM</a></li>
+          <li><a href="/highlights/">Annual Reports</a></li>
+          <li><a href="/strategic-plan/">UC IPM Strategic Plan</a></li>
+          <li><a href="/IPMPROJECT/programs.html">UC IPM Programs</a></li>
+          <li><a href="/what-is-ipm/">What is IPM?</a></li>
+          <li><a href="/whats-new/">What's New</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6">
+        <h2 class="h3">Resources</h2>
+        <ul class="footer-links-wrap">
+          <li><a href="/PMG/glossary.html">Glossary</a></li>
+          <li><a href="/GENERAL/links.html">Links</a></li>
+          <li><a href="/GENERAL/pesticides.html">Pesticide Information</a></li>
+          <li><a href="/IPMPROJECT/pubsmenu.html">Publications and Newsletter</a></li>
+          <li><a href="/IPMPROJECT/recursos-espanol.html"><span lang="es">Recursos en espa&ntilde;ol</span></a></li>
+          <li><a href="/IPMPROJECT/workshops.html">Trainings and Events</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6">
+        <h2 class="h3">Get In Touch</h2>
+        <ul class="footer-links-wrap">
+          <li><a href="mailto:ipm-webmaster@ucanr.edu?subject=RE: Head Lice">Contact Us</a></li>
+          <li><a href="mailto:ipm-webmaster@ucanr.edu?subject=Feedback: Head Lice">Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="footer-secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 footer-secondary-content-wrap">
+        <img src="/assets_v7/images/logo/anr.png" alt="UC IPM logo with an outline of the state of california in the back drop and the UC ANR logo below." width="500px" class="mt-3 mb-3">
+        <div>
+          <div class="footer-icons">
+            
+            <a href="https://www.linkedin.com/showcase/uc-integrated-pest-management/" aria-label="Follow UC IPM on Linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/user/UCIPM" aria-label="Follow UC IPM on Youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/ucipm/" aria-label="Follow UC IPM on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/UCIPM/" aria-label="Follow UC IPM on Facebook"><i class="fab fa-facebook-square"></i></a>
+          </div>
+        </div>
+        <div class="footer-secondary-link-wrap" role="region" aria-label="UC IPM Home and Landscape specific social media options">
+          <span class="footer-secondary-bolded-text">Home and Landscape: </span><a href="https://www.instagram.com/ucipmurban/">Instagram</a> | <a href="https://www.facebook.com/ucipmurban/">Facebook</a></div>
+        <div class="footer-secondary-link-wrap" role="region" aria-label="Copyright, usage notices and other links.">
+          <a href="/GENERAL/copyright.html">Use Permissions and Citations</a>
+          |
+          <a href="/nondiscrimination-statements/">Nondiscrimination Statement</a>
+          |
+          <a href="/GENERAL/acknowledgments.html">Acknowledgements</a>
+          |
+          <a href="/accessibility/">Accessibility</a>
+          |
+          <a href="https://ucanr.edu/?privacyStatement">Privacy Statement</a>
+          |
+          <a href="/ADMIN/">Staff-Only Page</a>
+          
+          <p class="small fc-uc-dark-blue mt-5">&copy;1996&mdash;2026 Statewide IPM Program, Agriculture and Natural Resources, University of California Regents of the University of California unless otherwise noted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+
+<script async src="https://siteimproveanalytics.com/js/siteanalyze_8343.js"></script>
+
+
+
+</body>
+</html>

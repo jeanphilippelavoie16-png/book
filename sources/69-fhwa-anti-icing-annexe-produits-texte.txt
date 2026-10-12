@@ -1,0 +1,362 @@
+ 
+Recommended Anti-Icing Practices
+-
+Manual of Practice for An Effective Anti-Icing Program
+,
+June 1996
+-
+FHWA-RD-95-202
+ U.S. Department of Transportation
+ Federal Highway Administration 
+ 1200 New Jersey Avenue, SE
+ Washington, DC 20590
+ 202-366-4000
+ About 
+ FHWA Organization 
+ Headquarters Offices 
+ Field Offices 
+ Careers 
+ Business Opportunities 
+ Staff Directories 
+ Highway History 
+ Programs 
+ Acquisition Management 
+ Federal Lands Highway 
+ Infrastructure 
+ Innovative Program Delivery 
+ Operations 
+ Planning, Environment, and Realty 
+ Policy 
+ Research, Development & Technology 
+ Safety 
+ Browse by Topics 
+ Resources 
+ Core Highway Topics 
+ Federal-Aid Essentials 
+ Automation 
+ Publications & Statistics 
+ Laws & Regulations 
+ Policy & Guidance Center 
+ Section 508 
+ Professional Development 
+ National Highway Institute (NHI) 
+ Resource Center 
+ Accessibility Resource Library 
+ FHWA Research Library 
+ Briefing Room 
+ Press Releases 
+ Speeches & Testimony 
+ Photos 
+ Videos 
+ Media Contacts 
+ Contact 
+ Search FHWA 
+ Federal Highway Administration Research and Technology 
+ Coordinating, Developing, and Delivering Highway Transportation Innovations 
+ REPORT 
+ This report is an archived publication and may contain dated technical, contact, and link information 
+ Top 
+ < Prev 
+ Main 
+ 1 
+ 2 
+ 3 
+ 4 
+ 5 
+ 6 
+ 7 
+ Next > 
+ >> 
+ Federal Highway Administration > 
+ Publications > 
+ Research Publications > 
+ 95202 >
+ 004.Cfm > 
+ Recommended Anti-Icing Practices
+ Publication Number: FHWA-RD-95-202 Date: June 1996 
+ Publication Number: FHWA-RD-95-202
+ Date: June 1996
+ Manual of Practice for An Effective Anti-Icing Program
+ APPENDIX A. SELECTED CHEMICALS AND THEIR PROPERTIES
+ Information is presented in this appendix on the properties of five chemicals used for anti-icing treatments and instructions for preparing various liquid concentrations. The five chemicals are calcium chloride, sodium chloride, magnesium chloride, calcium magnesium acetate, and potassium acetate. They are listed here with their eutectic temperatures and concentrations:
+ Chemical 
+ Eutectic temperature
+ °C (°F) 
+ Eutectic concentration
+ % 
+ calcium chloride (CaCl 2 ) 
+ -51 (-60) 
+ 29.8 
+ sodium chloride (NaCl) 
+ -21 (-5.8) 
+ 23.3 
+ magnesium chloride (MgCl 2 ) 
+ -33 (-28) 
+ 21.6 
+ calcium magnesium acetate (CMA) 
+ -27.5 (-17.5) 
+ 32.5 
+ potassium acetate (KAc) 
+ -60 (-76) 
+ 49 
+ No information is provided on the corrosive properties or environmental aspects of the chemicals. Discussions of these items can be found in the literature. Likewise no cost data for the chemicals are given. These data can be obtained readily from distributors.
+ A.1 CALCIUM CHLORIDE, CaCl 2 
+ A.1.1 Introduction 
+ Two methods are used to manufacture commercial CaCl2: extraction from natural brines obtained from deep wells, principally in Michigan; and by a chemical process, the Solvay process, in which sodium chloride is reacted with calcium carbonate to produce sodium carbonate (soda ash) and calcium chloride.
+ The American Society for Testing and Materials (ASTM) has prepared two standards for calcium chloride: D 98 Specification for Calcium Chloride, and E 449 Standard Test Method of Analysis of Calcium Chloride. 
+ A.1.2 Preparation of liquid CaCl 2 
+ Solid calcium chloride dissolves readily in water with little agitation required. Considerable heat is given off when it dissolves. Two methods of mixing can be used to obtain a specific concentration of liquid CaCl 2 . Method 1 is used if the volume of the mixing container is known. Use Method 2 if the volume of the mixing container is not known. Each of these methods is described below. For both, the water temperature should be below 20°C (68°F).
+ A.1.2.1 Method 1 (Known mixing container volume) 
+ From the “per volume solution” column of Table 2 determine the weight in kg (or lb) of solid calcium chloride required to make 1 m 3 (or 1 gal) of solution at the desired concentration level. This value, multiplied by the volume of the container in m 3 (or gal), gives the total weight of calcium chloride required.
+ Fill the container approximately 2/3 full of water, then add the required calcium chloride gradually while stirring carefully with a paddle by hand, with a mechanical agitator, or with an air bubbler.
+ After the calcium chloride has completely dissolved, add water to the container to bring the level to the working volume and then agitate the solution slowly until a uniform mixture is obtained.
+ Table 2. Calcium chloride mixing proportions. 
+ %CaCl 2 actual 
+ Weight CaCl 2 77% flake 
+ Crystallization 
+ Weight per unit 
+ per volume solution
+ kg/m 3 (lb/gal) 
+ per volume water
+ kg/m 3 (lb/gal) 
+ temperature
+ °C (°F) 
+ volume of solution
+ kg/m 3 (lb/gal) 
+ 10 
+ 139 (1.16) 
+ 146 (1.22) 
+ -5.4 (22.3) 
+ 1085 (9.06) 
+ 15 
+ 218 (1.82) 
+ 238 (1.99) 
+ -10.3 (13.5) 
+ 1133 (9.46) 
+ 20 
+ 303 (2.53) 
+ 344 (2.87) 
+ -18.0 (-0.4) 
+ 1185 (9.89) 
+ 25 
+ 397 (3.31) 
+ 471 (3.93) 
+ -29.4 (-21) 
+ 1234 (10.3) 
+ 29.8* 
+ 491 (4.1) 
+ 621 (5.18) 
+ -55.0 (-67) 
+ 1288 (10.75) 
+ 30 
+ 498 (4.16) 
+ 627 (5.23) 
+ -46.0 (-50.8) 
+ 1294 (10.8) 
+ *Note: this is the "eutectic" point, i.e., the concentration that results in the lowest temperature 
+(-55°C (-67°F)) at which a solution can exist while remaining completely liquid.
+ A.1.2.2 Method 2 (Unknown mixing container volume) 
+ Put a measured volume of water in the container to no more than 2/3 of the container capacity.
+ Dissolve in it the required weight of calcium chloride given in the "per volume water" column of Table 2 for each cubic meter (or gallon) of water used. Add the calcium chloride slowly to the water with agitation.
+ When completely dissolved, the solution will have the desired concentration.
+ A.1.2.3. Additional comments 
+ For those mathematically inclined, the following formula can be used to determine the volume of water required for a given level of concentration.
+ m 3 of water required to
+ make a solution of a
+ desired concentration 
+ = 
+ kg dry CaCl 2 x %CaCl 2 
+desired % solution
+ - kg dry CaCl 2 
+ ÷ 1000 kg/m 3 water 
+ Example: to make a 20 percent solution from 500 kg of flake CaCl 2 (this is typically 78 percent concentration),
+ 500 x 78
+20 
+ - 500 
+ ÷ 1000 = 1.45 m 3 water 
+ (In English units:
+ gal of water required to
+ make a solution of a 
+desired concentration 
+ = 
+ lb dry CaCl 2 x %CaCl 2 
+desired % solution
+ – lb dry CaCl 2 
+ ÷ 8.34 lb/gal water 
+ Example: to make a 20 percent solution from 1000 lb of flake CaCl2 (this is typically 78 percent concentration),
+ 1000 x 78
+20 
+ - 1000 
+ ÷ 8.34 = 348 gal water 
+ A word of caution. Calcium chloride when dissolved gives off heat. This heat of solution causes the brine to expand and occupy more space than it will after it cools. That’s why the container in Method 2 is filled to no more than 2/3 capacity. For example, additional tank capacity of approximately 90 L (23 gal) for every 
+ 4 m 3 (1000 gal) of 20 percent solution is required. This will increase slightly to 100 L (26 gal) for every 
+4 m 3 (1000 gal) of a 34 percent solution. 
+ Always add the calcium chloride to the water. If you put the calcium chloride in the container first and then add water, the chemical may form a solid mass which is difficult to dissolve completely. 
+ A.2 SODIUM CHLORIDE, NaCl
+ A.2.1 Solid NaCl 
+ Sodium chloride has been used as an ice-control chemical on roads since early in this century. It is produced by three processes: rock salt is mined by conventional hard rock mining equipment and techniques; solar salt is produced by the evaporation of sea water and may contain only a small amount of impurities; and evaporated or solution or vacuum salt , a very pure form made by drying under vacuum the solution resulting from injection of water into deep underground deposits. Most salt used for highway applications in the United States is rock salt, though some solar salt is produced in several western states and some is imported into the eastern US. Naturally occurring rock salt is the mineral halite, and usually contains between 1 percent and 4 percent impurities, mostly gypsum, shale, dolomite, and quartz. 
+ The ASTM designation for salt used for highway ice control is D 632 Standard Specification for Sodium Chloride. 
+ Two gradations of salt are designated by the ASTM standard as shown in Table 3. Similar but slightly different gradations are used by the British. These along with the Swedish and Finnish gradations are shown below, in Tables 4, 5 and 6, respectively. 
+ Table 3. Gradation of salt specified by ASTM D 632. 
+ Sieve size 
+ Weight % passing 
+ Grade 1 
+ Grade 2 
+ 19.0 mm (3/4 in)
+ 12.5 mm (1/2 in)
+ 9.5 mm (3/8 in)
+ 4.75 mm (No. 4)
+ 2.36 mm (No. 8) 
+ 600 µm (No. 30) 
+ ....
+ 100
+ 95 to 100
+ 20 to 90
+ 10 to 60
+ 0 to 15 
+ 100
+ ...
+ ...
+ 20 to 100
+ 10 to 60
+ 0 to 15 
+ Note: grade 1 is the most commonly used gradation in the U.S.
+ Table 4. Salt gradation specified by British Standard BS 3247 Specification for salt for spreading in highways for winter maintenance. 
+ Type and grade of salt 
+ BS 410 test sieve 
+ Percentage
+ passing
+ test sieve 
+ Rock salt 
+ Coarse 
+ 10 mm
+ 6.3 mm
+ 2.36 mm
+ 300 μm 
+ 100
+ 75 to 95
+ 30 to 70
+ 0 to 20 
+ Fine 
+ 6.3 mm
+ 2.36 mm
+ 300 μm 
+ 100
+ 30 to 80
+ 0 to 20 
+ Vacuum salt and marine salt 
+ Coarse 
+ 10 mm
+ 1.18 mm
+ 150 μm 
+ 100
+ 0 to 80
+ 0 to 10 
+ Fine 
+ 1.18 mm
+ 150 μm 
+ 100
+ 0 to 30 
+ Table 5. Swedish gradation for salt. 
+ Sieve size,mm 
+ Weight % passing 
+ 3
+ 2
+ 1
+ 0.5
+ 0.16 
+ 95-100
+ 65-100
+ 26-50
+ 5-26
+ 0-5 
+ Table 6. Finnish gradation for salt. 
+ Sieve size, mm 
+ Weight % passing 
+ 5
+ 4
+ 3
+ 2
+ 1
+ 0.5 
+ 100
+ 90-100
+ 70-100
+ 40-90
+ 15-55
+ 3-25 
+ A.2.2 Preparation of liquid NaCl 
+ Two methods of mixing can be used to obtain a specific concentration of liquid NaCl. Method 1 is used if the volume of the mixing container is known and a desired volume of salt brine is to be produced. Use method 2 if the volume of the mixing container is not known. Each of these methods is described below.
+ A.2.2.1 Method 1 (Known mixing container volume) 
+ From the “per volume solution” column of Table 7, determine the determine the weight in kg (or lb) of dry salt required to make 1 m 3 (or 1 gal) of solution at the desired concentration level. This value, multiplied by the volume of the container, gives the total weight of dry salt required.
+ Fill the container approximately 2/3 full of water, then add the required dry salt gradually while stirring with a paddle by hand, with a mechanical agitator, or with an air bubbler.
+ After the salt has dissolved, add water to the container to bring the level to the working volume and then agitate the solution slowly until a uniform mixture is obtained. Some insoluble precipitate from the impurities will remain in the bottom of the tank until physically removed.
+ Finally, the salt brine should be tested with a hydrometer to determine the percentage of concentration that has been produced. For anti-icing operations, the concentration of the salt brine should be as close to 23.3 percent as possible, but no more than 25 percent. If the concentration is more than 25 percent, some water should be added to the mixture to reduce the concentration to the desired level. If the concentration is less than 23 percent some salt should be added to the mixture to raise the concentration to the desired level. The table of hydrometer readings versus percent concentration of salt given in Section 3.1.2.2 can be used for these tests.
+ Table 7. Proportions for preparing sodium chloride solutions from commercial grade salt (i.e., up to
+5 percent impurities). 
+ % NaCl actual 
+ Weight NaCl 
+ Crystallization 
+ Weight per unit 
+ per volume solution
+ kg/m 3 (lb/gal) 
+ per volume water 
+ kg/m 3 (lb/gal) 
+ temperature
+ °C (°F) 
+ volume of solution
+ kg/m 3 (lb/gal) 
+ 10 
+ 108 (0.9) 
+ 96 (0.8) 
+ -6.7 (20) 
+ 1072 (8.95) 
+ 15 
+ 168 (1.4) 
+ 156 (1.3) 
+ -11.1 (12) 
+ 1112 (9.28) 
+ 20 
+ 228 (1.9) 
+ 204 (1.7) 
+ -17.8 (0) 
+ 1150 (9.6) 
+ 23* 
+ 276 (2.3) 
+ 228 (1.9) 
+ -21.1 (-6) 
+ 1169 (9.76) 
+ 25 
+ 300 (2.5) 
+ 252 (2.1) 
+ -8.9 (16) 
+ 1234 (10.3) 
+ *Note. This is the approximate eutectic composition (see explanation in calcium chloride entry above).
+ A.2.2.2 Method 2 (Unknown mixing container volume) 
+ Fill a hopper tank with dry salt and let water slowly run through the salt by gravity action to the bottom of the tank.
+ Discharge the brine at the bottom of the hopper tank into a holding tank below the hopper tank. Pump the brine from the holding tank into a larger storage tank. Stir the mixture in the larger storage tank with a mechanical agitator or with an air bubbler.
+ Continue to add salt and water to the hopper tank until the large storage tank is almost full.
+ Determine the percentage of concentration of the salt brine using a hydrometer and the table in Section 3.1.2.2. Method 2 will produce up to a 100 percent saturated brine solution depending on the rate of water flow through the salt. A 100 percent saturated brine solution corresponds to a 27 percent concentration level. Water should be added now to the storage tank to reduce the concentration of the mixture to the 23 to 25 percent level.
+ Finally, the required number of pounds of salt used in Method 2 can be roughly calculated by multiplying the total volume of water by the weight of sodium chloride per volume of water given in the “per volume water” column of Table 7 that corresponds to the percent concentration level achieved. This estimate of the amount of salt used can be used to generate subsequent volumes of mixture to fill the storage tank when it is completely empty.
+ A.2.2.3 Additional comments 
+ Method 2 above has been used successfully by several States to generate a salt brine for anti-icing operations. In practice, the brine generation process operates continuously during a storm. This is because liquid brine is drawn from the storage tank throughout the storm to fill the tanks on the spreader vehicles. In this situation, it is important to frequently monitor the percentage concentration level of the mixture in the storage tank. Adjustments should be made to mixture when necessary to achieve the desired level of concentration.
+ A.3 MAGNESIUM CHLORIDE, MgCl 2 
+ The principal source of this ice control chemical is brines from Great Salt Lake. Though it is available in solid (flake) form, it is used in liquid form for ice control. Eutectic temperature is about -33°C (-28°F) at a concentration of 21.6 percent. Its ice melting capacity is about 40 percent greater than CaCl 2 . Proprietary mixtures are available containing 20 to 25 percent MgCl 2 with various corrosion inhibitor additives. One proprietary compound reportedly has an eutectic temperature of -20°C (-4°F). These solutions are effective ice-melting agents at temperatures above -7°C (19°F).
+ A.4 CALCIUM MAGNESIUM ACETATE, [CaMg 2 (CH3COO) 2]6 
+ A.4.1 Introduction 
+ Currently there is only one commercial source for CMA, using the reaction of acetic acid with dolomitic limestone for production. The acetic acid, the costly component of the compound, is manufactured from natural gas or petroleum, though small quantities have been produced by biodegradation of agricultural wastes. The compound is available as pellets. Though not as soluble in water as NaCl and CaCl 2 , solutions can be made at point of use for use as a prewetting agent or straight chemical application. It is not a highly effective deicing chemical in solid form because of its affinity for water and its light particle mass. Its benefit is that snow is made mealy and will not compact. CMA is primarily a mixture of calcium and magnesium acetates, produced with a 3/7 Ca/Mg ratio which was found to be optimum in previous FHWA studies. The eutectic temperature is about -28°C (-18°F) at a concentration of 32.5 percent.
+ A.4.2 Preparation of liquid CMA 
+ Liquid CMA is prepared by dissolving pelletized CMA in water. This process results in a murky solution that settles in time to produce a clear liquid CMA on top and discardable insolubles on the bottom. A 25 percent concentration of liquid CMA is recommended for anti-icing operations. Specifics of liquid CMA production are given in Section 3.1.2.2.
+ A.5 POTASSIUM ACETATE, KC 2 H 3 O 2 
+ Potassium acetate, or KAc as it is commonly known, is produced by the reaction of acetic acid with potassium carbonate. The sources of acetic acid are the same as are used in the production of CMA. Potassium carbonate is one of the group of salts commercially known as potash. Potassium carbonate was originally obtained by running water through wood ashes and boiling the resulting solution in large iron pots. The substance that formed was called potash. Potassium carbonate is currently produced by one of several processes that use potassium chloride, another salt of the potash family. The compound, potassium acetate, is a white, crystalline, deliquescent powder that has a saline taste. It is soluble in water and alcohol. Solutions are alkaline under a litmus test. The dry compound is combustible but is used as a dehydrating agent, a reagent in analytical chemistry, and in the production of synthetic flavors, in addition to other uses. The eutectic temperature of a KAc and water solution is -60°C (-76°F) at a concentration of 49 percent. A commercial form of liquid KAc, containing a 50 percent concentration by weight plus corrosion inhibitors, has been used as a prewetting agent with dry salt or as a straight chemical application. Some experience has been gained with the straight liquid form during anti-icing experiments ( 1 ) .
+ Page Owner: Office of Research, Development, and Technology, Office of Safety, RDT 
+ Topics: research, safety
+ Keywords: research, safety, Highways, anti-icing, snow and ice control, preventive strategy, bonded snow and ice, application timing, chemical freezing point depressant, deicing 
+ TRT Terms: research, Safety and security, Safety, Transportation safety 
+ Scheduled Update: Archive - No Update needed 
+ This page last modified on 02/08/2012 
+ Return to top
+ Privacy Policy | Freedom of Information Act (FOIA) | Accessibility | Web Policies & Notices | No Fear Act | Report Waste, Fraud and Abuse | U.S. DOT Home | USA.gov | WhiteHouse.gov 
+ Federal Highway Administration | 1200 New Jersey Avenue, SE | Washington, DC 20590 | 202-366-4000
+ Turner-Fairbank Highway Research Center | 6300 Georgetown Pike | McLean, VA | 22101 
+ 

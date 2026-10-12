@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+<base href="https://www.cedar-rapids.org/" />
+	<meta charset="utf-8">
+    
+<!-- Metadata Area Starts -->    
+	
+
+
+
+
+
+ 
+
+
+
+
+	
+	<title>
+		Fire Escape Planning
+	</title>
+	
+
+
+
+	<meta name="keywords" content="Welcome,to,the,City,of,Cedar,Rapids, Iowa"/>
+
+
+
+
+	<meta name="description" content="Welcome to the City of Cedar Rapids, Iowa"/>
+
+	
+	
+     
+<!-- Metadata Area Ends -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	
+
+
+<link href="/revize/plugins/setup/css/revize.css" rel="stylesheet" type="text/css" />
+
+
+
+<script type="text/javascript">
+
+
+<!-- // BEG of /plugins/general/general.revize_login.js \\ -->
+function revizelogin()
+{
+	var loginSpan = document.getElementById('revize-login');
+	//var loginSpan = document.getElementById('powered-by-revize-link');
+	if (!loginSpan) return;
+
+	var color,styleElement;
+	var selector1 = "#revize-login a";
+	var rule1 = "text-decoration:none !important;color:";
+	var selector2 = "#revize-login a:hover";
+	var rule2 = "text-decoration:underline !important";
+	if (document.all)
+	{
+		color = loginSpan.currentStyle.color;
+		styleElement = document.createStyleSheet();
+		styleElement.addRule(selector1 , rule1+color+' !important')
+		styleElement.addRule(selector2 , rule2)
+	}
+	else
+	{
+		color =  document.defaultView.getComputedStyle(loginSpan,'').getPropertyValue('color');
+		styleElement = document.createElement("style");
+		document.getElementsByTagName("head")[0].appendChild(styleElement);
+		styleElement = document.styleSheets[document.styleSheets.length-1];
+		styleElement.insertRule(selector1 + ' {' + rule1+color + ' !important}',0);
+		styleElement.insertRule(selector2 + ' {' + rule2 + '}',0);
+	}
+}
+if (typeof window.addEventListener != "undefined")
+	window.addEventListener("load", revizelogin, false);
+else if (typeof window.attachEvent != "undefined")
+	window.attachEvent("onload", revizelogin);
+<!-- \\ END of /plugins/general/general.revize_login.js // -->
+
+<%-- Called from setup.before_endhead.common_include.jsp --%>
+<!-- // BEG of /plugins/google/google.translate.js \\ -->
+function translate()
+{
+	var url = document.location.href;
+	url = url.substring(7);
+	var newurl = 'http://translate.google.com/translate?u=http%3A%2F%2F'+url+'%2F&langpair=en%7Ces&hl=en&ie=UTF-8&oe=UTF-8&prev=%2Flanguage_tools'
+	document.location.href = newurl;
+}
+<!-- \\ END of /plugins/google/google.translate.js // -->
+
+
+
+</script>
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" class="v09-14-2016">
+function isOffsite(e)
+{
+	var el = null;
+	if (e.srcElement)		//IE
+		el = e.srcElement;
+	else if (e.target)		//Standard
+		el = e.target;
+
+	var bases = document.getElementsByTagName('base');
+	var baseHref = "";
+	if (bases.length > 0) {
+	    baseHref = bases[0].href;
+	    if( baseHref != "" && baseHref != undefined) {
+		    var end = baseHref.lastIndexOf("/")+1;
+		    baseHref = baseHref.substring(0,end);
+	    }
+	}
+
+	while (el)
+	{
+		if (el.tagName && el.tagName.toUpperCase() == 'A')
+		{
+			if (!el.href) break;	//should not happen
+
+			var url = 'external.php#' + el.href;
+			var isIEw3c = navigator.appVersion.indexOf('MSIE') == -1
+					   && navigator.userAgent.indexOf('Trident') != -1
+					   && navigator.appCodeName.indexOf('Mozilla') != -1;
+			if (navigator.appVersion.indexOf('MSIE') != -1
+				|| navigator.appVersion.indexOf('Edge') != -1
+				|| isIEw3c)
+				url = baseHref + url;
+			location.href = url;
+			if (e.preventDefault)
+				e.preventDefault(); // DOM style
+			return false;			// IE
+		}
+		// if not <a...> tag, move up to parent
+		if (!el.parentNode) break;	//should not happen
+		el = el.parentNode;
+	}
+	return true;
+}
+function RZcatchlinks()
+{
+	var links = document.getElementsByTagName('a');
+	var whitelist = [];
+	//collect whitelist
+	if( typeof RZ.webspace_config.redirect_whitelist !== 'undefined'
+	&& RZ.webspace_config.redirect_whitelist !== "")
+	{
+		whitelist = RZ.webspace_config.redirect_whitelist.split("|");
+	}
+	for (i=0;i<links.length;i++)
+	{
+		var el = links[i];
+		var shouldCatch = false;
+		if (el.href.search(/https?:/i) == 0
+		&& el.href.search(/https?:\/\/.*?\/revize\//i) == -1
+		&& el.href.indexOf(location.host) == -1
+		&& el.id != 'revize_leave_site')
+		{
+			shouldCatch = true;
+			// check against whitelist
+			for(var j=0;j<whitelist.length;j++){
+				if( whitelist[j] !== "" && el.href.indexOf(whitelist[j]) !== -1 ){
+					shouldCatch = false;
+					break;
+				}
+			}
+		}
+
+		if ( shouldCatch === true )
+		{
+			if (el.addEventListener) el.addEventListener('click', isOffsite, false);
+			else if (el.attachEvent) el.attachEvent("onclick", isOffsite);
+		}
+	}
+}
+
+if (
+    document.readyState === "complete" ||
+    (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
+  RZcatchlinks();
+} else {
+  document.addEventListener("DOMContentLoaded", RZcatchlinks);
+}
+</script>
+
+		
+	<link rel="stylesheet" href="_assets_/plugins/bootstrap/css/bootstrap.min.css">	
+	<link rel="stylesheet" href="_assets_/fonts/font-awesome/css/font-awesome.min.css">	
+	<link rel="stylesheet" href="_assets_/plugins/rs-plugin/rs-plugin/css/settings.css">
+	<link rel="stylesheet" href="_assets_/plugins/owl.carousel/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" href="_assets_/css/animate.min.css">
+	<link rel="stylesheet" href="_assets_/css/layout.css">
+
+	<script src="_assets_/plugins/modernizr/modernizr.custom.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>			
+	<script src="_assets_/plugins/waypoints/waypoints.min.js"></script>
+	<script src="_assets_/plugins/owl.carousel/owl-carousel/owl.carousel.min.js"></script>
+	<script src="_assets_/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="_assets_/plugins/rs-plugin/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	<script src="_assets_/plugins/rs-plugin/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    
+    
+    
+    
+
+	<link rel="shortcut icon" href="_assets_/images/favicon.ico">
+	<link rel="apple-touch-icon" href="_assets_/images/touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="_assets_/images/touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="_assets_/images/touch-icon-iphone4.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="_assets_/images/touch-icon-ipad2.png">
+
+	<!--[if lt IE 9]><script src="_assets_/js/respond.min.js"></script><![endif]-->
+
+	<!--[if !IE]><!-->
+ 	<link rel="stylesheet" href="_assets_/plugins/add-to-homescreen/style/addtohomescreen.css">
+	<script src="_assets_/plugins/add-to-homescreen/src/addtohomescreen.min.js"></script>	
+	<script>addToHomescreen();</script>
+	<!--<![endif]-->
+
+<!-- Global site tag (gtag.js) - Google Ads: 663794035 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-663794035"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-663794035');
+</script>
+
+<script>
+  gtag('config', 'AW-663794035/DihCCIH-_cUBEPPiwrwC', {
+    'phone_conversion_number': '319-286-5763'
+  });
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2P4DL7');</script>
+<!-- End Google Tag Manager -->
+		
+</head>
+<body id="freeform">
+
+
+
+
+<script type="text/javascript">
+if (typeof(RZ) == 'undefined') RZ = {};
+if (!RZ.link) RZ.link = new Object();
+RZ.pagetype = 'template'
+RZ.baseurlprefix = '../../../'
+RZ.baseurlpath = 'local_government/departments_a_-_f/fire/'
+RZ.protocolRelativeRevizeBaseUrl='//cms8.revize.com'
+
+RZ.pagetemplatename = 'freeform'
+RZ.pagetemplateid = '5'
+RZ.pagemodule = 'links'
+RZ.pagemoduleid = '1'
+RZ.pagerecordid = '3202';
+
+RZ.pageid = 'links-3202';
+RZ.pageparentid = '929';
+RZ.pagesectionid = '103';
+RZ.pagesectionname = 'fire';
+RZ.pagesectionlevel = '3';
+RZ.pagesectionfolder = 'local_government/departments_a_-_f/fire/';
+RZ.pagesectionfilter = 'sectionid=103';
+RZ.pagelinkfilter = 'linklevel=4 and linksectionid=103';
+RZ.pagelinklevel = '4';
+RZ.pagelinkid = '3202';
+RZ.pageidfield = '';
+
+RZ.isnewrecord = false;
+RZ.editmodule = '';
+RZ.editrecordid = '3202';
+RZ.editrecordversion = '';
+RZ.editversion = '';
+RZ.editaction = '';
+
+RZ.page_roles = ''
+RZ.page_users = ''
+RZ.page_key = 'freeform[3202]'
+RZ.parent_key = 'freeform[929]'
+RZ.inherit_key = ''
+RZ.workflowname = ''
+RZ.permissions_options = 'warningsOFF'
+RZ.permissions_module = 'webspace_page_permissions'
+RZ.webspace = 'cedarrapids'
+RZ.webspacedesc = "ip=65.156.255.208,version=";
+
+RZ.featurespattern = '(EZ)';
+null
+
+RZ.webspacelinksurl = ''
+RZ.webspacelinksurl = './webspace/links.html'
+RZ.workflowlist = ''
+RZ.revizeserverurl = 'https://cms8.revize.com/revize/cedarrapids';
+
+if (!RZ.nextseq) RZ.nextseq = {linknames:{},modules:{}};
+
+RZ.webspace_config = new Object();
+RZ.webspace_config.admin_email = "noreply@cedar-rapids.org";
+RZ.webspace_config.calendar_options = "max_events=6";
+RZ.webspace_config.doccen_hide_pages = "737";
+RZ.webspace_config.file_cleanup = "yes";
+RZ.webspace_config.form_allowed_content_types = "application/pdf;application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/vnd.ms-excel;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;image/jpeg;image/png";
+RZ.webspace_config.form_captcha = "yes";
+RZ.webspace_config.form_server = "revizeserver";
+RZ.webspace_config.form_smtp_server = "";
+RZ.webspace_config.form_technology = "jsp";
+RZ.webspace_config.formwizard_ftp_password = "";
+RZ.webspace_config.formwizard_ftp_port = "";
+RZ.webspace_config.formwizard_ftp_server = "";
+RZ.webspace_config.formwizard_ftp_user = "";
+RZ.webspace_config.formwizard_setup = "yes";
+RZ.webspace_config.formwizard_smtp_password = "xxx";
+RZ.webspace_config.formwizard_smtp_server = "xxx";
+RZ.webspace_config.formwizard_smtp_user = "xxx";
+RZ.webspace_config.google_analytics = "UA-13241752-2";
+RZ.webspace_config.home_pageid = "0";
+RZ.webspace_config.home_sectionid = "0";
+RZ.webspace_config.home_template = "home,index,sitemap";
+RZ.webspace_config.icon_email = "<img src=\"/revize/images/email_icon_yellow.gif\" width=\"16\" border=\"0\" height=\"17\" title=\"Request email notification when page changes\" alt=\"Request email notification when page changes\" style=\"\" />";
+RZ.webspace_config.image_maxheight = "3000";
+RZ.webspace_config.image_maxwidth = "3000";
+RZ.webspace_config.image_setup = "yes";
+RZ.webspace_config.livesite_url = "";
+RZ.webspace_config.menu_links_module = "links";
+RZ.webspace_config.menu_newsection = "";
+RZ.webspace_config.menu_nexturl = "webspace_menu-editform.jsp";
+RZ.webspace_config.menu_sections_module = "sections";
+RZ.webspace_config.menu_system = "custom";
+RZ.webspace_config.menu_version = "1.00";
+RZ.webspace_config.new_menu_manager_enabled = "yes";
+RZ.webspace_config.notify_options = "hide_text=yes";
+RZ.webspace_config.notify_return_url = "enotify/index.php";
+RZ.webspace_config.redirect_whitelist = "cedar-rapids.org|apps.cedar-rapids.org|cityofcr.com|cityofcr.org|cedar-rapids.info|crgis.maps.arcgis.com|governmentjobs.com|arcgis.com|formsite.com|cityofcr5.wufoo.com|surveymonkey.com|shelterluv.com|new.shelterluv.com";
+RZ.webspace_config.rte_setup = "yes";
+RZ.webspace_config.store_form_submission_db = "yes";
+RZ.webspace_config.to_email = "subscribers@cedar-rapids.org";
+RZ.webspace_config.use_folders = "1";
+
+RZ.isauthenticationactive = true
+RZ.warning = ""
+RZ.adminwinmsg = null
+
+RZ.channels = 'revize,Production';
+RZ.jsversion = 1.2</script>
+<script type="text/javascript" src="/revize/util/snippet_helper.js"></script>
+
+
+ 
+
+<div class="main-wrap">
+	
+		<header role="banner">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="col-md-12">
+					<div class="social-section text-right">
+<span>
+<!--Social Area Starts-->	                        
+
+<ul class="social" aria-label="Cedar Rapids Socials">
+							<li><a href="https://www.facebook.com/City-of-Cedar-Rapids-Iowa-Government-598507150176486/" target="_blank" alt="Like Cedar Rapids on Facebook"><i class="fa fa-facebook"></i><span class="sr-only">Like Cedar Rapids on Facebook</span></a></li>
+							<li><a href="https://twitter.com/CityofCRiowa" target="_blank" alt="Follow Cedar Rapid on Twitter"><i class="fa fa-twitter"></i><span class="sr-only">Follow Cedar Rapid on Twitter</span></a></li>
+							<li><a href="https://www.youtube.com/user/CityofCedarRapidsIA" target="_blank" alt="Watch Cedar Rapids on YouTube"><i class="fa fa-youtube"></i><span class="sr-only">Watch Cedar Rapids on YouTube</span></a></li>
+							<li><a href="https://www.cedar-rapids.org/i_want_to/subscribe/index.php" target="_blank" alt="RSS Feed"><i class="fa fa-rss"></i><span class="sr-only">RSS Feed</span></a></li>
+							<!--<a class="addthis_button_compact" alt="Share this website"><i class="fa fa-share"></i><span class="sr-only">Share this website</span></a>
+							<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-526d82fd4635f758"></script>-->							
+</ul><!-- /.social -->
+<!--Social Area Ends-->	  
+<div class="font-adjust text-resize">
+							FONT SIZE 
+							<a href="" class="increase" aria-label="Increase font size"><i class="fa fa-plus-circle" aria-hidden="true"></i></a> 
+							<a href="" class="decrease" aria-label="Decrease font size"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+						</div><!-- /.font-adjust -->
+						<div class="translate" tabindex="0">
+							<i class="fa fa-language"></i>
+                            
+                            <a href="javaScript:translate();"><span class="translate">Translate</span></a>
+						</div><!-- /.translate -->
+                        </span>
+					</div><!-- /.social-section -->
+				</div><!-- col-md-12 -->
+				<div class="col-md-2">
+                
+<!--Logo Area Starts-->	                  
+					<a href="./" class="logo"><img src="_assets_/images/logo.png" alt="Cedar Rapids - City of Five Seasons"></a>
+<h1 class="hidden">City of Cedar Rapids</h1>
+<!--Logo Area Ends-->	
+                    
+					<button aria-label="Search" class="search-toggle fa fa-search"></button>
+					<button aria-label="Navigation" class="menu-icon fa fa-bars"></button>
+				</div><!-- /.col-md-2 -->
+				<div class="col-md-8">
+                
+<!--Top Navigation Area Starts-->                
+					<div id="nav">
+						<div class="menu-icon fa fa-close"></div>
+                        
+                          
+                            
+
+
+ 
+<ul id="toplevel" class="nav v2_05-23-2012">
+	<li class="menuLI level0 menuDisplay li-10 children"><a class="menuA level0 menuDisplay" href="residents/index.php" target="_self">For Residents</a>
+		<ul class="menuUL level1 menuHidden ul-11797">
+			<li class="menuLI level1 menuHidden li-11797"><a class="menuA level1 menuHidden" href="residents/index.php" target="_self">Resident Resources</a></li>
+			<li class="menuLI level1 menuHidden li-41116"><a class="menuA level1 menuHidden" href="mycr/index.php" target="_self">My CR Reporting Tool</a></li>
+			<li class="menuLI level1 menuHidden li-185"><a class="menuA level1 menuHidden" href="residents/neighborhood_services/index.php" target="_self">Neighborhood Services</a></li>
+			<li class="menuLI level1 menuHidden li-42370"><a class="menuA level1 menuHidden" href="https://www.cedar-rapids.org/emergency-preparedness" target="_new">Neighborhood P.A.C.T. &#8212; Emergency Preparedness</a></li>
+			<li class="menuLI level1 menuHidden li-187"><a class="menuA level1 menuHidden" href="residents/housing_services/index.php" target="_self">Housing Services</a></li>
+			<li class="menuLI level1 menuHidden li-189"><a class="menuA level1 menuHidden" href="residents/city_buses/index.php" target="_self">City Buses</a></li>
+			<li class="menuLI level1 menuHidden li-24053"><a class="menuA level1 menuHidden" href="residents/parks_and_recreation/crgolf/index.php" target="_self">Golf</a></li>
+			<li class="menuLI level1 menuHidden li-183"><a class="menuA level1 menuHidden" href="residents/parks_and_recreation/index.php" target="_self">Parks and Recreation</a></li>
+			<li class="menuLI level1 menuHidden li-181"><a class="menuA level1 menuHidden" href="residents/rental_services/index.php" target="_self">Rental Services</a></li>
+			<li class="menuLI level1 menuHidden li-14875"><a class="menuA level1 menuHidden" href="residents/sidewalk_repairs.php" target="_self">Sidewalk Repairs</a></li>
+			<li class="menuLI level1 menuHidden li-39"><a class="menuA level1 menuHidden" href="residents/street_services/index.php" target="_self">Street Services</a></li>
+			<li class="menuLI level1 menuHidden li-42"><a class="menuA level1 menuHidden" href="residents/utilities/index.php" target="_self">Utilities</a></li>
+			<li class="menuLI level1 menuHidden li-42480"><a class="menuA level1 menuHidden" href="https://www.cedar-rapids.org/local_government/sustainability/index.php" target="_new">GreenCR</a></li>
+			<li class="menuLI level1 menuHidden li-30410"><a class="menuA level1 menuHidden" href="residents/faq_page/index.php" target="_self">FAQ</a></li>
+			<li class="menuLI level1 menuHidden li-44221"><a class="menuA level1 menuHidden" href="https://www.cedar-rapids.org/floodplain/" target="_new">Floodplain Information</a></li>
+		</ul>
+	</li>
+	<li class="menuLI level0 menuDisplay li-14 children"><a class="menuA level0 menuDisplay" href="business/index.php" target="_self">For Business</a>
+		<ul class="menuUL level1 menuHidden ul-1061">
+			<li class="menuLI level1 menuHidden li-1061"><a class="menuA level1 menuHidden" href="local_government/departments_g_-_v/purchasing_services/bid_opportunities2.php" target="_self">Bid Opportunities</a></li>
+			<li class="menuLI level1 menuHidden li-2774"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/building_services/index.php" target="_self">Building Services</a></li>
+			<li class="menuLI level1 menuHidden li-5712"><a class="menuA level1 menuHidden" href="local_government/departments_g_-_v/purchasing_services/buy_local.php" target="_self">Buy Local Policy</a></li>
+			<li class="menuLI level1 menuHidden li-16325"><a class="menuA level1 menuHidden" href="local_government/departments_g_-_v/public_works/doing_business.php" target="_self">Design Standards</a></li>
+			<li class="menuLI level1 menuHidden li-19818"><a class="menuA level1 menuHidden" href="https://www.economicdevelopmentcr.com/" target="_new">Economic Development</a></li>
+			<li class="menuLI level1 menuHidden li-5752"><a class="menuA level1 menuHidden" href="local_government/departments_g_-_v/public_works/index.php" target="_self">Engineering & Maintenance</a></li>
+			<li class="menuLI level1 menuHidden li-5754"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/building_services/housing_inspections/index.php" target="_self">Housing Inspections</a></li>
+			<li class="menuLI level1 menuHidden li-2775"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/development_services/index.php" target="_self">Land Development</a></li>
+			<li class="menuLI level1 menuHidden li-59179"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/development_services/index.php" target="_self">Development Services</a></li>
+			<li class="menuLI level1 menuHidden li-58"><a class="menuA level1 menuHidden" href="business/licenses_permits_and_taxes/index.php" target="_self">Licenses, Permits & Taxes</a></li>
+		</ul>
+	</li>
+	<li class="menuLI level0 menuDisplay li-18 children"><a class="menuA level0 menuDisplay" href="local_government/index.php" target="_self">Local Government</a>
+		<ul class="menuUL level1 menuHidden ul-1155">
+			<li class="menuLI level1 menuHidden li-1155"><a class="menuA level1 menuHidden" href="local_government/about_city_government/index.php" target="_self">About City Government</a></li>
+			<li class="menuLI level1 menuHidden li-1157"><a class="menuA level1 menuHidden" href="local_government/city_boards_and_commissions/index.php" target="_self">City Boards and Commissions</a></li>
+			<li class="menuLI level1 menuHidden li-60 children"><a class="menuA level1 menuHidden" href="local_government/city_council/index.php" target="_self">City Council</a>
+				<ul class="menuUL level2 menuHidden ul-66">
+					<li class="menuLI level2 menuHidden li-66"><a class="menuA level2 menuHidden" href="local_government/city_council/city_council_meetings/index.php" target="_self">City Council Meetings</a></li>
+					<li class="menuLI level2 menuHidden li-68"><a class="menuA level2 menuHidden" href="local_government/city_council/city_council_committees/index.php" target="_self">City Council Committees</a></li>
+					<li class="menuLI level2 menuHidden li-72"><a class="menuA level2 menuHidden" href="local_government/city_council/elections/index.php" target="_self">Elections</a></li>
+					<li class="menuLI level2 menuHidden li-74"><a class="menuA level2 menuHidden" href="local_government/city_council/mayor_and_city_council/index.php" target="_self">Mayor & City Council</a></li>
+					<li class="menuLI level2 menuHidden li-76"><a class="menuA level2 menuHidden" href="local_government/city_council/our_form_of_government/index.php" target="_self">Our Form Of Government</a></li>
+				</ul>
+			</li>
+			<li class="menuLI level1 menuHidden li-11471"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/city_manager_s_office/index.php" target="_self">City Manager</a></li>
+			<li class="menuLI level1 menuHidden li-78 children"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/index.php" target="_self">Departments A - F</a>
+				<ul class="menuUL level2 menuHidden ul-80">
+					<li class="menuLI level2 menuHidden li-80"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/animal_control/index.php" target="_self">Animal Care & Control</a></li>
+					<li class="menuLI level2 menuHidden li-82"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/building_services/index.php" target="_self">Building Services</a></li>
+					<li class="menuLI level2 menuHidden li-84"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/city_assessor_s_office/index.php" target="_self">City Assessor's Office</a></li>
+					<li class="menuLI level2 menuHidden li-86"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/city_attorney_s_office/index.php" target="_self">City Attorney's Office</a></li>
+					<li class="menuLI level2 menuHidden li-88"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/city_clerk_s_office/index.php" target="_self">City Clerk's Office</a></li>
+					<li class="menuLI level2 menuHidden li-2218"><a class="menuA level2 menuHidden" href="local_government/city_council/index.php" target="_self">City Council</a></li>
+					<li class="menuLI level2 menuHidden li-92"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/city_manager_s_office/index.php" target="_self">City Manager's Office</a></li>
+					<li class="menuLI level2 menuHidden li-2189"><a class="menuA level2 menuHidden" href="local_government/city_boards_and_commissions/civil_rights_commission.php" target="_self">Civil Rights Commission</a></li>
+					<li class="menuLI level2 menuHidden li-96"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/community_development/index.php" target="_self">Community Development</a></li>
+					<li class="menuLI level2 menuHidden li-2169"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/development_services/index.php" target="_self">Development Services</a></li>
+					<li class="menuLI level2 menuHidden li-99"><a class="menuA level2 menuHidden" href="https://flycid.com/" target="_new">Eastern Iowa Airport</a></li>
+					<li class="menuLI level2 menuHidden li-101"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/finance/index.php" target="_self">Finance</a></li>
+					<li class="menuLI level2 menuHidden li-103"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/fire/index.php" target="_self">Fire</a></li>
+				</ul>
+			</li>
+			<li class="menuLI level1 menuHidden li-105 children"><a class="menuA level1 menuHidden" href="local_government/departments_g_-_v/index.php" target="_self">Departments G - V</a>
+				<ul class="menuUL level2 menuHidden ul-106">
+					<li class="menuLI level2 menuHidden li-106"><a class="menuA level2 menuHidden" href="https://www.cedar-rapids.org/residents/parks_and_recreation/crgolf/index.php" target="_new">Golf</a></li>
+					<li class="menuLI level2 menuHidden li-108"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/human_resources/index.php" target="_self">Human Resources</a></li>
+					<li class="menuLI level2 menuHidden li-110"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/information_technology/index.php" target="_self">Information Technology</a></li>
+					<li class="menuLI level2 menuHidden li-111"><a class="menuA level2 menuHidden" href="https://www.crlibrary.org/" target="_new">Library</a></li>
+					<li class="menuLI level2 menuHidden li-112"><a class="menuA level2 menuHidden" href="https://www.parkcedarrapids.com/" target="_new">Parking</a></li>
+					<li class="menuLI level2 menuHidden li-3885"><a class="menuA level2 menuHidden" href="residents/parks_and_recreation/index.php" target="_self">Parks & Recreation</a></li>
+					<li class="menuLI level2 menuHidden li-116"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/police/index.php" target="_self">Police</a></li>
+					<li class="menuLI level2 menuHidden li-118"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/public_works/index.php" target="_self">Public Works</a></li>
+					<li class="menuLI level2 menuHidden li-120"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/purchasing_services/index.php" target="_self">Purchasing Services</a></li>
+					<li class="menuLI level2 menuHidden li-1063"><a class="menuA level2 menuHidden" href="residents/city_buses/index.php" target="_self">Transit</a></li>
+					<li class="menuLI level2 menuHidden li-123"><a class="menuA level2 menuHidden" href="residents/utilities/index.php" target="_self">Utilities</a></li>
+					<li class="menuLI level2 menuHidden li-2201"><a class="menuA level2 menuHidden" href="local_government/city_boards_and_commissions/veterans_memorial_commission.php" target="_self">Veterans Memorial Commission</a></li>
+				</ul>
+			</li>
+			<li class="menuLI level1 menuHidden li-12132"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/community_development/planning_services/envisioncr_Comprehensive_Plan.php" target="_self">EnvisionCR</a></li>
+			<li class="menuLI level1 menuHidden li-13709"><a class="menuA level1 menuHidden" href="local_government/about_city_government/americans_with_disabilities_act.php" target="_self">Notice under ADA</a></li>
+			<li class="menuLI level1 menuHidden li-15377"><a class="menuA level1 menuHidden" href="local_government/sustainability/index.php" target="_self">Sustainability</a></li>
+			<li class="menuLI level1 menuHidden li-20398"><a class="menuA level1 menuHidden" href="local_government/public_records/index.php" target="_self">Public Records</a></li>
+			<li class="menuLI level1 menuHidden li-41120"><a class="menuA level1 menuHidden" href="city-hall-24-7/index.php" target="_self">24/7 City Hall</a></li>
+		</ul>
+	</li>
+	<li class="menuLI level0 menuDisplay li-20 children"><a class="menuA level0 menuDisplay" href="discover_cedar_rapids/index.php" target="_self">Discover Cedar Rapids</a>
+		<ul class="menuUL level1 menuHidden ul-300">
+			<li class="menuLI level1 menuHidden li-300 children"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/about_us/index.php" target="_self">About Us</a>
+				<ul class="menuUL level2 menuHidden ul-6755">
+					<li class="menuLI level2 menuHidden li-6755"><a class="menuA level2 menuHidden" href="discover_cedar_rapids/about_us/recognition_and_rankings.php" target="_self">Recognition and Rankings</a></li>
+					<li class="menuLI level2 menuHidden li-52459"><a class="menuA level2 menuHidden" href="https://www.hellocedarrapids.com/" target="_new">Hello Cedar Rapids (Tourism & Events)</a></li>
+					<li class="menuLI level2 menuHidden li-54034"><a class="menuA level2 menuHidden" href="175/index.php" target="_self">175th Anniversary</a></li>
+				</ul>
+			</li>
+			<li class="menuLI level1 menuHidden li-302"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/arts_and_culture/index.php" target="_self">Arts and Culture</a></li>
+			<li class="menuLI level1 menuHidden li-304"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/city_event_centers/index.php" target="_self">City Event Centers</a></li>
+			<li class="menuLI level1 menuHidden li-1179"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/city_news/index.php" target="_self">City News</a></li>
+			<li class="menuLI level1 menuHidden li-19075"><a class="menuA level1 menuHidden" href="blog/index.php" target="_self">City Blog</a></li>
+			<li class="menuLI level1 menuHidden li-30858"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/city_flag/index.php" target="_self">City Flag</a></li>
+			<li class="menuLI level1 menuHidden li-30395"><a class="menuA level1 menuHidden" href="https://www.cedar-rapids.org/discover_cedar_rapids/city_news/podcast.php" target="_new">City Podcast</a></li>
+			<li class="menuLI level1 menuHidden li-306"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/community_organizations/index.php" target="_self">Community Organizations</a></li>
+			<li class="menuLI level1 menuHidden li-308 children"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/connect/index.php" target="_self">Connect</a>
+				<ul class="menuUL level2 menuHidden ul-310">
+					<li class="menuLI level2 menuHidden li-310"><a class="menuA level2 menuHidden" href="discover_cedar_rapids/connect/cr_news_now/index.php" target="_self">CR News Now</a></li>
+					<li class="menuLI level2 menuHidden li-312"><a class="menuA level2 menuHidden" href="discover_cedar_rapids/connect/facebook_twitter_instagram/index.php" target="_self">Facebook,twitter, Instagram</a></li>
+					<li class="menuLI level2 menuHidden li-314"><a class="menuA level2 menuHidden" href="discover_cedar_rapids/connect/mobile_app/index.php" target="_self">Mobile App</a></li>
+				</ul>
+			</li>
+			<li class="menuLI level1 menuHidden li-41185"><a class="menuA level1 menuHidden" href="derecho/index.php" target="_self">2020 Derecho</a></li>
+			<li class="menuLI level1 menuHidden li-27257"><a class="menuA level1 menuHidden" href="https://www.cedar-rapids.org/discover_cedar_rapids/flood_of_2008/useful_links.php" target="_new">Flood Protection Resources</a></li>
+			<li class="menuLI level1 menuHidden li-33124"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/media_support.php" target="_self">Media Support</a></li>
+			<li class="menuLI level1 menuHidden li-34669"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/municipal_volunteer_program/index.php" target="_self">Municipal Volunteer Program</a></li>
+			<li class="menuLI level1 menuHidden li-321"><a class="menuA level1 menuHidden" href="local_government/departments_g_-_v/parks_and_recreation/index.php" target="_self">Parks & Recreation</a></li>
+			<li class="menuLI level1 menuHidden li-325"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/relocation_information/index.php" target="_self">Relocation Information</a></li>
+			<li class="menuLI level1 menuHidden li-52153"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/mayor_s_youth_conference.php" target="_self">Mayor's Youth Conference</a></li>
+			<li class="menuLI level1 menuHidden li-64892 children"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/resident_appreciation_day.php" target="_self">Resident Appreciation Day</a>
+				<ul class="menuUL level2 menuHidden ul-64896">
+					<li class="menuLI level2 menuHidden li-64896"><a class="menuA level2 menuHidden" href="discover_cedar_rapids/stories.php" target="_self">Stories</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li class="menuLI level0 menuDisplay li-22 children"><a class="menuA level0 menuDisplay" href="i_want_to/index.php" target="_self">I Want To . . .</a>
+		<ul class="menuUL level1 menuHidden ul-469">
+			<li class="menuLI level1 menuHidden li-469 children"><a class="menuA level1 menuHidden" href="i_want_to/apply_for/index.php" target="_self">Apply For</a>
+				<ul class="menuUL level2 menuHidden ul-6554">
+					<li class="menuLI level2 menuHidden li-6554"><a class="menuA level2 menuHidden" href="local_government/city_boards_and_commissions/index.php" target="_self">A City Board or Commission</a></li>
+					<li class="menuLI level2 menuHidden li-6557"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/human_resources/employment_opportunities.php" target="_self">A job with the City</a></li>
+					<li class="menuLI level2 menuHidden li-6556"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/building_services/building_and_trades/index.php" target="_self">A Building, Construction, Fence, or Shed Permit</a></li>
+					<li class="menuLI level2 menuHidden li-19539"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/public_works/right_of_way_permits.php" target="_self">Right of Way Permit</a></li>
+					<li class="menuLI level2 menuHidden li-46121"><a class="menuA level2 menuHidden" href="i_want_to/index.php" target="_self">Check for Orangeburg</a></li>
+					<li class="menuLI level2 menuHidden li-6558"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/building_services/housing_inspections/index.php" target="_self">A Landlord License</a></li>
+					<li class="menuLI level2 menuHidden li-6560"><a class="menuA level2 menuHidden" href="business/licenses_permits_and_taxes/business_licenses_and_permits/index.php" target="_self">A Vendor Permit</a></li>
+					<li class="menuLI level2 menuHidden li-13822"><a class="menuA level2 menuHidden" href="local_government/departments_a_-_f/finance/local_government/departments_a_-_f/fin/burglar_alarm_permits.php" target="_self">A Burglar Alarm Permit</a></li>
+					<li class="menuLI level2 menuHidden li-14545"><a class="menuA level2 menuHidden" href="business/licenses_permits_and_taxes/business_licenses_and_permits/special_events.php" target="_self">A Special Event Permit</a></li>
+					<li class="menuLI level2 menuHidden li-16169"><a class="menuA level2 menuHidden" href="local_government/departments_g_-_v/public_works/large_load_permitting.php" target="_self">Large Load Permit</a></li>
+					<li class="menuLI level2 menuHidden li-47638"><a class="menuA level2 menuHidden" href="i_want_to/apply_for/private_fire_hydrant_permit.php" target="_self">A Private Fire Hydrant Permit</a></li>
+				</ul>
+			</li>
+			<li class="menuLI level1 menuHidden li-471"><a class="menuA level1 menuHidden" href="i_want_to/contact/index.php" target="_self">Contact</a></li>
+			<li class="menuLI level1 menuHidden li-8059"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/finance/risk_mgt.php" target="_self">File a Claim</a></li>
+			<li class="menuLI level1 menuHidden li-473"><a class="menuA level1 menuHidden" href="i_want_to/find/index.php" target="_self">Find</a></li>
+			<li class="menuLI level1 menuHidden li-475"><a class="menuA level1 menuHidden" href="i_want_to/pay_for/index.php" target="_self">Pay For</a></li>
+			<li class="menuLI level1 menuHidden li-477"><a class="menuA level1 menuHidden" href="i_want_to/purchase/index.php" target="_self">Purchase</a></li>
+			<li class="menuLI level1 menuHidden li-479"><a class="menuA level1 menuHidden" href="i_want_to/register_license/index.php" target="_self">Register/License</a></li>
+			<li class="menuLI level1 menuHidden li-481"><a class="menuA level1 menuHidden" href="i_want_to/request/index.php" target="_self">Request</a></li>
+			<li class="menuLI level1 menuHidden li-483"><a class="menuA level1 menuHidden" href="i_want_to/reserve/index.php" target="_self">Reserve</a></li>
+			<li class="menuLI level1 menuHidden li-12140"><a class="menuA level1 menuHidden" href="https://www.cedar-rapids.org/mycr/" target="_new">Report a Problem</a></li>
+			<li class="menuLI level1 menuHidden li-34493"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/finance/budget.php# " target="_self">Review Budget Documents</a></li>
+			<li class="menuLI level1 menuHidden li-487"><a class="menuA level1 menuHidden" href="i_want_to/subscribe/index.php" target="_self">Subscribe</a></li>
+			<li class="menuLI level1 menuHidden li-489"><a class="menuA level1 menuHidden" href="i_want_to/view/index.php" target="_self">View</a></li>
+			<li class="menuLI level1 menuHidden li-39906"><a class="menuA level1 menuHidden" href="discover_cedar_rapids/municipal_volunteer_program/index.php" target="_self">Volunteer</a></li>
+			<li class="menuLI level1 menuHidden li-55060"><a class="menuA level1 menuHidden" href="i_want_to/engage/index.php" target="_self">Engage</a></li>
+		</ul>
+	</li>
+	<li class="menuLI level0 menuDisplay li-33694"><a class="menuA level0 menuDisplay" href="discover_cedar_rapids/media_support.php" target="_self">Media Support</a></li>
+</ul>
+
+<style>.translate i {position: unset!important;margin-top: 10px!important;}div.skiptranslate{display:none !important}header{position:absolute;}.accordion-toggle{padding-top:unset!important;margin-top:unset!important;}</style>
+
+
+
+
+
+                            
+                            <div class="float_button_above">
+                                
+                                
+                          
+                          
+                          <script language="JavaScript" type="text/JavaScript">
+                          RZ.module = 'freeform';
+                          RZ.recordid = '';
+                          RZ.nexturl = "editforms/freeform_navigation-editform.jsp";
+                          RZ.popupwidth = '1050'; RZ.popupheight = '600'; RZ.popupscroll = 'yes';
+                          RZ.img = '<img src="images/edit/edit_small.jpg" alt="Edit Small" border="0" />';
+                          RZ.caption = '';
+                          RZ.set = "freeform.pageid=links-103";
+                          RZ.options = '';
+                          if (typeof RZaction != 'undefined') RZaction('editform');
+                          </script>
+                          
+                      </div>
+                    </div><!-- /#nav -->
+<!--Top Navigation Area Ends-->                    
+                    
+				</div><!-- /.col-md-8 -->
+				<div class="col-md-2">
+                
+<!--Search Area Starts-->                 
+					<div id="search">
+						<form class="search-form" method="get" action="search.php">
+							<label class="fa fa-search" for="search-input"><span class="sr-only">Search<span></label>
+							<input name="q" class="form-control search-input" placeholder="Enter search terms..." type="search" id="search-input">
+							<button>Go</button>
+						</form>
+					</div><!-- /#search -->		
+<!--Search Area Ends-->                     
+                    		
+				</div><!-- /.col-md-2 -->
+			</div><!-- /.row-fluid -->
+		</div><!-- /.container-fluid -->
+	</header>
+
+<!--Banner Area Starts-->		
+	<div id="slider" role="complementary">
+	    
+
+      <h2 class="page-department">Fire</h2>
+	  <div class="tp-banner-container">
+      	<div class="sliderbtn">
+            
+          
+          
+          <script language="JavaScript" type="text/JavaScript">
+          RZ.module = 'banner';
+          RZ.nexturl = "editforms/banner-editlist.jsp?pageid=links-3202";
+          RZ.popupwidth = ''; RZ.popupheight = ''; RZ.popupscroll = '';
+          RZ.img = '<img src="images/edit/edit_this_list.jpg" alt="Edit This List" border="0" />';
+          RZ.caption = '';
+          RZ.options = '';
+          if (typeof RZaction != 'undefined') RZaction('editlist');
+          </script>
+          
+        </div>
+                              
+		<script language="JavaScript" type="text/JavaScript">
+if (typeof RZlistbegin != 'undefined') RZlistbegin(1)
+</script>
+
+			
+			
+        
+        
+        
+        
+        
+		
+		<script language="JavaScript" type="text/JavaScript">
+if (typeof RZlinktemplate != 'undefined') RZlinktemplate('banner','','')
+if (typeof RZ.nextseq != 'undefined') RZ.nextseq.modules['banner_1']={field:'seq_no',seq:'1.00'};
+</script>
+
+<div class="tp-banner2">
+	      <ul>
+	        <li data-transition="fade" data-slotamount="1"><img src="banner/091313_CENTRALFIRE_01062_1600x548.jpg?t=202005181149540" alt="Central Fire Station" data-masterspeed="700"/>
+	</li>
+		
+	      </ul>
+	    </div><!-- /.tp-banner -->	
+	  </div><!-- /.tp-banner-container -->
+  </div><!-- /#slider -->
+<!--Banner Area Ends-->  
+  
+  <div class="main-content">
+	  <div class="container">
+		  <div class="row">
+          
+          <!-- Start Breadcrumb Area -->
+              <div class="bread">
+                  <p><a href="./">Home</a> &gt;&nbsp;<a href="local_government/index.php">Local&nbsp;Government</a> &gt;&nbsp;<a href="local_government/departments_a_-_f/index.php">Departments&nbsp;A&nbsp;-&nbsp;F</a> &gt;&nbsp;<a href="local_government/departments_a_-_f/fire/index.php">Fire</a> &gt;&nbsp;<a href="local_government/departments_a_-_f/fire/fire_safety_information.php">Fire&nbsp;Safety&nbsp;Information</a> &gt;&nbsp;Home&nbsp;Fire&nbsp;Escape&nbsp;Plan</p>
+              </div>
+          <!-- End Breadcrumb Area -->
+
+			  <div class="col-md-12">
+				  <div class="inner-content">
+					  <div class="row col-wrap">
+						  <div class="col-md-3 left-col">
+                                                    
+							  <div class="aside">
+                              	<div class="titltBtn">
+                                    
+                                
+                                
+                                <script language="JavaScript" type="text/JavaScript">
+                                RZ.module = 'freeform';
+                                RZ.recordid = '';
+                                RZ.nexturl = "editforms/leftnav_title-editform.jsp";
+                                RZ.popupwidth = '510'; RZ.popupheight = '160'; RZ.popupscroll = 'no';
+                                RZ.img = '<img src="images/edit/edit_small.jpg" alt="Edit Leftnav Title" border="0" />';
+                                RZ.set = 'freeform.pageid=links-3202';
+                                RZ.options = '';
+                                if (typeof RZaction != 'undefined') RZaction('editform');
+                                </script>
+                                </div> 
+                              	
+
+                              
+								  <h3 id="flyout-nav-header">Fire</h3>
+                                  
+<!--Side Navigation Area Starts--> 
+								  <div class="flyout-wrap">
+									  <!-- start plugin: menus.leftnav-section -->
+
+									
+
+
+
+									
+									
+									
+									<script language="JavaScript" type="text/JavaScript">
+									RZ.module = 'links';
+									RZ.nexturl = "/revize/plugins/menus/webspace_menu-editlist.jsp?pageid=links-3202&"
+									         + "linksfilter=linkplacement=leftnav and linkparentid=103&"
+									         + "numberoflevels=2&"
+									         + "linkoptions=url,template,file&"
+									         + "linknewsection=*all*";
+									RZ.img = '<img src="images/edit/edit_left_nav.jpg" alt="Edit Left Navigation" border="0" />';
+									RZ.caption = '';
+									RZ.set = "links.linkplacement=leftnav"
+									RZ.options = '';
+									if (typeof RZaction != 'undefined') RZaction('editlist');
+									</script>
+									
+                                    
+
+ 
+
+ 
+<ul class="flyout" id="toplevel">
+
+	<li id="li-3077" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/index.php" target="_self" >Fire Department</a></li>
+	<li id="li-913" class="menuLI level0 menuHidden children"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/about_us.php" target="_self" >About Us</a>
+		<ul id="ul-36203" class="menuUL level1 menuHidden">
+			<li id="li-36203" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/annual_report.php" target="_self" >Annual Report</a></li>
+			<li id="li-3087" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/fire_chief.php" target="_self" >Fire Chief</a></li>
+			<li id="li-3088" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/history.php" target="_self" >History</a></li>
+			<li id="li-3089" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/honor_guard.php" target="_self" >Honor Guard</a></li>
+			<li id="li-3090" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/in_memoriam.php" target="_self" >In Memoriam</a></li>
+			<li id="li-3091" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/performance_metrics.php" target="_self" >Performance Metrics</a></li>
+			<li id="li-3092" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/personnel.php" target="_self" >Personnel</a></li>
+		</ul>
+	</li>
+	<li id="li-915" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/central_fire_station.php" target="_self" >Central Fire Station</a></li>
+	<li id="li-919" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/crfd_memorial_5k.php" target="_self" >CRFD Memorial 5K</a></li>
+	<li id="li-921" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/employment.php" target="_self" >Employment</a></li>
+	<li id="li-923" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/faqs.php" target="_self" >FAQs</a></li>
+	<li id="li-62871" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/fire_calls_for_service.php" target="_self" >Fire Calls For Service</a></li>
+	<li id="li-925" class="menuLI level0 menuHidden children"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/fire_marshal_s_office.php" target="_self" >Fire Marshal's Office</a>
+		<ul id="ul-3108" class="menuUL level1 menuHidden">
+			<li id="li-3108" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/fire_code_and_amendments.php" target="_self" >Fire Code and Amendments</a></li>
+			<li id="li-3109" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/fire_code_permits.php" target="_self" >Fire Code Permits</a></li>
+			<li id="li-3110" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/fire_inspection_fees.php" target="_self" >Fire Inspection Fees</a></li>
+			<li id="li-3111" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/fire_inspection_personnel.php" target="_self" >Fire Inspection Personnel</a></li>
+			<li id="li-65008" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/food_truck_inspections.php" target="_self" >Food Truck Inspections</a></li>
+			<li id="li-10831" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/knox_box_authorization.php" target="_self" >Knox Box Rapid Entry System</a></li>
+		</ul>
+	</li>
+	<li id="li-929" class="menuLI level0 menuHidden children"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/fire_safety_information.php" target="_self" >Fire Safety Information</a>
+		<ul id="ul-3192" class="menuUL level1 menuHidden">
+			<li id="li-3192" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/arson_hotline.php" target="_self" >Arson Hotline</a></li>
+			<li id="li-8748" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/college_fire_safety.php" target="_self" >College Fire Safety</a></li>
+			<li id="li-3194" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/cooking_safety.php" target="_self" >Cooking Safety</a></li>
+			<li id="li-3196" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/electrical_safety.php" target="_self" >Electrical Safety</a></li>
+			<li id="li-3198" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/fireworks.php" target="_self" >Fireworks</a></li>
+			<li id="li-3200" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/holiday_fire_safety.php" target="_self" >Holiday Fire Safety</a></li>
+			<li id="li-3202" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/home_fire_escape_plan.php" target="_self" >Home Fire Escape Plan</a></li>
+			<li id="li-3204" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/older_adult_fire_safety.php" target="_self" >Older Adult Fire Safety</a></li>
+			<li id="li-3206" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/recreational_fires.php" target="_self" >Recreational Fires</a></li>
+		</ul>
+	</li>
+	<li id="li-931" class="menuLI level0 menuHidden children"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/fire_stations.php" target="_self" >Fire Stations</a>
+		<ul id="ul-3219" class="menuUL level1 menuHidden">
+			<li id="li-3219" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/northeast_fire_stations.php" target="_self" >Northeast Fire Stations</a></li>
+			<li id="li-3221" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/northwest_fire_stations.php" target="_self" >Northwest Fire Stations</a></li>
+			<li id="li-3223" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/southeast_fire_stations.php" target="_self" >Southeast Fire Stations</a></li>
+			<li id="li-3225" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/southwest_fire_stations.php" target="_self" >Southwest Fire Stations</a></li>
+		</ul>
+	</li>
+	<li id="li-933" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/for_kids.php" target="_self" >For Kids</a></li>
+	<li id="li-935" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/historical_photographs.php" target="_self" >Historical Photographs</a></li>
+	<li id="li-943" class="menuLI level0 menuHidden children"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/operations.php" target="_self" >Operations</a>
+		<ul id="ul-3256" class="menuUL level1 menuHidden">
+			<li id="li-3256" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/emergency_medical_services.php" target="_self" >Emergency Medical Services</a></li>
+			<li id="li-3258" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/fire_suppression.php" target="_self" >Fire Suppression</a></li>
+			<li id="li-3260" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/hazardous_materials.php" target="_self" >Hazardous Materials</a></li>
+			<li id="li-19686" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/recent_training_events.php" target="_self" >Recent Training Events</a></li>
+			<li id="li-3262" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/special_operations.php" target="_self" >Special Operations</a></li>
+			<li id="li-3264" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/training.php" target="_self" >Training</a></li>
+			<li id="li-3274" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="http://www.iowataskforce1.org/" target="_blank" >Urban Search and Rescue</a></li>
+		</ul>
+	</li>
+	<li id="li-945" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/privacy_statement.php" target="_self" >Privacy Statement</a></li>
+	<li id="li-947" class="menuLI level0 menuHidden children"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/programs_community_outreach.php" target="_self" >Programs/Community Outreach</a>
+		<ul id="ul-63794" class="menuUL level1 menuHidden">
+			<li id="li-63794" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/crfd_mentorship_program.php" target="_self" >CRFD Mentorship Program</a></li>
+			<li id="li-42870" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="emergency-preparedness/topics.php" target="_self" >Emergency Preparedness</a></li>
+			<li id="li-3297" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/juvenile_fire_intervention.php" target="_self" >Juvenile Fire Intervention</a></li>
+			<li id="li-3298" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/kids_camp_opportunities.php" target="_self" >Kids' Camp Opportunities</a></li>
+			<li id="li-10760" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/remembering_when.php" target="_self" >Home Safety Visits</a></li>
+			<li id="li-3302" class="menuLI level1 menuHidden"><a class="menuA level1 menuHidden" href="local_government/departments_a_-_f/fire/urban_deer_hunt.php" target="_self" >Urban Deer Hunt</a></li>
+		</ul>
+	</li>
+	<li id="li-66216" class="menuLI level0 menuHidden"><a class="menuA level0 menuHidden" href="local_government/departments_a_-_f/fire/crfd_bond_info_2026.php" target="_self" >CRFD Bond Info 2026</a></li>
+</ul>
+<!-- \\ END of /plugins/menus/menus_section_list.include.jsp // -->
+
+ 
+                                  </div><!-- /.flyout-wrap -->
+<!--Side Navigation Area Ends-->                                   
+                                 
+<!--Side box Area Starts-->                                   
+								  <div class="editBtn">
+                                      
+                                    
+                                    
+                                    <script language="JavaScript" type="text/JavaScript">
+                                    RZ.module = 'freeform';
+                                    RZ.recordid = '';
+                                    RZ.nexturl = "editforms/msg-editform.jsp";
+                                    RZ.popupwidth = '1050'; RZ.popupheight = '650'; RZ.popupscroll = 'yes';
+                                    RZ.img = '<img src="images/edit/edit_small.jpg" alt="Edit Small" border="0" />';
+                                    RZ.set = 'freeform.pageid=links-3202';
+                                    RZ.options = '';
+                                    if (typeof RZaction != 'undefined') RZaction('editform');
+                                    </script>
+                                  </div>								
+                                  
+<!--Side box Area Ends-->                                  
+                                  							  
+							  </div><!-- /.aside -->
+						  </div><!-- /.col-md-3 -->
+						  <div class="col-md-9 right-col">
+                          
+<!--Center Content Area Starts-->	                          
+							  <div class="entry">
+                              		
+
+								  <div class="post clearfix">
+									  <div class="editcenterBtns">
+                                          
+                                          
+                                          
+                                          <script language="JavaScript" type="text/JavaScript">
+                                          RZ.module = 'freeform';
+                                          RZ.recordid = '';
+                                          RZ.nexturl = "editforms/freeform-editform.jsp";
+                                          RZ.popupwidth = ''; RZ.popupheight = ''; RZ.popupscroll = '';
+                                          RZ.img = '<img src="images/edit/edit_center_area.jpg" alt="Edit Center Area" border="0" />';
+                                          RZ.set = 'freeform.pageid=links-3202';
+                                          RZ.options = '';
+                                          if (typeof RZaction != 'undefined') RZaction('editform');
+                                          </script>
+                                          
+                                          
+                                          
+                                          <script language="JavaScript" type="text/JavaScript">
+                                          RZ.module = 'freeform';
+                                          RZ.recordid = '';
+                                          RZ.nexturl = "editforms/metadata-editform.jsp";
+                                          RZ.popupwidth = '1050'; RZ.popupheight = '650'; RZ.popupscroll = 'yes';
+                                          RZ.img = '<img src="images/edit/edit_metadata.jpg" alt="Edit Metadata" border="0" />';
+                                          RZ.set = 'freeform.pageid=links-3202';
+                                          RZ.options = '';
+                                          if (typeof RZaction != 'undefined') RZaction('editform');
+                                          </script>
+                                          
+                                          
+                                          
+                                          <script language="JavaScript" type="text/JavaScript">
+                                          RZ.nexturl = '';
+                                          RZ.img = '<img src="images/edit/permissions.jpg" alt="Permissions" border="0" />';
+                                          RZ.options = '';
+                                          if (typeof RZaction != 'undefined') RZaction('permissions');
+                                          </script>
+                                          
+                                      </div>
+                                      <div id="main_left">
+<div id="main_left_content">
+<div id="ctl00_PlaceHolderMain_ctl02__ControlWrapper_RichHtmlField">
+<p align="center"><strong>Introduction</strong></p>
+<p align="left"><img src="Fire Images/fire_escape_plan.jpg?t=20160411191538477" title="Home fire escape map"  border="0" alt="Home fire escape map" hspace="20" vspace="10" width="295" height="211" align="right" />Each family member must know what to do in the event of a fire in his or her home. Unless a small fire can be easily controlled, it is recommended that fighting the fire be left to professional firefighters and that family members escape safely from the home.<br /><br />A home escape plan must be created and practiced so that each person knows exactly what to do. It also is important to practice Exit Drills In The Home (EDITH).<br /><br />Regardless of the cause of the fire, a home may be filled with smoke. This is a very dangerous situation. Family members may be unable to see very well. The smoke and toxic gases may cause dizziness and disorientation. In the confusion, one can easily become lost or trapped in the home. Family members must understand that their safety depends upon quickly leaving the home. It has been proven that exit drills reduce chances of panic and injury in fires and that trained and informed people have a much better chance to survive fires in their home.</p>
+<p align="center"><strong>Plan Ahead</strong></p>
+<p align="left">The first step in escaping a fire in the home is to plan ahead. By installing smoke detectors in the home and being sure they are in good working order, family members can be alerted to the presence of smoke or fire before it is too late. Together, family members can decide on an escape plan in the event of a fire in the home.<br /><br />Bedroom doors should be closed while people are sleeping. It takes fire 10 to 15 minutes to burn through a wooden door. That is 10 to 15 minutes more for the inhabitant to escape. Next, family members should visit each bedroom and figure out two escape routes.<br /><br />Family members should practice opening their windows to become familiar with their operation. Jammed windows should be identified and repaired. If, during a fire, a window is jammed, it may be broken out with an object and a blanket or towel placed over the frame to cover shards of glass. However, it is much safer to open a window than it is to break the glass out.<br /><br />If a family feels they need the additional security, "firesafe bars" should be installed or retrofitted. An exit should not require special tools. A key is considered a special tool. Bars on windows should have a single action quick release device.</p>
+<p align="center"><strong>Realize the Danger of Smoke</strong></p>
+<p align="left">Each member of the family should understand the importance of crawling low under smoke. Smoke and heat rise so the best place to find fresher, cooler air is near the floor. When a person is caught in a building filled with smoke, they should drop on hands and knees and crawl to the nearest exit. Test all closed doors before opening them. Feel the back of the door. If it is hot, don't open it. Turn and go to the second route of exit. If the door is not hot, open slowly but be prepared to slam it closed again if there are flames.<br /><br />Practice what to do if you become trapped. Since doors hold back the smoke and firefighters are proficient at rescue, the chances of survival are excellent. Close doors between you and the smoke. Stuff the cracks and cover vents to keep smoke out. If there's a phone, call in your exact location to the fire department even if they are on the scene. Wait at the window and signal with a sheet or flashlight or something visible.</p>
+<p align="center"><strong>Establish a Safe Meeting Place</strong></p>
+<p align="left">A special meeting place should be established a safe distance from the house. It could be a mailbox, the neighbor's driveway or a large tree in the yard. Whatever it is, it must be something that is stationary and won't be moved (such as a car). This is where everyone meets in the event of a fire. It also prevents family members from wandering around the neighborhood looking for one another, or worse, being tempted to re-enter the burning house for one thought to be trapped inside.<br /><br />Once outside at the special meeting place, a person can be sent to the neighbor's to call 9-1-1. If anyone is missing, give that information to the fire department immediately and tell them where the probable location of the missing person could be. Under no circumstances should anyone re-enter the burning building.</p>
+<p align="center"><strong>Provide for Those Requiring Additional Help</strong></p>
+<p align="left">Special provisions may be required for infants, young children, disabled or the elderly who may need additional help when escaping. These provisions should be included in the home fire escape plan and discussed with family members.<br /><br />When afraid, children commonly seek sheltered places such as a closet or under the bed. Encourage them to exit outside. Do not allow them to hide. Make sure children can operate the windows, descend a ladder, or lower themselves to the ground through a window. (Slide out on the stomach, feet first. Hang on with both hands. Bend the knees when landing.) Lower children to the ground before you exit from the window. They may panic and not follow if an adult goes first.<br /><br />Have children practice saying the fire department number, the family name, and street address into the phone.</p>
+<p align="center"><strong>Practice Your Fire Escape Plan</strong></p>
+<p align="left">One very good step in the planning of a home fire escape plan is to make a floor diagram of the house. Mark the regular and emergency escape routes, as well as windows, doors, stairs, halls.<br /><br />A good way to practice the effectiveness of a home fire escape plan is to position each family member in his or her bed, turn all the lights off, and activate the smoke detector by depressing the test switch. Each family member should help "awaken" the others by yelling the alert. Family members should exit their rooms according to the plan, crawl low under smoke, practice feeling doors for heat, and meet in the designated location outside the home.<br /><br />Not all "homes" are single residential structures but include apartments and other types of buildings. Most high-rise or multi-story apartment complexes post fire escape plans for all residents to see and follow. However, these plans seldom include escape routes for each apartment. Family members must develop and practice an evacuation plan for their individual apartment.</p>
+<p align="center"><strong>Exit Safely From a Structure</strong></p>
+<p align="left">Jumping from upper floors of a building should be avoided. However, it is possible to hang from a second story window and drop feet first to the ground without significant injury. A sprained ankle or broken leg is better than dying. Parents can purchase fire ladders for the bedrooms, or instruct children to use an adjacent porch or garage roof to await rescue by the fire department.<br /><br />When exiting such a structure, do not use the elevator. Elevators are notorious for stopping at the fire floor and killing the people inside. A power failure may cause them to stop in between floors. Use the fire escape or an enclosed fire resistive stairwell to exit.<br /><br />As a family, explore the building so that every exit, is familiar, including those from storage, laundry and recreation rooms. If the hallways become smoke-filled as the result of a fire, memory can help in finding the exits.<br /><br />Look for these important features in the building - enclosed exit stairways, clearly marked exits, clean hallways and lobbies, automatic sprinklers, fire alarm systems and smoke detectors.</p>
+<p align="center"><strong>Remember, Plan Ahead!</strong></p>
+<p align="left">Remember that the first step toward escaping a fire is to plan ahead. Practice a home fire escape plan throughout the year and be sure that if anything should change around the home, it is included in the home fire escape plan.</p>
+<p align="left"><strong>Here are the easy steps to follow to make your home escape plan:</strong></p>
+<ul>
+<li>
+<div>Get your family together and&nbsp;draw a floor plan of your home. Mark all windows and doors.</div>
+</li>
+<li>
+<div>Plan two ways out of each bedroom. The first way out should be the door, and the second way out could be a window.</div>
+</li>
+<li>
+<div>Make sure windows can be opened easily. In a two-story building, plan your escape through a window onto a roof or porch. If you must use an escape ladder, be sure everyone knows how to use it. Children should practice this with an adult present.</div>
+</li>
+<li>
+<div>Choose a meeting place for all family members outside the home&nbsp;and mark it on the floor plan. A good meeting place would be a tree, telephone pole, or a neighbor's home.</div>
+</li>
+<li>
+<div>Make sure everyone understands the planned escape routes.</div>
+</li>
+<li>
+<div>Install smoke detectors&nbsp;outside each sleeping area and on each additional level of the home. If you sleep with the bedroom doors closed make sure everyone can hear the smoke detector, or consider installing one inside the bedroom. Test smoke detectors weekly.</div>
+</li>
+<li>
+<div>Practice your escape plan. Remember, if you see smoke on your way out, use your second exit. If you must escape through smoke, crawl low under it where the air is cleaner. Have family members practice using their second way out as well as the primary route.</div>
+</li>
+<li>
+<div>If you live in an apartment, use the stairs -&nbsp;never us an elevator&nbsp;in case of fire. The elevator could take you to the floor where the fire is burning. If fire blocks your exit, close your apartment door and cover all cracks where smoke could enter. Telephone the fire department, even if firefighters are already at the building, and tell them where you are. Hang a sheet or towel from the window to help firefighters find you.</div>
+</li>
+<li>
+<div>If you live in a manufactured home, follow the same steps. Keep all exits clear and install smoke detectors on interior walls.</div>
+</li>
+</ul>
+<p><br />Talking about your escape plan is not enough; you have to practice it at least twice a year. Take a moment to get your family together to make your plan. It could be a lifesaving family project!<br /><br />For more information, contact the Cedar Rapids Fire Department at <a href="tel:3192865200" target="_blank">319-286-5200</a>&nbsp;or send an&nbsp;<a href="mailto:s.wright@cedar-rapids.org" target="_blank">E-mail message to our Public Education Division</a>.</p>
+<div>&nbsp;</div>
+</div>
+</div>
+</div>
+<div id="main_right">&nbsp;</div>
+                                      
+
+
+
+                                  </div><!-- /.post -->
+							  </div><!-- /.entry -->
+<!--Center Content Area Ends-->	                              
+                              
+						  </div><!-- /.col-md-9 -->
+					  </div><!-- /.row -->
+				  </div><!-- /.inner-content -->
+			  </div><!-- /.col-md-12 -->		  
+		  </div><!-- /.row -->
+
+<!--Quick link Area Starts-->
+        <div class="quicklinkbtn">
+            
+            
+            
+            <script language="JavaScript" type="text/JavaScript">
+            RZ.module = 'freeform';
+            RZ.recordid = '';
+            RZ.nexturl = "editforms/qlink_listing-editform.jsp";
+            RZ.popupwidth = '1050'; RZ.popupheight = '650'; RZ.popupscroll = 'yes';
+            RZ.img = '<img src="images/edit/edit_small.jpg" alt="Edit Small" border="0" />';
+            RZ.caption = '';
+            RZ.set = "freeform.pageid=links-3202";
+            RZ.options = '';
+            if (typeof RZaction != 'undefined') RZaction('editform');
+            </script>
+            
+        </div>
+
+ 
+
+<div class="row">
+			  <div class="col-md-12">
+              
+<!--Quick Link Area Starts -->	              
+			    <div id="btns-slider" class="slick-carousel">
+			       
+                    
+                      
+                          
+                    
+                    
+                          
+                    
+                    
+                          
+                    
+                    
+                          
+                    
+                    
+                          
+                    
+                    
+                          
+                    
+                    
+                          
+                    
+                    
+                    
+<div class="item equal">
+		<a href="https://cedar-rapids.org/discover_cedar_rapids/about_us/index.php" target="_blank" >
+		<div class="icon">
+		<img src="quickimage/About-Us.png" alt="" />
+		</div>
+		<p>About Us</p>
+		</a>
+		</div>
+		<div class="item equal">
+		<a href="https://www.cedar-rapids.org/construction/" target="_blank" >
+		<div class="icon">
+		<img src="quickimage/Tools-Icon.png" alt="" />
+		</div>
+		<p>Construction Projects</p>
+		</a>
+		</div>
+		<div class="item equal">
+		<a href="https://cedar-rapids.org/local_government/departments_g_-_v/human_resources/employment_opportunities.php" target="_blank" >
+		<div class="icon">
+		<img src="quickimage/Employment Icon.png" alt="" />
+		</div>
+		<p>Employment</p>
+		</a>
+		</div>
+		<div class="item equal">
+		<a href="https://www.cedar-rapids.org/mycr/" target="_blank" >
+		<div class="icon">
+		<img src="quickimage/My-CR-Icon.png" alt="" />
+		</div>
+		<p>My CR Online Reporting Tool</p>
+		</a>
+		</div>
+		<div class="item equal">
+		<a href="https://www.cedar-rapids.org/i_want_to/pay_for/index.php" target="_blank" >
+		<div class="icon">
+		<img src="quickimage/Money-Icon.png" alt="" />
+		</div>
+		<p>Pay Your Bill</p>
+		</a>
+		</div>
+		<div class="item equal">
+		<a href="https://www.cedar-rapids.org/city-hall-24-7/" target="_blank" >
+		<div class="icon">
+		<img src="quickimage/24-7-City-Hall.png" alt="" />
+		</div>
+		<p>24/7 City Hall Services</p>
+		</a>
+		</div>
+		<div class="item equal">
+		<a href="https://cedar-rapids.org/i_want_to/contact/city_services_directory.php" target="_blank" >
+		<div class="icon">
+		<img src="quickimage/Flow-Chart-Icon.png" alt="" />
+		</div>
+		<p>City Services Directory</p>
+		</a>
+		</div>
+					      			      
+			    </div><!-- /.owl-carousel -->
+<!--Quick Link Area Ends -->	                
+                			  
+			  </div><!-- /.col-md-12 -->
+		  </div>
+<!--Quick link Area Ends-->
+		  
+	  </div><!-- /.container -->	  
+
+<!--Footer Area Starts-->
+
+
+
+
+	  <footer>
+		  <div class="container">
+		   <div class="row">
+			   <div class="col-md-12">
+				   <h2 class="social-header text-uppercase">
+				     Connect With Us
+				   </h2>
+				   <div id="clone-social"></div>
+			   </div><!-- /.col-md-12 -->
+		   </div><!-- /.row -->
+		  </div><!-- /.container -->
+	  </footer>
+	  
+	  <div class="copy">
+		  <div class="container">
+		   <div class="row">
+			   <div class="col-md-12">
+                    <a href="./" class="logo">
+                        <img src="_assets_/images/logo.png" alt="Cedar Rapid- City of Five Seasons">
+                    </a>
+                    
+<!--Copyright Area Starts-->                              
+							
+
+
+
+
+
+
+
+
+&copy;&nbsp;2026&nbsp; Cedar Rapids, Iowa, 101 First Street SE
+<p class="powerwed">
+  <!-- // BEG of /plugins/general/general.revize_login.include.jsp \\ -->
+<span id="revize-login" class="v06-11-2011"><span class="powered-by-revize">Powered By
+<a id="powered-by-revize-link" 
+target="_blank" href="http://www.revize.com">Revize</a>
+</span><a id="revize-login-link" 
+href="https://cms8.revize.com/revize/security/index.jsp?webspace=cedarrapids&filename=/local_government/departments_a_-_f/fire/home_fire_escape_plan.php">Login</a></span>
+<!-- \\ END of /plugins/general/general.revize_login.include.jsp // -->
+</p>
+<!--Copyright Area Ends-->                            
+                            
+			   </div><!-- /.col-md-12 -->
+		   </div><!-- /.row -->
+		  </div><!-- /.container -->
+	  </div><!-- /.copy -->
+<!--Footer Area Ends-->      
+      
+	  
+  </div><!-- /.main-content -->
+  
+</div><!-- /.main-wrap -->  
+
+<script src="_assets_/js/scripts.js"></script>
+
+<!--Goole Analytics Code Area Starts-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KSMD6D3BSM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KSMD6D3BSM');
+</script>
+<script>
+$('#slider').attr('aria-hidden','true');
+$('#btns-slider').attr('aria-hidden','true');
+</script><!--Goole Analytics Code Area Ends-->
+
+
+
+
+
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-13241752-2']);
+_gaq.push(['_trackPageview']);
+(function() { var ga = document.createElement('script'); ga.type = 'text/javascript';
+ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+:'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+
+<!-- Removed for Ticket #146322 -->
+<!-- <script type="text/javascript" src="////tag.brandcdn.com/autoscript/Summer_Programs.js"></script> -->
+<!-- <script type="text/javascript" src="////tag.brandcdn.com/autoscript/onmedia_solid_waste.js"></script> -->
+
+
+</body>
+</html>

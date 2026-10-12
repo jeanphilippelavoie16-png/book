@@ -1,0 +1,1086 @@
+                                            APPLICATION NOTES FOR TGS5042
+
+                                   Application Notes for CO Detectors using TGS5042
+
+               an ISO9001 company  The TGS5042 is a battery-operable
+                                   electrochemical CO sensor which is
+                                   provided with individual sensitivity
+                                   data printed on the sensor's housing,
+                                   allowing users to eliminate the
+                                   process of calibration using CO
+                                   gas. This document offers example
+                                   circuits and important technical
+                                   advice for design and manufacture
+                                   of detectors.
+
+                                                                                     Page
+
+                                   Sensor Marking.................................................................................2
+
+                                   Circuit  Design
+                                             Basic Circuit.................................................................................2
+                                             Op-Amp Selection..........................................................3
+                                             Baseline Design of Sensor Output......................................................4
+                                             Microprocessor.......................................................................4
+                                             Anti-polarization Circuit........................................................4
+                                             Amplification Circuit..............................................................6
+                                             Amplification Factor (gain)................................................................6
+                                             Leak Prevention Circuit...................................................................7
+                                             Electric Noise Prevention....................................................................7
+                                             Temperature Compensation Circuit..........................................7
+                                             Self Diagnosis Circuit.....................................................7
+                                             Proposed Circuit Using Vcc=3V......................................................9
+                                             Proposed Circuit for 5000ppm CO Exposure Test........................10
+
+                                   PCB and Housing Design
+                                             Position Dependency of the Sensor..............................................12
+                                             Thermistor Location.....................................................................12
+                                             Housing Design for Quick Response..............................................12
+                                             Sensor Lead Configuration.............................................................12
+
+                                   Calibration
+                                             Calibration Using CO Gas..................................................13
+                                             Calibration Using Individual Sensor Data.....................................13
+                                             Temperature Compensation.........................................13
+                                             Calculation of CO Concentration...........................................14
+
+                                   Manufacturing Process
+                                             Handling and Storage of Sensors..........................................14
+                                             PCB Assembly.....................................................14
+                                             Sensor Assembly..........................................................15
+                                             Final Assembly...................................................15
+                                             Gas Test.......................................................................15
+                                             Storage of Finished Products..............................................15
+                                             Packaging.................................................................16
+
+                                   Quality Control......................................................................................17
+
+                                   Expected Performance......................................................................................17
+
+                                   Frequently Asked Questions..............................................................................17
+
+                                   IMPORTANT NOTE: OPERATING CONDITIONS IN WHICH FIGARO SENSORS ARE USED WILL VARY
+                                   WITH EACH CUSTOMER'S SPECIFIC APPLICATIONS. FIGARO STRONGLY RECOMMENDS CONSULT-
+                                   ING OUR TECHNICAL STAFF BEFORE DEPLOYING FIGARO SENSORS IN YOUR APPLICATION AND,
+                                   IN PARTICULAR, WHEN CUSTOMER'S TARGET GASES ARE NOT LISTED HEREIN. FIGARO CANNOT
+                                   ASSUME ANY RESPONSIBILITY FOR ANY USE OF ITS SENSORS IN A PRODUCT OR APPLICATION FOR
+                                   WHICH SENSOR HAS NOT BEEN SPECIFICALLY TESTED BY FIGARO.
+
+                                            TGS5042 is a UL recognized component in accordance with the
+                                            requirements of UL2034. Please note that component recognition testing
+                                            has confirmed long term stability in 15ppm of CO; other characteristics
+                                            shown in this brochure have not been confirmed by UL as part of component
+                                            recognition.
+
+Revised 07/15                                                                        1
+                                                    APPLICATION NOTES FOR TGS5042
+
+1. Sensor Marking                                                                     One dimensional bar code
+
+The TGS5042 comes with a sticker attached to                        FIGARO
+the sensor housing (see Fig. 1) which contains                      TGS5042
+individual sensor data:
+                                                               041124 1827
+One dimensional bar code
+     xxxx                                                      Lot No.     Sensitivity to CO (nA/ppm)
+
+where: xxx = x.xxx nA/ppm                                                     (Ex.1827 = 1.827nA/ ppm)
+
+This bar code indicates the sensor's sensitivity               Fig. 1 - Sensor markings
+(slope) in numeric value as determined in
+Figaro's factory by measuring the sensor's                                 C1
+output in 300ppm of CO. This value is also                                     1µF
+printed below the bar code--please note that
+three decimal places should be added to the                                R1 I
+sensitivity reading (e.g. 1827 should be read as
+1.827 nA/ppm).                                                                1M
+
+Sensor lot number is printed to the left of the       Working                         - IC        Vout
+sensitivity data in YYMMDD format.                  TGS5042                           +
+                                                               I
+2. Circuit Design                                     Counter
+
+2-1 Basic circuit                                                                                 Vout = I x R1
+TGS5042 is a fuel cell type electrochemical sensor
+with two electrodes, with sensor output current                 Fig. 2a - Basic circuit for
+changing linearly with CO concentration. To use                amplifying sensor current
+the sensor for CO detection, it is necessary to
+convert sensor current to output voltage. There                Working
+are two conversion methods:
+                                                    TGS5042             I                    R2   Vout
+2-1a Sensor current type (see Fig. 2a)                                                      100k
+This method directly converts sensor current into
+voltage according to the following equation:                   Counter
+
+                 Vout = Is x R1                                            Vout = I x R2
+
+where: Is = Sensor output current                              Fig. 2b - Basic circuit with
+                                                                    fixed load resistor
+2-1b Load resistor type (see Fig.2b)
+This method measures generated voltage across       the circuits of the sensor current type and load
+a fixed load resistor which is connected to the     resistor type become very similar. However,
+sensor electrodes. In this case, sensor output is   large differences in characteristics can be seen
+expressed by the following equation:
+
+                   Vout = Is x R2
+
+where: Is = Sensor output current
+
+The load resistor type circuit does not include an
+op-amp. An op-amp is used to amplify voltage
+since sensor current is very small, in which case
+
+Revised 07/15                                                                                           2
+                                                   APPLICATION NOTES FOR TGS5042
+
+between amplifying current and using a fixed       3.5                                                                Op-Amp type
+load resistor.
+                                                                                                                      Resitor type (5.6k_)
+1) Response time to CO is slower when using
+a fixed load resistor (see Fig. 3). When using a                                                CO400ppm              Resitor type (1.0k_)
+fixed load resistor, the larger the value of the
+load resistor, the slower the response time. In    3
+addition, the expected output voltage may not
+be obtained if a larger than 5.6k load resistor    2.5
+value should be selected.
+2) When amplifying current, an additional load                                         CO 150ppm
+resistor or FET is required for anti-polarization
+of the sensor.                                         2                     CO 70ppm
+                                                   Vout (V)  CO 30ppm
+Note 1: Please pay attention to sensor polarity.
+Although the sensor's package is physically         1.5
+similar to that of a dry battery, the sensor's
+polarity is opposite to that of a dry battery.     1
+Note 2: When voltage is applied to the sensor
+output terminal, the sensor may be damaged.        0.5
+Voltage applied to the sensor should be strictly
+limited to less than ±10mV.                        0
+
+2-2 Op-amp selection                                    0       200  400               600        800     1000  1200  1400
+When using a fixed load resistor, in most cases
+an op-amp is required to amplify the sensor's                                               Time (sec.)
+small output voltage.
+                                                                Figure 3 - Sensor response curve in various
+Rail-to-Rail Op-Amps such as the following                         basic circuits (amplified 3.13M times)
+are recommended for both basic conversion
+circuits:                                          Figure 4 - Internal equivalent circuit when using an op-amp
+AD708, AD8698, OP07 (Analog Devices),
+TLC272(TI), OPA177(BB), MCP6042 (Microchip),                                                      C1
+MCP616 (Microchip), OPA2355 (TI)
+                                                                                            R2           VR2
+For circuits employing an op-amp, Figure 4
+shows the internal equivalent circuit which can                                             100k
+be expected according to Figaro's test results.
+Component values are estimated as follows,            Working                               - IC                                   Vout
+including variation in sensor characteristics and  TGS5042                                  +
+temperature/humidity dependency:
+                                                       Counter                                    VR1
+Rs: 0~1k
+Rs+Rp: 10k~                                                                                    VR1: Variable resistor for zero adjustment
+C: 0.8mF~10mF                                                                                  VR2: Variable resistor for span adjustment
+
+Off-set voltage of an op-amp (current to voltage               Figure 5 - Circuit example for zero adjustment
+converter) affects the base line level of sensor
+output. This is because a small current reaches    internal DC resistance of the sensor (Rs+Rp).
+the sensor due to the offset voltage of the op-    The voltage shift drives an increase and decrease
+amp, causing a voltage shift according to the      from default base line level due to the value (±)
+                                                   offset voltage for the op-amp. To prevent such
+Revised 07/15                                      a voltage shift, the above listed op-amps are
+                                                   recommended.
+
+                                                   Please note for circuits employing an op-amp,
+                                                   when a fixed load resistor is used for anti-
+                                                   polarization, only an op-amp with small leak
+                                                   current (such as AD708 , OPA2355) can be used.
+
+                                                                                                                         3
+                                                       APPLICATION NOTES FOR TGS5042
+
+When an op-amp with large leak current is used,           Working                                C1                                                       Vout
+offset voltage may fall outside of the adjustable      TGS5042
+range by leak current. (see 2-5 Anti-polarization                                                       1µF
+Circuit).                                                  Counter                                R2
+
+To obtain high accuracy in an analog circuit, an                                                      1.2M
+op-amp with a zero adjustment function, such
+as LF356 (National), is recommended. In Figure                                             - IC
+5, a typical zero-span adjustable circuit using                                            + AD708
+LF356 is shown.                                                           R1
+                                                                          1k
+2-3 Baseline design of sensor output
+Since sensor output may have a negative value                       Figure 6 - Anti-polarization circuit using
+due to the offset voltage of the op-amp, the                                         a fixed resistor
+baseline of sensor output should be set >1V. If
+an anti-polarization circuit (using JFET), and a          Working        Vcc                 C1
+self diagnosis circuit (see Items 2-6 and 2-12) are    TGS5042      SW                             1µF
+added, the base line of sensor output should be
+set >2V.                                                   Counter                           R2
+
+2-4 Microprocessor                                                                                1.2M
+Incorporating a microprocessor into a circuit
+offers several advantages. The complex                                                 - IC
+calculation of alarm concentration based on                                            + AD708
+COHb and temperature compensation can be
+carried out by the microprocessor, simplifying                                                                                                            Vout
+circuit design. By recording sensor sensitivity
+data from the sensor's bar code label in the                        Figure 7 - Anti-polarization circuit using
+microprocessor and by using the microprocessor                                    an external switch
+to compensate for offset voltage, the calibration
+process for detector production can be greatly                                         C1
+simplified. In addition, useful values such as                                               1µF
+a maximum CO concentration and a sensor
+output timing chart can be recorded in the                                             R2
+microprocessor as additional functions.
+                                                                                           1.2M
+From the viewpoint of signal resolution, the
+recommended specification of a microprocessor             Working                - IC
+is 10 bit or higher.                                   TGS5042
+                                                                    JFET         +
+2-5 Anti-polarization Circuit                              Counter
+When the sensor is stored without connection                        (N-Channel)
+between the working electrode (W) and counter
+electrode (C), polarization will occur between the                                                              Vout
+electrodes. When a polarized sensor is connected
+to an operating circuit, it takes about one hour                                                                    1.5V or more of baseline is required
+to stabilize sensor output (refer to 3-5 Influence of                                                               for baseline to operate JFET
+Storage in TGS5042 Technical Information).
+                                                                    Figure 8 - Anti-polarization circuit using
+                                                                                  an N-channel JFET
+
+Revised 07/15                                                                                                                                             4
+                                                      APPLICATION NOTES FOR TGS5042
+
+To avoid polarization during storage, it is                                                         C1
+necessary to keep a short-circuit (or <1k
+resistance) between the electrodes. In this                                                               1µF
+manner, measures such as a timed warm-up                                 Vcc
+period for stabilizing the sensor are not required
+in circuit design.                                                                                  R2
+
+In a load resistor type circuit, it is not necessary                                                    1.2M
+to add additional parts for anti-polarization
+since the circuit already contains a load resistor       Working                               - IC             Vout
+between the sensor electrodes.                        TGS5042                                  +
+
+A sensor current type circuit can use three               Counter        JFET
+methods for anti-polarization:                                           (P-Channel)
+
+1) JFET (Figs. 8 and 9) - Figaro's recommendation                  Figure 9 - Anti-polarization circuit using
+This method is normally used in CO alarms                                         a P-channel JFET
+without an external switch. In this case a JFET
+(Field Effect Transistor) is recommended.                          3.0V                     C1
+Junction type transistors are not recommended                                                     1µF
+due to their large leak current. MOSFETs cannot
+be used.                                                                                    R2
+
+2) Fixed resistor (Fig. 6)                                                                      1.2M
+As a simple method, a fixed load resistor can be
+used. In this case, it is necessary to use an op-       Counter                       - IC                     3.0V of baseline is set
+amp with very low leak current (such as AD708         TGS5042                                                  to operate JFET.
+or OPA2355). Op-amps with large leak current                             JFET         +
+may cause offset voltage to fall outside of the         Working                                                                        Vout
+adjustable range.                                                        (N-Channel)
+
+To avoid polarization on the sensor during                                                                     Vout decreases by a CO
+power-off, Figaro recommends that both of                                                                      concentration increases.
+electrodes of the sensor be shorted by using
+a JFET (see Item 2-5.1 above). Alternatively,                      Figure 10 - Circuit for extending effective
+adding a fixed resistor (10~100k) between                             voltage range using N-channel JFET
+both electrodes will have a similar effect for
+anti-polarization. However, since this effect         It is necessary to choose a P-channel or N-channel
+will be smaller than in case of using a JFET, the     FET, depending on the required effective output
+recovery time after powering on may be longer.        range, gain, and the variation range of Vcc.
+Furthermore, resistors between both sensor            Figures 8 and 9 show the basic circuit for each
+electrodes may cause a large shift from the base      type.
+amplified signal.
+                                                      The advantage of a P-channel FET is a wider
+3) External switch (Fig. 7)                           effective voltage range. However P-channel
+This method is normally used for CO analyzers         FETs have higher cost, weakness against
+where there is an external switch to control          applied voltage fluctuation, and they require
+power on/off. By using an external switch, the        higher operating voltage than 5V (making them
+connection between the W and C electrodes can         unsuitable for applications which need <5V).
+be controlled, whether open or short (<1k)            Recommended P-channel FETs are J177, J270
+circuit.                                              (Fair Child), and 2SJ103 (Toshiba).
+
+Revised 07/15                                         N-channel JFETs are widely available in many
+                                                      models, have lower cost, and are more stable
+                                                      to voltage fluctuation of power supply. Their
+                                                      disadvantage is their narrower effective voltage
+                                                      range. However, one option to extend their
+                                                      effective voltage range is to shift baseline to Vcc
+                                                      as shown in Fig.10. In the example circuit, output
+
+                                                                                                                            5
+                                                    APPLICATION NOTES FOR TGS5042
+
+voltage decreases with a CO concentration                           V1= - (I xR1)  R3              C1
+increase. The recommended N-channel JFETs                                                                22µF
+are J201, PN4117 (Fair Child), and 2SK117              Working                     1k
+(Toshiba).                                          TGS5042                                        R2
+                                                                 I     R1                        100k                       Vout
+2-6 Amplification Circuit (see Figs. 11 and 12)         Counter                              -
+In a load resistor type circuit, voltage can be                        1k                      IC
+amplified by using either an inverted or non-                                                + AD708
+inverted amplifier. Depending on the method,
+the gain is slightly different. Please note that                                                Vout = I x R1 x (R2/R3)
+direction of W and C electrodes are opposite
+between non-inverting and inverting amplifier                       Figure 11 - Inverting amplifier circuit
+circuit.
+                                                                       V1= I x R1                          C1
+Non-inverting amplification has lower leak                                                                       22µF
+current from the sensor to the op-amp since the         Counter     I      R1
+working electrode is connected to the positive (+)  TGS5042                                                R2
+terminal of the op-amp. To prevent leak current,                           1k                                               Vout
+setting a voltage follower between sensor output       Working                                                 100k
+and the op-amp is recommended (refer to Sec. 2-8
+Leak Current Prevention Circuit).                                                                   +
+                                                                                                       IC
+2-7 Amplification Factor (gain)
+It is necessary to decide gain by selecting Vcc,                                                    -
+JFET and the op-amp in terms of sensor output                                                 R3
+range, target gas concentration range, and                                                    1k
+required accuracy.
+                                                                                             Vout = I x R1 x (1+R2/R3)
+For example, a gain of at least 2.5 million is
+calculated to be necessary for the following                     Figure 12 - Non-inverting amplifier circuit
+example CO detector:
+                                                                                             C1                          V1= - (I xR1)
+           - 5V Vcc                                                                                                                   Vout
+           - 10 bit microprocessor                                                                22µF
+           - Accuracy: ±20% of reading                                                       R2
+           - Detection range: 0 ~ 750ppm
+To extend the detection range, it is necessary                                     -IC 1 R3     100k
+to increase Vcc or to use a microprocessor with                                    +         -IC 2
+higher resolution. For conformity to EN50291,                                                +
+Figaro recommends at least a 10bit A/D converter    Working            Current to Op-Amp 1k
+with 1.2M to 1.4M times as a gain value.                               will be shut out.
+
+To meet EN50291 requirements, a CO alarm            TGS5042      I     R1
+must be able to distinguish the output signal
+(voltage) between 30ppm and 50ppm of CO.                               1k
+For obtaining an appropriate gain value which
+can meet with this requirement, the full scale of   Counter
+CO concentration and baseline of output signal
+in a CO alarm should be decided before starting                                              Vout = I x R1 x (R2/R3)
+
+                                                                         Figure 13 - Leak current measure
+                                                                               using a voltage follower
+
+                                                    circuit design. For example, if a circuit voltage
+                                                    (Vcc) would be 5V, the appropriate gain value
+                                                    is obtained as follows:
+
+                                                          - full scale of CO conc.: 1000ppm
+                                                          - baseline of sensor output (in 0ppm CO): +1V
+                                                          - max CO sensitivity of TGS5042: 2.4nA/ppm
+                                                          - temp dependency of TGS5042: I(60°C)/I(20°C)=1.2
+
+                                                          Gain: 1.38*106 -times =
+                                                                  [5V-1V] / [2.4*1.2 * 10-9(V/ppm) * 1000(ppm)]
+
+                                                    In the above conditions, since a 10bit A/D
+                                                    converter can distinguish the difference in sensor
+
+Revised 07/15                                                                                                            6
+                                                      APPLICATION NOTES FOR TGS5042
+
+output between 30ppm and 50ppm CO, Figaro
+recommends using at least a 10bit A/D converter
+and 1.2M to 1.4M-times as a gain value in the
+circuit.
+
+2-8 Leak Current Prevention Circuit (Fig. 13)
+In a fixed load resistor circuit, a non-inverting
+amplifier circuit is recommended for simplicity.
+For further countermeasures, adding a voltage
+follower circuit between sensor output and the
+op-amp is recommended.
+
+2-9 Electrical Noise Prevention                                           Figure 14 - Electrical noise prevention circuit
+Since sensor impedance is 10 or less, the
+sensor itself will not be a source of electric                                                                                                                  Temperature compensation
+noise. However, the sensor is easily influenced                                                                                                                 circuit
+by external electric noise since sensor output is
+very small in both basic circuits. Therefore, it                                                                                                                  C2                                   C5
+is necessary to incorporate measures into the                                                                                                                        +                                    +
+circuit pattern and power supply to eliminate
+electrical noise.                                                                                                                                             T2.2uF/16V                           T22uF/16V
+                                                                                                                                                                                                       R7
+Three options to prevent electrical noise:                                                                                                                         VR3
+1) Use an electrical noise filter                                                                                             1                         R2          50k        RT                       110k
+2) Use a voltage follower (see Sec. 2-8 Leak Current                                                                          2                         310k
+Prevention)                                                                                                                                                                                                   R9
+3) Build up an RC network with a resistor and                                                                                    BATT1
+capacitor in place of the feedback resistor of the                                                                               UM3XI            Tr 3                         10k at 20°C                    39k
+op-amp. The recommended time constant (T)                                                                                                       2SK117
+of RC circuit for power input is 2~2.5 seconds                                    VCC                                                                                          B: 3380
+since the value in the basic recommended circuit                                     +
+is 2.2 seconds.                                                1     D1   T33u/16V    C 1       680JT                               VCC                                        1   06P 10k         VR2
+                                                                2  DINS4                  REG1                                            0.1u
+To prevent external electrical noise, setting a                 3
+noise filter inside the detector, making a noise                4                                      VR1              12k               C3    A
+prevention circuit pattern, and averaging the                   5                                         R5 67W 5k R1        2- 1
+output signal are recommended.                                                                                                3 + IC1A8                                        1
+                                                          CN1                                                                                                                  2 -                      NJU7031D
+In addition to reduce electrical noise due to         MB5P-90S                                                                                          R4 5 AD708JN + 7 R8    3 + IC2             5      6
+radio waves, adding fixed resistors (R3 and R4
+as shown in Figure 14) on the input terminal                                                                            1.5V                            10k     IC1B                                     C4
+of the op-amp is also effective. Please not that
+the capacitor between the output and input                                          A                                         4                         R3 6 -            10k  R 6
+terminals (C2 on Figure 14) should not be added                                                                                                                                     10.0k
+when a CMOS type op-amp is used.                                                                                        9.1k  AD708JN                   10k                                             0.1u
+                                                                                                                                                                                          4        VCC
+2-10 Temperature Compensation Circuit                                                                                                                                                             7
+Temperature compensation can be done in one
+of two ways:                                                                                                                                                                RT: NTSA0XH103FE1B0 (Murata: Axial type)
+                                                                                                                                                                            VR1, VR2: Zero adjust
+                                                                                                                                                                            VR3: Span Adjust
+
+                                                                  Figure 15 - Temperature compensation circuit
+
+                                                      1) Input the thermistor's signal into the
+                                                      microprocessor and compensate it with the
+                                                      temperature compensation table which is also
+                                                      stored inside microprocessor (refer to Item
+                                                      3-Calibration for details of the compensation process,
+                                                      and refer to Appendix 1 for temperature compensation
+                                                      factors).
+
+                                                      2) Make an analog circuit with a negative
+                                                      temperature coefficient (NTC) thermistor and
+                                                      resistors in place of the feedback resistor of IC2
+                                                      (see Fig.15)
+
+                                                      2-11 Self Diagnosis Circuit (patented by Figaro)
+                                                      Sensitivity to CO would be lost in case
+                                                      several failure modes were to occur, such as
+                                                      wire breakage, short circuit, or in case the
+                                                      sensor's water reservoir were to dry up. By
+                                                      using Figaro's patented self diagnosis circuit,
+
+Revised 07/15                                                                                                                                                                                                 7
+                                                                                          APPLICATION NOTES FOR TGS5042
+
+malfunctions involving loss of CO sensitivity                                          the sensor from the circuit so that self test may
+can be detected.                                                                       be conducted without activating an alarm.
+
+Please note that this method cannot detect CO                                          2) Apply a minute current to the sensor
+sensitivity loss caused by lack of gas diffusion                                       Activate a transistor (TR1) and apply about
+when dust or water droplets cover the pin                                              1µA (absolute maximum rating: 5µA), which
+holes for gas diffusion. In addition, slight loss                                      simulates exposure to about 1000ppm CO. This
+of CO sensitivity cannot be detected by self-                                          current should be applied for 2~5 seconds. If the
+diagnosis.                                                                             sensor is normal, sensor current will be output
+                                                                                       and then quickly recover to its base level.
+Depending on the user's circuit design, factors
+for self diagnosis such as current value, self                                         3) Reconnect the sensor to the circuit
+diagnosis period, measurement timing, and                                              1~2 seconds after self diagnosis current is
+voltage range for judgement may vary. Therefore,                                       terminated (TR3 is reset), activate TR2 and
+it is recommended that experimentation with the                                        reconnect the sensor to the circuit. Then current
+user's circuit be conducted for fine tuning these                                      applied to the sensor will be discharged.
+factors in self diagnosis.
+                                                                                       4) Self diagnosis determination is carried out
+Figs. 16, 17, and 18 show examples of the circuit,                                     Approx. 5 seconds after the sensor is reconnected
+timing chart, and process chart.                                                       to the circuit, if the sensor output falls within the
+                                                                                       range of 2.3 ~ 3.8V (normal output expected in
+The basic steps of self-diagnosis are:                                                 1000ppm of CO), which corresponds to 0.4 to
+                                                                                       2µA of sensor current, the sensor can be judged
+1) Temporarily cut the sensor off from the circuit                                     to have normal CO sensitivity. If the sensor
+Activate a transistor (TR2) to temporarily isolate
+
+                                    Self test current control                                                             Self test drive control
+
+                                                                                           Tr 1                           Microprocessor port2
+                                                                                       2SK982                                      H-Z on
+                                                                                                                                   0V off
+                                                            Microprocessor port1 R10                        2M
+                                                                                                                  R11 1M                            C2
+                                                                     Vcc on
+                                                                     0V off                                                                        0.1µ
+
+                                                      A                                                           Tr 2          R2
+                                                                                         1                      2SK117         1.2M
+                                                                                         2
+                                    VCC
+                                                                                              BATT1
+                                                                                              UM3XI
+
+5V 1                           D1                     680JT                            VCC1            Tr 3                    VCC1
+           2                 DINS4                                                                   2SK117
+           3                             + C3 C3
+           4  C 4            +      C 1
+           5          T1µ/16V               33µ/50V                                       0.1µ               A            MCP6042 0.1µ
+
+    CN1                                         REG1  VR1               1.0k  2        8
+MB5P-90S                                                 R5 67W 10k R6
+                                                                                 -           1                                 8
+                                                                                                                                    4
+                                                                        2.0V       IC1                                    5 +  IC1                       7
+                                                                                 +
+                                         A                                    3
+                                                                                       4
+                                                                                                                          6 -
+                                                                        3.0k  MCP6042
+
+                                                                        Figure 16 - Self diagnosis circuit
+
+Revised 07/15                                                                                                                                               8
+                                                             APPLICATION NOTES FOR TGS5042
+
+output is 3.8V, the sensor is judged to be short                      Normal                 Self test                       Normal
+circuited. If the sensor output is <2.3V, the sensor                                         for sensor
+is judged to be open circuited. Please refer to
+Fig. 19 (see following page) for the Vout pattern                                                                                    H-Z (on)
+corresponding to each of these cases.
+                                                              Drive                                                                    0V (off)
+Note: The above Vout range is valid only                     control                                                                 VCC (on)
+for the circuit shown in Fig.16. When gain
+of amplification and/or measuring timing is                                                                  approx. 1 min.
+different, the Vout range would be changed.
+                                                             Self test                                                               0V (off)
+Sensor output recovers to its initial level about            current
+1 minute after the sensor judgement in the                    control                        approx. 5 sec.
+step 4 above. The total self diagnosis time for
+Steps 1-4 is 1~2 minutes. Please note that the                                 0.01 - 1sec.                                  0.01 - 1sec.
+larger or longer current is applied to the sensor,
+the longer it takes to complete self diagnosis.                                              Measuring point
+The self diagnosis process should be carried                                                 5 - 7 sec. after changing to 0V for drive port
+out periodically to ensure that the sensor has
+sufficient CO sensitivity to afford protection.                       Figure 17 - Self diagnosis timing chart
+
+Note:                                                                                     Power on (Normal)
+Please restart normal operation mode when                                                   Drive control: H-Z (on)
+sensor output recovers to its initial level after                                           Current control: 0V (off)
+the self diagnosis operation. The interval
+between self diagnosis operations should be set                                            Normal mode
+considering the recovery period for the sensor.                                             Drive control: H-Z (on)
+If current is applied to the sensor before it can                                           Current control: 0V (off)
+recover to its initial level, the sensor may be
+damaged due to overcharging.                                                                                                     NO
+                                                                                                   Self test ?
+The recommended self diagnosis interval for                                                       Yes
+the circuit in Fig.16 is 180 seconds or more.                                         Drive control: H-Z (on) to 0V (off)
+To shorten the interval, it is recommended to
+minimize the current applied to the sensor (less                                                               0.1 - 1 sec.
+current/shorter duration). However, the smaller                                    Current control: 0V (off) to VCC (on)
+the current, the more difficult to distinguish
+between normal sensors and abnormal sensors.                                                                   5 sec.
+Users should conduct a verification test using                                     Current control: VCC (on) to 0V (off)
+their actual circuit.
+                                                                                                              0.1 - 1 sec.
+2-12 Proposed circuit using Vcc=3V                                                    Drive control: 0V (off) to H-Z (on)
+In case that the Vcc is +3V, the maximum gain
+value can obtain 0.7M-times under conditions                                                                   5 - 7 sec.
+which is described in previous section.                                              Measure the output voltage (Vout)
+
+      Gain: 0.69*106 -times =                                         Yes
+              [3V-1V] / [2.4*1.2 * 10-9(V/ppm) * 1000(ppm)]                                 Vout = 2.3 - 3.8V?
+                                                                                                             NO
+This small gain value may not meet EN50291                                                     Trouble signal
+requirements due to the small signal resolution
+                                                                         Figure 18 - Self diagnosis flow chart
+ Revised 07/15
+                                                                                                                              9
+                                                                                     APPLICATION NOTES FOR TGS5042
+
+                                               Drive : H-Z       Vout/V              5 - 7 sec.
+                                                           0V                5 sec.
+
+                                              Current: VCC                                    Normal range
+                                                           0V                                  2.3 - 3.8 V
+
+                                                              5              10  20  30                     40            50  60
+
+                                                              4
+
+                                                              3
+
+                                                              2
+
+                                                              1
+
+                                                              0
+                                                                0
+
+                                                                                     Time/sec.
+
+                                                                             Normal sensor
+
+ Drive : H-Z   Vout/V           Normal range                                                 Drive : H-Z    Vout/V                    Normal range
+             0V                 2.3 ~ 3.8V                                                               0V                           2.3 ~ 3.8V
+
+Current: VCC            10  20  30            40                 50      60                 Current: VCC                      10  20  30          40  50  60
+             0V                                                                                          0V
+
+            5                                                                                            5
+
+            4                                                                                            4
+
+            3                                                                                            3
+
+            2                                                                                            2
+
+            1                                                                                            1
+
+            0                                                                                            0
+              0                                                                                            0
+
+                                Time/sec.                                                                                             Time/sec.
+
+                            Open circuit                                                                                          No sensitivity
+
+ Drive : H-Z                                                                                 Drive : H-Z
+             0V                                                                                          0V
+
+Current: VCC                                                                                Current: VCC
+             0V                                                                                          0V
+
+             5                                                                                           5
+
+             4  Vout/V          Normal range                                                                Vout/V  4
+                                2.3 ~ 3.8V                                                                          3 Normal range 2.3 ~ 3.8V
+             3                                                                                                      2
+
+             2                                                                                                      1
+
+             1                                                                                                      0  0      10  20  30          40  50  60
+
+             0          10  20  30         40                    50      60
+               0
+
+                                Time/sec.                                                                                             Time/sec.
+
+                            Short circuit                                                                                 Water/electrolyte dried up
+
+                                           Figure 19 - Self diagnosis Vout response patterns
+
+between 30ppm and 50ppm CO. As a solution,                                           during the powering-on period. As a result, the
+Figaro suggests the following three types of                                         acceptable detection range of sensor output falls
+circuits:                                                                            between 0 and 3V.
+
+1) Gain switching circuit (Fig. 20)                                                  3) Change-baseline circuit (Fig. 21a)
+The gain value of a second amplifier (IC2) is                                        In the circuit shown in Figure x, the baseline
+switched by the micro controller according to                                        and gain values can be changed according to
+the output signal of the micro controller. By                                        application of voltage in V1 and V2. As shown in
+setting a large gain value while the sensor is in                                    Figure 21b, when Vcc of 3.0V and 0V are applied
+low CO concentration range, adequate detection                                       to V1 and V2 respectively during a short time,
+resolution is achieved even if Vcc is 3.0V.                                          the baseline of sensor output changes to lower
+                                                                                     voltage. Gain value is also increased before
+2) Opposite-baseline circuit (Fig. 10)                                               applying V1 and V2. Thus, by controlling both
+In this circuit, the sensor is set up in the opposite                                V1 and V2, a detector can achieve high detection
+direction (i.e. the working electrode is connected                                   resolution when the detector is exposed to a low
+to the positive input terminal of the op-amp                                         concentration of CO.
+rather than the negative). Since the voltage
+between the source and gate of the JFET is fixed                                     2-13 Proposed circuit for 5000ppm CO exposure test
+at 3.0V only during power-on, the JFET can                                           Most electrochemical CO sensors show very
+make a short circuit for anti-polarization except                                    long recovery time after high CO gas exposure.
+
+Revised 07/15                                                                                                                                                 10
+                                                        APPLICATION NOTES FOR TGS5042
+
+Figure 20 - Gain switching circuit
+
+As a result, detectors cannot meet the 5000ppm          Figure 21b -Change of baseline sensor output
+CO exposure test of EN50291 (5.3.6) without                using Vcc-3.0V on V1 and Vcc-0V on V2
+some countermeasure. TGS5042 displays faster
+recovery time than other types of electrochemical
+sensors, so it may be possible to pass the test.
+However, if the amplified signal of the sensor
+exceeds Vcc (max output level of op-amp) in
+5000ppm CO due to large gain, the sensor output
+in air after exposure of 5000ppm CO would drop
+below the baseline for a while (undershoot),
+temporarily causing reduced sensitivity to CO
+which may lead to failure to meet ES50291.
+
+As countermeasure to the phenomenon of
+undershoot, the overflow current of the sensor
+should be canceled during the period when
+the amplified sensor signal exceeds Vcc. For
+example, by installing four diodes in the
+amplifier circuit (see Figure 22), the overflow
+
+                  Figure 21a - Change baseline circuit  Figure 22 - Basic circuit condition using a diode
+Revised 07/15                                                                                                       11
+                                                      APPLICATION NOTES FOR TGS5042
+
+current goes back to the sensor through the             Figure 23 - Circuit for changing gain using a FET
+diodes during the period when the amplified
+signal exceeds 2.8V.                                  1) Sensor compartment
+                                                       2) Slits
+Alternatively, switching the gain of the amplified
+output signal is also effective. Figure 23 shows               Figure 24 - Sensor compartment design
+a sample circuit diagram which can change the
+gain by using a FET.
+
+A similar function can also done by "Change-
+baseline circuit" as described in Item 2-12.3
+above. In both of these cases, Figaro recommends
+a gain value of 100,000 to 200,000-times when the
+amplified output signal is higher than Vcc.
+
+3. PCB and Housing Design
+3-1 Position Dependency of the Sensor
+TGS5042 has no position dependency in normal
+usage such as in residential CO detectors.
+However, for applications where ambient
+temperature can change drastically and suddenly
+to less than -20°C, it is recommended that the
+sensor should be placed in a vertical position
+with the working electrode upward. If the
+sensor is positioned horizontally or vertically
+with the working electrode down, the sensor
+may be structurally damaged by large volume
+expansion if water in the reservoir freezes.
+
+3-2 Thermistor Location
+It is recommended that a thermistor is located
+as near to the sensor as possible in order to
+accurately measure ambient temperature around
+the sensor.
+
+3-3 Housing Design for Quick Response
+For applications where quick response is
+required, such as for simple CO analyzers, it is
+recommended that the gas inlet of the sensor be
+located at the detector slits or opening. It is also
+recommended to make a small compartment
+with slits in at least two sides (see Fig.24).
+
+3-4 Sensor Lead Configuration
+There are two lead configurations for TGS5042.
+The best version will depend on the user's
+application.
+
+Revised 07/15                                                                                              12
+                                                       APPLICATION NOTES FOR TGS5042
+
+TGS5042-A00: Sensor with SUS lead pins                 output corresponding to CO a concentration less
+The hard pins enables the sensor to be mounted         than 10ppm after subtracting detector output
+directly to the PCB, simplifying the assembly          without sensor.
+process.
+                                                       4-2 Calibration Using Individual Sensor Data
+TGS5042-B00: Sensor with flexible nickel ribbon        Using individual data printed on sensor, which
+The flexible nickel ribbon allows for a variety of     is measured at Figaro factory before shipping,
+methods for connection to the PCB. This type           can considerably simplify the calibration
+is also suitable for insertion into a socket. The      process. Though the expected accuracy of ±15%
+flexible nickel ribbon may be broken by strong         accuracy in this method is less than that for using
+mechanical shock, drop, or vibration, so it is         CO gas, this method can achieve significant
+recommended that the sensor body be affixed            reduction in handling costs while achieving
+onto the PCB by using two-sided tape or wire,          acceptable accuracy.
+for example.
+                                                       4-2-1 Input sensitivity data into microprocessor
+4. Sensor Calibration                                  Sensor data from the label can be read into the
+4-1 Calibration Using CO Gas                           microprocessor in one of two ways:
+1) After powering the circuit, wait 5 minutes to       1) Manually input the user readable value on the
+stabilize sensor output in clean air (see Note 1)      label, located beneath the one dimensional bar
+2) Measure sensor output in clean air (V0) (See        code (this value is nA/ppm and contains three
+Note 2)                                                decimal places).
+3) Inject C1ppm of CO gas                              2) Using a barcode reader which can read Code-
+4) After stabilizing sensor output (e.g. 3 to 4 min),  128, read the one dimensional barcode and input
+measure sensor output (V1)                             directly to the microprocessor (this value is nA/
+5) Calculate sensor sensitivity  from V0 and           ppm and contains three decimal places).
+V1 values:
+                                                       4-2-2 Compensation of offset voltage (zero
+                 = (V1-V0) / C1                        adjustment)
+                                                       To compensate for offset voltage which is created
+Using this method, accuracy of ±5% can be              by the sensor and operational amplifier, measure
+obtained for display readings. Please note that        the offset voltage (V0) in clean air (0ppm of CO)
+temperature should be in the range of 20°C±2°C         and write into an EEPROM or a microprocessor.
+during the calibration process since the sensor        This value should be read from the finished
+has dependency on temperature.                         detector (after installation of sensor, op-amp,
+                                                       etc.).
+Note 1: In principle, due to the nature of
+electrochemical cells, pre-heating before              To obtain higher accuracy, keep ambient
+calibration is not required. However, in actual        temperature in a range of 20±10°C and be sure
+manufacturing, it is recommended to wait 5~10          that the ambient air is completely free of CO.
+min. before calibration to stabilize sensor output
+in the circuit.                                        4-3 Temperature Compensation
+                                                       There are two methods for temperature
+Note 2: If CO gas is present during the zero           compensation:
+adjustment process, a correct zero adjustment
+cannot be carried out. A detector should be            1) Using a microprocessor
+checked in advance to verify that it generates         In case of using a microprocessor, it is necessary
+
+Revised 07/15                                          13
+                                                     APPLICATION NOTES FOR TGS5042
+
+to read the thermistor output and write it into         30                                                                    NJU7034  AD708
+the microprocessor. Inside the microprocessor,          20
+temperature compensation is carried out by              10
+using the compensation coefficiency table shown
+in Appendix 1. Temperature compensated CO                 0
+sensitivity (t) is calculated by the following       Display reading (ppm)
+equation:
+                                                       -10
+                      t= /CF                           -20
+where: CF = compensation coefficient at certain
+temperature
+
+2) Without using a microprocessor                    -30
+In case of not using a microprocessor, this
+process can be eliminated.                                -20               -10  0  10  20                            30  40  50       60         70
+
+                                                                                        Temperature (°C)
+
+                                                               Figure 25 - Temperature dependency of offset voltage
+                                                                                          for op-amps
+
+4-4 Calculation of CO Concentration                                                                                            Power ON
+CO concentration can be calculated by using
+sensor output (Vout), offset voltage (V0),                                                                                Alarm dalay againt
+temperature compensated CO sensitivity (t), and                                                                           polarity of sensor
+gain (A) in the following formula:
+                                                                                 Generate trouble Yes                       Sensor trouble
+      C = (Vout-Vo)/A/t Equation 1                                                      signal                                  detection
+                                                                                                                                          No
+Depending on the op-amp, offset voltage has
+a large temperature dependency as shown                                                                                      Sensor output
+in Fig.25. To compensate the temperature                                                                                        sampling
+dependency, it is recommended to make a table
+of offset voltage at different temperatures Vo(T)                                                                             Thermistor
+in the microprocessor, and Vo in Equation 1                                                                                output sampling
+should be replaced to Vo(T) in Equation (1').
+                                                                                                                            CO calculation
+      C = (Vout-Vo)/A/t Equation 1'
+                                                                                                                              Display CO
+Actual gain (A) should be measured instead                                                                                   concentration
+of calculated or specified at a theoretical value
+since such value may not be obtained in actual                                                                            Convert to COHb
+measurement.                                                                                                                 concentration
+
+Fig.26 shows basic flow chart of signal processing.                                                              Yes               Alarm
+                                                                                 Activate CO alarm                           determination
+5. Manufacturing Process
+                                                                                                                                          No
+5-1 Handling and storage of sensors
+Prior to usage, sensors should be stored in                                                                               Suppress CO alarm
+Figaro's original sealed bag under conditions
+of 5~30°C, 30~80%RH, and avoiding dew                                       Figure 26 - Signal processing
+condensation for a maximum period of 6                                                   flowchart
+months. Do NOT use a moisture proof bag (such
+as an aluminum coated bag) for prevention of         condition, resulting in sensor polarization. The
+dew condensation. When the sensor is shipped         sensor will require a warm up period of about
+from Figaro, the sensor is in an open circuit        one hour to stabilize output.
+
+                                                     5-2 PCB assembly
+                                                     Flux should be sufficiently dried before sensors
+                                                     are assembled onto the PCB to avoid any
+                                                     contamination of the sensor by flux vapors.
+
+Revised 07/15                                                                                                                                 14
+                                                      APPLICATION NOTES FOR TGS5042
+
+                                 Soldering Material                                  Flux
+                                         Composition
+No.                   Model                 Sn/37Pb      Melting Temp       Company                      Model
+           Company    H63E                                     183°C                                     ULF-20
+                                                                            Tamura Kaken Corp           (Cl free)
+ 1                                                             183°C                                  AGF-780R
+
+2                     H63E             Sn/37Pb                 183°C        Asahi Chemical Research   AGF-550BK
+                      H63A                                                      Laboratory Co., Ltd.
+         Solder Coat                   Sn/37Pb         Soldus line: 271°C                              EC-19S-8
+3 Co. Ltd.                                            Liquidus line: 221°C  Asahi Chemical Research
+                                 Sn/3.0Ag/0.5CuNi/                              Laboratory Co., Ltd.
+                                           Ge
+                      LLS219A-
+
+4                     B18                                                   Tamura Kaken Corp
+
+                      (Pb free)
+
+                                 Table 1 - Wave soldering materials
+
+5-3 Sensor assembly                                   5-4 Final assembly
+The sensor electrodes of model -B00 are short-        Avoid any shock or vibration which may be
+circuited by the Nickel ribbon when the sensors       caused by air driven tools. This may cause
+are shipped. Before mounting the sensors on a         breakage of the sensor's lead wires or other
+PCB, the Nickel ribbon of model -B00 should           physical damage to the sensor.
+be cut. Model -A00 is shipped in an open-
+circuited condition, so the sensor output should      5-5 Gas test
+be stabilized by shorting the sensor (refer to FAQ    Test all finished products in the target gas
+for advice on short-circuiting). Both models -A00     under normal operating conditions. Keep the
+and -B00 can be directly soldered onto a PCB.         atmospheric conditions in the chamber stable,
+                                                      utilizing a user-defined standard test condition
+In case the -B00 model is inserted into a socket,     which is based on applicable performance
+it is recommended to cut Ni ribbon as short as        standards and on anticipated usage for detectors.
+possible from the welded part. Do NOT peel            Remove any traces of smoke, adhesives, gases,
+away the Nickel ribbon with strong force at the       or solvents from the chamber.
+working electrode side. The mechanical force
+may damage the sensor electrode.                      Do NOT use Nitrogen balanced CO gas. Oxygen
+                                                      molecules are required for the reaction of the
+The metal ribbon of the -B00 model is for             sensor with CO (refer to Sec. 2-Operation Principle
+electrical connection and therefore should not        of TGS5042 Technical Info).
+be used to affix the sensor to a PCB. For securing
+the sensor to a PCB and to prevent disconnection      During exposure to a mixture of CO and N2,
+of the Ni leads, the sensor should be attached to     the sensor reacts to CO by consuming oxygen
+a PCB using wire, two-sided tape, etc.                molecules inside sensor. After consuming all the
+                                                      oxygen molecules inside sensor, the sensor will
+Recommended conditions for manual                     not react to CO.
+soldering:
+                                                      Dry/bottled CO gas can be used since the
+   Temperature of soldering copper head: 380°C        sensor's humidity dependency is very small.
+   Period: < 10 sec.
+
+Figaro has confirmed that wave soldering can          NOTE: Without testing after final assembly,
+be done by using the materials shown in Table         detectors have no guarantee of accuracy or
+1. When different materials will be used, a test      reliability.
+should be conducted before production starts
+to see if there would be any influence to sensor      5-6 Storage of Finished Products
+characteristics.                                      Detectors should be stored in a clean air
+
+Revised 07/15                                                                                         15
+                                                     APPLICATION NOTES FOR TGS5042
+
+environment at room temperature. Storage in          Acceptance of sensor  Acceptance of components
+dirty or contaminated environments should be
+avoided. Also, void storage in extremely low             Read out          PCB Assembly            Repair
+humidity--sensor life may be shortened. Please       sensitivity data
+refer to Sec. 6-Notes in TGS5042 Technical Info for
+additional information.                                                                                     NG
+                                                                                   Circuit test
+5-7 Packaging
+When a plastic clam shell is used for packaging                                              OK
+of a CO detector, a small charcoal filter should                           Input sensitivity data to
+be placed inside to avoid potential influence by
+organic vapors generated from the package.                                          EEPROM
+
+Never expose the sensor to a vacuum. Sudden                                    Sensor Assembly
+exposure to a vacuum may temporarily damage
+the sensor.                                                                        Zero adjust
+
+                                                                                Final Assembly
+                                                                              (PCB,Casing,etc.)
+
+6. Quality Control                                                                             NG               Re-calibration
+1) A sample of finished products from each                                  Gas test                              (Zero, Gas)
+production lot should be tested to confirm alarm
+concentration. Check whether these samples are                                       OK                         Function check
+acceptable for shipment and maintain a record                              Packaging
+of these tests.
+                                                                                                      Storage
+2) Periodically sample a certain number
+of finished products to confirm the alarm                                                             Shipping
+concentration under extreme conditions (e.g.
+-10°C or 40°C/85%RH) and maintain a record                             Figure 27 - Manufacturing flow chart
+of these tests.
+                                                     Q. How long is the expected life of TGS5042?
+3) Periodically sample a certain number of           A: Unlike some electrochemical sensors which are
+completed products periodically to confirm their     short-lived, the expected sensor life is more than 10
+long-term characteristics and maintain a record      years under normal operating condition.
+of such tests.
+                                                     Q: Is it true that the accuracy of two-electrode
+7. Expected Performance                              electrochemical CO sensors is less than that of three-
+Considering sensor variation as well as the          electrode type sensors?
+tolerances of electric components such as the op-    A: While this may be true for sensors whose electrode
+amp and thermistor, display accuracy of ±20%         potentials are unstable, the TGS5042 exhibits good
+can be expected when individual bar code data        accuracy. With an optimized sensor structure and
+of TGS5042 is used for calibration. This level       electrodes, TGS5042 maintains very stable electrode
+of accuracy may not be obtained if low quality       potentials. As a result, the sensor shows excellent long
+components are used. For higher accuracy, gas        term stability, drifting by only 2% over 2000 days.
+calibration for each sensor is recommended.
+                                                     Q: Where does CO gas enter into the sensor?
+8. Frequently Asked Questions                        A: There are three pin holes in the working electrode
+Q: What approvals does TGS5042 have?                 which act as a gas inlet. Refer to Figure 1 on page 2
+A: The sensor has received UL2034 component          of the TGS5042 Technical Information.
+recognition.
+                                                     Q: Does the sensor comply to RoHS restrictions?
+                                                     A: Yes.
+
+Revised 07/15                                                                                                   16
+                                                           APPLICATION NOTES FOR TGS5042
+
+Q: How long does it take to stabilize sensor output        the sensor is easily influenced by external electric
+after storage when the sensor electrodes are open-         noise since sensor output current is very small.
+circuited?                                                 Power-supply noise should be minimized, an anti-
+A: According to Figaro's test results, short-circuiting    electrical noise circuit pattern should be made, and
+the sensor for one hour should be sufficient to stabilize  a CR circuit should be used to prevent influence of
+sensor output after as much as 6 months storage in         electrical noise.
+fresh air. Nevertheless, the period to reset the sensor's
+polarization depends on the type(s) of gases existing      If incoming noise is too large to be prevented by
+in ambient air, ambient conditions, storage period,        the above measures, these additional steps should
+and the customer's circuit. For achieving the best         be taken:
+results, Figaro recommends that users conduct tests
+at their production facility to determine the optimal         - coat the detector case with a copper board
+stabilization period for sensor output in air.                - use anti-EMI material
+                                                              - place metal mesh around the electric circuit
+Q: Are any special precautions needed to use
+TGS5042 for a simple CO analyzer?                          Figaro USA Inc. and the manufacturer, Figaro
+A: To obtain quick response, the gas inlet of sensor       Engineering Inc. (together referred to as Figaro)
+of the sensor should be located nearest to the detector    reserve the right to make changes without notice
+slits or opening. For this application, TGS5042-B00 is     to any products herein to improve reliability,
+recommended. Please cut the Nickel ribbon as short         functioning or design. Information contained in
+as possible and connect an insulated copper wire by        this document is believed to be reliable. However,
+soldering. In addition, it is recommended to make          Figaro does not assume any liability arising out of the
+small compartment with slits at least in two sides         application or use of any product or circuit described
+around the sensor. Refer to Sec. 3-3 Housing Design        herein; neither does it convey any license under its
+for Quick Response.                                        patent rights, nor the rights of others.
+
+Q: How can electric noise be prevented?                    Figaro's products are not authorized for use as critical
+A: Since sensor impedance is 10 or less, the sensor        components in life support applications wherein a
+itself will not be a source of electric noise. However,    failure or malfunction of the products may result in
+                                                           injury or threat to life.
+
+               FIGARO GROUP                                OVERSEAS
+
+               HEAD OFFICE                                 Figaro USA Inc.
+                                                           121 S. Wilke Rd. Suite 300
+               Figaro Engineering Inc.                     Arlington Heights, IL 60005 USA
+               1-5-11 Senba-nishi                          Tel.: (1) 847-832-1701
+               Mino, Osaka 562-8505 JAPAN                  Fax.: (1) 847-832-1705
+               Tel.: (81) 72-728-2561                      email: figarousa@figarosensor.com
+               Fax: (81) 72-728-0467
+               email: figaro@figaro.co.jp
+               www.figaro.co.jp
+
+Revised 07/15                                                                                 17
+                                     APPLICATION NOTES FOR TGS5042
+
+               Appendix 1 - Temperature Compensation Coefficients
+
+               Temp    CF     Temp    CF     Temp    CF
+                (°C)  (I/Io)   (°C)  (I/Io)   (°C)  (I/Io)
+                -40   0.453          0.844     40   1.105
+                -39   0.463      0   0.852     41   1.109
+                -38   0.473      1   0.861     42   1.112
+                -37   0.483      2   0.870     43   1.115
+                -36   0.493      3   0.878     44   1.118
+                -35   0.503      4   0.887     45   1.121
+                -34   0.513      5   0.895     46   1.124
+                -33   0.523      6   0.903     47   1.126
+                -32   0.534      7   0.911     48   1.128
+                -31   0.544      8   0.919     49   1.130
+                -30   0.554      9   0.927     50   1.132
+                -29   0.564     10   0.935     51   1.134
+                -28   0.574     11   0.943     52   1.135
+                -27   0.584     12   0.950     53   1.136
+                -26   0.594     13   0.958     54   1.137
+                -25   0.605     14   0.965     55   1.138
+                -24   0.615     15   0.972     56   1.139
+                -23   0.625     16   0.980     57   1.139
+                -22   0.635     17   0.987     58   1.139
+                -21   0.645     18   0.994     59   1.139
+                -20   0.655     19   1.000     60   1.139
+                -19   0.664     20   1.007     61   1.139
+                -18   0.674     21   1.013     62   1.139
+                -17   0.684     22   1.020     63   1.139
+                -16   0.694     23   1.026     64   1.139
+                -15   0.704     24   1.032     65   1.139
+                -14   0.714     25   1.038     66   1.139
+                -13   0.723     26   1.044     67   1.139
+                -12   0.733     27   1.050     68   1.139
+                -11   0.742     28   1.055     69   1.139
+                -10   0.752     29   1.060     70   1.139
+                 -9   0.761     30   1.066
+                 -8   0.771     31   1.071
+                 -7   0.780     32   1.076
+                 -6   0.789     33   1.080
+                 -5   0.799     34   1.085
+                 -4   0.808     35   1.089
+                 -3   0.817     36   1.094
+                 -2   0.826     37   1.098
+                 -1   0.835     38   1.101
+                                39
+
+Revised 07/15                                                      18
+

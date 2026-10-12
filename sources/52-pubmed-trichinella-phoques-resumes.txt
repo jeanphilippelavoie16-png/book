@@ -1,0 +1,165 @@
+1. Vet Parasitol. 2014 Feb 24;200(1-2):153-64. doi: 10.1016/j.vetpar.2013.11.015.
+ Epub 2013 Nov 26.
+
+Occurrence and genotypic analysis of Trichinella species in Alaska 
+marine-associated mammals of the Bering and Chukchi seas.
+
+Seymour J(1), Horstmann-Dehn L(2), Rosa C(3), Lopez JA(4).
+
+Author information:
+(1)School of Fisheries and Ocean Sciences, University of Alaska Fairbanks, PO. 
+Box 755220, Fairbanks, AK 99775-7220, USA. Electronic address: 
+jseymour2@alaska.edu.
+(2)School of Fisheries and Ocean Sciences, Institute of Marine Science, 
+University of Alaska Fairbanks, PO. Box 757220, Fairbanks, AK 99775-7220, USA. 
+Electronic address: lara.horstmann@alaska.edu.
+(3)U.S. Arctic Research Commission, 420 L St. Suite. 315, Anchorage, AK 99501, 
+USA. Electronic address: crosa@arctic.gov.
+(4)School of Fisheries and Ocean Sciences, Fisheries Division, University of 
+Alaska Fairbanks, PO Box 757220, Fairbanks, AK 99775-7220, USA. Electronic 
+address: jalopez2@alaska.edu.
+
+The zoonotic parasite Trichinella is the causative agent of trichinellosis 
+outbreaks in the circumpolar Arctic. Subsistence communities are particularly 
+prone to trichinellosis due to traditional meat preparation methods and regional 
+presence of a freeze-tolerant Trichinella species (Trichinella nativa). This 
+study is the first application of a validated artificial digestion method in 
+determining incidence of Trichinella sp. in Alaskan mammals. Infection incidence 
+in pinniped species (Erignathus barbatus, Eumetopias jubatus, Odobenus rosmarus 
+divergens, and Pusa hispida) was low, with only 1/57 ringed seals infected. 
+Polymerase Chain Reaction assays indicate T. nativa as the only species present 
+in northern Alaska. Analysis of an archived polar bear (Ursus maritimus) muscle 
+sample shows freeze-tolerance and longevity for T. nativa to -20°C for 10 years 
+and short-term freeze resistance to -80°C when morphology was used to determine 
+presence of live larvae. However, larval motility suggests 0% survival. An 
+approach that combines artificial digestion with PCR based species 
+identification has excellent potential for Trichinella sp. detection and 
+identification of archived tissues. Overall, Trichinella in Alaskan mammals, 
+particularly marine mammals of subsistence importance, appears to be a minor 
+problem. These modern diagnostic techniques provide accurate insight into the 
+presence of Trichinella in the Alaskan marine environment.
+
+Copyright © 2013 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.vetpar.2013.11.015
+PMID: 24373515 [Indexed for MEDLINE]
+
+
+2. Zoonoses Public Health. 2014 Sep;61(6):377-94. doi: 10.1111/zph.12080.
+
+Human pathogens in marine mammal meat – a northern perspective.
+
+Tryland M, Nesbakken T, Robertson L, Grahek-Ogden D, Lunestad BT.
+
+Only a few countries worldwide hunt seals and whales commercially. In Norway, 
+hooded and harp seals and minke whales are commercially harvested, and coastal 
+seals (harbour and grey seals) are hunted as game. Marine mammal meat is sold to 
+the public and thus included in general microbiological meat control 
+regulations. Slaughtering and dressing of marine mammals are performed in the 
+open air on deck, and many factors on board sealing or whaling vessels may 
+affect meat quality, such as the ice used for cooling whale meat and the 
+seawater used for cleaning, storage of whale meat in the open air until ambient 
+temperature is reached, and the hygienic conditions of equipment, decks, and 
+other surfaces. Based on existing reports, it appears that meat of seal and 
+whale does not usually represent a microbiological hazard to consumers in 
+Norway, because human disease has not been associated with consumption of such 
+foods. However, as hygienic control on marine mammal meat is ad hoc, mainly 
+based on spot-testing, and addresses very few human pathogens, this conclusion 
+may be premature. Additionally, few data from surveys or systematic quality 
+control screenings have been published. This review examines the occurrence of 
+potential human pathogens in marine mammals, as well as critical points for 
+contamination of meat during the slaughter, dressing, cooling, storage and 
+processing of meat. Some zoonotic agents are of particular relevance as 
+foodborne pathogens, such as Trichinella spp., Toxoplasma gondii, Salmonella and 
+Leptospira spp. In addition, Mycoplasma spp. parapoxvirus and Mycobacterium spp. 
+constitute occupational risks during handling of marine mammals and marine 
+mammal products. Adequate training in hygienic procedures is necessary to 
+minimize the risk of contamination on board, and acquiring further data is 
+essential for obtaining a realistic assessment of the microbiological risk to 
+humans from consuming marine mammal meat.
+
+DOI: 10.1111/zph.12080
+PMID: 24344685 [Indexed for MEDLINE]
+
+
+3. J Parasitol. 2011 Aug;97(4):735-6. doi: 10.1645/GE-2717.1. Epub 2011 Feb 18.
+
+Trichinella nativa in grey seal Halichoerus grypus: spill-over from a highly 
+endemic terrestrial ecosystem.
+
+Isomursu M(1), Kunnasranta M.
+
+Author information:
+(1)Finnish Food Safety Authority (Evira), Production Animal and Wildlife 
+Research Unit, Elektroniikkatie 3, FI-90590 Oulu, Finland. 
+marja.isomursu@evira.fi
+
+Trichinella spp. infections of marine mammals pose a human health risk in Arctic 
+regions where game meat is an important part of the diet. In the last decade, 
+the grey seal population of the sub-arctic Baltic Sea has reached a level at 
+which hunting is possible and seal meat is now available for food. We conducted 
+a survey on the occurrence of Trichinella spp. in grey seals Halichoerus grypus 
+(n  =  171) and ringed seals Phoca hispida botnica (n  =  56) of the Baltic Sea 
+in the coastal waters of Finland, a highly Trichinella sp. endemic area. Muscle 
+samples were examined by a mechanically assisted digestion method during 
+2006-2010. One grey seal was positive for Trichinella nativa , while all samples 
+from ringed seals were negative. Even though just 1 grey seal was infected, the 
+finding here emphasizes the importance of proper meat inspection of seals 
+intended for human consumption, especially in areas with high infection 
+pressure.
+
+DOI: 10.1645/GE-2717.1
+PMID: 21506828 [Indexed for MEDLINE]
+
+
+4. Med Parazitol (Mosk). 2010 Oct-Dec;(4):39-42.
+
+[Ecological regularities of Trichinella circulation on the seacoasts of 
+Chukotka].
+
+[Article in Russian]
+
+Bukina LA.
+
+PMID: 21400711 [Indexed for MEDLINE]
+
+
+5. Vet Parasitol. 2000 Dec 1;93(3-4):321-34. doi: 10.1016/s0304-4017(00)00349-6.
+
+The occurrence and ecology of Trichinella in marine mammals.
+
+Forbes LB(1).
+
+Author information:
+(1)Health of Animals Laboratory, Centre for Animal Parasitology, Canadian Food 
+Inspection Agency, 116 Veterinary Road, Saskatoon, S7N 2R3, Saskatchewan, 
+Canada. lforbes@em.agr.ca
+
+Trichinella in marine mammals has a circumpolar arctic distribution and a narrow 
+range of host species. It is commonly found in polar bears (Ursus maritimus), 
+and increasingly in walruses (Odobenus rosmarus) where it presents a significant 
+zoonotic hazard. This has resulted in the implementation of food safety programs 
+in some arctic communities to test harvested walrus meat for Trichinella larvae 
+prior to consumption. Trichinella has been reported infrequently in bearded 
+seals (Erignathus barbatus) and ringed seals (Phoca hispida), and was once 
+observed in a Beluga whale (Delphinapterus leucas). Cannibalism is probably the 
+most important factor in maintaining a Trichinella cycle in polar bears. Arctic 
+carnivores such as polar bears, arctic foxes (Alopex lagopus) and domestic dogs 
+(Canis familiaris) have a high prevalence of Trichinella infection and the 
+carcasses of at least some of these animals are deposited in the ocean. 
+Scavenging of these carcasses by walruses probably occurs, but may not account 
+for the high prevalence the parasite seen in this host species. Predation, 
+carrion feeding and cannibalism have been documented for walruses and a sylvatic 
+cycle similar to that of bears may exist in walrus populations. Seals and whales 
+are likely infected through infrequent exposure to infected carcasses, either 
+directly by scavenging or indirectly by consuming amphipods or fish that have 
+fed on infected carcasses. The inefficiency of this mechanism may account for 
+the low prevalence of Trichinella in seals and whales. It is known that isolates 
+from marine mammals are cold tolerant, and infectious for man, and have been 
+identified as Trichinella nativa (T2). Molecular and other phylogenetic studies 
+would be useful to facilitate studies on the inter-relationship of Trichinella 
+cycles involving marine and terrestrial mammals in the arctic and subarctic, and 
+in the investigation of human outbreaks of trichinellosis in these areas.
+
+DOI: 10.1016/s0304-4017(00)00349-6
+PMID: 11099845 [Indexed for MEDLINE]

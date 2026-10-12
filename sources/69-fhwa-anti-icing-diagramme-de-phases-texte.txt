@@ -1,0 +1,118 @@
+ 
+Recommended Anti-Icing Practices
+-
+Manual of Practice for An Effective Anti-Icing Program
+,
+June 1996
+-
+FHWA-RD-95-202
+ U.S. Department of Transportation
+ Federal Highway Administration 
+ 1200 New Jersey Avenue, SE
+ Washington, DC 20590
+ 202-366-4000
+ About 
+ FHWA Organization 
+ Headquarters Offices 
+ Field Offices 
+ Careers 
+ Business Opportunities 
+ Staff Directories 
+ Highway History 
+ Programs 
+ Acquisition Management 
+ Federal Lands Highway 
+ Infrastructure 
+ Innovative Program Delivery 
+ Operations 
+ Planning, Environment, and Realty 
+ Policy 
+ Research, Development & Technology 
+ Safety 
+ Browse by Topics 
+ Resources 
+ Core Highway Topics 
+ Federal-Aid Essentials 
+ Automation 
+ Publications & Statistics 
+ Laws & Regulations 
+ Policy & Guidance Center 
+ Section 508 
+ Professional Development 
+ National Highway Institute (NHI) 
+ Resource Center 
+ Accessibility Resource Library 
+ FHWA Research Library 
+ Briefing Room 
+ Press Releases 
+ Speeches & Testimony 
+ Photos 
+ Videos 
+ Media Contacts 
+ Contact 
+ Search FHWA 
+ Federal Highway Administration Research and Technology 
+ Coordinating, Developing, and Delivering Highway Transportation Innovations 
+ REPORT 
+ This report is an archived publication and may contain dated technical, contact, and link information 
+ Top 
+ < Prev 
+ Main 
+ 1 
+ 2 
+ 3 
+ 4 
+ 5 
+ 6 
+ 7 
+ Next > 
+ >> 
+ Federal Highway Administration > 
+ Publications > 
+ Research Publications > 
+ 95202 >
+ 005.Cfm > 
+ Recommended Anti-Icing Practices
+ Publication Number: FHWA-RD-95-202 Date: June 1996 
+ Publication Number: FHWA-RD-95-202
+ Date: June 1996
+ Manual of Practice for An Effective Anti-Icing Program
+ APPENDIX B. FREEZING-POINT OF CHEMICAL SOLUTIONS
+ B.1 INTRODUCTION
+ In order for a chemical to act as a freezing-point depressant, it must go into solution. A solid chemical applied as an anti-icing treatment must cover the highway pavement surface as rapidly as possible in solution form to act as a barrier to the formation of a bonded snow or ice layer anywhere on the road. The dissolution of two common chemicals used in snow and ice control operations, sodium chloride (salt) and calcium chloride, will be used as examples to help explain the brine generation process.
+ Energy is required to initiate the solution process and to continue it. The solution process, in the case of salt, will take place very slowly. A dry particle of salt placed on a dry surface will just sit there for a time until it can absorb enough thermal energy from the surrounding environment to a point where a liquid film is formed on the surface of the particle. This initial brine then triggers the solution of the rest of the salt. As the particle dissolves, it continues to absorb thermal energy from its surroundings. This type of absorption process is called an endothermic reaction.
+ The rate at which salt goes into solution can be accelerated by several means. It can find free moisture or liquid on the pavement surface to start the brine generation process. Or, a liquid can be added to the surface of the salt particles before they are placed on the pavement surface. This second means of applying a liquid to dry salt is accomplished by a prewetting process. 
+ The solution process of calcium chloride takes place much faster than that of salt. This is because calcium chloride is both hygroscopic and deliquescent (CaCl 2 will absorb moisture at a relative humidity (RH) of 42 percent and higher; NaCl will not begin to absorb moisture until a RH of 76 percent is reached). Thus, solid calcium chloride will absorb moisture from the air until it dissolves. The brine solution will continue to absorb moisture until an equilibrium is reached between the vapor pressure of the solution and that of the air. If the humidity of the air increases, more moisture is absorbed by the solution. If the humidity of the air decreases, water evaporates from the solution to the air. As the particle of calcium chloride dissolves, it releases a considerable amount of heat. This type of process is called an exothermic reaction.
+ When calcium chloride and salt are combined, they complement each other as snow and ice control chemicals. When combined, the deliquescent calcium chloride absorbs moisture from its surroundings releasing heat and thereby increasing the rate of solution of sodium chloride. These reactions produce brine quickly which sustains the continued brine generation of the two chemicals.
+ The solubility of all chemicals varies with temperature. The lower the temperature, the less the solubility. This decrease in solubility has a limit, a point where no more of the chemical can dissolve and depress the freezing-point.
+ The freezing-point of a brine can best be described by reference to the phase diagram of a generic salt-water solution shown in the small plot inserted in the lower left of Figure 16. The solid curve is a plot of concentration of a salt (X-axis) versus temperature (Y-axis). The solid curve separates the phases of the solution. Above this curve, the salt is totally in solution. The lowest temperature on the curve is called the temperature at the eutectic point, or eutectic temperature. Below this temperature (and below the dashed line), no solution exists, only a mixture of ice and solid salt. A mixture of ice and salt solution exists to the left of the solid curve and above the dashed line. A mixture of solid salt and salt solution exists to the right of the solid curve and above the dashed line. Thus, the solid curve describes the freezing-point of a brine as a function of the concentration of the salt solution.
+ Some comments are given below about the important characteristics of the generic phase diagram.
+ The freezing-point of the brine solution decreases with increasing concentration up to the eutectic composition. The freezing-point of the brine solution will increase as the concentration increases beyond the eutectic composition.
+ Brine solutions having a concentration less than the eutectic composition have a freezing-point lower than the melting temperature of pure ice or 0°C (32°F).
+ In snow and ice control operations and particularly during anti-icing treatments, it is necessary to operate with brine solutions as close as possible to, but less than, the eutectic composition. The brine solution concentration will decrease as it is diluted with water from either the melting of snow/ice or falling rain/freezing rain. Consequently, it is important to monitor the dilution process so that the solution concentration does not decrease to a value which corresponds to a temperature in the freezing temperature range above the pavement temperature. When this occurs, a refreeze of the solution will take place.
+ B.2 NaCl AND CaCl 2 
+ The phase diagrams of NaCl and CaCl 2 solutions are also presented in Figure 16. As can be seen, the eutectic temperature of the calcium chloride-water system is lower than the eutectic temperature of the sodium chloride-water system. The eutectic composition of the calcium chloride-water system is approximately 30 percent CaCl 2 and 70 percent H 2 0 by weight which remains a solution as low as -51°C (-60°F). The eutectic composition of the sodium chloride (common road salt)-water system is 23 percent NaCl and 77 percent H20 by weight, which freezes at about -21°C (-6°F).
+ The 30 percent concentration of calcium chloride shown in Figure 16 at the eutectic temperature is higher than the corresponding concentration of a commercially available pelletized form of calcium chloride (29.6 to 29.8 percent). Some differences can occur between individual phase diagrams of commercially available calcium chloride-water systems because of the presence and amounts of other chemical elements. 
+ Some evidence suggest that anti-icing operations should not be conducted (using liquid, prewetted, or dry salt) when the pavement temperature is at or below about -9.5°C (15°F) (2). Some highway agencies also believe that it is not practical to use salt below -9°C (15°F) for general snow and ice control operations, at least not without calcium chloride. This experience has convinced them that salt’s action is too slow at these lower temperatures. An inspection of Figure 16 shows that the phase diagrams of NaCl and CaCl2 are not too dissimilar in the temperature range of 0°C (32°F) down to -10°C (15°F) or even down to about -15°C (5°F). Thus, the two chemical brines have about the same solidification (freezing) characteristics in this temperature range. The fact that calcium chloride has a much lower eutectic temperature than sodium chloride is not of importance for anti-icing operations.
+ 2 solutions." />
+ Figure 16. Phase diagrams of NaCl and CaCl 2 solutions. 
+ B.3 MgCl 2 
+ The phase diagram of magnesium chloride, MgCl 2 , solutions is presented in Figure 17 together with those of CMA, KAc, and the chloride solutions discussed above. The eutectic temperature of the magnesium chloride-water system is between that of NaCl and CaCl 2 . The eutectic composition for the magnesium chloride-water system in this figure is 21.6 percent MgCl 2 and 78.4 percent H 2 0 by weight which freezes at about -33°C (-28°F). The density and chemical composition of MgCl 2 brines can vary somewhat with the source of MgCl 2 and with seasonal weather fluctuations which affect the solar evaporation process used in the production of flake MgCl 2 . The chemical composition of MgCl 2 brines can include, in addition to magnesium and chloride, such components as sulfates, sodium, potassium, lithium, bromine, and iron. Consequently, some differences can occur between individual phase diagrams of commercially available magnesium chloride-water systems. 
+ It is necessary to check the percent concentration of MgCl 2 brines before use in anti-icing treatments either as a prewetting agent for a solid chemical or as a straight liquid. It is important that the percent concentration not be too high above that at the eutectic temperature. If it is, there is the possibility that the solution might clog the spreader spray nozzles and/or burn out electric pumps.
+ An interesting comparison of the freezing-point of the three chloride solutions can be made by reference to Figure 17. For a given pavement temperature below 0°C (32°F) but above the eutectic temperature of NaCl, a MgCl 2 solution will refreeze at a lower concentration than the corresponding concentrations of either CaCl 2 or NaCl at that temperature. For example, the refreeze concentration of MgCl 2 at -10°C (15°F) is about 11 percent while the refreeze concentrations of CaCl 2 and NaCl at that temperature are about 12.5 percent and 13.5 percent, respectively. This means that MgCl 2 brines can be diluted more than CaCl 2 and NaCl before refreezing at a given temperature. However, once the dilution process starts, the refreeze temperature of MgCl 2 rises faster than do the refreeze temperatures of both CaCl 2 and NaCl. The slope of the MgCl 2 curve to the left of its eutectic concentration is steeper than the slope of either the CaCl 2 or NaCl curves until the three brine concentrations reach about 5 percent or a corresponding temperature of about -3°C (27°F). Between this temperature and 0°C (32°F), all three brines have about the same refreeze characteristics.
+ One final comment about the chloride solution curves in Figure 17. The refreeze temperature of NaCl solutions rises slower with dilution than do the refreeze temperatures of either CaCl 2 or MgCl 2 . However, a slightly higher concentration of a NaCl solution (slightly more salt) is needed than the corresponding concentration of CaCl 2 at a given temperature to keep the two brine solutions from refreezing. A much higher concentration of NaCl is needed than the corresponding concentration of MgCl 2 at the same temperature to keep the two brine solutions from refreezing. 
+ B.4 CMA AND KAc 
+ The curve for CMA (Figure 17) was determined from different percent concentration solutions made by dissolving commercially available CMA supplied in a dry pellet form. The curve for KAc was determined using a commercially available liquid form of KAc. The eutectic temperature for the CMA-water system in Figure 17 is -27.5°C (-17.5°F) at a concentration of 32.5 percent. The eutectic temperature for the KAc-water system is -60°C (-76°F) at a concentration of 49 percent. The curves for CMA and KAc almost coincide with each other. Also, they have a much flatter slope than the other three curves. This is an important feature of both CMA and KAc solutions. The refreeze temperature of both CMA and KAc solutions rises slower with dilution than do the refreeze temperatures of either NaCl, CaCl 2 , or MgCl 2 . This feature makes them well suited for being used in a liquid form during anti-icing treatments. This is especially true for their use in a liquid form for the pretreatment of bridge decks in anticipation of frosting, or localized icing conditions.
+ Figure 17. Phase diagrams of five chemical solutions. 
+ All is not favorable with the use of CMA or KAc over that of, say, NaCl. A much higher concentration of either CMA or KAc solution is needed than the corresponding concentration of NaCl at a given temperature to keep the solutions from refreezing. The solution concentration of CMA must be 1.41 times higher than the NaC1 solution concentration at -9.4°C (15°F) (19 percent for CMA versus 13.5 percent for NaCl) to keep both solutions from refreezing. This factor increases to 1.54 at -3.9°C (25°F). The solution concentration of KAc must be about 1.37 and 1.38 higher than the NaCl solution concentrations at -9.4°C (15°F) and -3.9°C (25°F), respectively. These differences in concentrations needed for both CMA and KAc translate into considerably higher costs per application treatment for both chemicals than NaCl.
+ Page Owner: Office of Research, Development, and Technology, Office of Safety, RDT 
+ Topics: research, safety
+ Keywords: research, safety, Highways, anti-icing, snow and ice control, preventive strategy, bonded snow and ice, application timing, chemical freezing point depressant, deicing 
+ TRT Terms: research, Safety and security, Safety, Transportation safety 
+ Scheduled Update: Archive - No Update needed 
+ This page last modified on 02/08/2012 
+ Return to top
+ Privacy Policy | Freedom of Information Act (FOIA) | Accessibility | Web Policies & Notices | No Fear Act | Report Waste, Fraud and Abuse | U.S. DOT Home | USA.gov | WhiteHouse.gov 
+ Federal Highway Administration | 1200 New Jersey Avenue, SE | Washington, DC 20590 | 202-366-4000
+ Turner-Fairbank Highway Research Center | 6300 Georgetown Pike | McLean, VA | 22101 
+ 

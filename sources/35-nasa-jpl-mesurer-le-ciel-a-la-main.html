@@ -1,0 +1,420 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<meta charset='utf-8'>
+		<!-- Always force latest IE rendering engine or request Chrome Frame -->
+		<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+		<meta content='width=device-width' name='viewport'>
+		
+		<!-- Metadata -->
+		<meta name="description" content="This is the Night Sky Network Member Site. Club Members can login here. To view our public site, please visit https://science.nasa.gov/skywatching/night-sky-network/.">
+		
+		<title>
+			
+				Night Sky Network 
+				News & Resources
+			
+		</title>
+		
+		<!-- Stylesheets -->
+		<link href="/static/css/public_manifest.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="/static/css/nightsky.css" media="screen" rel="stylesheet" type="text/css" /> 
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,600' rel='stylesheet prefetch' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet prefetch' type='text/css'>
+		<link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
+		
+
+		<!-- Javascript -->
+		<script src="/static/js/public_manifest.js" type="text/javascript"></script>
+		<script src="/static/js/geoposition.js" type="text/javascript"></script>
+		<script src="/static/js/geolocation.js" type="text/javascript"></script>
+		
+		<!-- End SiteCatalyst code version: H.20.3. -->
+		<script>
+			mb_utils.initResponsiveElement('#clubs_events', '#clubs_events_container_desktop', '#clubs_events_container_mobile');
+			mb_utils.initResponsiveElement('#search_module', '#search_container_desktop', '#search_container_mobile');
+			mb_utils.initResponsiveElement('.share_follow', '#share_follow_desktop', '#share_follow_mobile');
+			mb_utils.initResponsiveElement('.open_items', '#desktop_open_items', '#mobile_open_items');
+			$(window).bind("load", function() { $('.dropkick_menu, #dropkick_change_tab, #dropkick_nav, #dropkick_subnav').css('visibility','visible'); });
+		</script>
+		<style>
+			#clubs_events, #search_module, .share_follow, .open_items { visibility: hidden; }
+			.dropkick_menu, #dropkick_change_tab, #dropkick_nav, #dropkick_subnav { visibility: hidden; }
+		</style>
+		
+		
+				
+		<style>
+			.nasa_header_footer_bg {background-color: #000;}
+			.nasa_header_footer_bg #parent_header,
+			.nasa_header_footer_bg #site_footer {
+				padding: 0.98em 0;
+				display: block;
+				max-width: 1200px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 96%;
+				background-color: #000;
+			}
+			.nasa_header_footer_bg #parent_header,
+			.nasa_header_footer_bg #parent_header a,
+			.nasa_header_footer_bg #parent_header a:hover,
+			.nasa_header_footer_bg #parent_header #parent_nav,
+			.nasa_header_footer_bg #site_footer,
+			.nasa_header_footer_bg #site_footer a,
+			.nasa_header_footer_bg #site_footer a:hover {
+				color: white !important;
+				font-size: 17px !important;
+				font-weight: 600 !important;
+			}
+			#parent_nav #parent_themes a {}
+			.NavSecondaryMobileBlock {
+				font-size: 1rem !important;
+				line-height: 1.25rem !important
+			}
+			.NavSecondaryMobileBlock nav {
+				width: 100%
+			}
+			.NavSecondaryMobileBlock nav button {
+				padding: .625rem 1.25rem
+			}
+			.NavSecondaryMobileBlock nav .mobile-nav-toggle-icon {
+				transition: transform .3s;
+				transform: rotate(0)
+			}
+			.NavSecondaryMobileBlock nav .mobile-nav-toggle-icon.open {
+				transform: rotate(-180deg)
+			}
+			.NavSecondaryMobileBlock .nav-secondary-border {
+				border-style: solid;
+				border-width: 0 0 1px
+			}
+			.NavSecondaryMobileBlock .nav-secondary-dark {
+				background-color: #17171b;
+				border-color: #2e2e32;
+				color: #fff !important
+			}
+			.NavSecondaryMobileBlock .nav-secondary-light {
+				background-color: #fff;
+				border-color: #d1d1d1;
+				color: #17171b !important
+			}
+			.NavSecondaryMobileBlock .dark-mode-nav-link {
+				color: #17171b !important
+			}
+		</style>
+		
+
+		<link href="/static/css/nasa-global.css?v1" media="screen" rel="stylesheet" type="text/css" />
+		<link href="/static/css/nasa-custom.css?v0" media="screen" rel="stylesheet" type="text/css" />
+		<link href="/static/css/assets/main.css" media="screen" rel="stylesheet" type="text/css" />
+		<link rel="icon" type="image/x-icon" href="/static/images/apple-touch-icon.png">
+
+	</head>
+	<!-- /Old MB header code -->
+
+	<!-- Old MB body code -->
+	<body class='mobile_menu logged_out'>
+  <!--[if lt IE 8]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a>.</p>
+  <![endif]-->
+  <div id="ip_address" style="display: none;"></div>
+  
+  <a class='visuallyhidden focusable' href='#main'>Skip Navigation</a>
+	
+	
+	<div id="StaticNasaHeader"></div>
+
+	 <div class='container'>
+				
+		<!-- NSN HEADER -->
+		<header id='site_header'>
+			
+			<div class='clearfix prod' id='site_brand' style="max-width:100%;width:100%;background-size: cover;padding-left:32px;padding-right:16px;box-sizing: border-box;">
+				<a class='logo' href='https://www.nasa.gov' id='nasa_logo' target='_blank' noopener noreferrer>
+					<img alt='NASA' data-at2x='/static/images/logo-nasa%402x.png' src='/static/images/logo-nasa.png'>
+				</a>
+				<a class='logo' href='../../' id='site_logo'>
+					<img alt='Night Sky Network' src='/static/images/logo-nsn.png'>
+				</a>
+				<a href='../../' id='site_subtitle' style="left:32px;">
+					Astronomy clubs bringing the wonders of the universe to the public
+					
+				</a>
+				<!-- <div id='special_title'>
+					20th Anniversary!
+					<div id='special_subtitle'>
+						2004-2024
+					</div>
+				</div> -->
+				<div id='site_partners'>
+					<a class='asp_logo logo' href='https://www.astrosociety.org/' target='_blank' noopener noreferrer>
+						<img data-at2x='/static/images/logo-asp%402x.png' src='/static/images/logo-asp.png'>
+					</a>
+					<div id='asp_text'>
+						In partnership with the<br>Astronomical Society of the Pacific
+					</div>
+				</div>
+				
+				<div class='login_btn button hide_on_logged_in'><a href="../../login/?next=/club/news/236/">LOGIN</a></div>
+				<div class='logout'>
+					
+					
+					<a href='../../logout/'>Logout</a><br>
+				</div>
+			</div>
+		</header>
+		<!-- /NSN HEADER -->
+	
+		</div>
+
+	 <div class="GutenbergBlocks hds-module">
+		<div class="BlockLayout BlockLayoutToc margin-full-bleed">
+		   <div>
+			  <div class="display-none desktop:display-block">
+				 <div class="BlockWrapper hds-module hds-secondary-navigation width-full border-bottom-1px text-center tablet:display-flex flex-align-center desktop:display-block hds-color-mode-light wp-block-nasa-blocks-hdsnav NasaBlocksSecondaryNavigationDesktopBlock">
+					<div class="hds-secondary-nav-track grid-container grid-container-extrawide padding-0 desktop:padding-x-2 hds-secondary-navigation-has-breadcrumbs">
+						<div class="Breadcrumbs hds-secondary-navigation-breadcrumbs display-none tablet:display-none desktop:display-flex flex-align-center">
+							<nav class="usa-breadcrumb margin-y-1" aria-label="">
+								<ol class="usa-breadcrumb__list">
+									
+										
+											<li class="usa-breadcrumb__list-item"><a href="https://science.nasa.gov/skywatching/" target="_blank" noopener noreferrer class="link-external-false usa-breadcrumb__link" title="Skywatching" aria-label="Skywatching"><span>...</span></a></li>
+										
+											<li class="usa-breadcrumb__list-item"><a href="https://science.nasa.gov/skywatching/night-sky-network/" target="_blank" noopener noreferrer class="link-external-false usa-breadcrumb__link" title="Night Sky Network" aria-label="Night Sky Network"><span>Night Sky Network</span></a></li>
+										
+											<li class="usa-breadcrumb__list-item"><a href="../" target="self" class="link-external-false usa-breadcrumb__link" title="News &amp; Resources" aria-label="News &amp; Resources"><span>News &amp; Resources</span></a></li>
+										
+											<li class="usa-breadcrumb__list-item usa-current" aria-current="page"><a href="./" target="self" class="link-external-false usa-breadcrumb__link" title="View Resource" aria-label="View Resource"><span>View Resource</span></a></li>
+										
+									
+								</ol>
+							</nav>
+					  </div>
+						<div class="hds-secondary-navigation-menu-items margin-0" id="global_nav_container">
+							<nav aria-label="Secondary" class="NavSecondaryDesktop" id="global_nav">
+								<ul id="nav" class="usa-nav__primary usa-accordion flex-justify-center">
+									
+										<li class='usa-nav__primary-item'>
+											<a href='https://science.nasa.gov/skywatching/night-sky-network/' target='_blank' noopener noreferrer>NSN Public Site</a>
+											
+										</li>
+									
+										<li class='usa-nav__primary-item'>
+											<a href='../../planner/'>Night Sky Planner</a>
+											
+										</li>
+									
+										<li class='usa-nav__primary-item'>
+											<a href='../../clubs/'>Nationwide Clubs</a>
+											
+										</li>
+									
+										<li class='usa-nav__primary-item'>
+											<a href='../../events/'>Nationwide Events</a>
+											
+										</li>
+									
+										<li class='usa-nav__primary-item'>
+											<a href='../../news/'>News &amp; Resources</a>
+											
+										</li>
+									
+										<li class='usa-nav__primary-item'>
+											<a href='https://science.nasa.gov/skywatching/night-sky-network/faq/' target='_blank' noopener noreferrer>About Us &amp; FAQ</a>
+											
+										</li>
+									
+							  </ul>
+						  </nav>
+					  </div>
+					</div>
+					<div class="hds-secondary-navigation-menu-spacer grid-col-3 display-none desktop:display-flex"></div>
+				 </div>
+			  </div>
+			  <div class="display-block desktop:display-none">
+				<div class="BlockWrapper hds-module wp-block-nasa-blocks-hdsnav NavSecondaryMobileBlock">
+					<nav aria-label="Section" class="nav-secondary-light padding-top-05 padding-bottom-05 nav-secondary-border">
+						<button aria-expanded="false" aria-controls="secondary-nav-night-sky-network"
+							class="text-carbon-90 display-flex flex-row flex-align-center width-full bg-transparent border-0" id="mobile_button">
+							<div class="width-full text-left text-bold">Explore This Section</div>
+							<svg id="mobile_button_svg" class="mobile-nav-toggle-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M0.5 10C0.5 4.75329 4.75329 0.5 10 0.5C15.2467 0.5 19.5 4.75329 19.5 10C19.5 15.2467 15.2467 19.5 10 19.5C4.75329 19.5 0.5 15.2467 0.5 10Z"
+									fill="none" stroke="#959599"></path>
+								<path fill-rule="evenodd" clip-rule="evenodd"
+									d="M10 11.0552L13.2328 7.80005L14 8.57249L10 12.6L6 8.57249L6.76716 7.80005L10 11.0552Z"
+									fill="#17171B"></path>
+							</svg>
+						</button>
+						<div id="secondary-nav-night-sky-network" class="border-top nav-secondary-light" style="display: none;">
+							<div class="NavSecondaryMobile">
+								<div>
+									
+										<div>
+											<a href="https://science.nasa.gov/skywatching/night-sky-network/" class="link-external-false nav-link text-bold dark-mode-nav-link"><span class="text-carbon-90">NSN Public Site</span></a>
+										</div>
+									
+										<div>
+											<a href="../../planner/" class="link-external-false nav-link text-bold dark-mode-nav-link"><span class="text-carbon-90">Night Sky Planner</span></a>
+										</div>
+									
+										<div>
+											<a href="../../clubs/" class="link-external-false nav-link text-bold dark-mode-nav-link"><span class="text-carbon-90">Nationwide Clubs</span></a>
+										</div>
+									
+										<div>
+											<a href="../../events/" class="link-external-false nav-link text-bold dark-mode-nav-link"><span class="text-carbon-90">Nationwide Events</span></a>
+										</div>
+									
+										<div>
+											<a href="../../news/" class="link-external-false nav-link text-bold dark-mode-nav-link"><span class="text-carbon-90">News &amp; Resources</span></a>
+										</div>
+									
+										<div>
+											<a href="https://science.nasa.gov/skywatching/night-sky-network/faq/" class="link-external-false nav-link text-bold dark-mode-nav-link"><span class="text-carbon-90">About Us &amp; FAQ</span></a>
+										</div>
+									
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		   </div>
+		</div>
+	 </div>
+
+	<script>
+		document.getElementById("mobile_button").addEventListener('click',function(){
+			if(this.ariaExpanded == 'false') {
+				this.ariaExpanded = 'true';
+				document.getElementById('secondary-nav-night-sky-network').style.display='block';
+				document.getElementById('mobile_button_svg').classList.add('open');
+			} else {
+				this.ariaExpanded = 'false';
+				document.getElementById('secondary-nav-night-sky-network').style.display='none';
+				document.getElementById('mobile_button_svg').classList.remove('open');
+			}
+		});
+	</script>
+
+	<div class='container' id='main_container'>
+		
+		
+		
+		
+		<a name="main"></a>
+		<div class='clearfix' id='site_body' role='main'>
+			<div id='page'>
+				<div id="mobile_open_items"></div>
+				
+				
+<div class="clearfix" id="primary_column">
+	<h3 class="title">News & Resources</h3>
+	<section class='clearfix'>
+		
+		
+		
+		
+		
+			
+			<div align='center'><img src='/media/images/Handy_Degrees_NSN_8961.original.jpg' alt='Measure the Night Sky'></div>
+		
+		
+		<article>
+			<h4 class='title'>Measure the Night Sky</h4>
+			<ul class='icons'>
+				
+				
+				<li><span class='target'>12/01/2025</span></li>
+			</ul>
+			<div class="description wysiwyg">
+				<p><span style="font-size:12px"><em>You can measure angular distance with your hands! These measurements are all approximate, and some may find the gestures difficult to perform. For exacting accuracy, a tool called a <strong>sextant </strong>can be used to measure the sky.</em></span><br />
+&nbsp;</p>
+
+<p><span style="font-size:14px">Fall and winter months bring longer nights, and with these earlier evenings, even the youngest astronomers can get stargazing. One of the handiest things you can teach a new astronomer is how to measure the sky &ndash; and if you haven&rsquo;t yet learned yourself, it&rsquo;s easier than you think!<br />
+<br />
+Astronomers measure the sky using <strong>degrees</strong>, <strong>minutes</strong>, and <strong>seconds </strong>as units. These may sound more like terms for measuring time - and that&rsquo;s a good catch! &ndash; but today we are focused on measuring <strong>angular distance</strong>. <strong>Degrees </strong>are the largest, and are each made up of 60 <strong>minutes</strong>, and each minute is made up of 60 <strong>seconds</strong>. To start, go outside and imagine yourself in the center of a massive sphere, with yourself at the center, extending out to the stars: appropriately enough, this is called the <strong>celestial sphere</strong>. A circle contains 360 degrees, so if you have a good view of the horizon all around you, you can slowly spin around exactly once to see what 360 degrees looks like, since you are in effect drawing a circle from the inside out, with yourself at the center! Now break up that circle into quarters, starting from due North; each quarter measures 90 degrees, equal to the distance between each cardinal direction! It measures 90 degrees between due North and due East, and a full 180 degrees along the horizon between due North and due South. Now, switch from a horizontal circle to a vertical one, extending above and below your head. Look straight above your head: this point is called the zenith, the highest point in the sky. Now look down toward the horizon; it measures 90 degrees from the zenith to the horizon. You now have some basic measurements for your sky.</span><br />
+<br />
+<img alt="Illustration of the Big Dipper asterism, with light blue lines joining the stars in the pattern. Various stars are highlighted with yellow lines to indicate the amount of angular distance between them." src="https://i.imgur.com/KNNlWvu.jpg" style="height:641px; margin:3px; width:600px" /><br />
+<br />
+<span style="font-size:14px">Use a combination of your fingers held at arm&rsquo;s length, along with notable objects in the night sky, to make smaller measurements. A full Moon measures about half a degree in width - or 1/2 of your pinky finger, since each pinky measures 1 degree. The three stars of Orion&rsquo;s Belt create a line about 3 degrees long. The famed &ldquo;Dig Dipper&rdquo; asterism is a great reference for Northern Hemisphere observers, since it&rsquo;s circumpolar and visible all night for many. The Dipper&rsquo;s &ldquo;Pointer Stars,&rdquo; Dubhe and Merak, have 5.5 degrees between them - roughly three middle fingers wide. The entire asterism stretches 25 degrees from Dubhe to Alkaid - roughly the space between your outstretched thumb and pinky. On the other end of the scale, can you split Mizar and Alcor? They are separated by 12 arc minutes - about 1/5 the width of your pinky.<br />
+<br />
+Keep practicing to build advanced star-hopping skills. How far away is Polaris from the pointer stars of the Big Dipper? Between Spica and Arcturus? Missions like Gaia and Hipparcos measure tiny differences in the angular distance between stars at an extremely fine level. Precise measurement of the heavens is known as <strong>astrometry</strong>. Discover more about how we measure the universe, and the missions that do so, at <a href="http://nasa.gov" target="_blank">nasa.gov</a>.&nbsp;<br />
+<br />
+<em>You can find a printer-ready version of this article on our Night Sky Notes <a href="https://nightsky.jpl.nasa.gov/download-view.cfm?Doc_ID=629" target="_blank">resource page</a>&nbsp;every month, free to share with your club newsletter, website, or even local paper!</em><br />
+<br />
+<strong>Additional&nbsp;Skywatching Resources</strong><br />
+<br />
+Plan your skywatching with help from our <a href="https://nightsky.jpl.nasa.gov/planner/" target="_blank">planner page</a>, featuring daily stargazing tips courtesy&nbsp;<a href="http://earthsky.org" target="_blank">EarthSky</a>&nbsp;monthly <a href="http://www.skymaps.com/downloads.html" target="_blank">sky maps</a>, and <a href="https://www.youtube.com/playlist?list=PLTiv_XWHnOZrT_ppDGiT__fI3yjD4t7dI" target="_blank">videos</a> from NASA/JPL.&nbsp;You can even find out how to spot the <a href="https://www.nasa.gov/spot-the-station/" target="_blank">International Space Station</a>!&nbsp;Both&nbsp;<a href="http://Astronomy.com">Astronomy</a> and <a href="https://www.skyandtelescope.com/" target="_blank">Sky and Telescope</a> magazines offer regular stargazing guides to readers, both in print and online. Want to join a group of folks for a star party? Find&nbsp;<a href="https://nightsky.jpl.nasa.gov/clubs/" target="_blank">clubs</a>&nbsp;and&nbsp;astronomy <a href="https://nightsky.jpl.nasa.gov/events/" target="_blank">events</a> near you, and may you have <a href="https://www.cleardarksky.com/csk/" target="_blank">clear skies</a>!</span><br />
+&nbsp;</p>
+
+<p><em>Last Updated: December 1, 2025, with corrections to the hand measurement image!</em><br />
+<span style="font-size:14px"><img alt="" src="https://i.imgur.com/gSlFz29.png" style="height:165px; width:330px" /><br />
+Follow us on&nbsp;<strong>Facebook</strong>,&nbsp;<strong>X</strong>&nbsp;(formally&nbsp;Twitter)&nbsp;and&nbsp;<strong>Instagram</strong>&nbsp;at the username&nbsp;<u><strong>@NightSkyNetwork</strong></u>&nbsp;for the latest NSN news and outreach photos. You can also use the hashtags&nbsp;<strong>#NightSkyNetwork</strong>&nbsp;and&nbsp;<strong>#AstronomyOutreach</strong>&nbsp;on your social media platforms for a chance to be featured!</span><br />
+&nbsp;</p>
+
+<p><span style="font-size:14px"><a href="https://nightsky.jpl.nasa.gov/about.cfm" target="_blank"><img alt="Logo for Night Sky Network featuring child and astronomer observing the sky" src="https://nightsky.jpl.nasa.gov/docs/NSNRound150.png" style="height:100px; width:100px" /><strong>Night Sky Network</strong></a>&nbsp;(NSN)&nbsp;member clubs are dedicated to bringing the wonders of space and NASA science to folks across the USA.NSN program participation provides clubs with&nbsp;<a href="https://nightsky.jpl.nasa.gov/download-view.cfm?Doc_ID=597" target="_blank">tools&nbsp;</a>and&nbsp;<a href="https://nightsky.jpl.nasa.gov/download-search.cfm" target="_blank">resources&nbsp;</a>to assist in their public outreach.&nbsp;</span><br />
+&nbsp;</p>
+
+<p><span style="font-size:14px"><a href="https://www.astrosociety.org/" target="_blank"><img alt="Logo for the Astronomical Society of the Pacific" src="https://i.imgur.com/M2riElv.png" style="height:90px; width:100px" /></a><br />
+The NASA Night Sky Network is managed by the&nbsp;<a href="https://www.astrosociety.org/" target="_blank">Astronomical Society of the Pacific</a>.&nbsp;The ASP is a 501(c)(3) nonprofit organization advancing science literacy through astronomy.&nbsp;</span></p>
+			</div>
+			<footer class='section_footer'>
+				
+				<div class='gradient_line hide_on_desktop line_bottom_margin'></div>
+			</footer>
+			<div id='key_container_mobile'></div>
+			<div id='related_mobile_container'></div>
+			<div id='search_container_mobile'></div>
+		</article>
+		<hr>
+		
+		
+		
+	</section>
+</div>
+
+<div class="clearfix" id="secondary_column">
+	
+
+
+
+
+	
+
+
+</div>
+
+
+			</div>
+		</div>
+		
+		
+		
+		<div id="StaticNasaFooter"></div>
+		<script type="module" crossorigin src="/static/js/assets/main.js"></script>
+		<script>
+		window.addEventListener('load', function() {
+    		const footerMeta = document.querySelectorAll("ul.hds-menu-meta")[0];
+			footerMeta.innerHTML = '<li class="hds-footer-meta"><div class="hds-footer-meta-label">Page Editor:</div><div class="hds-footer-meta-value"><a href="../../contact/">Vivian White</a></div></li>';
+			footerMeta.innerHTML += '<li class="hds-footer-meta"><div class="hds-footer-meta-label">Webmaster:</div><div class="hds-footer-meta-value"><a href="../../contact/">David Martin</a></div></li>';
+			footerMeta.innerHTML += '<li class="hds-footer-meta"><div class="hds-footer-meta-label">Responsible NASA Official for Science:</div><div class="hds-footer-meta-value">Heather Doyle</div></li>';
+			footerMeta.innerHTML += '<li class="hds-footer-meta"><div class="hds-footer-meta-label">JPL Clearance:</div><div class="hds-footer-meta-value">CL# 24-4735</div></li>';
+		})
+		</script>
+		
+	</div>
+	
+
+	
+	
+	
+</html>

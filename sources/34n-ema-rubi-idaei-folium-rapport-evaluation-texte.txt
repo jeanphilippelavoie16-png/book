@@ -1,0 +1,1169 @@
+28 January 2014
+EMA/HMPC/44209/2012 Corr.1
+Committee on Herbal Medicinal Products (HMPC)
+
+Assessment report on Rubus idaeus L., folium
+
+Based on Article 16d (1), Article 16f and Article 16h of Directive 2001/83/EC as amended (traditional
+use)
+
+Final
+
+Herbal substance(s) (binomial scientific name of  Rubus idaeus L., folium
+the plant, including plant part)
+
+Herbal preparation(s)                             Dry extract (DER 4:1), extraction solvent water
+
+                                                  Comminuted herbal substance
+
+Pharmaceutical form(s)                            Herbal preparations in solid dosage form for oral
+                                                  use.
+
+                                                  Comminuted herbal substance as herbal tea for
+                                                  oral use and for preparation of infusion for
+                                                  oromucosal use.
+
+Rapporteur                                        G. Fossum
+
+Assessor(s)                                       Hedvig Nordeng
+
+                                                  Mitra Saboni
+
+                                                  Anne Berit Samuelsen
+
+1 Added assessors' names.
+
+7 Westferry Circus  Canary Wharf  London E14 4HB  United Kingdom  An agency of the European Union
+Telephone +44 (0)20 7418 8400 Facsimile +44 (0)20 7418 8416
+E-mail info@ema.europa.eu Website www.ema.europa.eu
+
+       © European Medicines Agency, 2014. Reproduction is authorised provided the source is acknowledged.
+Table of contents
+
+1. Introduction....................................................................................................................... 3
+1.1. Description of the herbal substance(s), herbal preparation(s) or combinations thereof ..3
+1.2. Information about products on the market in the Member States ...............................6
+Regulatory status overview ..........................................................................................6
+1.3. Search and assessment methodology .....................................................................7
+
+2. Historical data on medicinal use ........................................................................................ 8
+2.1. Information on period of medicinal use in the Community .........................................8
+2.2. Information on traditional/current indications and specified substances/preparations ....8
+2.3. Specified strength/posology/route of administration/duration of use for relevant
+preparations and indications....................................................................................... 11
+
+3. Non-Clinical Data ............................................................................................................. 12
+3.1. Overview of available pharmacological data regarding the herbal substance(s), herbal
+preparation(s) and relevant constituents thereof........................................................... 12
+3.2. Overview of available pharmacokinetic data regarding the herbal substance(s), herbal
+preparation(s) and relevant constituents thereof........................................................... 16
+3.3. Overview of available toxicological data regarding the herbal substance(s)/herbal
+preparation(s) and constituents thereof ....................................................................... 16
+3.4. Overall conclusions on non-clinical data ................................................................ 17
+
+4. Clinical Data ..................................................................................................................... 17
+4.1. Clinical Pharmacology ......................................................................................... 17
+4.1.1. Overview of pharmacodynamic data regarding the herbal substance(s)/preparation(s)
+including data on relevant constituents ........................................................................ 17
+4.1.2. Overview of pharmacokinetic data regarding the herbal substance(s)/preparation(s)
+including data on relevant constituents ........................................................................ 17
+4.2. Clinical Efficacy .................................................................................................. 17
+4.2.1. Dose response studies...................................................................................... 17
+4.2.2. Clinical studies (case studies and clinical trials) ................................................... 18
+4.2.3. Clinical studies in special populations (e.g. elderly and children)............................ 19
+4.3. Overall conclusions on clinical pharmacology and efficacy ........................................ 19
+
+5. Clinical Safety/Pharmacovigilance ................................................................................... 20
+5.1. Overview of toxicological/safety data from clinical trials in humans........................... 20
+5.2. Patient exposure ................................................................................................ 20
+5.3. Adverse events and serious adverse events and deaths .......................................... 20
+5.4. Laboratory findings............................................................................................. 20
+5.5. Safety in special populations and situations ........................................................... 21
+5.6. Overall conclusions on clinical safety..................................................................... 21
+
+6. Overall conclusions .......................................................................................................... 22
+
+Assessment report on Rubus idaeus L., folium  Page 2/22
+EMA/HMPC/44209/2012
+1. Introduction
+
+1.1. Description of the herbal substance(s), herbal preparation(s) or
+combinations thereof
+
+· Herbal substance(s)
+
+The herbal substance consists of the dried leaf of Rubus idaeus L. (Fam. Rosaceae).
+It is described in the French Pharmacopoeia (XI edition, 2012), in the monograph `Rubus - Ronce' from
+1991: it consists of the compound leaf or leaflet of Rubus sp. It contains a minimum of 5% tannins.
+The British Herbal Pharmacopoeia also describes the herbal substance: "Rubus consists of the dried
+chopped leaves of Rubus idaeus L. (Fam. Rosaceae) which is a small shrub that is grown in most
+temperate countries" (British Herbal Pharmacopoeia 1983).
+
+The herbal substance, Rubus idaeus L., folium is also described in Wichtl 2004:
+"The cut drug consisting of leaf fragments with a sparsely pubescent, dark green to brownish green
+upper surface and a dense silver-grey tomentum on the lower surface. The fragments also show a
+pinnate venation and clump together due to the dense tomentum. Also characteristic is the presence of
+fragments with a sharply serrate margin and large green or reddish tinged, also petiole fragments and
+a few pieces of the stem. The petiole and lower part of the midrib occasionally bear very small thorns.
+Odour: Faint. Taste: Somewhat astringent and bitter."
+In `King's American Dispensatory' (1898), it is described that the leaves and fruits are the parts of the
+plant that are used for medicinal purposes. The leaves impart some of their constituents to water,
+giving to the infusion an odour and flavour somewhat similar to that of some kinds of black tea
+(according to the version of in `King's American Dispensatory' scanned and published on Henriette's
+Herbal Homepage 2011).
+· Herbal preparation(s)
+
+Dry extract (DER 4:1), extraction solvent water
+
+Comminuted herbal substance
+
+Information on herbal preparations is described in section 2.2. `Information on traditional/current
+indications and specified substances/preparations'.
+
+· Combinations of herbal substance(s) and/or herbal preparation(s) including a description of
+      vitamin(s) and/or mineral(s) as ingredients of traditional combination herbal medicinal products
+      assessed, where applicable.
+
+Not applicable.
+
+Constituents
+
+Dried raspberry leaves contain polyphenolic secondary metabolites, mainly hydrolyzable tannins (2.6%
+to 6.9%) (Gudej 2004). Different types of hydrolysable tannins have been identified including
+gallotannins which are esters of gallic acid and D-glucose (Gudej 2004, Durgo 2012), dimeric and
+tetrameric ellagitannins have also been identified (Haslam et al. 1989). Other polyphenolic compounds
+
+Assessment report on Rubus idaeus L., folium  Page 3/22
+EMA/HMPC/44209/2012
+present are mainly flavonoids such as kaempferol, kaempferol glycosides, quercetin and quercetin
+glycosides (Gudej 2004, Gudej 2003). Dried leaves contain 0.46 -1.05 % flavonoids (Gudej 2004).
+Small quantities of volatile compounds have been identified (Czygan 1995), the amounts being
+dependent on the stage of plant growth (Patel 2004). In addition, terpenes, Vitamin C and E, and
+minerals such as calcium, magnesium and zinc have been identified. Raspberry leaf also contains very
+small amounts of phenolic acids such as caffeic and chlorogenic acid (Durgo 2012). Constituents of
+raspberry leaf are presented in Table 1.
+
+Table 1: Constituents of raspberry leaf                                     Amounts        References
+ Constituents                                                                  *Total*:    Gudej 2004
+ POLYPHENOLS
+ Tannins                                                                    2.6 up to
+                                 Ellagitannins                              6.9 % w/w
+                                 Monomer                                    in dried leaf
+
+                                    Dimer         Ellagic acids                *2,1-4,1    Gudej 2004
+                                    Trimer                                  %* w/w in
+                                                  Sanguiin H-6              dried leaf
+                                 Methyl gallate   Lambertianin D
+                                    Gallotannins                               3.79        Durgo 2012
+                                                                            mg/g
+ FLAVONOIDS                                                                                **Haslam
+                                                                            (0.0038 %)     1989**
+                                 Kaempferol                                 w/w in dried
+                                 glycosides                                 leaf
+
+                                                  Lambertianin C               0.045 %     ** Tanaka
+                                                                            w/w in dried   1993** cited by
+                                                  1.2.6-                    leaf           Patel 2004
+                                                  Trigalloylglucose
+                                                  Pentagallolyl- D-glucose                 Gudej 2003,
+                                                                                           Gudje 1966
+                                                  Kaempferol -
+                                                  3-O-D                                    **Haddock
+                                                  galactopyranoside                        1982** cited by
+                                                  Kaempferol-                              Bradley 2006
+                                                  3-O--L
+                                                  Arabinopyranoside         *Total*:       Gudej 2004
+                                                                            0.46 -1.05
+                                                                            % w/w in       Gudej 2003,
+                                                                            dried leaf     **Gudej 1996**
+                                                                                           as cited by
+                                                                               0.013 %     Bradley 2006
+                                                                            w/w in dried
+                                                                            leaf
+
+                                                                               0.036 %
+                                                                            w/w in dried
+                                                                            leaf
+
+Assessment report on Rubus idaeus L., folium                                               Page 4/22
+EMA/HMPC/44209/2012
+                                              Kaempferol-                 0.04 %
+                                              3-O--D glucoside         w/w in dried
+                                                                       leaf
+              Kaempferol                                                              Gudej 2004
+                                                                       *0.17 -0.31
+              Quercetinglycosides             Quercetin                %* w/w in      Gudej 2003,
+                                              3-O--D                   dried leaf     Gudej 1966,
+                                              glucopyranoside          0.04 % w/w
+                                                                       in dried leaf
+                                              Quercetin
+                                              3-O--D                   0.13 % w/w
+                                              galactopyranoside        in dried leaf
+
+                                              Quercetin 3- rutinoside  No             **Khabibullaeva
+                                              (rutin)                  information    1975**, as cited
+                                                                                      by Bradley 2006
+              Quercetin                                                   *0.10-      Gudej 2004
+                                                                       0.32 %*
+              Hyperoside                                               w/w in dried   Gudej 2004
+                                                                       leaf
+OTHER         Phenolic acids                  Caffeic acid                            Durgo 2012
+CONSTITUENTS                                                              *0.5-0.8
+                                              Chlorogenic acid         %* w/w in      **Krzaczek
+                                                                       dried leaf     1984** as
+                                              p- coumaric acid                        cited by Bradley
+                                              Ferulic acid                 0.55       2006
+                                              Protocatechuic acid      mg/g w/w in
+                                              Gentisic acid            dried leaf
+                                              p-hydroxybenzoic acid
+                                              Vanillic acid                0.70
+                                              Magnesium                mg/g w/w
+                                              Zinc                     in dried leaf
+
+              Minerals                        C (Ascorbic acid)        0.39-0.43%     **Hughes
+              Vitamins                                                 w/w in dried   1979**as cited
+                                              ,Tocopherol,             leaf           by Bradley 2006
+              Alcohols                        -Tocopherol
+              Aldehydes                       -Tocopherol                             **Fejer 1970**
+
+                                                 Octanol                              **Shepherd
+                                                 n-Butanol                            1999** as cited
+                                                 3- Hexen                             by Patel 2004
+                                                 Benzaldehyde
+                                                 Phenylacetaldehyde                   Czygan 1995
+                                                 Decanal
+                                                 Hexanal                              **Maga 1992**
+                                                 2 -hexenal                           as cited by Patel
+                                                 Tetradecanal                         2004
+
+Assessment report on Rubus idaeus L., folium                                          Page 5/22
+EMA/HMPC/44209/2012
+                Terpenoids                    Monoterpenoids
+
+                                              Terpinolene                   **Maga 1992**
+                                              Nerol
+                                                                            **Kirsi 1990**,
+                                              Pulegone
+                                              -Terpineol                    **Hans-Ulrich
+                                              Citral                        1991** as cited
+                                                                            by Patel 2004
+                                                  Sesquiterpenoids          **Kirsi 1990**
+
+                                              3-Oxo--ionol                  **Hans-Ulrich
+                                                                            1991** as cited
+                                              4- Oxo--ionol                 by Patel 2004
+                                              4-Hydroxy--ionone             **Pabst 1992**
+
+                                                 Triterpenes                **Pabst 1992**
+                                                                            as cited by Patel
+                                                                            2004
+
+                                              -Amyrin                       **Shepherd
+                                              -Amyrin                       1999**
+                                              Squalene
+
+                                              Cycloartenol
+
+*Note*The specified amounts in the table above were found in different species of raspberry leaves.
+**Note** These references are not available to the Rapporteur. They have not been included in the List of
+references.
+
+1.2. Information about products on the market in the Member States
+
+Regulatory status overview
+
+Member State    Regulatory Status                                           Comments
+Austria                                                                     No products
+Belgium         MA  TRAD                      Other TRAD    Other Specify:
+Bulgaria                                      Other TRAD    Other Specify:  Only in combination
+Croatia         MA  TRAD                      Other TRAD    Other Specify:  No products
+Cyprus                                        Other TRAD    Other Specify:  No products
+Czech Republic  MA  TRAD                      Other TRAD    Other Specify:  No products
+Denmark                                       Other TRAD    Other Specify:
+Estonia         MA  TRAD                      Other TRAD    Other Specify:  Only in combination
+Finland                                       Other TRAD    Other Specify:  and food supplements.
+France          MA  TRAD                      Other TRAD    Other Specify:
+Germany                                       Other TRAD    Other Specify:
+Greece          MA  TRAD                      Other TRAD    Other Specify:
+Hungary                                       Other TRAD    Other Specify:
+                MA  TRAD                      Other TRAD    Other Specify:
+Iceland
+                MA  TRAD                      Other TRAD    Other Specify:
+
+                MA  TRAD
+
+                MA  TRAD
+
+                MA  TRAD
+
+                MA  TRAD
+
+                MA  TRAD
+
+                MA  TRAD
+
+Assessment report on Rubus idaeus L., folium                                                               Page 6/22
+EMA/HMPC/44209/2012
+Member State     Regulatory Status                                        Comments
+Ireland                                                                   No products
+Italy            MA  TRAD                     Other TRAD  Other Specify:
+Latvia                                        Other TRAD  Other Specify:  No products
+Liechtenstein    MA  TRAD                     Other TRAD  Other Specify:  No products
+Lithuania                                     Other TRAD  Other Specify:  No products
+Luxemburg        MA  TRAD                     Other TRAD  Other Specify:  No products
+Malta                                         Other TRAD  Other Specify:
+The Netherlands  MA  TRAD                     Other TRAD  Other Specify:  No products
+Norway                                        Other TRAD  Other Specify:  No products
+Poland           MA  TRAD                     Other TRAD  Other Specify:  Both combination and
+Portugal                                      Other TRAD  Other Specify:  single products on
+Romania          MA  TRAD                     Other TRAD  Other Specify:  general sales list.
+Slovak Republic                               Other TRAD  Other Specify:  See below.
+Slovenia         MA  TRAD                     Other TRAD  Other Specify:  No products
+Spain                                         Other TRAD  Other Specify:
+Sweden           MA  TRAD                     Other TRAD  Other Specify:
+United Kingdom                                Other TRAD  Other Specify:
+                 MA  TRAD                     Other TRAD  Other Specify:
+
+                 MA  TRAD                     Other TRAD  Other Specify:
+
+                 MA  TRAD
+
+                 MA  TRAD
+
+                 MA  TRAD
+
+                 MA  TRAD
+
+                 MA  TRAD
+
+                 MA  TRAD
+
+                 MA  TRAD
+
+Serbia           MA  TRAD
+
+MA: Marketing Authorisation
+TRAD: Traditional Use Registration
+Other TRAD: Other national Traditional systems of registration
+Other: If known, it should be specified or otherwise add 'Not Known'
+This regulatory overview is not legally binding and does not necessarily reflect the legal status of the
+products in the MSs concerned.
+
+Information on marketed products in the United Kingdom (MHRA 1968)
+
+Product: Potters Raspberry Leaf Tablets G44® (on the market as a licensed medicine since 1968)
+Active ingredients: Dried aqueous extract (4:1), raspberry leaf 113 mg. Equivalent to 452 mg
+raspberry leaf
+Indication: A herbal remedy traditionally used for the symptomatic relief of painful menstrual cramps.
+Posology: Adults: 1-2 tablets to be taken after meals whilst discomfort lasts. Not recommended for use
+in the elderly or in children under 12 years of age.
+
+1.3. Search and assessment methodology
+
+The following electronic databases were searched on various dates from August 2011 to September
+2012 with the search terms "Rubus idaeus L.", "Rubi idaei L., folium" and "Raspberry leaf".
+Results:
+Rubus idaeus L:
+PubMed: 39 references (No case report of safety concern)
+Toxline: 27 references
+Scifinder: 205 (Both chemical abstracts and Medline)
+The Cochrane Library: No references were obtained.
+
+Assessment report on Rubus idaeus L., folium                              Page 7/22
+EMA/HMPC/44209/2012
+Rubi idaei L., folium:
+
+PubMed: 0 reference (No case report of safety concern)
+Toxline: 20 references
+Scifinder: 9 references (Both chemical abstracts and Medline)
+The Cochrane Library: No references were obtained.
+
+Raspberry leaf:
+
+PubMed: 57 references (No case report of safety concern)
+Toxline: 44 references
+Scifinder: 95 references (Both chemical abstracts and Medline)
+The Cochrane Library: 3 references.
+
+Each database was searched from its start to the search dates. All languages were included.
+Key text books were also searched for relevant studies. All references from the extracted papers were
+searched for citations not retrieved in the literature search.
+
+2. Historical data on medicinal use
+
+2.1. Information on period of medicinal use in the Community
+
+Raspberry leaf has been used in Europe for centuries, certainly as early as the sixth century. It is
+native to Europe, North America and temperate Asia. The material of commerce is collected in central
+and eastern Europe especially Bulgaria, Macedonia and Romania and is cultivated to some extent
+(Wichtl 2004). The traditional use of raspberry leaf has been continuously documented in handbooks,
+pharmacopoeias and scientific literature. The traditional medicinal use of raspberry leaf has been
+recommended for treating various disorders most commonly related to menstruation, parturition, and
+ailments of the gastrointestinal tract and other purposes. They have been documented in handbooks
+and scientific articles such as Burn and Withell 1941, British Pharmaceutical Codex 1949, Becket et al.
+1954, British Herbal Pharmacopoeia 1983, Wichtl 1984, Reynolds 1989, Gruenwald 1998, Johnson
+1999, McFarlin et al. 1999, Duke et al. 2002, Wichtl 2004, Tiran 2003 and Hall et al. 2011.
+
+Use of teas made from the dried raspberry leaves as an antidiarrhoeic and as an astringent gargle for
+inflammation of the mouth and throat, less often for chronic skin conditions in folk medicine is reported
+in handbooks (British Herbal Pharmacopoeia 1983, Tyler 1994, Bisset and Wichtl 2001). According to
+Grieve (1931) experience has shown that raspberry leaf has been used in cases of severe
+dysmenorrhea. It is also reported that hot tea made from raspberry leaves taken before birth,
+stimulates and facilitates labour and shortens its duration. Tea is also listed in newer literature on
+herbal medicines such as the British Herbal Pharmacopoeia (1983, 1996). Newer studies have found a
+prevalence of use during pregnancy ranging from 6 to 58% (Nordeng et al. 2011, Holst et al. 2009,
+Hepner et al. 2002 and Byrne et al. 2002). Raspberry leaf is evidently a commonly used herb during
+pregnancy today.
+
+2.2. Information on traditional/current indications and specified
+substances/preparations
+
+The indications most frequently described in traditional herbal literature include facilitating
+parturition, to relieve menstrual cramps, diarrhoea, as an astringent mouthwash and as a treatment of
+
+Assessment report on Rubus idaeus L., folium  Page 8/22
+EMA/HMPC/44209/2012
+conjunctivitis (Table 2). Barnes et al. (2007) states that "Modern interest is focused on the use of
+raspberry leaf to stimulate and facilitate labour and to shorten duration".
+
+Table 2: The following traditional uses have been reported for raspberry leaf
+
+Traditional uses                              References
+To facilitate parturition
+                                              Burn and Withell 1941
+A remedy for painful menstruation             British Herbal Pharmacopoeia 1983
+As a mouthwash/ astringent gargle             Reynolds 1989
+                                              Tyler 1994
+A remedy for diarrhoea                        British Herbal Pharmacopoeia 1996
+A treatment of conjunctivitis                 Newall et al. 1996
+                                              Chevallier 1996
+                                              Parsons et al. 1999
+                                              Gruenwald et al. 2000
+                                              Barnes et al. 2007
+                                              Whitehouse 1941
+                                              British Pharmaceutical Codex 1949
+                                              Beckett 1954
+                                              Blumenthal et al. 1998
+                                              Reynolds 1989
+                                              Tyler 1994
+                                              Chevallier 1996
+                                              Blumenthal et al. 1998
+                                              Duke et al. 2002
+                                              Grieve 1931
+                                              British Herbal Pharmacopoeia 1983
+                                              Blumenthal et al. 1998
+                                              Reynolds 1989
+                                              **Haslam et al. 1989**
+                                              Czygan 1995
+                                              Chevallier 1996
+                                              Blumenthal et al. 1998
+                                              Tyler 1981
+                                              Tyler and Robbers 1999
+                                              Grieve 1931
+                                              British Herbal Pharmacopoeia1983
+                                              Blumenthal et al. 1998
+                                              Tyler 1994
+                                              Czygan 1995
+                                              Newall et al. 1996
+                                              Barnes et al. 2007
+                                              British Herbal Pharmacopoeia 1983
+                                              Newall et al. 1996
+                                              Duke et al. 2002
+
+Assessment report on Rubus idaeus L., folium                                     Page 9/22
+EMA/HMPC/44209/2012
+For disorders of the gastrointestinal tract the  Blumenthal et al. 1998
+respiratory tract and the cardiovascular system
+
+Table 3: Evidence regarding the traditional use and posology from handbooks
+
+Traditional use                   Oral dose                  Mode of            References
+                                                             administration
+For treatment of painful          284-568 ml of 5%           As a tea           British
+menstruation, and before and      infusion of the dried                         Pharmaceutical
+during confinement to make        leaves in hot water taken  As a tea           Codex 1949
+parturition easier and speedier.  in wineglassful            Astringent gargle
+As an astringent gargle.          2-3 times daily                               British Herbal
+To facilitate parturition,        4-8 g dried leaves, 3      As a tea           Pharmacopoeia
+Pregnancy, diarrhoea,             times daily                                   1983
+stomatitis, Tonsillitis as mouth                             oral
+wash,                             Liquid Extract 1:1 in      As a tea           Gruenwald et al.
+Conjunctivitis as eye lotion.     25% alcohol.               oral               2000, Wichtl 1984,
+                                  4-8 ml , 3 times daily                        Wichtl 2004
+Specific indication:
+To facilitate parturition         1.5 g finely cut drug,                        Wichtl 1984 with
+For disorders of the              steep for 5 minutes and                       reference to
+gastrointestinal tract, the       then strain (1                                Hagers Handbuch
+respiratory tract, the            teaspoonful = 0.8 g                           der Pharmazeu-
+cardiovascular system and the     drug)                                         tischen Praxis,
+mouth and throat                  Posology: 1.5 g of the                        1979
+For the symptomatic treatment     comminuted herbal                             Wichtl 1984 with
+of inflammation in the mouth or   substance in 150 ml of                        reference to
+throat                            boiling water                                 Hagers Handbuch
+                                                                                der Pharmazeu-
+Treatment of diarrhoea            Posology: 1.5 g of the                        tischen Praxis,
+                                  comminuted herbal                             1979
+Nausea, and parturition and       substance in 150 ml of                        Pedersen 1998,
+cramp                             boiling water                                 (cited by Duke et
+                                                                                al. 2002)
+Pregnancy, cramp, diarrhoea,      Fresh leaf:                                   Lininger et al.
+cold, sore throat, wound,         0.25-0.5 cup                                  1998, Peirce 1999
+bleeding                          Dry leaf: 6-12 g                              (cited by Duke et
+                                  1-2 teaspoons                                 al. 2002)
+Cramp, conjunctivitis, virus      crushed leaf/                                 Newall et al. 1996,
+infection, pregnancy, sore        cup water                                     Lininger et al. 1998
+                                  up to 6 times daily
+                                  4-8 ml liquid
+                                  Leaf extract
+
+Assessment report on Rubus idaeus L., folium                                    Page 10/22
+EMA/HMPC/44209/2012
+throat, diarrhoea                (1:1 in 25% ethanol)                            (cited by Duke et
+                                 3 times daily                                   al. 2002)
+
+Bleeding,                        1 (384 mg dried leaves)     As capsules         Peirce 1999 (cited
+conjunctivitis,                  - 3 capsules 3 times                            by Duke et al.
+diarrhoea, morning sickness,     daily                                           2002)
+sore throat and ulcer                                                            McFarlin et al. 1999
+For facilitating labour          Steeping 2 g dried leaf in  As a tea
+                                 240 ml of boiling water                         MHRA 1968
+A herbal remedy traditionally    for 5 minutes and then      Dry aqueous
+used for the symptomatic relief  straining.                  extract in tablets
+of painful menstrual cramps      113 mg dry extract in
+                                 tablets: 1-2 tablets (113-
+                                 226 mg) after meals
+                                 while discomfort lasts
+
+2.3. Specified strength/posology/route of administration/duration of use
+for relevant preparations and indications
+
+Based on the available information, the following information is suggested for inclusion in the
+monograph:
+
+Table 4: Indications suggested for inclusion in the monograph        Reference(s)
+                                                                     MHRA 1968
+Indication(s)
+Indication 1: Traditional herbal medicine for the symptomatic
+relief of minor spasm associated with menstrual periods.
+
+Posology: Dry extract: 113-226 mg, up to 3 to 4 times daily.         British Pharmaceutical Codex
+Oral use                                                             1949, British Herbal
+If the symptoms persist longer than 1 week during the use of the     Pharmacopoeia 1983
+medicinal product, a doctor or a qualified health care practitioner
+should be consulted.                                                 Wichtl 1984 with reference
+Indication 2: Traditional herbal medicine for the symptomatic        toHagers Handbuch der
+treatment of inflammation in the mouth or throat.                    Pharmazeutischen Praxis, 1979
+
+Posology: 1.5 -8 g of the comminuted herbal substance in 150 ml      British Herbal Pharmacopoeia
+of boiling water, 3 times daily.                                     1983
+Oromucosal use
+If the symptoms persist longer than 1 week during the use of the
+medicinal product, a doctor or a qualified health care practitioner
+should be consulted.
+Indication 3: Traditional herbal medicine for the symptomatic
+treatment of diarrhoea.
+
+Posology: 1.5-8 g of the comminuted herbal substance in 150 ml       Wichtl 1984 with reference to
+of water as a decoction, 3 times daily.                              Hagers Handbuch der
+Oral use                                                             Pharmazeutischen Praxis, 1979
+
+Assessment report on Rubus idaeus L., folium                                                     Page 11/22
+EMA/HMPC/44209/2012
+If the symptoms persist longer than 3 days during the use of the
+medicinal product, a doctor or a qualified health care practitioner
+should be consulted.
+
+Assessor's comment:
+The information documented by a marketing authorisation from 1968 in UK for the symptomatic relief
+of painful menstrual cramps is also found in the literature (traditional use to relieve menstrual
+cramps). The documented phytotherapeutic traditional use related to menstruation is considered a
+plausible indication based on documented long-standing use and experience. Restriction to the
+duration of use to one week is recommended based on the nature of the indication, in line with similar
+monographs with the same indication.
+
+For the other herbal preparations with similar indications shown in Table 3, information related to
+posology fulfilling the criteria for 30 years of use is available. Use as an astringent gargle and anti-
+diarrhoea activity of raspberry leaf are comprehensively documented in literature (Grieve 1931, British
+Pharmaceutical Codex 1949, British Herbal Pharmacopoeia 1983, Wichtl 1984, Tyler 1994, Newall et al.
+1996 and Barnes et al. 2007).
+Therefore, requirements to show 30 years of medicinal use for defined herbal preparations with a
+specified posology for these three traditional indications are fulfilled according to guidelines and the
+indications can be recommended in the monograph.
+
+According to literature and handbooks, traditional use of raspberry leaf to facilitate parturition seems
+to be most widespread. This tradition is extensively documented in the literature (Burn and Withell
+1941, British Herbal Pharmacopoeia 1983, Reynolds 1989, Tyler 1994, Newall et al. 1996, Chevallier
+1996, Parsons et al. 1999, Gruenwald et al. 2000, Barnes et al. 2007 and Hall et al. 2011).
+Requirements to show 30 years of medicinal use for a defined herbal preparation with a specified
+posology for a traditional indication are fulfilled, but information on safety regarding the use of
+raspberry leaf during pregnancy and lactation is insufficient. Lack of safety data is the reason why the
+tradition for use to facilitate parturition is not recommended as a possible indication in the monograph.
+
+3. Non-Clinical Data
+
+3.1. Overview of available pharmacological data regarding the herbal
+substance(s), herbal preparation(s) and relevant constituents thereof
+
+Primary pharmacodynamics (related to the indication "symptomatic relief of minor spasms
+associated with menstrual periods")
+In vitro
+
+Aqueous extracts
+
+Saline infusion of dried raspberry leaves (1 g/15 ml saline infused for 10 min) tested in the uterine
+strips of both non-pregnant rats and pregnant rats had different outcomes. Little or no effect was seen
+in uteri from non-pregnant rats. Contractions of uteri from pregnant rats were inhibited for 3-4 min.
+Contact with the extract of 20 min caused a more regular rhythm in pregnant uteri and less frequent
+contractions (Bamford et al. 1970).
+
+Effect of three commercial forms of raspberry leaf (tea, capsules [no further information] and an
+extract with 35-40% ethanol) were tested on uterine contractility in non- pregnant and late pregnant
+rats. Red raspberry leaf tea and an aqueous extract of the raspberry leaf capsule were prepared by
+removing the contents of either the tea bag or the capsule and adding each into boiling deionized
+
+Assessment report on Rubus idaeus L., folium                         Page 12/22
+EMA/HMPC/44209/2012
+water (dH2O) to a concentration of 0.2 g/ml. Uterine contractility was assessed under different
+conditions. Since uterine contractility is dependent on the levels of oestrogen and progesterone, not-
+pregnant rats were subcutaneously injected with 0.8 mg/kg diethylstilbestrol (DES) 2 days prior to
+sacrifice to produce an oestrogen dominant state. Cumulative additions of the aqueous extract of the
+tea (1.0-4.6 mg/ml), the aqueous extract of the capsule content (1.0-4.6 mg/ml) and the ethanolic
+extract (2.2 -10.1 mg/ml) on naive DES-treated NP uterine strips was examined. Based on the results
+of the experiments with the DES-treated NP uterine preparations, only the aqueous extract of the tea
+(1.0-4.6 mg/ml) was used in the pregnant uterine preparations. Furthermore non-pregnant (DES-
+treated) rats were given both the aqueous extracts of the raspberry leaf and capsule. Results showed
+that neither preparation affected the ability of oxytocin to initiate contractions, but both partially
+inhibited the pre-existing oxytocin-driven contraction at the highest concentration. Raspberry leaf tea
+had varying effects on pre-existing oxytocin-induced contractions. It was shown that aqueous extracts
+of raspberry leaf can trigger contractions of uterine strips from pregnant and non-pregnant rat, while
+ethanol extract had no effect on contractility which may depend on the type of solvent and the solvent
+polarity (Zheng et al. 2010).
+
+The extract of red raspberry leaves and several purified extracts thereof (see Table 5) were tested for
+their actions on isolated uterus of cats, dogs, rabbits and guinea pigs (no further details on
+concentrations given). Two actions of the extracts were seen in the isolated preparation. The uterus of
+the dog or cat when first suspended usually remained for some time tonically contracted. If the extract
+of raspberry leaf was added to the bath, the uterus relaxed. If however the uterus had been suspended
+for some time the muscle gradually relaxed, and when extract was added to the bath a contraction
+occurred. If the tone was restored in a cat uterus by the addition of pituitary (posterior lobe) extract to
+the bath, raspberry-leaf extract then once more caused relaxation. The uterus of a rabbit had little
+tone when suspended in a bath and was stimulated by the addition of raspberry leaf extract, but if a
+tone was produced by the addition of adrenaline, raspberry-leaf extract relaxed the tone. The only
+effect observed to be produced on the isolated guinea pig uterus was that of contraction (Burn and
+Withell 1941).
+
+In a preliminary study, fractions of an aqueous raspberry leaf extract activated isolated guinea pig
+uterus. The effect remained after boiling with sodium bicarbonate. The extract did not potentiate the
+action of acetylcholine added to the uterus, but the effect was blocked by a dose of atropine which was
+just sufficient to eliminate the effect of acetylcholine. Attempts to elucidate the specific underlying
+mechanisms of these responses were inadequate (Beckett et al. 1954).
+
+Organic extracts, powders
+
+An in vitro study showed that raspberry leaf methanol extract was able to provide a smooth muscle
+relaxant activity on isolated guinea pig ileum. Extracts prepared from 2 g samples of the leaves of
+Rubus idaeus with n-hexane, ethyl acetate, chloroform and methanol for preliminary investigation
+showed that the methanol extract consistently produced a strong relaxant effect (>80%) on
+transmurally stimulated guinea pig ileum in vitro. In contrast, extracts prepared with less polar
+solvents (n-hexane and ethyl acetate) produced no response. The chloroform extract produced a small
+relaxant response (<15%). Furthermore the herbal substance was extracted with n-hexane, to remove
+non-polar substances, followed by extraction with methanol.
+
+The methanolic extract (previously extracted with n-hexane) produced a strong relaxant activity and
+was then fractionated on a silica gel column. The fractions were also tested. Methanol blanks were
+tested before starting the pharmacological assays and these were devoid of activity. Two of the
+fractions of the methanolic extract showed a relaxing effect, dose response relationships were
+established for the most active of the fractions for which the IC50 responses were obtained with doses
+
+Assessment report on Rubus idaeus L., folium  Page 13/22
+EMA/HMPC/44209/2012
+of 2.70 mg and 0.76 mg, respectively. The components of the fractions were not identified, and the
+mechanism of action is unclear (Rojas-Vera et al. 2002).
+
+Chromatographically separated fractions from a chloroform extract of raspberry leaf produced relaxant
+effects on isolated guinea pig ileum (concentration unknown), but active constituents were not
+identified (Patel et al. 1995).
+
+In vivo
+
+In vivo studies have been summarised in the review from 2009 by Holst et al. Two studies have
+investigated the effect on uterine muscle as well as uterine tissues.
+
+Aqueous extracts
+Table 5: Extraction methods (Burn and Withell 1941)
+
+Extraction methods
+
+a) Infusion: 10 g of dried leaves in 100 ml     b) An infusion prepared as in (a) evaporated
+boiling water. Standing in 1/2 hour and then    to dryness and was given 1 g of residue of
+squeezed through muslin. The infusion was       10 g. 1 g of residue was taken up in 5 ml of
+concentrated by evaporation at 40°C up to       distilled water and 5 ml of absolute alcohol.
+2 g of leaf was present in 1 ml.                This gave a precipitate and inactive material
+(c) By preparing an infusion as in (a) (before  was removed by filtration. The filtrate was
+concentration), and adding basic lead acetate   taken to dryness; 1 g of residue corresponds
+in amount just insufficient to throw down all   to 20 g of leaf.
+precipitable matter. The filtrate was           (d) By treating an infusion prepared as in (a)
+evaporated to dryness.                          (before concentration) with Norit charcoal,
+                                                filtering and evaporating to dryness.
+
+The extract of red raspberry leaves and several purified extracts thereof (see Table 5) were tested for
+their actions on the uterus, both in situ of cats and rabbits. The injection of an amount of extract
+equivalent to 2 g leaf into the external jugular vein produced a three phasic effect in the uteri of cats:
+relaxation followed by contraction, and further relaxation. However, sometimes only the first or the
+two first phases were seen. These effects were often not obtained with the first injection but after
+successive injections. The 5th injection led to complete arrest of all uterine movements, the muscle
+being fully relaxed. In the rabbits relaxation was not observed following the injection of raspberry leaf
+extract. Instead a contraction of short duration was seen. This was explained by the fact that the uteri
+of the parous rabbits used were thicker than those of the cat, and so it may be that a much larger
+amount of raspberry leaf extract is needed to produce relaxation in the rabbit. The active constituent
+was not identified (Burn and Withell 1941).
+
+Primary pharmacodynamics (related to the indications "symptomatic treatment of
+inflammation in mouth and throat" and "symptomatic treatment of mild diarrhoea")
+
+No information available.
+
+Assessment report on Rubus idaeus L., folium                                                    Page 14/22
+EMA/HMPC/44209/2012
+Secondary pharmacodynamics
+
+Antioxidant activity
+
+A combined 70% ethanol extract of air dried leaves of four varieties of raspberries and two varieties of
+blackberries were tested for antioxidant activity in vitro. Identification of the components showed high
+levels of flavonoids (rutin, quercetin, isoquercetin, and kaempferol) in raspberry and blackberry leaves.
+Antioxidant activity was measured in relation to the degree of absorption of oxygen during the initiated
+oxidation of isopropyl benzene (coumol). Blackberry leaves showed higher levels of inhibitory
+components than the raspberry leaves (Nikitina et al. 2000).
+
+In a second study, the total antioxidant capacity of leaves from four different varieties of blackberries
+(Rubus sp.), red raspberry (Rubus idaeus L.), black raspberry (Rubus occidentalis L.) and strawberry
+(Fragaria ananassa D.) plants was determined by the oxygen radical absorbance capacity (ORAC)
+method. The total phenolic content of leaves examined ranged from 10.5-32.3 mg/g fresh leaves.
+Results indicate that when the leaves get older, the ORAC values are reduced, and so is the total
+phenolic content and thus antioxidant activities. A positive and highly significant correlation between
+total phenolic and antioxidant activity was found and may indicate that the antioxidant capacity can be
+highly specific for tissue type (Wang and Lin 2000).
+
+Durgo et al. examined the polyphenolic profile and cytotoxic and antioxidative activity of red raspberry
+leaf extract. Aqueous raspberry leaf extracts were tested on human cancer cells, both laryngeal
+carcinoma (HEp2) and colon adenocarcinoma (SW 480). The cells were exposed to four different
+extract concentrations (25 mg, 37.5 mg, 50 mg and 125 mg /ml water) for various time intervals and
+tested for cytotoxicity by the neutral red assay. Reactive oxygen species (ROS) formation in cells after
+treatment with raspberry leaf extract was determined by dichlorohydrofluorescein (DCF) assay using a
+microplate reader. Intracellular glutathione (GSH) content was examined by Spectrophotometric
+method, and measurements were performed in triplicates for each treated Petri dish and the total
+amount of proteins was determined in supernatants after reaction with 2-nitrobenzoic acid. The results
+showed that SW 480 cells are more susceptible to raspberry leaf extract compared with HEp2 cells.
+After an hour of exposure, no cytotoxicity was observed, but after 2 hours of incubation (37.5, 50 and
+125 mg/ml) cytotoxic effects were observed in SW 480 cells. However, after one or two hour treatment
+with extract followed by a 24 hours recovery period cytotoxic effects were observed. The authors
+suggested that "irreversible events" take place during extract incubation, and cytotoxic effects are
+obvious after a period of one cell cycle. Raspberry leaf extract induced ROS formation in SW 480 cells,
+suggesting that the level of glutathione in these cells was reduced after long exposure (24 h). The
+opposite was observed in HEp2 cell lines after incubation with 50 mg/ml and 125 mg/ml of extract,
+suggesting that the active constituents of raspberry leaf extract increased glutathione levels and
+thereby reduce ROS that leads to anti-oxidative activity in cells. This effect was enhanced after 24 h of
+recovery, indicating that induction was caused by the products formed during cellular metabolism of
+compounds present in the extract. The antioxidant properties of raspberry leaf extract is considered to
+be associated with polyphenolic compounds (quercetin derivatives, ellagic acid derivatives, caffeic and
+chlorogenic acids), which is mainly due to its ability to scavenge free radicals and ROS and to form
+complexes with metal ions, thus preventing oxidation of metals with oxygen (Durgo et al. 2012).
+
+Safety Pharmacology
+
+No information available.
+
+Pharmacodynamic interactions
+
+No information available.
+
+Assessment report on Rubus idaeus L., folium  Page 15/22
+EMA/HMPC/44209/2012
+3.2. Overview of available pharmacokinetic data regarding the herbal
+substance(s), herbal preparation(s) and relevant constituents thereof
+
+Pharmacokinetic interactions with other medicinal products
+
+Six commercially available herbal products (black elderberry, cranberry, fennel, ginger, horsetail, and
+raspberry leaves) showed a significant but variable inhibition of drug marker substrates for human
+cytochrome P-450 isoforms (CYP2D6) in vitro. Possible clinical significance was associated with
+recommended doses of the various herbal products. Extracts of teas were made with water and
+raspberry leaves showed the highest potencies for a possible clinically relevant inhibition of CYP2D6
+with a IC50 of 47 µg/ml (Langhammer and Nilsen 2012).
+
+3.3. Overview of available toxicological data regarding the herbal
+substance(s)/herbal preparation(s) and constituents thereof
+
+Toxicology
+
+Acute toxicity
+
+The toxicity of raspberry leaf extracts has been tested in mice both orally and intravenously. An extract
+prepared by method (b) (see Table 5) was dissolved in distilled water so that 1 ml = 4 g raspberry
+leaf. An oral dose (0.5 ml= 2 g raspberry leaf) had no deleterious effect on mice. However,
+intravenous injection of the same dose was lethal. The average lethal dose for such a solution was
+5 ml/kg, which corresponds to 20 g leaf/kg. Mice injected with this lethal dose had convulsions and
+died. Similar seizures were also observed by intravenous injection of extracts prepared by method (a)
+in cats (Burn and Withell 1941).
+
+Repeated dose toxicity
+
+There are no reports available for a possible repeated dose toxicity of raspberry leaf preparations.
+Genotoxicity
+
+No data have been found.
+Carcinogenicity studies
+
+No data have been found.
+Reproductive toxicity
+
+Administration of raspberry leaf extract to female rats injected s.c. with aqueous Pregnant
+Mares´Serum (PMS) gonadotrophin at 300 IU/mg PMS had a reducing effect on ovarian weight gain.
+Some of the extracts were made from fresh green leaves, and others from the dried plant. All the
+extracts that were made from dried plants were found to be active on 10-18 mg dried herbal substance
+per dose (~230 mg/kg b.w.) dose level and the activity was seasonally variable and fell after storage
+of the dried leaves for 15 months (Graham and Noble 1955).
+An animal study consisting of 40 nulliparous Wistar rats were randomly assigned to one of four
+different oral treatments, from the first day of pregnancy until birth. The pregnancy length, litter size,
+litter weight, birth weight, sex, and stillbirths were recorded. Female offspring (F1) were followed up to
+their first birth and their offspring (F2) to weaning. The same factors were recorded. The only
+statistically significant difference detected was an increased gestational length with intake of raspberry
+leaf (10 mg/kg/day). A trend towards lower pregnancy success rate which is the percentage of
+attempts resulting in pregnancy (100% for controls and kaempferol group, 90% for quercetin group,
+but only 78% of the raspberry leaf group) were also seen. The female offspring (F1 generation) in this
+
+Assessment report on Rubus idaeus L., folium  Page 16/22
+EMA/HMPC/44209/2012
+group showed precocious puberty measured as significantly lower age at vaginal opening. They
+concluded that foetal exposure to raspberry leaf has previously unidentified transgenic rational effects,
+and further safety assessment is strongly recommended (Johnson et al. 2009).
+The safety of raspberry leaf during pregnancy and lactation has not been established.
+
+3.4. Overall conclusions on non-clinical data
+
+Pharmacology
+Pharmacodynamics
+In vitro and in vivo experiments have shown variable effects of raspberry leaf extracts on smooth
+muscle. Results from relevant experimental studies on raspberry leaf to support the proposed
+indications are very limited. The reported pharmacological effects are not considered contradictory to
+the traditional uses.
+Pharmacokinetics
+Raspberry leaf has, in a preliminary study, shown to inhibit CYP2D6 enzyme activity in vitro.
+Toxicology
+Toxicological data on raspberry leaf are limited. In mice an oral dose of extract equivalent to 10% of
+body weight of dried raspberry leaves was considered nontoxic, but these data are not transferrable to
+humans. Nonetheless, neither the chemical composition nor the long-term widespread use in the
+European Union suggests that there is a high risk associated with the use of raspberry leaf
+preparations. Adequate tests on reproductive toxicity and tests on genotoxicity and carcinogenicity
+have not been performed. Therefore, a Community list entry cannot be recommended from a non-
+clinical point of view.
+
+4. Clinical Data
+
+4.1. Clinical Pharmacology
+
+4.1.1. Overview of pharmacodynamic data regarding the herbal
+substance(s)/preparation(s) including data on relevant constituents
+
+Due to lack of data, no conclusions can be drawn.
+
+4.1.2. Overview of pharmacokinetic data regarding the herbal
+substance(s)/preparation(s) including data on relevant constituents
+
+Due to lack of data, no conclusions can be drawn.
+
+4.2. Clinical Efficacy
+
+4.2.1. Dose response studies
+
+No data have been found.
+
+Assessment report on Rubus idaeus L., folium  Page 17/22
+EMA/HMPC/44209/2012
+4.2.2. Clinical studies (case studies and clinical trials)
+
+A total of 156 women were included in three studies to assess the efficacy and safety of raspberry leaf
+during pregnancy (Parsons et al. 1999, Simpson et al. 2001, Whitehouse 1941). Table 7 summarises
+the findings from these studies.
+
+Table 7: Clinical trials and other human studies of raspberry leaf during pregnancy
+
+Dose and          Number of                   Conclusions regarding safety and efficacy            Reference
+duration          participants
+                  (test:                                                                           Whitehouse
+                  control)                                                                         1941
+
+Three ``case''    3: No controls Efficacy: The main effect on non-pregnant                         Parsons et al.
+                                                                                                   1999
+reports on                                    uterus was relaxation.
+                                                                                                   Simpson et
+purified extract                              Weaker contractions, lower frequency, regular,       al. 2001
+                                                                                                   **Parsons et
+from raspberry                                secondary contractions eliminated.                   al. 2000**
+
+leaf inserted as
+
+an intrauterine
+
+bag one week
+
+after delivery.*
+
+Various doses 57:51                           Safety: No identified adverse effects. No
+
+(range: 1-8                                   clinically significant differences in maternal
+
+tablets/cups of                               blood loss, babies' Apgar score at 5 min of age,
+
+tea daily),                                   maternal diastolic blood pressure pre labour or
+
+1-32 weeks                                    transfer of baby to special care unit.
+
+                                              Efficacy: No difference in length of gestation
+
+                                              period, likelihood of medical augmentation of
+
+                                              labour, occurrence of meconium liquor or need
+
+                                              for an epidural block. No statistically significant
+
+                                              difference in likelihood of artificial rupture of
+
+                                              membranes (greater likelihood in the control
+
+                                              group). No statistically significant difference in
+
+                                              time of the three stages of labour but shorter
+
+                                              first stage in the raspberry leaf group.
+
+Tablets (2×1.2 96:96                          Safety: No adverse effects. No significant
+
+g) a day, from                                differences in maternal blood loss, maternal
+
+32 weeks until                                diastolic blood pressure, meconium stained
+
+labour.                                       fluid, Apgar score at 5 min of age, birth weight
+
+Each raspberry                                or transfer of baby to special care.
+
+leaf tablet                                   Efficacy: No significant difference with respect
+
+contained 1.2 g                               to length of gestation, medical augmentation of
+
+(400 mg of 3:1                                labour, need for pain relief during labour or
+
+extract) of                                   time of the three stages of labour (shorter
+
+raspberry leaf                                second stage in the raspberry leaf group).
+
+extract. *                                    Slightly more women in the placebo group had
+
+                                              forceps or vacuum assisted birth but this was
+
+                                              not statistically significant either. No difference
+
+                                              in emergency caesarean rate.
+
+*No further information was available on the extracts used.
+
+Assessment report on Rubus idaeus L., folium                                                       Page 18/22
+EMA/HMPC/44209/2012
+In a retrospective observational study at hospitals in Sydney, Australia, in 1998 safety data from the
+raspberry leaf herb for women and their babies during pregnancy were registered. A total of 108
+patients were included in this study. Women received different doses for different periods (1-32
+weeks). The groups were comparable with respect to age, weight, parity, ethnicity and level of
+obstetric care. No adverse effects were identified. No clinically significant differences were found in
+maternal blood loss, babies Apgar score at 5min of age, maternal diastolic blood pressure pre labour or
+transfer to special care baby unit. With regard to the effect no difference in length of gestation, the
+likelihood of medical augmentation of labour, incidence of meconium liquor or the need for an epidural
+block was seen. No statistically significant difference in risk for artificial rupture of membranes or in the
+time of the three stages of labour was found (Parsons et al.1999, Mills et al. 2006).
+
+A double-blind, randomized, placebo-controlled study conducted at a hospital in Sydney, Australia
+studied the efficacy and safety of raspberry leaf tablets taken by nulliparous women from 32 weeks
+gestation until the beginning of labour. Experimental group (96) had raspberry leaf tablets, 2 × 1.2 g /
+day from 32 weeks to labour and the control group (96) who received placebo tablets. No further
+information on the extract in these tablets was available. Compliance was good, 89% of tablets
+consumed per woman. No adverse effects to mother or infants were reported. No significant
+differences were observed between the groups. As for the effect of treatment, there was no significant
+difference seen in the length of pregnancy, medical augmentation of labour, need for pain relief during
+labour or the time of the three stages of labour (Simpson et al. 2001, Mills et al. 2006).
+
+In 1941, three cases were reported for women a week after birth. They all had an intrauterine bag to
+get an overview of the effect on uterine contractions. Various doses and regimens of raspberry leaf
+extract were administered orally. The results suggested that the main effect of non-pregnant uterus is
+relaxation. The extract caused weaker contractions, lower frequency, more regular contractions and
+eliminated secondary contractions (Whitehouse 1941).
+
+4.2.3. Clinical studies in special populations (e.g. elderly and children)
+
+No information is available.
+
+4.3. Overall conclusions on clinical pharmacology and efficacy
+
+Raspberry leaf is often recommended in various sources to be taken during pregnancy to stimulate and
+facilitate labour and to shorten the duration of labour, however the scientific documentation of effects
+is sparse and of questionable quality. Further investigations to assess the effects of well-characterised
+preparations in well-designed randomised controlled studies involving sufficient numbers of
+participants are required. No clinical studies were found on the effects of raspberry leaf for
+dysmenorrhea, diarrhoea, used as an astringent agent or any of the other listed traditions.
+Overall, the existing data cannot be considered to meet the criteria for "well-established medicinal use"
+in accordance with Directive 2001/83/EC. However, sufficient data is available to develop a Community
+herbal monograph on the traditional uses of raspberry leaf.
+
+Assessment report on Rubus idaeus L., folium  Page 19/22
+EMA/HMPC/44209/2012
+5. Clinical Safety/Pharmacovigilance
+
+5.1. Overview of toxicological/safety data from clinical trials in humans
+
+Safety data of raspberry leaf herb of the foetus was assessed and recorded in two of the clinical
+studies examined at a hospital in Sydney, Australia. The meconium-stained fluid, Apgar score at 5 min
+of age, birth weight and the transfer of the baby to special care were evaluated and no adverse effects
+were identified and no clinically significant differences were observed between the groups (Simpson et
+al. 2001, Parsons et al. 1999).
+
+5.2. Patient exposure
+
+Products containing raspberry leaf are available on the market (tea, capsules and tablets) for both
+menstrual pain and for use in pregnancy. A significant patient/consumer exposure can be expected by
+both pregnant and non-pregnant women as women continue to use herbal medicines during pregnancy
+because they perceive them to be safer than conventional medications (Holst et al. 2009). In a study
+among 600 Norwegian women, raspberry leaves were the fifth most commonly used herbal
+preparations during pregnancy (5.7% of pregnant women). The most commonly reported reason for
+use was to "prepare the uterus for labour" (Nordeng et al. 2011).
+
+5.3. Adverse events and serious adverse events and deaths
+
+The World Health Organization's Uppsala Monitoring Centre (WHO-UMC) received two reports from the
+national pharmacovigilance centre of United Kingdom according to a search performed on 27.09.2011.
+In one of the two reports, a total of six different herbal preparations were used in therapeutic doses. In
+the other report, raspberry leaf as a single ingredient is the only preparation listed. Raspberry leaf had
+been used orally for two months to "precipitate labour", first one dose per week for one month and
+then one dose daily for 30 days. The reaction in a new-born boy (2 days) was convulsions.
+
+The incidences of adverse events were recorded in two studies. In the retrospective study, participants
+reported a case of diarrhoea and an increased frequency of Braxton Hicks contractions (normal
+contractions of pregnancy). These adverse reactions attributed to raspberry leaf could have been
+avoided by lower doses (Parsons et al. 1999).
+
+In a double-blind, randomised, placebo-controlled study of raspberry leaves among pregnant women;
+no serious side effects were reported. The side effects reported were most likely related to common
+pregnancy ailments, mainly nausea, vomiting, diarrhoea, constipation and changes in blood pressure
+(Simpson et al. 2001). There has also been a case report of petechiae and ecchymoses in a new-born
+infant whose mother drank raspberry leaf tea and took 6.5 g of primrose oil (as 500 mg capsules,
+vaginally and orally) one week before giving birth (Wedig and Whitsett 2008).
+
+5.4. Laboratory findings
+
+No information available.
+
+Assessment report on Rubus idaeus L., folium  Page 20/22
+EMA/HMPC/44209/2012
+5.5. Safety in special populations and situations
+
+Use in pregnancy and lactation
+
+A retrospective and a randomized double-blind -placebo-controlled clinical trial investigated the
+efficacy and safety of raspberry leaf during pregnancy. Total 153 pregnancies exposed to raspberry
+leaf and 147 controls were included. Two types of raspberry leaf preparations were used; tea and
+tablets. There were no statistical differences in outcomes (maternal blood loss, babies Apgar score,
+maternal diastolic blood pressure pre labour or transfer two special care baby units) between the
+raspberry group and control group. Adverse effects on pregnancies were observed in the randomized
+study. The side effects reported were most likely related to common pregnancy ailments, mainly
+nausea, vomiting, diarrhoea, constipation and changes in blood pressure but with no significant
+differences between groups. According to Mills et al. (2006) raspberry leaf is most likely not to be
+harmful to an unborn child, but administration should be limited to the last two trimesters since safety
+data on organogenesis are sparse. For safety reasons, it seems appropriate that pregnant women
+should preferably avoid using raspberry leaf during pregnancy. However, if used it should be under the
+supervision of medical personnel, and not as self-medication.
+Guidelines on the use of herbal remedies during pregnancy have been published, classifying raspberry
+infusions as a tonic that can be used during the last two trimesters of pregnancy (Belew 1999).
+
+Assessor's comments:
+
+A moderate amount of data on pregnant women (n = 153) revealed no malformations or
+foeto/neonatal toxicity of raspberry leaf. Clinical studies have not showed a higher incidence of adverse
+pregnancy outcomes. However, it must be stressed that the duration of treatment has been short, and
+only a small number of patients have been included in clinical trials. In the absence of sufficient data,
+the use in pregnancy is not recommended.
+There is a lack of basic knowledge on the use of raspberry leaf during lactation; use during lactation is
+therefore not recommended.
+
+Overdose
+
+None reported.
+
+Drug abuse
+
+None reported.
+Withdrawal and rebound
+
+None reported.
+Effects on ability to drive or operate machinery or impairment of mental ability
+
+No studies on the effect on the ability to drive and use machines have been performed.
+
+5.6. Overall conclusions on clinical safety
+
+Raspberry leaf has traditionally been used by pregnant women. Three small studies did not find a
+significantly higher incidence of adverse pregnancy outcomes after use of raspberry leaf during
+pregnancy. However, considering the short duration of treatment and small number of patients
+
+Assessment report on Rubus idaeus L., folium  Page 21/22
+EMA/HMPC/44209/2012
+included in the clinical studies, these data cannot be used to confirm a safe traditional use of raspberry
+leaf preparations during pregnancy. There is also a lack of data on the use of raspberry leaf during
+lactation; on this basis use by breast-feeding women cannot be recommended.
+The data from clinical trials with defined herbal preparations from raspberry leaf indicate reasonable
+safety in non-pregnant individuals.
+
+Raspberry leaf is not recommended in adolescents and children below 18 years due to insufficient data
+on safety and efficacy. No serious side effects have been reported.
+
+6. Overall conclusions
+
+Raspberry leaf is a well-known herb that has traditionally been used for decades against various
+ailments according to handbooks and articles. Raspberry leaf preparations are generally recognised as
+safe. However, the evidence regarding efficacy is weak and the identification of active constituents is
+lacking. The available clinical studies cannot be considered to meet the criteria for "well-established
+medicinal use" in accordance with Directive 2001/83/EC.
+
+Clinical studies have not found a higher incidence of adverse pregnancy outcomes with raspberry leaf
+treatment, but treatment durations have generally been short, and only a small number of exposed
+pregnant women (n = 153) has been included in clinical trials.
+
+Although the available data do not seem to suggest any definitive concerns with regard to reproductive
+and developmental safety, the use of raspberry leaf in pregnancy is not recommended. The possible
+negative consequences for foetal development, together with the minor clinical benefit, do not support
+a positive benefit-risk balance in favour of traditional use of raspberry leaf to facilitate parturition.
+
+Use in symptomatic relief of dysmenorrhea, use of dried raspberry leaf as an astringent gargle and the
+anti-diarrhoea activity of raspberry leaf have been continuously documented in handbooks. Traditional
+medicinal use of raspberry leaf for the indications below fulfils the requirement for medicinal use for at
+least 30 years (including at least 15 years in the EU) under Directive 2004/24/EC. Traditional use has
+shown that raspberry leaf can be recognised as safe when used at the specified dosages under the
+conditions outlined in the monograph.
+
+The following indications are accepted:
+
+Indication 1: Traditional herbal medicinal product for the symptomatic relief of minor spasm associated
+with menstrual periods.
+
+Indication 2: Traditional herbal medicinal product for the symptomatic treatment of mild inflammation
+in the mouth or throat.
+Indication 3: Traditional herbal medicinal product for the symptomatic treatment of mild diarrhoea.
+
+The evidence regarding efficacy and safety during pregnancy and lactation is lacking. Raspberry leaf
+cannot be recommended during pregnancy and lactation or in children and adolescents under 18 years.
+
+There are insufficient data on the genotoxicity, carcinogenicity, reproductive and developmental
+toxicity of raspberry leaf. As minimum required data on mutagenicity (Ames' test) are not available, an
+inclusion in the Community list of herbal substances, herbal preparations and combinations thereof for
+use in traditional herbal medicinal products cannot be recommended.
+
+Assessment report on Rubus idaeus L., folium  Page 22/22
+EMA/HMPC/44209/2012
+

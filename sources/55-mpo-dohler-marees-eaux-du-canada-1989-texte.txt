@@ -1,0 +1,1436 @@
+DFO - Library / MPO - Bibliothèque
+   1 11 1 1 111 111 11
+
+            12008789
+
+            Les marées
+            dans les eaux
+            du Canada
+
+                                                                    G. Dohler
+
+GC
+358
+.C2
+D6514
+
+       ches    Fisheries                                                       Canad'â
+       Océans  and Oceans
+© Ministre des Approvisionnements et Services Canada 1989
+N° de cat. Fs 23-89/1986 F
+
+^GaN n_RR^-aZR17_A
+                                                 ..^----^--^-6-^..I
+                                    .^...,: _ --^ 12' '1' 0'
+
+                                       DeVal"       Oceans
+
+                                                8,
+
+                                       ,Ao,oUv`, .15 1995
+
+                                    l  .y C  r Q .1QCJ ^^QvCl^iBs 0/. ^^.CT
+
+                                    1  ^^1^^J'iQl U  Q1}7
+
+Les marées                                                           Table des matières
+dans les eaux
+du Canada                                                                    Forces qui président
+                                                                                      aux marées 3
+G. Dohler
+                                                                             Marées au Canada 8
+
+                                                                             Côte orientale  8
+
+                                                                             Grands lacs     17
+
+                                                                             Arctique        17
+
+                                                                             Côte occidentale 20
+
+Service hydrographique du Canada
+
+Ministère des Pêches et des Océans                                                        1
+                                              Préface
+
+             Le flux et le reflux périodiques le long des côtes de l'océan sont des phénomènes auxquels nous
+sommes tous habitués. Même ceux qui ne sont jamais allés au bord de la mer ont beaucoup entendu parler des
+marées et savent qu'elles se produisent selon un mouvement rythmique quotidien. Nous n'ignorons pas que la
+marée exerce une grande influence sur la navigation et la construction des ports de mer.
+
+             Il paraît donc surprenant que la connaissance des marées, ainsi que des forces qui les engendrent,
+soit d'origine très récente. Si cette connaissance accuse un retard, c'est que les marées de la Méditerranée --
+le berceau des anciennes civilisations de l'Europe -- sont trop faibles pour être aisément remarquées. Il
+existe une autre raison: le jeu des marées ne peut être compris si l'on ne possède pas déjà quelques notions
+sur les forces astronomiques et la forme des océans du monde; cette connaissance, l'homme ne l'a acquise
+qu'à une époque toute récente.
+
+             Le Canada, avec son vaste archipel Arctique, possède plus de 100,000 milles de côte où l'on peut
+observer les marées les plus intéressantes et les plus fortes. À l'intention des capitaines de vaisseaux et
+des pêcheurs, le gouvernement du Canada a commencé l'étude des marées le long des rives orientale et
+occidentale avant le tournant du siècle, entreprise qui a connu un essor considérable au Service hydrographi-
+que du Canada, qui relève du ministère de l'Énergie, des Mines et des Ressources, et dont le rôle principal
+est de cartographier les eaux navigables du Canada.
+
+                    Forces qui président aux marées
+
+             Les principales forces qui donnent naissance aux marées océaniques sont celles de l'attraction de la
+lune et du soleil. Celle de la lune, la plus puissante, est environ deux fois supérieure à celle du soleil. Le
+rythme des marées coïncide donc généralement avec la rotation apparente de la lune autour de la terre ou le
+jour lunaire de 24 heures 50 minutes.
+
+             La force d'attraction du soleil et de la lune s'exerce toujours simultanément, sur la terre, aux deux
+antipodes méridionaux. À une extrémité, la force d'attraction des deux astres provoque le recul de la masse
+d'eau de l'océan, tandis qu'à l'autre, par un phénomène d'équilibre, le mouvement contraire des eaux basculant,
+
+LUNAIRE                        lu ne
+SOLAIRE
+COMBINÉ             premier ou dernier
+                             quartier
+
+nouvelle ou pleine                                                      soleil
+            lune
+
+Figure 1. L'effet solaire et lunaire sur la marée -- phase de la lune.
+
+                                                                                3
+                                      se produit. Cette attraction et la pleine mer qui en résulte sont les
+                                      plus fortes (marées de vive-eau) bien entendu, quand les forces
+                                      d'attraction de la lune et du soleil sont conjuguées; ce phénomène
+                                      se répète à la pleine lune et à la nouvelle lune. Les marées sont
+                                      plus faibles (marées de morte-eau) lorsque la force d'attraction du
+                                      soleil contrarie celle de la lune, ou lorsque le soleil et la lune sont,
+                                      pour ainsi dire, à angle droit par rapport à la terre; ce phénomène
+                                      est habituel au cours des premier et dernier quartiers de la lune
+                                      (Figure 1).
+
+                                             La force d'attraction de la lune et du soleil varie également en
+                                      fonction de la distance entre ces deux corps célestes et la terre, vu
+                                      la révolution de quatre semaines de la lune autour de la terre et la
+                                      révolution annuelle de la terre autour du soleil, lesquelles suivent
+                                      toutes deux une course elliptique. Le point où la lune est le plus
+                                      près de la terre s'appelle périgée; le point où elle en est le plus
+                                      éloignée s'appelle l'apogée. La force d'attraction de la lune
+                                      s'accroît au cours du périgée et décroît proportionnellement au
+                                      cours de l'apogée.
+
+                             ^               Mais tout ne s'arrête pas là. Les révolutions apparentes de
+                                      la lune et du soleil autour de la terre ne suivent pas toujours l'équa-
+                                      teur, et par conséquent leur force productrice de marée, à un point
+                                      donné de la terre, n'a pas deux fois la même intensité au cours
+                                      d'un jour lunaire. Il arrive parfois que la force d'attraction soit
+                                      tantôt forte, tantôt faible (Figure 2, h1, h2).
+
+Figure 2. L'effet solaire et lunaire  La marée n'obéit pas immédiatement aux phases de la lune,
+
+sur la marée - déclinaison.           mais souvent après un délai de plusieurs heures ou de quelques
+
+                                      jours, en raison des caractéristiques physiques des océans. De
+
+                                      plus, la rotation de la terre est cause d'un léger déplacement des
+
+eaux de l'océan de l'est à l'ouest, indépendamment du mouvement de la marée. Vous avez ainsi une idée de
+
+la multitude et de la complexité des forces cosmiques qui influent sur les marées.
+
+               Aussi compliquées que semblent être toutes ces variables, elles n'en sont pas moins régulières et
+prévisibles, et elles se prêtent aux calculs mathématiques. En théorie, les résultats de ces formules mathé-
+matiques devraient donner les heures précises et les amplitudes de toutes les marées autour du globe. Cet
+énoncé serait vrai si la terre entière était recouverte d'une couche uniforme d'eau. Dans la réalité, l'exis-
+tence de barrières continentales entre les océans, l'irrégularité des côtes de la mer et les profondeurs
+variables des océans faussent considérablement les hypothèses mathématiques.
+
+               Plus simplement, nous pouvons sans crainte affirmer qu'en n'importe quel point donné de la terre il
+y a des périodes alternantes de clarté et d'obscurité (le jour et la nuit); mais nous ne pouvons prédire quel
+flux lumineux atteindra tel endroit précis avant d'avoir, au préalable, déterminé s'il s'agit d'une gorge pro-
+fonde ou d'une plaine ouverte.
+
+               Faute d'espace, on ne peut décrire ici les différentes théories utilisées pour expliquer les variations
+marquées dans les marées provoquées par les astres ainsi que leurs déviations des lois cosmiques. Il suffit
+d'irrégularités, parfois, pour annuler la composante diurne ou semi-diurne de la force productrice de la
+marée; d'autres fois, l'amplitude aussi bien que l'heure de la marée peuvent être augmentées ou diminuées,
+hors de toute proportion, par des particularités purement locales.
+
+              A toutes fins pratiques, pour n'importe quel rivage donné, deux questions fondamentales surgissent
+dans l'esprit de l'observateur:
+
+                                                                                                                        5
+     a) Quelle est l'amplitude de la marée, c'est-à-dire, quelle est la différence entre les niveaux de pleine
+             mer et de basse mer?
+
+     b) Y a t-il un ou deux cycles de marée par jour, c'est-à-dire, la marée est-elle diurne ou semi-diurne?
+
+               Lorsque nous tentons de répondre à ces deux questions, nous constatons, après observations, que les
+marées sont strictement diurnes ou semi-diurnes à quelques endroits seulement. Par exemple, bien que pen-
+dant 24 heures l'on puisse remarquer à deux reprises une pleine mer et une basse mer (marée semi-diurne),
+l'intensité de la première pleine mer peut bien être beaucoup plus forte que la seconde.
+
+               Pour les besoins de la classification, nous pouvons diviser les marées en quatre groupes: semi-
+diurnes; mixtes, principalement semi-diurnes; mixtes, principalement diurnes; diurnes.
+
+             Le flux et le reflux dans chacun de ces groupes seront mieux compris à 1'aide des graphiques suivants
+qui s'étendent sur une période d'un mois chacun.
+
+               Marée semi-diurne: deux pleines mers et deux basses mers quotidiennement, d'amplitude semblable;
+l'intervalle entre le passage de la lune au méridien et la pleine mer est presque régulier.
+
+Symboles:  0 Nouvelle lune        ) Premier quartier  S décl. sud max.   Q Lune à l'équateur
+           O Pleine lune          Q Dernier quartier  N décl. nord max.
+
+           I-r^rri-I Ti' 1I I-I-ir11 TI^TTTIT^t lî -Tt^T1TITff-TT
+
+           1 2,i 4      7 8 9 10 71 I2 13 14 75 16 17 1B 19 20 21' 22 23 2k 25 Z6 Zl 2B Z9 i0 3/ 1
+
+           N                o           S (I          Q·           NI
+
+                               Q
+
+               Marée mixte, principalement semi-diurne: deux pleines mers et deux basses mers d'amplitudes
+inégales et à intervalles irréguliers, atteignant leurs plus grandes valeurs après la déclinaison maximale de
+la lune.
+
+           1 Z 3 9 S 6 7 8 9 10 11 12 13 14 15 16 171B 19 20 21 21 13 24 252527 ZB29.7031 1
+
+           N            o               sa            Q·           N3
+
+                               Q
+
+              N A A A A.A A A I A IA IIAIIAII     A A hUM AA 1.A AR A
+                        V      Y' V u9
+                                               IY!
+                    IU   I
+                                               uVVu IV I VpY^' V V
+
+6
+             Marée mixte, principalement diurne: tantôt, il n'y a qu'une pleine mer et qu'une basse mer au cours
+d'une journée, suivant le déclinaison maximale de la lune; tantôt, il y a deux grands écarts dans l'amplitude et
+l'intervalle, surtout lorsque la lune a passé au-dessus de l'équateur.
+
+    Il lllllllll 11111.i111111.111 11111  jj jj tir llllll IIIIIIil 1
+
+1. 2 3 e 5 d 7 8 .9 10 11 12 13 14# 15 18 17 18 19 20 2122 23 24 25 26* 212. 9 29 30 31 1
+
+#   0  SC                                 0 ·                          N 3
+
+    Q
+
+       viffig V 111, ir                   A
+
+L/
+
+Marée diurne: une pleine mer et une basse mer au cours d'une journée.
+
+    1-.- 7111 llllllllllllllllllllllllll 11,111.T,641111( llllll
+
+1 2 3 4' 5 6' 7 0 8 10 11 12 13 lf 15 18 /718 If 20 dl 22 23 arzsis 27 28 29 30 31 1
+       Sc                                 C) ·                         N.
+
+             Bien que les facteurs astronomiques entrent nécessairement en ligne de compte dans les calculs
+marémétriques, on ne peut faire de prédictions nettes sur les marées, à n'importe quel point de la côte,
+sans une longue période d'observations minutieuses sur les lieux mêmes. Les descriptions qui suivent,
+concernant les marées au Canada, proviennent de données compilées durant plusieurs décennies, par le
+Service hydrographique du Canada.
+
+                                                                                                                                                          7
+                                      Marées au Canada
+
+                                                Côte orientale
+
+Côte méridionale de Terre-Neuve, côte sud-est de la Nouvelle-Écosse et baie de Fundy (Figures 9,10,11)
+
+               Le long de la côte de l'Atlantique, du cap Race au cap Ray (T.-N.) en traversant à Glace Bay
+(N.-É.), de même que le long des rives de la Nouvelle-Écosse et du Nouveau-Brunswick, la marée est semi-
+diurne. La pleine mer surgit presque simultanément à tous les points de la côte à partir de la baie de
+Plaisance (T.-N.), jusqu'à Shelburne (N.-É.). L'amplitude de la marée n'est pas très considérable, la
+différence entre le niveau de pleine mer et celui de basse mer ne dépassant que rarement six pieds. Autour
+de l'extrémité méridionale de la Nouvelle-Écosse, l'on constate un décalage marqué aussi bien dans les heures
+de pleine mer que dans l'amplitude des marées.
+
+               La marée la plus extraordinaire non seulement au Canada, mais sans doute dans le monde entier, se
+produit dans la baie de Fundy, où l'amplitude dépasse 40 pieds (Figures 3, 4). Ce phénomène est dû à un
+concours particulier de facteurs géographiques.
+
+i.-q -.,, ^rw^^
+
+         ^  1 -'.'.,-i  S ^..=7 s^..,i
+
+^;'         t `'^fi:I ft ^^^
+
+     Figure 3. Pleine mer à Walton (N.-É.).  Figure 4. Basse mer à Walton (N.-E.).
+8
+             Dans la rivière Petitcodiac, qui se jette dans la baie de Fundy à Moncton (N.-B.), la marée monte
+sous forme de mascaret, c'est-à-dire, comme une barre d'eau presque verticale qui peut atteindre jusqu'à
+quatre pieds de hauteur ou aussi peu que quelques pouces (Figure 5). Le courant de la rivière et le frottement
+des eaux sont à l'origine de cet étrange phénomène.
+
+   " Photo de D.G. Mitchell, Service hydrographique du Canada, 1960 "
+
+                                                 Figure 5. Le mascaret à Moncton (N.-B.).
+
+             A Saint-Jean (N.-B.), le cycle de la marée et le courant de la rivière produisent les fameuses
+«Chutes réversibles» (Figures 6,7,8). Cette particularité est due à une gorge étroite à peu de distance en
+amont de l'embouchure de la rivière Saint-Jean. À marée basse, le niveau de la rivière, dans le bassin en
+amont de la gorge, est d'environ 14 pieds plus élevé que le niveau de l'eau dans la baie; une chute d'eau vers
+l'aval en résulte. Lorsque la marée monte, le niveau de l'eau de la mer a tôt fait de s'élever au-dessus du
+niveau de l'eau du bassin en amont de la rivière. À un certain endroit, la dénivellation atteint 12 pieds; étant
+donné l'étroitesse du chenal, celui-ci ne peut recevoir tout d'un coup l'abondance du flot; il en résulte une
+autre chute d'eau du côté opposé, vers l'amont.
+Côte orientale de Terre-Neuve et Labrador (Figures 9,10 11)
+
+             Le long de la côte orientale de Terre-Neuve et le long de la côte du Labrador jusqu'à Cartwright, la
+marée est mixte mais principalement semi-diurne. Plus au nord, elle tend à devenir de plus en plus semi-
+diurne et elle l'est tout à fait au cap Chidley, le point le plus septentrional du Labrador. La pleine mer surgit
+simultanément le long des deux côtes et l'amplitude de la marée est d'environ trois pieds. Cependant, vers
+l'extrémité nord du Labrador (détroit de Davis), l'amplitude augmente considérablement.
+Golfe Saint- Laurent (Figures 9,10, 11)
+
+            La marée qui se propage par les détroits de Cabot et de Belle-Isle dans le golfe Saint-Laurent est
+mixte, mais principalement semi-diurne, sauf le long de la côte entre le cap Tourmentin et Itichibouctou (N.-B.),
+
+                                                                                                                                                                    9
+                                                                                                                 180°                               170                  160' 1 . J" 1? ' '11 o· 90° 7I:r 50-                               3,)" 20                                   O                                                               O.
+
+      11111imi: -4 c                                                                                                                  Pre-.                                                                                                                                                                                                        /
+
+                                                   u,                                                                                                                                                                                                           /                                                                CARACTÉRISTIQUES DES MARÉES
+
+                                                                   cn                                                                                                                                                                                                                                                                                                                          1 1 1
+
+                                                                                                                                                                                                                                                                                                                                Semi-diurne
+
+                                                                                                                              c_                    T.'                                                                         2                                                                                                           principal ement semi- diur ne . . .1 21
+                                                                                                                                 0c.
+             \ .                                                                                                                                                                        I                                            III·                                                     \)                                Mixte :
+                                                                                                                                  <,-,                                                                                                                                                                                          Mixte:
+                                                                                                                                                                                                                                            ·                                             ,--\..                                            principalement diurne                              131
+
+                                                                                                                                                                                                             e'Ç''''                                                                     ... ..,                                Diurne                                                         *4
+
+                                                                                                                                                                                                          t\,,
+
+                                                                                                                                                                                                                                                                                '          Ie-
+
+             ile         /lire   'Plà                                                                                                                                                                 t.              I.                    .;··                        0 0'
+
+                                                                                                                                                                         \.e                                                                                              e \
+                                                                                                                                                                             0,...
+                                                                                                                                                                                                                                                      1.*
+                                                                                                                           -.',e.                                                                                                                     · ir              0 ,,
+
+                                                                                                                 e p
+                                                                                                                 /.e.7 e
+                                                                                                                 .. C..>.
+                                                                                                                 0                                                            1
+                                                                                                              '
+
+                                 _                    i                                                                    1                                                                                                                                                                         .                                           -
+
+                              .                4/                                           ./            ·/.                 ..5. · iie                                                                                         · ., 901,                  B A Fts1
+
+             · iZ3,\Z ,>                                                                               i                           Pe.                                           ,                                              lit
+
+                                                                                         . )·,,i,
+
+                                       o.,,,,                                         ·.,.                                                                                              " --P                                                                                                             --,...
+
+                                               - ro, ; l                                                                               / 2                            A2 ·                                                                                                    .._ .<:,                               ,,,
+
+                                                                                                       · o,                                                        .                                                            t ... · Je"
+
+                                                                                                                                                                                                                                                                                   A                                      0
+
+                                                                       * .                                       4- - ,o,,,, '                                                   i° Li                         NORD - O OE SI sASSI NI                                                            -7 .., G
+                                                                       ; -·,                                     4                                                               i i
+                                                                                                                                                                                                                                     , . \FOXE
+                                                                       I
+50'
+                                                                                                                                   %                E E                                 DISTRICT                                                                                                                                                                                                             50°
+
+                                                         .1 '1\''''''                                            (
+
+             0       c,                                                                                                                       ,e.,                                                                                                                            :,-,0,,,                                                                                                   t P.
+
+                                                                                                                                                                                        KEEWATIN                                                                                           g 0 HUDSON                C.,`
+
+                         es'                          I , /<                                                                                                                                                                                                                                                      s                                              oc
+
+                         -9                                                                                                        ,                                                                                                        C2                                                    0
+
+                                                                                      c                                                                                                                                                                                                              :0.                                                                                                 \)
+
+                                                                       ···C           C)(04,8   ·,                                                                                                                                                                                 I.e.--                                                                                                             \
+
+                                               %I, ie. -.%.41e,                                                               ,e.I.14                                                                                                BAIE                   Alle` -2                                                      t. ,., ,
+
+      ...c.                                    '°')'                                                                                                                     1 - .. ....... :
+
+      'V                                                       4> .9·5»                                                                                                                                                         D' HU DSON                              0                                                       . ,
+             .···
+                                                                                                                                                                                                          CI,e·hdl
+
+             ....c,...·  e .( .,,,,,,,, G,(..,<,                                                                                                                                                                                                                                                                          Y. - -- '
+
+                                                                                                                                                                                                                                                                                                                     ...--
+                                                                                                                                                                                                                                                                                                                     ...
+                                                                                                                                                                         ....·                            ,,.                                                           er °
+                                                                                                                                                                                                                                                                                                                             .       r..
+                                               i,t,,,0/<,fi,,.., ,.,%., ,                                                                                                ,.,                                                                                                                                                    i.i , ,...
+
+                                                                                                       "..., r_.'"-I-s.;,'-->.1, s..,                                    I ...,-                                                                                                                                                                                                     ,..
+                                                                                                                                                                                                                                                                                                                                                                 ,see.
+                                                                                                          ',                           . ,..  rcHEw4, i 4&11I,1AN'?0.A                                         i                                            1
+
+                                                                                                                 ` / s ciellre, .                                                                                                                           SAIE t
+
+                                                                                                                                                                                                                                                                        JAmEsa                                                                   Goe                                  e
+
+                                                                             .r.,,,.                .                                                                                                                                                                                                                                            SO'."''' 4,4    1· .
+                                                                                                                                                                                                          i ..... t 3
+40 °                                                                                                                                          °                                                                                                                                                           ......... ,                .                                                                       40°
+                                                                                                                                                                                                                                ONTARIO
+
+                                                                                                                                                                              .n..9 s.'                               ,. fg                                                                                                  /!                           4.'
+
+                                                                                                                                                                                                                    i.,..,                                                                                                                  ·       .t· ··''"'*
+
+                                                                                                                                                                                                                      '''' ,1.       · ..)
+
+                                                                                                                                                                                                                                                                                                -
+                                                                                                                                                                                                                                                                                                            ./
+
+                                                                                                                                                                                                                                                            . 4'.° --.             .
+
+                                                                                                                              A rs ·                                                                                                        / e                                 OR. . I.·` ''''                                                                ..-------------------
+
+                                                                                                                                                               el        t S                                                                ' (
+
+                                                                                                                                                                                                                                                ..:.
+
+                                                                                                                 111s.....-                                                                                                          ct                                       - c -
+
+                                               120 °                                                      110°                                                     100°                                                         90·                                                        80°                                              70°                                                60°
+
+                                                                                                                                                                                                          F igure 9
+72°     71°   700                             69°                               68°        67°                    66°                     65°                    64°               63°                        62°                    61°               60°                          59°             58°                   57°                       56°                 55°                   54°                     53°         52°              51°                       50 0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               53°
+53°     1                                  1  1                                 1               1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - 52°
+                      LA PROGRESSION MOYENNE DE LA MARÉE SEMI-DIURNE                                                                                                                                                                                                                                                                       o
+                                                                                                                                                                                                                                                                                             LAB RADO R                                                                                                                                                                     - 51°
+        BAIE DE FUNDY, CÔTE DE L'ATLANTIQUE, GOLFE SAINT-LAURENT ET
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - 50°
+                                                    FLEUVE SAINT- LAURENT
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - 49°
+        Amplitude de la marée semi-diurne principale en pieds... ---2'---                                                                                                                                                                                                                                                                                                                       i
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         - 48°
+52° -   (Multiplier par deux pour obtenir l'amplitude moyenne)                                                                                                                                                                                                                                                                                      21                                  t /)
+                                                                                                                                                                                                                                                                                                                                                                                                                           ..,                                              - 47 °
+        Retard de phase dé la marée semi- diurne principale
+                                                                                                                                                                                                                                                                                                                                                                                    \                                                                                       -- 46°
+        pour le méridien 60°W                                                                               --150°--                                                                                                                                                                                                      I               240°           195°
+                                                                                                                                                                                                                                                                                                                          i 7                                                                                 \ j                                                   .........../
+                                              (30° = environ une heure)                                                                                                                                                                                                                                                                             e                                                             . -
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - 45°
+                                                                                                                                                                                                                                                                                                                                                         0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - 44°
+                                                                                                                                                                                                                                                                                                                          1 Da
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               43°
+                                                                                                                                                                                                                                                                                                                                             5°                                                                                                                             50°
+
+                                                                                                                                                                                                                                                                                            e                                     2:5 15
+                                                                                                                                                                                                                                                                                        (7,
+51                                                                                                                                                                                                                                                                                                                 300°
+                                                                                                                                                                                                                                                                                    ·°
+                                                                                               E C                                                                                                                                                                                  .
+                                                                                              £3
+                                                                                                                                                                                                                                                                                                                       r
+
+                                                                                                                                                                                                                                                                                                    ------ ---                                      / .
+
+                                                                                                             · e                                                      ° y                                                                                                                                                                 , ' --                                 .i.--; )                             ,
+                                                                                                                                                                                                                                                                                                                                                         .--            ,... _ 'sc,
+                                                        \-                                                  --                  .,
+                                                                                                                                                                                                                                                                                                                                                       o                                   .
+50° -                                                                                                                                                                           .                                                                                                ..-.... ..
+49 ° -                                                                                                                                                                                                                                                                                                                                                                  e ,
+                                              0-                                                                                                                                            - i.e ?------- ''--,-.                        · \                                               ,                                                                                                                                                         ...."'......
+                                                                                  I/                                                                                                                                                                                              ..
+                                                                                                                                                        ,, -             /,,.                                 ..-..,..                         .       r                                                                                                                                                                                  ../..''..
+                                                                                      I · If.                                                           , 2                                                                                                                                         · ,.....,
+                                                   __ -,- --_,,,                                                                                                                                                                                                                                                                                                                                                                  ,----
+
+                                                                                                                             ...... _                                                                                                                                                                                                                                                                                      / ,p'
+                                                                                                                                                                                                                                                                                                                                                                                                                        /
+                                                                                                   I ._                                                                                                                                                                                                                                                                                                               /
+
+                                                                                . ,
+
+                                                                                   '                                                                                                                                                                   31                 .
+
+                                                                                                             PEN. DE GASPÉ                                                                                                .--p.....                                                                                                                                                           /.. ,, ././ /                 ·
+                                                                                                                                                                                                                                                                                                                                                                                                                  .·
+                                                                                                                                                                                                                                                                                                                                  TERRE-NEUVE
+                                                                                                                                                                                                                                                                                    4111r
+                                                                                                                                                                                                                                                                                                                                                                                                                                         ·
+        -./....% .,
+                                                                                                                                                                                               ....
+
+                                                                                                                                                                                                                                                  \..,. 300
+
+                                                                                                         105 . 2·                                                               5 ° ...,                      .--..
+
+ae -                                                                                            1------"                                                                                                                                            \ \ 28s° \
+
+                                   05 °                                                                            105°                     _fi                          / 1. 05.,......................,,._                                                                                                                      . ,,
+
+                                                               I                                                             1                                                                                                                           1...,                                                                                                                                                        tie
+              .41,120° i                                                                                                                                                                                                                               ".'....e/4.
+
+                                                                                                                                                                                                                                                                                                                   .., "                                        0 t
+
+                                                                                                                                                                      / 13 5......,,................s            .0 "..1                                                                 .          .,
+
+                                                                                                                                                                                                                                                                                    ·... )          -.                                                                                              C.2
+                                                                                                                                                                                                                                                                                                                                                                ·
+                                    1111P                                                                                                                                150° I..t...                                                                                                                                     ,,....                                                                                                            195 °
+                               1/f12, 65°
+                                                                                                                                           135°                                                                                                     /               \ , .....            24         / .            '                                     ..../
+                     Aie 8°*                                                                                                              ·
+                                                                                                                                                                 1       165°                                                                                                                                                                                           /           ·/ '\
+              eir 195°                                                                                                                                                                                                                              /                               ........_.. .                                                                             PLAISANCe                        0
+                                                                                                                                                                                                                     /
+        CluEs 0:/.--- 10°                                                                                                                                                          180' 210° 2 0°                                                                                                                                                                                                        ......
+                                                                                                                                       150                            \                                                                                                                         i/  ; r. .         /..---"'                      /              .
+                ,                                                                                                                                                                           1 5 ° 2 5° /                                                                                      y
+                                                                                                                                                        .0'           \                                                                                                                             vur,           !
+                                                                                                                                                            15°                                                                                                                             ··/         i
+                                                                                                   N 0 U V EA U - R,,,,,,0 ,,,,o                                                                                                                                                                        *.,                                                             i r·
+                                                                                                                                                                                                                                                                                                                                                                                                                         ep Bece
+
+                                                                                                                                                     '                   du p e4; '                                                                                                                                                                                        .....,,
+                                                                                                                                       *Desman P
+
+                                                                                                   BRUNSWICK                                                                                                                                                                        / ..'                      225° 1
+
+                                                                                                                                                        Cap Tou 1 ·                                                                                    Clac /                                           \          S. .
+
+                                                                                                                                                                                   et
+46° -                                                                                                                                                                                       ·                 \                                        Bey · '
+                                                                                                                                                              f
+
+                                                                                                                                                 , 5                     e                  00 .                                                                                                                                                                                                                                  210 °
+
+                                                                                                                                                                                                       285°                                                                      /                             ..
+
+                                                                                                                                                                                                                                          25°
+
+                                                                                                                                       \                                                                                                                                      /                                                           !
+                                                                                                                                                                                                                                                                             e
+                                              ÉTATS-UNIS                                                                                                                 , r. SS-                                                                                                                                                                                 _
+                                                                                                                                                                                                                                                                             /
+                                                                             e
+                                                                                                         \ \\ , f oreir 45°                                              - r- -                                                           c---1                     ,        .      '
+                                                                                           eCi.e. · \t ç's
+                                                                                                                                                                                                                                              ....                                          "C-1
+
+                                                                                                                                                                         s...... s.») , 4,                                                             .- '                                                                               's            --           '
+                                                                                                                                                                                                                                                                                                                                                 ***-....----                                            225°
+                                                                                                                                                                                                                                                                          '7)
+                                                                                                        8:, N                               ..,\C)                                                                                                                        i
+                                                                                      .
+                                                                                      . \          \ ,r--s                                  V. ·                                                                                                                                                                       .., 7'
+                                                                                                                                                                                                                                                                          1(                      (.. .--:'..r:.::-''-':--`
+                                                                                                                                                                                                                                                                          1 - ,. (
+
+                                                        .                                          ',... `...                                                                                 "<.::··/                                                                    i
+                                                                                      ''.5'., -...-.....,, ,                                                          _                                                                                                   1
+                                                                                                                                                                                   · -,
+
+·:,_                                             . :il
+
+                                                                                                                             Sbelburn                         /.-- -
+
+                                                                                                         ,.                                                              l /
+
+                                                                                                                                                                 \\S" ..,.../.
+
+                                                                                     '· ..,..?                       .,....                                                                                                                                            /
+                                                                                           .-                     300°
+                                                                                                                                                        255°
+                                                        ..._................---q--'                                                       70 .
+
+72°     7.1°  70°                             69°                               68°        67°                    66°                     65°                    64°               63°                        62° Loneude 61°W de Greenvelch                                        59°             58°                   57 0                      56°                 550                   54 0                    53 0        52°              51 0
+
+                                                                                                                                                                                                                          Figure 10
+72°   71°                                   70°                              69°           68°                 67°              66°              65°                                    64°           63°                     62°             61°               60°                        59°                 58°                        57°                   56°                         55°                     54°                53°             52°             51°  50°
+
+53°                                                                                                                                                                                                                                                                                                                                                                                                                                                                         53°
+
+                           LA PROGRESSION MOYENNE DE LA MARÉE DIURNE                                                                                                                                                                                                                                                                                                 °
+      BAIE DE FUNDY, CÔTE DE L'ATLANTIQUE, GOLFE SAINT-LAURENT ET
+                                                                                                                                                                                                                                                                                                         LABRADOR
+                                                       FLEUVE SAINT -LAURENT
+
+      Amplitude de la marée diurne principale en pieds... ------ 0'------                                                                                                                                                                                                                                                                                                     P                                     \
+                                                                                                                                                                                                                                                                                                                                                                                °j
+
+52°   (Multiplier par deux pour obtenir l'amplitude moyenne)                                                                                                                                                                                                             · -. -, - , -, -, -. -, -, _. -. -, -                                                                                                                                                              52°
+
+      Retard de phase de la marée diurne principale pour le                                                                                                                                                                                                                                                                                               6 \^o
+                                                                                                                                                                                                                                                                                                                                                                     jSCE
+      me' ridien 60 ° W.......... t .. ........... ... . .... )..                                                      150 °                                                                                                                                                                                                                                                                                                                       -
+                                                                                                                                                                                                                                                                                                                                                                                                   ^..                                          .            J
+                                                                                                                                                                                                                                                                                                                                       I                  0 0E             P        0              ^;                   \        /             /
+                                                 15 ° = environ one heure                                                                                                                                                                                                                                           0°
+
+                                                                                                                                                                                                                                                                                                                           195'                        ' r f°°S°                                                              J
+                                                                                                                                                                                                                                                                                                                                               ^E?p0'
+
+51°                                                                                                                                                                                                                                                                                                                                                                           Q                                                                                             51°
+                                                                                                                           C
+                                                                                                                                                                                                                                                                                                      p                oç                                                                                                  \
+
+                                                                                                                                                                                                                                                                                                                                                                              \.i >                                              >
+
+                                                                                                   É                                                                                                                                                                                 ^^/                            (                                                                                                         r
+
+                                                                                                                                          ^                                                                                                                                                                                                         i
+                                                                                                                                                                                                                                                                                                                                                  /: 1 jJJC.^
+     °                                                                                                                 ._.._^..      ''\ \.                                                                       _.                                                                             ^ ^
+                                                                                                                                                                                                          .'-:^                                        10°
+ 0                                                                                                                  :            `· ^..:                                                                                                                                                                                                                                                             lo (                                                                        0'
+
+49°                                                                                                                                                             ^ ..                                                                                                                                                                           ·                           ^                     g^                                 %
+                                                                                                                                                                                                                 ^.._.._                                                                                                                                                                     J gg""",,^,,
+                                     225 °                                                                     210, _. _.._.._..                                                                                                                                                                                                                                                                           -ll
+                                                                                                                .^..^                                                                           /(    q                                                                                                                                                                                _..r
+                                                                                                                                                                                                   F                      ^·J..                                                                                                                lzp°                 ^ ^, oa$ o
+                                                                                                                                                                                                        NT/^o                  ^     ... \..                     \.. .^
+                                                                                                                                                                                                                ST                                     225°
+                                                                                                                                                                                                                                                                                                                                                                                             72a°
+
+                                                                                           ·       ENt                                                                <_'
+
+                                                                                           Nt EPJa,                                                                                                                                  I                                                                                                                                                                                                                                                  49°
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                   i. ,..'\
+                                                                                       SP                              PÉN. DE GASPÉ                                                                                      -_ __1 -_ /                                                                                                                                                                                      /J \                              ^?
+                                                                                                                                                                                                                                              ^                             ^                                                             TERRE-NEUVE                                                                                                                               \ i_.
+                                                                               i^EJJE                                                                                                           25 °
+
+                                                                             i f^                                                                                                                     \`                             O5·                                 I                                                                                                                                                                  /      ^^           '
+
+48°                                     zlo                                                  ^-'-                                                                             CJ                                                  ^                                                                                                                                                                                           Ç                                              48 °
+ 7°                                               Vo.s                                 ^                                                                                  7                                                                                                                                                                                                                                                            /iO                                  I
+                                                                                                                                                                           V                                                                                                   1 cavP°r                     _                                                                                                    o
+                                                       2 5°/                                                                                                          2 0'
+                                                                                                                                                                                                                                                         \ \ O                                                                                                                                               ^
+                                        240°                                                                                                                                                                                                                                                                                                                                                     rtSHC°
+                                                                       /·                                                                                                                                                                                                                                                                                 35^                       d (.
+
+                                  "                                                                                                                                                                                   24 ° I         2 5°                 v`                                             /             .                                                  E
+      OuEaFC 270° 55°                                                                                                                                                                                                                                                                                                                                  J\VU^J
+                                                                                                                                                                                                                                                                               \o
+                                                        /
+                                                                                                                                                                                                                                                 27
+
+46                                                                                                                                                                                                                                                                                   270'                                                         135           12                                                                                                          I°
+45°                                                                                                                                                                                                                                                                                                                                                                                                                                                                         45'
+44°                                                                                                                                                                                                                                           270'                             285°                         -                             ?                                                                                                                                 44°
+                                                                                                                                                                                                                                                 ·eO^
+                                                                                                                                                                                                                                                                                     255'                                                              1                               105                          9p
+
+                                                                                                   ^r                                                                 r 35'                                                                                                    300°                            s^ \
+
+                                                                                                                                                                                                                                              345°                       315`                                                                  I                                                                                                          /
+                                                                                                                                                                                                                                                                                                                                                   ^-                                                                                                 ^
+                                                                                                                             Sa^^^ ^                                  13s 150°                        OSSE                                                330'
+                                                 ÉTATS-UNIS                                             ^.
+                                                                                                                       BPIE 1                                                      ^^^                                                                    ^ ^
+                                                                                                                o                                                                                                                                            ^\ ^^
+
+                                                                                                                                05·                                                                          o
+                                                                                                                                                                                                      - i1i
+                                                                                                            _      Ir
+
+                                                                                                                       /, .. ^                                                                                                                   \0" 5°`
+                                                                                                                                                                                                                                                     30"
+                                                                             °4   ^^·
+                                                                                                                                                                                                                                           45
+                                                                             '^                    f 1                 120°
+
+                                                                          i                ('\ ^.._..\                                                                               J                1 1^                         60
+                                            a A^5                                                                                                                                                                             75.^
+                                                                                           "\120°       '\                           snem°, e                                     J          /
+
+                                                                                                                                                                                                                          90.105
+
+                                                                                                                                          305 °                                                                                   _                                                                                                            /                                                                                                                   \\
+
+                                                                                  C?                                                                                                                                                                                                                                                      /
+
+43 °                                                                                                                                                                                                                                                                                                                                                                                                                                                                        43°
+
+72°   71°                                   70°                              69°           68°                 67°              66°              65°                                 64°              63°                     62° t°^9,mde61°waep-R.,ri.                                   59°              58°                           57°                   56°                         55°                     54°                53°             52°             51°  50°
+
+                                                                                                                                                                                                                                              Figure 11
+                            Figure 6. Pleine mer.                    et à proximité du havre Savage (f.-P.-É.), où les
+                                                                     inégalités diurnes dominent. Par contre, la marée est
+                            Figure 7. Basse mer.                     tout à fait diurne à l'extrémité méridionale des nes de
+                                                                     la Madeleine et à proximité de Crossman Point (N.-B.):
+        1111111111»                                                  une pleine mer et une basse mer s'y produisent chaque
+                                                                     jour. L'amplitude de la marée dans le golfe dépasse
+                            Figure 8. Mi-marée.                      rarement huit pieds.
+            «Chutes réversibles» à Saint-Jean (N.-B.).
+" Photos de D.G. Mitchell, Service hydrographique du Canada, 1963 "  Fleuve Saint-Laurent e rivière Saguenay (Figures 9,10,
+
+                                                                     11 12)
+                                                                            La marée qui pénètre dans le golfe Saint-Laurent
+
+                                                                     en provenance de l'Atlantique, se propage également
+                                                                     dans le fleuve Saint-Laurent et son effet est facilement
+                                                                     perceptible jusqu'au lac Saint-Pierre, à environ 400
+                                                                     milles en amont de Sept-fles. Le cycle de la marée se
+                                                                     répète deux fois par jour et depuis Sept-Îles, la crête
+                                                                     de la marée met environ une heure pour atteindre
+                                                                     l'embouchure de la rivière Saguenay, cinq heures pour
+                                                                     parvenir à la ville de Québec et dix heures pour arriver
+                                                                     au lac Saint-Pierre. L'amplitude de la marée augmente
+                                                                     de sept pieds environ à Sept-Îles, jusqu'à deux fois
+                                                                     cette hauteur à Québec, après quoi elle diminue à moins
+                                                                     d'un pied au lac Saint-Pierre.
+
+                                                                            La courbe de la marée dans le Saint-Laurent dé-
+                                                                     montre certaines particularités attribuables au rétré-
+                                                                     cissement et à la pente du lit du fleuve ainsi qu'à la
+                                                                     friction croissante, spécialement en amont de la ville
+                                                                     de Québec. Une de ces particularités consiste en ce que
+                                                                     la marée, comme il arrive dans les estuaires de plu-
+                                                                     sieurs autres rivières, monte plus rapidement qu'elle
+                                                                     ne baisse: le temps qui s'écoule entre la basse mer et
+                                                                     la pleine mer est beaucoup plus court que le temps entre
+                                                                     la pleine mer et la basse mer. De plus, les marées
+                                                                     hautes maintiennent presque la même hauteur absolue
+                                                                     alors que les marées basses montrent une pente consi-
+                                                                     dérable vers l'aval (Figure 13). En amont de Québec,
+                                                                     le niveau de la basse mer est plus élevé lorsque la lune
+                                                                     est nouvelle ou pleine (marée de vive-eau) que lors-
+                                                                     qu'elle est à l'un de ses quartiers (marée de morte-eau).
+                                                                     Ceci est à l'inverse du phénomène normal et ne se
+                                                                     produit que dans les rivières où la marée se fait sentir.
+
+                                                                     Fleuve Saint-Laurent à partir du lac Saint-Pierre
+                                                                     jusqu'à Montréal
+
+                                                                           Un léger gonflement semi-diurne dû à la marée
+                                                                     peut être observé sur les marégraphes, en amont du lac
+                                                                     Saint-Pierre. L'amplitude est très faible: moins de
+                                                                     six pouces. Toutefois, il est intéressant de noter que,
+                                                                     chaque mois, il y a plusieurs jours où les valeurs
+                                                                     moyennes quotidiennes sont au-dessous ou au-dessus
+                                                                     de la moyenne mensuelle. Ces écarts correspondent
+                                                                     plus ou moins aux phases de la lune (Figure 14).
+
+                                                                                                                                                     13
+                     LA PROGRESSION MOYENNE DE LA MARÉE
+                         ENTRE NEUVILLE ET TROIS-RIVIÈRES
+
+                               -- 300 -- Indique le retard de phase, en degrés, pour le
+                                            méridien 75°W. (1° = environ 2 minutes)
+
+                               ... 2...Indique, en pieds, l'amplitude moyenne de la marée.
+
+VIERES          340  BATISCAN
+     3 0
+          --
+
+                                DESCHAILLONS  GRONDINES
+
+                     Figure 12
+                                                                         FLEUVE SAINT-LAURENT
+                                                       OBSERVATIONS SIMULTANÉES DE LA MARÉE
+
+                                                                      NEUVILLE - TROIS-RIVIÈRES
+
+10
+
+                                                                    TROIS-RIVIERES                                ^-^                                   _----
+
+8                                                                                SCP''
+                                      _                                                                    /
+
+                                                                                    POGj                      //  /^^ \\                                \
+                                                                          0^0`^E5
+6             /^                         \      \
+           /
+
+0
+
+Z                                                      \                                     /
+                                                                \\  ^i/
+
+-4                                                                                                                Î
+                                                                                                                                                     3
+    19            17                        15     13  11                      9
+
+                                                                    HEURES
+
+                                                                    Figure 13
+pi.
+
+18                                          N. M. E.
+
+17                                          N. M. E.
+                                            N. M. E.
+16
+        VERCHÈRES
+
+15
+
+14 SOREL
+
+13
+
+                                            N. M. E.
+
+12
+
+        SEPTEMBRE     1963  OCTOBRE
+                                       ·
+     O             0  -L O
+
+        N. M. E. = NIVEAU MENSUEL DE L'EAU
+
+16 Figure 14
+                                                 Grands lacs
+
+              Peu de nappes d'eau intérieures sont assez grandes ou assez profondes pour être touchées par les
+ forces conjuguées de la lune et du soleil qui président aux marées, mais l'on a enregistré une très faible
+ marée sur les Grands lacs (Figure 15). Pour l'observateur d'occasion, la marée sur les lacs est éclipsée
+ par le changement plus prononcé du niveau de l'eau attribuable à la pression barométrique et au vent; cepen-
+ dant, les marégraphes indiquent une amplitude de marée d'environ 0.1 pied. Cela, bien entendu, n'affecte
+ aucunement la navigation ou les installations portuaires.
+
+                                                   Arctique
+
+ Détroit d'Hudson, baie d'Hudson et bassin Foxe (Figures 9,16)
+
+              Dans toute cette région, la marée est semi-diurne, sauf pour cette courte bande du Littoral, comprise
+ entre Povungnituk et Port Harrison, sur la côte nord-est de la baie d'Hudson, ainsi que pour la plage Hall
+ (bassin Foxe), où le rythme semi-diurne subit de grandes variations diurnes.
+
+              Le détroit d'Hudson relie l'océan à une immense mer «intérieure»: de plus, il est davantage étran-
+ glé à sa partie médiane qu'à chacune de ses extrémités. Ces facteurs influent sur l'amplitude de la marée
+ dans le détroit d'Hudson; le long de la côte nord du détroit, elle augmente de 18 pieds à environ 30 pieds à
+ l'inlet Ashe et retombe à 16 pieds aux environs du havre Schooner. Dans la baie d'Ungava, la marée qui vient
+ de l'Atlantique augmente rapidement vers le fond de la baie pour atteindre une amplitude moyenne de 40 pieds
+ dans le bassin aux Feuilles.
+
+              La marée qui pénètre dans la baie d'Hudson décrit un mouvement à peu près circulaire qui épouse
+ les sinuosités du littoral, commençant à l'extrémité nord-ouest de la baie, se déplaçant vers le sud le long
+de la côte occidentale pour devenir à peine perceptible le long de la côte orientale. À l'entrée de la baie,
+l'amplitude moyenne de la marée est de six pieds; elle augmente à douze pieds le long de la côte occidentale,
+après quoi elle diminue graduellement le long des côtes méridionale et orientale jusqu'à environ un pied à
+ Port Harrison. La marée montante ou descendante peut quelquefois être éclipsée, en particulier à proxi-
+mité de la tête de la baie James, par les effets des conditions atmosphériques capables de faire monter ou
+baisser de plusieurs pieds le niveau de la mer.
+
+Détroit de Davis, baie Baffin et détroit de Lancaster, Arctique occidental (Figures 9,17)
+
+             L'amplitude de la marée augmente vers le nord dans le détroit de Davis, diminue de nouveau quand
+la marée pénètre dans la baie Baffin et baisse presque à zéro, à mi-chemin le long de la côte de l'île Baffin.
+A partir de cet endroit, la marée augmente encore en s'avançant dans les détroits de Smith et de Lancaster.
+
+             La pleine mer se produit presque simultanément le long des côtes du détroit de Davis, mais à
+l'entrée méridionale de la baie Baffin, elle coïncide avec la basse mer à l'extrémité septentrionale. Dans le
+détroit de Smith, l'amplitude de la marée est d'environ dix pieds et dans le détroit de Lancaster, à Resolute,
+l'amplitude moyenne est de quatre pieds. Les bras de mer qui s'éloignent du détroit de Lancaster ont une
+amplitude moyenne de marée, inférieure à six pieds.
+
+             Dans les régions de l'Arctique occidental situées à l'ouest du détroit de Barrow, l'amplitude de la
+marée est faible, n'étant guère plus marquée que les différences de niveau de la mer attribuables à des
+agents météorologiques.
+
+             Bien que le ministère de l'Énergie, des Mines et des Ressources effectue régulièrement des travaux
+d'exploration et de levés dans l'Arbtique canadien, les données sur les marées sont encore peu abondantes.
+Ainsi, les particularités de la marée, indiquées sur la carte, ne s'appliquent qu'aux quelques endroits où il
+y a eu observations.
+
+                                                                                                                                                                17
+                         ·  ·                                                               ·                                                                                                            ·                                                   I                 i  . 7f° · I
+                                                                                                                                                                                                                                                                                  Amplitude
+                                                                                                                                                                                                         I                                          Progression                     moyenne
+                                                                                                                                                                                                         j                                          moyenne de
+                                                                                                                                                                                                                                                                                    en pieds '
+                                                                                                                                                                                                         i                    Lac             Ste.     la marée
+                                                                                                                                                                                                                                                                                       0.04 -50t
+                                                                                                                                                                                                         i                                    ss
+
+50                                                     1,                                                                                                                                                i                                     54        0.0 heures
+                                                                                                                                                                                                         ! NipigaOntario                       53        4.2"
+                                                  Qe,                                                                                                                                                                                          62        8.7 "
+                                                                                                                                                                                                         l                                     51        8.5 "
+                                                                                                                                                                                                                                                                                   0.06                 ·
+                                                                                                                                                                                                         I                                    44         es "
+                                                                                                                                                                                                                                              43
+                                                                                                                                                                                                         i                                    42         0.0 heures                0.06
+                                                                                                                                                                                                         i                                    41         0.4 "
+                                                                                                                                                                                                                                              40         2.2"                      0.04
+                                                                                                                                                                                                        j1                                               4.7 "                                     _
+                                                                                                                                                                                                                                                         6.3 "
+                                                               I . t .. -                          0                                                                                                                          Érié                                                 0.10
+                                                                                                         4,                                                                                                                                              0.0 heures
+                                                                                                                                                                                                         I                                               8.8 "                     0.10
+                                                                                                                                                                                                                                                         9.6 "
+                                                                                                                                                                                                        I                                                                          0.04                 .
+                                                                                                                                                                                                                                                         0.0 heures
+                            Port Arthur                                                                                   )'                                                                            I                                                5.7 "                     0.06
+                                                                                                                                                                                                                                                         8.2 ·'
+                  ....,     Fort William ,,,,      ......t...                                                                 4                                                                                                                                                    014
+
+                                                       Isle    `... · , ...fond,                                                 e                                                               I                            Huron           26                                    0.02
+                                                  Royele                                                                                                                                                                                                                           -0.04
+                                                                 ..`,. ..., ...S.P.».·                                                         /                                                L. t
+                                                   LAC                                                                                                                                     r.._                                                                                     0.04
+                                                                     SUPÉRIE-UR '''                                                     o                                                                                                     26
+
+                                                                     .                      . ',.                            ..ea''                                                                                                           31
+
+ _                ·s °                                                                             ',... ·,....                   '                                                                                           Supérieur       1                                    · .04
+                                                                                                                                                                                                                                                                                   0.08
+          Duluth   a ·                                                                                           ...  ii                                                                                                                      2                                    0.10
+
+46                                                             kL                                                                                                                                                                             3
+
+  ·                                                                                                                       .4                                                                                                  4.4.4,
+
+                                                                                                                          *411111.111Wrir-                                                 "nele`
+
+                                                                                                                                                                                                                                                                                                        46 °
+
+                                                                                                     ad °                          '4444. 11111Va                                                                                             , TTN,,A       , ····.,t;ejl:(·
+                                                                                                                                                                                        B1en111r..,,,,                                                                   MONTRÉAL
+                                                                                       ;.' 9                                               '...                                                                                                    s.in                                   ,...,,7.) ·O
+                                                                                             'r `                                            i                                         Georgie'''. '
+                                                                                                                                                                                                                                              e./        re
+                                                                                                  CD                                           LAC
+                                                                                                                                                                                                                                                             -..-- -- - --··-· --I                      -
+                                                                                          i*:                                               HURON
+                                                                                                                                                                                       ..  , like
+                                                                                                                                        \
+                                                                                                                                                                                           Midlend ·                 `,N04,,               a
+                                                                                                                                                       \
+                                                                                                                                                                                                        -iii,                 eten ..-  !                                      Cherpkin
+                                                                                                                                                      !
+                                                                                                                                               my                                                                 ·                                                                                       _
+
+                  ÉTATS-UNIS                                                                                                  SN...CeLrs.                                                  TOR NTO                   LA c.-....9.e..C 1 9. /
+
+                                                                                       CI                                     DETROIT                                                      Flontilt            ç:
+                                                                                                                                            Windeor
+                                                                                       7.t                                                                                          -                   .ce                                                                                             _
+
+                                                                                                                                      \                                                                      ....'.  Outilla
+
+42                                                                                                                                              2?-···                                                                                  ÉTATS-UNIS 42"
+
+                                                                             CHICAGO.                                                                                                                                                                                                                                                          ·
+
+    . 92a. II                                  I               tS 1                         Ii                   1        84a  i · I                                                   I' 80°'I·1· 1. ' 76° ' 1 '                                                        . I ' 72° · I
+
+                                                                                            Figure 15. La très faible marée enregistrée dans les Grands lacs.
+       .95-. I .                              .90°. I .                . 85 °. I I. I. I.80*. I. I .                                                     . 70°. 1                .65°. I- I- I I.60°. I              . 55 °.
+
+                                                                                                                   aasSlN fDxf i                                                                       <
+
+                                                     e..                 ^ 060'                                         j
+                                                                                                                           301
+           TER RITOIRES
+165                                                                                                                                                      ^ iL E        4ak e·.`ee                   ^                               -
+                                                                                                                                                                                                                                              65°
+            ^/                                                  3s       1lE                           ·^ /4'
+                                                                                                                                                                                                             DÉTROIT
+    f                                                     /2 ô         SO UTHAMPTON               \12 °\ \                                  ·            BA FFIN
+                                                                                                                                                                                                                     Of
+    LcBr:\ weeCherie `                                                                                             \ °!\        \        \  \ \^ ^
+                                                                                                                                                                                                                DA VIS
+                                                                                                                   /0'  \       ` `Iesa1 isCU ry \ ' \·                              qp
+
+                                                                                                                             \^/8' \2                            30
+                                                                                                                                11° Nonm9ham 20' \ \ 26' \24 ` 28'
+    DU N ORD-OUEST                                                                                ^ 330°                           `6       \ \\ \       30                      1p
+
+                                                                                       4                           ^`00°\ \`\ \
+                                                          ^ 20° 0 0 ° C, °
+                            /                                                                     Coel^ ' 8                                 \q \ \;r9 28' 1           2 22
+
+                     i / 150° ^-                                                                  'tl° M en.oi                                 z \r                /   AO, l8
+
+                                              180°                       060°                                   °                              'o, ·\ \ o I o l
+
+                  /         1 °/                          ^                               \0 0° 0 0                                                      \       yU /                lie ae:owrm^
+
+                                                                                                                        ^                                \       \    \N
+
+                ^/    240°                                fff          \\                         \ r                                                            C H°PesAevan«l
+
+            1/0' ^              \\                                     BA / E                     4\ ^\                                                          28 ^lin24,ok\\      I Cao emelev
+                                                                               \\                               \                                                        26'
+
+160 -.-                    270                                                                                                                                                                      -                            - - 0°
+
+            /^ %                 6                            2' -                                \2'^ o°. ou...                                                 30' \ /E `\                                    MER DU
+                                                                                                                         `                                                                                   LABRADOR
+               \\          \ 3OO°             \ 4 \ D'H UDSON                                                                                                    \D' UNGAVA
+            ^h °tchrlly
+                                 ,,3          0. \ 360°^\                                                                                                                                    )Ç
+                        \                           \ 030° ^ `
+
+                           \                  \                 \ 060 °                                                            330°                               FonChim°                   m
+
+                                          \\     \\                 `    09
+                              York Fanory
+           MAN ITOBA                                      \\                              \ 150                              300°                                                        io
+                                                                                                                           270°
+55                                                                                        120° \  1 80 '                                                                             (9                   s
+                                                                                                       j,
+
+                                                                                                  Be^her
+
+                                                                                                  210°\                                     OUÉBEC
+
+                                                                                                                                                                                                                -             55°
+
+                  i/                                                                      240° IoBA^f 270°                                                                                                   ^
+
+                                                                                          300°                                  LA PROGRESSION MOYENNE DE LA MARÉE
+
+            /.                                                                                    JAMES 330° DÉTROIT D'HUDSON ET BAIE D'HUDSON
+
+                                                                                                       °Aekimiski 60°                       Amplitude moyenne des marées,
+
+                                                                                          030'                          '. 60°              de vive-eau, en pieds.... . . . ZI---
+
+                                              0 N T A R I 0
+
+                                                                                                  090` ^r" 7'                               Retard de phase, en degrés,                                      ---
+
+         j                                                                                Moosonee                 I    20°                 pour le méridien 60'W. . .-150'--
+
+                                                                                                                                                                                                                ^1n
+
+         j                                                                                                                                          ^l° = environ 2 minutes)
+
+50                                                                     .85°. 1 . I .                   .89 . I. I I. I. 75 °. I. I.                         70- I' I' I I'65' 1                                      55'
+
+                                                                                                                                Figure 16
+                                           Côte occidentale
+
+ Côte occidentale de Pile Vancouver, des fies Reine-Charlotte (Figures 9,18)
+
+              Le long des deux tiers septentrionaux de la côte ouest de Pile Vancouver, de la baie Barkley jusqu'au
+ cap Scott, la marée se produit presque simultanément; son amplitude est alors de 10 pieds. L'amplitude
+ augmente légèrement à mesure que la marée pénètre dans les nombreux inlets de Pile, sans cependant retar-
+ der sa progression, sauf aux gorges Quatsino où en raison du chenal restreint, la marée surgit 45 minutes
+ plus tard que n'importe où ailleurs près du littoral.
+
+              Le long de la côte occidentale des fies Reine-Charlotte et le long de la côte continentale du bassin
+ Reine-Charlotte, la pleine mer se produit simultanément environ 30 minutes plus tard qu'à l'ile Vancouver.
+ Le peu de profondeur de l'eau du bassin augmente l'amplitude de la marée le long du continent, et cet effet
+ s'accentue de plus en plus à mesure que la marée s'engouffre dans les «inlets» profonds, où l'amplitude de
+ la marée atteint 16 pieds.
+
+ Détroit d'Hécate (Figures 9,19)
+              La marée qui se propage dans le bassin Reine-Charlotte court vers le nord dans le détroit d'Hécate,
+
+ augmentant en amplitude avec le peu de profondeur de la passe. Autour du cap nord-est de Pile Graham, la
+ marée ralentit, atteignant Pinlet Masset environ une heure plus tard que le détroit d'Hécate. Du côté conti-
+ nental du détroit, la différence de temps et l'amplitude de la marée augmentent toutes deux du sud au nord;
+ à Prince-Rupert, la marée arrive environ une heure plus tard qu'au large de Pile Vancouver et elle a une
+ amplitude de 15 pieds. L'onde de marée se précipite vers le fond des inlets et y parvient environ dix minu-
+ tes plus tard qu'à l'entrée, avec une légère augmentation dans l'amplitude.
+
+ Détroit Juan de Fuca, détroit de Géorgie (Figures 18 et 19)
+              L'onde de marée met environ six heures à parcourir le détroit Juan de Fuca et à pénétrer dans le
+
+ détroit de Géorgie. L'amplitude augmente à partir de l'entrée en allant vers Victoria, où elle est de sept
+ pieds; elle atteint douze pieds à l'extrémité nord du détroit de Géorgie. Nous pouvons considérer le détroit,
+ en son entier, comme un seul bassin à flot, le décalage de temps entre n'importe quel point de ses côtes et
+ la pointe Atkinson à Vancouver ne dépassant pas 30 minutes.
+
+ Détroit de la Reine-Charlotte et détroit de Johnstone (Figure 18)
+              Cet étroit passage parsemé d'iles, séparant la partie septentrionale de l'lle Vancouver de la terre
+
+ ferme, est parcouru par deux courants de marée -- l'un qui vient du bassin Reine-Charlotte au nord, et l'autre,
+ du détroit de Géorgie au sud.
+
+              La marée du nord met environ trois heures de plus pour atteindre les parties étroites du chenal
+ séparant Pile Vancouver du. continent que la marée qui vient du sud. Conséquemment, un courant impétueux
+ prend naissance dans le passage, spécialement aux gorges comme celles de Seymour, Okisollo, Surge,
+ Hole-in-the-Wall, Yuculta et des rapides Arran. L'amplitude de la marée «du nord» présente de nombreuses
+ variations, attribuables à la forme très irrégulière du chenal: à Alert Bay, l'amplitude moyenne est de 14
+ pieds; à l'inlet Knight, 16 pieds, et elle décrolt au fur et à mesure que le chenal se rétrécit.
+
+20
+    120' 110° 100° 90° 80' 70° 60°                                                          50°             40°                30°                             20°                                                              10°
+
+         85°                                             a5°
+
+                                                                                                   E                                                                                 LA PROGRESSION MOYENNE DE LA MAREE A PARTIR DE
+                                                                                            ^Ea^p^^`                                                                      TERRE-NEUVE JUSQU'AU DÉTROIT DE LANCASTER ET AU DÉTROIT
+                                                                                            ^^^
+                                                                                                                                                                                                                                   DE SMITH
+                                                                    w
+                                                                                  ^                                                                                       Amplitude moyenne des marées de vive-eau, en pieds..... -----2' -----
+    p,                                                                                                                                                                    Retard de phase, en degrés, pour le méridien 60° W......-150°
+                                           rt[
+                                                                                                                                                                                                                       ( 1° = environ 2 minutes)
+
+                                                                                                                                                                                                                      v^^
+
+    tQ° ^                                                                            Qo                                                                                                                       ^
+
+                                                                                     / %'/^6· 5 ^M'"                               b·H^,,,s                                         G^ \QF
+
+                  _        ^ lif ofvo_^                       /                                     / 300°
+         0 0 --              - --                                    /
+    Q 4' 0 ° 5                                                                                 330               1 __                                    fl
+                           6 30                                                                          / -11'        F F 1,                                        P ^^^r-"e
+
+                                                                                                 / ` I É BA \ 31                                                  f^ ^o^ft
+
+    P,,.. ^ ^,,..                                                                                        8 z \ 270°                                                                                                                        /                                                                    ^6
+                                                    °·.
+                                                                                                                                                 24o°
+                                                                                            \x\\\^
+
+                                                                                                            30°                                                      1
+                                                                                                                                                              10° Î / /
+                                                                                                            60
+                                                                                                                         0.^·                                                    /
+                                                                                                                                            ` 150°                4,
+
+                                                                                                                                                           180° / 5^                /
+
+                    c°n.                                                                                                       L,           ^ry·               /          / /
+                      °·I
+                                                                                                     ^^ e                             c·0 i ^       (             / 6'
+                     e.°
+                                                                                                                                      120'                                7' 00 /
+
+                                                                                                                                                                          R
+
+                                 .· M ^.n. C^                                               8                       9F^`                                  ^       `o ·// O E 72'^                           ,
+                                            °                                            0           u.                   ^                            ,,w ·      / / ^ /                            Got
+                                                                                                                            2                       P·n ^·rA
+                              c·n                                                                                                                                 /       /
+
+                              SVI                                                                                                                   c"mO'            /                       5                            ^
+
+                                                                                     BASSIN cN                                              ^                  · / __ DPJ1                                                ^          ci    D  i^
+
+                                                                                               FOXE                                                 7g.                                      %\)                                                       150°
+
+                                                                                                                                                         en ·                                14
+
+.a, 65° f·,. s 3Of 6,
+
+                                   e·
+
+                              è    s°mm                                                              o                             '                           ,, ^\                                          /     /        /                                                                            /
+                                                                                                                               oFf
+    ».,       ,M1^         o                                                                        QO.             '                                    ^                                /                   ^/                                                                                             /
+
+                                                                                                                                                  S2a0 L&                                                                                                      ^
+
+                                         t ·^ ^a wret.«                                                             ^ CJ              t OH                                \            /                         /                                                                   /
+                                                                                                                                                                                                                                                                                  6·
+                                                                                     ,,. .                                                          ^°^·° p,,...°· ·                                                                                                          /
+
+                                                                                                                                                                 BArt                                               180°                               /i
+                                                                                                                                                                   N^pVA
+         e.amovp                                                                                                                                                                                    · ry·<°°                                  ^ /
+                                                                                                                                                               D^                          \
+
+60                               BAIE                                                                                                                      H                                 ^·
+
+                                                                                         Ou                                                                fa^"°^
+
+                                                                                                                                                                    E g E ^                       \ ry ·^^ D°e\°y.e...
+
+                           D'HUDSON                                                                                                                                                                                             zo'
+
+                                                                                                                                                                                                  ` ^·                       27o°             ry·,^'
+
+                                                                                                                 ^                                             ^                       ..         ^                                  fn·"          ·r         ^
+                                                                                                                                                                                                                                360'          be·`~ \        `^
+         ..                                                                                              Q                                                                                                       `Pg Q Ne^r     \
+                                                                                                                                                                                                                                                                              50°
+                    90'                                                                              80'                                                          70°                                                                60°
+
+                                                                                                                                                               Figure 17
+             133°                                                                       1300                                                                               12,7:                                                                         124°                                                              121°
+                                                                                                                                                                             1                                                                             r
+                                                                                                                                                                                                                                                                                                                INLET
+                                                                                                                                                                                             . c..,,,./.,,T                                                                INLET                                 BUTE
+                                                                                                                                                                                                                                                                  KNIGHT
+                                              \ 0 e, \IIIV                                                                                                                                                                       _.).
+                                               \  _ -- - - L0.7 ·                                                                                                                                                                                                                 30°
+                                                                                                                                                                                                   0                  `· ....,,                             -
+
+                   30' 1                          5' , ho Ducnias      \ e                                                                                                                                   .5 ...ie 30                                 e
+
+             ENTRÉE 1 DIXON                                                                                                                                         ()e,,,,,i.                               'llet .
+
+                                                                                                                                                                Lus,,,_                                        ---               lle Gilford
+
+                     /4'                       /                                  % Pnnee Rupert ..),
+
+                                                                                                  ....., ·                                                                                                   Ir
+
+                                               /
+
+                                            /     lie Stephens % » eb " .Se\r*                                                                                                                        ':gle                            ·
+                                        /
+                                                                                                                                                                                mon Bay% 3
+                                            Masset lie Porcher \ .
+                                        3' i                        o
+                          IL E 2,
+          /                                                                                                            --
+
+      4'
+
+      ,,                  GRAHAM 6, I D                                                      49 13,                               ne/                                                                                                                    'i OÀ, 70°
+
+      (                                                                                 4,                                                                                                                                                                   - NSTO NE 3                                                 170°
+
+53 0                          - -       6'                                                  iiii, li                   .., __...,,,                                                                                                                                             1/4 0                                  .
+             1,                                                                                                                                                                                                                                                                                                 Ib.
+                                                        lle Louise                      lles Esurven                                rineesse«Royele                                                                                                                                      3
+             es,                                                                                                                                                                                                                                                        Gor g es $eymour 90°                                   53°:
+             '1,                           ce--,                    Cl.                                                 · V
+              es                                                                             -- je.                                                                                                                                                                                     2
+                                              'VlIeLyell             -x,..--            5'           ,,,e ,,                                                                                                                                                                               120
+                  o
+                  1,                                                    n                                                                                                                                                                                                                       Campbell Rive,
+                     9          ,,...-
+                        9 ....                                            V ,                Re Arisunsbal
+                                                                            .....
+
+                     .... ,,,                                                                                                                                   \ e
+
+             3' 51.       ...e'.s MORESBY         f ''''''.··s·                                                    *                                            c.
+
+      /                                                                                                       tee                                               lle
+
+                                                                                                              vo0 ,40                  ,:, .-,. l · Bella Bell          ·
+
+                                                                    1.11Corighil
+                                                                    ···s                20'
+                                                                                                                                                                i
+
+                                                                         ° S" J·llrnes               --4'-- -- -- _ , "                                              s
+
+                                                                    °-                                                            ,e''' e
+
+                                                                                                     BASSIN                                                                                                                                                                            c
+                                                                                                                                ,.
+
+                                                                                             REINE-CHARLOTTE
+
+                                                                                                                                       EnIrée Smith · ...-",y ,
+                                                                                                                                                     _-,I. -- ,_ __
+
+                                                                                                                                              j .=7 -,--__-_.7:0. -
+
+                                                                                                                                           4' W 20 '''
+                                                                                                                                           - « 4.4,
+
+                                                                                                                   lies Scott.e.  i ap soe.
+                                                                                                                                               Pon Hardy ·
+
+                                                                                                                                                                                       (Voir cartouche)
+
+                                                      OCÉAN                                                                            4 - Cep Cook
+                                                                                                                                                                                       /                                                      s 17v
+50°
+                                                                                                                                                                                       (e, ,... e inler                                                                                                                           50°
+                                                                                                                                                                                                                                       ' .., of- .w.,    5 Jervis                                                              121°
+                                                                                                                                                                                                                      150`
+                                                                                                                                                                                                                                         io ,,Powell     Il>
+                                                                                                                                                                                                                                 3 0,                       2,
+                                                                                                                                                                                                                                              River
+
+                                                                                                                                                                                          ,_..,..-                    Courtenay · , '''''e 16· -                        Squamish
+
+                                                                                                                                                                           lle Nootka                                                                               160 awe
+
+                                                                                                                                       .                                                                                                      %
+
+                                     PACIFIQUE                                                                                                                                                     ..,' ·             'l :,                   3' --..,          --
+                                                                                                                                                                                Iti , E evan Point                                                                  P.
+             LA PROGRESSION MOYENNE DE LA MARÉE SEMI-DIURNE
+                                             CÔTE DU PACIFIQUE                                                                                                                         lie Flores                                                                       VANCOUVER
+
+                                                                                                                                                                                                      Av...i                              °Port Alberm   .
+
+                                                                                                                                                                                                                      . 1                  MM turee>                    0f.e"
+                                                                                                                                                                                                                                          Alberni               \ 160
+
+      Amplitude de la marée semi-diurne principale, en pieds...                                                                                      21                                                           e              "/                               2- hqs4'et4X,eell.i,ngharn
+                                                                                                                                                                                                                                                                    /.5iiiike42,.. 4 4 ,
+      (Multiplier par deux pour obtenir l'amplitude moyenneY                                                                                                                                                 /        / /
+                                                                                                                                                                                                       ../ ······             -.... s ..                  biegé·t : o.z.nso.. '
+      Retard de phase de la marée semi-diurne principale pour le
+                                                                                                                                                                                                      ·                                           -,...  2 Me& 9o. 2'
+      méridien 120°W                                                                                                                   --150°--                                           ...,3 ·                       Cap Flattery
+                                                                                                                                                                                                                                                                Pon Angeles
+                                               (30° = environ une heure)                                                                                                                                                               2'
+                                                                                                                                                                                                                                                                                          3' Everen
+             133°                                                                       130°                                                                               127°
+                                                                                                                                                                                                                                                                   AtiELE
+
+                                                                                                                                                                                                                                                          124°
+
+                                                                                                                                           Figure 18
+                      133°                                                 130°                                                                      127°                                                                                         124°                                                           121°
+
+            Ile °all
+
+                                           ' ° [1.'                                                                                                  LA PROGRESSION MOYENNE DE LA MARÉE DIURNE
+                                                                                                                                                                                         CÔTE DU PACIFIQUE
+                                                                      1. 7
+
+                            _--               -_-                      ' -140°
+
+                                                      f1^ h^
+
+                      140°          ^         Ile Os                                                                     Amplitude de la marée diurne principale, en pieds........ -----2 ' -----
+                                                 11<s,°pnem^                                                             (Multiplier par deux pour obtenir l'amplitude moyenne)
+            FNTR£ c D/XON/                                                                                               Retard de phase de la marée diurne principale pour le
+                                                                                                                         méridien 120°W . ...................................... - 150 , -
+         l                       6                                         PnnceRuce
+
+                                                                                   LS`
+                                                                                150°
+
+                            f"°t 14 P°reh°r IL E - 140' ao'0                                                                                                                                                  ( 15° = environ une heure)
+                                      200
+
+                                                                    ^oO          '                  a
+            )               ·       50                                     (^ , P ^ Cr°°·
+
+            7               ^ ·                                                     °c` -              Canercu°no-
+                            GRAHAMv                                 o      ^e.             ^
+                                           140ga o
+
+            N 6                  135°      7' 135° n°e.r
+
+53,-                                       _ /6'                           ,I<,Ea,<°an a                       P,,ne<,r<.R°,ar<                                                                                                                                                                            -        53°
+
+            2                              Ile Lnmse  p                                    .
+
+      ^               ^\ ^F                                         =            Enueec·`m 0
+
+                                              4«v<n
+
+                                       p   y                           r°        lle Answxabal                                                        e V°·°
+
+                      ^^               9F     '                            135°                                                     r^4^a °
+                                           Q ,
+
+                            5 ^y \                                                                     loe^°                           \°            ^re
+
+                                                                                                                         . 8ella 8 I1a^.l^ °o-
+                                                                                                                      °         Jrl`l. -IIrlU^,.'.,
+                                                      ^lâecungnn                                 E^t^e`                                    o\
+                                                                                                               /1
+
+                                                      e p Si .lames              ^                             ô e
+                                                                                    1. 5'
+
+                                                                                              \                    ^ ·,°`°,B 0             ^`-
+
+                                                                                        BASSIN         ^ee.l.er,                           y
+
+                                                      130                                        \                                  Q
+
+                                                                                 REINE-CHARLOTTE
+
+                                                                                                                         Fntr2e Smrtn
+
+                                                                                                            \            130à-                                                                  lnrer xn^snr                           3.
+                                                                                                 fles5catt°O               ^ `
+
+                                                                                                                                                                                                                                    170°
+
+                                                                                                                         Cap Scalt     °             ne Chari ^a ^Ilord
+
+                                                                                                                         Port Hardr
+
+                                                     120°                                                                           13°%^AlenBay ^1                                             m`N·vBe                  CD                                                                                T
+
+                                    QCÉAN                                                                                                                        140
+
+                               P A C I F 1 Q U E                                                                                           ^ °v0                         r ° ^OAnrnan 2                                                                                                                       A
+
+                                                              110°                                                                    {^t/^!^f                                                  GnrgerS<ym°nr°
+                                                                                                                                                                                                   Campba116R'wer z'
+                                                                                                                         Cep C°ot -'          \                     j^F                                                                         La<                                                                 50p
+                                                                                                                                                                                                                                                                    !nr<r
+
+50°                                                                                                                                                  12 0°
+
+                                                                                                                                                                                          L.9y                                   I      p Powell
+
+                                                                                                                                                                                          c0                                        °>                7 0°                      sv°amih
+                                                                                                                                                                                                              COUfteney             i
+                                                                                                                                                     IIeN°° 14a  $                             GL                                                                          B B"`
+                                                                                                                                                                                                                                        °^ 200°
+                                                                                                                                                                                                F9
+
+                                                                                                                                                              Estevan P° nt                                                                     ^p                         PO^^C 80
+
+                                                                                                                                                                                Fl,^r,^s                                                                                         VANCOUVER
+
+                                                                                                                                                                                                                                    °APOlrcbernf          ^
+
+                                                                                                                                                                                                                                     fnlet      Nané`"'P                   170"
+                                                                                                                                                                                                                                    AlCernr
+                                                                                                                                                                                                                                                            ^^^`
+                                                                                                                                                                                                                                                                                              Blain e _-__--_-----
+                                                                                                                                                                                                                  ti^°                ID^eIDID
+
+                                                                                                                                                                                                                  ee·'^          ^°e                                       °^ ^             160°
+                                                                                                                                                                                                                                                                             e ^O         l\ Bellm9ham
+                                                                                                                                                                                                              B°             ^°
+
+                                                                                                                                                                                                                                                -^.,                             qn04
+
+                                                                                                                                                                                                   120° j Flani e4ry 130° \^ °pF <                                         °       C^ly°
+
+                                                                                                                                                                                                                                                                           VICTORIA
+
+                                                                                                                                                                                                                  /.$'                                -' 140°-2,-_ 150°
+
+                                                                                                                                                                                ^                                                                                                    111111 ?1 k l Everen
+
+                                                                                                                                                     127°                                                                                                                                 rr  SEATTLE
+
+                      133°                                                 130°                                                                                                                                                                   124°                                                           121°
+
+                                                                                                                                    Figure 19
+GC 358 .C2 0 6514
+
+Dohler, G.
+
+Les marees dans les eaux du\
+
+Canada
+
+118317      12008789           c.1
+
+        DATE DUE
+
+                      Printed
+                      inuSA
+

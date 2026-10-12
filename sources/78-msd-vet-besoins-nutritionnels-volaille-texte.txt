@@ -1,0 +1,1547 @@
+Nutritional Requirements of Poultry - Poultry - MSD Veterinary Manual
+honeypot link
+skip to main content
+MSD MANUAL
+Veterinary Manual
+VETERINARY PROFESSIONALS
+PET OWNERS
+RESOURCES
+QUIZZES
+ABOUT
+VETERINARY PROFESSIONALS
+PET OWNERS
+<
+Nutrition and Management: Poultry
+PROFESSIONAL VERSION
+Nutritional Requirements of Poultry
+Full Review:
+Apr 2023
+By
+Doug Korver
+,
+PhD
+,
+University of Alberta
+Last updated: Sept 2024
+v3344197
+Water
+|
+Energy Requirements and Feed Intake
+|
+Amino Acid Requirements
+|
+Vitamins
+|
+Minerals
+|
+Other Nutrients and Additives
+|
+Multimedia
+|
+Poultry convert feed into food products quickly, efficiently, and with relatively low environmental impact relative to other livestock. Their high rate of productivity results in relatively high nutrient needs. Poultry require at least 38 nutrients in their diets in appropriate concentrations and balance. The nutrient requirement values published in
+Nutrient Requirements of Poultry
+(National Research Council [NRC], 1994) are the most recent available and should be viewed as minimal nutrient needs for poultry. A revised edition of the Nutrient Requirements of Poultry is underway. These requirement values have been derived from experimentally determined levels after an extensive review of the published data. Criteria used to determine the requirement for a given nutrient are primarily related to production (eg, growth, feed efficiency, egg production), prevention of deficiency symptoms, and quality of poultry products.
+The requirements published by the NRC assume that the dietary nutrients are in a highly bioavailable form, and they do not include a margin of safety. Consequently, adjustments should be made based on bioavailability of nutrients in various feedstuffs. A margin of safety should be added based on:
+the length of time the diet will be stored before feeding
+changes in rates of feed intake due to environmental temperature or dietary energy content
+genetic strain of poultry
+husbandry conditions (especially the level of sanitation)
+the presence of stressors, including diseases and mycotoxins
+Safety margins for vitamins and most trace minerals, for example, tend to be quite high relative to the actual requirement because of their low cost and minimal risk of toxicity. Safety margins for most of the macrominerals, amino acids, and energy tend to be minimal because of the cost (eg, amino acids, energy, phosphorus) or potential negative effects on performance (eg, some amino acids, sodium, phosphorus).
+Water
+Water is an essential nutrient and is required in greater amounts than any other nutrient. Under thermoneutral conditions, a general guide is that birds will drink approximately twice as much water as the amount of feed. However, many factors influence water intake, including environmental temperature, relative humidity, salt and protein levels of the diet, birds' productivity (rate of growth or egg production), and the individual bird's ability to resorb water in the kidney. As a result, specific water requirements cannot be given for all circumstances. Water deprivation for > 12 hours has an adverse effect on growth of young poultry and egg production of layers; water deprivation for > 36 hours results in a marked increase in mortality of both young and mature poultry. Cool, clean water, uncontaminated by high levels of minerals or other potential toxic substances, must be available at all times.
+Energy Requirements and Feed Intake
+The energy requirements of poultry and the energy content of feedstuffs are expressed in kilocalories (1 kcal equals 4.1868 kilojoules). Three different measures of the bioavailable energy in feedstuffs are currently in use in poultry diet formulation, apparent metabolizable energy (AME
+n
+), true metabolizable energy (TME
+n
+), and net energy (NE); the subscripted n refers to a correction for the amount of nitrogen retained in the body. AME
+n
+is the gross energy of the feed minus the gross energy of the excreta (ie,for reporting dietary energy and formulating diets.
+Calculations of TME
+n
+make an additional correction to account for endogenous losses of energy not directly attributable to the foodstuff and are usually a more accurate measure. However, the TME
+n
+assay is conducted using roosters under artificial conditions and may not reflect the amount of energy in a feedstuff for younger birds or hens.
+AME
+n
+and TME
+n
+are similar for many ingredients. However, the two values differ substantially for some ingredients, such as feather meal, rice, wheat middlings, and corn distiller's grains with solubles. The net energy system accounts for fecal and urinary energy losses and the energy lost as heat arising as feed energy sources are digested, absorbed, and metabolized (heat increment). Although the NE databases needed for accurate diet formulation are being developed, most poultry diet formulation is done using AME
+n
+.
+Poultry can adjust their feed intake over a considerable range of feed energy levels to meet their daily energy needs. Energy needs and, consequently, feed intake also vary considerably with level of productivity, environmental temperature, and amount of physical activity. A bird's daily need for amino acids, vitamins, and minerals are mostly independent of these factors.
+The nutrient requirement values in the accompanying tables are based on typical rates of intake of birds in a thermoneutral environment consuming a diet that contains a specific energy content (eg, 3,200 kcal/kg for broilers). If a bird consumes a diet that has a higher energy content, it will decrease its feed intake; consequently, that diet must contain a proportionally higher amount of amino acids, vitamins, and minerals. Thus, nutrient density in the ration should be adjusted in proportion to energy to provide appropriate nutrient intake based on requirements and the actual feed intake. Because of the ability of poultry to adjust their feed intake to accommodate a wide range of diets with differing energy content, the energy values listed in the nutrient requirement tables in this chapter should be regarded as guidelines rather than absolute requirements.
+Table
+Nutrient Requirements of Growing Pullets
+a
+Table
+Nutrient Requirements of Growing Pullets
+a
+Nutrient Requirements of Growing Pullets <sup >a</sup>
+Age (week)
+0–6
+6–12
+12–18
+18 to 1st Egg
+White-Egg Layers
+Body weight (g)
+b
+450
+980
+1,375
+1,475
+Protein
+18
+16
+15
+17
+Arginine
+1.0
+0.83
+0.67
+0.75
+Lysine
+0.85
+0.60
+0.45
+0.52
+Methionine
+0.30
+0.25
+0.20
+0.22
+Methionine + cystine
+0.62
+0.52
+0.42
+0.47
+Threonine
+0.68
+0.57
+0.37
+0.47
+Tryptophan
+0.17
+0.14
+0.11
+0.12
+Calcium
+0.90
+0.80
+0.80
+2.00
+Phosphorus, available
+0.40
+0.35
+0.30
+0.32
+Brown-Egg Layers
+Body weight (g)
+b
+500
+1,100
+1,500
+1,600
+Protein
+17
+15
+14
+16
+Arginine
+0.94
+0.78
+0.62
+0.72
+Lysine
+0.80
+0.56
+0.42
+0.49
+Methionine
+0.28
+0.23
+0.19
+0.21
+Methionine + cystine
+0.59
+0.49
+0.39
+0.44
+Threonine
+0.64
+0.53
+0.35
+0.44
+Tryptophan
+0.16
+0.13
+0.10
+0.11
+Calcium
+0.90
+0.80
+0.80
+1.8
+Phosphorus, available
+0.40
+0.35
+0.30
+0.35
+a
+Requirements are listed as percentages of diet. Nutrient levels should be adjusted to meet specific strain requirements, level of feed intake, and body weight and skeletal development.
+b
+Average body weight at end of each period.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages of diet. Nutrient levels should be adjusted to meet specific strain requirements, level of feed intake, and body weight and skeletal development.
+b
+Average body weight at end of each period.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Nutrient Requirements of Laying Hens at Different Feed Intakes
+a
+Table
+Nutrient Requirements of Laying Hens at Different Feed Intakes
+a
+Nutrient Requirements of Laying Hens at Different Feed Intakes <sup >a</sup>
+Pounds (approx.)/100 birds/day
+18
+20
+22
+24
+26
+Grams of feed/bird/day
+80
+90
+100
+110
+120
+White-Egg Layers
+Protein
+18.8
+16.7
+15.0
+13.6
+12.5
+Arginine
+0.88
+0.78
+0.70
+0.64
+0.58
+Lysine
+0.86
+0.77
+0.69
+0.63
+0.58
+Methionine
+0.38
+0.33
+0.30
+0.27
+0.25
+Methionine + cystine
+0.73
+0.64
+0.58
+0.53
+0.48
+Threonine
+0.59
+0.52
+0.47
+0.43
+0.39
+Tryptophan
+0.20
+0.18
+0.16
+0.15
+0.13
+Calcium
+4.12
+3.67
+3.30
+3.00
+2.75
+Phosphorus, available
+0.31
+0.28
+0.25
+0.23
+0.21
+Brown-Egg Layers
+Protein
+22.5
+20.0
+18.0
+16.4
+15.0
+Arginine
+1.06
+0.94
+0.85
+0.77
+0.71
+Lysine
+1.05
+0.93
+0.84
+0.76
+0.70
+Methionine
+0.45
+0.40
+0.36
+0.33
+0.30
+Methionine + cystine
+0.89
+0.79
+0.71
+0.65
+0.59
+Threonine
+0.71
+0.63
+0.57
+0.52
+0.48
+Tryptophan
+0.24
+0.21
+0.19
+0.17
+0.16
+Calcium
+5.00
+4.44
+4.00
+3.64
+3.33
+Phosphorus, available
+0.38
+0.33
+0.30
+0.27
+0.25
+a
+Requirements are listed as percentages of diet.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages of diet.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Nutrient Requirements of Broilers
+a
+Table
+Nutrient Requirements of Broilers
+a
+Nutrient Requirements of Broilers <sup >a</sup>
+Age
+b
+0–3 weeks
+3–6 weeks
+6–8 weeks
+kcal AME
+n
+/kg diet
+c
+3,200
+3,200
+3,200
+Crude protein
+d
+23.00
+20.00
+18.00
+Arginine
+1.25
+1.10
+1.00
+Glycine + serine
+1.25
+1.14
+0.97
+Histidine
+0.35
+0.32
+0.27
+Isoleucine
+0.80
+0.73
+0.62
+Leucine
+1.20
+1.09
+0.93
+Lysine
+e
+1.10
+1.00
+0.85
+Methionine
+0.50
+0.38
+0.32
+Methionine + cystine
+0.90
+0.72
+0.60
+Phenylalanine
+0.72
+0.65
+0.56
+Phenylalanine + tyrosine
+1.34
+1.22
+1.04
+Proline
+0.60
+0.55
+0.46
+Threonine
+0.80
+0.74
+0.68
+Tryptophan
+0.20
+0.18
+0.16
+Valine
+0.90
+0.82
+0.70
+a
+Requirements are listed as percentages of diet.
+b
+The 0- to 3-, 3- to 6-, and 6- to 8-week intervals for nutrient requirements are based on chronology for which research data were available; however, these nutrient requirements are often implemented at younger age intervals or on a weight-of-feed consumed basis.
+c
+These are typical dietary energy concentrations. Different energy values may be appropriate depending on local ingredient prices and availability.
+d
+Broiler chickens do not have a requirement for crude protein per se. However, there should be sufficient crude protein to ensure an adequate nitrogen supply for synthesis of nonessential amino acids. Suggested requirements for crude protein are typical of those derived with corn-soybean meal diets, and levels can be reduced when synthetic amino acids are used.
+e
+Recent research has shown that higher levels of lysine are needed for maximal growth and efficiency of modern broilers.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages of diet.
+b
+The 0- to 3-, 3- to 6-, and 6- to 8-week intervals for nutrient requirements are based on chronology for which research data were available; however, these nutrient requirements are often implemented at younger age intervals or on a weight-of-feed consumed basis.
+c
+These are typical dietary energy concentrations. Different energy values may be appropriate depending on local ingredient prices and availability.
+d
+Broiler chickens do not have a requirement for crude protein per se. However, there should be sufficient crude protein to ensure an adequate nitrogen supply for synthesis of nonessential amino acids. Suggested requirements for crude protein are typical of those derived with corn-soybean meal diets, and levels can be reduced when synthetic amino acids are used.
+e
+Recent research has shown that higher levels of lysine are needed for maximal growth and efficiency of modern broilers.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Protein and Amino Acid Requirements of Turkeys
+a
+Table
+Protein and Amino Acid Requirements of Turkeys
+a
+Protein and Amino Acid Requirements of Turkeys <sup >a</sup>
+---------------Age (week)----------------
+Male:
+0–4
+4–8
+8–12
+12–16
+16–20
+20–24
+Female:
+0–4
+4–8
+8–11
+11–14
+14–17
+17–20
+Holding
+Breeding Hens
+Energy base kcal ME/kg diet
+b
+2,800
+2,900
+3,000
+3,100
+3,200
+3,300
+2,900
+2,900
+Protein
+28.0
+26
+22
+19
+16.5
+14
+12
+14
+Arginine
+1.6
+1.4
+1.1
+0.9
+0.75
+0.6
+0.5
+0.6
+Glycine + serine
+1.0
+0.9
+0.8
+0.7
+0.6
+0.5
+0.4
+0.5
+Histidine
+0.58
+0.5
+0.4
+0.3
+0.25
+0.2
+0.2
+0.3
+Isoleucine
+1.1
+1.0
+0.8
+0.6
+0.5
+0.45
+0.4
+0.5
+Leucine
+1.9
+1.75
+1.5
+1.25
+1.0
+0.8
+0.5
+0.5
+Lysine
+1.6
+1.5
+1.3
+1.0
+0.8
+0.65
+0.5
+0.6
+Methionine
+0.55
+0.45
+0.4
+0.35
+0.25
+0.25
+0.2
+0.2
+Methionine + cystine
+1.05
+0.95
+0.8
+0.65
+0.55
+0.45
+0.4
+0.4
+Phenylalanine
+1.0
+0.9
+0.8
+0.7
+0.6
+0.5
+0.4
+0.55
+Phenylalanine + tyrosine
+1.8
+1.6
+1.2
+1.0
+0.9
+0.9
+0.8
+1.0
+Threonine
+1.0
+0.95
+0.8
+0.75
+0.6
+0.5
+0.4
+0.45
+Tryptophan
+0.26
+0.24
+0.2
+0.18
+0.15
+0.13
+0.1
+0.13
+Valine
+1.2
+1.1
+0.9
+0.8
+0.7
+0.6
+0.5
+0.58
+a
+Requirements are listed as percentages of diet.
+b
+These are typical ME concentrations for corn-soya diets. Different ME values may be appropriate if other ingredients predominate.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages of diet.
+b
+These are typical ME concentrations for corn-soya diets. Different ME values may be appropriate if other ingredients predominate.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Nutrient Requirements of Pheasants
+a
+Table
+Nutrient Requirements of Pheasants
+a
+Nutrient Requirements of Pheasants <sup >a</sup>
+Energy base
+0–4 week
+4–8 week
+9–17 week
+Breeding
+kcal ME/kg diet
+b
+2,800
+2,800
+2,700
+2,800
+Protein (%)
+28
+24
+18
+15
+Glycine + serine (%)
+1.8
+1.55
+1
+0.5
+Lysine (%)
+1.5
+1.40
+0.8
+0.68
+Methionine + cystine (%)
+1.0
+0.93
+0.6
+0.6
+Linoleic acid (%)
+1
+1
+1
+1
+Calcium (%)
+1.0
+0.85
+0.53
+2.5
+Phosphorus, available (%)
+0.55
+0.5
+0.45
+0.40
+Sodium (%)
+0.15
+0.15
+0.15
+0.15
+Chlorine (%)
+0.11
+0.11
+0.11
+0.11
+Iodine (mg)
+0.3
+0.3
+0.3
+0.3
+Riboflavin (mg)
+3.4
+3.4
+3.0
+4.0
+Pantothenic acid (mg)
+10
+10
+10
+16
+Niacin (mg)
+70
+70
+40
+30
+Choline (mg)
+1,430
+1,300
+1,000
+1,000
+a
+Requirements are listed as percentages or as mg/kg of diet. For values not listed, see requirements of turkeys (
+table numonly
+Protein and Amino Acid Requirements of Turkeys
+a
+and
+table numonly
+Protein and Amino Acid Requirements of Turkeys
+a
+) as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages or as mg/kg of diet. For values not listed, see requirements of turkeys (
+table numonly
+Protein and Amino Acid Requirements of Turkeys
+a
+and
+table numonly
+Protein and Amino Acid Requirements of Turkeys
+a
+) as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Nutrient Requirements of Bobwhite Quail
+a
+Table
+Nutrient Requirements of Bobwhite Quail
+a
+Nutrient Requirements of Bobwhite Quail <sup >a</sup>
+Energy base kcal ME/kg diet
+b
+Starting 2,800
+Growing 2,800
+Breeding 2,800
+Protein (%)
+26
+20
+24
+Glycine + serine (%)
+—
+—
+—
+Lysine (%)
+—
+—
+—
+Methionine + cystine (%)
+1.0
+0.75
+0.90
+Linoleic acid (%)
+1
+1
+1
+Calcium (%)
+0.65
+0.65
+2.4
+Phosphorus, available (%)
+0.45
+0.30
+0.7
+Sodium (%)
+0.15
+0.15
+0.15
+Chlorine (%)
+0.11
+0.11
+0.11
+Iodine (mg)
+0.3
+0.3
+0.3
+Riboflavin (mg)
+3.8
+3.0
+4.0
+Pantothenic acid (mg)
+12
+9
+15
+Niacin (mg)
+30
+30
+20
+Choline (mg)
+1,500
+1,500
+1,000
+a
+Requirements are listed as percentages or as mg/kg of diet. For values not listed, see
+requirements of laying hens
+and
+requirements of leghorn-type chickens
+as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages or as mg/kg of diet. For values not listed, see
+requirements of laying hens
+and
+requirements of leghorn-type chickens
+as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Nutrient Requirements of Pekin Ducks
+a
+Table
+Nutrient Requirements of Pekin Ducks
+a
+Nutrient Requirements of Pekin Ducks <sup >a</sup>
+Energy base kcal ME/kg diet
+b
+Starting (0–2 weeks) 2,900
+Growing (2–7 weeks) 3,000
+Breeding 2,900
+Protein (%)
+22
+16
+15
+Arginine (%)
+1.1
+1.0
+—
+Lysine (%)
+0.9
+0.65
+0.6
+Methionine + cystine (%)
+0.7
+0.55
+0.5
+Calcium (%)
+0.65
+0.6
+2.75
+Phosphorus, available (%)
+0.40
+0.30
+0.30
+Sodium (%)
+0.15
+0.15
+0.15
+Chlorine (%)
+0.12
+0.12
+0.12
+Magnesium (mg)
+500
+500
+500
+Manganese (mg)
+50
+?
+?
+Zinc (mg)
+60
+?
+?
+Selenium (mg)
+0.2
+?
+?
+Vitamin A (IU)
+2,500
+2,500
+4,000
+Vitamin D (IU)
+400
+400
+900
+Vitamin K (mg)
+0.5
+0.5
+0.5
+Riboflavin (mg)
+4
+4
+4
+Pantothenic acid (mg)
+11
+11
+11
+Niacin (mg)
+55
+55
+55
+Pyridoxine (mg)
+2.5
+2.5
+3.0
+a
+Requirements are listed as percentages or as units or mg/kg of diet. For nutrients not listed, see
+nutrient requirements of broilers
+as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages or as units or mg/kg of diet. For nutrients not listed, see
+nutrient requirements of broilers
+as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Nutrient Requirements of Geese
+a
+Table
+Nutrient Requirements of Geese
+a
+Nutrient Requirements of Geese <sup >a</sup>
+Energy base kcal ME/kg diet
+b
+Starting (0–4 weeks) 2,900
+Growing (after 4 weeks) 3,000
+Breeding 2,900
+Protein (%)
+20
+15
+15
+Lysine (%)
+1.0
+0.85
+0.6
+Methionine + cystine (%)
+0.6
+0.5
+0.5
+Calcium (%)
+0.65
+0.6
+2.25
+Phosphorus, available (%)
+0.3
+0.3
+0.3
+Vitamin A (IU)
+1,500
+1,500
+4,000
+Vitamin D (IU)
+200
+200
+200
+Riboflavin (mg)
+3.8
+2.5
+4.0
+Pantothenic acid (mg)
+15
+10
+10
+Niacin (mg)
+65
+35
+20
+a
+Requirements are listed as percentages or as units or mg/kg of diet. For nutrients not listed, see
+requirements of broilers
+as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages or as units or mg/kg of diet. For nutrients not listed, see
+requirements of broilers
+as a guide.
+b
+These are typical dietary energy concentrations.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Linoleic Acid, Mineral, and Vitamin Requirements of Leghorn-type Chickens
+a
+Table
+Linoleic Acid, Mineral, and Vitamin Requirements of Leghorn-type Chickens
+a
+Linoleic Acid, Mineral, and Vitamin Requirements of Leghorn-type Chickens <sup >a</sup>
+Age
+0–6 weeks
+6–18 weeks
+18 weeks to 1st egg
+Layers
+Breeders
+Linoleic acid (%)
+1.00
+1.00
+1.00
+1.00
+1.00
+Potassium (%)
+0.25
+0.25
+0.25
+0.15
+0.15
+Sodium (%)
+0.15
+0.15
+0.15
+0.15
+0.15
+Chlorine (%)
+0.15
+0.15
+0.15
+0.13
+0.13
+Magnesium (mg)
+600
+500
+400
+500
+500
+Manganese (mg)
+60
+30
+30
+20
+20
+Zinc (mg)
+40
+35
+35
+35
+45
+Iron (mg)
+80
+60
+60
+45
+60
+Copper (mg)
+5
+4
+4
+?
+?
+Iodine (mg)
+0.35
+0.35
+0.35
+0.035
+0.01
+Selenium (mg)
+0.15
+0.1
+0.1
+0.06
+0.06
+Vitamin A (IU)
+1,500
+1,500
+1,500
+3,000
+3,000
+Vitamin D
+3
+(IU)
+200
+200
+300
+300
+300
+Vitamin E (IU)
+10
+5
+5
+5
+10
+Vitamin K (mg)
+0.5
+0.5
+0.5
+0.5
+1.0
+Riboflavin (mg)
+3.6
+1.8
+2.2
+2.5
+3.6
+Pantothenic acid (mg)
+10
+10
+10
+2
+7
+Niacin (mg)
+27
+10
+10
+10
+10
+Vitamin B
+12
+(mg)
+0.009
+0.003
+0.004
+0.004
+0.08
+Choline (mg)
+1,300
+900
+500
+1,050
+1,050
+Biotin (mg)
+0.15
+0.1
+0.1
+0.1
+0.1
+Folacin (mg)
+0.55
+0.25
+0.25
+0.25
+0.35
+Thiamine (mg)
+1.0
+1.0
+0.8
+0.7
+0.7
+Pyridoxine (mg)
+3
+3
+3
+2.5
+4.5
+a
+Requirements are listed as percentages or as units or mg/kg of diet. Assumes an average daily intake of 110 g of feed/hen/day.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages or as units or mg/kg of diet. Assumes an average daily intake of 110 g of feed/hen/day.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Table
+Linoleic Acid, Mineral, and Vitamin Requirements of Turkeys
+a
+Table
+Linoleic Acid, Mineral, and Vitamin Requirements of Turkeys
+a
+Linoleic Acid, Mineral, and Vitamin Requirements of Turkeys <sup >a</sup>
+---------------Age (weeks)---------------
+Male:
+0–4
+4–8
+8–12
+12–16
+16–20
+20–24
+Female:
+0–4
+4–8
+8–11
+11–14
+14–17
+17–20
+Holding
+Breeding Hens
+Energy base kcal ME/kg diet
+b
+2,800
+2,900
+3,000
+3,100
+3,200
+3,300
+2,900
+2,900
+Linoleic acid (%)
+1.0
+1.0
+0.8
+0.8
+0.8
+0.8
+0.8
+1.1
+Calcium (%)
+1.2
+1.0
+0.85
+0.75
+0.65
+0.55
+0.5
+2.25
+Phosphorus, available (%)
+0.6
+0.5
+0.42
+0.38
+0.32
+0.28
+0.25
+0.35
+Potassium (%)
+0.7
+0.6
+0.5
+0.5
+0.4
+0.4
+0.4
+0.6
+Sodium (%)
+0.17
+0.15
+0.12
+0.12
+0.12
+0.12
+0.12
+0.12
+Chlorine (%)
+0.15
+0.14
+0.14
+0.12
+0.12
+0.12
+0.12
+0.12
+Magnesium (mg)
+500
+500
+500
+500
+500
+500
+500
+500
+Manganese (mg)
+60
+60
+60
+60
+60
+60
+60
+60
+Zinc (mg)
+70
+65
+50
+40
+40
+40
+40
+65
+Iron (mg)
+80
+60
+60
+60
+50
+50
+50
+60
+Copper (mg)
+8
+8
+6
+6
+6
+6
+6
+8
+Iodine (mg)
+0.4
+0.4
+0.4
+0.4
+0.4
+0.4
+0.4
+0.4
+Selenium (mg)
+0.2
+0.2
+0.2
+0.2
+0.2
+0.2
+0.2
+0.2
+Vitamin A (IU)
+5,000
+5,000
+5,000
+5,000
+5,000
+5,000
+5,000
+5,000
+Vitamin D
+c
+(IU)
+1,100
+1,100
+1,100
+1,100
+1,100
+1,100
+1,100
+1,100
+Vitamin E (IU)
+12
+12
+10
+10
+10
+10
+10
+25
+Vitamin K (mg)
+1.75
+1.5
+1.0
+0.75
+0.75
+0.5
+0.5
+1.0
+Riboflavin (mg)
+4.0
+3.6
+3.0
+3.0
+2.5
+2.5
+2.5
+4.0
+Pantothenic acid (mg)
+10
+9
+9
+9
+9
+9
+9
+16
+Niacin (mg)
+60
+60
+50
+50
+40
+40
+40
+40
+Vitamin B
+12
+(mg)
+0.003
+0.003
+0.003
+0.003
+0.003
+0.003
+0.003
+0.003
+Choline (mg)
+1,600
+1,400
+1,100
+1,100
+950
+800
+800
+1,000
+Biotin (mg)
+0.2
+0.2
+0.125
+0.125
+0.100
+0.100
+0.100
+0.2
+Folacin (mg)
+1.0
+1.0
+0.8
+0.8
+0.7
+0.7
+0.7
+1.0
+Thiamine (mg)
+2
+2
+2
+2
+2
+2
+2
+2
+Pyridoxine (mg)
+4.5
+4.5
+3.5
+3.5
+3.0
+3.0
+3.0
+4.0
+a
+Requirements are listed as percentages or as units or mg/kg of diet.
+b
+These are typical ME concentrations for corn-soya diets. Different ME values may be appropriate if other ingredients predominate.
+c
+These concentrations of vitamin D are satisfactory when the dietary concentrations of calcium and available phosphorus conform with those in this table.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+a
+Requirements are listed as percentages or as units or mg/kg of diet.
+b
+These are typical ME concentrations for corn-soya diets. Different ME values may be appropriate if other ingredients predominate.
+c
+These concentrations of vitamin D are satisfactory when the dietary concentrations of calcium and available phosphorus conform with those in this table.
+Adapted, with permission, from
+Nutrient Requirements of Poultry
+, 1994, National Academy of Sciences, National Academy Press, Washington, DC.
+Appropriate body weight and fat deposition are important factors in rearing pullets for maximal egg production over the life of the laying flock. Most strains of White Leghorn chickens have relatively low body weights and do not tend, with normal feeding, to become obese. Feed is normally provided for ad libitum intake to these strains of pullets and hens. For brown egg strains of chickens, some degree of restriction is often practiced (~90% of ad lib feeding) to prevent precocial onset of lay in the pullets, and brown egg layers may be slightly restricted to reduce mortality and limit egg size. Feed intake of broiler chickens is generally not limited, but the much longer-lived parent stock usually become obese if fed ad libitum; feed restriction is therefore necessary for immature and mature broiler breeders. When feed restriction is practiced, the feed levels of amino acids, vitamins, and minerals must be proportionally increased to prevent deficiencies. Most large commercial breeders provide feed restriction and dietary nutrient guidelines that are specific for their strains.
+Amino Acid Requirements
+Poultry, like all animals, synthesize proteins that contain 20 different
+L
+-amino acids. Birds are unable to synthesize 9 of these amino acids due to the lack of specific enzymes: arginine, isoleucine, leucine, lysine, methionine, phenylalanine, threonine, tryptophan, and valine. These 9 amino acids are referred to as essential amino acids.
+Histidine, glycine, and proline can be synthesized by the bird, but the rate is usually insufficient to meet metabolic needs of high-producing poultry and a dietary source is required for maximum performance. Cysteine and tyrosine can be synthesized from methionine and phenylalanine, respectively, and must be in the diet if methionine or phenylalanine levels are inadequate. These 5 amino acids are referred to as the conditionally essential amino acids.
+The diet must also supply sufficient amounts of amino nitrogen to allow the synthesis of nonessential amino acids. Essential amino acids are often added to the diet in purified form (eg,
+D, L
+-methionine,
+L
+-lysine,
+L
+-threonine,
+L
+-tryptophan, and
+L
+-valine) to minimize the total protein level as well as the cost of the diet. This has the added advantage of minimizing nitrogen excretion. Feeding reduced protein diets balanced for amino acid and amino nitrogen can also reduce the heat increment of the diet and help to reduce heat stress in hot conditions.
+Vitamins
+The vitamins are an unrelated group of compounds involved in metabolism and are required in very small amounts in the diet, because they cannot be synthesized by poultry. Typically, the vitamins are classified as fat-soluble (vitamins A, D, E, and K) and water-soluble (thiamin (B
+1
+), riboflavin (B
+2
+), niacin (B
+3
+), pantothenic acid (B
+5
+), pyridoxine (B
+6
+), biotin (B
+7
+), folic acid (B
+9
+), cobalamin (vitamin B
+12
+), and choline). Requirements for vitamins A, D, and E are expressed in IUs because multiple forms of each of these vitamins exist and they often have different potencies.
+For chickens, 1 IU of vitamin A activity is equivalent to 0.3 mcg of pure retinol, 0.344 mcg of retinyl acetate, or 0.6 mcg of beta-carotene. However, young chicks use beta-carotene less efficiently than older birds.
+One IU of vitamin D is equal to 0.025 mcg of cholecalciferol (vitamin D
+3
+). Ergocalciferol (vitamin D
+2
+) is used with an efficiency of less than 10% of vitamin D
+3
+in poultry and should not be used as a supplement.
+One IU of vitamin E is equivalent to 1 mg of synthetic DL-alpha-tocopherol acetate. Vitamin E requirements vary with type and level of fat in the diet, the levels of selenium and trace minerals, and the presence or absence of other antioxidants. When diets high in long-chain highly polyunsaturated fatty acids are fed, vitamin E levels should be increased considerably.
+Fat-soluble vitamins can be stored in the tissues of the body, so birds can survive for relatively long periods of time without supplementation. Conversely, excessive levels of fat-soluble vitamin intake over prolonged periods can lead to toxicities. The water-soluble vitamins act as coenzymes involved in energy and nutrient metabolism, blood cell development, and other functions. Water-soluble vitamins, with the exception of cobalamin, are not stored in tissues and must be supplied frequently for normal health and productivity.
+Choline is required as an integral part of the body's phospholipids, as a part of acetylcholine, and as a source of methyl groups. Growing chickens can also use betaine as a methylating agent. Betaine is widely distributed in practical feedstuffs and can spare the requirement for choline but cannot completely replace it in the diet. Vitamin C can be synthesized by poultry at adequate amounts in normal conditions, but there may be benefits to dietary supplementation in high environmental temperatures.
+All of the vitamins are subject to degradation over time, and this process is accelerated by moisture, oxygen, trace minerals, heat, and light. Stabilized vitamin preparations and generous margins of safety are often applied to account for these losses. This is especially true if diets are pelleted, extruded, or stored for long periods of time.
+Minerals
+The minerals required for poultry in the diet in large amounts (mg or g per day) are called the macrominerals, and these include calcium, phosphorus, sodium, potassium, manganese, chlorine, and sulfur. The trace or microminerals are required in much smaller amounts (micrograms per day or less). The microminerals of greatest concern in practical diets are copper, iodine, iron, manganese, selenium, and zinc. Although there may be requirements for boron, chromium, fluorine, molybdenum, silicon, and vanadium, these minerals are not likely to be deficient in poultry diets.
+Much of the phosphorus in feedstuffs of plant origin is complexed by phytate and is not absorbed efficiently by poultry. Consequently, it is critical that only the available phosphorus and not the total phosphorus levels of the diet be considered. Appropriate calcium nutrition depends on both the level of calcium and its ratio to that of available phosphorus. For growing poultry, this ratio should not deviate substantially from 2:1. The calcium requirement of laying hens is very high and increases with the rate of egg production and with the age of the hen, whereas available P requirements decrease throughout the production cycle. The Ca:aP for laying hens can range from 8.4 at the start to 11.0 at the end of the laying cycle.
+Sodium levels of the diet should be controlled, because excessive consumption can lead to increased water consumption and wet litter and can reduce shell quality in egg-laying birds. Drinking water can contribute appreciably to the overall sodium consumption of the bird, and dietary levels should be reduced accordingly if local water supplies contain high levels.
+Sulfur is required in the form of the sulfur-containing amino acids methionine and cysteine, and sulfur supplements in other forms are not required.
+Other Nutrients and Additives
+The chick has requirements for at least 38 nutrients, together with adequate levels of metabolizable energy and water. Non-nutrient antioxidants, such as ethoxyquin, are usually added to poultry diets to protect vitamins and unsaturated fatty acids from oxidation. Exogenous enzymes are often used to increase nutrient availability (eg, phytase, amylase, and protease) or decrease some of the antinutritional effects of particular feedstuffs (eg, arabinoxylanase and beta-glucanase). Phytase is used to offset the high cost of inorganic phosphates, and many jurisdictions require use of this enzyme in feed to reduce phosphorus pollution.
+Although in-feed antibiotics have been effectively used at subtherapeutic levels to promote growth and prevent disease, their use in the poultry industry around the world is being reduced because of legislation and consumer pressures. Many products intended to replace antibiotics have been, and continue to be, investigated in poultry diets, but no single product has proven to be entirely effective. It is likely that successful replacement of prophylactic antibiotics will require multiple products with different mechanisms of action.
+Test your Knowledge now
+Take a Quiz!
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+About
+Disclaimer
+Cookie Preferences
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+About
+Disclaimer
+Permissions
+Privacy
+Cookie Preferences
+Terms Of Use
+Partnerships
+Contact Us
+Human Health Manuals
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.

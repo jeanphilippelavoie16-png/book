@@ -1,0 +1,409 @@
+31 January 2017
+EMA/HMPC/80630/2016 - Corr1
+Committee on Herbal Medicinal Products (HMPC)
+
+European Union herbal monograph on Salix [various
+species including S. purpurea L., S. daphnoides Vill., S.
+fragilis L.], cortex
+
+Final
+
+Initial assessment                                                                July 2007
+Discussion in Working Party on European Union monographs and           September 2007
+European Union list (MLWP)                                         07 September 2007
+Adoption by Committee on Herbal Medicinal Products (HMPC) for       15 December 2007
+release for consultation                                               September 2008
+End of consultation (deadline for comments2).
+Re-discussion in MLWP                                                       January 2009
+
+Adoption by HMPC                                                       14 January 2009
+Monograph (EMA/HMPC/295338/2007)
+AR (EMA/HMPC/295337/2007)                                                  February 2016
+List of references (EMA/HMPC/394997/2007)                                        April 2016
+Overview of comments received during public consultation                          July 2016
+(EMA/HMPC/451855/2008)
+HMPC Opinion (EMA/HMPC/11545/2009)                                     September 2016
+First systematic review                                                 November 2016
+Discussion in Working Party on European Union monographs and list      31 January 2017
+(MLWP)
+
+Adoption by HMPC
+
+1 Correction: minor change in section 4.2 in alignment with section 4.3 and monograph template EMA/HMPC/107436/2005
+2 No comments were received during the period of public consultation. Therefore the final monograph is published together
+with the final assessment report and list of references, without an `Overview of comments received during the public
+consultation'.
+
+30 Churchill Place  Canary Wharf  London E14 5EU  United Kingdom   An agency of the European Union
+Telephone +44 (0)20 3660 6000 Facsimile +44 (0)20 3660 5555
+Send a question via our website www.ema.europa.eu/contact
+
+© European Medicines Agency, 2019. Reproduction is authorised provided the source is acknowledged.
+Keywords  Herbal medicinal products; HMPC; European Union herbal monographs; well-
+          established medicinal use; traditional use; Salix [various species including S.
+          purpurea L., S. daphnoides Vill., S. fragilis L.], cortex; willow bark
+
+BG (bulgarski): ,                 LT (lietuvi kalba): Gluosni ziev
+CS (cestina): Vrbová kra          LV (latviesu valoda): Vtolu miza
+DA (dansk): Pilebark              MT (Malti): qoxra tas-safsafa
+DE (Deutsch): Weidenrinde         NL (Nederlands): Wilgenbast
+EL (elliniká):                    PL (polski): Kora wierzby
+EN (English): Willow Bark         PT (português): salgueiro, casca
+ES (español): sauce, corteza de   RO (român): scoar de salcie
+ET (eesti keel): pajukoor         SK (slovencina): kôra vby
+FI (suomi): paju, kuori           SL (slovenscina): skorja vrbe
+FR (français): saule (écorce de)  SV (svenska): vide, bark
+HR (hrvatski): vrbova kora        IS (íslenska):
+HU (magyar): fzfakéreg            NO (norsk): pilebark
+IT (italiano): salice corteccia
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,  Page 4/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+European Union herbal monograph on Salix [various species
+including S. purpurea L., S. daphnoides Vill., S. fragilis L.],
+cortex
+
+1. Name of the medicinal product
+
+To be specified for the individual finished product.
+
+2. Qualitative and quantitative composition3, 4
+
+Well-established use                                 Traditional use
+
+With regard to the marketing authorisation           With regard to the registration application of
+application of Article 10(a) of Directive            Article 16d(1) of Directive 2001/83/EC
+2001/83/EC
+                                                     Salix [various species including S. purpurea L., S.
+Salix [various species including S. purpurea L., S.  daphnoides Vill., S. fragilis L.], whole or
+daphnoides Vill., S. fragilis L.], whole or          fragmented dried bark
+fragmented dried bark
+                                                     i) Herbal substance
+i) Herbal substance
+                                                     Not applicable
+Not applicable
+                                                     ii) Herbal preparations
+ii) Herbal preparations
+                                                        a) Comminuted herbal substance
+   a) Dry extract (8-14:1) extraction solvent
+         ethanol 70% V/V, 15% total salicin5.           b) Powdered herbal substance
+
+                                                        c) Dry extract (DER 8-20:1) extraction solvent
+                                                              water6
+
+                                                        d) Dry extract (DER 16-23:1) extraction
+                                                              solvent water
+
+                                                        e) Liquid extract (DER 1:1), extraction solvent
+                                                              ethanol 25% V/V
+
+                                                        f) Tincture (1:5), extraction solvent ethanol
+                                                              25% V/V
+
+3. Pharmaceutical form                               Traditional use
+
+Well-established use                                 Herbal preparation in solid or liquid dosage form,
+Quantified herbal preparation in solid dosage        or as herbal tea for oral use.
+form.
+
+3 The declaration of the active substance(s) for an individual finished product should be in accordance with relevant herbal
+quality guidance.
+4 The material complies with the Ph. Eur. monograph (ref. 1583)
+5 15% total salicin represents an average value. The exact range should be established for each finished product on the
+basis of the manufacturer's specifications in accordance with the relevant herbal quality guidance.
+6 The DER should be specified for the specific product by the registration holder.
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,  Page 5/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+Well-established use                               Traditional use
+
+The pharmaceutical form should be described by     The pharmaceutical form should be described by
+the European Pharmacopoeia full standard term.     the European Pharmacopoeia full standard term.
+
+4. Clinical particulars                            Traditional use
+
+4.1. Therapeutic indications                       Indication 1)
+
+Well-established use                               Traditional herbal medicinal product used for the
+Herbal medicinal product used for the short-term   relief of minor articular pain.
+treatment of low back pain.
+                                                   Indication 2)
+
+                                                   Traditional herbal medicinal product used for the
+                                                   relief of fever associated with common cold.
+
+                                                   Indication 3)
+
+                                                   Traditional herbal medicinal product used for
+                                                   headache.
+
+                                                   The product is a traditional herbal medicinal
+                                                   product for use in specified indications exclusively
+                                                   based upon long-standing use.
+
+4.2. Posology and method of administration7
+
+Well-established use                               Traditional use
+
+Posology                                           Posology
+
+Adults and elderly                                 Adults and elderly
+
+Single dose: 393 mg to 786 mg up to 2 times        Indication 1), 2) and 3)
+daily
+                                                    a) Herbal tea: 1-3 g of the comminuted herbal
+Daily dose: 393 to 1572 mg                                substance in 150 ml of boiling water as an
+                                                          herbal infusion 3 times daily.
+The use in children and adolescents under 18
+years of age is contraindicated (see section 4.3.  Decoction: 4 g of the comminuted herbal
+`Contraindications').                              substance pour with 1 cup (200 ml) of water and
+Duration of use                                    boil covered for 15 minutes. Let stand for 15
+                                                   minutes, strain. Drink after meals, 3 times a day a
+If the pain or symptoms persist during the first   glass of warm, freshly prepared decoction.
+week of use of the medicinal product, a doctor or
+a pharmacist should be consulted.                   b) Powdered herbal substance: 260-500 mg 3-8
+                                                          times daily.
+
+7 For guidance on herbal substance/herbal preparation administered as herbal tea or as infusion/decoction/macerate
+preparation, please refer to the HMPC `Glossary on herbal teas' (EMA/HMPC/5829/2010 Rev.1).
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,  Page 6/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+Well-established use                                 Traditional use
+Not to be used for more than 4 weeks.
+Method of administration                              To be taken after meals. It is advised to take with
+Oral use                                              larger quantity of hot water.
+
+                                                      c) Dry aqueous extract (8-20:1): 600 mg twice
+                                                            daily
+
+                                                      d) Dry aqueous extract (16-23:1): 480 mg twice
+                                                            daily
+
+                                                      e) Liquid extract 1-3 ml, three times daily
+
+                                                      f) Tincture (1:5): 15-24 ml per day
+
+                                                     The use in children and adolescents under 18
+                                                     years of age is contraindicated (see section 4.3
+                                                     `Contraindications').
+
+                                                     Duration of use
+
+                                                     Indication 1)
+
+                                                     Not to be used for more than 4 weeks.
+
+                                                     Indication 2)
+
+                                                     If the symptoms persist longer than 3 days during
+                                                     the use of the medicinal product, a doctor or a
+                                                     qualified health care practitioner should be
+                                                     consulted.
+
+                                                     Indication 3)
+
+                                                     If the symptoms persist longer than one day
+                                                     during the use of the medicinal product, a doctor
+                                                     or a qualified health care practitioner should be
+                                                     consulted.
+
+                                                     Method of administration
+
+                                                     Oral use
+
+4.3. Contraindications
+
+Well-established use                                 Traditional use
+
+ Hypersensitivity to the active substance.           Hypersensitivity to the active substance.
+
+ Hypersensitivity to salicylates or to other NSAIDs  Hypersensitivity to salicylates or to other
+ (e.g. history of angioedema, bronchial spasm, or    NSAIDs (e.g. history of angioedema, bronchial
+ chronic urticaria in response to salicylates or to  spasm, or chronic urticaria in response to
+ other NSAIDs).                                      salicylates or to other NSAIDs).
+
+ Asthma due to sensitivity to salicylates.           Asthma due to sensitivity to salicylates.
+
+ Active peptic ulcer disease.                        Active peptic ulcer disease.
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,  Page 7/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+Well-established use                             Traditional use
+
+ Third trimester of pregnancy (see section 4.6   Third trimester of pregnancy (see section 4.6
+ Pregnancy and lactation).                       Pregnancy and lactation).
+ Glucose-6-phosphate dehydrogenase deficiency.   Glucose-6-phosphate dehydrogenase deficiency.
+ Children and adolescents under 18 years of age  Children and adolescents under 18 years of age
+ due to the risk of Reye's syndrome.             due to the risk of Reye's syndrome.
+ Severe liver or renal dysfunction.              Severe liver or renal dysfunction,
+ Coagulation disorders.                          Coagulation disorders.
+
+4.4. Special warnings and precautions for use
+
+Well-established use                             Traditional use
+
+Concomitant use with salicylates and other       The product is not intended to be used in case of
+NSAIDs is not recommended without medical        acute arthritis as this condition requires medical
+advice.                                          advice.
+
+If the symptoms worsen during the use of the     If fever exceeds 39°C, persists or is associated
+medicinal product, a doctor or a pharmacist      with severe headache or if symptoms worsen
+should be consulted.                             during the use of the medicinal product, a doctor
+                                                 should be consulted.
+
+                                                 Concomitant use with salicylates and other
+                                                 NSAIDs is not recommended without medical
+                                                 advice.
+
+                                                 If the symptoms worsen during the use of the
+                                                 medicinal product, a doctor or a qualified health
+                                                 care practitioner should be consulted.
+
+                                                 For tinctures, extracts, containing ethanol, the
+                                                 appropriate labelling for ethanol, taken from the
+                                                 `Guideline on excipients in the label and package
+                                                 leaflet of medicinal products for human use', must
+                                                 be included.
+
+4.5. Interactions with other medicinal products and other forms of
+interaction
+
+Well-established use                             Traditional use
+Willow bark may increase the effects of          Willow bark may increase the effects of
+anticoagulants such as coumarin derivatives.     anticoagulants such as coumarin derivatives.
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,  Page 8/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+4.6. Fertility, pregnancy and lactation
+
+Well-established use                                   Traditional use
+
+The use during the first and second trimester of       The use during the first and second trimester of
+pregnancy and during lactation is not                  pregnancy and during lactation is not
+recommended. Salicylates cross the placenta and        recommended. Salicylates cross the placenta and
+appear in breast milk.                                 appear in breast milk.
+
+Contraindicated in the third trimester of              Contraindicated in the third trimester of
+pregnancy.                                             pregnancy.
+
+No fertility data available.                           No fertility data available.
+
+4.7. Effects on ability to drive and use machines
+
+Well-established use                                   Traditional use
+
+No studies on the effect on the ability to drive and   No studies on the effect on the ability to drive and
+use machines have been performed.                      use machines have been performed.
+
+4.8. Undesirable effects                               Traditional use
+
+Well-established use                                   Allergic reactions such as rash, pruritis, urticaria,
+                                                       asthma, exanthema and gastrointestinal
+Allergic reactions such as rash, pruritis, urticaria,  symptoms such as, nausea, vomiting, abdominal
+asthma, exanthema and gastrointestinal                 pain, diarrhea, dyspepsia, heartburn, may occur.
+symptoms such as, nausea, vomiting, abdominal          The frequency is not known.
+pain, diarrhea, dyspepsia, heartburn, may occur.
+The frequency is not known.                            If other adverse reactions not mentioned above
+                                                       occur, a doctor or a pharmacist should be
+If other adverse reactions not mentioned above         consulted.
+occur, a doctor or a pharmacist should be
+consulted.
+
+4.9. Overdose                                          Traditional use
+                                                       No case of overdose has been reported.
+Well-established use
+No case of overdose has been reported.
+
+5. Pharmacological properties
+
+5.1. Pharmacodynamic properties
+
+Well-established use                                   Traditional use
+Pharmacotherapeutic group: analgesics and
+antipyretics.                                          Not required as per Article 16c(1)(a)(iii) of
+                                                       Directive 2001/83/EC.
+Proposed ATC code: N02BG (other analgesics and
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,                   Page 9/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+Well-established use                                  Traditional use
+
+antipyretics).
+
+Dose-dependent analgesic effects of willow bark
+dry extract (8-14:1) ethanol 70% were observed
+in controlled clinical studies in patients with low
+back pain exacerbations.
+
+Antiphlogistic effects of willow bark were studied
+in vitro (hen's egg chorioallantoic membrane test,
+effects on COX-1, COX-2, HLE and 5-LOX, tests
+on antioxidant effects) and in vivo (rat paw
+oedema, air pouch, adjuvant-induced arthritis,
+rithing-test, Randall-Sellito test, brewer's yeast
+induced fever reaction).
+
+AA and ADP-induced platelet aggregation was
+decreased in patients receiving willow bark
+extract.
+
+Constituents other than salicin may contribute to
+the overall analgesic effects.
+
+5.2. Pharmacokinetic properties                       Traditional use
+
+Well-established use                                  Not required as per Article 16c(1)(a)(iii) of
+                                                      Directive 2001/83/EC.
+Salicylglycosides of willow bark form salicin after
+hydrolysis. Salicin is degraded into saligenin
+(salicyl alcohol) and glucose. Saligenin is oxidized
+in the blood and liver to salicylic acid.
+
+Intake of quantified willow bark extract (1,360
+mg, equivalent to 240 mg salicin), resulted in
+salicylic acid as the major metabolite of salicin
+detected in the serum (86% of total salicylates),
+besides salicyluric acid (10%) and gentisic acid
+(4%). Peak levels were reached within 2 hours
+after oral administration.
+
+Peak serum levels of salicylic acid were on
+average 1.2 mg/l and the AUC was equivalent to
+that expected from an intake of 87 mg
+acetylsalicylic acid.
+
+Renal elimination occurred predominantly as
+salicyluric acid.
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,  Page 10/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+5.3. Preclinical safety data                      Traditional use
+
+Well-established use                              Not required as per Article 16c(1)(a)(iii) of
+Tests on reproductive toxicity, genotoxicity and  Directive 2001/83/EC, unless necessary for the
+carcinogenicity have not been performed.          safe use of the product.
+
+                                                  Tests on reproductive toxicity, genotoxicity and
+                                                  carcinogenicity have not been performed.
+
+6. Pharmaceutical particulars
+
+Well-established use                              Traditional use
+Not applicable                                    Not applicable
+
+7. Date of compilation/last revision
+
+31 January 2017
+
+European Union herbal monograph on Salix [various species including S. purpurea L.,  Page 11/11
+S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80630/2016
+

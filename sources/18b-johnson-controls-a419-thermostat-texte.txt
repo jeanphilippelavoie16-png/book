@@ -1,0 +1,162 @@
+                                                                                                                       Code No. LIT-1927385
+                                                                                                                       Issued November 13, 2015
+
+             A419 Series Electronic Temperature Controls with NEMA 1 or
+             NEMA 4X Watertight Enclosures
+
+Description                                      • Adjustable Anti-Short Cycle Delay                                                           A419 Control and Sensor
+                                                     (0 to 12 minutes in 1-minute increments)
+The A419 Series Controls are single-stage,           ensures that the output relay remains off for
+electronic temperature controls with a               a user-set time delay, and helps avoid hard
+single-pole, double-throw (SPDT) output relay.       starts, nuisance overload outages, and
+They feature a lockable front-panel touchpad         unnecessary equipment wear
+for setup and adjustment, and an LCD for
+viewing the temperature and status of other      • Temperature Offset Function shifts the
+functions. An LED indicates the controls’            cut-in and cut-out setpoints by an
+output relay (On/Off) status. The A419               adjustable offset when a user-installed,
+Controls are available in 24 VAC or 120/240          external switch closes the A419 control’s
+VAC models.                                          binary input circuit
+
+The A419 Controls have heating and cooling       • high-impact thermoplastic type NEMA 1
+modes, adjustable setpoint and differential, an      allows surface or snap-fit DIN rail mount;
+adjustable anti-short cycle delay, and a             LEXAN® 950 high-impact thermoplastic
+temperature offset (setback) function. The           type NEMA 4X enclosures allow watertight
+setpoint range is -30 to 212°F (-34 to 100°C).       surface mount
+The controls feature remote sensing capability
+and interchangeable sensors. The A419            • lockable front-panel touchpad allows easy
+Controls are available in either NEMA 1              setup and adjustment of the A419 control
+high-impact plastic enclosure suitable for           setpoint, differential, and other functions; a
+surface or DIN rail mounting, or NEMA 4X             concealed jumper locks the touchpad to
+Watertight surface-mount enclosures.                 deter unauthorized adjustment of the
+                                                     control settings
+Refer to the A419 Series Electronic
+Temperature Controls with Display and            Applications
+NEMA 1 or NEMA 4X Watertight Enclosures
+Product Bulletin (LIT-125188) for important      The A419 can be used to control a wide variety
+product application information.                 of single-stage refrigeration or HVAC
+                                                 equipment. Typical applications include:
+Features
+                                                 • freezer control in convenience stores
+• low- and line-voltage models provide           • reach-in coolers
+    options for almost any refrigeration or      • supermarket display cases for produce or
+    HVAC control-voltage application
+                                                     meats
+• easy-to-read LCD displays the sensed           • restaurant or convenience store walk-in
+    temperature and control-function status
+    clearly, and custom icons on the display         coolers
+    indicate the control and system status at a  • boiler control
+    glance                                       • compressor lockout (disables the
+
+• 30° (F° or C°) temperature differential            compressor when temperature exceeds
+    adjustment range allows precise (1F° or C°)      limits)
+    temperature differential settings that are   • condenser fan cycling
+    much tighter than electromechanical          • pump control for cooling towers
+    controls                                     • space and return air temperature
+
+Selection Charts
+
+A419 Series Electronic Temperature Control with NEMA 1 or NEMA 4X Watertight Enclosure
+
+Product Code Number Item                                                                             Lead Length Description
+
+A419ABC-1C1       Line Voltage, NEMA 1 Enclosure Electronic Temperature Control with Display 6-1/2 ft (2 m)
+
+A419ABC-2C1       Line Voltage, NEMA 1 Enclosure Electronic Temperature Control with Display         9-3/4 ft (3 m)                            Supply Voltage: 120 or 240 VAC
+A419ABC-3C1       Line Voltage, NEMA 1 Enclosure Electronic Temperature Control with Display         13 ft (4 m)                               Range: -30 to 212°F
+A419ABC-4C1       Line Voltage, NEMA 1 Enclosure Electronic Temperature Control with Display         19-1/2 ft (5 m)                           (-34 to 100°C)
+A419AEC-1C1       Line Voltage, NEMA 4X Enclosure Electronic Temperature Control with Display        9-3/4 in. (0.25 m)                        Differential: 1 to 30F°
+                                                                                                                                               (1 to 30C°)
+
+A419AEC-2C1       Line Voltage, NEMA 4X Enclosure Electronic Temperature Control with Display 6-1/2 ft (2 m)
+
+A419GBF-1C1       24 VAC, NEMA 1 Enclosure Electronic Temperature Control with Display               6-1/2 ft (2 m)                            Supply Voltage: 24 VAC, Class 2
+A419GEF-1C1       24 VAC, NEMA 4X Enclosure Electronic Temperature Control with Display              9-3/4 in. (0.25 m)                        Range: -30 to 212°F
+                                                                                                                                               (-34 to 100°C)
+                                                                                                                                               Differential: 1 to 30F°
+                                                                                                                                               (1 to 30C°)
+
+1. A99 Sensor included with all models
+
+The performance specifications are nominal and conform to acceptable industry standards. For applications at conditions beyond these specifications, consult the local Johnson Controls office.
+
+Johnson Controls, Inc. shall not be liable for damages resulting from misapplication or misuse of its products. © 2015 Johnson Controls, Inc.  www.johnsoncontrols.com
+
+                                                 1
+                    A419 Series Electronic Temperature Controls with NEMA 1 or NEMA 4X
+                    Watertight Enclosures (Continued)
+
+Accessories and Replacement Parts
+
+Product Code Number Item                               Description
+
+A99BB-200C          Replacement temperature sensors1   PTC sensor with 6-1/2 ft (2 m) leads
+
+A99BA-200C                                             PTC sensor with 6-1/2 ft (2 m) shielded leads
+
+A99BB-25C                                              PTC sensor with 9 in (0.25 m)
+
+BKT287-1R           Accessory mounting hardware        12 in. (305 mm) long DIN Rail
+
+BKT287-2R                                              36 in. (914 mm) long DIN Rail
+
+PLT344-1R                                              Two end clamps for DIN Rail mounting
+
+CLK350-2            Digital clock                      7-day programmable digital clock for controlling temperature offset function
+
+WEL11A-601R         Immersion well                     Immersion well for applying sensor in fluid applications
+
+1. For other available sensors, refer to the A99B Series Temperature Sensor Catalog Page Catalog Page (LIT-1900006 (LIT-1900006).
+
+Technical Specifications and Electrical Ratings
+
+                                                  A419 Series Electronic Temperature Controls
+                    with NEMA 1 General Purpose or NEMA 4X Watertight, Corrosion-Resistant Enclosures
+
+Setpoint Range                                         -30 to 212°F (-34 to 100°C)
+
+Differential Range                                     1 to 30F° (1 to 30C°)
+
+Supply Voltage      24 VAC, 60 Hz, Class 2             A419GBF (NEMA 1 enclosure model)
+                                                       A419GEF (NEMA 4X watertight enclosure model)
+
+                    120 or 240 VAC, 60 Hz              A419ABC (NEMA 1 enclosure model)
+                                                       A419AEC (NEMA 4X watertight enclosure model)
+
+Power Consumption                                      1.8 VA maximum
+
+Output Relay Contacts 24 VAC models                    A419GBF (NEMA 1 enclosure)
+Electrical Ratings                                     A419GEF (NEMA 4X watertight enclosure)
+                                                       100 VA, 30 VAC maximum, Class 2
+
+                    120/240 VAC models                 A419ABC (NEMA 1 enclosure)
+                                                       A419AEC (NEMA 4X watertight enclosure)
+
+                    Applied Voltage                    120 VAC          208 VAC        240 VAC
+                    Horsepower N.O. (N.C.)             1 (0.25) hp     1 (0.33) hp    1 (0.5) hp
+                    Full Load Amperes N.O. (N.C.)      16 (5.8) A      9.2 (4.0) A    8.0 (4.9) A
+                    Locked Rotor Amperes N.O. (N.C.)   96 (34.8) A     55.2 (24) A    48 (29.4) A
+                    Non-inductive Amperes N.O. (N.C.)  15 (10) A       10 (10) A      10 (10) A
+
+                    Pilot Duty                         125 VA (N.O. contacts) at 24 to 240 VAC
+                                                       125 VA (N.C. contacts) at 120 to 240 VAC
+                                                       50 VA (N.C. contacts) at 24 VAC
+
+Sensor Type                                            A99BB Type PTC sensor
+
+Control Ambient     Operating                          -26 to 140°F (-32 to 60°C)
+Temperature         Shipping                           -40 to 185°F (-40 to 85°C)
+
+Ambient Humidity                                       0 to 95% RH noncondensing; maximum dew point: 85°F (29°C)
+
+Control Material    Case and Cover                     NEMA 1 high-impact thermoplastic
+                                                       NEMA 4X watertight corrosion-resistant, high-impact thermoplastic polycarbonate
+
+Agency Listings                                        UL: File E27734; CCN’s XAPX (US), XAPX7 (Canada)
+                                                       FCC: CFR 47, Part 15, Class A. DOC, Class A
+
+The performance specifications are nominal and conform to acceptable industry standards. For applications at conditions beyond these specifications, consult the local Johnson Controls office.
+
+Johnson Controls, Inc. shall not be liable for damages resulting from misapplication or misuse of its products. © 2015 Johnson Controls, Inc.  www.johnsoncontrols.com
+
+                                                       2
+

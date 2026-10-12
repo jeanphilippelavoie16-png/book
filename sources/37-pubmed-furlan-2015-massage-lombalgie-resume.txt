@@ -1,0 +1,68 @@
+1. Explore (NY). 2016 May-Jun;12(3):215-7. doi: 10.1016/j.explore.2016.02.014.
+Epub  2016 Mar 2.
+
+Massage for Low-back Pain.
+
+Farber K, Wieland LS.
+
+Comment on
+    Cochrane Database Syst Rev. 2015 Sep 01;(9):CD001929. doi: 
+10.1002/14651858.CD001929.pub3.
+
+FURLAN AD, GIRALDOM, BASKWILL A, IRVIN E, IMAMURA M. MASSAGE FOR LOW-BACK PAIN. 
+COCHRANE DATABASE SYST REV 2015, ISSUE 9. ART. NO.: CD001929. DOI: 
+10.1002/14651858.CD001929.PUB3.
+BACKGROUND: Low back pain (LPB) is one of the most common and costly 
+musculoskeletal problems in modern society. It is experienced by 70-80% of 
+adults at some time in their lives. Massage therapy has the potential to 
+minimize pain and speed return to normal function.
+OBJECTIVES: To assess the effects of massage therapy for people with 
+non-specific LBP.
+SEARCH METHODS: We searched PubMed to August 2014, and the following databases 
+to July 2014: MEDLINE, EMBASE, CENTRAL, CINAHL, LILACS, Index to Chiropractic 
+Literature, and Proquest Dissertation Abstracts.We also checked reference lists. 
+There were no language restrictions used.
+SELECTION CRITERIA: We included only randomized controlled trials of adults with 
+non-specific LBP classified as acute, sub-acute, or chronic. Massage was defined 
+as soft-tissue manipulation using the hands or amechanical device.We grouped the 
+comparison groups into two types: inactive controls (sham therapy, waiting list, 
+or no treatment), and active controls (manipulation, mobilization, TENS, 
+acupuncture, traction, relaxation, physical therapy, and exercises or self-care 
+education).
+DATA COLLECTION AND ANALYSIS: We used standard Cochrane methodological 
+procedures and followed CBN guidelines. Two independent authors performed 
+article selection, data extraction, and critical appraisal.
+MAIN RESULTS: In total we included 25 trials (3096 participants) in this review 
+update. The majority was funded by not-for-profit organizations. One trial 
+included participants with acute LBP, and the remaining trials included people 
+with sub-acute or chronic LBP (CLBP). In three trials massage was done with a 
+mechanical device, and the remaining trials used only the hands. The most common 
+type of bias in these studies was performance and measurement bias because it is 
+difficult to blind participants, massage therapists and the measuring outcomes. 
+We judged the quality of the evidence to be "low" to "very low," and the main 
+reasons for downgrading the evidence were risk of bias and imprecision. There 
+was no suggestion of publication bias. For acute LBP, massage was found to be 
+better than inactive controls for pain (SMD = -1.24, 95% CI: -1.85 to -.64; 
+participants = 51; studies = 1) in the short-term, but not for function (SMD = 
+-.50, 95% CI: -1.06 to .06; participants = 51; studies = 1). For sub-acute and 
+chronic LBP, massage was better than inactive controls for pain (SMD = -.75, 95% 
+CI: -.90 to -.60; participants = 761; studies = 7) and function (SMD = -.72, 95% 
+CI: -1.05 to -.39; 725 participants; 6 studies) in the short-term, but not in 
+the long-term; however, when compared to active controls, massage was better for 
+pain, both in the short (SMD = -.37, 95% CI: -.62 to -.13; participants = 964; 
+studies = 12) and long-term follow-up (SMD = -.40, 95% CI: -.80 to -.01; 
+participants = 757; studies = 5), but no differences were found for function 
+(both in the short and longterm). There were no reports of serious adverse 
+events in any of these trials. Increased pain intensity was the most common 
+adverse event reported in 1.5-25% of the participants. AUTHORS׳
+CONCLUSIONS: We have very little confidence that massage is an effective 
+treatment for LBP. Acute, sub-acute, and chronic LBP had improvements in pain 
+outcomes with massage only in the short-term follow-up. Functional improvement 
+was observed in participants with sub-acute and chronic LBP when compared with 
+inactive controls, but only for the short-term follow-up. There were only minor 
+adverse effects with massage.
+
+Copyright © 2016. Published by Elsevier Inc.
+
+DOI: 10.1016/j.explore.2016.02.014
+PMID: 27033320 [Indexed for MEDLINE]

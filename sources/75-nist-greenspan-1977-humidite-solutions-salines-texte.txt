@@ -1,0 +1,919 @@
+JOURNAL OF RESEARCH of the National Bureau of Standards - A. Physics and Chemistry
+Vol. 81 A, No.1 , January- February 1977
+Humidity Fixed Points of Binary Saturated Aqueous Solutions
+Lewis Greenspan
+Institute for Basic Standards, National Bureau of Standards, Washington, D. C. 20234
+(October 22, 1976)
+An evaluated compilation of equilibrium relati ve humiditi es in air versus temperature from pure phase to
+a pproximately lOS pascal (1 atm) in pressure is presented for 28 binary saturated aqueous solutions. The relative
+humidities of the solutions range from about 3 to 98 percent. Using a data base from 2 1 separate investigations
+compris ing 1106 indi vidual meas urements, fits were made by the method of least squa res to regular polynomial
+equations with two through four coefficients. Equations and tables are presented a long with the estimated
+uncertainties in the correlated results.
+Key words: aqueous solution; equilibrium; humidit y; relati ve humidity; salt; saturated salt solut ion; vapor pressure;
+water vapor.
+1. Introduction
+Research, hygrometer calibration, testing and material
+conditioning often require the accurate control of humidity in
+a working space. The common methods of controlling the
+humidity accurately use either a humidity generator [lA]t or
+the equilibration of a closed space with a chemi cal system
+[lB] which produces the desired equilibrium vapor pressure.
+Humidity generators tend to be expensive and complex
+whereas equilibration with chemical systems that provide
+fixed points is a relatively inexpensive and simple method of
+humidity control. Among the chemical systems used for this
+purpose are aqueous sulphuric ac id solutions, glycerine and
+water solutions and single and binary salt solutions. Each
+such solution offers a degree of humidity adjustment that can
+be achieved by changing its concentration. On the other
+hand, special problems are associated with the use of solu-
+tions because their concentrations must be measured and
+controlled. Not only must the concentration of the solution be
+determined initially but the presence of any humidity sources
+or sinks in the controlled space and even the initial equilibra-
+tion process of the space can alter the solution concentration.
+An especially useful method of humidity control by chemi-
+cal system involves the use of binary saturated aqueous
+solutions (primarily of single salts) in which the solute is
+highly non-volatile.
+At any temperature, the concentration of a saturated solu-
+tion is fixed and does not have to be determined . By provid-
+ing excess solute, the solution will remain saturated even in
+the presence of modest sources or sinks. Where the solute is
+a solid in the pure phase, it is easy to determine that there is
+indeed saturation. Due to the ease of its use, thi s is a popular
+method of humidity control.
+Since a given saturated salt solution provides only one
+relative humidity (RH) at any desired temperature, a different
+relative humidity must be achieved by selecting another
+appropriate salt. Though much data on saturated salt solu-
+1 Figures in brackets indicate the literature referencL'S al the end of this pape r.
+tions have been produced and many compilations of the
+equilibrium relative humidities of selected saturated salt
+solutions exist, there are no compilations for which the data
+have been critically analyzed and estimates of the uncertain-
+ties involved given, a step which is abolutely essential to the
+implimentation of the concept of fi xed points.
+We have moved to fill this gap by compiling, from the
+literature, data on a sufficient variety of saturated salt solu-
+tions to cover the entire range of relative humidity at reasona-
+bly close intervals. We have adjusted these data [1- 21] to be
+consistent with temperatures on IPTS-68 and the most recent
+equations for the vapor pressure of water [22]. We have also
+analyzed the experimental techniques used in obtaining the
+original data and have made estimates of the uncertainties in
+the original data. We have then used these data to calculate
+" best" values of relative humidity in air as a fun ction of
+temperature from pure phase to approximately 105 pascal (1
+atm) in pressure for these saturated solutions.
+2. Background
+The methods used by investigators to determine the water
+vapor in equilibrium with saturated salt solutions are diverse.
+A short description of the various methods used in the
+referenced papers is of interest.
+(1) The direct measurement of the vapor pressure. A cham-
+ber containing a saturated salt solution at a controlled tem-
+perature is first evacuated to remove all gases. Evaporation
+from the solution is then allowed to proceed until the ambient
+vapor, essentially all water, has come to equilibrium with the
+solution and a direct determination of the total pressure
+within the chamber is made by conventional pressure mea-
+surement techniques.
+(2) Dew point measurement. The dew point of the gas within
+a chamber containing a saturated salt solution at controlled
+temperature is measured by means of a cooled mirror within
+the chamber. Using vapor pressure tables or equations, this
+dew point is converted to the vapor pressure of water.
+(3) Isopiestic vapor pressure measurement. The vapor pres-
+89
+sure of a saturated salt solution in one cell or chamber is
+allowed to come to equilibrium with a cell or chamber
+containing a reference solution at a fixed temperature. The
+reference solution must be well characterized as to vapor
+pressure as a function of concentration at the reference
+temperature. Under the equilibrium condition, the equilib-
+rium vapor pressure of the saturated salt solution is identical
+to the equilibrium vapor pressure of the reference solution.
+After the two cells have reached equilibrium, the concentra-
+tion of the reference solution is determined (usually by
+weighing) and the vapor pressure is calculated.
+(4) Relative vapor pressure measurement. A chamber con-
+taining a saturated salt solution and a chamber containing
+pure water or other well characterized solution are each
+evacuated to remove all non-water vapor gases. The two
+chambers are maintained at the same temperature and the
+absolute pressure of the saturated salt solution is measured as
+in the first method. In addition the pressure difference be-
+tween the two chambers and/or the pressure of the reference
+solution is determined. The ratio of the vapor pressure of the
+saturated salt solution to the vapor pressure of the water is the
+activity (or relative humidity) of the saturated salt solution.
+(5) Measurement with a calibrated humidity sensor. A
+chamber containing a saturated salt solution and a humidity
+sensor are brought to equilibrium at a controlled te mperature.
+Calibration of the sensor before or/and after the measurement
+provides the means of determining the eq uilibrium vapor
+pressure.
+(6) Gravimetric determination . Dry gas is passed through
+the binary saturated solution at a fixed temperature. The
+water vapor in the effluent gas is absorbed by a desiccant and
+measured by weighing. The volume of the gas is also deter-
+mined. From these the vapor pressure or the mixing ratio can
+be determined.
+As one would imagine, the errors associated with these
+methods differ as to source and magnitude. The en'ors in any
+of the methods are also functions of the level of vapor
+pressure being measured as well as the temperature of the
+saturated salt solution. There is, therefore, probably no one
+method that gives a best measurement under all conditions.
+3. Method
+We have accumulated experimental data from various
+researchers [1-21] and calculated " best" values of relative
+humidity and the associated uncertainties of those values.
+Typical methods of calc ulating or recalculating the relative
+humidity and associated uncertainties for the various investi-
+gations are given in the Appendix. Our data base consists of
+21 investigations and includes some of the most cited work in
+the field. In total, 1106 individual calculations of relative
+humidities and associated uncertainties were made which
+involved 89 saturated solutions. Not all data nor all saturated
+solutions in this study were found satisfactory for use.
+The original data were corrected to be consistent with
+temperature on IPTS-68, with the most recent formulation for
+the vapor pressure of water [22] and with the most recent
+equations for the enhancement of water vapor in air [23]. The
+computed relative humidity data were then collated and fitted
+by the method of least squares to regular polynomials as a
+function of temperature in degrees Celsius (IPTS-68). In the
+fitting process, each datum was weighted inversely propor-
+tional to the estimated uncertainty of the datum. The order of
+the polynomial used in the fit was determined by an F-test or
+by a nalysis of the result of fits to various orders. An arbitrary
+decision was made not to use any order higher than 3. Also,
+no data at temperatures below 0 °C or above 104°C were used
+in the fits.
+In the fitting process, the standard deviation of the pre-
+dicted value was computed for each datum. These standard
+deviations were themselves fitted to a quadratic equation , as
+a function of temperature, by the method of least squares. At
+any desired temperature for a given saturated salt solution,
+the standard deviation of the predicted value was calculated
+using the appropriate quadratic equation. Three times this
+value was then assigned as the estimated uncertainty for the
+corresponding value of relative humidity, with certain excep-
+tions discussed below. This is the value which appears in
+table 2.
+Where a number of investigations of the same solution
+existed and the relative humidity vs temperature results of
+one investigation were completely inconsiste nt with the re-
+sults of the other investigations, the data of the deviant
+investigation were eliminated and a new fit made.
+The data used in this paper met one of the following
+crite ria: (1) a large number of investigations were included
+and exhibited a sma ll residual standa rd deviation of the
+relative humidity vs temperature fits; (2) although few inves-
+tigations were included, the method of measurement was
+judged to be superior a nd estimates of the uncertainties of the
+original measurements themselves were small; and (3) the
+data were in a relative humidity range which was not approxi-
+mated by any of the other binary saturated solutions.
+4. Results
+Table 1 contains coefficients for the data of the selected
+salts fitted to an equation of the form:
+3
+RH =
+2: Ai
+i=O
+where RH is in percent and t is in °C (IPTS-68). The salts are
+listed in ascending order of RH at 25°C. Also included in
+table 1 is the residual standard deviation of the fit , the range
+of te mperature over which the fit was performed and refer-
+ences for the fundamental data that were involved in that
+particular fit.
+Table 2 gives the calcul ated relative humidities for each of
+the binary saturated solutions at 5-degree intervals along with
+the estimated uncertainties in relative humidity at each of the
+temperatures. The saturated salt solutions are presented in
+the same order as in table 1.
+5. Discussion
+Although the method used for fitting the data gave no
+problems, the assignment of weights to each datum required
+some judgment. Three methods of weighting were considered:
+(1) weights were assigned inversely proportional to the vari-
+ance of the individual datum where the variance was ta ken as
+the square of the total uncertainty; (2) weights we re assigned
+inversely proportional to the estimated total uncertainty of the
+individual datum; and (3) weights of unity were assigned to
+all data.
+All of the data were fitted three times, once for each type of
+weighting. The results were assembled into three tables of
+90
+"
+TABLE I. SWlllllar) of Le(",t Squares Fits to RH :£ A;t; for Selected Saturated Salt Solutions
+i = 0
+No.
+Salt Ao A, A2 A3 a- of I min ( max Data Source (a)
+Points
+Cesium Fluoride 6.20938 - 0. 143381 0.123037 X 10- ' 0.54 21 5.0 80.0 2, J7
+Lithium Bromide 7.75437 - 0.0654994 0. 420737 X 10- 3 .22 21 0.0 100. 0 2, 14
+Zinc Bromide 9.28455 - 0.0906508 0. 11 8 143 X 10-' .20 16 5.0 70.0 2, 14
+Potassium Hydroxide 16.7049 - 0.51 1352 0.796712 X 10- 2 . - 0.426364 X 10- 4 .28 14 5.0 70.0 2
+Sodium Hydroxide 11. 558 1 - 0. 132339 .90 24 15.0 75.0 I, .1 6
+Lithium Chloride 11.2323 - 0.00824245 - 0.2 14890 X JO- " .67 100 0.0 100.3 I, 3, JO, 11 , J7, 18, 20
+Calcium Bromide 23.5670 - 0. 136 11 7 - 0.5858.36 X 10-2 .06 7 11. 2 25.0 11, 14
+Lithium Iodide 22.8216 - 0,232642 O . .1 32306 X ]0- 2 - 0.168738 X JO- 4 .05 15 5.0 70.0 2, 14
+Potassium Acetate 22.4388 0. 156288 0.612868 X 10-2 .22 10 11. 2 3l.0 11 , 14, 17
+Potassium Fluoride 65.7907 - 2.07303 0.305676 X JO - I .36 8 25.0 90.0 6, 14
+Magnesium Chloride 33.6686 - 0.00797397 - 0. J08988 X 10- 2 .28 48 0.00 99.4 1,7, 11, 14,17, 19,21
+Sodium Iodide 42.6040 0.00854045 - 0.933320 X JO- 2 0.761055 X JO- 4 .50 25 5.0 90.0 1,6, JJ , .14
+Potassium Carbonate 43.13 15 0.00147523 .31 9 0.0 30.0 8, 14, 17
+Magnesium Nitrate 60.3514 - 0.298153 .34 24 0.0 48.1 1, 8, 17,19,21
+Sodium Bromide 64.7190 -0.221990 - 0.402414 X 10-2 0.0590331 X 10-4 .44 22 5.0 80.0 2,6, 11, 17
+Cobalt Chloride 73.0330 0.0852795 - 0.218455 X 10- 1 0.2 18691 X 10- 1.44 17 23.4 78.9 6
+Potassiulll Iodide 74.5466 - 0.253167 o. J04383 X 10- 2 0.20 12 5.0 90.0 1, 6
+Strontium Chloride 78.5322 - 0.273114 - 0.135136 X JO- 2 .02 7 5.0 30.0 1, 17
+Sodium Nitrate 79.5738 - 0. 193192 - 0. 122102 X 10-2 0. 174308 X 10- 4 .37 25 5.0 90.0 1,6,9, 17
+Sodium Chloride 75.5164 0.039832 1 - 0.265459 X 10-2 0.284800 X 10- ' .21 44 0.0 80.0 1, 6, 8, 11, 12, 13, 15, 17, 19,21
+'D Ammonium Chloride 81.8777 - 0.1 32271 .60 20 11.2 3l.0 9, 11
+....... Potassium Bromide 86.6424 - 0.332271 0.459734 X JO- 2 - 0. 199429 X JO- 4 .14 II 5.0 80.0 I , 6, 17
+Ammonium Sulfat e 81. 7794 - 0.0715320 .40 :ZI 0.4 48.0 9, 18, 20
+Potassium Chloride 88.6190 - 0.193340 0.899706 X JO- 3 .45 39 0.0 90.0 I, 6, 8, 9, 12, 17
+Strontium Nitrate 94.2127 - 0.366025 .19 5 5. 0 25.0 1
+Potassium Nitrate 96.3361 0.01l2371 -0.484514 X 10- 2 .80 22 0.6 48. 1 9, 17, 19,21
+Potassium Sulfate 98.7792 - 0.0590502 .47 18 0.5 52.3 12, 19,21
+Potassium Chromate 103.934 - 0.310163 0.273023 X 10-2 .22 7 23.7 50.8 12, 17
+(a) Numbers correspond to references.
+\0
+~
+T
+°C
+0
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+85
+90
+95
+100
+T
+°C
+0
+5
+10
+IS
+20
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+85
+90
+95
+100
+Cesium
+Fluoride
+5.52 ± 1.9
+4.89 ± 1. 6
+4.33 ± 1.4
+3.83 ± 1.1
+3.39 ± 0.94
+3.01 ± 0.77
+2.69 ± 0.63
+2.44 ± 0.52
+2.24 ± 0.44
+2.11 ± 0.40
+2.04 ± 0.38
+2.03 ± 0.40
+2.08 ± 0.44
+2.20 ± 0.52
+2.37 ± 0.62
+2.61 ± 0.76
+Magnesium
+Chloride
+33.66 ± 0.33
+33.60 ± 0.28
+33.47 ± 0.24
+33.30 ± 0.21
+33.07 ± 0.18
+32.78 ± 0.16
+32.44 ± 0.14
+32.005 ± 0.13
+31.60 ± 0.13
+31.10 ± 0.13
+30.54 ± 0.14
+29.93 ± 0.16
+29.26 ± 0.18
+28 .. 54 ± 0.21
+27.77 ± 0.25
+26.94 ± 0.29
+26.05 ± 0.34
+25.11 ± 0.39
+24.1 2 ± 0.46
+23.07 ± 0.52
+21. 97 ± 0.60
+TABLE 2. EquilibriulII Relative HUlllidity u/Selected Saturated Salt SoiutiulI.lj'rolll () tu J()() °C
+Relative Humidity, %
+Lithiulll Zinc Putassiutll Sodiulll Lithiulll Calcium LithiulII Putassiulll Pulassilllll
+Bromide Brunlide Hydroxide Hydroxide Chloride Brorlli(jt' Iodide Acetate Fluoride
+7.75 ± 0.83 11.23 ± 0.54
+7.43 ± 0.76 8.86 ± 0.89 14.34 ± 1. 7 11.26 ± 0.47 21. 68 ± 0.30
+7.14 ± 0.69 8.49 ± 0.74 12.34 ± 1. 4 11.29 ± 0.41 2 1. 62 ± 0.50 20.61 ± 0.25 23.38 ± 0.53
+6.86 ± 0.63 8.19 ± 0.61 10.68 ± I. I 9.57 ± 2.8 11.30 ± 0.35 20.20 ± 0.50 19.57 ± 0.20 23.40 ± 0.32
+6.61 ± 0.58 7.94 ± 0.49 9.32 ± 0.90 8.91 ± 2.4 11. 31 ± 0.31 18. 50 ± 0.50 18.56 ± 0.16 23.11 ± 0.25
+6.37 ± 0.52 7.75 ± 0.39 8.23 ± 0.72 8.24 ± 2.1 11.30 ± 0.27 16.50 ± 0.20 17. 56 ± 0.13 22.51 ± 0.32 30.85 ± 1.3
+6.16 ± 0.47 7.62 ± 0.31 7.38 ± 0.56 7.58± 1.7 11. 28 ± 0.24 16.57 ± 0.10 21.61 ± 0.53 27.27 ± I. I
+5.97 ± 0.43 7.55 ± 0.25 6.73 ± 0.44 6.92 ± 1.5 11.25 ± 0.22 105.57 ± 0.08 24.59 ± 0.94
+5.80 ± 0.39 7.54 ± 0.20 6.26 ± 0.35 6.26 ± 1.2 11. 2 1 ± 0.21 14. 55 ± 0.06 22.68 ± 0.81
+5.65 ± 0.35 7.59 ± 0.17 5.94 ± 0.29 5.60 ± 1.0 11..16 ± 0.21 13.49 ± 0.05 21.46 ± 0.70
+5.53 ± 0.31 7.70±0.16 5.72 ± 0.27 4.94 ± 0.85 11.1O±0.22 12.38 ± 0.05 20.80 ± 0.62
+5.42 ± 0.28 7.87 ± 0.17 5.58 ± 0.28 4.27 ± 0.73 11.03 ± 0.23 11.22 ± 0.05 20.60 ± 0.56
+5.33 ± 0.25 8.09±0.19 5.49 ± 0.32 3.6.1 ± 0.65 10.95 ± 0.26 9.98 ± 0.06 20.77 ± 0.53
+5.27 ± 0.23 8.38 ± 0.24 5.41 ± 0.39 2.95 ± 0.60 10.86 ± 0.29 8.65 ± 0.07 21.18 ± 0.53
+5.23 ± 0.21 8.72 ± 0.30 5.32 ± 0.50 2.29 ± 0.60 10.75 ± 0.33 7.23 ± 0.09 21. 74 ± 0.56
+5.20±0.19 1.63 ± 0.64 10.64 ± 0.38 22.33 ± 0.61
+5.20 ± 0.18 10. 51 ± 0.44 22.85 ± 0.69
+5.22 ± 0.17 10.38 ± 0.51 23.20 ± 0.80
+5.26 ± O. J7 10.23 ± 0.59 23.27 ± 0.93
+5.32 ± 0.16 ]0.07 ± 0.67
+5.41 ± 0.17 9.90 ± 0.77
+TABLE 2. EquilibriulII Relative HUlllidi/y ,!!Selecter! Saturater! Salt Sulutioll~j'rUIII () tu I()() °C-Colltilluer!
+Relative Humidit y, %
+Sodium Potassiulll Magnesium Sodium Cobalt Potassiulll Strontium Sodium Sodium
+Iodide Carbonate Nitrat e Brumide Chloride Iodide Chloride Nitrate Chloride
+43.13 ± 0.66 60.35 ± 0.55 75.51 ± 0.34
+42.42 ± 0.99 43.13 ± 0.50 58.86 ± 0.43 63.51 ± 0.72 73.30 ± 0.34 77.13 ± 0.1 2 78.57 ± 0.52 75.65 ± 0.27
+41.83 ± 0.83 43.14 ± 0.39 57.36 ± 0.33 62.15 ± 0.60 72. I I ± 0.31 75.66 ± 0.09 77.53 ± 0.45 75.67 ± 0.22
+40.88 ± 0.70 43.15 ± 0.33 55.87 ± 0.27 60.68 ± 0.51 70.98 ± 0.28 74.13 ± 0.06 76.46 ± 0.39 705.61 ± 0.18
+39.65 ± 0.59 43.16 ± 0.33 54.38 ± 0.23 59.14 ± 0.44 69.90 ± 0.26 72.52 ± 0.05 75.36 ± 0.35 75.47 ± 0.14
+38.17 ± 0.50 43.16 ± 0.39 52.89 ± 0.22 57.057 ± 0.40 64.92 ± 3.5 68.86 ± 0.24 70.85 ± 0.04 74.25 ± 0.32 75.29 ± 0.12
+36.15 ± 0.43 43.17 ± 0.50 51.40 ± 0.24 56.03 ± 0.38 61.83 ± 2.8 67.89 ± 0.23 69.12 ± 0.03 73. 14 ± 0.31 75.09 ± 0.11
+34.73 ± 0.39 49.91 ± 0.29 54 .. 55 ± 0.38 58.63 ± 2.2 66.96 ± 0.23 72.06 ± 0.32 74.87 ± 0.12
+32.88 ± 0.37 48.42 ± 0.37 53. 17 ± 0.41 55.48 ± 1.8 66.09 ± 0.23 71.00 ± 0.34 74.68 ± 0.13
+31.02 ± 0.37 46.93 ± 0.47 5 1.95 ± 0.47 52.56 ± 1.5 65.26 ± 0.24 69.99 ± 0.37 74.52 ± 0.16
+29.21 ± 0.40 45.44 ± 0.60 50.93 ± 0.55 50.01 ± 1.4 64.49 ± 0.26 69.04 ± 0.42 74.43 ± 0.19
+27.50 ± 0.45 50.15 ± 0.65 48.02 ± 1.4 63.78 ± 0.28 68.15 ± 0.49 74.41 ± 0.24
+25.95 ± 0.52 49.66 ± 0.78 46.74 ± 1.5 63.1 1 ± 0.31 67.35 ± 0.57 74.50 ± 0.30
+24.62 ± 0.62 49.49 ± 0.94 46.33 ± 1. 9 62.50 ± 0.34 66.64 ± 0.67 74.71±0.37
+23.57 ± 0.74 49.70 ± .1.1 46.97 ± 2.3 61.93 ± 0.38 66.04 ± 0.78 75.06 ± 0.45
+22.85 ± 0.88 50.33 ± 1. 3 48.80 ± 2.9 61.43 ± 0.43 65.56 ± 0.91 705.58 ± 0.55
+22.52 ± 1.0 51.43 ± 1.5 52.0 1 ± 3.7 60.97 ± 0.48 65.22 ± I. I 76.29 ± 0.65
+22.63 ± 1.2 60.S6 ± 0.54 65.03 ± 1.2
+23.25 ± 1.4 60.21 ± 0.61 65.00 ± 1.4
+'"'"
+"
+::!
+.§
+~
+(,.)
+I
+~
+C)
+C)
+2
+C)
+~
+c
+";
+<'
+S
+:l
+"0
+'"
+"'il
+'"
+'"'"
+"
+2
+::!
+<l
+'"
+'"'"
+"
+;j
+~
+"
+'"
+'"&
+.~
+."
+. ~
+:t:
+"
+.~
+]
+"
+0:::
+~
+.g
+~
+.~
+""
+'-l
+r.-i
+'"
+..J
+'"
+'"
+Eo-
+!J\?
+.f
+:'S!
+§
+:r:
+"
+>
+;;;
+"
+0:::
+E
+" "
+.~ .~
+02:
+0..
+O\r-fr-r-OCO
+""""""'''"'''"''"
+666666
++1 +1 +1 +1 +1 +1
+COCONO\OLf')
+COO "d"COlJ")C'l
+r--.:r---:~..nlf"5..n
+0>0>0>0>0>0>
+r-f\OC!")C"t')lf":)QOOccOlf":l
+......... O\r--\Olf)-.::to:::f'C'f';lC!")o:::f'~
+""';0000000000
++1 +1 tI +1 +1 +1 +1 tI +1 +1 +1
+r-coCOO\O\OO,......;,......;NN
+t-o:::f'r-fco If'':)MOr-<d"r-fCQ
+ccicciccir-...:r....:r-...:r-...:...o...o...o1f5
+0>0>0>0>0>0>0>0>0>0>0>
+"'''''''0,,",
+Q\ r-f o:::f'O\\OlJ")\OCONOOlJ")
+Nc-i ~6 oc:i6o~ ""'; N
++1 +1 +1 +1 +1 +1 +1 +1 +1 tI +1
+C'l')t-\Or-fC\lCO .-; O\C!")CI")CO
+MNO\~\Olf)C!")r-OO '-
+.,o...o..r5..r.i ~C'Y"5NOo\r-...:~
+0>0>0>0>0>0>0>0>000000
+\0 co co 0\ co
+Lf')MNC\lC!")
+66000
++1 +1 +1 +1 +1
+COUjNO\'-O
+M I.t:l t-COO
+c..icio:i\Cit.r5
+0>0>000000
+~~~~~~~~~~~~~~~~~~o
+666666666666666660""';
++1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1
+_~~N_"" N"'N""OO"''''O>~OooO
+\O\Or-O\ ,......; C!")\OO\Mr-Nr-NCO~~O\\Olf)
+oo~"'Olf"5..n~~NN.....; .....;66 ~~~cciccicci
+cococococococococococococor-r-r-~r-r-
+OOOr-fco,......;coOr-O\Lf')t-
+O\\DLf')MMNMMo:::f' >..0 co
+66666066666
++1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1
+t-C\l\Oo<o:tO\Mt'- ........ \.O0
+N~ Or- C!")O\\ONO\u")C'1
+NC'..ic..i ""';""';66o o\o\o\
+cccocccccococoCOr-r-r-
+\O'o:::t'N"""';r-f,......;N"d" \0 CON 111 0 U') O t-
+NNNNNNNNNNMM~"d"l/) lf)
+6666666666666000
++1 tI +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1 +1
+O'\LI':lC'-Jr-O\r-COMOONUjo:::f'O\r-\Or-
+Or-\O\OCCNt-"d'.-;Oo\o\o\O"""'N
+u")cr:ic--i ""';ooo\o\o\ o\ooccio:::io\o\ 0\
+cococococoCOr-r-r-r-r-r-r-r-r- r-
+\OO\o:::I"or-
+0\ Lf")-=:f'''d''lI':>
+66666
++1 +1 +1 +1 +1
+l/")O\C'Qr- O
+UjCO N lf':lO\
+6o\o\cci~
+cor-r-r-r--
+93
+relative humidity at 5-degree intervals. Each calculated
+value of relative humidity was assigned an uncertainty equal
+to three times the standard deviation of the predicted value.
+As might be expected, the calculated relative humidities and
+the corresponding uncertainties differed for each of the three
+weightings. For the saturated solutions chosen for presenta-
+tion in this paper, it was noted with some satisfaction that all
+relative humidities calcul ated from the three differently
+weighted fits agreed with each other to within the assigned
+uncertainty for each.
+A weighting inversely proportional to the square of the
+estimated total uncertainty for each datum was judged to be
+inappropriate. Although it is common to assign weights pro-
+portional to the inverse of sigma squared such an approach is
+usually based on a sigma which is statistically determined.
+This is not the case here. The method used to obtain the
+estimated total uncertainty is given in the Appendix. It was
+felt that the use of the square of the estimated uncertainty
+would have placed a n unacceptably high value on the au-
+thor's estimate of the errors co ntributing to the total uncer-
+tainty. Some investigators did not provide sufficient inforrna-
+tion in their publications to make possible completely objec-
+tive estimates of their errors. [n those cases, the estimated
+total uncertainty included components based on the au thor's
+subjective judgments.
+A weighting of unity was likewise unsatisfactory since it
+would in no way take into accou nt the innate difference in
+uncertainty due to method, temperature and relati ve humidity
+range, nor would it place any reliance on the a uthor's judg-
+ment of the quality of the research. A weighting proportional
+to the inverse of the estimated uncertainty appeared to be a
+reasonable compromise betwee n the other extremes and all
+data presented in this publication were processed using that
+weighting method.
+Where the data for a particular saturated salt solution
+included a number of investigations, three times the standard
+deviations of the computed values were accepted as the
+estimated uncertainty. Whe re the data were based only on
+one or two investigations it is evident that self consiste nt
+data, though quite inaccurate, could give small estimated
+standard deviations of the computed values. It is also evident
+that such standard deviations are not a valid estimate of
+uncertainty. Under those circumstances where the results
+from fitting the polynomial equation to the original data for
+any saturated salt solution gave values for three times the
+standard deviation of the predicted value that were less than
+the estimated total uncertainty of the original data, it was the
+estimated total uncertainty of the original data which was
+used as the final estimate of uncertainty for the calculated
+" best" value of relative humidity.
+The data presented in table 2 are given at 5°C intervals
+over the temperature range of the original data with extrapo-
+lations beyond these ranges never exceeding 2.5 0c. All
+calculated values of relative humidity are given to 0.01
+percent relative humidity. This does not in any way imply an
+accuracy of 0.01 percent. The designated estimated uncer-
+tainties still give the best prediction of accuracy. It was felt
+that to fail to give the relative humidities to .01 percent would
+be discarding information, imprecise as it might be. Since the
+estimated uncertainties are given, we see no problem with
+presenting the values of relative humidity with figures far
+beyond their estimated uncertainties.
+The uncertainties presented do not include uncertainties in
+the vapor pressure equation [22] or e nhancement equations
+~
+TABLE 3. Comparison of Relative Humidity Values of Selected Saturated Salt Solutions for Various CornpilatiollS
+Saturated Salt 10 °C
+a b c d
+Potassiul1l Hydroxide 12.34 13
+LithiulII Chloride 11. 29 14 13
+PotassiUlll Acetat e 23.38 21 24
+Magnesiulll Chloride 33.47 34 34.7 34
+Sodium Iodide 41.83 42
+Potassium Carbollate 43.14 47 47.0 47
+Magnesium Nitrate 57.36 57 57
+Sodium Bromide
+Cobalt Chloride
+Potassiulll Iodide 72. 11 72
+Sodiulll Chloride 75.67 76 76.9 76
+Ammonium Chloride
+Potassium Bromide 83.75 86.0
+ArlltllOniulll Sulfate 82.06 82 82
+Potassiulll Chloride 86.77 88 87.4 88
+Potassiulll Nitrate 95.96 95 95.1 95
+Potassium Sulfate 98.18 98 98.2 98
+a Values from this work.
+b Values from references 24 and 25 which are identical.
+c Values frolll referellce 26.
+d Values from reference 27.
+e Values frolll refe re nce 28.
+f Values frolll reference 29.
+20 °C
+a b c
+9.32
+11.31 12
+23.11 22
+33.07 33 33.1
+39.65
+43.16 44 44.0
+54.38 55
+59. 14
+69.90
+75.47 76 75.8
+79.23
+81.67 84.0
+81.34 81
+1
+85
+.
+11
+86 86.3
+94.62 93 94.2
+97. 59 97 97.1
+-
+Relative Humidity, %
+30 °C
+d e f a b c d e f
+9 7.38 7
+12 15 11. 28 12 12
+23 20 21.61 22 22
+33 33 32.44 33 31.7 33 32
+39 36.15 36
+44 42 43.17 43 43.0 43
+55 51.40 52 52
+58
+61.83 61.9
+70 67.89 68
+76 76 75.09 75 75.1 75 75
+79.2 79.2 77.90 79.5 79.5
+84 80.27 82.0
+81 81 81.0 80.63 80
+RO
+I'Ll 81.1
+86 86 83.62 85 84.5 84 84
+93 92.31 9 1 92.5 91
+97 96.5 97.00 96 96.6 96 96.5
+40°C
+a b c d e
+6.26 6
+11. 21 11 11
+31.60 32 31.3 32 32
+32.88 33
+48.42 49 49
+55.48 56.6
+74.68 75 74.4 75 75
+79.43 80.0
+79.91 79 79 81.1
+82.32 82 82.8 82 83
+89.03 88 89.4 88
+96.41 96 96. 1 96 96.5
+[23] used. The "esults presented are therefore for the exact
+values of references [22] and [23]. The enhancement factor
+for a saturated salt solution in air is not known precisely.
+Analys is of the factors involved indicate that at one a tmos-
+phere pressure or less, the difference between the enhance-
+ment factor over a saturated salt solution and over pure water
+is negligible. That is not the case at high pressures. The data
+presented are therefore considered valid near or below one
+atmosphere total pressure. If saturation vapor pressure values
+other than those given by Wexler [22] are used, the relative
+humidities should be multiplied by the ratio of these satura-
+tion vapor pressures to those of Wexler.
+Many compilations of non-critically evaluated data on the
+equilibrium humidity of saturated salt solutions exist [24-
+38]. Table 3 is a comparison of values from this work and
+corresponding values taken from five of these other compila-
+tions at four temperatures. Of the listed compilations, onl y
+this work (column a) and Hickman's work (column d) give the
+sources of the data. Hickman's values (in column d) were
+directl y copied from his cited references without modifica-
+tion. None of the compilations other than ours (column a)
+gives estimates of unce rtainty. Therefore, one would logically
+conclude that the authors of those compilations consider their
+values to be uncertain onl y in the last figure presented. It is
+also likely that some of the values in one compilation came
+from the same sources as the values in othe r compilations -
+such a relationship appears to exist between column b and
+column d.
+If we assume an uncertainty of 1/2 of the last digit in the
+values given in these other compilations, and if we add that
+uncerta inty to the estimated uncertainty for the corresponding
+values in column a, we find that the values in column a (the
+results of this work) agree with the values in at least one of the
+other compilations to within this composite uncertainty at all
+points, except for:
+Potassium carbonate at 10 °C
+Sodium bromide at 20 °C
+Ammonium chloride at 30 °C
+Potassium bromide at 10 °C, 20°C, and 30 °C
+Potassium chloride at 10 °C, and 20 °C
+It should be noted that this comparison of compilations is
+over a limited temperature range and for onl y 17 of the 28 salt
+solutions evaluated and collated in this paper.
+6. Appendix
+In all cases, the most fundame ntal measure ments pre-
+sented were used to calculate the actual relative humidity
+obtained by each investigator for each datum. No attempt was
+made to evaluate purity of water or solute or its effect in any
+investigation.
+As a first step, 'Ill temperatures were converted from the
+temperature scale in which the data were presented into
+IPTS-68 temperature equivalents. Where the temperature
+scales were not given, a judgment was made as to the most
+likely temperature scale used, based on the date of the
+research.
+Likewise, where vapor pressures based on vapor pressure
+equations or tables were given, these were converted to new
+vapor pressures based on the Wexler formulation. In the case
+of reported relative humidities based on dew-point measure-
+ments, the dew-point temperature was reconstructed from a
+knowledge of the vapor pressure equation used. From the
+reported control temperature and the reconstructed dew-poi nt
+temperature a new relative humidity was calculated using the
+Wexler and Greenspan equations for vapor pressures and
+enhancements factors, respectively.
+Where the isopiestic method was used with sulfuric acid as
+the isopiestic solution, the values of Shankman [39] for
+sulfuric acid activity were used to determine the relative
+humidity of the saturated salt solution. This was done (1) for
+consistency, because many of the researchers had done like-
+wise; (2) because Shankman described his experimental work
+in sufficien t detail to enable us'to judge its quality and to
+estimate the uncertainty in his work; and (3) his values
+appeared to be the most accurate available.
+In determining estimates of total uncertainty for each
+datum, the uncertainty was taken as the square root of the
+sums of individual uncertainties (in terms of relative humid-
+ity) squared as described by Ku [40]. Individual uncertainties
+involved in the individual measure ments we re obtained from
+the investigators' own estimates where these see med reasona-
+ble. Where the in vestigator did not present a reasonable
+estimate of uncerta inty for a particula r parameter, this author
+made his own estimate of the uncertain ty of that parameter
+based on his judgment of the in vestigator's work a nd his
+estimate of the state of the art at the time of the investigation.
+The relative humidity uncertainty assoc iated with each of the
+parameter uncertainties was obtained by calculating the rela-
+tive humidity with and without the uncertainty added to the
+related parameter, the difference being the relative humidity
+uncertainty [or that particular parameter.
+In some cases the individual parameter uncertainties are
+not independent in their effect on the relative humidity
+uncertainty. A case in point is the relative vapor pressure
+measurement method. In this technique, the individual tem-
+perature and pressure measurement uncertainties are of no
+great consequence, it is the estimates of the temperature
+difference and the pressure difference in the two pressure
+measurements that are significant. In addition, an estimate of
+the degree of equilibrium achieved is of significance. In these
+types of situations, estimates of the differences were used in
+lieu of estimates of the individual measurements.
+In the case of the relative humidity sensor calibration
+technique, an estimate of the calibration uncertainty as well
+as temperature uncertainty were used. In the isopiestic
+technqiue, the relevant uncertainties are the temperature
+difference, the concentration determination, the uncertainty
+in equilibrium and the uncertainty in the reference solution
+data.
+Composite uncertainties for each datum based on the
+square root of the sum of the individual parameter uncertain-
+ties squared were thus obtained.
+As stated earlier, these estimates of uncertainties are the
+result of subjective judgments as well as objective estimates.
+For the great preponderance of data presented in this paper,
+these judgments have a minor effect on the relative humidity
+values as well as the total uncertainty, as was shown by the
+small difference obtained for the three different methods of
+weighting.
+95
+7. References
+[IA] Wexler, A., Calibration of humidit v measuring instruments at the
+National Bureau of Standards, ISA Transactions, 7, No.4, 356
+(1968).
+[IB] Wexler, A., and Brombacher, W. G., Methods of measuring and
+testing hygrometers, Nat. Bur. Stand. (U.S.), Ci rc. 512, 13 (1951).
+[1] Acheson, D. T., Vapor pressure of saturated aqueous salt solutions,
+Humidity and Moisture, Vol. 3 (Rein hold Publishing Corporation,
+New York , 1965) p. 52l.
+[2] Acheson, D. T., Vapor Pressure of Saturated Aqueous Solutions of
+Selected Inorganic Salts, Master of Science Thesis, Department of
+Physics University of Maryland (1965).
+[3] Applebey, M. P., Crawford, F. H. , and Gordon , K. , Vapor pressure of
+saturated solutions. Lithium Chloride and lithium sulphate , J.
+Chem. Soc., 11,1665 (1934).
+[4] Baxter, G. P., and Lansing, J. E., The aqueous pressure of some
+hydrated crystals. Oxalic acid, strontium chloride and sodium sul-
+fate, J. Am. Chem. Soc. , 42, 419 (1920).
+[5] Baxter, G. P. , and Cooper, W. c., Jr. , The aqueous pressure of
+hydrated crystals. II. Oxalic acid, sodium sulfate, sod ium acetate,
+sodium carbonate, disodium phosphate, barium chloride, J. Am.
+Chern. Soc., 46,923 (1924).
+[6] Carr, D. S., and Harris, B. L., Solutions for maintaining constant
+relative humidity. Ind. Eng. Chern. , 41, 20]4 (1949).
+[7] Darby, J. H., and Yngve, V. , The dissociation tensions of certain
+hydrated chlorid es and the vapor pressures of their saturated solu-
+tions. J. Am . Chem. Soc. 38, No.8, 1429 (1916).
+[8] Doi, K. , Fixed point of humidity, measurement and control (Japanese),
+3, No.5, 327 (1964).
+[9] Edgar, G., and Swan, W.O., The factors determining the hygroscopic
+properties of soluble substances. I. The vapor pressures of saturated
+solutions, J. Am. Chern. Soc., 44, 570 (1922).
+[10] Gokcen, N. A., Vapor pressure of water above saturated lithium
+c hloride solution, J. Am. Chern. Soc., 73, 3789 (1951).
+[11] Hedlin , C. P. , and Trofimenkoff, F. N., Relative humidities over
+saturated solutions of nine salts in the temperature range from 0 to
+90 OF, Humidity and Moisture, Vol. 3 (Reinhold Publishing Corpo-
+ration, New York, 1965) p. 519.
+[12] Leopold, G. H. , and Johnston , J. , The vapor pressure of the saturated
+aqueous of solutions of certain salts, J. Am. Chelll. Soc., 49, 1974
+(1927).
+[13] Olymkjk, P. , and Gordon, A. R., The vapor pressure of aqueous
+solutions of sodium chloride at 20, 25 and 30° for concentrations
+from 2 molal to saturation , J. Am. Chem. Soc. 65, 224 (1943).
+[14] Richardson, G. M., and Malthers, R. S., Salts for static control of
+humidity at relatively low levels, J. Appl. Chem. 5, 557 (1955).
+[I S] Scatchard, G. , Hamer, W. , Jr. , and Wood, S. E. , Isotonic solutions. I.
+The chemical pot ential of water in aqueous solutions of sodium
+chloride, potassium chloride, sulfuric acid , sucrose, urea, and
+glycerol at 2;) °c, J. Am. Chern. Soc. , 60,3061 (1938).
+[16] Speranski, A., Uber den Dampfdrunk iind iiber die integrale Losuings-
+warme der gesalligten LOsungen. Zeit Phisik Chern. 79,86 (1912).
+[17] Stokes, R. -H. , and Robinson , R. A. , Standard solutions for humidity
+control at 25°C. Ind. Eng. Chem. 41, 2013 (1949).
+[18]
+[19]
+[20]
+[21]
+[22]
+[23]
+[24]
+[25]
+[26]
+[27]
+[28]
+[29]
+[30]
+[31]
+[32]
+[33]
+[34]
+[35]
+[36]
+[37]
+[38]
+[39]
+[40]
+96
+Thakker, M. 1'. , Chi , C. W., Peck, R. E., and Wasan , 0.1'., Vapor
+pressure measurements of hygroscopic salts. J. Chern. and Eng.
+Data. 13, 553 (1968).
+Wexler, A., and Hasegawa, S., Relative humidity-temperature rela-
+tionships of some saturated salt solutions in the lemperature range
+o °C to 50 °C. J. Res. Nat. Bur. Stand. (U.S.) 53, No. 1, 19-26
+(1954) RP 2512.
+Wilson, R. E., Some new methods for the determination of the vapor
+pressure of salt-hvdrates, J. Am. Chem. Soc., 43, 704 (1921).
+Wyzykowska, A. , Hygrostat for calibration of humidity sensors (in
+Polish), Cieplownictwo Ogrzewnictwo Wentylacja 33, 172 (1972).
+Wexler, A. , and Greenspan, L. , Vapor pressure equation for water in
+the range 0 to 100 °C, J. Res. Nat. Bur. Stand . (U.S.), 75A, (phys.
+and Chern.), No. 3, 213-230 (May-June 1971).
+Greenspan, L. , Functional equations for the e nhancement factors for
+CO2-free moist air, J. Res. Nat. Bur. Stand. (U.S.), 80A (phys. and
+Chern.), No.1, 41-44 (Jan.-Feb. 1976).
+Small Enclosures for j::onditioning and Testing Using Aqueous Solu-
+tions (in French) , Edite par I' Association Fransaise De Normalisa-
+tion (AFN03), Tour Europe, NF XI5-014, (November 1973).
+Relative Humidity of Air over Saturated Solutions of Salts, British
+Standard 3718: 1964, Specificiation for Laboratory Humiditv Ovens
+(Non-Injection Type), p. 19 (1964).
+Relative Humidity over Salt Solutions, Tappi Data Sheet 109, Techni-
+cal Association of the Pulp and Paper Industry, New York N. Y.
+(Dec. 1944).
+Hickman , M. J., Measurement of Humidit y, National Phvsical Labora-
+tory 'lotes on Applied Science, 4, 31 (1970). .
+Maintaining Constant Relative Humidit v by Means of Aqueous Solu-
+tions, Recommended Practice for, ASTM , Designation: EI04-51
+(1971).
+Spencer, H. M. , Laboratorv Methods for Main taining Constant Humid-
+ity, International Critical Tables 1,67 (1926).
+O'Brien, F. E. 'VI., J. Sci. Instr, 25,73 (1948).
+Washburn, E. W. , International Critical Tables, III, 221 , (McGraw
+Hill Pub. Co. , New York).
+Janisch, Handb. bioI. Aiets. Method. Abt. v., 10 (1933).
+Burns, R. , Conditioning of Insulating Mat erials for Test, Bell Tele-
+phone System. Technical Publications Monograph , B-986 (1.937).
+Handbook of Chemistry and Physics, 56th Edition, (CRC Press, E-46
+1975).
+Schoor!, Pharm. Weekbl., 76 (Dec. 9, 1939).
+Gen. Radio Exp. 20, Nos. 2 and 3 (July to August 1945).
+Landolt and Bornstein Physikalisch Chemische Tabellen (Verlag Von
+Julius Springer 1923).
+Lange Handbook of Chemistry, Second Edition (Handbook Publishers,
+Inc., Sandusky, Ohio, 1172 1937).
+Shankman, S., and Gordon, A. R. , The vapor pressure of aqueous
+solutions of sulfuric acid, J. Am. Chern. Soc., 61,2370 (1939).
+Ku, H. H. , Notes on the use of propagation of eITor fonnulas, J. Res.
+Nat. Bur. Stand. (U.S.), 70C, (Eng. and Instr.), No.4, 263- 273
+(Oct.-Dec. 1966).
+(Paper 81Al-924)
+

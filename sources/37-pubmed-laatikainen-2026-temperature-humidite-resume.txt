@@ -1,0 +1,47 @@
+1. Temperature (Austin). 2026 Jul 11;13(3):289-299. doi: 
+10.1080/23328940.2026.2698162. eCollection 2026.
+
+Temperature and humidity independently influence thermoregulatory responses 
+during Finnish sauna bathing.
+
+Laatikainen-Raussi I(1)(2), Mikkola T(2), Ihalainen JK(1)(2), Ahokas E(1).
+
+Author information:
+(1)Sport and Health Sciences, University of Jyväskylä, Jyväskylä, Finland.
+(2)Finnish Institute of High Performance Sport KIHU, Jyväskylä, Finland.
+
+This study examined the effects of sauna air temperature and relative humidity 
+(RH) on acute cardiovascular and thermoregulatory responses under typical 
+Finnish sauna conditions, where participants were free to throw water onto the 
+heated stones (löyly). Fifty recreationally active healthy adults (32 males, 18 
+females, 35.4 ± 10.4 years, 174 ± 9.9 cm, 77 ± 17 kg) completed four 10-minute 
+sauna sessions, each separated by 30-minute recovery. Core temperature (Tcore), 
+skin temperature, heart rate (HR), body mass, and perceptual responses were 
+measured, alongside detailed multi-point environmental monitoring of temperature 
+and relative humidity (RH) monitoring. Generalized estimating equations assessed 
+associations between environmental factors and physiological responses. HR 
+increased markedly during sauna exposure (mean +41.6 bpm), while Tcore rose 
+moderately (+0.4°C). Temperature and RH were independently associated with 
+increases in HR (β = 1.40 bpm/°C; β = 0.37 bpm/%RH) and Tcore (β = 0.032°C/°C; 
+β = 0.0079°C/%RH). These associations remained significant after adjustment for 
+sex, physical activity, body fat percentage, and skin surface area. The 
+difference between dew point and skin temperature, used as an index of 
+condensation potential, showed weak associations with HR and no significant 
+relationship with Tcore. Repeated sauna sessions did not meaningfully influence 
+HR responses, and only minor differences were observed in Tcore between 
+sessions. Perceptual responses were primarily driven by temperature, with 
+smaller contributions from humidity. These findings demonstrate that humidity, 
+beyond temperature, appears to independently contribute to physiological strain 
+during sauna exposure. The results highlight the importance of characterizing 
+environmental conditions and suggest that humidity should be considered when 
+optimizing sauna use for potential health benefits.
+
+© 2026 The Author(s). Published by Informa UK Limited, trading as Taylor & 
+Francis Group.
+
+DOI: 10.1080/23328940.2026.2698162
+PMCID: PMC13540098
+PMID: 42694940
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the author(s).

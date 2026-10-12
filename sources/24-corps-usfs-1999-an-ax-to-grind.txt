@@ -1,0 +1,3173 @@
+An Ax to
+Grind
+A Practical
+Ax Manual
+An Ax to
+Grind
+A Practical
+Ax Manual
+United States
+Department of
+Agriculture
+Forest Service
+Technology &
+Development
+Program
+2300 Recreation
+July 1999
+United States
+Department of
+Agriculture
+Forest Service
+Technology &
+Development
+Program
+2300 Recreation
+July 1999
+9923-2823P-MTDC
+About the Author
+Passport in Time and Heritage
+  Expeditions are part of  the USDA
+    Forest Service’s Heritage Program
+   that allows the public to explore the
+past on their national forests.
+My Favorite Ax
+Bernie Weisgerber is a historic preservation specialist
+for the USDA Forest Service. He has been in charge of
+the Northern Region’s Historic Preservation Team,
+headquartered in Missoula, MT, since 1991. He
+worked for the National Park Service’s Historic
+Preservation Training Center before coming to
+work for the Forest Service.
+Bernie and his crew of skilled craftsmen
+restore historic Federal buildings, often at
+remote sites, using traditional technologies
+and materials. The team’s projects often provide training opportunities for
+other Federal employees and the general public, as part of  the Forest
+Service’s Passport in Time and Heritage Expeditions programs. Weisgerber
+has twice been a guest craftsman on National Public Broadcasting’s This
+Old House  television series.
+The Forest Service, United States Department of Agriculture, has developed this information for the guidance of its employees, its
+contractors, and its cooperating Federal and State agencies, and is not responsible for the interpretation or use of this information by
+anyone except its own employees.  The use of trade, firm, or corporation names in this publication is for the information and c onvenience
+of the reader, and does not constitute an endorsement by the Department of any product or service to the exclusion of others that may be
+suitable. The United States Department of Agriculture (USDA) prohibits discrimination in all its programs and activities on the basis of
+race, color, national origin, sex, religion, age, disability, political beliefs, sexual orientation, or marital or family statu s. (Not all prohibited
+bases apply to all programs.) Persons with disabilities who require alternative means for communication of program information (Braille,
+large print, audiotape, etc.) should contact USDA’s TARGET Center at (202) 720–2600 (voice and TDD). To file a complaint of dis crimination,
+write: USDA, Director, Office of Civil Rights, Room 326-W, Whitten Building, 1400 Independence Avenue SW, Washington, D.C. 2025 0-
+9410, or call  (202) 720–5964 (voice and TDD). USDA is an equal opportunity provider and employer.
+An Ax to
+Grind
+A Practical
+Ax Manual
+Bernie Weisgerber
+Author
+Brian Vachowski
+Project Leader
+USDA Forest Service
+Technology and Development Program
+Missoula, MT
+8E82A42—Ax Manual/Video for Heritage
+      Site Restoration
+July 1999
+Acknowledgments ___________________________________________________________________ v
+Brief History of the Ax _____________________________________________________________ 1
+Evolution of the Ax in America _____________________________________________________________ 1
+Ax Types, Patterns, and Uses ______________________________________________________________ 4
+American Felling Ax ________________________________________________________________________ 7
+Double-Bit Ax ______________________________________________________________________________ 8
+Broad Ax ___________________________________________________________________________________ 9
+Other Axes and Hatchets __________________________________________________________________ 10
+Adzes _____________________________________________________________________________________ 13
+Decline of the American Ax _______________________________________________________________ 14
+Getting the Hang of It _____________________________________________________________17
+Basics of Handle Selection ________________________________________________________________ 19
+Hanging Procedure _______________________________________________________________________ 21
+Sharpening _______________________________________________________________________________ 27
+Using Axes _________________________________________________________________________33
+A Most Versatile Tool _____________________________________________________________________ 33
+Using an Ax Safely ________________________________________________________________________ 33
+Chopping Technique ______________________________________________________________________ 35
+Felling Trees ______________________________________________________________________________ 38
+Limbing __________________________________________________________________________________ 41
+Cutting Pinned-Down Saplings ____________________________________________________________ 42
+Bucking __________________________________________________________________________________ 42
+Splitting __________________________________________________________________________________ 44
+Hewing ___________________________________________________________________________________ 45
+Buying an Ax _______________________________________________________________________51
+New and Used Axes _______________________________________________________________________ 51
+Manufacturers ____________________________________________________________________________ 51
+Distributors ______________________________________________________________________________ 53
+Organizations _____________________________________________________________________________ 55
+Selected References _______________________________________________________________57
+T able of Contents
+ii
+F
+rom the time this manuscript began as a series of audio tapes, An
+Ax to Grind: A Practical Ax Manual  has benefited from a lot of
+assistance. I would like to thank the following Missoula Technology and
+Development Center staff and other Forest Service employees for their
+major contributions.
+John Alley (Northern Region) Printing
+Bob Beckley Photography
+Michelle Beneitone Text processing
+Ted J. Cote Design and layout
+Gary Hoshide Review
+Jim Kautz P hotography
+Bert Lindler Editing
+David Michael (Apache-Sitgreaves National Forest) Review
+Brian Vachowski Project Leader,
+research, writing,
+editing
+Gloria Weisgerber (Northern Region) Review
+Mark Wiggins Photography
+Jerry Taylor Wolf Research, editing
+I would also invite you to look at the companion video program, An Ax
+to Grind . Parts 1 and 2 of the program are each 30 minutes long. Copies
+are available from MTDC at the address on the inside of the back cover.
+Many of the photographs are of axes from Bernie Weisgerber’s personal
+collection. Many of the illustrations were drawn by Frederic H. Kock for
+Bernard S. Mason’s book, Woodsmanship (1954). The illustrations are
+used here by permission of Mrs. Frederic H. Kock.
+A cknowledgments
+iii
+iv
+I
+B rief History of the Ax
+I
+’ve always had a passion for axes. I received
+my first ax—a toy—when I was 8 years old,
+and my first real ax not long afterwards.
+Since that time, for over 45 years, I’ve used and
+collected all kinds of axes and adzes in my
+professional work restoring historic buildings
+and structures.
+We cannot explore everything there is to know
+about axes in this publication. What I would
+like to share with you is a brief background on
+the development of axes, the hanging and
+sharpening of axes, how to use an ax, and
+detailed information on certain ax patterns. I’ve
+tried to place the discussion within the context
+of working with axes today and from a
+historical perspective of their use within the
+USDA Forest Service.
+In An Ax to Grind: A Practical Ax Manual, you’ll
+find:
+ A brief look at the history of the ax,
+especially its evolution in America
+ Types and patterns of axes and adzes,
+showcasing some examples from my
+personal collection and some from old
+catalogs
+ How to hang and sharpen an ax, two
+essential skills for anyone using an ax
+ Various examples of using axes,
+incorporating historical material
+ Where to buy a good ax
+ Some other good references about axes that
+you may find useful.
+This manual is intended to be a companion to
+my video program, An Ax to Grind (99-01-
+MTDC). The video (Figure 1) was produced by
+the Missoula Technology and Development
+Center (MTDC). Copies are available from the
+center. I hope you’ll take a look at it.
+Figure 1—The video program, An Ax to Grind (99-01-MTDC),
+is a companion to this manual. The video is available from
+Missoula Technology and Development Center.
+...having an ax to grind
+Getting even for a perceived
+wrongdoing.
+...barking your knuckles
+Scraping your knuckles on the side of
+a log while hewing it.
+...can’t get the hang of it
+Can’t get it right, originally referring
+to the way an ax handle was mounted
+to the ax head.
+Evolution of
+the Ax in America
+Figure 1
+48%
+3 3/8 x 4 7/16
+7 x 9 1/4
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 1
+Figure 3—Parts of the ax. (Courtesy of Gränsfors Bruks AB,
+Sweden.)
+Figure 2—Barking your knuckles comes with the territory
+when you choose to hew logs with a broad ax.
+Although we still make references to axes in
+our daily speech, most Americans have a
+limited knowledge about them (Figure 2),
+including how to use and properly maintain
+them. But the ax, in one form or another, has
+been around for over 10,000 years—even longer
+if you consider some of the crude stone tools
+used as axes by early man.
+While the ax has gone through transformations
+from stone, copper, bronze, and iron to steel,
+its overall shape and function have remained
+consistent (Figure 3). The ax was the first real
+woodworking tool, one of only a few available
+for a long period. For centuries the ax was one
+of mankind’s most useful tools.
+The early iron and steel axes used in America
+had European roots. Henry J. Kauffman, in his
+introduction to American Axes (1994), wrote:
+Part of the problem of focusing attention on
+the American axe arises from the fact that
+the earliest ones used here were made in
+Europe, and certainly the first ones made
+here were European in character. Thus, in
+the earliest colonial times a dividing line
+could not be drawn between the two catego-
+ries. As a matter of fact, the object was
+really a European-American axe. Because
+iron, unlike wood, is similar regardless of
+the place it was made, the essential sub-
+stance of an axe does not help to identify
+its origin. Short of some identifiable
+maker’s mark, the manufacturers of most of
+our early axes must remain anonymous.
+It seems certain that most of the first axes
+made in North America were made and used
+on the Atlantic seaboard, a few exceptions
+occurring when trading companies brought
+in blacksmiths to their centers of exchange
+to repair and resharpen axes. As settlers
+moved westward and southward, their
+needs were supplied by smiths who went
+with them and were responsive to indi-
+vidual needs. This procedure was the begin-
+ning of very high specialization in the
+forms of axes, a differentiation which was
+picked up by the big manufacturers in the
+nineteenth century. The axes were mostly of
+the felling variety, but there were other
+purposes for which an axe was needed.
+Parts of the Axe
+Figure 2
+68%
+2 7/32 x 3 3/16
+5 x 4 3/4
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+12
+Brief History of the Ax
+Figure 8—An 18th-century splitting ax, with straight handle
+typical of early axes.
+Figure 8
+36%
+3 3/8x 1 3/4
+9 7/16 x 4 7/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 5—An early 20th-century Collins ax manufactured for
+the South American market. Note the similarity in design of
+the two axes.
+The pace of specialization increased; as
+evidence of this trend, one manufacturer
+informed the writer that at one time the
+company manufactured about three hun-
+dred different types. The president of the
+Mann Edge Tool Company, in Lewistown,
+Pennsylvania, reported that in 1969 they
+were producing seventy different patterns;
+however, the bulk of their production in-
+volved only about twenty.
+The ax became quite specialized in Europe
+during the Middle Ages and afterward. When
+European colonists dispersed throughout the
+New World, they brought their tools and their
+knowledge with them. It is not surprising to see
+the appearance of trade axes (Figures 4 and 5)
+and Germanic goose-wing hewing axes. We also
+see examples of older European-style
+specialized axes (Figures 6, 7, and 8) in
+America.
+Figure 4— A 17th-
+century trade ax,
+typically made in
+northern Spain
+and traded by the
+French with
+American Indians.
+Americans modified European axes for two
+principal reasons (Kauffman 1994). First, the
+European axes were not as well suited to the
+virgin stands of huge trees found in America as
+they were for the smaller timber stands of
+Europe. The European axes were good tools for
+hewing, but less adequate for felling. The
+second reason, Kauffman suggests, is that many
+of the Europeans who left their homelands for
+an uncertain future in America were prepared
+Figure 6—
+An 18th-
+century
+mortising
+ax or
+twibil
+gives an
+idea of the
+special-
+ization
+apparent
+even in
+early axes.
+Length,
+4 feet.
+Figure 7—An
+18th-century
+shingling
+hatchet is
+another
+specialized ax.
+Ax head is 51/2
+inches long by
+4 inches wide.
+Figure 4
+32%
+2 x 2 5/8
+6 1/4 x 8 3/16
+Print to Outside
+Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 5(a)
+35%
+3 3/8 x 1 3/4
+9 5/8 x 5
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 6
+32%
+2 3/4 x 2 1/2
+8 5/8 x 7 7/8
+Print to Outside Edge of
+Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 7
+28%
+2 1/4 x 2 1/4
+8 x 8
+Print to Outside Edge
+of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 3
+Brief History of the Ax
+to adapt to survive. Their pioneering spirit bred
+ingenuity.
+The need for a better felling ax, the need to
+process huge amounts of timber during
+America’s settlement, and American ingenuity
+made development of the American felling ax
+inevitable.
+Ax Types, Patterns, and Uses
+During the 19th century, America’s agrarian
+society was not as mobile as our society is
+today. People lived their lives in relatively small
+geographic areas. This is one explanation of the
+hundreds of different ax-head patterns that
+developed over the last 150 years.
+The individual skills of local blacksmiths and
+their view of what an ax needed were important
+factors in the development of ax-head patterns.
+Ax patterns became a matter of regional
+preference.
+Around the turn of the 19th century, more than
+300 different ax-head patterns were being
+manufactured in the United States. Many were
+nearly identical. To simplify identification and
+eliminate unnecessary or duplicate patterns,
+the Ax Manufacturers’ Association agreed to set
+a standard, which resulted in a standard chart
+of ax patterns (Figure 9).
+Certain ax patterns become popular within a
+given geographic area, such as the Jersey (my
+particular favorite), the Michigan, the Dayton,
+and the Kentucky (Figure 10). At times, ax head
+patterns included a name that related to their
+use. For example, the rafting ax pattern
+originated in the day when logs were rafted
+down rivers.
+Ax-head patterns were also adapted to the
+timber that was available in the local area. The
+double-bit ax was originally developed in
+Pennsylvania (Figure 11). But the double-bit
+axes with a long, narrow, heavy ax head and a
+long handle, were developed for cutting large
+trees in the Pacific Northwest. Some of the
+patterns from this area were the Puget Sound,
+the Young’s felling pattern, the Redwood
+pattern, and the Humboldt pattern.
+W
+e no sooner got started on this
+book than confusion over
+terminology set in. The simplest term
+to decide was “ax” instead of “axe.”
+Although most historical sources go
+with axe, we chose ax because that
+spelling is preferred in the
+Government’s style manual. More
+problematic was the correct term for
+a single-bit ax. We found single-bit
+axes described as a single-bit ax,
+felling ax, American ax, and pole ax.
+Although woods workers commonly
+refer to a single-bit ax as a pole ax,
+dictionaries refer to the pole ax as a
+medieval battle ax, an ax that’s quite a
+bit different than the axes we are
+writing about. Pole ax probably refers
+to the poll (steel counterweight) on
+the back of the head of a modern
+single-bit ax. The trade axes that
+preceded the single-bit ax did not
+have a poll. The American ax and
+felling ax have slightly different
+meanings to me, so we compromised
+on single-bit ax throughout most of
+the text. Whether or not single-bit
+axes should be hyphenated is yet
+another story. We chose to rely on a
+modern dictionary for the spelling.
+14
+Brief History of the Ax
+Figure 9—Some standard patterns manufactured by True Temper Kelly in 1925.
+iv 5
+Brief History of the Ax
+Figure 11—A 19th-century “Hand Made” double-bit ax.
+Figure 10—Some Collins Company “American axes” from the company’s
+1921 catalog.
+Figure 11
+56%
+5 5/8 x 2 1/4
+10 x 4
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+16
+Brief History of the Ax
+Figure 13—My favorite American felling ax, a True Temper
+Kelly Perfect with a Jersey head and 32-inch straight hickory
+handle.
+American Felling Ax
+During the period in which the trade ax was
+being introduced to the North American
+Indians, the felling ax was brought to America
+by settlers from England, France, and Spain.
+The 17th-century felling ax was made of two
+pieces of iron that were hammer welded down
+the center of the poll surface. Later axes had a
+thin poll with a flat surface. When North
+American blacksmiths began making the felling
+axes, they forged the poll side of the pattern
+longer in order to make a lap weld, which gave
+more welding surface. This produced a heavier
+poll with more weight behind the handle,
+providing better balance. In essence, this design
+is the modern ax that we use today (Kauffman
+1994) (Figure 12).
+high-carbon-steel single-bit ax appears in an
+advertisement in the October 29, 1859, issue of
+Scientific American (Kauffman 1994).
+The addition of the poll by an unknown North
+American blacksmith is what makes the
+American felling ax unique. Late 18th-century
+iron axes often had steel insert cutting edges.
+Earlier European axes with their long blades
+were awkward to use. When North Americans
+ground down the blades after sharpening them
+many times, they discovered that they could
+use them to cut more accurately. These axes
+had better balance and geometry. The blade
+wobbled less during the swing. After this
+discovery, American axes were made with
+shorter, wider blades.
+In the late 18th century, some axes became
+almost square. These axes are often referred to
+as the American ax (Figure 13). Introduction of
+An edge tool maker’s advertisement in the
+Pennsylvania Packet and Daily Advertiser on
+July 7, 1789, shows that the American felling ax
+was fully developed then. The illustration
+closely resembles the Kentucky pattern made
+by the Douglas Ax Company and illustrated in
+its 1863 catalog. The Jersey pattern, my
+personal favorite, is very similar to the model
+of 1789. It is still available. In the mid-19th
+century, some of the American axes were still
+made of both iron and steel. An iron poll and a
+Figure 12—Winchester ax and hatchet, Michigan pattern,
+typical of the American felling ax.
+Figure 12
+35%
+3 3/8 x 2 3/4
+9 3/4 x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 13a
+31%
+2 1/2 x 3 1/8
+8 x 10
+Print to Outside Edge of
+Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 13b
+38%
+3 3/8x 1 3/4
+9  x 4 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 7
+Brief History of the Ax
+the Bessemer process for making steel in the
+late 19th century made steel affordable. The
+entire ax blade could be made of steel. Polished
+steel axes reduce the friction between the blade
+and the log. The ax blade can be made even
+thinner, allowing size and weight to be reduced
+while maintaining cutting efficiency. Making
+the entire ax wider with a heavier poll gave it
+more balance than the narrow, long-bladed
+English or European ax with little or no poll
+(Kauffman 1994).
+The head of a full-size single-bit ax or poll ax
+weighed 3 to 6 pounds. The handle was 30 to 36
+inches long.
+The single-bit felling ax, or American ax,
+became the international standard for quality
+axes.
+Double-Bit Ax
+The first double-bit ax was probably made by
+William Mann in Pennsylvania at about 1850.
+The Mann Edge Tool Company is one of the few
+American companies still in the business of
+making axes. By 1860 the double-bit ax was very
+common in the Northeast. The double-bit was
+not widely popular until the last quarter of the
+19th century when it came into its own in the
+Pacific Northwest (Figure 14).
+The double-bit ax weighed from about 21/2 to 5
+pounds and had a handle that was 26 to 42
+inches long (Figure 15).
+Figure 14—Three double-bit patterns available from Collins
+in 1921.
+Figure 15—Three representative double-bit patterns:
+Bluegrass Western pattern double-bit ax (top); True Temper
+Kelly Perfect Michigan pattern double-bit ax (middle); and a
+21/2-pound reversible cruiser ax, sometimes used for ax
+throwing (bottom).
+Figure 15a
+28%
+2 1/4 x 2 13/16
+8 x 10
+Print to Outside Edge of
+Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 15b
+28%
+2 1/4 x 2 13/16
+8 x 10
+Print to Outside Edge of
+Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 15c
+38%
+3 3/8x 1 3/4
+9  x 4 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+18
+Brief History of the Ax
+Which is better, a single-bit or double-bit ax?
+No other question is likely to raise as much
+controversy among ax enthusiasts as this one.
+Although the single-bit or poll ax was developed
+first and has remained popular, the double-bit
+developed a strong following because of its
+balanced feel and versatility. Typically, one
+blade was sharpened to a finely honed, narrow
+“felling edge,” while the second blade was
+ground slightly blunter, and used for knots,
+cutting near the ground, or in other instances
+where a finely sharpened blade was more likely
+to be damaged.
+The double-bit ax remains a popular utility ax
+in the Western United States, especially among
+agencies like the USDA Forest Service. The
+single-bit ax also remains popular. All of the
+competition axes are single-bit axes. In my
+opinion, a single-bit ax is a more efficient
+cutting tool; the double-bit is more versatile.
+Broad Ax
+Other special-purpose axes helped develop
+America. The hewing ax (also called broad ax or
+side ax) was used to square timber or flatten
+the sides of logs. It was used primarily for log
+buildings and timber framing, either in house
+or barn construction. Hewn timber was also
+used for railroad ties and trestle bridges.
+The goose-wing broad axes (Figure 16) brought
+to America by German settlers were the earliest
+hewing axes commonly used in this country.
+These axes were first used in Bucks County, PA.
+An earlier pattern of hewing ax known as the
+medieval goose-wing ax occasionally shows up
+(Figure 17). Goose-wing broad axes were made
+in both left- and right-handed models. The
+goose-wing handle was offset to the left or right
+by fitting it into a bent metal tube forged to the
+bit. Later hewing axes, known as American
+broad axes, had a handle that allowed the head
+to be taken off and re-versed for use by right-
+handers or left-handers.
+Figure 16—An 18th-century Germanic goose-wing hewing ax.
+There are maker’s marks hammered into the blade.
+American broad ax patterns had geographic
+names. The most popular were the
+Pennsylvania, Western, Canadian, and, the New
+Orleans pattern, my favorite (Figures 18a, b, c,
+d, and e). Until the 1930’s the Western and
+Canadian patterns were used to hack railroad
+ties. The slang expression for a person who
+made railroad ties was a “tie hacker.”
+The hewing ax is the preferred tool for
+flattening the surface of round logs. In past
+centuries, wood beams were often made by
+splitting the logs with some type of mallet and
+wedge, or glut. Then they were surfaced with an
+adz or a hewing ax. When iron axes became
+available, the hewing ax almost replaced the
+adz. Hewing axes were frequently used to
+roughly square the logs before they were sawn
+into boards with a pit saw.
+Even after the sawmill became common, the
+hewing ax was still used for hewing beams and
+planks in the Northwest. It was often easier to
+Figure 17—A medieval goose-wing ax that differs from the
+Germanic goose-wing axes brought into the United States by
+early settlers.
+Figure 16
+42%
+3 3/8x 1 3/4
+8  x 4 1/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 9
+Brief History of the Ax
+Figure 18d—Kelly 20th-century Canadian
+broad ax.
+Figure 18b—Early 20th-
+century Douglas, New
+Orleans broad ax—my
+favorite.
+Figure 18e—A 19th-century shipwright’s mast broad ax.
+fell the tree, hew it square into cants, and skid
+the cants to the building site rather than to
+load and transport round logs to the sawmill
+where they would be sawn before being brought
+back to the building site. The hewing ax has
+been used in the same manner for about 2,000
+years.
+Figure 18c—Early 20th-
+century Beatty knife-edge tie
+hacker’s broad ax.
+Other Axes and Hatchets
+Axes have other uses besides felling timber and
+building houses. Splitting axes are used for
+splitting firewood or rails. Hatchets, with their
+short heads and handles, are used in the
+building trades, and for camping and hunting
+(Figure 19). Some axes and hatchets are used
+specifically for mortising (Figure 20), wood
+carving, flooring, shingling, and carpentry
+(Figures 21a and 21b). Special competition axes
+are also used in logging contests where people
+chop while racing the clock and each other
+(Figure 22).
+Figure 18a—Beatty
+Pennsylvania broad ax.
+Figure 18a
+38%
+3 3/8x 1 3/4
+9  x 4 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 18b
+34%
+3 3/8x 1 3/4
+10  x 5 3/16
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 18c
+42%
+3 3/8x 1 3/4
+8  x 4 1/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 18d
+38%
+3 3/8x 1 3/4
+9  x 4 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT BordersFigure 18e
+34%
+3 3/8x 1 3/4
+10  x 5 3/16
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+110
+Brief History of the Ax
+Figure 19—Plumb 2 1/2-lb boy’s ax with 19-inch handle—my
+favorite for log cabin work.
+Figure 19
+42%
+3 3/8x 1 3/4
+8  x 4 1/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 20—An 18th-century mortising ax.
+Figure 20
+42%
+3 3/8x 1 3/4
+8  x 4 1/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 21a—Some
+20th-century Plumb
+hatchets and hand
+axes.
+iv 11
+Brief History of the Ax
+Figure 21b—More 20th-century Plumb hatchets and hand axes.
+Some axes weren’t used for
+cutting wood. Ice axes were used
+to cut ice from lakes in the
+winter so the ice could be used
+for refrigeration during the
+summer (Figure 23). Sod or turf
+axes were used to chop sod for
+sod houses (Figure 24). People
+have used axes as a weapon for
+centuries. Fire axes are used to
+break down doors to enter
+burning buildings. The Pulaski is
+an ax tool used to fight wildland
+fires (Figure 25). An ax known as
+a butchering ax was used to kill
+cattle (Figure 26). Axes called
+“salesman samples” were
+miniature versions of full-size
+axes. Salesmen would carry them
+to hardware stores to
+demonstrate their wares.
+Figure 22—A T uatahi competition ax. This New Zealand company
+specializes in custom-made axes and competition crosscut saws.
+Figure 22
+42%
+3 3/8x 1 3/4
+8  x 4 1/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 23—A
+19th-century
+ice ax for
+harvesting
+pond ice.
+Figure 24—A 19th-century sod ax for building sod houses.
+Figure 24
+34%
+3 3/8x 1 3/4
+10  x 5 3/16
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 23
+29%
+1 1/2x 2 3/16
+5 3/16  x 7 9/16
+Print to Outside
+Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+112
+Brief History of the Ax
+Figure 27b—Plumb
+railroad adz.
+Figure 27a—
+Collins lipped
+shipwright’s adz.
+Adzes
+The adz is another hewing or
+dressing tool (Figures 27a, b, c,
+and d). It has a head that gives it
+the appearance of a hoe, but it is
+tempered and sharpened to cut
+wood. The adz is primarily used for
+dressing or planing timber that has
+been hewn by a broad ax. An adz is
+used for the final dressing in some
+of our finer hand-built structures.
+Figure 25—The Pulaski is a popular wildland firefighting tool
+that combines an ax with a grubbing hoe.
+Figure 25
+38%
+3 3/8x 1 3/4
+9  x 4 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 26
+34%
+3 3/8x 1 3/4
+10  x 5 3/16
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 26—A 19th-century butchering ax.
+Figure 27c—Modern carving ax or adz.
+Figure 27d—Douglas carpenter’s adz.
+Figure 27a
+34%
+3 3/8x 2
+10  x 6
+Print to Outside Edge
+of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 27b
+34%
+3 3/8x 2
+10  x 6
+Print to Outside Edge
+of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 27d
+34%
+3 3/8x 2
+10  x 6
+Print to Outside
+Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 27c
+28%
+2 1/4 x 2 1/4
+9 1/2 x 8
+Print to Outside Edge of
+Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 13
+Brief History of the Ax
+Decline of the American Ax
+Some of the leading American ax companies
+have included: Collins Company, Mann Edge
+Tool, Kelly Axe or True Temper Kelly, Plumb
+Axes, and American Axe and Tool Company.
+When factory production first began, axes were
+produced by individual blacksmiths hired to
+make a complete ax. Gradually an assembly line
+was introduced. Improved steels and more
+efficient forging processes took most of the
+hand labor out of ax manufacture. The
+manufacturing process and materials evolved
+from individual blacksmiths hammering out
+axes one at a time to the giant drop hammers
+used today to stamp out fully formed ax heads.
+During the 19th century, axes provided the best
+technology to meet the needs of the burgeoning
+forest products industry. Manufacturers
+produced hundreds of patterns for both general
+utility and specialized uses.
+The use of American axes and their quality were
+probably at their peak during the period from
+1850 to 1950 (Figure 28). Beginning about 1870,
+ax production began to drop due to the
+increased use of the crosscut saw as a felling
+tool. The ax continued to play an important role
+for swamping and limbing trees, but its role
+was diminished.
+The introduction of the power saw was the
+death knell of the ax and the crosscut saw. By
+the late 1950’s and early 1960’s, lightweight,
+efficient chain saws had taken over almost all
+of the work that previously had been
+accomplished with an ax—felling, bucking, and
+limbing.
+If you search the Internet for ax, axe, or axes,
+you will probably find more sites related to
+guitars (referred to as “ax”) than you will to
+those dealing with cold, hard steel. But if you
+focus on work in the woods rather than on the
+Internet, you will see that the ax still occupies
+an important place as a woodworking tool.
+A Swedish company, Gränsfors Bruks AB, still
+manufactures hand-forged axes (Figure 29).
+Gabriel Brånby of Gränsfors Bruks provides a
+good summary of the modern role of the ax
+(Gränsfors Bruks 1997):
+In a certain way we are back at the time
+before the entry of the booming forest in-
+dustry. There are no axe-using forest
+workers any longer. The millions of cubic
+feet of pulpwood and timber that today
+arrive at the forest industries have never
+been grazed by an axe. The chain saws,
+harvesters and logging machines have
+taken over completely. Today most axes
+are used in small-scale activity by people
+like homeowners, firewood cutters, camp-
+ers, hunters, joiners, woodworkers, log
+builders.
+Figure 28—During the heyday of American axes, companies
+went to great lengths to promote their axes, like this Kelly
+“Best Axe Made” broad ax.
+Figure 29—Modern hand-forged broad ax made by the
+Swedish Company, Gränsfors Bruks AB.
+Figure 28
+34%
+3 3/8x 2 1/2
+10  x 71/2
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 29
+34%
+3 3/8x 1 3/4
+10  x 5 3/16
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+114
+Brief History of the Ax
+Thousands of new axes are sold every year,
+mostly for the activities Brånby describes.
+Some historic axes are sold or traded by
+collectors (Figure 30). In the Forest Service,
+axes still play a critical role in designated
+wilderness areas where mechanized or
+motorized equipment is prohibited by law. In
+these areas, axes, adzes, and crosscut saws are
+needed for clearing trails, cutting firewood,
+managing forest fires, and maintaining or
+restoring administrative buildings.
+Outside wilderness, axes and adzes are used for
+historic building restoration and as lightweight,
+convenient, affordable alternatives to chain
+saws. To at least a few recreational wood cutters
+and craftsmen, the rhythmic sound and motion
+of chopping are more appealing than the whine
+and exhaust of a chain saw.
+This look at the history of the ax and its
+evolution in North America is not complete.
+Four excellent references for more detailed
+study are: Henry J. Kauffman’s American Axes
+(1994); Charles A. Heavrin’s The Ax and Man
+(1997); Alan Klenman’s Ax Makers of North
+America, and Henry Mercer’s Ancient
+Carpenter’s Tools (1960). Full citations for
+these sources are in Selected References.
+Figure 30—This modern blacksmith-made trade hatchet
+might be just the right gift for your sweetheart on Valentine’s
+Day.
+Figure 30(a)
+42%
+3 3/8x 4 1/4
+8  x 10
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 15
+Brief History of the Ax
+116
+Brief History of the Ax
+TT
+he length, shape, and mounting of an ax
+  handle (also called a helve or haft) is
+  known as the hang. The hang of an ax is
+always a matter of personal preference. You must
+hang your ax to suit you. The cutting edge of a
+well-hung ax is in an exact line with the end of
+the handle (Figure 31). If you place the ax on a
+table so that the cutting edge and the handle
+touch the surface, the cutting edge will touch at a
+point one-third from the heel (Figure 32).
+In addition to having the
+blade aligned and set at
+the correct angle, a
+properly hung ax just
+feels right. The head is
+neither too heavy nor too
+light, and the handle is
+just the right length. The
+handle may be curved or
+straight, depending on
+your preference. The
+handle’s diameter should
+feel comfortable to the
+grip, and the handle
+should be constructed
+from the highest quality
+hickory. I personally
+prefer a slim-taper
+octagonal handle. I get a
+good grip, or purchase,
+on the slim handle and it
+has a bit of flex to it,
+unlike thicker handles.
+Many years ago, before
+the proliferation of mass-
+produced axes, most
+users selected and
+handled their own axes.
+Professionals who
+worked with axes were
+G etting the Hang of It
+very particular about the weight, length, design,
+geometry, flexibility, and most importantly, the
+hang of their axes. Such attention allowed them
+to work faster and made the task easier.
+Most felling axes and broad axes were not
+regularly sold with handles until about 1920. The
+purchaser generally took pride in making and
+fitting, or hanging, his or her own handle. Many
+people made patterns of the handle they used on
+a thin board. Sometimes this pattern was handed
+down through the family. Some of these patterns
+still exist and can be found in old barns and
+workshops.
+Throughout history, hickory has always been the
+preferred wood for percussion tools like axes,
+mauls, and hammers. In the 18th century,
+hickory was probably split instead of sawn to
+obtain a straight and continuous grain essential
+for a quality tool handle. Surviving handles from
+the 17th century show that most were straight
+patterns, without the swell at the end of the
+handle as is common on both straight and bent
+handles today (Figures 33 and 34a, b, and c).
+The Hang
+of It
+Figure 31—In a correctly
+hung ax, the cutting edge is
+in a direct line with the
+center of the handle (from
+the Axe Manual of Peter
+McLaren).
+Figure 32—Proper ax-head angle (drawing by Frederic H.
+Kock).
+iv 17
+Today, few ax users hang their own axes. Most
+professionals in ax competitions hang their own
+axes, as do some professional woods workers and
+craftsmen.
+Most axes with broken handles are thrown out or
+relegated to a dusty corner of the garage and
+replaced with a new ax from the local discount
+store. Often the ax heads thrown into the corner
+are of much higher quality (better steel,
+craftsmanship, temper) than most generic axes
+sold by mass marketers today.
+In my opinion, folks who take any pride in their
+ax skills need to know how to hang and sharpen
+an ax. They should know how to make
+emergency repairs in the field, and they should
+know how to sharpen and care for their axes to
+keep them safe and tuned for peak performance.
+The most important reason for acquiring these
+skills is one of attitude. By hanging and
+sharpening your own ax, you realize it is your ax,
+not just a hunk of wood and metal. And you are
+more likely to take care of the ax and use it
+safely.
+Figure 33—Some ax handles available in 1999 from O.P.
+Link Handle Company (reprinted by permission from O.P.
+Link Handle Company).
+Figure 34b—A 19th-century S-bend broad ax
+handle.
+Figure 34c—A 19th-century dogleg broad ax handle.
+Figure 34a—Modern S-bend broad ax handle.
+Figure 34a
+42%
+3 3/8 x 1 3/4
+8  x 4 1/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 34b
+34%
+3 3/8 x 1 3/4
+10  x 5 3/16
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 34c
+38%
+3 3/8 x 1 3/4
+9  x 4 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+118
+Getting the Hang of It
+Basics of Handle Selection
+Hickory makes the best handles for percussion
+tools like axes. You seldom see any species other
+than hickory offered by ax-handle companies.
+There are several important characteristics you
+need to look for in a good ax handle. Generally,
+you get what you pay for, because the higher
+grade hickory handles sell at a premium over
+lower grade handles. Your new handle should be
+of straight grain, second growth, clear hickory.
+Cheap, inferior handles tend to break, split, and
+warp. If you are going through all the work of
+hanging your own ax, you should spend the extra
+dollars to get a high-quality handle. Some
+characteristics you need to look at include:
+Color: The best handles are from second growth
+hickory sapwood, all white in color (Figure 35). In
+lower grades, various amounts of red-colored
+heartwood are in the handle.
+Grain: The highest grade does not have over 17
+annual rings per inch of radius, a characteristic
+of faster-growing second growth trees. The
+orientation of the grain is critically important
+(Figures 36 and 37). If the handle is not straight-
+grained, it is likely to break.
+Figure 35—Hickory cross section. The outer, white
+sapwood makes the best ax handles. This particular piece
+is too small and too riddled with checks to be good
+handle stock.
+Figure 36—The grain of ax handles should run parallel to
+the length of the handle and to the wedge slot.
+Figure 37
+38%
+3 3/8 x 3
+9 x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 37—Grain orientation is important. The handle on
+the left has a good orientation. The one on the right does
+not, and is more likely to break under stress.
+Figure 35
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 19
+Getting the Hang of It
+Defects: Various defects, including stain, holes,
+knots, splits, streaks, and grain deviations all
+diminish the grade of the handle.
+Camouflaged Defects: Many less-than-perfect ax
+handles, often on bargain or utility axes, have
+defects that are camouflaged. This often helps
+make the ax look better, but you should
+recognize that good looks can hide defects. Some
+common techniques include staining, painting,
+or fire-finishing, which hardens and darkens the
+handle’s surface.
+Handles come in a variety of lengths, typically
+from 32 to 36 inches for 3- to 6-pound axes
+(Figure 38). Often the longer lengths work best
+for big timber and for splitting wood, while the
+shorter lengths are superior for smaller timber
+and general utility work. Handles (Figure 39) can
+be straight or curved (called a fawn’s foot).
+Double-bit handles are almost always straight,
+but for single-bit axes you can choose either
+curved or straight handles. My personal
+preference is a straight handle, usually less than
+36 inches long. The handle can be oval or
+octagonal. I special order O.P. Link handles in a
+slim-taper, octagonal pattern, a design not found
+in their general catalog but one the company
+makes for me from the hundreds of patterns they
+have on file.
+Figure 38—Longer handles with heavier heads are for big
+timber. Most choppers prefer shorter, lighter axes for
+smaller wood (drawing by Frederic H. Kock).
+Most ax manufacturers also offer axes with
+fiberglass or other plastic composite handles.
+While these may be durable and sturdy and
+perhaps adequate for splitting mauls, they do not
+provide the feel that a hickory handle offers. You
+also cannot customize a fiberglass handle. They
+are not traditional, which matters to me. And
+besides, they are just flat ugly.
+Figure 39—Some ax handles, from top: double-bit with too
+much heartwood; handmade 19th-century single-bit; the
+next three are new single-bit handles from O.P. Link—
+fawn’s foot octagonal, straight oval, and my favorite,
+straight octagonal slim-taper.
+Figure 39
+36%
+3 3/8 x 2 3/16
+9 1/2  x 6 1/4
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+120
+Getting the Hang of It
+F
+irst, check to see whether you
+ really need a new handle. Often
+you can reuse the same handle and
+just replace a loose wedge.
+Figure 40—Tools needed for hanging an ax include
+(clockwise, from top left): leather gloves, four-in-hand
+rasp, wood rasp, keyhole rasp, steel drift for double-bit
+ax, steel drift for single-bit ax, hickory drift made from old
+handle, spokeshave, coping saw, and wooden mallet.
+Figure 40
+39%
+3 3/8 x 2 5/8
+8 3/4  x 6 3/4
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders Figure 41—Cut off the old handle just below the ax eye,
+close up against the head, with a coping saw. Remove any
+steel wedges or screws that may be in the top of the
+handle at this time.
+Hanging Procedure
+Figure 42—Drill out the wooden wedge and part of the
+handle from the top side of the ax eye. Power drills work,
+too.
+Figure 41
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 42
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 21
+Getting the Hang of It
+Figure 43—Use a wooden or steel drift or swedge to drive
+out the remainder of the handle. Notice the drift in the
+center is shaped for a single-bit ax, the one on the right is
+for a double-bit ax.
+Figure 43
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 44 —Block up the ax head upside down. Drive the
+drift down through the bottom of the ax eye toward the top
+of the ax eye. The ax eye is tapered larger on the top to
+facilitate wedging the handle tight. This taper requires the
+old handle piece to be driven out the top of the ax eye.
+Figure 44
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 46—Take the new handle and place it next to the ax
+head. Bring the shoulder of the new handle all the way up
+to the bottom of the ax eye in its finished mounting
+location. This usually leaves quite a bit of excess wood on
+top. Draw a line to show where the excess wood should be
+cut off.
+Figure 46
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 45—If you use a fawn’s foot handle, saw off the
+handle about 3/4 inch from the butt end to provide a blunt
+surface for pounding with your mallet (drawing by
+Frederic H. Kock).
+122
+Getting the Hang of It
+Figure 47—With the handle in the vise, use a hand saw to
+cut off the excess wood. Be careful not to split the handle.
+Figure 47
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 48—Using an aggressive wood rasp or a four-in-
+hand, start dressing down the handle to fit the ax-eye
+socket tightly. At this point, be careful not to split off the
+edges of the handle or to rasp off too much wood. Once
+it’s rasped off, it can’t be put back! It usually takes several
+repetitions of rasping and checking for fit to get
+everything just right.
+Figure 48
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 49—When the ax is properly hung, the bottom of
+the ax eye should rest on the shoulder of the handle. Drive
+the new handle into your ax head for a trial fit. Place the
+handle in the eye socket from the bottom. Use a large
+wooden mallet to strike the bottom of the handle squarely
+and firmly. This will draw the weight of the ax head up
+onto the handle. There’s no need to rest the ax head or the
+handle against a solid base. Sight down the cutting edge to
+see if the ax edge is in exact line with the end of the
+handle (See Figure 31).
+Figure 49
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 50—Drive the handle out again using a drift, and
+take one final rasp for a good tight fit down on the
+shoulder. The ax head will leave marks on the high spots
+that need additional light rasping.
+Figure 50
+42%
+3 3/8 x 2 11/16
+8  x 6 3/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 23
+Getting the Hang of It
+Figure 51—Since you’ve cut off the excess portion of the
+new handle, the wedge kerf slot is too shallow and must
+be deepened. Use a hand saw to cut the saw kerf deeper
+for the wood wedge. The cut should be approximately two-
+thirds the depth of the ax eye.
+Figure 51
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 52—Time for the final fit. Drive the head on by
+striking the bottom of the handle. You can often tell when
+the head will move no farther by the solid sound of the
+strike.
+Figure 52
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 53—This handle is properly mounted on the
+shoulder. Compare this photo with the untrimmed handles
+in Figure 39 to see how low on the shoulder this ax head
+is mounted. There is no excess shoulder, and the handle is
+ready to be wedged.
+Figure 53
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 54—With a coping saw, cut the protruding handle
+flush with the ax head.
+Figure54
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+124
+Getting the Hang of It
+Figure 55—The fitted handle is ready for wedging. Use a
+correctly sized wooden wedge, usually made of well-
+seasoned yellow poplar or other hardwood. Avoid plastic
+or steel wedges.
+Figure 55
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 56—Sometimes the wedge is too thick for the saw
+kerf and ax eye. If so, thin the wedge out a little bit so that
+it can be driven almost full length.
+Figure 56
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 57—Before inserting the wedge in the handle, apply
+a coat of Swel-Lock to the inside kerf cut and the new
+wooden wedge. Swel-Lock is a product that swells wood.
+It is not a glue or an adhesive; rather, it penetrates and
+expands wood fibers to keep the new handle tight.
+Figure 57
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 58—Insert the wooden wedge. Rest the handle bottom on
+something solid. Drive the wedge squarely and firmly into the
+kerf with a wooden carpenter’s mallet. If you have set everything
+up properly, there should only be 1/4 to 1/2  inch of wedge
+protruding above the top of the handle when the wedge has
+been driven to the point of refusal. Use a coping saw to cut off
+any excess wedge.
+Figure 58
+45%
+3 3/8 x 3 3/8
+7 7/16  x 7 7/16
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 25
+Getting the Hang of It
+Figure 59—Sand any paint, varnish, shellac, or wax from
+the handle. Sand the handle smooth on all but 6 inches of
+the butt section. The body of the sanded handle is where
+your hand will slide. You don’t want any splinters or
+rough wood there.
+Figure 59
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 60—Rough up the lower 6 inches of the butt
+section of the handle with a wood rasp. This rough section
+will give purchase, or grip, to your stationary hand at the
+bottom of the ax handle.
+Figure 60
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 61—Apply a light coat of raw linseed oil if it is
+available, or boiled linseed oil if it is not. Tung oil will
+also work. A regular application of these oils will protect
+against drying and cracking. Wipe off the excess oil.
+Figure 61
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Never insert iron, steel, screws, nails, or any
+other metal object down in the wooden wedge to
+tighten the handle, even though you see this
+being done on many factory-handled axes. Epoxy
+should not be used, either. This advice applies
+for the entire life of your ax. The metal wedges
+tend to split the grain on the hickory handle. I
+can’t see any reason why you would want to do
+that to a properly hung ax.
+A loose handle can be temporarily tightened
+either in the field or in the shop by soaking the
+head in a bucket of linseed oil. Never soak the
+handle in water, except for short-term, emergency
+field tightening. Water will tighten the handle to
+the head, but the water dries out rapidly, leaving
+the head looser than before you started.
+Tightening the handle by soaking it in linseed oil
+is also a temporary measure. The ax must be
+rewedged or hung again to keep it tight.
+Sharpening
+126
+Getting the Hang of It
+“Putting your nose to the grindstone” implies
+tedious, repetitious, and unending work. You will
+find that sharpening a dull or abused ax is indeed
+tedious and repetitious, but to do it right you
+have to do it slowly (Figure 62). Along the way,
+you’ll learn the value of patience, and appreciate
+the differences in steel tempering and ax quality
+as you sharpen different axes. Best of all, you will
+appreciate the usefulness of a razor-sharp ax, and
+the importance of doing everything you can to
+keep it sharp.
+Never use an electric high-speed dry bench grinder
+W
+ith oil and rags, there is a risk of
+spontaneous combustion. Be
+sure to discard the oily rags or soak
+them in buckets of water to prevent
+any accidents.
+Figure 62—The right way and wrong way to use a grinding
+wheel (drawings by Frederic H. Kock).
+Figure 63 —Tools for sharpening (clockwise from top left)
+include leather gloves; ax-bit width gauges; 8-inch, 10-inch,
+and 12-inch mill bastard files; Carborundum scythe stone;
+Carbor-undum ax stone; file card; and grooved Carborundum
+sharpen-ing stone. Natural Arkansas sharpening stones also
+work.
+Figure 63
+40%
+3 3/8 x 2 11/16
+8 1/2  x 6 3/4
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+to sharpen your ax. That type of a grinder will
+almost certainly draw the temper from the ax and
+ruin it. Very few people have enough skill to use a
+high-speed grinder without drawing the temper
+from the steel, leaving the steel too soft to hold an
+edge. The only grindstone that I recommend is one
+of the old-style pedal grindstones that stay wet with
+a constant application of water to the stone. If you
+draw the temper from your ax with a high-speed
+grinder, you may have ruined the ax for good. At
+the minimum, you’ve drawn the temper for at least
+3/16 of an inch back from the edge. You can always
+tell when the temper is drawn because the color of
+the steel at the edge turns blue. If this happens to
+your ax, you’ve got to remove a lot of steel to
+reshape the edge back to where it still is tempered.
+If you use a pedal grindstone, keep it wet, and
+always rotate the grindstone toward you and into
+the ax, not away from it.
+If you don’t have a pedal grindstone, your
+options are limited to a file and whetstone. This
+is how most quality ax sharpening is done today.
+Few stores carry pedal grindstones. Wear leather
+gloves (Figure 63) throughout the sharpening
+process, as the ax will become razor-sharp.
+iv 27
+Getting the Hang of It
+Fit your file with a guard to protect your hands
+(Figure 64). The guards, which keep your fin-gers
+away from the sharpened ax blade, can be made
+from leather, wood, or a piece of fire hose.
+Clamp the ax to the bench at a comfortable height
+(Figure 65). Put on gloves to protect your hands.
+Hold the file as shown. Because you file into the
+edge of the ax, not away from it, you need gloves
+in case of a minor slip. Always file into the edge,
+toward the center of the ax handle, because this
+creates the least amount of burr to remove on
+the other side. The single-cut file sharpens only
+on the push stroke. Lift it away from the ax head
+on the return stroke. If you “saw” with your file,
+it will fill with metal particles. It will not cut well
+and it can also be ruined as the file edges are
+peened over. Occasionally brush the metal
+particles from the file with a file card. Always
+store and transport your files so they are
+protected from each other and other metal tools.
+Banging them together will dull their edges.
+When sharpening, always try for a fan-shaped
+effect on the cheek of the ax (Figure 66). File back
+for a distance of approximately 2 to 3 inches from
+the cutting edge right at the middle point of the
+ax. Work your way from the cheek down to the
+actual edge, keeping a rounded profile. Stop filing
+once you have filed one side so that a burr of
+metal can be felt on the back side. Turn the ax
+Figure 64—File guards help keep your fingers away from
+the sharpened ax blade.
+Figure 64
+34%
+3 3/8 x 2 11/16
+10  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 65—Clamp the ax to the bench at a comfortable
+height for sharpening.
+Figure 65
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 66—When sharpening, try for a fan-shaped effect
+on the cheek of the ax (drawing by Frederic H. Kock).
+Figure 66
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+128
+Getting the Hang of It
+over and repeat the process on the other side of
+the ax. Continue filing on the opposite side until
+the burr goes back over to the first side of the ax
+where you started. Stop at this point.
+It is time to check the shape of the edge with a
+sharpening gauge (Figure 67). This gauge can be
+handmade from a piece of cardboard, a small
+piece of brass, or even a piece of wood. See the
+illustration for the proper shape of your edge.
+The angle is about 25 degrees, but is slightly
+convex. The gauge is exactly to scale and can
+serve as a template (Figure 68).
+Continue to file equally on both sides of the ax
+until the sharpening gauge pattern fits exactly
+Figure 67—Use a sharpening gauge to check the shape of
+the edge.
+over the edge. If you are sharpening a double-bit
+ax, keep one blade slightly thicker for rough
+work and grubbing near the ground, and the
+other blade shaped according to the sharpening
+gauge. Use the properly shaped edge for fast,
+clean cutting.
+Now it is time to hone the edge with a whetstone.
+The honing process finishes and polishes the
+edge and removes the burr. Honing should
+always be done immediately after reshaping with
+a file. It should also be done in the field during
+use and every morning before starting the day’s
+ax work. Natural whetstones are quarry stones.
+My favorites are Arkansas stones, which come in
+different grades. The Washita is my favorite for
+fast cutting and the Hard Arkansas is my favorite
+for finishing. One of the finest finishing oil
+stones is called a Surgical Black Hard Arkansas.
+This stone will
+Figure 68—A template for a sharpening gauge (reproduced
+to exact size) and illustrations showing its use (drawings
+by Frederic H. Kock).
+Figure 67
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 29
+Getting the Hang of It
+Figure 69—Round ax stones, sometimes called pocket
+stones.
+Figure 69
+40%
+3 3/8 x 3 3/16
+8 1/2  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+put a razor edge on your ax. Manmade stones are
+usually oil stones of Carborundum and come
+with a coarse and a fine side. Other whetstones
+are called water stones and use water to float the
+metal particles out of the stone instead of oil.
+Always use oil with an oil stone or water with a
+water stone to float the metal particles away. Wipe
+the stone clean of these metal particles
+periodically and apply more oil or water. Water
+stones are quite a bit softer than oil stones and
+tend to cup and wear faster. The advantage of the
+water stone is that it rapidly puts a fine polished
+edge on your ax.
+Round artificial ax stones (Figure 69) are
+sometimes called pocket stones. I know of two
+types. The traditional type has both a coarse and
+a fine side and is about 1/2 inch thick. This
+traditional ax stone can be dangerous to use,
+because your fingertips are always in jeopardy.
+Another type of ax stone has a finger groove in
+the center to keep your fingertips out of jeopardy.
+Both of these round ax stones are of
+Carborundum and require oil (Figure 70) to float
+the metal particles off of the stone. Use the ax stone in a circular motion, working
+into the edge, toward the middle of the ax head
+(Figure 71). Work one side of the ax with the
+coarse stone until it creates a metal burr, then
+flip the ax over and use the coarse stone until it
+pushes the burr back. Switch to the fine side of
+the ax stone and repeat the process until there’s
+a very fine burr and both sides of the ax edge
+have been honed. Honing the edge removes very
+small particles of metal from the blade and causes
+the remaining ax metal to burr slightly. This is
+sometimes known as a wire edge or a feather
+edge. At this point you may want to move to one
+of the Arkansas stones like the Hard Arkansas
+finishing stone and work the burr back and forth
+until it breaks off or becomes very fine. I
+recommend stropping the edge by drawing the ax
+toward the edge (opposite the direction used
+during sharpening) on a piece of finished leather
+or a piece of soft, clear wood like pine. This
+stropping will remove the final burr or wire edge.
+The last step is to apply a protective coating to
+Figure 70—Use oil to float metal particles off ax stones
+made of Carborundum.
+Figure 70
+34%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+130
+Getting the Hang of It
+the ax head itself (Figure 72). You can clean the
+rust and pitch from the metal with an abrasive
+impregnated rubber eraser block called the
+Wonderbar. Wipe light machine oil over all the
+metal on both sides of the ax, and then carefully
+rub a beeswax and oil mixture into the steel. The
+mixture will cling to the steel and protect it from
+rust. The ax head should be warm to ensure
+better coverage of the mixture.
+Always check the ax for sharpness. A honed ax
+will cut faster, be safer to use, and stay sharp
+longer. If you look directly into the edge of your
+ax with the light over your shoulder (either
+sunlight or artificial light), the edge that you’ve
+just honed will reflect no light. If you see any
+light reflected from the edge, you need to go back
+and hone the ax with the stone. Occasionally, a
+ding or a nick in the edge will reflect light just at
+one point. It is not always necessary to remove
+these dings as they will disappear through
+repeated filings. A correctly honed edge is sharp
+with no wire edge. It reflects no light. If you
+followed procedures, your edge should be sharp
+enough to shave with (Figure 73). I sometimes
+check the sharpness by carefully dry shaving the
+hair on the back of
+Figure 71—Use the ax stone in a circular motion, working
+into the edge, toward the middle of the ax head (drawings
+by Frederic H. Kock).
+Figure 71
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 72—Protective coatings for the ax head.
+Figure 72
+42%
+3 3/8 x 2 1/2
+8  x 5 7/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 73—Shaving hair on the back of your hand is a
+traditional method of checking an ax’s sharpness. A safer
+method is to place your fingernail against the edge. The
+edge should bite into your fingernail.
+Figure 73
+42%
+3 3/8 x 3 3/8
+8  x 8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+iv 31
+Getting the Hang of It
+my hand. This is a traditional method used in the
+woods for years. A safer and equally effective test
+is to carefully put your fingernail (not your finger)
+against the sharpened edge. The edge should bite
+into your fingernail and not slide down it.
+132
+Getting the Hang of It
+U sing Axes
+A Most Versatile Tool
+The ax is a wonderful tool. It can be used to fell
+standing trees, to buck them into logs, and to
+limb them once they are on the ground. Axes can
+be used for hewing logs square, or for splitting
+firewood or fence rails. The tasks they’re suited
+for range from trail work and fire fighting to
+restoring historic buildings.
+Before you lift an ax to admire it or work with it,
+you need to recognize its potential danger. An ax
+is a sharp wedge, normally applied with enough
+force to cut something. Whether that
+“something” is a log, your foot, or the person
+standing too close to you depends on your skill
+and concentration. By taking pride in your work,
+taking good care of your ax, and learning the
+correct techniques, you can avoid most of the
+danger of using an ax.
+Master your ax instead of fearing it. You master
+ax work by practicing it. Chopping is an art. It
+takes years to become an expert. You can learn
+only so much by reading manuals and looking at
+illustrations; the rest you can learn only by
+swinging. Take a cautious, rather than
+aggressive, approach to chopping your first logs.
+Placement, control, proper stance, and technique
+are far more important than power. Only when
+you have become fully proficient does power
+become a consideration.
+This chapter gives some basic instruction—and a
+few tricks of the trade—for using an ax for felling,
+limbing, bucking, splitting, and hewing. It also
+describes how to use an adz for log work. I’ve
+relied heavily on illustrations from one of my
+favorite books about axes, Woodsmanship, by
+Bernard S. Mason (1954). The wonderful
+illustrations are by Frederic H. Kock.
+Unfortunately, it is long out of print, but some of
+the illustrations are reproduced here by
+permission. We also used some good information
+from Fred C. Simmons’ Northeastern Loggers’
+Handbook (1951).
+Bear in mind that some of these historic
+illustrations do not reflect modern personal
+protective equipment, particularly hardhats and
+eye protection.
+Using an Ax Safely
+Personal protective equipment that you need for
+ax work varies with the job. Always wear good,
+stout leather boots, at least 8-inches high. Always
+wear safety glasses or goggles for eye protection.
+Hard hats are needed when there is any chance
+of being struck by something overhead. Hard
+hats are a must for tree-felling operations.
+Some people wear gloves when using an ax, some
+don’t. Gloves are a good idea for splitting
+firewood, where you are handling many pieces of
+splintered wood. Leather gloves are always
+required while sharpening an ax. For chopping,
+use your judgment. If leather gloves protect your
+hands and help give you a good grip on the
+handle, wear them. I personally don’t wear gloves
+most of the time because I get a better purchase
+on the ax handle without them. The last thing I
+want to happen is for the ax to fly out of my
+hands on a swing. Then the person next to me
+really will need that hard hat!
+I
+t’s always a good idea to complete a
+ job hazard analysis that identifies the
+safety concerns of the ax work you will
+be doing. In the Forest Service, a job
+hazard analysis is required. You must
+also describe the safety gear and
+procedures you need to follow to do the
+job safely. The job hazard analysis can
+save your life. Do it!
+iv 33
+Figure 74—A dull ax or one that is too blunt is more likely
+to glance off dangerously than it is to cut (drawing from
+the Northeastern Loggers’ Handbook ).
+Always carry your sheathed single-bit ax at its
+point of balance near its head with the edge
+pointing down. The ax should be on your
+downhill side if you are walking on a slope. If you
+fall or trip, toss the ax away from you. Carry a
+double-bit ax at your side. Carrying an ax on your
+shoulder is asking for trouble, especially in the
+woods or on rough trails. Don’t do it.
+Keep track of your ax. Be careful where and how
+you lay it down, and remember where it is. If you
+must leave your ax unsheathed, lay it flat with
+the edge toward a solid object like a log or a wall
+(Figure 75). Serious accidents are caused by
+stumbling over or falling on a carelessly placed
+ax.
+For temporary safe storage, stick a single-bit ax in
+a log or a stump. Never lay it down flat out in the
+open. Never lean it up against a tree, a wall, or
+any other object where the edge is exposed. Don’t
+leave it stuck for long in a block of wood because
+it will rust. A double-bit ax should never be stuck
+in a log with one edge sticking out. Place your
+double-bit ax underneath a log lying flat or put
+one bit into a small piece of wood and then stick
+the other bit into a horizontal log. A sheath is
+better than any of these methods.
+Here are a few more pointers on ax work:
+Figure 75—These methods may work, but it’s better to
+keep a protective sheath on your ax (drawings by Frederic
+H. Kock).
+134
+Using Axes
+ Do not chop directly through a knot if you
+can chop around it or chop the knot out.
+Knots often are very hard and can chip your
+ax or adz.
+ Never strike the ground with your ax. If you
+need to cut roots, use a grubbing tool like a
+Pulaski or grub hoe. If you have to use an ax,
+use a “grubbing’’ ax that you don’t care about
+abusing.
+ Never try to drive a stake or wedge with the
+flat side of your double-bit ax. It is almost
+sure to crack the eye.
+ Never use the poll of a single-bit ax for
+pounding steel wedges. The poll is there for
+counter balance to the bit. It is not there for
+pounding! The poll is not tempered properly
+to pound and will become deformed or chips
+of steel may fly off. A single-bit ax can be
+safely used to pound wooden or plastic
+wedges—that is all!
+ The ax head is brittle at extremely cold
+temperatures. It is likely to chip unless it is
+warmed before using. One way to warm up
+your ax is to place it (sheathed of course)
+under your armpit, for a few minutes. Or
+warm it between your hands. If you don’t
+want to share some of your body heat with
+your ax (which by now should be considered
+a family member), chop very slowly for at least
+2 minutes in order to warm the ax up in the
+wood.
+Chopping Technique
+Chopping is an art. Start out loose and relaxed.
+Hold the ax with one hand fixed just above the
+swell at the end of the handle. On the up-stroke,
+the other hand slides up the handle close to the
+head. On the down-stroke, it slides back down
+the handle. At the point of impact, it is close to
+the lower hand. Each blow lands exactly where it
+is intended, with the proper force, and at the
+proper angle. There is no shock to the hands or
+shoulders. One corner of the ax blade should
+always be free of the wood, so that a slight twist
+brings out the chip and releases the bit without
+undue strain.
+Grip—On an ax that is hung properly to fit you,
+place your left hand about 1 or 2 inches from the
+butt end of the handle or helve. Place your right
+hand about three-fourths of the way up the
+handle. This is the proper hold for a right-handed
+person (Figure 76).
+Forehand Swing—This swing is used to cut the
+right side of a notch. These instructions are for
+right-handed choppers. Raise the ax over your
+right shoulder, your hands in the starting
+position (Figure 77). Swing the ax down on the
+log with a very natural swing motion, your right
+hand sliding down the handle toward your left
+hand at the bottom of the handle. You will end
+this motion with both hands at the end of the
+handle when the ax strikes the wood. Do not
+drive the ax straight into the wood, but instead
+cut on an angle about 45° to 50° from the edge of
+the log (Figure 78). Raise the ax again, slide the
+right hand up about three-fourths of the way on
+the handle and start your next swing. Continue
+this motion for the forehand swing. Your left
+hand never leaves the end of the handle.
+Figure 76—The proper ax hold for a right-handed person
+(drawing by Frederic H. Kock).
+iv 35
+Using Axes
+Figure 78—Cut at a 45° angle to be most effective (drawing
+by Frederic H. Kock).
+Backhand Swing—The backhand swing is used
+to cut the left side of the notch (Figure 79). Bring
+the ax over the right shoulder as in the forehand
+swing, but shift your body well to the left so that
+the ax comes down more in line with the left side
+of the notch. This backhand swing is somewhat
+more difficult to master gracefully. Proper ax use
+always includes these two motions, the forehand
+swing and the backhand swing, always over the
+right shoulder for right-handed choppers.
+Changing hand positions instead of using or
+developing the back swing technique is not
+considered acceptable ax use.
+Accuracy is the only thing that counts; the force
+Figure 77—Forehand swing (drawings by Frederic H.
+Kock).
+Figure 79—Backhand swing (drawings by Frederic H.
+Kock).
+136
+Using Axes
+Figure 81—Three ways of gripping the ax for precise
+strokes: a) two-handed choked grip; b) one-handed
+choked grip and;  c) one-handed full swing (drawings from
+the Northeastern Loggers Handbook ).
+Figure 80—Sequence of strokes for most efficient
+chopping (drawing by Frederic H. Kock).
+of the swing is not nearly as important as its
+placement. Chop with a series of strokes: the top,
+the bottom, and then the middle (Figure 80). If
+you chop in that order (top, bottom, middle) with
+both the forehand swing and the backhand
+swing, the chip will fly out after your last cut. On
+your last cut in the middle on the backhand
+swing, you should give a slight twist to the ax as
+you sink it into the wood to pop the chip out.
+Swing with a natural rhythmic and unforced
+motion. Always watch your aim. Leaving one edge
+of your ax blade exposed will help ensure it
+doesn’t get stuck in the log.
+It is best to confine yourself to one grip and do all
+the chopping either right- or left-handed,
+whichever is your natural swing. In the long run,
+it is important to learn to chop well both right-
+handed and left-handed. Being ambidextrous can
+save a chopper a lot of trouble in everyday work
+in the woods, particularly in limbing.
+Other grips besides the full-swing chopping grip
+are used for specific tasks (Figure 81). For careful
+and delicate work, such as sharpening stakes,
+notching house logs, or some limbing, use a two-
+handed choked grip, with both hands grasping
+the ax near the center of the handle. For cutting
+brush or sharpening wooden wedges, use a one-
+handed grip at the ax’s point of balance near the
+head. For splitting wood, cutting saplings, or
+sharpening stakes by yourself, use a one-handed
+grip, with your hand about halfway down the
+handle. Your spare hand should be nowhere near
+the ax blade during these operations!
+iv 37
+Using Axes
+Figure 82—Using an ax as a plumb. A hard hat is also
+required here (drawing by Frederic H. Kock).
+Felling Trees
+This description of felling with an ax is meant
+only to give the reader a generalized idea of the
+felling procedure. It should not be construed as a
+training guide. A faller needs to judge many
+variables—some deadly if misjudged—before
+attempting to cut down a tree. The information
+presented here is just a guide to help prevent
+some common mistakes. It focuses on ax
+techniques rather than felling techniques.
+Never start chopping until you are sure there are
+no branches or brush in the way. An ax deflected
+by a small branch or twig can cause a serious
+accident. Be sure your fellow workers are in the
+clear.
+Decide the direction in which you want the tree
+to fall, ideally with the natural lean of the tree. If
+not, you may have to use special techniques and
+equipment to offset the lean, techniques a novice
+should not try. Your ax can serve as a plumb to
+determine the tree’s natural lean. To do so, hold
+the ax in your hand above your head at arm’s
+length (Figure 82). Grip the very end of the
+handle with the ax head down. Use the ax as a
+plumb to sight around the tree from different
+positions as you walk a circle around the tree. Be
+sure to take into account the crown mass, which
+side the branches are on, and whether there is
+more weight on one side or the other.
+Consider wind direction. A slight breeze on the
+ground can be more powerful at the top of a 60-
+to 100-foot tree. Wind can change the direction of
+fall with unpredictable results. Heed the warning
+of an old country-western song by Sonny James:
+Don’t Cut Timber on a Windy Day. Decide the
+direction you will need to move the log after it is
+down on the ground. Try to drop the tree in a
+clearing, if possible.
+After you have determined where the tree is going
+to fall, gently swing your ax handle fully extended
+over your head in a 360° arc to make sure there
+are no obstructions (Figure 83). Walk around the
+tree at arm’s length with the ax fully extended to
+make sure that there are no branches within this
+circumference. Clear the underbrush for an
+escape path at about a 45° angle to the direction
+of the planned tree fall. The route should be clear
+of all vines, branches, and rocks—anything that
+you might trip over. Never stand directly behind
+the tree as it falls or during your escape. If the
+tree kicks back, or if the tree slabs and splits, the
+back portion will kick straight back.
+“Widow makers” are another danger. These are
+usually dead branches in the tree you’re felling
+or in neighboring trees that might be knocked
+down by the tree you are cutting. You should
+always wear personal protective gear during these
+F
+elling is probably the most
+ dangerous and difficult job in the
+woods. The USDA Forest Service has
+long required specialized training and
+certification before any of its employees
+are allowed to cut standing trees. This
+training is required whether chain saws,
+crosscut saws, or axes are used to fell
+the trees.
+138
+Using Axes
+Figure 84—Notching a tree to determine the direction of
+fall (drawings by Frederic H. Kock).
+used in combination with the ax, the front notch
+should be no more than one-third of the diameter
+of the tree.
+Use your ax as a sight guide to determine if the
+notch is in the proper direction of the fall (Figure
+85). A double-bit ax is best for this purpose as it
+makes a perfect T-square. Place the head of the
+double-bit ax in the front notch that you have
+just cut, with the handle pointing directly in the
+planned direction of the fall. If the handle does
+not point in the planned direction of the fall, you
+must re-chop the notch until the handle points
+in the right direction.
+Figures 83—Clear an area completely around the tree
+before starting to chop (drawings by Frederic H. Kock).
+operations. Hard hats and safety glasses are a
+must.
+Make sure your footing is secure and stable.
+Chop only when you are well clear of other
+people. Stand with your weight evenly distributed
+with both feet planted about shoulder width
+apart. Check the distance to stand from the cut
+before you start to swing. Start swinging with a
+very gentle easy motion in order to gauge your
+distance and your power stroke.
+The first cut will be the front notch or the
+undercut in the direction of the planned fall
+(Figure 84). This notch should be about one-third
+to one-half of the diameter of the tree when
+felling strictly with an ax. If a crosscut saw is
+iv 39
+Using Axes
+Figure 87—Plan and clear escape routes at an angle away
+from the planned direction of fall.
+Figure 86—Back notch or the final felling cut.
+Figure 85—Using a double-bit ax as a T-square to indicate
+the direction of fall.
+Now begin the back cut, or the final felling cut,
+on the opposite side of your front notch. The
+back notch should be a minimum of 2 inches
+higher on the stump than the front notch. The
+back notch is cut to within about 2 inches of the
+tip of the V on your front notch (Figure 86). Never
+cut completely through the back notch to the
+front notch.
+Direction of fall
+When the top of the tree starts to move in the
+direction of fall, move a few yards back away from
+the tree at an angle (Figure 87); never move
+directly behind the tree or in front of the fall!
+Keep your eye on the top of the tree while
+making your escape. You should get as far from
+the tree as possible. Keep your eye on the tree
+long enough to make sure not only of its
+direction of fall, but to look for widow makers
+that can be thrown back in your direction. As the
+tree is going down, continue to look overhead.
+You are only safe once the tree and broken limbs
+are on the ground.
+Escape Path
+Safety/i13
+Zone
+Safety/i13Zone
+Direction/i13
+of Fall
+45˚/i13
+45˚/i13
+Alternate Path
+Remember the rule when placing your cuts to
+create a notch—near, far, and middle to remove
+each chip. Always place the front notch and the
+back notch as low on the tree as possible while
+standing safely and comfortably. As the back
+notch gets deeper, closing in on the 2 remaining
+inches of hinge wood, keep glancing toward the
+top of the tree. The tree will start moving there
+C
+utting through the hinge wood is
+ the single most dangerous thing a
+novice faller can do. Never cut through
+the hinge wood! If you do, you will have
+absolutely no control over the direction
+the tree will fall, and it could very well
+fall on you.
+Front notch
+first, allowing you to detect whether the tree is
+going to fall in the planned direction. A gust of
+wind blowing opposite the planned direction of
+fall can get you into serious trouble at this point.
+140
+Using Axes
+Figures 89—Guidelines for limbing (drawing by Frederic
+H. Kock).
+Figure 88—Cut the underside of the branch when lopping
+branches (drawings by Frederic H. Kock).
+Limbing
+After the tree is on the ground, the next step is
+removing its branches, called limbing. Start at
+the butt of the log and work toward the top,
+cutting on the underside of the branches (Figure
+88). Always limb from the opposite side of the log
+with the log separating you from the ax. Limbing
+is a dangerous operation because of the chance
+of glancing blows (Figure 89) when the ax does
+not dig into the wood.
+You need to pay attention to branches that are
+under compression, those that bear the weight of
+the log. When the limb is cut, the limb may
+spring free, striking you. The log can also roll.
+Limbing is like other chopping in most ways. The
+same grips on the ax handle are used and the
+swing is the same. Much of the ax work, however,
+is performed in constricted, awkward positions.
+Some branches are large, others small. You need
+good judgment to place the right amount of force
+behind each swing of the ax.
+The danger of accidents from an ax that has been
+deflected by branches is much greater than with
+clear chopping. One important precaution is to
+clear interfering branches
+W
+hen you use an ax for both the
+front and back notches instead of
+using a crosscut saw for the back
+notch, you cannot use a wedge to
+secure the direction of fall. This is one
+disadvantage of using an ax instead of a
+saw for the back notch.
+BRANCH ON THE
+FAR SIDE
+NEVER  ON THE NEAR
+SIDE
+NEVER  STRADDLE
+THE LOG
+iv 41
+Using Axes
+Figure 90—Cutting off a large limb.
+before attempting to chop a large limb. If the log
+is so large that you cannot reach over it to limb,
+chop the top branches off first. Stand on top of
+the tree trunk to chop the side branches. Cut
+each limb flush with the trunk; leave no stobs or
+pig ears.
+The inexperienced chopper should do very little
+limbing while standing on the log. Experienced
+choppers with sure control of the ax will be able
+to work safely in the more hazardous positions.
+For large limbs, particularly on hardwoods, it is
+often necessary to cut a notch similar to that
+used in cutting down a tree (Figure 90). Cut from
+the lower side of the limb, as always, and keep
+the bottom of the notch even with the trunk
+A
+ good suggestion from Ian Barlow,
+ trails and wilderness expert on the
+Nez Perce National Forest:
+No matter how hard you try to avoid it,
+sometimes you have to limb on the
+same side of the log that you are
+standing on. When that happens, a
+good rule of thumb is to never let your
+ax handle or your ax head drop below
+the level of your hands while you’re
+chopping. If you never let your ax head
+break a plane that’s parallel with the
+ground, you can’t cut your feet.
+surface. The vertical side of the notch should
+slope somewhat with the angle of the limb. Often
+a larger notch is easier to cut than a smaller one.
+The downward cut is made with the grain of the
+wood and not directly across it.
+A word should be said about hemlock knots.
+These knots are very hard, especially on dead
+limbs. It is sometimes better to break off small
+limbs with the poll of the ax than to try to chop
+them. It is easy to take a huge nick out of the ax
+bit by swinging too hard at right angles to a
+hemlock limb. This is more likely to happen in
+cold weather, when the ax is more brittle. In such
+cases, warm the ax bit before using it on such
+limbs. If possible, use an ax with a blunter taper
+than you would for ordinary chopping. As a final
+precaution, chop lightly at an angle to, or with,
+the grain, and do not attempt to twist out the
+chips.
+Cutting Pinned-Down
+Saplings
+A dangerous job that goes along with limbing is
+cutting off bowed-over saplings, whose tops have
+been pinned down by the fallen tree. Never cut
+them by giving either the top or the butt a whack
+with the ax from the outside. They can spring out
+like a catapult, with a force that can easily break
+a jaw or arm. The trick is to cut the bowed-over
+tree from the inside. If this is impossible, give the
+strained fibers on the outside a light touch with
+the ax to partially release the strain before fully
+severing the sapling.
+Bucking
+Bucking means cutting a tree into log lengths or
+firewood bolts once it is on the ground. Often it
+is also necessary to buck logs that have fallen
+across trails. Most bucking is done with the saw,
+but there is nothing wrong with using an ax for
+this job. A good chopper can often buck a log in
+the same time it takes to set up a crosscut saw
+142
+Using Axes
+Figure 92—Size the notch to close halfway through the log
+if you can chop both sides of the log. If you can only cut
+on one side, the notch will have to be much larger
+(drawings by Frederic H. Kock).
+Figure 91—Top view of the sequence of cuts made by an
+experienced right-handed chopper standing on top of the
+log. The final power stroke is offset slightly.
+and use it to cut a log.
+The beginning chopper should stand on the
+ground to the side of the log. Make sure you have
+firm footing. Take a wide stance and chop
+between your feet, turning your body in the
+direction of the ax stroke as you cut first one
+side of the notch, then the other. Again, keeping
+the handle parallel with the ground will prevent
+foot injuries.
+For an experienced ax user, the proper position
+for bucking is to stand directly on top of the log
+and chop halfway through one side. Turn around
+and chop halfway through the other side to finish
+the cut. These two V-notches will meet right in
+the middle of the log (Figure 91).
+On logs that are small enough to be rolled over,
+FIRST
+CUTSECOND CUT
+POWER
+STROKE TO
+FINISH IT OFF
+you can achieve the same economy without
+standing on the log. Stand on the ground and
+chop a V-notch on the top, then roll the log over
+and chop a V-notch on the bottom.
+Often it is necessary to chop a large log while
+standing on the ground. You must make a very
+large V-notch to chop all the way through from
+just one side. You also risk hitting your cutting
+edge on a rock as you finish the cut.
+How wide should you cut your V-notch? The
+most common mistake is to make the V-notch
+too small (Figure 92). This pinches the middle of
+the V-notch before you reach the center of the log.
+You will quickly find that chips will not clear from a
+notch that is too wide. If a very large log is bucked,
+you need to make your notch narrow and then
+widen it out; the chips won’t clear if you start the
+notch much wider than 10 to 12 inches.
+T
+he advantages of chopping two V-
+ notches in a log instead of one large
+V-notch is simply a matter of ease of
+chopping. Chopping two smaller V-
+notches is easier and takes less time
+than cutting one large notch.
+TOP VIEW
+SIDE
+VIEW
+iv 43
+Using Axes
+On a large log you increase the size of the notch
+by chopping out one side. Always remember your
+high, low, and middle technique for placing ax
+blows. Make three forehand swings, high, low,
+and middle, followed by three backhand swings. If
+you are standing on the log, your first swing
+should strike high at the top of the log; the
+second at the bottom of log; and the third right in
+the middle. If you follow any other sequence, the
+ax will stick in the wood. The last stroke, stroke
+number six, throws the chip on the ground
+(Figure 80).
+Splitting
+The wood to be split is cut into stove lengths that
+can be anywhere from 12 to 24 inches long.
+Stand the wood on end, either on the ground or
+on a chopping block, if the wood has been cut
+straight with a chain saw or crosscut saw. If the
+ends are uneven, the wood needs to be placed in
+a crotch of a downed tree to hold it upright
+(Figure 93).
+You should have a designated splitting ax. Its
+blade should have a much steeper angle than a
+felling and bucking ax. Take advantage of existing
+cracks or checks in the wood to help direct your
+first blow, because the first split is generally the
+most difficult. Swing straight down toward the
+top of the block. Use your body weight, with your
+knees snapping into position just as you hit the
+block of wood. Give the ax handle a slight twist
+just as the bit hits the block (Figure 94). This
+throws the block of wood apart and prevents the
+ax from sticking. The real secret of splitting wood
+with an ax is in this little twist right at the end of
+the stroke.
+G
+ive a slight twist to the ax on this
+ last chip-removal stroke. This twist
+will help bust the chips out and keep
+the ax from sticking in the log.
+Figure 93—Safe and unsafe techniques for splitting wood
+(drawings by Frederic H. Kock).
+144
+Using Axes
+Figure 94—Twist the ax head as it enters the wood to keep
+it from sticking (drawing by Frederic H. Kock).
+On a knotty, gnarly block of wood you’ll need to
+start your split from the outside edges and slab
+off the sides. Inevitably, your ax will become
+stuck in the block you are trying to split. The
+best way to remove it without damaging the ax is
+to rap the end of the handle sharply downward
+with the palm of your hand without holding the
+handle.
+Hewing
+Hewing is shaping a log with an ax or an adz. The
+primary tools are the single-bit ax and the hewing
+or broad ax. The single-bit ax is used for scoring,
+a process of chopping cuts perpendicular to the
+length of the log down to a chalk line marked on
+the log. This line marks the edge where you want
+the flat, hewn surface.
+Follow the scoring process with broad ax hewing.
+An adz is sometimes used for the final dressing of
+the hewn log. Hewing can convert a round log
+from the woods into a square timber or a partially
+squared timber called a cant. Hewing doesn’t
+work well on dry logs, so hew green, freshly cut
+logs. Here is a summary of  the steps to follow:
+1. Remove the bark from the log using a
+drawknife (Figure 95), bark spud (Figure 96),
+or possibly your single-bit ax. Place the log
+crossways on two other short sections of log
+that have a V-notch chopped in them to
+cradle the log. The log to be hewn should be
+placed in these V-notched cross sections,
+called yokes, at a height that is comfortable
+to hew. The position should be about knee
+high or a little bit higher.
+Place wood chips, a wood slab, or an old
+board on the ground underneath the log to
+Figure 95—Removing bark from a green log with a
+drawknife.
+Figure 95
+34%
+3 3/8 x 2 3/8
+10  x 7
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 96—Using a bark spud.
+Figure 96
+34%
+3 3/8 x 2 3/8
+10  x 7
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+keep the broad ax from digging into dirt and
+rocks. Clamp the log to the yokes with log
+dogs, big iron staples driven into both the
+yoke and the log at both ends (Figure 97).
+This keeps the log from moving from its
+proper position.
+iv 45
+Using Axes
+Figure 98—Lay out the dimensions of the beam on the
+small end on the log.
+2. Using a level or a plumb bob (Figure 98),
+scribe a vertical line on the small end of the
+log to mark the depth to which you want to
+hew. Then, to make sure the log is large
+Figure 97—Use a log dog to secure the log to the yoke.
+Figure 97a
+44%
+3 x 3 3/4
+6 7/8  x 8 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+enough, measure out the final end
+dimensions of the cant or beam you wish to
+create. Scribe this layout on the small end of
+the log first, because it is more difficult to fit
+it there than on the large end of the log.
+3. Now move to the large or butt end of the log
+and repeat the process of scribing the end
+dimensions of the beam or cant.
+4. Snap a chalk line from the upper corner of
+the layout on one end to the corresponding
+corner on the other end (Figure 99). It is
+easier to do if you first cut a notch in the log
+with your pocket knife immediately above
+the scribed vertical line. Drive a nail into the
+vertical line just deep enough to hold one
+end of the chalk line. Run the chalk line up
+through the notch and along the length of
+the log (Figure 100). Then, holding the line
+tightly at the other end, snap the line by
+raising it straight up and letting it go.
+5. Next, score the log. To start scoring with
+your single-bit ax, stand on top of the log.
+Plumb bob
+Narrow end
+of log Figure 99—The chalk line will mark the top side of the
+hewn surface.
+Figure 99
+37%
+3 3/8 x 2 1/2
+9 x 6 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 97b
+44%
+3 x 3 3/4
+6 7/8  x 8 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+146
+Using Axes
+Figure 100—Here’s a way to secure one end of the chalk
+line while you move to the other end.
+Chop to the depth of the chalk line in the
+center, or for a large-diameter log, take
+chops high, low, and in the middle. Do not
+burst (clear) the chips. Each of these swings
+is done with the forehand swing only. This
+process is called slash scoring. It is the most
+common method of scoring. The slashes are
+placed 3 to 4 inches apart down the length of
+the log.
+On a large log, scoring is easier using a
+method called “juggling” (Figure 101). In
+juggling, you score the log by chopping a
+series of shallow V-notches to the depth of
+the chalk line. To do this, stand on top of
+the log and cut with both the forehand swing
+and the backhand swing. Then, still working
+from the top of the log with your single-bit
+ax, chop parallel to the log with the grain to
+split off the chips between the V-notches
+(spaced 10 to 12 inches apart, Figure 102).
+Figure 101—In the scoring technique called juggling, you
+cut a shallow V-notch down to the depth of the chalk line.
+Slash scoring is a different technique that doesn’t involve
+cutting a V-notch.
+Figure 101
+48%
+3 3/8 x 3 5/16
+7  x 6 7/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Figure 102—Finish the juggling process by removing the
+excess wood between V-notches with a single-bit ax.
+Figure 102
+48%
+3 3/8 x 3 5/16
+7  x 6 7/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+Nail in
+line to 
+hold end
+of chalk 
+line
+Cut notch
+Run chalk 
+line up over 
+notch and 
+down length 
+of log
+iv 47
+Using Axes
+6. Hewing with the broad ax is the next step
+(Figure 103). In a right-handed swing, your
+left hand should be on the end of the broad
+ax handle, with your right hand holding the
+handle near the ax head. Standing on the
+ground, spread your legs apart so they are
+out of harm’s way, and swing straight down
+toward the ground. Follow the chalk line,
+breaking the remaining wood between the
+scoring slashes, or between the V-notches
+left from juggling.
+Generally only two sides of the log were
+hewn in cabin building, the exterior and the
+interior walls. If you want to hew all four
+sides, you will need to rotate the log 90° and
+repeat the process on the remaining two
+sides.
+7. Use an adz to give a more finished
+appearance to the hewn log. The traditional
+method of using the adz is to roll the log 90°
+so the hewn side is face up. Stand on top of
+the hewn face and cut directly toward your
+toes. As you might imagine, this can be a
+dangerous operation for someone who is
+unskilled. The adz needs to be razor sharp
+to cut well. The utmost concentration is
+needed to swing the adz with enough power
+for it to do its job but not enough to slice
+your toes (Figure 104). On small logs, you
+sometimes can straddle the log and swing
+the adz between your legs (Figure 105).
+I
+f a chip of wood gets stuck to the ax
+ bit, which often happens while
+hewing, stop and remove the chip
+carefully from the ax blade. A chip stuck
+to the bit of the ax will guarantee a
+glancing blow when you begin your next
+cut.
+Figure 103—Hew down to the chalk line, removing the
+excess wood left after scoring.
+Figure 103
+37%
+3 3/8 x 2 1/2
+9 x 6 5/8
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+After scoring and hewing the first side of the
+log, move the log dogs one at time so the log
+does not shift off plumb. The opposite side
+of the log is then freed up but is still held in
+a plumb position. Repeat the scoring and
+hewing process on the opposite side of the
+log. At this point the log is flat on two sides.
+Figure 104—Adz work requires the utmost concentration
+to avoid cutting your feet.
+Figure 104
+50%
+3 3/8 x 4 1/4
+6 3/4 x 8 1/2
+Print to Outside Edge of Borders
+PRINT PRINTPRINT PRINTPRINT Borders
+148
+Using Axes
+Figure 105—You may be able to straddle a small log when
+using an adz (drawing by Frederic H. Kock).
+H
+istoric log buildings often display
+ the tooling marks of ax and adz
+work, best seen on the interior walls. It
+is often possible to tell if the hewer was
+right- or left-handed by the position of
+the scoring marks and the broad ax
+marks. There is also a great difference
+between the tooling marks left by a
+broad ax and those left by an adz.
+iv 49
+Using Axes
+150
+Using Axes
+B uying an Ax
+New and Used Axes
+Acquiring a good ax is almost as difficult today as
+learning to use one properly. The majority of
+American ax manufacturers have gone out of
+business; only a few are left in the United States.
+A few ax companies in other countries, including
+Sweden, Australia, and New Zealand, still
+manufacture quality axes. I have found the steel
+and fit of imported Chinese axes to be of very
+poor quality. These are often sold as generic “no
+name” axes at discount outlets. Let the buyer
+beware.
+Buying a quality used ax at a secondhand store,
+flea market, or farm auction may be your best
+bet. Most used axes are also abused axes, but
+about 1 out of 10 is still usable. The price is
+usually right. Used axes can often be picked up
+for half the cost of a new ax. Look not only at the
+ax’s condition, but take the ax’s manufacturer
+and its head
+pattern into
+consideration.
+The quality of
+steel and the
+tempering of
+old axes is
+often superior
+to that of new
+axes (Figure
+106). The
+helve or the
+handle is not
+of any
+importance at
+this point.
+Shop only
+for the ax
+head and
+plan to
+rehang it to
+fit your
+needs.
+M a n u f a c t u r e r s
+Ames/Woodings-Verona manufactures quality
+striking tools, including axes and hatchets.
+Woodings-Verona is a division of the much larger
+Ames Company.
+World Wide Web: http://www.ames.com
+Ames Lawn and Garden Tools
+Box 1774
+Parkersburg, WV 26102
+Phone: (800) 624-2654 or (304) 424-3000
+Fax: (304) 424-3399
+Barco Industries, Inc., and sister company,
+Phoenix Forging Company, Inc., have a large line
+of striking tools, including axes and hatchets.
+These tools are marketed under the Barco name,
+as well as the registered trademarks Rocket, Kelly
+Perfect, Kelly Woodslasher, Woodslasher, and
+Light Duty.
+Barco Industries, Inc.
+1020 Macarthur Road
+Reading, PA 19605
+Phone: (800) 234-8665
+Fax: (610) 374-6320
+Bear Creek Tool Company specializes in hand-
+forged broadaxes and about 15 types of adzes.
+Their products have been used during a number
+of historical restoration projects. This is a small
+family operation owned by Charlie Wilkins.
+Bear Creek Tool Company
+201 North Bear Creek Road
+Marshall, NC 28753
+Phone: (828) 649-2671
+Collins Axe Company is part of the Mann Edge
+Tool Company. The Collins name has been
+associated with axes since 1826. The company
+offers a broad line of axes and replacement
+handles. Mann Edge Tool Company supplies ax
+heads to other manufacturers to market under
+different labels. Collins offers professional
+quality, 100% USA-made striking tools.
+Figure 106—Telling if an ax is
+defective or abused (drawing courtesy
+of Snow & Nealley, Bangor, Maine).
+A Defective Axe  will
+break as shown below by
+Numbers 1, 2 and 4, or if
+soft, the edge will bend.
+Number 3 represents
+sound breaks  which are
+no fault of the axe or its
+maker. Misuse of a good
+axe is the cause. Dealers
+will allow no claim under
+any circumstance for a
+break of this character.
+This break may often be
+avoided by warming the axe
+before using on a very cold
+day.
+If an Axe breaks across or
+under the eye, and the poll
+is not battered, the axe is
+probably defective; but if
+the poll is battered it is
+safe to assume that the axe
+is not at fault. Axes are not
+designed or intended to be
+used as mauls or wedges.2
+4
+3 2
+4 4
+1 4
+iv 51
+Collins Axe Company
+Water & Dorcas Streets
+P.O. Box 351
+Lewistown, PA 17044
+Phone: (800) 248-8303 or (717) 248-9628
+Fax: (717) 248-4846
+Cooper Tools is a conglomerate that
+manufactures hammers, axes, and chisels under
+the well-known Plumb trademark. Cooper Tools
+also owns the Nicholson, Lufkin, and Crescent
+trademarks, among many others.
+Cooper Tools
+3535 Glenwood Avenue
+P.O. Box 30110
+Raleigh, NC 27622
+Phone: (919) 781-7200
+Fax: (919) 783-2116
+E-mail: cooperinfo@coopertools.com
+Council Tool Company was founded in 1886 by
+John Pickett Council who developed tools for the
+turpentine harvesting industry. Today Council
+products include a full line of quality axes and
+other tools.
+Council Tool Company
+345 Pecan Lane
+P.O. Box 165
+Lake Waccamaw, NC 28450-0165
+Phone: (919) 646-3011
+Fax: (910) 646-4414
+Estwing Manufacturing Company offers a full
+line of axes, hatchets, and wood splitting tools.
+Most of these tools offer tubular or solid steel
+handles.
+Estwing Manufacturing Company, Inc.
+2647 8th Street
+Rockford, IL 61109-1120
+Phone: (815) 397-9558
+Fax: (815) 397-8665
+E-mail: sales@estwing.com
+Gränsfors Bruks AB is a Swedish company
+established in 1902. The company offers a full
+line of hand-forged traditional and specialty axes
+and hatchets, each stamped with the initials of
+the craftsman who forged it.
+A sister company, Gränsfors Bruks, Inc., is
+located in Summerville, South Carolina. It
+imports and markets Gränsfors Bruks axes and
+spring steel wrecking bars, in addition to other
+products.
+World Wide Web: http://www.gransfors.com
+Gränsfors Bruks AB
+820 70 Bergsjö
+SWEDEN
+Phone: +46 (0) 6527-1090
+Fax: +46 (0) 6521-4002
+E-mail: axes@gransfors.com
+Gränsfors Bruks, Inc.
+821 West 5th North Street
+P.O. Box 818
+Summerville SC 29484
+Phone: (800) 433-2863 or (843) 875-0240
+Fax: (843) 821-2285
+E-mail: info@gransfors.com
+O.P. Link Handle Company is the largest
+manufacturer of hickory striking tool handles
+and farming tool handles in the United States.
+The Link family of handle makers operates
+factories in Salem, IN; Sequatchie, TN; Crossville,
+TN; and Hope, AR. The company can create
+almost any ax handle from the patterns shown in
+its catalog and from its inventory of less-popular
+handle patterns.
+O.P. Link Handle Company
+403 S. Main Street
+Salem, IN 47167-1323
+Phone: (800) 992-9171 or (812) 883-2981
+Fax: (812) 883-1672
+Peavey Manufacturing Company was founded in
+1857 by Joseph Peavey, who developed the
+original “Peavey.” Peavey does not manufacture
+axes, but it does make a host of log-moving and
+log-working tools and handles, including cant
+hooks, draw shaves, and its namesake tool, the
+Peavey.
+World Wide Web: http//www.peaveymfg.com
+E-mail: order@peaveymfg.com
+152
+Buying an Ax
+Peavey Manufacturing Company
+Route 9
+P.O. Box 129
+Eddington, ME 04428
+Phone: (888) 244-0955 or (207) 843-7861
+Fax: (207) 843-5005
+Snow & Nealley, Bangor, ME, is a family-owned
+and operated business that has been producing
+high-quality axes and woodworking tools since
+1864.
+World Wide Web: http://www.sntools.com
+Snow and Nealley, Inc.
+P.O. Box 876
+Bangor, ME 04402-0876
+Phone: (800) 790-8363
+Fax: (207) 941-0857
+E-mail: sntools@mint.net
+Sandvik Saws and Tools Company has
+developed from a provincial Swedish steelworks
+into an international, materials engineering
+conglomerate. Milford, Bahco, Belzer, and
+Lindström are some of the brands now
+incorporated under the Sandvik Saws and Tools
+division. The company manufactures high-quality
+sharpening tools, saws, and forestry tools.
+World Wide Web: http://www.sandvik.com
+Sandvik Saws & Tools Company
+P.O. Box 2036
+Scranton, PA 18501
+Phone: (800) 828-9893
+Fax: (800) 877-5687
+Tuatahi Axes and Saws in New Zealand grinds
+and manufactures premium quality axes and
+saws for export to countries all over the world.
+Much of its inventory is custom made. Products
+available include competition racing axes, work
+axes, crosscut racing saws, knives, and grubbers.
+Bailey’s is the distributor for Tuatahi products in
+the United States.
+Tuatahi Axes and Saws
+203 High Street
+Masterton
+New Zealand
+Phone: (011) 646-377-3728
+Fax: (011) 646-377-5343
+Bailey’s
+World Wide Web: http://www.bbaileys.com
+Bailey’s, Western Division
+P.O. Box 550
+44650 Highway 101
+Laytonville, CA 95454
+Phone: (707) 984-6133
+Fax: (707) 984-8115
+E-mail: baileys@bbaileys.com
+Bailey’s, Southeastern Division
+P.O. Box 9088
+196 Edwards Drive
+Jackson, TN 38314
+Phone: (901) 422-1300
+Fax: (901) 422-6118
+E-mail: baileys@bbaileys.com
+Vaughan and Bushnell Mfg. Company offers a
+line of striking tools, axes, hammers, and
+hatchets.
+World Wide Web: http://www.vaughanmfg.com
+Vaughan and Bushnell Mfg. Company
+11414 Maple Avenue
+Hebron, IL 60034
+Phone: (603) 224-4669
+Fax: (815) 648-4300
+E-mail: vaughanmfg@aol.com
+Distributors
+Ben Meadows Company carries several brands of
+axes and hatchets, as well as a wide selection of
+equipment for natural resource managers.
+World Wide Web: http://www.benmeadows.com
+Ben Meadows Company
+3589 Broad Street
+Atlanta, GA 30341
+Phone: (800) 241-6401
+Fax: (800) 628-2068
+iv 53
+Buying an Ax
+The Country Workshops has been providing
+instruction on Swedish carving techniques and
+other traditional woodworking skills since 1978.
+It also has an online store where axes, adzes, and
+other traditional woodworking tools can be
+purchased.
+World Wide Web: http://www.countryworkshops.
+org/toolhewing.html
+The Country Workshops
+90 Mill Creek Road
+Marshall, NC 28753-9321
+Phone: (704) 656-2280
+E-mail: langsner@countryworkshop.org
+Forestry Suppliers, Inc., carries a large line of
+axes and hatchets from several manufacturers, as
+well as supplies for forestry, engineering, and
+environmental science.
+World Wide Web: http://www.forestry-
+suppliers.com
+Forestry Suppliers, Inc.
+P.O. Box 8397
+Jackson, MS 39284-9397
+Phone: (800) 647-5368
+Fax: (800) 543-4203
+Garrett Wade Company offers a large selection
+of traditional woodworking products, including
+handtools, axes, and adzes.
+World Wide Web: http://www.garrettwade.com/
+home.html
+Garrett Wade Company
+161 Avenue of the Americas
+New York, NY 10013
+Phone: (800) 221-2942
+Fax: (800) 566-9525
+E-mail: mail@garrettwade.com
+Lee Valley Tools is another large supplier of
+traditional handtools, including axes, adzes, and
+log building tools. The company is based in
+Canada, but has an operation in the United
+States.
+World Wide Web: http:// www.leevalley.com
+Lee Valley Tools, Ltd.
+P.O. Box 1780
+Ogdensburg, NY 13669-6780
+Phone: (800) 871-8158
+Fax: (800) 513-7885
+Lester C. Kenway Trail Services, founded in
+1994, features handtools by such companies as
+Snow & Nealley, Collins, Peavey, and Sandvick. It
+also specializes in rock-moving equipment.
+Lester C. Kenway Trail Services
+15 Westwood Road
+Bangor, ME 04401
+Phone: (207) 947-2723
+Fax: (207) 945-6050
+E-mail: trailser@ctel.net
+Sticks & Stones Unlimited, Inc., distributes
+the machine-knife stone, Item No. SB-74. This 4-
+by 11/2-inch oilstone has a groove cut into its
+circumference to help protect fingers from
+sharpened edges. This stone works well for
+sharpening axes as an alternative to the thinner,
+traditional round stone. The company distributes
+other stones and sharpening tools.
+Sticks & Stones Unlimited, Inc.
+1800 East Northwest Parkway
+Southlake, TX 76092
+Phone: (800) 966-7574 or (817) 488-9500
+Fax: (817) 488-5397
+Woodcraft, in business since 1928, is a good
+source for broadaxes, adzes, hatchets, and other
+woodworking tools.
+World Wide Web: http://www.woodcraft.com
+Woodcraft
+210 Wood County Industrial Park
+P.O. Box 1686
+Parkersburg, WV 26102-1686
+Phone: (800) 225-1153
+Fax: (304) 428-8271
+154
+Buying an Ax
+Organizations
+Many organizations have been established for
+persons who collect or use old tools. The
+organizations typically publish newsletters and
+hold meetings to display, discuss, and trade
+tools. The two largest national tool collecting
+organizations in North America are the Early
+American Industries Association and the Mid-
+West Tool Collectors Association.
+Early American Industries Association
+c/o Elton Hall
+167 Bakerville Road
+South Dartmouth, MA 02748
+World Wide Web: http://www.eaiainfo.org
+The purpose of the Early American Industries
+Association, Inc., founded in 1933, is to
+encourage the study and better understanding of
+early American industries in the home, in the
+shop, on the farm, and on the sea; also to
+discover, identify, classify, preserve, and exhibit
+obsolete tools, implements, and mechanical
+devices that were used in early America. The
+association also offers its members a great
+selection of books at reduced prices.
+Mid-West Tool Collectors Association
+William R. Rigler, Treasurer
+RR 2, Box 152
+Wartrace, TN 37183
+World Wide Web: http://www.mwtca.org
+The Mid-West Tool Collectors Association is a
+nonprofit international organization dedicated to
+the study, preservation and understanding of the
+early tools, implements, and devices used by our
+ancestors in their homes, shops, on the farms
+and on the seas, and to a better perception of the
+industries and crafts in which these tools were
+used as well as the craftsmen who used them. M-
+WTCA was started by 16 Chicago-area tool
+collectors in 1968 and has grown to 3,900
+members in all 50 states and 5 other countries.
+Regional organizations (many more exist; these
+organizations are among the largest)
+Pacific Northwest Tool Collectors (PNTC)
+Jean Racine, Treasurer
+12780 SW 231st Pl.
+Hillsboro, OR 97123
+Potomac Antique Tools and Industries
+Association, Inc. (PATINA)
+Greg Wilinski, Sec./Treasurer
+7007 Hundsford Lane
+Springfield, VA 22153
+Preserving Arts and Skills of the Trades
+(PAST) Tool Organization
+Allan Foster, Membership Director
+5200 Lawton Avenue
+Oakland, CA 94618
+iv 55
+Buying an Ax
+156
+Buying an Ax
+S elected References
+Andrews, Ralph W. 1984. Timber. Exton, PA: Schiffer
+Publishing, Ltd.
+Andrews, Ralph W. 1984. This was logging! Selected
+photographs of Darius Kinsey. ISBN: 0-88740-035-3.
+Exton, PA: Schiffer Publishing, Ltd. 157 p.
+Andrews, Ralph W. Glory days of logging. Copyright
+Superior Publishing Co., MCMLVI, Seattle, WA. New
+York: Bonanza Books. 176 p.
+Berg, Elizabet, ed. 1997. The axe book. ISBN: 91-
+970447-6-8. Sweden: Gränsfors Bruks AB. 36 p.
+Bohn, Dave. 1986. Kinsey, photographer. ISBN: 0-
+87701-287-3. San Francisco: Chronicle Books. 319 p.
+Fickes, Clyde P.; Groben, W. Ellis. 1945. Building
+with logs. Publ. No. 579. Washington, D.C.: U.S.
+Department Of Agriculture. 68 p.
+Foley, Vernard; Moyer, Richard H. 1977. The
+American ax — was it better? Chronicle of the Early
+American Industries Association. XXX. June.
+Gamble, James D. 1986. Broad axes. ISBN: 0-
+9617220-0-2. Los Altos, CA: Tanro Co.
+Goodman, W. L. 1964. The history of woodworking
+tools. London: G. Bell and Sons. 208 p.
+Grismer, Jerome T.; Kendrick, Clyde H. 1985.
+American embossed axes. Columbia, MO: General
+Printing Service. 177 p.
+Hallman, Richard. 1988. Handtools for trail work.
+Gen. Tech. Rep. 8823-2601-MTDC. Missoula, MT:
+U.S. Department of Agriculture, Forest Service,
+Missoula Technology and Development Center. 54 p.
+Heavrin, Charles A.  1998. The axe and man.
+Memphis, TN: Charles Heavrin. 182 p.
+Hodgkinson, Ralph. 1965. Tools of the woodworker:
+axes, adzes and hatchets. 1965. History Tech.
+Leaflet 28. American Association for State and
+Local History. History News. 20 (5). May.
+Kijowski, Gene W., ed. 1990. Directory of American
+tool makers: colonial times to 1899. Early American
+Industries Association. 394 p.
+Klenman, Alan. 1990. Axe makers of North America.
+Victoria, BC: Whistle Punk Books. 112 p.
+Klenman, Allen. 1981. Axes made, found or sold in
+Canada. Victoria, BC: Idealetter Services. 44 p.
+Kauffman, Henry J. 1994. American axes. ISBN: 1-
+883294-12-6. Elverson, PA: Olde Springfield Shoppe.
+151 p.
+Mason, Bernard S., drawings by Frederic H. Kock.
+1954. Woodsmanship. Library of Congress Card No.
+54-5406. New York: A.S. Barnes and Co., Inc. 90 p.
+McLaren, Peter. [1929]. Axe manual of Peter
+McLaren. Philadelphia, PA: Fayette R. Plumb, Inc.
+84 p.
+Mercer, Henry C. 1960. Ancient carpenters’ tools.
+Doylestown, PA: Bucks County Historical Society.
+Mercer, Henry C. 1967. The origin of log houses in
+the United States. Doylestown, PA: Bucks County
+Historical Society. 31 p.
+Phelps, Hermann. 1982. The craft of log building.
+ISBN: 0-9691019-1-0. Ottawa, Ontario: Lee Valley
+Tools. 328 p.
+Salaman, R.A., rev. by Philip Walker. 1990.
+Dictionary of woodworking tools, c.1700-1970. ISBN:
+0-942391-51-9. Newtown, CT: Taunton Press. 546 p.
+Sellens, Alvin. 1990. Dictionary of American hand
+tools. ISBN: 0-9612068-4-5. Augusta, KS: Alvin
+Sellens. 546 p.
+Simmons, Fred C.  1951. Northeastern loggers’
+handbook. Agriculture Handbook No. 6. Washington,
+D.C.: U.S. Department of Agriculture.
+Sloane, Eric. 1974. A museum of early American
+tools. ISBN: 345-24675-6-295. New York: Ballantine
+Books. 108 p.
+Sorden, L.G.; Vallier, Jacque. 1986. Lumberjack.
+ISBN: 0-942802-12-8. North Word, Inc. 261 p.
+Williams, Richard L.  1976. The loggers. Library of
+Congress Card No. 75-24792. New York: Time-Life
+Books. 240 p.
+iv 57
+158
+Selected References
+Notes:
+iv 59
+Notes:
+160
+Library Card
+Weisgerber, Bernie; Vachowski, Brian, 1999. An Ax to Grind: A Practical Ax
+Manual. Technical Report, 9923-2823-MTDC. Missoula, MT: U.S. Department of
+Agriculture, Forest Service, Missoula Technology and Development Center. 60 p.
+A practical and detailed handbook about axes and their historic and continuing
+usage. Describes types and patterns of axes and adzes, with many photos and
+illustrations. Shows how to hang (re-handle) and sharpen axes. Describes proper
+ax usage for tree felling, limbing, bucking, splitting, and hewing. Lists procure-
+ment sources and selected references.
+Keywords: axes, adzes, hand tools, hewing, historic buildings, historic forestry
+practices, log cabin restoration, traditional Americana
+Additional single copies of this document may be ordered from:
+USDA Forest Service
+Missoula Technology and Development Center
+Building 1, Fort Missoula
+Missoula, MT 59804-7294
+Phone: (406) 329-3900
+Fax: (406) 329-3719
+IBM: pubs/wo,mtdc
+E-mail: pubs/wo_mtdc@fs.fed.us
+For additional technical information, contact Brian Vachowski at the
+address above.
+Phone: (406) 329-3935
+Fax: (406) 329-3719
+IBM: bvachowski/wo,mtdc
+E-mail: bvachowski/wo_mtdc@fs.fed.us
+An electronic copy of this document is available on the Forest Service’s FS
+Web Intranet at:
+http://fsweb.mtdc.wo.fs.fed.us
+iv

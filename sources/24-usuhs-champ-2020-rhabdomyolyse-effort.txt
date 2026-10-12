@@ -1,0 +1,993 @@
+       Clinical Practice Guideline for the Management
+    of Exertional Rhabdomyolysis in Warfighters 2020
+
+                         Francis G. O'Connor, COL(R), MD
+             Professor and Chair, Military and Emergency Medicine
+Medical Director, Consortium for Health and Military Performance (CHAMP)
+              Uniformed Services University of the Health Sciences
+
+                                   Bethesda, Maryland
+                              Patricia Deuster, PhD, MPH
+                    Professor, Military and Emergency Medicine
+     Director, Consortium for Health and Military Performance (CHAMP)
+              Uniformed Services University of the Health Sciences
+
+                                   Bethesda, Maryland
+                                Jeff Leggit, COL(R), MD
+                        Associate Professor, Family Medicine
+           Consortium for Health and Military Performance (CHAMP)
+              Uniformed Services University of the Health Sciences
+
+                                   Bethesda, Maryland
+                        Michael E Williams, CDR, MC, USN
+
+                            Family and Sports Medicine
+                            Naval Health Clinic Annapolis
+
+                                      Annapolis, MD
+
+                         C. Marc Madsen, LCDR, MC, USN
+                             Primary Care Sports Medicine
+
+              Marine Corps Base Quantico Officer Candidate School
+                     Medical Director, Marine Corps Marathon
+
+                        Anthony Beutler, Col (ret), MC, USA
+                     Professor, Department of Family Medicine
+
+                            Uniformed Services University
+     Associate Medical Director and Fellowship Director, Sports Medicine
+
+                        Intermountain Healthcare, Provo, Utah
+
+                          Nathaniel S. Nye, Maj, MC, USAF
+             Assistant Program Director, Sports Medicine Fellowship
+
+                           Ft. Belvoir Community Hospital
+                                      Ft. Belvoir, VA
+
+                            Shawn F. Kane, COL(R), M.D.
+               Associate Professor, Department of Family Medicine
+    Adjunct Assistant Professor, Department of Exercise and Sport Science
+
+                      University of North Carolina, Chapel Hill
+
+                                                                                                           1
+    Robert Oh, COL, MC, USA Associate Professor,
+                        Family Medicine
+
+Uniformed Services University of the Health Sciences
+Chief, Department of Family Medicine
+
+ Madigan Army Medical Center, Tacoma, Washington
+                        Eric Marks, MD
+
+             Professor, Department of Medicine
+ Uniformed Services University of the Health Sciences
+
+                      Bethesda, Maryland
+               John Baron, Lt Col, MC, USAF
+                USAF Nephrology Consultant
+
+                     Travis Air Force Base
+              Glen A. Cook, LCDR, MC, USN
+      Assistant Professor, Department of Neurology
+ Uniformed Services University of the Health Sciences
+
+                      Bethesda, Maryland
+
+                                                                                              2
+Executive Summary
+
+Definition: A diagnosis of exertional rhabdomyolysis (ER) is made when there are severe muscle
+symptoms (pain, stiffness, and/or weakness) AND laboratory evidence of myonecrosis (CK level
+5X ULN) in the setting of recent exercise.
+
+Contributing factors: High-intensity, repetitive, and/or prolonged exercise unmatched to fitness
+level; dietary supplement use (especially stimulants); hot and humid climate; genetic factors (sickle
+cell trait, disorders of lipid or glycogen metabolism, etc.).
+
+High-risk markers:
+· CK >20,000 U/L
+· Suspicion for potential compartment syndrome
+· Acute kidney injury (See KDIGO criteria)
+· Metabolic abnormality (e.g., hyperkalemia, hyperphosphatemia, acidosis)
+· Sickle cell trait carrier
+· Limited patient follow-up (e.g., trainee lives alone)
+
+Outpatient treatment criteria: ER patients with no high-risk markers (see above) generally may
+be treated as outpatients. Outpatient treatment in such patients consists of oral rehydration, limited
+physical activity, and close follow-up (often every 24 hours-72 hours in early stages).
+
+Inpatient admission criteria: Decision to admit must be individualized. Those with any high-risk
+markers should be strongly considered for admission.
+
+Inpatient discharge considerations: After admission and appropriate treatment, discharge may be
+considered after demonstrating down-trending CKs, improving symptoms, improving or improved
+AKI and metabolic abnormalities, and a reliable plan for continued follow up.
+
+High risk of recurrence:
+· Delayed clinical recovery (despite more than a week of activity restriction)
+· Persistent CK elevation above 1,000 U/L, despite rest for at least 2 weeks
+· ER complicated by AKI that does not return to baseline within 2 weeks
+· ER after low to moderate workload
+· ER complicated by drug or dietary supplement use
+· CK peak >100,000 U/L
+· Personal or family history of ER, recurrent muscle cramps or severe muscle pain, significant
+
+      heat injury, sickle cell trait or disease, malignant hyperthermia, unexplained complications or
+      death following general anesthesia
+
+Additional Guidance for Clinicians:
+· Serum CK is "gold standard" for diagnosis and monitoring of ER; serum myoglobin is best
+
+      used for risk prediction
+· CK >5X ULN is a low threshold designed for high sensitivity, however it has low specificity.
+
+      Normal baseline and post-exercise CK levels vary by age, gender, race, type of exercise, etc.
+      Some experts recommend diagnostic threshold for ER in physically active people of CK
+      >50X ULN for increased specificity
+
+                                                                                                                      3
+· Obtain and document a detailed history of supplement use in all cases of ER
+· Do not use ICD-10 codes for rhabdomyolysis unless meeting ALL diagnostic criteria (severe
+
+      muscle pain and tenderness, and CK >5X ULN), so as to not hinder research
+
+                                                                                                                      4
+Introduction
+Exertional rhabdomyolysis (ER) is a condition frequently seen in the setting of military training and
+operations; it frequently occurs when the level of exertional stress is greater than the warfighter is
+accustomed.1 This condition can be precipitated by a number of factors, often working in tandem,
+and is commonly co-morbid with exertional heat illness, in particular, heat stroke.
+Although the majority of warfighters who experience ER recover and will be safely returned to duty,
+some may experience residual injury, while others may be at risk for future recurrences. These
+recurrences may limit the warfighter's effectiveness and potentially predispose to serious injury,
+including permanent disability, and death. Importantly, an untimely recurrence may compromise a
+unit's mission.
+Military providers confronted by warfighters with ER can face challenging clinical decisions beyond
+the initial identification and management. These decisions include:
+· Outpatient versus inpatient management;
+· Hospital discharge criteria;
+· Who can be safely returned to duty;
+· How should a patient or warfighter be restricted/limited ("profiled");
+· How long should the profile period be;
+· Does the warfighter warrant further medical evaluation for an underlying disorder, e.g. a
+
+      metabolic myopathy;
+· Does the ER event warrant referral for a medical/physical evaluation board (MEB), which
+
+      would help determine whether the event might permanently interfere with his or her ability to
+      serve on active duty?
+This consensus clinical practice guideline was constructed jointly within the U.S. Military to assist
+providers in assessing and managing warfighters with ER. An algorithm with annotations to assist
+in the initial management and subsequent risk stratification process in the event of recurrence and
+appropriate profiles is included. Specific warfighter management questions can be directed to
+through an Ask-the-Expert function at https://www.hprc-online.org/ask-the-expert.
+
+                                                                                                                      5
+Algorithm I. How to stratify a warfighter with suspected exertional rhabdomyolysis
+                                                                                                                      6
+Annotations to Algorithm I
+
+1. Post-Exercise Muscle Pain or Cola-Colored Urine. Muscle pain usually presents within
+the first 24 hours and peaks at 72 hours after strenuous, prolonged, or non-familiar exercise
+training, in particular after a significant amount of eccentric exercise (e.g., push-ups, pull-ups,
+squats, or participation in unaccustomed conditioning exercises). Delayed onset muscle soreness
+(DOMS) can be a symptom of physiologic muscle breakdown and is best described as muscles
+that become sore and stiff, usually one to three days after a bout of moderate to strenuous exercise.
+ER and DOMS can have overlapping symptoms, but key symptoms and findings of ER which help
+distinguish it from typical physiologic muscle breakdown and/or DOMS include:
+
+       Pain and tenderness to palpation usually severe or out of proportion to what one
+            would normally expect from the activity;
+
+       Muscle swelling;
+       Significant limitation in active and passive range of motion;
+       Weakness, especially when the hip and shoulder girdle muscles are involved;
+       Presence of cola-colored urine; and
+       Persistent or worsening pain and soreness for more than 5-7 days after the
+
+            precipitating activity.
+
+      It should be noted that on rare occasions a warfighter might present with cola-colored urine
+in the absence of severe muscle pain. This may represent a metabolic myopathy, especially if
+recurrent or occurring after a low exercise load, however the full differential diagnosis for dark
+urine must be considered. These warfighters should undergo the same initial diagnostic evaluation
+as an individual with a classic presentation of ER.
+
+      The clinician's judgment is critical to determine the severity of muscle pain and myonecrosis:
+in many cases, a creatine kinase (CK) level in excess of 5X the upper limit of normal (ULN) and
+other assessments (pain, urinary myoglobin) will trigger further evaluation and a clinical
+determination of the most effective and safest way to treat the warfighter. The ULN is defined by
+each laboratory, but is usually about 200 U/L. However, studies in both warfighters and athletes
+have demonstrated that high CK levels (up to 175X ULN) can be tolerated without any symptoms
+or evidence of acute kidney injury in some individuals, leading some experts to suggest a minimum
+CK laboratory threshold for ER in physically active individuals to 50X ULN for improved
+specificity.2 It cannot be overemphasized that SYMPTOMS, co-morbidities (e.g. acute kidney
+injury), and clinical judgment should drive management.
+
+2. Primary Exertional Heat Illness: Exertional rhabdomyolysis may be associated with the
+spectrum of exertional heat illness, including heat exhaustion, heat injury, and heat stroke. All are
+significant threats to military populations because of frequent occupational and strenuous physical
+activities in hot and humid environments. A recent revision of AR 40-501, Chapter 3-45 defines
+exertional heat illness categories as follows:3
+
+       Heat Exhaustion: a syndrome of hyperthermia (core temperature at time of event
+            usually 40°C or 104°F) with collapse or debilitation occurring during or immediately
+            following exertion in the heat, with no more than minor central nervous system (CNS)
+            dysfunction (headache, dizziness), which resolves rapidly with intervention.
+
+       Heat Injury: heat exhaustion with clinical evidence of organ (e.g. liver, renal, gut)
+            and/or muscle (e.g. rhabdomyolysis) damage without sufficient neurological
+
+                                                                                                                      7
+            symptoms to be diagnosed as heat stroke.
+       Heat Stroke (HS): a syndrome of hyperthermia (core temperature at time of event
+
+            usually 40°C or 104°F), collapse or debilitation, and encephalopathy (delirium,
+            stupor, coma) occurring during or immediately following exertion or significant heat
+            exposure. HS is often complicated by systemic inflammatory activation, disseminated
+            intravascular coagulation, and/or organ/tissue injury (e.g., rhabdomyolysis).
+
+      If the primary event is exertional heat illness, then the provider should exit this algorithm,
+and the patient initially managed appropriately as heat illness per details in the AR 40-501 and the
+military technical bulletin, Heat Stress Control and Heat Casualty Management (TB MED
+507/AFPAM 48-152) (https://www.usuhs.edu/champ-provider).3,4 Return to duty decisions will
+likely be dictated by the nature of the heat disorder.
+
+3. History, Physical Examination and Diagnostic Testing. The medical provider should
+perform a focused history and physical examination to confirm a diagnosis consistent with
+physiologic muscle breakdown (ICD-10: M62.9 - Disorder of muscle, unspecified), exertional
+rhabdomyolysis (ICD-10: M62.82 - Rhabdomyolysis), or other causes for cola-colored urine such
+as exercise-induced hemolysis. Additional ICD-10 Y "cause" coding can be considered as
+appropriate; such actions will assist with future epidemiologic efforts:
+
+       Y92.13 Military base as the place of occurrence of the external cause
+       Y37.90XA Military operations, unspecified
+       X50.0 Overexertion from strenuous movement or load (lifting weights)
+       Y93.02 Activity - running
+       Etc.
+
+      The provider should specifically inquire about and document the use of medications (e.g.
+statins, antipsychotics, stimulants),5 dietary supplements (e.g., performance enhancing, weight
+loss, muscle building, stimulant/caffeine-containing products), and energy drinks, as well as ask
+about current sleep patterns, nutritional habits, and whether a co-existent illness is present, as these
+are known contributors to ER.
+
+      If the history and examination render a different diagnosis, further evaluation and a work- up
+should be directed appropriately. Otherwise, the possibility of severe muscle injury should be
+evaluated at this point with a serum CK, blood chemistry profile (including potassium, bicarbonate,
+calcium, phosphorus, blood urea nitrogen [BUN] and creatinine), and a urinalysis (UA) with
+microscopic examination. Urine or serum myoglobin should be considered dependent upon
+military treatment facility resources. Current evidence suggests that while pathognomonic for
+muscle injury, serum myoglobin has low sensitivity and should not be utilized for the diagnosis of
+ER. Serum myoglobin typically peaks around 3 hours after exercise and returns to baseline within
+6-24 hours. Serum myoglobin has proven very useful in the prediction of those who will develop
+AKI from crush-induced rhabdomyolysis, however there are no data to support its application to
+patients with ER.6,7
+
+4. Evaluating Patients with Dark or "Cola-Colored" Urine. Dark or "cola-colored" urine is
+relatively uncommon but may be observed with greater frequency following exercise. When
+evaluating patients presenting with dark urine, a thorough history and examination are critical as
+one considers the full differential diagnosis. While an onset of dark urine within 24 hours following
+a bout of strenuous exercise is highly suggestive of ER, other etiologies must also be considered.
+
+                                                                                                                      8
+After a history and exam, urinalysis with microscopy must be performed. When urine sediment is
+red or dark, the differential diagnosis includes hematuria due to glomerular, nonglomerular, and
+urologic causes (e.g., exercise-induced hematuria, IgA nephropathy, thin basement membrane
+nephropathy, poststreptococcal glomerulonephritis, pyelonephritis, acute interstitial nephritis,
+urolithiasis, renal or urologic neoplasm). In cases of hematuria with red/dark sediment, the
+urinalysis should be repeated and, as indicated, the patient should be managed in consultation with
+a nephrologist or urologist. When the urine supernatant (top portion of a spun urine sample) is red
+or dark, one must consider hemoglobinuria (e.g., exercise-induced hemolysis), myoglobinuria
+(implies rhabdomyolysis), urine discoloration due to medications (e.g., phenazopyridine, rifampin,
+phenytoin), foods (e.g., beeturia, also blackberries, rhubarb, senna, food dyes), or porphyria (rare).
+
+      This algorithm includes branches for when the urinalysis is positive for blood in the absence
+of RBCs, which may represent myoglobinuria. It is possible, especially in the first 12 hours after
+strenuous exercise, that an individual will have a CK <5X ULN, but with myoglobinuria
+(myoglobin peaks before CK). In these cases, a CK and metabolic panel should be repeated in
+approximately 24 hours, and if CK 5X ULN, a diagnosis of ER is appropriate. As noted below
+(#5), the orthotoluidine portion of the dipstick turns blue in the presence of hemoglobin or
+myoglobin, so the differential diagnosis in these cases includes ER and exercise-induced
+hemolysis.
+
+      High-intensity or prolonged exercise often results in benign, self-limited hematuria or
+hemolysis. Exercise-induced hemolysis is typically mild, with hemoglobin completely bound to
+haptoglobin in the blood and metabolized. However, in some cases, the hemolysis is more
+extensive, leading to hemoglobinuria and occasionally grossly dark urine6,8. The specific cause of
+erythrocyte rupture is complex, with contributions from membrane fragility due to hyperthermia,
+lactic acidosis, oxidative damage, and shear stress from forceful ground contacts ("footstrike
+hemolysis"). Similarly, exercise-induced hematuria is also common, but rarely presents as gross
+hematuria. Urinalysis with microscopy will reveal presence of variable quantities of intact RBCs.
+One recent study found an incidence of exercise-induced hematuria of 12% among 491 otherwise
+healthy, 20-50 year-old male subjects after running 5 km with a time limit9,10. When running the
+same distance without a time limit, the incidence was only 1.3%, suggesting exercise-induced
+hematuria is strongly related to exercise intensity.
+
+5. Diagnosis and Prognosis of ER. Although ER is a pathologic condition (and is, by definition,
+symptomatic), muscle breakdown of a lower degree is also a normal result of strenuous exercise
+(DOMS).11,12;2 Whereas DOMS lasts only a few days and causes little disability, ER can be
+overwhelming and devastating, especially when associated with other variables such as
+dehydration, sickle cell trait, use of certain drugs, dietary supplements, caffeine or alcohol,
+excessive exercise, exertional heat illness, underlying genetic conditions, or other incompletely
+understood contributing factors. The potential devastating consequences of ER include
+compartment syndrome, renal failure, and death. Although uncommon, ER may reflect an
+underlying metabolic or myopathic process that predisposes the warfighter to severe and/or
+recurrent ER. Accordingly, significant clinical expertise is required when treating ER patients,
+evaluating potential complications from ER, and additionally determining how to stratify the
+individual's risk for recurrent ER. A multi-disciplinary panel of experts can be very helpful in the
+diagnostic and prognostic process.13
+
+                                                                                                                      9
+      A diagnosis of ER is made when there are severe muscle pain symptoms and laboratory
+evidence of myonecrosis with release of muscle cell contents into the systemic circulation. While
+CK is the diagnostic gold standard, other cell contents are released including myoglobin,
+creatinine, organic acids, potassium, aldolase, lactate dehydrogenase (LDH), aspartate
+aminotransferase (AST), alanine aminotransferase (ALT) and/or hydroxybutyrate dehydrogenase.
+The skeletal muscle subtype CK-MM of the CK enzyme is abundant in skeletal muscle and
+released as a result of muscle destruction. When clinical evidence of exertional rhabdomyolysis is
+observed, such as severe muscle pain and weakness in the setting of recent strenuous exercise, then
+CK levels 5X ULN are accepted as evidence of significant muscle breakdown and generally
+considered consistent with a diagnosis of ER. The provider is reminded that CK elevations occur
+for many other reasons, such as inflammatory myopathies and muscular dystrophies, therefore,
+elevated CK in the absence of exertion would not be considered ER. However, CK remains the
+accepted gold standard biomarker for diagnosis of rhabdomyolysis, and when there is a recent
+history of exercise, can be used to diagnose ER.6,7,11
+
+      Myoglobin is theoretically the best marker for ER because myoglobin does not appear in the
+blood or urine in the absence of muscle injury. Current evidence, however, suggests that while
+pathognomonic for muscle injury, serum myoglobin and myoglobinuria are not sensitive for ER.
+Therefore, they should not be utilized to make or rule out a definitive diagnosis of ER. Myoglobin
+has been demonstrated to be of value for the prognostication of those who may develop acute
+kidney injury in cases of traumatic rhabdomyolysis (especially crush injury), however there are no
+data validating this application for patients with ER.7,14
+
+      Serum myoglobin is normally bound to plasma globulins and under healthy conditions only
+a small fraction reaches the glomeruli. Serum myoglobin is cleared rapidly by the kidney, with a
+half-life of 2-4 hours, maintaining a serum concentration of less than 3 g/l.7,15-17 In the face of
+severe muscle damage, blood levels of myoglobin overwhelm the binding capacity of the
+circulating proteins, so free myoglobin reaches the glomeruli and is filtered into the renal tubules.
+Elevations in serum myoglobin occur before a rise in serum CK, but the elimination kinetics of
+serum myoglobin are more rapid than that of CK, which makes the often evanescent rise in serum
+myoglobin a less reliable marker of muscle injury. Diagnostic tests for urine myoglobin are often
+not readily available, and it may take more than 24 hours to obtain results. However, urine
+screening for rhabdomyolysis may be performed by dipstick if the urine sediment is also examined.
+The orthotoluidine portion of the dipstick turns blue in the presence of hemoglobin or myoglobin,
+so if the urine sediment does not contain erythrocytes, the positive dipstick reading may reflect the
+presence of myoglobin in the appropriate clinical setting. Of note, exercise- induced hemolysis is
+quite common and often results in hemoglobinuria, especially after long- distance running or
+marching (>8-10 miles, longer distances carrying greater risk)8. Therefore, a urinalysis positive
+for blood, with absence of RBC's in the sediment, is neither sensitive nor specific for ER. It may
+be noted that for field expedient analysis, the supernatant (top portion) of the spun urine sample
+will typically be brown in myoglobinuria and pink in hemoglobinuria. However, urine myoglobin
+is somewhat unstable, making supernatant color a fallible marker. Altogether, using any indirect
+marker of myoglobinuria to diagnose ER or predict ER-associated AKI remains inconclusive.15-17
+
+      Athletes and warfighters consistently have higher baseline CK levels than non-active adults
+as a result of frequent exercise with normal ongoing muscle breakdown and repair.18,19 In addition,
+gender and ethnic variation may contribute to unique baseline CK levels.20,21 Studies have
+
+                                                                                                                      10
+consistently noted that African American males and young athletic men have the highest baseline
+CK levels, and non-African American women have the lowest.20-26 Although the case definition
+for pathologic ER is somewhat controversial, this guideline utilizes the following to enter the
+management algorithm:
+
+       SEVERE muscle pain (see above for symptoms) and
+       Laboratory evidence of muscle injury (CK level 5X ULN)
+
+      CK >5X ULN is a low threshold designed for high sensitivity, however it has very low
+specificity for ER. Using this definition provides the greatest safety net in assisting the clinician
+in the initial work-up of this challenging syndrome. Because finding a CK 5X ULN is not
+uncommon in exercising warfighters (in particular African American warfighters who may have
+baseline CK of 600 U/L,20,22,26 it important to emphasize that entry into this clinical algorithm
+requires the appropriate clinical picture, including severe muscle pain.
+
+6. Management. The warfighter with a documented visit to the clinician with signs/symptoms
+consistent with DOMS (physiologic muscle breakdown: ICD-10: M62.9 - disorder of muscle,
+unspecified) should be placed on a temporary profile (https://www.usuhs.edu/champ-clinical-
+tools) with limited indoor duty for the rest of the day, no regular physical training, and a mandatory
+medical re-evaluation in 24-72 hours, with consideration for repeat UA and CK assessment. Oral
+rehydration should be encouraged (Appendix 1/Phase 1).
+
+7. Urinalysis and CK. Patients who are initially diagnosed with DOMS (physiologic muscle
+breakdown; ICD-10: M62.9), as they do not meet the criteria for ER, should be reevaluated by a
+knowledgeable clinician within 24-72 hours. At this time, a repeat urinalysis and CK can be
+performed if clinically indicated (dark urine, no clinical improvement in pain). If the patient's
+symptoms have resolved, and the CK is <5X ULN, the warfighter may be gradually returned to
+duty as determined by the treating provider with guidance from Appendix 1. Any warfighter who
+demonstrates clinical signs of ER (severe muscle pain, stiffness, weakness) and tests positive for
+CK greater than 5X ULN should be diagnosed with ER and further evaluated for high-risk markers
+(See #9 below).
+
+8. Temporary Limited Duty Profile. At the 24-72 hours follow-up, a warfighter diagnosed
+with physiologic muscle breakdown may continue on a limited duty profile for up to 72 hours,
+after which activities will be advanced as tolerated in accordance with the recommendations of
+Phase 2 of Appendix 1. (https://www.usuhs.edu/champ-clinical-tools). The provider should
+consider referral to physical therapy or an athletic trainer for rehabilitation or reconditioning as
+clinically indicated. Although consideration can be given to a short course of acetaminophen
+and/or non-steroidal anti-inflammatory drugs (NSAIDs) for pain relief, muscle pain serves as an
+important guide in return to activity and should not be masked. Additionally excessive doses of
+NSAIDs and/or acetaminophen can result in nephro- or hepatotoxicity, respectively.27 This risk
+may be heightened following the stress of significant exertional muscle breakdown.
+
+9. Screen for Initial "High Risk" Markers. After diagnosing a warfighter with ER, the
+clinician must carefully screen for initial "high risk" markers that have been shown to place the
+patient at increased risk for complications. High risk markers are presented in Table1.
+
+      Currently, no clinical prediction rule exists for risk-stratifying patients with ER or for
+determining who will develop AKI.28,29 Although a peak CK of >5,000 U/L is reported to be 55%
+specific and 83% sensitive for predicting AKI with traumatic rhabdomyolysis,30,31 ER patients
+
+                                                                                                                      11
+with mild symptoms and serum CK levels 20,000 U/L are considered at low risk and may be
+treated as outpatients. Outpatient treatment in such patients consists of oral rehydration, limited
+physical activity, and careful follow-up. A CK >20,000 U/L should be considered a high-risk
+marker and triaged to a higher level of care for possible inpatient treatment.
+
+      ER can be associated with the development of acute compartment syndrome (ACS). ACS
+occurs when the tissue pressure within a closed muscle compartment (e.g., triceps, thigh) exceeds
+the perfusion pressure and results in muscle and nerve ischemia. Early signs of an ACS include
+severe pain worse with passive stretching, decreased peripheral sensation, and swelling. Paresis
+and the loss of a pulse are late signs. Clinical suspicion should be high, as surgical intervention for
+a fasciotomy may be required to prevent ischemic necrosis. An orthopedic or general surgeon
+should be consulted emergently if compartment syndrome is suspected.
+
+      Common metabolic abnormalities considered "high risk" include, but are not limited to,
+hyper- and hypokalemia, acidosis, hyperphosphatemia, and hyponatremia. If only mild in degree,
+these abnormalities do not, in and of themselves, warrant admission, but do necessitate close
+follow-up at a minimum, with immediate access to laboratory capabilities and proximity to an
+inpatient treatment facility. However, moderate to severe electrolyte and acid/base derangements
+do necessitate inpatient treatment. These "high risk" markers are a guide, and do not supersede
+clinical judgment.
+
+      The presence of any of the above "high risk" markers warrants triage/referral of the patient
+to a provider and/or setting familiar with the diagnosis and management of ER (e.g. neurologist,
+nephrologist, or sports medicine physician). This will likely include inpatient admission.
+
+10. Individualize Outpatient Management: The warfighter diagnosed with ER, but without high
+risk markers, should be considered for outpatient management. There is significant controversy on
+using CK level as an admission criterion. Case reports reveal a wide CK range that has been
+successfully managed in an outpatient setting, with some expert opinions suggesting that oral
+hydration may be reasonable for athletes with CK levels of 20,000-50,000 U/L and no additional
+high-risk features.32,33 This guideline, however, recommends that in a military population, a CK
+level of 20,000 U/L or less without any high-risk features, and reliable patient follow-up should
+be considered for outpatient management. Warfighters should be encouraged to monitor urine
+output with a goal of approximately 200 ml per hour, or 1 liter every 6 hours. The warfighter
+should be placed on quarters, with follow-up evaluation within 24-72 hours. Follow-up evaluation
+should assess symptoms, any evidence of complications, and should include a repeat blood draw
+for CK and basic metabolic panel. If CK continues to downtrend, renal function remains normal,
+symptoms improve, and no complications emerge, then the warfighter should be re-evaluated as
+an outpatient until symptoms resolve and profiled accordingly. Any worsening symptoms,
+metabolic abnormalities, or increasing CK levels should prompt admission for management with
+IV fluids.
+
+      The decision to hospitalize the warfighter should be contingent upon factors such as
+metabolic abnormalities, acute kidney injury, social status (i.e. trainee, recruit, barracks dweller,
+and limited patient follow up), and CK level. The final decision for inpatient management rests on
+clinical judgment.
+
+11. Profile and Follow-up. In regards to profiling, the warfighter should be placed on a limited
+duty profile that excludes field duty (e.g., extended marching, obstacle courses, and land
+navigation). It must also limit aerobic and anaerobic exercise per Appendix 1 recommendations
+
+                                                                                                                      12
+(Rhabdomyolysis- Low Risk Profile in the website parallels the Appendix 1 recommendations)
+( https://www.usuhs.edu/champ-clinical-tools). The warfighter should be re-evaluated in
+24-72 hours. If CK is still elevated and/or the UA is still positive at this time, the limited duty
+profile should be continued with the patient being reevaluated at 24 to 72-hour intervals. When
+CK value is <5X ULN and the UA has returned to normal, the warfighter should begin a
+graduated return to duty protocol per Appendix 1. It is strongly recommended that a physical/
+occupational therapist or athletic trainer supervise the return to duty and reconditioning program.
+Potential contributing risk factors should be discussed, as well as mitigation strategies as
+applicable.
+
+12. Recurrence Risk Stratification at 2 weeks from Date of Injury. To define the case as "high
+risk" for recurrence, at least one of the following conditions must exist:12
+
+       Delayed clinical recovery (despite more than a week of activity restriction)
+       Persistent CK elevation above 1,000 U/L, despite rest for at least 2 weeks
+       ER complicated by AKI that does not return to baseline within 2 weeks as evidenced
+
+            by elevations in BUN/Creatinine;
+       ER after low to moderate workload;
+       Personal or family history of ER;
+       Personal or family history of recurrent muscle cramps or severe muscle pain that
+
+            interferes with activities of daily living or military performance;
+       Personal or family history of malignant hyperthermia or family history of unexplained
+
+            complications or death following general anesthesia;
+       Personal or family history (if personal status unknown) of sickle cell disease or trait;
+       ER complicated by drug or dietary supplement use
+
+            o Drugs increasing risk for ER: Statins, antipsychotics (e.g., haloperidol), stimulants
+                   (amphetamines, methylphenidate)
+
+            o Dietary supplements increasing risk for ER: Stimulants (e.g., caffeine, synephrine,
+                   octopamine, yohimbine, ephedra)
+
+            o For a list of other stimulants in supplements see: http://hprc-online.org/dietary-
+                   supplements/files/stimulants-found-in-dietary-supplements-pdf stimulant
+
+            o Although supplements do not imply a medical condition that would necessarily
+                   warrant a MEB or detailed work-up, individual as well as unit education may be
+                   warranted.
+
+       Personal history of significant heat injury; or
+       CK peak > 100,000 U/L.
+
+      To define the case as "low risk" for recurrence, the following conditions must be met:
+
+       None of the high-risk conditions should exist
+       A full clinical recovery within 1 week (symptoms and exam findings normalized)
+       All laboratory values normalized within 2 weeks with exercise restriction
+       At least one of the following conditions must also exist:
+
+            a. Physically trained warfighter with a history of very intensetraining;
+            b. Known participation in extreme conditioning program prior toevent
+            c. No personal and family history of ER or previous reporting of exercise-induced
+
+                   severe muscle pain, muscle cramps, or heat injury;
+            d. Existence of other ER cases in the same training unit;
+
+                                                                                                                      13
+            e. Identifiable period of sleep and/or nutrition deficit;
+            f. Concomitant viral illness or other infectious disease.
+13. Complete Appendix 1: Return to Duty Guidelines for Physiologic muscle breakdown and
+Low Risk Warfighters with Exertional Rhabdomyolysis.
+14. Abnormal at Two Weeks after injury: If at 2 weeks after injury, clinical indicators
+(laboratory values, physical exam findings) remain abnormal, the warfighter should be referred to
+or discussed with an appropriate specialist (e.g. neurologist, nephrologist, sports medicine
+physician) or regional consultant for further management and potential evaluation for an
+underlying disorder that may predispose to recurrent injury https://www.usuhs.edu/mem/champ-
+provider. The evaluation may include, but not limited to: EMG, muscle biopsy, caffeine-halothane
+contracture test, genomic/proteomic testing, and/or exercise challenges (See Appendix 1). Return
+to duty and profiling are individualized based on results of testing and presented in Algorithm III.
+15. Manage as per Algorithm II: Patients with CK levels >20,000 U/L or any significant high
+risk markers, may require further testing and observation17,30,31,34 in an inpatient setting.
+Accordingly, higher level of care should be considered and the patient should be managed as per
+Algorithm II.
+
+                                                                                                                      14
+Appendix 1. Return to Duty Guidelines for Physiologic muscle breakdown and Low Risk
+Warfighters with Exertional Rhabdomyolysis
+
+Phase 1:
+· Strict light indoor duty for 72 hours and encourage oral hydration, salting of food;
+· No weight training;
+· Must sleep seven to eight consecutive hours nightly;
+· Must remain in thermally controlled environment;
+· Must follow-up in 24-72 hours for repeat CK/UA;
+· If CK value at 24-72 hours continues to be <5X ULN and UA continues to be normal, Phase
+
+      2 may begin after the initial 72 hours of limited duty. (Physiologic Muscle Breakdown
+      Profile)
+· If CK value at 24-72 hours follow-up is >5X ULN and/or UA is positive for blood with no
+      RBC's the Warfighter needs to be considered for high-risk markers and inpatient versus
+      continued outpatient follow up. If the clinician continues with outpatient management, the
+      Warfighter is to continue on Phase 1 delineated above (Low Risk Rhabdomyolysis Profile)
+      and followed in 24-72 hours with CK, creatinine and UA as per clinical judgment;
+· When CK value is <5X ULN and UA has returned to normal, begin Phase 2. Otherwise
+      remain in Phase 1 and return every 72 hours for repeat CK/UA until the criteria stated above
+      are met;
+· If CK remains >5X ULN and/or UA is persistently abnormal for 2 weeks after injury or
+      hospitalization, refer for expert consultation.
+Phase 2:
+· Begin light outdoor duty, no strenuous physical activities;
+· Lightweight resistance training;
+· Supervised (i.e., physical therapy, athletic trainer) physical activity at own pace and distance;
+· Follow-up with care provider in one week;
+· If clinical symptoms do not return, then begin Phase 3. Otherwise remain in Phase 2 and
+      return at 1-week intervals. May progress to Phase 3 when there is no significant muscle
+      weakness, swelling, pain or soreness. If myalgia persists without objective findings beyond
+      4 weeks, consider specialty evaluation to include psychiatry.
+Phase 3:
+· Return to regular outdoor duty and physical training;
+· Follow-up with care provider as needed.
+
+                                                                                                                      15
+Algorithm II. Inpatient Management of Acute Exertional Rhabdomyolysis
+                                                                                                                      16
+Annotations to Algorithm II
+
+1. Patient Referred for High Risk Markers. Review what high risk markers have resulted
+in the patient being referred to a higher level of care. These "high risk" markers (See Table 1)
+are a guide, and do not supersede clinical judgment.
+
+2. Entry into Higher Level of Care. The facility should have the capability for additional
+laboratory evaluations, short-term observation and access to intravenous therapy. Further
+laboratory tests should include: serum and urine myoglobin, serum calcium, BUN, creatinine,
+phosphate, uric acid, PT/PTT/INR, and LFTs, if not already obtained. Of note, elevated
+transaminase levels in the setting of ER are expected, and generally result from myocyte release
+rather than hepatocellular damage. In addition, an ECG should be conducted to assist in the
+assessment and management of hyperkalemia.
+
+      Each and every case needs to be individualized when a decision for hospital admission is
+considered. The authors believe patients with any high-risk markers should be strongly
+considered for admitting an ER patient to the hospital, regardless of the CK value.
+
+     The decision for ICU admission is highly dependent on individual facility resources. That
+being stated, considerations for ICU admission include the need for invasive cardiopulmonary
+monitoring, and conditions that may prompt consideration for dialysis e.g. congestive heart
+failure, persistent hyperkalemia or persistent metabolic acidosis.
+
+3. Hospital Admission: In ER patients who are admitted and have CK levels >20,000 U/L,
+aggressive intravenous fluid (IV) therapy with isotonic fluids (5% dextrose and 0.45 normal
+saline (NS), lactated Ringer's solution, or NS with or without bicarbonate)17 should ideally be
+initiated with a target urine output of 200-300 ml/hr. Strict "in and out" measurements are
+critical in the management of ER and can be done without the need for Foley catheterization to
+minimize risk for catheter based urinary tract infection. In general, in otherwise young, healthy
+warfighters, ER generally responds well to IV hydration alone without need for alkalization.
+Fluid volumes can range from 400 mL/hr, 20 mL/kg in the first 24 hours, to 4 to 8 L per day,17
+but at a rate resulting in a urine output of 200-300 mL/hr34 until CK levels begin to decrease.
+Large volumes of normal saline can contribute to hypernatremia and hyperchloremia and
+therefore after initial management, we recommend switching fluids to 0.45 normal (NS). If the
+patient does not respond to initial IV fluid therapy, a clinical consultation with the appropriate
+specialist should be sought. In addition, when fluid resuscitation fails to correct intractable
+hyperkalemia and acidosis, nephrology consultation for dialysis should be considered.
+
+      Treatment of the warfighter with ER is focused on preventing complications, and is guided
+by continual assessment of vital signs, serial physical examinations, laboratories, and urine
+output. Peak CK levels are generally reached within 2 to 3 days. Although no validated
+hydration algorithms have been established, IV fluid therapy is generally not discontinued until
+CK and creatinine levels are decreasing, and urine output is adequate, 200-300ml/hr).
+
+      In the absence of symptomatic volume overload, furosemide (or other diuretics) should
+not be used solely for the purpose of increasing urine output, due to its effects on urine
+acidification and possible precipitation of urine myoglobin. Overload and flash pulmonary
+edema may occur with the aggressive hydration and the warfighter must be evaluated
+periodically for dyspnea, rales and evidence of fluid overload. Furosemide may alleviate
+
+                                                                                                                      17
+pulmonary edema and should be considered in that setting. Minimally invasive and invasive
+techniques, if utilized for volume assessment and management, should be performed under the
+direction of a critical care intensivist.
+
+      No evidence exists as to whether rest improves or accelerates recovery, although
+ambulation is generally recommended as tolerated and when not limited by pain. Pain should
+be controlled with acetaminophen and very limited use of opiates. NSAIDs should be avoided
+and CK followed (drawn periodically, q6-12 hours).
+
+      Acute compartment syndrome (ACS) is a well-described potential late complication17,35
+of ER. In the proper clinical setting, the following signs and symptoms should raise suspicion
+of a diagnosis of compartment syndrome:
+
+       Pain disproportionate to the injury;
+       Pain on passive stretching of a muscle;
+       Paresthesias of the involved extremity;
+       Diminished distal pulses;
+       Increased tension or turgor of the involved muscle groups.
+
+      Clinical suspicion should be followed by urgent consultation with a general or orthopedic
+surgeon to expeditiously measure compartment pressures. While tissue pressures in excess of
+30 mm Hg should prompt consideration for surgical fasciotomy, all management decisions are
+guided by the treating consultant.
+
+4. Positive Urine Myoglobin or Metabolic Acidosis. Although no large, randomized trials
+suggest any clinical advantage to urine alkalinization over aggressive hydration for patients
+with ER, a recent retrospective review of 56 traumatic rhabdomyolysis patients with CK >
+10,000 U/L suggests that a protocol of forced alkaline diuresis with mannitol and bicarbonate
+significantly decreases the odds for developing AKI (OR = 0.175).36 However, the clinician
+needs to be cautious as alkalinization can potentially worsen hypocalcemia, and this study's
+results may not be generalizable to individuals with ER. If the decision is made to alkalinize the
+urine, the goal urine pH is >6.5 while maintaining serum pH <7.5.28,36 This can be accomplished
+by administering 2 ampules of sodium bicarbonate diluted in one liter of D5W at a rate of 75-
+125 ml/hr. Monitor serum K+, Ca++ and urine pH every 4 hours. Consider nephrology
+consultation if urine pH does not rise or serum Ca++ drops.
+
+5. Hyperkalemia: Potassium released from damaged muscles and decreased urinary
+clearance from acute kidney injury can be potentially life-threatening. The most important
+effect of hyperkalemia is a change in cardiac excitability; the initial presence of tall peaked T
+waves can occur with a potassium >6.5 MEq/dL. Continuous ECG monitoring should be
+considered in the event of ECG changes or the potassium is >6 MEq/dL.
+
+6. Hypocalcemia and/or Hyperphosphatemia:
+      Hypocalcemia: Deposition of Ca++ in muscle, which occurs early in ER, is directly related
+
+to the degree of muscle destruction and administration of Ca++. Reversal of hypocalcemia may
+in fact worsen heterotopic calcification and exacerbate hypercalcemia during the resolution
+phase. Hypocalcemia should only be treated if the patient has evidence of cardiac dysrhythmias
+or seizures.
+
+                                                                                                                      18
+      Hyperphosphatemia: Phosphate is generally very well regulated in the body. The
+development and persistence of hyperphosphatemia can be due to either excess release,
+diminished excretion, or both. Significant changes in phosphate levels are a cause for concern,
+especially if persistent and/or greater than 5.4 mg/dl, as this is both a marker of serious
+rhabdomyolysis, and a possible indication for dialysis. Persistent hyperphosphatemia requires
+an evaluation to determine the presence of ongoing muscle damage, and the extent and
+progression of a decline in renal function. Nephrology should always be included in cases
+involving hyperphosphatemia.
+
+7. Consult Nephrology: Providers can contact nephrology at any time by emailing their
+Surgeons General's specialty advisor for nephrology. The term "Acute Renal Failure" includes
+"Acute Kidney Injury (AKI)." The diagnostic criteria for AKI include any one or more of the
+following: 1) an increase of serum creatinine by  0.3 mg/dl ( 26.5 µmol/L) within 48 hours,
+2) a serum creatinine 1.5 times baseline level within previous 7 days,)urine output of <0.5
+ml/kg/hr for 6 to 12 hours).16 This widely-accepted definition was proposed by the Acute
+Kidney Injury Network (AKIN) and supported by the Kidney Disease Improving Global
+Outcomes (KDIGO) Clinical Practice Guidelines.29 These criteria include both absolute and
+percentage change in serum creatinine to accommodate variations related to age, gender, and
+body mass index and reduce the need for a baseline creatinine; the criteria do require at least
+two creatinine values within 48 hours. Although the urinary output (UOP) criteria were included
+on the basis of its predictive importance, it is recognized that UOP may not be routinely
+measured in non-ICU settings. The diagnosis of AKI based on UOP criteria alone requires
+exclusion of urinary tract obstruction or other reversible causes of reduced UOP. These criteria
+should be used in the context of clinical presentation and after adequate fluid resuscitation when
+applicable.
+
+      Renal replacement therapy is based upon the judgment of the consultant nephrologist.
+Criteria to consider renal replacement therapy are not based upon serum creatine kinase or
+myoglobin levels, but by the status of renal impairment, with complications such as life-
+threatening hyperkalemia, hypercalcemia, hyperazotemia, anuria or hyperhydration without
+response to diuretic therapy.16
+
+8. Hospital Discharge Considerations: Limited guidance is available for transitioning to
+discharge after CK levels start down-trending and when clinical symptoms have improved. In
+a series of 30 hospitalized active duty service members for ER, mean CK level for discharge
+was 23,865 U/L with a wide range (1,410-94,665 U/L).37 Although most were discharged after
+CK down-trended, it is only one parameter clinicians should utilize to assess discharge.
+
+      We recommend the following protocol to allow safe discharge from the hospital. After
+admission and appropriate treatment, discharge may be considered after demonstrating down
+trending CKs, improving symptoms, improving or improved AKI and metabolic abnormalities,
+no additional complications, and a reliable plan for continued follow up and profiling. IV fluids
+may be titrated off at CK of 32,000 U/L*, and a trial of oral hydration may commence. Oral
+hydration with IV access left in place overnight and continued down trending of CK will ensure
+that oral hydration can be successfully managed as an outpatient with close follow-up.
+
+*The clinician should also be aware of laboratory reporting criteria for CK levels. For example, at one MTF, CK
+levels were diluted 2x and exact levels over 32,000 were not reported unless specifically requested. Therefore, this
+protocol uses 32,000 cut off as criteria to discontinue IV fluids. Check with local MTF about reporting criteria for
+CK levels prior to using specific numbers for transition to oral hydration.
+
+                                                                                                                      19
+      Upon discharge, consider specialty consultation for duty implications and MEB
+consideration. After being discharged, the post-discharge follow-up and profiling should
+address their clinical condition and any comorbidities. ER patients whose serum creatinine
+values return to baseline may still be at risk for repeated AKI episodes up to approximately 6
+weeks after the event, especially in a setting of dehydration or nephrotoxin exposure. A very
+common nephrotoxin is radiologic IV contrast. Patients who have experienced a recent episode
+of ER should receive fluid (NS or bicarbonate) and acetylcysteine prophylaxis for prevention
+of contrast-induced nephritis, even if their serum creatinine has returned to "normal". Any ER
+patient whose renal function has not returned to baseline level after 2 weeks should be referred
+to nephrology. Providers can contact nephrology at any time by emailing their Surgeons
+General's specialty advisor for nephrology.
+9. Proceed to Annotation 11, Algorithm I.
+
+                                                                                                                      20
+Algorithm III. Diagnostic Evaluation of the High-Risk Warfighter with a History of
+Exertional Rhabdomyolysis
+
+                                                                                                                      21
+Annotations to Algorithm III
+
+1. Consultation with Regional Rhabdomyolysis Expert: Consultants can be facilitated through
+contact with the CHAMP Warrior Heat and Exertion Related Event Collaborative (WHEC).
+https://www.hprc-online.org/resources-partners/whec. Contact WHEC using HPRC's Ask the
+Expert feature. To make sure you reach the appropriate experts, please include "WHEC" in the
+subject line of your email.
+
+2. Order Laboratory Tests as Directed by Regional Consultant: Testing may include any of
+the following serum tests to assist in ruling out metabolic myopathic conditions: 12,38
+
+      § Serum Lactic Acid
+      § Plasma Amino Acids
+      § Plasma Carnitine
+      § Urine Organic Acids
+      § Plasma Acylcarnitine Profile
+
+3. Subspecialty Evaluation: subspecialty testing will be synchronized and ordered by the
+tertiary care provider. Testing may include and all of the following tests to assess for underlying
+myopathic or mitochondrial conditions.12,39
+
+      Exercise Intolerance Panel: The Exercise Intolerance Mutation Profile (EIMP) is used to
+help determine whether a patient has mutations/variants in a short list of genes associated with
+susceptibility to ER:
+
+       EIMP looks for the following:
+       Carnitine Palmitoyltransferase II Deficiency
+        CPT2 Gene: S113L, 413delAG, P50H, R503C, G549D, R631C
+       Myophosphorylase Deficiency (McArdle's disease)
+        PYGM Gene: R49X, G204S
+       Myoadenylate Deaminase Deficiency
+        AMPD1 Gene: Q12X, P48L
+
+      Myoglobinuria Test Panel: Myoglobinuria Test Panel (MTP) tests individuals with exercise
+intolerance-related weakness, pain, cramping, and idiopathic myoglobinuria. MTP detects specific
+enzymes related to metabolic function for certain diseases. The myoglobinuria test panel should
+always be performed in conjunction with a standard muscle biopsy to include frozen sections with
+full histochemistry (available through AFIP).
+
+       MTP tests for the following diseases:
+       Phosphofructokinase deficiency (PFK)
+       McArdle's disease
+       Tarui's disease
+       Phosphoglycerate Kinase deficiency (PGK)
+       Phosphoglycerate mutase deficiency (PGAM)
+       Lactate Dehydrogenase deficiency (LDH)
+       Glycogen, Phosphorylase A+ Total deficiency (Ph)
+       Phosphorylase B kinase deficiency (PhK)
+
+                                                                                                                      22
+       Carnitine Palmitoyltransferase 2 deficiency (CPT2)
+       Myoadenylate Deaminase deficiency (MAD)
+      Caffeine-Halothane Contracture Testing (CHCT): Caffeine-Halothane Contracture
+Testing (CHCT) is performed using a muscle biopsy specimen to detect malignant hyperthermia.
+Patients who carry the MH gene may also be susceptible to ER. During local anesthesia,
+approximately 2 grams of muscle are taken from a two- to three-inch incision in the thigh. Six
+fresh muscle biopsy strips are prepared for exposure to caffeine and halothane solutions where
+they are observed for increases in baseline and twitch contraction tension.
+      Malignant Hyperthermia (MH) is a rare life-threatening condition triggered by exposure to
+drugs used for general anesthesia. MH, a dominantly inherited disease, causes the body
+temperature to rise rapidly and induces severe muscle contractions under general anesthesia. Left
+untreated, the likelihood of organ failure and potential death is high during a MH episode.
+      The CHCT test should be considered for those who are suspected to be at significant risk
+for MH, either by family history, signs of an episode of MH, or any abnormal characteristics
+during anesthesia. For a patient to proceed with CHCT testing, a physician should first
+perform an ER evaluation. An ER evaluation includes a 5-minute step test, lipid panel, thyroid
+panel, standard electrolytes and chemistries, Exercise Intolerance Panel, Myoglobinuria Test
+Panel, high recurrent CK levels, and recurrent MH episodes.
+       To discuss a potential clinical test, please contact mhlab@usuhs.edu.
+      Two-Step Exercise Test: The step test includes stepping up/down two stairs (30 cm height
+each) for 5 minutes at a set pace (54 steps/min by using a metronome) followed by 15 double leg
+squats completed in 1 minute (3 sec count down/2 sec count up). A backpack weighted at 30% of
+bodyweight is worn during the tests, and blood samples are taken before, immediately after, and
+48 and 72 hours after completing the exercise. Participants will be considered high responders if
+their exercise-induced increase in CK from baseline is > 230 U/L. Participants are asked to avoid
+exercise for  48 hours before the test. The Two-Step Exercise Test is currently utilized only as a
+clinical research tool.
+
+                                                                                                                      23
+Table 1. High Risk Markers
+     CK >20,000 U/L
+     Potential compartment syndrome
+     Acute kidney injury (Serum creatinine increase of 0.3 mg/dl within 48 hours, OR
+     serum creatinine 1.5 times baseline level within previous 7 days, OR a urine output of
+     <0.5 ml/kg/hr for 6 to 12 hours)16,40
+     Dark urine or confirmed myoglobinuria
+     Metabolic abnormality (e.g., hyperkalemia, hyperphosphatemia, hypocalcemia,
+     hyperuricemia, acidosis)
+     Sickle cell trait carrier
+     Limited patient follow-up (e.g., trainee lives alone)
+
+                                                                                                                      24
+Acknowledgements
+The authors acknowledge and thank Dr. Ian Stewart (Lt Col, USAF, MC / Nephrologist) for his
+expert review and feedback.
+
+                                                                                                                      25
+References
+
+1. Update: Exertional rhabdomyolysis, active component, U.S. Armed Forces, 2014-2018.
+MSMR. 2019;26(4):21-25.
+
+2. Kenney K, Landau ME, Gonzalez RS, Hundertmark J, O'Brien K, Campbell WW. Serum
+creatine kinase after exercise: drawing the line between physiological response and exertional
+rhabdomyolysis. Muscle Nerve. 2012;45(3):356-362.
+
+3. Army Regulation 40-501. Medical Services: Standards of Medical Fitness. In: Army Dot,
+ed. Vol Rapid Action Revision (RAR) 2011.
+
+4. Heat Stress Control and Heat Casualty Management. In: Force HDotAaA, ed. Washington
+DC: TB MED 507/AFPAM 48-152; 2003.
+
+5. Jiang Y, McCombs JS, Park SH. A Retrospective Cohort Study of Acute Kidney Injury
+Risk Associated with Antipsychotics. CNS Drugs. 2017;31(4):319-326.
+
+6. Lippi G, Schena F, Ceriotti F. Diagnostic biomarkers of muscle injury and exertional
+rhabdomyolysis. Clin Chem Lab Med. 2018;57(2):175-182.
+
+7. Cervellin G, Comelli I, Benatti M, Sanchis-Gomar F, Bassi A, Lippi G. Non-traumatic
+rhabdomyolysis: Background, laboratory features, and acute clinical management. Clin Biochem.
+2017;50(12):656-662.
+
+8. Lippi G, Sanchis-Gomar F. Epidemiological, biological and clinical update on exercise-
+induced hemolysis. Ann Transl Med. 2019;7(12):270.
+
+9. Varma PP, Sengupta P, Nair RK. Post exertional hematuria. Ren Fail. 2014;36(5):701-703.
+
+10. Gambrell RC, Blount BW. Exercised-induced hematuria. Am Fam Physician.
+1996;53(3):905-911.
+
+11. Szczepanik ME, Heled Y, Capacchione J, Campbell W, Deuster P, O'Connor FG.
+Exertional rhabdomyolysis: identification and evaluation of the athlete at risk for recurrence.
+Curr Sports Med Rep. 2014;13(2):113-119.
+
+12. Heytens K, De Ridder W, De Bleecker J, Heytens L, Baets J. Exertional rhabdomyolysis:
+Relevance of clinical and laboratory findings, and clues for investigation. Anaesth Intensive
+Care. 2019;47(2):128-133.
+
+13. Eichner ER. Exertional Rhabdomyolysis in Civilian and Military Populations. Curr Sports
+Med Rep. 2020;19(3):99-100.
+
+14. Safari S, Yousefifard M, Hashemi B, et al. The value of serum creatine kinase in predicting
+the risk of rhabdomyolysis-induced acute kidney injury: a systematic review and meta-analysis.
+Clin Exp Nephrol. 2016;20(2):153-161.
+
+15. Premru V, Kovac J, Ponikvar R. Use of myoglobin as a marker and predictor in
+myoglobinuric acute kidney injury. Ther Apher Dial. 2013;17(4):391-395.
+
+16. Petejova N, Martinek A. Acute kidney injury due to rhabdomyolysis and renal replacement
+therapy: a critical review. Crit Care. 2014;18(3):224.
+
+17. Chavez LO, Leon M, Einav S, Varon J. Beyond muscle destruction: a systematic review of
+rhabdomyolysis for clinical practice. Crit Care. 2016;20(1):135.
+
+                                                                                                                      26
+18. O'Connor FG, Deuster PA. Rhabdomyolysis. In: Goldman L, Schafer AI, eds. Goldman-
+Cecil Medicine. Vol 1. 25th Edition ed. Philadelphia, PA: Elsevier Health Sciences; 2015:723-
+726.
+
+19. Mougios V. Reference intervals for serum creatine kinase in athletes. Br J Sports Med.
+2007;41(10):674-678.
+
+20. Brewster LM, Mairuhu G, Sturk A, van Montfrans GA. Distribution of creatine kinase in
+the general population: implications for statin therapy. Am Heart J. 2007;154(4):655-661.
+
+21. Deuster PA, O'Connor FG, Kenney K, et al. Creatine kinase clinical considerations:
+ethnicity, gender and genetics. Paper presented at: North Atlantic Treaty Organization: Research
+and Technology Organization; Human Factors and Medicine Pane; 5-7 Oct. 2009, 2009; Sofia,
+Bulgaria.
+
+22. Black HR, Quallich H, Gareleck CB. Racial differences in serum creatine kinase levels. Am
+J Med. 1986;81(3):479-487.
+
+23. Hains AD, Pannall PR, Bourne AJ, et al. McArdle's disease presenting with
+rhabdomyolysis. Aust N Z J Med. 1984;14(5):681-684.
+
+24. Meltzer HY. Factors affecting serum creatine phosphokinase levels in the general
+population: the role of race, activity and age. Clin Chim Acta. 1971;33(1):165-172.
+
+25. Meltzer HY, Cola PA, Parsa M. Marked elevations of serum creatine kinase activity
+associated with antipsychotic drug treatment. Neuropsychopharmacology. 1996;15(4):395-405.
+
+26. Meltzer HY, Holy PA. Black-white differences in serum creatine phosphokinase (CPK)
+activity. Clin Chim Acta. 1974;54(2):215-224.
+
+27. Siemionow K, Teul J, Dragowski P, Palka J, Miltyk W. New potential biomarkers of
+acetaminophen-induced hepatotoxicity. Adv Med Sci. 2016;61(2):325-330.
+
+28. Rojas-Valverde D, Sánchez-Ureña B, Crowe J, Timón R, Olcina GJ. Exertional
+rhabdomyolysis and acute kidney injury in endurance sports: A systematic review. Eur J Sport
+Sci. 2020:1-14.
+
+29. Cucchiari D, Colombo I, Amato O, et al. Exertional rhabdomyolysis leading to acute
+kidney injury: when genetic defects are diagnosed in adult life. CEN Case Rep. 2018;7(1):62-65.
+
+30. Simpson JP, Taylor A, Sudhan N, Menon DK, Lavinio A. Rhabdomyolysis and acute
+kidney injury: creatine kinase as a prognostic marker and validation of the McMahon Score in a
+10-year cohort: A retrospective observational evaluation. Eur J Anaesthesiol. 2016.
+
+31. Bosch X, Poch E, Grau JM. Rhabdomyolysis and acute kidney injury. N Engl J Med.
+2009;361(1):62-72.
+
+32. Clarkson PM, Eichner ER. Exertional rhabdomyolysis: does elevated blood creatine kinase
+foretell renal failure? Curr Sports Med Rep. 2006;5(2):57-60.
+
+33. Eichner ER. Exertional rhabdomyolysis. Curr Sports Med Rep. 2008;7(1):3-4.
+
+34. Scharman EJ, Troutman WG. Prevention of kidney injury following rhabdomyolysis: a
+systematic review. Ann Pharmacother. 2013;47(1):90-105.
+
+35. Chatzizisis YS, Misirli G, Hatzitolios AI, Giannoglou GD. The syndrome of
+
+                                                                                                                      27
+rhabdomyolysis: complications and treatment. Eur J Intern Med. 2008;19(8):568-574.
+36. Nielsen JS, Sally M, Mullins RJ, et al. Bicarbonate and mannitol treatment for traumatic
+rhabdomyolysis revisited. Am J Surg. 2016.
+37. Oh RC, Arter JL, Tiglao SM, Larson SL. Exertional rhabdomyolysis: a case series of 30
+hospitalized patients. Mil Med. 2015;180(2):201-207.
+38. Fernandes PM, Davenport RJ. How to do it: investigate exertional rhabdomyolysis (or not).
+Pract Neurol. 2019;19(1):43-48.
+39. Cohen BH. Mitochondrial and Metabolic Myopathies. Continuum (Minneap Minn).
+2019;25(6):1732-1766.
+40. Khwaja A. KDIGO clinical practice guidelines for acute kidney injury. Nephron Clin Pract.
+2012;120(4):c179-184.
+
+                                                                                                                      28
+

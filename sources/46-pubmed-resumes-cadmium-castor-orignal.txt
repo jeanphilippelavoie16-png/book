@@ -1,0 +1,190 @@
+1. Sci Total Environ. 2026 Aug 15;1044:181909. doi: 
+10.1016/j.scitotenv.2026.181909. Epub 2026 Jun 15.
+
+Beavers (Castor canadensis) as biomonitors of trace elements in the environment: 
+examples from industrial, urban, rural and remote areas in western and eastern 
+Canada.
+
+Haas-Neill S(1), Dergousoff M(2), Grant-Weaver I(3), Hood G(4), Noernberg T(5), 
+Pelletier R(6), Shotyk W(7).
+
+Author information:
+(1)Fountain Pen Health Communications, London, Ontario, Canada. Electronic 
+address: fphealthcommunications@gmail.com.
+(2)Department of Renewable Resources, University of Alberta, Canada; Sora 
+Ecological Consulting Ltd., Peace River, British Columbia, Canada.
+(3)Department of Renewable Resources, University of Alberta, Canada. Electronic 
+address: igrantwe@ualberta.ca.
+(4)University of Alberta, Augustana Campus, Camrose, Alberta, Canada. Electronic 
+address: ghood@ualberta.ca.
+(5)Department of Renewable Resources, University of Alberta, Canada. Electronic 
+address: noernber@ualberta.ca.
+(6)Department of Renewable Resources, University of Alberta, Canada. Electronic 
+address: rick.pelletier@ualberta.ca.
+(7)Bocock Chair for Agriculture and the Environment, Department of Renewable 
+Resources, University of Alberta, 348B South Academic Building, Edmonton, 
+Alberta, T6G 2H1, Canada. Electronic address: shotyk@ualberta.ca.
+
+Beavers (Castor canadensis) have been used for environmental biomonitoring of 
+trace elements (TEs) due to their semiaquatic habits and localized foraging 
+ranges. Their ongoing population expansion in the northern hemisphere combined 
+with increasing industrial development in the same region, presents a growing 
+scientific opportunity to assess environmental impacts on biota. In northern 
+Alberta, Canada, open-pit mining and upgrading of the Athabasca Bituminous Sands 
+(ABS) has raised concerns about TE contamination of wildlife and traditional 
+Indigenous food sources. Despite extensive environmental monitoring in the ABS 
+region, no systematic studies have assessed TE accumulation in the local 
+beavers. Here, we measured concentrations of 24 TEs in liver, kidney, and muscle 
+tissues of 51 beavers from Alberta. These span industrial, agricultural, and 
+natural landscapes, and the data are compared with beavers from sites of no 
+known point sources of contamination in Ontario. Several TEs showed regional 
+variation, but most TE concentrations in Alberta beavers were statistically 
+indistinguishable from Ontario animals. Notably, cadmium concentrations in 
+Alberta beaver kidneys (up to 73.2 mg/kg) were higher than those reported in 
+literature, though not uniquely elevated in ABS regions. Nickel was 
+significantly enriched in kidneys of beavers from northern industrial sites 
+(p = 0.00034), while vanadium (p = 2.0e-8) and selenium (p = 0.0096) were more 
+elevated in beavers from urban than industrial sites. Overall, beavers near 
+bitumen extraction operations showed no consistent or significant increase in 
+TEs compared to those from natural areas, including distant regions. These 
+findings challenge the assumption that ABS activities are major sources of TE 
+contamination in local biota. Instead, they suggest that urban environments may 
+pose a greater TE exposure risk to wildlife. This study provides a critical 
+benchmark for future environmental monitoring and offers valuable context for 
+Indigenous communities assessing risks from traditional food sources.
+
+Copyright © 2026. Published by Elsevier B.V.
+
+DOI: 10.1016/j.scitotenv.2026.181909
+PMID: 42296905 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.1. Environ Res. 2024 Jan 15;241:117462. doi: 10.1016/j.envres.2023.117462. Epub 
+2023 Nov 7.
+
+Comparison of trace elements in tissue of beaver (Castor canadensis) and local 
+vegetation from a rural region of southern Ontario, Canada.
+
+Shotyk W(1), Cuss CW(2), Grant-Weaver I(3), Haas-Neill S(4), Hood GA(5), 
+MacDonald E(6), Noernberg T(7), Than K(8).
+
+Author information:
+(1)Bocock Chair for Agriculture and the Environment, Department of Renewable 
+Resources, University of Alberta, 348B South Academic Building, Edmonton, 
+Alberta, T6G 2H1, Canada. Electronic address: shotyk@ualberta.ca.
+(2)Department of Renewable Resources, University of Alberta, Canada. Electronic 
+address: cuss@ualberta.ca.
+(3)Department of Renewable Resources, University of Alberta, Canada. Electronic 
+address: igrantwe@ualberta.ca.
+(4)Fountain Pen Health Communications, London, Ontario, Canada. Electronic 
+address: fphealthcommunications@gmail.com.
+(5)University of Alberta, Augustana Campus, Camrose, Alberta, Canada. Electronic 
+address: ghood@ualberta.ca.
+(6)University of Alberta, Augustana Campus, Camrose, Alberta, Canada. Electronic 
+address: emmily@ualberta.ca.
+(7)Department of Renewable Resources, University of Alberta, Canada. Electronic 
+address: noernber@ualberta.ca.
+(8)Department of Renewable Resources, University of Alberta, Canada. Electronic 
+address: kthan@ualberta.ca.
+
+Beavers have been analyzed in several studies examining trace elements (TEs) in 
+wildlife; however, most of these studies were undertaken in areas with known 
+environmental pollutants. To understand and quantify natural enrichments of TEs 
+in beaver tissue, samples of kidney, liver, muscle from 28 animals were compared 
+with bark from 40 species of trees and shrubs, from the same, uncontaminated 
+watershed. Pearson correlation and factor analysis show that conservative, 
+lithophile elements such as Al, Ga, Th, and Y, all surrogates for mineral dust 
+particles, explain 61% of the variation in the bark data. In contrast, Cd, Co, 
+Cu, Mn, Mo, Ni, Rb, Se, Sr, and Tl in bark are independent of Al, and therefore 
+most likely occur in non-mineral forms. Comparing tissue concentrations of 
+beaver and bark, the organs are enriched in micronutrients such as Cu, Fe, Mo, 
+Se, and Zn, but also non-essential, benign elements such as Cs and Rb, and 
+potentially toxic elements such as Cd and Tl. Thus, the elements most enriched 
+in beaver organs are those that apparently occur in biological form in the plant 
+tissue. The elements enriched in these animals, relative to bark, appear to 
+offer the most promise for monitoring environmental contamination by TEs using 
+beavers. The majority of TEs of environmental relevance are most abundant in 
+beaver kidney. However, monitoring studies must consider the variation in TE 
+concentrations in beaver tissue, including those due to sex and age. Also, due 
+consideration must be given to background concentrations of TEs in the 
+vegetation composing the diet of the animals. The natural enrichment in the case 
+of elements such as Cd, in beaver tissue relative to bark, is profound. These 
+data establish critical baseline values for TEs in beavers in an unpolluted 
+environment, thereby allowing for their use as model organisms in tracking how 
+heavy metal pollutants may affect wildlife.
+
+Copyright © 2023 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.envres.2023.117462
+PMID: 37939800 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.1. Sci Total Environ. 1988 May;71(2):173-86. doi: 10.1016/0048-9697(88)90165-9.
+
+Cadmium levels in Ontario moose and deer in relation to soil sensitivity to acid 
+precipitation.
+
+Glooschenko V(1), Downes C, Frank R, Braun HE, Addison EM, Hickie J.
+
+Author information:
+(1)Wildlife Branch, Ontario Ministry of Natural Resources, Toronto, Canada.
+
+This study examines the influence of buffering capacity of the soil on the 
+levels of cadmium in the kidney, liver and muscle of moose and white-tailed deer 
+from nine sampling sites (four buffered and five non-buffered) in Ontario, 
+Canada. Tissues collected from hunter-killed moose and deer during 1984 and 1985 
+were analysed for cadmium. Tissue from moose in the non-buffered Algonquin Park 
+site (21.9 +/- 1.1 mg/kg wet weight) and the buffered St. Joseph Island site 
+(12.7 +/- 3.2 mg kg-1) had the highest mean levels of kidney cadmium compared 
+with other sites sampled in Ontario. The highest mean levels of kidney cadmium 
+in deer were found in the non-buffered Loring site (15.1 +/- 0.8 mg kg-1) 
+adjacent to Algonquin. From all sites, the level of cadmium was highest in 
+kidney, lower in liver and was often undetectable in muscle. Cadmium level 
+increased with animal age (p less than 0.05). Levels of cadmium in Ontario moose 
+from some regions are comparable to those found in Quebec and Manitoba and are 
+considerably higher than those of Maine and Scandinavia. Levels of cadmium in 
+kidneys and livers of white-tailed deer in parts of Ontario are considerably 
+lower than those in Pennsylvania. As a result of this study, the Ontario 
+Ministry of Natural Resources, in consultation with the Ontario Ministry of 
+Health, has recommended that the public not consume kidneys or livers of Ontario 
+moose and deer.
+
+DOI: 10.1016/0048-9697(88)90165-9
+PMID: 3381081 [Indexed for MEDLINE]
+
+
+2. Sci Total Environ. 1987 Oct;66:45-53. doi: 10.1016/0048-9697(87)90076-3.
+
+Pattern of cadmium contamination in the liver and kidneys of moose and 
+white-tailed deer in Québec.
+
+Crête M(1), Potvin F, Walsh P, Benedetti JL, Lefebvre MA, Weber JP, Paillard G, 
+Gagnon J.
+
+Author information:
+(1)Ministère du Loisir, de la Chasse et de la Pêche, St. Cyrille est, Québec, 
+Canada.
+
+Samples of moose (N = 431) and white-tailed deer (N = 225) liver and kidneys 
+were collected during the 1985 hunting season from 14 zones south of the 50 
+degree latitude in Québec. Regional differences in cadmium level in the liver 
+were detected and three homogeneous areas were delineated for each species. 
+Uptake was greater for moose than for deer: in the liver, mean concentrations 
+were 2.9-15.9 mg kg-1 (dry weight) for moose and 0.8-2.6 for deer, depending on 
+the area and sex; in kidneys, means ranged between 31.8-100.5 and 20.9-39.0 mg 
+kg-1, respectively. Female moose had lower levels than bulls. Less affected 
+moose, in eastern Québec, contained cadmium concentrations comparable to the 
+highest values measured in Scandinavia. Cadmium uptake in deer was on the same 
+level or higher than in the United States. Our results indicate a widespread 
+presence of this heavy metal in the environment that may be linked to acid 
+precipitation. We do not recommend consuming wild cervid liver or kidneys in 
+Québec for the moment. Further research is needed on the overall mechanisms 
+involved in the cadmium contamination of the environment and on the actual 
+intake of this metal in the human diet.
+
+DOI: 10.1016/0048-9697(87)90076-3
+PMID: 3685957 [Indexed for MEDLINE]

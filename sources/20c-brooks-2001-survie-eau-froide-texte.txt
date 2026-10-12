@@ -1,0 +1,1689 @@
+                    SURVIVAL IN COLD WATER
+
+                 A Report Prepared for Transport Canada
+
+                                        By: Dr. C.J. Brooks
+                                           24 August 2001
+
+Survival Systems Limited
+40 Mount Hope Avenue
+Dartmouth, Nova Scotia
+B2Y 4K9 Canada
+(902) 465 3888
+(902) 465 8755
+
+                                                                                                           1
+                              TABLE OF CONTENTS
+
+EXECUTIVE SUMMARY .................................................................................................. 3
+
+CHAPTER 1...................................................................................................................... 8
+
+THE PROBLEM ........................................................................................................................... 8
+
+INTRODUCTION ......................................................................................................................... 8
+
+THE KNOWLEDGE: PHYSIOLOGY OF THE IMMERSION INCIDENT TO 1995 ........ 9
+   1. Initial immersion or cold shock..................................................................................... 10
+   2. Short-term immersion or swimming failure ................................................................ 10
+   3. Long-term immersion or hypothermia......................................................................... 10
+   4. Post-rescue collapse........................................................................................................ 14
+
+THE DEVELOPMENT OF STANDARDS AND EQUIPMENT ........................................... 14
+
+CHAPTER 2.................................................................................................................... 16
+
+THE INITIAL RESPONSES TO IMMERSION (STAGE 1 AND STAGE 2) - NEW
+SCIENTIFIC INFORMATION SINCE 1975........................................................................... 16
+
+STAGE 1 - COLD SHOCK........................................................................................................ 16
+   Breath Holding Ability And Ability To Control Breathing Rate ....................................... 17
+   Manual Dexterity .................................................................................................................... 17
+   Practical Evidence That Cold Shock Kills ............................................................................ 18
+
+STAGE 2 : SWIMMING FAILURE ........................................................................................ 20
+   Potential for Cardiac Arrhythmias ....................................................................................... 22
+
+STAGE 3: HYPOTHERMIA ..................................................................................................... 23
+   Heat Balance: The Basic Physics .......................................................................................... 23
+   A Typical Case Where Death was Attributed to Hypothermia .......................................... 26
+   Should Passengers Wear Lifejackets Prior To Abandonment?.......................................... 28
+
+CHAPTER 3.................................................................................................................... 29
+
+WHAT IS THE PRACTICAL APPLICATION OF THE CURRENT SCIENTIFIC DATA
+AND SURVIVOR TESTIMONY FOR LEGISLATION OF LIFE-SAVING APPLIANCES
+IN CANADA? .............................................................................................................................. 29
+
+   How Should Canada Proceed with New Legislation?.......................................................... 31
+
+CONCLUSIONS.............................................................................................................. 33
+
+REFERENCES................................................................................................................ 36
+
+ACKNOWLEDGEMENTS............................................................................................... 40
+
+                                                                                                           2
+EXECUTIVE SUMMARY
+
+1. Currently within Canada's internal lakes and rivers, there are numerous
+    personnel being moved over water during the winter and spring months in
+    vessels without the provision of liferafts. Whether this is an acceptable state
+    of affairs is the question addressed in this research paper.
+
+2. The facts about the dangers of immersion in cold water are as follows:
+
+(a) There are four clear stages of immersion in which death can occur. These
+    are:
+
+1. Cold shock (kills within 3-5 minutes after immersion).
+2. Swimming failure (kills within 30 minutes after immersion).
+3. Hypothermia (kills after 30 minutes of immersion).
+4. Post rescue collapse (kills at the point of rescue or up to several hours
+
+    afterward).
+
+(b) The cause of death associated with each stage respectively is:
+
+1. Drowning, heart (circulatory) and respiratory problems.          self-help,
+2. Impaired physical performance leading to inability to
+
+    swimming failure and drowning.
+3. Deep body cooling leading to hypothermia and drowning.
+4. Collapse of arterial blood pressure leading to cardiac arrest.
+
+3. Up until 5-8 years ago, the problems associated with stages 1-2 and 4 have
+    largely been considered of academic interest only. Stages 1, 2 and 4 can
+    have a profound influence on survival probability as the water temperature
+    falls and the sea state worsens. With regard to the condition of hypothermia,
+    for a normally clothed "typical passenger" this is accelerated if whole body
+    exercise is performed in the water (i.e. swimming).
+
+4. Historically, there has been a preoccupation with hypothermia. This has been
+    reflected in the predictive survival curves based on the time to reach
+    hypothermia. Thus, excellent teaching and training programs, standards and
+    equipment have been developed aimed at reducing this specific threat.
+    However, it is now considered that the early responses to immersion (stages
+    1 and 2) probably account for the majority of open water immersion deaths.
+
+5. Survival prediction curves are of limited value only. This is because they do
+    not take into account that death may occur from cold shock, swimming failure
+    and drowning during early hypothermia. The curves should be revised to
+    include these factors.
+
+                                                                           3
+6. The initial responses (stage 1) peak in water between 10-15ºC. Swimming
+    failure (stage 2) occurs much sooner in cold water than in warm water, even
+    in proficient swimmers. As a consequence, humans tend to grossly over-
+    estimate their swimming capability in cold water. This is a little known, but
+    central factor in the cause of death.
+
+7. From all the combined research on cold water accidents and scientific
+    research, it has become clear that sudden immersion in cold water, (i.e.
+    below 15°C) is very dangerous. It should be avoided if at all possible.
+    Furthermore, a conscious decision to swim (and rescue oneself) or stay
+    floating still in the water should not be taken lightly without assessing the pros
+    and cons. It has now been shown that a person's swimming ability in warm
+    water bears no relationship to that in cold water.
+
+8. These scientific findings lead to practical advice regarding the regulations
+    requiring the carriage of liferafts and training of operators of passenger
+    carrying vessels.
+
+    (a) Wherever possible entry into water below 15°C should be avoided. Direct
+         entry into a life raft should be the objective.
+
+    (b) Transport Canada should use this philosophy in the design, development
+         and implementation of all new legislation. All vessels operating in
+         Canadian lakes and rivers at 15°C or below should carry liferafts that can
+         be easily launched and boarded by the entire crew and passengers.
+
+    (c) The only exception to this should be where it is physically or practically
+         impossible to stow a liferaft. Under such conditions the passengers must
+         wear inflatable lifejackets when on board.
+
+    (d) Closeness to the shore or the carriage of EPIRB are not a reason for
+         waiving this requirement because death from cold shock will occur within
+         3-5 minutes, and swimming failure in under 30 minutes. EPIRB responses
+         have averages between 90 minutes and 2 hours.
+
+    (e) The Marine Emergency Duties curriculum should be amended to include
+         the two new Canadian videos on cold shock, swimming failure,
+         hypothermia and post-rescue collapse.
+
+    (f) Even though there are well established teaching programs, regulations
+         and much improved life saving equipment, there are still in the order of
+         140 000 open water deaths each year. What has been overlooked is the
+         significance of the first two stages - cold shock and swimming failure as a
+         cause of death. The precise details of these are described in this report.
+
+                                                                                                           4
+                                 Sommaire Exécutif
+
+1. Au Canada, un grand nombre de personnes se déplacent sur les lacs et
+    rivières pendant les mois d'hiver et de printemps dans des embarcations non
+    munies de radeaux de sauvetage. L'étude en question vise à établir si cette
+    situation est ou non acceptable.
+
+2. Les faits relatifs aux dangers d'immersion en eau froide sont les suivants :
+         (a) On identifie quatre stades distincts d'immersion pouvant causer la
+             mort.
+
+             1. État de choc dû au froid (cold shock) - le décès se produit dans
+                  les 5 minutes qui suivent l'immersion.
+
+             2. Épuisement à la nage (swimming failure) - le décès se produit
+                  dans les 30 minutes qui suivent l'immersion.
+
+             3. Hypothermie - le décès se produit dans les 30 minutes qui suivent
+                  l'immersion.
+
+             4. Effondrement post sauvetage - le décès se produit au moment
+                  du sauvetage ou dans les heures qui suivent.
+
+         (b) Pour chacun des stades susmentionnés, on attribue dans l'ordre la
+             cause de décès suivante :
+             1. Noyade, problèmes cardiaques (circulation) et respiratoires.
+             2. Perturbation des capacités physiques entraînant l'incapacité de
+                  s'aider et de nager menant à la noyade.
+             3. Refroidissement corporel entraînant l'hypothermie et la noyade.
+             4. Chute de la tension artérielle entraînant un arrêt cardiaque.
+
+3. Au-delà des cinq à huit dernières années, les problèmes associés aux stades
+    1, 2 et 4 ont été d'intérêt purement théorique. Cependant, les stades 1, 2 et 4
+    peuvent avoir une incidence importante sur la probabilité de survie surtout
+    lorsque baisse la température de l'eau et que se détériore les conditions en
+    mer. En ce qui concerne le stade 3, pour le «passager typique» vêtu de façon
+    ordinaire, l'hypothermie survient plus vite lorsque ce dernier fait un effort
+    considérable (comme la nage).
+
+4. L'hypothermie (stade 3) a longtemps été au centre des préoccupations. Cela
+    se voit aux courbes prévisionnelles de survie à l'hypothermie établies selon la
+    température de l'eau et la durée d'immersion. Par conséquent, d'excellents
+    programmes de formation et d'entraînement ainsi que des normes et des
+    dispositifs de sauvetage ont été développés dans le but de réduire cette
+    menace particulière. Toutefois, on considère maintenant que les réactions
+    initiales à l'immersion (stades 1 et 2) comptent pour la majorité des décès dus
+    à l'immersion en eau libre.
+
+                                                                                                           5
+5. Les courbes prévisionnelles de survie ne sont pas très utiles, car elles ne
+    tiennent pas compte du fait que le choc dû au froid (cold shock), l'épuisement
+    à la nage (swimming failure) et la noyade dans les premiers stades de
+    l'hypothermie peuvent également entraîner la mort. Ces courbes doivent être
+    révisées pour inclure ces facteurs.
+
+6. Les réactions initiales (stade 1) sont à leur maximum lorsque la température
+    de l'eau se situe entre 10 et 15oC. L'épuisement à la nage (stade 2) a lieu
+    beaucoup plus rapidement en eau froide, même chez les bons nageurs. Par
+    conséquent, les gens tendent à surestimer de beaucoup leurs capacités de
+    nageur en eau froide. Il s'agit d'un facteur peu connu, mais primordial à la
+    survie.
+
+7. Selon la recherche scientifique et les études menées sur les accidents en eau
+    froide, il est maintenant clair que l'immersion soudaine en eau froide, c'est-à-
+    dire à des températures au-dessous de 15oC, est très dangereuse. Elle doit
+    être évitée autant que possible. Par ailleurs, la décision de nager (pour se
+    secourir soi-même) ou de rester immobile dans l'eau ne doit pas être prise à
+    la légère. Il faut absolument tenir compte de tous les facteurs. Il a maintenant
+    été démontré que les capacités d'un nageur en eau tempérée n'ont aucun
+    rapport avec ses capacités en eau froide.
+
+8. Ces constatations scientifiques donnent lieu à des conseils pratiques en ce
+    qui concerne la réglementation sur la présence de radeaux de sauvetage et
+    la formation des opérateurs de navires à passagers.
+
+    (a) Autant que possible, il faut éviter l'immersion en eau froide lorsque la
+         température de l'eau est au-dessous de 15oC. L'objectif doit être un
+         transfert direct aux radeaux de sauvetage sans immersion.
+
+    (b) Transport Canada doit incorporer cette philosophie dans la conception,
+         l'élaboration et l'application de toute nouvelle loi. Au Canada, toute
+         embarcation qui se déplace sur des lacs et des rivières dont l'eau est à
+         15oC ou moins devrait être munie de radeaux de sauvetage qui peuvent
+         facilement être mis à l'eau et accommoder l'équipage et les passagers au
+         complet.
+
+    (c) La seule exception admissible serait le cas d'embarcations qui ne peuvent
+         se doter de radeaux de sauvetage pour des raisons physiques ou
+         pratiques. Dans de telles circonstances, les passagers doivent tous porter
+         un gilet de sauvetage à bord.
+
+    (d) La proximité des berges ou la présence à bord d'une RLS ne justifie pas
+         une exonération, car l'état de choc peut tuer en 3 à 5 minutes et
+         l'épuisement à la nage, en moins de 30 minutes. L'intervention d'urgence
+         en réponse à la RLS met en moyenne entre 90 minutes et deux heures.
+
+                                                                                                           6
+(e) Le programme d'études des fonctions d'urgence en mer doit être modifié
+    afin d'y inclure deux nouveaux vidéos canadiens sur l'état de choc dû au
+    froid, l'épuisement à la nage, l'hypothermie et l'effondrement post
+    sauvetage.
+
+(f) Même s'il existe une réglementation et des programmes de formation bien
+    établis, ainsi que des dispositifs de sauvetage très perfectionnés, les
+    décès en eau libre sont tout de même de l'ordre de 140 000 par année.
+    Ce qui semble avoir été négligé, c'est le rôle important que jouent des
+    deux premiers stades - l'état de choc dû au froid et l'épuisement à la nage
+    - dans la cause de décès. Le rapport décrit ces deux stades en détail.
+
+                                                                                                      7
+                                      CHAPTER 1
+
+THE PROBLEM
+
+Currently within Canada, there are hundreds of thousands of persons being
+transported for business or pleasure over inland waterways, lakes and rivers.
+Depending on the local climate, transportation may occur throughout the year or
+be limited to when the passage is ice free. Irrespective, for a large portion of the
+year, particularly the winter, spring, and early summer, the water is cold.
+
+Recently, (June 2000), there has been an accident in Georgian Bay where two
+children drowned after the True North ll sank within two minutes (Reference 64).
+The question has been asked as to what steps should be taken to prevent this
+from re-occurring. Carriage of lifejackets is already mandatory. Should there be
+any change in the regulations? Carriage of liferafts within Canada's internal
+waterways is not mandatory when operating close to shore. Should a change of
+policy be made on this requirement? Finally, if there are to be any changes in
+policy on the wearing of lifejackets or carriage of liferafts, should it be related to
+the physical water temperature at the time the vessel is operating? These
+questions will be addressed in the following chapters with conclusions and
+recommendations.
+
+INTRODUCTION
+
+Records of death from immersion in cold water date back to ancient times. Circa
+450 BC, Herodotus (Reference 28) wrote of the sea borne expedition against
+Athens by the Persian general Mardonius. He clearly distinguished drowning
+from hypothermia, when he wrote, "Those who could not swim perished from
+that cause, others from cold." (Reference 18) In spite of hundreds of thousands
+of maritime disasters, the precise medical cause of death has been rarely noted.
+Death has commonly been ascribed to "drowning" or being "overcome by the
+sea". In the 18th and 19th century, James Lind (1762) mentioned the dangers of
+collapse after rescue (Reference 39), and James Currie (1797) observed
+deterioration of his subjects before improvement (Reference 9).
+
+Loss of life at sea was accepted as an occupational hazard. Wrecking was not
+made illegal until 1807 and the Royal Navy's use of impressments was not
+abandoned until 1815. Thus, such items as lifejackets, which could be used to
+aid escape were not encouraged. Shipwrecked sailors had to cling to wooden
+spars, and water and rum barrels. With the advent of iron ships around 1850, not
+only did the ships sink faster, but also there was less flotsam for flotation.
+Consequently, there was an increase in the loss of life at sea. In 1871, it was
+reported that 2740 British seamen lost their lives through drowning (Reference
+5).
+
+                                                                                                           8
+No one paid attention to the observations by Lawrence Beesley (1912)
+(Reference 4). He was a survivor from the Titanic who noted that the victims
+wearing lifebelts and in cold, but calm water had died of cold. The official cause
+of death was given as drowning. Nor did the large loss of life during the First
+World War bring about change. Hill and Campbell's appendix to the Merchant
+Shipping Advising Committee Report on Life Saving Appliances in 1922
+(Reference 46) is the first formal acknowledgement of the dangers of "cold". It
+was the inadequacies of life saving equipment during the Battle of the Atlantic in
+the Second World War that was the catalyst for scientific examination of the
+problem.
+
+As Golden (1996) (Reference 19) clearly pointed out, official inquiries in an
+endeavour to prevent a recurrence, have been more interested in the cause of
+disaster than the cause of death of the crew and passengers. The recent issue
+of the Marine Investigation Report by the Transportation Safety Board of Canada
+on the sinking of the "True North ll" in Georgian Bay June 2000 extends to 63
+pages (Reference 64). There are only five sentences assigned to the fact that
+two grade seven students died. One of the sentences curtly states: "The bodies
+were subsequently examined by the coroner who determined that the cause of
+death was drowning." There has been no thought put into why they drowned or
+even if they could swim in the first place. Thus, both funding and direction for
+research has sadly lagged behind the technological advances in ship design.
+
+THE KNOWLEDGE: PHYSIOLOGY OF THE IMMERSION INCIDENT TO 1995
+
+The Medical Research Committee (Reference 44) published a pamphlet in 1943
+on "The Guide to the Preservation of Life at Sea After Shipwreck". This was
+based on the observations of naval medical officers who had treated survivors,
+and on 279 survivor interviews. This was the basis from which all the modern
+physiological research has been conducted.
+
+Two other reports were to follow after the War that revealed the shocking loss of
+life at sea which could have been prevented. The first was the Talbot Report
+(Reference 55) published in 1946.This showed the inadequacy of the RN lifebelt
+and the Carley type floats. Over 30 000 men died after escaping from their
+ships, in other words, during the survival phase. The second was the Medical
+Research Committee report by McCance et al (1956) which investigated "The
+Hazards to Men in Ships Lost at Sea 1940 - 1944" and examined the cause of
+death at sea in greater detail (Reference 43).
+
+The pioneering work post-war was conducted under the auspices of the Royal
+Navy Personnel Research Committee and subsequently the Royal Navy Institute
+of Naval Medicine. This was basically summarized in Professor Keatinge's
+monograph (1969) (Reference 35). As a result of all the aforementioned
+information, it had become clear that the human body cannot maintain its internal
+temperature when immersed in water below 25ºC when conscious and shivering.
+
+                                                                                                           9
+The body temperature must progressively fall until death occurs. However, there
+was much more to the problem than this.
+
+Golden and Hervey (1981) (Reference 18) identified four distinct stages in which
+a human immersed in cold water may become incapacitated and die. However,
+what is most important to note is that stages 1, 2 and 4 were largely regarded as
+of academic interest only; so they did not have a large effect on survival policy,
+international regulations and survival equipment. All of the effort was
+concentrated on predicting the onset of hypothermia. Thus, there is still no
+consideration given to the physiological impact resulting from the first two stages
+of immersion in the design of emergency equipment. For instance, flares are still
+vacuum packed in polythene bags and as in the Estonia accident were not
+usable simply because no one had the grip strength or the tactility to open the
+bags. The bailer in the Estonia liferaft was wrapped in polythene and after
+attempting to open it with his teeth, the survivor finally gave up after he had lost
+several teeth!!
+
+1. Initial immersion or cold shock
+
+On initial immersion, there is a large inspiratory gasp followed by a four-fold
+increase in pulmonary ventilation, i.e. severe hyperventilation. This on its own
+can cause small muscle spasms and drowning. Along with this, there is a
+massive increase in heart rate and blood pressure. These latter cardiac
+responses may cause death, particularly in older, less healthy people. These
+effects last for the first two to three minutes, just at the critical stage of ship
+abandonment.
+
+2. Short-term immersion or swimming failure
+
+Death at this stage, between three and thirty minutes after immersion, appears to
+affect those who try to swim. It is also known that even good swimmers may be
+unable to swim for more than a few minutes in very cold water. "A good
+swimmer aged 20 recently disappeared within 5 minutes while he was trying to
+swim 50 yards from an overturned dinghy in calm water of a reservoir at 10ºC-
+11ºC." (Reference 36). The cause was thought to be due to the respiratory and
+cardiovascular responses already started in the initial immersion. An alternative
+theory was that the cold water contact with the nose and mouth induced the
+"diving response". This causes breathing to stop (apnea), a slowing of the heart
+rate (bradycardia) and even cardiac arrest (asystole).
+
+3. Long-term immersion or hypothermia
+
+After thirty minutes or more of immersion, death may occur from hypothermia.
+The reason for this is that water has a specific heat 1000 times that of air and a
+thermal conductivity of about 25 times that of air. Thus, when a body is
+
+                                                                                                         10
+immersed in water below body temperature (37ºC), it will inevitably cool to
+hypothermic levels at a rate dependent on:
+
+·  Temperature differential
+
+·  Clothing insulation
+
+·  Rate of agitation of the water
+
+·  Body heat production produced by shivering and exercise
+
+·  Ratio of body mass to surface area
+
+·  Subcutaneous fat thickness
+
+·  State of physical fitness
+
+·  Diet prior to immersion
+
+·  Physical behaviour and body posture in the water
+
+As the deep body temperature falls, humans lapse into unconsciousness. Death
+may occur in two ways - drowning through incapacitation, and cardiac arrest.
+Death from drowning will occur in a lightly dressed individual even wearing a
+lifejacket, approximately one hour after immersion in water at 5ºC, or two hours in
+water at 10ºC, or in six hours or less at 15ºC (Reference 19).
+
+If the deep body temperature continues to fall, death occurs on average from
+cardiac arrest somewhere below a body core temperature of 24ºC. The lowest
+recorded survival temperature in an accidental victim is 13.7ºC (Reference 13).
+However, after surgical induction of hypothermia, there has been one reported
+incident of resuscitation from a body core temperature of 9ºC (Reference 48).
+Survival predictions were made from experimental data and case histories from
+shipwrecks.
+
+The first classic survival curve was published by Molnar in 1946 (Figure 1,
+Reference 47). Included in here was the data from the Dachau prisoners
+(Reference 1). Survival predictions were later produced by Hall (1972)
+(Reference 21), and by the Canadian Red Cross from work conducted by
+Professor Hayward (1975, 1977, 1984) at the University of Victoria (Fig 2
+Reference 23, 24, 25, 26).
+
+A later predicted survival curve was published by Hayes et al (1987) derived from
+Professor Eugene Wissler's Cold Water Survival Model (Figure 3, Reference
+22). From this and the combination of previous work, Tikuisis (1995, 1997) has
+published the latest prediction of survival time at sea level based on observed
+body cooling rates (Reference 57, 58).
+
+                                                            11
+Figure 1 (After Molnar 1946) - Duration of
+immersion of shipwreck survivors in ocean
+waters of diverse temperatures. The data
+are from the files of the Bureau of Medicine
+and Surgery, US Navy. Open circles, sea-
+water temperature was measured at time
+of rescue. Black dots, sea water
+temperature was obtained from the World
+Atlas of Sea Surface Temperatures on the
+basis of date and location of shipwreck or
+rescue. Each point represents the survival
+of at least one person.
+
+     Figure 2 - Cold Water Survival
+     (Canadian Red Cross)
+
+                                     12
+     Figure 3: Predicted survival time against sea temperature for different levels of immersed
+     clothing insulation - as derived from Wissler Model, Modified by Hayes, 1987.
+
+A summary of current predictive curves is given in Oakley and Pethybridge
+(1997) (Figure 4, Reference 50). From this work, it became possible to give
+advice that survival times could be extended if the survivors stayed still in the
+water and did not attempt to swim to keep warm. Furthermore, adopting a fetal
+position with legs together and arms to the side, or folded across the chest
+
+                                                                                                         13
+prolonged survival time. (Reference 14, 24, 32) All of these predictive curves
+are premised on the fact that the person using the curves is prepared to accept
+the assumption that death is due to hypothermia. They are all based on time to
+incapacitation.
+
+Water  Molnar, 194647  Keatinge, 196935  Nunnely &       Allan, 19832  Lee & Lee,
+temp.                                    Wissler 198049                198938
+
+5°C 2.3                0.9               1.1             1.5           1
+
+10°C 4                 N/A               2.6             2.5           3
+
+15°C N/A               4.5               3               9             7
+
+N/A is used to indicate that the author(s) did not provide an estimate for that water temperature.
+
+Figure 4: Predicted periods (in hours) of immersion at different temperatures which are
+                expected to result in "likely death". After Oakley and Pethybridge (1997).
+
+4. Post-rescue collapse
+
+Up to twenty percent of immersion deaths occur during extraction from the water,
+or within hours after rescue (Reference 19). This was first noticed in 1875, by
+Reinke, a police surgeon in Hamburg. He recorded cases of sailors who had
+fallen into the canals and harbour and died within 24 hours of being rescued.
+(Reference 16) During the Second World War, the Germans and Allies noted that
+some of those who were rescued alive, died shortly afterwards. Matthes
+(Reference 41) noted how ditched German aircrew who had been conscious in
+the water and aided in their own rescue, became unconscious and died shortly
+afterwards. McCance et al, 1956 (Reference 42) found that seventeen percent of
+those shipwrecked survivors rescued from the water at 10ºC or less died within
+24 hours of rescue. None of the people rescued from water above 20ºC died.
+
+When the Wahine Ferry sank in 1969 in Wellington Harbour, Mercer (Reference
+45) reported that, of the 51 lives lost, twelve were alive on rescue, but died
+shortly afterward. In the 1994 Estonia accident, at least one person who was
+noticed to be alive in the water, lost consciousness when in a helicopter hoist, fell
+back into the sea and died. An extensive list of post rescue collapse incidents is
+reported in Golden's articles on shipwreck and survival (Reference 16) and
+Golden and Hervey's article on the after-drop and death after rescue from
+immersion in cold water (Reference 18).
+
+THE DEVELOPMENT OF STANDARDS AND EQUIPMENT
+
+Although the existence of the lifejacket has been known since biblical times
+(Reference 5), the first standard for lifesaving equipment did not appear until
+1852. At this time, the United States introduced the requirement for "every (river)
+vessel, carrying passengers to be provided with a good life preserver...". This
+
+                                                                                                    14
+was followed by similar legislation in France (1884), Britain (1888), Germany
+(1891) and Denmark (1893). Following the Titanic accident, the International
+Maritime Organization formed the Safety of Life at Sea (SOLAS) committee,
+which required lifejackets to be carried on all passenger vessels. Most of the
+resolutions made in 1912 were not implemented until post-1918. Following the
+Vestris accident in 1928, men, women and children were noted to be lying face
+down and drowned in spite of wearing a life jacket. However, the second SOLAS
+convention precipitated by this accident ignored these facts and nothing in the
+lifesaving appliances regulations was changed. In the first forty-eight years of
+the 20th century, both naval and merchant navy philosophy was directed at
+keeping people floating in the water. Little attention was paid to whether they
+floated face up or face down. It was not realized that allowing people to float in
+cold water without protective clothing was very dangerous until (a) midway
+through the Second World War when the pioneering work of Macintosh and Pask
+established flotation angles and self-righting criteria for lifejackets (Reference 51,
+52, 53); (b) the publishing of the Talbot Report (Reference 55); and (c) McCance
+et als' paper (Reference 43).
+
+As a result, the SOLAS conventions of 1974, 1978, 1981 and 1983, concentrated
+on the prevention of hypothermia, i.e. stage three of the immersion incident
+(Reference 30, 31). This was done by establishing standards for life saving
+appliances, that is lifejackets, liferafts, and buoyant apparatus. What the
+international standards did not take into consideration was the effect of water
+temperature on the application of the standards. This has been left up to
+individual nations to legislate.
+
+In summary, from 1945 until 1995 a great deal of scientific, industrial, training
+and legislative effort has been put into the prevention of hypothermia. As a
+result, in both Europe and North America, particularly Canada, there are very
+good survival suit regulations. There is also a very good training program on the
+prevention of drowning and the prevention of hypothermia conducted by the Red
+Cross and the Life Saving Society; this is strongly supported by the US and
+Canadian Coast Guard. Yet, there are still over 140 000 open water deaths
+worldwide each year (Reference 17). There are better international standards
+and education than ever before, so what is happening?
+
+                                                                                                         15
+                                      CHAPTER 2
+
+THE INITIAL RESPONSES TO IMMERSION (STAGE 1 AND STAGE 2) - NEW
+SCIENTIFIC INFORMATION SINCE 1975
+
+It has now become clear that over half of the immersion-related deaths occur
+during the first two stages of immersion, i.e. cold shock and swimming failure.
+However, as stated previously, investigators still concentrate on the cause of the
+marine accident and not the precise cause of an individual's death. It is still hard
+to accurately document at what stage of the immersion death occurred. This is
+because little history has been gathered from survivors or by investigators. It is
+only possible, to a limited degree, to estimate the cause of death from a
+newspaper report or the scant information in the accident investigation. The
+problem is further compounded by the fact that such a good job has been done
+educating people on the dangers of cold water, immersion and hypothermia, that
+even the pathologists now list the cause of death as hypothermia, even though
+the cold, wet body on their autopsy table actually died from cold shock or
+swimming failure and drowning.
+
+The author was concerned about the Canadian general public's ignorance of the
+dangers of cold shock and swimming failure. Therefore, in conjunction with the
+Canadian Navy and the National Search and Rescue Secretariat, he produced,
+in 1998, a new training video on this topic titled "The Cold Facts - Surviving
+Sudden Cold Water Immersion". It is now available from Intercom Films in
+Toronto. As a follow on to this, he updated the knowledge on hypothermia and
+post-rescue collapse with the same sponsorship. The new video, "More Cold
+Facts - Hypothermia and Post Rescue Collapse", will be available in August
+2001.
+
+Furthermore, there has now been more research done on loss of tactility in cold
+water during the first 10-15 minutes of immersion (Reference 68). During this
+time, the cold water renders the limbs useless, and particularly the hands. It can
+become impossible to carry out any self-rescue procedures. This only enhances
+the possibility of perishing before hypothermia is established.
+
+STAGE 1 - COLD SHOCK
+
+Although cold shock or an increased respiratory response to cold water has been
+known for many years (Falk 1884) (Reference 10), the practical significance of
+this response has only really been evaluated in terms of its practical importance
+in the last 20 years. When considering at what water temperature protection
+should be provided against the initial responses to cold water immersion, it is
+now known that the cold shock response begins at water temperatures below
+25ºC (Reference 33) and peak at a temperature between 10-15ºC. (Reference
+60, 61) This is in part, the explanation for deaths that occur in water as high as
+15ºC long before standard survival curves would predict. It is now thought by
+
+                                                                                                         16
+many that the pressing threat to otherwise healthy individuals is the respiratory
+distress evoked by immersion and the consequent inability to control breathing
+and breath hold.
+
+Breath Holding Ability And Ability To Control Breathing Rate
+
+This is very critical for all who abandon ship into cold water. If they abandon dry
+shod into a liferaft, there is no problem. However, if they abandon ship into cold
+water, unless they are mentally and physically prepared for the cold shock, are
+protected with a survival suit, a lifejacket and a spray hood, they may drown in
+the immediate abandonment due to the inability to control breathing in the first
+three minutes of immersion. It is not just a problem of not being able to breath
+hold; if you are in choppy water, there is an inability to coordinate and control
+breathing with wave splash. This is a typical scenario for passengers on tourist
+vessels in Canada's lakes and rivers in spring and early summer.
+
+Sterba et al (1979) (Reference 54) investigated breath holding capability of
+humans in water ranging from 15ºC-35ºC. They concluded that breath holding
+ability at 15ºC was approximately 30% of the non-immersed values.
+
+Hayward et al (1984) (Reference 27) showed clearly that there is an inverse
+relationship between water temperature and breath hold ability. Thus, for
+abandonment in 25ºC water, average breath holding is 38 seconds, whereas for
+15ºC, 10ºC and 5ºC water it is 28, 24, and 19 seconds respectively. They
+concluded that breath holding time in water below 15ºC was 25-50% of the
+presubmersion level. Their predictive curve was recently validated at the higher
+end of the scale by Cheung et al (2001) (Reference 6) in 25ºC water following a
+breath holding experiment. Two hundred and twenty eight subjects participated
+and the average breath hold time was a mean of 39.8 ± 21.1 seconds.
+
+Manual Dexterity
+
+The ability to do such tasks as activate the life jacket inflation device (if fitted),
+climb into a life raft, cling to a becketted line or activate a flare depends on
+manual dexterity and grip strength. The ability of muscle to produce force is
+reduced when its temperature falls below 27ºC. This can occur in as little as 20
+minutes in water at 12ºC. (Reference 3) Vincent and Tipton (1988) (Reference
+68) showed that the maximum voluntary grip strength (MVGS) of subjects who
+immersed their unprotected hands or forearms in 5ºC water was reduced by 16%
+and 13% respectively, and that wearing a glove significantly reduced the MVGS
+by 16% in air and with the hand glove and water immersion combination, the
+reduction was 31%. Research has also shown that hand grip strength was
+reduced by up to 60% (Reference 7, 8, 20, 29), manual dexterity was reduced by
+30% (Reference 11, 37, 56) and speed of finger flexion was decreased by 15-
+25%.
+
+                                                                                                         17
+The sinking of the Hudson Explorer on Christmas Day 1981 in the freezing water
+off the Gulf of St. Lawrence is a classic example where cold extremities
+contributed to the death of five seamen.
+
+         The raft was overcrowded. The night was pitch black. The deck lights had
+         gone out a short time before. They could hear air escaping. They could
+         feel freezing water coming up around them. A spirit of sauve qui peut
+         seized them all. Six men made it back to the deck. They were helped by
+         the captain and Kennedy to scramble up the ship's side. Their desperate
+         plight may be imagined from the fact that some of them were so chilled by
+         wind and water that they climbed the ladder using knees and elbows
+         rather than hands and feet. Five others fell into the sea and were lost.
+         Perhaps some of them were simply too cold to be able to climb up the
+         ladder.
+         (Quotation from The Hudson Transport Report of Formal Investigation No.
+         109. ISBN 0-660-51972-0)
+
+Practical Evidence That Cold Shock Kills
+
+Death from cold shock is not uncommon. These are typical examples that are
+regularly reported in the Canadian press each year.
+
+    Globe & Mail, April 16, 1998
+             Teen drowns after lunch-hour plunge
+
+    Toronto - A 14-year-old high-school student drowned yesterday after jumping
+    into the frigid water of Lake Ontario.
+    Hours after the incident, police still did not know why Peter Arthur went into
+    the water, which was only about 4 degrees. There were two other teenagers
+    with him at the time.
+    When Peter failed to surface, his friends sought help from nearby construction
+    workers, who called the police.
+    When they arrived they jumped into the lake, which is about 3½ metres deep
+    at that location, and searched for the missing teen for 10 minutes, until the icy
+    water forced them to shore Sgt. McCann said.
+    As the two officers sat on nearby rocks, huddled in blankets, members of the
+    Toronto police marine unit arrived and took over the search. Dragging the
+    area with a net, they located the teen, who by that time had been in the water
+    for about 30 minutes.
+    Firefighters performed cardiopulmonary resuscitation until paramedics arrived
+    to continue treatment. But Peter was pronounced dead at Toronto East
+    General Hospital at 12:55 p.m.
+
+    Globe & Mail, January 3, 2000
+             Reveller drowns after attempting polar bear swim
+
+                                                                                                         18
+A man celebrating the New Year at a party on a frozen lake drowned when he
+jumped into a hole cut in the ice.
+Adrian Weber, 38, was playing hockey with 25 friends on New Year's Eve on
+Kingsmere Lake when he attempted a polar bear swim between two holes cut
+two metres apart in the ice.
+Mr. Weber dived in at 1:30a.m. When he failed to resurface, friends jumped
+in but were unable to find him.
+His body was recovered Saturday by firefighters, close to the spot where he
+had jumped in.
+"The water was only about waist deep and he tried to swim between the two
+holes," his 44-year-old brother Christoph Weber said. "He must have got
+disoriented."
+"His friends dove in right away with a rope and tried to find him. They drove a
+car onto the ice and pointed the headlights of the car toward the hole to get
+some kind of light onto the lake. It was dark and hard to see anything."
+Mr. Weber said his brother was healthy and a good swimmer.
+
+Globe & Mail, January 3, 2001
+         MDs urge `polar bear' swimmers to stop
+
+Doctors are urging self-styled "polar bear" swimmers across Canada to
+abandon their annual rite after a New Brunswick man died during a New
+Year's Day plunge.
+Ringing in the New Year by jumping into freezing water is a bad idea for
+anyone, regardless of age or health, said Dr. Kenneth Melvin, a cardiologist at
+Toronto General Hospital.
+"Even if you're in good health, this is bad for you," he said. "And if you're of
+middle age, and there's some question as to what your cardiac status could
+be, this is really playing with fire."
+
+Mail Star Chronicle Herald, March 9, 2001
+    Hope fades in Newfoundland for teens swept into ocean in Pouch Cove
+
+Hundreds of people lined the shore of this tiny coastal community Thursday
+night as hope faded for three teens who were swept into the ocean while
+playing on ice floes. Police said four males between the ages of 16 and 18
+were jumping from ice cake to ice cake about 50 metres from shore when one
+of them fell into the frigid water and slipped under the ice. The others tried to
+rescue him, but two were knocked into the ocean by a wave. The fourth teen
+made it back to shore. A woman who didn't want to be identified said people
+on shore tried to rescue the teens with a rope. She said one of them tried to
+grab the rope, but was too weak and couldn't hold on.
+
+                                                                                                     19
+There are several common threads in these accidents:
+    · the victims were good swimmers
+    · the water was cold
+    · death occurred within a matter of only minutes - much too early for
+         hypothermia to set in
+    · they were all healthy people
+    · they were all in shallow water
+    · the accidents occurred within feet of the shore.
+
+Most important, there was potential help at the scene of the accident, but no one
+recognized the danger of sudden death from cold shock in an otherwise healthy
+person.
+
+This is the precise reason why standards for wearing lifejackets and / or carriage
+of liferafts must not be relaxed when operating in cold water. Carriage of EPIRBs
+(with their 90 minute to 2 hour response time), and the fact that the vessel may
+be operating in a group or close to shore is not a reason for a waiver.
+
+The clear message is that sudden entry unprotected into cold water is very
+dangerous and should be avoided wherever possible. This applies to everyone
+whether commercial operators or recreational boaters.
+
+STAGE 2 : SWIMMING FAILURE
+
+It has now become apparent that much more emphasis must be put on
+swimming failure as a cause of death. It must also be understood that ability to
+swim in warm water is no indication of how well a human can swim in cold water.
+The classic testimony heard in the coroner's court is: "We saw him go over the
+side, he started to swim and by the time we had the boat turned around and tried
+to identify where he was lost, he had disappeared. How could that be? He was
+an excellent swimmer."
+
+These are not rare events either and are commonly reported in the newspaper.
+
+    Halifax Herald, June 18, 1996
+         A sad start - two accidents in one weekend
+
+    In Chester Basin, a 37-year-old woman drowned while attempting to swim
+    across Gold River to the Goldwater Marina. About forty people including
+    RCMP, firefighters and Coast Guard personnel undertook a search. Her body
+    was found an hour later.
+    [In a separate incident], a 30-year-old man who apparently overexerted
+    himself swimming in Halifax's Chocolate Lake on Sunday afternoon has a 15-
+    year-old girl to thank for helping save his life.
+
+                                                                                                         20
+    Michelle Yetman was suntanning with a friend shortly after 5 p.m. when she
+    heard cries for help coming from the water. At first she thought it was just
+    children playing around, she said.
+    But then she realized it was for real. " I guess he lost his breath...so I ran in
+    the water and swam as fast as I could to get out there," said Michelle, who
+    happens to be a junior lifeguard. "It was so cold, I felt like I was hitting ice."
+    When she reached the man, she helped the woman he had been swimming
+    with - who had called for help - keep him above water until another rescuer
+    arrived in a canoe. Then she helped load the man into the canoe, which took
+    him to shore.
+
+Markle (1991) in his study of life-saving appliances (Reference 41) cites a classic
+example of swimming failure in 15°C water.
+
+    FISH-N-FOOL February, 1987
+
+    The FISH-N-FOOL capsized in a 20 ft high wave about 4 miles off the
+    mainland of Baja California, and 2 miles from an island. Twelve people were
+    forced into 59°F [15ºC] water. Three of them apparently died shortly
+    afterward, directly or indirectly as a result of injuries sustained in the
+    capsizing. One survivor - the alternate operator - managed to stay near the
+    capsized boat hanging onto a hatch cover and a barrel. About an hour later,
+    the boat turned in the water in such a way that its four trapped lifefloats and
+    EPIRB were released. She lashed the life floats together and secured a
+    board over one of them to provide a platform on which she could sit and stay
+    relatively dry. She made sure the EPIRB was operating and then awaited
+    rescue by a Coast Guard helicopter over seven hours later.
+    The other eight survivors became separated from the capsized boat. As a
+    group, they decided to swim for the island. Four of them found debris
+    including an ice chest, a bleach bottle, and a piece of plywood to provide
+    flotation. Only one was still alive 6 hours later when he got close enough to
+    the island to call for help from fishermen on shore.
+
+Tipton et al (1999) (Reference 63) studied the deterioration of swimming
+performance after the subjects had adapted to the stage one cold shock
+respiratory responses. All ten competent swimmers completed a 90-minute swim
+in 25ºC water; eight completed the swim in 18ºC water. In 10ºC water, five
+swimmers completed 90 minute swims, four were withdrawn between 22 and 50
+minutes close to swim failure and one was withdrawn at 61 minutes close to
+swim failure. Stroke rate and length were similar in 25ºC and 18ºC water
+throughout the swims, but in 10ºC water the stroke rate was increased and the
+stroke length decreased. These changes were most pronounced in those close
+to swim fatigue. Stroke length decreased by 50% during the last 30 minutes for
+the swimmer who reached swim failure in 61 minutes.
+
+                                                                                                         21
+Coincident to this, the average swimming angle increased from an average of
+18ºC at the start of the swim to 24ºC at the end of the swim. The swimmer who
+reached swim failure finished with a swim angle of 35ºC. After 15-30 minutes in
+10ºC water, swimmers' fingers were splayed and started to flex. At the end of
+the swims, swimmers reported that it became increasingly difficult to straighten
+their limbs and coordinate swimming movements. Grip strength was not altered
+by swimming in water at 25ºC, but in water at 18ºC and 10ºC, it was significantly
+decreased by 11% and 26% respectively.
+
+Wallingford et al (2000) (Reference 69) investigated the factors which limit cold
+water swimming distance while wearing a personal flotation device. Five female
+and twelve male subjects took part in a swim in 14ºC water. The subjects swam
+an average of 889 metres before swim failure. There was no correlation between
+distance swum and percentage body fat, aerobic fitness and abdominal skinfold
+thickness. However, those who swum the greatest distance had a significantly
+larger tricep skinfold thickness.
+
+Wallingford et al. agreed with the conclusion made by Giesbreicht (1995)
+(Reference 12) that the majority of the decrement in arm performance is due to
+the local cooling of arm tissue and not due to hypothermia. Wallingford's study
+did not support the assumption made by Hayward et al (1975) (Reference 23)
+that hypothermia could be responsible for the inability to swim in cold water while
+wearing a personal flotation device. If Hayward's prediction was correct, the
+swimmers would have covered a distance of 2058 metres before incapacitation.
+This was more than double the distance of 889 metres covered by the subjects
+long before incapacitation from hypothermia (end average core temperature of
+35.8ºC).
+
+Potential for Cardiac Arrhythmias
+
+Tipton (1989) (Reference 59) had already documented the initial cardio-
+respiratory responses to immersion in cold water, i.e. the massive increase in
+heart rate and blood pressure within the first three minutes of immersion. Then
+in 1994, Tipton et al investigated the cardiac responses to submersion in water of
+5ºC and 10ºC. (Reference 62). Ectopic arrhythmias (irregular heartbeats) were
+observed in 11 of the 12 subjects in 29 of the 36 submersions. These occurred
+immediately after breaking of breath hold, i.e. just at the time after jumping into
+the water and having to take a breath. They were benign in most cases, (i.e.
+they were of short duration, supraventricular in origin and producing no
+symptoms). However, this may not be the case for an aging population of tourists
+that may have to abandon a vessel in cold water, such as the St. Lawrence River
+or one of the Great Lakes. For those with a potential heart conduction defect, the
+heart is likely to be very susceptible to sudden immersion in water of 10ºC,
+resulting in a cardiac arrest or death. Sudden immersion in cold water to the
+neck makes the heart much more susceptible to arrythmias, due to an increase
+
+                                                                                                         22
+in output of the stress hormones (i.e. Adrenaline, Noradrenaline). The frequency
+of these arrhythmias is higher when the face is immersed.
+
+STAGE 3: HYPOTHERMIA
+
+Heat Balance: The Basic Physics
+
+In order to understand the cause of hypothermia, it is important to understand the
+basic physics of how a human maintains heat balance.
+
+Heat flows down a thermal gradient from high to low temperatures. Thus, in the
+cold, a thermal gradient is established, down which heat "flows" from the warmer
+deeper tissues to the cooler tissues near the surface of the body. Heat then
+escapes from the body to the environment. In normal circumstances in air, the
+body can exchange heat with the environment via four physical processes:
+radiation (R), convection (C), conduction (K), and evaporation (E).
+
+R (Radiation). All objects possessing heat, including the body, emit thermal
+radiation from their surfaces.
+C (Convection). This is the process by which heat is exchanged with the
+environment by the movement of air or water molecules adjacent to the skin, as
+they move away they are replaced by colder molecules.
+K (Conduction). This term is used to describe heat exchange between the skin
+and surrounding surfaces with which it is in direct contact.
+E (Evaporation). Evaporation is the process by which energy transforms liquid to
+a gas. The heat required to drive this process is removed from the surface of the
+object on which evaporation is occurring, and it cools.
+
+For body temperature to remain stable in a cool environment, the heat produced
+by the body at rest or through exercise or shivering (M), must match that lost by
+R,C,K and E.
+
+Several factors influence the amount of heat exchanged by R,C,K, and E. The
+most common are: the surface area involved in heat exchange; the temperature
+gradient between the body and the environment; and the relative movement of
+the fluid (air or water) in which the body is placed. This explains why someone
+will cool faster if: they are in colder water (gradient); they are partially immersed
+compared to completely immersed (surface area); they are in fast flowing as
+opposed to still water (movement of the fluid); they move about compared to
+staying still (relative movement of the fluid).
+
+In water, heat is conducted to the molecules of water in contact with the skin
+("boundary layer"), these molecules are warmed and rise (Convection), and are
+replaced by cooler ones. Thus, in water only two of the four primary pathways
+for heat exchange are available, and heat loss is principally by convective and
+
+                                                                                                         23
+conductive heat exchange. Despite this, a naked individual in cold water will cool
+approximately four times faster than in air at the same temperature. This is
+because the thermal conductivity of water is 25 times that of air, and its volume-
+specific heat capacity is approximately 3500 times that of air. Therefore, water
+has a much greater capacity to extract heat (see Footnote). Furthermore, when
+in water, unlike air, the surface area available for heat exchange with the
+environment comes close to 100%. This is the reason why cold water is so
+dangerous. The corollary to this is that hot water is a very good medium to
+rewarm hypothermic victims.
+
+If the immersed person has survived the initial two stages of immersion, i.e. cold
+shock and swimming failure, then the next hurdle to face is hypothermia. It is
+now known that this per se may not be the cause of death. This was noted by
+Golden (1996) (Reference 19). As previously stated in Chapter 1, the predicted
+50% survival times for fully clothed men in water wearing lifejackets are 1 hour at
+5°C, 2 hours at 10°C, and 6 hours at 15°C. Yet these figures are difficult to
+validate in the laboratory where the body temperature only falls about two or
+three degrees in the equivalent time. There must be another cause of death.
+Golden explained that a conscious survivor in a seaway will make the physical
+effort to keep his/her back against the waves, but when physically impaired
+through muscle cooling, semi-conscious and with a loss of determined will to
+survive, both of which occur after a body core temperature drop between 2-3°C,
+then the survivor turns into the waves and drowns. He also emphasized the
+point that death will occur much quicker from drowning if a lifejacket is not worn
+(Figure 5, Reference 15).
+
+                                                                                           Figure 5: Empirical curve
+                                                                                           correlating deterioration in
+                                                                                           consciousness to time, in an
+                                                                                           immersed body with (B) and
+                                                                                           without (A) a lifejacket.
+                                                                                           Courtesy of Prof. Frank
+                                                                                           Golden. (Reference 15)
+
+Footnote:  The volume-specific heat capacity is obtained by multiplying the specific heat of a substance by its density. It
+           represents the amount of heat required to raise the temperature of a given volume of water by 1ºK. At 37ºC
+           the volume-specific heat capacity of water is 3431 times that of air.
+
+Swimming has a massive impact on the rate of body cooling and can increase
+the rate between 30-40% (Reference 35).
+
+           24
+In spite of good teaching programs and regulations for lifejackets, people still die
+of hypothermia. The latest survival prediction curve comparison as previously
+mentioned, is presented by Oakley and Pethybridge in 1997 (Reference 50).
+
+Markle provides several classic examples of death from hypothermia in water
+below 15ºC in his report. Again, from Markle's report (1991) (Reference 41).
+
+    COMET, May 1973
+
+    The COMET had 27 persons on board and sank in Block Island Sound,
+    Rhode Island, about seven miles offshore, in 48°F [9ºC] water. The COMET
+    had no EPIRB and the only lifesaving apparatus was a 20-person buoyant
+    apparatus. About 15 of the survivors held onto the buoyant apparatus at
+    some point, including two of three who set out in a swamped dinghy to get to
+    the buoyant apparatus. Six others were able to use an 8' X 10' piece of
+    flotsam for partial support. Almost everyone on board had a lifejacket on
+    when they abandoned ship. The two or three people who were not able to
+    get a lifejacket were able to use either the buoyant apparatus or the flotsam.
+    The first death occurred in the dinghy about ½ hour after the sinking. Deaths
+    continued until rescuers happened on the scene 4 hours later. A total of 16
+    persons died in this time.
+
+    JOAN LA RIE lll October, 1982
+
+    The JOAN LA RIE lll had 22 persons on board and sank about 8 miles off of
+    the New Jersey coast in 53°F [11.6ºC] water. Life saving apparatus consisted
+    of a 7-person buoyant apparatus and a 15-person life float. Most of the
+    passengers were resting in the deckhouse when the vessel was hit by a
+    rogue wave, heeled over, and began to flood. Two persons are missing as a
+    result of this casualty. They may have drowned in the deckhouse. The
+    remaining 20 persons were able to escape into the water, but none was able
+    to put on a life jacket. Apparently all but two persons made it to the life float
+    and buoyant apparatus, which were secured together. Those two died. Of
+    the remaining 18 gathered at the life float and the buoyant apparatus, 14
+    survived and 4 died in the 90 minutes it took for the rescue to arrive.
+
+The argument that liferafts are not necessary because vessels operating near
+shore in day time can expect other vessels to come to the rescue quickly is not
+supported, nor is the addition of an EPIRB going to speed up rescue to this type
+of response time. As already stated, death will occur within 3-5 minutes for those
+who have not donned a life jacket, or from swimming failure within 30 minutes if
+not clothed properly and supported by a lifejacket. Markle's (1991) (Reference
+41) review of US lifesaving systems for small passenger vessels from 1973 -
+1990 came to precisely the same conclusion.
+
+                                                                                                         25
+Markle further correctly noted that persons in the water with and without
+lifesaving equipment died at a much higher rate than predicted by the estimated
+survival graph. This supports Golden's theory that many victims drown during
+the cold shock and swimming failure stage of immersion, not from hypothermia
+per se. Even if they survive long enough to cool, cold-induced muscle
+incapacitation can prevent their keeping their backs to the waves, and thus their
+oro-nasal cavities clear of water, sometime after their body core temperature is
+reduced 2-3ºC.
+
+Markle further concluded that "The present requirements for lifejackets, life floats
+and buoyant apparatus have proven adequate in all studied casualties where
+water temperature was 15ºC or more". This might have been the case in this
+study, but it is still possible to die from hypothermia and post rescue collapse as
+in the case of the Lakonia in 1965 that sank in 17.9ºC water off Madeira
+(Reference 34).
+
+The provision of a buoyant apparatus in which the survivor is basically floating
+with head only out of the water clinging to a becketed line in water below 15ºC is
+only a last ditch measure if everything else has failed. Drowning is very likely
+from cold shock and swimming failure, in the short term, and hypothermia and
+post rescue collapse in the long term. The colder the water, the greater the
+chance of death. Again, as Markle clearly pointed out, in the case of the Cougar
+accident, the two people who managed to get themselves on top of a buoyant
+apparatus were the two not to be hospitalized. The remainder had to remain
+clinging to it in water at 13ºC, three died. Similarly, in another case referred to by
+Markle (Zephyr ll accident), if the device had been a liferaft instead of a buoyant
+apparatus, the person without the lifejacket would have been able to board it and
+would have survived the few minutes in the water. In this accident, eight of the
+survivors got separated from the boat. They decided to swim to an island, only
+one was alive six hours later when he called for help when almost ashore.
+
+A Typical Case Where Death was Attributed to Hypothermia
+
+The Ocean Ranger sank in near freezing water on the Grand Banks off
+Newfoundland in February 1982 with the loss of all 84 men. No one was outfitted
+with a survival suit, although some wore lifejackets. The cause of death was
+attributed to drowning from hypothermia, yet from the testimony available, many
+died after only a matter of a few minutes in the water.
+
+Quotation from the National Transportation Board Marine Accident Investigation
+Report NSTB-Mar-83-2, testimony from the Master of the Seaforth Highlander:
+
+         Probably about three minutes after sighting the first flare we visually
+         sighted a lifeboat which at first appeared to be in good shape riding high
+         on the water, and I maneuvered my ship very close downwind of the
+
+                                                                                                         26
+lifeboat. The lifeboat was under power because he steamed across a
+swell, across my stern from the starboard side to port side, and he
+maneuvered his lifeboat down the port side of my vessel on to the port
+quarter. He came alongside us, and my men, who by this time had gone
+out on the deck, threw lines to the lifeboat, lines with life rings attached.
+One line was made fast on the lifeboat, and the other was made fast to my
+ship. Then some men began to come out of the enclosed boat, and they
+stood on the port side of the lifeboat, which was the side away from my
+vessel - four or five, maybe six men came out and stood on the port side.
+
+Sometimes the lifeboat was just touching the Seaforth Highlander but not
+especially violently. At other times she was about six feet off the Seaforth
+Highlander. She was moving in and out a little. It was at that time that the
+lifeboat began to capsize to port in a very slow manner, like watching a
+slow motion picture. The men standing on top of the boat were thrown into
+the sea. The boat remained capsized. I believed during the capsize of the
+lifeboat the line we had made fast to it parted. After it had capsized it was
+approximately 12 feet maybe off the Seaforth Highlander, and I could see
+what I estimate to be eight or nine men clinging to the boat in the water. I
+could see all these men. They had lifejackets on, and there was a light on
+each lifejacket.
+
+At about this time I was taking heavy seas in the after deck of my vessel
+which was stern to wind and sea. The mate and one of the seamen were
+washed up (on) deck, but they were both okay, although they suffered
+some bruising. The gangway net was washed over the side. We were still
+along the lifeboat, and after maybe a minute and a half or two minutes - it
+is very difficult to estimate - the men clinging to the boat began to let go,
+and they drifted down my port side. At that point I shouted down to the
+mate on the deck via the loud hailer system to throw over a liferaft. I saw
+the men running up forward on my deck to go for the liferaft, and they
+threw a liferaft over the side which inflated right beside the men in the
+water. No effort was made by any man in the water to grab hold of the
+liferaft. No effort was made by any of the men in the water. No apparent
+effort was made by any of the men in the water to reach the lines which
+my men had been throwing to them after the boat capsized.
+
+I saw a life ring with line attached landing close to the men clinging to the
+boat, and they didn't make any effort to reach the life ring. At this time
+there were some men drifting down my port side, but the lifeboat was still
+off the port quarter of the ship with two or three men clinging to it. It was
+close to my port propeller at this time, so I had to stop my port propeller in
+case the men got caught in it.
+
+At the time the Seaforth Highlander was forced off the location by heavy
+seas, and we could no longer maintain our position alongside the men in
+
+                                                                                                27
+         the water or the lifeboat. Once we were clear of all the men I was able to
+         use the port propeller again, and I maneuvered the ship back around to an
+         upwind position from the lifeboat and steamed down close to the lifeboat,
+         the men and the lifejackets in the water. There was no sign of life at all.
+         We could see all the men floating with their heads under the water, some
+         of them with their arms outstretched, no sign of life, and the men on the
+         deck were trying to pick up bodies.
+
+Death obviously in this case was caused by cold shock and possibly swimming
+failure, but certainly not hypothermia.
+
+Should Passengers Wear Lifejackets Prior To Abandonment?
+
+This question was raised after several rapid sinkings occurred. Particular
+accidents cited have been the loss of the MV George Prince (1976) (Reference
+65) in the Mississippi River where 76 people died, the loss of the USCGC
+Cuyahoga (1978) (Reference 66) in Chesapeake Bay where 11 people died; the
+loss of the Marchioness (1989) (Reference 40) in the River Thames, UK, where
+51 people died; and the loss of the MV Miss Majestic (1999) (Reference 67) on
+Lake Hamilton, Arkansas where 13 people died. The problem in each of these
+accidents was that many of the people were trapped between decks. The
+wearing of an inherently buoyant lifejacket would have further hampered their
+escape if it was possible. Nevertheless, for those who found themselves in the
+water and in the dark in two of the accidents, a lifejacket was critical to their
+survival.
+
+If one is therefore going to regulate that passengers must wear a lifejacket on a
+passenger-carrying vessel that does not have the ability to carry a liferaft, then
+the lifejacket must be an inflatable one. The modern inflatable lifejacket is an
+excellent piece of life-saving equipment; it is comfortable, unobtrusive and very
+reliable. The Europeans have been using them for recreation and commercial
+boating operations on their lakes, rivers and canals for years. Canada has
+simply been slow in effecting new legislation for approval and it is only in the last
+five years that they have started to come into general use.
+
+The argument from ship's operators that they are expensive to purchase and
+maintain is only partially true. The fact is that once operators start to use them
+and passengers become familiar with them, then the confidence in their merit will
+go up, the price (due to a higher demand) will go down, and maintenance costs
+will correspondingly go down due to the general public starting to respect a very
+good piece of equipment that will potentially save their life. The two children in
+the True North II accident would have likely been alive and well today if they had
+worn a good inflatable lifejacket as they stepped on board the boat.
+
+                                                                                                         28
+                                      CHAPTER 3
+
+WHAT IS THE PRACTICAL APPLICATION OF THE CURRENT SCIENTIFIC
+DATA AND SURVIVOR TESTIMONY FOR LEGISLATION OF LIFE-SAVING
+APPLIANCES IN CANADA?
+
+A major determinant of survival time in cold water and one that is largely
+overlooked is the sea state. Not only does this increase the risk of drowning
+because of increased frequency of immersion of the airway, it also increases
+convective cooling. It is concluded:
+
+(a) That water is a very good conductor of heat.
+
+(b) That the body immersed to the chest in a lifejacket cools principally from
+         conduction and convection.
+
+(c) The colder the water, the greater the thermal stimulation and heat loss.
+         Consequently, the chance of death from cold shock, swimming failure,
+         hypothermia, and post rescue collapse increases.
+
+(d) The colder the water, the sooner the incapacitation of the hands very
+         shortly after entry immersion.
+
+(e) Grip strength and tactility is also reduced in cold water just at the critical
+         time when it is most needed to initiate survival actions.
+
+(f) If rescue does not occur within the first 10-20 minutes, then the ability to
+         cling to floating debris, becketed grab lines, and do any physical self-
+         rescue actions decreases.
+
+(g) Even if the head is supported with a lifejacket, this is no guarantee that
+         drowning will be prevented in cold, choppy water unless a splashguard is
+         worn.
+
+(h) One must avoid abandoning ship into cold water (wet shod evacuation) if
+         possible. Whenever possible, one must leave the vessel at the last
+         possible time and abandon directly into a liferaft (dry shod evacuation).
+
+(i) If the abandonment occurs at dusk or in the dark, there is a high chance
+         that the victim may become lost or drowned.
+
+(j) Most important of all, is that once the immersion occurs in water below
+         15°C, the problems become worse.
+
+Let us now consider a person who may be part of the crew, be a young child or
+an elderly tourist who suddenly, with little warning has to abandon ship wearing
+
+                                                                                                         29
+an approved lifejacket into Canadian inshore lakes or rivers. Unfortunately, there
+has just been such an abandonment, which ended up in tragedy, this typifies the
+problem and precipitated the study conducted in this report.
+
+    Halifax Sunday Herald, June 18, 2000
+             Boat mishap cause still unknown - Bodies of victims recovered
+
+    The tour boat that sank to the bottom of frigid Georgian Bay and claimed the
+    lives of two 12 year-olds went down fast and furious after powerful waves
+    crashed into the vessel and tore one of its doors away.
+    None of the children was thought to have been wearing lifejackets when the
+    12 metre steel-hulled True North II sank Friday morning, shortly after it picked
+    up the children following a visit to nearby Flowerpot Island.
+    "There were other boats in the water and they were trying to get their
+    attention. But with the waves being high, they couldn't be seen."
+
+[This newspaper quotation was not strictly true in the fact that there was only one
+US registered yacht in the area. The water conditions were too choppy for it to
+get close enough to assist, but it did raise the alarm.]
+
+Unfortunately, the children had to abandon directly into the water in their street
+clothes, quite unprepared for such an event. This is quite typical of a marine
+accident - it is sudden and unexpected and, indeed, rescue was quite near at
+hand (20 minutes). The two children probably drowned as a result of cold shock
+or swimming failure. The water temperature was 10ºC and the investigators did
+not enquire at what stage any witnesses last saw the children, so it is
+speculation. The fundamental question was not reported by the Board of Inquiry
+as to whether they could swim. Later, at the inquest, it was established that both
+children could swim. They certainly did not die from hypothermia because they
+were not in the water long enough. As previously stated, this further supports the
+fact that swimming in cold water without the protection of a lifejacket is potentially
+very dangerous and that swimming ability in warm water bears no relationship to
+that in cold water. They should also all have been wearing lifejackets when there
+was signs that the boat was in trouble. The lifejackets were stowed in a difficult
+place to gain access to them, so they were never used. They should have never
+been allowed to abandon ship into the cold water. They should have abandoned
+dry shod into a liferaft, but it was impossible to launch the liferaft due to the fact
+that there was no hydrostatic release, nor was it able to float away free.
+(Reference 63)
+
+So, could the deaths have all been prevented? Probably.
+
+                                                                                                         30
+How Should Canada Proceed with New Legislation?
+
+Clearly, it is potentially very dangerous for any person dressed in normal street
+attire and particularly with no lifejacket to abandon any form of vessel irrespective
+of size or purpose in water below 15ºC. Even a lifejacket, if not worn properly or
+without a spray hood, does not guarantee the victim protection from drowning.
+
+Transport Canada should introduce new regulations that can be implemented
+stepwise over a timescale of their choice. The basic principle must be that no
+human should be expected to abandon ship in Canadian rivers and lakes wet
+shod into water below 15ºC. For all newly constructed vessels it is suggested
+that implementation of this principle should start for the year 2003 and that by
+2005 all older vessels must comply with this philosophy or be refitted. There will
+be some exceptions to this philosophy that will be discussed later.
+
+By adopting this philosophy, this means that every passenger carrying vessel
+must carry a liferaft for a large portion of the year while the water temperature
+remains 15ºC. Stowage, accessibility and ease of launching is always a
+problem, but a particular problem for smaller vessels. Vessels that carry six to
+eight passengers may simply not have the space. However, these types of
+vessels due to the nature of their size and type of operations may be at most risk
+from marine accidents. The advice would be to insist that the passenger wear
+the most recently approved inflatable lifejackets while underway in water below
+15ºC. The modern inflatable lifejacket is an excellent piece of safety equipment,
+it is light weight, comfortable to wear, unobtrusive, cool even on hot days and
+does not limit physical movement.
+
+Insisting on inherent buoyant lifejackets causes the potential risk of someone
+being trapped between decks due to the buoyancy. For school trips, Scout
+camps, etc., it would be prudent to insist that everyone wears an inflatable
+lifejacket and irrespective of this, all schoolchildren under age 13. (The teachers
+and leaders would then be showing an example to their students and also many
+of them are non-swimmers.) For rapid capsizements, such as the True North II
+there is still merit in carrying seat cushions and buoyant apparatus for those who
+cannot swim.
+
+Certain catastrophic conditions will be faced by the passengers at the point of
+abandonment into cold water:
+
+    · Very rapid sinking with little warning - life jacket donned
+    · Very rapid sinking with little warning - no lifejacket donned
+    · A slower, more orderly evacuation where the majority of people will don
+
+         lifejackets
+For the first two conditions the passengers may find that they have simply been
+washed over the side or physically ejected from the deck. This is the worst
+possible scenario.
+
+                                                                                                         31
+The primary level of protection from drowning especially in cold water from cold
+shock will be their lifejackets if donned. To improve the likelihood that they are
+wearing lifejackets, the Masters need more education in ordering the donning of
+lifejackets when conditions start to get rough, not when it's too late. This is what
+happened in the case of the True North ll. The two new Canadian videos on
+cold shock, swimming failure, hypothermia and post-rescue collapse should be
+introduced into the curriculum of the Marine Emergency Duties Course as soon
+as possible.
+
+The secondary level of protection will be the liferaft and buoyant apparatus.
+Hopefully, if there is a slower, orderly evacuation, they can abandon dry shod
+into a liferaft. The victims who find themselves suddenly in the water, and
+particularly non-swimmers will require some immediate flotsam, jetsam or
+buoyant apparatus to cling to in order to control respiration and make their way to
+a liferaft. In theory, if all the new, regulated liferafts have automatic hydrostatic
+releases, then even in the dark it should be possible for the survivors to stay
+afloat long enough to locate the raft and board it, likely with assistance. For
+those already wearing a lifejacket, they will be able to swim a short distance to
+the liferaft.
+
+For all victims, if the water is cold and they are dressed in street clothes only,
+they should not swim unless within metres of shore or a safe refuge, the
+likelihood of death from swimming failure is always present, hence the
+requirement for carriage of liferafts when the water temperature is below 15ºC.
+
+The argument that liferafts are not necessary because vessels operating near
+shore in day time can expect other vessels to come to the rescue quickly is not
+supported, nor is the addition of an EPIRB going to speed up rescue to this type
+of response time. The Canadian response to an EPIRB ranges from 90 minutes
+to 2 hours. Death will occur within 3-5 minutes for those who have not donned a
+life jacket, or from swimming failure within 30 minutes if not clothed properly and
+supported by a lifejacket.
+
+                                                                                                         32
+                                   CONCLUSIONS
+
+1. Up until fifty years ago, no one really understood the reason why people
+         immersed in cold water died. It was attributed to an inability to stay afloat
+         and vague terms such as "exposure".
+
+2. The massive loss of life at sea during the Second World War noted in the
+         Talbot Report and McCance et al's paper for the Medical Research
+         Council initiated a lengthy and extensive research program to investigate
+         the cause, in which hypothermia became recognized.
+
+3. Subsequently, a whole series of survival prediction curves have been
+         produced, in different temperatures of water, the objective being to predict
+         when death occurs from hypothermia.
+
+4. Survival prediction curves are of limited value only. This is because they
+         do not take into account that death may occur from cold shock, swimming
+         failure and drowning during early hypothermia. The curves should be
+         revised to include these factors.
+
+5. Regulators, teaching establishments and survival suit manufacturers all
+         concentrated their efforts on protecting the person from hypothermia.
+         Indeed, in this regard they have done a very good job.
+
+6. By the early 1980's, it became clear that there were four stages of the
+         immersion incident in which a person could die: Stage 1 - cold shock (3-5
+         minutes); Stage 2 - swimming failure (30 minutes); Stage 3 - hypothermia
+         (greater than 30 minutes); and Stage 4 - post rescue collapse (on or
+         shortly after rescue).
+
+7. Swimming ability in warm water bears no relationship to swimming ability
+         in cold water.
+
+8. Manual dexterity is severely degraded in water below 15°C particularly at
+         the time when it is required to do essential survival tasks.
+
+9. For those passengers with a potential heart conduction defect (middle-
+         aged and elderly tourists), immersion in cold water increases the chance
+         of fatal cardiac arrythmia (irregular heart beat).
+
+10. Even given the above, the layperson, is often still surprised that some
+         people do not survive a lengthy immersion even though they are
+         theoretically within the "safe" boundaries of the current, predicted survival
+         curves. These people do not die of hypothermia per se, but from a variety
+         of problems included in which is moderate hypothermia where a lowering
+         of the body core temperature is enough for them to lose their physical
+
+                                                                                                         33
+         ability and mental determination to keep their backs to the waves. They
+         thus inhale the next wave and die from drowning in spite of wearing a life
+         jacket.
+
+11. Even though there are well established teaching programs, regulations
+         and much improved life saving equipment, there are still in the order of
+         140 000 open water deaths each year. What has been overlooked is the
+         significance of the first two stages - cold shock and swimming failure as a
+         cause of death. The precise details of these are described in this report.
+
+12. Research within the last ten years and documentation of witness
+         testimony and boards of inquiry have confirmed that cold shock and
+         swimming failure are indeed a very significant cause of death.
+
+13. From all the combined research on cold water accidents and scientific
+         research, it has become clear that sudden immersion in cold water, i.e.
+         below 15°C is very dangerous, it should be avoided if at all possible.
+         Furthermore, a conscious decision to swim (and rescue oneself) or stay
+         floating still in the water should not be taken lightly without assessing the
+         pros and cons. It has now been shown that a person's swimming ability in
+         warm water bears no relationship to that in cold water.
+
+14. The severity of the effects of cold shock is directly proportional to the
+         water temperature peaking between 10-15ºC.
+
+15. These scientific findings lead to the practical advice regarding the
+         regulations requiring the carriage of liferafts and training of operators of
+         passenger carrying vessels.
+
+         (a) Wherever possible, entry into water below 15°C should be avoided.
+                  Direct entry into a life raft should be the objective.
+
+         (b) Transport Canada should use this philosophy in the design,
+                  development and implementation of all new legislation in a step
+                  wise fashion. All vessels operating in Canadian lakes and rivers at
+                  15°C or below should carry liferafts that can easily be launched and
+                  boarded by the entire crew and passengers.
+
+         (c) The only exception to this should be where it is physically or
+                  practically impossible to stow a liferaft. Under such conditions the
+                  passengers must wear inflatable lifejackets when on board.
+
+         (d) Operating a vessel close to the shore or in groups or the carriage of
+                  EPIRB are not a reason for waiving this requirement because death
+                  from cold shock will occur within 3-5 minutes, swimming failure in
+                  under 30 minutes, and darkness only hampers escape and rescue.
+
+                                                                                                         34
+(e) The Marine Emergency Duties curriculum should be amended to
+         include the two new Canadian videos on cold shock, swimming
+         failure, hypothermia and post-rescue collapse.
+
+                                                                                                35
+                                    REFERENCES
+
+1. Alexander, L. The Treatment of Shock from Prolonged Exposure to Cold,
+         Especially in Water. Combined Intelligence Objectives Subcommittee.
+         Item No 24, File No 26-37.
+
+2. Allan, J.R. Survival After Helicopter Ditching; A Technical Guide for Policy
+         Makers. Int. J. Aviat. Safety 1:291-296. 1983
+
+3. Barcroft, H. and Edholm, O.G. Temperature and Blood Flow in the
+         Human Forearm. J. Physiol, 104, 4, 366-376. 1946.
+
+4. Beesley, L. The Loss of the Titanic. London, Philip Allen, 1912.
+5. Brooks, C.J. Designed for Life: Lifejackets Through the Ages. Hemlock,
+
+         Canada. ISBN 0 9699913 0 4, 1995.
+6. Cheung, S.S., d'Eon, N.J., Brooks, C.J. Breath Holding Capacity of
+
+         Offshore Workers Inadequate to Ensure Escape from a Ditched
+         Helicopter. Aviat Space Envron. Med. In press 2001.
+7. Clarke, D.H., Stelmach, G.E. Muscular Fatigue and Recovery Curve
+         Parameters at Various Temperatures. Res. Q. 1966: 37: 468 - 479.
+8. Clarke, R.S.J., Hellon, R.F., Lind, A.R. The Duration of Sustained
+         Contractions of the Human Forearm at Different Muscle Temperatures. J.
+         Physiol. Lond. 1958: 143: 454 - 473.
+9. Currie, J. 1798, The Effects of Water Cold and Warm as a Remedy for
+         Fever. Appendix ll on the Treatment of Shipwrecked Mariners. Cadell
+         and Davis, London, 1798.
+10. Falk, F. Versuche uber beziebung der hantnerven zur athmung. Archiv.
+         Fur Anatomie und Physiologie, 8, 455, 1884.
+11. Gaydos, H.F. Effects of Localized Hand Cooling Versus Total Body
+         Cooling on Manual Performance. J. Appl. Physiology 1958;12:377-80.
+12. Giesbreicht, G.G., Pu Wu, M., White, M.D., Johnson, C.F., Bristow, G.K.
+         Isolated Effect of Peripheral Arm and Central Blood Cooling on Arm
+         Performance. Aviat. Space Environ. Med 66:968 - 975.
+13. Gilbert, M., Busund, R., Skagseth, A., Nilsen, P.A. & Solbo, J.P.
+         Resuscitation from accidental hypothermia of 13.7°C with circulatory
+         arrest. Lancet 2000: 355:375-376.
+14. Golden, F.St.C., Hervey, G.R. A Class Experiment on Immersion
+         Hypothermia. Journal of Physiology. 227, 45. 1972.
+15. Golden, F.St.C. Recognition and Treatment of Immersion Hypothermia.
+         Proc. Of the Royal Society of Medicine. Vol. 66 1058-1061. October,
+         1973.
+16. Golden, F.St.C. Shipwreck and Survival. J.RN. Med. Serv. Nos 1 and
+         2. Summer, 1974.
+17. Golden, F.St.C., Rivers, J.F. The Immersion Incident. Anesthesia, 1975;
+         30:364 - 373.
+18. Golden, F.St.C, Hervey, G.R. The "After-Drop" and Death after Rescue
+         from Immersion in Cold Water. In Hypothermia Ashore and Afloat. J.M.
+         Adam (1981) ISBN 0 080 025750 X.
+
+                                                                                                         36
+19. Golden, F.St.C. Survival at Sea: the Nature of the Medical Threat. In
+         conference proceeding RINA. Escape, Evacuation and Rescue
+         Conference. London, Nov, 1996.
+
+20. Grose, J.E. Depression of Muscle Fatigue Curves by Heat and Cold. Res
+         Q. 1958: 29: 19 -31.
+
+21. Hall, J.F. Prediction of Tolerance in Cold Water and Liferaft Exposure.
+         Aerospace Medicine. 43. (3) : 281-286, 1972.
+
+22. Hayes et al, For the Development of a Mathematical Model for the
+         Specification of Immersion Clothing Insulating RAF IAM Report No. R
+         653, 1987.
+
+23. Hayward, J.S., Eckerson, J.D., Collis, M.L. Effect of Behavioural
+         Variables on Cooling Rate of Man in Cold Water. J. Appl. Physio 38,
+         1073, 1975.
+
+24. Hayward, J.S., Eckerson, J.D., Collis, M.L. Thermal Balance and Survival
+         Times Predictions of Man in Cold Water. Can J. Physiol. Pharmacol 53-
+         21-32:1975.
+
+25. Hayward, J.S., Eckerson, J.D., Collis, M.L., Thermoregulatory Heat
+         Production in Man: Prediction Equation Based on Skin and Core
+         Temperature. J. Appl. Physiol. 42: 377-384. 1977.
+
+26. Hayward, J.S., Eckerson, J.D., Physiological Responses and Survival
+         Time Prediction for Humans in Ice-Water. Aviat . Space. Environ. Med
+         1984: 55(3): 206-212.
+
+27. Hayward, J.S., Hay, C., Matthews, B.R., Overwheel, C.H., Radford, D.D.
+         Temperature Effect on Human Dive Response in Relation to Cold Water
+         Near-Drowning. J. Appl. Physiol. 1984: 5G(1) 202 - 206.
+
+28. Herodotus (circa 450 BC) History. Book 6, Chapter 44.
+29. Hunter, J., Kerr, E.H., Whillans, M.G. The Relation Between Joint
+
+         Stiffness upon Exposure to Cold and the Characteristics of Synovial Fluid.
+         Can. J. Med. Sc. 1952; 30: 367-377, 1952.
+30. International Maritime Organization, Testing and Evaluation of Life-Saving
+         Appliances. IMO. London, 1984.
+31. International Maritime Organization, International Convention for the
+         Safety of Life at Sea. IMO London. ISBN 92 80 101200 7, 1986.
+32. Keatinge, W.R. The Effect of Work and Clothing on the Maintenance o
+         the Body Temperature in Water. Quarterly Journal of Experimental
+         Physiology. 46.69.1961.
+33. Keatinge, W.R., Nadel, J.A. Immediate Respiratory Response to Sudden
+         Cooling of the Skin. J. Appl. Physiol. 20:65-69, 1965.
+34. Keatinge, W.R. Death after Shipwreck. Brit , Med. J. 2:1537 - 1541,
+         1965.
+35. Keatinge, W.R. Survival in Cold Water. Blackwell Scientific Publications.
+         Oxford and Edinburgh., 1969. ISBN 632 05280 5.
+36. Keatinge, W.R., Prys-Roberts, C., Cooper, K.E., Honour, A.J., Haight, J.
+         (1969) Sudden Failure of Swimming in Cold Water. Br. Med J. 480-483,
+         22 February 1969.
+
+                                                                                                         37
+37. Le Blanc, J.E. Impairment of Manual Dexterity in the Cold. J. Appl.
+         Physiol. 1956: 9: 62 - 64.
+
+38. Lee, E.C.B., Lee, K. Safety and Survival at Sea. Greenhills Books,
+         London. 1989.
+
+39. Lind, J. An Essay on the Most Effective Means of Preserving the Health
+         of Seamen in the Royal Navy. London: D. Wilson, Plato's Head, 1762.
+
+40. Marine Accident Investigations Branch. Collision Passenger Launch
+         Marchioness and MV Bowbelle 20 Aug 1989. ISBN 0-11-551025-7.
+         London HMSO, August, 1991.
+
+41. Markle, R.L. A Study of LifeSaving Systems for Small Passenger Vessels.
+         USCG Study March 29, 1991.
+
+42. Matthes, M. German Air Sea Rescue Services, World War II, 2 p.1148.
+         USAF Surgeon General's Office, 1946.
+
+43. McCance, R.A., Ungley, C.C., Crosfill, J.W.L., Widdowson, E.M. The
+         Hazards to Men in Ships Lost at Sea 1940 - 1944. Medical Research
+         Council Special Report Series No. 291. 1956.
+
+44. Medical Research Council. A Guide to the Preservation of Life at Sea
+         after Ship Wreck. Committee on the Care of Shipwreck Personnel: War
+         Memorandum No. 8, 1943. HMSO London.
+
+45. Mercer, J.O. (1969) Personal communication quoted from Golden, F.St.C.
+         Shipwreck and Survival. J. RN. Med Serv. Nos 1 and 2. Summer 1974.
+
+46. Merchant Shipping Advisory Committee. Report on Life Saving
+         Appliances, Training and Organization. December, 1922. HMSO London,
+         1923.
+
+47. Molnar, G.W. Survival of Hypothermia by Men Immersed in the Ocean. J.
+         Amer. Med. Ass. 27 July, 1946. 1046-1050.
+
+48. Niazi, S.A., Lewis, F.J. (1958) Annals of Surgery. 146, 264.
+49. Nunnely, S.A., Wissler, E.H. Prediciton of Immersion Hypothermia in Men
+
+         Wearing Anti-exposure Suits and / or Using Liferafts. AGARD Conference
+         Proceedings 286 A1-1-A1-8. 1980.
+50. Oakley, E.H.N., Pethybridge, R.J. The Prediction of Survival during Cold
+         Immersion: Results from the UK National Immersion Incident Survey. INM
+         report No. 97011 February 1997.
+51. Pask, E.A. Floating Posture of the Unconscious Body. FPRC Report 550.
+         Farnborough, UK, RAF Physiology Lab, Aug. 1943.
+52. Pask, E.A. Unconscious Flotation Posture: Tests of Eight Types of Life
+         Preservers. Farnborough UK RAF Physiology Lab, Feb. 1944.
+53. Pask, E.A. The Design of Lifejackets. British Medical Journal, 1140 -
+         1142. 28 October, 1961.
+54. Sterba, J.A., Lundgren, C.A. Influence of Water Temperature on Breath
+         Holding Time in Submerged Man. Undersea Biomed. Res. 5. suppl. 29-
+         30, 1979.
+55. The Talbot Report of Naval Life-Saving Committee. London, 2 April,
+         1946.
+56. Teichner, W.H. Manual Dexterity in the Cold. J.Appl.Physiol.
+         1957:1:333-8.
+
+                                                                                                         38
+57. Tikuisis, P. Predicting Survival Time for Exposure. Int. J. Biometerol 39:
+         94-102. 1995.
+
+58. Tikuisis, P. Prediction of Survival Time at Sea Based on Observed Body
+         Cooling Rates. Aviat. Space Environ. Med. 68: 441-448. 1997.
+
+59. Tipton, M.J. The Initial Responses to Cold-Water Immersion in Man.
+         Clinical Sciences (1989) 77, 581-588.
+
+60. Tipton, M.J., Stubbs, D.A, Elliott, D.H. Human Initial Responses to
+         Immersion in Cold Water at Three Temperatures and after
+         Hyperventilation. J. Appl. Physiol. 70(1):317-322, 1991.
+
+61. Tipton, M.J. The Relationship Between Maximum Breath Hold Time in Air
+         and the Ventilating Responses to Immersion in Cold Water. Eur. J. Appl.
+         Physiol 1992: 64: 426 - 429.
+
+62. Tipton. M.J., Kelleher, P.C., Golden, F.St.C., Supraventricular Arrythmias
+         Following Breath Hold Submersion in Cold water. Undersea and
+         Hyperbaric Medicine. Vol 21. No.3, 1994.
+
+63. Tipton, M.J., Eglin, C. Gennser, M., Golden, F.St.C. Immersion Deaths
+         and Deterioration in Swimming Performance in Cold Water. The Lancet.
+         Vol. 354. Aug 21, 1999.
+
+64. Transportation Safety Board of Canada, Sinking and Loss of Life
+         Passenger Vessel "True North ll" off Flowerpot Island, Georgian Bay 16
+         June, 2000.
+
+65. US Coast Guard Marine Casualty Report. Collision SS Frosta and MV
+         George Prince 20 October 1976. No. USCG 16732/73429.
+
+66. US Coast Guard Marine Casualty Report. Collision USCGC Cuyahoga
+         and MV Santa Cruz ll 20 October 1978. No. USCG 16732/92368.
+
+67. US Coast Guard Marine Casualty Report. Sinking of MV Miss Majestic
+         1May 1999. Washington, DC No. USCG 16732/MC99005211.
+
+68. Vincent, M.J., Tipton, M.J. The Effects of Cold Immersion and Hand
+         Protection on Grip Strength. Aviat. Space Environ Med. 59:738-41,
+         1988.
+
+69. Wallingford, R., Ducharme, M.B., Pommier, E., Factors Limiting Cold-
+         Water Swimming Distance While Wearing Personal Flotation Devices.
+         Evr. J. Appl. Physiol. (2000) 82: 24-29.
+
+                                                                                                         39
+                             ACKNOWLEDGEMENTS
+
+I must give thanks to several people who aided in this report.
+First, this work could not have started without the help of Jim Brock and John
+Murray from the Marine Safety Division of Transport Canada. They conceived
+the necessity for the work and reviewed the original draft.
+The report could not have been completed without the help and assistance from
+Professor Mike Tipton of the University of Portsmouth, UK and the Royal Navy
+Institute of Naval Medicine. With the assistance of Professor Frank Golden, he
+has led the world in the research into cold shock and swimming failure over the
+last twelve years. The advice of both has been invaluable. Dr. Howard Oakley
+from the Institute of Naval Medicine was also most helpful in providing all the
+information on the Marchioness accident.
+Victor Santos-Pedro was of immeasurable help with the final draft as was Carole
+Tipton who proof read the document and made excellent suggestions. Finally,
+Kimberley Howard and Laura Chaddock must be thanked for all the hard work in
+typing and formatting the final report. As a result of our cooperative endeavours,
+I hope that it will be a safer place for those who work or play over Canadian
+waters in the new millennium.
+The opinion expressed in this report is solely that of the author. This research
+was conducted under Transport Canada contract number T8275-010075/001/SS.
+
+                                                                                                         40
+

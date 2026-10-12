@@ -1,0 +1,4691 @@
+{
+ "organisme": "Santé Canada — Fichier canadien sur les éléments nutritifs (FCÉN), API publique",
+ "url_api": "https://food-nutrition.canada.ca/api/canadian-nutrient-file/nutrientamount/?id=<code>&lang=fr&type=json",
+ "consulte_le": "2026-09-23",
+ "aliments": [
+  {
+   "food_code": 5817,
+   "description": "Gibier, viande, autochtone, caribou, (renne), langue, crue",
+   "nutriments": [
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCROSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FRUCTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "LACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MALTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANNITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SORBITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCRES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GALACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 22:1non différencié, DOCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MONOSACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "DISACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "AMIDON",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:4n-6, DOCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c  n-3, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.01,
+     "unite": "g",
+     "source": "Donnée provisoire",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 0.04,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 14:0, TÉTRADÉCANOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3non différencié, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 0.13,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 0.2,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 16:1non différencié, HEXADÉCÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:2non différencié,  LINOLÉIQUE, OCTADÉCADIÉNOÏQUE",
+     "valeur": 0.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS TOTAUX",
+     "valeur": 0.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE B-6",
+     "valeur": 0.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.77,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 1.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 1.65,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 2.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 2.35,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 3.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 3.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 3.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 6.9,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 8.16,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 10.635,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 11.4,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 11.4,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 13.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 15.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 23.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 60.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 95.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 135.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 213.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 276.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 1154.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 3577,
+   "description": "Gibier, viande, autochtone, caribou, (renne), viande, crue",
+   "nutriments": [
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (D2 + D3)",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 2
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCROSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FRUCTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "LACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MALTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANNITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SORBITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCRES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GALACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "BÉTA CAROTÈNE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (UNITES INTERNATIONALES)",
+     "valeur": 0.0,
+     "unite": "IU",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 8:0, OCTANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 10:0, DÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 12:0, DODÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 20:0, EÏCOSANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 22:0, DOCOSANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 20:1, EÏCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 22:1non différencié, DOCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MONOSACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "DISACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "AMIDON",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:2 c,c  EÏCOSADIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:4n-6, DOCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 24:1non différencié, TÉTRACOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 12:1, LAUROLEIC",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:2, DOCOSADIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 0.035,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:4, EÏCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALPHA-TOCOPHÉROL",
+     "valeur": 0.15,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 6
+    },
+    {
+     "nom": "CYSTINE",
+     "valeur": 0.163,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 0.27,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 0.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "THIAMINE",
+     "valeur": 0.32,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 7
+    },
+    {
+     "nom": "TRYPTOPHANE",
+     "valeur": 0.348,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 2
+    },
+    {
+     "nom": "VITAMINE B-6",
+     "valeur": 0.47,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MÉTHIONINE",
+     "valeur": 0.506,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:2non différencié,  LINOLÉIQUE, OCTADÉCADIÉNOÏQUE",
+     "valeur": 0.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS TOTAUX",
+     "valeur": 0.7,
+     "unite": "g",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROLINE",
+     "valeur": 0.703,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "TYROSINE",
+     "valeur": 0.742,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "SERINE",
+     "valeur": 0.795,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.855,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE C",
+     "valeur": 0.86,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "HISTIDINE",
+     "valeur": 0.896,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "GLYCINE",
+     "valeur": 0.949,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "THRÉONINE",
+     "valeur": 0.967,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "PHÉNYLALANINE",
+     "valeur": 1.006,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "ISOLEUCINE",
+     "valeur": 1.024,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "VALINE",
+     "valeur": 1.063,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 1.14,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALANINE",
+     "valeur": 1.211,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "ARGININE",
+     "valeur": 1.346,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "LEUCINE",
+     "valeur": 1.867,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "ACIDE ASPARTIQUE",
+     "valeur": 2.001,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "LYSINE",
+     "valeur": 2.049,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "ACIDE PANTOTHÉNIQUE",
+     "valeur": 2.55,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 2.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE GLUTAMIQUE",
+     "valeur": 3.551,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 5
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 4.1,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 4.6,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 4.75,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE B-12",
+     "valeur": 6.31,
+     "unite": "µg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "SÉLÉNIUM",
+     "valeur": 10.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 10.91,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS DE FOLATE ALIMENTAIRE (ÉFA)",
+     "valeur": 11.8,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLACINE TOTALE",
+     "valeur": 11.8,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLATES PRÉSENTS NATURELLEMENT",
+     "valeur": 11.8,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 16.71,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 22.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 27.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 49.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 72.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CHOLESTEROL",
+     "valeur": 83.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 93.5,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 6
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 93.5,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 122.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 214.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 302.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 510.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 3587,
+   "description": "Gibier, viande, autochtone, orignal, cru",
+   "nutriments": [
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 16:1non différencié, HEXADÉCÉNOÏQUE",
+     "valeur": 0.01,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 0.02,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3non différencié, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.03,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c  n-3, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.03,
+     "unite": "g",
+     "source": "Donnée provisoire",
+     "n_obs": 0
+    },
+    {
+     "nom": "THIAMINE",
+     "valeur": 0.06,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 3
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:4, EÏCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.07,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 0.09,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 0.1,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 0.13,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 0.14,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:2non différencié,  LINOLÉIQUE, OCTADÉCADIÉNOÏQUE",
+     "valeur": 0.14,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 0.15,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 0.22,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS TOTAUX",
+     "valeur": 0.24,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 0.27,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 2
+    },
+    {
+     "nom": "MÉTHIONINE",
+     "valeur": 0.569,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.7,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "HISTIDINE",
+     "valeur": 0.747,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "SERINE",
+     "valeur": 0.797,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "TYROSINE",
+     "valeur": 0.819,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "PROLINE",
+     "valeur": 0.904,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "PHÉNYLALANINE",
+     "valeur": 0.961,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "GLYCINE",
+     "valeur": 0.972,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "THRÉONINE",
+     "valeur": 1.021,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ISOLEUCINE",
+     "valeur": 1.068,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "VALINE",
+     "valeur": 1.21,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ALANINE",
+     "valeur": 1.281,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ARGININE",
+     "valeur": 1.438,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 1.5,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 1.5,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LEUCINE",
+     "valeur": 1.957,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "LYSINE",
+     "valeur": 2.018,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ACIDE ASPARTIQUE",
+     "valeur": 2.089,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 3.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 3.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE GLUTAMIQUE",
+     "valeur": 3.602,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "VITAMINE C",
+     "valeur": 4.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 5.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 5.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 6.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 9.03333,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 22.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SÉLÉNIUM",
+     "valeur": 30.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 33.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CHOLESTEROL",
+     "valeur": 59.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 33
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 65.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 27
+    },
+    {
+     "nom": "EAU",
+     "valeur": 73.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 124.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 158.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 30
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 317.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 27
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 519.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 14:0, TÉTRADÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCROSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FRUCTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "LACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MALTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANNITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SORBITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCRES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GALACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "BÉTA CAROTÈNE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (UNITES INTERNATIONALES)",
+     "valeur": 0.0,
+     "unite": "IU",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (D2 + D3)",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MONOSACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "DISACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "AMIDON",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 3641,
+   "description": "Gibier, viande, autochtone, caribou (renne), moelle osseuse, crue",
+   "nutriments": [
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS TOTAUX",
+     "valeur": 0.9,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 16:1non différencié, HEXADÉCÉNOÏQUE",
+     "valeur": 1.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 1.7,
+     "unite": "NE",
+     "source": "Nutriment provenant d'un aliment créé pour l'Enquête Nutrition Canada",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 1.8,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 2.7,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 3.6,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 3.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 6.9,
+     "unite": "g",
+     "source": "Nutriment provenant d'un aliment créé pour l'Enquête Nutrition Canada",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 9.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 9.9,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 13.9,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 14.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 15.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 17.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 31.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 46.8,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 46.8,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 83.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 782.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 3270.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCRES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALPHA-TOCOPHÉROL",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "VITAMINE D (D2 + D3)",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCROSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FRUCTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "LACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MALTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANNITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SORBITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GALACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "BÉTA CAROTÈNE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (UNITES INTERNATIONALES)",
+     "valeur": 0.0,
+     "unite": "IU",
+     "source": "Nutriment imputé de source autre que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE C",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:4, OCTADÉCATÉTRAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:5 n-3, EÏCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 22:1non différencié, DOCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MONOSACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "DISACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "AMIDON",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:4n-6, DOCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c  n-3, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.03,
+     "unite": "g",
+     "source": "Donnée provisoire",
+     "n_obs": 0
+    },
+    {
+     "nom": "THIAMINE",
+     "valeur": 0.04,
+     "unite": "mg",
+     "source": "Nutriment provenant d'un aliment créé pour l'Enquête Nutrition Canada",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 0.1,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 14:1, TÉTRADÉCÉNOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 0.2,
+     "unite": "mg",
+     "source": "Nutriment provenant d'un aliment créé pour l'Enquête Nutrition Canada",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 20:1, EÏCOSÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3non différencié, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.4,
+     "unite": "g",
+     "source": "Nutriment provenant d'un aliment créé pour l'Enquête Nutrition Canada",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 0.435,
+     "unite": "mg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 14:0, TÉTRADÉCANOÏQUE",
+     "valeur": 0.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:2non différencié,  LINOLÉIQUE, OCTADÉCADIÉNOÏQUE",
+     "valeur": 0.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5820,
+   "description": "Gibier, viande, autochtone, orignal, moelle osseuse, crue",
+   "nutriments": [
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCROSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FRUCTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "LACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MALTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANNITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SORBITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCRES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GALACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MONOSACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "DISACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "AMIDON",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 0.01,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 0.06,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.09907,
+     "unite": "g",
+     "source": "Champ calculé",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 0.4,
+     "unite": "mg",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 2.05,
+     "unite": "NE",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 9.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SÉLÉNIUM",
+     "valeur": 10.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 13.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 17.0,
+     "unite": "mg",
+     "source": "Nutriment imputé de source autre que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 44.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 44.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 76.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 441.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 1844.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5822,
+   "description": "Gibier, viande, autochtone, orignal, gras, cru",
+   "nutriments": [
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCROSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FRUCTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "LACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MALTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANNITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SORBITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCRES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GALACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MONOSACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "DISACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "AMIDON",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:4n-6, DOCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 24:1non différencié, TÉTRACOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.03,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 22:0, DOCOSANOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 24:0, TÉTRASANOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:2 c,c  EÏCOSADIÉNOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 0.32,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 20:0, EÏCOSANOÏQUE",
+     "valeur": 0.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 20:1, EÏCOSÉNOÏQUE",
+     "valeur": 0.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 16:1non différencié, HEXADÉCÉNOÏQUE",
+     "valeur": 0.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 14:0, TÉTRADÉCANOÏQUE",
+     "valeur": 0.7,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3non différencié, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 1.8,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c  n-3, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 1.8,
+     "unite": "g",
+     "source": "Donnée provisoire",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:2non différencié,  LINOLÉIQUE, OCTADÉCADIÉNOÏQUE",
+     "valeur": 1.9,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 2.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 2.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 2.2,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS TOTAUX",
+     "valeur": 4.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 5.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 13.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 14.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 52.8,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 53.9,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 91.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 835.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 3492.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5829,
+   "description": "Gibier, viande, autochtone, orignal, foie, rôti",
+   "nutriments": [
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (UNITES INTERNATIONALES)",
+     "valeur": 0.0,
+     "unite": "IU",
+     "source": "Nutriment imputé de source autre que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (D2 + D3)",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment imputé de source autre que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 0.28,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 1.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 2.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 2.3,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 2.8,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 5.2,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 8.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 10.72,
+     "unite": "mg",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 15.48667,
+     "unite": "NE",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 21.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 23.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 26.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 61.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 70.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 170.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 410.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 416.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 711.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 12000.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 12000.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5828,
+   "description": "Gibier, viande, autochtone, orignal, foie, cru",
+   "nutriments": [
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALPHA-TOCOPHÉROL",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 1
+    },
+    {
+     "nom": "VITAMINE D (D2 + D3)",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 1
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (UNITES INTERNATIONALES)",
+     "valeur": 0.0,
+     "unite": "IU",
+     "source": "Nutriment imputé de source autre que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 8:0, OCTANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 10:0, DÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 12:0, DODÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 22:0, DOCOSANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 22:1non différencié, DOCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 24:0, TÉTRASANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 12:1, LAUROLEIC",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 0.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 0.33,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 0.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE B-6",
+     "valeur": 0.58,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 1.25,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 2.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 2.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 2.1,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 3.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 5.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 6.51,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 15.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 16.12,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 20.15333,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 22.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 22.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 69.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 72.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 130.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 234.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLACINE TOTALE",
+     "valeur": 267.8,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLATES PRÉSENTS NATURELLEMENT",
+     "valeur": 267.8,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS DE FOLATE ALIMENTAIRE (ÉFA)",
+     "valeur": 267.8,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 301.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 544.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 4608.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 1
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 4608.0,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5815,
+   "description": "Gibier, viande, autochtone, caribou, (renne), foie, cru",
+   "nutriments": [
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 8:0, OCTANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 10:0, DÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 12:0, DODÉCANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 22:0, DOCOSANOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 20:1, EÏCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 22:1non différencié, DOCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 12:1, LAUROLEIC",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:2, DOCOSADIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 24:0, TÉTRASANOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:2non différencié,  LINOLÉIQUE, OCTADÉCADIÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:4, EÏCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 0.3,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 0.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 0.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS TOTAUX",
+     "valeur": 0.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 0.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 0.7,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 1.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 1.39,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (D2 + D3)",
+     "valeur": 1.4,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 4
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 1.58,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE B-6",
+     "valeur": 1.97,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 2.7,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 3.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 3.7,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 3.9,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 4.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SÉLÉNIUM",
+     "valeur": 10.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALPHA-TOCOPHÉROL",
+     "valeur": 12.64,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 5
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 15.64,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 19.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 19.30667,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 20.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE C",
+     "valeur": 23.76,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 33.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (UNITES INTERNATIONALES)",
+     "valeur": 56.0,
+     "unite": "IU",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 72.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 78.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 125.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 304.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 306.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLACINE TOTALE",
+     "valeur": 374.3,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLATES PRÉSENTS NATURELLEMENT",
+     "valeur": 374.3,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS DE FOLATE ALIMENTAIRE (ÉFA)",
+     "valeur": 374.3,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 523.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 6267.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 5
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 6267.4,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5788,
+   "description": "Gibier, viande, autochtone, phoque annelé, foie, cru",
+   "nutriments": [
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3non différencié, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:4, OCTADÉCATÉTRAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 22:1non différencié, DOCOSÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:2 c,c  EÏCOSADIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c  n-3, LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SÉLÉNIUM",
+     "valeur": 0.1,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 20:1, EÏCOSÉNOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.1,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:4, EÏCOSATÉTRAÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 16:1non différencié, HEXADÉCÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:5 n-3, EÏCOSAPENTAÉNOÏQUE",
+     "valeur": 0.2,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 16:0, HEXADÉCANOÏQUE",
+     "valeur": 0.3,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALPHA-TOCOPHÉROL",
+     "valeur": 0.38,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS, 18:0,  OCTADÉCANOÏQUE",
+     "valeur": 0.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS, 18:1non différencié, OCTADÉCÉNOÏQUE",
+     "valeur": 0.4,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "THIAMINE",
+     "valeur": 0.45,
+     "unite": "mg",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS TOTAUX",
+     "valeur": 0.6,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS SATURÉS TOTAUX",
+     "valeur": 0.7,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS MONOINSATURÉS  TOTAUX",
+     "valeur": 0.7,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 1.25,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 1.55,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE B-6",
+     "valeur": 1.87,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 2.55,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 3.45,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 3.85,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE C",
+     "valeur": 7.0,
+     "unite": "mg",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 7.05,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (D2 + D3)",
+     "valeur": 10.7,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "VITAMINE B-12",
+     "valeur": 11.88,
+     "unite": "µg",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 18.69,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 22.90667,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 23.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 23.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 36.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 49.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 71.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 97.5,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 138.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 281.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 295.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CHOLESTEROL",
+     "valeur": 300.0,
+     "unite": "mg",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "VITAMINE D (UNITES INTERNATIONALES)",
+     "valeur": 428.0,
+     "unite": "IU",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 577.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLACINE TOTALE",
+     "valeur": 1003.5,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FOLATES PRÉSENTS NATURELLEMENT",
+     "valeur": 1003.5,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS DE FOLATE ALIMENTAIRE (ÉFA)",
+     "valeur": 1003.5,
+     "unite": "µg",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 3710.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 3710.0,
+     "unite": "µg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 3
+    }
+   ]
+  },
+  {
+   "food_code": 5894,
+   "description": "Poisson, grand brochet, autochtone, foie",
+   "nutriments": [
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THIAMINE",
+     "valeur": 0.1,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "RIBOFLAVINE",
+     "valeur": 0.7,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 1.3,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 2.1,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 4.3,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 5.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 8.0,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 8.04333,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 16.6,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 28.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "EAU",
+     "valeur": 69.8,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 156.0,
+     "unite": "kCal",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 258.0,
+     "unite": "µg",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 258.0,
+     "unite": "µg",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 412.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 651.0,
+     "unite": "kJ",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5888,
+   "description": "Poisson, morue-lingue, autochtone, foie",
+   "nutriments": [
+    {
+     "nom": "VITAMINE C",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment imputé d'un aliment semblable du USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THIAMINE",
+     "valeur": 0.22,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.5,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 1.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "NIACINE (ACIDE NICOTINIQUE) PRÉFORMÉE",
+     "valeur": 4.2,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 5.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ÉQUIVALENT EN NIACINE TOTALE",
+     "valeur": 5.22667,
+     "unite": "NE",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 5.6,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 6.0,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 42.0,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "EAU",
+     "valeur": 45.9,
+     "unite": "g",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 123.0,
+     "unite": "mg",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 1
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 425.0,
+     "unite": "kCal",
+     "source": "Nutriment calculé avec des données autres que l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 1776.0,
+     "unite": "kJ",
+     "source": "Provient intégralement de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "RÉTINOL",
+     "valeur": 2733.0,
+     "unite": "µg",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉQUIVALENTS D'ACTIVITÉ DU RÉTINOL",
+     "valeur": 2733.0,
+     "unite": "µg",
+     "source": "Nutriment calculé d'après les données de l'USDA",
+     "n_obs": 0
+    }
+   ]
+  },
+  {
+   "food_code": 5830,
+   "description": "Gibier, viande, autochtone, orignal, sang, cru",
+   "nutriments": [
+    {
+     "nom": "ACIDE FOLIQUE",
+     "valeur": 0.0,
+     "unite": "µg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCIDES TOTAUX (PAR DIFFÉRENCE)",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCROSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GLUCOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FRUCTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "LACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MALTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ALCOOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANNITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SORBITOL",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "CAFÉINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "THÉOBROMINE",
+     "valeur": 0.0,
+     "unite": "mg",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "SUCRES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "GALACTOSE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "FIBRES ALIMENTAIRES TOTALES",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS,  22:6 n-3, DOCOSAHEXAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 22:5 n-3, DOCOSAPENTAÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MONOSACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "DISACCHARIDES TOTAUX",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "AMIDON",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 18:3 c,c,c n-6, g-LINOLÉNIQUE, OCTADÉCATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-6, EÏCOSATRIÉNOÏQUE",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "ACIDES GRAS POLYINSATURÉS, 20:3 n-3",
+     "valeur": 0.0,
+     "unite": "g",
+     "source": "Nutriment estimé à zéro",
+     "n_obs": 0
+    },
+    {
+     "nom": "MANGANÈSE",
+     "valeur": 0.004,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CUIVRE",
+     "valeur": 0.03,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ZINC",
+     "valeur": 0.2,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "LIPIDES TOTAUX",
+     "valeur": 0.5,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CENDRES, TOTALES",
+     "valeur": 0.81,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "CALCIUM",
+     "valeur": 2.1,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "MAGNÉSIUM",
+     "valeur": 2.1,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PHOSPHORE",
+     "valeur": 16.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "PROTÉINES",
+     "valeur": 21.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "FER",
+     "valeur": 62.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "SODIUM",
+     "valeur": 63.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "EAU",
+     "valeur": 79.0,
+     "unite": "g",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOCALORIES)",
+     "valeur": 92.0,
+     "unite": "kCal",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "POTASSIUM",
+     "valeur": 176.0,
+     "unite": "mg",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    },
+    {
+     "nom": "ÉNERGIE (KILOJOULES)",
+     "valeur": 385.0,
+     "unite": "kJ",
+     "source": "Nutriment provenant de la littérature scientifique",
+     "n_obs": 0
+    }
+   ]
+  }
+ ]
+}

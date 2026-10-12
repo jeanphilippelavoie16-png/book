@@ -1,0 +1,2560 @@
+<!DOCTYPE HTML>
+
+
+
+
+
+
+<!--[if lt IE 7]> <html lang="fr-ca" class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html lang="fr-ca" class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html lang="fr-ca" class="lt-ie9"> <![endif]-->
+<!--[if IE 9]>    <html lang="fr-ca" class="lt-ie10 ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="fr-ca" > <!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>
+    
+      
+        Cueillette des petits fruits -
+      
+      
+    
+    Répertoire du patrimoine culturel du Québec
+  </title>
+  
+
+
+
+<link href="codeCSS/rpcq.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css" media="all">
+<link href="script/fancybox2/jquery.fancybox-1.3.4.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css" media="screen">
+<link href="codeCSS/jquery-ui.min.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css" media="all">
+<link href="codeCSS/video/video-js.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css">
+<link href="codeCSS/video/videojs-panorama.min.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css">
+<link href="codeCSS/video/videojs-panorama.min.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css">
+<link href="codeCSS/pannellum.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css">
+
+
+<!--[if lt IE 9]>
+  <script src="script/html5shiv.js"></script>
+  <script src="script/html5shiv-printshiv.js"></script>
+<![endif]-->
+<link href="script/mediaelement/mediaelementplayer.min.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css">
+
+<link href="codeCSS/rpcq_print.css?dateDeploiement=2026-04-22%2009:13" rel="stylesheet" type="text/css" media="print">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+
+
+
+
+  <link rel="icon" type="image/gif" href="images/favicon.gif" />
+  <link rel="shortcut icon" href="images/favicon.ico" /> 
+
+  
+
+
+<script type="text/javascript">var sofiChargementPageComplete = 'false';</script>
+<script type="text/javascript" src="script/sofi_social.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+ 
+  
+
+ 
+ 
+<script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46276435-1', 'gouv.qc.ca');
+  ga('require', 'linkid', 'linkid.js');
+    
+        ga("set", "contentGroup2", "Fiche détaillée d'un élément du patrimoine immatériel");
+        ga("set", "contentGroup3", "Fiche détaillée d'un élément du patrimoine immatériel");
+    
+  ga('send', 'pageview');
+ 
+</script>
+
+
+<script type="text/javascript">
+  function envoyerSuiviClics(categorie, action, libelle) {
+  libelle = libelle.replace(/<(.|\n)*?>/g, '');
+  
+  
+      ga('send', 'event', categorie, action, libelle);
+  
+  }
+  function resizeGoogleMap() {
+      //ne rien faire, est surchargÃ© dans bloc_carte.jsp
+      //mais ne pas enleve, requis pour empÃ©cher une erreur de javascript lorsqu'il n'y a pas d'onglet carte.
+  }
+</script>
+
+</head>
+
+<body>
+
+    
+
+<div class="contpiv">
+    <div id="piv">
+        <a href="https://www.quebec.ca/" ><img src="images/logo_login.png" border="0" style="margin-left:20px;float:left;margin-top:10px;"></a>
+        <br>
+        <a href="https://www.quebec.ca/" id="proprieteVide1" style="margin-left:64px; margin-top: 200px;color:white;font-family:Trebuchet MS,Verdana,Geneva,Arial,Helvetica,sans-serif;
+            font-size:medium; text-decoration:none;font-weight: bold;">Ministère de la Culture et des Communications</a>
+        <br>
+        <a href="https://www.quebec.ca/" id="proprieteVide2" style="margin-left:64px; margin-top: 200px;color:white;font-family:Trebuchet MS,Verdana,Geneva,Arial,Helvetica,sans-serif;
+            font-size:small; text-decoration:none;">Répertoire du patrimoine culturel du Québec</a>
+    </div>
+ </div>
+
+    <div class="corps">
+        
+
+<SCRIPT language="Javascript">
+
+var modif_motCle = 2;
+
+function changement_motCle() {
+        modif_motCle = 5;
+}
+
+function envoi_motCle() {
+        if (document.getElementById('motCle').value == 'Rechercher' && modif_motCle != 5) {
+          document.getElementById('motCle').value = "";  
+        }
+}
+
+</SCRIPT>
+
+<div class="entete">
+<div class="recherche">
+  <!--sofi-html:form action="rechercheMotCle.do?methode=rechercher" transactionnel="false" styleId="rechercheFormulaire" id="rechercheMotCle"-->
+  <form action="rechercheMotCle.do" method="GET" id="rechercheMotCle" onsubmit="envoi_motCle();">
+  <p class="searchbox">
+      
+      <input type="hidden" name="methode" id="methode" value="rechercher" />
+      <label for="motCle" class="visuallyhidden">Rechercher</label>
+      <!-- Avant recherche -->
+      
+        <input onclick="this.value='';this.placeholder='';" onchange="changement_motCle();" onkeyup="changement_motCle();" type="text"  name="motCle" id="motCle" placeholder="Rechercher"  value="Rechercher" style="background: #FFFFFF; color: #000000; box-shadow: none;" />
+      
+      <!-- AprÃ¨s recherche -->
+      
+      <label for="type" class="visuallyhidden">Section</label>
+      <select name="type" class="selectionSection" id="type">
+        
+        
+          
+            
+            
+              <option value="REP">Tout le Répertoire</option>
+            
+          
+        
+          
+            
+            
+              <option value="PROTVAL">Patrimoine protégé et valorisé</option>
+            
+          
+        
+          
+            
+            
+              <option value="IMMOB">Patrimoine immobilier</option>
+            
+          
+        
+          
+            
+            
+              <option value="MOB">Patrimoine mobilier</option>
+            
+          
+        
+          
+            
+            
+              <option value="PGE">Événements, groupes et personnes</option>
+            
+          
+        
+          
+            
+            
+              <option value="EPI">Patrimoine immateriel</option>
+            
+          
+        
+          
+            
+            
+              <option value="PLAQUE">Plaques commémoratives</option>
+            
+          
+        
+      </select>
+      <input type="hidden" name="reset" value="1"/>
+      <button class="searchBtn" type="submit" onclick="envoyerSuiviClics(decodeURIComponent(escape('Recherche mot clÃ©')), decodeURIComponent(escape('Recherche mot clÃ©')), '');envoi_motCle();" onkeydown="envoi_motCle();">
+          <img src="images/fleche_chercher.png" alt="pimiq.libelle.rpcq.entete.bouton.texte"  />
+      </button>
+    </p>
+  </form>
+  <!--/sofi-html:form-->
+  <!-- 2013-05-09 : Mis en commentaire par Alexandre BÃ©lec pour cacher le lien Recherche avancÃ©e -->
+  <!--<p class="rechercheAvance">
+    <a href="recherche.do?methode=acceder" onclick="javascript:window.location = 'recherche.do?methode=acceder&type=' + $('#type').val() + '&motCle=' + $('#motCle').val();return false;">
+        Recherche avancée
+    </a>
+  </p>-->
+</div>
+
+
+
+  <p class="titre"><a href="accueil.do?methode=afficher">Répertoire du<span>patrimoine</span>culturel du Québec</a></p>
+
+
+
+</div>
+
+<div class="zoneNavigationPrincipale">
+<ul class="navigationPrincipale">
+
+
+
+
+
+  
+  
+  
+  
+
+  <li class="first active">
+      <a href="accueil.do?methode=afficher" onclick="envoyerSuiviClics('Accueil', 'Ouvrir Menu', 'Accueil');" class="">
+          Accueil
+      </a>
+  </li>
+  <li class="doubleline">
+      <a href="rechercheProtege.do?methode=acceder" onclick="envoyerSuiviClics('Accueil', 'Ouvrir Menu', 'Recherche avanc&eacute;e');" class="">
+          Recherche<br>avancée
+      </a>
+  </li>
+  <li  class="doubleline">
+      <a href="redirection.do?go=faq" onclick="envoyerSuiviClics('Accueil', 'Ouvrir Menu', 'Foire aux questions');" class="">
+          Foire<br>aux questions
+      </a>
+  </li>
+  <li class="last">
+      <a href="redirection.do?go=about" onclick="envoyerSuiviClics('Accueil', 'Ouvrir Menu', '&Agrave; propos');" class="">
+          À propos
+      </a>
+  </li>
+</ul>
+</div>
+        
+
+
+
+
+</script>
+<div class="wrapper">
+  <div class="conteneur">	
+    
+
+
+<ul class="filAriane">
+
+
+  
+    
+    
+      <li><a onclick="envoyerSuiviClics(decodeURIComponent(escape('Fil d\'Ariane')), decodeURIComponent(escape('Ouvrir page')), $(this).html().trim());" href="accueil.do?methode=afficher">
+         <span>Accueil</span></a> <span class="hideAriane">&gt;</span>
+      </li>
+    
+  
+
+
+  
+    
+      <li class="actif">
+        <strong>
+          
+        Fiche de l'élément
+        </strong>
+      </li>
+    
+    
+  
+
+</ul>
+    <article>
+      <div class="registreImprimerPartager">
+        
+        
+        <ul>
+          
+            <li class="btnImprimer actif">
+              <a onclick="envoyerSuiviClics(decodeURIComponent(escape('Fiche d\'Ã©lÃ©ment ')), decodeURIComponent(escape('Imprimer')), $('#titreFiche').html());" href="javascript:window.print()" class="btn" rel="tooltip" title="Impression de la fiche de l'&eacute;l&eacute;ment sans la liste compl&egrave;te de ses &eacute;l&eacute;ments associ&eacute;s"><span class="printIcon"></span>Imprimer</a>
+            </li>
+          
+          <li class="btnPartage actif">
+            <a href="#" class="addthis_button btn" 
+              addthis:url="https://www.patrimoine-culturel.gouv.qc.ca/rpcq/detail.do?methode=consulter&id=18&type=imma"
+              addthis:title="Cueillette des petits fruits"
+            ><span class="partageIcon"></span>Partager</a>
+          </li>
+        </ul>
+      </div>
+      <h1 id="titreFiche">Cueillette des petits fruits</h1>
+
+      <div class="cols">
+        <div class="colLeft">
+          
+
+
+
+
+
+
+  
+    
+      
+        
+      
+      
+      
+    
+
+    <section class="description specialType">
+      
+          
+          
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+  
+  <h2><span >Type</span>&nbsp;:</h2>
+  <p>Patrimoine immatériel</p>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+      
+    </section>
+  
+    
+      
+      
+      
+        
+      
+    
+
+    <section class="description">
+      
+          
+          
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+
+
+
+
+<h2><span >Thématique</span>&nbsp;:</h2>
+<div class="aReduire">
+<ul>
+  
+    <li>Patrimoine autochtone (Patrimoine des Premières Nations)</li>
+  
+</ul>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+      
+    </section>
+  
+    
+      
+      
+      
+        
+      
+    
+
+    <section class="description">
+      
+          
+          
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+
+
+
+
+<h2><span >Vitalité</span>&nbsp;:</h2>
+<div class="aReduire">
+<ul>
+  
+    <li>Vivant</li>
+  
+</ul>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+      
+    </section>
+  
+    
+      
+      
+      
+        
+      
+    
+
+    <section class="description">
+      
+          
+          
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+
+
+
+
+<h2><span >Type d'élément</span>&nbsp;:</h2>
+<div class="aReduire">
+<ul>
+  
+    <li>Pratique</li>
+  
+    <li>Savoir-Faire</li>
+  
+</ul>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+      
+    </section>
+  
+    
+      
+      
+      
+        
+      
+    
+
+    <section class="description">
+      
+          
+          
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+
+
+
+
+<h2><span >Classification</span>&nbsp;:</h2>
+<div class="aReduire">
+<ul>
+  
+    <li>Pratiques alimentaires > Transformation > Traitement des aliments > Légume, fruit et plante</li>
+  
+    <li>Pratiques techniques > Liées aux matières premières > Pratiques d'acquisition > Cueillette / prélèvement</li>
+  
+</ul>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+      
+    </section>
+  
+
+
+                       
+          
+
+
+
+
+
+
+
+  <div class="spacer">
+    
+      
+      
+        
+        
+      <div class="registreImprimerPartager">
+      
+      <h2 class="sectionTitle">Éléments associés</h2>
+      </div>
+  </div>
+ 
+  
+  
+    
+    
+    <section class="boite">
+      <h3 class="titreBoite">
+        
+          <span >Inventaires associés</span>&nbsp;(1)
+        
+      </h3>
+      <div class="contenuBoite">
+        
+          
+          
+
+
+
+
+
+
+
+  
+  
+  
+  
+    
+
+
+
+
+
+
+
+
+<ul>
+  
+    <li>
+      
+        
+          <a onclick="envoyerSuiviClics(decodeURIComponent(escape('Fiche d\'Ã©lÃ©ment ')), decodeURIComponent(escape('Ouvrir fiche d\'inventaire')), $(this).text().trim());" href="detailInventaire.do?methode=consulter&id=513&type=inv">
+          <span>Patrimoine immatériel des Premières Nations&nbsp;(2013 - 2014)</span>
+          </a>
+        
+        
+      
+      
+
+      
+    </li>
+  
+</ul>
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+        
+           
+      </div>
+    </section>
+  
+
+
+    
+        </div>
+        <div class="colRight">
+          
+
+
+
+
+
+
+
+
+  <section class="onglets" id="onglets">
+  
+    
+    
+      
+
+      
+        
+          
+        
+        
+        
+        
+        
+        
+        
+      
+      
+      <script> </script>
+
+      
+      <div class="contenuOnglet contenuOngletImage" data-categorie="Fiche d'élément" data-action="Ouvrir onglet" data-libelle="<span >Images</span>">
+
+        
+          <div class="visionneuse">
+          <h2 class="titreContenuOnglet"><span  class="font2">Images</span></h2>
+            <div class="roulette">
+              <ul>
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Bleuets pour la confection de la pâte" class="galleryImage"
+           href="document/rpcq_epi_18_214882.JPG?id=214882" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214882.JPG?id=214882" 
+           data-grandformat="document/rpcq_epi_18_214882.JPG?id=214882" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Yvon Dubé, 2013-08-21" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="Yvon Dubé" 
+           data-id="214882" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214882"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Bleuets pour la confection de la pâte" src="document/rpcq_epi_18_214882.JPG?id=214882&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Dominique Quoquochi cueille des bleuets dans un brûlis près de Wemotaci" class="galleryImage"
+           href="document/rpcq_epi_18_214902.JPG?id=214902" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214902.JPG?id=214902" 
+           data-grandformat="document/rpcq_epi_18_214902.JPG?id=214902" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Yvon Dubé, 2013-08-20" 
+           data-description="Le bleuet croit naturellement dans les tourbi&egrave;res, mais il est plus abondant apr&egrave;s les feux de for&ecirc;ts et les coupes foresti&egrave;res" 
+           data-annee="2013" 
+           data-auteur="Yvon Dubé" 
+           data-id="214902" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214902"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Dominique Quoquochi cueille des bleuets dans un brûlis près de Wemotaci" src="document/rpcq_epi_18_214902.JPG?id=214902&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Pilon de bois et palettes de bois servant à la confection de la pâte de bleuets" class="galleryImage"
+           href="document/rpcq_epi_18_214921.JPG?id=214921" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214921.JPG?id=214921" 
+           data-grandformat="document/rpcq_epi_18_214921.JPG?id=214921" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Yvon Dubé, 2013-08-21" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="Yvon Dubé" 
+           data-id="214921" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214921"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Pilon de bois et palettes de bois servant à la confection de la pâte de bleuets" src="document/rpcq_epi_18_214921.JPG?id=214921&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Cuisson de la pâte de bleuets" class="galleryImage"
+           href="document/rpcq_epi_18_214926.JPG?id=214926" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214926.JPG?id=214926" 
+           data-grandformat="document/rpcq_epi_18_214926.JPG?id=214926" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Yvon Dubé, 2013-08-21" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="Yvon Dubé" 
+           data-id="214926" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214926"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Cuisson de la pâte de bleuets" src="document/rpcq_epi_18_214926.JPG?id=214926&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Consistance de la pâte de bleuets" class="galleryImage"
+           href="document/rpcq_epi_18_214933.JPG?id=214933" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214933.JPG?id=214933" 
+           data-grandformat="document/rpcq_epi_18_214933.JPG?id=214933" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Yvon Dubé, 2013-08-21" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="Yvon Dubé" 
+           data-id="214933" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214933"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Consistance de la pâte de bleuets" src="document/rpcq_epi_18_214933.JPG?id=214933&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Pâte de bleuets et graisse d&#039;ours tartinées sur le pain" class="galleryImage"
+           href="document/rpcq_epi_18_214934.JPG?id=214934" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214934.JPG?id=214934" 
+           data-grandformat="document/rpcq_epi_18_214934.JPG?id=214934" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Yvon Dubé, 2013-08-21" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="Yvon Dubé" 
+           data-id="214934" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214934"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Pâte de bleuets et graisse d&#039;ours tartinées sur le pain" src="document/rpcq_epi_18_214934.JPG?id=214934&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Bleuets pour la vente" class="galleryImage"
+           href="document/rpcq_epi_18_214937.JPG?id=214937" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214937.JPG?id=214937" 
+           data-grandformat="document/rpcq_epi_18_214937.JPG?id=214937" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Yvon Dubé, 2013-08-21" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="Yvon Dubé" 
+           data-id="214937" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214937"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Bleuets pour la vente" src="document/rpcq_epi_18_214937.JPG?id=214937&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Bleuets stockés dans des bacs pour la vente" class="galleryImage"
+           href="document/rpcq_epi_18_214938.JPG?id=214938" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214938.JPG?id=214938" 
+           data-grandformat="document/rpcq_epi_18_214938.JPG?id=214938" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Louise Saint-Pierre, 2013-08-21" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="Louise Saint-Pierre" 
+           data-id="214938" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214938"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Bleuets stockés dans des bacs pour la vente" src="document/rpcq_epi_18_214938.JPG?id=214938&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Airelles vigne d&#039;Ida ou «graines rouges»" class="galleryImage"
+           href="document/rpcq_epi_18_214941.JPG?id=214941" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214941.JPG?id=214941" 
+           data-grandformat="document/rpcq_epi_18_214941.JPG?id=214941" 
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="André Pikutelekan, 2013-10-03" 
+           data-description="" 
+           data-annee="2013" 
+           data-auteur="André Pikutelekan" 
+           data-id="214941" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214941"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="true">
+           <img alt="Airelles vigne d&#039;Ida ou «graines rouges»" src="document/rpcq_epi_18_214941.JPG?id=214941&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Cueillette des petits fruits. Panier de cueillette traditionnel iroquoien" class="galleryImage"
+           href="document/rpcq_epi_18_214949.JPG?id=214949" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214949.JPG?id=214949" 
+           data-grandformat="document/rpcq_epi_18_214949.JPG?id=214949" 
+           data-licence="Domaine public" 
+           data-lienlicence="http://creativecommons.org/publicdomain/mark/1.0/deed.fr" 
+           data-detenteur="Gouvernement du Canada" 
+           data-liendetenteur="" 
+           data-copyright="" 
+           data-description="" 
+           data-annee="" 
+           data-auteur="" 
+           data-id="214949" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214949"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="false">
+           <img alt="Cueillette des petits fruits. Panier de cueillette traditionnel iroquoien" src="document/rpcq_epi_18_214949.JPG?id=214949&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+    
+    
+    <li><a data-titre="Différents types de paniers traditionnels iroquoiens pour la cueillette et le séchage des petits fruits" class="galleryImage"
+           href="document/rpcq_epi_18_214954.JPG?id=214954" 
+           data-accessibilite="" 
+           data-type="image" 
+           data-presentation="document/rpcq_epi_18_214954.JPG?id=214954" 
+           data-grandformat="document/rpcq_epi_18_214954.JPG?id=214954" 
+           data-licence="Domaine public" 
+           data-lienlicence="http://creativecommons.org/publicdomain/mark/1.0/deed.fr" 
+           data-detenteur="Gouvernement du Canada" 
+           data-liendetenteur="" 
+           data-copyright="" 
+           data-description="" 
+           data-annee="" 
+           data-auteur="" 
+           data-id="214954" 
+           data-transcription=""
+           data-multiples="false"
+           data-class-fancybox="214954"
+           data-tooltip="<span >Afficher la transcription</span>"
+           data-tooltip-multiples="<span >Afficher le contenu</span>"
+           data-flagtousdroitsreserves ="false">
+           <img alt="Différents types de paniers traditionnels iroquoiens pour la cueillette et le séchage des petits fruits" src="document/rpcq_epi_18_214954.JPG?id=214954&streamid=vignette">
+        </a>
+        
+        
+           
+    </li>
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+              </ul>
+            </div>
+          </div>
+        
+        
+        
+      </div>
+    
+    
+  
+    
+      
+
+      
+        
+        
+        
+        
+          
+        
+        
+        
+        
+      
+      
+      <script> </script>
+
+      
+      <div class="contenuOnglet contenuOngletVideo" data-categorie="Fiche d'élément" data-action="Ouvrir onglet" data-libelle="<span >Vidéos</span>">
+
+        
+          <div class="visionneuse visionneuseAudio">
+          <h2 class="titreContenuOnglet"><span  class="font2">Vidéos</span></h2>
+            <div class="roulette rouletteAudio">
+              <ul>
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+  
+  
+  
+    
+    <li><a rel="tooltip" 
+           data-annee="2013"  
+           data-flagtousdroitsreserves ="true"
+           data-auteur="Louise Saint-Pierre"  
+           title="La confection de la pâte de bleuets" 
+           data-titre="La confection de la pâte de bleuets" 
+           data-accessibilite="" 
+           href="document/rpcq_epi_18_215955.MP4?id=215955" 
+           data-videomp4="document/rpcq_epi_18_215955.MP4?id=215955" 
+           data-type="video" 
+           data-videoogv=""  
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Louise Saint-Pierre, 2013-08-21" 
+           data-description="Dans plusieurs communaut&eacute;s on fabrique toujours la p&acirc;te de bleuets traditionnelle. La p&acirc;te est cuisin&eacute;e &agrave; l'ext&eacute;rieur sur un feu de bois. Autour du feu, se r&eacute;unissent famille et amis pour partager des recettes, des conseils et des souvenirs et mettre la main &agrave; la &laquo; p&acirc;te &raquo;. La p&acirc;te est obtenue gr&acirc;ce &agrave; une longue cuisson au cours de laquelle l'eau des fruits s'&eacute;vapore et la pulpe se solidifie. Film r&eacute;alis&eacute; lors d'un terrain ethnographique de Wapikoni mobile dans la communaut&eacute; atikamekw de Wemotaci."
+           data-soustitre="">
+           <strong>La confection de la pâte de bleuets</strong></a></li>
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+  
+  
+  
+    
+    <li><a rel="tooltip" 
+           data-annee="2006"  
+           data-flagtousdroitsreserves ="true"
+           data-auteur="Lennon Poucachiche"  
+           title="Blueberry stars" 
+           data-titre="Blueberry stars" 
+           data-accessibilite="" 
+           href="document/rpcq_epi_18_214980.MP4?id=214980" 
+           data-videomp4="document/rpcq_epi_18_214980.MP4?id=214980" 
+           data-type="video" 
+           data-videoogv=""  
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Lennon Poucachiche, 2006" 
+           data-description="La famille Poucachiche nous entra&icirc;ne au nord du 49e parall&egrave;le pour nous faire vivre l'exp&eacute;rience de la traditionnelle cueillette de bleuets. Film r&eacute;alis&eacute; lors d'une escale de Wapikoni mobile dans la communaut&eacute; anishnabe de Lac Simon."
+           data-soustitre="">
+           <strong>Blueberry stars</strong></a></li>
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+  
+  
+  
+    
+    <li><a rel="tooltip" 
+           data-annee="2009"  
+           data-flagtousdroitsreserves ="true"
+           data-auteur="Nemnemiss McKenzie"  
+           title="Uishatshimin (Les graines rouges)" 
+           data-titre="Uishatshimin (Les graines rouges)" 
+           data-accessibilite="" 
+           href="document/rpcq_epi_18_214988.MP4?id=214988" 
+           data-videomp4="document/rpcq_epi_18_214988.MP4?id=214988" 
+           data-type="video" 
+           data-videoogv=""  
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Nemnemiss McKenzie, 2009" 
+           data-description="Une petite fille raconte la cueillette de graines rouges avec sa soeur et son amie et la confection de confiture. Film r&eacute;alis&eacute; lors d'une escale de Wapikoni mobile dans la communaut&eacute; innue de Matimekush-Lac-John."
+           data-soustitre="">
+           <strong>Uishatshimin (Les graines rouges)</strong></a></li>
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+                  
+                  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+  
+  
+  
+  
+    
+    <li><a rel="tooltip" 
+           data-annee="2009"  
+           data-flagtousdroitsreserves ="true"
+           data-auteur="Nemnemiss McKenzie"  
+           title="Ashinetau tshe Innu aitun (Soyons fiers de notre culture)" 
+           data-titre="Ashinetau tshe Innu aitun (Soyons fiers de notre culture)" 
+           data-accessibilite="" 
+           href="document/rpcq_epi_18_214995.MP4?id=214995" 
+           data-videomp4="document/rpcq_epi_18_214995.MP4?id=214995" 
+           data-type="video" 
+           data-videoogv=""  
+           data-licence="©" 
+           data-lienlicence="" 
+           data-detenteur="Wapikoni mobile" 
+           data-liendetenteur="" 
+           data-copyright="Nemnemiss McKenzie, 2009" 
+           data-description="L'apprentissage de la cueillette traditionnelle du th&eacute; du Labrador, activit&eacute; organis&eacute;e dans le cadre des activit&eacute;s culturelles &agrave; l'&eacute;cole. Film r&eacute;alis&eacute; lors d'une escale de Wapikoni mobile dans la communaut&eacute; innue de Matimekush-Lac-John."
+           data-soustitre="">
+           <strong>Ashinetau tshe Innu aitun (Soyons fiers de notre culture)</strong></a></li>
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+                
+              </ul>
+            </div>
+          </div>
+        
+        
+        
+      </div>
+    
+    
+  
+    
+    
+    
+    
+        
+        
+        
+        
+    
+  </section>
+
+
+  
+          
+
+
+
+
+
+
+  
+  
+  
+    <div class="spacer accordeon" data-ouvert="2" data-hidebutton="1"/>
+  
+  
+      
+        <section class="boite">
+          
+            
+            
+              <h2 class="titreBoite"><span >Description</span></h2>
+            
+          
+          <div class="contenuBoite">
+            
+              
+              
+
+
+
+
+
+
+
+  
+    
+
+
+
+<p>La cueillette des petits fruits a toujours fait partie du mode de vie traditionnel des autochtones. Bien que plusieurs communautés aient abandonné le mode de vie semi-nomade, la cueillette demeure une activité encore pratiquée par les groupes familiaux sur les territoires ancestraux. La cueillette est l'occasion de fréquenter le territoire, de renforcer les liens communautaires, de transmettre des savoirs traditionnels écologiques et des savoir-faire alimentaires ou médicinaux. Les espèces végétales prélevées pour la consommation sont liées aux écosystèmes; bleuets, fraises et  framboises sont largement répandus sur le territoire du Québec; la chicoutai, l'airelle ou la camarine sont limitées à certaines régions. La cueillette des baies s'étend de juillet à tard en automne.<br/><br/>Les plantes sauvages comestibles constituaient un apport important à la diète traditionnelle en terme de variétés et de nutriments. Plus de 250 plantes étaient cueillies à des fins alimentaires et environ 400 espèces pour la médecine traditionnelle.<br/><br/>Les fruits (plus de 50 espèces) sont la partie de la plante la plus consommée. Les noix, les jeunes pousses et les parties souterraines de certaines plantes sont aussi utilisés à des fins alimentaires. En période de disette, le lichen appelé «tripe de roche», l'écorce et les racines de certaines plantes étaient également prélevés et consommés. Les Autochtones partageront leurs connaissances et usages des plantes avec les nouveaux arrivants, assurant parfois la survie des premiers explorateurs et colons du Nouveau Monde.</p>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+            
+            
+            <p class="toRight"><a href="#"><span >Haut de la page</span></a></p>
+          </div>
+        </section>
+      
+        <section class="boite">
+          
+            
+            
+              <h2 class="titreBoite"><span >Statuts</span></h2>
+            
+          
+          <div class="contenuBoite">
+            
+              
+              
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+
+
+
+<table>
+  <colgroup>
+    <col width="20%"/>
+    <col width="32%"/>
+    <col width="31%"/>
+    <col width="17%"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th><span >Statut</span></th>
+      <th><span >Catégorie</span></th>
+      <th><span >Autorité</span></th>
+      <th><span >Date</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <th>Inventorié</th>
+      <td>--</td>
+      <td>
+        
+          
+          
+          
+          
+            
+          
+        
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+     
+        
+    
+    <tr class="separateur_status"><td colspan="4"><span>&nbsp;</span></td></tr>
+        
+  </tbody>
+</table>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+            
+            
+            <p class="toRight"><a href="#"><span >Haut de la page</span></a></p>
+          </div>
+        </section>
+      
+        <section class="boite">
+          
+            
+            
+              <h2 class="titreBoite"><span >Historique</span></h2>
+            
+          
+          <div class="contenuBoite">
+            
+              
+              
+
+
+
+
+
+
+
+  
+    
+
+
+
+<p>Lors de son premier voyage en 1534, Cartier note la présence et l'abondance de petits fruits connus en France: groseilliers blancs et rouges, fraises et framboises. Champlain précise que les Autochtones les font sécher comme «nous faisons des pruneaux en France, pour le Caresme».  Il note également que l'on fait «sécherie» du bleuet, «qui est un petit fruit fort bon à manger pour servir de manne en hiver». Il décrit l'utilisation des fruits séchés dans certains plats, tel le pain ou la galette de maïs. Le récollet Sagard raconte qu'on mange les baies fraîches, qu'on les sèche au soleil et que «cela leur sert de confitures pour les malades, et pour donner goût à leur Sagamité». Les fraises, bleuets, framboises donnent du goût au petit pain qu'ils font cuire sous les cendres car «il est fort fade de soi». Au fil des explorations et des missions, l'identification des fruits consommés par les Autochtones se poursuivra pour inclure plusieurs autres baies tel : les atocas, les fruits du sureau, les mûres, les petites poires, le raisin d'ours, la camarine noire, la chicoutai. <br/><br/>La cueillette était le fait des femmes et des enfants, portant à la taille de petits paniers tressés ou en écorce. Au besoin, leur contenu était transvidé dans de plus grands paniers. Les baies étaient consommées fraîches ou transformées pour la conservation. Diverses méthodes de conservation étaient pratiquées. Les baies entières étaient laissées au soleil ou déposées sur des treillis au dessus d'un feu. Déshydratées, elles étaient remisées dans des contenants d'écorce. Les fruits frais pouvaient aussi être écrasés pour en faire une pâte qu'on mettait à sécher. Les baies séchées, parfois réduites en poudre, étaient mélangées avec de la graisse animale. Chez les Micmacs, les bleuets, canneberges et airelles étaient bouillis pendant deux ou trois heures pour obtenir une pâte qui était ensuite compressée en gâteaux et séchée au soleil sur des morceaux d'écorce. Les gâteaux étaient tournés aux deux ou trois heures pendant trois ou quatre jours. Les gâteaux une fois secs, étaient disposés dans un contenant d'écorce qu'on enterrait. Cette pâte de fruits se conservait pendant plusieurs années. Pour la consommer, la pâte était laissée à tremper pendant la nuit et mise à bouillir, parfois avec du sucre d'érable. <br/><br/>D'après les écrits des missionnaires, les petits fruits étaient ajoutés à la sagamité, bouillis avec de la graisse, mélangés avec de la viande ou des morceaux de poissons séchés ou encore incorporés au pain ou aux galettes de maïs. Ils étaient utilisés à d'autres fins, par exemple le jus de bleuets servait d'encre chez les Micmacs et de teinture chez les Algonquins. Les fruits, les feuilles et les racines étaient également utiles en médecine traditionnelle: chez les Innus, l'airelle vigne d'Ida combattait les maux de gorge et les infections de la bouche; le raisin d'ours était un tonique chez les Micmacs; le pain de perdrix, un remède contre la fièvre chez les Algonquins. <br/><br/>La saison des petits fruits donnait lieu à des réjouissances. Chez les Iroquoiens, l'arrivée des fraises, des framboises et des bleuets était soulignée par des festivités pour remercier le Créateur pour cette manne. Les petits fruits étaient également intégrés à des nourritures rituelles tel le pain de mariage. Le jus de bleuets ou de mûres était administré au malade lors de cérémonies de guérison invoquant l'esprit de l'ours. <br/><br/>Le Père Lejeune écrit en 1639 : «Premièrement, pour ce qui touche leur croyance, quelques-uns se figurent un Paradis rempli de bluets. Ils sont d'un assez bon goût; c'est pourquoi les âmes les aiment fort». Trait d'humour autochtone? Il reste que le bleuet est considéré comme un don du Créateur.</p>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+            
+            
+            <p class="toRight"><a href="#"><span >Haut de la page</span></a></p>
+          </div>
+        </section>
+      
+        <section class="boite">
+          
+            
+            
+              <h2 class="titreBoite"><span >Contexte</span></h2>
+            
+          
+          <div class="contenuBoite">
+            
+              
+              
+
+
+
+
+
+
+
+  
+    
+
+
+
+<p>La cueillette débute en juillet et août avec les fraises, suivies des framboises, de la camarine (Empetrum nigrum), des bleuets, des petites poires (Amelanchier alnifolia) et de la chicouté (Rubus chamaemorus). En septembre et en octobre, on récolte la canneberge, le raisin d'ours (Arctostaphylos alpina), la viorne trilobée et l'airelle vigne d'Ida (Vaccinium vitis-idaea). Chez les Innus, la chicouté est cueillie en août et les «graines rouges» (airelles vigne d'Ida), sont cueillies en famille en octobre. Les baies sont transformées en confiture, congelées et consommées avec du saindoux ou de la graisse de gibier. La plupart des baies sont cueillies pour consommation familiale, parfois pour la vente. <br/><br/>Si certains petits fruits font l'objet d'une cueillette restreinte, les bleuets  sont cueillis à plus grande échelle en août et en septembre. Tout comme la chasse et la pêche, la cueillette demande une bonne connaissance du territoire. Si le bleuet croit naturellement dans les tourbières, il est plus abondant après les feux de forêts et les coupes forestières. La présence du bouleau et des framboisiers annonce que la «talle» sera de moins en moins productive. Lors de la floraison, les cueilleurs repèrent les zones  susceptibles de produire en abondance et surveillent le gel printanier qui pourrait anéantir les espoirs d'une bonne récolte. <br/><br/>Pendant la période de la cueillette, les rues du village sont désertes pendant la journée. Pour plusieurs, la cueillette vise à faire ses provisions pour l'hiver et à se procurer un revenu d'appoint. Le partage est également important. Une partie de la récolte ira aux aînés et à ceux et celles qui ne peuvent se déplacer.<br/><br/>Les familles ou des groupes d'amis partent tôt le matin et parcourent souvent de grandes distances vers les zones de cueillette. L'expédition est parfois de plusieurs jours. Les tentes sont alors installées dans des campements regroupant plusieurs familles. Une partie de la récolte sera vendue aux grossistes. Pour la consommation familiale, on cueille à la main, évitant ainsi la phase de nettoyage qui est longue et fastidieuse. La cueillette pour la vente se fait avec des «peignes». Les peignes sont de petites boîtes ouvertes munies de dents de bois ou de métal qui «peignent» le plant. La technique est plus rapide mais les baies seront alors mélangées aux feuilles, aux fruits verts et à d'autres débris de cueillette. Muni d'un peigne et d'un contenant attaché à la taille, le cueilleur prélève sa récolte. Les bleuets sont stockés dans des bacs et acheminés pour la vente.<br/><br/>Aujourd'hui, les fruits destinés à la consommation familiale sont transformés en confiture ou congelés. Dans plusieurs communautés on fabrique toujours la pâte de bleuets traditionnelle qu'on appelle aussi «fromage de bleuets». La pâte est cuisinée à l'extérieur sur un feu de bois. Autour du feu, se réunissent famille et amis pour partager des recettes, des conseils et des souvenirs et mettre la main à la «pâte». La pâte est obtenue grâce à une longue cuisson pendant laquelle l'eau des fruits s'évapore et la pulpe se solidifie. Les bleuets sont nettoyés des impuretés et versés dans un grand chaudron.  À l'aide d'un pilon de bois, ils sont écrasés pour en extraire le jus. Le temps de cuisson déterminera la consistance de la pâte. La purée se réduira de 80 à 90%. La cuisson peut durer de cinq à dix heures selon la quantité de purée et la consistance désirée. Tout au long de la cuisson, à l'aide d'une longe palette de bois, on se relaye pour remuer la purée qui devient de plus en plus épaisse et risque de brûler. Certains ajoutent du sirop d'érable ou du sucre.  C'est l'expérience qui dicte quand la pâte est prête : le son émis par les bouillons ou la stabilité verticale d'une cuillère dans la pâte. Plus elle sera sèche, plus longtemps elle se conservera. La pâte sera consommée comme une confiserie ou elle accompagnera la graisse d'ours sur la banique ou sur du pain.</p>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+            
+            
+            <p class="toRight"><a href="#"><span >Haut de la page</span></a></p>
+          </div>
+        </section>
+      
+        <section class="boite">
+          
+            
+            
+              <h2 class="titreBoite"><span >Apprentissage et transmission</span></h2>
+            
+          
+          <div class="contenuBoite">
+            
+              
+              
+
+
+
+
+
+
+
+  
+    
+
+
+
+<p>Encore aujourd'hui, tout comme les produits de la chasse et de la pêche, la cueillette fait partie intégrante de l'alimentation des Premières Nations. La pratique de ces activités de subsistance est également un moyen de préserver la culture, les traditions et le mode de vie ancestral. La fréquentation du territoire est essentielle à la transmission du savoir-faire, du savoir-être et du partage d'une vision du monde avec les générations plus jeunes. <br/><br/>Les savoirs écologiques traditionnels concernant les lieux de prélèvement, l'identification des plantes comestibles, la période de cueillette, les méthodes de transformation se transmettent oralement au sein des groupes familiaux. La cueillette réunit enfants, parents, grands-parents et amis. Les groupes de cueilleurs fréquentent souvent les mêmes zones de cueillette depuis plusieurs générations. Les règles de fréquentation des lieux de cueillette sont régies par les liens familiaux ou amicaux.  Au cours des expéditions, les jeunes sont encouragés à apprendre par l'écoute et l'observation plutôt que par questionnement. Cette forme d'apprentissage laisse une grande place à l'intégration de ses propres expériences à l'activité. <br/><br/>La période de cueillette correspond à la période estivale. Pendant l'été, les activités de chasse diminuent considérablement. La chasse s'exerce en silence pour ne pas effrayer le gibier.  Pendant les activités de cueillette, les cueilleurs peuvent se parler, échanger et se raconter des histoires. La rencontre d'un ours ou le vol d'un aigle seront l'occasion de partager des croyances, de transmettre des récits traditionnels, des valeurs ou des savoirs sur les animaux et les plantes. L'édification de campements temporaires, où jeunes et vieux se côtoient, renforce les liens familiaux et communautaires. Les aînés transmettent aux plus jeunes les techniques nécessaires à la vie sur le territoire, tout en préservant la mémoire du groupe et la tradition.</p>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+            
+            
+            <p class="toRight"><a href="#"><span >Haut de la page</span></a></p>
+          </div>
+        </section>
+      
+        <section class="boite">
+          
+            
+            
+              <h2 class="titreBoite"><span >Références</span></h2>
+            
+          
+          <div class="contenuBoite">
+            
+              
+              
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+
+
+
+<div class="fauxTableau">
+  <h3 class="label"><span >Notices bibliographiques</span>&nbsp;:</h3>
+  <ul>
+    
+      <li>ARNASON, T., R. J. HEBDA et T. JOHNS. « Use of plants for food and medicine by Native Peoples of eastern Canada ». <I>Canadian Journal of Botany</I>. Vol. 59, no 11 (1981), p. 2189-2325.</li>
+      
+    
+      <li>CARTIER, Jacques. <I>Voyages de découvertes entre les années 1534 et 1542</I>. Textes et documents retrouvés. Paris, Antropos, 1968. 206 p.</li>
+      
+    
+      <li>CHAMPLAIN, Samuel de. <I>Oeuvres de Samuel de Champlain</I>. Montréal, Éditions du Jour, 1973. s.p.</li>
+      
+    
+      <li>DEXTER, R. W. et F. G. SPECK. « Utilization of animals and plants by the Malecite Indians of New Brunswick ». <I>Journal of the Washington Academy of Sciences</I>. Vol. 42, no 1 (1952), p. 1-7.</li>
+      
+    
+      <li>DEXTER, R. W. et F. G. SPECK. « Utilization of animals and plants by the Micmac Indians of New Brunswick ». <I>Journal of the Washington Academy of Sciences</I>. Vol. 40, no 8 (1951), p. 250-259.</li>
+      
+    
+      <li>KUHNLEIN, Harriet V. et Nancy TURNER. <I>Traditional Plant Foods of Canadian Indigeneous People: Nutrition, Botany and Use</I>. New York, Gordon and Breach, 1991. 525 p.</li>
+      
+    
+      <li>MARIE-VICTORIN, Frère. « Notes recueillies dans la région du Témiscamingue ». <I>Le Naturaliste canadien</I>. Vol. 45 (1919), p. 163-169.</li>
+      
+    
+      <li>Enregistrement avec QUOQUOCHI, Dominique, réalisé par SAINT-PIERRE, Louise, « La confection de la pâte de bleuets »,  Patrimoine immatériel des Premières Nations, Wapikoni mobile (dir.), Wemotaci, 21 août 2013.</li>
+      
+    
+      <li>RAYMOND, Marcel et Jacques ROUSSEAU. <I>Études ethnobotaniques québécoises</I>. Contributions de l'Institut botanique de l'Université de Montréal, 55. Montréal, Université de Montréal, 1945. 154 p.</li>
+      
+    
+      <li>SAGARD, Gabriel. <I>Le grand voyage au pays des Hurons</I>. Montréal, Hurtubise HMH, 1976. 268 p.</li>
+      
+    
+      <li>THWAITES, Reuben Gold. <I>The Jesuit Relations and Allied Documents: Travels and explorations of the Jesuit missionaries in New France, 1610-1791</I>. Cleveland, Burrows Bros. Co., 1896. s.p.</li>
+      
+    
+      <li>Wapikoni mobile. <I>Wapikoni mobile. Cinéma des Premières Nations</I> [En Ligne]. http://www.wapikoni.ca</li>
+      
+    
+      <li>WAUGH, Frederick Wilkerson. <I>Iroquois Foods and Food Preparation</I>. Mémoire (Commission géologique du Canada), 12. Ottawa, Government Printing Bureau, 1916. 235 p.</li>
+      
+        <ul>
+          
+            <li>L'image intitulée <i>Cueillette des petits fruits. Panier de cueillette traditionnel iroquoien</i> dans l'onglet <a href="#onglets">Images</a> en fait partie.</li>
+          
+            <li>L'image intitulée <i>Différents types de paniers traditionnels iroquoiens pour la cueillette et le séchage des petits fruits</i> dans l'onglet <a href="#onglets">Images</a> en fait partie.</li>
+          
+        </ul>
+      
+    
+  </ul>
+</div>
+
+  
+<div class="fauxTableau referenceCaches">
+    <h3 class="label">Multim&eacute;dias disponibles en ligne&nbsp;:</h3>
+	<ul>
+		<li class="nombreImage"></li>
+		<li class="nombreVideo"></li>
+    <li class="nombreAudio"></li>
+	</ul>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+            
+            
+            <p class="toRight"><a href="#"><span >Haut de la page</span></a></p>
+          </div>
+        </section>
+      
+  </div>
+
+        </div>
+      </div>
+      
+    </article>
+  </div>	
+</div>
+
+        
+<div class="footer">
+<ul><li class="premier"><a onclick="envoyerSuiviClics('Bas de page', 'Ouvrir lien', this.innerHTML);" href="redirection.do?go=plan">Plan du site</a></li>
+<li><a onclick="envoyerSuiviClics('Bas de page', 'Ouvrir lien', this.innerHTML);" href="redirection.do?go=joindre">Nous joindre</a></li>
+<li><a onclick="envoyerSuiviClics('Bas de page', 'Ouvrir lien', this.innerHTML);" href="redirection.do?go=credits">Crédits</a></li>
+<li><a onclick="envoyerSuiviClics('Bas de page', 'Ouvrir lien', this.innerHTML);" href="redirection.do?go=copyright">Droits d'auteur</a></li>
+<li><a onclick="envoyerSuiviClics('Bas de page', 'Ouvrir lien', this.innerHTML);" class="last" href="redirection.do?go=accessibilite">Accessibilité</a></li>
+</ul>
+</div>
+
+    </div>
+    
+
+    
+   
+  
+
+
+<script type="text/javascript" src="script/jquery-1.8.3.min.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/rpcq.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/jquery.cookie.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/sofi.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/sofi_ajax.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/sofi_fenetre.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/sofi_menu.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/fancybox2/jquery.fancybox-1.3.4.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/sofi_menu.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/html5shiv.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/html5shiv-printshiv.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/videos/video-js/video.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/videos/three.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/videos/videojs-panorama.min.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/image_panoramique/pannellum.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/videos/videojs-pannellum-plugin.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+
+
+<script type="text/javascript" src="script/mediaelement/mediaelement-and-player.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/jquery/jquery-ui-1.9.0.custom.min.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="script/buttons.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+<script type="text/javascript" src="script/detail/detail.js?dateDeploiement=2026-04-22 09:13">
+</script>
+
+
+<script type="text/javascript">stLight.options({publisher: "59b5f824-9561-43e8-bf21-d9e1c6e776b0"}); $(window).bind('load',function(e){
+    $('#btnPartage').addClass('actif')
+    $('#partage .stButton')
+      .attr({
+        'tabindex':'0',
+        'role':'button'
+      })
+      .bind('keydown',function(e){
+        if(e.type == 'keydown' && (e.keyCode == 13 || e.keyCode == 32)){
+          $(this).trigger('click');
+        }
+      });
+    $('#partage .stButton').each(function(i,el){
+      el = $(el);
+      label = el.parent().attr('displaytext');
+      el.children('span').html($('<span class="visuallyhidden">'+label+'</span>'));
+    })
+})</script>
+
+<!-- AddThis Button BEGIN -->
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true, "ui_click":true, "ui_language":'fr', "ui_offset_top":5, "ui_offset_left":-10, "services_compact":"facebook, twitter, linkedin,delicious, google_plusone_share, pinterest"};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-507824d31b0a0b4a"></script>
+<!-- AddThis Button END -->
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+ 
+  <div id="piv_bas">
+  <a href="https://www.quebec.ca/"><img src="images/quebw1.gif" alt="Gouvernement du Qu&eacute;bec" width="105" height="32" /></a>
+  <p>
+    <a href="http://www.droitauteur.gouv.qc.ca/copyright.php" title="Droits de propri&eacute;t&eacute; intellectuelle">
+    &copy; Gouvernement du Qu&eacute;bec,&nbsp;2024
+    </a>
+  </p> 
+</div>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=1988827002" async></script></body>
+</html>

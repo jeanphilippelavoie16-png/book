@@ -1,0 +1,2536 @@
+31 January 2017
+EMA/HMPC/80628/2016
+Committee on Herbal Medicinal Products (HMPC)
+
+Assessment report on Salix [various species including S.
+purpurea L., S. daphnoides Vill., S. fragilis L.], cortex
+
+Final
+
+Based on Article 10a of Directive 2001/83/EC (well-established use)
+
+Based on Article 16d(1), Article 16f and Article 16h of Directive 2001/83/EC (traditional use)
+
+Herbal substance(s) (binomial scientific name of  Salix [various species including S. purpurea L.,
+the plant, including plant part)                  S. daphnoides Vill., S. fragilis L.], cortex
+
+Herbal preparation(s)                             a) Comminuted herbal substance.
+
+                                                  b) Powdered herbal substance.
+
+                                                  c) Dry extract (8-20:1) extraction solvent
+                                                        water
+
+                                                  d) Dry extract (16:23-1) extraction solvent
+                                                        water
+
+                                                  e) Liquid extract (1:1), extraction solvent
+                                                        ethanol 25% V/V.
+
+                                                  f) Tincture (1:5), extraction solvent ethanol
+                                                        25% V/V.
+
+                                                  g) Dry extract (8-14:1) extraction solvent
+                                                        ethanol 70% V/V, 15% total salicin.
+
+Pharmaceutical form(s)                            Herbal preparation in solid or liquid dosage form
+                                                  or as herbal tea for oral use.
+
+                                                  Quantified herbal preparation in solid dosage
+                                                  form.
+
+Rapporteur(s)                                     Gert Laekeman
+                                                  Heidi Neef
+Assessor(s)
+Peer-reviewer                                     Burt Kroes
+
+30 Churchill Place  Canary Wharf  London E14 5EU  United Kingdom     An agency of the European Union
+Telephone +44 (0)20 3660 6000 Facsimile +44 (0)20 3660 5555
+Send a question via our website www.ema.europa.eu/contact
+
+© European Medicines Agency, 2017. Reproduction is authorised provided the source is acknowledged.
+Table of contents
+
+Table of contents ................................................................................................................... 2
+
+1. Introduction....................................................................................................................... 4
+1.1. Description of the herbal substance(s), herbal preparation(s) or combinations thereof ..4
+1.2. Search and assessment methodology .....................................................................7
+
+2. Data on medicinal use ........................................................................................................ 8
+2.1. Information about products on the market ..............................................................8
+2.1.1. Information about products on the market in the EU/EEA Member States .................8
+2.1.2. Information on products on the market outside the EU/EEA .................................. 10
+2.2. Information on documented medicinal use and historical data from literature ............ 11
+2.3. Overall conclusions on medicinal use .................................................................... 13
+
+3. Non-Clinical Data ............................................................................................................. 15
+3.1. Overview of available pharmacological data regarding the herbal substance(s), herbal
+preparation(s) and relevant constituents thereof........................................................... 15
+3.1.1. Primary pharmacodynamics .............................................................................. 15
+3.1.2. Secondary pharmacodynamics .......................................................................... 20
+3.1.3. Safety pharmacology ....................................................................................... 21
+3.1.4. Pharmacodynamic interactions .......................................................................... 21
+3.1.5. Conclusions .................................................................................................... 22
+3.2. Overview of available pharmacokinetic data regarding the herbal substance(s), herbal
+preparation(s) and relevant constituents thereof........................................................... 22
+3.3. Overview of available toxicological data regarding the herbal substance(s)/herbal
+preparation(s) and constituents thereof ....................................................................... 24
+3.3.1. Single dose toxicity.......................................................................................... 24
+3.3.2. Repeat dose toxicity......................................................................................... 24
+3.3.3. Genotoxicity ................................................................................................... 25
+3.3.4. Carcinogenicity................................................................................................ 25
+3.3.5. Reproductive and developmental toxicity ............................................................ 25
+3.3.6. Local tolerance ................................................................................................ 25
+3.3.7. Other special studies........................................................................................ 25
+3.3.8. Conclusions .................................................................................................... 25
+3.4. Overall conclusions on non-clinical data ................................................................ 25
+
+4. Clinical Data ..................................................................................................................... 26
+4.1. Clinical pharmacology ......................................................................................... 26
+4.1.1. Overview of pharmacodynamic data regarding the herbal substance(s)/preparation(s)
+including data on relevant constituents ........................................................................ 26
+4.1.2. Overview of pharmacokinetic data regarding the herbal substance(s)/preparation(s)
+including data on relevant constituents ........................................................................ 27
+4.2. Clinical efficacy .................................................................................................. 30
+4.2.1. Dose response studies...................................................................................... 30
+4.2.2. Clinical studies (case studies and clinical trials) ................................................... 31
+4.2.2.1. Low Back Pain .............................................................................................. 31
+4.2.2.2. Osteoarthritis and Rheumatoid Arthritis ........................................................... 35
+4.2.2.3. Migraine prophylaxis ..................................................................................... 40
+4.3. Clinical studies in special populations (e.g. elderly and children) .............................. 47
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 2/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+4.4. Overall conclusions on clinical pharmacology and efficacy ........................................ 47
+
+5. Clinical Safety/Pharmacovigilance ................................................................................... 47
+5.1. Overview of toxicological/safety data from clinical trials in humans........................... 47
+5.2. Patient exposure ................................................................................................ 47
+5.3. Adverse events, serious adverse events and deaths................................................ 48
+5.4. Laboratory findings............................................................................................. 49
+5.5. Safety in special populations and situations ........................................................... 49
+5.5.1. Use in children and adolescents......................................................................... 49
+5.5.2. Contraindications............................................................................................. 51
+5.5.3. Special Warnings and precautions for use ........................................................... 51
+5.5.4. Drug interactions and other forms of interaction .................................................. 52
+5.5.5. Fertility, pregnancy and lactation....................................................................... 53
+5.5.6. Overdose........................................................................................................ 53
+5.5.7. Effects on ability to drive or operate machinery or impairment of mental ability ...... 53
+5.5.8. Safety in other special situations ....................................................................... 54
+5.6. Overall conclusions on clinical safety..................................................................... 54
+
+6. Overall conclusions (benefit-risk assessment)................................................................. 54
+
+Annex .................................................................................................................................. 55
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 3/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+1. Introduction
+
+1.1. Description of the herbal substance(s), herbal preparation(s) or
+combinations thereof
+
+· Herbal substance(s)
+
+There are about 500 species of Salix species called willow, mainly found in Europe and North America.
+The species of medical interest include Salix alba, S. nigra and S. purpurea, but S. daphnoides and S.
+fragilis along with S. purpurea contain the greatest yield of salicylate precursors.
+
+According to the Ph. Eur. (01/2005:1583), the herbal substance is the whole or fragmented dried bark
+of young branches or whole dried pieces of current year twigs of various species of genus Salix
+including S. purpurea L., S. daphnoides Vill. and S. fragilis L. The drug contains not less than 1.5% of
+total salicylic derivatives, expressed as salicin (C13H18O7; MW 286.3), calculated with reference to the
+dried drug.
+
+The characteristic constituents are derivatives of salicin, mainly salicortin, 2'-O-acetylsalicortin and/or
+tremulacin. Other constituents are flavonoids, condensed tannins (8-20%) and catechins.
+
+Salicylates, calculated as total salicin (and determined after hydrolysis) vary between species: 0.5% in
+Salix alba, 1-10% in Salix fragilis. The concentration and availability of salicylates also vary within
+species according to growing conditions, processing and preparation (Meier et al. 1985a, Meier et al.
+1985b, Julkunen-Tiitto et al. 1992a, 1992b and 2001, Blashek et al. 1998). It should be noted that
+tannins may interfere with the absorption of salicylic acid.
+
+The bark of Salix purpurea L. contains 4-8% of total salicin (after hydrolysis). Phenol glucosides
+include salicortin (up to 9%), tremulacin (rarely more than 1%) and salireposide (0.1-1.2%) with small
+amounts of syringin and purpurein (up to 0.4%). Other constituents include the yellow chalcone
+isosalipurperoside (0.15-2.2%), the flavanones eriodictyol-7-glucoside (0.18-0.4%) and (+) and (-)-
+naringenin-5-glucoside (0.4-1.5% each), approximatively 0.5% of (+)-catechin and 5% of
+polyphenols. Young twigs (bark and wood) contain the same constituents in lower concentrations than
+bark alone (Freischmidt et al. 2015).
+
+The bark of Salix daphnoides Vill. contains more than 4% of total salicin. Phenol glucosides include
+salicortin (3-11%), tremulacin (up to 1.5%) and salicin (up to 1%) with small amounts of syringin (up
+to 0.2%). Other constituents include the yellow chalcone isosalipurperoside (0.2-1.5%), the flavanones
+(+) and (-)-naringenin-5-glucoside (0.3-1% each) and naringenin-7-glucoside (0.3-1.5%),
+approximatively 0.5% of (+)-catechin and 5% of polyphenols. Young twigs (bark and wood) contain
+the same constituents in lower concentrations than bark alone.
+
+It is suggested that all components identified play a role in the anti-inflammatory process (Keusgen
+and Algauer-Lechner 2007).
+
+There seems to be seasonal variation in the content of salicylates in willow bark. Förster et al. (2009)
+performed a qualitative analysis on samples of Salix daphnoides, Salix pentandra and Salix purpurea
+were collected over three years (2006, 2007, 2008) in Germany, Poland, Austria, Switserland and
+Italy. Salicylate content was analyzed with HPLC. According to their findings the authors make
+recommendation for optimal periods of harvesting (Förster et al. 2010).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 4/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Table 1: Seasonal variation of salicylate content of different Salix species collected over three different
+years. Different characters mean significant differences between different years for the same species
+(Föster et al. 2009).
+
+Esatbeyoglu et al. (2010) analysed 57 different samples of white willow bark (Salix alba) with regard
+to their dimeric and polymeric procyanidin composition. Polymeric procyanidins of white willow bark
+were found to contain the highest amount of (þ)-catechin in the extension units. The major products
+are procyanidins B3 and B4 which carry C4 to C8 linkages and afford purity levels of dimeric
+procyanidin B3 >95%. At the same time lower amounts of the C4 to C6 linked dimeric procyanidins B6
+and B8 are produced (Esatbeyoglu et al. 2010).
+Kim et al. (2015) isolated two new salicin derivatives, saliglandin and 6-O-(Z)-p-coumaroylsalicin,
+along with fourteen known analogues were isolated from the twigs of Salix glandulosa Seemen. The
+structures of 1-16 were characterized by the use of NMR (1H and 13C NMR), chemical hydrolysis, and
+GC/MS (Kim et al. 2015).
+Wiesneth et al. (2015) isolated and analysed proanthocyanidins (PAs) from an aqueous-methanolic
+extract of Salix daphnoides VILL. Procyanidin B1 (1), B2 (2), B3 (3), B4 (4), C1 (5), epicatechin-
+(48)-epicatechin-(48)-catechin (6) and epicatechin-(48)-epicatechin-(48)-epicatechin-
+(48)-catechin (7) have been isolated by a combination of different chromatographic separations,
+mass spectrometry, 1D- and 2D-NMR, circular dichroism and polarimetry (Figure 1). Additionally, two
+fractions of very polar flavan-3-ols were compared. These "unusual" PAs were subsequently enriched
+and characterized by centrifugal partition chromatography (CPC). 13C-NMR, polarimetry, thiolysis, acid
+hydrolysis and phloroglucinol degradation. Differences in the composition of different flavan-3-ol units
+and the middle chain length were observed (Wiesneth et al. 2015).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 5/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Figure 1: Structures of the isolated procyanidins (PC) 1-7 (Wiesneth et al. 2015).
+
+Willow monographs are included in general reference books on herbal substances such as the American
+Herbal Pharmacopoeia (1999), British Herbal Pharmacopoeia (1983), British Herbal Compendium
+(1992), Commission E monographs (1984), ESCOP (2003), Dingerman et al. (2002).
+
+DAB 10 (and DAB 10 Kommentar resp. 1991 and 1995) and Bisset (1994) recommend 2-3 g herbal
+substance (finely chopped or coarsely powdered) 3 to 4 times per day, with mean daily doses of 60-
+120 mg salicin.
+
+Barnes et al. (2007) recommended 1-3 g dry bark for decoction, three times daily, corresponding to
+
+60-120 mg total salicin daily.
+
+The concentration of salicin in the herbal substance varies (see above). The Ph. Eur. stipulates a
+minimum content of 1.5% total salicin in the herbal substance. It is clear that 6-12 g powdered bark
+(as a decoction) will usually not deliver amounts of salicin that are comparable to the doses of salicin
+administered in the preparations studied in the clinical trial settings.
+
+The herbal substance as such is however not used; only the bark reduced in size to comminuted or
+powdered is used (herbal preparations).
+
+· Herbal preparation(s)
+
+According to the Ph. Eur. (04/2008: 2312), willow bark dry extract contains minimum 5.0% of total
+salicylic derivatives, expressed as salicin (C13H18O7; Mr 286.3) (dried extract). The extract is produced
+from the herbal drug by a suitable procedure using either water or a hydro-alcoholic solvent equivalent
+in strength to a maximum of 80% V/V ethanol.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 6/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+The Ph. Eur. monograph only stipulates a minimum content of total salicylic derivatives, expressed as
+salicin. Each manufacturer needs to provide a range for the quantified extract used in his finished
+product. The 15% total salicin, as contained in the extract for which moderate clinical efficacy was
+demonstrated, represents an average value. The exact range needs to be established for each finished
+product on the basis of the manufacturer's specifications.
+
+During the first assessment in 2008 it was discussed whether preparations in the TU part of the
+monograph should be quantified or not. The HMPC concluded not to use the term "quantified" in the TU
+part of the monograph.
+
+ESCOP: Dried hydro-alcoholic or aqueous extracts, tinctures or liquid extracts, equivalent to 120-240
+mg of total salicin per day.
+
+The Commission E monograph (1984) on willow bark recommends liquid and solid preparations; daily
+dose corresponding to 60-120 mg total salicin, as antipyretic, antiphlogistic and analgesic.
+
+In Germany, a Marketing Authorisation (MA) was granted for the following hydro-alcoholic and
+aqueous extracts: dry extract ethanol 70% 8-14:1 (dosage: 393.34 mg extract 1-4x per day) and dry
+aqueous extracts with ratio's 16-20:1; 8-16:1 (dosage: 2 x 600 mg extract per day) and dry aqueous
+extract (16-23:1). The maximal daily doses range from 120 mg salicin to 240 mg salicin (Wagner et al.
+2003b, information from the Rote Liste 2002).
+
+· Combinations of herbal substance(s) and/or herbal preparation(s) including a description of
+      vitamin(s) and/or mineral(s) as ingredients of traditional combination herbal medicinal products
+      assessed, where applicable.
+
+Not applicable
+
+1.2. Search and assessment methodology
+
+Starting from the references used for the first version additional information was searched in
+
+      · Books and book chapters: Barnes et al. (2007), Dingerman et al. (2002), Madaus (1935),
+            McGuffin (1997), Schmid et al. (2002), Williamson et al. 2013.
+
+      · Monographs: ESCOP, Kooperation Phytotherapie
+
+Search engines used: keywords Salix OR willow within a timeframe January 2011 to January 2016.
+
+Scientific databases: Embase
+
+Medical databases: PubMed
+
+Data from EU and non-EU regulatory authorities: market overview up to November 2015.
+
+Other resources:
+
+      · Monographs: Kooperation Phytotherapie.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 7/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Figure 2: literature selection flowchart
+
+2. Data on medicinal use
+
+2.1. Information about products on the market
+
+2.1.1. Information about products on the market in the EU/EEA Member
+States
+
+Information on medicinal products marketed in the EU/EEA
+
+This overview is not exhaustive. It is provided for information only and reflects the situation at the
+time when it was established.
+
+Table 2: Information on medicinal products marketed in Germany
+
+Active substance    Indication                Pharmaceutical form                    Regulatory
+                                              Posology                               Status
+                                              Duration of use
+
+1. Salicis cortex,  Headache, symptomatic     coated tablet                          1986, DE, WEU
+powder              treatment of rheumatic    500 mg
+                    symptoms, symptomatic     > 12 years: 2
+                    treatment of fever        (up to 8 coated tablets per
+                    (Kopfschmerzen,           day)
+                    rheumatische              Duration not limited when
+                    Beschwerden, fieberhafte  under medical supervision
+                    Erkrankungen)
+
+2. Salicis cortex,  Headache, symptomatic     coated tablet                          1993, DE, WEU
+powder              treatment of rheumatic
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 8/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Active substance        Indication                Pharmaceutical form                Regulatory
+                                                  Posology                           Status
+3. Salicis cortex dry                             Duration of use
+extract (8-14:1),                                                                    1997, DE, WEU
+extraction solvent:     symptoms, symptomatic     500 mg                             1997, DE, WEU
+ethanol 70% (V/V)       treatment of fever                                           2004, DE, WEU
+                        (Kopfschmerzen,           > 12 years: 2                      2007, DE, WEU
+4. Salicis cortex dry   rheumatische
+extract (8-14:1),       Beschwerden, fieberhafte  (up to 8 coated tablets per
+extraction solvent:     Erkrankungen)             day)
+ethanol 70% (V/V)
+                                                  Duration not limited when
+5. Salicis cortex dry                             under medical supervision
+extract (16-23:1)
+corresponding to 120    Short term treatment of   coated tablet
+mg salicin, extraction  lower back pain (Zur      393.24 mg
+solvent: water          Kurzzeitbehandlung von    >18 years: 1-2 tablets 2
+                        Kreuzschmerzen)           times daily
+6. Salicis cortex, cut
+                                                  Duration: maximum 4
+                                                  weeks
+
+                        Headache, symptomatic     coated tablet
+                        treatment of rheumatic    393.24 mg
+                        symptoms, symptomatic     >12 years: 1 tablet 1-2
+                        treatment of fever        times daily
+                        (Kopfschmerzen,           Duration not limited
+                        rheumatische
+                        Beschwerden, fieberhafte
+                        Erkrankungen)
+
+                        Headache, symptomatic     capsule, hard
+                        treatment of rheumatic    480 mg
+                        symptoms                  >12 years: 1 capsule 2
+                        (Kopfschmerzen,           times daily
+                        rheumatische              Duration not limited
+                        Beschwerden)
+
+                        Symptomatic treatment     herbal tea
+                        of mild rheumatic         2.55 g/sachet
+                        symptoms (Zur             > 12 years: 1 sachet with
+                        Besserung von leichten    150 ml boiling water
+                        rheumatischen             3 times daily
+                        Beschwerden)
+
+                                                  Duration maximum 2 weeks
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 9/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Table 3: Information on medicinal products marketed in Poland
+
+Active substance    Indication              Pharmaceutical form                      Regulatory Status
+                                            Posology
+                                            Duration of use
+
+1. Salicis cortex,  Traditionally used in   Tablets, 330 mg                          Traditional use
+      powdered      headache, common                                                 registration, 2009
+                    cold with fever and as  Posology: 1-2 tablets 3
+                    support in arthritis    times daily, after
+                                            meals. It is advised to
+                                            take with larger
+                                            quantity of hot water.
+
+2. Salicis cortex,  Used in the             Herbal tea                               National registration,
+      comminuted    symptomatic treatment                                            R/0133
+                    of fever and pain and   4 g of comminuted bark
+                    mild rheumatic pain     of willow pour with 1
+                                            cup (200 ml) of water
+                                            and boil covered for 15
+                                            minutes. Let stand for
+                                            15 minutes, strain.
+                                            Drink after meals, 3
+                                            times a day a glass of
+                                            warm, freshly prepared
+                                            decoction.
+
+Information on active or analytical marker(s) or constituents with known therapeutic
+activity
+
+1. 330 mg of powdered Salicis cortex contains not less than 20.0 mg of phenolic glycosides counted as
+salicin.
+
+2. Quality in line with Eur. Ph. Daily dose corresponds to 240 mg phenolic glycosides counted as salicin.
+
+Countries without information on products on the market (reporting September - October
+2015)
+Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France,
+Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Malta, the Netherlands, Norway, Portugal, Romania,
+Slovakia, Slovenia, Spain, UK, Sweden.
+Information on relevant combination medicinal products marketed in the EU/EEA
+Not applicable
+Information on other products marketed in the EU/EEA (where relevant)
+Not applicable
+
+2.1.2. Information on products on the market outside the EU/EEA
+
+Not applicable
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 10/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+2.2. Information on documented medicinal use and historical data from
+literature
+
+Medicinal use of different parts of the willow tree has been mentioned by Pedanius Dioskorides (1st
+century AD) and Philippus Aureolus Theophrastus Bombastus von Hohenheim or Paracelsus (16th
+century) (Madaus 1935). Willow bark has had a long tradition as febrifuge dating back to the 18th
+century. Following the identification of salicin and the subsequent synthesis of salicylic acid and more
+importantly acetyl salicylic acid (end of 19th century), the interest in willow bark had decreased
+substantially. However, the demand for phytoanalgetica with better tolerability versus anti-
+inflammatory drugs has increased scientific interest in willow bark (Mayer and Mayer 1949) (McGuffin
+et al. 1997) (Kaul et al. 1999). Even in South-Africa willow was known by Hottentot sheperds as a
+remedy in case of rheumatic fever (Volmink 2008).
+
+Willow bark has traditionally been used for muscular and arthroidal rheumatism with inflammation and
+pain, influenza, respiratory catarrh, gouty arthritis, ankylosing spondylitis, and specifically for
+rheumatoid arthritis (RA) and other systemic connective tissue disorders characterised by
+inflammatory changes (Barnes et al. 2007; Beer et al. 2008). The use in case of lumbar pain is less
+supported by scientific data (Beer & Loew 2008).
+
+The British Herbal Pharmacopoeia (1983) and British Herbal Compendium volume 1 (1992) included a
+liquid extract (1:1 in 25% alcohol): 1-3 ml three times daily and a tincture (1:5) (extraction solvent
+ethanol 25%): 15-24 ml per day.
+
+Wichtl (2002) / Hänsel (1991) / Hagers Handbuch (Blaschek et al. 1998) and ESCOP (2003) state the
+use as a relief of low back pain; symptomatic relief of mild osteoarthritic and rheumatic complaints.
+
+HagerROM (2001) mentions the traditional use of powdered drug and herbal teas in case of flu-like
+conditions and treatment of minor pain (daily dose equivalent to 60-120 mg salicin).
+
+The German Commission E monograph (1984) approved internal use for diseases accompanied by
+fever, rheumatic complaints and headaches. Apart from these indications the use in quite a lot of other
+conditions have been listed. The following indications can be found in standard sources: amongst
+others adjuvans in diabetes mellitus, anthelminticum, diaphoreticum, diureticum, dyspepsia, malaria,
+bronchitis, against neuralgia, sedative and as a tonicum. Traditional external use includes the use as
+amongst others antisepticum, adstringens, keratolyticum, rubefaciens and in case of ear infection
+(Benedum et al. 2006).
+
+März and Kemper (2002) made an overview of preclinical and clinical investigations, confirming
+pharmacodynamic properties and clinical value of willow preparations.
+
+In Germany, MAs were granted for HMPs containing:
+
+Dry extract ethanol 70% 8-14:1 with indications: headache, fever, minor articular pain. Dosage: 1-2 x
+393, 34 mg extract per day (MA dated 1997)
+
+Dry aqueous extracts 16-20:1 and 8-16:1 with indications: headache, fever, rheumatic complaints.
+Dosage: 2 x 600 mg extract per day (MAs date from 1997 & 2003)
+
+Dry aqueous extract 16-23:1 with indication of fever. Dosage: 2 x 480 mg extract per day (MA 2003)
+
+Powdered willow bark: 500 mg per coated tablet or capsule (MAs since 1991 and 1992 respectively).
+
+Cut herb: 1.995 g/teabag, 3-6 cups per day (MA dated 1999).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 11/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+All preparations for which MA for "TU" had been granted (according to former national regulations)
+were included in the overview by Germany (some of them not in accordance with the actual provisions
+of Directive 2004/24/EC). Traditional preparations were authorised in 10-50% of WEU doses when in
+parallel the same preparations were authorised under WEU. In line with HMPC policy and established
+practice with reference to Art. 16a(3) of Directive 2001/83/EC, it is not considered appropriate that the
+dry extract ethanol 70% 8-14:1 appears in the TU section of the monograph, because fulfilling criteria
+to be eligible for WEU and included in the WEU part of the monograph.
+
+Willow bark is also ingredient in combination products (3 WEU products and 2 TU products) and a
+standard MA for combination products with willow bark as a herbal tea exists.
+
+In Spain, 400 mg powdered willow bark is administered every 8 hours.
+
+In France, capsules containing 260 mg willow bark powder are authorised since 1988.
+
+No single ingredient products are authorised / registered in the other Member States: willow bark is
+included in combination HMPs in Belgium, Malta, Czech Republic, UK, Austria, Latvia and Italy.
+
+In Austria, a MA exists for a combination willow-bark containing HMP (120 mg aqueous extract 20-1,
+15% salicin; in combination with Tilia flos and vitamin C). In addition, a combination herbal tea is on
+the market.
+
+No willow bark containing products are authorised in Norway, Finland and Portugal.
+
+For information, in Italy food supplements with the following preparations were notified:
+
+      · Capsules with a combination of 400 mg dry extract of Salix alba (15% salicin) and 460 mg
+            powdered bark (notified in 2004): claim that it may favor osteo-articular well-being
+
+      · Oral solution (drops) containing an ethanol (60%) extract
+
+In central Italy dried willow bark is applied topically to treat warts (Leporatti 1990).
+
+Hagers Handbuch includes external use to help healing of wounds (50 g herbal substance per 0.5 l
+water).
+
+The conditions associated with "fever" and "pain" in which HMPs containing willow bark are traditionally
+used were specified as "a) the symptomatic relief of minor articular pain" with a duration restriction to
+a maximum of 4 weeks, "b) the symptomatic relief of fever associated with common cold" for no
+longer than 3 days (in common cold, fever is experienced for 3 days), and "c) the symptomatic relief of
+headache". If fever exceeds 39°C, persists or is associated with severe headache (meningitis) or if
+symptoms worsen during the use of the medicinal product, a doctor should be consulted. If headache
+persists for more than one day or is recurrent, medical advice is sought.
+
+These TU uses are contra-indicated in children and adolescents under 18 years of age. THMPs
+containing willow bark are not intended to be used in case of acute osteoarthritis (OA) as this condition
+requires medical advice.
+
+The posology section covers only the preparations for which posology is documented. A posology for
+dry bark for herbal tea preparation, dry aqueous extracts, liquid extract and powdered dry bark were
+specified.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 12/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Table 4: Overview of historical data
+
+Herbal preparation         Documented Use           Pharmaceutical form              Reference
+                                                    Posology
+                                                    Duration of use
+
+Salix cortex               TU as an anti-           No posology specified            Kaul et al. (1999);
+                           inflammatory herbal                                       Barnes (2007); Wichtl
+                           medicine in different                                     (2002); Hänsel (1991)
+                           conditions: muscular                                      Hagers Handbuch;
+                           and arthrodial                                            Blaschek et al. (1998);
+                           rheumatism with                                           ESCOP (2003);
+                           inflammation and pain,
+                           influenza, respiratory
+                           catarrh, gouty
+                           arthritis, ankylosing
+                           spondylitis, and
+                           specifically for
+                           rheumatoid arthritis
+                           (RA)
+
+Salix cortex powdered and  Flu-like conditions and  Daily dose equivalent            HagerROM (2001)
+as herbal tea              treatment of minor       to 60-120 mg salicin
+                           pain
+
+2.3. Overall conclusions on medicinal use
+
+Table 5: Overview of evidence on period of medicinal use
+
+Herbal preparation         Indication           Strength                             Period of medicinal use
+Pharmaceutical form                             Posology
+
+Comminuted herbal          Indication 1)        Herbal tea: 1 to 3                   Since 2007, DE
+substance                                       g of the
+                           Traditional herbal   comminuted                           National registration, R/0133
+                           medicinal product    herbal substance                     Poland.
+                           used for the relief  in 150 ml of
+                           of minor articular   boiling water as
+                           pain.                an herbal infusion
+                                                3 times daily.
+                           Indication 2)
+
+                           Traditional herbal   Decoction: 4 g of
+                           medicinal product    comminuted bark
+                           used for the relief  of willow pour
+                           of fever             with 1 cup (200
+                           associated with      ml) of water and
+                           common cold.         boil covered for
+                                                15 minutes. Let
+                           Indication 3)        stand for 15
+                                                minutes, strain.
+                           Traditional herbal   Drink after
+                           medicinal product
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides             Page 13/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Herbal preparation          Indication        Strength                               Period of medicinal use
+Pharmaceutical form                           Posology
+                            used for          meals, 3 times a                       Since 1986, DE
+                            headache.         day a glass of
+                                              warm, freshly                          All preparations for which MA for
+Powdered herbal                               prepared                               "TU" had been granted
+substance                                     decoction.                             (according to former national
+                                              260-500 mg 3 to                        regulations) were included in the
+Dry extract (DER 8-20:1)                      8 times daily.                         overview by Germany (some of
+extraction solvent water                      To be taken after                      them not in accordance with the
+                                              meals. It is                           actual provisions of Directive
+Dry extract (DER 16-23:1)                     advised to drink                       2004/24/EC). Traditional
+extraction solvent water                      with larger                            preparations were authorised in
+                                              quantity of hot                        10-50% of WEU doses when in
+Liquid extract (DER 1:1),                     water.                                 parallel the same preparations
+extraction solvent ethanol                    600 mg twice                           were authorised under WEU.
+25% V/V                                       daily                                  The British Herbal
+                                              480 mg twice                           Pharmacopoeia (1983) and
+Tincture (1:5), extraction                    daily                                  British Herbal Compendium
+solvent ethanol 25% V/V                                                              volume 1 (1992)
+                                              1 to 3 ml, three
+Dry extract (8-14:1)                          times daily
+extraction solvent ethanol
+70% V/V, 15% total                            15-24 ml per day
+salicin
+                            Herbal medicinal  Single dose: 393                       Since 1997, DE, WEU
+                            product used for  mg to 786 mg up
+                            the short-term    to 2 times daily.
+                            treatment of low
+                            back pain.        The daily dose is
+                                              393 to 1572 mg
+                                              dry extract (8-
+                                              14:1)
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides                       Page 14/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+3. Non-Clinical Data
+
+3.1. Overview of available pharmacological data regarding the herbal
+substance(s), herbal preparation(s) and relevant constituents thereof
+
+3.1.1. Primary pharmacodynamics
+
+In vitro studies
+
+Pharmacological actions normally associated with salicylates are also applicable to willow which support
+most of the herbal uses, although no studies are available for willow covering most uses. Salicin is
+probably the most active anti-inflammatory compound in willow; it is metabolised to salicylic acid.
+
+The hen's egg choriollantoic membrane test system has been used to study the anti- inflammatory
+effect of the willow bark constituents salicin and tremulacin (isolated from Populus spp). Onset of this
+anti-inflammatory effect is delayed in comparison with saligenin (salicyl alcohol), sodium salicylate and
+acetylsalicylic acid, indicating that the active principles may be metabolites of salicin and tremulacin
+(Albrecht et al. 1990).
+
+Isolated tremulacin, s.c. injected at 100 mg/kg bw significantly inhibited carrageenan-induced paw
+oedema and peritoneal leucocyte migration in rats, and croton oil induced ear oedema and acetic acid
+induced writhing in mice. Inhibition of leukotriene B4 biosynthesis in pleural leucocytes also supported
+its anti-inflammatory activity in acute inflammatory animal models (Cheng et al. 1994).
+
+A water extract of Salix caprea bark showed moderate inhibition of prostaglandin synthesis and PAF-
+induced exocytosis in vitro (Tunón et al. 1995).
+
+A water extract of willow bark inhibited oxidation of LDL by copper ions in a number of vitro tests.
+Copper chelation seemed to be only partially involved in inhibition of copper-dependent oxidations and
+only at a certain concentration of extract (Rohnert et al. 1998).
+
+Willow bark extract ethanol 70% (total salicin 15%) demonstrated a dose-dependent inhibition of COX-
+1 and COX-2 in vitro on whole-blood samples of 3 healthy volunteers, but inhibited less efficiently TNF-
+alpha and IL-1beta release. The concentration of extract tested did not affect cell viability (Wagner et
+al. 2003a).
+
+It should be noted that after oral ingestion of the extract, these inhibitory effects were no longer
+demonstrated. Moreover salicin components may not be the only constituents responsible for the
+activity (Fiebig and Appel 2003).
+
+In another in vitro study with primary human monocytes, the extract 70% ethanol 8-14:1 inhibited
+LPS-induced release of PGE2 reflecting COX-2-mediated PGE2 release. Salicin and salicylate had no
+effect on the parameters, while rofecoxib was included as the active control. The extract inhibited the
+LPS-induced release of TNF-, IL-1 and IL-6 (Chrubasik et al. 2003; Fiebig & Chrubasik 2004, Wagner
+et al. 2003a).
+
+A third study examined a water extract 33:1 in two inflammation models in rats, the 6day air pouch
+model and the adjuvant-induced arthritis. The extract was at least as active as acetylsalicylic acid
+(ASA) on a mg/kg basis in reducing inflammatory exudates and in inhibiting leukocytic infiltration as
+well as in preventing the rise in cytokines, was more effective than ASA in suppressing leukotrienes,
+but equally effective in suppressing PGs. Again, other constituents than salicin are thought to
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 15/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+contribute to the overall activity as the extract contains considerably lower amounts of salicylates
+(Khayyal et al. 2005).
+
+The effects of 5 fractions of a standardized willow bark extract from Salix daphnoides, purpurea and
+fragilis were investigated on human monocytes. Positive controls were diclofenac and acetylsalicylic
+acid. The willow bark extract, as well as its 5 fractions inhibited the interferon-gamma- and
+lipopolysaccharide-induced inflammation in isolated human monocytes. The release of nitrites and NO
+was significantly reduced. Active concentrations of fractions and extract varied between 5 and 30
+µg/ml. Incubation time was 90 minutes (Kelber et al. 2006).
+
+A pharmacological in vivo and in vitro study on an aqueous willow bark extract (16-23:1, 23-26% total
+salicin) pointed to contributions of the fraction of polyphenols and flavonoids to the overall effect of
+willow bark on the inhibition of enzymes of arachidonic acid (AA) metabolism (COX-1, COX-2, HLE
+isolated enzymes, 5-LOX), inhibition of gene expression of mediators of inflammation, anti-oxidative
+effects whereas the contribution of salicin derivatives was found to be minor (note that no metabolic
+activation of the salicins took place). Dose-dependent effects of the extract (50-150 mg/kg) were
+found in the carrageenan-induced rat paw oedema test and the Randall-Sellitto-test (anti-nociceptive
+effect), comparable to 150 mg/kg ASA. The results and the mg-mg comparison with regard to salicylic
+derivatives again suggest that other fractions than salicins distinctly contribute to the effects of the
+extract (Nahrstedt et al. 2007).
+
+Salicin administered orally to rats at 5 mmol/kg bw significantly reduced yeast-induced fever,
+producing a normal temperature, and completely prevented fever when administered simultaneously
+with yeast. However, salicin at this dose level did not affect the renal body temperature of afebrile
+rats. On the other hand, both sodium salicylate and saligenin at 5 mmol/kg lowered body temperature
+significantly in afebrile rats (Akao et al. 2002).
+
+Other ingredients of the extract may contribute to the overall analgesic effects. These constituents
+may include naringenin, catechins and eriodictyol, that inhibit lipoxygenase, hyaluronidase and
+scavenge free radicals (Kuppsamy et al. 1990; Rice-Evans et al. 1995).
+
+An aqueous extract of the bark of Salix purpurea (DER 16-23:1) at a concentration 50 µg/ml
+decreased ICAM-1 (Intercellular Adhesion Molecule 1) expression to 40% in human vascular epithelial
+cells, as compared to control cells, without any sign of toxicity. Flavonoid and chalcone glycosides were
+not active up to 50 µM, whereas catechol and eriodictyol at the same concentration showed significant
+reduction of ICAM-1 expression to 50% of controls. Other isolated flavanone aglyca like taxifolin,
+dihydrokaempferol and naringenin showed only weak or moderate inhibitory activity. Eriodictyol was a
+minor compound in the extract whereas the catechol content in the extract reached 2.3% determined
+by HPLC. One of the isolated cyclohexan-1,2-diol glucosides 6'-O-4-hydroxybenzoyl-grandidentin, is a
+new natural compound. From these in vitro data it can be concluded that not only flavonoids and
+salicin derivatives, but also catechol can probably contribute to the anti-inflammatory activity of willow
+bark extracts (Freischmidt et al. 2012).
+
+Shakibaei et al. (2012) studied the anti-inflammatory property of a non-specified willow bark extract
+(10 µg/ml) in vitro with primary canine articular chondrocytes treated with Interleukine-1. Expression
+of collagen type II, cartilage-specific proteoglycan (CSPG), 1-integrin, transcription factor SOX-9,
+COX-2, and matrix metalloproteinases MMP-9 and MMP-13 was examined by western blotting. The
+extracts suppressed IL-1-induced NF-B activation by inhibition of IB phosphorylation, IB
+degradation, p65 phosphorylation, and p65 nuclear translocation. These events correlated with
+downregulation of NF-B targets including COX-2 and MMPs. The extracts also reversed the IL-1-
+induced downregulation of collagen type II, CSPG, 1-integrin, and cartilage-specific transcription
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 16/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+factor SOX-9 protein expression (see Figure 3). In high-density cultures willow bark extracts
+stimulated new cartilage formation even in the presence of IL-1. From the experiments it is concluded
+that willow bark extracts exerted anti-inflammatory and anabolic effects on chondrocytes. The
+observed reduction of IL-1-induced NF-B activation suggests that further studies are warranted to
+demonstrate the effectiveness of willow bark extract (Shakibaei et al. 2012).
+
+Figure 3: Inhibitory effects of willow bark extract on IL-1-induced NF-B activation in chondrocytes
+in vitro. IL-1 stimulates the IL-1 receptor, initiating an intracellular signal transduction cascade,
+which activates the cytoplasmic IB kinases (I)-, I-, and I-. These kinases phosphorylate
+inactive IB. Phosphorylated IB is then ubiquitinated and degraded by the proteasome and active
+NF-B is released. NF-B translocates to the nucleus, where it activates proinflammatory and
+proapoptotic gene production. In chondrocytes, botanical extracts inhibit the NF-B signal transduction
+pathway, ubiquitination of phosphorylated IB and block translocation of activated NF-B to the
+nucleus (Shakibaei et al. 2012).
+
+Dried aerial parts of willow bark (7.5 g) were extracted in 100 ml water at 90°C for 15 min. Different
+concentrations of this aqueous herbal extract was incubated with THP1 macrophages, and interleukin
+(IL)-1b, IL-6 and tumour necrosis factor-alpha (TNF-a) were measured. At concentrations equivalent to
+7 µM salicylic acid the production of cytokines was significantly reduced (p < 0.001) (Drummond et al.
+2013).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 17/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Table 6: Overview of the main non-clinical data/conclusions
+
+Herbal preparation   Posology               Experiment       Reference               Main non-clinical
+tested                                      al model                                 conclusions
+
+Comparable/similar   5 fractions of a       In vitro         Kelber et al.           Significant reduction
+preparations to      willow bark extract                     2006                    of nitrite and NO
+preparations of the  from Salix             Human                                    release
+monograph            daphnoides,            monocytes
+                     purpurea and fragilis                                           Decreased ICAM-1
+                                            In vitro:        Freischmidt et          (Intercellular
+                     5 and 30 µg/ml         Human            al. 2012                Adhesion Molecule
+                                            vascular                                 1) expression
+                     Aqueous extract of     epithelial
+                     the bark of Salix      cells                                    Inhibition of the
+                     purpurea (DER 16-                                               enzymes.
+                     23:1) at a             In vitro:        Nahrstedt et al.
+                     concentration 50       COX-1, COX-      2007                    Dose-dependent
+                     µg/ml                  2, HLE                                   inhibition of
+                                            isolated                                 inflammation
+                     Aqueous willow bark    enzymes, 5-                              comparable to 150
+                     extract (16-23:1,      LOX                                      mg/kg ASA
+                     23-26% total salicin)
+                                            In vivo:                                 Inhibited of the LPS-
+                     50-150 mg/kg           Carrageenan-                             induced release of
+                                            induced rat                              TNF-, IL-1 and IL-
+                     Extract 70% ethanol    paw oedema                               6
+                     8-14:1
+
+Other preparations   10 µg/ml of a non-     In vitro:        Chrubasik et al.        Cytokine activation
+                     specified willow bark  Primary          2003; Fiebich et        and actions
+                     extract.               human            al. 2004,               depressed, cartilage
+                                            monocytes        Wagner et al.           formation
+                     Willow bark water                       2003a                   stimulated.
+                     extract equivalent     In vitro:        Shakibaei et al.
+                     with 7 µM salicylic    Canine           2012                    Significant reduction
+                     acid.                  articular                                of cytokines
+                     Willow bark water      chondrocytes     Drummond et
+                     extract 33:1                            al. 2013
+                                            In vitro:
+                                            THP1
+                                            macrophages
+
+                                            In vivo: the 6   Khayyal et al.          At least as active as
+                                            day air pouch    2005                    acetylsalicylic acid
+                                            model and                                (ASA) on a mg/kg
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 18/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Herbal preparation  Posology              Experiment      Reference                  Main non-clinical
+tested                                    al model                                   conclusions
+
+                                          the adjuvant-                              basis
+                                          induced
+                                          arthritis                                  - in reducing
+                                                                                     inflammatory
+Single substances   Salicin administered  In vivo:        Akao et al.                exudates
+                    orally at 5 mmol/kg   Yeast-          2002
+                                          induced fever                              - in inhibiting
+                    Tremulacin, s.c.      in rats                                    leukocytic infiltration
+                    injected at 100
+                    mg/kg                 In vivo         Cheng et al.               -in preventing the
+                                          Rats            1994                       rise in cytokines;
+                                          (carrageenan
+                                          -induced paw                               -more effective than
+                                          oedema) and                                ASA in suppressing
+                                          mice (croton                               leukotrienes
+                                          oil oedema
+                                          and acetic                                 -but equally
+                                          acid writhing)                             effective in
+                                                                                     suppressing PGs
+                    Salicin and           Hen's egg       Albrecht et al.
+                    tremulacin            choriollantoic  1990                       Fever reduction
+                                          membrane
+                                          test system                                In rats inhibition of:
+
+                                                                                     -Carrageenan-
+                                                                                     induced paw
+                                                                                     oedema
+
+                                                                                     Inhibition in mice of:
+
+                                                                                     - Peritoneal
+                                                                                     leucocyte migration
+
+                                                                                     - Croton oil induced
+                                                                                     ear oedema
+                                                                                     - Acetic acid induced
+                                                                                     writhing
+                                                                                     Anti-inflammatory
+                                                                                     effect
+
+Conclusions
+
+Preclinical experimental data in vitro were obtained by using human and canine monocytes,
+chondrocytes, macrophages and cyclo-oxygenase activity. Carragenan-induced rat paw oedema was
+the most important in vivo model of inflammation. Willow bark extracts listed in the monograph
+(aqueous extract DER 16-23:1; extract 70% ethanol 8-14:1), as well as other extracts and pure
+substances were used. It is not clear whether the concentrations in vitro are clinically relevant. At least
+for the pure substances they are higher than what can be achieved therapeutically. The doses
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 19/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+administered in vivo must also be considered as supra-therapeutic. Sometimes equivalence with
+acetylsalicylic acid is obtained. Generally, the results qualitatively support the therapeutic indications
+listed in the monograph: anti-inflammatory, antipyretic and analgesic.
+
+3.1.2. Secondary pharmacodynamics
+
+Wuthold et al. (2004) published an analysis of 22 various extracts (aqueous and hydro-ethanolic) with
+HPTLC and 2 in vitro tests (anti-oxidative effects). The models were used to predict activity of willow
+bark extracts.
+
+The potential of willow bark extracts as anticancer agents has been reported. A study demonstrated
+the inhibition of anchorage independent growth, motility, migration, and adhesion of colon cancer cell
+lines HCT-116 and HT-29 by EEB. These in vitro functional changes were accompanied by a restoration
+of Ecadherin expression, a reduction in EGFR, SNAI1, SNAI2, and Twist1 and the matrix
+metalloproteases MMP9 and MMP2. Many of these proteins are involved in the process of epithelial to
+mesenchymal transition, which is considered as a critical step in the progression of noninvasive tumor
+cells into malignant, metastatic carcinomas (Enayat and Banerjee 2014).
+
+Fiebig et al. (2010) investigated the influence of different fractions of the STW 33-I willow bark extract
+on human umbilical vein endothelial cells. More particularly the content of c-GMP and the production of
+NO. Two fractions (A and E) increased the release of NO, whereas one fraction (C) inhibited the
+release. In the abstract no further details were given on the concentration of the extracts (Fiebig et al.
+2010).
+
+The influence of salicylalcohol, flavonoids and proanthocyanidins isolated from willow bark extract BNO
+1455 on proliferation and apoptosis of human colon and different cancer cells. All compounds showed
+anti-proliferative activity, with 50% maximal growth inhibitory concentrations between 33.3 and 103.3
+µg/ml for flavcoaonoids and proanthocyanidins fractions and 50.0 and 243.0 µg/ml for salicylalcohol
+derivatives and extract (Hostanska et al. 2007).
+
+The willow bark STW 33-I and 4 of its fractions separated by polarity were studied on Sprague Dawly
+rats. The rats received different doses of the extract and its fractions. Imipramine (20 mg/kg) was the
+positive control. The outcomes of a forced swim were evaluated. A significant shortening of the
+cumulative period of immobility was seen after treatment with 15, 30, 60 mg/kg of the extract.
+Locomotor activity did not increase. From the neurotransmitter concentrations determined in frontal
+cortex, hypothalamus, hippocampus and striatum, it could be seen that serotonin seemed to be
+involved. According to the authors, these results confirm the hypothesis that Salix preparations could
+have a central activity that contributes to the alleviation of pain (Kelber et al. 2011; Ulrich-Merzenich
+et al. 2010).
+
+Willow bark extract (WBE; not specified) prevented oxidative-stress-induced cytotoxicity of human
+umbilical vein endothelial cells (HUVEC) and death of Caenorhabditis elegans. There were
+concentration-dependently increased mRNA and protein expression levels of the nuclear factor
+erythroid2-related factor2(Nrf2) target genes hemeoxygenase-1, g-glutamylcysteineligase modifier and
+catalyticsubunits, p62 and intracellular glutathione (GSH) in HUVECs. Also in the nematode C. elegans,
+WBE triggered a cascade that lead to the expression of antioxidant enzymes and prevents oxidative
+stress through activation of Nrf2 (Ishikado et al. 2013).
+
+Polyphenols including procyanidins are suggested to contribute to the overall effect of willow bark.
+Kaufeld et al. (2014) investigated the relaxant response to a highly purified and chemically defined
+2,3-trans procyanidin fraction in porcine coronary arteries. The procyanidin sample produced a
+concentration-dependent relaxation in U46619-precontracted tissues. Relaxation was predominantly
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 20/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+mediated through the redox-sensitive activation of the endothelial phosphatidylinositol-3-kinase
+(PI3K)/Akt signaling pathway, leading to the subsequent activation of endothelial nitric oxide synthase
+(eNOS) by phosphorylation, as evidenced in human umbilical vein endothelial cells (HUVECs). Organ
+bath studies showed that Salix procyanidins reversed the abrogation of the relaxant response to
+bradykinin by oxidized low-density lipoproteins (oxLDL) in coronary arteries, suggesting a
+vasoprotective effect of willow bark against detrimental oxLDL in pathological conditions. The authors
+conclude that intracellular Ca polyphenols including procyanidins contribute to the overall effect of
+willow bark (Kaufeld et al. 2014).
+
+Kong et al. (2014) investigated the antitumorigenic and antiangiogenic activity of salicin and its
+underlying mechanism of action. Salicin suppressed the angiogenic activity of endothelial cells, such as
+migration, tube formation, and sprouting from an aorta. Moreover, salicin reduced reactive oxygen
+species production and activation of the extracellular signal-regulated kinase pathway. The expression
+of vascular endothelial growth factor was also decreased by salicin in endothelial cells. When the salicin
+was administered to mice, salicin inhibited tumor growth and angiogenesis in a mouse tumor model.
+Taken together, salicin targets the signaling pathways mediated by reactive oxygen species and
+extracellular signal-regulated kinase (Kong et al. 2014).
+
+Some compounds isolated by Kim et al. (2015) were evaluated for their nitric oxide (NO) inhibitory
+efficacy in lipopolysaccharide (LPS)-activated microglial cell (BV-2). The most active compound had a
+IC50 of 13.57 M). Another compound increased the nerve growth factor (NGF) production with
+165.24±11.1% in C6 gliomacells. Taken together, these results suggest that salicin derivatives from
+Salix glandulosa have an effect as anti-neuroinflammatory agents (Kim et al. 2015).
+
+Conclusions
+
+More recent interest raised in the antitumoral, cardiovascular and anti-oxidative properties of Salix
+preparations. Inhibition of tumor growth and angiogenesis opens new therapeutic perspectives for
+willow bark. Furthermore, willow bark and its extracts possess vasoprotective properties. Finally, there
+may be a central component in the analgesic activity of willow bark.
+
+3.1.3. Safety pharmacology
+
+No data available.
+
+3.1.4. Pharmacodynamic interactions
+
+Ulrich-Merzenich et al. (2013) consider the pharmacodynamic interaction between salicylates and
+polyphenols as an example of pharmacodynamic anti-inflammatory synergy, resulting in lower active
+concentrations of salicylates. This synergy may be beneficial in avoiding undesirable effects.
+
+Ulrich-Merzenich et al. (2011 and 2012) studied a model for prediction of adverse events using in vivo
+gene expression profiling with phytopharmaceuticals containing salicylates and the antidepressant
+imipramine. Gene expression profiles (Agilent Whole Genome Array, n = 4/group) obtained from the
+peripheral blood of male Sprague Dawley rats treated with willow bark (WB or STW 33-I: 30 mg/kg
+body weight), its salicin rich ethanol fraction (EtOH-FR: 30 mg/kg body weight) or imipramine (20
+mg/kg body weight) were analysed comparatively by the Ingenuity Systems Programme, which allows
+to conduct model calculations of thresholds for theoretical potential undesirable effects.
+
+The number of genes regulated by the three treatments were 1673 (WB), 117 (EtOH-FR) and 1733
+(imipramine). The three treatments related to 47 disease clusters. The WB extract reached the
+threshold for a potential AE in one disease cluster (cardiac hypertrophy), whereas the EtOH-FR
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 21/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+exceeded the threshold in 5 disease clusters (cardiac arteriopathy and stenosis, glomerular injury,
+pulmonary hypertension, alkaline phosphatase levels). Imipramine treatment hit 13 disease clusters:
+amongst others tachycardia, palpitation, myocardial infarction, arrhythmias, heart block, precipitation
+of congestive heart failure; urinary retention, altered liver functions. Those correspond to known
+potential adverse events. Glomerular injury and altered liver functions are part of the side effect profile
+of salicylic acid derivatives in agreement with the findings for the salicin rich EtOH-FR (Ulrich-
+Merzenich et al. 2012).
+
+The authors conclude that there is no linear relationship between the number of constituents of a drug
+(preparation) and the number of different targets hit in a biological system on the gene expression
+level. Therefore, the number of genetic targets in a biological system does not necessarily increase
+with the complexity of the treatment corresponding to the non-linear behaviour of biological systems.
+Regarding gene expression levels undesirable effects of single treatments are not necessarily additive
+in combination treatments (Ulrich-Merzenich et al. 2012).
+
+Durak and Gawlik-Dziki (2014) published the results of synergy investigations between coffee and
+Salix components. They showed that both coffee and willow bark are sources of multidirectional
+antioxidant compounds. Synergism was observed for ability of inhibition of lipid peroxidation and
+reducing power, whereas in the determination of the ABTS (2,2'-azino-bis (3-ethylbenzothiazoline-6-
+sulphonic acid)) radical scavenging activity the compounds acted antagonistically. Additionally,
+phytochemicals from willow possess a hydrophilic character and thermostability. According to the
+authors this may justify their use as an ingredient in coffee beverages.
+
+Assessor's comments:
+
+There are no in-vivo studies nor preclinical studies specifically related to drug-drug interactions of Salix
+extracts. However, Salix preparations inhibit cyclo-oxygenase. Hence interactions with drugs acting on
+blood platelet function or blood coagulation are likely. See further considerations under chapter 5.5.4.
+
+3.1.5. Conclusions
+
+There seems to be no linear relationship between the number of constituents of willow bark extracts
+and the number of different targets hit in a biological system on the gene expression level. Interaction
+studies prove that the number of genetic targets in a biological system does not necessarily increase
+with the complexity of the treatment. A possible synergism between willow and coffee components.
+Synergism was observed for ability of inhibition of lipid peroxidation and reducing power.
+
+However both findings have a speculative character, as their clinical relevance remains to be
+demonstrated.
+
+Willow preparations inhibit cyclo-oxygenase. Hence interactions with drugs acting on blood platelet
+function or blood coagulation are likely.
+
+3.2. Overview of available pharmacokinetic data regarding the herbal
+substance(s), herbal preparation(s) and relevant constituents thereof
+
+In vitro
+
+Salicortin was unchanged after 1 hour of incubation in artificial gastric juice (pH 1.0). After 6 hours of
+incubation with artificial intestinal juice ph. 7.4-7.6), salicortin was degraded to salicin with T1/2 = 4.02
+h (Meier et al. 1990).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 22/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Salicin is stable under acidic conditions (0.5% hydrochloric acid with or without pepsin) and produces
+no saligenin, even after incubation with human saliva at pH 7.2) (Steinegger et al. 1972, Fötsch et al.
+1989 a and b).
+
+ß-glucosidase extracted from almonds and ß-glucosidase from guinea pig liver converted salicin and
+salicortin to saligenin. However, salicin derivatives acetylated on the sugar moiety and tremulacin were
+not decomposed (Julkunen-Tiito et al. 1992a, Gopalan et al. 1992). Non-specific esterases from rabbit
+and pig liver transformed salicortin to salicin (98.1%), acetylsalicortin to acetylsalicin (75.5%) and
+tremulacin to tremuloidin (63.9%). Pancreatic proteases degraded salicortin to salicin and tremulacin
+to tremuloidin (Wutzke 1991).
+
+Transport of salicin and saligenin into erythrocytes was rapid for saligenin (1 minute to saturation) and
+delayed for salicin (4 hours to saturation). The process was reversible exhibiting rapid release for
+saligenin and slower release for salicin. Saligenin and salicin both bind to human serum albumin but
+saligenin has a significantly higher affinity (Matsumoto et al. 1993).
+
+Saligenin was transformed to salicylic acid by homogenised liver, lung and kidney. Gentisic acid was
+quantitatively detectable in homogenised liver after incubation with saligenin (Fötsch et al. 1989 a and
+b). Salicin was partially metabolised to saligenin and salicic acid after incubation with homogenised
+kidney from rats (Adamkiewicz et al. 1961).
+
+Salicin injected into an isolated closed-off section of the male rat intestine, appendix and colon, was
+hydrolysed by intestinal bacteria to its main metabolite saligenin (Fötsch et al. 1989). Transport of
+salicin and saligenin through the isolated intestinal wall was confirmed using the closed-off posterior
+section of the male rat intestine. When salicin and saligenin were injected into the closed intestine both
+passed the ileal wall unchanged. Saligenin appeared to penetrate the intestinal wall faster than salicin
+(Adamkiewicz et al. 1961).
+
+Gawlik-Dziki et al. (2014) investigated and compared the extractability, bio-accessibility (= activity of
+the bioavailable substances in the models used), and bioavailability in vitro (cf. dialysis) of
+antioxidative compounds from bark of selected Salix species: S. alba (SA), S. daphnoides (SD), S.
+purpurea (SP), and S. daphnoides x purpurea (SDP) hybrid willow clones originating from wild
+collection and cultivated on the sandy soil. SDP and SD contained the highest amount of phenolic
+glycosides. The amounts in the species investigated varied from 75 to 110 mg/g dried material. The
+best source of phenolics was bark of SDP. The highest content of flavonoids was found in SD bark
+samples, whereas SDSP bark yielded the highest concentration of bio-accessible and bioavailable
+phenolic acids. Bark of all tested Salix species showed significant antiradical activity. The activity is
+was dependent on extraction system and genetic factors. SDP had the highest activity with EC50
+varying between 2 and 5 mg dried material/ml (chemical extract, buffered extract, digested,
+absorbed). Regardless of Salix genotypes, the lowest chelating power was found for chemically
+extractable compounds, the highest for the absorbed material of all species (< 0.2 mg dried
+material/ml). Bark of all Salix species contained ethanol-extractable compounds with reducing ability.
+The highest activity was found for the absorbed material of SDP with an EC50 < 1 mg dried material
+/ml. Ethanolic extracts of all four species had a lipoxygenase inhibiting activity with an EC50 < 0.25 mg
+dried material/ml (Figure 4). There was a variable xanthine oxidase inhibiting activity for the
+absorbed material of all species, with EC50 between 1 and 2.5 mg dried material/ml. (Gawlik-Dziki et
+al. 2014).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 23/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Figure 4: Effect of extraction system on LOX-inhibitory activity of extracts from bark of different Salix
+genotype. Bars (means). Bars with different characters differ significantly (Tukey-test,  < 0.05).
+
+In vivo
+
+After oral administration of salicin (400 mg/kg bw) or sodium salicylate (29 mg/kg bw) to rats, salicylic
+acid appeared slowly (salicin, Cmax of 82.4 g/ml after 5 hours) or rapidly (sodium salicylate, Cmax of
+104.2 g/ml after 1.5 hours). Elimination was slower with sodium salicylate. The relative bio-
+availability of salicylic acid from salicin was only 3.25% of that from sodium salicylate (Fötsch et al.
+1990), which was much lower than postulated after administration of 1 mmol salicin / kg bw = 268
+mg/kg bw (Fötsch et al. 1989). Salicin appears to be a pro-drug, which is gradually transported to the
+lower part of the intestine, hydrolysed by intestinal bacteria to saligenin, and converted to salicylic acid
+after absorption. Absorption of salicin is slow compared to that of saligenin or salicylic acid (Akao et al.
+2002).
+
+Conclusions
+
+The in vitro and in vivo pharmacokinetics of salicin in rats and its precursors are documented in
+literature. The data should be read in conjunction with the clinical pharmacology data (pharmacokinetic
+data).
+
+3.3. Overview of available toxicological data regarding the herbal
+substance(s)/herbal preparation(s) and constituents thereof
+
+3.3.1. Single dose toxicity
+
+No data are available on single dose toxicity.
+
+3.3.2. Repeat dose toxicity
+
+Salicin did not induce gastric lesions in rats even at a dose of 5 mmol/kg bw. Saligenin and sodium
+salicylate induced severe gastric lesions in a dose-dependent manner in the range of 1-5 mmol/kg
+(Akao et al. 2002). It may be that willow bark is less prone to induce adverse reactions in the stomach
+than acetylsalicylic acid is. This may be due to the generation of active metabolites in the intestine
+after passing through the stomach as intact glycosides that do not inhibit cyclo-oxygenase in the
+stomach wall.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 24/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+An LD 50 of 28 ml/kg is described for a hydro-alcoholic extract of willow bark (Morgan et al. 2005).
+
+3.3.3. Genotoxicity
+
+No data available.
+
+3.3.4. Carcinogenicity
+
+No data available.
+
+3.3.5. Reproductive and developmental toxicity
+
+Only indirect data on reproductive toxicity and teratogenicity are available for willow bark. No data on
+willow bark as a single ingredient were found. Teratogenicity of salicylates in animal models is
+described.
+
+3.3.6. Local tolerance
+
+No data available.
+
+3.3.7. Other special studies
+
+No data available.
+
+3.3.8. Conclusions
+
+Very limited data on willow bark are available.
+Tests on reproductive toxicity, genotoxicity and carcinogenicity have not been performed.
+
+3.4. Overall conclusions on non-clinical data
+
+Generally, some pre-clinical pharmacological data support the therapeutic indications listed in the
+monograph: anti-inflammatory, antipyretic and analgesic.
+Specific preclinical data on interactions with other substances are not available. Nevertheless, a
+warning in case of concomitant use with anticoagulants is recommended in the monograph.
+Non-clinical information on the safety of willow bark preparations is scarce.
+As there is no information on reproductive and developmental toxicity, the use during pregnancy and
+lactation cannot be recommended.
+Tests on reproductive toxicity, genotoxicity and carcinogenicity have not been performed.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 25/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+4. Clinical Data
+
+4.1. Clinical pharmacology
+
+4.1.1. Overview of pharmacodynamic data regarding the herbal
+substance(s)/preparation(s) including data on relevant constituents
+
+It is mainly salicin and the salicyl glycosides which form salicin after hydrolysis that represents a
+salicylic-acid pro-drug. Salicin and salicyl glycosides have antipyretic, analgesic, anti-rheumatic and
+anti-phlogistic actions.
+
+In view of the considerable variation in salicylate concentrations between different Salix species, the
+salicin content of the products should be quantified and declared.
+
+The analgesic activity of willow bark was studied in double-blind study and open controlled studies on
+patients with low back pain exacerbations. Dose-dependent analgesic effects were observed. In
+addition, willow bark showed a moderate but significant analgesic effect in one double-blind placebo-
+controlled study in patients with osteoarthritis but the effect was not confirmed in a later clinical study
+in OA patients (Biegert et al. 2004).
+
+Influence on cyclooxygenase activity and TNF and IL-1 was studied on whole blood samples of
+healthy volunteers. Oral intake of a willow bark dry extract (8-14:1) ethanol 70% (total salicin 15%,
+equivalent to 240 mg salicin) by 3 healthy volunteers did not show significant inhibitory effects in the 4
+test systems. Diclofenac was included as an active control (Wagner et al. 2003a).
+
+In contrast to acetylsalicylic acid, aggregation of thrombocytes is affected to a far lesser extent by
+willow bark. Platelet aggregation was followed in patients receiving willow bark extract (corresponding
+to 240 mg salicin per day), 100 mg acetylsalicylic acid per day or placebo. Willow bark decreased AA-
+and ADP-induced aggregation but to a significantly lower extent than acetylsalicylic acid. Collagen-
+induced aggregation was not influenced by willow bark (Krivoy et al. 2001). Clinical relevance in
+patients with impaired thrombocyte function has to be further studied.
+
+Serum salicylate concentrations during treatment suggest that a daily consumption of 240 mg of
+salicin as extract is bio-equivalent to 50-87 mg acetylsalicylic acid (Schmid 2001a). Other ingredients
+of the extract may contribute to the overall analgesic effects. These constituents may include
+naringenin, catechins and eriodictyol, that inhibit lipoxygenase, hyaluronidase (Kuppusamy et al. 1990)
+and scavenge free radical (Rice-Evans et al. 1995).
+
+Conclusions
+
+Willow bark is the phyto-therapeutic precursor of acetylsalicylic acid. The pharmacological actions of
+salicylates in humans are well-documented, and are considered to be applicable to willow. However,
+the serum salicylate levels that are produced by the recommended doses of willow bark are too low to
+explain the analgesic activity, and it has been suggested that other constituents such as flavonoids or
+salicin esters may contribute to the overall effect.
+
+Dose-dependent analgesic effects of willow bark dry extract (8-14:1) ethanol 70% were observed in
+recent controlled clinical studies in patients with low back pain exacerbations. In OA patients, the
+(borderline) significant effect could not be confirmed in a later clinical study.
+
+Orally administered willow bark dry extract (8-14:1) ethanol 70% did not significantly inhibit COX-1,
+COX-2 or inhibit the release of TNF alpha and IL-1beta in a small study in 3 healthy volunteers.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 26/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+AA and adenosine diphosphate (ADP)-induced platelet aggregation was decreased in patients receiving
+willow bark extract. This information should be included in both WEU and TU sections of the
+monograph for safety reasons.
+
+4.1.2. Overview of pharmacokinetic data regarding the herbal
+substance(s)/preparation(s) including data on relevant constituents
+
+In a 24 hours pharmacokinetic study in 10 healthy volunteers (Schmid et al. 2001a), intake of
+standardized willow bark extract (1360 mg, equivalent to 240 mg salicin, dose divided into 2 tablets at
+T0h and another 2 tablets at T3h), resulted in salicylic acid as the major metabolite of salicin detected
+in the serum (86% of total salicylates), besides salicyluric acid (10%) and gentisic acid (4%). Peak
+levels were reached within 2 hours after oral administration. Peak serum levels of salicylic acid were on
+average 1.2 mg/L and the AUC was equivalent to that expected form an intake of 87 mg acetylsalicylic
+acid. Considerably higher peak levels of salicylic acid are observed after analgesic doses of
+acetylsalicylic acid.
+
+Renal elimination occurred predominantly in the form of salicyluric acid (71% of total salicylates),
+followed by salicylic acid (15%) and gentisic acid (14%). No saligenin or salicin could be detected in
+serum or urine. After 24 hours, on average 15.8% of the orally ingested dose of salicin was detected in
+the urine as salicylates. Since approximately 5% of the salicylates had not yet been excreted by the
+kidneys after 24 hours, it could be estimated that at least 16.6% of the ingested salicin had been
+absorbed and metabolized to salicylates.
+
+Based on the in vivo findings in rats, it was repeatedly suggested that in humans salicin is also
+hydrolysed by the flora of the lower intestine prior to absorption of the aglycone (salicyl alcohol). This
+is contradicted by the studies of Schmid et al. (2001a), Steinegger et al. (1972, 4 g pure salicin) and
+Pentz et al. (1989) combination product of caffeine and willow bark) that found salicylic acid in the
+serum as early as 1 hour after ingestion, and peak levels recorded after 1-3 hours. This suggests that
+absorption takes place in the upper intestine, and possibly in the stomach. After oral administration,
+salicin is obviously hydrolysed before or during absorption. The resulting salicyl alcohol is oxidized to
+salicylic acid, which is the first detectable metabolite in the serum. After parenteral or rectal
+administration in humans, salicin is excreted unchanged in the urine (Steinegger et al. 1972).
+
+Schmid et al. (2002) reviewed the metabolism of willow compounds after administering an extract of
+Salix purpurea and daphnoides to 10 human volunteers (6 men; 4 women; mean 34.6 years of age).
+They ingested 2 tablets with 340 mg willow extract, corresponding to 120 mg salicin derivatives before
+taking a standard breakfast (8:30 am) and two other tablets at 11:30 am, corresponding to a total of
+240 mg salicin derivatives. Blood collection started one hour after the first intake. The results are given
+in Figures 5 to 7.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 27/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Figure 5: Main metabolites of salicin derivatives in humans (Schmid et al. 2002).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 28/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Figure 6: Mean serum levels of salicylic acid, gentisinic acid and salicyluric acid. Each point represents
+the mean values for 10 human volunteers, with the 95% confidence intervals. `Gesamtsalicylate' is the
+result of the sum of the three salicylates (Schmid et al. 2002).
+
+Figure 7: Excretion of salicylic acid derivatives and their sum (= Gesamtsalicylate) for 10 human
+volunteers. Each point represents the mean with the 95% confidence interval (Schmid et al. 2002).
+
+Knuth et al. (2013) performed kinetic comparative studies in wistar rats and in man. After oral
+administration of 100 mg/kg b.w. (235.8 mol/kg) salicortin to Wistar rats, they detected peak serum
+concentrations of 1.43 mg/L (13.0 M) catechol after 0.5 hours in addition to salicylic acid by HPLC
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 29/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+DAD after serum processing with -glucuronidase and sulphatase. Both metabolites could also be
+detected in the serum of healthy volunteers following oral administration of a willow bark extract
+(Salicis cortex, Salix spec., Salicaceae; extraction solvent not specified) corresponding to 240 mg of
+salicin after processing with both enzymes. In humans, the Cmax (1.46 mg/L, 13.3 M) of catechol was
+reached after 1.2 hours. The predominant phase-II metabolite in humans and rats was catechol
+sulphate. Without serum processing with glucuronidase and sulphatase, no unconjugated catechol
+could be detected in human and animal serum samples. As catechol is described as an anti-
+inflammatory compound, these results may contribute to the elucidation of the mechanism of the
+action of willow bark extract (Knuth et al. 2013).
+
+Figure 8: Catechol and salicylic acid concentration in glucuronidase- and sulphatase-processed serum
+samples of healthy volunteers after ingestion of WBE corresponding to 240 mg of salicin; n = 8; mean
+± SD (Knuth et al. 2013).
+
+4.2. Clinical efficacy
+
+In spite of its long (traditional) use, only a few controlled trials have been conducted with willow bark
+to support its analgesic and/or antipyretic action. Wegener (2009) published an overview of 10 clinical
+studies with more than 1400 patients suffering from low back pain. The clinical studies (all located in
+the therapeutic area of (minor) articular disorders) are summarized below (cut-off January 2016).
+
+4.2.1. Dose response studies
+
+Low back pain (LBP)
+Chrubasik et al. (2000). Treatment of low back pain exacerbations with willow bark extract: a
+randomized double-blind study. Am J Med 109:9-14
+Methods:
+Randomized double blind clinical trial, 3 arms, no report of randomization method, 4 weeks
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 30/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Participants:
+
+210 patients, N=70 in each group, 191 completed the trial. Inclusion criteria: >18 years, at least 6
+months of intermittent low back pain that could not be attributed to identifiable causes, a current
+exacerbation of their pain at rest and with movement that caused pain of at least 5 of 10 on a VAS and
+that was expected to require at least 4 weeks of treatment. The characteristics of the participants were
+similar in the 3 groups (e.g. radiation into leg(s), neurological signs), except that the high-dose salicin
+group had a greater invalidity, physical impairment index and overall Arhus LBP score and Beck
+depression inventory. Exclusion criteria are presented.
+
+Intervention:
+
+placebo versus daily dose ~ 120 mg salicin (786 mg dry standardized willow bark extract 8-14:1;
+extraction solvent 70% ethanol V/V; 15% salicin; Plantina manufacturer, Assalix) versus daily dose ~
+240 mg salicin (1572 mg dry standardized willow bark extract 8-14:1; extraction solvent 70% ethanol
+V/V; 15% salicin; Plantina manufacturer, Assalix); daily dose divided into 2. Tramadol was the sole
+rescue medication
+
+Primary outcome parameter: % of patients pain-free without tramadol for at least 5 days during the
+final week of the study
+
+Secondary outcome: Change from baseline in modified Arhus score; % of patients requiring tramadol.
+
+Results: dose-dependent analgesic effects were observed:
+
+Primary outcome: 6% responders in the placebo group, 21% in the low dose group and 39% in the
+high dose group (P< 0.001). Similar results were obtained when drop-outs were excluded.
+
+A significant increase in proportion of patients without rescue medication in the high dose group was
+apparent after 1 week of treatment and became progressively greater during the 4 weeks of
+treatment. The smaller effect seen in the 120 mg group was significantly different from placebo by the
+second week of treatment.
+
+Significantly more patients in the placebo group required tramadol during each week of the study
+
+Declines in the modified Arhus score (overall and its individual components) were significant. Change
+in overall Arhus score and its pain component was significantly greater in the 240 mg than in the 120
+mg group.
+
+Adverse effects
+
+Willow bark groups: N=140 patients): 1 patient suffered a severe allergic reaction (exanthema,
+pruritis, swollen eyes; 120 mg group, could be attributed); other adverse effects (N=2) attributed to
+tramadol).
+
+Placebo group: N=70: 3 cases of mild abdominal pain in placebo group (with or without diarrhoea)
+
+Assessor's comment: The study is of good quality. The results indicate a dose-dependent analgesic
+effect of willow bark dry extract.
+
+4.2.2. Clinical studies (case studies and clinical trials)
+
+4.2.2.1. Low Back Pain
+
+(See also Table 7)
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 31/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Chrubasik et al. (2000). Treatment of low back pain exacerbations with willow bark extract: a
+randomized double-blind study. Am J Med 109:9-14
+
+Details see 4.2.1.
+
+Chrubasik S, Kunzel O et al. (2001a). Treatment of low back pain with a herbal or synthetic anti-
+rheumatic: a randomized controlled study. Willow bark extract for low back pain. Rheumatology
+40:1388-93.
+
+Methods:
+
+Open randomized active-controlled clinical trial, 2 arms, 4 weeks.
+
+Participants:
+
+228 patients, N=114 with per group. 183 patients completed the trial. Inclusion criteria: >18 years, at
+least 6 months of non-specific LBP that could not be attributed to identifiable causes. Pain was
+recorded on VAS, the modified Arhus index and its pain component, and the Total Pain Index. Groups
+at baseline differed slightly in duration of LBP, and the NSAID group included more patients with pain
+radiating into legs and was in slightly more pain. Exclusion criteria are presented.
+
+Intervention:
+
+Daily dose ~ 240 mg salicin (4 capsules of Assalix = 1572 mg standardized willow bark extract 8-14:1
+DER extraction solvent ethanol 70% V/V; 15% salicin) versus 12.5 mg rofecoxib (1 single tablet).
+Patients had free access to conventional treatments (including whatever medication they usually used
+in the event of severe pain, but also NSAIDs, acupuncture, physical therapy).
+
+Outcome parameters:
+
+Pain on a VAS, modified Arhus index, its pain component and the total pain index (TPI), physician and
+patient-rated success and the acceptability of the treatment on a verbal scale.
+
+Results
+
+      · After 4 weeks of treatment, the Arhus index had improved by 20% (both groups) and its pain
+            component by 30%, and the TPI by 35%.
+
+      · Number of pain-free patients (VAS <2) was about 20 in both groups
+
+      · Patients that resorted to NSAIDs and/or tramadol: 9 in willow bark group (average of 120 mg
+            diclofenac equivalents and 5 mg tramadol) versus 12 in rofecoxib group (average of 42 mg
+            diclofenac equivalents and 17 mg tramadol).
+
+      · Patients that resorted to other treatments: 13 in willow bark group versus 17 in rofecoxib
+            group.
+
+      · Patients' and physicians' judgments of effectiveness were largely concordant.
+
+      · The multivariate analyses of changes in Arhus score and TPI did not identify significant
+            differences related to willow bark versus rofecoxib.
+
+Adverse effects
+
+Willow bark group (N=114):
+
+      · Allergy: 1 possible, 3 likely, 1 clear connection.
+
+      · GI (dyspepsia, vomiting, heartburn, diarrhoea): 7 possible, 3 likely, 1 clear connection.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 32/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+      · Dizziness: 1 possible.
+
+      · Headache: 1 possible.
+
+      · Blood pressure instability: 1 possible.
+
+Rofecoxib group (N=114):
+
+27 adverse effects in total; asthma, dyspepsia, nausea, diarrhoea, heartburn, ulcer, GI bleeding,
+dizziness, headache, oedema.
+
+Assessor's comment:
+
+The open study design may induce bias and jeopardizes results/conclusions regarding equivalence or
+non-equivalence of both interventions. Furthermore, (slight) differences in baseline characteristics of
+the groups are noted (willow bark group slightly favoured). It is also noted that patients with lower
+disease activity were enrolled in this study (compared with Chrubasik et al. 2000). Free access to other
+treatments, even though resorted to by a fairly small and comparable number of patients in both
+groups, does not facilitate conclusions on the efficacy of willow bark versus rofecoxib.
+
+Chrubasik et al. (2001b). Potential economic impact using a proprietary willow bark extract in
+outpatient treatment of low back pain: an open non-randomized study. Phytomedicine 8(4):24 1-251
+
+Methods:
+
+Open, non-randomised study (post-marketing surveillance) with 3 arms; 4 weeks.
+
+Patients:
+
+451 patients > 18 years (N=115 in 120 mg salicin group, N=112 in 240 mg salicin group, N=224 in
+"placebo" group) with acute exacerbations of chronic (at least 6 months) nonspecific LBP. The baseline
+characteristics of the 3 groups were slightly different: the "placebo" group had a shorter duration of
+exacerbation but their pain tended to be more severe as judged by the Arhus index and TPI.
+
+Interventions
+
+Daily dose of 120 mg salicin + conventional treatment, versus 240 mg salicin + conventional
+treatment versus conventional treatment alone. Salicin groups received standardized willow bark
+extract, (Assalix = standardized willow bark extract 8-14:1 DER extraction solvent ethanol 70% V/V;
+15% salicin), respectively 2 capsules per day (120 mg salicin) or 4 capsules per day (240 mg salicin).
+Conventional treatment, prescribed by GPs or orthopaedists, included analgesics, NSAIDS,
+acupuncture.
+
+Objective:
+
+Study of safety and economic impact of including a regular intake of willow bark extract in the
+conventional treatment scheme. Outcome parameters: pain-free patients with or without additional
+treatment, modified Arhus index and total pain index.
+
+Results
+
+The study design does not allow conclusions on efficacy of willow bark because conventional treatment
+that was resorted to was variable between groups.
+
+      · When limiting to the patients included in this study that only used willow bark (no conventional
+            treatment), pain relief of 240 mg dose seems to be superior to 120 mg and control group:
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 33/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+            41% pain-free after 4 weeks in 240 mg group versus 8% pain-free in the 120 mg group
+            (results for the 240 mg group are fairly consistent with Chrubasik, et al. (2000)).
+
+      · 18% of the "placebo" group (with conventional treatment) were pain-free after 4 weeks versus
+            5.7% in the placebo group of Chrubasik et al. 2000.
+
+Adverse effects
+
+Willow bark groups, N=112+115 patients: GI (6), allergic skin reaction (3)
+
+Assessor's comment:
+
+Important flaws in the study design make conclusions on the efficacy of willow bark based on the
+results impossible. The open study design may induce bias and jeopardizes results/conclusions
+regarding equivalence or non-equivalence of interventions. Furthermore, (slight) differences in baseline
+characteristics of both groups are noted (willow bark group slightly favoured). Patients had access to
+other conventional treatments (via GP/orthopaedist), and these treatments were not comparable
+between the groups.
+
+The adverse effects are taken into account for evaluation of clinical safety.
+
+Gagnier et al. (2007) published a systematic Cochrane review of the randomized clinical trials to
+determine the effectiveness of herbal medicine compared with placebo, no intervention or
+standard/accepted/conventional treatments for nonspecific LBP. A total of 10 studies met the criteria,
+among those the above-discussed studies of Chrubasik (2000), Chrubasik (2001a) plus Krivoy et al.
+(2001, on effects on human platelet aggregation). Methodological quality of the trials was assessed. A
+trial was considered high quality if more than 50% of internal validity items scored positively (quality
+criteria and definitions are given; Chrubasik (2000), Chrubasik (2001a) are classified as "high"). The
+clinical relevance of each study was assessed independently by 2 reviewers (all criteria fulfilled by
+Chrubasik et al. 2001a). Because of insufficient data and clinical heterogeneity, a qualitative analysis
+was conducted using a rating system (Strong/moderate/limited/conflicting/no evidence). The trial of
+Chrubasik et al. 2000 suggests there is moderate evidence that 240 mg salicin dose of a willow bark
+extract reduces pain more than placebo and 120 mg of salicin. The trial of Chrubasik et al. 2001a
+suggests that there is moderate evidence that there are no differences in effectiveness between a 240
+mg salicin dose of a willow bark extract and 12.5 mg rofecoxib per day in treatment of acute episodes
+of chronic nonspecific LBP in the short term. The authors conclude that a daily 240 mg salicin dosage
+of willow bark is effective in the short-term treatment of acute episodes of chronic non-specific LBP.
+Additional trials testing against standard treatments are needed to confirm efficacy/equivalency/the
+relative safety of these herbals to standard medications such as NSAIDs, paracetamol.). The same
+authors reanalysed the available clinical data in a more recent Cochrane review. No new studies with
+Salix were included and the conclusions of the authors remained the same: willow bark, in a
+standardized daily dose of 120 and 240mg of salicin, reduces pain more than placebo, a standardized
+daily dose of 240mg is as effective as of 12.5 mg of the nonsteroidal anti-inflammatory drug rofecoxib
+(Gagnier et al. 2016; Oltean et al. 2014). In another Cochrane analysis it was recommended that Salix
+preparations should be compared with paracetamol as a standard therapy, i.o. rofecoxib, which was
+taken from the market in 2004 (by Oltean et al. 2014).
+
+Shara and Stohs (2015) grant Salix preparations an efficacy in case of joint pain and osteoarthritis.
+They state that, although willow bark extracts are generally standardized to salicin, other ingredients
+in the extracts including other salicylates as well as polyphenols, and flavonoids may also play
+prominent roles in the therapeutic actions. Furthermore adverse effects appear to be minimal as
+compared to non-steroidal anti-inflammatory drugs including aspirin (Shara and Stohs 2015).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 34/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Vlachojannis et al. (2009) reviewed 6 clinical trials with ethanolic extracts of Salix. The authors
+expressed the need for studies with a higher dose equivalents than 240 mg salicin (Vlachojannis et al.
+2009).
+
+4.2.2.2. Osteoarthritis and Rheumatoid Arthritis
+
+(See also Table 8)
+
+Schmid, Ludtke et al. (2001b). Efficacy and tolerability of a standardized willow bark extract in patients
+with osteoarthritis: randomized placebo-controlled double blind clinical trial. Phytother Res 15:344-50.
+
+Methods
+
+Randomized, placebo-controlled double-blind clinical trial with 2 arms; 4-6 days wash-out, then 2
+weeks trial.
+
+Patients
+
+78 patients, N=39 per group. Inclusion criteria: >18 years, OA of hip or knee, verified according to the
+clinical, laboratory and radiographic criteria of the American College of Rheumatology (ACR). Baseline
+characteristics are similar between both groups except that the baseline WOMAC pain score was lower
+for the willow bark group. Exclusion criteria are described. 5 patients withdrew during the study and 10
+were excluded from the per-protocol analysis.
+
+Intervention
+
+Placebo versus daily dose ~ 240 mg salicin (340 mg standardized willow bark extract Salix daphnoides
+and S. purpurea, 17.6% total salicin, ~ 60 mg salicin per coated tablet). Daily dose was divided into 2
+tablets twice daily. No additional analgesics, NSAIDs or systemic corticoids were allowed during wash-
+out and study phases.
+
+Primary endpoint:
+
+Difference in pain dimension WOMAC OA Index between day 0 and day 14.
+
+Secondary endpoints:
+
+Differences in the stiffness and physical function dimensions of the WOMAC, daily VAS on pain and
+physical function and final overall assessments by patients and investigators.
+
+Results
+
+      · A (borderline) significant superiority of willow bark over placebo with regard to WOMAC pain
+            dimension after 2 weeks (intent-to-treat : p= 0.047; per-protocol analysis: p= 0.0196)
+
+      · No significant differences between the 2 groups with regard to the secondary parameters,
+            except for patients' and investigators' assessment (willow bark significantly superior).
+
+Adverse effects
+
+Willow bark group, N=38 patients: allergic skin reactions (6), GI (3). No evaluation presented on
+causality.1 patient in the willow bark group withdrew due to allergic symptoms.
+
+Assessor's comment:
+
+A moderate analgesic effect was observed in the willow bark group; a difference in pain dimension in
+the treated group compared to the placebo group just reached statistical significance. There are
+deficiencies in the quality of the methodology of the study that may affect the outcome/conclusions:
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 35/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+namely the relatively low number of patients, the shortness of the duration (the maximum treatment
+effect was probably not yet reached after 2 weeks) and the differences in baseline WOMAC pain
+dimension scores between the 2 groups. The extraction solvent and DER of the used willow bark
+extract is not given. Additional studies, with NSAID (diclofenac) control group were stated to be in
+preparation.
+
+Biegert C et al. (2004). Efficacy and safety of willow bark extract in the treatment of OA and RA:
+results of 2 randomised double blind controlled trials. J Rheumatol 31, 2121-30. Originally described in
+Biegert 2003.
+
+Methods
+
+Randomised, double-blind controlled clinical trial; 3 arms (2 groups in RA trial); 7 days wash-out, then
+6 weeks trial
+
+Patients
+
+OA trial: 127 patients; N=43 in willow bark group, N=43 in control group, N=41 in placebo group.
+Inclusion criteria: > 18 years, OA of hip or knee, verified according to the clinical, laboratory and
+radiographic criteria of the American College of Rheumatology (ACR) with WOMAC pain score of at
+least 30mm. Baseline characteristics are similar between the groups. Exclusion criteria are described.
+106 patients completed the study and were included in the efficacy and safety analysis. The willow
+bark group received significantly less physical therapy.
+
+RA trial: 26 patients, N=13 in each group. Inclusion criteria: diagnosis of RA according to ACR: RA
+functional class I, II or III, evidence of at least moderate disease activity (criteria given). The willow
+bark group showed a more active disease in all baseline arthritis assessments. Exclusion criteria are
+described.
+
+Intervention
+
+OA trial: Placebo versus salicin 240 mg per day (393 mg extract Salix daphnoides ethanol 70% 8-14:1
+~ 60 mg salicin per coated tablet) versus diclofenac 100 mg per day. Daily dose was divided into two
+tablets twice daily. No additional analgesics/NSAIDs/systemic or intra-articular corticoids were allowed.
+Aspirin was allowed up to 100 mg daily. Physical therapy could be continued but had to remain
+unchanged.
+
+RA trial: Placebo versus salicin 240 mg per day (393 mg extract 8-14:1 ~ 60 mg salicin per coated
+tablet). Daily dose was divided into two tablets twice daily. Disease modifying anti-rheumatic drugs
+(except TNF-inhibitors) were allowed as concomitant therapy if taken since at least 6 months before
+(and dosage stable). NSAIDS and analgesics had to be discontinued; up to 100 mg aspirin per day was
+allowed.
+
+Primary endpoint:
+
+OA trial: pain sub-score of the WOMAC OA index
+
+RA trial: patient's assessment of pain rated on a 100 mm VAS.
+
+Secondary endpoints:
+
+OA trial: WOMAC stiffness and function sub-scores and WOMAC total index, and patients' and
+investigators' assessment of overall efficacy.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 36/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+RA trial: included number of tender/swollen joints, physical function (HAQ), disability index, patients'
+assessment of severity of morning stiffness (100 mm VAS), patients' and assessors' assessment of
+overall efficacy, Quality of life (SF-36), ESR, CRP, number of patients who met the ACR criteria for
+improvement.
+
+Results:
+
+OA trial
+
+      · Primary: WOMAC scores decreased for willow bark (but not significantly) and diclofenac
+            (P=0.0002)
+
+      · Secondary: willow bark only significantly improved the physical function sub-score of the SF-
+            36, while diclofenac was (highly) significantly superior over placebo with regard to all endpoints
+            except the mental component of Quality of life and the investigators' assessment of overall
+            efficacy (P=0.05).
+
+RA trial
+
+      · Primary: pain on the VAS decreased for willow bark but not significantly. A power estimate of
+            the study showed that that a true difference in pain reduction between willow bark and placebo
+            of 15 mm (suggested as the minimum clinically relevant difference) or more can be excluded
+            with a probability of 93%.
+
+      · Secondary: no significant changes between willow bark and placebo.
+
+Adverse events:
+
+      · Willow bark group in OA trial (N=43): GI (7), plus allergy (exanthema, 1). Significantly lower
+            adverse events in willow bark versus diclofenac.
+
+      · Willow bark group in RA trial (N=13): allergy (mild itching, 1).
+
+Assessors comment:
+
+The studies are in general of high quality but numbers of patients are small.
+
+With regard to the OA trial, the study did not confirm efficacy of willow bark in OA as willow bark only
+significantly improved the physical function sub-score of the SF-36 while the WOMAC OA index
+(primary endpoint) was not significantly decreased. OA is the most common form of degenerative joint
+disease. The sensitivity of the study was demonstrated by the (highly) significant superiority of the
+control-group (diclofenac) over placebo.
+
+With regard to the RA trial, again no efficacy was demonstrated for willow bark in RA, the most
+common inflammatory rheumatic disease. The number of patients included in the RA trial is very small
+and is therefore considered as a pilot study.
+
+Beer and Wegener 2008. Willow bark extract (Salicis cortex) for gonarthrosis and coxarthrosis -Results
+of a cohort study with a control group. Phytomedicine (2008) 15: 907-913.
+
+Methods
+
+Open, multicentric observational study with reference treatment, 90 patients treated with a
+standardised willow bark extract preparation, 41 patients with a standard therapy prescribed by a
+doctor and 8 patients with a combination of the two.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 37/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Patients
+
+Adults aged between 50 and 75 with degenerative complaints of the major and minor joints. The
+inclusion criteria were coxarthrosis with hip pain diagnosed by a specialist or gonarthrosis with knee
+pain according to the statement of a specialist.
+
+Intervention
+
+The study medication used was a standardised dry extract of willow bark (DER 8-14:1 solvent ethanol
+70% V/V). Film tablet containing 393.24 mg dry extract containing 60 mg salicin were administered 1-
+2 tablets twice a day (equivalent to 120-240 mg salicin or 786.48-1572.96 mg dry extract).
+Evaluation was performed after 3 and 6 weeks.
+
+Primary endpoint(s)
+
+Effectiveness and tolerance were determined by the doctor (clinical findings, recording of adverse
+events, global tolerance) and by the patients (WOMAC questions concerning pain and stiffness,
+questions on general state of health).
+
+Secondary endpoints(s)
+
+Undesirable effects of treatment.
+
+Results
+
+A total of 88 patients in the willow bark group and 40 patients in the reference group completed the
+study. The doctors' and patients' judged effectiveness in both groups to be comparable. After 6 weeks
+the effectiveness of the willow bark extract was better than conventional therapy. Also in de subgroup
+of chronically ill sick patients (43 months), after 6 weeks the effectiveness of both forms of treatment
+was comparable. However, the effect was slower to set in the willow bark group than in de reference
+group.
+
+Adverse events
+
+There were no side effects in the willow bark group, whereas one case of reflux occurred in the
+reference group and in the combination group.
+
+Assessor's comments:
+
+The results of the study suggest that willow bark extract is as effective as conventional reference
+therapy in the treatment of degenerative complaints of the major and minor joints. However, the result
+of this study cannot be seen as conclusive because the trail was an open study with a limited number
+of patients.
+
+Lardos et al. (2004) carried out a randomised double blind clinical trial with 60 patients (intention to
+treat) with hip or knee arthrosis. The study included 3 arms (N=17 diclofenac 150 mg per day; N=22
+aqueous extract equivalent to 90 mg salicin per day; N=21 aqueous extract equivalent to 180 mg
+salicin per day). Inclusion and exclusion criteria are described. A 3 week wash-out period was followed
+by 3 weeks study period. No additional analgesics/NSAIDs were allowed during the study. Primary
+endpoint: pain on a 100 mm VAS and evaluation of physical function according to Steinbrocker. All 3
+interventions statistically improved both endpoints after 3 weeks' treatment (diclofenac > salicin 90
+mg ~ salicin 180 mg). Dose-dependency in analgesic activity (willow bark arms) was not observed.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 38/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Assessor's comment:
+
+The study indicates analgesic effects of an aqueous extract of willow bark in patients with arthrosis.
+The sample size is however small; the study is considered as a pilot study. The herbal preparation is
+not fully characterised (DER). Comparability of the 3 arms at baseline is difficult to interpret. No dose-
+dependency in effect could be observed.
+
+An unpublished trial was provided by Poland. Samochowiec (2001) studied the efficacy of willow bark
+extract (in patients with arthrosis (knee or hip) in a double-blind, randomized controlled clinical trial
+during 3 weeks. Stage II and III (according to Kellgren) patients received either sodium diclofenac (3 x
+50 mg daily, N= 17), Salix tablet (quantity extract, and equivalent salicin not known) + 2 placebo
+tablets per day (N=22), or 2 Salix tablets + 2 placebo tablets per day (N=20). The exact
+administration scheme is unclear. Analgesics and anti-inflammatory drugs were not allowed during the
+study. Baseline characteristics of the 3 groups (functional capacity according to Steinbrocker,
+subjective pain evaluation on VAS, stiffness etc. were fairly comparable. Primary and secondary
+endpoints are not clearly defined. All treatments significantly improved pain on VAS, pain during
+walking and walking downstairs on even surface, pain during passive and active motion, functional
+capacity and decreased impairment of daily activity. No significant differences between the 3 groups
+were observed. 1 patient withdrew (Salix) due to malaise. Gastroscopy and laboratory findings were
+not affected by any of the treatments.
+
+Assessor's comment:
+
+The willow bark preparation is insufficiently characterized. It is not possible to evaluate the results in
+relation to the other clinical trials with willow bark. Patient numbers are rather small, and end points
+should be more clearly defined.
+
+Werner, 2004. In a post-authorisation surveillance study on willow bark dry extract (8-14:1, ethanol
+70%; daily doses equivalent to 120 or 240 mg total salicin), 922 physicians observed 4731 patients
+with chronic back pain or arthralgia after 3-4 weeks and after 6-8 weeks. Pain intensity was assessed
+(scale) and was decreased.
+
+Assessor's comment:
+
+Full details of the post-authorisation study of Werner are missing, only an abstract was available.
+
+Saller et al. 2008. In an observational study with duration 6-8 weeks, 204 physicians treated 877
+patients with different types of rheumatic pain (OA, RA, LBP, soft tissue disorders) with willow bark dry
+extract (8-14:1, ethanol 70%, 15% total salicin). The scope is to get a better estimate of the
+frequency of ADR and a broader picture of efficacy. Additional anti-inflammatory drugs were co-
+prescribed in 39.3% of the cases. Pain intensity was assessed (scale). Final data were compared with
+the corresponding values at baseline. No blood chemistry, coagulation nor haematology data were
+recorded. Pain scores tended to decrease. 38 patients (4.3%) reported a total of 46 ADRs relating
+predominantly to GI (3.1%) and skin (1.6). There were no serious ADRs.
+
+Assessor's comment:
+
+This concerns an observational study, no control group is included. Records of dose administered
+(1572 mg or 786 mg dry extract) are not presented. Baseline characteristics are not given (per
+grouped diagnosis). No conclusions can be drawn with regard to efficacy.
+
+Mills et al. 1996. A 2-month randomized non-cross over study in 82 patients with chronic arthritis pain
+showed a small but statistically significant improvement in symptoms with a low dosage combination
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 39/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+willow bark formulation (containing 100 mg Salix alba extract, guaiacum, black cohosh, sarsaparilla
+and poplar bark) compared to placebo.
+
+Müller et al. 2010. 350 patients suffering from low back pain and pain due to osteoarthritis were
+observed during 6 months. They were using a water extract of Salix (DER 16-23:1) (daily dose and
+compliance not mentioned). The progression of their pain intensity was evaluated using a 100-point
+visual analogue scale (VAS). Mean improvement for the Salix extract alone was 23.5 on the VAS.
+Patients combining Salix and NSAIDs reported a mean improvement of 18.8 whereas combination of
+Salix, NSAIDs and opioids resulted in an improvement of 21.2 (no standard deviation given). The
+authors conclude that the Salix extract reduces back pain and pain due to osteoarthritis both as
+monotherapy and in combination with other medicines.
+
+The same authors reported about an observational study of 333 patients with osteoarthritis,
+rheumatoid arthritis or low back pain. The patients were treated with a water extract of Salix (DER 16-
+23:1) during a mean period of 3.3 (+ 0.9) weeks, 85% of the patients receiving a daily dose of 480
+mg. Satisfaction rate (good/very good) was reached in 80% of the patients. According to the
+physicians the results were comparable to NSAIDs and paracetamol. More than 90% of the patients
+reported a good to very good tolerability (Müller-Fassbender et al. 2007).
+
+Stange et al. (2014) followed 436 patients with musculoskeletal pain of different ethology during 24
+weeks. The patients were taking a water extract of Salix (16-21:1). The mean visual analogue score
+(VAS 100) dropped from 58.4 + 22.6 to 31.8 + 22.5 (P<0.05 Wilcoxon). NSAIDs were used by 28.9%
+of the patients (mostly ibuprofen). Adverse effects were reported more often after 3 weeks (4.8%)
+than after 24 weeks (0.3%) (Uehleke et al. 2013a; Uehleke et al. 2013b, abstract; Stange et al. 2014,
+abstract).
+
+An overview of 15 systematic reviews of herbal medicines used in the treatment of osteoarthritic
+complaints and chronic low back pain was published by Chrubasik et al. (2007). The evidence was
+found as conflicting for willow bark due to the confirmatory study of Biegert et al. (2004) in OA and RA
+with negative result (no statistically significant results).
+
+Setty et al. (2005) reviewed herbal preparations commonly used in the treatment of rheumatic
+indications. The resurgent interest in willow bark as a treatment for chronic pain syndromes was
+illustrated by summary of the clinical trials. The authors concluded that trials longer than 4 weeks must
+be performed before declaring salicin's safety and efficacy as the conditions are chronic (OA).
+
+The clinical studies are re-iterated by a number of articles, including März et al. (2002), Chrubasik and
+Pollak (2002), Wagner et al. (2003b and c), Kaul et al. (1999), Bruneton (2002), Bogduk (2004).
+
+4.2.2.3. Migraine prophylaxis
+
+Tanacetum parthenium and Salix alba either alone or in combination were shown to strongly inhibit
+binding to 5-HT2A/2C receptors (targets of prophylacting agents such as methysergide, pizotifen,
+oxetorone, cyproheptadine) while only Salix alba (and the combination) recognized 5-HT1D receptors
+(targets of triptans), leading to the hypothesis that the combination would provide superior migraine
+prophylactic activity compared with Tanacetum alone (randomized double-blind placebo-controlled
+clinical trials with Tanacetum alone show mixed results).
+
+Shrivastava et al. (2006) performed a prospective open-label study in 12 patients diagnosed migraine
+without aura (IHS criteria), aged > 18 years. After a 6 weeks' baseline-period (3-15 attacks / 6 weeks
+observed), twelve weeks' treatment with a combination product of Tanacetum parthenium 300 mg and
+Salix alba 300 mg (salicin content  1.5%) twice daily was administered to determine the effects on
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 40/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+migraine attack frequency (primary outcome parameter), intensity and duration (secondary outcome
+parameters). Attack frequency was reduced by 57.2% after 6 weeks (P=0.029) and 62.6% at 12
+weeks (P=0.025) in 9 out of 10 patients (no significant improvement between 6 and 12 weeks) with
+70% of patients having a reduction of at least 50%. Attack intensity was reduced by 38.7% after 6
+weeks and 62.6% after 12 weeks in 10 out of 10 patients (both significant), with 70% having a
+reduction of at least 50%. Attack duration decreased by 67.2% after 6 weeks and 76.2% after 12
+weeks in 10 out of 10 patients (both significant). Two patients were excluded for reasons unrelated to
+treatment. No adverse events occurred. In patients with more than 2 migraine attacks per month,
+current prophylaxis reduces the number of attacks by up to 50% but in only half the patients. A
+placebo-effect of approximately 30% is generally observed in migraine prophylaxis studies. The results
+of this open pilot trial demand a randomized double-blind placebo-controlled trial with a larger patient
+population (including those with aura).
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 41/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Table 7: Clinical studies in humans, indication low back pain
+
+Type              Study    Test Product(s)        Number of      Type of                                            Outcomes                  Statistical     Clinical
+                                                  Subjects       Subjects                                                                     analysis        relevance
+Analgesic action R / DB    Willow bark extract    N = 210 (70    >6 months of                                       % of patients pain-free   No information  Severe allergic
+                           DER 8-14:1 extraction  per group)     intermittent                                       during 5 days without     available       reaction N=1
+Chrubasik et al.  3 arms   solvent 70% ethanol                   low back pain                                      tramadol.
+2000              4 weeks  *placebo               >18 years                                                                                                   Concordance
+                           *120 mg salicin eq.                   Low back pain                                                                                between patients
+                                                  Drop out = 19  without clear                                      P = 6%                                    and physicians
+                                                                 origin                                                                                       Undesirable
+                                                                                                                    120 mg = 21%                              effects:
+                                                                                                                                                              Willow: N=19
+                           *240 mg salicin eq.                                                                      240 mg = 39%                              Rofecoxib:
+                                                                                                                                                              N=27
+                           Per day                                                                                  Change from baseline
+                                                                                                                    (modified Arhus score)
+                           Rescue medication =
+                           tramadol                                                                                 P < 120 mg < 240 mg
+
+Chrubasik et al.  O / R    Willow bark extract    N=228                                                             VAS modified Arhus index  Multivariate
+(2001a)                    DER 8-14:1 extraction  Drop out = 45                                                                               analysis
+                           solvent 70% ethanol                                                                      Improved by 20% in both
+                           240 mg salicin eq.                                                                       groups
+
+                           Rofecoxib 12,5 mg                                                                        TPI
+
+                                                                                                                    Improved by 30%
+
+                                                                                                                    Pain free N=20 in both
+                                                                                                                    groups
+
+                                                                                                                    Rescue = NSAID/tra madol
+
+                                                                                                                    Willow: N=9
+
+                                                                                                                    Rofecoxib: N=12
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides Vill., S. fragilis L.], cortex                                            Page 42/55
+EMA/HMPC/80628/2016
+Type              Study     Test Product(s)         Number of      Type of                                          Outcomes                  Statistical     Clinical
+                                                    Subjects       Subjects                                                                   analysis        relevance
+Safety and        O / NR /  Willow bark extract 8-  N = 451        Acute                                            % of patients pain free   No information  Slight differences
+economic          PMS       14:1 extraction         >18 years      exacerbation                                     after 4 weeks:            available       between the
+impact                      Placebo                                of chronic (>6                                   240 mg: 41%                               groups at start.
+                            120 mg salicin eq.                     months)                                          120 mg: 8%
+Chrubasik et al.            240 mg salicin eq.                     nonspecific                                      Patients on non-                          Conventional
+(2001b)                     4 weeks                                LBP                                              conventional treatment                    treatment,
+                                                                                                                    Pl: 18%                                   prescribed by
+                                                                                                                    Patients on conventional                  GPs or
+                                                                                                                    treatment                                 orthopaedists,
+                                                                                                                    Pl: 5.7%                                  included
+                                                                                                                    Without conventional                      analgesics,
+                                                                                                                    treatment                                 NSAIDS,
+                                                                                                                                                              acupuncture
+                                                                                                                    Outcomes
+                                                                                                                                                              Willow UE: N=9
+                                                                                                                    Primary: WOMAC:
+Table 8: Clinical studies in humans, indication osteoarthritis and rheumatoid arthritis                             difference
+                                                                                                                    Secondary stiffness /
+Type              Study     Test Product(s)         Number of      Type of                                          physical function         Statistical     Clinical
+                  R/Pl/DB   Pl                      Subjects       Subjects                                                                                   relevance
+Schmid et al.               240 mg salicin eq.      N=78           OA of hip or                                                               Primary         Willow
+(2001b)                                                            knee                                                                       ITT             UE = 9
+                                                    Drop-out = 15                                                                             Willow>Pl
+                                                                                                                                              p=0.047                          Page 43/55
+                            No rescue medication                                                                                              PP
+                                                                                                                                              Willow>Pl
+                                                                                                                                              p=0.0196
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Type            Study    Test Product(s)         Number of       Type of                                            Outcomes                   Statistical       Clinical
+Biegert et al.  R/DB/Pl                          Subjects        Subjects                                           Primary                                      relevance
+(2004)                   OA-trial                OA group        OA hip / knee                                      OA: WOMAC                  OA primary        Willow:
+                O/MC     Pl                      N=127           RA: at least                                       RA: 100mm VAS                                UE N=9
+Beer &          6 weeks  Diclofenac 100 mg       Drop-out = 21   moderate                                           Secondary                  Willow <
+Wegener         R/DB     240 mg salicin eq.      RA group        disease                                            OA: stiffness/function     diclofenac        Effect of willow
+(2008)                   6 weeks                 N=26            activity                                           RA: composite              (p=0.0002)        and conventional
+                         RA-trial                                                                                                                                therapy
+Lardos et al.            Pl /                                    50-75 y                                            Primary: WOMAC             OA secondary      comparable
+                         240 mg salicin eq.                      Diagnosed                                          Secondary: UE
+                         DMARDs allowed / no                     coxarthrosis                                                                  Only physical
+                         NSAIDs                                  or                                                 Primary: VAS and physical  function subs
+                                                                 gonarthrosis                                                                  core better with
+                         DER 8-14:1 solvent      N=138                                                                                         willow
+                         ethanol 70% V/V eq.                     Hip or knee
+                         to 240 mg salicin       Willow: 90                                                                                    Diclofenac
+                                                 (drop-out:2)                                                                                  better on all
+                         Willow extract (water)                                                                                                criteria
+                                                 Standard                                                                                      (p=0.05)
+                                                 Therapy: 41
+                                                 (drop-out: 1)                                                                                 RA trial
+                                                                                                                                               Willow: VAS NS
+                                                 Combination: 8
+                                                                                                                                               No information
+                                                 N=60                                                                                          available
+
+                                                                                                                                               ITT               No dose-activity
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides Vill., S. fragilis L.], cortex                                               Page 44/55
+EMA/HMPC/80628/2016
+Type           Study     Test Product(s)         Number of    Type of                                               Outcomes                  Statistical        Clinical
+(2004)         3 weeks                           Subjects     Subjects                                              function (Steinbrocker)                      relevance
+                         = 90 and 180 mg                      arthrosis                                                                       All interventions  relation
+Samochowiec    DB/R/C    salicin per day         N=59                                                                                         active as
+(2001)                   Diclofenac = 150 mg     Drop-out: 1                                                                                  compared with
+               O/MC      per day                                                                                                              the start
+Saller et al.            No analgesics/NSAIDs    N=877
+2008                     allowed                              Hip or knee                                           Pain (VAS) stiffness      No information     No clear-cut
+ADRs                                                          arthrosis                                                                       available          description of
+Müller et al.            Na-diclofenac 150                    stage II and                                                                                       endpoints
+2010                     mg/d                                 III
+                         Willow extract (?)
+Müller-                  Pl
+Fassbender et            No rescue medication
+                         allowed
+
+                                                              OA, RA, LBP,                                          Number a type of ADRs     No information     GI and skin
+                                                              soft tissue                                                                     available
+                                                              disorders
+
+               O         water extract of Salix  N=350        low back pain                                         VAS                       No information     Non inferiority
+               6 months  (DER 16-23:1) doses     N=333        and pain due                                                                    available
+                         ?                                    to                                                    Salix > Salix + NSAIDs +
+               O                                              osteoarthritis                                        opioids > Salix + NSAIDs
+               3.3 (+    NSAIDs                                                                                     >
+
+                         Opioids                              osteoarthritis,                                       Satisfaction level        No information     >90% very good
+                                                              rheumatoid                                                                      available
+                         water extract of Salix
+                         (DER 16-23:1): 480
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides Vill., S. fragilis L.], cortex                                               Page 45/55
+EMA/HMPC/80628/2016
+Type           Study     Test Product(s)         Number of  Type of                                                 Outcomes                 Statistical  Clinical
+al. (2007)                                       Subjects   Subjects                                                In 80% of patients                    relevance
+               0.9       mg                                 arthritis or low                                                                 Wilcoxon
+Stange et al.  weeks                             N=436      back pain.                                                                       p<0.05       UE: 4.8% (3
+(2014)                   water extract of Salix                                                                                                           weeks); 0.3%
+               O         (16-21:1): dose?                   musculoskelet                                           VAS 100                               (24 weeks)
+               24 weeks                                     al pain
+                                                                                                                    Dropped: 58.4 + 22.6 to
+                                                                                                                    31.8 + 22.5
+
+ADRs = Adverse Drug Reactions                               O = open study design
+C = Controlled                                              OA = Osteoarthritis
+DB = Double Blind                                           Pl = Placebo
+GI = Gastro-Intestinal                                      PMS = Post Marketing Surveillance
+GPs = General Practitioners                                 PP = Per Protocol
+ITT = Intention To Treat                                    R = Randomised
+LBP = Low Back Pain                                         RA = Rheumatoid Arthritis
+MC = Multicenter                                            UE = Undesirable Effects
+NR = Non Randomised                                         VAS = Visual Analogue Scale
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides Vill., S. fragilis L.], cortex                                        Page 46/55
+EMA/HMPC/80628/2016
+4.3. Clinical studies in special populations (e.g. elderly and children)
+
+No studies performed.
+
+4.4. Overall conclusions on clinical pharmacology and efficacy
+
+Under WEU: General conclusion on the clinical studies on analgesic effects of willow bark:
+
+The disease studied, the design and quality of the published trials was variable (see assessors
+comments per study, see also Gagnier et al. 2007). Shortcomings in some of the controlled clinical
+trials are: small numbers of patients and/or short duration of the study, slightly different baseline
+characteristics which hamper conclusions on changes towards baseline, open study design, and access
+to rescue analgesics/NSAIDs/corticoids again hampering conclusions on efficacy of willow bark. The
+willow bark preparations are not always carefully characterized and described (extraction solvent,
+DER). The quantity of salicin should be stated although other constituents may contribute to the
+activity. The composition with regard to salicylates and other constituents varies among extracts
+(Kammerer et al. 2005). Results for a particular extract cannot be extrapolated to other extracts.
+
+Taking into account the body of available published trials and their respective trial quality and
+outcomes, the controlled clinical trials published so far provide moderate evidence for the analgesic
+activity of a daily dose of willow bark extract ethanol 70% 8-14:1 corresponding to 240 mg salicin
+(single ingredient preparation). Based on the double-blind, placebo/active-controlled randomized
+clinical trials (Chrubrasik et al. 2000, Schmid et al. 2001b, Biegert et al. 2004), it can be concluded
+that willow bark is superior over placebo in a dose-dependent manner in the clinical setting of low back
+pain. An additional 3-arm trial including placebo and active comparator is recommended. With regard
+to the analgesic effects in OA and RA, willow bark exerts none to a moderate analgesic activity. It
+should be taken into account that responders in the placebo group are in general relatively high in pain
+trials. Additional studies should have sufficient power.
+
+Based on the available clinical studies, daily intake of willow bark dry extract ethanol 70% (total salicin
+content 15%), equivalent to 240 mg total salicin is advised. The daily dose should be divided into 2
+doses. The patient is referred to the physician in case of worsening or no improvement after the first
+week of use. This limitation of duration of use is based/in accordance with the clinical studies, where
+improvement is observed after 1 week of treatment with willow bark (Chrubasik et al. 2000). The use
+is not recommended under 18 years of age.
+
+When revising the assessment report in 2016, no new clinical trials could be found. However meta-
+analysis of the existing studies seem to confirm the daily dose equivalent with 240 mg salicin as an
+effective dose in reducing pain and equivalent to 12.5 mg rofecoxib (Oltean et al. 2014).
+
+5. Clinical Safety/Pharmacovigilance
+
+5.1. Overview of toxicological/safety data from clinical trials in humans
+
+See chapter 5.3
+
+5.2. Patient exposure
+
+Minor adverse effects have been reported in a relatively small number of patients. Based on the
+published clinical data, from a total of 2734 patients and healthy volunteers treated with various
+single-ingredient preparations containing willow bark, adverse events, predominantly mild, were
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 47/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+reported in 95 cases (3.5%), predominantly GI and allergic reactions (including 2 severe). Data
+obtained with combination products are not included in this overview of adverse events.
+In a post-authorisation surveillance study on willow bark dry extract (8-14:1, ethanol 70%; daily doses
+equivalent to 120 or 240 mg total salicin), 922 physicians observed 4731 patients with chronic back
+pain or arthralgia after 3-4 weeks and after 6-8 weeks. "63 patients reported ADR, no serious ADR
+occurred. GI side effects were notified with an incidence of 0.93%, in most cases as abdominal pain
+(incidence = 0.59%). No GI bleeding or ulceration was mentioned. Skin reactions or potential allergic
+reactions were notified with an incidence of 0.30%. Frequency of ADR notification was independent of
+dosage and did not increase with treatment duration" (Werner 2004, abstract).
+Assessor's comment:
+Full details of the post-authorisation study of Werner are missing, only an abstract was made available
+which makes assessment of the study impossible.
+
+5.3. Adverse events, serious adverse events and deaths
+
+The following undesirable effects were reported in randomized clinical trials.
+Chrubasik et al. (2000): Willow bark groups: N= 70+70 patients
+
+      · 1 patient suffered a severe allergic reaction (exanthema, pruritis, swollen eyes; 120mg group,
+            could be attributed).
+
+      · Note that the other adverse effects (N=2) were attributed to tramadol (rescue medication).
+Chrubasik et al. (2001a): Willow bark group, N= 114 patients
+
+      · Allergy : (1 possible, 3 likely, 1 clear connection)
+      · GI (dyspepsia, vomiting, heartburn, diarrhoea) (7 possible, 3 likely, 1 clear connection)
+      · Dizziness: (1 possible)
+      · Headache: (1 possible)
+      · Blood pressure instability (1 possible)
+Chrubasik et al. (2001b) Willow bark groups, N=112+115 patients
+      · GI (9)
+      · Allergic skin reaction (3)
+      · No evaluation of causality presented
+      · Schmid et al. (2001b) Willow bark group, N=38 patients:
+      · Allergic skin reactions (6)
+No evaluation of causality presented.
+Note that 1 patient in the willow bark group withdrew due to allergic symptoms.
+Biegert et al. (2004): Willow bark group in OA trial (N=43) and in RA trial (N=13)
+      · GI (7)
+      · Allergy (exanthema, 1) (mild itching, 1)
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 48/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+No evaluation of causality presented.
+
+Schmid et al. (2001a): willow bark group N=10 volunteers
+
+Adverse events not recorded / reported
+
+Krivoy et al. (2001): willow bark group N=35 patients
+
+Adverse events not recorded / reported.
+
+Literature reports a case of anaphylaxis resulting from the use of a willow-bark containing dietary
+supplement in a patient with a history of aspirin allergy (Boullata et al. 2003).
+
+Plants that contain more than 10% tannins (willow bark: 8-20%) have potential adverse effects
+including stomach upset, nausea, vomiting (Rotblatt 2002).
+
+Vlachojannis et al. (2011) reported that Salix extracts are not interfering with platelet aggregation,
+which proves a mechanism of action different from the NSAIDs and acetylsalicylic acid.
+
+Undesirable effects are reflected in section 4.8 of the monograph.
+
+5.4. Laboratory findings
+
+No data available.
+
+5.5. Safety in special populations and situations
+
+Intrinsic as well as extrinsic factors are considered.
+
+5.5.1. Use in children and adolescents
+
+Adverse effects and signs of toxicity normally associated with salicylates (such as gastric and renal
+irritation, hypersensitivity, blood in stools, tinnitus, nausea and vomiting) may occur. Salicin is
+documented to cause skin rashes.
+
+Moro et al. (2011) reported about a hypovolemic shock due to severe gastrointestinal bleeding in a 4-
+year old boy taking a herbal syrup with Filipendula ulmaria and Salix spp. The preparation was
+marketed as food and prescribed by his paediatrician to treat a mild cold accompanied by fever. Quali-
+quantitative analysis confirmed the presence of salicylates in the syrup. Naranjo algorithm showed a
+probable correlation between the onset of symptoms and the consumption of the herbal remedy. The
+child recovered after receiving intensive care. This adds to the justification of restricting Salix-
+containing products to adults and elderly (Moroa et al. 2011).
+
+In view of the lack of more toxicity data on willow bark, the usual precautions associated with
+salicylate therapy are also applicable to willow bark. Therefore, in individuals with known
+hypersensitivity to aspirin, asthma, active peptic ulceration, haemophilia and other bleeding disorders,
+gout should be aware of the possible risks associated with the intake of willow bark (Clauson et al.
+2005; Aronson 2006).
+
+Concurrent administration of willow bark with other salicylate-containing products should be avoided as
+such combination may increase the risk of gastric irritation.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 49/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+Hypersensitivity to salicylates or other NSAIDS
+
+There is a considerable cross-reactivity of acetylsalicylic acid with other NSAIDS and the now widely
+banned tartrazine. For willow bark preparations, the risk for an idiosyncratic response (skin reactions,
+bronchospasm) in sensitive individuals cannot be excluded; the use of willow bark is therefore contra-
+indicated. Mechanism of (aspirin) hypersensitivity: the current theory relates to inhibition of COXs and
+interference with PEG2 synthesis allowing PGF2 to predominate in susceptible individuals. Avoidance of
+aspirin and substances to which there is a cross-sensitivity is the only satisfactory solution.
+
+Asthma Patients with existing asthma and nasal polyps or chronic urticaria have a greater frequency of
+hypersensitivity. Because of the relatively high incidence of aspirin-induced broncho-constriction,
+urticaria or anaphylaxis, aspirin should not be used in patients with asthma or those already believed
+to be hypersensitive to salicylates, NSAIDS or tartrazine (Rotblatt 2002). The use of willow bark in
+asthma patients is contra-indicated as severe reactions could be induced.
+
+Children Reye's syndrome was previously regarded as a side-effect of aspirin, but it has become clear
+that the syndrome cannot be assigned to a specific cause. Reye's syndrome presents itself a few days
+after the prodrome of a viral illness, including influenza A and B, adenovirus, varicella virus and
+rheovirus. Various other factors have been incriminated such as pesticides. Only in case of aspirin,
+some epidemiological studies have been performed but the clarity of the link between Reye's syndrome
+and aspirin has been questioned (Pugliese et al. 2008).
+
+Despite the lack of understanding of the syndrome and the fact that a clear, conclusive link between
+the syndrome and aspirin (salicylates) is not yet established, the decision has been taken in many
+countries to advice against the use of salicylates in children (Rotblatt 2002). Because of the clinical
+importance of the syndrome and the avoidable risk, use of salicylates in patients below 16 years is
+questioned.
+
+Assessors's comment:
+
+The approach to the risk-benefit balance differs between European countries. In Belgium there are low-
+dose preparations on the market with 100 mg of acetylsalicylic acid, with posology's for children
+starting from an age of 6 months. The SPC contains a warning (no contraindication) stating that
+acetylsalicylic acid should only be used in children below 12 years of age when other medicines failed.
+It states also that in case of loss of consciousness or persistent vomiting during treatment, Reye's
+syndrome may be suspected. Finally it is mentioned that although a direct link with acetylsalicylic acid
+has not been proven with certainty, the treatment must be immediately interrupted (SPC Aspirin Junior
+2016).
+
+In the Salix monograph of 2009 a special warning on Reye`s syndrome for patients under 18 years was
+included: "In children and adolescents under 18 [product name] should only be used on medical advice
+and only in cases when other therapies failed to succeed. In a child or adolescent who has become
+very unwell with severe vomiting, drowsiness or loss of consciousness following a viral infection, a
+serious disease may be suspected. Reye's syndrome is an extremely rare but life threatening condition
+which requires immediate medical attention". Although, - up to now - no occurrence of Reye's
+syndrome after intake of Salix preparations has been reported, the HMPC decided, as a precautionary
+measure, to include in the revised monograph a contraindication for children and adolescents because
+of the lethal outcome of this syndrome. There are no pharmacovigilance reports on serious undesirable
+effects in children and adolescents.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 50/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+5.5.2. Contraindications
+
+As a precautionary measure, the HMPC decided to include in the revised monograph a contraindication
+for children and adolescents (see above). Furthermore, considering the SmPC of authorized
+acetylsalicylic acid containing products, the following contraindications are also included:
+
+      · Hypersensitivity to the active substance.
+
+When willow bark preparations are taken according to the normal dosage recommendations, they will
+produce relatively low salicylate serum levels. Still, reactions in sensitive individuals cannot be ruled
+out.
+
+      ·
+
+      · Hypersensitivity to salicylates or to other NSAIDs (e.g. history of angioedema, bronchial
+           spasm, or chronic urticaria in response to salicylates or to other NSAIDs).
+
+      · Asthma due to sensitivity to salicylates.
+
+      · Active peptic ulcer disease.
+
+      · Third trimester of pregnancy.
+
+      · Glucose-6-phosphate dehydrogenase deficiency.
+
+There is a case report of a woman with G6PD who developed massive haemolysis after taking an
+herbal preparation containing salicin (Baker et al. 1987). In Sardinia there is a high incidence of G6PdH
+deficiency. Salicylates have been contraindicated by all the experts for these patients. Therefore, the
+use of willow bark in case of G6PD deficiency is contra-indicated.
+
+      · Children and adolescents under 18 years of age due to the risk of Reye's syndrome.
+
+      · Severe liver or renal dysfunction.
+
+      · Coagulation disorders.
+
+Precautions associated with salicylate therapy are also applicable to willow bark. In case of severe liver
+or renal dysfunction, coagulation disorders (risk of haemorrhagia), gastric/duodenal ulcer, willow bark
+should be contra-indicated in these patients.
+
+5.5.3. Special Warnings and precautions for use
+
+Regulatory action for salicylates:
+
+The Belgian authorities issued an advice against use in children below 12 years in case of suspicion of
+viral infection. A class labelling in the section 4.4 (not 4.3) was imposed for acetylsalicylic acid
+containing medicinal products: only to be used for these patients in case other products lack efficacy;
+information on symptoms of Reye's syndrome is given; a statement is included that relationship
+between syndrome and acetylsalicylic acid is not yet established with certainty.
+
+Other precautions with regard to intake of salicylates
+
+As a matter of precaution special warnings and precautions for use are included in the monograph.
+
+`Traditional use':
+
+      · The product is not intended to be used in case of acute arthritis as this condition requires
+            medical advice.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 51/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+      · If fever exceeds 39°C, persists or is associated with severe headache or if symptoms worsen
+            during the use of the medicinal product, a doctor should be consulted.
+
+      · For tinctures, extracts, containing ethanol, the appropriate labelling for ethanol, taken from the
+            `Guideline on excipients in the label and package leaflet of medicinal products for human use',
+            must be included.
+
+ `Well-established use' and `Traditional use':
+
+      · Concomitant use with salicylates and other NSAIDs is not recommended without medical
+            advice.
+
+      · If the symptoms worsen during the use of the medicinal product, a doctor or a pharmacist
+            should be consulted.
+
+5.5.4. Drug interactions and other forms of interaction
+
+Only the interactions documented with willow bark are included. A number of theoretical interactions
+listed for acetylsalicylic acid (anti-hypertensive agents, uricosurica and others) were not included.
+
+Interaction (pharmacokinetic and pharmacodynamic) with oral anticoagulants (heparin, coumarine
+derivatives) is plausible and of therapeutic importance and therefore included: Krivoy et al. (2001)
+investigated whether treatment with willow bark during treatment of LBP affected platelet aggregation.
+35 patients having acute exacerbations of LBP were enrolled in a double-blind placebo-controlled study
+to receive for 28 days Salix daphnoides and Salix purpurea extract with 240 mg salicin per day,
+"Assalix"(N=19) versus placebo (coated tablets, N=16). A further 16 patients with stable chronic
+ischemic heart disease were given 100 mg acetylsalicylate per day during the study period. After 28
+days of treatment, platelet aggregation was measured. Willow bark significantly decreased AA- and
+ADP-induced aggregation but to a significantly lesser extent than acetylsalicylate did. The mean
+percentages of maximal AA-induced platelet aggregation were 61% (willow bark), 78% (blank) and
+13% (acetylsalicylate). Collagen-induced aggregation was not influenced by willow bark (or
+acetylsalicylate). Further investigation is needed to clarify the clinical relevance of these findings in
+patients with impaired thrombocyte function or with vitamin K antagonistic treatment (structural
+similarity of salicylate and warfarin).
+
+Salicylates are extensively bound to plasma proteins. A recent study on the pharmacokinetics of salicin
+after oral administration of a standardized willow bark extract (Schmid et al. 2001a) demonstrates that
+the AUC of salicylate after ingestion of a dose corresponding to 240 mg salicin was equivalent to that
+expected from an intake of 87 mg acetylsalicylic acid; bio-availability was 43.3%; peak serum levels
+were 1.2 mg/L and were reached within 2 hours after ingestion. Pharmacokinetic interactions due to
+plasma protein binding cannot be ruled out. Salicylic acid does not irreversibly acetylate COX-1. Taking
+into account the study of Krivoy et al. (2001) and the fact that salicylates are highly bound to plasma
+proteins, the potential for interaction cannot be ruled out.
+
+Shalansky et al. (2007) carried out a prospective longitudinal study (171 adults) to determine the risk
+of bleeding and supratherapeutic international normalised ratios (INR) associated with use of
+complementary and alternative medicine (CAM) in patients receiving warfarin. Statistically significant
+associations between the use of willow bark and bleeding events were identified. The risk of a
+supratherapeutic INR was not increased. After adjustment for the identified non-CAM risk factors,
+association was not statistically significant.
+
+The combined use of willow bark with acetylsalicylic acid/other NSAIDS is not recommended even
+though an increased risk of gastric irritation has never been described (Rotblatt 2002). The MLWP
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 52/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+decided in September 2007 to add a warning that concomitant use with salicylates and other NSAIDs is
+not recommended without medical advice.
+
+The very high concentration of tannins present may interfere with absorption of other products.
+
+According to Williamson et al. (2013) no drug-drug interactions with willow are reported.
+Pharmacokinetic studies suggest that doses of willow bark extract can achieve levels of salicylic acid
+that are equivalent to an 87 mg dose of aspirin. Interaction of willow bark with medicines acting upon
+platelets or blood coagulation should be taken into account. Williamson et al. (2013) also recommend
+to avoid combinations of willow bark with antiplatelet drugs. However if concurrent use is felt desirable
+it would seem sensible to warn patients to be alert for any signs of bruising or bleeding, and report
+these immediately, should they occur. Therefore relevant warnings are included in the monograph.
+
+5.5.5. Fertility, pregnancy and lactation
+
+Salicylates cross the placenta. Acetylsalicylic acid is teratogenic in rodents, but till now there is no clear
+evidence of teratogenesis when used in human pregnancy. Increased PG production during pregnancy
+and/or placental metabolism may have protective roles.
+
+Due to increased bleeding risk, delay of parturition and induction of early closure of the ductus
+arteriosis, use of acetylsalicyl acid/NSAIDs is contra-indicated in the third trimester of pregnancy
+(Aronson 2006; Barnes et al. 2007).
+
+Conflicting reports have been documented concerning the safety of acetylsalicylic acid taken during the
+first and second trimester of pregnancy. The safety of willow bark has not been established. Occasional
+ingestion of salicylates does not seem to be a problem (no contra-indication in Belgium for first and
+second trimester), but due to lack of conclusive data on the use during the first and second trimester
+of the pregnancy are not available, the use is not recommended as a general precaution
+
+Salicylates appear in breast milk and have been reported to cause macular rashes in babies. The two
+major pathways of salicylate degradation (formation of salicyluric acid and salicyl phenol glucuronide)
+become saturated at relatively low body levels of the drug. The drug is slowly eliminated by the
+newborn infant.
+
+Because data on the use during lactation are not available, the use is not recommended as a general
+precaution.
+
+5.5.6. Overdose
+
+No toxic effects reported.
+
+Taking into account the relatively low serum levels after oral intake of willow bark and the high content
+of tannins in willow bark (GI disturbances) which makes intake of large amounts less likely, it was
+agreed not to include the symptoms of overdose with acetylsalicylic acid.
+
+5.5.7. Effects on ability to drive or operate machinery or impairment of
+mental ability
+
+No data available.
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 53/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+5.5.8. Safety in other special situations
+
+Chrubasik (2002) stated that willow bark does not enhance menstrual bleeding. The author supported
+this statement referring to observations with a commercial product equivalent to a daily dose of 240
+mg.
+
+5.6. Overall conclusions on clinical safety
+
+Clinical data, from a total of nearly 600 patients and healthy volunteers treated with various single-
+ingredient preparations containing willow bark, adverse events were predominantly mild.
+
+Adverse effects and signs of toxicity normally associated with salicylates may occur. In view of the lack
+of more toxicity data on willow, the usual precautions associated with salicylate therapy are also
+applicable to willow. Therefore individuals with known hypersensitivity to aspirin, asthma, active peptic
+ulceration, haemophilia and other bleeding disorders, gout should be aware of the possible risks
+associated with the intake of willow bark. Appropriate contra-indications and special warnings and
+precautions for use are introduced in the monograph (WEU and TU).
+
+6. Overall conclusions (benefit-risk assessment)
+
+In spite of its long (traditional) use, only a few controlled trials have been conducted with willow bark
+to support its analgesic and/or antipyretic action. Recent renewed interest in willow bark resulted in a
+number of clinical trials studying the efficacy in acute exacerbations of low back pain, osteoarthritis
+and rheumatoid arthritis. The design and quality of the published trials was variable.
+
+Taking into account the body of available published trials and their respective trial quality and
+outcomes, the controlled clinical trials published so far provide moderate evidence for the analgesic
+activity of a daily dose of willow bark extract 8-14:1 (solvent 70% ethanol) corresponding to 240 mg
+salicin (single ingredient preparation) in low back pain (WEU). Proposed ATC code: N02BG (other
+analgesics and antipyretics).
+
+For the symptomatic treatment of fever and pain, only general evidence is available (TU). Based on
+data in text books and information provided by interested parties, the following are included in the
+monograph: powdered and comminuted herbal substance, dry extract (DER 8-20:1) extraction solvent
+water, dry extract (DER 16-23:1) extraction solvent water, liquid extract (DER 1:1) extraction solvent
+ethanol 25% V/V, tincture (1:5), extraction solvent ethanol 25% V/V.
+
+In view of the lack of adequate toxicity data on willow bark, the usual precautions for use associated
+with salicylate therapy are also applicable to willow. Appropriate contra-indications and special
+warnings and precautions for use are introduced in the monograph. More particularly willow
+preparations are contraindicated for children and adolescents under 18 years of age (WEU and TU).
+
+Allergic reactions (rash, pruritis, urticaria, asthma, exanthema) and gastrointestinal symptoms
+(nausea, vomiting, abdominal pain, diarrhoea, dyspepsia, heartburn), may occur. The frequency
+cannot be estimated accurately due to the limited number of patients in controlled clinical trials.
+Nevertheless, atopic patients should be warned against the use of willow bark preparations. Due to the
+mechanism of action warnings should be included with regard of gastro-intestinal irritation and
+damage. Furthermore, there is a theoretical risk for patients using anticoagulants. No herbal drug
+interactions have been reported in humans.
+
+The use during the first and second trimester of pregnancy and during lactation is not recommended as
+salicylates cross the placenta. Willow bark preparations are also contraindicated in the third trimester
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 54/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+of pregnancy. They should not be used during breast feeding as small amounts of salicylated also
+appear in breast milk. No fertility data available.
+On the basis of the available information salicin and its metabolites are considered by the HMPC as
+contributing to the activity of the herbal substance and herbal preparation(s) and therefore are
+classified as active markers.
+Tests on reproductive toxicity, genotoxicity and carcinogenicity have not been performed. Therefore, a
+list entry is not proposed.
+
+Annex
+
+List of references
+
+Assessment report on Salix [various species including S. purpurea L., S. daphnoides  Page 55/55
+Vill., S. fragilis L.], cortex
+EMA/HMPC/80628/2016
+

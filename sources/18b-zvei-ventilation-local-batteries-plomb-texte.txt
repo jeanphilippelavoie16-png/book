@@ -1,0 +1,141 @@
+Batteries Division
+
+ZVEI information leaflet No. 14
+
+May 2020
+
+Ventilation of battery charging rooms for
+lead traction batteries
+
+1. Foreword                         current of 1 ampere (reference         The air volume flow Q required
+In order to avoid explosion         temperature 25°C).                     for this is calculated according to
+hazards sufficient ventilation of                                          DIN EN 62485-3 for the
+charging rooms for traction         The ventilation of battery             reference temperature of 25 °C,
+batteries based on lead battery     charging rooms must safely             as follows:
+technology is mandatory.            ensure that the hydrogen
+                                    concentration does not exceed          Q = 0.055m³/Ah n  Igas
+This ZVEI information leaflet is a  the lower explosion limit of 4%
+guide to the application of the     by volume. Battery charging            Q air volume flow in m3/h
+DIN EN 62485-3 Safety               rooms should therefore be
+requirements for secondary          designed so that natural               0.055 m3/Ah
+batteries and battery               ventilation is sufficient. If this is      combines gas evolution rate,
+installations – Part 3: Traction    not ensured under all operating            the necessary dilution factor
+batteries. It contains example      conditions appropriate technical           of hydrogen and a general
+calculations and notes for          ventilation must be used. Details          safety factor
+application.                        on natural and technical
+                                    ventilation are described in           n number of cells (e.g. 40 for
+2. General                          chapter 4.                                 an 80 volt or 12 for an 24 volt
+During the charging of lead                                                    battery)
+batteries an explosive gas          Safety note: Even though
+mixture escapes from the battery    sufficient ventilation is ensured,     Igas hydrogen-generating electric
+cells through the plug openings.    the dilution of hydrogen cannot            current in A
+This gas mixture results from       always be guaranteed in the
+electrolysis of water, the main     near field of the battery.             Note: Due to the safety factor
+compound of the electrolyte, and    Therefore according to                 this formula can also be used for
+consists of hydrogen and            DIN EN 62485-3 the safety              the entire permissible operating
+oxygen (volume ratio 2:1 =          distance of 0.5 meters air gap         temperature range of a battery.
+oxyhydrogen gas.                    (thread dimension) must be             The battery related Igas values
+                                    maintained from a possible             shall be obtained from the
+The evolution of gasses during      ignition source, starting from a       charger manufacturer. Particular
+charging rises with the battery's   cell opening (plug or valve).          characteristics, e.g. pulse-,
+state of charge. In the final       Within this safety distance no         multi-voltage- or fast-charging
+charging phase of the battery       open flames, sparks, arcs or           functions, must be taken into
+almost the entire charging          glowing objects may occur              account.
+current leads to the generation     (maximum surface temperature
+of oxyhydrogen gas.                 300°C).                                If Igas is not known or cannot get
+                                                                           to know, at least 40% of the
+Towards the end of the charging     3. Dimensioning of the                 maximum charging current (see
+process, the electrolysis of water     ventilation                         charger's name plate) must be
+generates 0.450 liter hydrogen                                             used for Igas.
+and 0.225 liter oxygen within       Sufficient air exchange is
+one hour and a final charging       necessary to dilute the                In case of several batteries are
+                                    potentially explosive gas.             charged simultaneously in the
+                                                                           same room, the required air flow
+
+This leaflet was prepared by the Working Group Industrial Batteries of the
+ZVEI – German Electrical and Electronic Manufacturers' Association, Batteries Division
+rate must be calculated for each    The total required air volume         Example calculation required
+battery. For safety reasons the     flow for all batteries is calculated  cross-section of the air inlet
+calculation must be based on        from the sum of the individual air    and outlet openings:
+the assumption that all batteries   volume flows of the PzS and
+under charge generate hydrogen      PzV batteries.                        Using the exemplary air flow rate
+at maximum gassing rate. If this                                          calculated in chapter 3 the
+cannot be excluded by technical     Qges = QPzS + QPzV                    required opening cross-section
+measures the air volume flow                                              air in- and outlet are to be
+required for a charging station is       = 462.0 m³/h + 28.8 m³/h         determined as follows:
+therefore calculated from the
+sum of the air volume flow of all         = 490.8 m³/h                    A = 28 cm²h/m3 x Qges
+batteries being charged in the
+same room.                          4. Design of charging rooms              = 28 cm²h/m3 x 490.8 m³/h
+                                    In order to ensure adequate
+Example calculation for air         ventilation there are basically          = 13,742 cm²
+volume flow:                        two technical solutions:
+                                                                          In this example this corresponds
+Scenario: Mixed operation of        Natural ventilation                   to a square opening with an
+PzS and PzV batteries, charged                                            edge length of approx. 117cm.
+with the allocated chargers.        The basic requirements for
+                                    natural ventilation are a free        Forced ventilation
+Ten PzS batteries 80 V 420Ah        room volume (total volume of the
+C5, charging characteristic         room minus the volume of              If the conditions for natural
+W0Wa with an Igas (corresponds      objects in the room) of 2.5 times     ventilation are not met forced
+to the final charging current) of   the hourly air volume flow Q          ventilation must be installed to
+21A (exemplary value stated by      [m³/h] to be renewed and at           ensure the necessary air flow
+a charger manufacturer).            least an air speed of 0.1 m/s in      Qges.
+                                    all inlets and outlets.
+Calculation of the air volume                                             Batteries shall only be charged if
+flow for one PzS battery:           The corresponding air in- and         the forced ventilation is effective.
+                                    outlets shall each have at least a
+QPzS = 0.055 m³/Ah x 40 x 21A       cross-section area which is to be     The function and effectiveness
+                                    calculating using the following       of the forced ventilation must be
+       = 46.2 m³/h                  formula:                              demonstrated at commissioning
+                                                                          and at regular intervals.
+Calculation of the air volume       A = 28cm²h/m³ Q
+flow for the ten PzS batteries:                                           Important boundary condition
+                                    A Cross-section for air in- and       for natural and forced
+QPzS = 10 x 46.2 m³/h                   outlet [cm²]                      ventilation
+
+      = 462.0 m³/h                  28 cm² h/m³                           The air supply must be free of
+                                        Necessary factor for              gases harmful to lead batteries,
+Six PzV batteries 48 V 300Ah            conversion of units               such as chlorine and ammonia.
+C5, charging characteristic IUIa
+with an Igas (corresponds to the    Q Air volume flow [m³/h]              Ducts and system components
+final charging current) of 3.6A                                           of the ventilation system located
+(exemplary value stated by a        The air flow must ensure a            in the exhaust air flow must be
+charger manufacturer).              continuous aeration of the entire     designed to be acid resistant.
+                                    battery charging room / area e.g.
+Calculation of the air volume       the inlets should be located near     Both, the natural and forced
+flow for one PzV battery:           the floor and the airflow should      ventilation must be designed in
+                                    be directed over the batteries        such a way that the exhaust air
+QPzV = 0.055 m³/Ah x 24 x 3.6A      and escape at outlets high as         is emitted into the open air.
+                                    possible. This ensures optimum        When positioning the exhaust air
+       = 4.8 m³/h                   cross ventilation.                    outlet the proximity to air intake
+                                                                          openings of air condition system
+Calculation of the air volume       If the air in- and outlet openings    must be avoided. The exhaust
+flow for the six PzV batteries:     are positioned at the same wall       air must not be led into active
+                                    the minimum distance between          chimneys
+QPzV = 6 x 4.8 m³/h                 the openings must be 2 meters.
+
+      = 28.8 m³/h                   Doors and windows are only
+                                    considered to be appropriate air
+                                    inlet and outlet opening if it is
+                                    ensured that are constantly open
+                                    during the charging process and
+                                    the necessary cross-section
+                                    area is provided in this state.
+
+                                                                          2/3
+Published by:
+ZVEI – Zentralverband Elektrotechnik- und Elektronikindustrie e. V.
+Batteries Division
+Lyoner Strasse 9
+60528 Frankfurt
+Phone: +49 69 6302-283
+Fax: +49 69 6302-362
+E-mail: batterien@zvei.org
+www.zvei.org
+© ZVEI 2020
+Despite the greatest care being taken, no liability can be accepted
+for ensuring that this information is correct, complete and up to date.
+
+                                                                                                                     3/3
+

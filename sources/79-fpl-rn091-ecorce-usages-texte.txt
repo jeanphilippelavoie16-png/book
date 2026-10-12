@@ -1,0 +1,2539 @@
+U.S. DEPARTMENT OF AGRICULTURE · FOREST SERVICE
+FOREST PRODUCTS LABORATORY · MADISON, WIS.
+
+In Cooperation with the University of Wisconsin
+
+BARK AND ITS POSSIBLE USES
+         Summary
+
+   What to do with bark is a major question facing the wood conversion industries.
+Optimum utilization of bark residues demands appreciation of the complexity of
+
+bark and the extreme variation in chemical and physical properties between
+barks of different wood species. This report discusses bark structure, past and
+present utilization, and methods of upgrading bark both physically and chemically
+for increased utilization. Pertinent literature citations and continuing biblio-
+graphic sources of information on bark are included. Appended directories indi-
+cate sources of technical assistance and utilization equipment.
+
+         Contents
+
+                                                                                              Page
+
+Need for Maximum Utilization......................................................... 1
+                                                                                              2
+Bark Structure .............................................................................
+                                                                                              3
+Bark Composition .........................................................................
+Bark Utilization............................................................................  5
+
+Centralized Debarking ................................................................ 5
+Bark Product Variety .................................................................        8
+
+Utilization Information and Research............................................. 8
+Low-Grade Utilization ................................................................ 10
+Fuel ..................................................................................... 10
+Charcoal ............................................................................... 12
+Wood-Base Materials .............................................................. 13
+Other Uses ............................................................................ 13
+Uses of Bark in Mulching and Soil Amendment ................................ 14
+Advantages of Bark ................................................................. 14
+Effects of Residues ................................................................. 15
+Addition of Mineral Nutrients .................................................... 17
+Soil Nitrogen Depletion Problem. ............................................... 17
+Physical Upgrading of Bark ............................................................ 20
+Chemical Upgrading of Bark ........................................................... 21
+Sources of Continuing Information.................................................... 23
+Literature Cited ........................................................................... 25
+U.S. Manufacturers of Composting Equipment.. ....................... Appendix I
+Sources of Technical Assistance........................................... Appendix II
+
+FPL-091  -i-
+                                                                                              1
+
+                                BARE AND ITS POSSIBLE USES
+
+                                                                By
+
+                                    JOHN M. HARKIN, Chemist
+                                                     and
+
+                                     JOHN W. ROWE, Chemist
+
+                        Forest Products Laboratory,2 Forest Service
+                                     U.S. Department of Agriculture
+
+                                                               ----
+
+                                  Need for Maximum Utilization
+
+   Surplus bark is currently the most perplexing residue problem facing the
+wood conversion industries. The volume of bark residue is so great that it must
+be continually removed from mill sites. New technology has developed methods
+for converting slabs and edgings from a liability to an asset (58)3 , and now utili-
+zation of bark is receiving increasing attention.
+
+   Bark has useful byproducts waiting for the right economic conditions or the
+development of satisfactory commercial processes.
+
+   Markets for bark have never been in greater demand. Air pollution regulations
+and high stumpage prices make maximum utilization of forest products a must.
+Efficient bark utilization can create a new industry and boost the economy by
+making a valuable asset out of a costly waste. It is significant that many major
+wood processing companies are currently investing huge sums in the construction
+of bark processing plants.
+
+   Because of strong competition from other materials, bark product manufac-
+turers will have to advertise their wares vigorously, and strive to educate the
+public in their use in order to gain wide consumer acceptance. Recognizing this,
+the Bark Utilization Committee of the Forest Products Research Society spon-
+sors an annual Bark Products Promotion Award for the best material from any
+
+1 This research note represents a major revision of a report of the same title and
+    number issued in 1969.
+
+2 Maintained at Madison, Wis., i n c o o p e r a t i o n w i t h t h e U n i v e r s i t y o f W i s c o n s i n .
+3 Underlined numbers in parentheses refer to Literature Cited at the end of this
+
+    report.
+
+FPL-091
+U.S or Canadian company, firm, or dealer used to help advertise and mer-
+chandise any product made mainly from bark.
+
+   This report outlines the various methods of bark utilization, and indicates
+through literature references sources of detailed practical information.
+
+         Bark Structure
+
+   Bark comprises the outer part of woody stems and branches (3 0,31,42,67,94).
+Anatomically it includes all the plant tissues outside the cambium. Although the
+
+term "bast" is sometimes used as the equivalent of bark, or inner bark, it applies
+
+more correctly only to the lignified fibers commonly found in many barks and
+other fibrous plant materials. These may amount to 35-45 percent of some
+
+inner barks.
+
+   Bark formation is initiated by the process of cell division at the cambium,
+which produces xylem on the woody side (inside) and phloem, the primary bark
+tissue, on the exterior bark side. Phloem tissue contains phloem parenchyma,
+bast fibers, companion cells, and the very important sieve cells or sieve tubes.
+
+The sieve elements are the main channel for downward movement of sap and
+nutrients from the leaves contra to the upward rise of water from the roots in
+
+the xylem. The layer of physiologically active tissue adjacent to the cambium is
+known as the inner bark and is generally relatively thin and light colored. As
+subsequent layers of phloem are laid down year by year, the outer layers become
+
+crushed and compressed, and the sieve elements and similar structures collapse.
+This tissue then ceases to take part in active physiological processes and is
+transformed into the relatively inert, dark outer bark that comprises the bulk
+of most tree barks. The rifted or scaly outermost layer of such bark on mature
+trees is then called the rhytidome.
+
+   The structure of bark is further complicated by the presence of a second
+
+cambial layer within the bark called the phellogen or cork cambium. Periderm,
+or cork, is produced by this cork cambium and contributes appreciably to the
+structure of the outer bark. The innermost layer of periderm is normally
+
+considered as the boundary between the inner and outer bark. A number of other
+types of auxiliary tissues, e.g. lignified sclerynchyma and medullary ray
+parenchyma, are also found in bark.
+
+   This brief description indicates that bark is a highly complex, heterogeneous
+
+material composed mainly of a thin, physiologically active inner layer and a
+
+complex, relatively inert outer layer, whose principal functions are to protect
+the cambium and prevent loss of water. Some barks, such as spruce, are
+
+FPL-091  -2-
+relatively thin and contain a high proportion of inner bark. Other barks, such as
+Douglas-fir and redwood, are quite thick and contain a very high percentage of
+
+outer bark.
+
+                   Bark Composition
+
+   In keeping with its heterogeneous structure, the chemical composition of bark
+exhibits great diversity, so that analytical data on bark samples are difficult to
+obtain and are often not very meaningful. Vast differences in the nature and
+amounts of various chemical components and of various extraneous materials
+contained within the bark can be found within even a single species, depending
+on the age and growth site of the trees sampled and the fraction of bark exam-
+ined, etc. Differences in composition and variation in amounts of common con-
+stituents can, of course, be much larger between species and, for these reasons,
+there are no good standardized methods of bark analysis.
+
+   Bark constituents are generally examined by extracting comminuted bark
+samples with various solvents (23). Frequently, the investigator will start ex-
+tracting with cold, nonpolar organic solvents such as light petroleum or ether
+and then proceed through extractions with more polar solvents such as benzene,
+chloroform, or alcohol (cold or hot), to polar solvents such as acetone, aqueous
+acetone or alcohols, and water. Subsequent extraction with alkali or hydrolysis
+
+with acid is used to analyze the residue.
+
+   Some types of materials extracted in sequence by these solvents are indicated
+below:
+
+Solvent            Typical Substances Removed in Whole or Part
+
+Petroleum ether,   Terpenes and their derivatives, fats, waxes,
+                   free fatty and wax acids and alcohols, sterols,
+ether,
+benzene,           resins.
+chloroform
+
+Alcohol, acetone,  Simple polyphenols and their glycosides, tannins,
+aqueous alcohol,   mono- and disaccharides (sugars).
+
+aqueous acetone
+
+FPL-091            -3-
+Solvent (con.)     Typical Substances Removed in Whole or Part (con.)
+
+Hot or cold water  Disaccharides, starch, gums, pectins, tannins, muci-
+                   lages.
+
+Aqueous alkali     Phlobaphenes, phenolic acids, some bark lignin and
+                   hemicellulose, suberin fragments.
+
+Acid hydrolysis    Simple sugars and uronic acids derived from holo-
+                   cellulose, leaves residue of "lignin."
+
+   The cellulose and hemicelluloses in the fiber portions of bark are largely
+similar to the corresponding materials from wood, However, when applied even
+to extractive-free bark, the standard lignin analysis gives misleading results
+since the "lignin" product consists of a mixture of true lignin and suberized
+phlobaphene (cork). This mixture has a methoxyl content of only 8-10 percent
+versus the characteristic 15-17 percent for a true softwood lignin or 20-22 per-
+cent for a true hardwood lignin. Some average figures delineating limits for the
+proximate composition of wood and bark are shown below; individual analyses
+for certain species can still lie beyond these limits.
+
+         Proximate Composition of Ash-Free Wood and Bark (Percent)
+
+                        Softwoods          Hardwoods
+
+                   Wood     Bark           Wood       Bark
+
+"Lignin"*          25-30    40-55           18-25     40-50
+                                            74-80     32-45
+Polysaccharides*   66-72    30-48             2-5       5-10
+                                           0.2-0.6  Up to 20
+Extractives        2-9               2-25
+
+Ash*               0.2-0.6  Up to 20
+
+*Based on extractive-free material.
+
+   It is immediately noticeable that the range of composition is much more ex-
+tensive for bark than wood. The high "lignin" contents make it difficult to pre-
+pare holocellulose even from well-extracted bark. To get a rough estimate of
+
+the polysaccharide fiber content of bark, it is best to extract the bark with sol-
+vents to remove extractives and then to hydrolyze the residue with acid and
+determine the monosaccharides formed by measuring their reducing power with
+copper salts, or as individual sugars using some chromatographic and colori-
+metric method. Typical barks will produce hydrolysates containing about
+
+FPL-091                     -4-
+60-70 percent glucose, 5-15 percent xylose, 5-10 percent arabinose, and
+3-4 percent each of galactose and mannose. Again, individual species can have
+unusually high contents of a single sugar, e.g., 8 percent mannose from spruce
+bark or 9 percent arabinose from pine bark.
+
+   Among bark extractives, polar materials (tannins, polyphenols, glycosides)
+are generally three to five times as abundant as nonpolar constituents (fats,
+waxes, terpenes, steroids, etc.).
+
+   Although native bark tissue carefully sectioned out of the bark does not nor-
+mally contain substantially more inorganic materials (which can be assayed by
+igniting the sample and weighing the ash) than wood (maximum ca. 1 percent),
+ordinary extractive-free bark is found to contain up to 20 percent ash. This is
+because windborne soil or sand particles are usually trapped in the rhytidome,
+raising the apparent ash content. Further, bark from logs that have been felled
+and skidded may contain a lot of sand and grit embedded in the bark that can
+create speciously high ash contents. This grit is also troublesome in causing
+dulling of sawing and cutting tools.
+
+                                           Bark Utilization
+
+   On the average, bark comprises about 9 to 15 percent of a typical log by volume
+(table 1), or slightly more (13 to 21 percent) on a dry weight basis (cf. 29,163).
+There are roughly 225 pounds of bark per cord, or 1/4 ton for each thousand
+board feet log scale (see fig. 1 and 2). The total annual United States production
+of bark may be well above 20 million tons. Since one of the major costs in proc-
+essing any natural material is the cost of collection, bark, for which collection
+costs have already been paid, has become increasingly attractive as a potential
+raw material.
+
+Centralized Debarking
+
+   Centralized debarking of trees, especially for pulpwood and sawlogs, has re-
+sulted in more efficient utilization of wood substance and in the accumulation of
+huge tonnages of relatively wood-free bark at central industrial locations. Mech-
+anical debarking of logs before sawing to lumber provides clean slabs, edgings,
+and trims that can be used for crating or processed to chips for pulping. It is
+profitable for sawmills cutting more than 1-1/2 million board feet of lumber
+
+FPL-091  -5-
+Figure 1.--Tons of bark per thousand board feet gross log
+       scale by diameter classes.
+
+(M 136 999)
+Figure 2.--Pounds of bark per cubic foot of wood by diameter classes.
+(M 136 998)
+yearly to install and use a mechanical debarker. A recently compiled directory
+of debarking equipment is available (47). The designs and performance features
+of different types of power debarkers were analyzed in an early review (46). In-
+formation and experience reports on the latest equipment can generally be
+obtained from the American Pulpwood Association, 605 Third Avenue, New York,
+N.Y. 10016. Bibliographic information on debarkers and debarking practices has
+also appeared (126,128). Attempts have been made to remove bark from wood
+after chipping logs or thinnings without prior debarking; this subject has been
+reviewed (10,41). So far, results are not promising or only applicable to a few
+species. Many machines (hammermills, choppers, shredders, grinders) are also
+available for pulverizing or shredding bark; lists of manufacturers are available
+(57,147). There are several publications that deal with mensuration of the amounts
+of bark obtained from various species of trees (29,37,70,83,84,109,135,136,159,
+163).
+
+Bark Product Variety
+
+   Bark has a long history of utility ranging from the Indian's birch-bark canoes
+to the tapa cloth of the South Pacific. Cork, fiber, tannins, dyes, gums, resins,
+latex materials, foodstuffs, flavorings, fish and arrow poisons, antibiotics, and
+medicinals can all be derived from bark. Among some of the varied products
+obtained from bark are the flavoring, cinnamon; the antimalarial drug, quinine;
+the powerful aphrodisiac, yohimbine, used by natives and animal breeders; the
+cocktail ingredient, Angostura bitters, and the root beer flavoring, sassafras.
+The tremendous range of products obtainable from bark is a reflection not only
+of the complexity of bark itself, but also of the extreme differences between barks
+of different species. A most interesting utilization of bark is as a source of
+chemical extracts with medicinal or physiological properties. Barks containing
+this type of extract are largely limited to tropical species--our domestic tem-
+perature zone species are deficient in this respect.
+
+Utilization Information and Research
+
+   Occasionally, symposia are held on bark and other wood waste utilization.
+The transactions of these meetings are generally published (2,49,102,105,115,
+149). A European m e e t i n g on mechanical peeling of logs also covered bark
+utilization (48).
+
+FPL-091  -8-
+   Fortunately, the tremendous literature on bark has been reviewed and sur-
+veyed by a number of people (e.g. 139,165). Some excellent bibliographies (91,
+125,127,129) provide a thorough index to the literature on bark, so that extensive
+general references will not be given here. Warren S. Thompson is preparing a
+new bark literature review at the Mississippi Forest Products Laboratory, State
+College, Miss. There are many patents dealing with the utilization of bark and
+these can be rapidly located through the bibliographies of the Institute of Paper
+Chemistry, Appleton, Wis. (127,129) and their abstract bulletin (cf. p. 23).
+
+   The Institute of Paper Chemistry is undertaking a new research program on
+the chemical utilization of southern pine bark. The Forest Research Laboratory
+of Oregon State University (Corvallis, Oreg.) is also expanding its research on
+bark utilization. Prof. Leonard Burkhart is conducting research on the use of
+bark as a mulch and in particleboard and on the extraction of terpenes and poly-
+phenols from bark at the Forestry Department of the Stephen F. Austin State
+College, Tex. Research on horticultural applications of hardwood barks is being
+conducted in Illinois (50-52).
+
+   It is well known that deer sometimes browse on the bark of aspen trees when
+other food is not available in hard winters. Research is being carried on at the
+U.S. Forest Products Laboratory in cooperation with three land grant universi-
+ties on the possibility of including certain barks in feeds for domesticated rumi-
+nants. Preliminary findings suggest that the inner bark of certain hardwoods
+should be readily digested by these animals. A cooperative project involving
+six departments of the University of Wisconsin College of Agriculture, and
+headed by J. N. McGovern of Forestry, is examining the use of bark as animal
+bedding and poultry litter, with subsequent disposal through agricultural outlets.
+Prof. Robert E. Martin at Virginia Polytechnic Institute is carrying out a re-
+search program on the physical properties of bark: density, thermal and mech-
+anical properties, moisture relationships, etc.; some reports have already been
+published (93-99). He has also summarized bark research activities at univer-
+sities at home and abroad in (102). Other physical data on barks have also
+appeared recently (84,113). Chapters in two recent books also discussed bark
+(74,140).
+
+   The Forest Products Research Society through the Technical Committee
+"Bark and Residues" is trying to focus interest on bark utilization. This com-
+mittee promotes activities to increase the utilization of bark, and has conducted
+a survey of bark processors and the nature and sales volume of their products
+(101,104). A short first listing appeared in 1971 (Directory of the Forest
+Products Industry, pp. 401-402, Miller-Freeman Publications. 500 Howard St.,
+
+FPL-091  -9-
+San Francisco, Calif. 94105). Another more complete listing that includes the
+
+names of brokers, consultants and machinery and packaging manufacturers
+appeared more recently (57). The proceedings of symposia on making and
+selling bark products held at annual meetings of the FPRS can be purchased as
+
+booklets from the Society at 2801 Marshall Court, Madison, Wis. 53705 at $5
+(102) and $4 (105) a copy. A third book, on "Processing Bark for Bark Products,"
+is in preparation (1971).
+
+Low-Grade Utilization
+
+   The complexity of bark and the extreme variation in chemical and physical
+properties between barks has already been pointed out. Thus, any high-grade
+utilization scheme will usually require large amounts of clean, dry bark from
+a single species. Frequently, this requirement is not met--the bark is obtained
+as a mixture of species or in amounts insufficient for economical commercial
+processing to high-grade products. Even when bark is processed to high-grade
+products, some residue always remains. These factors indicate that initial com-
+mercial development should concentrate on schemes that can utilize whole bark
+independent of its physical and chemical properties.
+
+   Fuel. --Initial outlets for bark can well be identical with those of other wood
+residue. For example, bark may be used as a fuel (9,65,80,109,110,114,118,151).
+Improved multiple-fired burners have been developed (27,40,53,54,145), together
+with heavy-duty presses that are capable of obtaining positive fuel values even
+from water-soaked bark (154). The fuel value of such bark is low, but at least
+some returns are being obtained. Ten tons of completely dry bark have, on the
+average, a gross heating value equivalent to some 7 tons of coal. The effective
+heating value of bark is about 8,000 to 10,000 B.t.u. per pound of bone dry mate-
+rial, depending on species; that is about half of the value for fuel oil, but these
+values fall off to zero for bark with around 87 to 90 percent moisture content
+(see fig. 3). Bark peeled mechanically from logs in dry summer weather has a
+moisture content of about 34 to 40 percent, but bark removed in wet weather or
+in winter may contain up to 60 percent water. The practice of bark disposal by
+incineration in tepee burners is still widespread (20,21,33), but this seems like
+a shameful waste of good fuel, especially since at some $40,000 to over $100,000
+(1971) the costs of installing modern smoke and fly-ash free burners efficient
+enough to comply with most current air quality control standards (or of modi-
+fying e x i s t i n g burners) are a sizable fraction of the costs of a bark fuel
+boiler (21,65). Cost data for the use of wood waste as a fuel (38) should
+
+FPL-091  -10-
+Figure 3. --Effective heat produced by combustion of birch, pine,
+     and spruce barks at different moisture levels.
+
+(M 137 000)
+also be roughly pertinent to dry bark combustion (80). Some good appraisals of
+the use of bark as a fuel and of the equipment necessary for firing bark have
+appeared in recent years (9,27,40,53,54,65,80,109,110,114,116,118,123,145,151,
+152). Air blowers in the furnaces greatly promote complete combustion of fuel
+bark (53,54). One company in Illinois makes incinerators for fluidized-bed com-
+bustion of sander dust and wood fines that might be readily adapted to efficient
+firing of bark particles. Table 2 lists the densities of some dry barks; these
+densities increase as the water content of the bark goes up. Table 3 contains
+data on the ash content and heat of combustion of some barks. Considerations
+have even been given to the utilization of ash, e.g. as lightweight aggregate in
+concrete or in water purification (80,144).
+
+   Bark can also be pressed into briquets for use as fireplace fuel (36). This is
+commonly done with other wood residues (58), and various kinds of fireplace logs
+have been marketed throughout the country. Bark has hitherto found only limited
+use in this form because it usually contains excessive amounts of water. When
+dried, however, it may be equal and perhaps superior to other wood residue in
+fireplace logs. Binders and sizing would probably not be needed. Some companies
+have investigated the possibility of adding salts to the logs to produce colored
+flames; for example, copper sulfate for green, calcium chloride for orange,
+copper chloride for blue, lithium chloride for red, and potassium chloride for
+purple. Although the idea appears attractive, in practice the cost of mixing in
+the chemicals, the necessity of keeping various colors separated to prevent
+them from obscuring one another, and corrosive and other deleterious effects of
+the chemicals have limited this feature.
+
+   Charcoal. --Another major outlet is in charcoal (8,34,74,78,79,148). Demand for
+charcoal for recreational use has increased sharply (146). Bark from mechani-
+cal debarkers, and slabwood, high in bark content, form an important portion of
+the raw material for this charcoal. Bark is normally assumed to have a high ash
+content. This is not necessarily true. Clean bark has an ash content only slightly
+higher than that of wood (table 3). Bark does, however, readily pick up dirt,
+sand, and grit, both windborne while the tree is still standing, and from the
+ground during felling and dragging. The ash is enriched some 3-4 times in the
+charcoal, since this is only some 25-30 percent of the initial bark. Nevertheless,
+a moderately high ash content is not disadvantageous for charcoal used in the
+home barbecue. Charcoal from bark is more easily crumbled than wood char-
+coal and contains a higher percentage of fines. These factors are undesirable
+in lump charcoal, but would be advantageous if bark charcoal were incorporated
+into briquets (55), since grinding costs would be lower than those for wood char-
+coal. A 12,000 ton per year continuous charcoal plant using only bark as feed
+
+FPL-091  -12-
+is being operated by Kingsford Co., Luke, Md. The same company uses 225 tons
+of bark a day in another plant in Oregon. Many other plants now use bark as a
+substantial portion of their feedstock
+
+   Wood-base materials. --Another outlet for bark is in various types of building
+insulation boards, hardboards, fiberboards, and particleboards, and many publi-
+cations (including many foreign ones not considered here) have dealt with this
+
+possibility (6,12,22,25,69,86,92,111,112,131,141,143). Various barks have been
+incorporated into almost every type of board. The practice has hitherto been
+more prevalent in other countries (6,12,22,92), and opinions on the value of this
+form of utilization range from highly enthusiastic to mildly skeptical. Since
+bark conducts heat less readily than wood (93,94,97), its use in insulation board
+would seem particularly attractive. Wood chipped for board materials may not
+need to be debarked if certain production difficulties; e.g., variations in quality
+that are hard to control, can be tolerated. An insulation board is made from
+
+unbarked wood by a firm in Duluth, Minn., while a plant in Dee, Oreg., used
+unbarked slabs. In general, bark has less fiber than wood, so that strength is
+
+somewhat lower. Nonetheless, boards containing up to 30 to 40 percent bark that
+still meet standard specifications have been produced in Scandinavia. In addi-
+tion, many softwood barks are relatively rich in resins and waxes, and this can
+
+obviate the need for sizing. Indeed, the higher extractive content of bark may be
+an aid in binding the particles together. The Oregon State University Forest
+Research Laboratory has prepared boards from Douglas-fir bark alone, with no
+sizing, or adhesive, merely by pressing the bark under heat and overlaying the
+resultant sheet with paper or veneer (25).
+
+   Information concerning the latest trends in particleboard manufacture and use
+
+can be obtained from the National Particleboard Association, Suite 720, 711
+14th St., NW., Washington, D.C. 20005. At Pennsylvania State University, the
+properties of hardwood barks are being examined relative to their use in
+boards (111,112). Boards containing up to 25 percent pine bark that meet the
+specifications for floor underlayment are now being manufactured (141).
+
+   Other uses.--Experimental work has been done with encouraging results on
+the incorporation of Douglas-fir bark fiber into plastics as a reinforcement for
+
+molded products (85,137).
+
+   Minor amounts of bark can be tolerated in certain types of paper, although in
+general this is not particularly advantageous (130). However, bark fibers, such
+as those from the inner bark of paper mulberry, have been used for many gene-
+rations for handmade paper. Pine bark powder has recently been found by the
+Korsnaes-Marma AB in Gäfle, Sweden, to be very effective in absorbing oil
+
+FPL-091  -13-
+slicks from water. A boom made from netting filled with bark is laid around the
+slick. Research on the use of pine bark and sawdust as an oil scavenger is being
+
+conducted by the Texas Forest Products Laboratory, Lufkin, Tex. (153). Shredded
+bark has been used successfully on playgrounds, bridle paths, golf cart tracks,
+etc., and as a base for practice ski slopes (104).
+
+Uses of Bark in Mulching and
+   Soil Amendment
+
+   It is as a soil conditioner or mulch that bark finds one of its most attractive
+low-grade outlets. This practice originated with barks of western conifers,
+e.g. redwood, Douglas-fir, and western hemlock (see for example refs. 14,15),
+but has since been extended to hardwood barks (see for example refs.
+and other softwood barks. Transporting bark is expensive, however, so this form
+of utilization is usually limited to a reasonable radius from the debarking plant.
+Bark weighs around 6,000 pounds per unit (200 cu. ft.) and this creates a problem
+in transportation over long distances. Locations near a large city offer possibi-
+lities of preparing balanced soil conditioner/fertilizers or mulches for retail
+sale to the home gardener, as well as for substitutes for the nurseryman's peat
+moss. In general, however, landscapers, nurserymen, and farmers prefer to buy
+raw bark wholesale at the lowest price possible and then alter it themselves as
+needed. Debarker locations near farming areas open up potential large-scale
+markets, and in cattle or poultry raising areas the marketing of bark as live-
+stock bedding or chicken litter should be advantageous. For small retail sales,
+it is advisable to dry the bark to about 10-15 percent moisture content based on
+ovendry weight and store it in plastic bags (50 lb. lots are customary). This
+reduces transportation costs and prevents decomposition of the bark by fungus
+during storage or transit. Stock piles of horticultural bark should be protected
+from rain since molds can grow on the bark at moisture levels above about
+50 percent. The problems of selling bark for agricultural and horticultural uses
+have recently been discussed (102,105,121,160). A review containing details of
+many aspects of this field has just appeared (14).
+
+   Advantages of Bark.--Bark has some advantages over wood when used as a
+mulch or soil amendment, i.e., when worked directly into the soil without pre-
+vious use as animal bedding. The decomposition rate of bark is considerably
+slower than that of wood (3), hence it will last longer as a mulch and will have
+a lower nitrogen consumption when incorporated into the soil; this means it will
+cause less nitrogen starvation of crop plants or need smaller corrective additions
+of fertilizer.
+
+FPL-091  -14-
+                  Figure 4. --Suitable pH ranges for various North American trees
+
+                  3.5  4.0   4.5  Acid  5.0  5.5  6.0       6.5                    7.0  7.5  8.0
+                  Very acid                  Slightly acid       Neutral                     Alkaline
+
+American elm
+Ash
+Aspen
+Beech
+Cedars
+Cypress
+Dogwood
+Douglas-firs
+Firs
+Holly
+Junipers
+Larch
+Locust
+Madrone
+Magnolias
+Maples
+Pines
+Spruce
+Sycamore
+Tamarack
+Western hemlock
+Western redcedar
+Figure 5. --Suitable pH ranges for various crops and ornamental plants
+
+                          3.5 4.0    4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0
+                          Very acid  Acid Slightly acid  Neutral Alkaline
+
+Alfalfa
+Alsike Clover
+Apples
+Arnica
+Asparagus
+Azaleas
+Barley
+Beans, Lima
+Beans, Snap
+Beans, Velvet
+Blueberries
+Buckwheat
+Cabbage
+Carrots
+Corn
+Cotton
+Cowpeas
+Crimson Clover
+Cucumber
+Ferns
+Grasses, many kinds
+Hydrangea, Blue Flowered
+Iris, Blueflag
+Juniper, Irish
+Kale
+Kalmia
+Lettuce
+Lilies
+Mustard
+Oats
+Onions
+Orchids
+Parsnips
+Peas
+Peppers
+Potatoes, Sweet
+Potatoes, White
+Radishes
+Raspberries
+Red Clover
+Rhododendrons
+Rye
+Sorghum
+Soybeans
+Spinach
+Squash
+Strawberries
+Sudangrass
+Sugar beet
+Sweetclover
+Timothy
+Tobacco
+Tomatoes
+Trefoil, Birdsfoot
+Vetch
+Watermelons
+Wheat
+Whiteclover
+   Bark has no intrinsic value as a fertilizer. Nevertheless, the benefits that it
+can confer on poor soils as a soil conditioner are appreciable. It lends body to
+sandy or silty soils, yet loosens up clay soils: bark can improve the tilth, struc-
+ture, and aeration of heavy soils, and increases water absorption and penetra-
+tion. It has a high ion-exchange capacity and, except for nitrogen, contains all
+the nutrients necessary for a good organic soil. As a mulch, it conserves mois-
+ture through weed control and reduced evaporation; it maintains uniformity of
+the soil and improves granulation of surface soils; it reduces topsoil erosion,
+
+and builds up organic matter and humus in soil with concurrent benefits to the
+soil microflora.
+
+   Some publications deal with use of bark alone in the soil (13,15,39,50-52,66,
+
+71,72,75,87,105,132,138,142, 160, 161); others discuss the use of bark plus sawdust
+and other wood residues in the soil (3,4,7,11,16,17,156,157). An economic
+
+analysis of the production of mulch and soil amendments from sawdust and bark
+has recently been made (11). Bark should behave like other wood residues in
+soil treatment, but with four differences. First, bark is darker than other wood
+
+residue--a positive factor when the bark is used as a mulch, since it is more
+pleasing to the eye. Second, bark decomposes more slowly than wood in soil--a
+positive factor, since the nitrogen depletion factor (see p. 16,17) is lessened.
+Third, bark does not attract and does not provide nutrients for termites; this
+can be a major advantage in the South. Finally, bark is richer in extractives.
+
+This may be either a positive or a negative factor; it has not been completely
+assessed. Bark tannins will form chelates with heavy metal cations and help
+retain important minerals in the soil; they also complex with soil nitrogen com-
+
+pounds and prevent their rapid breakdown or elution. Both effects can promote
+soil fertility. Beneficial effects in depressing soil-borne plant diseases have
+been observed. Treated Douglas-fir bark is quite effective in controlling red
+
+stele disease when used as a mulch around strawberries (16). Because it im-
+proves drainage in certain soils, bark has also been found to reduce root knot,
+damping off, and olive wilt.
+
+   Effects of residues. --Subsequent comments apply equally to bark and other
+wood residues (sawdust, shavings, chips, chipped slash or thinnings, etc.).
+
+   Older literature is filled with reports on toxic effects of wood residue in the
+soil. We now know that reduction in crop yields following addition of wood wastes
+or bark to soils are almost entirely due to depletion of nitrogen in the soil.
+Reports of allelopathy, that is, actual toxicity due to extractive chemicals pres-
+ent in wood or bark, are extremely rare (19,150,155). True soil toxicity due to
+organic constituents is usually associated with heavy, badly aerated or water-
+logged soils. Fatty acids and phenolic compounds derived from plant lignins
+
+FPL-091  -15-
+lignans, and flavanoids (e.g. syringaldehyde, vanillin, p-hydroxybenzaldehyde, and
+benzoic, p-hydroxybenzoic, protocatechuic, vanillic, syringic, ferulic, phenyl-
+acetic, phenylpropionic, and phenylbutyric acids) are held responsible (167).
+
+   Inhibitor effects on germination and early growth are occasionally observed.
+However, since this is generally coupled with increased growth at later stages,
+net increases in crops may actually be obtained (24). For example, Douglas-fir
+bark inhibits germination of Douglas-fir seeds, but the seeds that do germinate
+afford healthier stronger saplings than controls; the bark appears to regulate
+the growth density of its own species.
+
+   Pure cedar sawdust depresses growth of young legumes, probably because its
+extractives interfere with nitrogen fixation by azotobacteria in the soil. Incense
+cedar wood and pine bark are severely harmful to garden pea seedlings (3 ). The
+cause may be the fact that the soil bacteria are incapable of symbiotic fixation
+of nitrogen below pH 6, and require addition of fixed nitrogen in acid soils.
+Fresh walnut bark occasionally may inhibit germination of many types of seed
+owing to the phytotoxic glycoside juglone it contains. This is the material washed
+down by rain from the branches of black walnut trees that prevent the growth of
+other plants around the trees (19,150,155).
+
+   The effects that plant extractives may have upon the soil microflora and
+consequently upon plant growth are difficult to assess or forecast. The picture is
+clouded by the possible influence of changes in soil acidity caused by rotting
+wood wastes. In any case, most plant extractives are rapidly decomposed in the
+soil, and toxic effects are seldom observed beyond a short time after initial
+application of the wood wastes.
+
+   When bark or wood residue is added to the soil, it rapidly begins to decompose,
+especially in sandy soils and if it is finely divided and rich in sapwood. The
+soil micro-organisms that decompose this wood residue proliferate very rapidly.
+Since the soil bacteria require nitrogen to form their proteinaceous cells, they
+use up all the available nitrogen in the soil, robbing nitrogen from the growing
+plants if necessary. This situation is temporary. The nitrogen is not lost, but
+merely transiently stored in unavailable form by the micro-organisms. For this
+reason, the first crop after addition of wood or bark as a soil amendment may
+be poorer than usual, but subsequent crops are generally improved for the
+following few years. Yields of nitrogen-fixing, leguminous plants (peas, beans,
+alfalfa, sweet clover, vetch) are, however, not normally affected provided the
+soil is not allowed to turn acidic. Combination of wood wastes plus a legume will
+lead within a single season to considerable upgrading of poor soils, if the pH of
+the soil is kept above six.
+
+FPL-091  -16-
+   The problem of poor first crops can be met in several different ways--by prior
+use of the wood residue as a mulch, by prior use as animal bedding, by addition
+of mineral nutrients, by ammoniation, or by prior composting of the wood
+residue, preferably with added nutrients.
+
+   Addition of mineral nutrients.--Addition of nitrogen and other mineral nutrients
+along with the wood residue is not always attractive. Sizable amounts of nitrogen
+are needed, and the system is difficult to control. Some data on the natural
+mineral content of barks are available (163).
+
+   The potassium (potash) and phosphorus (phosphate) generally included in
+commercial mineral fertilizers are often not needed. However, it is often pref-
+erable to add a nitrogen compound to the bark or wood waste before this is
+applied to the soil. Recommended levels are about 25 pounds of anhydrous
+ammonia, or 80 pounds of urea, or 100 pounds of ammonium nitrate, or 200 pounds
+of ammonium sulfate per ton of wood (3 to 4 cu. yards depending on species and
+particle size). Some experimenters suggest that half of these amounts will often
+suffice. Only about one-fourth of these quantities is needed for bark because of
+its slower rate of decomposition. Other wood wastes that decompose very slowly,
+for example, redwood sawdust (because of its high extractive content), also
+require only lesser amounts of nitrogen.
+
+   If desired, to increase the potassium and phosphorus content of bark for
+agricultural use, about 8 to 15 pounds each of potash and superphosphate,
+suitably diluted with water, can be added per ton of bark.
+
+   A few patents have been issued covering processing or treatment of wood
+wastes for use in agriculture. It should be noted that in some states, even the
+wood waste products enriched with inorganic additives may not legally be
+designated as fertilizers.
+
+   As wood wastes decompose in the soil, they tend to become acidic. This
+reaction may not be harmful, depending upon the type of crop to be grown upon
+the treated soil. Generally conifers, especially hemlock, balsam fir, and black
+spruce, prefer an acidic soil, and so do most berries, flowering shrubs, and
+many flowers. Figures 4 and 5 show the pH ranges (degree of acidity) in which
+some North American trees and plants will thrive.
+
+   Soil nitrogen depletion problem.--Undesired acidity in the soil caused by
+decomposing wood waste can easily be counteracted by light liming. It is best
+to measure the pH (acidity) of the soil before applying agricultural lime. The
+state universities run soil-testing laboratories, generally at their Agricultural
+Experiment Stations as part of their Extension Service program. Personnel
+there carry out soil analyses and give advice and recommendations on lime or
+fertilizer requirements. Samples of topsoil taken from at least half a dozen
+different spots down to a depth of several inches should be thoroughly mixed and
+about two cupfuls of the mixture sent as the sample for analysis. Soil testing
+
+FPL-091  -17-
+kits for home use are also frequently available from garden and agricultural
+supply stores. Appearance of sour dock and other acid loving weeds indicates
+that the soil is too acid. However, it generally will be found that occasional
+(2 to 3) applications several months apart of 40 to 80 pounds of lime will
+neutralize the acidity produced by decomposition of a ton of dry sawdust, while
+15 to 25 pounds will suffice for a ton of dry bark. Some authors state that bark
+will reduce the acidity of very acid soils: this effect may be due to an increase
+in the cation exchanging capacity of the soil produced by the decomposing bark.
+
+   Other ways of meeting the nitrogen depletion problem are often convenient
+and work excellently. Bark makes a fine mulch (11,13-16,45,50-52,66,71,87,142,
+160,161). This is at present its commonest outlet. Since it decomposes only
+slowly on the surface of the ground, there is no nitrogen depletion problem. For
+either the home gardener or the nurseryman, bark can compete favorably with
+peat moss. It is not readily windblown and does not attract nematodes or ter-
+mites. As an animal bedding, bark should be equivalent to other wood residues,
+although excessive fines might be undesirable, After use as a bedding for cattle
+or poultry, the bark is sufficiently fortified with nitrogen from the animal excre-
+ments to be used directly in soil. The practice of barking and chipping timber
+at the logging site (28) could make bark available in- situ-for mulching forest
+lands.
+
+   Composting also appears most attractive, especially for wet bark from
+hydraulic debarking. The journal "Compost Science" includes many articles of
+interest along this line. The staff of this magazine also issues a directory of
+compost science, dealing with manufacturers of equipment and research being
+carried on in this field. Information on various methods of composting and on the
+requisite machinery also can be obtained from a manual on the subject (124).
+Appendix I lists United States manufacturers of composting equipment.
+
+   Occasionally pure strains of micro-organisms are used for preparing the
+compost, e.g., Coprinus ephemerus (156,157) or "Eokomit" bacteria in Austria
+and Finland (81,164), but generally no special inoculum is used (13,17,44,71,72,
+82,132,162). Conventional farm equipment can be adapted for use in composting
+wood wastes (82). Ordinary snow blowers, which are made in various sizes for
+cleaning areas ranging from sidewalks to roadways, can be used both for grinding
+and spreading bark mulches or composts. Composting can, of course, be accel-
+erated by adding nitrogen and other mineral nutrients. These can be added either
+as chemical fertilizers or as nitrogenous materials such as whey (106), brewery
+waste, sterilized sewage sludge, fish waste, or manure. If sewage sludge is
+added to the compost, it must be sterilized first, since some pathogenic bacteria
+harmful to plants or animals present in the raw sludge may withstand windrow
+composting conditions (120,158). Moreover, although the nitrogen content of
+sewage is quite high, most of it is bound up in a form unavailable to plants. The
+sludge also tends to have an obnoxious odor when wet. Composting with added
+nutrients has four important advantages. The nitrogen depletion problem is
+solved; the product can often be marketed as a combined soil conditioner and
+
+FPL-091  -18-
+fertilizer; any possible toxicity is removed in the composting process; and the
+composting process is greatly accelerated
+
+   Lately, successful experimentation has been conducted for using hardwood
+bark as litter for poultry (77). After an 18-week trial using hardwood bark litter
+
+for 1,500 20-week-old laying pullets, there appears to be no detrimental effects
+on the birds' health. Hard maple bark, initially at 52 percent moisture content,
+met all the requirements of a good poultry litter, viz. no dust, mold, matting,
+staining of eggs, or interference with automatic feeding and watering operations.
+Five thousand chicks are being raised satisfactorily on black cherry bark litter
+with no abnormal mortality. As of July 31, 1968, the trial period had been
+observed for 15 weeks. Chicks adjusted well to the bark litter. Particle size was
+large enough (not over 2 inches long and less than 1/2 inch wide) and included
+all sizes down to fine particles that approximate the size of fine shaving par-
+ticles to eliminate cleaning waterers and feeders (77). Polluted litter should be
+an excellent fertilizer/soil conditioner.
+
+   Another approach to the nitrogen depletion problem has involved chemical
+
+treatment of the wood residue to render it resistant to decay. Decayed wood
+consists mainly of a mixture called humus. A closely related material, humin,
+is produced when wood residue is treated with acid at high temperatures (4 4),
+sometimes with added formaldehyde. This product, however, is strictly a soil
+conditioner. It still contains no nitrogen or other fertilizer elements. These
+
+may, of course, be added.
+
+   Still another approach is ammoniation of bark (17,82). Bark contains many
+chemical groups that will combine with ammonia. In the soil, some of this
+ammonia is released to the plants rapidly, and some slowly. Another scheme
+
+is the use of bark fibers in trickling filters for secondary treatment of sewage
+effluent (26); the expended material is then used as a soil conditioner. One objec-
+tion to this process might be that harmful bacteria could be passed on from the
+sewage with the bark (120,158). However, a well-composted product made from
+bark and sewage using a method successful for bark alone was recently described
+
+to be non-noxious and is thought to be free from pathogens (166). Another danger
+is from numerous enteroviruses, including the poliomyelitis virus, which are
+normally present in sewage and which may survive even the high temperatures
+of windrow composting.
+
+   A related use of bark is as a potting medium for container stock and for root-
+ing plant cuttings (45,50-52,75,76,88,119,122). Several companies are marketing
+bark for this purpose. Plants that grow well on a bark potting medium include
+pines, firs, junipers, holly, forsythia, rhododendrons, gardenias, azaleas, pieris,
+camellias, heather, and orchids. Douglas-fir, hemlock, white fir, and pine barks
+
+were those originally used, but recently hardwood barks have been used as well.
+
+FPL-091  -19-
+Use of bark for growing orchids is very attractive (35,68,89,133). Douglas-fir
+and southern pine bark, like peat moss, has also been used for making planter
+pots that need not be removed when rooted cuttings are put into the ground.
+
+   Both hardwood and softwood barks can be mixed with soil to give media for
+packing root balls of young trees, ornamental shrubs, etc. for storage as nur-
+sery stock. The packaged root balls can be held together in preservative-treated
+burlap sacking or in plastic netting or bags. Incorporation of the stringy portion of
+inner bark or of wood wool (excelsior) prevents loss of the soil/bark crumbs
+during transplanting. Additions of slow-release synthetic fertilizers and lime
+can be used to i n c r e a s e the keeping time and growth of the plants while
+packaged. Bark should also be a suitable growing medium for mushrooms, and
+ground bark is finding some use for covering school playgrounds. In Norway,
+bark has been used as an insulating material in the soil to prevent frost-heaving
+of railroad tracks (134).
+
+         Physical Upgrading of Bark
+
+   As already mentioned, bark is a highly heterogeneous material that varies
+
+widely from species to species. In order to isolate physical fractions of value
+from bark, it is probably necessary to start with a single species. Then, by such
+treatments as grinding, crushing, milling, chemical treatment, screening, water
+flotation, or even firing from a fiber-exploding gun, various physical fractions
+
+can be obtained that usually correspond to different cell types present in the
+bark. For example, both redwood and Douglas-fir are now processed industrially
+in this manner (165). Screening of milled softwood barks on sieves subjected to
+
+a horizontal swirling motion concentrates the fibrous fraction of the inner bark
+and any wood splinters the bark contains in a coherent mat atop a layer of smaller
+
+round particles or scales of outer bark (59).
+
+   One of the most valuable fractions is the cork. The Mediterranean cork oak,
+our main commercial source of cork, has bark that consists almost entirely of
+cork. Most barks contain cork, which, although not so predominant as in cork
+
+oak, nevertheless can often be separated as discrete particles. Cork granules
+are commercially produced by physically fractionating Douglas-fir bark.
+Formerly, a large outlet for these cork granules was in liners for bottle caps,
+but this market has now been largely lost to synthetic materials.
+
+   Another fraction commonly produced is fibrous. These fibers may be either
+short, tough, brittle, needlelike bast fibers, such as are obtained from Douglas-
+fir, or longer, more flexible fibers, for example, from redwood or cedar bark.
+These fibers find outlets in pulp (130), fiberboards (12,22), air and oil filters, as
+
+a sealant in oil well preparations (108), as a trickling filter in water purification
+(26) and as a reinforcing filler in ceramics, concrete, molded products, and
+the like (85,137). The use of highly fibrous redwood bark in insulation, as a furni-
+ture stuffing, and even in combination with wool for felt hats is well known.
+
+FPL-091  -20-
+   A final fraction that is almost always produced during physical upgrading of
+bark is an amorphous powder. Douglas-fir bark (165) and redwood bark dust are
+commercial sources of such fractions, which have found use in phenolic molding
+compounds, as an adhesive extender, as an anticaking agent for insecticides and
+fertilizers, as an extender in thermoplastic resins and rubber products, and
+even as an ingredient in foundry sands (107). Douglas-fir bark powder can be used
+alone as a thermosetting, water-resistant adhesive for plywood, since it flows
+under heat and pressure, but more commonly it is used as an extender in
+phenolic-resin glues. Since the bark powder actually undergoes chemical reaction
+during hot pressing, it is more than an inert filler. Bark dust is being used to
+cover tailings left after mining operations in Montana.
+
+   The use to which any one physical fraction from bark can be put depends on
+the exact chemical and physical properties of the fraction. The bark of each
+species is different, and a utilization scheme must be developed individually for
+each particular bark. Greatest promise is shown, however, by barks that are
+particularly rich in either cork or fiber. Incidentally, physical fractionation of
+bark is usually accompanied by chemical fractionation, so that specific physical
+fractions are often far superior to whole bark for further chemical fractionation.
+
+   It is expected that bark fractions will be used more and more as the public
+becomes aware of their physical properties.
+
+         Chemical Upgrading of Bark
+
+   Barks generally are much richer in both quantity and complexity of extractives
+
+than the corresponding woods. A large number of pure organic chemicals can be
+isolated from barks, including flavanoids, alkaloids, carbohydrates, inositols,
+
+terpenoids, glycosides, saponins, esters, steroids, fats, lignans, and complex
+phenols. Various chemical fractions, such as tannins, waxes, balsams, essential
+
+oils, gums, mucilages, resins, latices, and dyestuffs, which may or may not
+consist of a relatively pure chemical entity, also are often isolated. There are
+well established uses for many of these products (1,43,56,61,73,74).
+
+   In general, the isolation of pure organic chemicals from bark is economical
+only if other chemical and physical fractions of value are isolated at the same
+time. Factors such as plant size, ability of the market to absorb the products
+at a profitable price, comptetition from other chemicals, and maintenance of a
+proper balance between products need careful evaluation. Although many pure
+chemicals could be isolated from domestic tree barks, no pure organic compound
+has achieved a profitable large-volume market in this country. Salicin, from
+
+aspen bark, which finds medicinal uses, comes closest to this ideal (117).
+
+FPL-091  -21-
+   Crude fractions, on the other hand, have definitely found markets. The largest
+market is for tannins, which are generally condensed (polymerized) polyphenols
+(60,61). Tanoak, oak, chestnut, mangrove, hemlock, eucalyptus, redwood, sumac,
+spruce, Douglas-fir, and even some pine barks have all been processed for
+tannin. Even though some of these domestic tannins are satisfactory for tanning
+leather, wattle bark and quebracho wood, both imported, are the main source of
+natural tannins today. Significant in their ability to capture the main market
+for leather tanning are their availability in large quantities at a low price and
+uniform and reproducible high quality. A good bibliography covering mainly
+work on bark tannins appeared recently (1 ).
+
+   Bark tannins, such as those from western hemlock, redwood, and Douglas-fir
+find a large market in other outlets, however (5 6, 6 0, 6 2- 6 4). One is in oil-well
+drilling; large quantities are used to thin the muds. They act as clay defloc-
+culants and control the viscosity and gel strength of drilling muds (63). Some
+50,000 tons of mud thinners are used yearly. This field has been reviewed (108,
+165). A major recent development is a commercial preparation of a chemical
+grout for stabilizing soils from the phenolics of western hemlock bark.
+
+   Another outlet for bark tannins is in adhesives, particularly for plywood and
+particleboard (5,56,90). Noteworthy is the development of a cold-setting, water-
+proof adhesive from western hemlock bark (64). These major uses for tannins
+have been the subject of many recent publications, and a large number of patents
+have been granted. Of significance is the fact that these polyphenolic fractions
+can be extracted from bark in an especially high yield with alkaline reagents,
+sometimes containing pulping additives. Tree barks are remarkably soluble in
+alkali; often over 50 percent of the bark will go into solution. By varying the
+extraction conditions as well as the purification and treating steps, a wide variety
+of different polyphenolic products can be prepared to fit almost any specification.
+Work in this field has been greatly helped by research into the chemistry of
+these complicated extracts (60-63,165).
+
+   Other uses for these polyphenolic extracts are as dispersants, binders,
+deflocculents in ceramic clays, antioxidants, sequestering agents in boiler feed
+water, flotation agents in ore beneficiation, and stabilizers in asphalt emulsions,
+as well as in vat dyeing of nylon and desulfurization of gasoline.
+
+   Waxes are another field of interest. Carnauba wax and beeswax are now
+largely imported. The corky fraction of many softwood barks is rich in wax.
+A comprehensive market survey on the wax extracted with nonpolar solvents
+
+FPL-091  -22-
+from Douglas-fir bark has been made, but no commercial production along
+these lines has been initiated. Wax polishes and carbon paper are two commercial
+possibilities. However, synthetic waxes now largely dominate the market.
+
+   Although the literature is full of publications on bark chemistry, mainly
+dealing with one or two substances isolated from bark of a single species,
+really little is known about the subject. For many bark species, not one single
+pure chemical compound has been isolated. It is therefore no wonder that the
+chemical utilization of bark is at a relatively primitive stage. Tables 4 to 6
+(32) contain general information on the extractives, carbohydrates, and lignin
+of a series of pulpwood barks.
+
+                              Sources of Continuing Information
+
+   For those who wish to seek comprehensive continuous coverage of the field
+of bark utilization, the following publications will be useful:
+
+   (1) Bibliography of Agriculture. Published monthly by CCM Information Cor-
+poration, 909 Third Ave., New York, N. Y. 10022 using data from the National
+Agricultural Library, USDA, Washington, D.C. 20250 (subscriptions available at
+$85.00 per year from the publisher). Look in the annual or monthly subject
+indices under "Bark" and the subheadings "Waste Utilization," "Utilization
+Research," "Fuel," etc., as well as under specialized topics such as "Mulch" or
+"Soil Conditioners" related to specific agricultural uses.
+
+   (2) Forestry Abstracts. Published quarterly by the Commonwealth Agri-
+cultural Bureaux, Farnham Royal, Buckinghamshire, England (subscriptions
+available for $27.50 per year). Look in the annual subject index (no quarterly
+index) under "Bark," subheading "Uses," or in the individual issues under the
+code numbers 829.4, "Bark Products; Tanstuffs; Cork," 839.8 "Industrial Waste
+Wood: Its Processing and Uses" and 523 "Bark" (mensuration).
+
+   (3) Abstract Bulletin of the Institute of Paper Chemistry. Published monthly
+by the Institute of Paper Chemistry, Appleton, Wis. (subscription rate $70.00
+per year). Look in the Table of Contents under "Wood Waste, Bark, and Agricul-
+tural Residues" or in the annual subject index under "Bark," "Barking,"
+`Barkers," etc.
+
+FPL-091  -23-
+   (4) Horticultural Abstracts. Published quarterly by the Commonwealth Bureau
+of Horticulture and Plantation Crops, East Malling, Maidstone, Kent, England.
+This provides good bibliographic coverage of articles dealing with the utilization
+of wood wastes in soil. Look in the annual indices under "Soil (s), conditioners
+and amendments."
+
+   When using the abstract journals, it is important to check cross references
+given at the start of the sections indicated, for sometimes important information
+is included in papers abstracted under a different heading. Appendix II lists
+sources of technical assistance for problems of forest products utilization
+requiring information on local conditions.
+
+   Reprints of the journal articles cited can often be obtained from the authors,
+publishers, or the USDA or state agency concerned. Reprints of all articles from
+the Forest Products Journal can be purchased from the Forest Products Research
+Society, 2801 Marshall Court, Madison, Wis. 53705. The Society is preparing to
+publish a selection of their most important articles on bark utilization in booklet
+form at a cut rate over the price of the sum of the individual reprints (cf. Ref. 49 ) .
+Addresses of other journal publishers are given in the bibliography following the
+first citation from each journal.
+
+FPL-091  -24-
+                        Literature Cited
+
+1. Aaron, J. R.
+         1966. The utilization of bark. Research and Development Paper No. 32,
+                     U.K. Forestry Commission, 25 Saville Row, London W1, England,
+                     24 pp.
+
+2. Adams, D. G. (editor)
+         1969. Wood residue utilization. Third Texas Industrial Wood Seminar,
+                     Texas Forest Products Lab., Lufkin, Tex. 75901, 56 pp.
+
+3. Allison, F. E.
+         1965. Decomposition of wood and bark sawdusts in soil: Nitrogen
+                     requirements and effects on plants. USDA Agr. Res. Serv. Tech.
+                     Bull. No. 1332, 58 pp. Copies available for $.25 each from the
+                     Superintendent of Documents, U.S. Government. Printing Office,
+
+                     Washington, D.C. 20402.
+
+4.       , and Anderson, M. S.
+
+    1951. The use of sawdust for mulches and soil improvement. U.S.
+         Dept. Agr. Cir. No. 891, 18 pp. Obtainable from Publications
+
+         Division, Office of Information, U.S. Department of Agriculture,
+
+         Washington, D.C. 20402.
+
+5. Anderson, A. B., Breuer, R. J., and Nicholls, G. A.
+         1961. Bonding particle boards with bark extracts. Forest Prod. J.
+                     11(5): 226-227.
+
+6.       and Helge, K.
+    1959. Bark in hardboard. Forest Prod. J. 9(4): 31A-35A.
+
+7. Anderson, M. S.
+         1957. Sawdust and other natural organics for turf establishment and
+                     soil improvement. U.S. Dept. Agr. Bul. ARS 41-18, 8 pp.
+
+8. Anonymous
+         1965. Charcoal plant uses woods, sawmill and pulpmill residues.
+                     Northern Logger 13(7): 12-13, 30. (Formerly "Northeastern
+
+                     Logger" - Northeastern Loggers Association, Broadway Cham-
+
+                     bers, Old Forge, N.Y. 13420).
+
+FPL-091                         -25-
+9. Anonymous
+         1970. Tough, stringy redwood bark shredded for use as boiler fuel.
+                     Forest Industries 97(7): 72-73 (Miller-Freeman Publications,
+                     500 Howard St., San Francisco, Calif. 94105).
+
+10. Arola, R. A.
+          1970. Tremendous challenge remains--effective debarking of chips.
+                       Pulp & Paper 44(1): 79-83. (Miller-Freeman Publications,
+                       500 Howard St., San Francisco, Calif. 94105).
+
+11. Basham, B. M., and Thompson, W. S.
+          1967. An economic study of the production and use of sawdust and bark
+                       as mulches and soil amendments for horticultural and agricul-
+                       tural purposes. Infor. Ser. No. 6, Mississippi Forest Products
+
+                       Lab., State College, Miss. 39762, 25 pp.
+
+12. Bender, F.
+          1959. Spruce and balsam bark as a source of fiber products. Pulp &
+                       Paper Mag. Canada 60(9): T275-T278. (National Business Pub-
+                       lications, Gardenvale, Quebec, Canada).
+
+13. Betts, H.
+          1969. Bark processing plant turns waste into revenue. Wood & Wood
+                       Prod. 74(11): 30-31. (Vance Publishing Corp., 300 W. Adams St.,
+
+                       Chicago, Ill. 60606).
+
+14. Bollen, W. B.
+          1969. Properties of tree barks in relation to their agricultural utili-
+                       zation. USDA Forest Service Research Paper PNW-77, Pacific
+
+                       Northwest Forest and Range Exp. Sta., P.O. Box 3141, Portland,
+
+                       Oreg. 97208, 36 pp.
+
+15.      , and Glennie, D. W.
+     1963. Fortified bark for mulching and soil conditioning. Forest Prod.
+
+         J. 13(6): 209-215.
+
+16.
+           1961. Sawdust, bark, and other wood wastes for soil conditioning and
+                       mulching. Forest Prod. J. 11(1): 38-46.
+
+FPL-091                        -26-
+17. Bollen, W. B., and Glennie, D. W.
+          1961. Processing wood wastes to increase crop yields. Compost Sci.
+                       2(3): 38-43. (Rodale Press, 33 E. Minor St., Emmaus, Pa.
+                       18049).
+
+18. Bollerslev, K.
+          1968. Bark processing problems. Forest Prod. J. 18(6): 19-20.
+
+19. Borner, H.
+          1960. Liberation of organic substances from higher plants and their role
+                       in the soil sickness problem. Botan. Rev. 26(3): 394-424. (New
+                       York Botanical Garden, Bronx, N.Y. 10458).
+
+20. Boubel, R. W.
+          1968. Particulate emissions from sawmill waste burners. Engineering
+                       Exp. Sta. Bull. 42, Oregon State University, Corvallis, Oreg.
+                       97330, 12 pp. Cf. Lumberman 87(7): 76-77 (1960).
+
+21.
+           1965. Wood residue incineration in tepee burners. Circular No. 34,
+                       Engineering Exp. Sta., Oregon State University, Corvallis, Oreg.
+                       97330, 30 pp.
+
+22. Branion, R.
+           1961. Fiberboards from bark-wood mixtures. Pulp & Paper Mag. Can.
+                       62(11): T506-T508.
+
+23. Browning, B. L.
+           1967. The examination of bark, Chapter 15 in Methods of Wood Chem-
+                       istry, Interscience, 605 Third Ave., New York, N.Y. 10016,
+                       pp. 287-299.
+
+24. Burgon, W. J.
+           1964. Extracts and reaction products from bark. Tappi 47(5): 124A-
+                       126A. (Technical Association of the Pulp and Paper Industry,
+                       360 Lexington Ave., New York, N.Y. 10017).
+
+25. Burrows, C. H.
+           1960. Particleboard from Douglas-fir bark--without additives. Informa-
+                       tion Circular 15, Oregon State Univ. Forest Res. Lab., Corvallis,
+                       Oreg. 97330, 40 pp.
+
+FPL-091  -27-
+26. Burton, R. E.
+          1959. Making fertilizer-soil conditioner from bark as a trickling filter
+                       media. Forest Prod. J. 9(4): 19A-22A.
+
+27. Bush, C. C., and Tribble, J. J.
+          1966. Simultaneous burning of bark and gas or oil. Tappi 46(6): 160A-
+                       163A.
+
+28. Cadenhead, E. S.
+          1970. Roadside barking and chipping. Pulp & Paper Mag. Canada 71(9):
+                       83-85.
+
+29. Chamberlain, E. B., and Meyer, H. A.
+          1950. Bark volume in cordwood. Tappi 33(11): 554-555.
+
+30. Chang, Ying-Pe
+          1954. Anatomy of common North American pulpwood barks. Tappi
+                       monograph No. 14. Tech. Assoc. of the Pulp & Paper Ind.,
+                       360 Lexington Ave., New York, N.Y. 10917, 268 pp.
+
+31.
+          1954, Bark structure of North American conifers. USDA Tech. Bull.
+                       No. 1095, 86 pp.
+
+32.      , and Mitchell, R. L.
+     1955. Chemical composition of common North American pulpwood barks.
+         Tappi 38(5): 315-320.
+
+33. Corder, S. E., Atherton, G. H., Hyde, P. E., and Bonlie, R. W.
+          1970. Wood and bark residue disposal in wigwam burners. Bull. 11,
+                       Forest Research Lab., Oregon State University, Corvallis, Oreg.
+                       68 pp.
+
+34. Dargan, E. E., and Smith, W. R.
+          1959. Progress in charcoal production; continuous residue carboniza-
+                       tion. Forest Prod. J. 9(12): 395-397.
+
+35. Davidson, O. W.
+          1961. (Principles of orchid nutrition:) Bark and nitrogen for orchids.
+                       Amer. Orchid Soc. Bull. 30(4): 277-85. (Botanical Museum,
+                       Harvard University, Cambridge, Mass. 02438.
+
+FPL-091                         -28-
+36. Dingwall, D. C.
+           1969. Fuel-log machine utilizes bark. sawdust, shavings. Can. Forest
+                       Ind. 89(12): 40-41. (Southam Business Publications, 1450 Don
+
+                       Mills Road, Don Mills, Ontario, Canada).
+
+37. Dost, W. A.
+          1965. Wood residue uses in the California pine region. Bull. 817, Calif.
+                       Agr. Exp. Sta., Div. of Agr. Sci., Univ. of Calif., Richmond,
+                       Calif. 94800, 26 pp.
+
+38.
+          1968. Comparative cost study made on steam production. Forest Ind.
+                       95(2): 90-93.
+
+39. Dunn, S., and Latimer, L. P.
+           1956. The influence of waste bark on plant growth. Bull. No. 435,
+                       University of New Hampshire Agr. Exp. Sta., Durham N.H.
+                       03824, 73 pp.
+
+40. Elmore, C. P., and Rochfrod, R. S.
+
+           1966. Simultaneous burning of pulverized coal, bark, and oil or gas:
+                       combination-fired boiler design. Tappi 46(6): 157A-160A.
+
+41. Erickson, J. R.
+           1970. Bark removal after chipping-- a progress report. Pulp & Paper
+                       Mag. Can. 71(5): 78-79.
+
+42. Esau, K.
+           1965. Plant Anatomy. John Wiley & Sons, 605 3rd Ave., New York,
+                       N.Y. 10016, 2nd Ed., 767 pp.
+
+43. Farber, E.
+           1959. Chemicals from bark. Forest Prod. J. 9(4): 25A-27A.
+
+44.      , and Hind, R. R.
+
+     1959. Process for converting sawdust into fertilizer. Forest Prod. J.
+
+         9(10): 340-344.
+
+45. Field, P.
+           1958. Residues from the sawmill--making smoke or profit? Forest
+                       Prod. J. 8(11): 27A-30A.
+
+FPL-091                     -29-
+46. Fobes, E. W.
+           1957. Bark peeling machines and methods. U.S. Forest Products Lab.
+                       Rept. No. 1730, 48 pp.
+
+47. Food and Agricultural Organization of the United Nations
+          1968. Directory of debarking machines. 38 pp. Copies obtainable from
+                       the FAO National Agency for International Publications, P.O.
+                       Box 433, New York, N.Y. 10016.
+
+48.
+           1966. Symposium on mechanical barking of timber, FAO/ECE/LOG/162.
+                       Three volumes available under sales number 66.II.E/Mimeo. 10
+                       for $7.50 from the FAO National Agency for International
+                       Publications, P.O. Box 433, New York, N.Y. 10016.
+
+49. Forest Products Research Society
+           1957. Wood waste utilization 1954-1956. Tech. Ser. No. 22, available
+                       for $3.00 a copy from Forest Products Research Society.
+                       (Collection of reprints from Forest Products Journal.) 48 pp.
+
+50. Gartner, J. B. et al.
+           1970/71. Recommendations for ornamental horticulture. Coop. Ext.
+                           Service, Coll. of Agr., University of Illinois, Urbana-
+                           Champaign, pp. 29-46.
+
+51.
+          1971. Hardwood bark for packaging of bare root nursery stock. Forest
+                       Prod. J. 21(6): 36-40.
+
+52.
+          1971. Hardwood bark as a growing media for container grown ornamen-
+                       tals. Forest Prod. J. 21(5): 25-29.
+
+53. Green. B. L.,
+          1968. Mill licks bark-burning problem Pulp & Paper 42(13): 32-33.
+
+54.
+          1968. Boiler for bark burning. Power Eng. 72(9): 52-53. (Technical
+                       Publishing Co.,308 E. James St., Barrington, Ill. 60010).
+
+FPL-091  -30-
+55. Haigh, F. D.
+           1958. Equipment and costs for profitable charcoal briqueting. Forest
+                       Prod. J. 8(10): 46-47.
+
+56. Hall, R. B., Leonard, J. H., and Nicholls, G. A.
+          1960. Bonding particleboards with bark extracts. Forest Prod. J.
+                       10(5): 263-272.
+
+57. Hampf, F. E.
+          1971. Directory of bark product producers, brokers and consultants
+                       and manufacturers of bark processing machinery in the United
+
+                       States. USDA Forest Service, Northeastern Area, State and
+                       Private Forestry, 6816 Market St., Upper Darby, Pa. 19082,
+                       37 pp.
+
+58. Harkin, J. M.
+          1969. Uses for sawdust, shavings, and waste chips. USDA Forest Serv.
+                       Res. Note FPL-0208, Forest Products Lab., Madison, Wis.,
+
+                       45 pp.
+
+59.      , and Crawford, D. M.
+
+     1972. Separation of wood and bark by gyratory screening. Forest Prod.
+
+         J. 21, in the press.
+
+60. Hathway, D. E.
+          1962. The condensed tannins. Chapter 5 in W. E. Hillis (ed.): Wood
+                       Extractives and their Significance to the Pulp and Paper Indus-
+
+                      tries, Academic Press. New York, pp. 191-228.
+
+61. Hergert, H. L.
+          1962. Economic importance of flavonoid compounds: wood and bark.
+                       Chapter 17 in T. A. Geissman (ed.): The Chemistry of Flavonoid
+
+                       Compounds. MacMillan, 866 3rd Ave., New York, N.Y. 10022,
+
+                       pp. 553-592.
+
+62.
+          1960. Chemical composition of tannins and polyphenols from conifer
+                       wood and bark. Forest Prod. J. 10(11): 610-61.
+
+63.      , Van Blaricom, L. E., Steinberg, J. C., and Gray, K. R.
+
+     1965. Isolation and properties of dispersants from western hemlock
+
+         bark. Forest Prod. J. 15(11): 485-591.
+
+FPL-091                         -31-
+64. Herrick, F. W., and Conca, R. J.
+          1960. The use of bark extracts in cold-setting waterproof adhesives.
+                       Forest Prod. J. 10(7): 361-368.
+
+65. Host, J. R., and Lowery, D. P.
+          1970. Potentialities for using bark to generate steam power in Western
+                       Montana. Forest Prod. J. 20(2): 35-36.
+
+66. Howard, E. J.
+          1970. A survey of the utilization of bark as fertilizer and soil condi-
+                       tioner. Pulp & Paper Mag. Can. 71(23,24): 53-56.
+
+67. Howard, E. T.
+          1971. Bark structure of the southern pines. Wood Sci. 3(3): 134-148.
+                       (Forest Products Research Society, 2801 Marshall Court,
+                       Madison, Wis. 53705).
+
+68. Hoyt, G. M.
+          1961. Cultivation of miltonias: Bark cheaper than osmunda. Amer.
+                       Orchid Soc. Bull. 30(4): 391-396.
+
+69. Hunter, S., and Brooks, W.
+          1971. Utilization of hardwood and pine residue in the manufacture of
+                       medium density hardboard. Forest Prod. J. 21, in the press.
+
+70. Institute of Forest Products
+          1957. Conversion factors for Pacific Northwest forest products. Inst.
+                       Forest Prod., Univ. of Wash., 303 Anderson Hall, Seattle,
+                       Wash. 98105, 28 pp.
+
+71. Isoniaki, O.
+          1967. On the utilization of bark as a soil improver and substrate for
+                      plants. Paperi ja Puu/Papper och Trä (Paper and Timber,
+                       Finland) 49(5): 349-356. In English.
+
+72. Ivory, E. P., and Field, P.
+          1959. Utilizing bark at a medium-sized mill--processing and merchan-
+                       dizing bark products. Forest Prod. J. 9(4): 28A-30A.
+
+73. Jensen, W.
+          1966. The chemical utilization of bark. In Symposium on mechanical
+                       barking of timber. FAO/ECE/LOG/162. Three volumes avail-
+
+                       able under sales number 66.II.E/Mimeo. 10 for $7.50 from the
+                       FAO National Agency for International Publications, P.O. Box
+
+                       433, New York, N.Y. 10016.
+
+FPL-091  -32-
+74. Jensen, W., Fremer, K. E., Sierila, P., and Wartiovaara, V.
+          1963. The chemistry of bark. Chapter 12 in B. L. Browning (ed.): The
+                       Chemistry of Wood, John Wiley & Sons, Inc., New York,
+                       pp. 587-666.
+
+75. Joiner, J. N., and Conover, C. A.
+          1969. Southern pine bark market in horticulture analysed. Forest Ind.
+                       96(5): 37.
+
+76.
+          1967. Comparative properties of shredded pine bark and peat as soil
+                       amendments for container-grown Pittosporum at different
+                       nutrient levels. Proc. Amer. Soc. Hort. Sci. 90: 447-453.
+                       (Michigan State University, East Lansing, Mich.)
+
+77. Jordan, H. C., Allison, R. C., and Lundy, J. W.
+          1968. Hardwood bark for poultry litter: The Pennsylvania State Univer-
+                       sity Waste Conversion Project No. 2, Northern Logger 17(5):
+                       12, 37.
+
+78. Keil, A. R.
+          1960. Use of mill residues for charcoal. Northeastern Logger 8(9):
+                       10-11, 34-36.
+
+79. Kilburn, D. G., and Levelton, B. H.
+          1963. Charcoal production by a fluid bed process. Forest Prod. J.
+                       13(10): 427-432.
+
+80. Koch, P., and Mullen, J. F.
+           1971. Bark from southern pine may find use as fuel. Forest Ind. 98(4):
+                       36-37.
+
+81. Konigsbrunn, H.
+           1969. Biological utilization of bark. Oesterr. Papier 6(12): 12. In
+                       German.
+
+82. Krause, H. H.
+           1962. Assembly for the preparation of sawdust and peat composts. J.
+                       Forestry 60(8): 563-565. (Soc. of Amer. Foresters, 1010 16th
+                       St., NW, Washington, D.C. 20036).
+
+FPL-091 -33-
+83. Krier, J. P., and River, B. H.
+          1968. Bark residues: A model study for quantitative determination.
+                       Bull. 35, Montana Forest and Conservation Exp. Sta., School
+                       of Forestry, University of Montana, Missoula, 18 pp.
+
+84. Lamb, F. M., and Marden, R. M.
+          1968. Bark specific gravities of selected Minnesota tree species. Forest
+                       Prod. J. 18(9): 76-82.
+
+85. Lehmann, W. F.
+          1968. Molding compounds from Douglas fir bark. Forest Prod. J.
+                       18(12): 47-53.
+
+86. Lewis, W. C.
+          1964. Board materials from wood residues. U.S. Forest Serv. Res.
+                       Note FPL-045, 10 pp.
+
+87. Love, J. L.
+          1962. Mulching--new profits from bark. Wood & Wood Prod. 67(8): 34.
+
+88. Lunt, O. R., and Clark, B.
+          1959. Horticultural applications for bark and wood fragments. Forest
+                       Prod. J. 9(4): 39A-42A.
+
+89.      , and Kofranek, A. M.
+
+     1961. Exploratory nutritional studies on cymbidiums using two textures
+
+         of fir bark. Amer. Orchid Soc. Bull. 30(4): 297-302.
+
+90. MacLean, H., and Gardner, J.A.F.
+          1952. Bark extracts in adhesives. Pulp & Paper Mag. Can. 53(9):
+                       111-114.
+
+91. Marian, J. E., and Wissing, A.
+           1956-57. The utilization of bark: Index to bark literature. Svensk
+                            Papperstidn. 59(21): 751-758, (22): 800-805, 60(2): 45-49,
+                            (3): 85-87, (4): 124-127, (5): 170-174, (7): 255-258, (9):
+                            348-352, (11): 420-424, (14): 522-523. In English. (Villagatan
+                            1, 11432 Stockholm Sweden.)
+
+92.
+           1960. The utilization of bark: Part 4. Fibers from spruce bark in wet
+                       process hardboard. Svensk Papperstidn. 62(7): 225-229.
+
+FPL-091                         -34-
+93. Martin, R.E,
+          1970. Directional thermal conductivity ratios of bark. Holzforschung
+                       24(1): 26-30. (Technischer Verlag Herbert Cram, D-l, Berlin
+                       30, Genthiner Str. 13, Germany).
+
+94.
+          1969. Characterization of southern pine barks. Forest Prod. J. 19(8):
+                       23-30.
+
+95.
+          1968, Interim volumetric expansion values for bark. Forest Prod. J.
+                       18(4): 52.
+
+96.
+          1967. Interim equilibrium moisture content values of bark. Forest
+                       Prod. J. 17(4): 30-32.
+
+97.
+          1963. Thermal properties of bark. Forest Prod. J. 13(10): 419-426.
+
+98.                , and Crist, J. B.
+
+     1968. Selected physico-mechanical properties of eastern tree barks.
+
+                   Forest Prod. J. 18(11): 54-60.
+
+99.                , and Gray, G. R.
+     1971. pH of southern pine barks. Forest Prod. J. 21(3): 49-52.
+
+100. Mater, J.
+            1967. Bark utilization: A review and projections. Forest Prod. J.
+                        17(12): 15-20.
+
+101.
+            1969. Bark: Problem or opportunity? Woodworking Digest 71(3): 24-26.
+                        (Hitchcock Publishing Co., Hitchcock Building, Wheaton, Ill.
+                        60187).
+
+102.
+            1971, Marketing bark, agricultural and horticultural products. Forest
+                        Products Research Society, Madison, Wis., 52 pp.
+
+103.               Utilization of bark in highway landscaping. Forest Prod. J. 21(8):
+            1971.    17-21.
+
+FPL-091                                           -35-
+104. Mater, J.
+            1969. How to turn bark into dollars. Wood & Wood Products 74(1):
+                        31-32.
+
+105.     et al. (editors)
+         1970. Making and selling bark products. Forest Products Research
+
+         Society, Madison, Wis., 88 pp.
+
+106. Midgley, A. T.
+            1963. Whey and wood bark make fertile composts. Compost Sci. 4(1):
+                        29-31.
+
+107. Miller, R. W.
+            1959. Commercial uses for redwood bark dust. Forest Prod. J. 9(4):
+                        22A-25A.
+
+108.     , and Van Beckum, W. G.
+         1960. Bark and fiber products for oil well drilling. Forest Prod. J.
+
+         10(4): 193-195.
+
+109. Millikin, D. E.
+            1955. Determination of bark volumes and fuel properties. Pulp & Paper
+                        Mag. Can. 56(12): 106-108.
+
+110. Mingle, J. G., and Boubel, R. W.
+            1968. Proximate fuel analysis of some western wood and bark. Wood
+                        Sci. 1(1): 29-36.
+
+111. Murphey, W. K., and Rishel, L. E.
+            1969. Bark: a raw material. Northern Logger 18(3): 18-19.
+
+112.
+            1969. Relative strengths of boards made from bark of several species.
+                         Forest Prod. J. 19(1): 52.
+
+113.     , Beall, F. C., Cutter, B. E., and Baldwin, R. C.
+
+         1970. Selected chemical and physical properties of several bark
+
+         species. Forest Prod. J. 20(2): 58-59.
+
+114. Nordstrom, B.
+            1966. Firing of bark and wood wastes. Svensk Papperstidn. 69(10):
+                        349-359. In Swedish.
+
+FPL-091                           -36-
+115. Northwest Wood Products Clinic
+            1968. Proceedings of the 23rd Annual Northwest Wood Products Clinic,
+                        Spokane, Wash. Copies available at $5.00 each from Extension
+
+                        Service, Washington State University, Pullman, Wash., 151 pp.
+
+116. Olson, J. D.
+            1964. Preparing bark for burning: Some design considerations. Pulp &
+                        Paper Mag. Can. 65 (Convention issue): T88-T91, T96.
+
+117. Pearl, I. A.
+            1968. Extractives of hardwood wastes as sources of chemicals. Forest
+                        Prod. J. 18(2): 60-62.
+
+118. Pehrson, R.
+            1966. Utilization of bark as fuel. Symposium on mechanical barking of
+                        timber. FAO/ECE/LOG/162. Three volumes available under
+                        sales number 66.II.E/Mimeo. 10 for $7.50 from the FAO
+                        National Agency for International Publications, P.O. Box 433,
+
+                        New York, N.Y. 10016.
+
+119. Pokorny, F. A., and Perkins, H. F.
+            1967. Utilization of milled pine bark for propagating woody ornamental
+                        plants. Forest Prod. J. 17(8): 43-48.
+
+120. Reeves, J. B.
+            1965. Studies of sewage sludge and sawdust compost. Compost Sci.
+                        6(2): 12.
+
+121. Rexius, R. L.
+            1968. On the firing line: The problems of selling bark. In Ref. 79,
+                        pp. 95-99.
+
+122. Rigby, F. A.
+            1963. Ground bark as a growing medium for container nursery stock,
+                        Comp. Proc. Inter. Plant Propagators Soc. 13: 288-291.
+
+123. Roberson, J. E.
+            1968. Bark burning methods. Tappi 51(6): 90A-98A.
+
+124. Rodale, J. I., et al.
+            1960. The Complete Book of Composting. Rodale Books, 33 E. Minor
+                        St., Emmaus, Pa. 18049. 1,007 pp.
+
+FPL-091  -37-
+125. Ross, W. D.
+            1966. Bibliography of bark. Bibliographic Ser. No. 6 of the Forest Prod.
+                        Res. Lab, Oregon State University, Corvallis, Oreg. 97330,
+                        56 pp.
+
+126. Roth, L., Saeger, G., Lynch, F. J., and Weiner, J.
+            1960. Barkers and barking of pulpwood. Bibliographic Ser. No. 190,
+                        Inst. of Paper Chem., Appleton, Wis. 54911, 194 pp.
+
+127.
+            1960. Structure, extractives, and utilization of bark. Bibliographic
+                        Ser. No. 191, Inst. of Paper Chem., Appleton, Wis., 191 pp.
+
+128.     , and Weiner, J.
+
+         1967. Barkers and barking of pulpwood. Supplement 1. Cf. Ref. 90,
+
+         70 pp.
+
+129.
+            1968. Structure, extractives, and utilization of bark. Supplement 1.
+                        Cf. Ref. 91, 184 pp.
+
+130. Samuels, R. M., and Glennie, D. W.
+            1958. Bark tolerance of Douglas-fir chips in kraft pulp manufacture.
+                        Tappi 41(5): 250-255.
+
+131. Semana, J. A., and Anderson, A. B.
+            1968. Hardboards from Benguet pine bark-wood compositions. Forest
+                        Prod. J. 18(7): 28-32.
+
+132. Sandvik, M.
+            1963. Composting of bark. Norsk Skogindustr. 17(11): 447-449. Trans-
+                        lation No. 123 by New Zealand Forest Serv., Wellington, N.Z.
+
+                        1970.
+
+133. Sheehan, T. J.
+            1961. Effects of nutrition and potting media on growth and flowering of
+                        certain epiphytic orchids. Amer. Orchid Soc. Bull. 30(4): 289-
+                        292.
+
+134. Skaven-Haug, S.
+            1963. Bark as frost insulating material in soil. Wood 28(11): 464-467.
+                        (Benn Bros., 154 Fleet St., London EC4, England.)
+
+FPL-091                    -38-
+135.     Smith, J.H.G., and Kozak, A.
+         1967. Thickness and percentage of bark of the commercial trees of
+
+         British Columbia. Faculty of Forestry, University of British
+
+         Columbia, Vancouver 8, Canada, 33 pp.
+
+136.
+            1971. Thickness, moisture content and specific gravity of inner and
+                        outer bark of some Pacific Northwest trees. Forest Prod. J.
+
+                        21(2): 38-40.
+
+137. Soule, E. L., and Hendrickson, H. E.
+            1966. Bark fiber as a reinforcing agent for plastics. Forest Prod. J.
+                        16(8): 17-22.
+
+138. Sproull, R. C., and Pierce, G. A.
+            1963. Bark utilization I: Soil amendment. Tappi 46(8): 175A-178A.
+                        Cf. Forest Prod. J. 19(10): 38-44 (1969).
+
+139.
+
+            1969. Fiber, chemical, and agricultural products from southern pine
+                        bark--a review. Forest Prod. J. 19(10): 38-44.
+
+140. Srivastava, L. M.
+            1964. Anatomy, chemistry, and physiology of bark. Chapter in J. A.
+                        Romberger and P. Mikola (eds.): International Review of
+
+                        Forestry Research, Vol. I., Acad. Press, 111 5th Ave.,
+
+                        New York, N.Y. 10003, pp. 203-277.
+
+141. Sullivan, M. D.
+            1970. Tests point toward use of pine bark in particleboard. Forest
+                        Ind. 97(8): 42-43.
+
+142.
+            1969, Pine mill bark residue processed into soil conditioner, ground
+                        cover. Forest Ind. 96(13): 70-71. Cf. Pulp & Paper 44(2): 128-
+
+                        129 (1970).
+
+143. Stewart, D. L., and Butler, D. L.
+            1968. Hardboard from cedar bark. Forest Prod. J. 18(12): 19-23.
+
+144. Tenney, M. W.
+            1970. Fly-ash utilization. Compost Sci. 11(4): 25.
+
+FPL-091                                -39-
+145. Trainor, J. W.
+            1968. Special boilers for waste fuels. Power Eng. 72(2): 42-44.
+
+146. USDA-FS Division of Forest Economics and Marketing Research
+            1963. Charcoal and charcoal briquet production in the U.S. in 1961,
+                        33 pp.
+
+147. U.S. Forest Products Laboratory
+            1969. Manufacturers of hogs for chipping wood and bark, 2 pp.
+
+148.
+            1961. Charcoal production, marketing and use. Forest Prod. Lab.
+                        Rep. No. 2213, 137 pp.
+
+149. Various Authors
+            1960. Conference on More Profitable Use of Mill Residues, North-
+                        eastern Logger 8(8): 6-7, 10-15, 30-39; 8(9): 6-7, 10-13, 30-40.
+
+150.
+            1971. Biochemical interactions among plants. Nat. Acad. Sci., Wash-
+                        ington, D.C., 134 pp.
+
+151. Velle, H. A.
+            1964. Bark as an industrial fuel: The calorific and monetary value of
+                        bark as compared with heavy fuel oils: Firing arrangements
+                        and pretreatment equipment: Firing economics. Norsk Skogin-
+                        dustri 18(11): 441-460. In Norwegian. Translated into English
+                        by British Paper and Board Research Association.
+
+152. Virtanen, P.
+            1963. Fuel properties of barking refuse from Finnish tree species.
+                        Paperi ja Puu/Papper och Tra (Paper & Timber, Finland)
+                        45(5): 313-330. In English.
+
+153. Weldon, D.
+            1970. Scavenging oil with southern yellow pine bark. Tex. Forest Serv.
+                        Publication 106, 2 pp.
+
+154. Wenzl, H.F.J.
+            1970. The chemical technology of wood. Academic Press, 111 Fifth
+                        Ave., N.Y. 10003. Especially pp. 310-345.
+
+FPL-091  -40-
+155. Whittaker. R. H., and Feeney, P. P.
+            1971. Allelochemics: chemical interactions between species. Sci.
+                         171(3973): 757-770. (Amer. Assoc. Advancement Sci., 1515 Mas-
+                         sachusetts Ave., NW., Washington, D.C. 20005).
+
+156. Wilde, S. A.
+            1960. Marketable sawdust composts. Compost Sci. 1(2): 38-42.
+
+157.
+            1958. Marketable sawdust composts: Their preparation and fertilizing
+                        value. Forest Prod. J. 8(11): 323-326.
+
+158. Wiley, J. S.
+            1962. Pathogen survival in composting municipal wastes. J. Water
+                        Pollution Control Fed. 34: 80-90.
+
+159. Williams, D. L., and Hopkins, W. C.
+            1968. Converting factors for southern pine products. Bull. No. 626,
+                        Agr. Louisiana State University, Baton Rouge, La., 89 pp.
+
+160. Wolf, C. H., and Wartluft, J. L.
+             1969. Hardwood bark...from nuisance to nest egg. Northern Logger
+                         18(2): 20-21, 66-68; Cf. South. Lumberman 217(2704): 217-219
+                         (1968).
+
+161. Wright, J. A., and Fitzgerald, O. L.
+            1969. Bark residues as soil conditioners and mulches. Bull. No. 3,
+                        School of Agriculture and Forestry, Louisiana Polytechnical
+                        Institute, Ruston, La.,, 47 pp. (For copies write to Dept. of
+                        Forestry, Box 4507, Tech. Station, Ruston, La. 71270.)
+
+162. Yerkes, V. P., and Markstrom D. C.
+            1968. Composting Ponderosa pine bark: Effects of nitrogen additions
+                        and aeration. USDA Forest Serv. Res. Note RM 126, 4 pp.
+
+163. Young, H. E.
+            1971. Preliminary estimates of bark percentages and chemical ele-
+                        ments in complete trees of eight species in Maine. Forest Prod.
+                        J. 21(5): 56-59.
+
+FPL-091  -41-
+164. Znaimer-Wazda, F.
+            1967. New results in the field of composting spruce bark. Holzforschung
+                        und Holzverwertung 19(2): 29. In German. Cf. Holz-Zentral-
+                        blatt 93(150): 2334 (1967), 95(37): 557 (1969); Das Papier 24(7):
+                        439-441 (1970). Also in German
+
+165. Hall, J. A.
+            1971. Utilization of Douglas-fir bark. USDA-FS Pacific Northwest
+                        Forest and Range Exp. Sta., P.O. Box 3141, Portland, Oreg.
+                        97208, 138 pp.
+
+166. Adams, R.
+            1971. Composting tree bark with sewage. Compost Sci. 12(3): 30-32.
+
+167. Patrick, Z. A.
+            1971. Phytotoxic substances associated with the decomposition in soil
+                         of plant residues. Soil Sci. 111(1): 13-18 (Williams & Wilkins
+                         Co., 428 E. Preston St., Baltimore, Md. 21202).
+
+FPL-091  -42-
+                       Table 1 .-- Bark volume
+
+                Wood   Diameter Number of Bark volume based on
+                       of tree growth  wet log volume
+                               rings
+         ------------------------------------------------
+
+                       Inches                   Percent
+
+         Spruce        4.2     62               12.06
+                       8.7     112               9.26
+
+         Fir (true)    4.5     38               10.0
+                       8.4     65
+                                                9.4
+
+         Birch, white  3.9     46               14.5
+                       8.3     68               9.5
+
+         Birch, yellow 4.2     74               10.1
+
+                       9.3     92               9.3
+
+         Beech         4.2     63               6.9
+                       8.9     125              6.1
+
+         Maple, sugar  4.1     67               13.5
+                       7.8     114              18.0
+
+FPL-091                        -43-
+       Table 2. --Specific gravity of the bark of U.S. wood collection
+                         Forest Products Laboratory, Madison, Wis.
+
+       Scientific name                Common name                  Bark
+                                                               specific
+--------------------------- --------------------------------   gravity
+                                                               (ovendry
+                              SOFTWOODS                       weight and
+                                                                volume)
+Abies  amabilis    arizonica  Pacific silver fir              -----------
+Abies  balsamea               balsam fir
+Abies  balsamea               balsam fir                        0.683
+Abies  concolor               white fir                           .629
+Abies  grandis                grand fir                           .640
+Abies  grandis                grand fir                           .621
+Abies  lasiocarpa             subalpine fir                       .644
+Abies  lasiocarpa             subalpine fir                       .571
+Abies  lasiocarpa             corkbark fir                        .549
+Abies  magnifica              California red fir                  .497
+Abies  procera                noble fir                           .342
+                              Port-Orford-cedar                   .500
+Chamaecyparis lawsoniana      Port-Orford-cedar                   .555
+Chamaecyparis lawsoniana      Alaska-cedar                        .335
+Chamaecyparis nootkatensis                                        .523
+                                                                  .631
+Ginkgo biloba                 ginkgo                              .383
+                                                                  .589
+Juniperus californica         California juniper                  .484
+Juniperus occidentalis        western juniper                     .349
+Larix decidua                 European larch                      .626
+Larix laricina                tamarack; Eastern larch             .269
+Libocedrus decurrens          incense-cedar                       .797
+Picea engelmanii              Engelmann spruce                    .618
+Picea glauca                  white spruce                        .678
+Picea glauca                  white spruce                        .603
+Picea mariana                 black spruce                       .595
+Picea rubens                  red spruce                          .627
+Picea sitchensis              Sitka spruce
+
+FPL-091                       -44-                     (Sheet 1 of 5)
+Table 2 .--Specific gravity of the bark of U.S. wood collection
+                  Forest Products Laboratory, Madison, Wis.--Con.
+
+Scientific name                      Common name                  Bark
+                                                               specific
+--------------------------- --------------------------------    gravity
+                                                               (ovendry
+                            SOFTWOODS--Con.                    weight and
+
+Pinus contorta              lodgepole pine         Mountain     volume)
+Pinus echinata              shortleaf pine         Mountain   -----------
+Pinus echinata              shortleaf pine
+Pinus edulis                pinyon                              0.595
+Pinus flexilis              limber pine                           .486
+Pinus lambertiana           sugar pine                            .316 ?
+Pinus monticola             western white pine                    .630
+Pinus palustris             longleaf pine                         .630
+Pinus Ponderosa scopulorum  Ponderosa pine, Rocky                 .377 ?
+Pinus Ponderosa scopulorum  Ponderosa pine, Rocky                 .625
+Pinus pungens               table-mountain pine                   .526
+Pinus resinosa              red pine                              .378
+Pinus resinosa              red pine                              .356
+Pinus rigida                pitch pine                            .398
+Pinus rigida                pitch pine                            .320
+Pinus strobus               eastern white pine                    .324
+Pinus strobus               eastern white pine                    .377
+Pinus taeda                 loblolly pine                         .403
+Pinus virginiana            Virginia pine                         .570
+                                                                  .564
+Pseudotsuga menziesii       Douglas-fir                           .560
+Pseudotsuga menziesii       Douglas-fir                           .631
+                                                                  .544
+Sequoia sempervirens        redwood                               .411
+                                                                  .459
+Taxodium distichum          baldcypress                           .553
+                                                                  .618
+Taxus brevifolia            Pacific yew                           .457
+                                                                  .439
+Thuja occidentalis          northern white-cedar                  .445
+Thuja plicata               western redcedar                      .514
+Thuja plicata               western redcedar                      .588
+                                                                  .459
+Tsuga canadensis            eastern hemlock
+Tsuga heterophylla          western hemlock
+Tsuga mertensiana           mountain hemlock
+
+FPL-091                     -45-                   (Sheet 2 of 5)
+Table 2.--Specific gravity of the bark of U.S. wood collection
+                  Forest Products Laboratory, Madison, Wis.--Con.
+
+     Scientific name                    Common name              Bark
+------------------------  ---------------------------------     specific
+                                                                 gravity
+                                                              (ovendry
+                                                              weight and
+                                                                volume)
+                                                             ------------
+
+                          HARDWOODS
+
+Acer macrophyllum         bigleaf maple                      0.548
+Acer nigrum               black maple                         .805
+Acer rubrum               red maple                           .655
+Acer saccharinum          silver maple                        .667
+Acer saccharum            sugar maple                         .686
+
+Amelanchier arborea       downy serviceberry                 .740
+
+Betula alleghaniensis yellow birch                           .741
+Betula nigra              river birch                        .704
+Betula papyrifera         paper birch                        .687
+Betula papyrifera
+humilis                   Alaska paper birch                 .813
+
+Carpinus caroliniana      American hornbeam                  .772
+
+Carya tomentosa           mockernut hickory                   .983
+Castanea dentata          American chestnut                   .496
+Catalpa speciosa          northern catalpa                    .437
+Celtis occidentalis       hackberry                           .654
+Cercidium floridum        blue paloverde                     1.070
+Chilopsis linearis        desertwillow                        .587
+Cornus florida            flowering dogwood                   .536
+Crataegus pedicellata     scarlet hawthorn                    .623
+Crataegus pedicellata                                         .605
+Diospyros virginiana      common persimmon                    .421
+
+Fagus grandifolia         American beech                     .738
+
+Fraxinus americana        white ash                          .508
+                          white ash                          .525
+Fraxinus americana
+
+FPL-091                   -46-                (Sheet 3 of 5)
+Table 2. --Specific gravity of the bark of U.S. wood collection
+                  Forest Products Laboratory, Madison, Wis.-Con.
+
+      Scientific name                Common name               Bark
+                                                            specific
+-----------------------  --------------------------------
+Fraxinus nigra            HARDWOODS--Con.                    gravity
+Fraxinus latifolia        black ash                         (ovendry
+Fraxinus pennsylvanica    Oregon ash                        weight and
+Fraxinus quadrangulata    green ash                          volume)
+Fraxinus profunda         blue ash                         ------------
+                          pumpkin ash                        0.546
+
+                                                               .502
+                                                               .940
+                                                               .558
+                                                               .590
+
+Gleditsia triacanthos honeylocust                          .753
+
+Halesia carolina         Carolina silverbell               .470
+
+Ilex opaca               American holly                    .840
+Ilex opaca               American holly                    .740
+
+Juglans cinerea          butternut                         .452
+Juglans nigra            black walnut                      .378
+
+Liquidambar styraciflua sweetgum                           .582
+
+Liriodendron tulipifera yellow-poplar                      .388
+
+Lithocarpus densiflorus tanoak                             .752
+
+Maclura pomifera         osage-orange                      .584
+
+Magnolia acuminata       cucumbertree                      .436
+Magnolia fraseri         Fraser magnolia                   .581
+Magnolia virginiana      sweetbay                          .635
+
+Morus rubra              red mulberry                      .655
+
+Nyssa sylvatica          black tupelo; blackgum            .546
+
+Ostrya virginiana        eastern hophornbeam               .392
+
+Oxydendrum arboreum      sourwood                          .332
+
+Platanus occidentalis American sycamore                    .672
+
+Populus grandidentata bigtooth aspen                       .664
+Populus tremuloides      quaking aspen                     .727
+
+FPL-091                         -47-             (Sheet 4 of 5)
+Table 2 .--Specific gravity of the bark of U.S. wood collection
+                  Forest Products Laboratory, Madison, Wis.--Con.
+
+     Scientific name                    Common name              Bark
+-------------------------  --------------------------------   specific
+
+                                                                gravity
+                                                              (ovendry
+                                                              weight and
+                                                                volume)
+                                                             ------------
+
+                           HARDWOODS--Con.
+
+Populus tremuloides        quaking aspen                     0.705
+Populus tremuloides        quaking aspen                      .611
+Populus trichocarpa        black cottonwood                   .604
+
+Prosopis juliflora         mesquite                          .887
+
+Prunus pennsylvanica       pin cherry                        .610
+Prunus serotina            black cherry                      .711
+
+Red Oak Group
+
+Quercus rubra              northern red oak                  .786
+Quercus coccinea           scarlet oak                       .834
+Quercus falcata            southern red oak                  .812
+Quercus palustris          pin oak                           .746
+Quercus phellos            willow oak                        .723
+Quercus velutina           black oak                         .710
+
+White Oak Group            white oak                       .675
+Quercus alba               swamp white oak                 .487
+Quercus bicolor            Oregon white oak                .799
+Quercus garryana           California white oak            .660
+Quercus lobata             bur oak                         .618
+Quercus macrocarpa         swamp chestnut oak              .822
+Quercus michauxii          chestnut oak                    .644
+Quercus prinus             post oak                        .608
+Quercus stellata           black locust                    .238
+Robinia pseudoacacia       black locust                    .320
+Robinia pseudoacacia       black willow                    .368
+Salix nigra                black willow                    .375
+Salix nigra                American basswood               .567
+Tilia americana            American basswood               .524
+Tilia americana            winged elm                      .669
+Ulmus alata                American elm                    .514
+Ulmus americana            American elm                    .430
+Ulmus americana            slippery elm                    .332
+Ulmus rubra
+                                    -48-         (Sheet 5 of 5)
+FPL-091
+                    Table 3 . --Heat of combustion of barks
+
+       Species       Ash1  Moisture Calories per British thermal
+                           content    gram 2                 units per pound2
+--------------------------------------------------------------------------
+                     Percent Percent
+
+Fir, balsam          2.3   6.5         4,923                   8,861
+Larch, western       1.6   6.7         4,558                   8,204
+Spruce, Engelmann    2.5               4,644                   8,359
+Spruce, black        2.0   5.5         4,581                   8,246
+                           6.5         4,867                   8,761
+Pine, jack           1.7   6.6                               10,190
+                                       5,661                   9,002
+Pine, lodgepole3     2.0   5.6         5,001                 . . . . . .
+Pine, slash          .6    6.4        1 . . . . . 5,047      19,085
+Pine, sugar          .6    . . .       4,890                   8,802
+Pine, western white  2.6   . . .
+Hemlock, eastern     1.6   6.2
+
+Boxelder             6.2   ...        . . . . .              ......
+Maple, sugar         6.3   6.0        4,056                   7,301
+Alder, red           3.1              4,415                   7,947
+Birch, yellow              5.8        5,042                   9,076
+Birch, paper         1.7   5.2        5,241                   9,434
+                     1.5   4.8
+
+Pecan                7.5   . . .      . . . . .              . . . . . .
+Sweetgum             5.7   6.2        4,139                   7,450
+Blackgum             7.2   6.0        4,409                   7,936
+Sycamore, American   5.8   6.4        4,113                   7,403
+Cottonwood, swamp    4.0              . . . . .              ......
+                           . . .
+
+Aspen, quaking       2.8   5.5        4,685                  8,433
+Oak, white4          10.7  6.5        3,886                  6,995
+Oak, red             5.4   4.4        4,461                  8,030
+Willow, black        6.0   6.7        3,982                  7,168
+Elm, American        9.5   6.7        3,845                  6,921
+
+1Based on weight of ovendry wood.                                  extractives.
+2Values are for samples of the indicated moisture content.
+3 High heat of combustion probably due to high content of benzene
+4 Low heat of combustion probably due to high ash content.
+
+FPL-091                    -49-
+         Table 4. --Various extractions of barks (Percentages
+                           based on weight of ovendry unextracted
+                           bark)
+
+         Species      Material   Material dissolved by successive
+Fir, balsam           soluble               extractions with--
+Larch, western2
+Spruce, Engelmann2         in    Benzene  95 percent  Hot water    1 percent
+Spruce, black        1 percent             alcohol                  sodium
+Pine, jack            sodium     Percent               Percent     hydroxide
+                     hydroxide1     13.2  Percent          2.7
+                      Percent        1.3       3.3         3.8      Percent
+                                     5.2      14.8        10.9
+                        49.4         5.0                   4.4         30.6
+                        43.6         8.0      25.9          3.0        22.7
+                        64.0                  14.6                     22.2
+                        51.6                  12.4                     28.0
+                        62.6                                           41.3
+
+Pine, lodgepole      72.9        28.7     10.9        5.6          29.8
+Pine, slash 2        48.5        3.4      10.6        3.7          28.9
+Pine, sugar          62.7        1.5      21.7        3.2          36.0
+Pine, western white  57.3        3.2      7.5         14.3         33.3
+Hemlock, eastern2    51.7        2.8      21.2        3.3          24.6
+Boxelder             39.7
+Maple, sugar         28.3        2.4      6.3         6.2          23.7
+Alder, red           37.8        1.2      3.9         2.4          19.2
+Birch, yellow        46.9        2.3      3.9         3.7          27.5
+Birch, paper         42.9        4.3      10.8        2.3          28.4
+Pecan                50.9        9.4      10.5        2.5          25.1
+Sweetgum             48.3
+Blackgum             39.4        .8       18.4        5.4          25.3
+Sycamore, American   33.4        1.5      17.7        7.4          21.3
+Cottonwood, swamp    35.0        2.5      4.6         5.3          27.8
+Aspen, quaking       41.8        2.1      6.0         3.6          22.0
+Oak, white           38.2                                          20.2
+Oak, northern red    39.8        1.9      8.0         4.8
+Willow, black        35.3
+Elm, American        45.2        4.0      11.6        4.7          22.0
+                                 2.7      4.4         5.8          26.5
+                                 4.8      7.9         3.6          22.3
+                                 1.6      3.8         4.8          23.8
+                                 .5       10.1        6.0          27.0
+
+1An appreciable percentage of this extract was reprecipitated on acidification.
+2Barks with highest tannin content.
+
+FPL-091                          -50-
+Table 5. --Reducing sugars produced by hydrolysis of
+                  bark with 72 percent sulfuric acid
+                  (Percentage, as glucose, based on weight
+                  of ovendry, unextracted bark)
+
+       Species                          Reducing sugars from--
+                    ----------------------------------------
+
+                     Unextracted Extractive- Alkali-
+                     bark     free bark extracted
+                                       bark 1
+----------------------------------------------------------
+                     Percent  Percent  Percent
+
+Fir, balsam          46.6     45.3     32.9
+Larch, western       46.6     46.0
+Spruce, Engelmann                      38.0
+                     42.9     34.3     24.2
+Spruce, black        47.9     44.8     32.3
+Pine, jack           30.6     28.8     21.1
+
+Pine, lodgepole      38.3     32.9     19.2
+Pine, slash          29.7     29.8     26.4
+Pine, sugar          22.1     19.8     16.1
+Pine, western white  42.6     34.0     26.0
+Hemlock, eastern     34.9     33.3     29.1
+
+Boxelder             40.6     37.8     30.0
+Maple, sugar         35.4     34.3     31.1
+Alder, red           38.6     38.0     30.3
+Birch, yellow        32.5     31.8     26.0
+Birch, paper         32.2     30.1     21.8
+
+Pecan                33.5     30.7     23.3
+Sweetgum             35.6     33.5     26.4
+Blackgum             29.6     27.2     22.4
+Sycamore, American   40.9     39.0     31.1
+Cottonwood, swamp    41.0     39.2
+                                       34.1
+
+Aspen, quaking       41.4     39.7     34.9
+Oak, white           27.8     28.2     21.2
+Oak, northern red    32.4     31.7     28.3
+Willow, black
+Elm, American        42.9     43.4     35.4
+                     37.0     35.4     27.0
+
+1Extractive-free bark extracted with 1 percent sodium hydroxide.
+
+FPL-091              -51-
+          Table 6. --Composition of reducing sugars from hydrolysis
+                            with 72 percent sulfuric acid (Percentages
+                            based on total reducing sugar)
+
+       Species       Glucose Galactose Mannose Arabinose Xylose
+----------------------------------------------------------------------------
+                     Percent Percent Percent Percent Percent
+
+                     EXTRACTIVE-FREE BARKS
+
+Fir, balsam          64  5                  12        9                 7
+Larch, western       69  4                  11        6
+Spruce, Engelmann    61  5                  9         13                9
+                                                                        9
+Spruce, black        64  6                  7         11                9
+Pine, jack           64  7                  6         10                11
+
+Pine, lodgepole      50  7                  6         26                8
+Pine, slash          63  7                  7         7                 15
+Pine, sugar          69  6                  8         7                 9
+Pine, western white  75  3                  6         2                 15
+Hemlock, eastern         3                  13        8                 7
+                     67
+
+Boxelder             65  3                  2         7                 20
+Maple, sugar         63  3                  1         6                 25
+Alder, red               3                  1         6                 34
+Birch, yellow        54  3                  1         8                 32
+Birch, paper         54
+                     53  2                  1         6                 36
+
+Pecan                69  4                  1         11                11
+                         3                  3         11                20
+Sweetgum             60                     1         8
+Blackgum             60  4                                              24
+Sycamore, American   59  4                  1         4                 30
+                     61  4                  1         5                 26
+Cottonwood, swamp
+
+Aspen, quaking       60  2                  1         5                 30
+                         4                  2         7                 24
+Oak, white           60  3                  1         6                 35
+Oak, northern red    53
+Willow, black        69  3                  1         6                 18
+                         4                  2         9                 11
+Elm, American        70
+                     ALKALI-INSOLUBLE BARK RESIDUES1
+
+Larch, western       74  4                  9         4                 9
+                     67  6                  7         5                 15
+Pine, slash              2                  3         3                 17
+Pine, western white  74
+Hemlock, eastern     76  2                  10        5                 7
+                         2                  1         4                 24
+Maple, sugar         69
+
+Birch, paper         55  2                  1         5                 37
+Sweetgum                 2                  1         5                 21
+                     71
+
+1Residue from the 1 percent sodium hydroxide extraction of extractive-free
+   bark. -52-
+
+FPL-091
+            Table 7.--"Lignin"1 and methoxyl of "lignin" and of bark
+
+       Species       "Lignin" from    "Lignin" from                   Methoxyl in
+                     extractive-free bark alkali-extracted            unextracted
+                                            bark                      bark
+                   -------------------------------------------
+                     Yield2 Methoxyl3 Yield2 Methoxyl 3
+--------------------------------------------------------------------------
+                     Percent Percent  Percent Percent                 Percent
+
+Fir, balsam          27.7  8.5        15.0        12.7                3.30
+Larch, western       30.0  8.9        19.6        10.7                3.14
+Spruce, Engelmann    17.9
+Spruce, black        25.3  7.2        8.7         9.7                 2.90
+                           8.2        14.4        10.0                3.20
+Pine, jack           42.2  4.7        14.4        10.1                3.07
+
+Pine, lodgepole      14.8  5.1        5.4         8.1                 1.99
+Pine, slash          49.9  6.3        26.1        10.2
+Pine, sugar          49.9                                             3.95
+                           3.9        20.1        8.2                 2.45
+Pine, western white  39.3  2.8        16.4
+Hemlock, eastern     35.8             20.1        1.7                 3.87
+                           8.0                    10.5                3.61
+
+Boxelder             30.1  11.1       22.8        12.4                4.03
+Maple, sugar         37.3  11.2                                       5.05
+Alder, red           40.9             27.4        11.9                3.85
+Birch, yellow              7.9        28.5                            3.46
+Birch, paper         40.6  7.6        26.3        9.2                 4.04
+                                                  9.2
+                     37.8  8.4        22.7        12.1
+
+Pecan                24.9  7.5        16.0        9.5                 2.69
+Sweetgum             25.3             18.7
+Blackgum             38.3  10.7                   12.9                3.37
+                           10.3       25.0        12.5                4.97
+Sycamore, American   26.6  15.0       21.3        16.8                5.53
+Cottonwood, swamp    33.4             27.2
+                           12.0                   13.7                5.36
+
+Aspen, quaking       31.2  10.3       21.0        13.6                4.75
+Oak, white           31.8             20.9
+Oak, northern red    34.8  7.3        23.3        9.3                 3.28
+                           9.1                    11.3                4.32
+Willow, black        29.0  9.2        20.9        12.0                3.74
+Elm, American        27.5             16.9                            2.91
+                           6.9                    9.7
+
+1The acid-insoluble residue from bark by the 72 percent sulfuric acid method.
+   This fraction should consist of bark lignin plus insoluble corky substances.
+   Ash was not determined in "lignin" residue.
+
+2Yield based on ovendry, unextracted bark.
+3Yield based on weight of the corresponding ovendry "lignin" residue.
+
+FPL-091                    -53-
+                                      Appendix I
+         United States Manufacturers of Composting Equipment
+
+Arizona Biochemical Sales                   International Disposal Corp.
+2500 South 22nd Avenue                      Box 1586
+Phoenix, Ariz. 85009                        Shawnee, Okla. 74801
+
+Earp-Thomas Laboratories                    International Eweson Corp.
+Highbridge, N.J. 08829                      2840 Hidden Valley Lane
+                                            Santa Barbara, Calif. 83101
+Fairfield Engineering Company
+Marion, Ohio 43302                          Logeman Bros.
+                                            3150 West Burleigh Street
+General Products of Ohio, Inc.              Milwaukee, Wis. 53206
+Crestline, Ohio 44827
+                                            Metropolitan Waste Conversion Corp.
+Gruendler Crusher and Pulverizer Co.        P.O. Box 202
+2915 North Market Street                    Wheaton, Ill. 60187
+St. Louis, Mo. 93103
+                                            National Organic Corp.
+Hazemag USA, Inc.                           2140 Bank of Georgia Building
+60 East 42nd Street                         Atlanta, Ga. 30303
+New York, N.Y. 10017
+                                            Richland Company
+Hobbs Engineering                           415 N. Tejon
+P.O. Box 1306                               Colorado Springs, Colo. 80902
+Suffolk, Va. 23434
+                                            United Compost Services, Inc.
+                                            1 Main Street
+                                            Houston, Tex. 77002
+
+   This list is prepared merely for information, and inclusion of names on it
+
+implies no endorsement as to quality and prices. Other names will be added
+to the list upon request. A more comprehensive, international list appeared
+recently in Compost Science 12(1): 23-32 (1971).
+
+FPL-091                               -54-
+                                     Appendix II
+                       Sources of Technical Assistance
+
+   Information on local conditions concerning forest products utilization can be
+obtained from utilization and marketing foresters employed by the State forestry
+or conservation departments or from Forest Products Utilization personnel in
+these regional U.S. Forest Service offices:
+
+Northeastern Area            Covers Minnesota, Iowa, Missouri, Wiscon-
+State & Private Forestry
+                              sin, Illinois, Indiana, Michigan, Ohio, West
+6816 Market St.               Virginia, Pennsylvania, Maryland, Dela-
+Upper Darby, Pa. 19082        ware, New Jersey, New York, Connecticut,
+
+                              Massachusetts, Rhode Island, Vermont,
+                              New Hampshire, and Maine.
+
+Southeastern Area            Covers Texas, Oklahoma, Arkansas, Loui-
+State & Private Forestry      siana, M i s s i s s i p p i , Alabama, Georgia,
+50 Seventh St., N.E.          Florida, South Carolina, North Carolina,
+
+Atlanta, Ga. 30323            Tennessee, Kentucky, and Virginia.
+
+Northern Region              Covers Montana, northern Idaho, and North
+Federal Building              Dakota.
+
+Missoula, Mont. 59801
+
+Rocky Mountain Region        Covers Wyoming, Colorado, South Dakota,
+                              Nebraska, and Kansas.
+Federal Center, Bldg. 85
+Denver, Colo. 80225
+
+Southwestern Region          Covers Arizona and New Mexico.
+517 Gold Avenue, S.W.
+Albuquerque, N. Mex. 87101
+
+Intermountain Region         Covers Utah, Nevada, and southern Idaho.
+
+324 25th St.
+Ogden, Utah 84401
+
+California Region            Covers California and Hawaii.
+630 Sansome St.
+San Francisco, Calif. 94111
+
+FPL-091                      -55-
+Pacific Northwest Region        Covers Oregon and Washington
+319 S.W. Pine St.
+
+P.O. Box 3623
+Portland, Oreg. 97208
+
+Alaska Region                         Covers Alaska
+Federal Office Building
+
+P.O. Box 1628
+Juneau, Alaska 99801
+
+Institute of Tropical Forestry
+
+P.O. Box AQ
+Rio Pedras, Puerto Rico 00928
+
+   A list of state foresters and U.S. Forest Service officials appeared in Forest
+Industries 97(7): 74-78 (1970).
+
+FPL-091                         -56-                 4-056-9-71
+

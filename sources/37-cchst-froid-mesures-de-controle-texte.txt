@@ -1,0 +1,309 @@
+
+ CCHST: Environnements froids - Mesures de contrôle
+ -->
+ Passer au contenu principal 
+ Passer aux informations sur le
+ site 
+ Canada.ca 
+ Services 
+ Ministères 
+ Sélection de la langue
+ English 
+ Menu
+ Menu 
+ Entretien périodique - le jeudi 12 juillet à
+ 17 h HAE 
+ Nous prévoyons que la mise à jour prendra une heure.
+ Le site Web sera inaccessible pendant cette période.
+ Recherche :
+ Recherchez le site Web 
+ Recherche 
+ Menu du site
+ Législation 
+ Lois et règlements 
+ Diligence raisonnable 
+ Programmes santé et sécurité 
+ Système de responsabilité interne 
+ Droits et responsabilités 
+ Normes 
+ SIMDUT/SGH/FDS 
+ Législation – Page principale 
+ Dangers 
+ Chimique 
+ Ergonomie 
+ Santé 
+ Physique 
+ Psychosociaux 
+ Sécurité 
+ Travail 
+ Dangers – Page principale 
+ Travailleurs 
+ Travailleurs vieillissants 
+ Les travailleurs vulnérables 
+ Jeunes travailleurs 
+ Travailleurs – Page principale 
+ Santé et mieux-être 
+ Affaiblissement des facultés 
+ Santé mentale 
+ Promotion 
+ Élaboration de programmes 
+ Stress 
+ Violence/Intimidation 
+ Conciliation travail-vie 
+ Santé et mieux-être - Page
+ principale 
+ Programmes 
+ Programmes 
+ Systèmes de gestion 
+ Programmes – Page principale 
+ Je cherche... 
+ Apps et logiciels 
+ Portail pour la
+ sécurité en entreprise 
+ CANManage - Gestion
+ des FDS 
+ Cours en ligne 
+ Bases de données 
+ Normes ISO/CEI 
+ -->
+ Balados 
+ Affiches et documents
+ infographiques 
+ Outils de promotion 
+ Publications 
+ Boîte à outils sur la santé et la sécurité 
+ Tous les produits et services – Page principale 
+ AIDE 
+ Posez une question (Infoligne sécurité) 
+ Fiches d'information (Réponses SST) 
+ Soutien des produits 
+ FAQ - Produits 
+ Autorisation de reproduction 
+ Aide – Page principale 
+ Ouverture 
+ Portail pour la sécurité en
+ entreprise 
+ Bases de données 
+ Cours 
+ Compte d'achat 
+ enviroSST 
+ CANManage 
+ Trousse pédagogique 
+ Vous êtes dans : Environnements froids - Mesures de contrôle
+ Accueil 
+ Fiches d’information Réponses SST 
+ Agents physiques 
+ Exposition au froid 
+ Environnements froids - Mesures de contrôle 
+ Exposition au froid
+ Télécharger le PDF 
+ Environnements froids - Mesures de contrôle 
+ Sur cette page 
+ Quels facteurs modifient notre réaction au froid? 
+ Quelle est la température de refroidissement éolien? 
+ Quels sont les risques pour la santé du travail au froid? 
+ Y a-t-il des limites d'exposition pour le travail dans les environnements froids? 
+ Quelles mesures de contrôle peuvent aider à prévenir les effets néfastes du froid? 
+ Quel équipement de protection individuelle (EPI) peut être utilisé pour le travail au froid? 
+ Quels autres conseils de sécurité devrait-on suivre? 
+ Quels facteurs modifient notre réaction au froid?
+ Haut de la page 
+ Un milieu de travail froid présente des risques liés à trois facteurs, la température de l'air, le mouvement de l'air (vitesse du vent) et l'humidité. Pour travailler en toute sécurité, ces facteurs doivent être compensés par un bon isolement (plusieurs couches de vêtements protecteurs), l'activité physique et une exposition contrôlée au froid (alternance travail-repos).
+ Température de l'air : La température de l'air est mesurée au moyen d'un thermomètre ordinaire en degrés Celsius (°C) ou Fahrenheit (°F).
+ Vitesse du vent : On peut utiliser divers types d'anémomètres commerciaux pour mesurer la vitesse du vent ou le déplacement de l'air. Ceux-ci sont calibrés en mètres à la seconde (m/s), kilomètres à l'heure (k/h) ou milles à l'heure (mi/h). Le déplacement de l'air est habituellement mesuré en mètres à la seconde (m/s) tandis que la vitesse du vent est généralement mesurée en km/h ou en mi/h. Le guide suivant permet d'estimer la vitesse du vent si l'on ne dispose pas d'informations exactes :
+ 8 km/h (5 mi/h) : un drapeau léger bouge
+ 16 km/h (10 mi/h) : un drapeau léger est pleinement déployé
+ 24 km/h (15 mi/h) : parvient à soulever de la poussière et une feuille de papier
+ 32 km/h (20 mi/h) : cause de la poudrerie
+ Humidité : L’humidité de l’air est mesurée à l’aide d’un hygromètre et exprimée en pourcentage d’humidité relative (HR). À mesure que l’humidité de l’air augmente, une plus grande quantité d’humidité peut être absorbée par les vêtements, ce qui réduit leur pouvoir isolant. L’évaporation de l’humidité absorbée peut en effet accélérer la perte de chaleur par conduction.
+ Activité physique : La production de chaleur par l'activité physique (vitesse du métabolisme) est difficilement mesurable. Il existe cependant des tableaux dans la littérature qui montrent la vitesse du métabolisme pour différents types d'activités. La production de chaleur par le corps est mesurée en kilocalories (kcal) à l'heure. Une kilocalorie équivaut à la quantité de chaleur nécessaire pour élever la température d'un kilogramme d'eau d'un degré Celsius.
+ Alternance travail/repos : L’« alternance travail/réchauffement », élaboré par WorkSafe Saskatchewan (en anglais seulement), indique le nombre de pauses recommandées lors du travail dans un environnement froid. L’horaire s’applique à toute période de quatre heures lors de laquelle une activité modérée ou intense est menée et présume que des « pauses normales » sont prises toutes les deux heures. À la fin d’une période de quatre heures, une longue pause dans un environnement chaud est recommandée. 
+ Vêtements protecteurs : Voir la section : « Que devrais-je savoir au sujet de l'équipement de protection individuelle (ÉPI) pour le travail au froid? ».
+ Pour obtenir des renseignements sur les effets généraux du travail au froid ainsi que sur la façon dont l'organisme s'adapte au froid, se reporter à la fiche d'information Réponses SST intitulée Conditions de température – Froid .
+ Pour obtenir des renseignements sur les effets sur la santé et les premiers soins à prodiguer en cas de blessures ou de maladies liées au froid, se reporter à la fiche d’information Réponses SST intitulée Environnements froids - Effets sur la santé et premiers soins . 
+ Quelle est la température de refroidissement éolien?
+ Haut de la page 
+ À toute température, vous aurez plus froid à mesure que la vitesse du vent augmente. Les effets combinés de l’air froid et de la vitesse du vent sont simplement désignés comme le « refroidissement éolien » ou l’« indice de refroidissement éolien ». Essentiellement, il s’agit de la température de l’air qui serait ressentie sur la peau exposée de la même façon que le serait la combinaison donnée de la température de l’air et de la vitesse du vent. Cette mesure peut être utilisée comme indication des vêtements qu’il convient d’utiliser et des possibles conséquences du froid sur la santé.
+ Environnement et Changement climatique Canada a élaboré une calculatrice du refroidissement éolien et des guides pour aider à estimer le refroidissement éolien et la vitesse du vent.
+ REMARQUE : À toute température, vous aurez plus froid à mesure que la vitesse du vent augmente. Les effets combinés de l’air froid et de la vitesse du vent sont simplement désignés comme le « refroidissement éolien » ou l’« indice de refroidissement éolien ». Essentiellement, il s’agit de la température de l’air qui serait ressentie sur la peau exposée de la même façon que le serait la combinaison donnée de la température de l’air et de la vitesse du vent. Cette mesure peut être utilisée comme indication des vêtements qu’il convient d’utiliser et des possibles conséquences du froid sur la santé.
+ L’American Conference of Governmental Industrial Hygienists (ACGIH) a élaboré des recommandations pour protéger les travailleurs contre les effets les plus graves du stress dû au froid (hypothermie et engelures). Ces recommandations décrivent également les conditions de travail par temps froid dans lesquelles il est estimé que presque tous les travailleurs peuvent être exposés de manière répétée sans effets nocifs pour la santé. L’indice de refroidissement éolien est inclus dans ces recommandations.
+ L’indice de refroidissement éolien (IRE) estime la température ressentie en tenant compte de la température de l’air et de la vitesse du vent. Le tableau de l’IRE indique également le temps estimé qu’il faudrait à une personne marchant à trois kilomètres par heure pour que la peau exposée du visage gèle. À noter que si la peau est mouillée et exposée au vent, la mesure de la température de l’air utilisée pour déterminer l’IRE doit être inférieure de 10oC à la température réelle.
+ Source : Adapté d'après le livret « Threshold Limit Values (TLV) and Biological Exposures Indices (BEI) » publié par l'ACGIH, Cincinnati, Ohio , 2024, page 226.
+ Quels sont les risques pour la santé du travail au froid?
+ Haut de la page 
+ Le tableau suivant d'Environnement Canada présente les risques pour la santé et le risque de gelure à l'extérieur, à diverses températures.
+ REMARQUE : Les recommandations d’Environnement Canada s’appliquent à toutes les personnes pouvant se trouver à l’extérieur, dont les jeunes enfants et les aînés. Même si ces recommandations sont utiles, il est possible qu’elles ne correspondent pas aux valeurs établies par d’autres organismes, qui ont formulé des recommandations à l’intention des travailleurs adultes présumés en bonne santé.
+ Risques du refroidissement éolien et quoi faire 
+ Refroidis-sement éolien Risque d'exposition Risques pour la santé Quoi faire 
+ 0 à -9 Risque faible Légère augmentation de l'inconfort
+ S'habiller chaudement.
+ Rester au sec.
+ -10 à -27 Risque modéré Inconfort
+ Risque d' hypothermie ou d' engelure si la personne se trouve à l'extérieur pendant de longues périodes sans protection adéquate.
+ Porter des couches de vêtements chauds, avec une couche. extérieure résistante au vent.
+ Porter un chapeau, des mitaines ou des gants isolants, un foulard et des bottes isolantes et imperméables.
+ Rester au sec.
+ Rester actif.
+ -28 to -39 Risque élevé : La peau exposée peut geler en 10 à 30 minutes. Risque élevé d' engelure : Surveiller les engourdissements ou les blancheurs au visage et aux extrémités.
+ Risque élevé d' hypothermie si la personne se trouve à l'extérieur pendant de longues périodes sans vêtements adéquats ou abri du vent et du froid.
+ Porter des couches de vêtements chauds, avec une couche extérieure résistante au vent.
+ Couvrir la peau exposée.
+ Porter un chapeau, des mitaines ou des gants isolants, un foulard, un cache-cou ou un passe-montagne, et des bottes isolantes et imperméables.
+ Rester au sec.
+ Rester actif.
+ -40 à -47 Risque très élevé : La peau exposée peut geler en 5 à 10 minutes.
+(Des vents soutenus de plus de 50 km/h peuvent causer des gelures plus rapidement qu'indiqué.) Risque très élevé d' engelure : Surveiller les engourdissements ou les blancheurs au visage et aux extrémités.
+ Risque très élevé d' hypothermie si la personne se trouve à l'extérieur pendant de longues périodes sans vêtements adéquats ou abri du vent et du froid.
+ Porter des couches de vêtements chauds, avec une couche extérieure résistante au vent.
+ Couvrir la peau exposée.
+ Porter un chapeau, des mitaines ou des gants isolants, un foulard, un cache-cou ou un passe-montagne, et des bottes isolantes et imperméables.
+ Rester au sec.
+ Rester actif.
+ -48 à -54 Risque grave : La peau exposée peut geler en 2 à 5 minutes.
+(Des vents soutenus de plus de 50 km/h peuvent causer des gelures plus rapidement qu'indiqué.) Risque grave d' engelure : Surveiller les engourdissements ou les blancheurs au visage et aux extrémités.
+ Risque grave d' hypothermie si la personne se trouve à l'extérieur pendant de longues périodes sans vêtements adéquats ou abri du vent et du froid.
+ Être prudent. Porter des couches de vêtements très chauds, avec une couche extérieure résistante au vent.
+ Couvrir toute la peau exposée .
+ Porter un chapeau, des mitaines ou des gants isolants, un foulard, un cache-cou ou un passe-montagne, et des bottes isolantes et imperméables.
+ Être prêt à écourter ou à annuler les activités extérieures. 
+ Rester au sec.
+ Rester actif.
+ -55 et plus froid Risque extrême : La peau exposée peut geler en moins de 2 minutes. DANGER! Les conditions extérieures sont dangereuses .
+ Rester à l'intérieur. 
+ Source : Indice de refroidissement éolien . Environnement Canada (2017)
+ Y a-t-il des limites d'exposition pour le travail dans les environnements froids?
+ Haut de la page 
+ Au Canada, la législation de certains administrations fournit une plage de températures acceptables pour des circonstances spécifiques. Dans d'autres cas, les organismes de santé et sécurité au travail utilisent les valeurs limites d'exposition® (TLV) relatives au cryostress publiées par l'American Conference of Governmental Industrial Hygienists (ACGIH). Certains gouvernements du Canada ont adopté ces TLV® comme critères réglementaires alors que d'autres les utilisent comme lignes directrices.
+ Lorsqu’il n’y a aucune limite d’exposition maximale ou minimale pour le travail dans les environnements froids, des directives sont en place pour faire les évaluations des risques, pour établir des plans de travail sécuritaire et pour surveiller les conditions pour protéger la santé et la sécurité des travailleurs qui peuvent être exposés aux températures froides. Lorsqu’il y a des différences entre les recommandations faites par divers organismes (et lorsqu’il n’y a aucune limite ou directive établie), les employeurs sont invités à choisir un système qui fournit une protection optimale à leur main-d'œuvre.
+ Par exemple, l’ACGIH suggère une alternance travail/réchauffement lorsque le travail est effectué en continu dans le froid, à une température de refroidissement éolien égale ou inférieure à -7 °C (19,4 °F); des abris chauffés, comme des tentes, des campements ou des salles de repos, devraient être installés à proximité et devraient être utilisés à intervalle régulier. Les travailleurs devraient être encouragés à utiliser ces abris, selon le degré d’exposition. Si vous remarquez des signes de stress dû au froid, retournez immédiatement à l’abri.
+ Pour le travail effectué à -12 °C (10,4 °F) ou moins, il faut :
+ assurer une observation constante (superviseur ou système de jumelage);
+ ajuster le rythme de travail de façon qu’il ne soit pas élevé au point de causer une transpiration abondante, ce qui mouillerait les vêtements;
+ accorder du temps aux nouveaux employés afin qu’ils s’habituent aux conditions;
+ apporter des ajustements pour tenir compte du poids et du volume des vêtements dans l’évaluation du rendement exigé d’un travailleur et des poids que celui-ci doit soulever;
+ prendre des mesures pour réduire au minimum le temps passé assis ou debout pendant de longues périodes;
+ donner des consignes sur les pratiques de travail sécuritaires, les techniques de réchauffement, la façon de se vêtir adéquatement, les bonnes habitudes alimentaires (nourriture et liquides), la reconnaissance de l’exposition au froid et des gelures, ainsi que des signes et symptômes d’hypothermie ou de refroidissement excessif du corps (même en l’absence de frissons).
+ Quelles mesures de contrôle peuvent aider à prévenir les effets néfastes du froid?
+ Haut de la page 
+ Des mesures d’ingénierie, des pratiques de travail sûres, de la formation et de la sensibilisation ainsi que des vêtements appropriés permettent de réduire au minimum le risque de lésions et de maladies dues au froid. 
+ Mesures d’ingénierie
+ Installer des radiateurs à chaleur rayonnante dans les stations extérieures
+ Fournir des abris chauffés, comme des tentes, des campements ou des salles de repos
+ Protéger les postes de travail contre le vent et les courants d’air
+ Isoler le matériel, comme les poignées en métal de l’équipement lorsque l’on travaille dans des conditions sous le point de congélation 
+ Mesures administratives
+ Mettre en place un système de jumelage afin que les travailleurs puissent veiller les uns sur les autres et s’aider
+ Travailler à un rythme permettant d’éviter de transpirer de façon excessive
+ Offrir des abris pour se réchauffer où les travailleurs peuvent enfiler des vêtements secs si la transpiration ne peut être évitée
+ Accorder suffisamment de temps aux nouveaux employés afin qu'ils puissent s’habituer au froid et aux vêtements de protection avant d’assumer une charge de travail complète
+ Fournir des liquides chauds aux travailleurs
+ Prévoir le travail demandant un effort physique intense pendant les périodes plus chaudes de la journée
+ Effectuer une rotation des employés pour diminuer l’exposition au froid
+ Si le travail est effectué à bord d’un bateau, planifier des quarts de travail loin des conditions orageuses où les travailleurs risquent de tomber par-dessus bord
+ Mesures d'urgence
+ Les procédures à suivre pour prodiguer les premiers secours ainsi que pour obtenir des soins médicaux devraient être définies clairement. À chaque quart de travail, au moins une personne adéquatement formée devrait être affectée aux situations d'urgence.
+ Éducation
+ Les travailleurs et les surveillants qui sont appelés à travailler dans des environnements froids devraient être informés des symptômes du stress lié au froid, des habitudes à suivre en matière vestimentaire, des pratiques de travail sécuritaires, des exigences physiques du travail au froid et des mesures à prendre en cas de lésions attribuables au froid. Les travailleurs doivent comprendre les risques et peuvent se surveiller mutuellement et être à l’affût des symptômes des blessures dues au froid, y compris l’hypothermie.
+ Quel équipement de protection individuelle (EPI) peut être utilisé pour le travail au froid?
+ Haut de la page 
+ Vêtements
+ Il faut porter des vêtements protecteurs lorsqu’on doit travailler dans des environnements froids. Les vêtements devraient être choisis en fonction de la température et du temps (p. ex. vitesse du vent, pluie), du niveau et de la durée de l’activité et des tâches à exécuter. Il est important de tenir compte de ces facteurs afin de pouvoir contrôler la quantité de chaleur produite et la transpiration durant le travail. Si la cadence de travail est trop rapide ou si le type et la quantité de vêtements ne sont pas bien choisis, le travailleur transpirera abondamment. Les vêtements qui sont en contact direct avec la peau s’imprégneront de sueur et leur facteur d’isolement chutera alors de façon considérable. Cette diminution de la protection offerte par les vêtements augmente le risque de lésions et de maladies dues au froid.
+ Il faut porter plusieurs couches de vêtements, qui offriront une meilleure protection qu'un seul vêtement épais. L'air qui se trouve entre les couches de vêtements assure une meilleure protection que le vêtement lui-même. Le fait de porter plusieurs couches permet aussi d'entrouvrir un vêtement ou de retirer une couche avant d'avoir trop chaud et de commencer à transpirer, ou d'ajouter une couche au moment de la pause. Les couches permettent aussi de s'adapter au niveau d'activités ainsi qu'aux changements de température et de conditions climatiques. Les couches extérieures successives doivent être moins serrées contre le corps que le vêtement intérieur, sinon les couches extérieures comprimeront les couches intérieures et diminueront les propriétés isolantes des vêtements.
+ La couche intérieure doit être isolante et elle doit éloigner l'humidité de la peau afin de la maintenir sèche. Les sous-vêtements isolants faits de laine,, de polyesters et de polypropylène sont adaptés à cette fin, puisque le polypropylène éloigne la transpiration de la peau. Ils empêchent aussi la deuxième couche de vêtements d'entrer en contact avec la peau.
+ Les couches additionnelles de vêtements devraient fournir un isolant adéquat pour les conditions climatiques dans lesquelles le travail est effectué. Ces vêtements devraient aussi être faciles à entrouvrir et à enlever, afin que le travailleur n'ait pas trop chaud ni ne transpire abondamment pendant les périodes d'activité intense. Les vestes portées à l'extérieur devraient se fermer et s'ouvrir à la taille, au cou et aux poignets afin qu'il soit possible de contrôler la quantité de chaleur conservée et évacuée. Certaines vestes ont des poches en résille ainsi que des fentes autour du tronc et sous les aisselles (avec des fermetures à glissière et des attaches en Velcro) qui facilitent une plus grande ventilation.
+ Pour le travail sous la pluie ou la neige, la couche de vêtements extérieure devrait être imperméable.
+ S'il est impossible de protéger l'aire de travail contre le vent, il faudrait porter un coupe-vent facile à enlever.
+ Dans des conditions extrêmes de froid, il faudrait fournir aux travailleurs des vêtements protecteurs chauffants s'il est impossible de faire le travail par temps plus chaud.
+ Porter un couvre-chef adapté aux conditions, notamment pour garder les oreilles au chaud. Si un casque de sécurité est requis, le port d'un bonnet en tricot ou d'une doublure sous le casque peut réduire la perte de chaleur excessive. Consulter le fournisseur ou le fabricant du casque de sécurité pour obtenir une doublure appropriée permettant de préserver la protection offerte par le casque de sécurité.
+ Il faut garder les vêtements propres, car la saleté remplit les cellules d'air contenues dans les fibres des vêtements et annule leur pouvoir d'isolement.
+ Il faut garder les vêtements secs. Pour y arriver, on peut enlever la neige avant de pénétrer dans un abri chauffé. Pendant que le travailleur se repose dans un endroit chauffé, il devrait permettre à la transpiration de s'échapper en ouvrant les attaches du col, de la taille, des manches et des chevilles ou en retirant les couches extérieures de vêtements. Si l'aire de repos est assez chaude, il est préférable d'enlever la ou les couche(s) extérieure(s) afin que la transpiration puisse s'évaporer des vêtements.
+ Si la motricité fine n'est pas requise, il faudrait porter des gants si la température ambiante est au-dessous de 4 °C, pour le travail léger, et au-dessous de -7 °C, pour le travail modéré. Enfin, à des températures situées au-dessous de -17 °C, il faudrait porter des mitaines.
+ Le coton n'est pas recommandé. Il a tendance à s'humidifier ou à se mouiller rapidement, et perd alors ses propriétés isolantes. Par contre, la laine et les fibres synthétiques retiennent la chaleur lorsqu'elles sont mouillées.
+ Chaussures
+ Ce sont les bottes en cuir à semelles de caoutchouc doublées en feutre et munies de fausses semelles en feutre qui sont les mieux adaptées au travail lourd dans un environnement froid parce que le cuir est poreux, ce qui permet aux bottes de « respirer » et à la transpiration, de s'échapper. Il est possible d'imperméabiliser les bottes en cuir avec certains produits qui ne bloquent pas les pores du cuir. Toutefois, s'il faut travailler les pieds dans l'eau ou dans la gadoue (p. ex. pompiers, agriculteurs), mieux vaut porter des bottes imperméables. Bien que ces bottes protègent les pieds du travailleur contre l'humidité, elles empêchent aussi la transpiration de s'échapper. Les matériaux isolants et les chaussettes seront plus rapidement mouillés, ce qui augmentera le risque de gelures.
+ La fiche d'information Réponses SST intitulée Confort et sécurité des pieds au travail propose certains renseignements généraux sur la façon de choisir des chaussures. (Quand on essaie des bottes avant de les acheter, il est recommandé de porter le même type de chaussettes que celles que vous portez pour travailler afin d'obtenir un bon ajustement.)
+ Chaussettes
+ Certaines personnes préfèrent porter une paire de chaussettes épaisses ou encore deux paires – une chaussette intérieure en soie, en nylon ou en laine mince et une chaussette extérieure épaisse, un peu plus grande. Les chaussettes en polypropylène aideront à maintenir les pieds secs et chauds en éloignant la sueur de la surface de la peau. Mais, à mesure que la chaussette extérieure absorbe l'humidité, elle perd ses propriétés isolantes. Si les conditions de travail le permettent, il est recommandé de prévoir des chaussettes supplémentaires et de changer de chaussettes durant la journée. Si l'on porte deux paires de chaussettes, les chaussettes extérieures doivent être plus grandes afin que les chaussettes intérieures ne soient pas comprimées.
+ Portez toujours des chaussettes dont l'épaisseur est adaptée à vos bottes de travail. Si les chaussettes sont trop épaisses, les bottes seront trop serrées et les chaussettes perdront alors une grande partie de leurs propriétés isolantes du fait d'une compression excessive à l'intérieur des bottes. De plus, les pieds seraient aussi comprimés, ce qui aurait pour effet de ralentir la circulation sanguine et d'augmenter le risque de blessures dues au froid. Si les chaussettes sont trop minces, les bottes seront trop lâches, ce qui pourrait entraîner la formation de cloques.
+ Protection du visage et des yeux
+ Lorsqu'on a recours à une protection du visage, il faut séparer la protection oculaire de celle du nez et de la bouche afin d'empêcher que l'humidité contenue dans l'air expiré ne vienne embuer et geler les lunettes. Il importe de choisir des lunettes protectrices adaptées au travail que vous devez faire et qui vous protègent contre les rayons ultraviolets du soleil, l'éblouissement de la neige, la poudrerie et les cristaux de glace, et les vents forts par temps froid.
+ Quels autres conseils de sécurité devrait-on suivre?
+ Haut de la page 
+ Afin de ne pas trop transpirer en travaillant, il est recommandé d'enlever ses vêtements dans l'ordre suivant
+ retirer les mitaines ou gants (à moins d'avoir besoin d'une protection contre la neige ou la glace),
+ retirer le casque de sécurité, bonnet, chapeau et foulard.
+ ouvrir ensuite la veste au niveau des poignets et de la taille.
+ enlever une couche de vêtements à la fois.
+ À mesure que votre corps se refroidit, suivre ces étapes dans le sens inverse.
+ Des repas équilibrés et un apport suffisant de liquides permettent au corps de conserver sa chaleur en plus de prévenir la déshydratation. Il est recommandé de bien manger (alimentation équilibrée) et de manger fréquemment. Il faut plus d'énergie pour travailler au froid qu'à la chaleur, l'organisme devant s'activer pour conserver sa chaleur. Il faut dépenser plus d'énergie lorsqu'on porte des vêtements épais et des bottes d'hiver, surtout si on doit marcher dans la neige.
+ Il faut boire souvent, surtout lorsqu'on doit faire un travail physiquement exigeant. Pour se réchauffer, il est recommandé de boire des boissons chaudes non alcoolisées ou de manger de la soupe. Il faut limiter la consommation de boissons caféinées, en outre le café, parce qu'elles augmentent la production d'urine et contribuent à la déshydratation. La caféine augmente aussi la circulation sanguine au niveau de la peau, ce qui peut augmenter la perte de chaleur.
+ Ne pas consommer d’alcool lorsque l’on est exposé au froid. L’alcool produit une fausse sensation de chaleur. Sous l’influence de l’alcool, vous pourriez être exposé à des conditions de froid mortelles sans en être conscient. 
+ Dans les locaux réfrigérés, la vitesse de l'air ne devrait pas dépasser un (1) mètre/seconde. Si les travailleurs sont exposés simultanément à des vibrations et/ou à des substances toxiques, il peut être nécessaire d'abaisser les limites d'exposition au froid.
+ Date de la dernière modification de la fiche d’information : 2025-01-19
+ Avertissement 
+ Bien que le CCHST s’efforce d’assurer l’exactitude, la mise à jour et l’exhaustivité de l’information, il ne peut garantir, déclarer ou promettre que les renseignements fournis sont valables, exacts ou à jour. Le CCHST ne saurait être tenu responsable d’une perte ou d’une revendication quelconque pouvant découler directement ou indirectement de l’utilisation de cette information.
+ Fiches d’information Réponses SST 
+ Recherche dans toutes les fiches d’information 
+ Retour aux Exposition au froid 
+ Fiches d’information connexes 
+ Environnements froids - Effets sur la santé et premiers soins 
+ Conditions de température - Froid 
+ Changements climatiques : Conditions météorologiques extrêmes – Froid 
+ La CCHST présente 
+ Besoin d’aide?
+ Communiquez avec notre Infoligne sécurité 
+ 905-572-2981 .
+ Sans frais 1-800-668-4284 
+ (au Canada et aux É.-U.) 
+ Posez une question 
+ Application CCHST Sécurité au travail
+ Obtenez des réponses en un instant. Téléchargez gratuitement l’application CCHST Sécurité au travail.
+ Contenu connexe 
+ Santé et sécurité du personnel d’entretien
+ De l’information pratique sur la santé et sécurité pour les nettoyeurs, les préposés à l’entretien, et les gestionnaires des installations.
+ Voir Publication 
+ Voir tout Publications 
+ Ajouter la page aux liens enregistrés
+ Retour au portail
+ Ajouter la page aux liens enregistrés
+ Action réussie!
+ Cette page a été ajoutée comme lien enregistré.
+ Erreur!
+ Cette page n’a pas pu être ajoutée comme lien enregistré. Veuillez réessayer plus tard.
+ ouvre une nouvelle fenêtre
+ Haut de Page
+ Date de modification : 
+ 2026-09-17
+ Informations sur le site
+ Avis 
+ Transparence 
+ Ce que fait le CCHST 
+ Conseil des gouverneurs 
+ Rapports d'entreprise 
+ Nos projets et nos partenariats 
+ Bourses d'études 
+ Carrières 
+ Salle de rédaction 
+ Communiqués de presse 
+ Avis aux médias 
+ Questions du jour 
+ Dans les nouvelles 
+ Contactez-nous 
+ Formulaire en ligne 
+ Téléphone / Fax 
+ Par la poste 
+ Lieu 
+ Restez en contact 
+ Facebook 
+ Threads 
+ Instagram 
+ LinkedIn 
+ Bulletins 
+ Événements 
+ Pied de page du gouvernement du Canada
+ Santé 
+ Voyage 
+ Service
+ Canada 
+ Emplois 
+ Canada.ca 

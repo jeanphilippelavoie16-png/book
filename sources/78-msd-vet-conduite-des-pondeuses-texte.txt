@@ -1,0 +1,193 @@
+Management of Laying Chickens - Poultry - MSD Veterinary Manual
+honeypot link
+skip to main content
+MSD MANUAL
+Veterinary Manual
+VETERINARY PROFESSIONALS
+PET OWNERS
+RESOURCES
+QUIZZES
+ABOUT
+VETERINARY PROFESSIONALS
+PET OWNERS
+<
+Nutrition and Management: Poultry
+PROFESSIONAL VERSION
+Management of Laying Chickens
+Full Review:
+Apr 2023
+By
+Bruce Stewart-Brown
+,
+DVM, DACPV
+,
+Perdue Farms
+Last updated: Sept 2024
+v3345078
+Artificial Lights
+|
+Record Keeping
+|
+Floor Space, Feeding, and Water Requirements
+|
+Number of Layers per Cage
+|
+For More Information
+|
+Multimedia
+|
+Most laying pullets are housed in cages and should be moved to these facilities at least 1 week before egg production begins. Breeders moved from a growing house to an adult house should also be given at least 1 week to adjust to their new environment before the stress of egg production begins. Beaks should be retrimmed as necessary, and cull birds removed at the time of rehousing.
+Feeders and waterers should be of the proper type, size, and height for the birds and the management system. Feeders that are too shallow, too narrow, or lacking a lip or flange on the upper edge may permit excess feed waste. Uneven distribution of waterers or lack of water space results in decreased intake and thus decreased performance.
+Since 2010, the management style associated with commercial egg-laying chickens has changed markedly. The majority of hens, (approximately 274.5 million in 2020. 82.6%) in the US remain housed in conventional cage environments, but cage-free production is increasing. There are two cage-free styles of production: organic and cage-free shell egg production. As of 2019, 5.1% of hens (16.9 million) are organic, and 13.3% (43.8 million hens) are nonorganic cage-free. There is no standard for the cage-free definition, so styles of cage-free management vary.
+In meat-bird laying houses, males are fed separately from females, in an area commonly referred to as the "scratch" area. For males, feeders are in the center and lowered daily so that the birds get the appropriate amount of feed. Females are fed on the slatted area of the house. These feeders have restricting grills that allow access to hens' heads but not to roosters, with their larger heads.
+Artificial Lights in the Management of Laying Chickens
+As the pullets come into egg production, day length should be increased gradually up to a period of 14–16 hours of light per day at peak production for both market-egg and hatching-egg layers. An intensity of at least 1 foot-candle of light (10 lux) at the feed trough should be provided; this intensity is approximately equal to the amount of light provided by one 60-watt light bulb per 100 square feet (~9 square meters), hanging 7 feet (2.1 meters) above the birds.
+Production may decrease if day length or light intensity is decreased during the laying period. With cage systems of all types, illumination is more even if lower-wattage bulbs spaced closer together are used, rather than large bulbs suspended over the center of each aisle. For tiered cages, the bulbs should be suspended 6–7 inches (15–18 cm) above the level of the top cage.
+Record Keeping in the Management of Laying Chickens
+Successful intensive poultry management requires keeping good records of all factors affecting the flock, including hatch date, frequent body weight measurement (to ensure that the pullets will have reached optimal body weight when they are brought into egg production), lighting program, house temperatures, disease history, medication and vaccination dates, quantity and type of feed given (important in calculating the efficiency of feed conversion), and mortality.
+Floor Space, Feeding, and Water Requirements of Laying Chickens
+Typical broiler breeder house
+Image
+This typical broiler breeder house has a scratch area with litter, and the nests are on slats.
+Courtesy of Dr. Bruce Stewart-Brown.
+Egg-production birds usually spend their entire lives in cages. Although some broiler breeders are similarly housed, most are reared on litter floors or in pens in which as much as two-thirds of the floor is slatted. For egg-strain pullets reared in cages, the feeding and watering space cannot be varied much; however, periodic checks are necessary to ensure that feed and water are being continuously supplied.
+With the success of nipple and cup waterers and the various types of automatic feeding systems, it has become more difficult to make specific recommendations for feeding and watering space. Decisions about optimal floor space, as well as feeding and watering requirements, must be based on advice from equipment manufacturers and primary breeders, careful observation, and past experience. See the associated tables in this topic showing the minimum space requirements for
+egg-strain birds
+and
+meat-strain birds
+. Environmental housing and various types of ventilation may alter these specifications.
+Table
+Minimum Space Requirements for White Leghorn Egg-Strain Birds
+a
+Table
+Minimum Space Requirements for White Leghorn Egg-Strain Birds
+a
+Minimum Space Requirements for White Leghorn Egg-Strain Birds <sup >a</sup>
+s
+Requirements by Age:
+Management Parameter
+0–6 wk
+7–17 wk
+≥ 18 wk
+Cages
+Floor area per bird
+25 sq in.
+45 sq in.
+60 sq in.
+Straight-trough feeder space per bird
+≥ 2 in.
+≥ 2.5 in.
+≥ 3 in.
+Waterers
+Number of birds per nipple
+15
+10
+8
+Number of birds per cup
+25
+15
+12
+Number of birds per fount
+100
+50
+25
+Linear trough space per bird
+1 in.
+1 in.
+2 in.
+Litter and Slats
+Floor area (litter only or combined with slats) per bird
+0.5 sq ft
+1 sq ft
+1–1.5 sq ft
+Straight-trough feeder space per bird
+1 in.
+2 in.
+3.5 in.
+Number of feed pans (15 in. [38 cm] diameter) per 100 birds
+Full fed
+3
+4
+5
+Restricted
+N/A
+5
+N/A
+a
+Requirements for White Leghorns and brown-egg layers are different.
+a
+Requirements for White Leghorns and brown-egg layers are different.
+Table
+Minimum Space Requirements for Meat-Strain Birds
+Table
+Minimum Space Requirements for Meat-Strain Birds
+Minimum Space Requirements for Meat-Strain Birds
+Age
+Area of Floor Space
+a
+Area of Feeder Space
+b
+Number of Cups or Founts
+b
+(per 1,000 birds)
+From 1 day old
+0.5 m
+heated brooder/100 chicks
+10 trays/1,000 chicks (feed little and often)
+8
+From 1 wk old
+0.1 m
+/bird
+5 cm/bird
+20
+From 8 wk old
+0.2 m
+/bird
+10 cm/bird
+30
+Mated adults
+All litter: 0.3 m
+/bird; ½–⅔ slats: 0.21m
+/bird
+10 cm/bird
+30 (60 in hot weather)
+a
+Broiler production programs are relatively prescriptive with regard to space requirements, and specific recommendations should be consulted. Provided here are general guidelines.
+b
+For feeder and drinking-trough space, both sides of the trough should be counted. Drinking-trough space (all ages) is 1 in. (2.5 cm) per bird; in hot weather, however, that requirement is doubled for adults.
+a
+Broiler production programs are relatively prescriptive with regard to space requirements, and specific recommendations should be consulted. Provided here are general guidelines.
+b
+For feeder and drinking-trough space, both sides of the trough should be counted. Drinking-trough space (all ages) is 1 in. (2.5 cm) per bird; in hot weather, however, that requirement is doubled for adults.
+Number of Laying Chickens per Cage
+Within the guidelines indicated in the tables giving the minimum space requirements for
+egg-strain birds
+and
+meat-strain birds
+, most colony cages house 5–10 layers. The ideal flock size depends on several factors, including labor and cost, and is best determined by the individual poultry manager or producer.
+For More Information
+Hy-Line International:
+Understanding Poultry Lighting: A Guide to LED Bulbs and Other Sources of Light for Egg Producers
+Test your Knowledge now
+Take a Quiz!
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+About
+Disclaimer
+Cookie Preferences
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.
+About
+Disclaimer
+Permissions
+Privacy
+Cookie Preferences
+Terms Of Use
+Partnerships
+Contact Us
+Human Health Manuals
+Copyright
+© 2026
+Merck & Co., Inc., Rahway, NJ, USA and its affiliates. All rights reserved.

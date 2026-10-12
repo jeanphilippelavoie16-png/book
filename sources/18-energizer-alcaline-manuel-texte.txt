@@ -1,0 +1,771 @@
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      Introduction
+
+   Introduction   Since its commercial introduction in 1959, the Alkaline-Manganese Dioxide
+                  battery has advanced to a dominant position in the portable battery market.
+      Battery     This came about because the alkaline system is recognized to have several
+   Description    advantages over carbon zinc type batteries. Some of these advantages of
+                  alkaline chemistry over the basic carbon zinc chemistry are:
+  Temperature
+      Effects     · Higher energy density
+
+      System      · Superior service performance at all drain rates
+  Comparisons
+                  · Superior cold temperature performance
+      Internal
+    Resistance    · Lower internal resistance
+
+     Capacity     · Longer shelf life
+
+     Shelf Life   · Greater resistance to leakage                                                                  1957 PROTOTYPE
+                                                                                                                      Alkaline Battery
+Testing and Care
+                  Energizer® alkaline batteries are available in a wide variety of sizes to fit most applications. Multiple
+  Disposal and    grades of batteries are also available in the more popular battery sizes. For example the alkaline AA/LR6
+     Shipping     size battery is offered in Economy (fig. 1), Standard (fig. 2) and Premium (fig. 3) grades. Each of these
+                  grades of alkaline batteries is designed to maximize price and performance for a particular segment of
+                  electronic devices.
+
+                  Energizer® Economy Alkaline:
+                  Designed for long-lasting power for devices with low to moderate drain rates at an affordable price. For
+                  example: radios, remote controls and clocks.
+
+                                                 (fig. 1) Energizer® Economy Alkaline Selection Guide              Page 1 of 14
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      Energizer® Standard Alkaline:
+                  Designed for long-lasting performance in the broadest range of device applications.
+   Introduction
+                  (fig. 2) Energizer® Standard Alkaline Device Selection Guide
+      Battery     Energizer® Premium Alkaline:
+   Description    Designed to deliver superior run time for high-tech devices. For example: Digital cameras, MP3 players,
+                  and hand held games.
+  Temperature
+      Effects
+
+      System
+  Comparisons
+
+      Internal
+    Resistance
+
+     Capacity
+
+     Shelf Life
+
+Testing and Care
+
+  Disposal and
+     Shipping
+
+                  (fig. 3) Energizer® Premium Alkaline Device Selection Guide
+
+                  Battery Description
+
+                  Cylindrical alkaline batteries are produced with a high surface area zinc anode, a high density manganese
+                  dioxide cathode, and a potassium hydroxide electrolyte. A cutaway (fig. 4) of a typical cylindrical alkaline
+                  battery is illustrated in the following diagram:
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance  Page 2 of 14
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      (fig. 4) Typical Cylindrical Alkaline Battery
+
+   Introduction         Cathode is a mixture of high purity electrolytic manganese dioxide and carbon conductor.
+                        Anode is a gelled mixture of zinc powder and electrolyte.
+      Battery           Separators of specially selected materials prevent migration of any solid particles in the
+   Description          battery.
+                        Steel can confines active materials and serves as the cathode collector.
+  Temperature           Brass collector serves as the anode collector.
+      Effects           Positive and negative covers provide contact surfaces of nickel-plated steel.
+                        Non-conductive plastic film label electrically insulates the battery.
+      System            Nylon seal provides a safety venting mechanism.
+  Comparisons
+                  Electrochemistry:
+      Internal
+    Resistance    An alkaline battery produces electricity when the manganese dioxide cathode is reduced and the zinc
+                  anode becomes oxidized. The equation for a simple alkaline cell reaction is as follows:
+     Capacity
+                       Zn + 2MnO2 + H2O  ZnO +2MnOOH
+     Shelf Life   During this reaction, water (H2O) is consumed and hydroxyl ion (OH-) are produced by MnO2 cathode
+                  under following reaction:
+Testing and Care
+                      2 MnO2 + 2 H2O+ 2 e  2MnOOH + 2OH-.
+  Disposal and    At the same time, the anode is consuming hydroxyl ions and producing water:
+     Shipping
+                      Zn + 2 OH- ZnO +H2O + 2 e.
+                  The electrons (e) generated during the reaction are used to power devices. The rate of the reaction is
+                  dependent on the quality of the raw materials and availability of water and hydroxyl ions during reaction.
+                  A battery is designed to keep the cathode and anode separated to prevent the reaction from occurring.
+                  The stored electrons will only flow when the circuit is closed. This occurs when the battery is placed in a
+                  device and the device is turned on. This principle is the same as turning on and off a light switch in a
+                  house.
+
+                  When the circuit is closed, the stronger attraction for the electrons by the manganese dioxide will pull the
+                  electrons from the zinc anode electrode through the wire in the circuit to the cathode electrode. This flow
+                  of electrons through the wire is electricity and can be used to power applications.
+
+                  Alkaline batteries typically have a sloping discharge curve. Most devices are designed to operate within a
+                  voltage range (for example from 1.6 volts to 0.9 volts per cell) to accommodate this sloping discharge
+                  characteristic. The sloping discharge in alkaline batteries is primarily due to the increase in battery
+                  internal resistance due to reaction byproducts forming on the electrode surfaces and decrease availability
+                  of the fuels (i.e., water). Hydrogen gas is a byproduct of the chemical reaction in all alkaline batteries.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance  Page 3 of 14
+Alkaline Manganese Dioxide                                                                                            Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      Under normal usage, this gas production is very low.
+                  However, in abusive conditions, (i.e. charging or electrically shorting) high levels of hydrogen can be
+   Introduction   produced with larger battery sizes having a greater capacity to generate hydrogen gas. In devices that
+                  use a tightly sealed battery case (i.e. diving lights), the hydrogen gas can mix with air to create an
+      Battery     explosive atmosphere. For devices with tightly sealed or water proof battery compartments, hydrogen gas
+   Description    generation under normal or abusive conditions needs to be addressed as a potential safety issue to
+                  prevent the accumulation of dangerous levels of hydrogen gas within the device.
+  Temperature
+      Effects     Temperature Effects on Performance:
+
+      System      The recommended operating temperature range for alkaline batteries is -18° C to 55° C. However, it is
+  Comparisons     important to keep in mind that battery performance is still impacted by temperature within the
+                  recommended range. Performance of the battery is primarily dependent on how fast critical fuels, water
+      Internal    and hydroxyl ions, can move and react in the battery. The mobility of ions is known as diffusion. For
+    Resistance    example: maximum battery performance will not be achieved at cold temperatures. As the temperature
+                  decreases, the diffusion of the fuels will decrease resulting in lower performance. Batteries will discharge
+     Capacity     more efficiently as the operating temperature is increased due to increase diffusion of the fuels. As the
+                  temperature is decreased, performance decreases accordingly. The lower temperature limit is determined
+     Shelf Life   in part by the temperature at which the electrolyte freezes. The Alkaline-Manganese Dioxide cell can
+                  operate at temperatures as low as -20oC however this performance will be significantly lower (fig. 5). The
+Testing and Care  operating range for these cells is wider than for Leclanché cells.
+
+  Disposal and
+     Shipping
+
+                                     AA/LR6 Alkaline Batteries
+
+                              Effect o f Co ld Temperature at 250 mA Co ntinuous Discharge
+
+                  Voltage  1.6
+                           1.5
+                           1.4                                                                                        20 C
+                           1.3
+                           1.2
+                           1.1
+                           1.0 -20 C 0 C
+                           0.9
+                           0.8
+
+                           0                               2  4                                                    6        8
+
+                                                              Time (hours)
+
+                  (fig. 5) Temperature impact on battery performance
+
+                  Cold temperatures and their subsequent slowing of the chemical kinetics reactions impact the internal
+                  resistance (Ri) of the cell. High drain rates in cold environments will cause a large voltage drop due to the
+                  higher battery Ri. Applications using high drain rates (i.e. digital cameras) will be impacted more by cold
+                  temperatures than will light drain devices (i.e. MP3 players).
+
+                  No capacity is actually lost due to cold temperatures; rather it is more difficult to access the full potential
+                  of the battery due to the slowing of the electrochemical reactions.
+
+                  As an example: if a flashlight is stored in a car on a very cold night, the flashlight would not be as bright
+                  or last as long when used. However, if this flashlight is taken indoors and allowed to warm up for several
+                  hours, its performance would return to normal. Warm temperatures can increase battery performance
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance              Page 4 of 14
+Alkaline Manganese Dioxide                                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      since ion mobility and the reaction rates are increased (fig. 6). A boost in battery performance can be
+                  observed in very high drain continuous applications that increase the battery temperature.
+   Introduction
+                                                   AA/LR6 Alkaline Batteries
+      Battery
+   Description                          Temperature Effect on Capacity / Constant Current Discharge to 0.9V
+
+  Temperature     Capacity (mAh)  3500                     25 mA                                                       MP3 Player
+      Effects                     3000                     250 mA                                                        GPS
+                                  2500                     1000 mA
+      System                      2000
+  Comparisons                     1500
+
+      Internal                    1000                                                                                 Digital Camera
+    Resistance                     500
+
+     Capacity                     0
+
+     Shelf Life                         -40                -20      0                                              20  40              60
+
+Testing and Care                                                    Temperature (c)
+
+  Disposal and
+     Shipping
+
+                  (fig. 6) Temperature Effect on Capacity
+
+                  Temperature cycling between extreme high and low temperatures can cause expansion and contraction
+                  of the battery components. Over time, extreme temperature cycling can cause a failure of the battery
+                  seal integrity thereby increasing the potential for leakage.
+
+                  Comparison to other Chemical Systems:
+
+                  Various materials can be used for battery components. Batteries using different materials will have
+                  different characteristics. For example: voltage, shelf life, temperature effects etc. The following graph
+                  (fig. 7) shows the relative performance of three chemical systems versus AA/LR6 batteries at three
+                  constant current drain rates. Alkaline performance is being used as a base (100%) with the Lithium and
+                  Nickel Metal Hydride (NiMH) performance is represented as a percentage of standard alkaline.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance                          Page 5 of 14
+Alkaline Manganese Dioxide                                                                                                          Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      % of Alklaine Capacity                             AA Batteries
+
+   Introduction                                                     Constant Current Discharge to 0.9V at 21C
+
+      Battery                             400
+   Description                                             Alkaline NiMH Lithium
+
+  Temperature                             300
+      Effects
+                                          200
+      System
+  Comparisons                             100
+
+      Internal                            0                                  250mA                                              1000mA
+    Resistance                                           25mA          Discharge Rate
+
+     Capacity     (fig. 7) Relative performance of three chemical systems with alkaline at 100%
+
+     Shelf Life   The following graph (fig. 8) shows the impact of temperature on AA/LR6 alkaline and AA/FR6
+                  lithium performance under a 25mA drain rate to 0.9 volt cutoff.
+Testing and Care
+
+  Disposal and
+     Shipping
+
+                                          AA/LR6 Alkaline & AA/FR6 Lithium Batteries
+
+                                          Temperature Effect on Capacity / 25mA Constant Current Discharge to 0.9
+
+                                          3500
+
+                  Capacity (mAh)          3000             AA Lithium
+                                          2500
+                                          2000                                                                     AA Alkaline
+
+                                          1500
+
+                                          1000
+
+                                          500
+
+                                               0
+
+                                                  -40      -20         0                                           20           40      60
+
+                                                                       Temperature (C)
+
+                  (fig. 8) Impact of temperature on AA/LR6 alkaline and AA/FR6 lithium
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance                           Page 6 of 14
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      Internal Resistance:
+
+   Introduction   The internal resistance (Ri) of a battery is defined as the opposition to the flow of current within the
+                  battery. There are two basic components that impact the internal resistance of a battery; electronic
+      Battery     resistance and ionic resistance. The electronic resistance plus the ionic resistance will be referred to as
+   Description    the total effective resistance.
+
+  Temperature     The electronic resistance encompasses the resistivity of the actual materials such as metal covers and
+      Effects     internal components; as well as, how well these materials make contact with each other. The effect of
+                  this portion of the total effective resistance occurs very quickly and can be seen within the first few
+      System      milliseconds after a battery is place under load.
+  Comparisons
+                  Ionic resistance is the resistance to current flow within the battery due to various electrochemical factors
+      Internal    such as, electrolyte conductivity, ion mobility and electrode surface area. These polarization effects occur
+    Resistance    more slowly than electronic resistance with the contribution to total effective resistance typically starting
+                  a few milliseconds or more after a battery is placed under load.
+     Capacity
+                  A 1000 Hz impedance test is also used to represent internal resistance. Impedance is defined as
+     Shelf Life   resistance to AC current flow. Due to the high speed of a 1000 Hz test, a portion of the ionic resistance
+                  factors may not be fully captured. Typically, the 1000 Hz impedance value will be less than the total
+Testing and Care  effective resistance value for the same battery. An impedance test across a range of frequencies is
+                  recommended to accurately portray internal resistance.
+  Disposal and
+     Shipping     The impact of electronic and ionic resistance can be observed using a dual pulse test. This test involves
+                  placing a battery on a low background drain allowing it to first stabilize and then pulsing it with a heavier
+                  load for approximately 100 milliseconds.
+
+                  Using "Ohms Law" (Volts = Current x Resistance), the total effective resistance is subsequently calculated
+                  by dividing the change in voltage by the change in current.
+
+                  As an example (fig. 9), if a 5 mA stabilization load is used in combination with a 505 mA pulse, the
+                  change in current is 500 mA. If the voltage changes from 1.485 to 1.378, the delta voltage would be
+                  0.107 Volts, thus yielding a total effective resistance of 0.107 Volts / 500mA or 0.214 Ohms (214
+                  milliohms).
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance  Page 7 of 14
+Alkaline Manganese Dioxide                                                                                                        Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents                                               Total Effective Resistance
+
+   Introduction                                                 Dual Pulse Method (5mA / 505mA)
+
+      Battery              1.55
+   Description
+                                      Stabilizing Drain (5mA)                                                      Delta Voltage
+  Temperature
+      Effects     Voltage  1.45
+
+      System                                                       Heavy Drain (505mA)
+  Comparisons
+                           1.35                            20  40  60  80                                          100 120 140
+      Internal                     0
+    Resistance
+                                                                   Time (milliseconds)
+     Capacity
+                  (fig. 9) 5 mA stabilization load / 505 mA pulse
+     Shelf Life   The typical effective resistance of fresh Energizer® alkaline cylindrical batteries (using a 5 mA
+                  stabilization drain followed by a 505 mA 100 millisecond pulse) will be approximately 150 to 300
+Testing and Care  milliohms, depending on size.
+
+  Disposal and    The effective resistance of a battery will change as the battery is discharged. The drain rate that the
+     Shipping     battery is discharged at will effect this change in resistance. Typically, a high drain will result in a
+                  relatively low resistance. Low rate discharges will result in a more gradual increase in resistance
+                  throughout life of the battery. By continually discharging a battery with periodic high current pulses, the
+                  resistance can be calculated through the life of the battery.
+
+                  The following is an example of an Energizer® AA/LR6 alkaline battery being discharged at 50 mA with 10
+                  mA / 500 mA 1 second pulses every 12 minutes. The brown line indicates the voltage discharge curve.
+                  The orange dashes are the calculated resistance (delta volts ÷ delta current) which corresponds to the
+                  secondary Y axis on the right hand side of the graph (fig. 10).
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance                 Page 8 of 14
+Alkaline Manganese Dioxide                                                                                                       Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents                             AA/LR6 Alkaline Battery
+
+   Introduction                     50mA Discharge Ri Test (10mA / 500mA Pulse) at 21C
+
+      Battery              1.8      Voltage                                                                            1 Sec Ri      1.0
+   Description             1.6                                                                                                       0.8
+                  Voltage  1.4                                                                                                       0.6
+  Temperature              1.2                                                                                                       0.4
+      Effects              1.0                             10  20  30                                              40  50            0.2
+                           0.8                                                                                                       0.0
+      System                                                                                                                     60
+  Comparisons                    0
+
+      Internal                                                     Time (hours)
+    Resistance
+                  (fig. 10) Internal Resistance change as battery is discharged.
+     Capacity
+                  Flash Amps can also be used to provide an estimate of internal resistance. Flash Amps are defined as the
+     Shelf Life   maximum current a battery can deliver for a very short period of time. This test is typically performed by
+                  electrically shorting a battery with a 0.01 ohm resistor for approximately 0.2 seconds and capturing the
+Testing and Care  closed circuit voltage. The current flow through the resistor can be calculated using Ohms Law and
+                  dividing the closed circuit voltage by 0.01 ohms. The open circuit voltage (OCV) prior to the test is
+  Disposal and    divided by the Flash Amps to obtain an estimate of internal resistance. Since Flash Amps can be difficult
+     Shipping     to accurately measure and OCV is dependent on many factors, this measurement technique should only
+                  be used as a general estimate of internal resistance.
+
+                  The voltage drop of a battery under load is a function of total effective resistance and current drain rate.
+                  An estimate of initial voltage drop under load can be calculated by multiplying the total effective
+                  resistance by the current drain placed on the battery.
+
+                  Example: A 1 Amp drain is placed on a battery with a Ri of 0.1 Ohms.
+                  1.0 Amps X 0.1 Ohms = 0.1 Volts
+                  Open circuit voltage = 1.6 Volts
+                  1.6 Volts - 0.1 Volts = 1.5 Volts
+                  (expected closed circuit voltage)
+
+                  In general, internal resistance will rise during discharge due to the byproducts of active materials that
+                  have been used. However, the rate of change during discharge is not consistent. Battery chemistry, depth
+                  of discharge, drain rate and the age of the battery can all impact internal resistance during discharge.
+
+                  Cold temperatures cause the electrochemical reactions that take place within the battery to slow down
+                  and will reduce ion mobility in the electrolyte. Subsequently, effective resistance will rise as ambient
+                  temperatures drops. Conversely, as temperatures rise, the electrochemical reactions within the battery
+                  become more efficient and effective resistance can decrease.
+
+                  The graph (fig. 11) shows the effect of temperature on the total effective resistance of a fresh
+                  Energizer® AA/LR6 alkaline battery.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance                         Page 9 of 14
+Alkaline Manganese Dioxide                                                                                             Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents                                 AA /LR6 Alkaline Batteries
+
+   Introduction                                                   Total Effective Resistance
+
+      Battery                1.0
+   Description
+                             0.8
+  Temperature
+      Effects     Ri (ohms)  0.6
+
+      System                 0.4
+  Comparisons
+                             0.2
+      Internal
+    Resistance               0.0
+
+     Capacity                     -40                      -20  0                                                  20  40
+
+     Shelf Life                                                 Temperature (c)
+
+Testing and Care  (fig. 11) Effect of temperature on the total effective resistance
+
+  Disposal and
+     Shipping
+
+                  In summary, internal resistance can be calculated based on the voltage drop of the battery under a
+                  known load. Results will be affected by technique, settings and environmental conditions. The internal
+                  resistance of a battery should be viewed as a general guideline and not as a precise value when applying
+                  it to the expected voltage drop in a specific application.
+
+                  Capacity:
+
+                  Battery capacity is typically expressed in terms of milli-Amp hours (mAh). This is an indication of how
+                  long a battery will provide service at a specific drain rate to a specific cutoff voltage. For example: the
+                  following discharge curve (fig. 12) is an AA/LR6 alkaline battery being discharged at 100mA to a 0.8 volt
+                  cutoff.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance          Page 10 of 14
+Alkaline Manganese Dioxide                                                                                                    Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents                                       AA/LR6 Alkaline Batteries
+
+   Introduction                                             100mA Constant Current Discharge at 21C
+
+      Battery                     1.6
+   Description
+                                  1.4
+  Temperature
+      Effects     Voltage         1.2
+
+      System                      1.0
+  Comparisons
+                                  0.8                      5     10                                                15     20         25
+      Internal                          0
+    Resistance
+                                                                 Time (hours)
+     Capacity
+                  (fig. 12) AA/LR6 alkaline battery being discharged at 100mA to a 0.8 volt cutoff
+     Shelf Life
+                  The available capacity can then be calculated by multiplying the drain rate (mA) by the hours to the
+Testing and Care  cutoff voltage. For example: this AA/LR6 battery would have a capacity of (100mA X 25 hours) 2500 mAh
+                  under a 100mA drain to a 0.8 volt cutoff. The capacity to a 1.2 volt cutoff for this AA/LR6 battery under
+  Disposal and    the same 100mA drain would be (100mA X 15 hours) 1500 mAh.
+     Shipping
+                  The mAh capacity of alkaline batteries will vary with the drain rate and the cutoff voltage. In general,
+                  batteries are more efficient at lower drain rates. As can be seen on the following bar chart (fig. 13), the
+                  AA/LR6 alkaline capacity is far greater at a 25mA drain than at a 500mA drain.
+
+                                                                 AA/LR6 Alkaline Batteries
+
+                                                                      Cap acity (mAh) at 21C to 0.8 Vo lts
+
+                  Capacity (mAh)  3000
+                                  2500
+                                  2000
+                                  1500
+                                  1000
+
+                                   500
+                                      0
+
+                                                           25mA  100mA                                             250mA      500mA
+
+                                                                 Discharge Rate
+
+                  (fig. 13) AA/LR6 alkaline battery capacity to 0.8 volts
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance                        Page 11 of 14
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents      The application cutoff voltage will also impact the battery capacity. The higher the device cutoff voltage,
+                  the more of the battery's capacity will be left in the battery unused. However, a minimum voltage cutoff
+   Introduction   of 0.8 volts per cell due to the increased chance of excessive internal gassing when alkaline batteries are
+                  deep discharged. When the battery has been discharged to 0.8 volts, approximately 95% of the batteries
+      Battery     usable capacity has been removed.
+   Description
+                  In pulse applications, the duty cycle can impact battery capacity. A very light duty cycle will typically allow
+  Temperature     the battery time to recover and extend service versus a continuous drain. The major contributing factor
+      Effects     to this recovery is the migration of active materials within the battery into the reaction area thereby
+                  replacing depleted materials and reaction byproducts. The amount of additional service will depend on
+      System      the drain rate, and the duty cycle (ON time and OFF time of the pulse). Actual testing is needed to
+  Comparisons     determine the amount of additional service expected in pulse applications since there is no simple
+                  equation to accurately calculate the impact of duty cycle on service.
+      Internal
+    Resistance    The following (fig. 14) are test results of AA/LR6 alkaline batteries at three different drain rates
+                  comparing continuous vs. a 10% duty cycle (10 sec. ON / 90 sec. OFF) to a 0.9 volt cutoff.
+     Capacity
+                                                 AA/LR6 Alkaline Batteries
+     Shelf Life
+                                  Effect of Duty Cycle on Capacity / Continuous vs. 10% (10 sec on / 90 sec off)
+Testing and Care
+                                  2500
+  Disposal and                    2000
+     Shipping
+
+                                                                          Continuous                               10%
+
+                  Capacity (mAh)  1500
+
+                                  1000
+
+                                  500
+
+                                  0                                       500mA                                    1000mA
+                                                250mA
+
+                                                           Discharge Rate
+
+                  (fig. 14) AA/LR6 alkaline battery effect of duty cycle
+
+                  Shelf Life:
+
+                  The recommended storage temperature for alkaline batteries is -40° C to 50° C.
+
+                  Cylindrical alkaline batteries will lose approximately 3% of their capacity per year when stored at 20° C
+                  due to slow electrochemical reactions that continually occur. Cold temperatures will slow these reactions
+                  down and warm temperatures will increase these reactions.
+                  The following graph (fig. 15) shows the impact of storage temperature on battery capacity.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance          Page 12 of 14
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents
+
+   Introduction
+
+      Battery
+   Description
+
+  Temperature
+      Effects
+
+      System
+  Comparisons
+
+      Internal
+    Resistance
+
+     Capacity
+
+     Shelf Life
+
+Testing and Care
+
+  Disposal and
+     Shipping
+
+                  (fig. 15) Impact of storage
+
+                  Testing / Care / Warnings:
+
+                  Testing:
+
+                  Measuring the open circuit voltage (OCV) of a battery to determine the amount of service life remaining
+                  can be misleading and at best will only yield a rough estimate. A more accurate method is to measure the
+                  closed circuit voltage (CCV) of the battery. This is accomplished by placing the battery under load for one
+                  to two seconds and measuring the CCV. The load is determined by the size and type of battery. In the
+                  case of a single cylindrical 1.5 volt alkaline battery, the load would be approximately 10 ohms. A fresh
+                  (unused) battery will typically test at about 1.5 volts CCV. A battery that tests at 1.1 volts CCV has
+                  approximately 20% service remaining.
+
+                  The use of commercially available battery testers to determine the relative condition of a battery. Battery
+                  testers are specifically designed for this purpose and have the load and voltage calibrated for different
+                  chemistries and battery sizes.
+
+                  Care And Handling Do's:
+
+                  The following are recommendations that should be followed to obtain maximum battery performance.
+
+                        · Do read the instructions on your device before installing batteries. Make sure to insert the
+                               batteries properly, following the symbols showing you the correct way to position the positive
+                               (+) and negative (-) ends of the batteries.
+
+                        · Do replace batteries with the size and type specified by the device's manufacturer. Remove all
+                               used batteries from the device at the same time, and then replace them with new batteries of
+                               the same size and type.
+
+                        · Do store batteries in a cool, dry place at normal room temperature. Remove batteries from
+                               devices that will be stored for extended periods.
+
+                        · Do inspect devices battery compartment every few months to be sure batteries are not leaking.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance  Page 13 of 14
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+    Contents            · Do keep battery contact surfaces clean by gently rubbing with a clean pencil eraser or cloth.
+
+   Introduction   Care and Handling Don'ts
+
+      Battery     The following are recommendations that users should follow to prevent problems or situations that could
+   Description    lead to personal injuries.
+
+  Temperature           · Don't carry loose batteries in a pocket or purse with metal objects like coins, paper clips, etc.
+      Effects                  This could potentially short-circuit the battery, generating high heat. When unpacked batteries
+                               are mixed together, they can easily short-circuit each other, particularly button-type batteries.
+      System
+  Comparisons           · Don't recharge a battery unless it is specifically marked "rechargeable." Attempting to recharge
+                               a primary (non-rechargeable) battery could result in rupture or leakage.
+      Internal
+    Resistance          · Don't use rechargeable batteries in chargers that are not designed for the specific battery type.
+
+     Capacity           · Don't put batteries or battery-powered devices in hot places - elevated temperatures increase
+                               the self-discharge of batteries.
+     Shelf Life
+                        · Do not dispose of batteries in fire.
+Testing and Care
+                        · Don't mix old and new batteries, or mix different types or makes of batteries. This can cause
+  Disposal and                 rupture or leakage, resulting in personal injury or property damage.
+     Shipping
+                        · Don't crush, puncture, take apart batteries or otherwise damage batteries. This can cause
+                               rupture or leakage, resulting in personal injury or property damage.
+
+                        · Keep batteries out of reach of children.
+
+                  Warnings:
+
+                  Charging of Primary Batteries:
+                  Charging of primary batteries may cause explosion or leakage which may result in bodily injury. IF
+                  ENERGIZER/EVEREADY PRIMARY BATTERIES ARE SUBJECTED TO ANY FORM OF RECHARGING, ALL
+                  WARRANTIES, EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+                  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, ARE NULL AND VOID.
+
+                  Metal-Jacketed Batteries
+                  It is important to note that some batteries have metal jackets. Proper design of devices using these
+                  batteries should include electrical isolation of the battery jacket from the device circuitry to prevent short
+                  circuiting. Short circuits may cause battery leakage which may result in bodily injury.
+
+                  Plastic Film Labels
+                  It is important to note that some batteries have plastic film labels over the metal can. Proper design of
+                  devices using these batteries should include electrical insulation as well as the avoidance of burrs and/or
+                  sharp edges and corners that can cut through the plastic and result in battery shorting or inadvertent
+                  charging.
+
+                  Design and Safety Considerations
+
+                  Click here for the Design and Safety Considerations Interactive on-line Catalog
+
+                  There are many other conditions to avoid for the proper safe use of batteries. It is imperative to read the
+                  section "Design and Safety Considerations" to assure that other safety considerations are not overlooked.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance  Page 14 of 14
+Alkaline Manganese Dioxide                                                                                         Alkaline Handbook
+
+Handbook and Application Manual
+
+Energizer Brands, LLC. | 800-383-7323 | www.energizer.com
+
+Disposal and Shipping:
+
+Disposal:
+
+Energizer® standard alkaline batteries are United States Resource Conservation and Recovery Act (RCRA)
+non-hazardous waste.
+
+Waste standard alkaline batteries meet the United States Federal definition of a solid waste per 40 Code
+of Federal Regulations (CFR) 261.2. As such, the generator must make certain determinations relative to
+the waste material. Waste standard alkaline batteries do not fall under any of the specific United States
+Federal RCRA F, K, P or U lists.
+
+This leads us to the RCRA characteristic waste criteria. Some Toxicity Characteristic Leaching Procedure
+(TCLP) listed materials may be present in minute quantities in the raw materials, but are well below the
+established regulatory maximum values. Waste carbon zinc and standard alkaline batteries are not RCRA
+toxic. Only the characteristics of ignitability, corrosivity and reactivity remain as possible classifications.
+
+The batteries are solid, not liquid, which precludes their being a corrosive waste, since corrosive waste
+must be liquid by definition. As an inert solid, flash point is not an appropriate test for ignitability.
+Energizer® batteries are a safe consumer product and, under standard temperature and pressure
+conditions, will not cause fire through friction, absorption of moisture, or spontaneous chemical changes.
+The batteries contain no sulfides or cyanides, and they do not meet any other reactivity criteria.
+
+United States Federal hazardous waste regulations are specific about relating waste determination to the
+waste as generated. As generated, scrap standard alkaline batteries are not a specifically listed waste
+stream and they do not meet the criteria for ignitable, corrosive, reactive or toxic wastes. Scrap standard
+alkaline batteries are not hazardous waste and they are not regulated by the United States
+Department of Transportation (DOT) as hazardous materials.
+
+Other nations and some US states may regulate waste based on additional criteria or different test
+protocols. The status of scrap standard alkaline batteries should be confirmed in the nation or US state(s)
+where disposal occurs.
+
+Shipping:
+
+The transportation of Energizer® alkaline dry cell batteries produced and/or imported by Energizer®
+Battery Manufacturing, Inc. are not regulated as Dangerous Goods by the U.S. Department of
+Transportation (DOT), the International Air Transport Association (IATA), the International Maritime
+Dangerous Goods code (IMDG), or the International Civil Aviation Organization (ICAO).
+
+The batteries and their packaging must be protected at all times from direct sun and any sources of
+moisture, such as rain or wet flooring. Shock and vibration shall be avoided by ensuring that boxes are
+placed and stacked gently, and properly secured from movement during transport. To lessen the
+exposure of the batteries to heat, metal shipping containers should be ventilated and kept away from
+heat sources such as ship's engines or direct sunlight. Stowage on ships must be below deck, while
+during other transport (road, rail, etc) and on/off loading, exposure to direct sunlight should be kept to a
+minimum.
+
+©2018 Energizer Brands, LLC. - Contents herein does not constitute a warranty of service, features or performance  Page 15 of 14
+

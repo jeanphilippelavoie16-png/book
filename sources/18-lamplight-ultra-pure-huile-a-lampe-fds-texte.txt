@@ -1,0 +1,400 @@
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+       MATERIAL SAFETY DATA SHEET
+
+1. CHEMICAL PRODUCT AND COMPANY IDENTIFICATION
+
+TRADE NAME:               ULTRA PURE LAMP OIL
+SYNONYMS:                 Normal Paraffin, Paraffinic Hydrocarbons, LC3
+
+MANUFACTURER:             Lamplight Farms
+ADDRESS:                  4900 North Lilly Road, Menomonee Falls, WI 53051
+                          (800) 645-5267 262-781-9590 (8:00 AM- 4:30 PM CST) M-F
+
+EMERGENCY NUMBER: 1-800-308-7141 (Prosar)
+
+                                            For non-emergency and all other information call: 1-800-645-5267
+
+2. COMPOSITION / INFORMATION ON INGREDIENTS
+
+Components                       CAS Number                                      Weight %
+
+C5-20 Paraffins                  64771-72-8                                      100 %
+
+See Section 8 for Exposure Guidelines and Section 15 for OSHA Classification
+
+3. HAZARDS IDENTIFICATION
+
+ Emergency Overview
+ Water white, oily liquid. Mild hydrocarbon odor.
+ HEALTH HAZARD: MAY CAUSE EYE OR SKIN IRRITAION. High vapor concentrations may cause
+ headache, stupor, dizziness, or irritation of throat and eyes
+
+Potential Health Effects
+
+EYES:       Irritation may occur with exposure to concentrated vapors or contact with product.
+SKIN:
+            Repeated or prolonged contact can cause redness, irritation, and scaling of the skin
+            (dermatitis). Normal care and personal hygiene should prevent skin effects.
+
+INHALATION: Exposure to high concentration of vapors may result in headache and stupor.
+
+INGESTION:  Lung exposure to this product either by prolonged breathing of a mist or vomiting following
+            ingestion, can lead to serious lung injury and possibly death.
+
+            (See section 11 for Toxicological Information).
+
+                          - 1 -
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+4. FIRST AID MEASURES
+
+EYES:      Immediately flush eyes with plenty of water for at least 15 minutes. If irritation persists, seek
+           medical attention.
+
+SKIN:      Immediately flush skin with plenty of water. Remove contaminated clothing and shoes.
+           Wash affected area with mild soap. Call a physician if irritation occurs.
+
+INHALATION: Remove to fresh air. If not breathing, give artificial respiration and seek medical attention
+                      immediately. Oxygen should only be administered by trained personnel.
+
+INGESTION: DO NOT INDUCE VOMITING. Seek medical advice immediately.
+
+5. FIRE FIGHTING MEASURES
+
+Flammable Properties
+
+FLASH POINT / METHOD:
+           207°F (97° C) / PM
+
+AUTOIGNITION TEMPERATURE:
+           >392°F (200° C)
+
+FLAMMABLE LIMITS IN AIR % BY VOLUME:
+           None Expected.
+
+FIRE AND EXPLOSION HAZARD:
+           None Expected.
+
+FIRE FIGHTING INSTRUCTIONS:
+           Water spray, carbon dioxide,, dry chemical, or alcohol compatible foam is recommended.
+
+6. ACCIDENTAL RELEASE MEASURES
+
+STEPS TO BE TAKEN IN CASE OF A SPILL OR LEAK:
+           Evacuate the area and eliminate all sources of ignition. Contain the spill if possible. Material may be
+
+picked up with a solid sorbent. Dispose of only in accordance with local, state, and federal regulations.
+
+CERCLA HAZARDOUS SUBSTANCE:         CERCLA RQ                                    Maximum Wt. %
+           Component
+
+Contains no chemicals on the CERCLA Hazardous Substance List.
+
+                             - 2 -
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+7. HANDLING AND STORAGE
+
+ELECTROSTATIC ACCUMULATION HAZARD:
+           Yes - ground all equipment.
+
+USUAL SHIPPING CONTAINERS:
+           Tank cars, tank trucks.
+
+STORAGE / TRANSPORT TEMPERATURE:
+           Ambient. (Product will freeze at 32° F (0° C))
+
+STORAGE / TRANSPORT PRESSURE:
+           Ambient. (Product will freeze at 32° F (0° C))
+
+LOAD / UNLOAD TEMPERATURE:
+           Ambient, above freezing point. (Product will freeze at 32° F (0° C))
+
+STORAGE AND HANDLING MATERIALS:
+           Carbon steel is suitable.
+
+8. EXPOSURE CONTROLS / PERSONAL PROTECTION
+
+Engineering Controls
+
+           Air contaminant levels should be controlled below the PEL or TLV for this product (see Exposure
+           Guidelines of this section). Mechanical ventilation may be necessary if working with this product in
+           enclosed areas and at elevated temperatures.
+
+Personal Protective Equipment
+
+EYES:
+           When contact with liquid is possible, use a face shield and chemical goggles. Otherwise use safety
+           glasses or goggles.
+
+SKIN:
+
+           Chemical gloves should be worn to prevent repeated contact. If potential for significant exposure to
+           liquid exists, use full protective clothing and chemical boots.
+
+RESPIRATORY PROTECTION:
+           NIOSH-approved organic vapor air-purifying respirator, self contained breathing apparatus, or air-
+           supplied respirators dependent on concentration.
+
+                               - 3 -
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+Exposure Guidelines:
+
+No exposure limit has been set for exposure to vapors for this product. However, Lamplight and its suppliers
+recommend the ACGIH/OSHA/NIOSH - recommended limit of 5 mg/m3 (8-hour TWA) fir exposure to mists
+
+of this product.
+
+Component                          OSHA PEL                                      ACGIH TLV
+
+           None Established.
+
+PEL = Permissible Exposure Limits                      TWA = Time Weighted Average ( 8hr.)
+TLV = Threshold Limit Value                            STEL = Short Term Exposure Limit (15 min.)
+
+Carcinogenicity
+
+           No carcinogenic ingredients.
+
+9. PHYSICAL AND CHEMICAL PROPERTIES
+
+APPEARANCE:                                            VISCOCITY:
+           Yellowish, oily liquid                                 2.4 cSt @ 77° F (25° C).
+
+ODOR:                                                  PHYSICAL STATE:
+           Mild hydrocarbon / citronella odor.                               Liquid.
+
+VAPOR PRESSURE (mm Hg.).                               BOILING POINT:
+           <0.01 @ 68° F (20° C).                                 430-478° F (221 - 248° C).
+
+VAPOR DENSITY (Air=1).                                 MELTING POINT:
+           6.5                                                    N/D
+
+SOLUBILITY IN WATER:                                   SPECIFIC GRAVITY (H2O = 1):
+           Negligible
+                                                                  0.773 @ 60°F/60°F (16°C/16°C).
+
+10. STABILITY AND REACTIVITY
+
+CONDITIONS TO AVOID:
+           High Temperatures & high energy ignition sources
+
+INCOMPATIBILITY WITH OTHER MATERIALS:
+           Strong Oxidizers.
+
+HAZARDOUS DECOMPOSITION PRODUCTS:
+           Material does not decompose at ambient temperatures.
+
+HAZARDOUS POLYMERIZATION:
+           Will not occur
+
+                                                - 4 -
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+11. TOXICOLOGICAL INFORMATION
+
+EYES:      May cause mild, short lasting discomfort to eyes
+SKIN:
+           Mildly irritating to skin with prolonged exposure.
+           Toxicity: LD50>3000mg/kg
+
+INHALATION:
+           Negligible hazard at ambient temperatures.
+           Toxicity: No end point data
+           Irritation: No end point data
+
+INGESTION:
+           Minimally toxic
+           Toxicity: LD50>5000mg/kg
+
+12. ECOLOGICAL INFORMATION
+
+ECOTOXICOLOGICAL INFORMATION:
+           Not Available.
+
+CHEMICAL FATE INFORMATION:
+           Not Available.
+
+13. DISPOSAL CONSIDERATIONS
+
+SPECIAL INSTRUCTIONS:
+           Evacuate the area and eliminate all sources of ignition. Contain the spill is possible. Material may be
+           picked up with solid sorbent. Dispose of only in accordance with local state, and federal regulations.
+
+WASTE CLASSIFICATION:
+           If discarded in its purchased form, this product is not a RCRA hazardous waste. Re-evaluation of the
+           product may be required by the user at the time of disposal, since the product uses, transforms, and
+           mixtures may change the classification.
+
+EMPTY CONTAINERS:
+           Empty containers retain product residue (liquid and/or vapor) can be dangerous. DO NOT
+           PRESSURIZE, CUT WELD, BRAZE, SOLDER, DRILL, GRIND, OR EXPOSE SUCH
+           CONTAINERS TO HEAT, FLAME, SPARKS, STATIC ELECTRICITY, OR OTHER SOURCES
+           OF IGNITION; THEY MAY EXPLODE AND CAUSE INJURY OR DEATH. Empty drums should
+           be completely drained, properly bunged and promptly returned to a drum reconditioner, or properly
+           disposed of.
+           (See Section 6 for CERCLA Reporting Requirements).
+
+                               - 5 -
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+14. TRANSPORT INFORMATION
+
+DOT DESCRIPTION:
+           Not regulated for land transport.
+
+ICAO / IATA DESCRIPTION:
+           Not regulated for air transport
+
+IMO DESCRIPTION (IMDG CODE):
+           This product is not a dangerous good as defined by IMO in the IMDG Code for water transportation.
+
+15. REGULATORY INFORMATION
+
+U.S. Federal Regulations
+
+OSHA HAZARD COMMUNICATION STANDARD CLASSIFICATION:
+           Nonhazardous as defined by the OSHA Hazard Communication Standard.
+
+TSCA INVENTORY LISTING:                             CAS Number
+           Component
+
+           C5-20 Paraffins                          64771-72-8                   Maximum Wt. %
+                                                    CAS Number                   Maximum Wt. %
+SARA 302 STATUS
+           Component
+
+           Contains no chemicals subject to SARA 302 reporting.
+
+SARA 311/312 CLASSIFICATION:
+           Nonhazardous according to SARA 311/312.
+
+SARA 313 CHEMICALS:
+
+           Component                                CAS Number
+
+           Contains no chemicals subject to SARA 313 reporting.
+           (See Section 6 for CERCLA Reporting Requirements.)
+
+                            - 6 -
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+State Regulations
+
+CALIFORNIA SAFE DRINKING WATER ACT (PROP 65) LISTING:                       CAS Number
+           Component
+
+           **No ingredients listed in this section**
+
+           CALIFORNIA AIR RESOURCES BOARD Title 17, Article 2, Section 94510 Consumer Products:
+           This product is VOC exempt by 94510 (d)(1) as it has a vapor pressure below 0.1 mm Hg at 20°C.
+
+16. OTHER INFORMATION
+
+Hazard Ratings              NFPA                      HMIS
+
+           Health:          1                         1
+
+           FLAMMABILITY:    1                         1
+
+           REACTIVITY:      0                         0
+
+Revision Summary
+
+           Date             Description
+
+           Jan 10, 2002     Document created.
+           June 28, 2002    Added Emergency numbers (Prosar) and Non emergency contact number.
+           January 9, 2007  Revised sections: 1,2,5,7,9,10,11,14,15
+
+THE DATA AND INFORMATION CONTAINED HEREIN ARE BEING FURNISHED FOR INFORMATIONAL PURPOSES ONLY. UPON
+TH E EXPRESS CONDITION THAT EACH CUSTOMER SHALL MAKE ITS OWN ASSESMENT OF APPROPRIATE USE AND
+APPROPRIATE SHIPPING, TRANSFER, AND STORAGE MATERIALS AND PROCEDURES FOR LAMPLIGHT FARMS PRODUCTS.
+LAMPLIGHT DISCAIMS ANY LIABILITY FOR DAMAGE OR INJURY WHICH MAY RESULT FROM THE USE OF THE ABOVE DATA,
+AND NOTHING CONTAINED THEREIN SHALL CONSTITUTE A GUARANTEE, WARRANTY, (INCLUDING WARRANTY OF
+MERCHANTABILITY) OR REPRESENTATION (INCLUDING FREEDOM FROM PATENT LIABLITY) BY LAMPLIGHT WITH RESPECT
+TO THE DATA, THE PRODUCTS DESCRIBED, OR THEIR USE FOR ANY SPECIFIC PURPOSE, EVEN IF THAT PURPOSE IS
+KNOWN TO LAMPLIGHT.
+
+                                                    - 7 -
+                                                     Lamplight Farms, Inc.  OIL
+                                                        4900 N. Lilly Road
+Filename:                                                                        Revision Date: 1/9/07
+                                                 Menomonee Falls, WI 53051                       Revision 3
+                                                         1-800-645-5267
+                                                          (262) 781-9590
+
+                         LAMPLIGHT ULTRA-PURE® LAMP
+
+           MSDS Ultra Pure Rev 3.doc
+
+PREPARED BY:   LAMPLIGHT FARMS Engineering Department.
+PHONE NUMBER:  (800) 645-5267 (262) 781-9590
+
+               - 8 -
+

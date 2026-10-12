@@ -1,0 +1,54 @@
+### https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicUsageFromTSN?tsn=553896
+{"class":"gov.usgs.itis.itis_service.data.SvcTaxonUsageData","taxonUsageRating":"invalid","tsn":"553896"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=553896
+{"acceptedNames":[{"acceptedName":"Canachites canadensis","acceptedTsn":"175783","author":"(Linnaeus, 1758)","class":"gov.usgs.itis.itis_service.data.SvcAcceptedName"}],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"553896"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getScientificNameFromTSN?tsn=553896
+{"author":"(Linnaeus, 1758)","class":"gov.usgs.itis.itis_service.data.SvcScientificName","combinedName":"Falcipennis canadensis","kingdom":"Animalia","tsn":"553896","unitInd1":null,"unitInd2":null,"unitInd3":null,"unitInd4":null,"unitName1":"Falcipennis","unitName2":"canadensis","unitName3":null,"unitName4":null}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicUsageFromTSN?tsn=175783
+{"class":"gov.usgs.itis.itis_service.data.SvcTaxonUsageData","taxonUsageRating":"valid","tsn":"175783"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=175783
+{"acceptedNames":[null],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"175783"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getScientificNameFromTSN?tsn=175783
+{"author":"(Linnaeus, 1758)","class":"gov.usgs.itis.itis_service.data.SvcScientificName","combinedName":"Canachites canadensis","kingdom":"Animalia","tsn":"175783","unitInd1":null,"unitInd2":null,"unitInd3":null,"unitInd4":null,"unitName1":"Canachites","unitName2":"canadensis","unitName3":null,"unitName4":null}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicUsageFromTSN?tsn=726284
+{"class":"gov.usgs.itis.itis_service.data.SvcTaxonUsageData","taxonUsageRating":"invalid","tsn":"726284"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=726284
+{"acceptedNames":[{"acceptedName":"Neogale vison","acceptedTsn":"1271751","author":"(Schreber, 1777)","class":"gov.usgs.itis.itis_service.data.SvcAcceptedName"}],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"726284"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getScientificNameFromTSN?tsn=726284
+{"author":"(Schreber, 1777)","class":"gov.usgs.itis.itis_service.data.SvcScientificName","combinedName":"Neovison vison","kingdom":"Animalia","tsn":"726284","unitInd1":null,"unitInd2":null,"unitInd3":null,"unitInd4":null,"unitName1":"Neovison","unitName2":"vison","unitName3":null,"unitName4":null}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicUsageFromTSN?tsn=1271751
+{"class":"gov.usgs.itis.itis_service.data.SvcTaxonUsageData","taxonUsageRating":"valid","tsn":"1271751"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=1271751
+{"acceptedNames":[null],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"1271751"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getScientificNameFromTSN?tsn=1271751
+{"author":"(Schreber, 1777)","class":"gov.usgs.itis.itis_service.data.SvcScientificName","combinedName":"Neogale vison","kingdom":"Animalia","tsn":"1271751","unitInd1":null,"unitInd2":null,"unitInd3":null,"unitInd4":null,"unitName1":"Neogale","unitName2":"vison","unitName3":null,"unitName4":null}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicUsageFromTSN?tsn=898198
+{"class":"gov.usgs.itis.itis_service.data.SvcTaxonUsageData","taxonUsageRating":"invalid","tsn":"898198"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=898198
+{"acceptedNames":[{"acceptedName":"Alces alces americana","acceptedTsn":"898970","author":"(Clinton, 1822)","class":"gov.usgs.itis.itis_service.data.SvcAcceptedName"}],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"898198"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getScientificNameFromTSN?tsn=898198
+{"author":"(Clinton, 1822)","class":"gov.usgs.itis.itis_service.data.SvcScientificName","combinedName":"Alces americanus","kingdom":"Animalia","tsn":"898198","unitInd1":null,"unitInd2":null,"unitInd3":null,"unitInd4":null,"unitName1":"Alces","unitName2":"americanus","unitName3":null,"unitName4":null}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicUsageFromTSN?tsn=180703
+{"class":"gov.usgs.itis.itis_service.data.SvcTaxonUsageData","taxonUsageRating":"valid","tsn":"180703"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=180703
+{"acceptedNames":[null],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"180703"}
+
+### https://www.itis.gov/ITISWebService/jsonservice/getScientificNameFromTSN?tsn=180703
+{"author":"(Linnaeus, 1758)","class":"gov.usgs.itis.itis_service.data.SvcScientificName","combinedName":"Alces alces","kingdom":"Animalia","tsn":"180703","unitInd1":null,"unitInd2":null,"unitInd3":null,"unitInd4":null,"unitName1":"Alces","unitName2":"alces","unitName3":null,"unitName4":null}
+

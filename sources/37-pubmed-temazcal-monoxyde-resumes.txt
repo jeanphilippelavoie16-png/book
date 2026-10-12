@@ -1,0 +1,74 @@
+1. J Environ Monit. 2011 Aug;13(8):2172-81. doi: 10.1039/c1em10172b. Epub 2011
+Jun  20.
+
+Non-invasive measurement of carbon monoxide burden in Guatemalan children and 
+adults following wood-fired temazcal (sauna-bath) use.
+
+Lam N(1), Nicas M, Ruiz-Mercado I, Thompson LM, Romero C, Smith KR.
+
+Author information:
+(1)Environmental Health Sciences, School of Public Health, University of 
+California, Berkeley, California, USA.
+
+Erratum in
+    J Environ Monit. 2011 Dec;13(12):3485.
+
+The use of wood-fired steam baths, or temazcales, is a potentially dangerous 
+source of CO exposure in Guatemalan Highland communities where adults and 
+children use them regularly for bathing, relaxation, and healing purposes. 
+Physical characteristics of children predispose them to absorb CO faster than 
+adults, placing them at greater exposure and health risks. Efforts to quantify 
+temazcal exposures across all age groups, however, have been hampered by the 
+limitations in exposure measurement methods. In this pilot study we measured 
+COHb levels in children and adults following use of the temazcal using three 
+field-based, non-invasive CO measurement methods: CO-oximetry, exhaled breath, 
+and by estimation of COHb using micro-environmental concentrations and time 
+diaries. We then performed a brief comparison of methods. Average CO 
+concentrations measured during temazcal use were 661 ± 503 ppm, approximately 10 
+times the 15 min WHO guideline. Average COHb levels for all participants ranged 
+from 12-14% (max of 30%, min 2%), depending on the method. COHb levels measured 
+in children were not significantly different from adults despite the fact that 
+they spent 66% less time exposed. COHb measured by CO-oximetry and exhaled 
+breath had good agreement, but precision of the former was affected 
+substantially by random instrument error. The version of the field CO-oximeter 
+device used in this pilot could be useful in screening for acute CO exposure 
+events in children but may lack the precision for monitoring the burden from 
+less extreme, but more day-to-day CO exposures (e.g. indoor solid fuel use). In 
+urban settings, health effects in children and adults have been associated with 
+chronic exposure to ambient CO concentrations much lower than measured in this 
+study. Future research should focus on reducing exposure from temazcales through 
+culturally appropriate modifications to their design and practices, and targeted 
+efforts to educate communities on the health risks they pose and actions they 
+can take to reduce this risk.
+
+DOI: 10.1039/c1em10172b
+PMID: 21687856 [Indexed for MEDLINE]
+
+1. Int J Occup Environ Health. 2011 Apr-Jun;17(2):103-12. doi: 
+10.1179/107735211799030979.
+
+Exposures to high levels of carbon monoxide from wood-fired temazcal (steam 
+bath) use in highland Guatemala.
+
+Thompson LM(1), Clark M, Cadman B, Canúz E, Smith KR.
+
+Author information:
+(1)Department of Family Health Care Nursing, School of Nursing, University of 
+California, San Francisco, USA. Lisa.Thompson@nursing.ucsf.edu
+
+The temazcal is a wood-fired steam bath used in the rural highlands of Guatemala 
+for bathing and healing. We measured carbon monoxide (CO) among 288 participants 
+in 72 temazcales. Participants were drawn from communities who participated in 
+the RESPIRE (Randomized Exposure Study of Pollution Indoors and Respiratory 
+Effects) chimney stove intervention trial. Temazcal CO exposures were extremely 
+high, averaging 431 parts per million (time-weighted average). Compared to 
+kitchen wood-smoke exposures, the temazcal contributes significantly to weekly 
+exposures, despite the fact that the population spends less time in the temazcal 
+than in the kitchen. This report 1) describes temazcal use patterns; 2) reports 
+participants' signs and symptoms during temazcal use; 3) models the distribution 
+of temazcal CO concentrations; 4) assesses reliability of exhaled breath CO as a 
+biomarker of CO exposure; and 5) provides a proportional analysis of CO 
+concentrations from temazcal use, as compared to kitchen concentrations.
+
+DOI: 10.1179/107735211799030979
+PMID: 21618942 [Indexed for MEDLINE]

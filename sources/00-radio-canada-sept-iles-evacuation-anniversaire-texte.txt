@@ -1,0 +1,242 @@
+ ___| |__ ___ _ __ __ _ __| (_) ___ ___ __ _ _ __ __ _ __| | __ _ 
+ / __| '_ \ / __| | '__/ _` |/ _` | |/ _ \ _____ / __/ _` | '_ \ / _` |/ _` |/ _` |
+ | (__| |_) | (__ | | | (_| | (_| | | (_) |_____| (_| (_| | | | | (_| | (_| | (_| |
+ \___|_.__/ \___| |_| \__,_|\__,_|_|\___/ \___\__,_|_| |_|\__,_|\__,_|\__,_|
+ document.documentElement.classList.add("info-theme-default");
+ const localStorageItem = localStorage.getItem('rc_info_color_scheme');
+ document.documentElement.classList.add("info-dark", "scheme-dark");
+ else if (localStorageItem === "auto" && prefersDarkScheme) {
+ const localStorageItem = localStorage.getItem('rc_info_banner_closed');
+ JSON.parse(localStorageItem).forEach((item)=>{document.documentElement.style.setProperty("--rc-info-hidden-" + item, "none")})
+ --info-shell-nav-height: var(--info-shell-nav-height-default);
+ --info-shell-nav-height-default: var(--info-shell-nav-height-collapsed);
+ --info-shell-nav-height: var(--info-shell-nav-height-collapsed);
+--info-color-background-classicLinkHover: rgba(0, 0, 0, 0.07);
+--info-color-background-viafouraPrimary10: rgba(0, 0, 0, 0.1);
+--info-color-background-viafouraPrimary15: rgba(0, 0, 0, 0.25);
+--info-color-background-viafouraPrimary20: rgba(0, 0, 0, 0.3);
+--info-color-background-videoModuleSeekBarTrack: rgba(255,255,255, 0.6);
+--info-color-background-buttonPrimaryMP: rgba(20, 20, 20, 0.8);
+--info-color-background-buttonPrimaryHoverMP: rgba(20, 20, 20, 0.7);
+--info-color-background-buttonPrimaryActiveMP: rgba(20, 20, 20, 0.88);
+--info-color-background-buttonSecondaryHoverMP: rgba(20, 20, 20, 0.05);
+--info-color-background-buttonSecondaryActiveMP: rgba(20, 20, 20, 0.13);
+--info-color-background-buttonSecondaryPressedMP: rgba(20, 20, 20, 0.90);
+--info-color-background-buttonTertiaryHoverMP: rgba(0, 0, 0, 0.1);
+--info-color-background-buttonTertiaryActiveMP: rgba(20, 20, 20, 0.13);
+--info-color-background-buttonTertiaryPressedMP: rgba(20, 20, 20, 0.90);
+--info-color-text-buttonPrimaryDisabledMP: rgba(255,255,255, 0.95);
+--info-color-text-buttonSecondaryDisabledMP: rgba(20, 20, 20, 0.65);
+--info-color-text-buttonTertiaryDisabledMP: rgba(20, 20, 20, 0.65);
+--info-color-border-buttonSecondaryMP: rgba(20, 20, 20, 0.10);
+--info-color-background-classicLinkHover: rgba(255, 255, 255, 0.1);
+--info-color-background-viafouraPrimary10: rgba(255, 255, 255, 0.1);
+--info-color-background-viafouraPrimary15: rgba(255, 255, 255, 0.25);
+--info-color-background-viafouraPrimary20: rgba(255, 255, 255, 0.35);
+--info-color-background-videoModuleSeekBarTrack: rgba(255,255,255, 0.6);
+--info-color-background-buttonPrimaryMP: rgba(255,255,255, 0.80);
+--info-color-background-buttonPrimaryHoverMP: rgba(255,255,255, 0.7);
+--info-color-background-buttonPrimaryActiveMP: rgba(255,255,255, 0.88);
+--info-color-background-buttonSecondaryHoverMP: rgba(255, 255, 255, 0.15);
+--info-color-background-buttonSecondaryActiveMP: rgba(255, 255, 255, 0.25);
+--info-color-background-buttonSecondaryPressedMP: rgba(255,255,255, 0.75);
+--info-color-background-buttonTertiaryHoverMP: rgba(255, 255, 255, 0.1);
+--info-color-background-buttonTertiaryActiveMP: rgba(255, 255, 255, 0.20);
+--info-color-background-buttonTertiaryPressedMP: rgba(255,255,255, 0.90);
+--info-color-text-buttonPrimaryDisabledMP: rgba(20, 20, 20, 0.95);
+--info-color-text-buttonSecondaryDisabledMP: rgba(255,255,255, 0.6);
+--info-color-text-buttonTertiaryDisabledMP: rgba(255,255,255, 0.6);
+ --info-color-border-buttonSecondary: rgba(255,255,255, 0.6);
+--info-color-border-buttonSecondaryMP: rgba(255, 255, 255, 0.15);
+--info-color-background-classicLinkHover: rgba(0, 0, 0, 0.07);
+--info-color-background-viafouraPrimary10: rgba(0, 0, 0, 0.1);
+--info-color-background-viafouraPrimary15: rgba(0, 0, 0, 0.25);
+--info-color-background-viafouraPrimary20: rgba(0, 0, 0, 0.3);
+--info-color-background-videoModuleSeekBarTrack: rgba(255,255,255, 0.6);
+--info-color-background-buttonPrimaryMP: rgba(20, 20, 20, 0.8);
+--info-color-background-buttonPrimaryHoverMP: rgba(20, 20, 20, 0.7);
+--info-color-background-buttonPrimaryActiveMP: rgba(20, 20, 20, 0.88);
+--info-color-background-buttonSecondaryHoverMP: rgba(20, 20, 20, 0.05);
+--info-color-background-buttonSecondaryActiveMP: rgba(20, 20, 20, 0.13);
+--info-color-background-buttonSecondaryPressedMP: rgba(20, 20, 20, 0.90);
+--info-color-background-buttonTertiaryHoverMP: rgba(0, 0, 0, 0.1);
+--info-color-background-buttonTertiaryActiveMP: rgba(20, 20, 20, 0.13);
+--info-color-background-buttonTertiaryPressedMP: rgba(20, 20, 20, 0.90);
+--info-color-text-buttonPrimaryDisabledMP: rgba(255,255,255, 0.95);
+--info-color-text-buttonSecondaryDisabledMP: rgba(20, 20, 20, 0.65);
+--info-color-text-buttonTertiaryDisabledMP: rgba(20, 20, 20, 0.65);
+--info-color-border-buttonSecondaryMP: rgba(20, 20, 20, 0.10);
+0?`v4`:`v5`;gt.setConfig({targeting:{engine}});const widthScreen=document.documentElement.offsetWidth;let screenType=`UDF`;let device=`UDF`;switch(engine){case`v4`:switch(true){case widthScreen
+=2340:screenType=`XXL`;device=`desktop`;break;default:screenType=`UDF`;device=`UDF`}break;case`v5`:default:switch(true){case widthScreen
+=1366:screenType=`XL`;device=`desktop`;break;default:screenType=`UDF`;device=`UDF`}break}gt.setConfig({targeting:{engine,viewport_sz:screenType,device}});oStatsKibana.device=device;let sizeMappings=gt.sizeMapping();let companionSize=[[300,250]];adsSizing.mappings.forEach(build=>{sizeMappings=sizeMappings.addSize(build.viewport,build.slotSize);switch(true){case widthScreen
+ .advertisement.ad-leaderboard-bigbox-fluid-outstream-special-alimentation,.ad--light.ad-doublebigbox-bigbox-halfbigbox-mobileleaderboard-interscroller-special-alimentation{
+ .advertisement.ad-leaderboard-bigbox-fluid-outstream-special-alimentation::before,.ad--light.ad-doublebigbox-bigbox-halfbigbox-mobileleaderboard-interscroller-special-alimentation::before {
+ fdLoader('Radio Canada',400, 'normal'),fdLoader('Radio Canada',300, 'normal'),fdLoader('Radio Canada',700, 'normal'),fdLoader('Radio Canada',400, 'italic'),fdLoader('Radio Canada',500, 'normal'),fdLoader('Radio Canada',500, 'italic')
+ document.getElementsByTagName('html')[0].classList.add('fonts-loaded');
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayerQueue','GTM-N49BVCS');
+ dataLayerPageObject.Url = dataLayerPageObject.Url + document.location.search;
+ dataLayerQueue.push({ page: dataLayerPageObject, dataPushType: "pageView", event: "pageView" });
+.blpulse{transform-origin:50% 50%;transform-box:fill-box;animation:pulse .75s infinite alternate cubic-bezier(0,0,.58,1)}
+ var consentBannerCookie = RadioCanada.cookiesManager.getCookie('RC_NOTIFICATION_VIE_PRIVEE');
+ document.documentElement.style.setProperty('--info-legal-disclaimer-diplay', 'none');
+Nous et un nombre restreint de nos partenaires publicitaires utilisons des témoins pour recueillir certaines de vos données et les utilisons afin d’améliorer votre expérience et de vous présenter des contenus et des publicités personnalisés. Si vous n’êtes pas à l’aise avec l’utilisation de ces informations, 
+veuillez revoir les paramètres de confidentialité de votre appareil et de votre navigateur
+<path d="M15.106 4.001h-7.09c.741-1.24 2.084-2 3.534-2.001a4.183 4.183 0 0 1 3.556
+ 2.001Zm-8.315.851v3.91H2.864a3.914 3.914 0 0 1 3.92-3.91h.007Zm.624 8.648c0-2.274
+ 1.851-4.117 4.135-4.117a4.125 4.125 0 0 1 4.133 4.117 4.125 4.125 0 0 1-4.133 4.117
+ 4.12 4.12 0 0 1-4.135-4.11V13.5Zm-.624 4.116a4.125 4.125 0 0 1-4.134-4.117c0-2.273
+ 1.851-4.116 4.134-4.116v8.233Zm9.516.622v3.91h.007a3.916 3.916 0 0 0 3.92-3.91h-3.927Zm-9.516
+ 7.06Zm-6.053 5.98H7.946a4.143 4.143 0 0 0 7.091 0Zm-3.488-.645c2.283 0 4.135-1.842 4.135-4.117H7.415a4.124
+ 4.124 0 0 0 4.134 4.117Zm4.758-4.738a4.125 4.125 0 0 0 4.135-4.117c0-2.273-1.85-4.116-4.135-4.116v8.233ZM11.549
+ 4.645c2.283 0 4.135 1.844 4.135 4.117H7.415a4.125 4.125 0 0 1 4.134-4.117ZM2.01 17.019V9.958A4.163 4.163 0 0 0 0
+ 13.5c0-1.104.165-2.09.495-2.957.344-.867.812-1.603 1.406-2.208a6.035 6.035 0 0 1 2.06-1.38 6.496 6.496 0 0 1 2.514-.493c.897
+ 0 1.735.165 2.514.493a6.035 6.035 0 0 1 2.06 1.38c.593.605 1.055 1.34 1.385 2.208.343.868.515 1.853.515 2.957 0 1.104-.172
+ 2.09-.515 2.957-.33.868-.792 1.604-1.386 2.208a6.286 6.286 0 0 1-2.059 1.4 6.582 6.582 0 0 1-2.495.473 6.786 6.786 0 0
+ 1-2.534-.473 6.286 6.286 0 0 1-2.059-1.4c-.594-.604-1.062-1.34-1.406-2.208-.33-.867-.495-1.853-.495-2.957Zm3.228 0c0 .71.079
+ 1.328.237 1.853.172.526.403.966.693 1.321.29.355.634.618 1.03.789.396.17.825.256 1.287.256.462 0 .89-.085 1.287-.256a2.712 2.712 0 0 0
+ 1.03-.789c.29-.355.514-.795.672-1.32.172-.526.258-1.144.258-1.854 0-.71-.086-1.327-.258-1.853-.158-.526-.382-.966-.673-1.32a2.705 2.705
+ 0 0 0-1.03-.79 3.213 3.213 0 0 0-1.286-.256c-.462 0-.891.086-1.287.257-.396.17-.74.433-1.03.788-.29.355-.521.795-.693 1.321-.158.526-.237
+<path d="M17.382 5.312H9.223A4.738 4.738 0 0 1 13.29 3a4.81 4.81 0 0 1 4.092 2.312Zm-9.567.984v4.519H3.296a4.514 4.514 0 0 1 4.51-4.519h.009Zm.717
+ 9.994a4.758 4.758 0 1 1 4.758 4.757A4.752 4.752 0 0 1 8.532 16.3v-.01Zm-.717 4.757a4.758 4.758 0 0 1 0-9.514v9.514Zm10.95.718v4.519h.007a4.516
+ 6.911h-8.16a4.756 4.756 0 0 0 8.16 0Zm-4.013-.745a4.757 4.757 0 0 0 4.757-4.757H8.533a4.756 4.756 0 0 0 4.756 4.757Z">
+<path d="M18.765 21.047a4.757 4.757 0 1 0 0-9.514v9.514ZM13.29 6.057a4.758 4.758 0 0 1 4.757 4.758H8.533a4.757 4.757 0 0 1 4.756-4.758ZM2.312
+ 7.288 0 0 1 2.487-1.674 7.82 7.82 0 0 1 3.039-.598c1.084 0 2.097.2 3.038.598a7.3 7.3 0 0 1 2.488 1.675c.717.733 1.275 1.626 1.674 2.679.415
+ 1.053.622 2.249.622 3.588 0 1.34-.207 2.536-.622 3.588-.399 1.053-.957 1.946-1.674 2.68a7.59 7.59 0 0 1-2.488 1.698 7.923 7.923 0 0 1-3.014.574
+ 8.169 8.169 0 0 1-3.063-.574 7.59 7.59 0 0 1-2.487-1.698c-.718-.734-1.284-1.627-1.699-2.68-.398-1.052-.598-2.248-.598-3.588Zm3.9 0c0 .861.095 1.611.287
+ 2.249.207.638.486 1.172.837 1.603.35.43.765.75 1.244.957.478.207.996.31 1.555.31.558 0 1.076-.103 1.555-.31a3.27 3.27 0 0 0 1.243-.957c.351-.43.622-.965.814-1.603.207-.638.31-1.388.31-2.249
+ 0-.86-.103-1.61-.31-2.248-.192-.638-.463-1.173-.814-1.603a3.27 3.27 0 0 0-1.243-.957 3.868 3.868 0 0 0-1.555-.311 3.87 3.87 0 0 0-1.555.311 3.268 3.268 0 0 0-1.244.957c-.351.43-.63.965-.838 1.603-.19.638-.287 1.387-.287 2.248Z">
+ Sujet, émission ou autre mot-clé. Vous devez saisir au moins trois caractères.
+ Les quatre derniers termes recherchés s’affichent sous le champ et sont accessibles via la flèche vers le bas.
+<path d="M15.106 4.001h-7.09c.741-1.24 2.084-2 3.534-2.001a4.183 4.183 0 0 1 3.556
+ 2.001Zm-8.315.851v3.91H2.864a3.914 3.914 0 0 1 3.92-3.91h.007Zm.624 8.648c0-2.274
+ 1.851-4.117 4.135-4.117a4.125 4.125 0 0 1 4.133 4.117 4.125 4.125 0 0 1-4.133 4.117
+ 4.12 4.12 0 0 1-4.135-4.11V13.5Zm-.624 4.116a4.125 4.125 0 0 1-4.134-4.117c0-2.273
+ 1.851-4.116 4.134-4.116v8.233Zm9.516.622v3.91h.007a3.916 3.916 0 0 0 3.92-3.91h-3.927Zm-9.516
+ 7.06Zm-6.053 5.98H7.946a4.143 4.143 0 0 0 7.091 0Zm-3.488-.645c2.283 0 4.135-1.842 4.135-4.117H7.415a4.124
+ 4.124 0 0 0 4.134 4.117Zm4.758-4.738a4.125 4.125 0 0 0 4.135-4.117c0-2.273-1.85-4.116-4.135-4.116v8.233ZM11.549
+ 4.645c2.283 0 4.135 1.844 4.135 4.117H7.415a4.125 4.125 0 0 1 4.134-4.117ZM2.01 17.019V9.958A4.163 4.163 0 0 0 0
+ 13.5c0-1.104.165-2.09.495-2.957.344-.867.812-1.603 1.406-2.208a6.035 6.035 0 0 1 2.06-1.38 6.496 6.496 0 0 1 2.514-.493c.897
+ 0 1.735.165 2.514.493a6.035 6.035 0 0 1 2.06 1.38c.593.605 1.055 1.34 1.385 2.208.343.868.515 1.853.515 2.957 0 1.104-.172
+ 2.09-.515 2.957-.33.868-.792 1.604-1.386 2.208a6.286 6.286 0 0 1-2.059 1.4 6.582 6.582 0 0 1-2.495.473 6.786 6.786 0 0
+ 1-2.534-.473 6.286 6.286 0 0 1-2.059-1.4c-.594-.604-1.062-1.34-1.406-2.208-.33-.867-.495-1.853-.495-2.957Zm3.228 0c0 .71.079
+ 1.328.237 1.853.172.526.403.966.693 1.321.29.355.634.618 1.03.789.396.17.825.256 1.287.256.462 0 .89-.085 1.287-.256a2.712 2.712 0 0 0
+ 1.03-.789c.29-.355.514-.795.672-1.32.172-.526.258-1.144.258-1.854 0-.71-.086-1.327-.258-1.853-.158-.526-.382-.966-.673-1.32a2.705 2.705
+ 0 0 0-1.03-.79 3.213 3.213 0 0 0-1.286-.256c-.462 0-.891.086-1.287.257-.396.17-.74.433-1.03.788-.29.355-.521.795-.693 1.321-.158.526-.237
+<path d="M17.382 5.312H9.223A4.738 4.738 0 0 1 13.29 3a4.81 4.81 0 0 1 4.092 2.312Zm-9.567.984v4.519H3.296a4.514 4.514 0 0 1 4.51-4.519h.009Zm.717
+ 9.994a4.758 4.758 0 1 1 4.758 4.757A4.752 4.752 0 0 1 8.532 16.3v-.01Zm-.717 4.757a4.758 4.758 0 0 1 0-9.514v9.514Zm10.95.718v4.519h.007a4.516
+ 6.911h-8.16a4.756 4.756 0 0 0 8.16 0Zm-4.013-.745a4.757 4.757 0 0 0 4.757-4.757H8.533a4.756 4.756 0 0 0 4.756 4.757Z">
+<path d="M18.765 21.047a4.757 4.757 0 1 0 0-9.514v9.514ZM13.29 6.057a4.758 4.758 0 0 1 4.757 4.758H8.533a4.757 4.757 0 0 1 4.756-4.758ZM2.312
+ 7.288 0 0 1 2.487-1.674 7.82 7.82 0 0 1 3.039-.598c1.084 0 2.097.2 3.038.598a7.3 7.3 0 0 1 2.488 1.675c.717.733 1.275 1.626 1.674 2.679.415
+ 1.053.622 2.249.622 3.588 0 1.34-.207 2.536-.622 3.588-.399 1.053-.957 1.946-1.674 2.68a7.59 7.59 0 0 1-2.488 1.698 7.923 7.923 0 0 1-3.014.574
+ 8.169 8.169 0 0 1-3.063-.574 7.59 7.59 0 0 1-2.487-1.698c-.718-.734-1.284-1.627-1.699-2.68-.398-1.052-.598-2.248-.598-3.588Zm3.9 0c0 .861.095 1.611.287
+ 2.249.207.638.486 1.172.837 1.603.35.43.765.75 1.244.957.478.207.996.31 1.555.31.558 0 1.076-.103 1.555-.31a3.27 3.27 0 0 0 1.243-.957c.351-.43.622-.965.814-1.603.207-.638.31-1.388.31-2.249
+ 0-.86-.103-1.61-.31-2.248-.192-.638-.463-1.173-.814-1.603a3.27 3.27 0 0 0-1.243-.957 3.868 3.868 0 0 0-1.555-.311 3.87 3.87 0 0 0-1.555.311 3.268 3.268 0 0 0-1.244.957c-.351.43-.63.965-.838 1.603-.19.638-.287 1.387-.287 2.248Z">
+ document.documentElement.style.setProperty('--info-shell-display-profile-button', 'block');
+ document.documentElement.style.setProperty('--info-shell-display-login-button', 'none');
+4,5 millions d'hectares de forêt brûlés, une Côte-Nord enfumée, des évacuations d'urgence et le débarquement des Forces armées canadiennes à Sept-Îles : il y a un an, les Nord-Côtiers traversaient une saison historique des feux de forêt. 
+La SOPFEU note que la superficie brûlée en 2023, causée à 99,9 % par la foudre, est plus élevée que la somme des 20 dernières années, toutes causes confondues. (Photo d'archives)
+picture]:bg-transparent size-9 basis-9 [&_img]:scale-125 [&_img]:grayscale bg-gray200">
+La version audio de cet article est générée par la synthèse vocale, une technologie basée sur l’intelligence artificielle.
+Prenez note que cet article publié en 2024 pourrait contenir des informations qui ne sont plus à jour.
+Le 2 juin 2023, un imposant feu de forêt au nord de Sept-Îles prend de l’ampleur et menace une partie de la ville. Plus de 5000 personnes apprennent qu'elles doivent quitter leur maison, sans savoir si elles pourront y retourner. Cette saison de tous les records aura marqué les Nord-Côtiers.
+La veille, on nous disait qu’on pouvait aller se coucher, et dormir sur nos deux oreilles, parce qu’il n’y avait rien de catastrophique
+, se souvient l’ex-maire de Sept-Îles, Steeve Beaupré. Mais sa nuit a été écourtée par un appel au ton impératif.
+Le feu de forêt 172, près de la rivière Moisie et Nipissis, a ravagé plus de 45 000 hectares de forêt. (Photo d'archives)
+: les deux feux se consumaient en direction de Sept-Îles, à une vitesse de 35 ou 40
+mètres à la minute.","text":"La direction des vents a rapidement changé: les deux feux se consumaient en direction de Sept-Îles, à une vitesse de 35 ou 40mètres à la minute."}}'>
+La direction des vents a rapidement changé : les deux feux se consumaient en direction de Sept-Îles, à une vitesse de 35 ou 40 mètres à la minute.
+Les résidents du secteur des Plages, de Moisie, du lac Daigle et de la communauté de Mani-utenam sont sommés d’évacuer leurs résidences, 
+en raison de la propagation du feu 172 près des rivières Nipissis et Moisie
+ de prendre une telle décision, et également de prévoir l’imprévisible.
+Une évacuation vers l’est, en direction du Havre-Saint-Pierre, était impossible. On pouvait évacuer vers l’ouest, mais un feu faisait rage au nord du secteur du lac des Rapides. Si Sept-Îles était enclavée, il ne restait que la voie maritime. Il a fallu penser à toutes sortes d’alternatives
+, explique-t-il. Il avoue que les nuits ont été courtes pendant cette période.
+Le pont Touzel a fermé à peine quelques jours avant l’état d’urgence. Aucun véhicule ne pouvait circuler sur le pont. La Minganie était coupée du reste du Québec par son seul chemin routier. (Photo d'archives)
+Le personnel de l’école Tshishteshinu, dans la communauté de Mani-utenam, se souvient clairement de cette journée chamboulée.
+L'école Tshishteshinu de Mani-utenam a été évacuée. (Photo d'archives)
+J’avais des élèves de quatre ans. Il fallait s’assurer que chaque parent vienne chercher son enfant. En une heure, l’école était vide
+Les élèves sont restés très calmes. Selon leurs enseignantes, la plupart des enfants ont bien traversé cet épisode, perçu par plusieurs comme 
+L'enseignante d'innu-aimun (langue innue), Lise-Andrée Fontaine. 
+Moi, j’étais tellement paniquée, j’ai recommencé à fumer cette journée-là. Le stress était intense
+Une autre enseignante reste avec la directrice, Ingrid Tshirnish, pour fermer l’école avant de se mettre elle-même en sécurité.
+: \"On revient quand? Est-ce que l’école va être encore intacte?\"","text":"Quand j’ai mis les clés pour barrer l’école, je me suis dit: \"On revient quand? Est-ce que l’école va être encore intacte?\""}}'>
+Quand j’ai mis les clés pour barrer l’école, je me suis dit : "On revient quand? Est-ce que l’école va être encore intacte?"
+Après avoir mis les enfants et l’école en sécurité, elles doivent ensuite évacuer leurs propres familles et aller, encore une fois, vers l'inconnu. 
+Dans la voiture, mon conjoint me demande où on va… je ne sais pas où on s'en va
+À Saguenay, Québec ou Pessamit, elles vont rejoindre des membres de leur famille. À Pessamit, les réfugiés sont accueillis à la salle communautaire, où des repas les attendent. 
+Pour l’agente à la prévention et aux communications de la 
+, Isabelle Gariépy, c’est la veille de l’évacuation qui a été la journée la plus marquante.
+ a l’habitude de combattre de deux à trois feux hors contrôle par année, 193 ont été comptabilisés au Québec en 2023.
+L'agente à la prévention et aux communications, Isabelle Gariépy. (Photo d'archives)
+L’été nous a permis de faire des alliances avec des équipes de France, d’Espagne et de Corée
+Environ 350 membres des Forces armées canadiennes étaient déployés à travers la Côte-Nord. (Photo d'archives)
+Pendant cinq semaines, 350 militaires des Forces armées canadiennes de Valcartier viennent prêter main-forte aux 40 marins et officiers du 
+heures par jour pour certaines personnes, mais la principale motivation étant d’aider les Canadiens, dans ces opérations-là, ça donne une petite motivation","text":"C’était de longues journées, je vous avoue, de 12 à 16heures par jour pour certaines personnes, mais la principale motivation étant d’aider les Canadiens, dans ces opérations-là, ça donne une petite motivation"}}'>
+C’était de longues journées, je vous avoue, de 12 à 16 heures par jour pour certaines personnes, mais la principale motivation étant d’aider les Canadiens, dans ces opérations-là, ça donne une petite motivation
+, lance le capitaine de corvette Martin Roberge, commandant second du 
+ils ravitaillent par pont aérien la Minganie et Schefferville, complètement isolés du reste de la province.
+Après quatre jours, les citoyens évacués peuvent rentrer chez eux, et constater que le pire a été évité. Et le 8 juin, 
+ et de l’armée permet de contenir les incendies, qui sont toutefois toujours actifs.
+ retiennent de l'été historique de 2023, c'est la précieuse collaboration entre ceux qui ont assuré la sécurité des citoyens.
+La saison des feux de forêt a marqué le mandat de Steeve Beaupré, maire de Sept-Îles de 2021 à 2023. 
+Heureusement, des apprentissages ont pu en être tirés pour le futur.
+Ça a permis de mettre de l'avant quelque chose sur lequel on travaillait déjà avec les communautés: l'atténuation des risques d'incendie. Ça va faire partie du visage de la 
+Ces apprentissages permettront de mieux réagir si des évacuations surviennent. 
+L'épaisse fumée provenant des feux de forêt parcourt des centaines de kilomètres. (Photo d'archives)
+Sa collègue, Dalida Michel, retient pour sa part la générosité des gens qui ont pris soin d'elle et sa famille, à Pessamit. 
+Le monde était quand même content de se voir, et c'était naturel d'accueillir les gens. Aider son prochain… ça n’a pas de prix!
+À la recherche de la morille de feu, le trésor dormant sous les cendres
+Lutte contre les feux de forêt : la SOPFEU gonflera ses rangs de 32 % au Québec
+La condamnation d’un incendiaire relance la désinformation sur les feux de forêt
+picture]:bg-transparent size-9 basis-9 [&_img]:scale-125 [&_img]:grayscale bg-gray200">
+Enquête : Industrie aéronautique. Enquête sur Air Liaison : une passoire appelée PAAR. Publié à 4 h 00 HAE. 
+Air Liaison a déplacé des employés en régions éloignées aux frais de l’État québécois, a appris 
+Élections Québec 2026. La Vérif : les chefs ont-ils dit toute la vérité pendant le débat?. Publié à 0 h 36 HAE. 
+La Vérif : les chefs ont-ils dit toute la vérité pendant le débat?
+Les chefs des cinq principaux partis politiques ont échangé mercredi soir lors du débat de Radio-Canada. 
+Donald Trump, président des États-Unis. Un juge fédéral suspend l’interdiction d’accès à trois médias de la Maison-Blanche. Publié à 5 h 46 HAE. 
+Un juge fédéral suspend l’interdiction d’accès à trois médias de la Maison-Blanche
+L'administration Trump invoquait la sécurité nationale pour écarter CNN, Politico et MS NOW.
+Politique fédérale. 51e État : Carney affirme avoir pris les menaces de Trump au sérieux. Publié hier à 22 h 33 HAE. 
+51e État : Carney affirme avoir pris les menaces de Trump au sérieux
+ affirme qu'Ottawa s’était préparé au « risque extrême » d’une intervention militaire.
+Élections Québec 2026. Débat des chefs : tarifs, coût de la vie et… référendum au cœur des échanges. Publié à 0 h 25 HAE. 
+Débat des chefs : tarifs, coût de la vie et… référendum au cœur des échanges
+Il a été question, mercredi soir, de Donald Trump, d'insécurité économique et d'indépendance, notamment.
+Une fois par jour, recevez l’essentiel de l’actualité régionale.
+Formulaire pour s’abonner à l’infolettre d’ICI Côte-Nord.
+<path fill-rule=evenodd clip-rule=evenodd d="M15.106 4.001h-7.09c.741-1.24 2.084-2 3.534-2.001a4.183 4.183 0 0 1 3.556
+ 2.001Zm-8.315.851v3.91H2.864a3.914 3.914 0 0 1 3.92-3.91h.007Zm.624 8.648c0-2.274
+ 1.851-4.117 4.135-4.117a4.125 4.125 0 0 1 4.133 4.117 4.125 4.125 0 0 1-4.133 4.117
+ 4.12 4.12 0 0 1-4.135-4.11V13.5Zm-.624 4.116a4.125 4.125 0 0 1-4.134-4.117c0-2.273
+ 1.851-4.116 4.134-4.116v8.233Zm9.516.622v3.91h.007a3.916 3.916 0 0 0 3.92-3.91h-3.927Zm-9.516
+ 7.06Zm-6.053 5.98H7.946a4.143 4.143 0 0 0 7.091 0Zm-3.488-.645c2.283 0 4.135-1.842 4.135-4.117H7.415a4.124
+ 4.124 0 0 0 4.134 4.117Zm4.758-4.738a4.125 4.125 0 0 0 4.135-4.117c0-2.273-1.85-4.116-4.135-4.116v8.233ZM11.549
+ 4.645c2.283 0 4.135 1.844 4.135 4.117H7.415a4.125 4.125 0 0 1 4.134-4.117ZM2.01 17.019V9.958A4.163 4.163 0 0 0 0
+ 13.5c0-1.104.165-2.09.495-2.957.344-.867.812-1.603 1.406-2.208a6.035 6.035 0 0 1 2.06-1.38 6.496 6.496 0 0 1 2.514-.493c.897
+ 0 1.735.165 2.514.493a6.035 6.035 0 0 1 2.06 1.38c.593.605 1.055 1.34 1.385 2.208.343.868.515 1.853.515 2.957 0 1.104-.172
+ 2.09-.515 2.957-.33.868-.792 1.604-1.386 2.208a6.286 6.286 0 0 1-2.059 1.4 6.582 6.582 0 0 1-2.495.473 6.786 6.786 0 0
+ 1-2.534-.473 6.286 6.286 0 0 1-2.059-1.4c-.594-.604-1.062-1.34-1.406-2.208-.33-.867-.495-1.853-.495-2.957Zm3.228 0c0 .71.079
+ 1.328.237 1.853.172.526.403.966.693 1.321.29.355.634.618 1.03.789.396.17.825.256 1.287.256.462 0 .89-.085 1.287-.256a2.712 2.712 0 0 0
+ 1.03-.789c.29-.355.514-.795.672-1.32.172-.526.258-1.144.258-1.854 0-.71-.086-1.327-.258-1.853-.158-.526-.382-.966-.673-1.32a2.705 2.705
+ 0 0 0-1.03-.79 3.213 3.213 0 0 0-1.286-.256c-.462 0-.891.086-1.287.257-.396.17-.74.433-1.03.788-.29.355-.521.795-.693 1.321-.158.526-.237
+ pour tout savoir de l’actualité internationale, nationale et régionale : vidéos, reportages, dossiers, couverture en direct, et plus.
+" d=M24.7718,20.30068a4.94881,4.94881,0,0,1,2.35656-4.15206,5.06566,5.06566,0,0,0-3.99116-2.15768c-1.67924-.17626-3.30719,1.00483-4.1629,1.00483-.87227,0-2.18977-.98733-3.6085-.95814a5.31529,5.31529,0,0,0-4.47292,2.72787c-1.934,3.34842-.49141,8.26947,1.3612,10.97608.9269,1.32535,2.01018,2.8058,3.42763,2.7533,1.38706-.05753,1.9051-.88448,3.5794-.88448,1.65876,0,2.14479.88448,3.591.8511,1.48838-.02416,2.42613-1.33124,3.32051-2.66914A10.962,10.962,0,0,0,27.691,24.69985,4.78205,4.78205,0,0,1,24.7718,20.30068Z style=fill:#fff>
+" d=M22.04017,12.21089a4.87248,4.87248,0,0,0,1.11452-3.49062,4.95746,4.95746,0,0,0-3.20758,1.65961,4.63634,4.63634,0,0,0-1.14371,3.36139A4.09905,4.09905,0,0,0,22.04017,12.21089Z style=fill:#fff>
+Sports, politique, environnement, science, nouvelles régionales... Recevez l’info qui compte directement dans vos courriels.
+--oh-player-color-ftr-rangeTrackBackward: rgba(255, 255, 255, .4);
+--oh-player-color-ftr-rangeTrackForward: rgba(12, 12, 12, .2);
+--oh-player-color-ftr-rangeTrackBackward: rgba(12, 12, 12, .4);
+--oh-player-color-ftr-rangeTrackForward: rgba(255, 255, 255, .2);
+ pour tout savoir de l’actualité internationale, nationale et régionale : vidéos, reportages, dossiers, couverture en direct, et plus.
+Air Liaison a déplacé des employés en régions éloignées aux frais de l’État québécois, a appris 
+","metric":null,"ml":{"index":0,"lineupId":1001148,"lineupName":"Les plus populaires"},"partnerships":null,"picture":{"alt":"Un avion d'Air Liaison sur le tarmac.","credit":"Photo : Radio-Canada","isIcon":false,"legend":"Un avion d'Air Liaison sur le tarmac.","url":"https://images.radio-canada.ca/q_auto,w_{width}/v1/ici-info/{ratio}/avion-air-liaison-tarmac.jpg"},"playableContent":null,"publicationDate":"2026-09-24T08:00:00.000Z","scoopChromeExtension":{"data":"2285751 | Nouvelle | 
+Les chefs des cinq principaux partis politiques ont échangé mercredi soir lors du débat de Radio-Canada. 
+","metric":null,"ml":{"index":1,"lineupId":1001148,"lineupName":"Les plus populaires"},"partnerships":null,"picture":{"alt":"Paul St-Pierre Plamondon, Christine Fréchette, Éric Duhaime et Charles Milliard débattent à leur pupitre.","credit":"Photo : La Presse canadienne / Christopher Katsarov","isIcon":false,"legend":"Paul St-Pierre Plamondon, Christine Fréchette, Éric Duhaime et Charles Milliard débattent à leur pupitre lors du débat des chefs de Radio-Canada. ","url":"https://images.radio-canada.ca/q_auto,w_{width}/v1/ici-info/{ratio}/paul-st-pierre-plamondon-christine-frechette-eric-duhaime-charles-milliard-debat-des-chefs-10109.jpg"},"playableContent":null,"publicationDate":"2026-09-24T04:36:56.300Z","scoopChromeExtension":{"data":"2286765 | Nouvelle | 
+","metric":null,"ml":{"index":2,"lineupId":1001148,"lineupName":"Les plus populaires"},"partnerships":null,"picture":{"alt":"Donald Trump s'adresse aux journalistes.","credit":"Photo : Getty Images / Tasos Katopodis","isIcon":false,"legend":"Donald Trump invoquait la sécurité nationale pour écarter CNN, Politico et MS NOW.","url":"https://images.radio-canada.ca/q_auto,w_{width}/v1/ici-info/{ratio}/donald-trump-depart-charlie-kirk-ceremonie.jpg"},"playableContent":null,"publicationDate":"2026-09-24T09:46:06.441Z","scoopChromeExtension":{"data":"2286784 | Nouvelle | 
+","metric":null,"ml":{"index":3,"lineupId":1001148,"lineupName":"Les plus populaires"},"partnerships":null,"picture":{"alt":"Mark Carney.","credit":"Photo : Radio-Canada / Sylvain Roy Roussel","isIcon":false,"legend":"Mark Carney","url":"https://images.radio-canada.ca/q_auto,w_{width}/v1/ici-info/transit/{ratio}/assemblee-nationale-conference-de-presse-plc-et-caq-sur-la-photo-gauche-a-droite-mark-carney-photo-prise-au-chantier-davie-a-levis-le-24-aout-2026_24082026-photo-sylvain-roy-roussel-cbc-radio-ca-78525.jpg"},"playableContent":null,"publicationDate":"2026-09-24T02:33:16.851Z","scoopChromeExtension":{"data":"2286742 | Nouvelle | 
+","metric":null,"ml":{"index":4,"lineupId":1001148,"lineupName":"Les plus populaires"},"partnerships":null,"picture":{"alt":"Patrice Roy, à droite, pose une question aux chefs de parti installés à leur pupitre.","credit":"Photo : La Presse canadienne / Christopher Katsarov","isIcon":false,"legend":"L'animateur Patrice Roy s'adresse aux chefs des principaux partis politiques du Québec lors du débat à Montréal, en vue de l'élection provinciale du 5 octobre.","url":"https://images.radio-canada.ca/q_auto,w_{width}/v1/ici-info/{ratio}/debat-des-chefs-patrice-roy-elections-quebec-2026-chefs-de-parti-montreal-53724.jpg"},"playableContent":null,"publicationDate":"2026-09-24T04:25:57.753Z","scoopChromeExtension":{"data":"2286657 | Nouvelle | 
+, lance le capitaine de corvette Martin Roberge, commandant second du 
+System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))

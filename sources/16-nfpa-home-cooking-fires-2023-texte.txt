@@ -1,0 +1,439 @@
+Home Cooking Fires
+
+                 Shelby Hall and Tucker McGree
+                                  September 2023
+
+                               Copyright © 2023 National Fire Protection Association® (NFPA®)
+Key findings                                                                For more detailed information, see Home Cooking Fires: Supporting
+                                                                            Tables. See Non-Fire Cooking Burn Injuries to learn more about this
+Cooking is such a routine activity that it is easy to forget that the high  related topic.
+temperatures involved can easily start a fire. During 2017-2021,
+cooking was the leading cause of reported homei fires and home fire         Trends in cooking fires and cooking fire casualties
+injuries and the second leading cause of home fire deaths. ii
+                                                                            Data indicates that the number of reported cooking fires started to
+Cooking caused an average of 158,400 reported home structure fires          decline in 1981 and then plateaued before falling again in the 1990s.
+per year (44 percent of all reported home fires in the US). These fires     NFIRS 5.0, first introduced in 1999, made it much easier to document
+resulted in an average of 470 civilian deaths (18 percent of all home       minor cooking fires (referred to as confined fires) that did not spread
+fire deaths) and 4,150 civilian injuries (42 percent of all reported home   beyond the pan, oven, or other container in which the fire started.iii
+fire injuries) annually.                                                    During the transition years of 1999-2001 -- when NFIRS 5.0 was
+                                                                            being introduced -- less than half of the fire data was collected using
+Ranges or cooktops were involved in 53 percent of the reported home         the new rules and definitions. Consequently, those estimates were
+cooking fires, 88 percent of cooking fire deaths, and 74 percent of         omitted from the trend graphs.
+cooking fire injuries. Households with electric ranges had a higher risk
+of cooking fires and associated losses than those with gas ranges.          The use of NFIRS 5.0 was accompanied by an increase in reported
+                                                                            cooking fires. After leveling off for a few years, the reported number of
+Unattended cooking was the leading factor contributing to cooking fires     cooking fires hit consecutive new highs in 2012-2015. In 2016-2018,
+and casualties. Clothing was the item first ignited in less than one        these fires fell below the 2014 and 2015 levels, but they remained
+percent of these fires, but clothing ignition led to 7 percent of the home  historically high. In 2021, the number of reported cooking fires
+cooking fire deaths.                                                        dropped to the lowest level seen since 2005. Changes to NFIRS may
+                                                                            have influenced some of these trends.1 See Figure 1.
+More than one-quarter of the people killed by cooking fires were asleep
+when they were fatally injured. More than half of the non-fatal injuries    There were fewer cooking fire deaths in 2017-2021 than in 1980-1984.
+occurred when people tried to control the fire themselves.                  However, it appears that less progress has been made toward reducing
+                                                                            deaths from home cooking fires than deaths from most other fire
+Unless otherwise specified, the statistics presented in this report are     causes. See Figure 2.
+estimates derived from the United States Fire Administration's
+National Fire Incident Reporting System (NFIRS) and NFPA's annual
+fire experience survey.
+
+i The term home encompasses one- or two-family homes, including manufactured homes and apartments or other multifamily housing.
+ii Death and injury estimates exclude firefighter casualties.
+iii Causal information is not required for structure fires of the six confined fire incident types, including confined cooking fires, although it is sometimes provided. Structure fires that do
+
+not have these incident types are referred to as non-confined fires, even though fire spread is sometimes limited to the object of origin. In this analysis, confined cooking fires were
+analyzed separately from non-confined fires and the results were summed.
+
+                                                                                                                                                                                                                                NFPA Research · pg. 1
+                                    Figure 1. Reported home cooking firesiv by year: 1980-2021
+
+         A. Fires                                            B. Civilian deaths                                                                                         C. Civilian injuries
+
+200                                 142.5       600                                                  368                                                 7,000
+In Thousands175 148                             500                                                                                                      6,000
+                                                                             In Thousands150                                                             5,000   5,030
+125                                                     500                                                                                              4,000
+                                                                                                                                             In Thousands1004003,000
+                NFIRS 5.0 first                 300                                                                                                      2,000
+ 75             introduced in 1999              200                                                                                                      1,000
+ 50                                             100
+ 25                                                                                                                                                           0
+                                                   0
+   0
+
+6,000    Figure 2. Change in average home fire deaths        Reported home cooking fires in 2017-2021
+5,000             and cooking fire deaths per year
+4,000                                                        During 2017-2021, local fire departments responded to an estimated
+3,000    4,830                                               average of 158,400 home cooking fires per year. These fires caused an
+2,000                                                        average of 470 civilian deaths; 4,150 civilian injuries; and $1.15 billion
+1,000                      1980-1984            2017-2021    in direct property damage annually. Cooking caused two in five
+                                                             reported home fires (44 percent) and home fire injuries (42 percent) and
+     0          2,610                                        one in five home fire deaths (18 percent). Cooking was the leading
+                                                             cause of reported home fires and home fire injuries and the second
+                                           500  470          leading cause of home fire deaths.
+
+         Home fire deaths           Cooking fire deaths
+
+iv Estimates for the NFIRS transition years of 1999-2001 are unstable and not shown. NFIRS 5.0, first introduced in 1999, originally defined the equipment involved
+in ignition (EII) as the piece of equipment that provided the principal heat source that caused ignition if the equipment malfunctioned or was used improperly. Change
+290 in the specification changes and corrections, effective in 2006, amended the definition to include any equipment that was the principal heat source. Beginning in
+2012, Change 337 required the EII data element to be completed if the heat source or other factor contributing to ignition indicated some type of operating equipment
+was involved. This was removed, effective with the 2015 data.
+
+                                                                                                                                                                        NFPA Research · pg. 2
+Causes and circumstances of home cooking fires                            that more than one-quarter of the fatalities were involved in the
+                                                                          ignition but not in the area of origin. These were likely cooks who
+Unattended cooking was by far the leading factor in cooking fires and     left the room. Some types of cooking, such as frying, broiling, and
+cooking fire casualties. See Figure 3. Abandoned or discarded             boiling, need continuous attention. When simmering, baking, or
+materials, which may have been related to unattended cooking, ranked      roasting, cooks should stay in the home and check on the cooking
+second in the causes of cooking fires and fourth in cooking fire deaths   regularly.
+and injuries.
+                                                                          Some types of cooking, such as frying, broiling, and boiling, need
+In another common scenario, combustible materials such as wrappers,       continuous attention. When simmering, baking, or roasting, cooks
+potholders, or clothing caught fire when they were left by or came too    should stay in the home and check on the cooking regularly.
+close to hot cooking equipment.
+                                                                                 A fatal fire in a Pennsylvania second-story apartment
+More than one-quarter of the fatal cooking fire victims and nearly 40            began when a male occupant fell asleep in an adjacent
+percent of the non-fatally injured were in the area of origin when the           room while cooking oil was being heated on the kitchen
+fire began. See Figure 4. With unattended cooking being the leading              stove. After the oil ignited, it spread to the cabinets and
+cause of cooking fires and cooking fire casualties, it is not surprising         throughout the kitchen and entered a decay stage by the
+                                                                                 time the fire department arrived.2
+
+Figure 3. Leading factors in home cooking fires and home cooking fire deaths: 2017-2021
+
+A. Fires                                                                  B. Deaths
+
+Equipment unattended                            28%                       Equipment unattended                         48%
+
+Abandoned or discarded materials       10%                                         Heat source too close to       18%
+                                       10%                                                combustibles       11%
+             Heat source too close to  9%
+                    combustibles                                          Unintentionally turned on or not
+                                                                                        turned off
+   Unclassified misuse of material
+
+Failure to clean                       9%
+
+Unintentionally turned on or not turned off 7%                            Abandoned or discarded materials   7%
+
+                                       0% 10% 20% 30% 40% 50% 60%                                            0% 10% 20% 30% 40% 50% 60%
+
+                                                                                                                       NFPA Research · pg. 3
+     Figure 4. Home cooking fire casualties in or not in                      Although clothing was the item first ignited in less than one percent of
+     area of origin and involved in ignition: 2017-2021                       the reported home cooking fires, clothing ignition led to 7 percent of
+                                                                              the home cooking fire deaths.
+80%           35%         Involved        Not involved              30%
+60%            7%             66%                69%                                 An elderly male died as a result of burn injuries suffered
+40%           28%                                30%                20%              when a burner on his kitchen stove ignited his clothing as
+20%                           38%                                   10%              he prepared food. On arrival, crews encountered light-
+     Deaths in area of                           39%         Injuries not in         colored smoke and limited visibility inside the apartment,
+ 0%         origin            28%                            area of origin          which was located on the third floor of a large apartment
+                        Deaths not in   Injuries in area of                          building. Proceeding into the unit, they found the victim,
+                        area of origin         origin                                already deceased, on the kitchen floor, with smoldering
+                                                                                     materials on and near him.3
+Not surprisingly, more than two-thirds (66 percent) of the home
+cooking fires began with the ignition of cooking materials, including         Most reported cooking fires were small. Four out of five (80 percent)
+food, fat, and grease. Cooking oil, fat, grease, and related substances       were confined to the object or pan of origin. Four percent of the
+were the items first ignited in half (51 percent) of the home cooking         cooking fire deaths and more than one-third (35 percent) of the
+fires that began with cooking materials. More than half (53 percent)          reported cooking fire injuries resulted from these small fires. Over one-
+of the civilian deaths and three-quarters of the civilian injuries            quarter (28 percent) of the home cooking fire deaths and 82 percent of
+(75 percent) and direct property damage (78 percent) associated with          the home cooking fire injuries resulted from the 97 percent of fires that
+cooking material or food ignition resulted from these cooking oil or          were confined to the room in which the fire began.
+grease fires.
+                                                                              Less than one-third (31 percent) of the reported home fires were in
+Death and injury rates per 1,000 fires were higher for food or cooking        apartments or other multifamily housing, yet these properties accounted
+material fires that began with the ignition of cooking oil, as was the        for almost half (47 percent) of the reported home cooking fires.
+average loss per fire. Injury rates and average losses were also higher       Cooking caused 37 percent of the fires in one- or two-family homes
+for fires that began with fat, grease, butter, or lard. The frequency and     and 72 percent of the fires in apartments or other multifamily homes;
+increased risk of oil and grease fires indicate a need for increased          see Tables 1A and 1B of the Home Structure Fires Supporting Tables
+consumer awareness on how to deal with these fires. Flames from a             for more information.4
+small oil or grease fire can be smothered by sliding a lid over the pan
+and turning off the burner. The pan should be kept covered until it is        Minor fires in properties with monitored fire alarm systems may be
+completely cool.                                                              more likely to trigger a fire department response, and such systems are
+                                                                              more common in apartments than in one- or two-family homes. More
+                                                                              than three of every five apartment fires were cooking fires that did not
+                                                                              spread.
+
+                                                                              NFPA Research · pg. 4
+When did cooking fires occur?                                                food, ranked second. Cooking increases during holiday celebrations,
+                                                                             and guests, television, and other activities can distract attention from the
+Not surprisingly, cooking fires peaked between 5:00-8:00 p.m. when           kitchen.
+people were likely preparing dinner. Seventeen percent of the fires
+reported between 11:00 p.m.-7:00 a.m. accounted for 19 percent of the           Table A. Leading Dates on Average: 2017-2021 Home Cooking Fires
+deaths. Sleep and possible alcohol or drug impairment were more                                        Reported to US Fire Departments
+common factors in these late-night fires. See Figure 5. Cooking while
+overtired or under the influence is dangerous.                               Date                                                Fires  Percent Above
+                                                                                                                                        Average Daily
+It is possible that many of the fires coded with "unattended or
+unsupervised person" were caused by unattended cooking. The NFIRS                                                                             Fires
+5.0 Complete Reference Guide notes that "unattended or unsupervised
+person" includes latchkey situations whether the person involved is          November 22 (Thanksgiving)                    1,470        (240%)
+young or old and situations where the person involved lacked                 December 24 (Christmas Eve)                     740         (72%)
+supervision or care."5 This additional detail is generally not available to  December 25 (Christmas Day)                     740         (71%)
+firefighters when they complete their incident reports online.               Easter                                          670         (54%)
+                                                                             November 21 (Day Before Thanksgiving)           600         (40%)
+Table A shows that Thanksgiving is by far the leading day for home
+cooking fires. Christmas and Christmas Eve, holidays associated with         Daily average: 2017-2021                      430
+
+Figure 5. Human factors contributing to ignition in home cooking fires by time of day: 2017-2021
+
+                                 A. Fires                                                              B. Civilan deaths
+
+Asleep 17% 2%                                                                      Asleep                                                           19%
+                                                                                                                                  12%
+
+Unattended or unsupervised              10%                                  Possibly impaired by alcohol or                 8%   11 p.m.-7 a.m.
+              person                      12%                                                 drugs                        7%     7 a.m.-11 p.m.
+
+Possibly impaired by alcohol or     4%         11 p.m.-7 a.m.                   Unattended or unsupervised                 9%
+                 drugs           1%            7 a.m.-11 p.m.                                  person                      9%
+
+                                 0% 10% 20% 30% 40% 50%                                                                0%  10%          20%
+
+                                                                                                                                        NFPA Research · pg. 5
+Victims of cooking fires                                                                Figure 6. Home cooking fire deaths and injuries
+                                                                                                        by age group: 2017-2021
+From 2017 to 2021, more than half (58 percent) of the people who died
+in cooking fires were 55 years of age or older. The 65-74 age group           Under 5          2%      6%
+accounted for the largest share of home cooking fire deaths.                       5-9             3%
+See Figure 6.                                                                                           6%             Population
+                                                                                10-14        1%           7%           Civilian deaths
+People 85 and older had a risk of dying in a cooking fire 5.5 times             15-19          2%                      Civilian injuries
+higher than the overall population. A 2018 NFPA analysis of home fire           20-24          2%      6%
+victims of all causes found that home fire victims who were 85 and              25-34
+older were more likely to have died in a fire caused by cooking than by         35-44       1%                7%                            20%
+any other cause.6                                                               45-54                  5%                                          22%
+                                                                                55-64          2%      5% 7%
+Young adults aged 25-34 were at the highest risk of non-fatal cooking           65-74            3%
+injuries. There was much less variation in risk in the injury age               75-84                            8%
+distribution. Only 32 percent of those injured were 55 or older.         85 and over                                 9% 14%
+
+Compared to those who were injured and survived home cooking fires,                                           7%  10% 13%
+those who died were more likely to have been asleep, trying to escape,                                                                 16%
+or unable to act to save themselves, possibly due to disability or                                     5%
+impairment. In contrast, more than half of those who were non-fatally                                  5%                    13%
+injured were trying to control the fire themselves. See Figure 7.                                                               14%
+
+                                                                                                                            13% 15%
+                                                                                                                                14%
+
+                                                                                                                  10%
+                                                                                                                  10%
+
+                                                                                                                     11%
+
+                                                                                                                  10%
+
+                                                                                        0%  5%                    10%  15%                  20%  25%
+
+                                                                                                                                            NFPA Research · pg. 6
+                                      Figure 7. Activity when injured in home cooking fires: 2017-2021
+
+                                      A. Civilian deaths                                                                      B. Civilian injuries
+                                                                            34%
+                      Escaping                                                             Fire control                                                  54%
+                       Sleeping                                    26%
+                 Unable to act                       15%                                   Escaping                                    16%
+        Unclassified activity                   11%
+                   Fire control          5%                                                Returning to vicinity of fire      6%
+             Rescue attempt             4%
+                  Irrational act        4%                                                 Unclassified activity              7%
+Returning to vicinity of fire         2%
+                                                                                           Sleeping                           7%
+
+                                                                                           Rescue attempt                     5%
+
+                                                                                           Unable to act                      3%
+
+                                                                                           Irrational act 2%
+
+                                  0%  15%  30%                                   45%  60%                                 0%      15%       30%     45%  60%
+
+Smoke alarms in home cooking fires                                                    smoke alarm sounded. Automatic extinguishing systems (AES) were
+                                                                                      present in 12 percent of the reported home cooking fires. Only one percent
+It is easy to assume that cooks are awake and nearby when cooking                     of the civilian deaths occurred when AES systems were present.
+fires occur. However, Figure 4 shows that two-thirds (66 percent) of
+cooking fire fatalities were not in the area of origin, although more than            When possible, smoke alarms should be installed at least 20 feet away
+one-quarter (28 percent) were involved in the ignition. A working                     from the kitchen range. If that is not possible, any smoke alarm
+smoke alarm is necessary to alert those outside the kitchen of a fire.                10 to 20 feet away from the stove should have a hush feature, which
+                                                                                      temporarily reduces the sensitivity of the alarm, or it should include a
+Smoke alarms were more likely to be present and operating at fires                    photoelectric sensor. Smoke alarms should not be installed within 10 feet
+caused by cooking than at all other home fires. Some of this difference               of a cooking appliance. Additional details can be found in NFPA 72.
+is likely due to fire department responses triggered by monitored smoke
+detection systems activated by minor cooking fires. Without such                      Manufacturers of smoke alarms and smoke detectors who wish to obtain
+monitoring, many of these situations would likely have been handled                   or maintain UL certification of their products are required to ensure their
+by the occupants without fire department assistance. This is particularly             products can distinguish between normal cooking aerosols and those
+true of apartment buildings, which are more likely to have smoke                      associated with fire by passing a cooking nuisance test. This UL
+detection systems than one- and two-family homes.                                     requirement is designed to minimize the number of nuisance alarms
+                                                                                      triggered by cooking activities. The smoke alarms and detectors must also
+Figure 8 shows that smoke alarms were present at 88 percent of the                    demonstrate greater sensitivity to smoldering and flaming polyurethane
+reported home cooking fires and 76 percent of the cooking fire deaths. As             foam.7 This UL requirement went into effect on June 30, 2021.8
+noted earlier, 8 percent of the cooking fire deaths resulted from clothing
+ignitions. Victims in these fires may have been fatally injured before the
+
+                                                                                                                                                    NFPA Research · pg. 7
+Figure 8. Smoke alarm status in home cooking fires: 2017-2021             the highest death rate and grease hoods had the highest injury rate per
+                                     A. Fires                             1,000 fires, fires involving these types of equipment were less common
+                                                                          than other types of cooking fires. See Figure 9.
+Fire too small to operate        13%
+                                                                          Households with electric ranges had a higher risk of cooking fires and
+Operating smoke alarm                        68%                          association losses than those with gas ranges. Although 64 percent of
+                                                                          households cook with electricity,9 four of the five (80 percent) ranges
+Present but did not operate      6%                                       or cooktops involved in the reported cooking fires were powered by
+                                                                          electricity. The population-based risks are as follows:
+No smoke alarm present           13%
+                                                                          · The rate of reported fires per million households was 2.4 times
+                             0% 20% 40% 60% 80%                              higher with electric ranges.
+
+                             B. Deaths                                    · The civilian fire death rate per million households was 1.9 times
+Fire too small to operate 0%                                                 higher with electric ranges.
+
+Operating smoke alarm                   37%                               · The civilian fire injury rate per million households was 3.6 times
+                                                                             higher with electric ranges than in households using gas ranges.
+Present but did not operate             29%
+                                                                          · The average fire dollar loss per household was 3.2 times higher in
+No smoke alarm present                  34%                                  households with electric ranges.
+
+                             0%  20% 40% 60% 80%                          See Figure 10.
+
+Equipment involved in reported home cooking fires                         It is sometimes less obvious when an electric burner is turned on or is
+                                                                          still hot than it is with gas burners. In addition, once turned off, it takes
+Ranges or cooktops were involved in more than half (53 percent) of the    time for an electric burner to cool. UL 858, Household Electric Ranges,
+reported home cooking fires, 88 percent of the deaths, and 74 percent     which took effect in June of 2018, includes requirements for electric
+of the injuries. Ranges or cooktops had higher death and injury rates     coil ranges to prevent the ignition of cooking oil. Compliance may be
+per 1,000 reported fires than most other cooking equipment.               demonstrated by either not igniting cooking oil in a cast iron pan or
+                                                                          keeping the average temperature of the inside bottom surface of the pan
+Ovens and microwave ovens had lower casualty and loss rates than          below or equal to 725°F (385°C). All electrical coil ranges being
+most other cooking equipment. Cooking that is done in an oven or          manufactured now must meet these requirements.10 Because ranges last
+microwave oven is less likely to extend outside of the equipment. Grills  a long time, it could be years before these safer ranges become
+and deep fryers had the highest average loss per home structure fire.     common in US homes.
+Such equipment tends to be portable and may be used too close to
+things that can catch fire. Although food warmers and hot plates had
+
+                                                                          NFPA Research · pg. 8
+Figure 9. Casualty rates per 1,000 reported fires and average loss per fire by type of cooking equipment: 2017-2021
+
+A. Deaths per 1,000 fires                                                 B. Injuries per 1,000 fires                                           C. Average loss per fire
+
+    Food warmer, hot plate            6.0            29.5 Grease hood or duct                                                    45.9        Grill, hibachi, or                                         $28,500
+                                     4.9                                      exhaust fan                                       42.8             barbecue                                      $21,700
+                     Deep fryer      4.4                                              Deep fryer                          36.3                                                     $14,600
+                                   2.4                                                                             28.3                 Portable cooking or               $8,800
+           Range or cooktop      0.4                                        Range or cooktop                 21.1                           warming unit              $6,000
+        Grease hood or duct                                          Food warmer, hot plate               16.7
+                                                                Grill, hibachi, or barbecue*                                           Grease hood or duct
+              exhaust fan                                                                                                                   exhaust fan
+             Microwave oven                                                   Microwave oven
+                                                                                                                                          Range or cooktop
+Grill, hibachi, or barbecue*
+                                                                                                                                            Microwave oven
+
+Oven or rotisserie 0.4                                              Oven or rotisserie               11.5                                   Oven or rotisserie        $2,600
+
+Total cooking fires 3.0                                             Total cooking fires                           26.2                      Total cooking fires       $6,900
+
+                                 0 10 20 30 40                                                    0  10 20 30 40 50                                              $0   $10,000 $20,000 $30,000
+
+* Grill, hibachi, or barbecue fires that were coded as outside fires are not included
+
+                                           Figure 10. Risk related to usage of electric vs. gas ranges or cooktops: 2017-2021
+
+                                 A. Fires per million households                                     B. Deaths per million households
+
+Electric                                                       815                                   Electric                                                    3.8
+
+Gas                                             345                                                  Gas                               1.6
+
+All                                                       650                                        All                                        3.1
+     0
+                                           300       600       900   1,200                                     0        1              2    3                    4
+
+                                 C. Injuries per million households                                           D. Average loss per household
+                                                                                                     Electric
+Electric                                                            31.6                                                                             $7.52
+
+Gas                                        8.8                                                       Gas                    $2.33
+  All                                                                                                  All
+        0                                                 23.5                                              $0                              $5.67
+
+                                           10        20         30        40                                            $2             $4   $6       $8               NFPA Research · pg. 9
+Safety information                                                              Only civilian (non-firefighter) casualties are included in this analysis.
+
+The Educational Messages Advisory Committee to NFPA's Public                    NFPA's fire experience survey provides estimates of the big picture.
+Education Division developed a collection of safety tips for a wide             NFIRS is a voluntary system through which participating fire
+variety of activities, including fire-safe cooking.                             departments report detailed factors about the fires to which they
+                                                                                respond. To compensate for fires reported to local fire departments but
+Fire and life safety educators can download the NFPA Educational                not captured in NFIRS, a scaling ratio was calculated and then applied
+Messages Desk Reference for consistent safety messaging.                        to the NFIRS database using the formula below:
+
+NFPA also has safety resources to help consumers protect themselves                              NFPA's fire experience survey projections
+from cooking fires. These include videos, safety tip sheets, public                                                NFIRS totals
+service announcements, and illustrated handouts in several different
+languages.                                                                      Cooking equipment refers to equipment used to cook, heat, or warm
+                                                                                food [NFIRS equipment involved in ignition (EII) codes 630-649 and
+Since 1922, the NFPA has sponsored the public observance of Fire                654]. Fires in which ranges, ovens or microwave ovens, food warming
+Prevention Week. During Fire Prevention Week, children, adults, and             appliances, fixed or portable cooking appliances, deep fat fryers, open-
+teachers learn how to stay safe in case of a fire.                              fired charcoal or gas grills, grease hoods or ducts, or other cooking
+                                                                                appliances were involved in ignition are classified as being caused by
+The 2023 Fire Prevention Week campaign theme, "Cooking safety                   cooking equipment. Food preparation devices that do not involve heat,
+starts with YOU. Pay attention to fire prevention.TM" works to educate          such as can openers or food processors, are not included here.
+everyone about the simple but important actions they can take to keep
+themselves and those around them safe in the kitchen.                           All fires with NFIRS incident type code 113, "Cooking fire in or on a
+                                                                                structure and confined to the vessel of origin," were classified as
+Additional information -- Supporting Tables                                     cooking fires regardless of the EII code. Fires with other confined fire
+                                                                                incident types were excluded from the analysis. NFIRS 5.0 originally
+See Home Cooking Fires: Supporting Tables, September 2023, for more             defined EII as the piece of equipment that provided the principal heat
+detailed information about the material presented in this report.               source that caused ignition if the equipment malfunctioned or was used
+                                                                                improperly. NFPA noticed that many fires in which the EII was coded
+Methodology                                                                     as "None (NNN)" had other causal factors that indicated equipment
+                                                                                was a factor or that the other causal factors were completely unknown.
+The statistics in this analysis are estimates derived from the US Fire
+Administration's National Fire Incident Reporting System (NFIRS) and            To compensate, NFPA treats fires in which EII = NNN and the heat
+the NFPA's annual survey of US fire departments. Fires reported to              source is not in the range of 40-99 as an additional unknown.
+federal or state fire departments or industrial fire brigades are not included
+in these estimates.
+
+                                                                                NFPA Research · pg. 10
+To allocate unknown data for EII, the known data is multiplied by:     The National Fire Protection Association thanks all the fire departments
+                                                                       and state fire authorities who participate in NFIRS and the annual NFPA
+                                      All fires                        fire experience survey. These firefighters are the original sources of the
+(All fires - blank - undetermined - [fires in which EII =NNN and heat  detailed data that makes this analysis possible. Their contributions allow us
+                                                                       to estimate the size of the fire problem.
+                                source <>40-99])
+Equipment that is totally unclassified was not allocated further.      We are also grateful to the US Fire Administration for its work in
+Unfortunately, equipment that is truly different can erroneously be    developing, coordinating, and maintaining NFIRS.
+assigned to other categories.
+                                                                       To learn more about research at NFPA, visit nfpa.org/research.
+For more information on the methodology used for this report, see How  Email: research@nfpa.org
+NFPA's National Estimates Are Calculated for Home Structure Fires.
+                                                                       NFPA No. USS11
+Acknowledgments
+
+1 NFIRS 5.0, first introduced in 1999, originally defined EII as the piece of equipment that provided the principal heat source that caused ignition if the equipment
+
+malfunctioned or was used improperly. Change 290, effective in 2006, amended the definition to include any equipment that was the principal heat source. Beginning
+
+in 2012, Change 337 required EII to be completed if the heat source or factor contributing to ignition indicated some type of operating equipment was involved. This
+
+was removed, effective with the 2015 data.
+2 Campbell, Richard, "Firewatch: Pennsylvania: Occupant dies in fire caused by unattended cooking," NFPA Journal, March/April 2020.
+3 Campbell, Richard, "Firewatch: Apartment resident dies after kitchen stove ignites clothing." NFPA Journal, May/June 2019.
+4 Hall, Shelby. Home Structure Fires Supporting Tables. Quincy, MA: NFPA, 2022.
+5 US Fire Administration. National Fire Incident Reporting System: Complete Reference Guide. 2015, p. 4-28, 2015. Accessed at
+
+usfa.fema.gov/downloads/pdf/nfirs/NFIRS_Complete_Reference_Guide_2015.pdf on May 21, 2020.
+6 Ahrens, Marty, "Figure 10. Home fire deaths per million population by age group and fire cause: 2011-2015 annual averages." Home Fire Victims by Age and
+
+Gender. Quincy, MA: NFPA, 2018.
+7 Kaiser, Dan, "Smoke Alarms and Smoke Detectors -- New and Revised Requirements," UL.com, 2019. Accessed at https://www.ul.com/news/smoke-alarms-and-
+
+smoke-detectors-new-and-revised-requirements on June 24, 2020.
+8 "UL Extends Certification Date for Multi-Criteria Smoke Alarms," UL.com, December 2019. Accessed at https://www.ul.com/news/news-brief-ul-extends-effective-
+
+date-smoke-alarm-and-smoke-detector-manufacturers on April 23, 2020.
+9 "2015 and 2017 National -- Heating, Air Conditioning, and Appliances -- All Occupied Units," American Housing Survey (AHS) Table Creator, US Census
+
+Bureau. Accessed April 5, 2020.
+10 Hopper, Howard, "What's Cooking with Cooking: UFL, FCAC, and IAFC Considerations." 2019 NFPA Conference and Expo, San Antonio, TX, 2019.
+
+                                                                       NFPA Research · pg. 11
+

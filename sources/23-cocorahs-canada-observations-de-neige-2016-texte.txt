@@ -1,0 +1,641 @@
+         Observations de neige
+   "De l'information en profondeur"
+
+Traduction par Lewis Poulin
+   lewis.poulin@canada.ca
+
+        Version 2016-11--27
+Introduction - Notes
+
+The content of this document was first             Le contenu de ce document a d'abord été
+produced in English (see link here)                produit en anglais ( voir info au lien ici)
+
+That info was translated into French               Cette info a ensuite été traduite en français
+
+The original document referred to imperial         Le document original présente l'information
+units of measurement i.e. inches.                  en unités impériales (pouces)
+
+This french translation will try to refer to both  Cette traduction présentera normalement
+imperial and metric units.                         les unités impériales et métriques
+
+If you notice corrections or improvements          Si vous remarquez des corrections ou des
+that should be made in this French                 améliorations à apporter dans cette
+translation please send your comments to           traduction, veuillez envoyer vos
+canada @cocorahs.org                               commentaires à canada @ cocorahs.org
+
+Another document describing a different            Un autre document qui décrit une méthode
+method to measure snow water equivalent            alternative pour mesure l'équivalent neige-
+is also available at this link here                eau est disponible au lien ici.
+
+Thank you                                          Merci beaucoup
+                Mesures de neige
+
+                                               · Prendre la mesure de la neige est
+                                                   généralement plus difficile que les
+                                                   mesures des précipitations liquides
+
+                                               · La mesure de neige prend un peu
+                                                   plus de temps
+
+Des mesures de neige précises et en temps réel peuvent être
+extrêmement importantes à votre bureau local de prévisions, aux services
+de travaux publics, aux médias, aux climatologues et autres scientifiques.
+        Les outils du métier
+
+· Un pluviomètre cylindrique CoCoRaHS de 4 pouces de
+   diamètre pour les conditions d'hiver
+                Les outils du métier
+
+· Une planche pour mesurer la neige
+     · Un morceau de 16" x 16" contreplaqué ½" ou ¾" peinturé blanc
+               Les outils du métier
+
+· Une règle pour mesurer la neige
+
+     · Capable de mesurer en dixieme de pouce ou en cm et mm.
+               Les outils du métier
+
+· Une tapette a neige CoCoRaHS et une spatule
+
+     · Aide pour prendre des carottages de neige
+            A quel endroit mesurer?
+
+· Avant qu'il neige, placez
+  votre planche à neige à
+  l'extérieur
+
+· Votre planche à neige
+  devrait être au niveau du
+  sol dans un endroit qui
+  n'aura pas de poudrerie
+A quel endroit mesurer?
+
+                  · C'est une bonne idée
+                     d'indiquer l'emplacement de
+                     votre planche à neige avec
+                     un drapeau ou un réflecteur
+       Si de la neige est prévue ...
+
+· Enlever l'entonnoir ET le tube intérieur, sinon la
+  neige va bloquer l'entonnoir
+Prendre des mesures de la neige
+    Les quatre mesures de neige pour CoCoRaHS sont
+
+1. La profondeur de la nouvelle neige (nouvelle chute de neige - en
+     cm)
+
+2. L'équivalent en eau de la neige fraîche - en mm (Soit dans la jauge ou
+
+      sur la planche à neige)
+
+3. La profondeur totale de neige fraîche et de l'ancienne neige/glace
+     au moment de l'observation - en cm
+
+4. Le total de l'équivalent en eau (SWE) de la neige totale au sol -
+     en mm (Optionnel - et seulement fait les lundi)
+    Les quatre mesures de neige pour CoCoRaHS sont
+
+1. La profondeur de la nouvelle neige (nouvelle chute de neige - en
+     cm)
+
+2. L'équivalent en eau de la neige fraîche - en mm (Soit dans la jauge ou
+
+      sur la planche à neige)
+
+3. La profondeur totale de neige fraîche et de l'ancienne neige/glace
+     au moment de l'observation - en cm
+
+4. Le total de l'équivalent en eau (SWE) de la neige totale au sol -
+     en mm (Optionnel - et seulement fait les lundi)
+Mesurer la profondeur de la nouvelle neige
+       Qu'est-ce qu'une nouvelle neige ou une
+                       chute de neige?
+
+Une nouvelle neige ou une chute de neige est l'accumulation au cours
+des dernières 24 heures, de la nouvelle neige et glace avant que cette
+
+                              neige ou glace ait fondue
+              Le mythe du ratio 10:1
+
+                   Ne pas estimer les chutes de neige en convertissant le liquide
+                             dans votre pluviomètre à une quantité de neige
+
+· L'adage selon lequel "un pouce (1 mm) de pluie équivaut toujours
+   à 10 pouces (10 mm (1 cm)) de neige" est un mythe
+
+· Le rapport équivalent neige / eau dépend de nombreux facteurs,
+   non seulement de la température de l'air de surface
+
+· Les rapports neige / eau peuvent varier de 8:1 ou moins à 20:1 et
+   plus
+      Quand mesurer la nouvelle neige
+
+· Mesurer la nouvelle neige le plus tôt possible après la fin de la
+   chute de neige, avant que la compaction et la fonte se produisent
+
+· Ce n'est pas souvent à votre heure d'observation régulière
+
+        Notez que nous ne mesurons pas la
+   profondeur de la neige dans la jauge. Toute
+   précipitation congelée dans le pluviomètre
+
+       doit être fondue et ensuite mesurée le
+                  volume d'eau fondu
+         Un analyse d'un évènement de neige
+
+                   2.4 pouces (6.1 cm) de neige
+                        Il y aura compaction et fonte
+
+                                                                            1.2 pouces (3.1 cm)
+
+ Lundi                     Mesurer la neige le plus près possible de 13h00   Mardi
+7:00 am                    i.e. quand la neige a arrêté de tomber           7:00 am
+
+          Neige     Neige
+         débute a  termine
+          09h00    à 13h00
+                  Où mesurer la nouvelle neige
+
+1. Trouver un bel endroit à niveau pour
+mesurer et où la poudrerie ou la fonte n'a
+pas eu lieu (comme une planche à neige)
+
+2. Faites glisser votre règle de neige dans
+la neige jusqu'à ce qu'elle atteigne la
+surface du sol / planche
+
+3. Lisez la valeur sur la règle de neige (la
+valeur est toujours au dixième de pouce
+(dixieme de cm) près comme 3.4 pouces
+(8.6 cm))
+
+4. Si vous utilisez une planche, enlevez la
+neige de la planche mais seulement après
+avoir pris le carottage de neige. Replacer
+ensuite la planche sur la neige
+                Neige mesurée sous un arbre
+
+Notez ici que seulement 3.0 pouces (7.6 cm) de neige s'est accumulée
+      Neige mesurée dans un endroit ouvert
+
+Tandis que 6.5 pouces (16.5 cm) de neige a tombe dans un
+                          endroit plus ouvert
+                Angle de mesure
+
+Faites la lecture le plus possible au niveau de la mesure sinon faire la
+  lecture à un trop gros angle vous donnera une mesure incorrecte
+          Remettre la planche en place
+
+Après avoir mesuré l'épaisseur de neige sur la planche et après avoir pris
+votre carottage, enlever la neige de la surface de la planche et placez la
+planche sur la nouvelle neige tombée. Assurez vous de bien indiquer son
+emplacement. Maintenant vous êtes prêts pour la prochaine chute de neige.
+         Préparer un rapport de la profondeur de la nouvelle neige
+
+  Indiquez votre
+    mesure de
+
+nouvelle neige au
+dixième de pouce
+(dixième de cm)
+
+        près
+                                     IMPORTANT
+  SVP NE PAS METTRE VOTRE MESURE DE NOUVELLE NEIGE
+
+           DANS LA CASE DE `PLUIE ET NOUVELLE NEIGE'
+
+    Ne faites pas
+l'erreur de mettre la
+mesure de nouvelle
+neige ici. C'est une
+
+  erreur commune
+
+      Votre mesure
+   devrait plutôt aller
+    dans la case ici
+       Équivalent en eau liquide de la nouvelle neige
+
+1. La profondeur de la nouvelle neige (nouvelle chute de neige -
+     en cm)
+
+2. L'équivalent en eau de la neige fraîche - en mm (Soit dans la
+
+      jauge ou sur la planche à neige)
+
+3. La profondeur totale de neige fraîche et de l'ancienne
+     neige/glace au moment de l'observation - en cm
+
+4. Le total de l'équivalent en eau (SWE) de la neige totale au sol
+     - en mm (Optionnel - et seulement fait les lundi)
+Mesurer l'équivalent en eau de la nouvelle neige
+Comment mesurer la teneur en eau de la neige qui est tombée dans la jauge
+Vous pouvez avoir une accumulation de neige sur la jante ou le rebord de
+                                        votre jauge
+ Comment savoir ce qu'il faut mesurer et ce qu'il ne faut pas mesurer ?
+Prenez votre tapette a neige et tapez doucement sur le rebord de la gauge
+Ce qui tombe dans la jauge nous le mesurons
+
+On ne considère pas la neige qui  Procédez à enlever et nettoyer le
+  tombe en dehors de la gauge     reste de la neige du dessus de la
+
+                                                    gauge
+Faire fondre la neige
+
+Notez que vous avez deux  Ajouter de l'eau tiède au petit cylindre
+           cylindres                         intérieur
+   Prenez une mesure exacte du volume d'eau du robinet que vous
+          avez pris et ce avant de le verser dans le gros cylindre
+
+Assurez vous de mesurer au centièmement de pouce (au dixième de mm) près
+Ajouter cette eau chaude à l'échantillon de neige
+
+Versez l'eau directement  Laissez la neige de
+    dans l'échantillon    l'échantillon fondre
+
+                             complètement
+Mesurer l'échantillon de la neige qui est maintenant sous
+                             forme liquide
+
+Versez l'eau de l'échantillon  N'oubliez pas que chaque
+   dans le plus petit tube     goutte est très importante
+Lire attentivement au centième de pouce (au dixième de mm) près
+Rapellez vous de soustraire le montant d'eau chaude que vous aviez ajouté
+                                      au tube au début
+
+Une lecture de 0.79 pouces (20 mm) d'eau moins
+0.50 pouces (13 mm) d'eau ajoutée donne une
+lecture finale de 0.29 pouces (7 mm)
+
+Tube plein 0.79 po      20.0 mm
+
+Eau ajoutée 0.50 po     13.0 mm
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Lecture finale 0.29 po  7.0 mm
+ La jauge ne donne pas toujours une mesure exacte du
+contenant en eau de la nouvelle neige. Il est possible de
+
+ prendre un carottage de neige a partir de la neige sur
+                       votre planche a neige
+          2. Contenu en eau d'un carottage de nouvelle neige
+
+· Utilisez votre planche a neige ou une autre surface rigide
+
+· Prendre le carottage après avoir mesure l'épaisseur de la neige et
+   AVANT d'avoir nettoyé la neige de votre planche ou de la surface
+
+· Comme exemple, si vous déterminez que l'épaisseur total de la
+   nouvelle neige est 4 pouces (10.2 cm), prenez votre carottage
+   d'un endroit représentatif de l'épaisseur de 4 pouces (10.2 cm).
+                Prendre un carottage de la nouvelle neige
+
+Prenez un carottage en inversant
+le cylindre externe et le pousser
+ droit vers le bas avec son bout
+
+        ouvert dans la neige
+
+                                                  Utilisez quelque chose de mince et
+                                                   rigide pour glisser sous le cylindre
+
+                                                        (spatule, tappette a neige)
+              Prendre un carottage de la nouvelle neige
+
+Comme dans l'exemple précédent, faites fondre ensuite mesurer le
+                               volume de la neige
+          Rapportez l'équivalent en eau de la nouvelle neige
+
+L'eau fondue du
+carottage est le
+
+   montant de
+précipitation du
+
+       jour
+
+     Inclure le
+montant fondue
+  de la jauge en
+ commentaires
+      Profondeur totale de la nouvelle et veille neige
+
+1. La profondeur de la nouvelle neige (nouvelle chute de neige -
+     en cm)
+
+2. L'équivalent en eau de la neige fraîche - en mm (Soit dans la
+
+      jauge ou sur la planche à neige)
+
+3. La profondeur totale de neige fraîche et de l'ancienne
+     neige/glace au moment de l'observation - en cm
+
+4. Le total de l'équivalent en eau (SWE) de la neige totale au sol
+     - en mm (Optionnel - et seulement fait les lundi)
+Mesurer la profondeur totale
+       de la neige au sol
+La profondeur de neige est la profondeur moyenne
+de la neige (y compris la vieille neige et la glace
+ainsi que la nouvelle neige) qui reste sur le terrain
+au moment de l'observation
+      Mesurer la neige totale au sol
+
+· La neige est rarement distribuée uniformément, donc il vous faut
+   prendre plusieurs mesures a divers endroits et faire une moyenne pour
+   obtenir votre profondeur totale de neige
+
+· Glissez la règle de neige à travers toutes les couches de neige
+   (nouvelles et anciennes)
+
+· Lire les valeurs sur la règle de neige et d'enregistrement (les valeurs
+   sont au 1/2 pouce (environ 1.2 cm pres) près comme 4.5" ou
+   5.0« (11.5 cm ou 12.7 cm)
+
+· Ne mesurez pas les accumulations artificielles comme la neige qui a
+   été labourée par les camions, la poudrerie ou la neige qui a été
+   pelletée.
+      La neige au sol
+
+Certains jours la neige couvrira seulement
+partiellement le sol. Pour enregistrer cela, prenez
+une moyenne des zones couvertes et dénudées de
+neige
+                                                     Si la moitié du terrain a 2" (5 cm) et
+                                                         la moitié du sol est dénudé de
+                                                         neige, indiquez 1,0" (2.5 cm)
+                                                        comme votre profondeur totale
+
+Si plus de la moitié du sol est
+dénudé de neige, indiquer "T"
+(trace) dans votre rapport et
+mentionner la gamme de
+profondeurs dans vos
+commentaires
+SI POSSIBLE
+
+                  Svp notez la profondeur
+                 totale de la neige chaque
+                jour ou il y a de la neige au
+
+                                sol
+          Indiquer la profondeur totale des neiges anciennes et neuves
+
+    Signaler la
+profondeur totale
+au demi-pouce (1
+
+     cm) près
+           RNE - Rapport neige eau
+
+1. La profondeur de la nouvelle neige (nouvelle chute de neige -
+     en cm)
+
+2. L'équivalent en eau de la neige fraîche - en mm (Soit dans la
+
+      jauge ou sur la planche à neige)
+
+3. La profondeur totale de neige fraîche et de l'ancienne
+     neige/glace au moment de l'observation - en cm
+
+4. Le total de l'équivalent en eau (SWE) de la neige totale au sol
+     - en mm (Optionnel - et seulement fait les lundi)
+          Mesurer l'équivalent en eau de la neige
+
+Dans certaines parties de la nation où la neige reste sur le sol pendant une longue
+période de temps, nous demandons à nos bénévoles de prendre une mesure SWE
+seulement une fois par semaine. Le lundi semble être une bonne journée pour le faire
+
+     · Il s'agit d'une mesure qui est fort utile aux hydrologues et aux
+         prévisionnistes des cours d'eau
+
+     · Il fournit une estimation de la quantité d'eau «au sol» qui peut
+         couler dans les rivières et les ruisseaux
+         Parfois la neige au sol peut être très profonde
+Mesurer seulement ce que vous vous sentez à l'aise de mesurer
+Comment mesurer l'équivalent en eau de la neige
+
+· Prendre un carottage de neige de la neige sur le
+  terrain (et non pas sur votre snowboard)
+
+· Faire fondre l'échantillon de carottage
+· Mesurer la quantité d'eau dans le carottage
+
+  fondue
+Premièrement, trouvez un endroit représentatif
+
+· L'emplacement ne devrait         Ceci me parait
+   pas avoir de poudrerie, de      comme un bon
+   neige fondue ou soufflé par le
+   vent                                 endroit
+
+· Par exemple si vous
+   déterminez que la profondeur
+   totale de neige est de 7
+   pouces (17.8 cm), prendre
+   votre échantillon d'une zone
+   où la profondeur de la neige
+   est de 7 pouces (17.8 cm)
+Étapes pour obtenir un carottage
+
+Placez la jauge avec le bout  Déplacez la neige qui se
+     ouvert vers le bas et    trouve autour de la jauge
+
+  poussez le dans la neige
+Sécuriser le carottage
+
+Glisser la tapette à  Doucement lever et       Apportez votre
+neige sous la jauge     préparez vous à   échantillon à l'intérieur
+
+                      renverser la gauge
+Carottage de la neige quand la neige est plus profonde
+
+Poussez            Tirez
+ vers le
+
+   bas
+
+          Tournez
+Dans la neige plus mouillée, le carottage devrait sortir en un morceau
+          L'équivalent en eau de la neige
+
+· Faire fondre et
+  mesurer
+
+· Indiquer vos
+  résultats sur le
+  "daily report form"
+      Observations du rapport Neige Eau
+
+   Indiquer le
+volume liquide
+
+  de la neige
+   fondue au
+ centième de
+pouce (dixième
+ de mm) près
+Des situations
+   spéciales
+ Les conditions de vent peuvent créer une situation où la quantité de
+neige dans la jauge n'est pas représentatif de ce qui est tombé au sol
+
+ · Dans ce cas, nous devons prendre un carottage de neige à
+    partir de la planche à neige ou une zone représentative de la
+    profondeur de neige moyenne
+
+ · Faire fondre et mesurer le carottage obtenu
+
+ · Si vous pensez que cela est plus représentatif de la
+    précipitation réelle, et bien signaler ce montant dans vos
+    précipitations quotidiennes et de faire une note dans les
+    commentaires. Inclure la quantité fondue de la neige qui a
+    effectivement tombée dans la jauge dans vos commentaires
+                         Que faire quand ....
+Des situations additionnelles que vous pourrez rencontrer
+                                        Que faire quand
+   La neige tombe fortement - est-ce que je peux le faire savoir a quelqu'un?
+
+  Effectivement! Soumettez un
+  rapport de temps météorologique
+  significatif à tout moment. Ce
+  rapport va directement au National
+  Weather Service en temps réel et
+  aide grandement
+
+  Indiquer la durée de l'évènement
+  pour le rapport
+  Indiquer la profondeur de la neige
+  tombée au cours de cette période
+
+Indiquer la profondeur de neige totale au sol
+
+  Ajouter vos commentaires pour
+  compléter l'information et peindre
+  une image plus complète
+                                      Que faire quand
+      La neige fond aussitôt qu'elle tombe au sol et ne s'accumule pas
+
+· Indiquer le montant de précipitation
+   dans votre jauge comme le montant
+   du jour
+
+· Indiquer une trace de nouvelle neige
+· Dans les commentaires indiquer
+
+   `Snow melted as it landed'
+    Que faire si: Je prends une mesure de l'accumulation de la neige mais je
+          n'ai pas le temps de faire fondre le carottage car je dois quitter?
+
+   Mettre NA dans la boite `Rain and
+  melted snow' ainsi que dans la boite
+`melted core' et ajouter un commentaire
+
+      dans la boite a commentaires
+
+                                        Quand vous reviendrez plus tard, retourner à votre
+                                       page et éditer la page pour y mettre le montant dans
+                                      la case `Rain and Melted snow' ainsi que dans la case
+
+                                                                 `Melted Core'
+Comment dois-je mesurer la pluie verglaçante?
+
+                                                   · La "pluie verglaçante" est de la pluie qui tombe
+                                                        sous forme liquide mais qui gèle quand elle
+                                                        contacte une surface glacée
+
+                                                   · NE PAS rapporter la pluie verglaçante comme
+                                                        de la "Neige". Faites fondre et mesurer le
+                                                        montant qui s'est accumulé dans votre jauge et
+                                                        rapportez cela comme votre montant total de
+                                                        précipitation du jour
+
+                                                   · Indiquez ensuite zéro pour dans la case de la
+                                                        nouvelle neige (si le tout est tombe sous forme
+                                                        de pluie verglaçante bien sur)
+
+                                                   · Faites une observations de l'épaisseur totale de
+                                                        la pluie verglaçante au sol au moment de
+                                                        l'observation et entrez ce montant dans la case
+                                                        "Total snow on the ground". Indiquez cela dans
+                                                        vos commentaires de sorte que nous saurons
+                                                        que c'est de la pluie verglaçante.
+     RevisRioévnisocnsoenncseemrbnlean- otblseesrvemr etemseusurreesr ladneeigne eige
+
+ FFoanidrerefolandnreeiglae/ngelaigcee/dgalancsela
+ dgaanusgveoetrteingdaiuqgueerecterampopnotratenzt
+cdealnascvoomtrmeeraleppmoortnqtaunottidduiejnoudre
+
+            précipitations
+
+ MMeessuurerezrl'la'accccuummuulalatitoionnddeelala
+    nnoouuvveelllelenneeigigeessuurrvvootrtere
+         pplalanncchheeaanneeigigee
+
+PPrreennderze uunnccaarrroottttaaggee ddeanlas naenigeeigseur
+  survovotrterepplalanncchhee, faairneeifgoen,drfaeiteets
+
+foinnddriqeueetr rlaepmpoorntetazntledmanosntlaanst edcatinosn
+ la sec"tNioenw` Snenwowsfnaoll"w(faOllp' t(ioopnteiol)nel)
+
+   Mesurez la neige au sole
+Mesurer l'épaisseur totale de la
+
+   (nouvelle neige plus veille
+ neige au sole (nouvelle neige
+
+          neige et glace)
+    plus veille neige et glace)
+Indiquez ici l'equivalent en eau
+ du montant total de neige au
+ Insodliq(uuneer lfeorisapppaor rsteémquaiivnaelesni t
+ en eau duptoostaslibdlee)la neige au
+  sol (une fois par semaine si
+
+              possible)
+          Quand il n'y a pas de nouvelle neige
+                  Des zéros pour la neige
+
+Si vous êtes dans la saison d'hiver et vous n'avez pas eu la neige nouvelle dans
+         les dernières 24 heures s'il vous plaît remplir ces «zéros de neige"
+
+   Voici trois cas
+   Cas numéro 1
+
+Pas de nouvelle neige
+ Pas de neige au sol
+             Quand il n'y a pas de nouvelle neige
+                      Des zéros pour la neige
+
+    Cas numéro deux
+
+   Pas de nouvelle neige
+      Neige déjà au sol
+
+Vous avez pris un carottage
+      de la neige au sol
+             Quand il n'y a pas de nouvelle neige
+                     Des zéros pour la neige
+
+    Cas numéro trois
+
+   Pas de nouvelle neige
+      Neige déjà au sol
+
+  Vous n'avez pas pris un
+carottage de la neige au sol
+Des informations additionnelles de formation pour l'hiver
+
+                                                                       Allez sur le site
+                                                                      web et cliquez ici
+
+accrétion de glace  Mesure de la teneur
+                    en eau de la neige
+
+                           en poids
+                        FIN
+
+Pour plus d'information vous pouvez contacter:
+                canada@cocorahs.org
+

@@ -1,0 +1,384 @@
+FPlnnovation ~                 info@fpinnovations.ca
+                               www.fpinnovations.ca
+
+TANNINS EXTRACTION FROM BARK
+
+FOR INDUSTRIAL APPLICATIONS -
+
+LABORATORY STUDY
+
+PROJECT NUMBER: 301013968
+
+Simon Gandrieau, MSc. Chemist
+March 2020
+FPlnnovation ~
+
+Project number: 301013968                      REVIEWER
+                                               Allan Elliot, MSc
+ACKNOWLEDGEMENTS                               Scientist
+                                               Environment and Sustainability
+This project was financially supported by the
+Ministry of Forest, Land and Natural Resource  AUTHOR CONTACT INFORMATION
+Operations of British Columbia.                Simon Gandrieau
+                                               Scientist
+The authors gratefully thank Rawle Lovell and  Environment and Sustainability
+Sylvain Fauteux for their technical work.      (514) 782-4609
+                                               Simon.Gandrieau@fpinnovations.ca
+APPROVER CONTACT INFORMATION
+Vincent Blanchard
+Manager, Environment and Sustainability
+Vincent.Blanchard@fpinnovations.ca
+
+                Disclaimer to any person or entity as to the accuracy, correctness, or completeness of the
+                information, data, or any analysis thereof contained in this report, or any other
+                recommendation, representation, or warranty whatsoever concerning this report.
+
+                Follow us
+INTRODUCTION
+
+FPInnovations was approached to investigate the extraction of tannin from tree bark in British
+Columbia (BC). FPInnovations has been working on bark extraction over the last few years and
+proposed to focus this study on Western Hemlock which showed high tannin content in previous
+work. The extraction method developed by FPInnovations uses chemicals and elaborate
+equipment that requires the work to be conducted under strongly controlled conditions, such as
+a chemical laboratory. This report aimed to find a simpler extraction protocol that could
+potentially be used by coastal First Nations communities or other parties interested in extracting
+tannin from bark at a relatively small scale.
+
+Objectives of this contract were:
+
+   · Conduct laboratory testing to compare different methods for the extraction of tannin
+
+         from western hemlock bark
+
+   · Analyze the extracts and compare the extraction yields and tannin concentrations
+   · Report results from previous work on tannin quantification from BC tree species
+   · Present a summary of identified potential applications for tannin extracts
+
+MATERIAL AND METHODS
+
+Bark extraction
+
+Western hemlock logs were collected in the forest by FPInnovations during the fall of 2016 in
+Mabel Lake, Bamfield, and Rock Creek. Logs were manually debarked using a drawknife. Bark was
+then ground using a hammer mill with a 3/16"" screen, dried at room temperature for five days,
+and stored at -20°C prior to extraction. Material was extracted by maceration using a mixture of
+ethanol/water (70:30) or water only, with two passes of two hours duration. The ethanol/water
+extraction was done at 50°C and the water extraction at 25°C, 50°C, 70°C, and 90°C using heating
+plates. Extractions were done using approximately 100g of dried bark for 1L of solvent in 2L
+Erlenmeyer flasks. Agitation during extraction was provided with a blade mixer set at 250 rpm.
+Liquid extract was then filtered on Whatman paper grade 4 (25 µm) to remove small bark
+particles. Every extract was separated into two portions to investigate two drying techniques. The
+first portion was evaporated at reduced pressure using a rotary evaporator and freeze-dried. The
+second portion was boiled under agitation in a beaker using a heating/stirrer plate to greatly
+reduce the volume and then dried overnight in an oven set at 60°C. A 24-hour extraction in water
+at 50°C was also investigated. Only one pass of extraction was performed. This extract was
+subsequently freeze-dried. The rest of the process did not differ from the one described above.
+
+Extraction yields were calculated with the following formula: Yield(%) = 100 x
+
+Mass of dry extract collected
+    Mass of dry bark used
+
+                                                                                                                     3
+Tannin concentration determination
+
+Total tannin content was measured using the methylcellulose precipitation assay (Sarneckis et al.
+2006). Samples were dissolved at 0.5 mg/mL in 50% ethanol. For each extract undergoing analysis,
+a control and an assay must be performed. For the control, 100 µL of the sample was put into
+Eppendorf vials with 200 µL of a saturated solution of ammonium sulfate and 700 µL of H2O. For
+the assay, 100 µL of the sample was put into vials with 300 µL of a 0.04% methylcellulose aqueous
+solution and slightly agitated. After 2 to 3 min, 200 µL of ammonium sulfate solution and 400 µL
+of H2O were added. The control and assay vials were then vortexed, set aside for 10 min and
+centrifuged at 10,000 rpm for 5 min. The supernatant s absorbance was recorded at 280 nm.
+Absorbance value of the control, minus the one of the assay, indicated the quantity of tannin
+precipitated by the methylcellulose. Extracts were analyzed in triplicate. A calibration curve (R² =
+0.9965) was performed using tannic acid (0-400 µg/mL), and results were expressed in equivalent
+mg tannic acid/g of extract. Concentrations in mg tannic acid/g of bark were calculated using the
+extraction yields.
+
+Total phenol concentration determination
+
+Total phenols content was estimated by the Folin-Ciocalteu assay. Extracts were prepared at 0.1
+mg/mL in distilled water containing up to 1% of ethanol to facilitate dissolution, and 0.1 mL of
+these solutions were transferred into screw-top reaction vials with 3.9 mL of distilled water and
+0.25 mL of Folin-Denis reagent. The vials were then vortexed, and after 4 min 0.75 mL of an
+aqueous 20% Na2CO3 solution were added. Finally, the vials were vortexed and heated for 25 min
+in a 40°C water bath. Absorbance was recorded at 765 nm after letting the vials cool down for 5
+min at room temperature. Extracts were analyzed in triplicate. A calibration curve (R2 = 0.9993)
+was performed using gallic acid (0 200 µg/mL) and results were expressed in equivalent mg gallic
+acid/g of extract.
+
+                                                                                                                     4
+RESULTS
+
+Bark from British Columbia species as a source of tannin
+
+In past projects, FPInnovations worked with many wood species from Eastern and Western
+Canada. Extracts from the bark of the species already tested for tannin concentration used an
+alcohol/water maceration (Table 1). Three species stand out from the rest: western hemlock,
+western larch and black spruce. These species showed similar tannin concentration and could be
+potential candidates for tannin extraction.
+
+Table 1. Tannin concentration in various bark extract from Western species studied by FPInnovations
+
+Common name Scientific name        Tannin concentration in Tannin extraction efficacy (mg
+
+                                   extract (mg TAE/g)a       TAE/g of bark extracted)
+
+Western Hemlock Tsuga heterophyla  246.5                     41.2
+
+Western Larch  Larix occidentalis  292.1                     45.3
+
+Lodgepole Pine Pinus contorta      116.3                     23.6
+
+Aspen          Populus tremuloides 65.3                      11.5
+
+Paper Birch    Betula papyrifera   59.6                      9.4
+
+Black Spruce   Picea mariana       221.6                     44.3
+
+a concentration shown in mg tannic acid equivalent per gram
+
+Note: Black spruce bark was collected in Québec, but we should expect similar concentration in BC trees
+and also in other western spruce species such as Sitka, White, and Engelmann spruce. Paper birch was also
+collected in Québec, but concentration should be similar in BC.
+
+When considering application towards skin tanning, many other parameters probably need to be
+accounted for, such as extract colour. It is also possible that some specific tannin could be more
+desirable than others, or that other compounds found in the bark extract could have positive or
+negative effects. For example, some bark extracts studied by FPInnovations have shown both
+antimicrobial activity against pathogens and strong antioxidant activity. Interestingly, the western
+hemlock extract was also one of the best candidates.
+
+A preliminary trial is currently under way with the Vancouver-based company 7Leagues to
+investigate the application of bark extracts for fish skin tanning. Three samples of bark and three
+of extracts (hemlock, pine, and aspen) were sent to 7Leagues in January 2020. Results will give
+an indication about the suitability of the bark extract for this application.
+
+                                                                                       5
+Tannin applications
+
+A review of tannin industrial applications was published in 2019 in the open access Biomolecules
+journal (Pizzi, 2019). The main applications are listed in Table 2 in order of economic importance.
+
+Table 2. Industrial applications of tannin
+
+Application           Details
+
+Leather tanning       Impregnation of skin with tannin solutions
+
+Wood adhesives        Tannin based adhesives for particleboard and plywood to
+
+                      replace synthetic adhesives
+
+Beverage              Increase the tannin concentration in wines and beer
+
+Foam                  Fireproof and insulation foam
+
+Mining                Separation of germanium from cooper ore and fluorite
+
+                      from calcite
+
+Wastewater treatment  Absorption of heavy metals and flocculant agent
+
+It is important to keep in mind that the extract product from bark will not be 100% tannin. The
+presence of the other compounds could make some application unsuitable. The regulatory
+constraint might be particularly difficult for food and beverage applications. Moreover, it is
+believed that the tannin can be used as is for the leather and beverage applications only. The
+other uses require preparation of a more developed product, involving different chemicals such
+as urea, formaldehyde, isocyanates, or furfuryl alcohol.
+
+Simplification of the tannin extraction process
+
+The usual method used by FPInnovations for bark extraction involves ethanol as a solvent and a
+freeze-dryer to dry the extract into a concentrated powder. Ethanol is a toxic and dangerous
+chemical to work with and requires proper facilities and equipment. In addition, a freeze-dryer is
+an expensive piece of equipment requiring a long drying time. In order to develop a simpler
+process, more suitable to small-scale operations, some modifications of the extraction method
+were investigated. First, the ethanol was removed, and bark was extracted using water as the sole
+solvent. Different temperatures were tested to find the optimal conditions. To facilitate the drying
+step, liquid extract was simply boiled to remove most of the water. When the volume was low,
+samples were transferred to an oven set at 60°C, and dry powder was collected. All extracts were
+then compared to the usual ethanol extraction and drying method for their yield and tannin
+content. All results are presented in Table 3.
+
+                                                                            6
+Table 3. Extraction yields and tannin content of western hemlock extracted under different conditions
+
+Extraction        Drying method Extraction Tannin              Tannin extraction efficacy
+
+                               yield (%)  concentration in     (mg TAE/g of bark
+                                          extract (mg TAE/g)a  extracted)
+
+Ethanol control -50°C Freeze-drying 16.6  333.2                55.3
+
+Water-25°C        Freeze-drying 4.5       336.3                15.1
+
+Water-25°C        Evaporation  4.1        413.9                16.9
+
+Water-50°C        Freeze-drying 7.4       354.9                26.3
+
+Water-50°C        Evaporation  5.2        472.8                24.6
+
+Water-70°C        Freeze-drying 15.7      332.6                51.2
+
+Water-70°C        Evaporation  10.8       448.4                48.4
+
+Water-90°C        Freeze-drying 14.4      234.3                33.7
+
+Water-90°C        Evaporation  17.9       300.5                53.8
+
+Water 24hrs-50°C  Freeze-drying 7.9       340.5                26.9
+
+a concentration shown in mg tannic acid equivalent per gram
+
+As expected, the yields were lower when using no ethanol and extracting at the same temperature
+(16.6% against 7.4%). However, when the extraction temperature was increased, the yield
+improved significantly. Extraction at 90°C looks to be the more promising condition, with a yield
+similar to the control method and an identical tannin content. The tannin concentration of the
+water extracts was in the same range as the ethanol extract, which means that the extracts are
+quite similar. Nevertheless, when taking into account the extraction yields, the results show that
+the ethanol extraction method is still more efficient to extract as much tannin as possible from
+the bark. The two drying techniques showed similar yield, without a large unexpected difference.
+The slightly lower yields observed when evaporating the extracts (except for the 90°C extractions)
+are probably due to the loss of a portion of extract against the walls of the glassware when boiling
+away the water before final drying in the oven. The new drying method does not seem to be
+problematic for the tannin concentration either. The initial hypothesis was that, when submitted
+to high temperature during boiling, some degradation could happen, leading to a reduced tannin
+content. This does not seem to be the case here. The thermal degradation of tannins starts at
+196°C (Lisperger et al., 2016). Nonetheless, the quantification assay used measured the total
+tannin concentration. There could potentially be a difference in the tannin present on a molecular
+level, such as the presence of tannin with smaller molecular weight after boiling. The same
+hypothesis can be made for the extracts produced at 70°C and 90°C. A 24-hour investigatory
+extraction was performed in water at 50°C. The yield and tannin concentration were similar to
+the 2x2 hours extraction at the same temperature. The benefit of the 24-hour extraction is that
+there is only one pass of extraction for the same yield, so only half the amount of liquid to dry to
+collect the same quantity of extract. However, longer extraction time involves higher production
+cost, mainly due to the energy to heat the extraction for 24 hours. This energy cost increase for
+extraction could potentially be balanced by the reduction of energy needed for water evaporation
+and extract drying, but we do not have data to support this case, and it would probably be closely
+related of the volume of extraction.
+
+                                                                                                       7
+As follow-up, the extracts were analyzed for their total phenol content. This assay measures all
+the phenolic compounds present, including the tannin, but also other extractives like phenolic
+acids, flavonoids, lignans, or stilbenoids that have previously been found in the bark extracts.
+Results are presented in Table 4. The trends are similar to those observed previously for tannin
+concentration. The extracts have quite similar chemical composition, the classic ethanol method
+is the more efficient to extract phenolics, and the drying method was not found to impact the
+chemical composition. The best condition for water extraction appears to be at 70°C. When
+increasing the temperature further, phenolic concentration was found to be lower.
+
+Table 4. Phenolic content of western hemlock bark extracted under different conditions
+
+Extraction        Drying method     Phenol concentration in extract  Phenol extraction
+                                                (mg GAE/g)a          efficacy (mg GAE/g
+                                                                     of bark extracted)
+
+Ethanol control-50°C Freeze-drying                           569.8                      94.6
+
+Water-25°C        Freeze-drying                              425.7                      19.2
+
+Water-25°C        Evaporation                                503.9                      20.7
+
+Water-50°C        Freeze-drying                              465.4                      34.4
+
+Water-50°C        Evaporation                                472.4                      24.6
+
+Water-70°C        Freeze-drying                              527.1                      82.7
+
+Water-70°C        Evaporation                                546.7                      59.0
+
+Water-90°C        Freeze-drying                              470.1                      67.7
+
+Water-90°C        Evaporation                                415.2                      74.3
+
+Water 24hrs-50°C  Freeze-drying                              519.5                      41.0
+
+a concentration shown in mg gallic acid equivalent per gram
+
+                                                                                              8
+CONCLUSION
+
+The different extraction trials showed that less extract and tannin are collected from hemlock
+bark when using water only, instead of a mixture of water and ethanol. However, the extract
+powders produced have the same tannin concentration. As such, more bark would be needed to
+generate the same quantity of tannin when using water only, but the extract will be of the same
+quality as the one made with FPInnovations laboratory method. Heating the bark water mixture
+during maceration greatly improved the extraction yields but did not impact the tannin content
+in the resulting extracts. The drying is not an issue for the extraction yields and tannin
+concentration of the bark extract. The extract produced with water showed tannin content of
+approximately 30% to 45%. As previously mentioned, the other compounds might have a positive
+or negative impact depending on the targeted application. The next step will be to test the bark
+tannin for the specific application. A trial is currently under way for fish skin tanning.
+
+Having an easy method to quantify the tannin content of the bark extracts would be a good asset
+for parties interested in doing bark extraction. We tried to develop a kitchen-type protocol based
+on our laboratory method. The objective was to use easily accessible products and materials and
+develop a method effortlessly performed by anybody without a chemistry background. The tests
+were based on the capacity of tannin to precipitate proteins. Experiments were conducted using
+egg and whey protein and a standard tannin powder. At this point, results are not conclusive, and
+more time would be needed to develop such a method and make sure that results are reliable.
+
+As additional conclusions, the following recommendations about the different steps of the tannin
+extraction from bark are presented.
+
+Bark grinding
+
+Bark grinding was not investigated in this report. Bark used was already ground from previous
+work using a Hammermill. We assume that bark could be ground to adequate particle size with a
+classic wood chipper. With smaller particle size extraction yield is better, due to larger exposed
+surface area.
+
+Extraction
+
+Based on results, water can be a suitable solvent for tannin extraction from bark. The best
+temperature for extraction was 90°C, but 50°C and 70°C can still be considered. Our protocol used
+two extractions of two hours for the same sample of bark. Based on another bark extraction work,
+approximately 75% of the total yield can be expected during the first pass. The second pass could
+be removed in order to reduce the volume of liquid requiring drying. Extraction time was not
+investigated in detail during this project, but a 24-hour extraction could be a suitable option too.
+The tested extractions were conducted under agitation using a blade mixer in order to increase
+extraction yield. If no suitable equipment can be found, a punctual manual homogenization is
+advised to ensure that all bark pieces are in contact with the water extraction solution.
+
+                                                                                                                     9
+Filtration
+Filtration was not investigated. Simple sieve, tissue, or cheesecloth filtration could be suitable
+options. Having a method not as fine as filter paper will not be critical, depending on the
+application targeted for tannin. Some small bark particles could end up in the extract after
+filtration. This debris will not be soluble when putting the tannin extract into the solution for
+application. This could be an issue for food and beverage application but probably not for leather
+tanning.
+Extract drying
+As discussed above, the results from this study showed that the liquid extract collected after bark
+maceration can successfully be dried by boiling most of the water first and then drying in an oven.
+Second-hand equipment such as that used to evaporate maple sap into maple syrup could be one
+option.
+
+REFERENCES
+
+Lisperguer J., Saravia Y. and Vergara E. 2016. Structure and Thermal Behavior of Tannin from Acacia
+dealbata Bark and their Reactivity toward Formaldehyde. Journal of the Chilean Chemical Society, 61 (4) :
+3188-3190
+Pizzi, A. 2019. Tannin: Prospectives and Actual Industrial Applications. Biomolecules, 9, 344.
+Open access https://doi.org/10.3390/biom9080344
+Sarneckis CJ, Dambergs RG, Jones P, Mercurio M, Herderich MJ et Smith PA. 2008. Quantification of
+condensed tannin by precipitation with methyl cellulose: Development and validation of an optimised
+tool for grape and wine analysis. Australian Journal of Grape and Wine Research, 12 : 39 49.
+
+                                                                                                                   10
+FPlnnovation ~                                              info@fpinnovations.ca
+                                                            www.fpinnovations.ca
+
+OUR OFFICES
+
+Pointe-Claire         Vancouver       Québec
+570 Saint-Jean Blvd.  2665 East Mall  1055 rue du P.E.P.S.
+Pointe-Claire, QC     Vancouver, BC   Québec, QC
+Canada H9R 3J9        Canada V6T 1Z4  Canada G1V 4C7
+(514) 630-4100        (604) 224-3221  (418) 659-2647
+
+                                                            11
+

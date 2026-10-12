@@ -1,0 +1,331 @@
+{
+ "organisme": "USDA ARS FoodData Central (SR Legacy)",
+ "url": "https://fdc.nal.usda.gov/portal-data/external/<fdcId> (fiches https://fdc.nal.usda.gov/food-details/<fdcId>/nutrients)",
+ "consulte_le": "2026-09-24",
+ "aliments": [
+  {
+   "fdcId": 167609,
+   "description": "Moose, liver, braised (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 155,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 24.4,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 4.89,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 6.77,
+     "unite": "mg"
+    },
+    {
+     "numero": "312",
+     "nom": "Copper, Cu",
+     "valeur": 2.79,
+     "unite": "mg"
+    },
+    {
+     "numero": "401",
+     "nom": "Vitamin C, total ascorbic acid",
+     "valeur": 22.6,
+     "unite": "mg"
+    },
+    {
+     "numero": "418",
+     "nom": "Vitamin B-12",
+     "valeur": 71.0,
+     "unite": "µg"
+    }
+   ]
+  },
+  {
+   "fdcId": 168983,
+   "description": "Caribou, liver, raw (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 122,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 15.0,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 3.9,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 15.7,
+     "unite": "mg"
+    }
+   ]
+  },
+  {
+   "fdcId": 168985,
+   "description": "Caribou, tongue, raw (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 260,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 13.7,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 22.8,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 2.8,
+     "unite": "mg"
+    }
+   ]
+  },
+  {
+   "fdcId": 169800,
+   "description": "Caribou, bone marrow, raw (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 786,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 6.7,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 84.4,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 4.5,
+     "unite": "mg"
+    }
+   ]
+  },
+  {
+   "fdcId": 168026,
+   "description": "Seal, ringed, liver (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 116,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 18.6,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 3.3,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 13.5,
+     "unite": "mg"
+    },
+    {
+     "numero": "320",
+     "nom": "Vitamin A, RAE",
+     "valeur": 4880.0,
+     "unite": "µg"
+    }
+   ]
+  },
+  {
+   "fdcId": 168021,
+   "description": "Fish, pike, northern, liver (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 156,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 16.6,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 8.0,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 2.1,
+     "unite": "mg"
+    }
+   ]
+  },
+  {
+   "fdcId": 167626,
+   "description": "Fish, whitefish, broad, liver (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 104,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 11.0,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 4.4,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 8.6,
+     "unite": "mg"
+    }
+   ]
+  },
+  {
+   "fdcId": 169810,
+   "description": "Fish, lingcod, liver (Alaska Native)",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 424,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 5.6,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 42.0,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 1.0,
+     "unite": "mg"
+    },
+    {
+     "numero": "401",
+     "nom": "Vitamin C, total ascorbic acid",
+     "valeur": 0.0,
+     "unite": "mg"
+    }
+   ]
+  },
+  {
+   "fdcId": 174344,
+   "description": "Game meat, moose, raw",
+   "nutriments": [
+    {
+     "numero": "208",
+     "nom": "Energy",
+     "valeur": 102,
+     "unite": "kcal"
+    },
+    {
+     "numero": "203",
+     "nom": "Protein",
+     "valeur": 22.2,
+     "unite": "g"
+    },
+    {
+     "numero": "204",
+     "nom": "Total lipid (fat)",
+     "valeur": 0.74,
+     "unite": "g"
+    },
+    {
+     "numero": "303",
+     "nom": "Iron, Fe",
+     "valeur": 3.21,
+     "unite": "mg"
+    },
+    {
+     "numero": "312",
+     "nom": "Copper, Cu",
+     "valeur": 0.067,
+     "unite": "mg"
+    },
+    {
+     "numero": "401",
+     "nom": "Vitamin C, total ascorbic acid",
+     "valeur": 4.0,
+     "unite": "mg"
+    },
+    {
+     "numero": "320",
+     "nom": "Vitamin A, RAE",
+     "valeur": 0,
+     "unite": "µg"
+    },
+    {
+     "numero": "319",
+     "nom": "Retinol",
+     "valeur": 0,
+     "unite": "µg"
+    }
+   ]
+  }
+ ]
+}

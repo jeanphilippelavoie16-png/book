@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Outil de comparaison des essences du guide sylvicole du Québec">
+    <meta name="keywords" content="arbres,comparaison,essences,commerciales,concurrentes,mrn,ministère,ressources,naturelles">
+	<title>Chêne rouge (CHR)</title>
+    <link rel="stylesheet" type="text/css" href="css/reinit.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/piv.css">
+    <link rel="icon" href="images/favicon-32x32.png" sizes="16x16" type="image/png">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
+    <script src="js/jquery.color-RGBa-patch.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+    </script>
+    <script src="js/librairie.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/lightbox-2.6.min.js"></script>
+    <link rel="stylesheet" href="css/lightbox.css" media="screen"/>
+</head>
+<body>
+    <div id="wrap">
+        <div class="conteneur-piv">
+    <div class="entete-piv">
+        <div class="pivPuqLeft">
+            <a href="https://quebec.ca" class="linkPivPuq">
+                <img src="https://www.quebec.ca/assets/trousse-sdg/dist/img/QUEBEC_blanc.svg" class="imgPivPuq" alt="Gouvernement du Québec">
+            </a>
+        </div>
+        <div class="pivPuqCenterMiddle">
+            <a href="/"><h1>Outil de comparaison des essences</h1></a>
+        </div>
+        <div class="pivPuqRight">
+            <a href="https://www.quebec.ca/gouvernement/ministeres-organismes/ressources-naturelles-forets/coordonnees-structure/generales" class="aPivLinkRight">Nous joindre</a>
+        </div>
+    </div>
+</div>
+<div id="entete">
+    <div id="conteneur-entete">
+        <div id="logo"></div>
+        <div class="conteneur-nav">
+            <ul class="groupe" id="nav">
+                <li><a style="width: 135px" href="essence.php?e=commerciale">Essences commerciales</a></li>
+                <li><a style="width: 133px" href="essence.php?e=concurrente">Essences concurrentes</a></li>
+                <li><a style="width: 120px" href="comparaison.php">Outil de comparaison</a></li>
+                <li id="rechercher1">
+                    <form name="recherche" id="rechercheEntete" action="recherche.php" method="get">
+                        <input type="text" autocomplete="off" placeholder="Rechercher" name="paramRecherche">
+                        <input type="submit" id="recherche1" value="">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="bloc"></div>
+</div>
+        <div id="contenu">
+            <h2>Chêne rouge</h2>
+            <p class="fil"><a href="essence.php?e=commerciale">Essences commerciales</a> &raquo; Feuillus &raquo; Chêne rouge</p>
+            <div id="telechargement">
+                        <div id="icones">
+                            <a href="export.php?arbre1=93&type=csv"><img src="images/csv-download.png"></a> 
+                            <a href="export.php?arbre1=93&type=xls"><img src="images/xls-download.png"></a>
+                        </div>
+                        <div id="texte">Télécharger le tableau :</div>
+                    </div><div id="conteneurTableau">
+<table cellspacing="0">
+	<colgroup>
+		<col span="1" style="width: 25%;">
+		<col span="1" style="width: 75%;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th></th>
+			<th id="h1" class="nom-arbre">Chêne rouge (CHR)<form id="formComparer" action="comparaison.php" method="get"><input type="hidden" name="essence1" value="1"><input type="hidden" name="cat1" value="1"><input type="hidden" name="arbre1" value="93"><input type="submit" id="btnComparer" value="Comparer avec d'autres essences"></form></th>
+</tr><tr>
+			<th></th>
+			<th class="nom-anglais">Red oak</th>
+</tr><tr>
+			<th></th>
+			<th class="nom-latin"><span class="latin">Quercus rubra L. </span></th>
+</tr><tr>
+			<th></th>
+			<th class="nom-latin"><span class="latin">Feuillus</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="2" class="categorie"><h2>Habitat</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Localisation</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c1" class="nom-caracteristique"><strong>Aire de distribution naturelle</strong></td>
+                                      <td id="h1-c1">Cf. Carte de Cauboue (2007) (18)</td></tr><tr class="caracteristiques">
+                                      <td id="c2" class="nom-caracteristique"><strong>Sous-domaine bioclimatique où l'essence est représentée</strong></td>
+                                      <td id="h1-c2"><ul><li>1, 2 ouest, 3, 4 ouest</li><li>Marginal : 2 est</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c3" class="nom-caracteristique"><strong>Zones où la compétition est susceptible d'être problématique</strong></td>
+                                      <td id="h1-c3">Non disponible</td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Climat régional</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c4" class="nom-caracteristique"><strong>Température annuelle moyenne par sous-domaine bioclimatique (°C) </strong></td>
+                                      <td id="h1-c4"><ul><li>1 : 5,5 (3,9 - 7,0) </li>  <li>2 est : 4,8 (3,7 - 6,0)   2 ouest : 3,8 (2,7 - 5,0)   </li><li>3 est : 4,0 (2,6 - 5,3)   3 ouest : 3,3 (2,4 - 4,2)  </li><li>4 ouest : 2,3 (1,7 - 2,9)   </li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c5" class="nom-caracteristique"><strong>Précipitations totales annuelles par sous-domaine bioclimatique (mm)</strong></td>
+                                      <td id="h1-c5"><ul><li>1 : 958 (767 - 1 149)  </li> <li>2 est : 1 100 (932 - 1 268)   2 ouest : 1 039 (915 - 1 164)   </li><li>3 est : 1 084 (958 - 1 210)   3 ouest : 957 (866 - 1 048)  </li> <li>4 ouest : 962 (863 - 1 061)   </li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c6" class="nom-caracteristique"><strong>Indice d'aridité par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c6"><ul><li>1 : 6,6 (3,1 - 10,1)   </li><li>2 est : 4,1 (1,6 - 6,7)   2 ouest : 4,4 (3,2 - 5,6)  </li> <li>3 est : 5,0 (2,9 - 7,0)   3 ouest : 5,2 (3,6 - 6,7)   </li><li>4 ouest : 4,2 (2,7 - 5,8)   </li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c7" class="nom-caracteristique"><strong>Nombre de jours consécutifs sans gel par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c7"><ul><li>1 : 132 (97 - 168)  </li><li>2 est : 137 (121 - 153)   2 ouest : 110 (87 - 134)  </li> <li>3 est : 124 (96 - 151)   3 ouest : 105 (91 - 119)   </li><li>4 ouest : 95 (80 - 111)   </li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c7" class="nom-caracteristique"><strong>Nombre de jours consécutifs sans gel par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c7"><ul><li>1 : 132 (97 - 168)  </li><li>2 est : 137 (121 - 153)   2 ouest : 110 (87 - 134)  </li> <li>3 est : 124 (96 - 151)   3 ouest : 105 (91 - 119)   </li><li>4 ouest : 95 (80 - 111)   </li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c8" class="nom-caracteristique"><strong>Durée de la saison de croissance par sous-domaine bioclimatique (jours)</strong></td>
+                                      <td id="h1-c8"><ul><li>1 : 176 (157 - 195)   </li><li>2 est : 180 (169 - 191)   2 ouest : 157 (140 - 173)  </li> <li>3 est : 165 (148 - 181)   3 ouest : 151 (137 - 165)   </li><li>4 ouest : 147 (140 - 154)   </li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c9" class="nom-caracteristique"><strong>Nombre de degrés jours pendant la saison de croissance par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c9"><ul><li>1 : 1 947 (1 658 - 2 235)   v<li>2 est : 1 806 (1 547 - 2 064)   2 ouest : 1 669 (1 465 - 1 873)   </li><li>3 est : 1 695 (1 432 - 1 957)   3 ouest : 1 583 (1 433 - 1 734)   </li><li>4 ouest : 1 464 (1 354 - 1 574)   </li></ul></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Milieu physique</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c10" class="nom-caracteristique"><strong>Principales positions topographiques par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c10"><ul><li>1 : 3 > 4 > 7 = 5 = 0  </li><li>2 est : 4 = 3 = 5 = 6 = 0 = 8 = 7  2 ouest : 3 = 4 > 5  </li><li>3 est : 4 > 5 = 3 = 0 = 7 = 6  3 ouest : 4 = 2 = 3 = 5 = 6  </li><li>4 ouest : 4 = 3 = 5 = 7 = 0</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c11" class="nom-caracteristique"><strong>Principales classes de pente par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c11"><ul><li>1 : D = C > B = A  </li><li>2 est : F > C = D = B = A  2 ouest : D = C = F = E  </li><li>3 est : D = B = E = C = F = A  3 ouest : F = D = C = E = B  </li><li>4 ouest : D = C = B = E = A</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c12" class="nom-caracteristique"><strong>Principaux dépôts de surface par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c12"><ul><li>1 : R > 6S > 5S = 1A  </li><li>2 est : R > 6S = 5S = 1A = 5A = 4GS  2 ouest : R > 1A  </li><li>3 est : R > 4GS = 1A = 1AD = 2A = 7T  3 ouest : R > 1A  </li><li>4 ouest : R = 1A = 7T = 2B</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c13" class="nom-caracteristique"><strong>Principales classes texturales de l'horizon B par sous-domaine bioclimatique </strong></td>
+                                      <td id="h1-c13"><ul><li>1 : G = M  </li><li>2 est : G = F = M  2 ouest : M = F = G  </li><li>3 est : M = G = F  3 ouest : F = M = G  </li><li>4 ouest : F = M = G</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c14" class="nom-caracteristique"><strong>pH de l'horizon B par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c14"><ul><li>1 : 4,5 à  6,5</li><li>2 est : 4 à 6,5  2 ouest : 5,5 à 6,5</li><li>3 est : 4,5 à 6  3 ouest : 4 à 6,5 </li><li>4 ouest : 4 à 6,5</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c15" class="nom-caracteristique"><strong>Principales classes de drainage par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c15"><ul><li>1 : 20 > 10 = 30  </li><li>2 est : 10 = 20 > 30 = 31 = 50 = 60 = 40  2 ouest : 10 = 20 > 30  </li><li>3 est : 10 = 20 = 30 = 40 = 60  3 ouest : 21 = 10 = 20 = 30 = 31  </li><li>4 ouest : 20 = 30 = 60 = 40</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c16" class="nom-caracteristique"><strong>Humidité du sol</strong></td>
+                                      <td id="h1-c16">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c17" class="nom-caracteristique"><strong>Principaux types d'humus par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c17"><ul><li>1 : MR = MD  </li><li>2 est : MD = MU = MR = TO  2 ouest : MD = MR  </li><li>3 est : MD = MR = MU = SO  3 ouest : MD = MR  </li><li>4 ouest : MD = MR = SO</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c18" class="nom-caracteristique"><strong>Principales classes d'épaisseur de l'humus (en cm) par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c18"><ul><li>1 : 01 > 06 > 11  </li><li>2 est : 01 = 06 = 11 = 21  2 ouest : 01 = 06  </li><li>3 est : 01 = 06 = 11 = 21 = 41  3 ouest : 01 = 06  </li><li>4 ouest : 01 = 06 = 41</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c19" class="nom-caracteristique"><strong>Fertilité du sol</strong></td>
+                                      <td id="h1-c19"><ul><li>Besoins modérés en éléments nutritifs (11)</li><li>Les sols riches en calcaire sont à éviter car la mortalité y est élevée et le développement racinaire ainsi que la croissance de la partie aérienne très limités (40)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c20" class="nom-caracteristique"><strong>Meilleures conditions de croissance</strong></td>
+                                      <td id="h1-c20"><ul><li>Le milieu et le bas des pentes concaves d&#39;exposition nord ou est (2, 3, BB150)</li><li>Le facteur déterminant est la profondeur et la texture de l&#39;horizon A : un sol profond de texture loameuse à loam limoneuse avec un drainage rapide ou modéré (3, BB150, BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c21" class="nom-caracteristique"><strong>Besoins en lumière</strong></td>
+                                      <td id="h1-c21">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c22" class="nom-caracteristique"><strong>Besoins en eau</strong></td>
+                                      <td id="h1-c22">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c23" class="nom-caracteristique"><strong>Besoins en éléments nutritifs</strong></td>
+                                      <td id="h1-c23">Non disponible</td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Station</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c24" class="nom-caracteristique"><strong>Stations</strong></td>
+                                      <td id="h1-c24">Non disponible</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Dynamique</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Dynamique</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c25" class="nom-caracteristique"><strong>Types d'associations forestières et essences compagnes recherchées</strong></td>
+                                      <td id="h1-c25">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c26" class="nom-caracteristique"><strong>Principales perturbations moyennes et interventions partielles par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c26"><ul><li>1 : CP > DP  </li><li>2 est : EL = CP = HP = SU = DP  2 ouest : CP > HP </li> <li>3 est : DP = CP = EL = SU  3 ouest : CE = HP = CP = EL  </li><li>4 ouest : CP = HP = EL = CE</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c27" class="nom-caracteristique"><strong>Principales perturbations et interventions d'origine par sous-domaine bioclimatique</strong></td>
+                                      <td id="h1-c27"><ul><li>1 : BR > CT  </li><li>2 est : BR > FR = PL = CT  2 ouest : BR  </li><li>3 est : BR > CT = FR  3 ouest : BR </li> <li>4 ouest : BR = CT = ES   </li>                                                                       </ul></td></tr><tr class="caracteristiques">
+                                      <td id="c28" class="nom-caracteristique"><strong>Sociologie</strong></td>
+                                      <td id="h1-c28"><ul><li>Souvent en peuplement pur sur les sommets et les hauts-versants occupant les expositions les plus ensoleillées, évitant l&#39;exposition au nord  (3, SB40)</li><li>Aussi en mélange avec d&#39;autres espèces de feuillus comme les érables et les peupliers ou de conifères, comme le pin blanc et le pin rouge (3, BB170)  </li>                <li>Espèce de début de succession ou de mi-succession qui persiste à l&#39;étage dominant dans les érablières (BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c29" class="nom-caracteristique"><strong>Principales végétations potentielles observées par sous-domaine bioclimatique 1</strong></td>
+                                      <td id="h1-c29"><ul><li>1 : FE6 > FE5 > RP1 > MJ1 = FE1  </li><li>2 est : FE6 > FE5 > FE2 = MJ1 = RS1 = MJ2 = FE3 = RS2 = RS3  2 ouest : FE6 > FE5 > RP1 = RS5 = RT1  </li><li>3 est : FE6 > FE5 > RS1 = FE2 = RE2 = MJ1 = FE3 = MJ2  3 ouest : FC1 > FE6 > FE5 > RS2 = RP1 = FE2 = RS3  </li><li>4 ouest : RP1 = MJ1 = FE3 = MJ2 = RS1 = RS2 = RE2</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c30" class="nom-caracteristique"><strong>Tolérance à l'ombre</strong></td>
+                                      <td id="h1-c30"><ul><li>Stade semis : 7/9 sur l&#39;échelle de Humbert (1 : très tolérant et 9 : très intolérant) (BB109)</li><li>stade perchis et futaie : semi tolérant (41, BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c31" class="nom-caracteristique"><strong>Facteurs limitatifs ou favorables à l'aménagement de l'essence</strong></td>
+                                      <td id="h1-c31">Facteurs limitatifs : un sol calcaire (1, 2, 40) ; sur les sols minces, les arbres ne développement pas de racine pivotante : le tronc des arbres est alors plus court, il présente un fort défilement et des défauts qui en diminuent la qualité (BB150)</td></tr><tr class="caracteristiques">
+                                      <td id="c32" class="nom-caracteristique"><strong>Statut sucessionnel</strong></td>
+                                      <td id="h1-c32">Non disponible</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Morphologie</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Morphologie</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c33" class="nom-caracteristique"><strong>Port du tronc</strong></td>
+                                      <td id="h1-c33"><ul><li>Tronc rectiligne à faible défilement sur les statiohs fertiles (2, BB164)  </li>                       <li>Tronc court, à fort défilement sur les stations xériques à sol mince (BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c34" class="nom-caracteristique"><strong>Port de la cime</strong></td>
+                                      <td id="h1-c34">Cime symétrique arrondie en forme de parasol (2)</td></tr><tr class="caracteristiques">
+                                      <td id="c35" class="nom-caracteristique"><strong>Largeur de la cime</strong></td>
+                                      <td id="h1-c35">De 20 à 24 m en milieu ouvert (1, 14)</td></tr><tr class="caracteristiques">
+                                      <td id="c36" class="nom-caracteristique"><strong>Densité de la cime</strong></td>
+                                      <td id="h1-c36">Dense (1)</td></tr><tr class="caracteristiques">
+                                      <td id="c37" class="nom-caracteristique"><strong>Type de ramification</strong></td>
+                                      <td id="h1-c37">Sympodiale (7)</td></tr><tr class="caracteristiques">
+                                      <td id="c38" class="nom-caracteristique"><strong>Élagage naturel</strong></td>
+                                      <td id="h1-c38">Modéré à mauvais, surtout si le peuplement est de faible densité (2,4, BB227)</td></tr><tr class="caracteristiques">
+                                      <td id="c39" class="nom-caracteristique"><strong>Branches adventives et gourmands</strong></td>
+                                      <td id="h1-c39"><ul><li>Après une forte ouverture soudaine du couvert (p. ex. : une épidémie de spongieuse) , la production de branches réduit significativement la valeur de la première bille de pied surtout chez les arbres de 30 ans ou plus (BB150)</li>                                                                               <li>Les éclaircies de forte intensité provoquent la descente de la cime surtout chez les codominant et les intermédiaires (BB53)</li><li>L&#39;exposition du tronc au soleil stimule la croissance des bourgeons dormants et la prolifération des branches adventives sur le pied et le tronc (3), surtout chez les sujets établis dans les stations pauvres (BB150)  </li>                                                                                            <li>Les nombreuses brindilles présentes sur le pied de certains arbres sont indicatrices de leur degré de susceptibilité d&#39;origine génétique (BB150)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c40" class="nom-caracteristique"><strong>Hauteur</strong></td>
+                                      <td id="h1-c40">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c41" class="nom-caracteristique"><strong>Système racinaire</strong></td>
+                                      <td id="h1-c41"><ul><li>Système racinaire latéral et profond (1)</li><li>Un sol profond permet le développement d&#39;une racine pivotante  (2, BB150)</li></ul></td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Croissance (stades perchis et futaie)</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Croissance</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c42" class="nom-caracteristique"><strong>Période de débourement</strong></td>
+                                      <td id="h1-c42">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c43" class="nom-caracteristique"><strong>Période d'aoûtement</strong></td>
+                                      <td id="h1-c43">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c44" class="nom-caracteristique"><strong>Croissance relative</strong></td>
+                                      <td id="h1-c44">Croissance intermédiaire à rapide (2,3)</td></tr><tr class="caracteristiques">
+                                      <td id="c45" class="nom-caracteristique"><strong>Âge d'exploitabilité absolu par IQS et densité relative (DRF (densité relative faible), DRM (densité relative moyenne), DRE (densité relative élevée))</strong></td>
+                                      <td id="h1-c45"><p>Toutes densités confondues :</p><ul><li>IQS10 : 95</li><li>IQS13 : 90</li><li>IQS15 : 85</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c46" class="nom-caracteristique"><strong>Période de croissance rapide</strong></td>
+                                      <td id="h1-c46">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c47" class="nom-caracteristique"><strong>Longévité naturelle</strong></td>
+                                      <td id="h1-c47"><ul><li>Habituellement 200 ans</li><li>Maximum 400 ans (6)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c48" class="nom-caracteristique"><strong>Hauteur à maturité physiologique</strong></td>
+                                      <td id="h1-c48"><ul><li>Moyenne : 20 à 30 m (1,  3, 4, BB164)</li><li>Maximum :  35 m (2)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c49" class="nom-caracteristique"><strong>Hauteur maximale potentielle</strong></td>
+                                      <td id="h1-c49">28,9 m</td></tr><tr class="caracteristiques">
+                                      <td id="c50" class="nom-caracteristique"><strong>Diamètre à maturité physiologique</strong></td>
+                                      <td id="h1-c50"><ul><li>Moyenne : 30 à 90 cm (2,4)</li><li>Maximum : plus de 120 cm (4)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c51" class="nom-caracteristique"><strong>Accroissement moyen en diamètre (mm/an) généralement par sous-domaine bioclimatique ou sous-régions écologiques (Densité A-B - Densité C-D)</strong></td>
+                                      <td id="h1-c51">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c52" class="nom-caracteristique"><strong>IQS station</strong></td>
+                                      <td id="h1-c52">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c53" class="nom-caracteristique"><strong>Réponse à l'ouverture du couvert</strong></td>
+                                      <td id="h1-c53"><ul><li>Croissance : bonne réponse lorsqu&#39;il fait partie des codominants et dominants (3)</li><li>Meilleure réponse dans un peuplement équienne de moins de 30 ans (6)</li></ul></td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Reproduction</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Modes de reproduction</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c54" class="nom-caracteristique"><strong>Mode de reproduction privilégié</strong></td>
+                                      <td id="h1-c54"><ul><li>Végétative surtout après un feu ou une coupe : plus de 95 % des tiges issues d&#39;un peuplement coupé peuvent provenir de rejets) (3, BB150)</li><li>Sexuée, lorsqu&#39;il n&#39;y a pas eu de perturbation importante du couvert</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c55" class="nom-caracteristique"><strong>Stratégie de régénération sexuée</strong></td>
+                                      <td id="h1-c55">Production semencière cyclique (10) et d&#39;une régénération préétablie de semis, d&#39;âges variés et qui survivent au moyen de rejets (BB150, BB164)</td></tr><tr class="caracteristiques">
+                                      <td id="c56" class="nom-caracteristique"><strong>Mode de reproduction sexuée</strong></td>
+                                      <td id="h1-c56">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c57" class="nom-caracteristique"><strong>Mode de reproduction végétative</strong></td>
+                                      <td id="h1-c57">Rejets de souche : production abondante (2)</td></tr><tr class="caracteristiques">
+                                      <td id="c58" class="nom-caracteristique"><strong>Vigueur de la reproduction végétative</strong></td>
+                                      <td id="h1-c58"><ul><li>Production élevée de rejets après feu ou une coupe (2, 3): les rejets de souche sont plus vigoureux que ceux issus du pied chez les arbres tués par le feu ou broutés par les cerfs de Virginie (BB164)</li>                                                                                                                                             <li>Après une coupe, une dizaine de rejets en moyenne poussent sur la souche pour former un bouquet de tiges dont la plupart s&#39;éliminent progressivement jusqu&#39;à l&#39;âge de 35 ans environ : les arbres adultes portent alors des cicatrices permanentes propices à la pourriture du pied (BB53)</li><li>Fréquents chez de jeunes individus, lorsqu&#39;ils sont tués par un manque de lumière, la sécheresse, ou broutés par des animaux. Ce phénomène peut se reproduire plusieurs fois sur le même système racinaire de sorte qu&#39;il peut être âgé de 20 ou 25 ans de plus que la partie aérienne (3).</li><li>Les tiges dominantes et co-dominantes rejettent davantage.</li><li>Le potentiel de croissance du rejet est comparable à celui du plant-mère.</li><li>Même si les rejets ont un fort taux de survie et une croissance rapide, peu d&#39;entre eux atteindront la maturité dans le nouveau peuplement (A. Rainville, comm. pers.).</li></ul></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Floraison</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c59" class="nom-caracteristique"><strong>Sexualité et type d'inflorescence</strong></td>
+                                      <td id="h1-c59"><ul><li>Monoïque (2)</li><li>Fleur unisexuée</li><li>Fleurs mâles : chaton</li><li>Feurs femelles : solitaires ou groupées en un petit nombre (17)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c60" class="nom-caracteristique"><strong>Période de floraison</strong></td>
+                                      <td id="h1-c60">Avril à mai, avec la feuillaison (3, 17)</td></tr><tr class="caracteristiques">
+                                      <td id="c61" class="nom-caracteristique"><strong>Agent de pollinisation</strong></td>
+                                      <td id="h1-c61">Vent (2)</td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Plantation</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c62" class="nom-caracteristique"><strong>Espacement recommandé entre les plants</strong></td>
+                                      <td id="h1-c62">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c63" class="nom-caracteristique"><strong>Interventions spécifiques</strong></td>
+                                      <td id="h1-c63">Non disponible</td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Production semencière</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c64" class="nom-caracteristique"><strong>Type de fruit</strong></td>
+                                      <td id="h1-c64">Gland (2, 3): la taille et la forme des glands varient beaucoup selon l&#39;âge des semenciers.</td></tr><tr class="caracteristiques">
+                                      <td id="c65" class="nom-caracteristique"><strong>Âge de début de production régulière</strong></td>
+                                      <td id="h1-c65">À partir de 25 ans environ (3, BB150, BB164)</td></tr><tr class="caracteristiques">
+                                      <td id="c66" class="nom-caracteristique"><strong>Âge de production optimale</strong></td>
+                                      <td id="h1-c66"><ul><li>50 ans ou plus (3, BB150) </li>                                                                                                                <li>Les plus vieux chênes ont tendance à en produire moins (BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c67" class="nom-caracteristique"><strong>Fréquence des bonnes années semencières</strong></td>
+                                      <td id="h1-c67"><ul><li>Bonnes tous les 2 à 5 ans (3, BB164), mais la production varie beaucoup d&#39;un arbre à l&#39;autre (BB150) d&#39;où l&#39;importance de repérer les meilleurs à conserver pour la régénération sous un couvert partiel </li>                                                                                              <li>Un climat frais et humide au temps de la floraison se solde par une piètre production de glands (BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c68" class="nom-caracteristique"><strong>Période de maturité</strong></td>
+                                      <td id="h1-c68">Août à septembre de l&#39;année suivant la pollinisation (11): les glands mettent 2 ans pour parvenir à maturité (BB164)</td></tr><tr class="caracteristiques">
+                                      <td id="c69" class="nom-caracteristique"><strong>Quantité produite</strong></td>
+                                      <td id="h1-c69"><ul><li>Fructification abondante : de 800 glands / an pour un chêne de 40 cm de diamètre jusqu&#39;à 1 600 / an pour arbre de 50 cm  (BB164)</li><li>Production très variable selon les semenciers et la taille de la cime : les arbres dominants et codominants dont la cime est dégagée produisent davantage que les arbres des étages subordonnés (3, BB150)  </li>                                                                                                                 <li>Dans l&#39;étage supérieur, certains sujets sont toujours de mauvais semenciers, alors que d&#39;autres ont une grande aptitude à produire des glands en abondance (BB150): cer derniers devraient donc être repérés et protégés en priorité lors des coupes (BB53)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c70" class="nom-caracteristique"><strong>Indicateurs du poids des semences</strong></td>
+                                      <td id="h1-c70">280 semences/kg (17, 11)</td></tr><tr class="caracteristiques">
+                                      <td id="c71" class="nom-caracteristique"><strong>Indicateurs de viabilité</strong></td>
+                                      <td id="h1-c71"><ul><li>82 % (17). </li>                                                                                                                                           <li>Les glands piqués, craqués ou grugés, ceux aplatis ou moisis à la base de même que dont la nucule n&#39;est pas détachée sont stériles (BB206).  </li><li>La taille du gland est indicateur de sa qualité (BB206) : les vieux semenciers produisent souvent de petits glands.</li></ul></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Dispertion des semences</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c72" class="nom-caracteristique"><strong>Durée de rétention des semences sur l'arbre</strong></td>
+                                      <td id="h1-c72">< 1 an une fois la semence mature (2)</td></tr><tr class="caracteristiques">
+                                      <td id="c73" class="nom-caracteristique"><strong>Saison de dispersion</strong></td>
+                                      <td id="h1-c73">Septembre à octobre (2, 11, 17)</td></tr><tr class="caracteristiques">
+                                      <td id="c74" class="nom-caracteristique"><strong>Mode de dispersion</strong></td>
+                                      <td id="h1-c74"><ul><li>Gravité</li><li>Animaux (2) dont les écureuils et les souris des bois surtout (BB150)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c75" class="nom-caracteristique"><strong>Distance de dispersion commune</strong></td>
+                                      <td id="h1-c75"><ul><li>Au pied du semencier par gravité</li><li>50 m et plus par les petits rongeurs ; plusieurs kilomètres par les geais bleus qui les déposent dans les clairières ou à l&#39;orée des forêts (2, BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c76" class="nom-caracteristique"><strong>Durée de viabilité des semences en milieu naturel</strong></td>
+                                      <td id="h1-c76">1 an ou moins dans le sol (2, 6, 17, BB150)</td></tr><tr class="caracteristiques">
+                                      <td id="c77" class="nom-caracteristique"><strong>Facteurs favorisant ou défavorisant la libération de la semence du fruit</strong></td>
+                                      <td id="h1-c77">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c78" class="nom-caracteristique"><strong>Principaux agents nuisibles</strong></td>
+                                      <td id="h1-c78"><ul><li>Insectes : les charançons des noix (Conotrachelus sp., Curculio sp.) sont très dommageables (3, 6, BB48) </li>             <li>Maladies : les pertes attribuables aux moisissures qui touchent la base du gland sont peu documentées : les glands infectés tombent avec leur nucule encore solidement attachée (BB206).  </li>                                                                                                                     <li>Animaux : cerf de Virginie, rongeurs et oiseaux dont les geais bleus.  </li>                                                                                              <li>La prédation importante des glands par les animaux nuit fortement à l&#39;établissement de la régénération, surtout si la production est faible : de 80 à 100 % des glands peuvent être détruits, surtout lors d&#39;une mauvaise année semencière (3, 4, SB40, BB150, BB206).</li></ul></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Conditions de germination</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c79" class="nom-caracteristique"><strong>Dormance</strong></td>
+                                      <td id="h1-c79"><ul><li>Dormance présente</li><li>Inhibition biochimique qui freine la germination jusqu&#39;au printemps avancé ou début été (6)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c80" class="nom-caracteristique"><strong>Stratification</strong></td>
+                                      <td id="h1-c80"><ul><li>Stratification par le froid requise</li><li>30 à 45 jours de 2 à 5 °C, pendant plusieurs mois (BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c81" class="nom-caracteristique"><strong>Période de germination</strong></td>
+                                      <td id="h1-c81">Printemps suivant la dissémination (3, BB150)</td></tr><tr class="caracteristiques">
+                                      <td id="c82" class="nom-caracteristique"><strong>Taux de germination</strong></td>
+                                      <td id="h1-c82"><ul><li>Conditions contrôlées (rayons X) : 83 % avec des semences viables (17)</li><li>En moyenne, seul 1 % des glands disséminés finit par germer à cause des problèmes de prédation et de viabilité (3).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c83" class="nom-caracteristique"><strong>Besoins en eau</strong></td>
+                                      <td id="h1-c83"><ul><li>Nécessite un substrat humide entout temps: le taux de germination chute drastiquement si la tneur en humidité est en bas de 25-30% (BB206). </li>                                                                  <li>Récolter les glands sitôt tombés au sol prévient la dessication et augmente significativement le taux de germination (BB206). </li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c84" class="nom-caracteristique"><strong>Besoins d'ombre</strong></td>
+                                      <td id="h1-c84">Ombre totale (2)</td></tr><tr class="caracteristiques">
+                                      <td id="c85" class="nom-caracteristique"><strong>Autres facteurs limitant ou favorisant la germination</strong></td>
+                                      <td id="h1-c85"><ul><li>La germination est reliée au contenu en eau des glands et à l&#39;humidité du substrat (BB208): le trempage dans l&#39;eau favorise donc la germination en conditions contrôlées (2) alors que leur enfouissement a le même effet en nature (BB208).</li> <li>Les glands enfouis et en contact avec le sol minéral  ont une taux de germination supérieurà 80 % (BB150, BB164), surtout lorsqu&#39;ils ne sont pas recouverts de feuilles mortes (BB208).</li> <li>Les glands qui tombent sur une épaisse couche de feuilles (> 8 cm d&#39;épaisseur) sèchent prématurément au soleil et 99 % des glands perdent rapidement leur capacité de germer avant que les conditions deviennent favorables ; ils sont alors beaucoup plus  vulnérables à la prédation par les petits mamifères (SB40, BB150, BB164) et des cerfs (BB208). </li><li>Malgré la prédation, les petits rongeurs ont un effet positif sur le taux de germiation des glands et la survie des plantules (BB208)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c86" class="nom-caracteristique"><strong>Températures favorables</strong></td>
+                                      <td id="h1-c86"><ul><li>Températures optimales : 1 à 5 °C</li><li>Germination fortement réduite si T° > 23°C (6)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c87" class="nom-caracteristique"><strong>Lits de germination favorable</strong></td>
+                                      <td id="h1-c87"><ul><li>Sol minéral</li><li>Mélange de matière organique et sol minéral (3, 6, 11)</li><li>Fine couche de litière perturbée</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c88" class="nom-caracteristique"><strong>Nature du lit et conditions de germination</strong></td>
+                                      <td id="h1-c88">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c89" class="nom-caracteristique"><strong>Germination assistée</strong></td>
+                                      <td id="h1-c89"><ul><li>Semer à l&#39;automne à une profondeur égale à 2 fois le diamètre des semences (2).</li><li>3 à 5 semaines avant l&#39;ensemencement, trempage dans l&#39;eau et mise en sac en chambre froide à 8°C. Trier les semences germées et coupe de la radicule (< à 1 cm)  pour favoriser la croissance de plusieurs pivots (40).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c90" class="nom-caracteristique"><strong>Mortalité juvénile des semis</strong></td>
+                                      <td id="h1-c90">Non disponible</td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Reproduction végétative</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c91" class="nom-caracteristique"><strong>Drageonnement</strong></td>
+                                      <td id="h1-c91">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c92" class="nom-caracteristique"><strong>Production de rejets (souche, tige, collet racinaire)</strong></td>
+                                      <td id="h1-c92">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c93" class="nom-caracteristique"><strong>Marcottage</strong></td>
+                                      <td id="h1-c93">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c94" class="nom-caracteristique"><strong>Autres modes de reproduction végétative</strong></td>
+                                      <td id="h1-c94">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c95" class="nom-caracteristique"><strong>Intensité</strong></td>
+                                      <td id="h1-c95">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c96" class="nom-caracteristique"><strong>Présence de clones</strong></td>
+                                      <td id="h1-c96">Non disponible</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Développement et croissance de la regénération par stade de développement (stades de semis, gaulis)</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Développement et croissance</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c97" class="nom-caracteristique"><strong>Période de débourrement</strong></td>
+                                      <td id="h1-c97">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c98" class="nom-caracteristique"><strong>Période d'aoûtement</strong></td>
+                                      <td id="h1-c98">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c99" class="nom-caracteristique"><strong>Besoins en eau</strong></td>
+                                      <td id="h1-c99"><ul><li>Les semis ont des besoins élevés la première année (3) : les jeunes plantules développent d&#39;abord  leurs racines pour ensuite développer leurs partie aérienne (BB150)</li><li>Le besoins sont modérés par la suite car la racine pivotante permet à la plantule de puiser l&#39;eau disponible dans le sol minéral pour mieux résister à la sécheresse (3, BB150)  </li>                                                                                                                  <li>Une sécheresse prolongée peut provoquer le dessèchement et la mort des parties aériennes des semis et des gaules, mais pas la racine : les jeunes chênes  stressés produisent alors des rejets pour survivre et le phénomène peut se répéter plusieurs fois (BB150)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c100" class="nom-caracteristique"><strong>Besoins en lumière</strong></td>
+                                      <td id="h1-c100"><ul>Semis : <li>L&#39;intensité lumineuse est le principal facteur limitatif influençant la survie et la croissance des semis durant les premières années (BB192).</li> <li>15 % ou moins du plein ensoleillement entraîne une forte mortalité, une croissance très ralentie des survivants et aucune réaction à un apport de fertilisant (Timbal et al, 1994, 3, BB192)</li><li>La croissance en hauteur des semis est maximale avec  30 % du plein ensoleillement (6, BB192)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c101" class="nom-caracteristique"><strong>Besoins en éléments nutritifs</strong></td>
+                                      <td id="h1-c101"><ul><li>Peu exigeant (2). </li>                                                                                                                           <li>Besoins modérés en éléments nutritifs: 4,2/5 sur l&#39;échelle de Bakusis (BB204)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c102" class="nom-caracteristique"><strong>Croissance</strong></td>
+                                      <td id="h1-c102"><ul>Semis et gaules :  <li>La taille des glands est proportiotionnelle à la hauteur des semis (BB206). </li><li>Dans des conditions optimales de lumière, développement polycyclique de la pousse annuelle qui augmente significativement la croissance en diamètre (+130 %), la ramification (de 24 % à 64 % en volume) et la surface foliaire (+120 %) (Cabanettes et al, 1995).</li> <li>Le polycyclisme peut-être par contre une des causes des problèmes de dèfauts d&#39;embrenchements du houppier (40).</li> <li>La croissance des rejets est supérieure à celle des semis car le système racinaire est déjà bien établi. </li><li>La croissance des semis dépasse guère plus de quelques cm par an (3, BB191, BB192)</li><li>La croissance des rejets est de 60 cm / an et elle maintient ce rythme pendant les 30 premières années (3) . </li><li>Les rejets issue du collet, à ras le sol, sont plus viables et de meilleure qualité, mais ils doivent être éclaircis hâtivement pour éviter qu&#39;ils développent de fortes courbures et des coudes au cours de leur croissance  (BB51, BB150)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c103" class="nom-caracteristique"><strong>Conditions favorisant une croissance optimale</strong></td>
+                                      <td id="h1-c103">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c104" class="nom-caracteristique"><strong>Réponse à l'ouverture du couvert</strong></td>
+                                      <td id="h1-c104"><p>Semis :</p><ul><li>À la suite d&#39;une coupe totale, la réaction est mitigée : la croissance est trop lente pour que les semis supplantent les essences concurrentes (3, BB191).</li><li>Une ouverture légère du couvert peut être bénéfique à la croissance des semis en sous-étage si on réussit à maîtriser de la végétation concurrente (BB191).</li>    <li>L&#39;enrichissement sous couvert avec des plants de fortes dimensions peut donner de bons résultats, si le concurrence est maîtrisée (BB191).</li></ul><p>Gaules :</p><ul><li>Meilleure réponse si ouverture réalisée avant l&#39;âge de 30 ans (3)v<li>Après 30 ans, réponse très faible dans des peuplements bien stockés car la cime des arbres est alors trop petite et restreinte et n&#39;est pas capable d&#39;utiliser efficacement tout l&#39;espace qui vient d&#39;être libéré (3).</li><li>Meilleure réponse chez les tiges dominantes et codominantes</li><li>Production importante de branches épicormiques, si l&#39;éclaircie est trop intense</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c105" class="nom-caracteristique"><strong>Sensibilité à la compétition</strong></td>
+                                      <td id="h1-c105"><ul>Semis : <li>Sensibilité élevée (3): la concurrence herbacée diminue fortement la hauteur totale des semis, de l&#39;ordre de 70 % (Guérard et al, 2001). </li> <li>L&#39;installation des semis est inhibée par l&#39;abondance de la fougère Dennstaedtia punctilobula (B101). </li> <li>L&#39;enrichissement sous couvert exige des plants de fortes diomensions pour assurer aux chênes une place concurrencielle face aux autres feuillus (BB191, BB194).</li> Gaules : <li>La concurrence herbacée continue de ralentir la croissance.</li> <li>Le chêne rouge a du mal à concurrencer les feuillus tolérants, comme l&#39;érable à sucre sur les stations mésiques et l&#39;érable rouge, l&#39;érable de Pennsylvanie et le hêtre sur les stations sèches sèches (SB40, BB192, BB194) </li>                                                                                                                    <li>L&#39;espèce est adaptée aux stations sèches ou la concurrence est moins vive en partie grâce à la récurrence des feux de surface qui l&#39;élimine en partie (BB164, BB192, BB194, BB206).</li> <li>La maîtrise de la concurrence est cruciale à la survie et à la croissance de la régénération de chênes (SB40, BB191, BB194).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c106" class="nom-caracteristique"><strong>Principaux agents nuisibles</strong></td>
+                                      <td id="h1-c106"><ul>Semis : <li>Insectes : peu de dommages.</li> <li>Maladies : l&#39;anthracnose (Discula umbrinella) (BB58, BB52) est fréquente, surtout au cours des étés pluvieux  (6, BB88); les plantules peuvent en mourir. v<li>Animaux : les semis sont broutés par les cerfs dans certaines régions où les populations sont élevées (BB164).</li> Gaules : <li>Insectes : les cochenilles (Asterolecanium variolosum, A. quercicola) , l&#39;oecophore des feuillus (Psillocorsis reflexella) contribuent à affaiblir voire à tuer les semis et les gaules en état de stress hydrique et les jeunes arbres plantés et mal adaptés au site (BB48, BB190).</li> <li>Maladies : l&#39;anthracnose (Discula umbrinella)  infecte surtout les plantations lors des printemps frais et humides; d&#39;autres chancres (Fusarium solani, Cytospora sp., Nectria cinnabarina, Phomopsis sp.) touchent la tige provoquant le dépérissement en cime des jeunes arbres (BB58, BB52); le pourridié-agaric (Armillaria ostoyae) est aussi virulents (6), surtout dans les plantations. </li><li>Animaux : les jeunes chênes sont broutés par les cerfs dans certaines régions où les populations sont élevées (2, 3, 6, BB164).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c107" class="nom-caracteristique"><strong>Tolérance et résistance à différents stress</strong></td>
+                                      <td id="h1-c107"><p>Semis et gaules :</p><ul><li>Faible tolérance à la sécheresse au cours des premières années : la tolérance à la sécheresse augmente au fur et à mesure que le système radiculaire se développe en profondeur dans le sol.</li>                                                                                                             <li>La sécheresse, les gels et les dégels d&#39;hiver prédisposent les jeunes chênes au dépérissement: plusieurs plantations affichent des signes inquiétants de déclin (BB190).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c108" class="nom-caracteristique"><strong>Motalité</strong></td>
+                                      <td id="h1-c108"><ul><li>Mortalité élevée des semis âgés de quelques années en l&#39;absence d&#39;intervention pour les dégager de la végétation concurrente : une cohorte entière de semis peut périr dans les 5 ou 10 premières années (SB40).</li>                        <li>Le taux de survie à long terme (20 ans) des gaules établies sous un couvert de feuillus tolérants est très faible (de 2 % à 11 %) et comparable à celui du frêne blanc  et du bouleau à papier (BB127)</li><li>Il faut en moyenne 500 glands ou plus pour obtenir 1 semis vivant d&#39;un an (3).</li>                              </ul></td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Travaux d'éducation</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Éducation</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c109" class="nom-caracteristique"><strong>Élagage et taille de formation</strong></td>
+                                      <td id="h1-c109">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c110" class="nom-caracteristique"><strong>Dégagement</strong></td>
+                                      <td id="h1-c110">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c111" class="nom-caracteristique"><strong>Éclaircie</strong></td>
+                                      <td id="h1-c111">Non disponible</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Facteurs de stress (stades de perchis et futaie)</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Aspects physotanitaire</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c112" class="nom-caracteristique"><strong>Principaux insectes et maladies à surveiller</strong></td>
+                                      <td id="h1-c112"><ul><li>Insectes : les épidémies répétées de spongieuses (Lymantria dispar), de tordeuses printanières (Croesia simipurpurea) d&#39;arpenteuses d&#39;automne (Alsophila pometaria) ou de livrées des forêts (M. disstria) entraînent la mort en cime des arbres affaiblis, surtout ceux en stress hydrique (BB166), la prolifération de branches adventives et la pourriture des racines (1, 6, BB51, BB54, BB55, BB150). Les vers charpentiers (Prionoxystus macmurtrei, P. robiniae) déprécient la bille de pied surtout chez les chênes établis sur des sols minces (BB53, BB150). Les attaques de buprestes (Agrilus bilineatus) et de coupe-rameaux du caryer (E. parallelus) sont fréquentes sur les chênes affaiblis par la sécheresse et les épidémies répétées d&#39;insectes (BB150, BB166).</li><li>Maladies : le pourridié-agaric (Armillaria ssp.) et autres champignons de carie des racines touchent surtout les arbres dominés depuis trop longtemps et ceux parvenus à maturité (Grifola frondosa, Bondarzewia berkeleyi, Stereum gausapatum) (BB51). D&#39;autres champignons de carie ont des impacts économiques importants chez les arbres de 140 ans ou plus : Phellinus igniarius, P. everhartii, Laetiporus sulphureus, Ganoderma applanatum (BB51, BB59). L&#39;encre du chêne (Phytophthora ramorum) causant dans l&#39;Ouest « la mort subite du chêne » est une menace potentielle pour le chêne dans l&#39;Est.</li></ul></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Tolérance et résistance aux stress</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c113" class="nom-caracteristique"><strong>Résistance au vent</strong></td>
+                                      <td id="h1-c113">Élevée en général (BB124, BB164) ou modéré sur les sommets secs et minces où les chênes sont dépourvus d&#39;un pivot (2, 6,11)</td></tr><tr class="caracteristiques">
+                                      <td id="c114" class="nom-caracteristique"><strong>Résistance au verglas, à la glace et la neige</strong></td>
+                                      <td id="h1-c114">Modérée (2)</td></tr><tr class="caracteristiques">
+                                      <td id="c115" class="nom-caracteristique"><strong>Tolérance au gel</strong></td>
+                                      <td id="h1-c115"><ul><li>Tolérance modérée au gel printanier tardif des pousses annuelles, surtout dans les plantations établies sur des terres basses (11).</li> <li>Tolérance aux basses températures: 3,5 / 5 sur l&#39;échelle de Bakusis: 1 : très résistant, 5 :peu résistant (BB204).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c116" class="nom-caracteristique"><strong>Tolérance à la sécheresse</strong></td>
+                                      <td id="h1-c116">Modérée à élevée (6, BB58)</td></tr><tr class="caracteristiques">
+                                      <td id="c117" class="nom-caracteristique"><strong>Tolérance aux inondations et à la remontée de la nappe phréatique</strong></td>
+                                      <td id="h1-c117">Faible à modérée (BB58, 6)</td></tr><tr class="caracteristiques">
+                                      <td id="c118" class="nom-caracteristique"><strong>Tolérance à la compaction du sol</strong></td>
+                                      <td id="h1-c118">Élevée (14)</td></tr><tr class="caracteristiques">
+                                      <td id="c119" class="nom-caracteristique"><strong>Sensibilité aux dommages causés par le feu</strong></td>
+                                      <td id="h1-c119"><ul><li>Élevée </li><li>Les blessures au niveau du pied sont des portes d&#39;entrée pour les champignons de carie (BB51).</li><li>Production importante de rejets à la suite d&#39;un feu de faible intensité (3).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c120" class="nom-caracteristique"><strong>Sensibilité aux polluants atmosphériques</strong></td>
+                                      <td id="h1-c120"><ul><li>HFl : modérée (BB58)</li><li>SO2 , Ozone , Cl, sel : faible (BB58, BB114, BB164)</li>                                                         </ul></td></tr><tr class="caracteristiques">
+                                      <td id="c121" class="nom-caracteristique"><strong>Autres stress</strong></td>
+                                      <td id="h1-c121"><ul><li>Résistance modérée à élevée du bois de cœur à la pourriture (BB51)</li><li>La concurrence latérale des arbres voisins cause souvent des bifurcations et des courbures de la tige chez les arbres dans leur quête de lumière pour accéder aux étages supérieurs (BB53) </li>                                                                                                                   <li>Les traitements d&#39;herbicides (glyphosate) provoquent la prolifération de rejets de pied (BB164)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c122" class="nom-caracteristique"><strong>Principaux dommages causés pas les animaux</strong></td>
+                                      <td id="h1-c122">Éviter de planter les chênes rouges avec des conifères, car ces derniers attirent les animaux, comme les lièvres et les cerfs qui causent des dommages surtout si la végétation herbacée est abondante (BB49)</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Propriétés de bois et utilisations</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Propriétés physiques</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c123" class="nom-caracteristique"><strong>Propriétés et apparence du bois</strong></td>
+                                      <td id="h1-c123"><ul><li>Le bois de cœur est  brun rougeâtre ou brun rosâtre (BB165) alors que l&#39;aubier est presque blanc (20)</li> <li>Le bois à grain grossier est lourd, dur et résistant, mais il tend à gauchir lors du séchage (BB164, BB165)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c124" class="nom-caracteristique"><strong>Masse volumique (volume sec à l'air, masse sèche à l'air (12%) en kg/m<sup>3</sup>)</strong></td>
+                                      <td id="h1-c124">690 (19)</td></tr><tr class="caracteristiques">
+                                      <td id="c125" class="nom-caracteristique"><strong>Flexion statique MOR 12% en lb/po<sup>2</sup> / MOE 12% en 1000 lb/po<sup>2</sup></strong></td>
+                                      <td id="h1-c125"><ul><li>MOR : 14 310</li><li>MOE : 1 730 (19)</li></ul></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Propriétés de façonnage</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c126" class="nom-caracteristique"><strong>Rabotage (% de succès)</strong></td>
+                                      <td id="h1-c126">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c127" class="nom-caracteristique"><strong>Sablage (% de succès)</strong></td>
+                                      <td id="h1-c127">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c128" class="nom-caracteristique"><strong>Perçage (% de succès)</strong></td>
+                                      <td id="h1-c128">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c129" class="nom-caracteristique"><strong>Mortaise (% de succès)</strong></td>
+                                      <td id="h1-c129">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c130" class="nom-caracteristique"><strong>Moulure (% de succès)</strong></td>
+                                      <td id="h1-c130">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c131" class="nom-caracteristique"><strong>Tournage (% de succès)</strong></td>
+                                      <td id="h1-c131">Non disponible</td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Utilisations</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c132" class="nom-caracteristique"><strong>Utilisations courantes du bois</strong></td>
+                                      <td id="h1-c132"><ul><li>1re transformation : sciage (bois de grade et bois de palette), déroulage (feuilles de placage)</li><li>Produits à valeur ajoutée : ébénisterie (meubles, boiseries intérieures, cercueils, planchers, parqueterie), tonnellerie pour aliments secs seulement, caisses d&#39;emballage (2)</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c133" class="nom-caracteristique"><strong>Autres utilisations</strong></td>
+                                      <td id="h1-c133"><ul><li>Le bois de chêne rouge est un excellent bois de chauffage (BB164).</li>                              <li>L&#39;espèce tolère les sols acides et il être plantée pour revitaliser les sites fortement perturbés (p. ex.: les sites de résidus miniers acides) (BB164).  </li>                                            <li>Plusieurs peuples autochtones consommaient les glands de chêne rouge après les avoir blanchis avec des cendres pour dissoudre les tannins et ainsi atténuer leur amertume (BB164). </li>                                                                                                                                 <li>Magnifique arbre d&#39;ornement planté depuis longtemps dans les parcs et les jardins en Amérique comme en Europe (9, BB164).</li></ul></td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Divers</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Divers</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c134" class="nom-caracteristique"><strong>Enjeux de biodiversité</strong></td>
+                                      <td id="h1-c134"><ul><li>La raréfaction progressive de l&#39;espèce dans les érablières, à l&#39;exception de l&#39;érablière à bouleau jaune de l&#39;Ouest, est attribuable (1) à la coupe sélective des tiges de grande valeur qui s&#39;est effectuée pendant longtemps et (2) aux mesures efficaces de maîtrise du feu qui ont fait en sorte que les chênaies établies sur des stations mésiques ont progressivement été remplacées par les érablières, dans lesquelles subsistent quelques grands chênes isolés ou en bouquet qui ont alors du mal à se régénérer (28, BB146, BB149, BB164, BB191, BB192). </li>                                                                                                                                                         <li>Les chênaies occupent surtout les sommets et les hauts versants bien ensoleillés, les stations à sol mince, les plaines sablonneuses, les champs, les pâturages et les rivages rocheux où la concurrence des feuillus tolérants est moins vive qu&#39;ailleurs (SB40, BB108, BB146, BB164).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c135" class="nom-caracteristique"><strong>Valeur générale pour la faune</strong></td>
+                                      <td id="h1-c135"><ul><li>Très élevée (BB58) : les glands sont une importante source de nourriture hivernale pour de nombreuses espèces d&#39;oiseaux et de petits et grands mammifères:  (BB149, BB150, BB164).  </li>                                                                                                                                        <li>Les vieux chênes ont des cavités que recherchent les pics et leur large cime offre un couvert de protection pour une foule d&#39;animaux (BB164).</li></ul></td></tr><tr class="caracteristiques">
+                                      <td id="c136" class="nom-caracteristique"><strong>Tolérance et résistance à divers stress</strong></td>
+                                      <td id="h1-c136">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c137" class="nom-caracteristique"><strong>Remarques</strong></td>
+                                      <td id="h1-c137"><ul><li>Les chênes ont des feuilles marcescentes qui flétrissent sur l&#39;arbre et qui subsistent lontemps au début de l&#39;hiver sans s&#39;en détacher.</li>                                          <li>Notre chêne rouge est counnu plus exactement comme Quercus rubra var. borealis (Michx. f.) Farw. en raison de sa nucule qui est plus mince que les autres variétés (9).</li></ul></td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Réactions aux perturbations</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Perturbations</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c138" class="nom-caracteristique"><strong>Ouverture du couvert</strong></td>
+                                      <td id="h1-c138">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c139" class="nom-caracteristique"><strong>Prolifération après une coupe</strong></td>
+                                      <td id="h1-c139">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c140" class="nom-caracteristique"><strong>Prolifération après un feu</strong></td>
+                                      <td id="h1-c140">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c141" class="nom-caracteristique"><strong>Prolifération après une préparation de terrain</strong></td>
+                                      <td id="h1-c141">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c142" class="nom-caracteristique"><strong>Prolifération après un dégagement</strong></td>
+                                      <td id="h1-c142">Non disponible</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Interférence avec les essences désirées</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Essences</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c143" class="nom-caracteristique"><strong>Pouvoir compétitif relatif</strong></td>
+                                      <td id="h1-c143">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c144" class="nom-caracteristique"><strong>Compétition pour la lumière</strong></td>
+                                      <td id="h1-c144">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c145" class="nom-caracteristique"><strong>Compétition pour l'eau</strong></td>
+                                      <td id="h1-c145">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c146" class="nom-caracteristique"><strong>Compétition pour les éléments nutritifs</strong></td>
+                                      <td id="h1-c146">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c147" class="nom-caracteristique"><strong>Réaction au broutage</strong></td>
+                                      <td id="h1-c147">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c148" class="nom-caracteristique"><strong>Autres formes d'interférence</strong></td>
+                                      <td id="h1-c148">Non disponible</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Lutte et contrôle</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Lutte et contrôle</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c149" class="nom-caracteristique"><strong>Lutte et contrôle</strong></td>
+                                      <td id="h1-c149">Non disponible</td></tr>		<tr>
+			<td colspan="2" class="categorie"><h2>Génétique</h2></td>
+			<td></td></tr><tr>
+                                  <td class="sous-categorie" colspan="4"><h3>Génétique</h3></td>
+                                  <td></td></tr><tr class="caracteristiques">
+                                      <td id="c150" class="nom-caracteristique"><strong>Variabilité génétique</strong></td>
+                                      <td id="h1-c150">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c151" class="nom-caracteristique"><strong>Hybridation</strong></td>
+                                      <td id="h1-c151">Non disponible</td></tr><tr class="caracteristiques">
+                                      <td id="c152" class="nom-caracteristique"><strong>Variétés essentiellement utilisées au Québec</strong></td>
+                                      <td id="h1-c152">Non disponible</td></tr></tbody></table>
+<div class="scrollTop"><a href="#piedpage"><img src="images/scroll-top.png" width="25" alt="Bas de page"></a></div>
+<div class="scrollBottom"><a href="#logo"><img src="images/scroll-bottom.png" width="25" alt="Haut de page"></a></div></div><div id="telechargement" class="bas">
+                        <div id="icones">
+                            <a href="export.php?arbre1=93&type=csv"><img src="images/csv-download.png"></a> 
+                            <a href="export.php?arbre1=93&type=xls"><img src="images/xls-download.png"></a>
+                        </div>
+                        <div id="texte">Télécharger le tableau :</div>
+                    </div>        </div>
+        <div class="push"></div>
+    </div>
+    <div class="piedpage">
+    <div class="conteneur-piedpage">
+        <ul>
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="https://mrnf.gouv.qc.ca/accessibilite/">Accessibilité</a></li>
+            <li><a href="essence.php?e=commerciale">Essences commerciales</a></li>
+            <li><a href="essence.php?e=concurrente">Essences concurrentes</a></li>
+            <li><a href="comparaison.php">Outil de comparaison</a></li>
+            <li><a href="references.php">Références</a></li>
+            <li id="rechercher2">
+                <form name="recherche" id="recherchePied" action="recherche.php" method="get">
+                    <input type="text" autocomplete="off" placeholder="Rechercher" name="paramRecherche">
+                    <input type="submit" id="recherche2" value="">
+                </form>
+            </li>
+        </ul>
+        <div class="pied">
+            <div class="quebecDrapeau">
+                <a href="https://www.quebec.ca/gouvernement/ministeres-organismes/ressources-naturelles-forets">
+                    <img src="https://www.mrnf.gouv.qc.ca/wp-content/uploads/MERN_couleur.svg"
+                         alt="Ministère de l'Énergie et des Ressources naturelles"
+                         class="pivMrnfDrapeau" />
+                </a>
+            </div>
+            <div class="copyright">
+                <a href="https://www.quebec.ca/droit-auteur" class="aCopyright">&copy; Gouvernement du Qu&eacute;bec, 2025</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

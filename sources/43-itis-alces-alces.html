@@ -1,0 +1,1686 @@
+
+
+ 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+input {   
+    padding: 1px;
+}
+.loading {    
+    background-color: #ffffff;
+    background-image: url("http://loadinggif.com/images/image-selection/3.gif");
+    background-size: 15px 15px;
+    background-position:left center;
+    background-repeat: no-repeat;
+}
+
+</style>
+    <title>ITIS - Report: Alces alces</title>
+    <meta http-equiv="Content-Type" content="text/html charset=UISO-8859-1  pageEncoding=ISO-8859-1">
+        <meta name="description" content="The Integrated Taxonomic Information System (ITIS, www.itis.gov) partners with specialists from around the world to assemble scientific names and their taxonomic relationships and distributes that data openly through publicly available software. The ITIS mission is to communicate a comprehensive taxonomy of global species that enables biodiversity information to be discovered, indexed, and connected across all human endeavors. ITIS is made up of 11 active MOU partners committed to improving and continually updating scientific and common names of all seven Kingdoms of Life (Archaea, Bacteria, Protozoa, Chromista, Fungi, Plantae, and Animalia).">
+<meta name="keywords" content="Integrated Taxonomic Information System, ITIS, Taxonomy, Taxonomic Data, Taxonomic Classification Report, taxonomic resources, taxonomy, taxonomic databases, taxon, taxa, scientific names, biodiversity, systematics, organisms, species, flora, fauna, nomenclature, classification, diversity, biological  diversity, plants, animals">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/jpg" href="/Static/images/favicon.ico" />
+    <link rel="stylesheet" href="/Static/css/itisstyle.css" type="text/css">
+<!-- menu support -->
+    <!--- upgrade to most recent version of JQuery and third party jquery menu libraries-->
+    <!-- dev jquery libraries -->
+    <!--
+    <script type="text/javascript" src="/Static/javascript/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/Static/javascript/jquery-migrate-3.3.2.js"></script>
+    -->
+    
+    <!--prod jquery libraries -->
+    <script type="text/javascript" src="/Static/javascript/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/Static/javascript/jquery-migrate-3.3.2.min.js"></script>
+    
+    <script type="text/javascript" src="/Static/javascript/superfish-2013.js"></script>
+    <script type="text/javascript" src="/Static/javascript/supersubs-2013.js"></script>
+    <script type="text/javascript" src="/Static/javascript/hoverIntent.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Static/css/superfish-2013.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/Static/css/superfish-vertical-2013.css" media="screen">
+
+
+    <script type="text/javascript">
+        var winPath = window.location.pathname.substring(1);
+        var operation = winPath.toLowerCase().substr(8, 6);
+
+        // initialise plugins
+        $(document).ready(function(){ 
+            $("ul.sf-menu").supersubs({ 
+                minWidth:    5,   // minimum width of sub-menus in em units 
+                maxWidth:    15,   // maximum width of sub-menus in em units 
+                extraWidth:  1     // extra width can ensure lines don't sometimes turn over 
+                                   // due to slight rounding differences and font-family 
+            }).superfish({
+                animation: {height:'show'},	// slide-down effect without fade-in
+                delay:		 1200			// 1.2 second delay on mouseout
+                });  // call supersubs first, then superfish, so that subs are 
+                                        // not display:none when measuring. Call before initialising 
+                                        // containing tabs for same reason. 
+        });
+    </script>
+<!-- \/ \/ \/ USGS Google Analytics Code. DO NOT edit \/ \/ \/ -->
+    <!-- START USGS Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+
+    {'gtm.start': new Date().getTime(),event:'gtm.js'}
+    );var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TKQR8KP');</script>
+    <!-- END USGS Google Tag Manager -->
+    
+    <!-- START SAS Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+
+    {'gtm.start': new Date().getTime(),event:'gtm.js'}
+    );var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TKJZMH9');</script>
+    <!-- END SAS Google Tag Manager -->
+
+<!-- /\ /\ /\ USGS Google Analytics Code. DO NOT edit /\ /\ /\ -->
+
+<!-- -->
+     
+    <script language ="JavaScript">
+    
+    //Set the HTML anchor location
+    var anchorLocation = "null";
+    location.hash =  "#" + anchorLocation; 
+        
+    function goNext(form) {
+            document.forms[0].submit() 
+    }
+    function downloadTwb () {
+		var dwCaButton =  document.getElementById("dwcaDownloadButton");
+		var ntwbButton =  document.getElementById("twbDownloadButton");
+		ntwbButton.classList.remove("loading");
+		ntwbButton.classList.add("loading");
+	}
+    function downloadDwca () {
+		var dwCaButton =  document.getElementById("dwcaDownloadButton");
+		var ntwbButton =  document.getElementById("twbDownloadButton");
+		dwCaButton.classList.remove("loading");
+		dwCaButton.classList.add("loading");
+		
+	}
+    window.onbeforeunload = function () {
+        var inputs = document.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "submit") {
+                inputs[i].disabled = true;
+            }
+        }
+    };
+    </script>
+ </head>
+<body text=#000000 bgcolor=#ffffff>
+    <table border=0 cellspacing=0 cellpadding=0 width="100%">
+        <tbody>
+        <tr>
+			<td colspan="3" valign="bottom">
+				<img name="toplogo" src="/Static/images/ITIS-Logo-subpages.jpg" class="itis-logo" alt="The ITIS Logo" border="0" hspace="0" vspace="0">
+				<h1 class="itis-title">Integrated Taxonomic Information System - Report</h1>
+			</td>
+		</tr>
+            <tr>
+                <td width="100%" colspan=2>
+
+                    <!-- menu -->
+                    <ul class="sf-menu sf-horizontal">
+                                        <li class="current">
+                <a href="/">Home</a>
+            </li>
+            <li class="current">
+                <a href="#">About</a>
+                <ul>
+                    <li>
+                        <a href="/our_impact.html">Our Impact</a>
+                    </li>
+                    <li>
+                        <a href="/about_itis.html">Mission</a>
+                    </li>
+                    <li>
+                        <a href="/whatsnew.html">What's New</a>
+                    </li>
+                    <li><a href="#">Organizational Information</a>
+                        <ul>
+                            <li>
+                                <a href="/info.html">History</a>
+                            </li>
+                            <li>
+                                <a href="/organ.html">Organization and Partners</a>
+                            </li>
+                            <li>
+                                <a href="/mou.html">Memorandum of Understanding</a>
+                            </li>
+                            <li>
+                                <a href="/itis_primer.html">Data Development History</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Data Definition and Standards</a>
+                        <ul>
+                            <li>
+                                <a href="/standard.html">Standards</a>
+                            </li>
+                            <li>
+                                <a href="/data_definition.html">Data Definition</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Frequently Asked Questions</a>
+                        <ul>
+                            <li>
+                                <a href="/pdf/faq_itis_tsn.pdf">What is an ITIS TSN?</a>
+                            </li>
+                            <li>
+                                <a href="/citation.html">How Do I Cite ITIS?</a>
+                            </li>
+                            <li>
+                                <a href="/standard_report_link.html">How Do I Link to ITIS?</a>
+                            </li>
+                            <li>
+                                <a href="/download_format.html">What is the format of a download file?</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/comments.html">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Data Access and Tools</a>
+                <ul>
+                    <li>
+                        <a href="/access.html">Data Access Information</a>
+                    </li>
+                    <li>
+                        <a href="/tools.html">ITIS Tools</a>
+                    </li>
+                    <li>
+                        <a href="/advanced_search.html">Advanced Search</a>
+                    </li>
+                    <li>
+                        <a href="#">Web Services</a>
+                        <ul>
+                            <li>
+                                <a href="/web_service.html">Web Service Information</a>
+                            </li>
+                            <li>
+                                <a href="/ws_description.html">Description of ITIS Web Services</a>
+                            </li>
+                            <li>
+                                <a href="/ws_develop.html">Developing a Client</a>
+                            </li>
+                            <li>
+                                <a href="/solr_documentation.html">ITIS Solr Web Services</a> </li>
+                            <li>
+                                <a href="/solr_examples.html">ITIS Solr WS Examples</a> </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/hierarchy.html">Hierarchical Report</a>
+                    </li>
+                    <li>
+                        <a href="/taxmatch.html">Compare Names</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Get ITIS Data</a>
+                <ul>
+                    <li>
+                        <a href="#">Full Database Download</a>
+                        <ul>
+                            <li>
+                                <a href="/ftp_download.html">Instructions</a>
+                            </li>
+                            <li>
+                                <a href="/downloads/index.html">Database Files</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/download.html">Download Data in TWB Format</a>
+                    </li>
+                </ul>
+			</li>	
+            <li>
+                <a href="#">Become a Data Partner</a>
+                <ul>
+                    <li>
+                        <a href="/contribute.html">Contribute</a>
+                    </li>
+                    <li>
+                        <a href="/twb.html">Taxonomic Workbench Help</a>
+                    </li>
+                </ul>
+            </li>
+
+                    </ul>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+  <a class=smlink TITLE="Link to a version of this report better suited to printing"
+     href="SingleRpt?search_topic=TSN&search_value=180703&print_version=PRT&source=to_print">Go to Print Version</a></td>
+
+
+
+        <p><span class="taxon_head"><i>Alces</i> <i>alces</i></span>&nbsp;
+<a href="RefRpt?search_topic=Scientific_Author&search_value=%28Linnaeus%2C+1758%29">
+
+
+<span class="taxon_head">(Linnaeus, 1758)</span></a><br>
+
+
+<!-- display the TSN --> 
+  <span class="body">Taxonomic Serial No.: 180703</span> 
+
+
+        <form  class="downloadFormButton" name="download" method="post" action="/itisdownload/itisdownload4.do" enctype="application/x-ww-form-urlencoded">
+      	  <input  id="twbDownloadButton" class="downloadFormButton" NAME="submit" TYPE="submit" onclick="return downloadTwb();" VALUE="Download TWB"> 
+      	  <input TYPE="hidden" NAME="fromlvl_string" VALUE="10">
+      	  <input TYPE="hidden" NAME="tolvl_string" VALUE="300">
+      	  <input TYPE="hidden" NAMe="DwCA_tsn" VALUE="180703">
+      	  <input TYPE="hidden" NAME="finalTsns" VALUE="180703">
+      	  <input TYPE="hidden" NAME="kingdom_sel" VALUE="Animalia">
+      	  <input TYPE="hidden" NAME="relat_array" VALUE="Synonyms">
+      	  <input TYPE="hidden" NAME="relat_array" VALUE="Vernacular">
+      	  <input TYPE="hidden" NAME="relat_array" VALUE="Jurisdiction">
+      	  <input TYPE="hidden" NAME="relat_array" VALUE="References">
+      	  <input TYPE="hidden" NAME="relat_array" VALUE="GeoDiv">
+      	  <input TYPE="hidden" NAME="relat_array" VALUE="Comments">
+      	  <input TYPE="hidden" NAME="rank_sel" VALUE="">
+      	  <input TYPE="hidden" NAME="taxname" VALUE="">
+        <input type="hidden" name="__ncforminfo" value="zAr47xBpPHvmwfLYZtHZbdCqYN5DWoFTlzfkUnPXxXUwg0Rxzg6gGNb6cMNqkm8914-DrLeUp9CKSSMU3pXjFEpNN5M_JmU6lwfnZpnRhX9FDA3Y4DWucX2RXvIe7-jb0loQ0ykd1e9H2fGoDv8YHEsdR0vDKdH2dbsBa4VH3WQ6a4rvfu6fRQ=="/></form>
+              
+              
+
+  <form class="downloadFormButton" name="download" method="post" action="/itisdownload/itisdwcadownload.do" enctype="application/x-ww-form-urlencoded">
+    <input  id="dwcaDownloadButton" class="downloadFormButton" NAME="submit DwCA"  TYPE="submit" onclick="return downloadDwca();"  VALUE="Download DwC-A"/>
+    <input TYPE="hidden" NAME="DwCA_tsn" VALUE="180703">
+  <input type="hidden" name="__ncforminfo" value="zAr47xBpPHvmwfLYZtHZbdCqYN5DWoFT2ZnLhe3LuuuC09eQ1L5L6BKEPl2AdxHz25rEtlnljwBtTSVF46R7HBXBl4Iye4DdKFoIvS0s9bY="/></form>
+  <div class="downloadFormButtonInfo">
+    <a href="javascript:void(0)" onclick="if (window.secondwindow){window.secondwindow.close(); window.secondwindow = open('/itisdownload/jsp/d.jsp','d','height=400,width=300,scrollbars=yes,resizable=yes,left=40,top=40')} else { window.secondwindow = open('/itisdownload/jsp/d.jsp','d','height=400,width=300,scrollbars=yes,resizable=yes,left=40,top=40')};"> (Download Help)</a>
+  
+<i>Alces</i> <i>alces</i>
+ 
+   TSN 180703
+  </div>
+   <p></p>
+
+
+
+<table cellSpacing=0 cellPadding=1 width="100%" border=0>
+<tbody>
+  <tr>
+    <td class=whiteboxhead vAlign=top align=left>&nbsp;Taxonomy and Nomenclature 
+      <table cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff 
+        border=0><tbody>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body align=left width="24%">&nbsp;</td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">Kingdom:</td>
+          <td class=datafield vAlign=top width="71%">Animalia</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">Taxonomic Rank:</td>
+          <td class=datafield vAlign=top width="71%">Species</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Synonym(s):</td>
+<td class=datafield vAlign=top width="71%">
+<a href="SingleRpt?search_topic=TSN&search_value=898282">
+Cervus alces</a>
+Linnaeus, 1758<br></td>
+
+<td class=body width="5%">&nbsp;</td></tr>
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">Common Name(s):</td>
+<td class=datafield vAlign=top width="71%">Moose [English]<br>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=datafield vAlign=top width="71%">orignal [French]<br>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=datafield vAlign=top width="71%">Eurasian Elk [English]<br>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">&nbsp;</td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%"> 
+<a HREF="/data_definition.html#usage"><span class="taxonstatus">Taxonomic Status:</span></a>
+
+
+          </td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">Current Standing:</td>
+          <td class=datafield vAlign=top width="71%">valid
+</td>
+   <td class=body width="5%">&nbsp;</td></tr> 
+
+       
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">&nbsp;</td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">  
+<a HREF="/data_definition.html#dataquality"><span class="dataqualityindicator">Data Quality Indicators:</span></a>
+
+
+          </td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">
+            Record Credibility Rating:
+          </td>
+          <td class=datafield vAlign=top width="71%">
+verified - standards met
+
+          </td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr> 
+
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">&nbsp;</td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+</tbody>
+</div>
+</table>
+<br>
+
+
+<table cellSpacing=0 cellPadding=1 width="100%" border=0>
+<tbody>
+  <tr>
+    <td class=whiteboxhead vAlign=top align=left height=25>&nbsp;Taxonomic Hierarchy 
+      <table cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff 
+        border=0><tbody>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body align=left width="24%">&nbsp;</td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+ <tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">Kingdom</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=202423">Animalia</a>&nbsp;
+ &ndash; Animal, animaux, animals</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;Subkingdom</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=914154">Bilateria</a>&nbsp;
+ &ndash; triploblasts</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Infrakingdom</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=914156">Deuterostomia</a>&nbsp;
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phylum</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=158852">Chordata</a>&nbsp;
+ &ndash; cordés, cordado, chordates</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subphylum</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=331030">Vertebrata</a>&nbsp;
+ &ndash; vertebrado, vertébrés, vertebrates</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Infraphylum</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=914179">Gnathostomata</a>&nbsp;
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Superclass</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=914181">Tetrapoda</a>&nbsp;
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Class</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=179913">Mammalia</a>&nbsp;Linnaeus, 1758
+ &ndash; mammifères, mamífero, mammals</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subclass</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=179916">Theria</a>&nbsp;Parker and Haswell, 1897
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Infraclass</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=179925">Eutheria</a>&nbsp;Gill, 1872
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=180692">Artiodactyla</a>&nbsp;Owen, 1848
+ &ndash; artiodactyls, porco do mato, veado, cloven-hoofed ungulates, even-toed ungulates</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Family</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=180693">Cervidae</a>&nbsp;Goldfuss, 1820
+ &ndash; cervids, caribou, deer, moose, wapiti</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfamily</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=552369">Capreolinae</a>&nbsp;Brookes, 1828
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tribe</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=1277211">Alceini</a>&nbsp;Brookes, 1828
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Genus</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=180702">Alces</a>&nbsp;Gray, 1821
+ &ndash; moose, Old World elk</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Species</td><td class=datafield vAlign=top width="71%">Alces alces&nbsp;(Linnaeus, 1758) &ndash; Moose, orignal, Eurasian Elk</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+
+        <tr>
+          <td class=body align=left width="2%" height=25>&nbsp;</td>
+          <td class=body vAlign=middle align=left width="24%" height=25>&nbsp;</td>
+          <td class=body vAlign=middle width="71%" height=25><span class="directchildren_head">Direct Children:</span></td>
+          <td class=body width="5%" height=25>&nbsp;</td>
+        </tr>
+ <tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=898418">
+Alces alces alces</a>&nbsp;(Linnaeus, 1758)
+ &ndash; European elk</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=898970">
+Alces alces americana</a>&nbsp;(Clinton, 1822)
+ &ndash; eastern moose</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=898971">
+Alces alces andersoni</a>&nbsp;Peterson, 1950
+ &ndash; northwestern moose</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=1277669">
+Alces alces buturlini</a>&nbsp;Chernyavsky and Zhelesnow, 1982
+</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=898974">
+Alces alces cameloides</a>&nbsp;(Milne-Edwards, 1867)
+ &ndash; Manchurian elk</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=1277670">
+Alces alces caucasica</a>&nbsp;Vereshchagin, 1955
+</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=898972">
+Alces alces gigas</a>&nbsp;Miller, 1899
+ &ndash; Alaskan moose</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=898975">
+Alces alces pfizenmayeri</a>&nbsp;Zukowsky, 1910
+</td><td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td><td class=body vAlign=top align=left width="24%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subspecies</td><td class=datafield vAlign=top width="71%"><a HREF="SingleRpt?search_topic=TSN&search_value=898973">
+Alces alces shirasi</a>&nbsp;Nelson, 1914
+ &ndash; Yellowstone moose</td><td class=body width="5%">&nbsp;</td></tr>
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">&nbsp;</td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+  </td>
+</tr>
+</tbody>
+</table>
+<br>
+
+
+<table cellSpacing=0 cellPadding=1 width="100%" border=0>
+  <tbody>
+  <tr>
+    <td class=whiteboxhead vAlign=top align=left>&nbsp;References 
+      <table cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+      <tbody>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body align=left width="24%">&nbsp;</td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%"><span class="referencetype_head">Expert(s):</span></td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Expert:</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=expert&search_id=expert_id&search_id_value=103">
+Alfred L. Gardner</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">Curator of North American mammals and Chief of Mammal Section, National Biological Service, Smithsonian Institution, National Museum of Natural History, Washington, DC, USA&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i> &nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+  
+         <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">&nbsp;</td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Expert:</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=expert&search_id=expert_id&search_id_value=110">
+Peter Grubb</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">35 Downhills Park Road, London N17 6PE, England&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i> &nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+  
+         <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">&nbsp;</td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">
+            <span class="referencetype_head">Other Source(s):</span>
+          </td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Source:</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=source&search_id=source_id&search_id_value=184">
+<a href="http://www.menv.gouv.qc.ca/biodiversite/centre.htm">CDP, database (version 1999)</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Acquired:</td>
+<td class=datafield vAlign=top width="71%">2003&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%">Moose[English], orignal [French]&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Source:</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=source&search_id=source_id&search_id_value=7">
+NODC Taxonomic Code, database (version 8.0)</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Acquired:</td>
+<td class=datafield vAlign=top width="71%">1996&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">
+            <span class="referencetype_head">Publication(s):</span>
+          </td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=706">
+Banks, R. C., R. W. McDiarmid, and A. L. Gardner</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">1987&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">Checklist of Vertebrates of the United States, the U.S. Territories, and Canada&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">Resource Publication, no. 166&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">79&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">United States Department of the Interior Fish and Wildlife Service&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">Washington, D.C., USA&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=29872">
+Burgin, Connor J., Don E. Wilson, Russell A. Mittermeier, Anthony B. Rylands, et al.</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">2020&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">Illustrated Checklist of the Mammals of the World. Vol. 2. Eulipotyphla to Carnivora&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">535&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">Lynx Edicions&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">Barcelona&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">978-84-16728-350&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>, Moose [English]&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=9120">
+Franzmann, Albert W.</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">1981&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">Alces alces&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">Mammalian Species, no. 154&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">1-7&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">Available online at http://www.jstor.org/stable/i281627 and http://www.science.smith.edu/msi/pdf/i0076-3519-154-01-0001.pdf&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=29873">
+Wilson, D. E., and R. A. Mittermeier, eds.</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">2011&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">Handbook of the Mammals of the World, vol. 2: Hoofed Mammals&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">885&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">Lynx Edicions&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">Barcelona, Spain&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">978-84-96553-77&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>, Moose [English]&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=1422">
+Wilson, Don E., and DeeAnn M. Reeder, eds.</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">1993&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">Mammal Species of the World: A Taxonomic and Geographic Reference, 2nd ed., 3rd printing&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">xviii + 1207&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">Smithsonian Institution Press&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">Washington, DC, USA&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">1-56098-217-9&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">Corrections were made to text at 3rd printing&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=5099">
+Wilson, Don E., and DeeAnn M. Reeder, eds.</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">2005&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">Mammal Species of the World: A Taxonomic and Geographic Reference, 3rd ed., vols. 1 & 2&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">2142&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">Johns Hopkins University Press&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">Baltimore, Maryland, USA&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">0-8018-8221-4&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=1419">
+Wilson, Don E., and F. Russell Cole</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">2000&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">Common Names of Mammals of the World&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">xiv + 204&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">Smithsonian Institution Press&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">Washington, DC, USA&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">1-56098-383-3&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">With contributions by Bernadette N. Graham, Adam P. Potter, and Mariana M. Upmeyer&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>, Moose [English]&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Author(s)/Editor(s):</td>
+<td class=datafield vAlign=top width="71%"><a href="RefRpt?search_type=publication&search_id=pub_id&search_id_value=1423">
+Wilson, Don E., and Sue Ruff, eds.</a>
+</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Date:</td>
+<td class=datafield vAlign=top width="71%">1999&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Article/Chapter Title:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Journal/Book Name, Vol. No.:</td>
+<td class=datafield vAlign=top width="71%">The Smithsonian Book of North American Mammals&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Page(s):</td>
+<td class=datafield vAlign=top width="71%">xxv + 750&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publisher:</td>
+<td class=datafield vAlign=top width="71%">Smithsonian Institution Press&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Publication Place:</td>
+<td class=datafield vAlign=top width="71%">Washington, DC, USA&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">ISBN/ISSN:</td>
+<td class=datafield vAlign=top width="71%">1-56098-845-2&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Notes:</td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr><td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">Reference for:</td>
+<td class=datafield vAlign=top width="71%"><i>Alces</i> <i>alces</i>&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=body vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+</tbody></table></td></tr></tbody></table><br>
+
+<table cellSpacing=0 cellPadding=1 width="100%" border=0>
+  <tbody>
+  <tr>
+    <td class=whiteboxhead vAlign=top align=left>&nbsp;Geographic Information 
+      <table cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+        <tbody>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body align=left width="24%">&nbsp;</td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">
+            <span class="geographicdivision">Geographic Division:</span>
+          </td>
+<td class=datafield vAlign=top width="71%">North America</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=datafield vAlign=top width="71%">Europe & Northern Asia (excluding China)</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=datafield vAlign=top width="71%">Southern Asia</td>
+<td class=body width="5%">&nbsp;</td></tr>
+ 
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">&nbsp;</td>
+          <td class=body vAlign=top width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%">
+            <span class="jurisdiction">Jurisdiction/Origin:</span>
+          </td>
+
+<td class=datafield vAlign=top width="71%">Alaska, Native</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=datafield vAlign=top width="71%">Canada, Native</td>
+<td class=body width="5%">&nbsp;</td></tr>
+<td class=body align=left width="2%">&nbsp;</td>
+<td class=body vAlign=top align=left width="24%">&nbsp;</td>
+<td class=datafield vAlign=top width="71%">Continental US, Native</td>
+<td class=body width="5%">&nbsp;</td></tr>
+                  
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body align=left width="24%"><p>&nbsp;</p></td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+
+
+      </tbody>
+      </table>
+    </td>
+  </tr>
+</tbody>
+</table>
+<br>
+
+
+<table cellSpacing=0 cellPadding=1 width="100%" border=0>
+<tbody>
+  <tr>
+    <td class=whiteboxhead vAlign=top align=left>&nbsp;Comments 
+      <table cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+      <tbody>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body align=left width="24%">&nbsp;</td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body vAlign=top align=left width="24%"><span class="comment">Comment:</span></td>
+<td class=datafield vAlign=top width="71%">&nbsp;</td>
+<td class=body width="5%">&nbsp;</td></tr>
+
+        <tr>
+          <td class=body align=left width="2%">&nbsp;</td>
+          <td class=body align=left width="24%"><p>&nbsp;</p></td>
+          <td class=body width="71%">&nbsp;</td>
+          <td class=body width="5%">&nbsp;</td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  </tr>
+</tbody>
+</table>
+<br>
+
+
+
+
+
+
+ 	
+
+<script type="text/javascript" src="/Static/javascript/resources.js"></script>
+<script type="text/javascript" src="/Static/javascript/common.js"></script>
+<!-- for generating data visualization pie charts -->
+<script type="text/javascript" src="/Static/javascript/bower_components/d3/d3.min.js"></script>
+<link href="/Static/javascript/bower_components/c3/c3.min.css" rel="stylesheet" type="text/css">
+<link href="/Static/css/subordinateTaxa.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/Static/javascript/bower_components/c3/c3.min.js"></script>
+<script type="text/javascript" src="/Static/javascript/dataVisualizationCharts.js"></script>
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script>
+   //Array variable to store data returned from SOLR server
+   var dataArray=[];
+   
+   /**
+   * @description: javascript callback function which will be called after asynchronous call to SOLR
+   * @param: SOLR Data
+   **/
+   function on_SubordinateTaxaReturn(data) 
+    {
+      $('#results').empty();
+      var docs = data.facet_counts.facet_pivot.product;
+      var groupDoc = data.grouped.rankID.groups;
+      var suboradinateTaxa = 0;
+      var rank = "";
+      var verifiedStandardsMet =0;
+      var verifiedMinStandardsMet = 0;
+      var unverified = 0;
+      var unverifiedReview = 0;
+      var credibility="";
+      var outTable = "";
+      var rankName="";
+      var totalVerifiedStandardsMet=0;
+      var totalVerifiedMinStandardsMet=0;
+      var totalUnverified=0;
+      var arrayIndex=0;
+      var percentStandardsMet="";
+      var offSiteSources=[];
+      //the number of rank objects returned from the solr query
+      var totalNumberOfRanks = docs.length; 
+      //The rank of the item for which the subordinate taxa is being calculated
+      var searchTermRank = "220"; 
+      var pieChartConfig = [];
+
+      dataArray=[];
+      var dataExists = false;
+
+      //HTML Table header
+      outTable += "<table cellSpacing=0 cellPadding=1 width='100%' border=0>";
+      outTable += "<tbody>";
+      outTable += "<tr>";
+      outTable += "<td class=whiteboxhead valign=top align=left colspan=6><span id='subordinateTaxaTableHeader'></span>"
+      outTable += "<table cellspacing=0 cellpadding=0 width='100%' bgcolor=#ffffff border=0> ";
+      outTable += "<tr> ";
+      outTable += "<td class=body colspan=6>&nbsp;</td> ";
+      outTable += "</tr> ";
+      outTable += "<th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Subordinate Taxa</th>";
+      outTable += "<th class=body align=left style='word-wrap:break-word' width='15%'>&nbsp;Rank</th>";
+      outTable += " <th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Verified Standards Met</th> ";
+      outTable += " <th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Verified Min Standards Met</th>";
+      outTable += "<th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Unverified</td>";
+      outTable += " <th class=body align=center style='word-wrap:break-word' width='15%'>Percent Standards Met</th>";
+
+      //Parse SOLR document to get the related data to array
+      for(var rankIndex = 0; rankIndex < totalNumberOfRanks; rankIndex++) {
+         if(docs[rankIndex].count > 0) {  
+            outTable += "<tr>"; 
+            rank = docs[rankIndex].value;
+            searchTermRank="220";
+          
+            //Make sure not to include the results for the rank of the search term in the generated results.
+            if(Number(rank) > Number(searchTermRank)) {
+               unverified=0;  
+               verifiedStandardsMet=0;
+               verifiedMinStandardsMet=0;
+               unverifiedReview=0;
+               for(j=0; j<docs[rankIndex].pivot.length; j++) {
+            	   
+                  if(docs[rankIndex].pivot[j].count > 0) {
+                	  dataExists=true;
+                     
+                     //keep a running tally of verifiedMinStandardsMet and totalVerifiedMinStandardsMet
+                     if(docs[rankIndex].pivot[j].value.trim().toUpperCase() ==="Minimum taxonomic/nomenclature review".toUpperCase()) {
+                        verifiedMinStandardsMet = docs[rankIndex].pivot[j].count;
+                        totalVerifiedMinStandardsMet+=verifiedMinStandardsMet;
+                     }
+                     //keep a running tally of verifiedStandardsMet and totalVerifiedStandardsMet
+                     if(docs[rankIndex].pivot[j].value.trim().toUpperCase() ==="TWG standards met".toUpperCase()) {
+                        verifiedStandardsMet = docs[rankIndex].pivot[j].count;
+                        totalVerifiedStandardsMet+=verifiedStandardsMet;
+                     }
+                     //keep a running tally of unverified and totalUnverified
+                     if(docs[rankIndex].pivot[j].value.trim().toUpperCase() ==="No review; untreated NODC data".toUpperCase()) {
+                    	 unverified=docs[rankIndex].pivot[j].count;
+                    	 totalUnverified+=unverified;
+                     }
+                     //keep a running tally of unverified and totalUnverified
+                     if(docs[rankIndex].pivot[j].value.trim().toUpperCase() === "No review; non-peer reviewed source".toUpperCase()) {
+                    	 unverifiedReview=docs[rankIndex].pivot[j].count;
+                    	 totalUnverified+=unverifiedReview;
+                     }
+                     
+                     percentStandardsMet = docs[rankIndex].pivot[j].value;
+                  }
+               } 
+            
+               for(var a=0;a<groupDoc.length;a++) {
+                  //if there are related records get the rank name
+                  if(groupDoc[a].doclist.numFound > 0) {
+                     if(rank==groupDoc[a].doclist.docs[0].rankID) {
+                        rankName=groupDoc[a].doclist.docs[0].rank;
+                        break;
+                     }
+                  }
+               }
+            
+               dataArray[arrayIndex] = new SubordinateTaxa(rank,rankName,verifiedStandardsMet,verifiedMinStandardsMet,unverified+unverifiedReview,percentStandardsMet);;
+               arrayIndex++;
+            }
+         }
+      } //END of SOLR data parsing
+      if (dataExists) {
+        //SORT DATA based on Rank ID by ascending order
+        dataArray=sortDataByRankID(dataArray,0);
+           
+        for(var arrayNewIndex = 0;arrayNewIndex<dataArray.length;arrayNewIndex++) {
+           outTable += generateSubordinateTaxaColumnTD("Subordinate Taxa", dataArray[arrayNewIndex].rankName, dataArray[arrayNewIndex].taxonomicTotal);
+              
+           outTable += "<td class=body align=left width='15%'>" + dataArray[arrayNewIndex].rankName + "</td>"; 
+           
+           //hyperlink the data
+           if(dataArray[arrayNewIndex].standardsMet>0) 
+            outTable += generateSubordinateTaxaColumnTD("TWG standards met", dataArray[arrayNewIndex].rankName, dataArray[arrayNewIndex].standardsMet);
+           //just display the data
+           else 
+            outTable += "<td  class=body align=center width='15%'>" + dataArray[arrayNewIndex].standardsMet + "</td>";
+           //hyperlink the data    
+           if(dataArray[arrayNewIndex].minStandardsMet>0) 
+          	outTable += generateSubordinateTaxaColumnTD("Minimum taxonomic/nomenclature review", dataArray[arrayNewIndex].rankName, dataArray[arrayNewIndex].minStandardsMet)
+           //just display the data
+           else 
+            outTable += "<td  class=body align=center width='15%'>" + dataArray[arrayNewIndex].minStandardsMet + "</td>";
+           //hyperlink the data    
+           if(dataArray[arrayNewIndex].unverified>0) 
+          	outTable += generateSubordinateTaxaColumnTD("Unverified", dataArray[arrayNewIndex].rankName, dataArray[arrayNewIndex].unverified)
+           //just display the data
+           else 
+            outTable +=  "<td class=body align=center width='15%'>" + dataArray[arrayNewIndex].unverified + "</td>";
+           
+           //Chart should appear in this column
+           outTable += "<td  class='body percentStandardsMetChart' align=center width='15%' id='percentStandardsMet" + dataArray[arrayNewIndex].rankName + "'></td>";
+           outTable += "</tr>"; 
+           var configuration = {
+                 id: 'percentStandardsMet' + dataArray[arrayNewIndex].rankName,
+                 data: [["Verified Standards Met", dataArray[arrayNewIndex].standardsMet],
+                        ["Verified Min. Standards Met", dataArray[arrayNewIndex].minStandardsMet],
+                        ["Unverified", dataArray[arrayNewIndex].unverified]
+                        ]
+            };
+
+            pieChartConfig.push (configuration);
+
+           }
+
+           //Generate and Display "All" row of the table:
+           if( (totalVerifiedStandardsMet + totalVerifiedMinStandardsMet + totalUnverified) > 0) {
+              outTable += "<tr>";
+              //Subordinate Taxa Column
+              outTable += generateSubordinateTaxaColumnTD("Subordinate Taxa", "ALL", (totalVerifiedStandardsMet + totalVerifiedMinStandardsMet + totalUnverified));
+              outTable += "<td class=body align=left width='15%'> ALL </td>";
+           }
+           
+              //Verified Standards Met Column
+              if(totalVerifiedStandardsMet>0) 
+                outTable += generateSubordinateTaxaColumnTD("TWG standards met", "ALL", totalVerifiedStandardsMet);
+              else 
+                 outTable += "<td  class=body align=center width='15%'>" + totalVerifiedStandardsMet + "</td>"
+              
+              //Verified Minimum Standards Met Column
+              if(totalVerifiedMinStandardsMet>0) 
+                 outTable += generateSubordinateTaxaColumnTD("Minimum taxonomic/nomenclature review", "ALL", totalVerifiedMinStandardsMet);
+              else 
+                 outTable += "<td  class=body align=center width='15%'>" + totalVerifiedMinStandardsMet + "</td>"
+              
+              //Unverified Column 
+              if(totalUnverified>0) 
+                outTable += generateSubordinateTaxaColumnTD("Unverified", "ALL", totalUnverified);
+              else 
+                outTable += "<td  class=body align=center width='15%'>" + totalUnverified + "</td>"
+
+              //Chart should appear in this column
+              outTable += "<td class='body percentStandardsMetChart' align=center width='15%' id='percentStandardsMetAll'>percentStandardsMetAll</td>";
+              outTable += "</tr>";
+              var configuration = {
+                 id: 'percentStandardsMetAll',
+                 data: [
+                        ["Verified Standards Met", totalVerifiedStandardsMet],
+                        ["Verified Min. Standards Met", totalVerifiedMinStandardsMet],
+                        ["Unverified", totalUnverified]
+                       ]
+              };  
+              pieChartConfig.push (configuration);
+      } 
+      //Data doesn't exist
+      else {
+    	  outTable += "<tr><td class=body colspan=6>&nbsp;</td></tr>";
+    	  outTable += "<tr><td class=datafield colspan=6>&nbsp;</td></tr> ";
+        outTable += "<tr><td class=body colspan=6>&nbsp;</td></tr> ";
+    	}
+
+      outTable += "</table>"; 
+      outTable += "</td>"; 
+      outTable += "</tr>"; 
+      outTable += "</tbody>"; 
+      outTable += "</table>"; 
+
+      $('#results').prepend("<div>" +  outTable + "</div>");
+      generateSubordinateTaxaTblHeader();
+      
+      if (dataExists)
+	  {
+ 	     generatePieChart(pieChartConfig);
+	  }	  
+   }
+
+   /** 
+    * Description:  generates a C3 pie chart for a given container and dataset.
+    * @param: configurations: A javascript array that contains objects {cotainerName, an array of[data to plot]}  
+    * @returns none
+    **/
+   function generatePieChart(pieChartConfig) {
+      //generate a chart for each configuration:
+      for (var configIndex = 0; configIndex < pieChartConfig.length; configIndex++) {
+         var chartConfiguration = createPieChartConfig("#" + pieChartConfig[configIndex].id, pieChartConfig[configIndex].data);
+         c3.generate(chartConfiguration);
+      }
+   }
+
+  /** 
+   * Description:  builds the column for the subordinate taxa table.  This includes building the hyperlink to generate the valid taxa list for the rank.
+   * @param: percentStandardsMet
+   * @param: rankName
+   * @param: column (string) data that is visible to the user as the clickable hyperlink.  
+   * @returns a string which defines a table cell in the subordinate taxa table.
+   **/
+  function generateSubordinateTaxaColumnTD(percentStandardsMet, rankName, columnData) {
+      console.log("<td  class=body align=center width='15%'><a href=SingleRpt?search_topic=TSN&anchorLocation=SubordinateTaxa&credibilitySort=" + escape(percentStandardsMet) + "&rankName=" + rankName + "&search_value=180703&print_version=SCR&source=from_print>" + columnData + "</a></td>" );
+      //console.log("" + SingleRpt?search_topic=TSN&anchorLocation=SubordinateTaxa&credibilitySort=" + escape(percentStandardsMet) + "&rankName=" + rankName + "&search_value=180703&print_version=SCR&source=from_print>" + columnData + "");
+      return "<td  class=body align=center width='15%'><a href=SingleRpt?search_topic=TSN&anchorLocation=SubordinateTaxa&credibilitySort=" + escape(percentStandardsMet) + "&rankName=" + rankName + "&search_value=180703&print_version=SCR&source=from_print>" + columnData + "</a></td>"; 
+  }
+
+  /**
+   * @description: function to create SOLR query and return data to be processed
+   **/
+  function on_searchSubordinateTaxa()
+  {
+    console.log("on_searchSubordinateTaxa");
+	 var url = ITIS_SOLR+'/?q=hierarchyTSN:(*$180703$*)&group=true&group.field=rankID&rows=-1&fl=rankID,rank&fq=usage:("valid" or "accepted")&wt=json&facet=true&facet.pivot={!key=product}rankID,credibilityRating&facet.pivot.mincount=0&facet.limit=-1&callback=?&json.wrf=on_SubordinateTaxaReturn';
+  $.getJSON(url, {dataType:"script"});
+  }
+/**
+* @description: Dynamically generates the Subordinate Taxa Table header.
+* @param : none
+* @return: none
+**/
+function generateSubordinateTaxaTblHeader() {
+    url = ITIS_SOLR +'/?q=tsn:(180703)&wt=json';
+    
+    //Generate The Results Header and get the data for the header if 
+    $.get(url, {dataType:"script"}).done(function(data) {
+      var taxaHeading = "&nbsp;" + data.response.docs[0].rank + " " + formatRankName(data.response.docs[0].nameWOInd,data.response.docs[0].rankID);
+      if (hasTaxonAuthor(data.response.docs[0].taxonAuthor) > 0)
+        taxaHeading += " " + formatTaxonAuthor(data.response.docs[0].taxonAuthor) + " contains:";
+      else 
+        taxaHeading += " contains:";
+
+      $('#subordinateTaxaTableHeader').html(taxaHeading);
+    
+    }).fail(function() {
+        console.error("houston we have a problem generating the initial Subordinate Taxa Table Header.");
+    }).always(function() {
+        console.log("always executes.  put clean up code in here");
+    });
+}
+  $(document).ready(function() {
+    //initially generate the table header for the given search
+    generateSubordinateTaxaTblHeader();
+    //issue a solr query to generate the subordinate taxa table.
+    on_searchSubordinateTaxa();    
+  });
+   </script>
+</head>
+<div id="results">
+  <table cellSpacing=0 cellPadding=1 width="100%" border=0>
+    <tbody>
+    <tr>
+      <td class=whiteboxhead valign=top align=left colspan=6><span id="subordinateTaxaTableHeader"></span>
+        <table cellspacing=0 cellpadding=0 width='100%' bgcolor=#ffffff border=0> 
+          <tr> 
+            <td class=body colspan=6>&nbsp;</td> 
+          </tr> 
+            <th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Subordinate Taxa</th>
+            <th class=body align=left style='word-wrap:break-word' width='15%'>&nbsp;Rank</th>
+            <th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Verified Standards Met</th> 
+            <th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Verified Min Standards Met</th>
+            <th class=body align=center style='word-wrap:break-word' width='15%'>&nbsp;Unverified</td>
+            <th class=body align=center style='word-wrap:break-word' width='15%'>Percent Standards Met</th>
+          <tr> 
+            <td class=body colspan=6>&nbsp;</td> 
+          </tr> 
+          <tr>
+            <td class=datafield colspan=6 align="center">LOADING...</td> 
+          </tr> 
+          <tr> 
+            <td class=body colspan=6>&nbsp;</td>   
+          </tr>
+        </table> 
+      </td> 
+    </tr> 
+    </tbody> 
+  </table> 
+</div>
+     
+	   <a name='SubordinateTaxa'></a>
+<br/>
+	
+    
+<script type="text/javascript" src="/Static/javascript/resources.js"></script>
+
+
+
+
+
+    
+      <FORM METHOD="post" ACTION="https://www.itis.gov/servlet/SingleRpt/SingleRpt">
+
+	    <TABLE WIDTH="68%" BORDER="0" CELLSPACING="2" CELLPADDING="2"> 
+		<TR VALIGN="baseline"> 
+		<TD CLASS="body" COLSPAN="5">
+		  <IMG SRC="/Static/images/leftbar.gif" WIDTH="450" HEIGHT="8" ALT="A gray graphic bar"></TD> 
+		</TR> 
+		<TR VALIGN="baseline"> 
+		<TD CLASS="body"><B>Search on:</B></TD> 
+		<TD CLASS="body">
+		<INPUT TYPE="RADIO" NAME="search_topic" VALUE="all" CHECKED="CHECKED"
+			TITLE="Search on any name, be it a common name or scientific name as well as any TSN in ITIS.">
+			&nbsp;Any Name or TSN</TD> 
+		<TD CLASS="body">
+		<INPUT TYPE="RADIO" NAME="search_topic" VALUE="Common_Name"
+			TITLE="Limit your search to only common names in the ITIS database.">
+			&nbsp;Common Name</TD> 
+		<TD CLASS="body">
+		<INPUT TYPE="RADIO" NAME="search_topic" VALUE="Scientific_Name"
+			TITLE="Limit your search to only scientific names in the ITIS database.">
+			&nbsp;Scientific Name </TD> 
+		<TD CLASS="body">
+		<INPUT TYPE="RADIO" NAME="search_topic" VALUE="TSN"
+			TITLE="Limit your search to only Taxonomic Serial Numbers (TSNs) in the ITIS database.">
+			&nbsp;TSN</TD> 
+		</TR> 
+	    </TABLE> 
+	    <TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="2" CLASS="body"> 
+		<TR> 
+		<TD CLASS="body" ALIGN="LEFT"> <NOBR><label for="kingdom" class="body">In:</label>
+		<SELECT NAME="search_kingdom" CLASS="body" ID="kingdom"> 
+			<OPTION VALUE="every" SELECTED="SELECTED">every </OPTION> 
+			<OPTION VALUE="Animal">Animal</OPTION> 
+			<OPTION VALUE="Plant">Plant</OPTION> 
+			<OPTION VALUE="Fungal">Fungal</OPTION> 
+			<OPTION VALUE="Bacteria">Bacteria</OPTION> 
+			<OPTION VALUE="Protozoa">Protozoa</OPTION> 
+			<OPTION VALUE="Chromista">Chromista</OPTION> 
+			<OPTION VALUE="Archaea">Archaea</OPTION> 
+		</SELECT> &nbsp;<label for="search_span" class="body">Kingdom</label> 
+		<SELECT id="search_span" NAME="search_span" CLASS="body"> 
+			<OPTION VALUE="exactly_for">exactly
+							 for</OPTION> 
+			<OPTION VALUE="containing" SELECTED="SELECTED">containing</OPTION> 
+			<OPTION VALUE="starting_with">starting with</OPTION> 
+			<OPTION VALUE="ending_with">ending with</OPTION> 
+		</SELECT> &nbsp;
+		<INPUT TYPE="TEXT" NAME="search_value" SIZE="15" ID="search"
+			 TITLE="Enter a name or part of a name or TSN number to search" CLASS="body">
+			 &nbsp;
+		<INPUT TYPE="SUBMIT" VALUE="Search" NAME="Go" CLASS="body"
+			TITLE="Search the ITIS database using the criteria specified"> </NOBR>
+			
+		  </TD> 
+
+		</TR> 
+	     </TABLE> 
+	     
+    
+<TABLE cellSpacing=0 cellPadding=0 width="100%">
+  <TR>
+  <td>
+  <br>
+  <DIV ALIGN="right">
+  <A class=smlink
+     HREF="../../advanced_search.html"
+        title="Search and produce customized reports from the ITIS database">Go
+        to Advanced Search and Report  </A>
+  </DIV>
+  </td>
+  </TR>
+</TABLE>
+
+      <INPUT TYPE = "hidden" NAME = "categories" VALUE = "All" >
+
+      <INPUT TYPE = "hidden" NAME = "source" VALUE = "html" >
+
+      <INPUT TYPE = "hidden" NAME = "search_credRating" VALUE = "All" >
+
+	     
+	     <input type="hidden" name="__ncforminfo" value="zAr47xBpPHvmwfLYZtHZbdCqYN5DWoFTohfHwspy9C7SSLmKdpYIetCl6JRicYJ4_2ucVRjaKtDE-7ApwK8g2Cx2H6tmyQciqj1-HDFrzLVEQvYfBThNOIT4Z2BgTksjcT95MEmVPoSmoolKdOtintHssgqaC9uKaj3iuGRtDtPvq6wpTqxnkMSOXGMQDz_0WLqbdOKpOhxL2j6g2mOcWLHHwJGlMh_Ho6kDjFEUUGfCue_YPBmAzych7w9Rzrl3ZIUsBzlKzHcWu05sBcxXZrSqfySn71_L6hLMB9DhUt4="/></FORM> 
+
+
+
+
+<!-- include F&W Disclaimer test -->
+    <!-- temporary modification for F&W Disclaimer test -->
+<table width="668" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td  class=body>
+            <br>
+            <span class="disclaimer_head">Disclaimer:</span>
+                ITIS taxonomy is based on the latest scientific consensus available, 
+                and is provided as a general reference source for interested parties. 
+                However, it is not a legal authority for statutory or regulatory purposes. 
+                While every effort has been made to provide the most reliable and up-to-date 
+                information available, ultimate legal requirements with respect to species 
+                are contained in provisions of treaties to which the United States is a 
+                party, wildlife statutes, regulations, and any applicable notices that have 
+                been published in the Federal Register. For further information on U.S. 
+                legal requirements with respect to protected taxa, please contact the 
+                U.S. Fish and Wildlife Service.<br>
+        </td>
+    </tr>
+</table>
+
+
+    <br/>
+        <div width="100%">
+        <div width="100%" height="35">
+                    <div>
+                        <img src="/Static/images/bar.gif" width="210" height="8" alt="A gray bar">
+                        <div>
+                            <div class="smtag" id="footerDiv0">
+    <script type="text/javascript">
+        var coreContent='                 <a href="/privacy.html" title="Learn more about your privacy on the ITIS website and other site disclaimers.">';
+        coreContent+='                    <span class="smlink">Privacy statement and disclaimers</span></font></a>&nbsp;&nbsp;<br>';
+        coreContent+='                    <a href="/citation.html" title="Learn how to properly cite ITIS in your products.">';
+        coreContent+='                    <span class="smlink">How to cite ITIS</span></font></a>&nbsp;&nbsp;<br>';
+        var footerStr='';
+        
+        var d_names = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+        var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        var d = new Date(document.lastModified);
+
+        if(operation === "single") {
+            footerStr+='                       Generated: '+d_names[d.getDay()]+", "+m_names[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()+' <br>';
+            footerStr+=coreContent;
+        }
+        else {
+            footerStr+='                       Last Updated: Thursday, August 27, 2026</br>';
+            footerStr+=coreContent;
+        }
+
+        document.getElementById("footerDiv0").innerHTML = footerStr;
+    </script>
+                            </div>
+                        </div>
+                    </div>
+               <div width="100%">
+                &nbsp;
+            </div>
+            
+    <!-- START USGS Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKQR8KP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- END USGS Google Tag Manager (noscript) -->
+    <!-- START SAS Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKJZMH9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- END SAS Google Tag Manager (noscript) -->
+
+
+</body>
+</html>

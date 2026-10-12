@@ -1,0 +1,154 @@
+Chargeur Blue Smart IP22
+
+120 VCA  Prêt pour le réseau VE.Smart                         www.victronenergy.com
+
+           Blue Smart IP22  Bluetooth Smart
+                12/30 (3)   La solution sans fil permettant de surveiller la tension et le courant, de modifier des paramètres et de mettre à jour le chargeur
+                            lorsque de nouvelles fonctions sont disponibles.
+         Écran graphique
+                            Haute efficacité
+           Un des écrans    Avec une efficacité de jusqu'à 94 %, ces chargeurs génèrent jusqu'à quatre fois moins de chaleur par rapport à la norme du
+            d'historique    secteur.
+                            Et une fois que la batterie est entièrement rechargée, la consommation d'énergie est réduite à 0,5 Watt, près de cinq à dix fois
+                            mieux que les normes industrielles.
+
+                            Algorithme de charge adaptative à 6 étapes : test - bulk – absorption - remise en état – float – stockage
+                            Le Chargeur Blue Smart comprend un système de gestion de charge « adaptative » contrôlé par un microprocesseur. La
+                            fonction « adaptative » optimise automatiquement le processus de charge selon l'utilisation qui est faite de la batterie.
+
+                            Algorithme de charge entièrement programmable
+                            Les tensions d’Absorption, Float et stockage, ainsi que les paramètres de remise en état et la valeur de compensation de
+                            température peuvent être programmés avec l’application Bluetooth.
+                            Une fois le mode Expert activé, l’application permet de modifier pratiquement tous les paramètres et les limites de temps
+                            utilisés par l’algorithme de charge.
+
+                            Mode Stockage : moins d'entretien et de vieillissement si la batterie n'est pas utilisée
+                            Le mode Stockage se déclenche lorsque la batterie n'a pas été sollicitée pendant 24 heures. En mode stockage, la tension Float
+                            est réduite à 2,2 V / cellule (13,2 V pour une batterie de 12 V) afin de minimiser le gazage et la corrosion des plaques positives.
+                            Une fois par semaine, la tension est relevée au niveau d'absorption pour « égaliser » la batterie. Cette fonction empêche la
+                            stratification de l'électrolyte et la sulfatation qui sont des causes majeures du vieillissement prématuré des batteries.
+
+                            Également conçu pour recharger des batteries au lithium-ion
+                            Les batteries au lithium-ion sont rechargées avec un simple algorithme Bulk – Absorption – Float.
+
+                            Fonction de récupération de batteries entièrement déchargées
+                            Cette fonction permettra de commencer un cycle de charge même si la batterie a été déchargée à zéro volt.
+                            Elle permettra de se reconnecter à une batterie au lithium-ion entièrement déchargée ayant une fonction interne de
+                            déconnexion.
+
+                            Configuration NIGHT et LOW
+                            Quand le mode NIGHT ou LOW est sélectionné, le courant de sortie est réduit à 50 % maximum de la sortie nominale et le
+                            chargeur sera entièrement silencieux. Le mode NIGHT prend fin automatiquement après 8 heures. Le mode LOW peut être
+                            arrêté manuellement.
+
+                            Protection contre la surchauffe
+                            Le courant de sortie se réduira si la température augmente à 50 °C, mais le chargeur Blue Smart ne tombera pas en panne.
+
+                            Onze voyants LED pour indication d'état
+                            Algorithme de charge : TEST / BULK / ABSORPTION / REMISE EN ÉTAT / FLOAT / STOCKAGE / PRÊT.
+                            Bouton MODE pour configurer : NORMAL (14,4 V) / ÉLEVÉ (14,7 V) / REMISE EN ÉTAT / LI-ION
+
+                            Journal de l’historique des 40 derniers cycles
+                            L’écran d'historique contient les données historiques d’exploitation au cours de la durée de vie du chargeur ainsi que les
+                            statistiques détaillées des 40 derniers cycles de charge.
+
+                            VE.Smart Networking
+                            Le réseau VE.Smart Network est un réseau de communication sans fil d’appareil à appareil (D2D–device-to-device) entre les
+                            produits Victron utilisant la fonction Bluetooth Smart.
+
+                            En option : détection de courant et compensation des variations de tension et température de la batterie
+                            Le réseau VE.Smart offre la possibilité d’optimiser le processus de charge : une sonde Smart Battery Sense, un contrôleur de
+                            batterie Smart ou un SmartShunt peut être utilisé pour transmettre la tension et la température de la batterie à un ou plusieurs
+                            chargeurs de batterie. Un contrôleur de batterie Smart ou un SmartShunt transmettra également le courant de la batterie.
+
+                            Processus de charge en parallèle synchronisé
+                            Vous pouvez synchroniser jusqu’à 10 chargeurs de batterie dans un réseau VE.Smart afin qu'ils rechargent la batterie comme s'il
+                            s'agissait d'un seul grand chargeur. Les chargeurs synchroniseront l’algorithme de charge entre eux. Ils passeront
+                            simultanément d'un état de charge à un autre. Par exemple : de Bulk à absorption.
+                            Le processus de charge en parallèle synchronisé présente plusieurs avantages intéressants :
+
+                              - Redondance : si un chargeur s’arrête, quelle qu’en soit la raison, les autres chargeurs continueront de fonctionner.
+                              - Souplesse : vous n’avez qu’à rajouter un chargeur dans votre réseau si vous avez besoin de davantage de courant.
+                              - Coût : plusieurs chargeurs de faible puissance coûtent en général moins qu’un seul chargeur de puissance élevée.
+                              - Installation : plusieurs chargeurs de faible puissance peuvent être plus faciles à mettre en place dans un espace confiné.
+
+Victron Energy B.V. | De Paal 35 | 1351 JG Almere | Pays-Bas
+Courriel : sales@victronenergy.com
+www.victronenergy.com
+Chargeur Blue Smart IP22         12 V, 1 sortie                                   12 V, 3 sorties                  24 V, 1 sortie               24 V, 3 sorties
+                                 15 / 20 / 30 A                                   15 / 20 / 30 A                   8 / 12 / 16 A                      16 A
+Tension nominale
+Plage de tension d’alimentation                                  110 – 120 VAC 50 – 60 Hz                                110 – 120 VAC 50 – 60 Hz
+Courant de charge, mode normal                                   100 – 130 VAC 45 – 65 Hz                                100 – 130 VAC 45 – 65 Hz
+Courant de charge, NIGHT ou
+LOW                                                                     15 / 20 / 30 A                                            8/12/16 A
+Rendement
+Consommation d'énergie sans                                      7,5 / 10 / 15 A                                                   4 / 6 / 8 A
+charge
+Fréquence                                                        93 %                                                              94 %
+Nombre de sorties
+Tension de charge                                                0,5 W                                                             0,5 W
+« d’absorption »
+                                                                 45 – 65 Hz                                                        45 – 65 Hz
+Tension de charge « Float »
+                                                              1                            3                          1                            3
+Tension de charge « stockage »
+                                                              Normale : 14,4 V Élevée : 14,7 V                        Normale : 28,8 V Élevée : 29,4 V
+Algorithme de charge                                                  Lithium-ion : 14,2 V                                    Lithium-ion : 28,4 V
+Utilisable comme alimentation
+Protection                                                    Normale : 13,8 V Élevée : 13,8 V                        Normale : 27,6 V Élevée : 27,6 V
+Plage de température                                                  Lithium-ion : 13,5 V                                    Lithium-ion : 27,0 V
+d'exploitation
+Humidité (sans condensation)                                  Normale : 13,2 V Élevée : 13,2 V                        Normale : 26,4 V Élevée : 26,4 V
+                                                                      Lithium-ion : 13,5 V                                    Lithium-ion : 27,0 V
+Matériau et couleur
+Raccordement batterie                                                                           Adaptatif à 6 étapes
+Connexion de 120 VCA
+Degré de protection                                                                                Oui
+Poids
+Dimensions (h x l x p)                                           Polarité inversée de batterie (fusible) Court-circuit de sortie Surchauffe
+
+Sécurité                                                         -20 to +50 °C (puissance nominale complète en sortie jusqu’à 40 °C)
+Émission                                                         -5 à + 120 °F (puissance nominale complète en sortie jusqu’à 90 °F)
+Immunité
+Automobile                                                                                         Maxi 98 %
+
+                                                                             BOÎTIER
+
+                                                                                           Aluminium (bleu RAL 5012)
+
+                                                                                           Bornes à vis 16 mm² / AWG6
+
+                                                                 Câble de 1,8 mètres (6 pieds) avec une prise US NEMA 5/-15
+
+                                                                                                   IP22
+
+                                                                                                   1,3 kg (3 lbs)
+
+                                                                             245 x 108 x 65 mm (9,7 x 4,3 x 2,6 pouces)
+
+                                                                        NORMES
+
+                                                                        UL 1236, CSA C22.2, EN 60335-1, EN 60335-2-29
+
+                                                                                  EN 55014-1, EN 61000-6-3, EN 61000-3-2
+
+                                                                 EN 55014-2, EN 61000-6-1, EN 61000-6-2, EN 61000-3-3
+
+                                                                                                   ECE R10-5
+
+      Smart Battery Sense                                        Contrôleur de batterie BMV-712 Smart                              SmartShunt
+  Permet d’activer la charge à
+compensation de tension et de    Le Contrôleur de batterie BMV-712 Smart et le SmartShunt permettent tous deux d’activer la
+                                 charge à compensation de tension et de température.
+           température.          L’information relative au courant de charge de la batterie peut par exemple être utilisée pour
+                                 passer de l’étape de charge Absorption à l’étape de charge Float à un courant de queue défini.
+
+Remarques
+      1. La fonction de Réseau VE.Smart est activée sur tous les chargeurs IP22 ayant pour numéro de série HQ2024xxxxx et suivants.
+      2. Des modèles présentant un courant nominal différent peuvent être installés en parallèle et synchronisés.
+
+Victron Energy B.V. | De Paal 35 | 1351 JG Almere | Pays-Bas
+Courriel : sales@victronenergy.com
+www.victronenergy.com
+

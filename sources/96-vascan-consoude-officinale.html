@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symphytum officinale Linnaeus - Database of Vascular Plants of Canada (VASCAN)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://layout.canadensys.net/common/gbif/common-1.1.css" media="screen,print"/>
+    <link rel="stylesheet" type="text/css" media="all" href="https://layout.canadensys.net/common/gbif/main_1701959972.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="https://layout.canadensys.net/common/gbif/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="https://layout.canadensys.net/common/gbif/font-awesome.extra.css"/>
+    <link rel="stylesheet" href="https://layout.canadensys.net/common/gbif/common-extra.css" media="screen,print"/>
+    <!--<link rel="shortcut icon" href="https://layout.canadensys.net/common/images/favicon.png"/>-->
+    <link rel="icon" href="https://layout.canadensys.net/common/images/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+    <link rel="alternate" hreflang="en" href="https://data.canadensys.net:80/vascan/taxon/3841?lang=en"/>
+    <link rel="alternate" hreflang="fr" href="https://data.canadensys.net:80/vascan/taxon/3841?lang=fr"/>
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="Canadensys - RSS feed" href="https://canadensys.hp.gbif-staging.org//feed.xml" >
+
+  <script>
+    var themeFeedbackEnabled = true;
+    var themeFeedback = [];
+  </script>
+
+    
+
+	<link rel="stylesheet" href="/vascan/assets/styles/vascan-3.5.7.css" media="screen,print"/>
+
+  <meta name="google-site-verification" content="6NTgkLlXEB4Wda8BThnz2XrXMnnUgmu7nmXE5dX_DuY"/>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6192967-2', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+</head>
+
+<body class="">
+<div class="en">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-content">
+      <div class="navbar-brand">
+        <a class="navbar-item navbar-logo" href="/">
+            <img class="navbar-logo_img" src="https://www.canadensys.net/assets/logo/Canadensys-logo_red.png" height="28" />
+            <span class="navbar-logo_text">Canadensys</span>
+        </a>
+          <a
+            role="button"
+            id="navbarBurger"
+            class="navbar-burger burger menu-toggle"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="mainNavbar"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+      </div>
+      <div id="mainNavbar" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-top-item navbar-item" href="https://www.canadensys.net/about" >About</a>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link "> Data </a>
+            <div class="navbar-dropdown ">
+              <a href="https://www.canadensys.net/occurrence/search" class="navbar-item ">Occurrences</a>
+              <a href="https://www.canadensys.net/collection/search" class="navbar-item ">Collections</a>
+              <a href="https://www.canadensys.net/institution/search" class="navbar-item ">Institutions</a>
+              <a href="https://www.canadensys.net/dataset/search" class="navbar-item ">Datasets</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link "> Publish </a>
+            <div class="navbar-dropdown ">
+              <a href="https://www.canadensys.net/publish/ipt" class="navbar-item ">Data repository</a>
+              <a href="https://www.canadensys.net/publish/introduction" class="navbar-item ">How to Publish</a>
+              <a href="https://www.canadensys.net/publish/7-step-guide" class="navbar-item ">7-step-guide</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> Vascan </a>
+            <div class="navbar-dropdown ">
+              <a href="https://data.canadensys.net/vascan/search?lang=en" class="navbar-item ">VASCAN Name Search</a>
+              <a href="https://data.canadensys.net/vascan/checklist?lang=en" class="navbar-item ">Checklist Builder</a>
+              <a href="https://www.canadensys.net/vascan/how-to" class="navbar-item ">How to use VASCAN</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link ">Tools</a>
+            <div class="navbar-dropdown ">
+              <a href="https://data.canadensys.net/tools/coordinates?lang=en" class="navbar-item ">Coordinates Conversion</a>
+              <a href="https://data.canadensys.net/tools/dates?lang=en" class="navbar-item ">Date Parsing</a>
+              <a href="https://data.canadensys.net/tools/api?lang=en" class="navbar-item ">Tools API</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> Resources </a>
+            <div class="navbar-dropdown ">
+              <a href="https://www.canadensys.net/resources/documents" class="navbar-item ">Documentation</a>
+              <a href="https://www.canadensys.net/resources/othertools" class="navbar-item ">External tools</a>
+              <a href="https://www.canadensys.net/resources/training" class="navbar-item ">Training material</a>
+            </div>
+          </div>
+          <a class="navbar-top-item navbar-item " href="https://www.canadensys.net/news/">News</a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <div class="buttons language-selector">
+              <a class="button is-light">
+                <span>English</span>
+                <span class="icon is-small">
+                  <i class="fa fa-language"></i>
+                </span>
+              </a>
+              <div class="navbar-dropdown is-right">
+                <a class="navbar-item" href="#">
+                  English
+                </a>
+                <a id="fr-lang" type="button" class="navbar-item" href="#">
+                  Français
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<!--fr-->
+<div class="fr">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-content">
+      <div class="navbar-brand">
+        <a class="navbar-item navbar-logo" href="/">
+            <img class="navbar-logo_img" src="https://www.canadensys.net/assets/logo/Canadensys-logo_red.png" height="28" />
+            <span class="navbar-logo_text">Canadensys</span>
+        </a>
+          <a
+            role="button"
+            id="navbarBurger"
+            class="navbar-burger burger menu-toggle"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="mainNavbar"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+      </div>
+      <div id="mainNavbar" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-top-item navbar-item " href="https://www.canadensys.net/fr/about" >À propos</a>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link "> Données </a>
+            <div class="navbar-dropdown">
+              <a href="https://www.canadensys.net/fr/occurrence/search" class="navbar-item ">Occurrences</a>
+              <a href="https://www.canadensys.net/fr/collection/search" class="navbar-item ">Collections</a>
+              <a href="https://www.canadensys.net/fr/institution/search" class="navbar-item ">Institutions</a>
+              <a href="https://www.canadensys.net/fr/dataset/search" class="navbar-item ">Jeux de Données</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link "> Publier </a>
+            <div class="navbar-dropdown ">
+              <a href="https://www.canadensys.net/fr/publish/ipt" class="navbar-item ">Répertoire de Données</a>
+              <a href="https://www.canadensys.net/fr/publish/introduction" class="navbar-item ">Comment Publier</a>
+              <a href="https://www.canadensys.net/fr/publish/7-step-guide" class="navbar-item ">Guide en 7 étapes</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> Vascan </a>
+            <div class="navbar-dropdown ">
+              <a href="https://data.canadensys.net/vascan/search?lang=fr" class="navbar-item ">VASCAN - Recherche de Nom</a>
+              <a href="https://data.canadensys.net/vascan/checklist?lang=fr" class="navbar-item ">Générateur de liste</a>
+              <a href="https://www.canadensys.net/fr/vascan/how-to" class="navbar-item ">Comment utiliser VASCAN</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link ">Outils</a>
+            <div class="navbar-dropdown ">
+              <a href="https://data.canadensys.net/tools/coordinates?lang=fr" class="navbar-item ">Conversion de coordonnées</a>
+              <a href="https://data.canadensys.net/tools/dates?lang=fr" class="navbar-item ">Conversion de dates</a>
+              <a href="https://data.canadensys.net/tools/api?lang=fr" class="navbar-item ">API des outils</a>
+            </div>
+          </div>
+          <div class="navbar-top-item navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> Resources </a>
+            <div class="navbar-dropdown ">
+              <a href="https://www.canadensys.net/fr/resources/documents" class="navbar-item ">Documentation</a>
+              <a href="https://www.canadensys.net/fr/resources/othertools" class="navbar-item ">Outils externes</a>
+              <a href="https://www.canadensys.net/fr/resources/training" class="navbar-item ">Formation</a>
+            </div>
+          </div>
+          <a class="navbar-top-item navbar-item fr" href="https://www.canadensys.net/fr/news/">Nouvelles</a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <div class="buttons language-selector">
+              <a class="button is-light">
+                <span>Français</span>
+                <span class="icon is-small">
+                  <i class="fa fa-language"></i>
+                </span>
+              </a>
+              <div class="navbar-dropdown is-right">
+                <a id="en-lang" type="button" class="navbar-item" href="#">
+                  English
+                </a>
+                <a class="navbar-item" href="#">
+                  Français
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+    <main>
+      <div>
+        <div id="skip-link">
+          <a href="#main-content" class="skipnav">Skip to main content</a>
+        </div>
+        
+
+
+
+<div id="body">
+<div id="side_bar">
+	<ul class="side_menu custom_list round">
+		<li><a href="/vascan/search">Name search</a></li>
+		<li><a href="/vascan/checklist">Checklist builder</a></li>
+		<li><a href="https://www.canadensys.net/vascan/how-to">How to use</a></li>
+		<!--<li><a href="http://data.canadensys.net/ipt/resource.do?r=vascan&amp;request_locale=en">Download</a></li>-->
+	</ul>
+		<p><a class="round big_button multi_line" id="create_checklist" href="/vascan/checklist?taxon=3841&lang=en">Create a checklist for this taxon</a></p>
+		<p><a class="round big_button" id="print_page" href="javascript:window.print();">Print this page</a></p>
+</div>
+		
+<div id="content" class="clear_fix">
+
+<h1><em>Symphytum officinale</em> Linnaeus</h1>
+	<p class="sprite sprite-accepted">
+	<a href="/vascan/taxon/3841"><em>Symphytum officinale</em> Linnaeus</a> is an <strong>accepted species</strong> name.	    
+	</p>
+						<h2>Vernacular names</h2>
+						<ul class="custom_list">
+								<li class="sprite sprite-accepted">
+									<a href="/vascan/vernacular/5635">consoude officinale</a>
+									<span class="right"><span class="reference" title ="Darbyshire S.J., M. Favreau & M. Murray (revu et augmenté par). 2000. Noms populaires et scientifiques des plantes nuisibles du Canada. Agriculture et Agroalimentaire Canada. Publication 1397. 132 pp.">Darbyshire et al., 2000</span></span> 
+								</li>
+								<li class="sprite sprite-synonym">
+									<a href="/vascan/vernacular/5638">grande consoude</a>
+									<span class="right"><span class="reference" title ="Louis-Marie, P. 1953. Flore-Manuel de la province de Québec. 2ième éd. Institut agricole d'Oka. 323 pp.">Louis-Marie, 1953</span></span> 
+								</li>
+								<li class="sprite sprite-synonym">
+									<a href="/vascan/vernacular/5636">herbe à la coupure</a>
+									<span class="right"><span class="reference" title ="Marie-Victorin, Fr. 1995. Flore laurentienne. 3e éd. Mise à jour et annotée par L. Brouillet, S.G. Hay, I. Goulet, M. Blondeau, J. Cayouette et J. Labrecque. Gaétan Morin éditeur. 1093 pp.">Marie-Victorin, 1995</span></span> 
+								</li>
+								<li class="sprite sprite-synonym">
+									<a href="/vascan/vernacular/5639">herbe du cardinal</a>
+									<span class="right"><span class="reference" title ="Louis-Marie, P. 1953. Flore-Manuel de la province de Québec. 2ième éd. Institut agricole d'Oka. 323 pp.">Louis-Marie, 1953</span></span> 
+								</li>
+								<li class="sprite sprite-synonym">
+									<a href="/vascan/vernacular/5637">langue de vache</a>
+									<span class="right"><span class="reference" title ="Marie-Victorin, Fr. 1995. Flore laurentienne. 3e éd. Mise à jour et annotée par L. Brouillet, S.G. Hay, I. Goulet, M. Blondeau, J. Cayouette et J. Labrecque. Gaétan Morin éditeur. 1093 pp.">Marie-Victorin, 1995</span></span> 
+								</li>
+						</ul>
+						<ul class="custom_list">
+								<li class="sprite sprite-accepted">
+									<a href="/vascan/vernacular/5641">comfrey</a>
+									<span class="right"><span class="reference" title ="Darbyshire S.J., M. Favreau & M. Murray (revu et augmenté par). 2000. Noms populaires et scientifiques des plantes nuisibles du Canada. Agriculture et Agroalimentaire Canada. Publication 1397. 132 pp.">Darbyshire et al., 2000</span></span>
+								</li>
+								<li class="sprite sprite-synonym">
+									<a href="/vascan/vernacular/5644">bruisewort</a>
+									<span class="right"><span class="reference" title ="Hinds, H.R. 2000. Flora of New Brunswick : a manual for the identification of the vascular plants of New Brunswick. 2nd edition. Biology Department, University of New Brunswick, Fredericton. 699 pp.">Hinds, 2000</span></span>
+								</li>
+								<li class="sprite sprite-synonym">
+									<a href="/vascan/vernacular/5642">healing-herb</a>
+									<span class="right"><span class="reference" title ="Newmaster, S.G. & S. Ragupathy. 2005. Flora Ontario - Integrated Botanical Information System (FOIBIS), Phase I. University of Guelph, Canada. http://www.uoguelph.ca/foibis"><a href="http://www.uoguelph.ca/foibis/">Newmaster & Ragupathy, 2005</a></span></span>
+								</li>
+								<li class="sprite sprite-synonym">
+									<a href="/vascan/vernacular/5643">knitbone</a>
+									<span class="right"><span class="reference" title ="Hinds, H.R. 2000. Flora of New Brunswick : a manual for the identification of the vascular plants of New Brunswick. 2nd edition. Biology Department, University of New Brunswick, Fredericton. 699 pp.">Hinds, 2000</span></span>
+								</li>
+						</ul>
+						
+						<h2>Synonyms</h2>
+						<ul class="custom_list">
+						</ul>
+						
+						<h2>Distribution</h2>
+						<ul id="distribution_map_toggle" class="buttons">
+							<li><a href="#" class="selected">Map view</a></li>
+							<li><a href="#">List view</a></li>
+						</ul>
+
+						<ul class="distribution_legend custom_list">
+							<li class="sprite sprite-native">Native</li>
+							<li class="sprite sprite-introduced">Introduced</li> 
+							<li class="sprite sprite-ephemeral">Ephemeral</li>
+							<li class="sprite sprite-excluded">Excluded</li>
+							<li class="sprite sprite-extirpated">Extirpated</li> 
+							<li class="sprite sprite-doubtful">Doubtful</li>
+							<li class="sprite sprite-absent">Absent</li>
+						</ul>
+
+						<div id="map_result">
+							<img src="/vascan/images/distribution/3841.png" width="400" height="400" alt="Distribution: Symphytum officinale Linnaeus" id="png" />
+							<p>View map as a <a href="/vascan/images/distribution/3841.svg">SVG</a> file.</p>
+						</div>
+						<div id="list_result" style="display:none;">
+							<ul class="custom_list">
+							
+								<li class="sprite sprite-introduced">
+									Ontario
+									<span class="right"><span class="reference" title ="Ontario Ministry of Natural Resources and Forestry. [YEAR]. Species of conservation concern. Natural Heritage Information Centre, Ontario Ministry of Natural Resources and Forestry, Peterborough, ON. https://www.publicdocs.mnr.gov.on.ca/srb/Ontario_Species_list.xlsx. (Accessed: 2024/03)."><a href="https://www.publicdocs.mnr.gov.on.ca/srb/Ontario_Species_list.xlsx">OMNR, 2024+</a></span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									British Columbia
+									<span class="right"><span class="reference" title ="Klinkenberg, B. (ed.). 2010+. E-Flora BC: Electronic Atlas of the Plants of British Columbia. Lab. for Advanced Spatial Analysis, Department of Geography, University of British Columbia, Vancouver, B.C. http://www.eflora.bc.ca"><a href="http://www.eflora.bc.ca/">Klinkenberg, 2010+</a></span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Prince Edward Island
+									<span class="right"><span class="reference" title ="E.C. Smith Herbarium (ACAD), Acadia University, NS. Specimen."><a href="http://herbarium.acadiau.ca/">ACAD</a></span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									New Brunswick
+									<span class="right"><span class="reference" title ="Hinds, H.R. 2000. Flora of New Brunswick : a manual for the identification of the vascular plants of New Brunswick. 2nd edition. Biology Department, University of New Brunswick, Fredericton. 699 pp.">Hinds, 2000</span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Saint Pierre and Miquelon
+									<span class="right"><span class="reference" title ="Nature SPM. 2010+. Portail de la biodiversité des Iles. Plantes vasculaires. http://www.naturespm.com/xxxcl.php?code=flecl&mv=2&debut=0&page=0"><a href="http://www.naturespm.com/xxxcl.php?code=flecl&mv=2&debut=0&page=0">Nature SPM. 2010+</a></span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Quebec
+									<span class="right"><span class="reference" title ="Marie-Victorin, Fr. 1995. Flore laurentienne. 3e éd. Mise à jour et annotée par L. Brouillet, S.G. Hay, I. Goulet, M. Blondeau, J. Cayouette et J. Labrecque. Gaétan Morin éditeur. 1093 pp.">Marie-Victorin, 1995</span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Newfoundland
+									<span class="right"><span class="reference" title ="Meades, S.J. & W.J. Meades. 2022. Flora of Newfoundland and Labrador. https://newfoundland-labradorflora.ca/index.cfm"><a href="https://newfoundland-labradorflora.ca/index.cfm">Meades & Meades, 2022</a></span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Alberta
+									<span class="right"><span class="reference" title ="Moss, E.H. 1983. Flora of Alberta. 2nd edition, revised by J.G. Packer. University of Toronto Press, Toronto. 687 pp.">Moss, 1983</span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Saskatchewan
+									<span class="right"><span class="reference" title ="Harms, V.L. 2006. Annotated catalogue of Saskatchewan vascular plants."><a href="http://www.biodiversity.sk.ca/Docs/AnnotatedCatalogueSKVascPlants2006.pdf">Harms, 2006</a></span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Manitoba
+									<span class="right"><span class="reference" title ="Manitoba Checklist, 2002">Manitoba Checklist, 2002</span></span>
+								</li>
+								<li class="sprite sprite-introduced">
+									Nova Scotia
+									<span class="right"><span class="reference" title ="Zinck, M. 1998. Roland's Flora of Nova Scotia. Nimber Publishing & Nova Scotia Museum. Halifax, N. S. 2 vols. 1297 pp.">Zinck, 1998</span></span>
+								</li>
+							</ul>
+						</div>
+						<h2>Classification</h2>
+						<table class="custom_table">
+							<tbody>
+								<tr><td class="indent_0">Class</td><td class="name"><a href="/vascan/taxon/73"><em>Equisetopsida</em></a></td></tr>
+								<tr><td class="indent_1">Subclass</td><td class="name"><a href="/vascan/taxon/8"><em>Magnoliidae</em></a></td></tr>
+								<tr><td class="indent_2">Superorder</td><td class="name"><a href="/vascan/taxon/4"><em>Asteranae</em></a></td></tr>
+								<tr><td class="indent_3">Order</td><td class="name"><a href="/vascan/taxon/9"><em>Boraginales</em></a></td></tr>
+								<tr><td class="indent_4">Family</td><td class="name"><a href="/vascan/taxon/97"><em>Boraginaceae</em></a></td></tr>
+								<tr><td class="indent_5">Subfamily</td><td class="name"><a href="/vascan/taxon/267"><em>Boraginoideae</em></a></td></tr>
+								<tr><td class="indent_6">Tribe</td><td class="name"><a href="/vascan/taxon/424"><em>Boragineae</em></a></td></tr>
+								<tr><td class="indent_8">Genus</td><td class="name"><a href="/vascan/taxon/1734"><em>Symphytum</em></a></td></tr>
+								<tr class="selected"><td class="indent_13">Species</td><td class="name"><a href="/vascan/taxon/3841"><em>Symphytum officinale</em></a></td></tr>
+							</tbody>
+						</table>
+						
+						<h2>Habit</h2>
+						<p>Herb</p>
+	</div>
+</div>
+
+
+
+      </div>
+    </main>
+
+<footer>
+  <div class="footer">
+    <div>
+      <div class="footer-groups">
+        <div class="footer-column">
+          <p class="footer-column-name">Contact</p>
+          <div class="footer-description">
+            <ul class="fr">
+                <li>Centre sur la biodiversité</li>
+                <li>4101 Sherbrooke Est</li>
+                <li>Montréal, QC, H1X 2B2, Canada</li>
+                <li><a href="mailto:canadensys.network@gmail.com">Contacter le gestionnaire de Noeud</a></li>
+            </ul>
+            <ul class="en">
+                <li>Biodiversity Centre</li>
+                <li>4101 Sherbrooke Est</li>
+                <li>Montréal, QC, H1X 2B2, Canada</li>
+                <li><a href="mailto:canadensys.network@gmail.com">Contact Node manager</a></li>
+            </ul>
+          </div>
+          <ul class="footer-online-list">
+            <li>
+              <a href="https://github.com/Canadensys">
+                <img class="img-responsive icon-footer" src="https://layout.canadensys.net/common/images/icons/github_black_16.png" alt="GitHub">
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <p class="footer-column-name">Code</p>
+          <div class="footer-description">
+            <p class="en">
+                This project is open source. All files are available on <a href="https://github.com/gbif/hp-canadensys">GitHub</a>.
+            </p>
+            <p class="fr">
+                Ce projet est open source. Tous les fichiers sont disponibles sur <a href="https://github.com/gbif/hp-canadensys">GitHub</a>.
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <p class="footer-column-name">Partners</p>
+          <div class="footer-description">
+            <p>
+              <a href="https://www.umontreal.ca/"><img src="https://canadensys.hp.gbif-staging.org/assets/logo/Logo_UdeM-bleu-RVB.png" alt="Université de Montréal" style="width: 150px; height: 54.51px" /></a>
+              <a href="https://nature.ca/en/"><img src="https://canadensys.hp.gbif-staging.org/assets/logo/CMN_Masterbrand_EN_RGB.jpg" alt="Canadian Museum of Nature" style="width: 150px; height: 38.13px" /></a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-column">
+          <p class="footer-column-name"></p>
+          <div class="footer-description">
+            <p><a href="https://www.gbif.org/participant/365"><img src="https://canadensys.hp.gbif-staging.org/assets/logo/pn-green-logo.png" alt="GBIF Node" style="width: 75px; height: 75px" /></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-hostedby">
+    <div>
+        <p>
+           <a href="https://gbif.org/hosted-portals"><img src="https://canadensys.hp.gbif-staging.org/assets/theme/img/hostedby.svg"/></a>
+        </p>
+        <p>© Alliance de recherche numérique du Canada 2021 – 2022</p>
+    </div>
+  </div>
+</footer>
+    <script type="text/javascript" src="https://layout.canadensys.net/common/gbif/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://layout.canadensys.net/common/gbif/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://layout.canadensys.net/common/gbif/js.cookie-2.1.4.min.js"/></script>
+    <script type="text/javascript" src="https://layout.canadensys.net/common/gbif/change_lang.js"/></script>
+    <script type="text/javascript" src="https://layout.canadensys.net/common/gbif/script_1701959972.js"/></script>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://layout.canadensys.net/common/js/jquery.tooltip.min.js"></script>
+
+	<script src="/vascan/assets/js/vascan-3.5.7.min.js"></script>
+	<script src="/vascan/assets/js/taxon-3.5.7.min.js"></script>
+
+</body>
+</html>
+

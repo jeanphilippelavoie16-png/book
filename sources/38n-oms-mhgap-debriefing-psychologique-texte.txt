@@ -1,0 +1,243 @@
+                                                                        updated 2012
+
+Psychological debriefing in people exposed to a recent traumatic event
+
+Q5: Is psychological debriefing better (more effective than/as safe as) than no intervention in people exposed to a recent
+traumatic event?
+
+Background
+
+Psychological debriefing is one of the most widely implemented interventions after exposure to potentially traumatic events. Informed by systematic reviews
+suggesting that single session debriefing may be harmful (van Emmerik et al, 2002; Rose et al,2002), WHO Department of Mental Health and Substance Abuse
+has previously issued a statement that it does not recommend psychological debriefing (WHO, 2003). However, the evidence informing this recommendation
+has never been GRADEd by WHO and the recommendation needs to be updated.
+
+Population/Intervention(s)/Comparator/Outcome(s) (PICO)
+
+Population: adults exposed to a traumatic event in previous 2 weeks
+
+Interventions: single session psychological debriefing
+
+Comparisons: no intervention
+
+Outcomes:   post-traumatic stress, anxiety and depression symptom severity (1-3 months after intervention and at follow up [+ 6 months])
+
+            Adverse effects
+
+List of the systematic reviews identified by the search process
+
+INCLUDED IN GRADE TABLES OR FOOTNOTES
+
+National Institute for Clinical Evidence (NICE) (2005).Post-traumatic stress disorder: The management of PTSD in adults and children in primary and secondary
+care. National Clinical Practice Guideline Number 26. London: The British Psychological Society & The Royal College of Psychiatrists.
+Adler AB et al (2008). A group randomized trial of critical incident stress debriefing provided to U.S. peacekeepers. Journal of Traumatic Stress, 21:253-63.
+
+                                                                                                                                                                                                  1
+Psychological debriefing in people exposed to a recent traumatic event
+
+EXCLUDED FROM GRADE TABLES AND FOOTNOTES
+
+Bisson JI et al (2009). Psychological Debriefing for Adults. In Foa EB, Keane TM, Friedman MJ, Cohen JA (eds). Effective treatments for PTSD: Practice Guidelines
+from the International Society for Traumatic Stress Studies. Second Edition. New York: Guilford Publications. (reason for exclusion: no pooled data presented).
+
+Rose S et al (2002). Psychological debriefing for preventing post traumatic stress disorder (PTSD). Cochrane Database of Systematic Reviews, (2):CD000560.
+(reason for exclusion: relatively old compared to NICE Guidelines).
+
+van Emmerik AA et al (2002). Single session debriefing after psychological trauma: a meta-analysis. Lancet, 360:766-71. (reason for exclusion: relatively old
+compared to NICE Guidelines).
+
+WHO (2003). Single-session Psychological Debriefing: Not Recommended. Geneva, World Health Organization.
+
+PICO Table
+
+Serial      Intervention/Comparison    Outcomes                           Systematic reviews used for  Explanation
+no.                                                                       GRADE
+1           Single session             Post-traumatic stress, anxiety     NICE (2005)                  The NICE Guidelines is the most
+            psychological debriefing/  and depression symptom                                          recent document providing a
+            no intervention            severity post intervention (1-3                                 pooled effect size for this
+                                       months after intervention) and at                               intervention
+                                       follow-up (+ 6 months after
+                                       intervention, adverse effects
+
+Narrative description of the studies that went into the analysis
+
+The NICE (2005) Guidelines describe the included 7 studies as follows. "Studies involved individuals who had experienced a range of traumatic events including
+road traffic incidents, assaults, miscarriages, fires and unspecified other incidents. Psychological debriefing was delivered between 10 hours and 31 days after
+the incident, with a duration of 30–120 min. Five studies were of individual treatment only, one study included some debriefing of groups of two to five Post-
+traumatic stress disorder (PTSD) sufferers and another included family members in some debriefing sessions. All debriefing interventions were single sessions
+and included education about traumatic stress, expression of emotions and planning for the future. Debriefing was delivered by a range of professionals,
+
+                                                                                                                                                                                                  2
+Psychological debriefing in people exposed to a recent traumatic event
+
+including nurses, mental health nurses, psychiatrists and psychologists. The training and qualifications of the debriefers was not comprehensively described in
+any of the studies. There was no randomized study of critical incident debriefing, the group-focused approach advocated by Mitchell & Everly (1997), in
+contrast to the single-session, typically individually focused debriefing interventions considered in this section. " Of note, a study of group debriefing has since
+been conducted (Adler et al, 2008.)
+
+GRADE Tables
+
+Table 1                                                                                                                                                                            National Clinical Practice Guideline
+
+Author(s): Mark van Ommeren and Scott Baker
+Date: 2009-06-18
+Question: Should single session psychological debriefing vs no intervention be used for exposure to recent traumatic event?
+Settings:
+Bibliography: National Institute for Clinical Evidence (NICE) (2005).Post-traumatic stress disorder: The management of PTSD in adults and children in primary and secondary care.
+Number 26.
+
+                                 Quality assessment                                                                        Summary of findings
+                                                                                                                                                        Effect
+                                                                                                           No of patients                                                                     Importance
+                                                                                                                                                                                   Quality
+ No of                                                                                          Other      single session  no  Relative
+studies  Design  Limitations Inconsistency           Indirectness  Imprecision                                                                             Absolute
+                                                                                considerations             psychological debriefing intervention (95% CI)
+
+Post-traumatic stress symptoms severity (1-4 months post intervention) (Better indicated by lower values)
+
+51 randomized trials serious2 no serious           no serious      serious4 none                           1751 1811 - 1,5 SMD 0.11 higher (0.1 lower  CRITICAL
+
+                                 inconsistency1,3  indirectness                                                                                            to 0.32 higher)         LOW
+
+Post-traumatic stress symptoms severity (+ 6 months post intervention) (Better indicated by lower values)
+
+36       randomized trials very  no serious        no serious      serious4 none                                                                              SMD 0.26 higher (0.01 to 0.5 
+                                                                                                           135 130 - higher)5,6 VERY IMPORTANT
+                 serious7 inconsistency3           indirectness
+                                                                                                                                                                                                     LOW
+
+Depression symptoms severity (1-4 months post intervention) (Better indicated by lower values)
+
+                                                                                                                                                                                                                         3
+Psychological debriefing in people exposed to a recent traumatic event
+
+38      randomized trials very  no serious    no serious    serious4 none                                                                              SMD 0.0 higher (0.27 lower 
+                                                                                                   115 110 - to 0.26 higher)5 VERY IMPORTANT
+                     serious7 inconsistency3  indirectness
+                                                                                                                                                                                             LOW
+
+Depression symptoms severity (+6 months post intervention) (Better indicated by lower values)
+
+39 randomized trials very serious10           no serious    serious4 none                                                                                SMD 0.33 higher (0.09 to 
+                                   serious7   indirectness                                         135 130 - 0.58 higher)5 VERY IMPORTANT
+
+                                                                                                                                                                                             LOW
+
+Anxiety symptoms severity, (1-4 months post intervention) (Better indicated by lower values)
+
+311 randomized trials very no serious         no serious    serious4 none                                                                             SMD 0.03 higher (0.23 lower 
+                                                                                                   115 110 - to 0.29 higher) VERY IMPORTANT
+                     serious7 inconsistency   indirectness
+                                                                                                                                                                                             LOW
+
+Anxiety symptoms severity, (+6 months post intervention) (Better indicated by lower values)
+
+212 randomized trials very no serious         no serious    serious4 none                                                                             SMD 0.25 higher (0.05 lower 
+                                                                                                   88 84 - to 0.55 higher) VERY IMPORTANT
+                     serious7 inconsistency   indirectness
+                                                                                                                                                                                            LOW
+
+Safety
+
+0       No evidence                                                                          none                       0/0 (0%)              0 fewer per 1000 (from 0
+                                                                                                                                                  fewer to 0 fewer)
+        available                                                                                  0/0 (0%)                       RR 0 (0 to                            IMPORTANT
+                                                                                                                                      0)
+
+                                                                                                                                                                                     0% 0 fewer per 1000 (from 0
+                                                                                                                                                                                                                     fewer to 0 fewer)
+
+1 NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 01.
+2 Drop outs is more than 30% in 1 of the studies NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 13.
+3 I-squared is less than 50%.
+4 The sample sizes are extremely small given that this is selective preventive intervention. (see article by Cuijpers 2003)
+5 This summary estimate does not include the data of a very large RCT on group critical incidence stress debriefing among 952 peacekeepers. This study found no substantial differences on the main
+
+outcomes measures (Adler et al ,2008).
+6 NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 02.
+7 Drop-outs greater than 30% in more than 30% of trials NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 13.
+8 NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 04.
+9 NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 05.
+10 I-squared is 53%.
+11 NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 06.
+12 NICE (2005) Forest Plot on page 3 of Appendix 15c analysis 07.
+
+                                                                                                                                                                                                                                        4
+Psychological debriefing in people exposed to a recent traumatic event
+
+Reference List
+
+Adler AB et al (2008). A group randomized trial of critical incident stress debriefing provided to U.S. peacekeepers. Journal of Traumatic Stress, 21:253-63.
+Bisson JI et al (2009). Psychological Debriefing for Adults. In Foa EB, Keane TM, Friedman MJ, Cohen JA (eds). Effective treatments for PTSD: Practice Guidelines
+from the International Society for Traumatic Stress Studies. Second Edition. New York: Guilford Publications.
+
+Cuijpers P (2003). Examining the effects of prevention programs on the incidence of new cases of mental disorders: the lack of statistical power. American
+Journal of Psychiatry, 160:1385-91.
+Mitchell J, Everly GJ (1997). The scientific evidence for critical incident stress management. Journal of Emmergency Medical Services, 22:86-93.
+
+National Institute for Clinical Evidence (NICE) (2005).Post-traumatic stress disorder: The management of PTSD in adults and children in primary and secondary
+care. National Clinical Practice Guideline Number 26.
+Rose S et al (2002). Psychological debriefing for preventing post traumatic stress disorder (PTSD). Cochrane Database of Systematic Reviews, (2):CD000560.
+
+van Emmerik AA et al (2002). Single session debriefing after psychological trauma: a meta-analysis. Lancet, 360:766-71.
+
+From evidence to recommendations  Explanation
+             Factor
+
+Narrative summary of the          There is low quality evidence suggesting there is unlikely to be a clinically important difference
+evidence base on the scoped       between psychological debriefing and no intervention on preventing PTSD symptoms 1-4 months post
+question                          intervention (N=5; n=356, SMD 0.11 (95% CI -0.1 to 0.32). Similarly, there is very low quality evidence
+                                  suggesting there is unlikely to be a clinically important difference between psychological debriefing
+                                  and no intervention on preventing depression symptoms 1-4 months post intervention (N=3; n=225,
+                                  SMD 0.0 (95% CI -0.27 to 0.26).
+
+                                  There is very low quality evidence for a small effect favouring control over psychological debriefing on
+                                  preventing PTSD symptoms and depression symptoms at follow-up (+ 6 months) (N = 3; n = 265; SMD =
+
+                                                                                                                                            5
+Psychological debriefing in people exposed to a recent traumatic event
+
+                               0.26; 95% CI, 0.01 to 0.50; N = 3, n =265, SMS = 0.33 95%CI, 0.09 to 0.58, respectively).
+
+                               There is very low quality evidence suggesting there is unlikely to be a clinically important difference
+                               between psychological debriefing and control on preventing anxiety symptoms at 1-4 months post
+                               intervention and at +6 months post intervention (N = 3; n = 225; SMD = 0.03; 95% CI, -0.23 to 0.29; N =
+                               2; n = 172; SMD = 0.25; 95% CI, -0.05 to 0.55, respectively).
+
+Summary of the quality of      LOW for the PTSD symptoms outcome (1-4 months post intervention)
+evidence on the scoped         VERY LOW for all other outcomes (see GRADE table)
+question
+
+Additional evidence (eg        This summary estimate does not include the data of a very large RCT on group critical incidence stress
+related evidence that was not  debriefing among 952 peacekeepers. This study found no substantial differences on the main
+scoped                         outcomes measures.
+
+Balance of benefits versus     Of 6 critical or important outcomes, none showed a benefit in the meta-analysis. Moreover, 2 of 6
+harms                          outcomes showed evidence of harm. The balance of benefits versus harms is not favourable.
+
+Define the values and          Despite the lack of effects in preventing mental health problems there is some evidence that recipients
+preferences including any      of psychological debriefing value the intervention (eg Adler et al, 2008).
+variability and human rights
+issues                         Despite the case for not using it, it likely has to be substituted for another intervention (such as
+                               psychological first aid) since survivors seek help and services are motivated to grant it .
+
+Define the costs and resource
+use and any other relevant
+feasibility issues
+
+Final recommendation(s)
+
+Psychological debriefing should not be used for people exposed recently to a traumatic event as an intervention to reduce the risk of post-
+                                                                                                                                                                                      6
+Psychological debriefing in people exposed to a recent traumatic event
+            traumatic stress, anxiety or depressive symptoms.
+            Strength of recommendation: STRONG
+
+Update of the literature search – June 2012
+In June 2012 the literature search for this scoping question was updated. The following systematic review was found to be relevant without changing the
+recommendation:
+NICE National Clinical Guideline Number 123. Common Mental Health Disorders. National Institute for Health and Clinical Excellence, 2011
+
+                                                                                                                                                                                                  7
+

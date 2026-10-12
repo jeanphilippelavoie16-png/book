@@ -1,0 +1,85 @@
+PRODUCT DATASHEET
+
+                        ENERGIZER E91                                                                                                          AA
+
+                    Industry Standard Dimensions                                    Classification:                     Specifications
+                                                                                    Chemical System:
+                                              mm (inches)                                                               Alkaline
+                                                                                    Designation:                        Zinc-Manganese Dioxide (Zn/MnO2)
+                                                                                    Nominal Voltage:                    No added mercury or cadmium
+                                                                                    Nominal IR:                         ANSI-15A, IEC-LR6
+                                                                                    Operating Temp:                     1.5 volts
+                                                                                    Typical Weight:                     150 to 300 milliohms (fresh)
+                                                                                    Typical Volume:                     -18°C to 55°C (0°F to 130°F)
+                                                                                    Jacket:                             23.0 grams (0.8 oz.)
+                                                                                    Shelf Life:                         8.1 cubic centimeters (0.5 cubic inch)
+                                                                                    Terminal:                           Plastic Label
+                                                                                                                        10 years at 21°C
+                                                                                                                        Flat Contact
+
+                                                              14.50 (0.571)
+                                                              13.50 (0.531)
+
+                        5.50 (0.217)                          1.00 (0.039)
+                          Maximum                               Minimum
+                                                     (+)
+                                                                                                           Milliamp-Hours Capacity
+                                                              50.50 (1.988)         Capacity (mAh)
+                                                              49.50 (1.949)                                    Continuous discharge to 0.8 volts at 21°C
+                                                                                                    4000
+
+                                                                                                    3000
+
+                                                                                                    2000
+
+                                                                                                    1000
+
+                                                     (-)      7.00 (0.276)                               0                  100         250               500
+                                                                Minimum                                             25
+                        0.10 (0.004)
+                            Typical                                                                                         Discharge (mA)
+
+                                                                  Industry Standard Tests (21°C)
+
+                                                   RADIO/CLOCK                                     PERSONAL GROOMING PORTABLE LIGHTING                    TOY
+                                     50 mA 1HR ON / 7HR OFF TO 1V
+                                                                                    750 mA 2 min/hr 8 hrs/day                  3.9 ohm LIF             3.9 ohm 1 hr/day
+               1.6
+Voltage (CCV)                                                                       Voltage (CCV)   1.6
+
+               1.4                                                                                  1.4
+
+               1.2                                                                                  1.2                                     LIGHT
+               1.0                                                                                                               TOY
+               0.8                                                                                  1.0 GROOM
+                                                                                                    0.8
+                     0
+                        10        20                      30  40   50           60                       0       2          4        6                 8       10
+
+                                           Service (hours)                                                                  Service (hours)
+
+Voltage (CCV)                 CD/GAMES                        DIGITAL AUDIO         Voltage (CCV)                                  DIGITAL CAMERA
+                          250 mA 1 hr/day                     100 mA 1 hr/day                                            1.5K/.65K mW 2./1./27.9s 10x
+
+               1.6                                               DIGITAL AUDIO                      1.6
+
+               1.4                                                                                  1.4
+
+               1.2                                                                                  1.2
+
+               1.0                                                                                  1.0
+                        CD/GAMES
+                                                                                                    0.8
+               0.8                                                                                        0
+
+                    0   5         10                      15  20   25           30                           20         40       60     80 100 120
+
+                                           Service (hours)                                                              Service (minutes)
+
+                                                                        Important Notice
+
+                            This data sheet contains typical information specific to products manufactured at the time of its publication.
+                                             Contents herein do not constitute a warranty and are for reference only.
+
+Form No. E91NA1018                                                                                                                                        Page 1 of 1
+

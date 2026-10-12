@@ -1,0 +1,3858 @@
+PiS&3?PiS;-«A.-.:'.'v^.  ': 
+
+
+Hlanclt»ook  on  the 
+
+STORAGE   OF   FRUITS 
+AND    VEGETABLES 
+
+lor  Farm  and  Comnneroial  use 
+
+630.4 
+
+C212 
+
+P1260 
+
+1967 
+
+(1969  print) 
+
+C.3 
+
+
+li; 
+
+
+CAIN^ADA   DEPARTMEIMT  OF  AGRICULTURE    PUBLICATIOrM  1SBO      1967 
+
+
+Digitized  by  tine  Internet  Archive 
+
+in  2011  witii  funding  from 
+
+Agriculture  and  Agri-Food  Canada  -  Agriculture  et  Agroalimentaire  Canada 
+
+
+http://www.archive.org/details/handbookonstoragOOotta 
+
+
+Publication  1260  1967 
+
+
+HANDBOOK  ON  THE  STORAGE 
+
+OF  FRUITS  AND  VEGETABLES 
+
+FOR  FARM  AND  COMMERCIAL  USE 
+
+Prepared  by 
+
+W.  R.  Phillips,  Food  Research  Institute 
+
+and 
+
+J.  G.  Armstrong,  Food  Research  Information  Office 
+
+
+Research  Branch 
+CANADA  DEPARTMENT  OF  AGRICULTURE 
+
+
+© 
+
+
+ROGER  DUHAMEL,  F.R.S.C. 
+
+QUEEN'S  PRINTER  AND  CONTROLLER  OF  STATIONERY 
+
+OTTAWA,  1967 
+
+Cat.  No.:  A53-1260 
+
+
+PREFACE 
+
+
+The  need  for  a  convenient  reference  book  on  fruit  and  vegetable  storage 
+practices  has  been  shown  by  the  large  number  of  requests  from  extension 
+workers,  fieldmen  and  others  for  information  on  this  subject.  The  Farm  Build- 
+ing Plan  Service,  which  supplies  information  on  storage  construction,  has 
+also  received  many  requests  for  instructions  on  the  operation  of  storages. 
+
+This  handbook  has  been  published,  therefore,  to  provide  information 
+for  storage  operators  generally  and  to  serve  as  a  supplement  to  the  plans 
+and  specifications  suppHed  by  the  Canadian  Farm  Building  Plan  Service.  It 
+consists  of  general  biological  and  engineering  information,  specific  recommen- 
+dations for  the  storage  of  fruit  and  vegetable  crops,  and  a  list  of  references 
+to  further  detailed  information. 
+
+Canadian  fruits  and  vegetables  are  grown  in  areas  that  differ  greatly  in 
+temperature,  rainfall,  hours  of  sunshine,  and  crop  yields.  For  these  reasons 
+crops  require  somewhat  different  storage  and  handling  in  different  areas  and 
+at  different  seasons.  Similarly,  methods  of  handling  a  crop  vary  according  to 
+the  availability  of  labor,  size  of  storage  units,  management  policies,  and  so 
+on.  This  handbook  attempts  to  supply  information  that  is  applicable  under 
+all  or  most  conditions. 
+
+People  engaged  in  research  on  the  storage  of  fruits  and  vegetables  are 
+continually  improving  storing  procedures  and  equipment,  such  as  devices  for 
+handling  produce,  structural  and  insulating  materials,  and  equipment  for 
+controlled-atmosphere  storage.  Discoveries  are  also  constantly  being  made  in 
+biological  controls  such  as  ripening  inhibitors,  chemicals  for  reducing  dis- 
+orders and  methods  of  sprout  control.  Therefore,  if  this  handbook  is  to  be 
+kept  a  reliable  source  of  information,  revisions  will  be  required  from  time  to 
+time.  Storage  operators  who  do  not  find  the  answer  to  a  particular  problem 
+are  requested  to  write  to  the  Food  Research  Institute,  Canada  Department 
+of  Agriculture,  Ottawa,  Ontario,  so  that  suitable  material  may  be  included 
+in  future  editions. 
+
+Caution  must  be  exercised  in  using  the  chemical  treatments  suggested  in 
+this  handbook  as  means  of  improving  the  storage  characteristics  of  some  fruits 
+and  vegetables.  It  is  important  to  ensure  that  legal  regulations,  which  may  limit 
+their  use  in  a  particular  country  or  region,  are  strictly  observed.  These  regu- 
+lations are  designed  to  protect  the  health  and  well-being  of  consumers.  Essen- 
+tially, the  regulations  pertain  to  residual  amounts  of  chemical  left  in  or  on  a 
+product  by  a  treatment.  In  Canada,  before  using  a  treatment,  consult  the  Food 
+and  Drug  Directorate,  Department  of  National  Health  and  Welfare,  Ottawa, 
+Ontario,  or  one  of  its  regional  directors  or  inspectors,  to  obtain  current 
+regulations. 
+
+
+ACKNOWLEDGMENTS 
+
+This  handbook  is  made  up  of  contributions  from  many  workers  in  the 
+Canada  Department  of  Agriculture  and  elsewhere.  The  editors  wish  to 
+acknowledge  particularly  the  assistance  of  Professor  E.  W.  Franklin,  Ontario 
+Agricultural  College,  University  of  Guelph,  who  not  only  submitted  material 
+for  inclusion  but  also  made  constructive  comments  on  the  manuscript  at 
+various  stages  of  its  preparation;  and  the  valuable  contributions  of  Mr.  G.  L. 
+Calver,  Provincial  Department  of  Agriculture,  Victoria,  British  Columbia, 
+Mr.  L.  G.  Jorgenson,  Provincial  Horticultural  Station,  Brooks,  Alberta,  Dr. 
+S.  W.  Porritt,  Research  Station,  Summerland,  B.C.,  and  Dr.  J.  H.  L.  Truscott, 
+Horticultural  Products  Laboratory,  Vineland  Station,  Ontario. 
+
+The  information  in  the  handbook  is  based  on  first-hand  observations  of 
+procedures  and  personal  contacts  with  storage  operators.  This  was  made 
+possible  through  the  assistance  of  several  agricultural  engineers  representing 
+the  Canadian  Farm  Building  Plan  Service  in  different  parts  of  Canada. 
+
+Agriculture  Handbook  Number  66  of  the  United  States  Department  of 
+Agriculture,  long  regarded  in  both  the  United  States  and  Canada  as  a  particu- 
+larly useful  reference  on  storage  operations,  has  been  used  extensively  as  a 
+source  book. 
+
+
+CONTENTS 
+
+Page 
+
+PART  1  —  GENERAL 7 
+
+The  Storage  Environment 7 
+
+Temperature  of  storage 7 
+
+Heat  leakage 8 
+
+Field  heat 8 
+
+Heat  of  respiration 8 
+
+Precooling 8 
+
+Humidity  of  storage 9 
+
+Sweating 10 
+
+Low-temperature  Injury 10 
+
+Chemical  Injury 11 
+
+Waxing 11 
+
+Storage  Containers 11 
+
+Sanitation  in  Storage  Rooms 12 
+
+Controlled  Atmosphere  Storage 12 
+
+Commodity  Compatibility 14 
+
+PART  2  —  FRUITS 15 
+
+Apples 15 
+
+Apricots 19 
+
+Blackberries  (see  Raspberries) 
+
+Cherries 19 
+
+Cranberries 20 
+
+Dewberries  (see  Raspberries) 
+
+Grapes 20 
+
+Logan  Blackberries  (see  Raspberries) 
+
+Peaches 20 
+
+Pears 21 
+
+Bartlett 22 
+
+Fall  and  winter  varieties 22 
+
+Plums,  including  Prunes 23 
+
+Raspberries 23 
+
+Strawberries 23 
+
+PART  3  —  VEGETABLES 24 
+
+Asparagus 25 
+
+Beans,  green  or  snap 26 
+
+Beans,  Lima 26 
+
+Beets 26 
+
+
+Page 
+
+Broccoli  (Italian  or  Sprouting) 27 
+
+Brussels  Sprouts 27 
+
+Cabbage 27 
+
+Carrots 28 
+
+Cauliflower 28 
+
+Celery , 29 
+
+Corn,  sweet 30 
+
+Cucumbers 30 
+
+Eggplant 30 
+
+Endive  or  Escarole 31 
+
+Garlic,  dry :  .  .  Jl 
+
+Horseradish 31 
+
+Kohlrabi 31 
+
+Leeks,  green 31 
+
+Lettuce 32 
+
+Melons 32 
+
+Cantaloupe  or  muskmelon 32 
+
+Honeydew 32 
+
+Watermelon 33 
+
+Mushrooms,  cultivated 33 
+
+Onions 33 
+
+Green 33 
+
+Sets 33 
+
+Dry  or  cured 33 
+
+Parsnips 34 
+
+Peas,  green 35 
+
+Peppers,  sweet 35 
+
+Potatoes,  early-crop 35 
+
+Potatoes,  late-crop 35 
+
+Pumpkins  and  Squash 37 
+
+Radishes 38 
+
+Rhubarb 38 
+
+Rutabagas  or  Turnips 38 
+
+Salsify 39 
+
+Spinach 39 
+
+Sweet  Potatoes 39 
+
+Tomatoes 39 
+
+APPENDIX 41 
+
+REFERENCES 47 
+
+
+PART   1  —GENERAL 
+
+
+THE  STORAGE  ENVIRONMENT 
+
+The  function  of  a  fruit  or  vegetable  storage  unit  is  to  provide  an  environ- 
+ment that  will  permit  produce  to  be  stored  as  long  as  possible  without  losing 
+quality  —  quality  being  a  composite  of  flavor,  texture,  moisture  content  and 
+other  factors  associated  with  edibility.  The  desired  environment  can  be  obtained 
+mainly  by  controlling  the  temperature,  composition  and  circulation  of  the 
+storage  atmosphere.  The  prevention  of  microbial  contamination  through  sani- 
+tation is  also  important. 
+
+Maintenance  of  a  suitable  environment  is  complicated  by  the  fact  that 
+fruits  and  vegetables  consist  of  living  tissues;  this  means  that  they  are  con- 
+tinually generating  heat  as  a  result  of  tissue  respiration.  In  general,  it  can  be 
+assumed  that  the  lower  the  temperature  the  less  the  amount  of  heat  given  off, 
+because  the  processes  associated  with  life  proceed  more  slowly  as  temperatures 
+are  reduced.  However,  reduction  of  temperature  can  be  harmful,  as  indicated 
+by  the  development  of  "low  temperature  disorders."  Further,  if  produce  is 
+severely  frozen,  the  tissues  die,  and  if  it  is  subsequently  thawed  and  stored, 
+decay  sets  in  and  the  produce  becomes  worthless. 
+
+Other  factors  besides  temperature  also  affect  storage  environment. 
+Because  stored  fruits  and  vegetables  are  living,  they  consume  oxygen  and  give 
+off  carbon  dioxide  and  other  volatiles  into  the  storage  atmosphere.  In  addition, 
+they  are  continuously  giving  off  moisture  and,  although  the  rate  of  moisture 
+loss  is  generally  decreased  by  adding  to  the  moisture  content  of  a  storage 
+atmosphere,  excessive  moisture  may  contribute  to  the  growth  of  microorgan- 
+isms and  promote  deterioration. 
+
+Temperature  of  Storage 
+
+Temperature  control  is  the  most  important  single  factor  in  the  operation 
+of  a  storage.  The  most  suitable  temperature  depends  on  the  type  of  produce 
+and  frequently  on  its  particular  variety  or  its  ultimate  use.  Specific  recommen- 
+dations for  different  fruits  and  vegetables  are  given  in  Parts  2  and  3  of  this 
+handbook. 
+
+Heat  extraction  is  the  method  used  to  achieve  a  desired  temperature 
+reduction;  for  example,  to  lower  the  temperature  from  a  70°  F  harvest  tem- 
+perature to  a  32°  F  storage  temperature.  Quantities  of  heat  are  measured  in 
+British  thermal  units  (Btu).  Equipment  capable  of  extracting  12,000  Btu  per 
+hour  is  rated  as  having  1  ton  refrigeration  capacity.  A  frequently  used  rule-of- 
+thumb  is  that  1  ton  of  refrigeration  is  required  for  each  thousand  bushels  of 
+storage  capacity  (36).  However,  refrigeration  loads  must  be  calculated  for 
+
+
+each  refrigeration  unit  and  the  conditions  under  which  it  is  to  operate.  Refrig- 
+eration requirements  would  be  increased  about  one-third  if  the  temperature 
+during  harvest  were  80°  instead  of  70°  F. 
+
+The  heat  that  must  be  removed  comes  from  three  main  sources:  heat 
+leakage,  field  heat,  and  metabolic  heat  or  heat  of  respiration. 
+
+Heat  leakage,  for  purposes  of  calculating  refrigeration  loads,  means 
+heat  leaking  into  a  storage  room  from  the  outside.  The  higher  the  temperature 
+differential  between  the  inside  and  the  outside  of  a  storage  room,  the  greater 
+will  be  the  amount  of  heat  leaking  inwards.  Heat  leakage  is  controlled  mainly 
+by  insulating  materials  used  in  the  structure  of  a  building.  All  the  other  struc- 
+tural components  such  as  plywood,  sheathing,  roofing  materials  and  supporting 
+members  contribute  to  the  overall  insulation  of  the  building.  However,  these 
+contributions  rarely  exceed  15  percent  of  the  total  insulating  effect  and  are 
+likely  to  be  10  percent  or  less. 
+
+Field  heat  is  generally  the  greatest  portion  of  the  total  refrigeration  load. 
+It  represents  the  heat  that  has  to  be  removed  from  produce  and  containers 
+in  order  to  reduce  their  temperature  to  the  desired  holding  temperature. 
+
+Heat  of  respiration  is  an  extremely  variable  portion  of  the  refrigeration 
+load.  Rate  of  respiration  varies  with  the  kind  and  variety  of  produce,  the 
+storage  temperature,  the  conditions  under  which  the  produce  was  grown,  and 
+its  stage  of  maturity  at  harvest.  Approximate  values  for  the  rate  of  evolution 
+of  heat  for  various  crops  at  32°,  40°  and  60°  F  are  given  in  Table  6. 
+
+Heat  of  respiration  is  an  important  part  of  the  total  heat  load  in  storages; 
+it  may  also  be  the  cause  of  local  heating  and  rapid  produce  deterioration  if  air 
+movement  is  inadequate.  This  can  occur  wherever  a  fruit  or  vegetable  itself 
+or  a  package  or  a  method  of  storage  prevents  transfer  of  heat  of  respiration. 
+Thus,  sweet  corn,  or  other  vegetables  in  too  large  a  pile,  or  even  boxed  apples 
+packed  too  tightly  in  storage,  pose  heat  exchange  problems. 
+
+Temperature  greatly  affects  the  rate  of  respiration  and  must  be  given 
+special  attention  in  any  calculation  of  the  heat  produced  in  respiration.  The 
+refrigeration  load  due  to  the  heat  of  respiration  changes  when  a  storage  is 
+being  filled  and  cooled. 
+
+There  are  other  heat  sources,  such  as  electric  motors,  lights,  fans  and 
+workmen.  These,  along  with  loss  in  equipment  efficiency,  are  usually  taken 
+care  of  in  actual  calculations  by  a  "safety-factor"  allowance.  When  storages 
+are  being  planned,  design  engineers  are  needed  to  prescribe  adequate  building 
+designs  and  adequate  cooling  equipment.  However,  prospective  owners  or 
+operators  must  provide  sufficient  information  about  the  intended  operation 
+to  permit  the  total  refrigeration  load  to  be  calculated  (11,  36,  75).  A  sample 
+calculation  of  refrigeration  load  is  given  in  the  Appendix. 
+
+Precooling 
+
+From  the  point  of  view  of  temperature  control,  storage  has  two  phases: 
+cooling  and  holding.  Much  more  work  must  be  performed  by  refrigeration 
+equipment  during  the  former  than  during  the  latter  phase.  Refrigeration  during 
+the  holding  phase  is  required  only  to  remove  heat  leakage  and  heat  of  respira- 
+tion and,  normally,  these  are  at  fairly  low  levels  after  produce  has  been  cooled. 
+
+8 
+
+
+Thus,  if  produce  is  to  be  cooled  rapidly  and  efficiently,  special  equipment  of 
+high  capacity  is  required. 
+
+Removal  of  produce  heat  by  the  use  of  chilled  water  (hydrocoohng)  is 
+common  for  sweet  corn  and  for  leafy  vegetables  (49,  71).  Air-blast  coolers 
+are  used  for  many  products,  primarily  before  shipping  (105).  Shaved  or  crushed 
+ice  is  also  frequently  blown  in  on  top  of  produce  before  shipment,  and  is 
+especially  effective  for  fruits  or  vegetables  likely  to  dry  out  during  transit  (3). 
+Vacuum-cooling,  now  being  used  for  lettuce  and  other  leafy  crops,  cools  a 
+commodity  by  evaporating  a  small  percentage  of  its  own  water  content.  This 
+system  of  precoohng  is  extremely  fast  and  actually  conserves  freshness  without 
+the  use  of  additional  water  (3). 
+
+Humidity  of  Storage 
+
+The  humidity  recommendations  throughout  this  handbook  are  expressed 
+in  terms  of  relative  humidity.  The  term  "relative"  humidity  means  the  actual 
+amount  (or  percentage)  of  moisture  in  the  atmosphere  at  a  given  time  as 
+related  to  the  maximum  amount  (100  percent)  that  could  be  retained  at  that 
+temperature.  Relative  humidity  values  are  affected  by  changes  in  temperature. 
+For  example,  if  air  has  a  relative  humidity  of  80  percent  at  40°  F  it  will  fall 
+below  80  percent  if  the  temperature  is  raised,  and  will  rise  above  80  percent 
+if  the  temperature  is  lowered.  If  the  temperature  is  lowered  sufficiently,  the 
+relative  humidity  will  reach  100  percent,  representing  a  saturated  condition. 
+The  temperature  at  which  the  atmosphere  becomes  saturated  is  referred  to  as 
+the  *'dew  point."  This  is  the  temperature  at  which  dew  or  moisture  forms, 
+and  the  operation  of  a  storage  at  or  below  this  temperature  results  in  the 
+formation  of  wet  spots  from  moisture  condensation. 
+
+Maintaining  the  proper  relative  humidity  is  of  great  importance.  If  it  is 
+lower  than  optimum,  produce  will  lose  moisture  by  evaporation,  and  will 
+wilt  or  shrivel.  The  amount  of  moisture  loss  depends  on  the  type  of  produce, 
+its  structure,  the  ratio  of  surface  area  to  volume,  and  the  distribution  of  mois- 
+ture inside  it.  On  the  other  hand,  depending  on  the  amount  of  variation  in 
+temperature  within  a  storage,  very  high  relative  humidities  may  result  in  the 
+deposition  of  moisture  on  produce  and  on  other  surfaces.  Such  wet  spots 
+promote  the  growth  of  mold  and  rot  organisms.  Staining,  particularly  in 
+onions,  softening,  and  even  splitting  of  skin  are  other  detrimental  effects 
+attributed  to  high  humidity. 
+
+The  best  way  to  maintain  high  humidity  in  a  storage  room  is  to  install 
+a  cooling  coil  of  sufficient  capacity.  The  coil  should  be  capable  of  absorbing 
+the  heat  load  when  operated  with  a  surface  temperature  of  not  more  than 
+4°  to  6°  F  below  the  temperature  of  the  room's  atmosphere.  Undersized 
+cooling  coils,  which  must  be  operated  with  a  low  surface  temperature,  con- 
+tinually condense  moisture,  or  frost,  from  the  storage  atmosphere.  This 
+lowers  the  humidity  and  results  in  abnormal  moisture  loss  from  produce. 
+Watering  the  floor  and  the  surface  of  containers  or  installing  humidifying 
+equipment  are  also  helpful  in  keeping  humidity  high.  Maintenance  of  uniform 
+humidity  requires  adequate  insulation  of  the  storage  room,  proper  stacking 
+for  air  circulation,  and  close  control  of  temperature. 
+
+
+In  general,  it  is  much  more  difficult  to  keep  relative  humidity  at  high 
+than  at  low  levels.  However,  jacketed  storage  rooms,  until  now  used  only  in 
+freezers,  have  proved  effective  in  maintaining  high  humidities  and  reducing 
+moisture  loss  from  stored  produce  (55,  72). 
+
+The  accurate  measurement  of  humidity  is  somewhat  difficult,  particularly 
+the  measurement  of  high  humidities  at  low  temperatures.  Sling  psychrometers 
+and  other  devices  that  operate  on  the  wet  and  dry  bulb  thermometer  principle 
+are  often  used.  Care  in  the  use  of  such  instruments  is  necessary  if  accurate 
+readings  are  to  be  made.  A  more  satisfactory  but  somewhat  more  costly 
+method  is  based  on  the  determination  of  dew  points  by  electrical  resistance. 
+
+Sweating 
+
+When  cold  produce  is  exposed  to  a  warm  atmosphere  it  usually  becomes 
+moist  or  even  wet.  This  is  referred  to  as  sweating.  It  is  caused  by  warm  air 
+losing  moisture  on  contact  with  cold  produce.  Technically,  it  is  brought 
+about  by  the  air  temperature  falling  below  its  dew  point.  For  example,  air  at 
+70°  F  and  75  percent  relative  humidity  has  a  dew  point  of  63°  F.  In  this 
+atmosphere,  produce  would  have  to  be  at  or  above  63°  F  to  avoid  sweating. 
+Produce  at  different  temperatures  below  63°  F  would  show  varying  amounts 
+of  sweating.  However,  the  dew  point  is  seldom  above  55°  F,  except  in  extremely 
+humid  weather. 
+
+The  most  effective  way  to  avoid  sweating  when  produce  is  removed  from 
+storage  is  to  warm  it  gradually  in  storage  to  a  temperature  at  or  above  the 
+dew  point  of  the  atmosphere  to  which  it  will  be  transferred.  If  this  is  imprac- 
+tical and  the  produce  must  be  removed  during  humid  weather,  it  should  be 
+marketed  quickly  so  that  it  is  consumed  before  decay  sets  in. 
+
+Low-temperature  Injury 
+
+There  are  two  main  causes  of  low-temperature  injury:  freezing  and 
+chiUing.  Freezing  injury  occurs  when  fruit  or  vegetable  tissues  have  been 
+cooled  below  the  freezing  point,  which  varies  from  about  27°  to  30°  F.  Some 
+commodities,  Hke  tomatoes,  are  damaged  by  slight  freezing,  whereas  others, 
+like  parsnips,  may  be  quite  severely  frozen  without  damage.  If  it  can  be 
+avoided,  no  fruit  or  vegetable  should  be  allowed  to  freeze.  Even  when  no 
+apparent  damage  is  done,  produce  may  depreciate  faster  in  storage.  Freezing 
+injury  is  sometimes  difficult  to  detect  after  thawing  but  the  usual  symptoms 
+are  some  degree  of  brown  discoloration  with  breakdown  of  tissues  and  a 
+translucent  or  water-soaked  appearance.  Rough  handhng  while  produce  is 
+frozen  usually  increases  the  extent  of  freezing  injury. 
+
+Chilling  injury,  on  the  other  hand,  is  caused  by  metabolic  disturbances 
+resulting  from  low  temperatures  above  the  freezing  point  of  the  tissues.  The 
+control  of  chiUing  injury  is  one  of  the  primary  factors  on  which  storage  tem- 
+perature recommendations  are  based.  Symptoms  of  chilling  injury  are  extremely 
+variable.  They  include,  for  example,  deep  scald  or  breakdown  in  some  varieties 
+of  apples,  pigmentation  complications  in  tomatoes,  browning  disorders  or 
+excessive  sugar  accumulation  in  potatoes,  pitting  of  the  skin  of  beans, 
+susceptibiUty  to  fungal  disorders  in  sweet  peppers  (18,  37,  67,  86,  87,  89). 
+
+10 
+
+
+Chemical  Injury 
+
+Produce  in  storage  may  be  damaged  from  contact  with  chemicals,  espe- 
+cially with  the  more  volatile  ones.  A  refrigerant  leaking  from  an  evaporator 
+or  from  pipes  in  a  storage  room  is  one  cause  of  chemical  injury.  Ammonia 
+is  a  frequent  offender,  damaging  the  skin  of  fruits  and  vegetables,  particularly 
+near  lenticels  (pores)  or  other  openings.  Injuries  may  be  caused  by  ozone, 
+sulphur  dioxide,  formalin  and  by-products  such  as  ethylene,  alcohols  and 
+aldehydes  given  off  by  other  produce  in  storage.  Control  is  best  achieved 
+through  preventive  measures,  for  example  by  elimination  of  refrigerant  leaks, 
+ample  aeration  after  the  use  of  disinfectants,  and  careful  selection  of  produce 
+when  different  kinds  are  stored  together. 
+
+Waxing 
+
+A  waxed  coating  applied  to  fresh  fruits  and  vegetables  has  the  prime 
+function  of  preventing  loss  of  moisture.  Wax  is  usually  applied  after  produce 
+is  removed  from  storage  and  before  it  is  marketed.  There  are  two  recognized 
+waxing  procedures.  One  is  the  hot  wax  method  in  which  fruits  and  vegetables 
+are  dipped  briefly  in  almost  pure  paraffin  wax  held  at  about  260°  F.  In  the 
+second  method,  cold  emulsions  of  various  formulations  are  sprayed,  brushed 
+or  foamed  on  or  over  produce.  The  hot  wax  method  is  restricted  almost  entirely 
+to  turnips,  and  sometimes  parsnips,  whereas  emulsions  are  commonly  used 
+for  citrus  fruits,  cucumbers  and  tomatoes.  When  using  the  hot  wax  method, 
+be  particularly  careful  to  avoid  damaging  produce  (33).  Follow  manufacturers' 
+directions  carefully  when  applying  emulsions. 
+
+Storage  Containers 
+
+There  are  a  great  many  types  of  storage  containers.  Produce  is  often  stored 
+in  the  same  container  used  for  shipping  and  marketing,  but  recently  special 
+containers  have  been  designed  that  are  more  satisfactory  for  storage.  Also, 
+it  has  been  found  advantageous  to  grade  and  pack  fruits  and  vegetables 
+throughout  the  storage  season  as  they  are  required.  This  allows  produce  to 
+remain  undisturbed  in  storage  for  the  maximum  length  of  time  and  permits 
+removal  of  diseased  or  damaged  material  just  before  marketing.  However, 
+when  material  coming  from  harvest  contains  a  large  amount  of  low-grade  prod- 
+uce, it  should  be  graded  immediately  to  prevent  valuable  storage  space  being 
+occupied  with  unmarketable  or  low-quality  produce  and  to  eliminate  sources 
+of  spoilage. 
+
+Thus,  much  produce  is  held  in  special  "bulk-bin"  storage  containers, 
+which  are  constructed  to  last  for  several  years.  They  are  often  used  to  carry 
+produce  from  a  growing  area  to  storage  with  a  minimum  of  damage.  In 
+storage,  they  must  have  good  heat  transfer  characteristics,  protect  the  produce 
+and  be  suitable  for  stowage  and  handling.  The  most  common  size  of  bulk- 
+bin  container  used  throughout  Canada  for  apples,  potatoes  and  other  crops 
+holds  about  1,000  pounds.  It  can  be  filled  directly  in  the  field  and  moved  by 
+tractor  trailers  and  fork  lifts.  In  rate  of  cooling  and  protection  of  produce 
+against  damage,  the  bulk  bin  compares  favorably  with  the  box  or  crate  (60). 
+
+11 
+
+
+Nevertheless,  crates  or  boxes  that  can  be  stowed  by  hand  are  still  widely 
+used.  Their  handling  is  facilitated  by  the  use  of  pallets  and  mechanical  lifting 
+devices,  which  permit  as  many  as  24  or  more  boxes  to  be  moved  and  stacked 
+as  a  unit. 
+
+Regardless  of  container  type,  openings  must  be  left  for  air  movement 
+and  heat  exchange.  When  stowing,  spaces  should  be  left  between  the  con- 
+tainers, the  walls  and  the  floor  of  a  storage  room,  and  also  between  the  stacks 
+of  containers.  It  is  also  important  to  allow  ample  overhead  space  for  free  air 
+movement  from  duct  openings.  (11,  60,  97) 
+
+Sanitation  in  Storage  Rooms 
+
+Rot  and  mold  organisms  are  sometimes  a  problem  in  storage  rooms.  They 
+cause  deterioration  of  containers  and  wooden  structural  materials,  and  also 
+objectionable  odors  which  may  taint  stored  produce.  It  is  very  difficult  to 
+eliminate  the  organisms  completely,  but  sanitary  measures  will  reduce  deterio- 
+ration that  otherwise  might  get  out  of  control. 
+
+Any  accumulation  of  damaged  or  decayed  produce  during  storage  and 
+any  partially  filled  boxes  should  be  removed  promptly.  The  most  eff'ective 
+sanitary  measure  is  thorough  cleaning  of  a  storage  room  as  soon  as  it  is  empty, 
+and  well  in  advance  of  the  following  loading  date.  This  cleaning  can  be  done 
+by  using  a  detergent  such  as  a  1  percent  solution  of  tri-sodium  phosphate 
+followed  by  a  spray  of  sodium  or  calcium  hypochlorite  solution  containing 
+0.8  percent  available  chlorine  (30). 
+
+After  the  room  is  cleaned,  added  protection  can  be  obtained  by  use  of 
+fungicidal  paints.  The  fungicidal  ingredient  remains  active  for  some  time 
+after  application  (48).  A  common  practice  in  potato  storages  is  to  spray  the 
+inside  surfaces  with  2-4-10  Bordeaux  mixture  (2  pounds  copper  sulphate, 
+4  pounds  hydrated  lime  and  10  gallons  water)  (64).  When  washing  or  spraying 
+the  interior  with  any  spray  material,  be  careful  to  protect  all  electrical  equip- 
+ment. This  applies  to  all  metal  structures  as  well,  if  corrosive  material  is  used. 
+Keeping  storage  rooms  well  ventilated  and  at  a  high  temperature  when  not 
+in  use  also  helps  to  restrict  the  growth  of  molds. 
+
+Controlled  Atmosphere  Storage 
+
+Controlled  atmosphere  (CA)  storage  was  investigated  in  Canada  as  early 
+as  1933  but  it  was  not  used  extensively  until  about  1953.  It  has  since  become 
+an  established  procedure  for  apple  storage.  The  main  reason  for  its  success  is 
+that  it  controls  brown  core,  a  very  serious  disorder  in  Mcintosh  apples,  one 
+of  the  most  widely  grown  varieties  in  Canada.  It  has  been  used  for  pears  and 
+other  crops  to  a  limited  extent,  and  there  is  little  doubt  that  eventually  it  will 
+be  used  for  many  more  crops. 
+
+The  CA  storage  room  consists  of  a  refrigerated  chamber  in  which  the 
+concentration  of  carbon  dioxide  is  held  at  a  higher  level  and  that  of  oxygen 
+at  a  lower  level  than  normally  found  in  air.  The  room  is  made  air-tight,  or 
+nearly  so,  by  fining  its  walls  and  ceiling  with  metal,  asphalt  compounds, 
+plywood,  plastics  or  other  materials.  The  room  also  has  to  be  equipped  with 
+an  air  inlet  for  oxygen  and  a  device  (called  a  carbon  dioxide  scrubber)  for 
+
+12 
+
+
+removing  excess  carbon  dioxide.  Detailed  information  about  the  construction 
+and  operation  of  CA  storage  units  is  available  in  various  publications  (15, 
+75,  96). 
+
+The  original  type  of  scrubber  unit  used  sodium  hydroxide  in  the  water 
+defrost  device  in  its  cooling  unit.  It  has  since  been  found  that  water  is  an  effec- 
+tive absorbent  for  carbon  dioxide  when  there  is  a  large  difference  between  the 
+carbon  dioxide  concentration  in  the  room  and  in  the  outside  air.  Thus,  water 
+scrubbers  are  now  widely  used,  although  caustic  soda  may  be  required  initially 
+until  the  desired  level  of  oxygen  is  reached  (11).  In  another  system  which  is 
+becoming  quite  popular,  air  is  circulated  through  a  "dry  scrubber,"  a  box 
+containing  bags  of  hydrated  lime  (calcium  hydroxide).  This  scrubber  has  a 
+minimum  of  mechanical  devices,  thus  eliminating  corrosion  problems  (17). 
+In  British  Columbia,  fans  controlled  by  time  clocks  are  used  to  circulate  the 
+air  through  dry  scrubbers. 
+
+Shriveling  because  of  moisture  loss  may  be  a  problem  in  a  CA  storage 
+when  apples  are  kept  there  for  an  extended  period.  Consequently,  special 
+attention  should  be  given  to  maintaining  high  relative  humidity.  For  example, 
+boxes  or  bins  should  be  wet  when  the  room  is  filled,  and  the  floor  should  be 
+kept  slightly  flooded  with  water  during  the  entire  storage  period.  As  explained 
+under  "Humidity  in  Storage,"  the  temperature  of  the  cooling  coil  should  be 
+adjusted  as  closely  as  possible  to  that  of  the  storage  air.  As  already  noted, 
+a  jacket-type  storage  is  particularly  useful  for  maintaining  high  relative 
+humidity. 
+
+A  CA  storage  requires  a  particularly  effective  moisture  vapor  barrier  on 
+
+
+Table  1.  —  Controlled  Atmosphere  Storage  Requirements  for  Some 
+
+Varieties  of  Apples(a) 
+
+
+Variety 
+
+
+Carbon 
+Dioxide 
+
+(%) 
+
+
+Oxygen 
+
+(%) 
+
+
+Temperature 
+(°F) 
+
+
+Mcintosh 
+
+Delicious 
+
+Golden  Delicious.  . 
+
+Rome  Beauty 
+
+Northern  Spy  1..  . . 
+Northern  Spy  2. .  .  . 
+Stayman  Winesap 
+
+Spartan 
+
+Newton 
+
+Jonathan 
+
+Baldwin 
+
+Macoun 
+
+
+5(b) 
+
+3 
+
+35  to  38(c) 
+
+2  to  3 
+
+2.5  to  3 
+
+30  to  32 
+
+2  to  3 
+
+3 
+
+32 
+
+2  to  3 
+
+3 
+
+32 
+
+5 
+
+3 
+
+35 
+
+2 
+
+3 
+
+32 
+
+5 
+
+3 
+
+32 
+
+2  to  3 
+
+2.5  to  3 
+
+30 
+
+3 
+
+3 
+
+35 
+
+3  to  5 
+
+3 
+
+32 
+
+2  to  3 
+
+3 
+
+32 
+
+5 
+
+3 
+
+38 
+
+(a)  Various  sources  (See  references  1  5,  96  and  99  in  particular). 
+
+(b)  2  percent  carbon  dioxide  for  first  month  suggested  in  British  Columbia. 
+
+(c)  38°F  generally  regarded  as  satisfactory;  35°F  has  been  found  better  In 
+British  Columbia. 
+
+
+13 
+
+
+the  outside  of  the  insulation;  otherwise,  water  vapor  diffusing  into  the  wall 
+cavity  is  trapped  by  the  air-tight  lining  of  the  room,  resulting  in  a  lowered 
+insulation  value  and  possible  rotting  of  structural  members.  The  jacket  type 
+of  storage  eliminates  the  problem  of  trapped  moisture  (56,  72). 
+
+Different  varieties  of  apples  often  require  different  conditions  of  tempera- 
+ture and  atmosphere  composition  in  a  CA  storage.  A  summary  of  recom- 
+mended conditions  is  given  in  Table  1.  If  carbon  dioxide  concentration  reaches 
+too  high  a  level,  external  injury  or  internal  brown-heart  may  develop.  Like- 
+wise, if  the  oxygen  concentration  becomes  too  low,  internal  disorders  that 
+cause  tissue  breakdown  accompanied  by  objectionable  alcoholic  flavors 
+develop.  (18,  50,  75,  78,  99) 
+
+Commodity  Compatibility 
+
+The  storage  conditions  for  particular  fruits  and  vegetables  recommended 
+on  the  following  pages  have  been  found  optimal  and  also  practical.  They  have 
+been  calculated  to  provide  a  margin  of  safety.  However,  when  different  kinds 
+of  produce  are  stored  together  the  conditions  described  may  need  some 
+modification. 
+
+Limitations  are  most  commonly  encountered  because  certain  crops  pro- 
+duce volatile  substances  that  affect  other  crops.  Apples  give  off  ethylene  and 
+other  volatiles,  which  can  initiate  sprouting  in  potatoes  and  cause  tainting  in 
+other  commodities,  especially  in  dairy  products.  These  effects  are  more 
+pronounced  at  high  temperatures.  Thus,  apples  should  not  be  stored  with 
+carrots,  celery,  cabbage,  potatoes  or  onions.  Similarly,  celery  and  onions 
+should  not  be  stored  together.  Potatoes  sometimes  impart  an  earthy  flavor 
+to  fruits,  particularly  at  higher  temperatures.  Generally,  dairy  products 
+should  not  be  stored  with  fruits  and  vegetables. 
+
+Often,  two  commodities  to  be  stored  together  have  different  temperature 
+requirements.  If  so,  it  is  safer  to  adjust  the  storage  conditions  to  those  of  the 
+commodity  requiring  the  higher  temperature.  The  reason  for  this  is  that 
+when  a  storage  temperature  higher  than  32°  F  is  recommended,  it  is  usually 
+to  avoid  low-temperature  injury.  By  storing  at  the  higher  temperature,  this 
+type  of  injury  is  avoided  and  the  only  loss  is  that  the  storage  life  of  the  low- 
+temperature  product  will  be  shortened. 
+
+
+14 
+
+
+PART  2  — FRUITS 
+
+
+Recommendations  for  storing  most  Canadian-grown  fruits  are  given  in 
+Table  2  and  on  the  following  pages. 
+
+Table  2.  —  Storage  Life  Expectancies,  Recommended  Storage  Temperatures 
+and  Relative  Humidities,  and  ttie  Highest  Freezing  Points 
+
+of  Fresh  Fruits 
+
+
+Fruit 
+
+
+Approximate 
+
+Highest 
+
+Relative 
+
+length  of 
+
+freezing 
+
+Temperature 
+
+humidity 
+
+storage  period 
+
+point(b) 
+
+(°F) 
+
+(%) 
+
+rn 
+
+Apples Mostly  85  to  95  as  per  variety  and  28.9 
+
+30  to  32(c)  method  of  storage 
+
+Apricots 31  to  32  85  to  90  1  to  2  weeks  30.1 
+
+Blackberries same  as  Raspberries  30.5 
+
+Cherries, 
+
+sweet 31  to  32  85  to  90  10  days  to  2  weeks  28.8 
+
+sour 31  to  32  85  to  90  few  days  29.0 
+
+Cranberries 36  to  40  80  to  85  3  months  30.4 
+
+Grapes  (American) 31  to  32  85  to  90  4  weeks  29.7 
+
+Peaches 31  to  32  85  to  90  2  weeks  30.3 
+
+Pears, 
+
+Bartlett 30  to  31  85  to  90  2  to  3  months  28.6 
+
+fall  and  winter  See  variety  list 
+
+varieties 30  to  31  85  to  90  in  text  29.2 
+
+Plums,  including  prunes. .  31  to  32  85  to  90  Prunes  4  to  6  weeks  29.7 
+
+Plums  see  text 
+
+Raspberries 31  to  32  85  to  90  few  days  30.0 
+
+Strawberries 31  to  32  85  to  90  5  to  10  days  30.6 
+
+(a)  Based  largely  on  Reference  1  1  5. 
+
+(b)  Figures  are  from  Reference    1  1  2.  Maximum  freezing   points  are  given  to 
+indicate  low-temperature  safety  limits. 
+
+(c)  See  also  Table  1  on  Controlled  Atmosphere  Storage. 
+
+Apples 
+
+Temperature:  30°  to  32°  F  for  most  varieties. 
+
+Relative  humidity:  85  to  95  percent. 
+
+For  controlled  atmosphere  storage  conditions,  see  pages  12  to  14. 
+
+Because  apples  benefit  greatly  from  a  good  storage  environment  and 
+because  they  are  our  most  important  fruit  crop,   more  highly  specialized 
+
+15 
+
+
+storage  methods  have  been  developed  in  Canada  for  apples  than  for  other 
+fruits.  Studies  by  scientists  and  refrigeration  engineers  have  produced  a  great 
+deal  of  information  on  the  storage  of  apples,  and  any  storage  operator  will 
+find  much  of  this  information  helpful  either  directly  or  indirectly. 
+
+Apples  direct  from  the  orchard  should  be  classified  according  to  their 
+storage  potential  before  they  are  placed  in  storage.  Poorer- keeping  fruits 
+should  be  placed  in  an  accessible  spot  where  they  can  be  observed  and  mar- 
+keted early;  some  may  be  directed  to  CA  storage,  and  others  placed  in  conven- 
+tional storage  according  to  a  predetermined  plan.  From  time  to  time  during 
+the  storage  period,  to  check  estimates  of  storage  behavior,  small  samples 
+should  be  removed  and  allowed  to  ripen.  The  estimates  made  before  storage 
+are  based  on  the  variety  and  maturity  of  the  apples,  on  cultural  factors  such 
+as  fertilizer  application,  weather  conditions,  spraying  and  pruning,  and  on 
+an  intimate  knowledge  of  the  orchards  producing  the  apples. 
+
+The  importance  of  variety  is  indicated  in  Table  3.  As  this  table  shows, 
+variation  in  storage  life  is  from  a  few  weeks  to  seven  months  or  longer,  and 
+some  varieties  are  more  susceptible  to  storage  disorders  than  others. 
+
+Maturity  at  harvest  has  a  pronounced  effect  on  storage  life.  If  apples  are 
+harvested  in  an  immature  condition,  scald  and  browning  disorders  are  induced 
+in  storage,  whereas  overmaturity  hastens  disorders  associated  with  senility, 
+such  as  some  types  of  breakdown,  mealiness  and  fungal  rots  (7,  18,  25,  30,  91). 
+Unfortunately  there  is  no  completely  satisfactory  way  to  estimate  maturity. 
+Firmness,  as  measured  by  pressure  testers  of  different  types,  is  used  extensively, 
+but  allowances  must  be  made  for  irrelevant  factors  that  can  affect  the  readings. 
+Starch  content  of  apple  tissue,  measured  by  the  iodine  test,  if  properly 
+performed,  has  been  found  a  satisfactory  maturity  indicator  for  Mcintosh. 
+Immaturity  is  indicated  by  an  abundance  of  starch;  as  apples  mature  their 
+starch  content  decreases.  Heavy  dropping  of  apples  occurs  when  the  starch 
+has  almost  disappeared  (76,  80).  This  method  may  also  be  used,  with  modifi- 
+cations, for  other  varieties  (30).  Color  charts  that  give  a  measure  of  changes 
+in  the  ground  color  of  apple  skins  are  useful,  and  sometimes  color  changes 
+in  the  flesh  of  some  varieties  are  helpful  (30,  57,  75,  99).  Ease  of  separation 
+from  the  tree  and  the  number  of  days  from  full  bloom  are  also  good  indications 
+of  maturity  in  some  areas  (30).  The  amount  of  red  color  or  blush  in  "red" 
+varieties  is  another  criterion  of  maturity,  and  this  has  further  significance 
+because  of  grade  regulations.  Calendar  date  is  often  a  good  indicator  although, 
+depending  on  the  area  and  the  variety,  harvest  dates  vary  from  year  to  year 
+from  several  days  to  as  much  as  three  weeks.  Nevertheless,  in  may  areas, 
+when  used  in  conjunction  with  judgment  based  on  experience,  calendar  date 
+is  a  useful  guide. 
+
+Fertilizer  application  and  the  nutrition  of  orchards  influence  storage 
+behavior.  Starvation  of  a  particular  element  is  usually  very  harmful.  The 
+nutrient  having  the  greatest  effect  is  nitrogen.  High  nitrogen  levels  tend  to 
+produce  large,  poorly-colored  apples  that  are  susceptible  to  scald  and  browning 
+disorders  (19).  A  good  way  to  determine  nitrogen  effect  is  to  make  fohage 
+analyses  during  the  third  week  in  July;  depending  on  the  variety,  the  presence 
+of  more  than  2.0  to  2.3  percent  of  nitrogen  (dry- weight  basis)  will  probably 
+reduce  the  quality  and  storage  life  of  apples.  Phosphorus  appears  to  have  little 
+
+16 
+
+
+Table  3.  —  Normal  and  Maximum  Storage  Periods  for  Some  Common  Apple 
+Varieties  and  their  Susceptibility  to  Storage  Disorders(a) 
+
+Storage  period  Tendency  to      Other  disorders  likely 
+
+Variety  Normal        Maximum  storage  to  occur  in 
+
+Months  Months  scald  storage 
+
+Gravenstein 0  to  1  3  Slight         Bitter  pit, 
+
+Jonathan  spot. 
+Wealthy 0  to  1  3  Slight         Soft  scald, 
+
+Jonathan  spot. 
+Grimes  Golden 2  to  3  4  Severe        Soggy  breakdown, 
+
+bitter  pit,  shriveling. 
+Jonathan 2  to  3  4  Slight         Jonathan  spot,  water 
+
+core,  soft  scald, 
+
+internal  breakdown. 
+
+Mcintosh 2  to  4  4  to  5  Slight         Brown  core,  soft  scald. 
+
+Cortland 3  to  4  5  Medium       Breakdown. 
+
+Rhode  Island 
+
+Greening 3  to  4  6  Severe        Bitter  pit,  internal 
+
+breakdown. 
+Golden  Delicious.  ...       3  to  4  6  Very  slight    Shriveling,  soggy 
+
+breakdown. 
+
+Delicious 3  to  4  6  Slight  to       Bitter  pit,  water  core, 
+
+medium       internal  breakdown. 
+Stayman  Winesap.  .  .       4  to  5  5  to  6  Severe        Internal  breakdown, 
+
+water  core. 
+
+York  Imperial 4  to  5  5  to  6  Severe        Bitter  pit. 
+
+Northern  Spy 4  to  5  6  Slight         Bitter  pit. 
+
+Rome  Beauty 4  to  5  6  to  7  Slight         Bitter  pit,  brown  core, 
+
+soft  scald,  internal 
+
+breakdown,  Jonathan 
+
+spot. 
+Yellow  Newton 5  to  6  8  Slight         Bitter  pit, 
+
+internal  browning. 
+Winesap 5  to  7  8  Medium       Water  core, 
+
+shriveling. 
+
+(a)  Based  on  Reference  1  1 5  with  modifications  from  Canadian  experience. 
+
+effect,  and  potassium  content  is  significant  only  in  offsetting  the  effect  of  a 
+high  nitrogen  concentration.  Thus,  the  greater  the  ratio  of  nitrogen  to  potas- 
+sium the  poorer  the  storage  quahty  that  can  be  expected  (43). 
+
+Moderately  cool  weather  with  low  rainfall  tends  to  favor  good  storage 
+quality.  If  the  weather  is  too  cold  and  wet,  however,  maturity  tends  to  be 
+delayed,  and  quality  suffers  in  consequence.  Extremely  warm  weather,  on  the 
+other  hand,  hastens  maturity  and  causes  an  increase  in  disorders.  Warm,  dry 
+weather  causes  an  increase  in  scald  (21,  110),  and  induces  water  core  in 
+susceptible  varieties  (23,  99).  The  Jonathan  variety  should  be  harvested  as 
+soon  as  or  before  water  core  develops  (30).  Delicious  apples  with  water  core 
+can  be  separated  from  good  apples  in  an  alcohol  solution  of  approximately 
+
+17 
+
+
+0.877  specific  gravity  (83).  Slight  water  core  tends  to  disappear  in  storage  but 
+severe  water  core  usually  leads  to  tissue  breakdown. 
+
+The  use  of  hormone  or  "stop  drop"  sprays  affects  storage  behavior  by 
+keeping  mature  apples  on  trees.  Any  factor  that  delays  harvest  tends  to  result 
+in  apples  of  more  advanced  maturity  going  into  storage.  Pruning  also  has  an 
+effect  by  disturbing  the  growing  characteristics  of  trees;  by  allowing  more  light 
+to  fall  on  apples  while  they  are  growing,  pruning  usually  results  in  increased 
+fruit  color. 
+
+If  all  the  foregoing  points  are  considered  by  a  storage  operator,  he  should 
+be  in  a  good  position  to  assess  the  storage  potential  of  his  apple  crop.  In  general, 
+the  apple  with  the  highest  storage  potential  is  the  one  that  is  well  colored, 
+firm  and  of  medium  size. 
+
+The  temperature  at  which  apples  are  stored  is  important  (77).  For  most 
+varieties  the  storage  temperature  should  be  reduced  to  30°  F  as  rapidly  as 
+possible  and  held  there  throughout  the  storage  period.  It  has  been  shown 
+that  as  much  as  a  20-percent  increase  in  quality  retention  can  be  achieved  by 
+keeping  the  temperature  at  30°  F  instead  of  32°  F  (77).  However,  temperature 
+variation  within  a  storage  room  must  also  be  considered.  If  any  part  of  the 
+room  is  below  the  freezing  point  of  the  apples  (29°  F  is  the  lowest  safe  tem- 
+perature) then  a  higher  operating  temperature  should  be  selected.  Certain 
+varieties  are  subject  to  low-temperature  disorders,  such  as  soggy  breakdown 
+and  soft  scald,  and  should  not  be  stored  below  34°  to  36°  F.  These  susceptible 
+varieties  include  Jonathan,  North  Western  Greening,  Grimes  Golden,  Wealthy, 
+Golden  Dehcious,  Cox  Orange  and  Winter  Banana  (18,  30,  91). 
+
+Humidity  must  be  carefully  controlled.  The  practical  objective  is  to  have 
+high  humidities  without  producing  free  water  or  drip.  Humidity  control 
+depends  largely  on  storage  design  and  operation.  With  uniform  temperature 
+control,  95  percent  relative  humidity  or  higher  can  be  maintained  without 
+difficulty.  Mcintosh  apples  held  in  commercial  storages  under  these  conditions 
+have  shown  good  quality  retention  and  no  harmful  effects  (72). 
+
+Careful  handling  at  all  times  is  extremely  important;  bruising  predisposes 
+apples  to  breakdown  and  rots.  Freezing  in  the  orchard  may  also  affect  storage 
+behavior.  Often  night  temperatures  go  below  the  freezing  point  of  apples  while 
+they  are  on  the  tree.  When  this  happens  apples  must  not  be  handled  while 
+frozen,  as  they  are  extremely  sensitive  to  damage  at  this  time.  If  only  lightly 
+frozen,  and  if  allowed  to  thaw  before  being  picked,  very  little  or  no  harm 
+will  occur.  However,  apples  usually  do  not  recover  from  severe  freezing. 
+
+Superficial  scald  is  probably  the  most  serious  storage  disorder,  particularly 
+since  the  advent  of  CA  storage.  Formerly,  this  disorder  was  controlled  by 
+using  shredded,  oiled  papers  or  oiled  paper  wraps.  Recently,  chemical  dips 
+have  been  used  with  greater  effectiveness  (39).  Before  using  these  compounds, 
+refer  to  the  legal  regulations  that  apply  to  them  in  your  area.  If  they  are  used, 
+the  manufacturer's  directions  should  be  followed  exactly.  Delayed  harvest 
+will  reduce  the  development  of  scald.  Well-colored  apples  are  less  likely  to 
+develop  scald  (30,  75,  98,  99). 
+
+Brown  core  (core  browning  or  core  flush)  has  been  shown  to  be  induced 
+by  various  factors:  immaturity,  high  nitrogen  content,  low  temperature  and 
+senility.  Therefore,  it  should  be  regarded  as  a  symptom  rather  than  a  disorder. 
+
+18 
+
+
+Among  the  more  common  varieties,  Mcintosh  is  most  susceptible  to  brown 
+core.  It  can  be  controlled  by  CA  storage  but  Mcintosh  apples  held  in  conven- 
+tional storage  should  be  marketed  before  January.  Gamma  irradiation  has 
+been  found  experimentally  to  reduce  both  scald  and  brown  core  in  Mcintosh 
+(70,  73). 
+
+Fungal  wastage  is  the  cause  of  considerable  loss  during  storage  (41). 
+Fungal  spores,  which  are  almost  always  present  on  apples,  germinate  under 
+suitable  conditions,  penetrate  the  skin  and  enter  the  flesh  of  the  apples.  As 
+the  storage  season  advances  the  fruit  loses  resistance  to  such  invasions  and  the 
+fungi  make  greater  headway.  The  methods  of  control  are:  careful  handhng 
+to  avoid  bruising  or  tearing  the  skin,  sanitation  to  reduce  the  number  of 
+spores  present,  and  avoidance  of  free  water  on  the  surface  of  apples  as  this 
+tends  to  accelerate  the  growth  and  spread  of  organisms.  Gloeosporium  rot,  a 
+form  of  spoilage  more  common  in  the  Maritimes  than  in  other  parts  of  Canada, 
+appears  to  arise  from  orchard  infections  (20). 
+
+In  addition  to  the  more  common  disorders  mentioned  above,  there  are 
+others,  such  as  soft  scald,  soggy  breakdown,  Jonathan  spot  and  lenticel 
+spot,  for  which  control  measures  and  descriptions  can  be  found  in  the  Hterature 
+(18,91). 
+
+Further  information  on  apples  is  given  in  References  7,  18,  30,  75,  97, 
+99  and  100. 
+
+Apricots 
+
+Temperature:  31°  to  32°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Apricots  are  seldom  stored  for  any  length  of  time  in  commercial  quantities 
+and  fruit  picked  sufficiently  firm  to  ship  or  store,  as  well  as  fruit  of  normal 
+canning  maturity,  does  not  have  the  same  full  flavor  as  tree-ripened  fruit. 
+Apricots  suff'er  a  continual  loss  of  flavor  in  prolonged  cold  storage  (115)  but 
+they  keep  well  for  1  to  2  weeks  at  31°  to  32°  F. 
+
+Cherries 
+
+Temperature:  31°  to  32°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+The  approximate  limit  of  storage  life  of  sweet  cherries  is  10  days  to  2 
+weeks.  The  storage  life  of  sour  cherries  is  much  shorter,  being  a  matter  of  a 
+few  days. 
+
+The  black  varieties  (Bing,  Lambert  and  Van)  are  usually  harvested  for 
+shipping  when  they  have  reached  a  maroon  color;  for  processing  they  are 
+left  on  the  tree  until  fully  black.  In  many  cherry-growing  areas,  the  harvest 
+maturity  for  sweet  varieties,  including  the  black  and  white  types,  is  determined 
+by  a  color  chart  (27).  Rapid  cooling  immediately  after  harvest  is  important 
+in  that  it  preserves  fresh  appearance,  prevents  cracking  of  washed  fruit,  and 
+reduces  rate  of  browning  of  stems  (stem  color  serves,  on  the  market,  as  an 
+indicator  of  quality)  (27). 
+
+Cherries  appear  to  be  tolerant  of  fairly  high  levels  of  carbon  dioxide 
+(35)  and  high  concentrations  have  been  reported  to  extend  their  storage  life. 
+
+19 
+
+
+Beneficial  effects  have  been  achieved  by  packing  cherries  in  polyethylene  bags, 
+which  permits  the  accumulation  of  6  to  8  percent  carbon  dioxide. 
+
+At  the  end  of  their  storage  life  cherries  lose  their  fresh  appearance, 
+become  dull,  and  frequently  develop  brown,  gray,  blue  and  green  mold  rots. 
+Rotting  is  usually  more  critical  when  cherries  are  moved  from  storage  in 
+humid  weather  and  accumulate  moisture  by  sweating. 
+
+Cranberries 
+
+Temperature:  36°  to  40°  F. 
+Relative  humidity:  80  to  85  percent. 
+
+A  large  part  of  the  cranberry  crop  is  held  near  to  the  bog  or  area  where 
+it  is  grown  until  Thanksgiving  or  Christmas  market  time.  Because  of  this, 
+cranberries  may  be  held  in  common,  air-cooled  storages  or  in  refrigerated 
+warehouses.  At  a  temperature  of  36°  to  40°  F  they  can  usually  be  held  in 
+storage  up  to  3  months,  but  fungal  rots  will  develop  after  this  period  (115). 
+
+There  is  a  high  degree  of  variability  in  the  storage  characteristics  of 
+cranberries,  which  depend  on  the  season,  variety  and  maturity. 
+
+Poorly  colored  fruit  continues  to  develop  color  if  held  at  temperatures 
+of  45°  to  50°  F.  Precooling  before  long-distance  shipment  in  warm  weather 
+reduces  development  of  rots. 
+
+Grapes 
+
+Temperature:  31°  to  32°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Most  of  the  Canadian  grape  crop  is  of  the  Labrusca  or  American  type 
+which  has  a  shorter  storage  life  than  the  Vinifera  or  European  type.  American- 
+type  grapes  are  generally  shipped  direct  to  market  for  consumption  or  pro- 
+cessing and  they  can  be  held  up  to  4  weeks  if  a  temperature  of  31°  to  32°  F 
+is  rigidly  maintained.  Hybrid  varieties,  such  as  Sheridan,  can  be  stored 
+successfully  for  periods  up  to  2  months.  Sulphur  dioxide  fumigation  is  likely 
+to  damage  the  American  type  of  grape  but  not  the  European  type.  Careless 
+handhng  makes  grapes  crack  and  low  humidity  desiccates  their  stems.  (40,  115) 
+
+Peaches 
+
+Temperature:  31°  to  32°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Peaches  require  special  handling  for  maximum  storage  life  and  retention 
+of  quality.  Maturity  is  indicated  by  fruit  filling  out  to  a  rounded  shape  from 
+its  somewhat  flat-sided  shape  when  immature.  The  pressure  test  is  also  a 
+reliable  indicator  of  maturity.  If  this  test  is  used,  harvesting  should  begin 
+when  pressure  readings  of  20  pounds  or  less  are  obtained  with  a  5/16-inch 
+plunger;  19  to  14  pounds  are  regarded  as  optimal.  The  skin  turns  yellow 
+when  peaches  are  mature.  The  ideal  maturity  for  harvest  is  reached  when  a 
+peach  becomes  "eating  ripe"  in  6  to  8  days  at  70°  F.  Overmaturity  at  harvest 
+results  in  peaches  having  a  stringy  texture,  whereas  undermaturity  causes 
+peaches  to  have  astringent  flavors  and  a  rubbery  texture  (101). 
+
+Postharvest  conditions  have  a  marked  effect  on  the  quality  of  peaches. 
+
+20 
+
+
+Cooling  too  quickly  causes  a  mealy  texture.  It  is  best  to  hold  peaches  between 
+65°  and  70°  F  for  several  days  until  they  are  nearly  ripe,  and  then  to  cool 
+them  rapidly  to  31°  to  32°  F.  Peaches  cooled  in  this  way  can  be  held  for 
+2  weeks  with  good  retention  of  quality,  particularly  of  flavor.  Unfortunately 
+ripe  peaches  have  to  be  handled  very  carefully.  Because  of  this,  an  operator, 
+facing  the  risk  of  ripe  fruit  being  damaged  in  transit,  sometimes  sacrifices 
+some  quality  by  cooling  and  shipping  partially  ripened  peaches. 
+
+Midseason  varieties,  such  as  Veteran,  grown  in  the  Okanagan  Valley 
+of  British  Columbia,  when  harvested  firm-ripe  will  ripen  normally  if  stored 
+for  not  more  than  2  weeks  at  30°  to  32°  F.  If  held  longer,  they  are  hable  to 
+become  mealy.  Late  varieties  like  J.H.  Hale  and  Elberta  will  tolerate  only 
+1  week  at  30°  F  without  developing  a  mealy  texture  when  ripened.  The  meali- 
+ness appears  to  be  caused  by  a  disturbance  of  the  pectin-hydrolyzing  system 
+at  low  temperatures  and  the  effect  seems  to  be  cumulative,  because  exposure 
+to  low  temperatures  before  harvest  reduces  the  tolerance  of  fruit  when  placed 
+in  storage.  Sometimes  this  mealiness  or  dryness  is  referred  to  as  "wooliness." 
+
+The  main  causes  of  spoilage  in  peaches  are  brown  rot  and  Rhyzopus  rot. 
+Orchard  sprays  and  careful  inspection  of  fruit  entering  storage  can  prevent 
+these  rots  to  some  extent.  Spread  of  the  rots  in  infected  peaches  can  also  be 
+controlled  by  immersing  them  in  hot  water  at  a  temperature  of  120°  F  for 
+30  minutes  or  130°  F  for  3  minutes  (58).  Rhyzopus  rot  has  been  controlled 
+during  a  6-day  ripening  period  by  initially  dipping  fruit  in  Botran  (2,6-dich- 
+loro-4-nitroanihne)  at  a  concentration  of  1.5  pounds  per  100  gallons  of 
+water.  (26,  28,  105) 
+
+Pears 
+
+Temperature:  30°  to  31°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Although  pears  are  related  to  apples  genetically,  storage  and  handling 
+procedures  for  the  two  crops  are  different  in  many  respects.  Most  varieties  of 
+pears  are  harvested  in  the  hard  green  state  but-  the  rate  of  softening  during 
+harvest  is  more  rapid  than  with  apples.  Thus,  the  pressure  test  is  a  more 
+satisfactory  maturity  guide  with  pears  than  with  apples  and  a  relatively 
+small  plunger  (5/16  inch  instead  of  7/16  inch)  is  suitable  because  of  the  firmer 
+flesh  of  pears  at  harvest.  Recommended  pressure  test  readings  and  storage 
+periods  for  pears  are  given  in  Table  4.  Skin  color  is  also  a  maturity  guide  but 
+sometimes  a  difficult  one  to  use  because  harvesting  maturity  is  indicated  by  a 
+loss  of  green  pigment  and  a  change  from  a  darker  to  a  lighter  green.  This  loss 
+of  green  pigment  usually  takes  place  in  the  skin  areas  between  the  lenticels, 
+producing  a  mottled  eff'ect  with  the  darker  green  color  being  retained  around 
+the  lenticels. 
+
+If  pears  are  harvested  too  early,  they  fail  to  ripen  normally  and  are 
+likely  to  wilt  and  shrivel  in  storage.  If  harvested  when  too  mature,  pears 
+develop  a  gritty  texture,  and  breakdown  and  other  physiological  disorders 
+occur.  Although  it  has  been  shown  that  Bartlett  pears,  for  example,  may 
+increase  as  much  as  20  percent  in  weight  after  reaching  their  recommended 
+harvest  maturity,  this  advantage  may  be  off'set  by  a  shortened  storage  life. 
+
+21 
+
+
+Pears  should  be  cooled  as  rapidly  as  possible  after  harvest  (29).  Rapid 
+cooling  is  probably  the  most  important  single  factor  contributing  to  their 
+satisfactory  storage.  For  example,  it  has  been  found  that  breakdown  in  pears 
+kept  an  equal  number  of  days  in  storage  is  increased  threefold  when  the  pears 
+are  cooled  from  65°  to  30°  F  in  8  days  instead  of  4  days  (82). 
+
+Pears,  with  few  exceptions,  begin  to  ripen  when  their  skin  becomes 
+yellow,  and  if  they  are  allowed  to  remain  at  low  temperatures  during  this 
+period  they  will  break  down  and  develop  scald.  Thus,  it  is  extremely  important 
+to  ripen  pears  at  higher  temperatures  —  68°  F  is  ideal  (5).  For  a  description 
+of  pear  disorders,  see  Reference  29. 
+
+Table  4.  —  Recommended  Pressure-Test  Readings  for  Harvest,  and 
+Approximate  Storage  Life  of  Some  Varieties  of  Pears(a) 
+
+
+Variety 
+
+Anjou 
+
+Bartlett 
+
+Beurre  Bosc 
+
+Clairgeau 
+
+Cornice 
+
+Doyenne  Boussock 
+
+Flemish  Beauty 
+
+Hardy 
+
+Kieffer 
+
+Winter  Nells 
+
+(a)  Data  obtained  from  References  1,  29,  38  and  1  15. 
+
+Bartlett  —  This  variety  is  normally  harvested  in  the  latter  part  of  August 
+or  early  September.  Harvesting  operations  should  not  start  before  the  pressure 
+test  indicates  20  pounds;  19  pounds  is  better  if  the  fruit  can  be  harvested 
+within  a  week  after  this  point  is  reached.  For  calculation  purposes,  the  rate 
+of  softening  is  usually  about  }/i  pound  per  day.  It  is  extremely  important  that 
+the  pears  be  placed  in  storage  or  a  precooler  immediately  so  that  the  core 
+temperature  is  reduced  to  30°  or  31°  F  as  rapidly  as  possible  (81,  82).  This  can 
+be  accomplished  in  3  to  4  days  with  good  facilities.  Under  such  conditions 
+the  minimum  storage  life  should  be  60  days.  The  pears  should  be  removed 
+from  storage  early  enough  to  ensure  that  they  reach  their  destination  before 
+yellowing.  Ripening  should  be  earned  out  at  68°  F  with  high  humidity. 
+
+Fall  and  winter  varieties —  There  may  be  10  or  more  varieties  of  pears 
+other  than  Bartlett  grown  in  Canada.  Collectively,  however,  these  other 
+varieties  do  not  equal  Bartlett  in  volume  produced.  Recommendations  respect- 
+ing firmness  for  harvesting,  along  with  storage  life  expectancies,  are  given  in 
+Table  4.  Pressure  tests  are  somewhat  less  reliable  indicators  of  maturity  of 
+fall  and  winter  varieties  as  they  do  not  soften  on  the  tree  as  rapidly  as  Bartletts. 
+Changes  in  skin  color,  particularly  of  Anjou  pears,  may  be  a  more  reliable 
+maturity  indicator  than  firmness.  The  same  general  storage  and  ripening  pro- 
+
+22 
+
+
+Pressure  test  range 
+
+Storage  life 
+
+pounds  with  5/16-inch  plunger) 
+
+at  30°F  (months) 
+
+1  3.0  to  1  2.0 
+
+AVi  to  6 
+
+20.0  to  1  8.0 
+
+2  to  3 
+
+14.0  to  12.0 
+
+3  to  31/2 
+
+15.0  to  11.0 
+
+1  3.0  to     9.0 
+
+2  to  3 
+
+1 4.0  to  1  2.0 
+
+2 
+
+1  2.0  to  1 1 .0 
+
+2 
+
+1 1 .5  to     9.0 
+
+2  to  3 
+
+1 6.0  to  1 2.0 
+
+2  to  3 
+
+1 4.0  to  1  2.0 
+
+41/2  to  5 
+
+cedures  as  outlined  for  Bartletts  apply  to  these  varieties.  (2,  29,  31,  32,  38, 
+91,  106) 
+
+Pears  are  stored  under  CA  conditions  in  some  countries  (51)  and  small- 
+scale  trials  have  been  successful  in  Canada  (106).  However,  full-scale  com- 
+mercial CA  storage  of  pears  is  not  practised  in  Canada. 
+
+Plums  (including  Prunes) 
+
+Temperature:  31°  to  32°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Maturity  of  prunes  at  harvest  has  a  pronounced  effect  on  their  subsequent 
+ripened  quality.  The  most  reliable  indicator  of  maturity  is  their  soluble  sohds 
+content,  as  indicated  by  refractive  index.  Harvested  prunes  having  a  17  to  18 
+percent  soluble  solids  content,  by  refractometer,  will  ripen  in  about  7  days  at 
+65°  F,  and  after  storage  for  1  month  at  32°  F  they  will  ripen  in  5  days  at 
+65°  F  (24).  Color  may  also  be  used  as  an  indicator:  prunes  are  considered 
+ready  for  harvest  when  their  flesh  color  reaches  a  medium-dark  amber.  The 
+pressure  test  apparently  gives  results  that  are  too  variable  from  year  to  year 
+to  be  reliable  (24,  34). 
+
+Early  plums  (Japanese  type)  are  susceptible  to  breakdown,  which  is 
+increased  by  storage  at  32°  to  40°  F.  Thus,  storage  below  40°  F  is  hazardous, 
+but  above  this  temperature  storage  life  is  relatively  short.  Other  types  of 
+plums  can  be  stored  at  31°  to  32°  F  and  the  storage  life  at  these  temperatures 
+is  2  to  3  weeks  or  slightly  longer,  depending  on  variety  and  maturity  at  harvest. 
+
+The  chief  disorders  of  plums,  other  than  fungal  wastage,  are  internal 
+browning  and  breakdown.  These  are  not  visible  externally  and  so  frequent 
+internal  examination  is  necessary  to  avoid  holding  this  crop  beyond  its  market- 
+able Hmit  (24,  34,  67,  115). 
+
+Raspberries 
+
+Temperature:  31°  to  32°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Fresh  raspberries,  blackberries,  Logan  blackberries  and  dewberries  are 
+not  adapted  to  storage  and  are  not  usually  stored  commercially.  They  can  be 
+held  for  5  to  7  days  at  31°  to  32°  F  and  a  relative  humidity  of  85  to  90  percent. 
+Young  and  Boysen  dewberries  cannot  be  held  longer  than  2  to  4  days  (115). 
+
+Strawberries 
+
+Temperature:  31°  to  32°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Fresh  strawberries  are  not  usually  stored  commercially  but  may  be  held 
+for  a  maximum  of  10  days  at  31°  to  32°  F  and  85  to  90  percent  relative  humid- 
+ity. If  the  temperature  rises  above  40°  F  the  growth  of  gray  mold  and  Phytoph- 
+thora  (leather  rot)  is  accelerated.  In  storage,  strawberries  are  likely  to  lose 
+flavor  and  brightness  of  color  (115). 
+
+Precooling  is  essential  before  long  shipment  and  is  beneficial  under  other 
+circumstances.  This  is  usually  accomplished  by  forced  air  cooling  either 
+before  or  after  loading.  Strawberries  should  be  transported  under  refrigeration. 
+
+23 
+
+
+PART  3  — VEGETABLES 
+
+
+Recommendations  for  storing  most  Canadian-grown  vegetables  are  given 
+in  Table  5  and  on  the  following  pages. 
+
+
+Table  5.  —  Storage  Life  Expectancies,  Recommended  Storage  Temperatures 
+and  Relative  Humidities,  and  the  Highest  Freezing  Points  of 
+
+Fresh  Vegetables 
+
+
+Relative 
+
+Temperature  humidity 
+
+Vegetable (°F)  (%) 
+
+Asparagus 32                  95 
+
+Beans, 
+
+Green  or  snap 45  to  50  85  to  90 
+
+Lima, 
+
+shelled 32  85  to  90 
+
+unshelled 32  85  to  90 
+
+Beets,  bunched 32  90  to  95 
+
+Topped 32  90  to  95 
+
+Broccoli  (Italian  or 
+
+sprouting) 32  90  to  95 
+
+Brussels  sprouts 32  90  to  95 
+
+Cabbage, 
+
+Early 32  90  to  95 
+
+Late 32  90  to  95 
+
+Carrots, 
+
+Bunched 32  to  34            95 
+
+Topped 32  to  34            95 
+
+Cauliflower 32  90  to  95 
+
+Celery 32                  95  + 
+
+Corn,  sweet 32  90  to  95 
+
+Cucumbers 45  to  50            95 
+
+Eggplants 45  to  50  85  to  90 
+
+Endive  or  escarole 32  90  to  95 
+
+Garlic,  dry 32  70  to  75 
+
+Horseradish 30  to  32  90  to  95 
+
+Kohlrabi 32  90  to  95 
+
+Leeks,  green 32  90  to  95 
+
+Lettuce 32                 95 
+
+Melons,  Cantaloupe  or 
+
+Muskmelon 32  and  45  85  to  90 
+
+Honey  dew 45  to  50  85  to  90 
+
+Watermelons 36  to  40  85  to  90 
+
+
+Approximate 
+
+Highest 
+
+length  of 
+
+freezing 
+
+storage 
+
+point(b) 
+
+period 
+
+rp) 
+
+3  weeks 
+
+30.9 
+
+8  to  1 0  days 
+
+30.7 
+
+2  weeks 
+
+31.0 
+
+2  weeks 
+
+30.9 
+
+10  to  14  days 
+
+31.3  (Tops 
+
+1  to  3  months 
+
+30.3 
+
+1  week 
+
+30.9 
+
+3  to  4  weeks 
+
+30.5 
+
+3  to  4  weeks 
+
+30.4 
+
+3  to  4  months 
+
+31.7 
+
+2  weeks 
+
+4  to  5  months 
+
+29.5 
+
+2  weeks 
+
+30.6 
+
+3  months 
+
+31.6 
+
+8  days 
+
+30.9 
+
+10  to  14  days 
+
+31.1 
+
+10  days 
+
+30.6 
+
+2  to  3  weeks 
+
+31.4 
+
+6  to  8  months 
+
+30.5 
+
+1 0  to  12  months 
+
+28.7 
+
+2  to  4  weeks 
+
+30.2 
+
+1  to  3  months 
+
+30.7 
+
+Head  lettuce 
+
+31.7 
+
+2  to  3  weeks 
+
+2  weeks 
+
+30.5 
+
+2  to  3  weeks 
+
+30.1 
+
+2  to  3  weeks 
+
+31.3 
+
+24 
+
+
+Approximate  Highest 
+
+Relative  length  of  freezing 
+
+Temperature     humidity  storage  point(b) 
+
+Vegetable  (°F)  (%)  period  TF) 
+
+Mushrooms,  cultivated .  .  32  85  to  90                  5  days  30.4 
+
+Onion  sets 32  70  to  75  5  to  7  months 
+
+Onions,  dry 32  50  to  70  5  to  9  months  30.4 
+
+Parsnips 32  95  2  to  4  months  30.4 
+
+Peas,  green 32  95  1  to  2  weeks  29.9 
+
+Peppers,  sweet 45  to  50  85  to  90  8  to  10  days  30.7 
+
+Potatoes, 
+
+Early-crop See  text  85  to  90  1  to  3  weeks  30.3 
+
+Late-crop See  text  85  to  90               See  text  30.3 
+
+Pumpkins 44  to  50  70  to  75  2  to  3  months  30.5 
+
+Radish, 
+
+Spring,  bunched. .. .  .  32  90  to  95                 2  weeks  31.3 
+
+Winter 32  90  to  95  2  to  4  months  30.7 
+
+Rhubarb 32  90  to  95  2  to  3  weeks  30.3 
+
+Rutabaga  or  turnip.  ...  32  90  to  95                6  months  30.1 
+
+Salsify 32  90  to  95  2  to  4  months  30.4 
+
+Spinach 32  90  to  95  10  to  14  days  31.5 
+
+Squash, 
+
+Summer 44  to  50  70  to  75                2  weeks  31.1 
+
+Winter 44  to  50  70  to  75                6  months  30.7 
+
+Sweet  potatoes 30.1 
+
+Tomatoes 
+
+Ripe 50  85  to  90             3  to  5  days  31.1 
+
+Mature  green 55  to  60  85  to  90  2  to  6  weeks  30.5 
+
+(a)  Based  largely  on  Reference  1  15. 
+
+(b)  Figures  from  Reference  1  1  2.  Maximum  freezing  points  are  given  to  indicate 
+low-temperature  safety  limits. 
+
+(c)  See  also  Table  1  on  Controlled  Atmosphere  Storage. 
+
+Asparagus 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  95  percent. 
+
+Asparagus  should  be  cooled  to  32°  F  immediately  after  harvest  and  held 
+at  this  temperature  at  very  high  humidities.  Under  these  conditions  it  may  be 
+stored  as  long  as  3  weeks.  Because  loss  of  moisture  from  the  spears  is  difficult 
+to  control,  the  butts  are  often  placed  in  water  or  in  contact  with  damp  moss 
+or  other  sources  of  moisture.  Temperatures  higher  than  32°  F  tend  to  promote 
+growth,  cause  *'loose  heads,"  and  hasten  the  onset  of  woodiness  or  toughness. 
+Because  of  these  storage  difficulties  asparagus  is  normally  marketed  directly 
+after  harvest  and  is  placed  in  storage  only  as  a  temporary  measure.  If  there  is 
+a  long  interval  between  harvesting  and  marketing,  asparagus  should  not  be 
+held  long  at  destination.  Under  such  circumstances  precooling  before  ship- 
+ment is  extremely  important.  Icing  the  product  before  storage  or  shipment  is 
+also  beneficial.  Two  kinds  of  microbiological  spoilage,  bacterial  soft  rot  and 
+gray  mold,  can  affect  asparagus  during  storage.  (54,  68,  108,  1 15) 
+
+
+25 
+
+
+Beans^  Green  or  Snap 
+
+Temperature:  45°  to  50°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Snap  beans,  if  cooled  immediately  after  harvest  and  held  at  45°  F,  can 
+be  stored  for  8  to  10  days.  Contact  icing  of  snap  beans  should  be  avoided.  If 
+held  at  temperatures  of  40°  F  or  lower  they  are  subject  to  chilling  injury, 
+evident  as  pitting  in  storage  and  russeting  after  removal  from  storage.  Air 
+circulation  is  important  at  all  times.  If  the  air  becomes  stagnant,  moisture 
+accumulates  at  the  center  of  the  mass,  hastening  the  onset  of  decay  and  other 
+damage.  The  main  forms  of  decay  occurring  in  snap  beans  that  are  held  too 
+long  are  watery  soft  rot,  slimy  soft  rot,  Rhyzopus  rot,  gray  mold  rot  and 
+anthracnose.  (115) 
+
+Beans,  Lima 
+
+Temperature:  32°  to  40°  F  in  pods;  32°  F  shelled. 
+Relative  humidity:  85  to  90  percent. 
+
+Lima  beans,  when  stored  in  the  pod,  have  a  storage  life  of  approximately 
+2  weeks  at  32°  F  or  10  days  at  40°  F.  Good  air  circulation  is  as  important  as 
+it  is  for  snap  beans  and  the  rot-type  disorders  are  the  same  for  both  types  of 
+beans.  Lima  beans  are  often  stored  after  shelling.  If  fresh,  they  can  be  held  for 
+about  2  weeks  at  32°  F  or  4  days  at  40°  F.  If  they  are  held  too  long  after 
+shelling  they  become  sticky  and  their  color  fades.  (115) 
+
+Beets 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Beets  are  sold  either  with  tops  on  or  with  tops  removed.  The  former 
+style  is  referred  to  as  "bunch  beets"  and  is  primarily  for  the  retail  trade.  The 
+latter  style  is  referred  to  as  ^'topped  beets"  and  is  used  for  processing  and,  to 
+some  extent,  for  the  retail  trade.  Bunch  beets  are  often  harvested  before  they 
+reach  full  maturity  (about  lYi  inches  to  3  inches  diameter).  They  are  not  held 
+in  storage  for  long  periods  although  they  can  be  held  for  10  days  to  2  weeks 
+at  32°  F  at  a  high  relative  humidity.  Wilting  and  other  damage  to  the  tops 
+can  be  lessened  if  beets  are  not  crowded  in  storage.  Sometimes  the  tops  are 
+lightly  trimmed  so  that  they  do  not  look  wilted.  Icing  before  transportation 
+to  market  helps  maintain  a  fresh  appearance  and  longer  shelf  life. 
+
+Topped  beets  are  more  mature,  and  are  harvested  in  the  fall  before 
+danger  of  freezing.  Loose  soil  is  removed  and  the  beets  are  topped  by  cutting 
+close  to  the  crown.  All  damaged  and  misshapen  beets  should  be  discarded. 
+Irregular  or  coarse  roots  are  likely  to  be  tough  and  woody;  damaged  beets 
+are  likely  to  shrivel  or  be  a  source  of  infection  in  storage.  Because  beets  have 
+a  strong  tendency  to  shrivel,  a  high  relative  humidity  should  be  maintained 
+during  storage.  Under  these  conditions,  and  at  32°  F,  beets  may  be  held  for 
+1  to  3  months.  Root  cellars  and  refrigerated  storages  are  both  satisfactory, 
+and  storage  in  ventilated  barrels  or  slatted  boxes  is  preferable  to  bulk  storage. 
+(69,  115) 
+
+26 
+
+
+Broccoli  (Italian  or  Sprouting) 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+The  storage  life  of  broccoli  is  about  1  week  under  favorable  conditions. 
+After  this  the  buds  usually  drop  off  and  the  whole  head  becomes  discolored. 
+For  even  this  short  storage  life  broccoli  requires  refrigeration  during  transit 
+and  in  the  retail  market.  Continuous  icing  or  a  steady  temperature  of  32°  F  is 
+necessary  to  reduce  wastage  and  loss  of  vitamin  C.  The  most  important  types 
+of  spoilage  are  bacterial  spot,  bacterial  soft  rot,  gray  mold  rot  and  watery 
+soft  rot.  (85,  115) 
+
+Brussels  Sprouts 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Brussels  sprouts  are  a  short-storage  crop,  but  they  can  be  held  for  periods 
+of  3  to  4  weeks  at  32°  F  at  a  high  relative  humidity.  They  should  be  stored 
+in  small  containers  to  prevent  yellowing  and  development  of  mold.  They 
+suffer  from  the  same  disorders  as  cabbage  and  the  best  control  is  effected  by 
+low  storage  temperatures  with  adequate  air  circulation.  (115) 
+
+Cabbage 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Early  cabbage,  which  is  normally  harvested  during  the  summer,  before 
+the  crop  reaches  full  maturity,  has  a  storage  life  of  3  to  4  weeks  at  32°  F  and 
+high  relative  humidity.  Since  this  crop  is  usually  grown  for  immediate  sale, 
+there  is  no  great  economic  advantage  in  holding  it  for  long  periods  in  storage. 
+
+Late  cabbage,  or  the  solid  Danish  Railhead  type,  has  a  storage  life  of 
+3  to  4  months  if  held  at  32°  F  at  a  high  relative  humidity.  Although  high 
+humidities  are  required  to  prevent  wilting,  good  air  circulation  is  also  necessary 
+to  prevent  excessive  dampness  within  the  pile.  The  late  cabbage  crop  is  har- 
+vested in  the  fall  when  it  is  fully  mature,  as  shown  by  solid,  heavy  heads,  and 
+a  heavy  waxy  bloom  on  all  the  leaves,  which  gives  them  a  steel-blue  color. 
+After  harvest  the  roots  are  trimmed  fairly  close  to  the  base  of  the  heads. 
+Dead  or  damaged  leaves  are  removed.  At  least  one  layer  of  healthy  outer 
+leaves  should  be  retained  to  protect  each  head  during  handling  and  storage. 
+Further  trimming  is  usually  needed  when  heads  are  removed  from  storage 
+before  marketing.  The  best  storage  is  attained  with  shallow  layers  on  top  of 
+slatted  shelves  but  the  heads  can  also  be  stored  by  piling  to  a  depth  of  not 
+over  5  feet  if  ample  aeration,  often  by  forced  air,  is  provided  within  the  pile 
+or  stack.  The  monetary  value  of  this  crop  usually  does  not  justify  storage 
+under  refrigeration,  hence  cabbages  are  usually  held  in  common,  air-cooled 
+storage.  Freezing  should  be  avoided  if  possible,  but  cabbage  will  recover 
+from  light  freezing.  The  main  disorders  occuring  in  storage  are  caused  by 
+wilting,  and  by  infections  of  Rhyzopus  and  other  fungi.  (85,  1 1 5) 
+
+27 
+
+
+Carrots 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  95  percent. 
+
+For  long  storage  carrots  are  harvested  when  mature  and  after  the  leaves  have 
+assumed  a  slightly  browned  appearance.  Harvesting  in  cool,  cloudy  weather 
+to  prevent  drying  of  the  roots  from  the  time  they  are  dug  until  they  are  placed 
+in  storage,  and  maintaining  the  relative  humidity  in  storage  at  85  percent  or 
+higher,  will  reduce  the  browning  disorders  that  often  occur.  During  harvest, 
+carrots  are  topped  to  retain  the  crown  or  top  of  the  root,  and  objectionable 
+roots  are  discarded.  Coarse,  damaged,  distorted  roots  and  the  crease  in  the 
+crown  form  focal  points  for  subsequent  decay.  Properly  matured  carrots 
+can  be  stored  up  to  10  feet  deep  in  bins  if  aeration,  preferably  by  forced  air, 
+is  provided.  It  is  customary,  however,  to  store  carrots  in  bulk  bins,  ventilated 
+barrels  or  slatted  crates.  The  monetary  value  of  mature  carrots  does  not 
+usually  justify  storing  under  refrigeration.  In  common  storage,  most  varieties 
+may  be  held  4  to  5  months  at  32°  to  40°  F.  The  longer-storing  varieties  include 
+Chantenay,  Danvers,  Gold  Pack,  Imperator  and  Nantes.  Such  varieties  as 
+Touchon  have  a  slightly  shorter  storage  life  of  about  3  to  4  months.  Adequate 
+air  movement  helps  to  prevent  bitter  flavors  caused  by  ethylene.  Also,  ethylene- 
+producing  fruits  such  as  apples  and  pears  should  not  be  stored  in  the  same 
+area  as  carrots.  High  humidity  is  required  to  prevent  shriveling  or  wilting, 
+and,  on  a  small  scale,  carrots  can  be  stored  in  damp  moss,  coarse  sawdust, 
+layers  of  newspaper,  sand  or  other  materials  that  will  control  moisture  loss  (69). 
+
+More  tender,  immature  carrots  are  harvested  at  less  than  Uy^  inches 
+in  diameter  for  immediate  consumption  or  short  storage.  They  are  sometimes 
+sold  as  bunched  carrots  with  tops  retained,  but  the  tops  may  remove  moisture 
+rapidly  from  the  roots  and  they  are  prone  to  discoloration  by  yellowing. 
+Therefore,  even  immature  carrots  are  usually  sold  with  tops  removed.  They 
+may  be  packed  in  transparent  film  packages  for  the  retail  market  or  in  crates 
+for  long-distance  shipment.  They  should  be  hydrocooled  down  to  40°  to  45°  F 
+or  lower  soon  after  harvest  and  before  packing  for  shipment.  If  shipped  open 
+in  crates  they  can  be  top-iced  to  retain  their  freshness.  The  storage  life  of 
+young  carrots  varies  from  several  days  to  2  weeks,  depending  on  their  age 
+and  storage  conditions. 
+
+Carrots  in  storage  may  be  damaged  by  severe  freezing,  although  they 
+will  recover  from  a  light  frost.  They  may  also  become  shriveled  through  loss 
+of  moisture.  Watery  soft  rot  or  bacterial  soft  rot  may  be  prevalent  towards 
+the  end  of  storage  life.  Discarding  damaged  or  coarse  roots  at  harvest  helps 
+control  these  disorders,  as  do  ventilation  and  frequent  inspection  during  the 
+storage  period.  (115) 
+
+Cauliflower 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Cauliflower  is  not  usually  stored.  If  necessary,  however,  it  can  be  held, 
+at  a  high  relative  humidity,  for  about  2  weeks  at  32°  F  or  1  week  at  40°  F, 
+
+28 
+
+
+provided  the  produce  is  placed  in  storage  in  good  condition  immediately 
+after  harvest.  Cauliflower  is  usually  packed  in  crates  after  being  harvested 
+and  trimmed.  It  is  best  to  place  the  heads  downwards  to  avoid  damage  by 
+contact  with  water,  soil  or  other  foreign  matter.  Spoilage  of  cauliflower  in 
+storage  may  occur  through  wilting  or  decay,  or  through  white  curds  in  the 
+heads  maturing  and  turning  brown,  or  starting  to  grow  so  that  they  have  a 
+ricey  appearance.  These  disorders  are  most  effectively  inhibited  by  low  temper- 
+atures. Thus,  the  application  of  crushed  ice  or  snow  before  transit,  or  in  lieu 
+of  storage,  is  strongly  recommended  (115). 
+
+Tests  in  the  United  Kingdom  have  indicated  that  the  storage  life  of 
+cauliflower  may  be  extended  2  weeks  by  the  use  of  controlled  atmosphere 
+storage.  The  conditions  suggested  are  10  percent  carbon  dioxide,  11  percent 
+oxygen  and  79  percent  nitrogen  at  a  temperature  of  32°  to  34°  F  (95). 
+
+
+Celery 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  95  percent. 
+
+Celery,  if  cooled  rapidly  after  harvest  and  held  at  32°  F  and  high  relative 
+humidity,  has  a  storage  life  of  approximately  3  months.  Because  celery  is 
+extremely  prone  to  wilting,  rapid  cooling  after  harvest  is  essential.  Immersion 
+in  ice  water  and  other  forms  of  hydrocooling  either  before  or  after  packing 
+in  crates  have  been  found  most  satisfactory  (71).  Vacuum -cooling  is  also 
+helpful,  and  top-icing  is  particularly  beneficial  before  transit. 
+
+Freezing  damage  has  been  reported  at  temperatures  as  high  as  31.5°  F 
+(56).  However,  temperatures  below  34°  F  are  needed  to  prevent  the  growth  of 
+rot  organisms  in  storage.  It  is  absolutely  essential,  therefore,  that  precise 
+temperatures  be  maintained.  Because  of  the  leafy  nature  of  the  crop  and  its 
+fairly  high  heat  of  respiration,  special  attention  to  stacking  in  storage  rooms 
+is  necessary  to  maintain  uniform  temperatures.  Spaces  for  air  movement 
+both  vertically  and  horizontally  are  needed  between  crates  and  the  celery 
+should  be  trimmed  flush  with  the  top  of  the  crates. 
+
+Some  storage  disorders  such  as  soft  rots,  mineral  deficiencies  and  root 
+rot  have  their  origin  in  the  field.  To  prevent  the  development  of  these  disorders 
+it  is  helpful  to  have  a  knowledge  of  the  conditions  under  which  the  celery  was 
+grown  and  to  inspect  celery  going  into  storage.  Root  rot,  caused  by  Ansatospora 
+macrospora  (Osterw.)  Newhall,  can  be  controlled  by  dipping  the  trimmed 
+butts  of  celery  in  a  2-percent  suspension  of  copper  8-quinolinolate  (104). 
+{Important :  Before  employing  these  chemicals,  refer  to  the  legal  regulations 
+that  apply  to  their  use  in  your  area.)  Most  other  storage  disorders  are  caused 
+by  fungi  and  develop  rapidly  once  established.  Close  scrutiny  of  celery  during 
+storage  is  advisable. 
+
+Tests  on  a  semi-commercial  scale  have  shown  that  jacketed  storage  pro- 
+vides a  much  improved  method  of  storing  celery  (56). 
+
+For  further  information  on  celery,  see  References  1 13  and  1 15. 
+
+29 
+
+
+Corn,  Sweet 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Sweet  corn  has  a  maximum  storage  life  of  8  days  if  cooled  and  stored 
+under  optimum  conditions.  It  should  be  harvested  at  the  milk  stage  (when  the 
+juice  from  the  kernel  is  milky  in  appearance)  and  cooled  as  rapidly  as  possible. 
+Hydrocooling  by  spraying  or  immersion  in  water  at  temperatures  near  32°  F 
+is  most  effective.  Vacuum-cooling  and  air-cooling  can  also  be  used  if  corn  is 
+moist.  The  main  purpose  of  cooling  is  to  retain  the  original  flavor  and  succu- 
+lence of  the  corn.  But  these  qualities  are  lost  through  normal  reactions  involv- 
+ing, in  particular,  the  conversion  of  sugars  to  starch.  Because  these  reactions 
+proceed  more  rapidly  at  high  temperatures  (about  five  times  as  quickly  at 
+80°  F  as  at  32°  F  (4) ),  it  is  important  to  cool  corn  as  quickly  as  possible  (49). 
+
+When  shipped  to  market,  sweet  corn  should  be  copiously  iced  and  care 
+should  be  taken  to  have  the  ice  in  contact  with  as  much  of  the  corn  as  possible. 
+Because  the  insulation  afforded  by  the  husk  and  the  cob  tends  to  withhold 
+the  heat  of  respiration,  a  certain  amount  of  air  circulation  within  the  stack  is 
+also  recommended.  These  conditions  are  most  easily  attained  if  corn  is  packed 
+in  crates,  the  5-dozen  size  being  most  common. 
+
+Exposure  to  carbon  dioxide  at  low  temperatures  has  been  shown  to  be 
+effective  in  lessening  sugar  loss.  However,  if  proper  precautions  are  not 
+exercised  damage  may  occur  (59). 
+
+Further  information  on  sweet  corn  is  given  in  Reference  46. 
+
+Cucumbers 
+
+Temperature:  45°  to  50°  F. 
+Relative  humidity:  95  percent. 
+
+Cucumbers  have  a  storage  life  of  only  10  days  to  2  weeks  at  45°  F  and 
+high  relative  humidity.  They  are  quite  sensitive  to  temperature:  below  45°  F 
+chilling  injury  develops,  as  evinced  by  surface  pitting  and  dark  watery  patches, 
+and  this  is  followed  by  the  onset  of  rots,  particularly  when  the  temperature  is 
+raised.  At  temperatures  above  50°  F,  on  the  other  hand,  yellowing  occurs. 
+Thus,  it  is  quite  important  that  cucumbers  be  cooled  quickly  to  45°  to  50°  F, 
+and  that  they  be  held  at  this  temperature  during  storage  or  transit.  Slatted 
+crates  permit  good  air  exchange  and  are  recommended.  Cucumbers  are  some- 
+times waxed  to  reduce  moisture  losses.  (115) 
+
+Eggplant 
+
+Temperature:  45°  to  50°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Eggplant  cannot  be  expected  to  keep  satisfactorily  in  storage  for  more 
+than  about  10  days.  The  optimum  storage  temperature  is  50°  F  or  slightly 
+lower.  Slight  surface  pitting  and  bronzing,  especially  near  the  stem,  has  been 
+noted  at  temperatures  of  40°  F  or  lower  in  4  to  8  days.  The  pits  sometimes 
+occur  in  groups  and  coalesce  into  larger  sunken  areas  on  longer  exposure.  (115) 
+
+30 
+
+
+Endive  or  Escarole 
+
+Temperature  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Endive  or  escarole  is  a  leafy  vegetable  which,  under  commercial  condi- 
+tions, is  not  adapted  to  long  storage.  Even  at  32°  F,  which  is  considered  to 
+be  the  best  storage  temperature,  it  cannot  be  expected  to  keep  satisfactorily 
+for  more  than  2  or  3  weeks.  The  storage  requirements  for  endive  are  practically 
+the  same  as  for  lettuce.  As  with  lettuce,  the  use  of  cracked  ice  extends  its 
+storage  life.  The  relative  humidity  should  be  kept  at  90  to  95  percent  to  prevent 
+wilting.  A  certain  amount  of  desirable  blanching  usually  occurs  in  endive  that 
+is  held  in  storage.  (115) 
+
+Garlic,  Dry 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  70  to  75  percent. 
+
+Garlic  is  best  stored  under  the  temperature  and  humidity  conditions  rec- 
+ommended for  onions.  It  should  be  well  cured  before  going  into  storage;  then, 
+if  it  is  in  good  condition,  it  should  keep  at  32°  F  for  6  to  8  months.  Sometimes 
+garlic  is  stored  in  common,  air-ventilated  storages;  under  these  conditions,  if 
+kept  cool,  dry  and  well  ventilated,  it  may  be  held  for  3  to  4  months,  or  some- 
+times longer  depending  on  the  temperature.  Garlic  is  usually  stored  in  loose 
+mesh  bags,  which  are  piled  two  layers  deep  in  stacks  separated  by  air  spaces. 
+(115) 
+
+Horseradish 
+
+Temperature:  30°  to  32°  F, 
+Relative  humidity :  90  to  95  percent. 
+
+Horseradish  keeps  satisfactorily  for  10  to  12  months  at  30°  to  32°  F  and 
+at  90  to  95  percent  relative  humidity.  Roots  dug  when  the  plants  are  actively 
+growing  do  not  keep  as  well  as  roots  that  have  been  conditioned  by  cold 
+weather  before  digging.  Frequent  inspection  is  advisable.  (115) 
+
+Kohlrabi 
+
+Temperature:  32°  F. 
+
+Relative  humidity :  90  to  95  percent. 
+
+Kohlrabi  should  keep  2  to  4  weeks  if  stored  at  32°  F  and  90  to  95  percent 
+relative  humidity.  (115) 
+
+Leeks,  Green 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Green  leeks  are  packed  in  crates  and  stored  under  conditions  similar  to 
+those  suitable  for  celery.  If  properly  handled,  they  should  keep  satisfactorily 
+in  storage  for  1  to  3  months.  (115) 
+
+31 
+
+
+Lettuce 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  95  percent. 
+
+Although  there  are  several  types  of  lettuce,  practically  all  commercial 
+lettuce  is  of  the  crisp  head  type.  Lettuce  is  not  a  long-storage  crop  but  if  its 
+temperature  is  reduced  rapidly  to  32°  F  and  held  at  this  level  while  the  humidity 
+is  kept  very  high,  head  lettuce  can  be  stored  for  2  to  3  weeks  or  possibly 
+slightly  longer. 
+
+Hydrocooling  in  ice  water  and  icing  in  storage  help  to  retain  freshness 
+and  are  most  effective  if  done  immediately  after  harvest  and  trimming.  All 
+damaged  lettuce,  particularly  any  affected  with  tip  burn,  should  be  discarded. 
+This  disorder  leads  to  breakdown  and  to  slimy  rots  in  storage. 
+
+Vacuum-cooling  has  produced  revolutionary  changes  in  the  handling  of 
+lettuce  in  specialized  growing  areas.  Large  quantities  of  lettuce  in  boxes  or 
+crates  are  placed  in  a  chamber,  which  is  then  evacuated  to  cause  evaporation 
+of  the  water  inside  and  adjacent  to  the  lettuce,  and  to  produce  rapid  cooling. 
+Because  containers  remain  dry  when  cooled  in  this  manner,  fiber  containers 
+may  be  used,  and  rots  are  reduced  during  transit  and  marketing.  (84,  115) 
+
+Melons 
+
+There  are  three  main  types  of  melons  sold  in  Canada:  cantaloupe,  honey- 
+dew  and  watermelon.  The  first  two  are  botanical  varieties  of  muskmelon.  Melons 
+as  a  whole  do  not  have  a  long  storage  life.  However,  by  cooling,  spoilage  is 
+delayed  during  transit  and  marketing,  and  temporary  storage  is  made  possible 
+during  times  of  market  surplus. 
+
+Cantaloupe  or  Muskmelon 
+
+Temperature:  32°  and  45°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Cantaloupe  normally  has  a  storage  life  of  approximately  2  weeks  at 
+32°  F  but,  under  certain  undetermined  conditions,  some  varieties  may  suffer 
+from  low-temperature  breakdown  below  45°  F.  Maturity,  which  affects  both 
+storage  behavior  and  market  quality,  is  determined  by  stem  separation  and 
+color.  Optimum  harvest  maturity  is  at  the  stage  of  "full  slip"  when  the  stem 
+separates  completely  and  cleanly  and  before  yellowing  has  occurred.  Such 
+melons  do  not  have  as  long  a  storage  life  as  less  mature  melons  but  they  have 
+the  advantage  of  higher  quality  (62).  More  mature  cantaloupes  can  be  stored 
+safely  at  lower  temperatures.  Icing  is  often  used  as  a  means  of  cooling  these 
+melons.  Cantaloupe  should  be  inspected  often  and  very  carefully  in  storage  and 
+on  the  market  to  detect  spoilage  before  it  reaches  serious  proportions.  (115) 
+
+Honey  dew 
+
+Temperature:  45°  to  50°. 
+
+Relative  humidity:  85  to  90  percent. 
+
+This  melon  has  an  expected  storage  life  of  2  to  3  weeks  at  45°  F.  Disorders 
+are  very  similar  to  those  of  cantaloupe.  It  is  considered  somewhat  hazardous 
+to  use  ice  for  cooling  melons  other  than  cantaloupe.  (115) 
+
+32 
+
+
+Watermelon 
+
+Temperature:  36°  to  40°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Watermelon  has  a  storage  life  of  2  to  3  weeks  at  36°  to  40°  F.  If  held  at 
+32°  F  pitting  and  objectionable  flavors  develop.  The  onset  of  decay  is  the 
+factor  that  usually  determines  the  end  of  storage  life.  (85,  115) 
+
+Mushrooms,  Cultivated 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  85  to  90  percent. 
+
+Fresh  mushrooms  do  not  keep  well  and  are  therefore  stored  only  for 
+short  periods.  Deterioration  is  marked  by  brown  discoloration  of  surfaces 
+and  by  opening  of  veils.  Freshly  picked  mushrooms  will  keep  in  prime  condition 
+at  32°  F  for  5  days,  at  40°  F  for  2  days  and  at  50°  F  for  only  1  day.  Allowing 
+a  marketing  period  of  only  1  day  at  higher  temperatures  immediately  after 
+storage,  they  should  be  kept  at  32°  F  for  only  3  to  4  days  and  at  40°  F  for  up 
+to  2  days.  When  they  are  being  transported  and  displayed  for  sale,  mushrooms 
+should  be  kept  constantly  under  refrigeration.  (115) 
+
+Onions 
+
+Three  forms  of  onion  are  kept  in  storages:  green  (small  bunched)  onions, 
+sets  (small  cured  bulbs  sold  in  the  dry  state  for  planting  purposes),  and  dry 
+onions  (cured  full-sized  bulbs).  The  last  is  the  principal  type  held  in  storage. 
+
+Green 
+
+Temperature:  32°  to  45°  F. 
+Relative  humidity:  95  percent. 
+
+Onions  in  this  form  have  a  short  storage  life.  Hydrocoohng  and  icing 
+can  be  employed  to  retain  freshness.  When  treated  in  this  manner  green 
+onions  can  be  held  up  to  2  weeks. 
+
+Sets 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  70  to  75  percent. 
+
+Onion  sets  are  usually  stored  in  common,  air-cooled,  storages.  Because 
+of  their  small  size  they  are  stored  in  shallow,  slatted  trays  to  provide  ample 
+air  circulation.  If  piled  to  any  depth,  the  onion  sets  tend  to  pack  tightly,  pro- 
+hibiting air  movement.  Otherwise  they  require  the  same  storage  treatment 
+as  dry  onions. 
+
+Dry  or  Cured 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  60  to  70  percent. 
+
+Botanically  the  onion  is  a  biennial;  the  first  year  it  produces  a  bulb, 
+the  second  year  flowers  and  seeds.  The  object  of  storage  is  to  prevent  even 
+the  slightest  form  of  growth  within  the  bulb.  The  bulb,  during  early  storage, 
+is  in  the  resting  state  and  incapable  of  growth,  but  after  3  to  5  months  it 
+
+33 
+
+
+changes  from  this  state  and  enters  a  critical  period  in  its  storage  Hfe  when 
+both  internal  and  external  symptoms  of  growth  may  develop.  Slight  rises  in 
+temperature  during  this  period  hasten  growth.  Even  the  internal  development 
+of  sprout  growth  reduces  quality  and  eventually  terminates  storage  life.  Thus, 
+the  storage  life  of  dry  onions  may  be  about  5  months,  depending  on  variety, 
+temperature  control  and  other  factors. 
+
+However,  if  treated  before  going  into  storage  with  sprout  inhibitors 
+such  as  maleic  hydrazide  or  gamma  irradiation,  onions  will  remain  in  the 
+resting  stage  indefinitely.  Thus,  their  storage  life  may  be  extended  to  as  long 
+as  8  to  9  months,  depending  on  such  factors  as  the  effectiveness  of  the  sprout 
+inhibitor  treatment,  the  variety  of  the  onions,  the  presence  of  disease  and 
+the  curing  procedure  used.  {Important :  Refer  to  the  legal  regulations  that 
+apply  to  the  use  of  sprout  inhibitors  in  your  area  before  employing  them.) 
+
+Onions  are  harvested  when  mature,  which  is  usually  taken  to  be  when  at 
+least  50  percent  of  the  stems  have  bent  down  to  the  ground.  They  are  dug  and 
+topped  and  may  be  left  in  the  field  for  curing;  brittleness  of  skin  and  con- 
+traction of  the  neck  indicates  completion  of  curing.  However,  it  is  preferable 
+to  move  the  onions,  after  topping,  to  a  storage-curing  room.  Here  they  are 
+piled  to  a  depth  not  exceeding  15  feet  and  air  is  forced  through  the  pile.  It 
+has  been  found  satisfactory  to  circulate  U/^  cubic  feet  of  air  per  minute  for 
+each  cubic  foot  of  onions,  using  unheated  outside  air  for  the  first  2  days, 
+then  air  of  75°  to  85°  F  (at  the  source  of  heat)  with  60  percent  relative  humidity 
+for  8  to  10  days  and,  finally,  outside  air  to  cool  the  onions  before  placing  them 
+in  storage  at  32°  F.  About  5  percent  of  the  onion  weight  has  to  be  evaporated, 
+and  completion  of  curing  is  indicated  by  a  well-contracted  neck  and  brittle 
+skin.  Overcuring  will  cause  loss  of  skin.  Excessive  humidity  or,  perhaps, 
+high  temperatures  will  cause  staining  of  the  skin.  The  latter  effect  may  also 
+result  from  moisture  condensation  on  the  surface  of  the  bulbs,  as  sometimes 
+happens  when  outside  air  on  a  warm  day  is  brought  into  contact  with  onions 
+at  a  lower  temperature,  that  is,  when  the  onion  temperature  is  below  the 
+dew  point  of  the  outside  air. 
+
+Onions  are  classified  by  shape  and  color,  the  yellow  globe  types  making 
+up  the  major  portion  of  commercial  stocks.  The  varieties  of  this  type  that 
+are  most  popular  in  Western  Canada  are  Autumn  Spice,  Brown  Beauty  and 
+Epoch  (53).  The  appearance  of  each  variety  is  influenced  to  a  large  extent  by 
+the  method  of  curing.  Air-curing  within  a  building  results  in  the  most  uniform 
+color  and  condition  of  bulb.  Curing  to  the  correct  level  of  moisture  keeps 
+the  skin  intact  and  gives  it  a  bright  appearance.  (47,  53,  61,  115) 
+
+Parsnips 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  95  percent. 
+
+Parsnips  are  usually  handled  like  carrots  and  their  storage  hfe  is  2  to  4 
+months  at  32°  F  and  high  relative  humidity.  They  are  topped  at  harvest  in 
+the  fall,  and  can  be  stored  in  bulk  piles,  but  more  often  they  are  stored  in  bulk 
+bins,  boxes  or  other  containers.  The  main  storage  problems  with  parsnips  are 
+a  root  discoloration  for  which  there  is  no  known  cause  or  control,  and  their 
+tendency  to  shrivel  as  a  result  of  moisture  loss.  The  latter  can  be  controlled 
+
+34 
+
+
+by  packing  in  damp  sphagnum  moss  or  other  moisture-holding  material. 
+Parsnips  have  been  successfully  waxed  for  marketing  but  they  are  usually 
+sold  unwaxed.  Parsnips  will  recover  from  light  freezing  but  they  should  be 
+protected  from  frost  (69,  115). 
+
+Peas,  Green 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  95  percent. 
+
+This  crop  is  similar  to  corn  in  that  the  most  likely  form  of  quality  dete- 
+rioration is  through  normal  reactions  involving  the  conversion  of  sugars  to 
+starch.  If  possible,  peas  should  be  stored  in  the  pod  and  cooled  immediately 
+after  harvest  by  icing  or  immersion  in  ice-water.  Stored  at  32°  F,  they  may  be 
+held  1  to  2  weeks.  At  40°  F  their  storage  life  is  about  3  to  4  days.  Processing 
+plants  may  have  to  store  shelled,  green  peas.  The  storage  life  of  peas  in  this 
+form  is  much  reduced  but  it  can  be  extended  by  prompt  cooling  and  washing 
+to  remove  surface  juice  (115). 
+
+Peppers,  Sweet 
+
+Temperature:  45°  to  50°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Peppers  have  a  storage  life  of  8  to  10  days  at  45°  to  50°  F.  Red  color 
+and  decay  develop  rapidly  at  higher  temperatures.  Low-temperature  injury 
+takes  the  form  of  surface  pitting  and  decay;  about  5  days  at  32°  F  will  cause 
+serious  damage  upon  removal  of  the  peppers  to  room  temperature  (115). 
+
+Potatoes,  Early-crop 
+
+Temperature:  see  below. 
+
+Relative  humidity:  85  to  90  percent. 
+
+Early-crop  potatoes  are  harvested  before  reaching  full  maturity.  They 
+are  used  for  immediate  consumption  and  are  unsuited  to  long  storage.  How- 
+ever, this  crop  can  be  kept  for  a  few  days  or  as  long  as  several  weeks  if  it  is 
+in  sound  condition.  If  intended  for  table  use,  potatoes  can  be  stored  at  50°  F, 
+but  if  they  are  held  for  processing,  particularly  for  chipping,  storage  tempera- 
+tures of  60°  to  70°  F  are  better.  Whatever  the  temperature,  the  relative 
+humidity  should  be  85  to  90  percent  (115). 
+
+Potatoes,  Late-crop 
+
+Temperature:  see  below. 
+
+Relative  humidity:  85  to  90  percent. 
+
+Most  potatoes  are  harvested  at  the  "late-crop"  stage.  Time  of  harvest 
+is  determined  by  the  maturity  of  the  potatoes  and  the  possibility  of  damage 
+by  low  temperatures  in  the  field.  Maturity  is  difficult  to  define  but  the  objective 
+is  to  allow  potatoes  to  reach  maximum  dry-matter  content  (high  specific 
+gravity)  and  to  induce  toughening  or  "setting"  of  the  skin.  These  conditions 
+are  most  nearly  achieved  when  the  vines  have  been  dead  for  about  2  weeks. 
+Usually  the  tops  have  to  be  killed  either  mechanically  or  by  chemicals,  or  in 
+
+35 
+
+
+irrigated  areas  by  water  restriction.  Top  killing  by  chemical  means  is  recom- 
+mended when  late  blight  infection  is  suspected  (63). 
+
+Potatoes  are  often  handled  too  roughly.  This  causes  damage  that  results 
+in  several  forms  of  loss,  including  loss  of  moisture,  and  increased  suscepti- 
+bility to  disease  and  browning  disorders.  Injured  and  disease-infected  potatoes 
+should  not  be  stored. 
+
+Curing  of  potatoes  before  placing  them  in  storage  is  an  extremely  impor- 
+tant operation.  The  objective  is  to  improve  their  storage  properties  by  making 
+their  skin  firmer  and  tougher.  This  reduces  subsequent  moisture  loss,  in- 
+creases resistance  to  disease,  and  aids  in  recovery  from  injury.  The  actual 
+physiological  processes  involved  are  suberization  and  wound  periderm  for- 
+mation. The  first  process  is  completed  in  about  2  days  at  68°  F  whereas  the 
+second  process  is  considerably  slower  (102).  High  temperatures  and  humidities 
+are  required  for  both  processes.  Curing  is  virtually  stopped  at  temperatures 
+of  46°  F  or  lower.  It  requires  a  period  of  10  to  14  days  at  temperatures  of 
+56°  to  60°  F  and  very  high  (95  percent)  relative  humidity  (63).  However,  if 
+the  presence  of  late  blight  is  suspected  the  curing  period  may  have  to  be 
+shortened  to  avoid  accelerated  development  of  the  disease. 
+
+The  physiology  of  the  potato  is  influenced  markedly  by  temperature. 
+Following  curing,  optimum  storage  temperatures  are  determined  by  the 
+ultimate  use  of  the  crop,  duration  of  storage  and  sprout  inhibition  treatment. 
+Temperatures  of  40°  F  and  higher  induce  sprouting,  whereas  temperatures 
+below  50°  F  induce  sugar  accumulation,  and  temperatures  below  36°  F  may 
+cause  low-temperature  injury  (89).  These  factors  dictate  the  following  tem- 
+perature recommendations: 
+
+Seed  stock:  36°  to  38°  F;  storage  life:  7  to  8  months  or  longer. 
+
+Table  stock:  45°  to  50°  F  for  short  storage  or  until  sprouting  is  imminent. 
+The  same  temperatures  can  be  used  for  long  storage  if  sprout  inhibitors 
+are  used,  otherwise  39°  F  is  required  for  long  storage.  Storage  life  is 
+4  to  9  months,  depending  on  variety. 
+
+Stock  for  processing  into  potato  chips:  50°  F  in  combination  with  sprout 
+inhibitors  is  best.  If  stored  at  40°  F,  costly  reconditioning  is  necessary  to 
+prevent  browning. 
+
+Stock  for  processing  into  French  fries :  40°  to  45°  F  can  be  used  because 
+browning  is  not  quite  as  critical  as  with  chips. 
+
+Potatoes  should  be  stored  at  a  high  relative  humidity  (85  to  90  percent) 
+at  all  times.  This  is  particularly  true  at  temperatures  of  45°  F  and  higher, 
+when  shriveling  is  most  likely  to  occur. 
+
+Sprout  inhibitors  perform  an  important  function  in  storage  by  permitting 
+storage  at  50°  F,  thus  avoiding  the  formation  of  sugars  and  the  need  for  recon- 
+ditioning. Maleic  hydrazide  (amine  form)  applied  to  the  vines  in  the  field,  two 
+weeks  after  full  bloom,  at  the  rate  of  6i/i  pints  of  MH-amine  in  80  to  120 
+gallons  per  acre,  has  been  found  very  eff'ective  (44,  63).  Isopropyl  A^-(3-chloro- 
+phenyl)  carbamate  (CIPC)  can  be  applied  satisfactorily  in  storage  if  all  cuts 
+and  bruises  on  the  potatoes  are  thoroughly  healed  before  application  (92). 
+Gamma  irradiation,  at  a  level  of  8,500  rads,  using  a  cobalt-60  source,  has 
+been  found  effective  (65).  A  possible  increase  in  sugars  as  a  result  of  irradiation 
+
+36 
+
+
+is  a  disadvantage  (9),  which,  however,  has  been  shown  to  be  somewhat 
+temporary  (13).  A  method  found  highly  satisfactory  in  the  United  Kingdom 
+and  elsewhere  is  the  use  of  a  nonyl  alcohol  (3,5,5-trimethyl-hexan-l-ol),  which 
+is  applied  directly  to  the  stored  potatoes  by  evaporating  the  alcohol  into  the 
+ventilation  system  at  a  concentration  of  1  ounce  per  1000  cubic  feet  at  an  air 
+flow  rate  of  5  cubic  feet  per  minute  per  (long)  ton  of  potatoes  (8).  {Note: 
+Before  any  chemicals  are  employed  the  legal  aspects  of  their  use  should  be 
+considered.) 
+
+Most  potatoes  are  stored  in  common,  air-cooled  storage  although  refrig- 
+eration sometimes  is  used,  mainly  as  an  auxiHary  source  of  cooling.  Uniform 
+air  and  temperature  distribution  are  essential  in  maintaining  good  storage 
+conditions.  Otherwise,  cold  areas  on  the  walls  and  ceiling  of  a  storage  room  or 
+in  the  stack  itself  may  develop  wet  spots.  If  potatoes  are  piled  in  bins  they 
+should  not  be  piled  higher  than  15  feet  and  the  top  of  the  pile  should  be  kept 
+level.  A  ridge  at  the  top  of  a  pile  often  provides  conditions  that  lead  to  the 
+formation  of  a  wet  spot.  Although  bags,  boxes  and  other  containers  are  still 
+used,  the  trend  is  towards  bulk  boxes  for  economy  in  handling. 
+
+Light  should  be  excluded  from  potato  storages  because  it  causes  the 
+production  of  chlorophyll  (which  gives  the  potatoes  a  green  color)  and  also 
+the  formation  of  a  bitter  toxic  compound,  solanine. 
+
+The  ventilation  system  and  the  insulation  of  storage  buildings  should 
+provide  adequate  protection  against  low  temperatures,  particularly  freezing 
+during  the  winter.  Conversely,  admitting  air  that  is  at  a  higher  temperature 
+than  the  potatoes  is  likely  to  cause  condensation  (sweating).  Ventilation 
+should  be  sufficient  to  prevent  the  accumulation  of  carbon  dioxide,  which 
+can  cause  increase  in  sugar  content  (42)  or,  possibly,  blackheart  under  severe 
+conditions  (87). 
+
+The  potato  processing  industry,  and  particularly  potato  chip  manufac- 
+turers, are  making  special  demands  for  potato  storage  quality.  Dry-matter 
+content,  reducing-sugar  content,  and  texture  characteristics  are  being  checked 
+very  closely.  The  proper  selection  of  varieties,  careful  handling  and  adherence 
+to  proper  storage  management  are  the  main  factors  contributing  to  high 
+processing  quality.  If  reducing  sugars  do  accumulate,  a  reconditioning  pro- 
+cedure consisting  of  exposure  to  60°  to  70°  F  for  a  week  or  longer  permits 
+them  to  be  converted  to  starch  or  other  compounds,  or  used  in  respiration. 
+However,  this  procedure  is  often  not  effective  for  reasons  not  as  yet  completely 
+understood.  Soaking  or  washing  the  raw  chips  in  water  has  been  found  effec- 
+tive (103).  Varieties  having  a  reputation  for  being  suitable  for  reconditioning 
+are  Kennebec,  Russet  Rural  and  Rural  New  Yorker,  but  even  these  varieties 
+fail  to  respond  to  reconditioning  on  rare  occasions  (12).  Further  information 
+on  potatoes  is  given  in  References  10,  63,  74,  87,  90,  109  and  115. 
+
+Pumpkins  and  Squash 
+
+Temperature:  44°  to  50°  F. 
+Relative  humidity:  70  to  75  percent. 
+
+Pumpkins  are  a  type  of  squash.  The  term  pumpkin  refers  to  the  yellow 
+globular  types  of  squash.  The  storage  life  of  pumpkins  and  squash  depends 
+
+37 
+
+
+largely  on  their  type  and  variety.  In  all  cases,  careful  handling  is  important 
+because  injury  to  the  skin  is  likely  to  lead  to  the  development  of  rots  in  storage. 
+Curing  for  2  weeks  at  80°  to  85°  F  helps  to  heal  minor  injuries;  this  can  be 
+accomplished  in  the  field,  or  in  a  storage  with  stoves  or  other  sources  of  heat. 
+For  maximum  storage  life,  squash  should  be  allowed  to  reach  full  maturity 
+before  harvest  and  the  stems  should  be  completely  removed  at  harvest  to  avoid 
+any  risk  of  damage  in  handling. 
+
+After  curing,  the  temperature  should  be  reduced  to  44°  to  50°  F  with 
+70  to  75  percent  relative  humidity.  Varieties  like  Table  Cream  and  Butternut 
+will  last  for  2  months;  Turban  squash  and  Buttercup  3  months;  and  Hubbard 
+(hard-shelled  squash)  for  6  months.  For  best  storage  results,  squash  should 
+be  stored  on  slatted  shelves  one  layer  deep  without  touching  e^ch  other. 
+Pumpkins  generally  do  not  store  as  well  as  the  other  types  of  squash  and  are 
+seldom  held  longer  than  a  few  weeks. 
+
+Summer  squash  {Cucurbita pepo)  is  harvested  before  reaching  full  maturity. 
+Its  storage  life  is  short,  not  exceeding  2  weeks.  Summer  squash  is  usually 
+stored  at  32°  F  and  a  relative  humidity  of  85  to  90  percent.  (93,  115) 
+
+Radishes 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Spring  radishes  are  usually  marketed  in  the  bunched  form  with  tops  re- 
+tained. There  is  a  trend,  however,  towards  marketing  topped  spring  radishes  in 
+plastic  bags.  Spring  radishes  have  a  storage  life  of  about  14  days  when  held 
+at  32°  F  and  high  relative  humidity.  Their  fresh  appearance  and  marketability 
+are  improved  by  hydrocooling  and  ample  icing  before  and  during  transit. 
+Winter  or  large  radishes  will  keep  in  good  condition  for  2  to  4  months  under 
+the  storage  conditions  recommended  for  spring  radishes.  (115) 
+
+Rhubarb 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Rhubarb  stalks,  if  fresh  and  in  good  condition,  may  be  stored  for  2  to  3 
+weeks.  Bunches  should  be  packed  in  crates,  which  are  stacked  to  allow  ample 
+air  circulation  on  all  sides;  otherwise  there  is  a  danger  of  heating  and  mold 
+growth  (115). 
+
+Rutabagas  or  Turnips 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+The  Laurentian  variety  is  most  commonly  grown  and  appears  to  be  the 
+most  satisfactory  for  storage  and  the  market.  It  can  be  kept  in  good  condition 
+up  to  6  months  at  32°  F  and  90  to  95  percent  relative  humidity.  There  is  a 
+general  tendency  to  disregard  the  need  for  careful  handling  during  harvest 
+operations.  Those  who  practise  careful  handling,  however,  find  that  it  pays 
+off  in  the  form  of  reduced  rot  and  other  injury  during  the  storage  period. 
+
+38 
+
+
+The  use  of  maleic  hydrazide  has  been  found  to  be  effective  in  reducing  sprout- 
+ing when  the  crop  is  stored  under  less  than  optimum  conditions.  {Important : 
+Before  using  any  chemicals  refer  to  the  legal  regulations  that  apply  to  their 
+use  in  your  area.)  The  rutabaga  is  usually  stored  in  bulk,  but  bulk-bins  are 
+preferred. 
+
+This  crop  responds  well  to  waxing.  If  properly  waxed,  rutabagas  lose 
+less  moisture  and  are  more  attractive.  This  waxing  procedure,  used  after 
+storage,  has  contributed  largely  to  the  high  international  reputation  of 
+Canadian  rutabagas.  (33,  52,  64) 
+
+Salsify 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Salsify  has  the  same  storage  requirements  as  topped  carrots.  The  roots 
+are  not  injured  by  light  freezing  but  should  be  handled  carefully  while  frozen. 
+Under  the  conditions  specified,  they  should  keep  for  2  to  4  months  (115). 
+
+Spinach 
+
+Temperature:  32°  F. 
+
+Relative  humidity:  90  to  95  percent. 
+
+Spinach  is  usually  stored  for  only  short  periods.  It  should  keep  fairly  well 
+for  10  to  14  days  after  being  cut.  If  crushed  ice  is  used  in  the  packages  this 
+period  can  be  extended  somewhat  (115). 
+
+Sweet  Potatoes 
+
+Temperature:  55°  to  60°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Only  recently  has  there  been  much  interest  in  growing  this  crop  in  Canada. 
+It  requires  long  periods  of  warm  weather  for  growth  and  also  high  temperatures 
+for  storage.  Low-temperature  injury  occurs  in  storage  at  temperatures  below 
+50°  F;  this  results  in  pitting,  particularly  if  the  sweet  potatoes  have  not  been 
+cured,  and  in  increased  decay  and  discoloration,  either  before  or  after  cooking. 
+
+At  harvest,^ sweet  potatoes  should  be  fully  mature  and  free  from  injury. 
+For  satisfactory  storage,  they  should  be  cured  for  10  days  at  85°  F  with  90 
+percent  or  higher  relative  humidity.  Heating  equipment  and  the  addition  of 
+moisture  are  usually  required  for  this  operation.  After  curing,  the  temperature 
+is  reduced  to  55°  to  60°  F  with  85  to  90  percent  relative  humidity.  Under  these 
+conditions  sweet  potatoes  should  keep  for  4  to  6  months  (115). 
+
+Tomatoes 
+
+Temperature:  ripe  50°  F;  partially  ripe  55°  to  60°  F. 
+Relative  humidity:  85  to  90  percent. 
+
+Tomatoes  are  usually  harvested  while  green  (mature-green)  or  partially 
+colored.  The  objective  in  storage  after  harvest  is  to  control  the  rate  of  ripening. 
+At  50°  F  the  rate  of  color  change  as  well  as  the  development  of  such  effects 
+
+39 
+
+
+as  uneven  coloring,  pitting,  breakdown  and  poor  flavors  are  much  reduced 
+(107,  1 14).  This  temperature  effect  is  rather  complex;  under  some  circumstances 
+no  apparent  damage  occurs  during  short  exposures  to  lower  temperatures. 
+(114) 
+
+A  temperature  of  55°  F  is  recommended  for  slow  ripening.  At  this 
+temperature  most  varieties  keep  in  good  condition  for  2  to  6  weeks  and 
+change  color  very  slowly.  At  60°  F  the  rate  of  color  change  increases  quite 
+sharply  (94),  and  above  70°  F  the  rate  of  maturation  and  other  changes  is 
+increased.  Tomatoes  held  at  65°  F  change  color  rapidly  without  excessive 
+softening.  Temperatures  of  70°  F  or  higher  induce  rapid  ripening  and  bring 
+about  changes  in  color,  softening  and  flavor. 
+
+When  tomatoes  are  fully  ripe,  the  holding  time  can  be  increased  by 
+reducing  the  temperature  to  50°  F.  Some  experiments  have  shown  that  ripe 
+tomatoes  can  be  held  satisfactorily  at  32°  to  38°  F.  It  has  been  shown,  however, 
+that  some  softening  may  occur  at  35°  F  (37).  Thus,  it  is  generally  considered 
+hazardous  to  hold  ripe  tomatoes  in  storage  for  more  than  a  few  days. 
+
+Ethylene  has  been  used  to  a  very  limited  extent  to  increase  rate  of  ripening 
+and  particularly  to  bring  about  color  changes.  However,  it  has  not  been  proved 
+to  be  consistently  effective  for  these  purposes  (22).  For  further  information  on 
+tomatoes,  see  References  86,  114,  and  115. 
+
+
+40 
+
+
+APPENDIX 
+
+
+Sample  Calculation  of  Refrigeration  Load 
+
+To  illustrate  how  to  calculate  refrigeration  loads,  an  apple  storage  is  used 
+here  as  an  example  of  a  typical  storage  unit.  The  storage  is  assumed  to  have 
+dimensions  of  about  35  x  40  x  18  feet,  to  have  a  capacity  of  approximately 
+25,000  cubic  feet,  and  be  suitable  for  storing  9,000  bushels  of  apples.  It  is 
+also  assumed  that  the  storage  is  of  frame  construction,  having  4-inch  batt-type 
+insulation  between  studs  in  the  wall,  4-inch  board-type  insulation  in  the 
+ceiling,  and  4  inches  of  peripheral  insulation  of  the  foundation  wall;  that  the 
+storage  floor  is  concrete  supported  by  loose  fill  (gravel  or  stone)  on  the  ground; 
+and  that  there  is  an  air  space  or  loft  above  the  storage  under  a  trussed  rafter 
+roof.  (This  does  not  constitute  a  recommended  design.  For  recommended 
+designs  consult  Reference  11.)  Furthermore,  it  is  assumed  that  the  storage  is 
+operated  at  32°  F  with  an  outside  temperature  of  70°  F. 
+
+The  three  main  components  of  refrigeration  load  —  heat  leakage,  field 
+heat  and  heat  of  respiration  —  are  each  calculated  in  turn  as  follows: 
+
+Heat  leakage,  for  purposes  of  calculating  refrigeration  loads,  means  heat 
+leaking  into  the  storage  room  from  the  outside.  The  higher  the  temperature 
+differential  between  the  inside  and  the  outside  of  a  storage  room,  the  greater 
+will  be  the  amount  of  heat  leaking  inwards.  Heat  leakage  is  controlled  mainly 
+by  insulating  materials  used  in  the  building  structure.  All  the  other  structural 
+components  such  as  plywood,  sheathing,  roofing  materials  and  supporting 
+members  contribute  to  the  overall  insulation  of  the  building.  However,  these 
+contributions  rarely  exceed  15  percent  of  the  total  insulating  eff'ect  and  are 
+likely  to  be  10  percent  or  less.  Thus,  in  calculating  heat  load,  only  the  insulating 
+material  will  be  considered  here.  Any  extra  insulation  above  this  will  be  a  use- 
+ful safety  allowance. 
+
+Most  recommended  insulating  materials  (11)  have  a  conductivity  factor 
+(k)  of  0.26  to  0.30.  This  figure  indicates  the  number  of  Btu  per  hour  passing 
+through  one  square  foot  of  the  material  by  conduction  when  the  temperature 
+difference  between  the  inner  and  outer  surfaces  of  the  material  is  1°  F.  Wood 
+has  a  k  factor  of  about  1,  concrete  6,  and  brick  5,  which  means  that  about 
+3  times,  20  times,  and  15  times  the  thickness  respectively  of  these  materials 
+are  required  to  provide  the  same  insulation  effect  as  good  insulating  materials. 
+These  values  vary  somewhat,  depending  on  such  factors  as  density  and 
+moisture  content.  (74) 
+
+The  amount  of  heat  leakage  depends  on:  temperature  differential,  area  of 
+exposed  surface,  thickness  of  insulation,  and  the  conductivity  or  k  factor  of 
+the  insulation.  In  our  example  the  temperature  difference  is  38°  F  (70°  -  32°), 
+the  area  of  the  wall  surface  is  2,700  square  feet  (150  x   18  feet),  the  insulation 
+
+41 
+
+
+thickness  is  4  inches,  and  the  k  factor  is  0.27.  Thus,  the  total  heat  leakage 
+through  the  walls  is: 
+
+38  X  2,700  X  0.27       ^  q_  .  _^  . 
+
+^  6,925  Btu  per  hour. 
+
+4 
+
+Similarly,  for  the  ceiling,  the  area  is  1,400  square  feet,  the  insulation 
+thickness  is  4  inches,  the  k  factor  is  0.27,  and  the  temperature  differential  is 
+38°  F.  Therefore,  the  total  heat  leakage  through  the  ceiling  is: 
+
+38  X   1,400  X  0.27       .  .qi   p.  i. 
+
+=  3,591  Btu  per  hour. 
+
+Heat  leakage  through  the  floor  is  somewhat  more  difficult  to  calculate 
+accurately  because  of  the  uncertainty  of  the  underground  temperature  and 
+insulating  properties  of  underground  materials.  However,  heat  leakage 
+through  the  aboveground  portion  of  the  peripheral  insulation  would  be  the 
+same  as  for  the  wall  area,  with  the  possible  exception  of  this  insulation  having 
+a  slightly  higher  k  factor.  If  the  k  factor  is  assumed  to  be  0.30,  the  heat  transfer 
+through  this  region  would  be: 
+
+38  X  150  X  0.30        .._  .  _  , 
+
+=  427.5  Btu  per  hour. 
+
+4 
+
+The  insulated  area  below  ground  would  have  the  same  characteristics  as 
+the  aboveground  portion  except  that  there  would  be  a  lower  outside  tem- 
+perature. If  the  air  temperature  were  70°  F,  the  mean  soil  temperature  might 
+be  60°  F.  With  this  assumption  the  heat  leakage  would  be: 
+
+28  X   150  X  0.30       »,^  „^ 
+
+=  315  Btu  per  hour. 
+
+4  ^ 
+
+The  above  calculation  does  not  allow  for  the  insulating  effect  of  soil  and 
+fill  under  the  storage  floor  area.  Thus,  the  heat  leakage  would  be  somewhat 
+less  than  indicated  above  but  the  difference  would  possibly  be  offset  by  heat 
+leakage  through  the  foundation  wall  below  the  insulation.  For  practical 
+purposes,  therefore,  the  total  heat  leakage  for  the  storage  room  in  Btu  per 
+hour  would  be: 
+
+
+Wall — above  storage  floor 
+
+6,925 
+
+Ceiling  area 
+
+3,591 
+
+Floor  area  through  foundation 
+
+wall  above  ground 
+
+427.5 
+
+wall  below  ground 
+
+315.0 
+
+Total  for  floor 
+
+742.5 
+
+Total  heat  leakage  11,258.5 
+
+Thus,  the  refrigeration  load  to  handle  heat  leakage  would  be: 
+
+11,258.5        __^  , 
+
+=  0.9  tons  per  hour. 
+
+12,000 
+
+42 
+
+
+Field  heat  is  generally  the  greatest  portion  of  the  total  refrigeration  load. 
+It  represents  the  heat  that  has  to  be  removed  from  produce  and  containers 
+in  order  to  reduce  their  temperature  to  the  desired  holding  temperature.  The 
+calculation  of  field  heat  is  relatively  straightforward: 
+
+(total  weight)    x    (specific  heat  of  the  produce  or  container)    x    (the 
+required  reduction  in  temperature)  =  (total  field  heat) 
+
+Assuming  that,  at  peak  operating  conditions,  1000  bushels  or  22 Vi  tons 
+(45,000  lb)  of  apples  per  day  are  to  be  cooled  from  70°  to  32°  F  and  their 
+specific  heat  is  0.87  Btu  per  pound,  the  maximum  refrigeration  load  would  be: 
+
+45,000  X  0.87  X  38  =  1,487,700  Btu  per  day 
+
+=  61,988  Btu  per  hour 
+=  5.2  tons  of  refrigeration. 
+
+The  field  heat  calculation  for  the  containers,  which  we  may  assume  to  be 
+orchard  boxes  of  one  bushel  capacity,  weighing  10  pounds  and  having  a 
+specific  heat  of  0.42*  Btu  per  pound,  would  be  1000  x  10  x  0.42  x  38  = 
+159,600  Btu  per  day,  or  6,650  Btu  per  hour.  This  represents  0.6  tons  of  refrig- 
+eration. 
+
+Thus,  under  these  circumstances,  the  total  field  heat  load  is  5.2  +  0.6 
+=  5.8  tons  of  refrigeration. 
+
+Heat  of  respiration  is  an  extremely  variable  portion  of  the  refrigeration 
+load.  The  rate  of  respiration  varies  with  the  kind  and  variety  of  produce, 
+the  storage  temperature,  the  conditions  under  which  the  produce  was  grown, 
+and  its  stage  of  maturity  at  harvest.  Table  6  gives  approximate  values  for  the 
+rate  of  evolution  of  heat  for  various  crops  at  32°,  40°  and  60°  F. 
+
+
+♦This  value  is  for  a  dry  box,  if  it  has  absorbed  any  moisture  this  value  will  increase. 
+
+
+Table  6.  —  Approximate  Rates  of  Evolution  of  Heat  by  Certain  Fresh  Fruits 
+and  Vegetables  When  Stored  at  the  Temperature  Indicated(a) 
+
+Commodity  Rate  of  evolution  of  heat  (Btu  per  ton  per  24  hours) 
+
+32°F(b)  40°F(b)  60°F(b) 
+
+Apples 
+
+Asparagus 
+
+Beans 
+
+Green  or  snap 
+
+Lima 
+
+Beets,  topped 
+
+Blueberries 
+
+Broccoli,  sprouting 
+
+Brussels  sprouts 
+
+Cabbage 
+
+Carrots,  topped 
+
+Cauliflower 
+
+43 
+
+
+900 
+
+1,600 
+
+7,000 
+
+20,000 
+
+5,000 
+
+1 0,000 
+
+40,000 
+
+2,800 
+
+5,000 
+
+25,000 
+
+2,700 
+
+4,100 
+
+7,200 
+
+2,000 
+
+3,500 
+
+1 0,000 
+
+7,500 
+
+17,000 
+
+50,000 
+
+8,000 
+
+11,000 
+
+27,000 
+
+1,200 
+
+1,700 
+
+4,100 
+
+2,100 
+
+3,500 
+
+8,100 
+
+2,000 
+
+4,500 
+
+10,000 
+
+Commodity  Rate  of  evolution  of  heat  (Btu  per  ton  per  24  hours) 
+
+32°F(b)  40°F(b)  60°F(b) 
+
+Celery 1,600  2,400  8,200 
+
+Cherries 1 ,700  2,500  1 2,000 
+
+Corn,  sweet 9,000  1 2,000  38,000 
+
+Cranberries 700  1,000  3,000 
+
+Cucumbers 1,700  2,500  6,000 
+
+Grapes,  American 600  1,200  3,500 
+
+Lettuce,  head 2,300  2,700  8,000 
+
+Lettuce,  leaf 4,500  6,400  1 4,000 
+
+Melons,  cantaloupes 1 ,300  2,000  8,500 
+
+Mushrooms 6,200  1 2,000  46,000 
+
+Onions 1,000  800  2,400 
+
+Oranges{c) 800  1 ,500  5,000 
+
+Peaches 1 ,300  2,000  9,000 
+
+Pears 900  1,700  10,000 
+
+Peas,  green 8,400  1 6,000  44,000 
+
+Peppers,  sweet 2,700  4,700  8,500 
+
+Plums 700  1,500  2,800 
+
+Potatoes,  immature 800  2,600  6,000 
+
+Potatoes,  mature 700  1 ,800  .            2,600 
+
+Raspberries 5,000  8,000  22,000 
+
+Spinach 5,000  1  1 ,000  38,000 
+
+Strawberries 3,800  6,800  20,000 
+
+Sweet  Potatoes 2,400  3,400  6,300 
+
+Tomatoes,  mature  green 600  1,100  6,200 
+
+Tomatoes,  ripe 1 ,000  1 ,300  5,600 
+
+Turnips  (Rutabaga) 1 ,900  2,200  5,300 
+
+(a)  Data  in  this  table  have  been  derived  from  many  sources.  See  References 
+3  and  1  1  5  in  particular. 
+
+(b)  Available  data  were  adjusted  to  these  temperatures  by  interpolation  or 
+extrapolation,  when  not  available  for  the  specific  temperature. 
+
+(c)  Values  for  other  citrus  fruits  are  similar  to  those  for  oranges. 
+
+
+Heat  of  respiration  is  an  important  part  of  the  total  heat  load  in  storages; 
+it  may  also  be  the  cause  of  local  heating  and  rapid  produce  deterioration  if 
+air  movement  is  inadequate.  This  can  occur  wherever  a  fruit  or  vegetable 
+itself  or  a  package  or  a  method  of  storage  prevents  transfer  of  heat  of  respira- 
+tion from  produce.  Thus,  sweet  corn,  or  other  vegetables  in  too  large  a  pile, 
+or  even  boxed  apples  packed  too  tightly  in  storage,  pose  heat  exchange 
+problems. 
+
+Temperature  greatly  affects  the  rate  of  respiration  and  must  be  given 
+special  attention  in  any  calculation  of  the  heat  produced  in  respiration.  The 
+refrigeration  load  due  to  the  heat  of  respiration  changes  when  a  storage  is 
+being  filled  and  cooled.  In  our  example,  if  the  storage  is  loaded  with  apples  in 
+nine  days  at  the  rate  of  a  1000  bushels  (22i/2  tons)  per  day,  if  the  apples  have 
+an  initial  temperature  of  70°  F,  and  if  they  are  cooled  to  32°  F  in  eight  days 
+
+44 
+
+
+(30°  F  in  10  days),  the  respiration  heat  load  will  be  411,000  Btu  on  the  ninth 
+day,  as  shown  in  Table  7.  This  represents  16,800  Btu  per  hour  or  1.4  tons  of 
+refrigeration. 
+
+Table  7.  —  Heat  of  Respiration  of  Apples 
+
+(Data  are  typical  for  a  loading  rate  of  1,000  bushels  daily  with  an  initial  tempera- 
+ture of  70°F  cooled  to  32°F  in  8  days,  in  a  storage  room  of  9,000  bushels  capacity.) 
+
+
+Days  after 
+
+Mean 
+
+Heat  produced  on  successive  d 
+
+ays  of 
+
+Heat  first 
+
+start  of 
+
+Temp. 
+
+loading  (Thousands  of  Btu 
+
+per 
+
+1,000 
+
+day  after 
+
+loading 
+
+(°F) 
+
+bushels  of  apples  per 
+
+■  day) 
+
+1 
+
+oading  (Btu) 
+
+12       3       4       5       6 
+
+7 
+
+8 
+
+9 
+
+1 
+
+62.5 
+
+168  168  168  168  168  168 
+
+168 
+
+168 
+
+168 
+
+56 
+
+2 
+
+48.3 
+
+56    56     56     56    56 
+
+56 
+
+56 
+
+56 
+
+43 
+
+3 
+
+43.5 
+
+43     43     43     43 
+
+43 
+
+43 
+
+43 
+
+36 
+
+4 
+
+39.3 
+
+36     36     36 
+
+36 
+
+36 
+
+36 
+
+25 
+
+5 
+
+36.2 
+
+25     25 
+
+25 
+
+25 
+
+25 
+
+22 
+
+6 
+
+34.4 
+
+22 
+
+22 
+
+22 
+
+22 
+
+21 
+
+7 
+
+33.1 
+
+21 
+
+21 
+
+21 
+
+20 
+
+8 
+
+32.0 
+
+20 
+
+20 
+
+20 
+
+9 
+
+32.0(a) 
+
+20 
+
+20 
+
+Totals 
+
+168  224  267  303  328  350  371 
+
+391 
+
+411 
+
+263 
+
+(a)  If  temperature  were  reduced  to  30°F  this  point  would  be  reached  in  about 
+10  days  with  cooling  at  the  same  rate,  and  would  be  31°F  on  day  9  with  a  respira- 
+tion heat  of  1 9,000  Btu. 
+
+In  an  actual  cooling  operation,  the  mean  temperature  for  each  successive 
+day  would  decrease,  as  noted  in  this  table.  In  our  example,  the  second  day 
+brought  about  a  decrease  in  temperature  from  62.5°  F  to  48.3°  F  with  a 
+reduction  in  daily  heat  production  from  168,000  to  56,000  Btu  for  the  1000 
+bushels  of  apples.  This  represents  a  reduction  of  70  percent  of  the  heat  of 
+respiration  and  emphasizes  the  importance  of  initial  rapid  cooling. 
+
+In  making  a  practical  assessment  of  the  quantity  of  heat  produced  by 
+respiration  it  should  be  remembered  that  the  above  figures  are  calculated 
+from  averages.  It  is  quite  possible  that  the  quantities  produced  by  some  apples 
+may  exceed  the  average  by  60  to  75  percent,  but  it  is  not  likely  that  this  will 
+occur  consistently  throughout  a  whole  loading  period.  However,  these  calcu- 
+lations should  be  modified  if  apples  are  placed  in  storage  at  a  different  tem- 
+perature. Thus,  if  apples  were  stored  at  80°  F  instead  of  70°  F  the  respiration 
+heat  load  would  be  increased  by  30  percent. 
+
+The  data  in  Table  7  represent  an  eight-day  cooling  rate  from  70°  to  32°  F. 
+It  is  quite  feasible  with  modern  equipment  to  cool  apples  or  other  produce 
+in  three  or  four  days.  With  a  four-day  cooling  rate,  the  total  heat  of  respiration 
+would  be  reduced  from  411,000  Btu  to  270,000  Btu  per  day,  representing  a 
+reduction  of  about  35  percent.  Similarly,  if  the  cooling  period  were  longer 
+
+45 
+
+
+than  eight  days,  the  refrigeration  load  would  be  increased.  This  occurs  when 
+the  refrigeration  equipment  is  inadequate  and  the  cooling  of  each  load  is 
+slower;  in  an  extreme  situation  there  might  be  no  reduction  in  produce 
+temperature. 
+
+Total  refrigeration  load  —  The  important  calculation  from  the  storage 
+operator's  standpoint  is  the  total  refrigeration  load.  The  main  components  of 
+this  calculation  have  been  illustrated  with  our  example  of  an  apple  storage 
+having  9,000-bushel  capacity  insulated  in  a  "standard"  manner  and  loaded 
+at  a  rate  of  1000  bushels  per  day  with  fruit  having  an  average  temperature  of 
+70°  F,  the  average  outside  temperature  being  the  same. 
+
+In  summary,  the  calculations  show: 
+
+Heat  Leakage:    0.9  tons  of  refrigeration 
+Field  Heat:  5.8  tons  of  refrigeration 
+
+Respiration:         1.4  tons  of  refrigeration 
+
+Total:  8.1  tons  of  refrigeration 
+
+This  represents  refrigeration  requirements  without  any  surplus.  It  is 
+customary  to  add  at  least  10  percent  for  exigencies.  In  our  example  this 
+would  bring  the  requirement  to  10  tons  of  refrigeration.  A  larger  storage, 
+with  a  proportionate  increase  in  loading  time,  would  increase  the  ratio  of 
+heat  leakage  to  other  heat  sources.  Field  heat,  always  the  largest  load  com- 
+ponent, is  proportional  to  loading  rate. 
+
+
+46 
+
+
+REFERENCES 
+
+
+1 .    Allen,  F.  W.  The  harvesting  and  handling 
+
+of  fall  and  winter  pears.  Bull.  Calif,  agric. 
+
+Exp.  Stn.  533.  1932.  46  p. 
+2 ,  W.  R.  Redit,  and  W.  T.  Pentzer. 
+
+Apples,  pears  and  grapes.  In  Air  Condit. 
+
+Refrigng  Data  Book,  Applications  Vol. 
+
+5th  ed.  1955.  chap.  19. 
+
+3.  American  Society  of  Heating,  Refrigerat- 
+ing, and  Air  Conditioning  Engineers  Inc. 
+Commodity  storage  requirements.  In 
+ASHRAE  Guide  and  Data  Book;  Ap- 
+plications. New  York.  1962.  p.  483-494. 
+
+4.  Appleman,  C.  O.,  and  J.  M.  Arthur. 
+Carbohydrate  metabolism  in  green  sweet 
+corn  during  storage  at  different  tempera- 
+tures. J.  agric.  Res.  17:  137-152.  1919. 
+
+5.  Atkinson,  F.  E.,  and  D.  V.  Fisher.  Har- 
+vesting, storing  and  ripening  Bartlett 
+pears  for  canning.  Can.  Food  Ind.  25(4) : 
+37-38.  1953. 
+
+6.  Barker,  J.,  and  T.  N.  Morris.  The  storage 
+of  asparagus.  Rep.  Food  Invest.  Bd. 
+1936.  p.  172-173. 
+
+7.  Brooks,  C,  J.  S.  Cooley,  and  D.  F. 
+Fisher.  Diseases  of  apples  in  storage. 
+Farmers'  Bull.  U.S.  Dep.  Agric.  1160. 
+1935.  20  p. 
+
+8.  Burton,  W.  G.  Suppression  of  potato 
+sprouting  in  buildings.  Agriculture,  Lond. 
+65:  299-305.  1958. 
+
+9 ,  T.  Home,  and  D.  B.  Powell. 
+
+The  effect  of  gamma  irradiation  upon  the 
+sugar  content  of  potatoes.  Eur.  Potato  J. 
+27:  105-116.  1959. 
+
+10.  Campbell,  John  C,  Ed.  Potato  Handb. 
+7.  1962.  80  p. 
+
+11.  Canadian  Farm  Buildings  Plan  Service. 
+Catalogue  of  plans  —  fruit  and  vegetable 
+buildings  and  equipment.  Ottawa, 
+Queen's  Printer,  1964.  44  p. 
+
+12.  Chapman,  H.  W.  Post  harvest  physiology 
+of  potatoes  for  processing.  Potato  Handb. 
+7:48-52.  1962. 
+
+13.  Cloutier,  J.  A.  R.,  Marilyn  G.  Clay, 
+Jane  M.  Manson,  and  L.  E.  Johnson. 
+Effect  of  storage  on  the  carbohydrate  con- 
+tent of  two  varieties  of  potatoes  grown 
+in  Canada  and  treated  with  gamma  radia- 
+tion. Food  Res.  24(6):  659-664.  1959. 
+
+
+14.  Cook,  Harold  T.,  and  W.  T.  Pentzer. 
+Supplements  to  refrigeration.  In  Air 
+Condit.  Refrigng  Data  Bk;  Applications 
+Vol.  5th  ed.  1955.  chap.  25. 
+
+15.  Dewey,  D.  H.,  W.  E.  Ballinger,  and  I.  J. 
+Pflug.  Progress  report  on  the  controlled- 
+atmosphere  storage  of  Jonathan  apples. 
+Q.  Bull.  Mich.  State  Univ.  agric.  Exp. 
+Stn  39:  691-700.  1957. 
+
+16.  Eaves,  C.  A.  The  storage  and  shipment 
+of  fruit  in  modified-atmosphere  bulk  bins. 
+J.  hort.  Sci.  38:  214-221.   1963. 
+
+17 A  dry  scrubber  for  CA  apple 
+
+storages.  Trans.  Am.  Soc.  agric.  Engrs. 
+2(1):  127-128.  1959. 
+
+18 ,  and  H.  Hill.  Functional  dis- 
+orders of  apples.  Dep.  Agric.  Can.  Pub. 
+694.  (Tech.  Bull.  Dep.  Agric.  Can.  28). 
+1940. 
+
+19 ,  F.  R.  Forsyth,  J.  S.  Leefe,  and 
+
+C.  L.  Lockhart.  Effect  of  varying  con- 
+centrations of  oxygen  with  and  without 
+CO2  on  senescent  changes  in  stored  Mc- 
+intosh apples  grown  under  two  levels  of 
+nitrogen  fertilization.  Can.  J.  Plant  Sci. 
+44:  458-465.  1964. 
+
+20.  Edney,  K.  L.  Some  factors  affecting  the 
+rotting  of  stored  apples  by  Gloeosporium 
+spp.  Ann.  appl.  Biol.  53 : 1 19-127. 1964. 
+
+21.  Fidler,  J.  C.  Scald  and  weather.  Food 
+Sci.  Abstr.  28(6):  545-554.  1957. 
+
+22 ,  and  J.  R.  H.  Nash-Wortham. 
+
+Ripening  of  tomatoes.  J.  hort.  Sci.  25: 
+183-189.  1950. 
+
+23.  Fisher,  D.  F.,  C.  P.  Hurley,  and  C. 
+Brooks.  The  influence  of  temperature  on 
+the  development  of  water  core.  Proc.  Am. 
+Soc.  hort.  Sci.  27:  276-280.  1930. 
+
+24.  Fisher,  D.  V.  A  three  year  study  of 
+maturity  indices  for  harvesting  Italian 
+prunes.  Proc.  Am.  Soc.  hort.  Sci.  37: 
+183-186.  1939. 
+
+25 Mealiness   and    quality    of 
+
+Delicious  apples  as  affected  by  growing 
+conditions.  Scient.  Agric.  23:  569-588. 
+1943. 
+
+26 ,  and  J.  E.  Britton.  Maturity 
+
+and  storage  studies  with  peaches.  Scient. 
+Agric.  21:  1-17.  1940. 
+
+
+47 
+
+
+27 ,  and  J.  E.  Britton.  Maturity 
+
+studies  with  sweet  cherries.  Scient.  Agric. 
+29:  497-503.  1940. 
+
+28 ,   J.    E.    Britton,   and    H.   J. 
+
+O'Reilly.  Peach  harvesting  and  storage 
+investigations.  Scient.  Agric.  24:  1-15. 
+1943. 
+
+29 ,  R.  C.  Palmer,  and  S.  W. 
+
+Porritt.  Pear  harvesting  and  storage  in 
+British  Columbia.  Dep.  Agric.  Can.  Pub. 
+895.  1953.  22  p. 
+
+30 ,   and   S.   W.   Porritt.   Apple 
+
+harvesting  and  storage  in  British  Colum- 
+bia. Dep.  Agric.  Can.  Pub.  724.  1951. 
+47  p. 
+
+31 ,   and   S.   W.   Porritt.   Some 
+
+recent  studies  in  late  harvesting  and 
+delayed  cold  storage  of  Bartlett  pears. 
+Proc.  Am.  Soc.  hort.  Sci.  65:  223-230. 
+1955. 
+
+32 ,  and  S.  W.  Porritt.  Influence  of 
+
+degree  of  maturity  of  harvest  and  length 
+of  delay  between  orchard  and  storage 
+upon  keeping  life  of  Bartlett  pears  at  32  °F. 
+9th  Int.  Congr.  Refrig.  Inds  Vol.  2,  4.217- 
+4.223.  1955. 
+
+33.  Franklin,  E.  W.  The  waxing  of  turnips  for 
+the  retail  market.  Dep.  Agric.  Can.  Pub. 
+1120.  1961.  4  p. 
+
+34.  Gerhardt,  F.,  and  H.  English.  Ripening 
+of  the  Italian  prune  as  related  to  maturity 
+and  storage.  Proc.  Am.  Soc.  hort.  Sci.  46: 
+205-209.  1945. 
+
+35 ,  and  A.  Lloyd  Ryall.  The  storage 
+
+of  sweet  cherries  as  influenced  by  carbon 
+dioxide  and  volatile  fungicides.  Tech.  Bull. 
+U.S.  Dep.  Agric.  631.  1939.  20  p. 
+
+36.  Gray,  Harold  E.  Farm  refrigerated  stor- 
+ages. Cornell  Ext.  Bull.  786.  1950.  48  p. 
+
+37.  Hall,  C.  B.  The  eff'ect  of  low  storage 
+temperatures  on  the  color  carotinoid  pig- 
+ments, shelf-life  and  firmness  of  ripened 
+tomatoes.  Proc.  Am.  Soc.  hort.  Sci.  78: 
+480-487.  1961. 
+
+38.  Haller,  Mark  H.  Fruit  pressure  testers  and 
+their  practical  application.  Washington, 
+D.C.,  Circ.  U.S.  Dep.  Agric.  627.  1941. 
+22  p. 
+
+39.  Hardenburg,  R.  E.,  and  R.  E.  Anderson. 
+Chemical  control  of  scald  on  apples  grown 
+in  eastern  United  States.  Mktg  Res.  Rep. 
+U.S.  Dep.  Agric.  538.  1962.  48  p. 
+
+40.  Harvey,  John  M.,  and  W.  T.  Pentzer. 
+Market  diseases  of  grapes  and  other  small 
+fruits.  Agric.  Handb.  Mktg  Serv.  U.S. 
+189.   1960.  37  p. 
+
+41.  Heald,  F.  D.,  and  G.  D.  Ruehle.  Fungal 
+
+
+wastage.  Bull.  Wash,  agric.  Exp.  Stn.  253. 
+1931.48  p. 
+
+42.  Heinze,  P.  N.,  and  others.  Storage  and 
+transportation  of  potatoes.  Potato  Handb. 
+9:  30-34.  1964. 
+
+43.  Hill,  H.,  and  others.  The  relation  of 
+foliage  analysis  to  keeping  quality  of 
+Mcintosh  and  Spy  varieties  of  apples.  Sci. 
+Agric.  30:  518-534.  1950. 
+
+44.  Hoff"man,  I.,  and  R.  B.  Carson.  Deter- 
+mination and  distribution  of  maleic  hydra- 
+zide  in  vegetables  and  fruit.  J.  Ass.  off", 
+agric.  Chem.  45:  788-789.  1962. 
+
+45.  Hudek,  E.  P.  Storage  requirements  of 
+potatoes.  Proc.  Can.  Potato  Ind.  Conf. 
+(processed)  7.  1964.  p.  77-83. 
+
+46.  Hudson,  Walter  A.  Sweet  corn.  New 
+York,  Interscience  Publishers  Inc.,  1954. 
+409  p.  (Economic  Crops  .Vol.  4) 
+
+47.  Isenberg,  F.  M.,  and  J.  K.  Ang.  Northern 
+grown  onions  —  curing,  storing  and  in- 
+hibiting sprouting.  Cornell  Ext.  Bull. 
+1116:  1963.  15  p. 
+
+48.  Jones,  H.  H.,  J.  G.  Desmarais,  and  K.  E. 
+Winfield.  How  efficient  are  fungicidal 
+paints?  Can.  Paint  Varn.  Mag.  30(5): 
+30-35,  52-54.   1956. 
+
+49.  Kasmire,  R.  F.,  and  A.  F.  Van  Maren. 
+Facts  on  hydrocooling  sweet  corn.  Univ. 
+Calif.  Agric.  Ext.  Serv.  AXT-12  (pro- 
+cessed), 1961.  9  p. 
+
+50.  Kidd,  Franklin,  and  Cyril  West.  The  re- 
+frigerated gas-storage  of  apples.  Food 
+Invest.  Leafl.  6.  1936.  12  p. 
+
+51 ,  and  Cyril  West.  The  refrig- 
+erated gas-storage  of  pears.  Food  Invest. 
+Leafl.  12.  1949.  12  p. 
+
+52.  King,  E.  M.  Swede  turnip  culture.  Hort. 
+Circ.  B.C.  85.  1959.  7  p. 
+
+53 Storage   onions.    Hort.    Circ. 
+
+B.C.  90.  1961.  6  p. 
+
+54 Asparagus  production  in  British 
+
+Columbia.  Hort.  Circ.  B.C.  96.  1962.  8  p. 
+
+55.  Lentz,  C.  P.,  and  E.  A.  Rooke.  Rates  of 
+moisture  loss  of  apples  under  refrigerated 
+storage  conditions.  Food  Technol.,  Cham- 
+paign 18(8):  119-121.  1964. 
+
+56 ,  and  E.  A.  Rooke.  Use  of  the 
+
+jacketed  room  system  for  cool  storage. 
+Food  Technol.  Champaign  11(5):  257- 
+259.  1957. 
+
+57.  Lott,  Richard.  Some  spectral  curves  of 
+maturing  apples.  Proc.  Am.  Soc.  hort. 
+Sci.  43:  59-62.  1943. 
+
+58.  Mattus,  G.  E.,  and  F.  M.  Hassen.  Peach 
+decay  control  with  hot  water  treatments. 
+Virginia  Fruit  51(7):  35-36.  July  1963. 
+
+59.  Miller,  Erston  V.,  and  Charles  Brooks. 
+
+
+48 
+
+
+Effect  of  carbon  dioxide  content  of  stor- 
+age atmosphere  on  carbohydrate  trans- 
+formation in  certain  fruits  and  vegetables. 
+J.  agric.  Res.  453:  449-459.  1932. 
+
+60.  McMechan,  A.  D.,  and  D.  V.  Fisher.  The 
+bulk  bin  method  of  handling  of  fruit. 
+Can.  J.  Plant  Sci.  38:  440-444.  1958. 
+
+61.  Nuttall,  V.  W.,  L.  H.  Lyall,  and  K.  F. 
+MacQueen.  Some  effects  of  gamma  radia- 
+tion on  stored  onions.  Can.  J.  Plant  Sci. 
+41:  805-813.  1961. 
+
+62.  Ogle,  W.  H.,  and  E.  P.  Christopher.  The 
+influence  of  maturity  temperature  and 
+duration  of  storage  on  quality  of  canta- 
+loupes. Proc.  Am.  Soc.  hort.  Sci.  70: 
+319-324.  1957. 
+
+63.  Ontario  Agricultural  College.  Potato  pro- 
+duction in  Ontario.  Dep.  Agric.  Ont.  Pub. 
+534.  1960.  64  p. 
+
+64.  Ontario  Agricultural  College.  Table  tur- 
+nips (rutabagas).  Dep.  Agric.  Ont.  Pub. 
+502.  1960.  14  p. 
+
+65.  Parks,  N.  M.  Gamma  irradiation  of 
+potatoes;  storage  tests.  In  Gamma  Irra- 
+diation in  Canada.  Ottawa,  Atomic  Energy 
+of  Canada  Ltd.,  1960.  p.  18-23. 
+
+66.  Patterson,  Max  E.,  and  J.  Milton  Work- 
+man. The  influence  of  O2  and  CO2  on 
+the  development  of  apple  scald.  Proc. 
+Am.  Soc.  hort.  Sci.  80:  130-135.  1962. 
+
+67.  Pentzer,  W.  T.,  and  F.  W.  Allen.  Ripening 
+and  breakdown  of  plums  as  influenced 
+by  storage  temperature.  Proc.  Am.  Soc. 
+hort.  Sci.  44:  148-156.  1944. 
+
+68 ,   R.  L.  Perry,  G.  C.   Hanna, 
+
+J.  S.  Wiant,  and  C.  E.  Asbury.  Precool- 
+ing  and  shipping  California  asparagus. 
+Bull.  Calif,  agric.  Exp.  Stn.  600.  1936. 
+45  p. 
+
+69.  Phillips,  W.  R.  Construction  and  opera- 
+tion of  a  home  storage  for  fruits  and 
+vegetables.  Dep.  Agric.  Can.  Pub.  743 
+rev.  1957.  15  p. 
+
+70 Gamma  irradiation  of  apples. 
+
+Can.  Food  Ind.  34(8):  38-40.  1963. 
+
+71 ,  F.  S.  Browne,  and  P.  A.  Poapst. 
+
+Precooling  celery.  Can.  Refrig.  J.  18(1): 
+19-23.  1952. 
+
+72 ,  C.  P.  Lentz,  and  E.  A.  Rooke. 
+
+The  use  of  the  jacketed  room  system  for 
+the  storage  of  apples.  Can.  Refrig.  Air 
+Condit.  27(12):  20-23.  1961. 
+
+73 ,  K.  F.  MacQueen,  and  P.  A. 
+
+Poapst.  The  effect  of  irradiation  on  the 
+development  of  storage  disorders  of 
+apples.  10  Int.  Congr.  Refrig.  Inds  3: 
+176-180.  1959. 
+
+74 ,  and  N.  M.  Parks.  Potato  stor- 
+
+
+age. Dep.  Agric.  Can.  Pub.  882.  1957. 
+18  p. 
+
+75 ,  and  P.  A.  Poapst.  Storage  of 
+
+apples.  Dep.  Agric.  Can.  Pub.  776  rev. 
+1952.  43  p.  and  supplement:  Controlled 
+atmosphere  storage  of  apples.  1959.  17  p. 
+
+76 ,  and  P.  A.  Poapst.  Starch  test 
+
+guide  for  harvesting  Mcintosh  apples. 
+Extract  from  Dep.  Agric.  Can.  Pub.  776 
+(processed)  rev.  1960.  2  p. 
+
+77 ,    P.   A.   Poapst,   and    B.   J. 
+
+Rheaume.  The  effect  of  temperature  near 
+32°  F  on  the  storage  behaviour  of  Mcin- 
+tosh apples.  Proc.  Am.  Soc.  hort.  Sci.  65: 
+214-222.  1955. 
+
+78 ,  and  P.  A.  Poapst.  Low  temper- 
+ature research.  In  Prog.  Rep.  hort.  Div. 
+exp.  Farms  Serv.  Can.  1944-58.  1961. 
+p.  79-97. 
+
+79.  Platenius,  H.  Wax  emulsions  for  vege- 
+tables. Bull.  Cornell  Univ.  agric.  Exp. 
+Stn.  723.  1939.43  p. 
+
+80.  Poapst,  P.  A.,  G.  M.  Ward,  and  W.  R. 
+Phillips.  Maturation  of  Mcintosh  apples 
+in  relation  to  starch  loss  and  abscission. 
+Can.  J.  Plant  Sci.  39:  257-263.  1959. 
+
+81.  Porritt,  S.  W.  The  effect  of  temperature 
+on  post  harvest  physiology  and  storage 
+life  of  pears.  Can.  J.  Plant  Sci.  44:  568- 
+579.  1964. 
+
+82 Effect  of  cooling  rate  on  stor- 
+age life  of  pears.  Can.  J.  Plant.  Sci.  45: 
+90-97.  1965. 
+
+83 .,    A.    D.    McMechan,   and    K. 
+
+Williams.  Note  on  a  floatation  method 
+for  segregation  of  water  core  apples.  Can. 
+J.  Plant  Sci.  43:  600-602.  1963. 
+
+84.  Ramsey,  Glen  B.,  R.  A.  Friedman,  and 
+M.  A.  Smith.  Market  diseases  of  beets, 
+chicory,  endive,  escarole,  globe  artichokes, 
+lettuce,  rhubarb,  spinach  and  sweet  pota. 
+toes.  Agric.  Handb.  MktgServ.  U.  S.  155- 
+1959.  42  p. 
+
+85 ,  and  M.  A.  Smith.  Market  dis- 
+eases of  cabbage,  cauliflower,  melons  and 
+related  crops.  Agric.  Handb.  Mktg  Serv. 
+U.S.  184.  1961.  49  p. 
+
+86 ,  James  S.  Wiant,  and  Leacy  P. 
+
+McColloch.  Market  diseases  of  tomatoes, 
+peppers  and  eggplants.  Agric.  Handb. 
+U.S.  Dep.  Agric.  28.  1952.  43  p. 
+
+87 ,  James  S.  Wiant,  and  Marion 
+
+B.  Smith.  Market  diseases  of  fruits  and 
+vegetables  —  potatoes.  Misc.  Pubis  U.S. 
+Dep.  Agric.  98.  rev.  1949.  60  p. 
+
+88.  Redit,  W.  H.,  and  A.  A.  Hamer.  Protec- 
+tion of  rail  shipments  of  fruits  and  vege- 
+
+
+49 
+
+
+tables.  Agric.  Handb.  Mktg  Serv.  U.S. 
+195.  1961.  108  p. 
+
+89.  Richardson,  L.  T.,  and  W.  R.  Phillips. 
+Low  temperature  breakdown  of  potatoes 
+in  storage.  Scient.  Agric.  29:  149-166. 
+1949. 
+
+90.  Rose,  Dean  H.  Handling,  storage,  trans- 
+portation, and  utilization  of  potatoes. 
+U.S.  Dep.  Agric.  Bibliographical  Bull.  11. 
+1949.  163  p. 
+
+91 ,  L.  P.  McColloch,  and  D.  F. 
+
+Fisher.  Market  diseases  of  fruits  and 
+vegetables  —  apples,  pears  and  quinces. 
+Misc.  Pubis  U.S.  Dep.  Agric.  168.  1951. 
+72  p. 
+
+92.  Sawyer,  R.  L.  Chemical  sprout  inhibitors. 
+In  Potato  Handb.  7:  5-9.  1962. 
+
+93.  Schales,  Franklin  D.,  and  F.  M.  Isenberg. 
+The  effect  of  curing  and  storage  on  chem- 
+ical composition  and  taste  acceptability 
+of  winter  squash.  Proc.  Am.  Soc.  hort. 
+Sch  83:  667-674.  1963. 
+
+94.  Scott,  L.  E.,  and  J.  E.  Hawes.  Storage  of 
+vine-ripened  tomatoes.  Proc.  Am.  Soc. 
+hort.  Sci.  52:  393-398.  1948. 
+
+95.  Smith,  W.  Hugh.  The  comrr^ercial  storage 
+of  vegetables.  Food  Invest.  Leafl.  15. 
+1952.  8  p. 
+
+96.  Smock,  R.  M.  Controlled  atmosphere 
+storage  of  apples.  Cornell  Ext.  Bull.  759. 
+rev.  1958.  36  p. 
+
+97 The  storage  of  apples.  Cornell 
+
+Ext.  Bull.  440.  1940.  38  p. 
+
+98 A  new  method  for  scald  con- 
+trol. Am.  Fruit  Grow.  Mag.  75(11):  20. 
+1955. 
+
+99 ,  and  A.   M.   Neubert.  Apples 
+
+and  apple  products.  New  York,  Inter- 
+science  Publishers,  Inc.  1950.  486  p.  (Eco- 
+nomic Crops  Vol.  2) 
+
+100.  Southwick,  F.  W.,  and  Melvin  Hurd. 
+Harvesting,  handling  and  packing  apples. 
+Cornell  Ext.  Bull.  750.  1948.  37  p. 
+
+101 .  Strachan,  C.  C.  Quality  of  canned  peaches 
+affected  by  maturity,  ripening  and  storage. 
+Can.  Food  Ind.  27(7):  20-21,  23.  1956. 
+
+102.  Toko,  Harvey  V.,  and  Edward  F.  John- 
+ston. Effects  of  storage  on  post  harvest 
+physiology  of  potatoes  used  as  table  stock 
+and  seed.  Potato  Handb.  7:  10-17.  1962. 
+
+103.  Townsley,  P.  M.  Eliminate  conditioning 
+period  in  chip  manufacture.  Can.  Food 
+Ind.  23(6):  26-29.  1952. 
+
+
+104.  Truscott,  J.  H.  L.  Storage  root  rot  of 
+celery.  In  Rep.  hort.  Exp.  Stn  Prod.  Lab. 
+Vineland  1953-1954.  (Toronto,  1954.)  p. 
+122-127. 
+
+105 Peach  cooling  in  the. Niagara 
+
+area.  In  Rep.  hort.  Exp.  Stn  Prod.  Lab. 
+Vineland  1955-1956.  (Toronto,  1956.)  p. 
+106-111. 
+
+106 Bartlett  and  Bosc  pears  in  con- 
+trolled atmosphere  (gas)  storage.  In  Rep. 
+hort.  Exp.  Stn  Prod.  Lab.  Vineland  1959- 
+1960.  (Toronto  1960.)  p.  113-114. 
+
+107 ,  and  Lloyd  Brubacher.  Tomato 
+
+storage.  In  Rep.  hort.  Exp.  Stn  Prod.  Lab. 
+Vineland  1963.  (Toronto,  1963.)  p.  61-67. 
+
+108.  Thompson,  Ross  C.  Asparagus  culture. 
+Farmers'  Bull.  U.S.  Dep.  Agric.  1646  rev. 
+1954.  22  p. 
+
+109.  Twiss,  P.T.G.  Quality  as  influenced  by 
+harvesting  and  storage.  In  The  Growth 
+of  the  potato.  Edited  by  J.  D.  Ivins  and 
+F.  L.  Milthorpe.  London,  Butterworths, 
+1963.  p.  281-291. 
+
+110.  Uota,  M.  Temperature  studies  on  the 
+development  of  anthocyanin  in  Mcintosh 
+apples.  Proc.  Am.  Soc.  hort.  Sci.  59: 
+231-237.  1952. 
+
+111.  Weir,  F.  J.  Home  storage  of  vegetables. 
+Manitoba  Dep.  Agric.  Pub.  297.  1957.  8  p. 
+
+112.  Whiteman,  T.  M.  Freezing  points  of 
+fruits,  vegetables,  and  florist  stocks.  Mktg 
+Res.  Rep.  U.S.  Dep.  Agric.  1 96. 1957. 32  p. 
+
+113.  Wright,  R.  C,  and  others.  Commodity 
+storage  requirements.  In  Air  Condit.  Re- 
+frigng  Data  Book;  Applications  Vol.  5th 
+ed.  1955.  chap.  18. 
+
+1 14 ,  and  others.  Effect  of  various 
+
+temperatures  on  the  storage  and  ripening 
+of  tomatoes.  Tech.  Bull.  U.S.  Dep.  Agric. 
+268.  1931.  35  p. 
+
+115 ,  Dean  H.  Rose,  and  T.  M.  White- 
+man.  The  commercial  storage  of  fruits, 
+vegetables  and  florist  and  nursery  stocks. 
+Agric.  Handb.  U.S.  Dep.  Agric.  66.  1963. 
+77  p. 
+
+116.  Yamaguchi,  M.,  Harlan  K.  Pratt,  and 
+Leonard  L.  Morris.  Effect  of  storage 
+temperatures  on  keeping  quality  of  onion 
+bulbs  and  on  subsequent  darkening  of 
+dehydrated  flakes.  Proc.  Am.  Soc.  hort. 
+Sci.  69:  421-426.  1957. 
+
+
+50 
+
+
+LIBRARY/BIBLIOTHEQUE 
+
+
+AGRICULTURE    CANADA    OTTAWA    KIA    0C5 
+
+3    =1073    0007QET7    =1 
+
+
+First  Printed  1967 
+
+Reprinted  1969 
+
+
+Copies  of  this  publication  may  be  obtained  from: 
+INFORMATION  DIVISION 
+
+CANADA  DEPARTMENT  OF  AGRICULTURE 
+
+OTTAWA 
+
+
+ROGER  DUHAMEL.  FRSC,  QUEEN'S   PRINTER   AND  CONTROLLER  OF  STATIONERY,  OTTAWA.  1967 
+
+10M-34B79-1:69  CAT.NO.AS3-1260 
+
+

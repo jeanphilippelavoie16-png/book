@@ -1,0 +1,49 @@
+1. J Anim Sci. 2010 Sep;88(9):3084-106. doi: 10.2527/jas.2009-2683. Epub 2010 May
+ 7.
+
+Mapping of intramuscular tenderness and muscle fiber orientation of muscles in 
+the beef round.
+
+Senaratne LS(1), Calkins CR, de Mello AS Jr, Pokharel S, Hinkle JB.
+
+Author information:
+(1)Department of Animal Science, University of Nebraska, Lincoln, NE 68583-0908, 
+USA.
+
+Intramuscular tenderness variation and muscle fiber orientation of beef M. 
+adductor femoris (AF), M. biceps femoris (BF), M. gracilis (GL), M. pectineus 
+(PT), M. sartorius (SR), M. semimembranosus (SM), M. semitendinosus (SO), M. 
+vastus intermedius (VI), M. vastus medialis (VM), and M. vastus lateralis (VL) 
+were investigated. The USDA Choice boxed beef subprimals were purchased and aged 
+for 14 d from boxed date. The AF, BF, GL, PT, SR, SM, SO, VI, VM, and VL (n = 10 
+each) were fabricated from subprimals. Crust-frozen AF, BF, SO, SM, and VL were 
+cut into 2.54-cm steaks perpendicular to the long axis and grilled (71 degrees 
+C). The PT, SR, VI, and VM were grilled (71 degrees C) as whole muscles, whereas 
+the GL was grilled after cutting into anterior and posterior regions. Grilled 
+muscles were cut into equal size sections perpendicular to long axis of muscles. 
+Location-specific cores were prepared from each steak/section, and 
+Warner-Bratzler shear force (WBSF) was measured. The muscle fiber orientations 
+of BF, PT, and VI were bipennate, SR and SO were fusiform, and AD, SM, VL, GL, 
+and VM were unipennate. The overall mean WBSF values for BF, SO, AF, SM, PT, SR, 
+GL, VI, VM, and VL were 5.62, 4.86, 4.18, 4.90, 3.76, 4.44, 4.75, 4.78, 4.24, 
+and 6.53 kg, respectively. Based on WBSF values, PT was tender, BF and VL were 
+tough, and VM, VI, SM, GL SR, AF, and SO were intermediate. The first 2 proximal 
+steaks of long head BF were more tender than the rest (P < 0.05). In the SO, the 
+tenderness decreased from the middle of the muscle to both ends (P < 0.05). The 
+anterior sides of the long head BF and SO were tougher than their posterior 
+sides (P < 0.05).The first 4 steaks of the SM were more tender than the rest of 
+the muscle (P < 0.05). There was a significant tenderness increment from the 
+middle of the AF and SR to both ends of each muscle (P < 0.05). The medial side 
+of the VI was more tender than its lateral side (P < 0.05). The VM had its 
+smallest shear force value at the most distal end compared with the rest (P < 
+0.05). Dry or moist heat oven roasting, as compared with grilling, significantly 
+tenderized SO (P = 0.002) and VL (P < 0.0001) muscles. There were no significant 
+WBSF value differences along the PT and between anterior and posterior regions 
+of the GL. Based on WBSF ratings, PT, SR, VM, GL, and VI could be merchandized 
+as single muscle steaks or medallions and the first 2 to 4 steaks of long head 
+BF, SM, and AF could be marketed as premium-quality steaks. This detailed 
+information on intramuscular tenderness and muscle fiber orientation variations 
+of the round muscles could be used in a value added strategy for the beef round.
+
+DOI: 10.2527/jas.2009-2683
+PMID: 20453083 [Indexed for MEDLINE]

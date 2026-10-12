@@ -1,0 +1,50 @@
+1. J Exp Biol. 2003 Oct;206(Pt 19):3405-23. doi: 10.1242/jeb.00583.
+
+Blubber and buoyancy: monitoring the body condition of free-ranging seals using 
+simple dive characteristics.
+
+Biuw M(1), McConnell B, Bradshaw CJ, Burton H, Fedak M.
+
+Author information:
+(1)Sea Mammal Research Unit, Gatty Marine Laboratory, University of St Andrews, 
+St Andrews, Fife KY16 8LB, Scotland, UK. emb7@st-and.ac.uk
+
+Elephant seals regularly perform dives during which they spend a large 
+proportion of time drifting passively through the water column. The rate of 
+vertical change in depth during these "drift" dives is largely a result of the 
+proportion of lipid tissue in the body, with fatter seals having higher (more 
+positive or less negative) drift rates compared with leaner seals. We examined 
+the temporal changes in drift rates of 24 newly weaned southern elephant seal 
+(Mirounga leonina) pups during their first trip to sea to determine if this 
+easily recorded dive characteristic can be used to continuously monitor changes 
+in body composition of seals throughout their foraging trips. All seals 
+demonstrated a similar trend over time: drift rates were initially positive but 
+decreased steadily over the first 30-50 days after departure (Phase 1), 
+corresponding to seals becoming gradually less buoyant. Over the following 
+approximately 100 days (Phase 2), drift rates again increased gradually, while 
+during the last approximately 20-45 days (Phase 3) drift rates either remained 
+constant or decreased slightly. The daily rate of change in drift rate was 
+negatively related to the daily rate of horizontal displacement (daily travel 
+rate), and daily travel rates of more than approximately 80 km were almost 
+exclusively associated with negative changes in drift rate. We developed a 
+mechanistic model based on body compositions and morphometrics measured in the 
+field, published values for the density of seawater and various body components, 
+and values of drag coefficients for objects of different shapes. We used this 
+model to examine the theoretical relationships between drift rate and body 
+composition and carried out a sensitivity analysis to quantify errors and biases 
+caused by varying model parameters. While variations in seawater density and 
+uncertainties in estimated body surface area and volume are unlikely to result 
+in errors in estimated lipid content of more than +/-2.5%, variations in drag 
+coefficient can lead to errors of >or =10%. Finally, we compared the lipid 
+contents predicted by our model with the lipid contents measured using 
+isotopically labelled water and found a strong positive correlation. The 
+best-fitting model suggests that the drag coefficient of seals while drifting 
+passively is between approximately 0.49 (roughly corresponding to a 
+sphere-shaped object) and 0.69 (a prolate spheroid), and we were able to 
+estimate relative lipid content to within approximately +/-2% lipid. Our results 
+suggest that this simple method can be used to estimate the changes in lipid 
+content of free-ranging seals while at sea and may help improve our 
+understanding of the foraging strategies of these important marine predators.
+
+DOI: 10.1242/jeb.00583
+PMID: 12939372 [Indexed for MEDLINE]

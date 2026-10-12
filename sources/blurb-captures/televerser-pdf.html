@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <!-- v27985 -->
+
+
+  <title>How to upload a PDF to Blurb through PDF to Book &ndash; Help Center</title>
+
+  
+
+  <meta name="description" content="Use this article if you’ve created your PDF in a tool outside of the Blurb plug-in for Adobe InDesign. If you’re using Adobe InDesign,..." /><meta property="og:image" content="https://support.blurb.com/hc/theming_assets/01HZH1Y3GCRAGPA3YP59RA59RS" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Help Center" />
+<meta property="og:title" content="How to upload a PDF to Blurb through PDF to Book" />
+<meta property="og:description" content="Use this article if you’ve created your PDF in a tool outside of the Blurb plug-in for Adobe InDesign. If you’re using Adobe InDesign, use the Blurb plug-in instead. See: Get started with the Blurb..." />
+<meta property="og:url" content="https://support.blurb.com/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book" />
+<link rel="canonical" href="https://support.blurb.com/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book">
+<link rel="alternate" hreflang="de" href="https://support.blurb.com/hc/de/articles/207792796-Eine-bestehende-PDF-Datei-nach-Blurb-hochladen">
+<link rel="alternate" hreflang="en-us" href="https://support.blurb.com/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book">
+<link rel="alternate" hreflang="es" href="https://support.blurb.com/hc/es/articles/207792796-Cargar-un-PDF-en-Blurb">
+<link rel="alternate" hreflang="fr" href="https://support.blurb.com/hc/fr/articles/207792796-T%C3%A9l%C3%A9charger-un-PDF-existant-sur-Blurb">
+<link rel="alternate" hreflang="it" href="https://support.blurb.com/hc/it/articles/207792796-Caricamento-di-un-PDF-esistente-su-Blurb">
+<link rel="alternate" hreflang="nl" href="https://support.blurb.com/hc/nl/articles/207792796-Het-uploaden-van-een-bestaande-PDF-naar-Blurb">
+<link rel="alternate" hreflang="pt-br" href="https://support.blurb.com/hc/pt-br/articles/207792796-Carregando-um-PDF-existente-para-a-Blurb">
+<link rel="alternate" hreflang="x-default" href="https://support.blurb.com/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book">
+
+  <link rel="stylesheet" href="//static.zdassets.com/hc/assets/application-12c9306025bef7a9722589b3210823ae.css" media="all" id="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/hc/theming_assets/219826/191604/style.css?digest=47096459677453">
+
+  <link rel="icon" type="image/x-icon" href="/hc/theming_assets/01HZH1Y3CFJ3XAZCR7VX123TVY">
+
+    
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<script type="text/javascript">window.Theme = Object.assign(window.Theme || {}, { assets: {}, locale: "en-us", signedIn: false });</script>
+<script type="text/javascript" src="/hc/theming_assets/01J428GWKB2J75EJWB3P1AXFVF"></script>
+
+
+<link rel="stylesheet" href="/hc/theming_assets/01J428GY8W9QH66168HW9YAH6B">
+<link rel="stylesheet" href="/hc/theming_assets/01J428GWB9Y2ZT2KGNDABHVCGV">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
+
+
+<style id="settings-styles">
+  
+    .note::before { content: ""; }
+    
+  
+    .warning::before { content: ""; }
+    
+</style>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  
+</head>
+<body class="">
+  
+  
+  
+
+  <a class="sr-only sr-only-focusable" tabindex="1" href="#page-container">
+  Skip to main content
+</a>
+
+<div class="layout flex flex-1 flex-column" x-data="Widgets.mobileMenu">
+
+  
+  <header class="header relative border-bottom fixed-header sticky-header"
+    x-data="Widgets.header({ isFixed: true, isSticky: true })"
+    :class="{ 'text-header bg-header': isStuck, 'shadow': isStuck, 'border-bottom': !isFixed }">
+
+    <nav class="navbar container h-full"">
+
+      
+      <a href="/hc/en-us" class="navbar-brand mr-auto">
+        <img class="block img-fluid" id="logo" src="/hc/theming_assets/01HZH1Y3GCRAGPA3YP59RA59RS" alt="Help Center Help Center home page">
+          <span class="navbar-tagline mx-3 white-space-no-wrap lg:font-size-lg">
+              Help Center
+            </span>
+        </a>
+
+      
+      <button class="navbar-toggle ml-2 xl:hidden"
+        x-ref="toggle"
+        :aria-expanded="isOpen && 'true'"
+        @click="toggle"
+        @keydown.escape="toggle">
+        <span></span>
+        <span class="sr-only">Toggle navigation menu</span>
+      </button>
+        
+        <div class="backdrop xl:hidden"
+          x-cloak
+          x-show="isOpen"
+          @click="close"
+          x-transition:enter="transition-fast"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition-fast"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0">
+        </div>
+      
+
+      
+      <div class="nav menu menu-slide-in menu-links-right xl:flex xl:align-items-center xl:font-size-md xl:menu-expanded xl:justify-content-end"
+        x-cloak
+        x-show="isOpen"
+        :class="{ 'text-header': isOpen }"
+        x-transition:enter="transition-fast"
+        x-transition:enter-start="translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition-fast"
+        x-transition:leave-start="translate-x-0 text-header"
+        x-transition:leave-end="translate-x-full text-header">
+
+        
+          <div class="search flex text-base mx-4 mb-4 flex-first xl:max-w-13 xl:flex-1 xl:mx-5 xl:mb-0" x-data="Widgets.search">
+              
+                <form role="search" class="form-field flex-1 mb-0" data-search="" action="/hc/en-us/search" accept-charset="UTF-8" method="get"><input type="hidden" name="utf8" value="&#x2713;" autocomplete="off" /><input type="search" name="query" id="query" placeholder="Ask a question or search for help" aria-label="Ask a question or search for help" /></form>
+              
+            <svg class="search-icon fill-current transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true">
+              <use xlink:href="#icon-search" />
+            </svg>
+          </div>
+        
+
+        
+          <a class="nav-link header-link" href="/hc/en-us/requests/new">Submit a request</a>
+        
+          
+        
+
+        
+          <a class="nav-link" rel="nofollow" data-auth-action="signin" title="Opens a dialog" role="button" href="/hc/en-us/signin?return_to=https%3A%2F%2Fsupport.blurb.com%2Fhc%2Fen-us%2Farticles%2F207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book">
+            Sign in
+          </a>
+        </div>
+
+    </nav>
+  </header> 
+
+
+
+
+
+  <main role="main">
+    <div class="container -mb-6" id="page-container">
+  <div class="row row-lg">
+
+    <article class="col pb-6" itemscope itemtype="http://schema.org/Article">
+      <div class="lg:pl-5">
+
+        <div class="font-size-md mt-6">
+          <nav aria-label="Breadcrumb">
+  <ol class="breadcrumbs">
+    
+      <li>
+        
+          <a href="/hc/en-us">Help Center</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/hc/en-us/categories/201166566-Bookmaking-Design-Tools">Bookmaking &amp; Design Tools</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/hc/en-us/sections/201813016-PDF-To-Book">PDF To Book</a>
+        
+      </li>
+    
+  </ol>
+</nav>
+
+        </div>
+
+        
+        <div class="mb-6">
+          <h1 title="How to upload a PDF to Blurb through PDF to Book" itemprop="name">
+            How to upload a PDF to Blurb through PDF to Book
+            
+          </h1>
+
+          
+          <div class="flex">
+            <div class="media">
+              
+              
+                <div class="media-body font-size-md align-self-center">
+                  
+                  <ul class="list-divider">
+                    
+                      <li class="text-gray-600">
+                        
+                          Updated
+                          <time datetime="2026-07-21T14:26:43Z" title="2026-07-21T14:26:43Z" data-datetime="relative">July 21, 2026 14:26</time>
+                        
+                      </li>
+                    
+                    
+                  </ul>
+                </div>
+              
+
+              
+              
+                <div class="subscribe-article">
+                  <div data-helper="subscribe" data-json="{&quot;item&quot;:&quot;article&quot;,&quot;url&quot;:&quot;/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book/subscription.json&quot;,&quot;follow_label&quot;:&quot;Follow&quot;,&quot;unfollow_label&quot;:&quot;Unfollow&quot;,&quot;following_label&quot;:&quot;Following&quot;,&quot;can_subscribe&quot;:true,&quot;is_subscribed&quot;:false}"></div>
+                </div>
+              
+            </div>
+          </div>
+
+        </div>
+
+        
+        <section class="content article-content mb-6" itemprop="articleBody">
+
+          
+                <div
+                  class="table-of-contents"
+                  data-element="table-of-contents"
+                  data-template="table-of-contents"
+                  data-selector=".content h2">
+                </div>
+              
+          <p>Use this article if you’ve created your PDF in a tool outside of the Blurb plug-in for Adobe InDesign. If you’re using Adobe InDesign, use the Blurb plug-in instead. See: <a href="/hc/en-us/articles/212771823" target="_blank" rel="noopener noreferrer">Get started with the Blurb plug-in for Adobe InDesign</a></p><h2 id="h_01KXRA9XXCWW58S2EPRYSE4C85"><strong>Before you upload</strong></h2><p>Check your PDF against Blurb’s specifications and review it in Acrobat before uploading. These steps reduce the risk of preflight errors and print defects.</p><ul>
+<li data-list-item-id="e8a86ff3573ea8dc68be850dde4a03247">Check specifications: <a href="/hc/en-us/articles/207792946" target="_blank" rel="noopener noreferrer">PDF to Book specifications and checklist</a>
+</li>
+<li data-list-item-id="ef5e1ef0a0a59412d9c2ce1afd0b973d0">Review your PDF: <a href="/hc/en-us/articles/47427859175437" target="_blank" rel="noopener noreferrer">How to review your PDF before uploading to Blurb through PDF to Book</a>
+</li>
+</ul><h2 id="h_01KXRA9XXF6S5DMWSKWY4SKQQB"><strong>Upload your PDF</strong></h2><ol>
+<li data-list-item-id="e1cecc69c57359fba73ba862a9ec85518">Go to the PDF to Book <a href="https://www.blurb.com/pdf_uploader_frontend/index.html#/chooseFiles">PDF uploader</a>&nbsp;</li>
+<li data-list-item-id="e9c13496686d5ef853c79acac78289e22">Under Your PDF Details, select how your files are structured:<ol>
+<li data-list-item-id="e2240957352a6d7f4ddb5907979de6be5">Cover &amp; Pages in Separate Files — your cover is a separate PDF from your pages. This is the most common option. Two upload zones appear: one for the cover PDF (maximum 90MB) and one for the pages PDF (maximum 2GB).</li>
+<li data-list-item-id="e3c62e2ad9899a6d740ce05c27066c35b">Cover &amp; Pages in Single File — your cover and pages are in one PDF. One upload zone appears. The uploader will use page 1 as the front cover and the last page as the back cover.</li>
+</ol>
+</li>
+<li data-list-item-id="e9e9fde84fff038c9cd46412df84679b3">Drag your PDF file(s) into the upload zone(s), or click the zone to browse for files. The Next button activates once your files are attached.</li>
+<li data-list-item-id="ea26bd821d35f1e2e440b3af1f27ac2cd">Click Next.&nbsp;</li>
+<li data-list-item-id="ef6778f34751144fb91e53fb440fee0ec">The uploader then detects your book size from the PDF dimensions and presents matching options under Your Book Size. Confirm the correct size is selected. If your size isn’t listed, your PDF dimensions may not match a supported Blurb format.</li>
+<li data-list-item-id="e157c7ac724b4d7c21cc5dfb6e10113fa">Under Your Book Details, select your Paper type and Cover type from the dropdowns. Visual previews and specification details are shown for each option.</li>
+<li data-list-item-id="e6ac62509d7dba8b6c56f5f36fe93d441">Under Blurb Logo Page, choose whether to include the Blurb logo on the last page of your book. Select No Blurb Logo to remove it for an additional fee.&nbsp;</li>
+<li data-list-item-id="e5ae043518e875cfb973a70674583a5d7">Under ISBN, select an ISBN option if required. Paperback and Hardcover books require an ISBN. If you have your own ISBN, select it here and you'll be prompted to apply it to your book post upload.</li>
+<li data-list-item-id="e2fc61f3ad8264d0b4c360875f2e68427">Enter your Book Title and Author Name&nbsp;</li>
+<li data-list-item-id="e3e9e2b4b16bef4afabfc22d8fd823ff0">Click Upload to Blurb.</li>
+<li data-list-item-id="eb2dce91072020c7582e46463f59cb9e5">Once the upload completes, review your book in the uploader preview. Check trim areas, bleed, and gutter before placing your order. See: <a href="/hc/en-us/articles/115001494183" target="_blank" rel="noopener noreferrer">How to review the PDF uploader preview</a>
+</li>
+<li data-list-item-id="ea3d2aca2e7e026f0216df013ce05a88d">Once the preview looks correct, complete your order.</li>
+</ol><figure class="wysiwyg-table" style="width: 100%;"><table style="margin-left: 0px; margin-right: auto;"><tbody><tr><td style="background-color: #FFF3CD;">
+<p><span style="color: #856404;"><strong>⚠️ Automatic resizing may distort your content</strong></span></p>
+<p>If your PDF dimensions are within roughly 10% of the correct size, the uploader will resize automatically. This resizing may slightly distort your content. Match the exact spec dimensions with our <a href="https://www.blurb.com/make/pdf_to_book/booksize_calculator">PDF to Book Booksize Calculator</a> to avoid this</p>
+</td></tr></tbody></table></figure><p>&nbsp;</p><p>&nbsp;</p>
+
+          
+          
+
+          
+          
+
+          
+          
+
+        </section>
+
+        
+          <div
+            class="my-6"
+            data-element="article-navigation"
+            data-template="article-navigation"
+            data-next-title=""
+            data-previous-title="">
+          </div>
+        
+        
+          
+            <div class="mt-6">
+              
+  <ul class="share">
+    <li>
+      <a href="https://www.facebook.com/share.php?title=How+to+upload+a+PDF+to+Blurb+through+PDF+to+Book&u=https%3A%2F%2Fsupport.blurb.com%2Fhc%2Fen-us%2Farticles%2F207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book" class="share-facebook" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" aria-label="Share this page on Facebook">
+          <path fill="currentColor" d="M6 0a6 6 0 01.813 11.945V7.63h1.552l.244-1.585H6.812v-.867c0-.658.214-1.242.827-1.242h.985V2.55c-.173-.024-.538-.075-1.23-.075-1.444 0-2.29.767-2.29 2.513v1.055H3.618v1.585h1.484v4.304A6.001 6.001 0 016 0z"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/share?lang=en&text=How+to+upload+a+PDF+to+Blurb+through+PDF+to+Book&url=https%3A%2F%2Fsupport.blurb.com%2Fhc%2Fen-us%2Farticles%2F207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book" class="share-twitter" aria-label="X Corp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" aria-label="Share this page on X Corp">
+          <path fill="currentColor" d="M.0763914 0 3.60864 0 6.75369 4.49755 10.5303 0 11.6586 0 7.18498 5.11431 12 12 8.46775 12 5.18346 7.30333 1.12825 12 0 12 4.7531 6.6879z"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&source=+Blurb+Support&title=How+to+upload+a+PDF+to+Blurb+through+PDF+to+Book&url=https%3A%2F%2Fsupport.blurb.com%2Fhc%2Fen-us%2Farticles%2F207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book" class="share-linkedin" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" aria-label="Share this page on LinkedIn">
+          <path fill="currentColor" d="M10.8 0A1.2 1.2 0 0112 1.2v9.6a1.2 1.2 0 01-1.2 1.2H1.2A1.2 1.2 0 010 10.8V1.2A1.2 1.2 0 011.2 0h9.6zM8.09 4.356a1.87 1.87 0 00-1.598.792l-.085.133h-.024v-.783H4.676v5.727h1.778V7.392c0-.747.142-1.47 1.068-1.47.913 0 .925.854.925 1.518v2.785h1.778V7.084l-.005-.325c-.05-1.38-.456-2.403-2.13-2.403zm-4.531.142h-1.78v5.727h1.78V4.498zm-.89-2.846a1.032 1.032 0 100 2.064 1.032 1.032 0 000-2.064z"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+
+
+            </div>
+          
+        
+
+        
+        
+          
+            <div class="flex py-4 my-5">
+              <p>
+                Was this article helpful?
+              </p>
+              <div class="mx-2" role="group"><button type="button" class="not-a-button text-primary font-medium cursor-pointer mr-2" data-helper="vote" data-item="article" data-type="up" data-id="207792796" data-upvote-count="42" data-vote-count="89" data-vote-sum="-5" data-vote-url="/hc/en-us/articles/207792796/vote" data-value="null" data-label="42 out of 89 found this helpful" data-selected-class="is-active" data-as="button" aria-label="This article was helpful" aria-pressed="false">Yes</button><span>/</span><button type="button" class="not-a-button text-primary font-medium cursor-pointer ml-2" data-helper="vote" data-item="article" data-type="down" data-id="207792796" data-upvote-count="42" data-vote-count="89" data-vote-sum="-5" data-vote-url="/hc/en-us/articles/207792796/vote" data-value="null" data-label="42 out of 89 found this helpful" data-selected-class="is-active" data-as="button" aria-label="This article was not helpful" aria-pressed="false">No</button></div>
+            </div>
+          
+        
+
+        
+        <footer class="row my-6">
+          
+          
+            <div data-recent-articles></div>
+          
+        </footer>
+
+        
+        
+
+        
+              <div
+                data-element="template"
+                data-template="call-to-action">
+              </div>
+            </div>
+    </article>
+
+    
+    <aside class="relative sidebar flex-first lg:col lg:bg-gray-100 lg:max-w-13">
+
+      
+      
+          <div class="border-top border-bottom lg:border-transparent mb-6 lg:my-5" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+            
+            <h3 class="relative flex align-items-center justify-content-between my-0 py-4 font-size-lg lg:pt-2">
+              Articles in this section
+              <a class="link-stretched text-inherit hover:text-inherit lg:hidden" href="#" data-toggle="collapse" data-target="#articles-in-section" aria-controls="articles-in-section" aria-expanded="false">
+                <svg class="fill-current pointer-events-none ml-3 lg:hidden" :class="isOpen && 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+                </svg>
+              </a>
+            </h3>
+            <div class="collapse lg:expand lg:flex-column" id="articles-in-section">
+              <ul class="nav nav-pills flex-column py-3 md:py-0 md:font-size-md">
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius hover:underline" href="/hc/en-us/articles/47432307590925-Get-started-with-PDF-to-Book">
+                      Get started with PDF to Book
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius hover:underline" href="/hc/en-us/articles/115001494183-How-to-review-the-PDF-uploader-preview">
+                      How to review the PDF uploader preview
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius is-active" href="/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book">
+                      How to upload a PDF to Blurb through PDF to Book
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius hover:underline" href="/hc/en-us/articles/207792976-PDF-uploader-preflight-errors">
+                      PDF uploader preflight errors
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius hover:underline" href="/hc/en-us/articles/360023837871-How-to-review-your-PDF-before-uploading-to-Blurb">
+                      How to review your PDF before uploading to Blurb
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius hover:underline" href="/hc/en-us/articles/207792946-PDF-to-Book-specifications-and-checklist">
+                      PDF to Book specifications and checklist
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius hover:underline" href="/hc/en-us/articles/207792816-CMYK-black-values">
+                      CMYK black values
+                    </a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link border-radius hover:underline" href="/hc/en-us/articles/207792806-How-to-use-complex-vector-based-files-with-PDF-to-Book">
+                      How to use complex vector-based files with PDF to Book
+                    </a>
+                  </li>
+                
+              </ul>
+              
+            </div>
+          </div>
+        </aside>
+
+    
+    <aside class="md:col md:max-w-13 hidden" x-data="{ tableOfContents: false }">
+      <div :class="{ 'sticky top-0': tableOfContents }" @table-of-contents:render.camel="tableOfContents = $event.target.children.length > 0">
+
+        </div>
+    </aside>
+
+  </div> 
+</div> 
+
+<script type="text/javascript">document.documentElement.classList.add('article-page', 'article-' + 207792796)</script>
+
+
+
+
+  <script type="text/template" id="tmpl-article-navigation">
+    <% if (previousArticle || nextArticle) { %>
+      <div class="row">
+        <% if (previousArticle) { %>
+          <div class="sm:col">
+            <% if (previousTitle) { %>
+              <h4 class="mb-2"><%= previousTitle %></h4>
+            <% } %>
+            <a href="<%= previousArticle.html_url %>"><%= previousArticle.title %></a>
+          </div>
+        <% } %>
+        <% if (nextArticle) { %>
+          <div class="sm:col text-right<% if (!previousArticle) { %> sm:col-offset-6<% } %>">
+            <% if (nextTitle) { %>
+              <h4 class="mb-2"><%= nextTitle %></h4>
+            <% } %>
+            <a href="<%= nextArticle.html_url %>"><%= nextArticle.title %></a>
+          </div>
+        <% } %>
+      </div>
+    <% } %>
+  </script>
+
+    
+    <script type="text/template" id="tmpl-table-of-contents">
+      <% if (allItems.length > 1) { %>
+        <div class="bg-gray-100 border border-radius px-5 mb-5 float-right w-full md:ml-5 md:px-6 md:col-5 lg:col-6 xl:col-5">
+            <h3>
+                
+              </h3>
+          <ol class="mb-6 list-unstyled font-size-md">
+            <% allItems.forEach(function(item) { %>
+              <li class="list-item">
+                <a href="<%= item.html_url %>">
+                  <%= item.name %>
+                </a>
+                <%= partial('partial-table-of-contents', { items: item.children, partial: partial }) %>
+              </li>
+            <% }); %>
+          </ol>
+        </div>
+      <% } %>
+    </script>
+  
+  
+      
+      <script type="text/template" id="tmpl-partial-table-of-contents">
+        <% if (items.length) { %>
+          <ol class="list-none mb-0">
+            <% items.forEach(function(item) { %>
+              <li class="list-item">
+                <a href="<%= item.html_url %>">
+                  <%= item.name %>
+                </a>
+                <%= partial('partial-table-of-contents', { items: item.children, partial: partial }) %>
+              </li>
+            <% }); %>
+          </ol>
+        <% } %>
+      </script>
+    
+  
+
+
+
+
+  </main>
+
+    
+  <footer class="footer mt-6" id="footer">
+
+    
+
+    <div class="container py-7">
+
+      <nav class="nav font-size-md">
+
+        
+          <div class="relative" x-data="Widgets.dropdown" @click.away="close">
+            <button class="nav-link not-a-button h-full" aria-haspopup="true" :aria-expanded="isExpanded" x-ref="toggle">
+              <svg class="svg-icon mr-1 fill-current hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <use xlink:href="#icon-locales" />
+              </svg>
+              English (United States)
+              <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" :class="{ 'rotate-180': isExpanded }">
+                <use xlink:href="#icon-chevron-down" />
+              </svg>
+            </button>
+            <div class="z-dropdown absolute my-2 bg-white border border-radius shadow-md min-w-dropdown" x-ref="menu" x-cloak x-show="isExpanded">
+              <div class="py-2 font-size-sm text-left">
+                
+                  <a class="dropdown-item" href="/hc/change_language/de?return_to=%2Fhc%2Fde%2Farticles%2F207792796-Eine-bestehende-PDF-Datei-nach-Blurb-hochladen" dir="ltr" rel="nofollow">
+                    Deutsch
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/es?return_to=%2Fhc%2Fes%2Farticles%2F207792796-Cargar-un-PDF-en-Blurb" dir="ltr" rel="nofollow">
+                    Español
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/fr?return_to=%2Fhc%2Ffr%2Farticles%2F207792796-T%25C3%25A9l%25C3%25A9charger-un-PDF-existant-sur-Blurb" dir="ltr" rel="nofollow">
+                    Français
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/it?return_to=%2Fhc%2Fit%2Farticles%2F207792796-Caricamento-di-un-PDF-esistente-su-Blurb" dir="ltr" rel="nofollow">
+                    Italiano
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/nl?return_to=%2Fhc%2Fnl%2Farticles%2F207792796-Het-uploaden-van-een-bestaande-PDF-naar-Blurb" dir="ltr" rel="nofollow">
+                    Nederlands
+                  </a>
+                
+                  <a class="dropdown-item" href="/hc/change_language/pt-br?return_to=%2Fhc%2Fpt-br%2Farticles%2F207792796-Carregando-um-PDF-existente-para-a-Blurb" dir="ltr" rel="nofollow">
+                    Português do Brasil
+                  </a>
+                
+              </div>
+            </div>
+          </div>
+        
+          <a class="nav-link" href="http://facebook.com/blurbbooks" target="_blank">
+            <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true">
+              <path d="M6 0a6 6 0 01.813 11.945V7.63h1.552l.244-1.585H6.812v-.867c0-.658.214-1.242.827-1.242h.985V2.55c-.173-.024-.538-.075-1.23-.075-1.444 0-2.29.767-2.29 2.513v1.055H3.618v1.585h1.484v4.304A6.001 6.001 0 016 0z"></path>
+            </svg>
+          </a>
+        
+          <a class="nav-link" href="https://twitter.com/blurbbooks" target="_blank">
+            <svg class="svg-icon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z"/>
+            </svg>
+          </a>
+        </nav>
+
+      
+        <div
+          class="fixed bottom-0 left-0"
+          data-element="back-to-top"
+          data-template="back-to-top-link"
+          data-threshold="250px">
+        </div>
+      </div>
+  </footer> 
+
+</div> 
+
+
+<script type="text/javascript" src="/hc/theming_assets/01J428GX8MKD066TF2MPYP9QRB" defer></script>
+<script type="text/javascript" src="/hc/theming_assets/01J428GY5DKZX0PYES2ECC86A8" defer></script>
+<script type="text/javascript" src="/hc/theming_assets/01J428GX38ARFJK1CYY4V1DQA3" defer></script>
+<script type="text/javascript" src="/hc/theming_assets/01J428GX3XZGZQK9JDCNGGW9J9" defer></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/combine/npm/alpinejs@3.13.0/dist/cdn.min.js" defer>
+</script>
+<script type="text/javascript" src="/hc/theming_assets/01J428GVQEDS4Z91WBNT63SZQ7" defer></script><script type="text/javascript" src="/hc/theming_assets/01J428GW06RXWMBAZKBH5VS3HJ" defer></script><script type="text/javascript" src="/hc/theming_assets/01J428GYDH4APG9FPBMG1DBWW2" defer></script>
+
+
+
+    <script type="text/template" id="tmpl-call-to-action">
+      <div class="cta relative mt-6 -mb-6 bg-center bg-cover" style="background-image: url('/hc/theming_assets/01HZH1Y698G5J2TW09DWG77Z2D')">
+        <div class="container relative z-10 py-6">
+          <div class="max-w-lg mx-auto text-center">
+            
+              <h3 class="h2 md:font-size-3xl">
+                
+                  Still have questions?
+                
+              </h3>
+            
+            
+            <a class="button button-primary button-lg my-4" href="/hc/en-us/requests/new">
+              
+                
+                  Contact Us
+                
+              
+            </a>
+          </div>
+        </div>
+        <div class="absolute-top left-0 z-0 w-full h-full cta"></div>
+      </div>
+    </script>
+  
+  
+    <script type="text/template" id="tmpl-back-to-top-link">
+      <button class="flex button button-outline button-sm bg-white p-3 m-4">
+        <span class="sr-only">Return to top</span>
+        <svg class="fill-current" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="12.4,40.1 25.8,53.6 40.5,38.8 40.5,97.5 59.5,97.5 59.5,38.8 74.2,53.6 87.6,40.1 50,2.5" />
+        </svg>
+      </button>
+    </script>
+  
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+  <symbol id="icon-search">
+    <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
+    <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
+  </symbol>
+  <symbol id="icon-lock">
+    <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+    <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+  </symbol>
+  <symbol id="icon-star">
+    <polygon points="213 325 81 405 116 255 0 154 153 141 213 0 273 141 426 154 310 255 345 405"></polygon>
+  </symbol>
+  <symbol id="icon-chevron-down">
+    <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
+  </symbol>
+  <symbol id="icon-agent">
+    <path fill="currentColor" d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm2.3 7H3.7c-.3 0-.4-.3-.3-.5C3.9 7.6 4.9 7 6 7s2.1.6 2.6 1.5c.1.2 0 .5-.3.5z"/>
+  </symbol>
+  </svg>
+
+<script type="text/javascript">
+  Theme.assets['notification'] = "/hc/theming_assets/01J428GTW2GZGSJ0AB5VX2Y3N8";
+  Theme.alternativeLocales = [{ name: "Deutsch", url: "/hc/change_language/de?return_to=%2Fhc%2Fde%2Farticles%2F207792796-Eine-bestehende-PDF-Datei-nach-Blurb-hochladen", direction: "ltr" },{ name: "Español", url: "/hc/change_language/es?return_to=%2Fhc%2Fes%2Farticles%2F207792796-Cargar-un-PDF-en-Blurb", direction: "ltr" },{ name: "Français", url: "/hc/change_language/fr?return_to=%2Fhc%2Ffr%2Farticles%2F207792796-T%25C3%25A9l%25C3%25A9charger-un-PDF-existant-sur-Blurb", direction: "ltr" },{ name: "Italiano", url: "/hc/change_language/it?return_to=%2Fhc%2Fit%2Farticles%2F207792796-Caricamento-di-un-PDF-esistente-su-Blurb", direction: "ltr" },{ name: "Nederlands", url: "/hc/change_language/nl?return_to=%2Fhc%2Fnl%2Farticles%2F207792796-Het-uploaden-van-een-bestaande-PDF-naar-Blurb", direction: "ltr" },{ name: "Português do Brasil", url: "/hc/change_language/pt-br?return_to=%2Fhc%2Fpt-br%2Farticles%2F207792796-Carregando-um-PDF-existente-para-a-Blurb", direction: "ltr" }];
+
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/template" id="tmpl-article-list">
+  <div class="my-5 border-top border-bottom lg:-mr-4 lg:border-transparent"
+    x-data="toggle({ isOpen: false })"
+    @collapse:show.stop="open"
+    @collapse:hide.stop="close">
+
+    
+    <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-article-navigation" aria-controls="sidebar-article-navigation" aria-expanded="false">
+      Categories
+      <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+      </svg>
+    </h3>
+
+    <div class="collapse lg:expand lg:flex-column" id="sidebar-article-navigation">
+      <ul class="list-unstyled mb-0 font-size-lg w-full">
+        <% categories.forEach(function(category, index) { %>
+          <li class="font-semibold" x-data="toggle({ isOpen: <%= !!category.isActive %> })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+            
+            <div class="flex justify-content-between align-items-center">
+              <a class="flex-1 py-3 text-inherit" :class="{ 'text-inherit': !isOpen }" href="<%= category.html_url %>">
+                <%= category.name %>
+              </a>
+              <button class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200 hidden lg:block" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#category-<%= category.id %>">
+                <svg class="text-inherit fill-current pointer-events-none" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="hidden lg:block">
+              
+              <%= partial('partial-article-list-sections', {
+                id: 'category-' + category.id,
+                parentId: '#sidebar-article-navigation',
+                sections: category.sections,
+                activeCategoryId: activeCategoryId,
+                activeSectionId: activeSectionId,
+                activeArticleId: activeArticleId,
+                partial: partial
+              }) %>
+            </div>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="tmpl-section-list">
+  <% var maxSections =  5 %>
+  <div class="my-5 border-top border-bottom lg:-mr-4 lg:border-transparent"
+    x-data="toggle({ isOpen: false })"
+    @collapse:show.stop="open"
+    @collapse:hide.stop="close">
+
+    
+    <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-section-navigation" aria-controls="sidebar-section-navigation" aria-expanded="false">
+      Toggle navigation menu
+      <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+      </svg>
+    </h3>
+
+    <div class="collapse lg:expand lg:flex-column" id="sidebar-section-navigation">
+      <ul class="list-unstyled m-0 py-2">
+        <% categories.forEach(function(category, index) { %>
+          <li>
+            <h3 class="font-size-lg <% if (index === 0) { %>mt-4<% } else { %>mt-6<% } %>">
+              <a class="text-inherit" href="<%= category.html_url %>">
+                <%= category.name %>
+              </a>
+            </h3>
+            <%= partial('partial-section-list-sections', { parent: category, sections: category.sections, maxSections: maxSections, partial: partial }) %>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="tmpl-category-list">
+  <div class="list-unstyled my-4 border-top border-bottom md:my-5 lg:border-transparent" x-data="toggle({ isOpen: false })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+    
+    <h3 class="flex align-items-center justify-content-between my-4 font-size-lg cursor-pointer lg:hidden" data-toggle="collapse" data-target="#sidebar-category-navigation" aria-controls="sidebar-category-navigation" aria-expanded="false">
+      Categories
+      <svg class="fill-current pointer-events-none ml-3" :class="isOpen && 'rotate-180'" width="14px" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,19.5 C19.4,19.5 18.9,19.3 18.4,18.9 L1.4,4.9 C0.3,4 0.2,2.4 1.1,1.4 C2,0.3 3.6,0.2 4.6,1.1 L20,13.8 L35.5,1.1 C36.6,0.2 38.1,0.4 39,1.4 C39.9,2.5 39.7,4 38.7,4.9 L21.7,18.9 C21.1,19.3 20.5,19.5 20,19.5 Z" fill-rule="nonzero"></path>
+      </svg>
+    </h3>
+
+    <div class="collapse lg:expand lg:flex-column" id="sidebar-category-navigation">
+      <h3 class="font-size-lg mt-2 hidden lg:block">
+        <a class="text-inherit" href="/hc/en-us">
+          Categories
+        </a>
+      </h3>
+      <ul class="list-unstyled font-size-md">
+        <% categories.forEach(function(category) { %>
+          <li>
+            <a class="block py-2 text-inherit<% if (category.isActive) { %> underline<% } %>" href="<%= category.html_url %>">
+              <%= category.name %>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</script>
+
+
+
+
+<script type="text/template" id="tmpl-partial-article-list-sections">
+  <% if (sections.length) { %>
+    <ul class="list-none pl-3 mb-0 font-size-base collapse" id="<%= id %>" :class="{ 'is-visible': isOpen }" data-parent="<%= parentId %>">
+      <% sections.forEach(function(section) { %>
+        <li class="font-medium" x-data="toggle({ isOpen: <%= !!section.isActive %> })" @collapse:show.stop="open" @collapse:hide.stop="close">
+
+          
+          <div class="flex justify-content-between align-items-center">
+            <a class="flex-1 py-2 text-inherit font-semibold" :class="{ 'text-inherit': !isOpen }" href="<%= section.html_url %>">
+              <%= section.name %>
+            </a>
+            <button class="p-2 ml-1 not-a-button border-radius transition cursor-pointer hover:bg-gray-200" :class="{ 'is-active': isOpen }" :aria-expanded="isOpen" data-toggle="collapse" data-target="#section-<%= section.id %>">
+              <svg class="text-inherit fill-current pointer-events-none" :class="{ 'rotate-180': isOpen }" width="12px" height="12px" viewBox="0 0 324 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M162,190 C156,190 150,187 146,183 L7,38 C-2,29 -2,15 7,7 C16,-2 30,-2 39,7 L162,135 L285,7 C293,-2 308,-2 317,7 C326,15 326,29 317,38 L178,183 C174,187 168,190 162,190 Z"></path>
+              </svg>
+            </button>
+          </div>
+
+          
+          <%= partial('partial-article-list-sections', {
+            id: 'section-' + section.id,
+            parentId: '#' + id,
+            sections: section.sections,
+            activeCategoryId: activeCategoryId,
+            activeSectionId: activeSectionId,
+            activeArticleId: activeArticleId,
+            partial: partial
+          }) %>
+
+          
+          <% if (section.articles.length) { %>
+            <ul class="list-none font-size-md pl-0 mb-0 collapse" :class="{ 'is-visible': isOpen }" id="section-<%= section.id %>" data-parent="#<%= id %>">
+              <% section.articles.forEach(function(article) { %>
+                <li>
+                  <a class="block px-3 py-2 text-inherit border-radius transition<% if (article.isActive) { %> bg-gray-100<% } %>" href="<%= article.html_url %>">
+                    <%= article.title %>
+                  </a>
+                </li>
+              <% }); %>
+            </ul>
+          <% } %>
+
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+</script>
+
+
+<script type="text/template" id="tmpl-partial-section-list-sections">
+  <% if (sections.length) { %>
+    <ul class="list-unstyled font-size-md<% if (parent.hasOwnProperty('parent_section_id')) { %> pl-4 mb-0<% } %>">
+      <% sections.slice(0, maxSections).forEach(function(section) { %>
+        <li>
+          <a class="block py-2 text-inherit<% if (section.isActive) { %> border-left border-left-primary border-left-4 -ml-4 pl-3<% } %>" href="<%= section.html_url %>">
+            <%= section.name %>
+          </a>
+          <%= partial('partial-section-list-sections', { parent: section, sections: section.sections, maxSections: maxSections, partial: partial }) %>
+        </li>
+      <% }); %>
+      <% if (sections.length > maxSections) { %>
+        <li>
+          <a class="block py-2 text-inherit" href="<%= parent.html_url %>">
+            See more
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  <% } %>
+</script>
+
+
+  <!-- / -->
+
+  
+  <script src="//static.zdassets.com/hc/assets/en-us.31c5503f90244460c333.js"></script>
+  
+
+  <script type="text/javascript">
+  /*
+
+    Greetings sourcecode lurker!
+
+    This is for internal Zendesk and legacy usage,
+    we don't support or guarantee any of these values
+    so please don't build stuff on top of them.
+
+  */
+
+  HelpCenter = {};
+  HelpCenter.account = {"subdomain":"blurb","environment":"production","name":" Blurb Support"};
+  HelpCenter.user = {"identifier":"da39a3ee5e6b4b0d3255bfef95601890afd80709","email":null,"name":"","role":"anonymous","avatar_url":"https://assets.zendesk.com/hc/assets/default_avatar.png","is_admin":false,"external_id":null,"organizations":[],"groups":[]};
+  HelpCenter.internal = {"asset_url":"//static.zdassets.com/hc/assets/","web_widget_asset_composer_url":"https://static.zdassets.com/ekr/snippet.js","current_session":{"locale":"en-us","csrf_token":"hc:hcobject:server:RiX1tNyEgiJZgQnmKdEcimKefsbDXVvHLhVz5laSPkpXP7WofRPYWD2kqY2hpbg5PmdMaaYQ4g2LGbUr8E4mHQ","shared_csrf_token":null},"usage_tracking":{"event":"article_viewed","data":"BAh7CDoLbG9jYWxlSSIKZW4tdXMGOgZFVDoPYXJ0aWNsZV9pZGkEnKpiDDoKX21ldGF7DDoPYWNjb3VudF9pZGkDsloDOhNoZWxwX2NlbnRlcl9pZGkEuwrsCzoNYnJhbmRfaWRpA3TsAjoMdXNlcl9pZDA6E3VzZXJfcm9sZV9uYW1lSSIOQU5PTllNT1VTBjsGVDsASSIKZW4tdXMGOwZUOhphbm9ueW1vdXNfdHJhY2tpbmdfaWQw--0ad252397ce86b0495440209eb338a23a507cc31","url":"https://support.blurb.com/hc/activity"},"current_record_id":"207792796","current_record_url":"/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book","current_record_title":"How to upload a PDF to Blurb through PDF to Book","current_text_direction":"ltr","current_brand_id":191604,"current_brand_name":" Blurb Support","current_brand_url":"https://blurb.zendesk.com","current_brand_active":true,"current_path":"/hc/en-us/articles/207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book","show_autocomplete_breadcrumbs":true,"user_info_changing_enabled":false,"has_user_profiles_enabled":false,"has_end_user_attachments":true,"user_aliases_enabled":false,"has_anonymous_kb_voting":true,"has_multi_language_help_center":true,"show_at_mentions":false,"embeddables_config":{"embeddables_web_widget":false,"embeddables_help_center_auth_enabled":true,"embeddables_connect_ipms":false},"answer_bot_subdomain":"static","gather_plan_state":"subscribed","has_article_verification":true,"has_gather":true,"has_ckeditor":true,"has_community_enabled":false,"has_community_badges":true,"has_community_post_content_tagging":false,"has_gather_content_tags":true,"has_guide_content_tags":true,"has_user_segments":true,"has_answer_bot_web_form_enabled":false,"has_garden_modals":false,"has_auth_email_less_sso":false,"theming_cookie_key":"hc-da39a3ee5e6b4b0d3255bfef95601890afd80709-2-preview","is_preview":false,"has_search_settings_in_plan":true,"theming_api_version":3,"theming_settings":{"color_primary":"rgba(22, 173, 236, 1)","color_primary_inverse":"#fff","color_secondary":"#b65756","color_secondary_inverse":"#fff","color_tertiary":"#663133","color_tertiary_inverse":"#fff","color_heading":"rgba(51, 51, 51, 1)","color_text":"rgba(51, 51, 51, 1)","color_link":"rgba(22, 173, 236, 1)","color_border":"#e2e8f0","color_outline":"rgba(154, 154, 154, 1)","color_gray_100":"#F7FAFC","color_gray_200":"#EDF2F7","color_gray_600":"#718096","bg_color":"rgba(252, 252, 252, 1)","heading_font":"Futura, 'Century Gothic', AppleGothic, sans-serif","text_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif","base_font_size":"16px","favicon":"/hc/theming_assets/01HZH1Y3CFJ3XAZCR7VX123TVY","logo":"/hc/theming_assets/01HZH1Y3GCRAGPA3YP59RA59RS","logo_height":"32px","tagline":"help_center-help_center","homepage_background_image":"/hc/theming_assets/01HZH1Y3NDTKFV6FK4YA93B8N7","community_background_image":"/hc/theming_assets/01HZH1Y3Y084PAZJA709MV63HZ","content_block_1_image":"/hc/theming_assets/01HZH1Y421EZ5YNSHK1CBD4MWS","content_block_2_image":"/hc/theming_assets/01HZH1Y466M9J8NYP46VN9FNWK","content_block_3_image":"/hc/theming_assets/01HZH1Y4AV4HEFT8VR5V795035","content_block_4_image":"/hc/theming_assets/01HZH1Y4FSQVJTY41BYPB3NQJ5","content_block_5_image":"/hc/theming_assets/01HZH1Y4PNFZ5HZ5E2BBT24FSF","content_block_6_image":"/hc/theming_assets/01HZH1Y4TFEFXRXAWJ72T7S1J3","content_block_7_image":"/hc/theming_assets/01HZH1Y4YFSASQB6PCWFA9KMJZ","content_block_8_image":"/hc/theming_assets/01HZH1Y52EJR0TKGTZFKX01867","custom_block_1_image":"/hc/theming_assets/01HZH1Y56MAE9V7CC3KEVWSVZ3","custom_block_2_image":"/hc/theming_assets/01HZH1Y5AWXE4H36HVTGV0XBVC","custom_block_3_image":"/hc/theming_assets/01HZH1Y5FBCJPFH5QVK38805EE","custom_block_4_image":"/hc/theming_assets/01HZH1Y5M60FW6V857HWJWZZKX","contact_block_1_image":"/hc/theming_assets/01HZH1Y5RNG1V5R512NATY2DTC","contact_block_2_image":"/hc/theming_assets/01HZH1Y5WNQ5R9F39NVDN62FZ9","contact_block_3_image":"/hc/theming_assets/01HZH1Y60NX20ZM3PC4RD2DW91","contact_block_4_image":"/hc/theming_assets/01HZH1Y64QF863VRS2ZSW55M6B","cta_block_image":"/hc/theming_assets/01HZH1Y698G5J2TW09DWG77Z2D","header_search_style":"inline","instant_search":false,"scoped_kb_search":true,"scoped_community_search":false,"search_placeholder":"help_center-search_bar","search_translucent":false,"show_search_button":true,"header_layout":"links-right","fixed_header":true,"sticky_header":true,"nav_style":"slide-in","nav_breakpoint":"xl","full_width_header":false,"header_height":"72px","color_header_link":"#fff6f6","color_header_link_fixed":"#fff6f6","bg_color_header":"rgba(215, 106, 98, 1)","header_link_1_text":"","header_link_1_url":"","header_link_2_text":"","header_link_2_url":"","header_link_3_text":"","header_link_3_url":"","show_submit_a_request_link":true,"category_dropdown_style":"none","notification_location":"none","notification_content":"help_center-banner_notification","color_notification":"#fff","bg_color_notification":"rgba(22, 173, 236, 1)","back_to_top_link_style":"standard","boxed_layout":false,"bg_color_boxed":"rgba(255, 255, 255, 1)","hero_heading":"help_center-search_header","color_hero_heading":"rgba(255, 255, 255, 1)","hero_text":"","color_hero_text":"#fdfdfd","hero_image_style":"overlay-pattern","bg_color_hero":"rgba(22, 173, 236, 1)","bg_color_secondary_hero":"rgba(22, 173, 236, 1)","bg_gradient_hero":"linear","hero_content_alignment":"center","hero_element_shape":"none","popular_keywords_style":"none","popular_keywords_heading":"Popular searches:","popular_keywords":"invoices, payments, returns","promoted_videos_heading":"Popular videos","promoted_video_ids":"","recent_activity":"none","custom_block_style":"none","color_custom_blocks":"secondary","bg_color_custom_blocks":"#fff","custom_blocks_heading":"","number_custom_blocks":"2","number_custom_block_columns":"2","custom_block_alignment":"left","custom_block_image_height":"24px","custom_block_1_title":"Submit a request","custom_block_1_description":"If you're having trouble you can contact our helpful team","custom_block_1_url":"/hc/en-us/requests/new","custom_block_2_title":"Community","custom_block_2_description":"Share knowledge with other users in our community forum","custom_block_2_url":"/hc/en-us/community/topics","custom_block_3_title":"Getting started","custom_block_3_description":"Discover everything you need to know to start your journey","custom_block_3_url":"#","custom_block_4_title":"Announcements","custom_block_4_description":"Keep up to date with the latest information","custom_block_4_url":"#","content_block_style":"1-cards","color_content_blocks":"secondary","bg_color_content_blocks":"#fff","content_blocks_heading":"","number_content_block_columns":"2","content_block_alignment":"left","content_block_image_height":"24px","article_list_style":"2-unstyled","article_list_columns":"2","article_list_excerpt":0,"promoted_article_style":"icon","promoted_article_list_style":"3-bordered","promoted_article_list_position":"after","promoted_articles_heading":"Promoted articles","promoted_article_list_columns":"2","promoted_articles_alignment":"left","promoted_article_list_excerpt":0,"contact_block_style":"none","color_contact_blocks":"tertiary","contact_blocks_heading":"Get in touch","number_contact_blocks":"3","number_contact_block_columns":"3","contact_block_image_height":"28px","contact_block_1_title":"Message us","contact_block_1_description":"","contact_block_1_url":"","contact_block_2_title":"","contact_block_2_description":"","contact_block_2_url":"","contact_block_3_title":"","contact_block_3_description":"","contact_block_3_url":"","contact_block_4_title":"","contact_block_4_description":"","contact_block_4_url":"","cta_style":"banner","cta_location":"internal","cta_element_heading":"help_center-still_have_questions","color_heading_cta":"#323c49","cta_element_body":"","color_text_cta":"#434f61","cta_element_link_text":"help_center-contact_us","bg_color_cta":"#fff4f4","subsection_style":"list","category_sidebar":"section-list","section_sidebar":"section-list","show_follow_section":true,"article_metadata":"date-start","show_follow_article":true,"table_of_contents_style":"boxed","table_of_contents_heading":"In this article","article_navigation_style":"standard","next_article_title":"Next article","previous_article_title":"Previous article","show_article_voting":true,"show_article_sharing":true,"share_title":"","show_recently_viewed_articles":true,"show_related_articles":false,"show_article_comments":false,"article_sidebar":"articles-in-section","note_title":"Note","color_note":"rgba(22, 173, 236, 1)","warning_title":"Warning","color_warning":"rgba(228, 80, 88, 1)","enable_lightboxes":false,"enable_video_player":false,"form_list_style":"standard","form_tip":"","community_image_style":"standard","show_recent_activity_community":false,"show_follow_topic":false,"show_follow_post":false,"show_post_sharing":false,"footer_layout":"links-left","footer_shape":"none","color_footer_link":"#4A5568","bg_color_footer":"#fff","footer_link_1_text":"","footer_link_1_url":"","footer_link_2_text":"","footer_link_2_url":"","footer_link_3_text":"","footer_link_3_url":"","facebook_link":"http://facebook.com/blurbbooks","twitter_link":"https://twitter.com/blurbbooks","linkedin_link":"","instagram_link":"","youtube_link":"","show_credit_link":false,"use_translations":true},"has_pci_credit_card_custom_field":true,"help_center_restricted":false,"is_assuming_someone_else":false,"flash_messages":[],"user_photo_editing_enabled":true,"user_preferred_locale":"en-us","base_locale":"en-us","login_url":"https://blurb.zendesk.com/access?locale=en-us\u0026brand_id=191604\u0026return_to=https%3A%2F%2Fsupport.blurb.com%2Fhc%2Fen-us%2Farticles%2F207792796-How-to-upload-a-PDF-to-Blurb-through-PDF-to-Book","has_alternate_templates":true,"has_custom_statuses_enabled":true,"has_hc_generative_answers_setting_enabled":true,"has_suggested_initial_questions_enabled":false,"has_contentful_eap":false,"has_contentful_eap_eligible":false,"has_pdf_ingestion_eap":true,"has_pdf_ingestion_eap_eligible":true,"has_guide_saas_management":false,"has_knowledge_category_translation_modal":false,"has_guide_service_catalog":true,"has_service_catalog_search_poc":true,"has_service_catalog_multibranding":true,"has_csat_reverse_2_scale_in_mobile":false,"has_unified_navigation":true,"has_unified_navigation_eap_access":true,"has_knowledge_locale_display_names":true,"has_csat_bet365_branding":false,"has_csat_flora":false,"has_csat_theming_integration_phase_1":false,"has_help_center_gen_search_follow_up_conversation":true,"chat_page_renderable":false,"version":"v27985","dev_mode":false};
+</script>
+
+  
+  
+  <script src="//static.zdassets.com/hc/assets/hc_enduser-88af6295979996e41030a066de2645f6.js"></script>
+  <script type="text/javascript" src="/hc/theming_assets/219826/191604/script.js?digest=47096459677453"></script>
+  
+</body>
+</html>
