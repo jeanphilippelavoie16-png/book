@@ -240,10 +240,10 @@ module.exports = (h) => {
           // cotes : dans le rang et entre les rangs
           const yc = y0 - 34;
           o.push(seg(x0, y0 - rb - 3, x0, yc - 4, h.a.fin), seg(x0 + P, y0 - rb - 3, x0 + P, yc - 4, h.a.fin));
-          o.push(h.cote(x0, yc, x0 + P, yc, '900 à 1 200'));
+          o.push(h.cote(x0, yc, x0 + P, yc, '900 à 1 200 mm'));
           const xc = x0 - 34;
           o.push(seg(x0 - rb - 3, y0, xc - 4, y0, h.a.fin), seg(x0 - rb - 3, y0 + P, xc - 4, y0 + P, h.a.fin));
-          o.push(h.cote(xc, y0, xc, y0 + P, '900 à 1 200', { cote: 'gauche' }));
+          o.push(h.cote(xc, y0, xc, y0 + P, '900 à 1 200 mm', { cote: 'gauche' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -274,17 +274,17 @@ module.exports = (h) => {
           const k = 3, fx0 = cx - 66, fx1 = cx + 66, fy0 = planY + R + 22, fy1 = fy0 + 84, ys = fy0 + 18;
           for (const x of [cx - R, cx + R]) o.push(seg(x, planY + 4, x, fy0 - 4, RAPPEL), seg(x, fy1 + 4, x, yG - 3, RAPPEL));
           for (const x of [cx - RM, cx + RM]) o.push(seg(x, planY + R + 6, x, fy0 - 4, RAPPEL), seg(x, fy1 + 4, x, yG - hM - 4, RAPPEL));
-          o.push(h.rect(fx0, ys, fx1 - fx0, fy1 - ys, h.a.hachure('terre', 'aucun')));
-          o.push(h.rect(fx0, fy0, fx1 - fx0, fy1 - fy0, h.a.detail));
-          o.push(seg(fx0, ys, fx1, ys, h.a.arete));
-          const kx = cx - 14, ky = ys + prof * k;
-          o.push(h.rect(kx - 9, ky - 11, 18, 22, h.a.blanc));
-          o.push(grain(kx, ky, 0, 1.6));
-          o.push(seg(kx + 7, ky, cx + 10, ky, h.a.fin));
-          o.push(h.cote(cx + 6, ys, cx + 6, ky, '25 à 40', { cote: 'droite' }));
-          // bulle sur la coupe et renvoi vers le détail
+          const mR = 44, mcy = fy0 + 42, hc = Math.sqrt(mR * mR - (mcy - ys) ** 2);
+          o.push(h.path(`M${r1(cx - hc)} ${r1(ys)} A${mR} ${mR} 0 1 0 ${r1(cx + hc)} ${r1(ys)} Z`, h.a.hachure('terre', 'aucun')));
+          o.push(h.cercle(cx, mcy, mR, h.a.detail));
+          o.push(seg(cx - hc, ys, cx + hc, ys, h.a.arete));
+          const kx = cx + 12, ky = ys + prof * k;
+          // bulle sur la coupe, trait jusqu'à la graine du médaillon
           o.push(h.cercle(cx + RM, yg - 3, 12, h.a.fin));
-          o.push(seg(cx + RM, yg - 15, cx + RM, fy1, h.a.fin));
+          o.push(seg(cx + RM, yg - 15, kx + 3, ky + 7, h.a.fin));
+          o.push(grain(kx, ky, 0, 1.6));
+          o.push(seg(kx - 7, ky, cx - mR - 10, ky, h.a.fin), seg(cx - hc - 2, ys, cx - mR - 10, ys, h.a.fin));
+          o.push(h.cote(cx - mR - 6, ys, cx - mR - 6, ky, '25 à 40 mm', { cote: 'gauche' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -328,10 +328,11 @@ module.exports = (h) => {
             for (const [dx, dy] of [[-7, 12], [-2, 16], [4, 14], [8, 9]]) o.push(h.path(`M${r1(x)} ${r1(ysem + 2)} q${r1(dx * 0.4)} ${r1(dy * 0.6)} ${r1(dx)} ${r1(dy)}`, h.a.fin));
             o.push(seg(x, ysem - 2, x, ys, h.a.detail));
             o.push(h.chemin([[x - 1.4, ys], [x - 0.8, ys - Hm * 0.55], [x + 0.8, ys - Hm * 0.55], [x + 1.4, ys]], BL(h.a.detail), true));
-            const fe = [[s, 0.15, 17], [-s, 0.32, 19], [s, 0.5, 18], [-s, 0.72, 14]];
+            const fe = [[s, 0.12, 22], [-s, 0.3, 24], [s, 0.5, 21], [-s, 0.72, 16]];
             for (const [d, k, L] of fe) {
               const yn = ys - Hm * k;
-              o.push(fuseau([x + d * 1, yn], [x + d * L * 0.35, yn - L * 0.75], [x + d * L * 0.8, yn - L * 0.35], 6));
+              // feuille en ruban : monte, puis retombe en arc
+              o.push(fuseau([x + d * 1, yn], [x + d * L * 0.45, yn - L * 0.7], [x + d * L, yn + L * 0.1], 2.2));
             }
           }
           // haricot semé dans le plan de coupe (à 180°)
@@ -348,7 +349,7 @@ module.exports = (h) => {
             { n: 5, rond: [z.l - 12, 14], cible: [cx + 4, planY - 3], texte: 'la perche, plantée au centre avec le haricot' },
             { n: 6, rond: [12, 14], cible: [cx + RH * Math.cos(rad(252)), planY + RH * Math.sin(rad(252)) - 3], texte: 'quatre ou cinq graines de haricot' },
             { n: 7, rond: [z.l - 12, planY + R + 30], cible: [cx + (R + 4) * 0.707, planY + (R + 4) * 0.707], texte: 'rechausser : la terre ramenée aux plants' },
-            { n: 8, rond: [12, yG - 44], cible: [cx - R + 16, yG - 8], texte: 'en tireté, la butte avant le rechaussage' },
+            { n: 8, rond: [z.l - 12, yG - 44], cible: [cx + 47, yG - 7.5], texte: 'en tireté, la butte avant le rechaussage' },
           ];
         },
       },

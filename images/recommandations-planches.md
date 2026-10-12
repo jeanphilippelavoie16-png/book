@@ -42,6 +42,12 @@ nouvelle numérotation (six tomes).
    il montre la **position**, rien d'autre ; (b) **le gros plan** sur la seule région qui compte (les
    mains et le bassin, le pied et la cheville), sans le reste du corps. Jamais de ventre, de seins ou de
    visage détaillés. Une grossesse se dit par un ventre arrondi simple dans le pictogramme.
+9. **Plus de main ni de visage dessinés, nulle part** (JP, 12 octobre, après la passe qualité :
+   50-40 « les mains men wtf », 28-02 « tête wtf », 25-40, 13-09, 27-04 les doigts, 104-40 le bras).
+   Même refaites avec la bibliothèque, elles ratent. À la place : **l'objet dans sa position et la
+   flèche du geste** ; si un outil est tenu, le manche seul et une flèche ; si le corps compte, le
+   **pictogramme** de la règle 8 (tête ronde sans visage, membres en bandes), jamais une main à
+   doigts, un bras anatomique ni un visage.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en

@@ -397,7 +397,7 @@ module.exports = (h) => {
         const cx = x + (rr() - 0.5) * 40, cy = y + (rr() - 0.5) * 30, rt = 6 + 7 * rr();
         const pts = [];
         for (let j = 0; j < 6; j++) { const a = 2 * Math.PI * j / 6 + rr(); const k2 = 0.7 + 0.5 * rr(); pts.push(P(cx + Math.cos(a) * rt * k2, cy + Math.sin(a) * rt * k2)); }
-        out.push(h.chemin(pts, noir(h.a.fin), true));
+        out.push(h.chemin(pts, h.a.hachure('terre', 'arete'), true));
       }
     });
     // le geste
@@ -487,7 +487,7 @@ module.exports = (h) => {
         renvois: z => {
           const v = une('coupe', vueCoupe)(z), P = v.P;
           return [
-            { n: 7, rond: P(-RA - RB - 45, ZB + 30), cible: P(-RA - 30, ZE + 8), texte: 'sac posé sur les bouchons' },
+            { n: 7, rond: P(-RA - RB - 45, ZB + 30), cible: P(-RA, ZB + 4), texte: 'sac posé sur les bouchons' },
             { n: 8, rond: P(RA + RB + 45, 60), cible: P(RA + 20, 100), texte: 'l’eau gèle avant la plante' },
           ];
         },

@@ -163,8 +163,8 @@ const PIED_C = [[3.0, 0], [3.8, 0.35], [4.2, 1.3], [3.9, 2.6], [2.6, 3.5], [0.5,
 const COUPURE_C = [[-11.9, 16.2], [-14.3, 16.8], [-16.3, 15.9], [-18.5, 16.6], [-21.4, 16.0]];
 const COUTURE_C = [[3.3, 2.1], [1.2, 3.3], [-2.5, 4.1], [-6.4, 5.4]];
 const BRIDE_C = [[0.25, -0.1], [0.9, 1.0], [1.5, 2.2], [2.0, 3.4], [2.25, 4.35]];
-const TALON_C = [[-0.25, -0.1], [-1.2, 0.55], [-3, 1.2], [-8, 2.85], [-13, 4.35], [-17.5, 5.5], [-20.4, 6.15], [-21.9, 6.45], [-22.6, 6.6]];
-const NOEUD_C = [-22.95, 6.7];
+const TALON_C = [[-0.25, -0.1], [-1.2, 0.55], [-3, 1.2], [-8, 2.85], [-13, 4.35], [-17.5, 5.5], [-19.8, 6.05], [-20.6, 6.3], [-21.0, 6.45]];
+const NOEUD_C = [-21.3, 6.5];
 
 // ─── Outils ─────────────────────────────────────────────────────────────────────────────
 const DEFS = '<defs><pattern id="h-lacage" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">'
@@ -220,7 +220,12 @@ function base(h, P) {
   out.push(h.chemin(P.pts(lac), 'fill="url(#h-lacage)" stroke="none"', true));
   // traverse avant, mortaisée dans le fût
   const [tx0, ty0] = P.pt([-wi(-6.4) - 0.3, -7.3]), [tx1, ty1] = P.pt([wi(-6.4) + 0.3, -5.5]);
-  out.push(h.rect(tx0, ty0, tx1 - tx0, ty1 - ty0, h.a.hachure('bois', 'arete')));
+  out.push(h.rect(tx0, ty0, tx1 - tx0, ty1 - ty0, h.a.blanc));
+  for (const f of [0.3, 0.55, 0.78]) {
+    const yy = ty0 + (ty1 - ty0) * f;
+    out.push(h.path(`M${tx0 + 6} ${yy.toFixed(1)} Q${((tx0 + tx1) / 2).toFixed(1)} ${(yy + (f - 0.5) * 3).toFixed(1)} ${tx1 - 6} ${yy.toFixed(1)}`, h.a.fin));
+  }
+  out.push(h.rect(tx0, ty0, tx1 - tx0, ty1 - ty0, h.a.arete));
   // trou des orteils : entre le cordon, les haubans et la traverse
   const trou = `M${P.pt([-5.2, -0.4]).join(' ')} Q${P.pt([-5.9, -3.4]).join(' ')} ${P.pt([-4.3, -5.5]).join(' ')} L${P.pt([4.3, -5.5]).join(' ')} Q${P.pt([5.9, -3.4]).join(' ')} ${P.pt([5.2, -0.4]).join(' ')} Z`;
   out.push(h.path(trou, h.a.blanc));
