@@ -1,0 +1,154 @@
+<title>Relecture des planches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap">
+<style>
+/* Atelier : une planche par carte, le verdict sous l'image, une barre de filtres collante. */
+:root{
+  --bg:#eef0ee; --surface:#ffffff; --fg:#1b2420; --muted:#5d6a63; --line:#cfd6d1;
+  --accent:#2f5d4a; --ok:#2e7d4f; --ok-bg:#e3f2e8; --ko:#b23a2a; --ko-bg:#f8e6e2; --warn:#9a6a00; --warn-bg:#fbf0d6;
+  --display:"Source Serif 4", Georgia, serif; --ui:"IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --surface:#1d2521; --fg:#e4ebe6; --muted:#9aa8a0; --line:#33403a;
+  --accent:#7fbf9f; --ok:#6fcf97; --ok-bg:#1f3a2b; --ko:#f08a78; --ko-bg:#40231e; --warn:#e8bf5a; --warn-bg:#3b311a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --surface:#1d2521; --fg:#e4ebe6; --muted:#9aa8a0; --line:#33403a;
+  --accent:#7fbf9f; --ok:#6fcf97; --ok-bg:#1f3a2b; --ko:#f08a78; --ko-bg:#40231e; --warn:#e8bf5a; --warn-bg:#3b311a; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);font-size:15px}
+.wrap{padding-inline:16px;padding-block:20px 60px;max-width:1400px;margin:0 auto}
+h1{font-family:var(--display);font-weight:600;font-size:28px;margin:0;text-wrap:balance}
+.sous{color:var(--muted);margin:4px 0 0}
+.compte{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 0;font-variant-numeric:tabular-nums}
+.compte b{font-size:20px;font-weight:600;margin-right:4px}
+.barre{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.groupe{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:6px 10px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.chip:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#q{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);width:150px}
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:16px}
+.carte{background:var(--surface);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;min-width:0}
+.carte[data-s="ok"]{border-color:var(--ok)} .carte[data-s="ko"]{border-color:var(--ko)}
+.img{background:#fff;border-bottom:1px solid var(--line);cursor:zoom-in;aspect-ratio:1100/1336;overflow:hidden;border-radius:6px 6px 0 0}
+.img img{width:100%;height:100%;object-fit:contain;display:block}
+.corps{padding:10px 12px 12px;display:flex;flex-direction:column;gap:8px}
+.tete{display:flex;gap:8px;align-items:baseline}
+.ref{font-weight:600;font-variant-numeric:tabular-nums}
+.titre{font-family:var(--display);font-size:16px;line-height:1.3}
+.chap{color:var(--muted);font-size:13px}
+.etat{font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:auto;white-space:nowrap}
+.etat.ok{background:var(--ok-bg);color:var(--ok)} .etat.ko{background:var(--ko-bg);color:var(--ko)} .etat.neuf{background:var(--warn-bg);color:var(--warn)}
+.actions{display:flex;gap:8px}
+.btn{flex:1;font:inherit;font-weight:600;padding:9px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.btn.ok[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.btn.ko[aria-pressed="true"]{background:var(--ko);border-color:var(--ko);color:var(--surface)}
+textarea{font:inherit;width:100%;box-sizing:border-box;min-height:70px;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);resize:vertical}
+.sauve{font-size:12px;color:var(--muted);min-height:1em}
+.vide{color:var(--muted);padding:40px 0;text-align:center}
+.avis{background:var(--warn-bg);color:var(--warn);padding:10px 12px;border-radius:6px;margin-top:12px}
+#zoom{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.88);display:flex;flex-direction:column}
+#zoom .zb{display:flex;gap:8px;align-items:center;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;color:#fff}
+#zoom .zb span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#zoom button{font:inherit;background:#333;color:#fff;border:0;border-radius:6px;padding:8px 12px;cursor:pointer}
+#zoom .zi{flex:1;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:0 8px 16px}
+#zoom img{max-width:100%;background:#fff}
+#zoom.grand img{max-width:none;width:1100px}
+@media (prefers-reduced-motion:no-preference){.carte{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+  <h1>Relecture des planches</h1>
+  <p class="sous">Le Grand Livre du Chalet · coche chaque planche, et dis pourquoi quand elle ne passe pas. Tes verdicts restent enregistrés et Claude les lit.</p>
+  <div class="compte" id="compte"></div>
+  <div id="avis"></div>
+  <div class="barre">
+    <div class="groupe" id="fStatut"></div>
+    <div class="groupe" id="fTome"></div>
+    <input id="q" type="search" placeholder="Numéro ou mot" aria-label="Chercher une planche">
+  </div>
+  <div class="grille" id="grille"><p class="vide">Chargement des planches…</p></div>
+</div>
+
+<div id="zoom" hidden>
+  <div class="zb"><button id="zPrev" aria-label="Planche précédente">‹</button><span id="zTitre"></span><button id="zTaille">Taille réelle</button><button id="zNext" aria-label="Planche suivante">›</button><button id="zFerme">Fermer</button></div>
+  <div class="zi"><img id="zImg" alt=""></div>
+</div>
+
+<script>
+const TOMES={1:"Tenir",2:"Le corps",3:"Prélever",4:"De la bête au garde-manger",5:"La forêt, le jardin et le chalet",6:"L'atelier"};
+let P=[], V={}, db=null, f={s:"juger",t:0,q:""}, vus=[];
+const $=id=>document.getElementById(id);
+function statut(p){const v=V[p.ref]; if(!v) return "juger"; if(v.v && v.v!==p.v) return "neuf"; return v.statut;}
+function chips(){
+  const S=[["juger","À juger"],["ko","Pas conformes"],["neuf","Refaites depuis"],["ok","Conformes"],["tout","Toutes"]];
+  $("fStatut").innerHTML=S.map(([k,l])=>`<button class="chip" data-s="${k}" aria-pressed="${f.s===k}">${l}</button>`).join("");
+  $("fTome").innerHTML=[[0,"Tous les tomes"],...Object.keys(TOMES).map(t=>[+t,"Tome "+t])].map(([k,l])=>`<button class="chip" data-t="${k}" aria-pressed="${f.t===k}">${l}</button>`).join("");
+}
+function compte(){
+  const c={juger:0,ok:0,ko:0,neuf:0}; P.forEach(p=>c[statut(p)]++);
+  $("compte").innerHTML=`<span><b>${P.length}</b>planches</span><span><b>${c.juger}</b>à juger</span><span style="color:var(--ok)"><b>${c.ok}</b>conformes</span><span style="color:var(--ko)"><b>${c.ko}</b>pas conformes</span>${c.neuf?`<span style="color:var(--warn)"><b>${c.neuf}</b>refaites depuis ton verdict</span>`:""}`;
+}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function carte(p){
+  const s=statut(p), v=V[p.ref]||{};
+  const etat={ok:'<span class="etat ok">Conforme</span>',ko:'<span class="etat ko">Pas conforme</span>',neuf:'<span class="etat neuf">Nouvelle version</span>',juger:""}[s];
+  const ko=v.statut==="ko";
+  return `<article class="carte" data-ref="${p.ref}" data-s="${s==="neuf"?"":v.statut||""}">
+    <div class="img" data-zoom="${p.ref}"><img loading="lazy" src="img/${p.ref}.jpg?v=${p.v}" alt="Planche ${p.ref}"></div>
+    <div class="corps">
+      <div class="tete"><span class="ref">${p.ref}</span>${etat}</div>
+      <div class="titre">${esc(p.titre)}</div>
+      <div class="chap">Tome ${p.tome} · ch. ${p.ch} — ${esc(p.chapitre)}</div>
+      ${s==="neuf"&&v.statut==="ko"?`<div class="chap">Ton verdict d'avant : pas conforme — « ${esc(v.raison)} »</div>`:""}
+      <div class="actions"><button class="btn ok" data-act="ok" aria-pressed="${s!=="neuf"&&v.statut==="ok"}">✓ Conforme</button><button class="btn ko" data-act="ko" aria-pressed="${s!=="neuf"&&ko}">✗ Pas conforme</button></div>
+      <div ${ko&&s!=="neuf"?"":"hidden"} class="raison"><textarea id="r-${p.ref}" placeholder="Pourquoi ? (la main, la coupe, une cote…)">${esc(v.raison)}</textarea><div class="sauve" id="sv-${p.ref}"></div></div>
+    </div></article>`;
+}
+function rendre(){
+  compte(); chips();
+  const q=f.q.trim().toLowerCase();
+  vus=P.filter(p=>(!f.t||p.tome===f.t)&&(f.s==="tout"||statut(p)===f.s)&&(!q||(p.ref+" "+p.titre+" "+p.chapitre).toLowerCase().includes(q)));
+  $("grille").innerHTML=vus.length?vus.map(carte).join(""):`<p class="vide">Aucune planche dans ce filtre.</p>`;
+}
+async function ecrire(ref,data){
+  const p=P.find(x=>x.ref===ref); const body={...data,v:p.v,maj:new Date().toISOString(),titre:p.titre};
+  V[ref]=body;
+  if(!db){$("avis").innerHTML='<div class="avis">L\'enregistrement n\'est pas disponible dans cette vue : ouvre la page connecté à claude.ai.</div>';return false}
+  try{await db.collection("verdicts").doc(ref).set(body);return true}
+  catch(e){$("avis").innerHTML=`<div class="avis">Pas enregistré (${esc(e.code)}). Réessaie dans un moment.</div>`;return false}
+}
+document.addEventListener("click",async e=>{
+  const c=e.target.closest(".chip");
+  if(c){ if(c.dataset.s) f.s=c.dataset.s; if(c.dataset.t!==undefined) f.t=+c.dataset.t; rendre(); return }
+  const z=e.target.closest("[data-zoom]"); if(z){ouvrir(z.dataset.zoom);return}
+  const b=e.target.closest(".btn"); if(!b) return;
+  const art=b.closest(".carte"), ref=art.dataset.ref;
+  if(b.dataset.act==="ok"){ await ecrire(ref,{statut:"ok",raison:""}); majCarte(ref); }
+  else { const r=V[ref]?.statut==="ko"?V[ref].raison:""; V[ref]={...(V[ref]||{}),statut:"ko",raison:r,v:P.find(x=>x.ref===ref).v}; majCarte(ref); const t=$("r-"+ref); t&&t.focus(); await ecrire(ref,{statut:"ko",raison:r}); }
+});
+function majCarte(ref){const a=document.querySelector(`.carte[data-ref="${ref}"]`); if(!a) return; const p=P.find(x=>x.ref===ref); a.outerHTML=carte(p); compte();}
+const tmr={};
+document.addEventListener("input",e=>{
+  if(e.target.id==="q"){f.q=e.target.value;rendre();return}
+  if(!e.target.id.startsWith("r-")) return; const ref=e.target.id.slice(2);
+  $("sv-"+ref).textContent="…"; clearTimeout(tmr[ref]);
+  tmr[ref]=setTimeout(async()=>{ if(await ecrire(ref,{statut:"ko",raison:e.target.value})) $("sv-"+ref).textContent="Enregistré"; },700);
+});
+// zoom
+let zi=-1;
+function ouvrir(ref){ zi=vus.findIndex(p=>p.ref===ref); montrer(); $("zoom").hidden=false; }
+function montrer(){ const p=vus[zi]; if(!p) return; $("zImg").src=`img/${p.ref}.jpg?v=${p.v}`; $("zTitre").textContent=`${p.ref} — ${p.titre}`; }
+$("zFerme").onclick=()=>{$("zoom").hidden=true; $("zoom").classList.remove("grand")};
+$("zPrev").onclick=()=>{zi=(zi-1+vus.length)%vus.length;montrer()};
+$("zNext").onclick=()=>{zi=(zi+1)%vus.length;montrer()};
+$("zTaille").onclick=()=>$("zoom").classList.toggle("grand");
+document.addEventListener("keydown",e=>{ if($("zoom").hidden) return; if(e.key==="Escape")$("zFerme").onclick(); if(e.key==="ArrowLeft")$("zPrev").onclick(); if(e.key==="ArrowRight")$("zNext").onclick(); });
+
+(async()=>{
+  try{ P=await (await fetch("planches.json",{cache:"no-store"})).json(); }catch(e){ $("grille").innerHTML='<p class="vide">La liste des planches ne s\'est pas chargée.</p>'; return }
+  rendre();
+  db=await window.claude?.use?.("db").catch(()=>null) ?? null;
+  if(!db){ $("avis").innerHTML='<div class="avis">Tes verdicts ne peuvent pas s\'enregistrer dans cette vue : ouvre la page sur claude.ai, connecté.</div>'; return }
+  db.collection("verdicts").onSnapshot(s=>{ V={}; s.docs.forEach(d=>V[d.id]=d.data()); const a=document.activeElement; const keep=a&&a.id&&a.id.startsWith("r-"); if(keep) compte(); else rendre(); }, e=>{ $("avis").innerHTML=`<div class="avis">La synchronisation s'est arrêtée (${esc(e.code)}). Recharge la page.</div>`; });
+})();
+</script>
