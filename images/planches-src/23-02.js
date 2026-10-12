@@ -149,7 +149,7 @@ module.exports = (h) => {
   const pot = [
     h.path('M 53 72 Q 115 62 177 72 L 177 174 L 53 174 Z', h.a.hachure('gravier', 'aucun')),
     ...[[76, 92, -8], [114, 90, 6], [153, 94, -4], [95, 111, 10], [136, 113, -6], [72, 131, 4], [114, 133, -10], [156, 130, 8], [94, 153, -4], [137, 154, 6]]
-      .map(([x, y, a]) => ovale(x, y, 11, 3.8, a, plein(h.a.arete))),
+      .map(([x, y, a]) => ovale(x, y + 6, 11, 3.8, a, plein(h.a.arete))),
     h.path('M 53 72 Q 115 62 177 72', h.a.arete),
     h.path('M 45 58 L 45 182 L 185 182 L 185 58 L 177 58 L 177 174 L 53 174 L 53 58 Z', h.a.hachure('metal', 'contour')),
   ].join('\n');
@@ -211,7 +211,7 @@ module.exports = (h) => {
       },
       saler: {
         titre: 'Saler',
-        dessin: z => [pot, bout].join('\n'),
+        dessin: z => pot,  // tout sous le sel : une couche de sel sans boyau par-dessus
         renvois: z => [
           { n: 9, rond: [26, 30], cible: [70, 69], texte: 'enterré dans le sel sec, en excès' },
         ],

@@ -41,22 +41,26 @@ module.exports = (h) => {
   };
   const face = (d, pts, o) => I.tube({ pts, dos: faceW(d.ep), ventre: faceW(d.ep), coussin: [-0.15, -0.1, 0.15],
     bosseDos: [-0.15, -0.1, 0.15], bout: 'rond', base: 16, ...o });
+  // la palmure : un petit creux arrondi qui relie les deux doigts à la base, au niveau des plis
+  // doubles ; il recule vers la paume d'à peu près la demi-largeur de l'écart, jamais en pointe
   const webEntre = (a, wa, b, wb, s) => {
     const pa = I.pointBord(a, wa, 1, -1, s), pb = I.pointBord(b, wb, 1, 1, s);
-    const fond = lerp(I.pointBord(a, wa, 1, -1, s - 4), I.pointBord(b, wb, 1, 1, s - 4), 0.5);
-    return [['M', pa], ['Q', fond, pb]];
+    const ua = [a[1][0] - a[0][0], a[1][1] - a[0][1]], ub = [b[1][0] - b[0][0], b[1][1] - b[0][1]];
+    const u0 = add(mul(ua, 1 / Math.hypot(...ua)), mul(ub, 1 / Math.hypot(...ub))), u = mul(u0, 1 / Math.hypot(...u0));
+    const k = Math.max(2.2, 0.75 * Math.hypot(pb[0] - pa[0], pb[1] - pa[1]));
+    return [['M', pa], ['C', add(pa, mul(u, -k)), add(pb, mul(u, -k)), pb]];
   };
 
   // ── la main mesurée : main gauche, paume en haut ──────────────────────────────────────
   function paumeEnHaut(bras) {
     const cut = WX - bras, pieces = [];
-    const doigts = [['index', [0, -27.5], -2.5], ['majeur', [4.5, -8.8], -0.3], ['annulaire', [1, 9.6], 2.2], ['auriculaire', [-9, 26.8], 5.5]]
+    const doigts = [['index', [0, -27.5], -4.5], ['majeur', [4.5, -8.8], -0.8], ['annulaire', [1, 9.6], 3.6], ['auriculaire', [-9, 26.8], 8.5]]
       .map(([nom, P0, a]) => { const d = gros(nom); return { d, w: faceW(d.ep), pts: I.plie(P0, dirA(a), d.ph, [0, 1, 0.8], 1) }; });
     const ptsP = poucePts([-38, -24, -17]);
     const bP = s => I.pointBord(ptsP, wP, 1, 1, s), vP = s => I.pointBord(ptsP, wP, 1, -1, s);
     const bI = s => I.pointBord(doigts[0].pts, doigts[0].w, 1, 1, s);
     const vA = s => I.pointBord(doigts[3].pts, doigts[3].w, 1, -1, s);
-    const sW = 21;
+    const sW = 30;                     // la palmure, au niveau des plis doubles
     const haut = I.lisse([[cut, -30.5], [WX - 8, -29.5], bP(0)]);
     const web1 = I.lisse([vP(58), [-2, -45], bI(5)]);
     const cubital = I.lisse([vA(8), [12, 37.5], [-20, 38.5], [-55, 35], [WX, 30], [cut, 31.5]]);

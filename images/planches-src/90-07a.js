@@ -226,9 +226,9 @@ module.exports = (h) => {
   // tour de la traverse autour du plat-bord se lise.
   function gK(z) {
     const cx = 26;
-    const Dd = Math.min(z.h * 0.64, 150);
+    const Dd = Math.min(z.h * 0.56, 150);
     const yT = Math.max(34, (z.h - Dd) * 0.5), yB = yT + Dd;
-    const Bw = Math.min(z.l - cx - 64, Dd * 1.45);
+    const Bw = Math.min(z.l - cx - 182, Dd * 1.45);
     const fl = Dd * 0.1, rb = Dd * 0.4, eb = 2;
     const R = [];
     const xs1 = Bw - fl, ys1 = yB - rb;
@@ -238,12 +238,15 @@ module.exports = (h) => {
     const rg = Math.max(8, Dd * 0.075), tt = 3.4;
     const xb = cx + Bw, xg = xb - eb - tt - rg + 0.4, yc = yT + tt + rg;
     const rr = rg + tt / 2, xe = xg - rg - 12;
-    return { cx, Dd, yT, yB, Bw, eb, R, rg, tt, xb, xg, yc, rr, xe };
+    // Le détail cerclé, grossi trois fois, à droite : le tour du plat-bord.
+    const K = 3, rD = 52, sx = xg + 3, sy = yc + 1;
+    const xD = z.l - rD - 4, yD = Math.min(z.h - rD - 6, yc + rD + 18);
+    const T = ([x, y]) => [xD + (x - sx) * K, yD + (y - sy) * K];
+    return { cx, Dd, yT, yB, Bw, eb, R, rg, tt, xb, xg, yc, rr, xe, K, rD, sx, sy, xD, yD, T };
   }
-  function coupe(z) {
-    const g = gK(z), { cx, yT, yB, eb, R, rg, tt, xb, xg, yc, rr, xe } = g, o = [];
-    // L'axe du canot.
-    o.push(h.ligne(cx, f(yT - 14), cx, f(yB + 12), h.a.cache));
+  function contenu(g, det) {
+    const { cx, yT, yB, eb, R, rg, tt, xb, xg, yc, rr, xe } = g, o = [];
+    const bois = det ? 'fill="url(#h90-bois3)" stroke="#000" stroke-width="1.4" stroke-linejoin="round"' : h.a.hachure('bois');
     // La membrure, forcée contre l'écorce, sa tête sous le plat-bord.
     const yM = yc + rr + tt / 2 + 1.5;
     const ligne = R.filter(p => p[1] >= yM || p[0] < xg - rg);
@@ -251,11 +254,12 @@ module.exports = (h) => {
     // L'écorce, en coupe.
     o.push(h.path(bande(R, -eb, eb), h.a.plein));
     // Le plat-bord, un jeune arbre en coupe.
-    o.push(h.cercle(f(xg), f(yc), f(rg), h.a.hachure('bois')));
+    o.push(h.cercle(f(xg), f(yc), f(rg), bois));
     // La racine qui lie l'écorce au plat-bord, passée dans un trou sous le plat-bord.
     const boucle = [[xb - 0.3, yc + rg + 6.5], [xg - rg * 0.4, yc + rg + 5.6], [xg - rg - 4, yc + 1], [xg - rg * 0.3, yc - rg - tt - 2],
       [xb + 0.4, yc - rg - 1.6], [xb + 3.6, yc + 2], [xb + 2.2, yc + rg + 6]];
-    o.push(h.path(lisse(boucle, true), h.a.detail));
+    const racine = h.path(lisse(boucle, true), det ? h.a.arete.replace('stroke-width="1.4"', 'stroke-width="4.2"') : h.a.detail);
+    if (!det) o.push(racine);
     // Le bout aminci de la traverse : par-dessus le plat-bord, dehors, dessous, et il revient
     // sous la traverse.
     const lang = [[xe, yc + 0.6], [xe + 5, yc + 0.2]];
@@ -265,12 +269,34 @@ module.exports = (h) => {
     // La traverse, coupée dans sa longueur, amincie vers son bout.
     const yb = yc + rr - tt / 2 - 0.4;
     const trav = [[cx, yc - 5.5], [xe - 9, yc - 5.5], [xe, yc - 1.6], [xe, yc + 2.2], [xe - 9, yb], [cx, yb]];
-    o.push(h.chemin(trav, h.a.hachure('bois'), true));
+    o.push(h.chemin(trav, bois, true));
     // Deux ligatures prennent la traverse et le bout revenu dessous.
     for (const dx of [7, 17]) {
       const x0 = xe - dx - 1.5;
       o.push(h.rect(f(x0), f(yc - 6.8), 3, f(rr + tt / 2 + 8), h.a.blanc), h.rect(f(x0), f(yc - 6.8), 3, f(rr + tt / 2 + 8), h.a.detail));
     }
+    // Dans le détail, la racine passe par-dessus tout, pour qu'on suive son tour.
+    if (det) o.push(racine);
+    return o.join('\n');
+  }
+  function coupe(z) {
+    const g = gK(z), { cx, yT, yB, K, rD, sx, sy, xD, yD } = g, o = [];
+    // L'axe du canot.
+    o.push(h.ligne(cx, f(yT - 14), cx, f(yB + 12), h.a.cache));
+    o.push(contenu(g, false));
+    // Le cercle tireté qui renvoie au détail.
+    const rs = rD / K;
+    o.push(h.cercle(f(sx), f(sy), f(rs), h.a.cache));
+    const ang = Math.atan2(yD - sy, xD - sx);
+    o.push(h.ligne(f(sx + Math.cos(ang) * rs), f(sy + Math.sin(ang) * rs), f(xD - Math.cos(ang) * rD), f(yD - Math.sin(ang) * rD), h.a.fin));
+    // Le détail grossi : traits ramenés à leur épaisseur, hachure à son pas.
+    const dedans = contenu(g, true).replace(/stroke-width="([\d.]+)"/g, (m, v) => `stroke-width="${f(v / K)}"`)
+      .replace(/stroke-dasharray="[^"]*"/g, m => m);
+    o.push(`<defs><pattern id="h90-bois3" width="2" height="2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="2" stroke="#000" stroke-width="${f(0.7 / K * 100) / 100}"/></pattern>`
+      + `<clipPath id="c90-07a-det"><circle cx="${f(xD)}" cy="${f(yD)}" r="${rD}"/></clipPath></defs>`);
+    o.push(h.cercle(f(xD), f(yD), rD, h.a.blanc));
+    o.push(`<g clip-path="url(#c90-07a-det)"><g transform="translate(${f(xD)} ${f(yD)}) scale(${K}) translate(${f(-sx)} ${f(-sy)})">${dedans}</g></g>`);
+    o.push(h.cercle(f(xD), f(yD), rD, h.a.arete));
     return o.join('\n');
   }
 
@@ -368,8 +394,8 @@ module.exports = (h) => {
           return [
             { n: 7, rond: [g.cx + 70, g.yB + 20], cible: [g.cx + 50, g.yB + 1.5], texte: 'fond aplati par les plis' },
             { n: 8, rond: [g.xb + 30, m[1] + 6], cible: [m[0] - 6, m[1] - 3], texte: 'membrure pliée contre l’écorce' },
-            { n: 9, rond: [g.xg - 36, g.yT - 22], cible: [g.xg - 2, g.yc - g.rr], texte: 'bout enroulé, lié dessous' },
-            { n: 10, rond: [g.xb + 32, g.yc + 4], cible: [g.xb + 3.4, g.yc + 3], texte: 'écorce liée à la racine' },
+            { n: 9, rond: [g.xD - g.rD - 4, g.yD - g.rD + 2], cible: g.T([g.xg - 3, g.yc - g.rr]), texte: 'bout enroulé, lié dessous' },
+            { n: 10, rond: [g.xD + 10, g.yD - g.rD - 14], cible: g.T([g.xb + 3.4, g.yc + 3]), texte: 'écorce liée à la racine' },
           ];
         },
       },

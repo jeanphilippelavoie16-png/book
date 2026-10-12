@@ -77,21 +77,19 @@ module.exports = (h) => {
     // la bride vue de côté (ses deux brins l'un derrière l'autre), l'anneau, la vis à œil
     const claie = (xa, xb, yb, lat, cordes, sommet, graine) => {
       const q = [];
+      const T = 100;                                               // épaisseur de la perche, doublée pour qu'elle se lise
       for (const xc of cordes) {
-        q.push(h.ligne(X(xc), Y(yb + 50), X(xc), Y(PL - 18), A.detail));
+        q.push(h.ligne(X(xc), Y(yb + T + 22), X(xc), Y(PL - 18), A.detail));
         q.push(h.cercle(X(xc), Y(sommet), 2.2, bD));
         q.push(h.path(`M${pt([X(xc), Y(PL - 18)])} a2.3 2.3 0 1 1 0.1 0`, A.detail), h.ligne(X(xc), Y(PL - 13), X(xc), Y(PL), A.detail));
       }
-      // le grain : une bosse basse, piquée
-      const g0 = lat[0] + 45, g1 = lat[1] - 5;
-      q.push(h.path(`M${pt([X(g0), Y(yb + 50)])} Q${pt([X((g0 + g1) / 2), Y(yb + 50 + 55)])} ${pt([X(g1), Y(yb + 50)])} Z`, bF));
-      const r = alea(graine);
-      for (let i = 0; i < (g1 - g0) / 22; i++) {
-        const xx = g0 + 30 + r() * (g1 - g0 - 60), hh = 55 * (1 - Math.pow((xx - (g0 + g1) / 2) / ((g1 - g0) / 2), 2));
-        q.push(h.cercle(X(xx), Y(yb + 50 + 6 + r() * Math.max(0, hh * 0.45 - 6)), 0.55, A.plein));
+      q.push(R(xa, yb, xb, yb + T, bA));
+      for (const xl of lat) q.push(R(xl, yb + T, xl + 40, yb + T + 22, bA));
+      // le grain : une rangée d'ovales posés sur la claie, entre les lattes
+      const r = alea(graine), g0 = lat[0] + 60, g1 = lat[1] - 20;
+      for (let xx = g0; xx <= g1; xx += 38) {
+        q.push(ovale(X(xx + (r() - 0.5) * 8), Y(yb + T) - 1.4, (r() - 0.5) * 30, 2.1, 1.25, bD));
       }
-      q.push(R(xa, yb, xb, yb + 50, bA));
-      for (const xl of lat) q.push(R(xl, yb + 50, xl + 40, yb + 72, bA));
       return q;
     };
     o.push(...claie(470, 1370, 1480, [510, 1290], [490, 1350], 1880, 7));
@@ -214,10 +212,12 @@ module.exports = (h) => {
 
     // le plan de la coupe, en trait mixte, vu dans le sens des flèches
     const xc = 330;
-    o.push(h.chemin([P(xc, 0, Zs), P(xc, W + 40, Zs)], MIXTE));
-    for (const [ya, yb] of [[-300, -200], [W + 70, W + 150]]) {
+    const HALO = 'fill="none" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round"';
+    const MIXTE2 = MIXTE.replace('stroke-width="0.7"', 'stroke-width="1.4"');
+    o.push(h.chemin([P(xc, -250, Zs), P(xc, W + 110, Zs)], HALO), h.chemin([P(xc, -250, Zs), P(xc, W + 110, Zs)], MIXTE2));
+    for (const [ya, yb] of [[-300, -250], [W + 110, W + 160]]) {
       o.push(h.chemin([P(xc, ya, Zs), P(xc, yb, Zs)], A.contour));
-      const a = P(xc, ya < 0 ? ya : yb, Zs), b = P(xc - 170, ya < 0 ? ya : yb, Zs);
+      const a = P(xc, ya < 0 ? ya : yb, Zs), b = P(xc - 85, ya < 0 ? ya : yb, Zs);
       o.push(h.fleche(`M${pt(a)} L${pt(b)}`, A.arete));
     }
     return o.join('\n');
@@ -308,9 +308,9 @@ module.exports = (h) => {
         renvois: z => {
           const { X, Y } = gP(z);
           return [
-            { n: 1, rond: [X(1720), Y(1820)], cible: [X(1250), Y(1505)], texte: 'la claie du grain de table' },
+            { n: 1, rond: [X(1720), Y(1820)], cible: [X(1250), Y(1530)], texte: 'la claie du grain de table' },
             { n: 2, rond: [X(1560), Y(1080)], cible: [X(1000), Y(1110)], texte: 'l’air chaud traverse le grain' },
-            { n: 3, rond: [X(3500), Y(1150)], cible: [X(3960), Y(1585)], texte: 'la semence, loin du poêle' },
+            { n: 3, rond: [X(3500), Y(1150)], cible: [X(3960), Y(1610)], texte: 'la semence, loin du poêle' },
           ];
         },
       },

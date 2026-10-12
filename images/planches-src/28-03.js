@@ -113,9 +113,14 @@ module.exports = (h) => {
     o.push(e0.svg);
 
     // la cote : du point d'attache au milieu de l'écrou
-    const xc = P(175, 0)[0];
-    o.push(h.ligne(e0.bx + (AC / 2) * s + 3, e0.by, xc + 6, e0.by, h.a.fin));
-    o.push(h.cote(xc, ay, xc, e0.by, '1000 mm', { cote: 'droite' }));
+    const xc = P(175, 0)[0] + 20;
+    o.push(h.ligne(ax + 4, ay, xc + 6, ay, h.a.fin));                       // attache haute : du point (1)
+    o.push(h.ligne(e0.bx + (AC / 2) * s + 3, e0.by, xc + 6, e0.by, h.a.fin)); // attache basse : centre de l'écrou
+    const ym = (ay + e0.by) / 2;
+    o.push(h.ligne(xc, ay, xc, e0.by, h.a.detail));
+    const pointe = (y, d) => `<path d="M${f(xc)} ${f(y)} L${f(xc - 3.5)} ${f(y + d * 11)} L${f(xc + 3.5)} ${f(y + d * 11)} Z" fill="#000000" stroke="none"/>`;
+    o.push(pointe(ay, 1), pointe(e0.by, -1));                                  // flèches fermées
+    o.push(`<g transform="rotate(-90 ${f(xc + 17)} ${f(ym)})">` + h.texte(xc + 17, ym, '1000 mm', { lisere: true }) + '</g>');
     return o.join('\n');
   };
 

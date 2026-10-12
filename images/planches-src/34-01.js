@@ -195,11 +195,11 @@ module.exports = (h) => {
     const s = echelle(z), ox = z.l / 2, oy = z.h - 20 * s;
     const c = coupe({ s, ox, oy, uL: -(ox - 2) / s, uR: (z.l - ox - 2) / s, vB: 17.5, ouvert: true, contenu: 'loges', cloisons: 'entieres' });
     const P = c.P, out = [c.svg];
-    // le pus de la loge du milieu sort par le trait, bombe au-dessus et coule sur la peau
-    const surPeau = (a, b) => range(a, b, 6).map(u => [u, peau(u)]);
-    const bombe = [...surPeau(-G - 8, -G), [-G + 0.3, pTop(-G) + 0.3], [G - 0.3, pTop(G) + 0.3], ...surPeau(G, G + 6),
-      [G + 4, peau(G + 4) - 0.9], [G + 1, peau(G) - 2.2], [3, peau(3) - 3.6], [-4, peau(-4) - 3.4], [-G - 1, peau(-G) - 2.2], [-G - 5, peau(-G - 5) - 1]].map(p => P(...p));
-    out.push(h.path(cr(bombe, true), h.a.hachure('neige', 'detail')));
+    // le pus de la loge du milieu monte par le trait, déborde de la lèvre droite et coule sur la peau
+    const coulee = [[G - 1.2, pTop(G) + 0.4], [G - 1.6, peau(G) - 0.6], [G - 0.6, peau(G) - 2], [G + 2, peau(G + 2) - 2], [G + 5, peau(G + 5) - 1.6],
+      [G + 9, peau(G + 9) - 1.1], [G + 13, peau(G + 13) - 0.9], [G + 17, peau(G + 17) - 0.6], [G + 20, peau(G + 20)], ...range(G + 19.5, G + 0.2, 8).map(u => [u, peau(u)]), [G + 0.2, pTop(G) + 0.4]].map(p => P(...p));
+    out.push(h.path(cr(coulee, true), h.a.hachure('neige', 'detail')));
+    out.push(h.fleche(`M${P(-1, PK.c + 2.4).map(f).join(' ')} L${P(-1, peau(0) - 3.5).map(f).join(' ')}`, h.a.arete));
     return cadre('loges', z, out.join('\n'));
   };
 
@@ -236,7 +236,7 @@ module.exports = (h) => {
     const P = (u, v) => [ox + u * s, oy + v * s];
     const cible = [-2, pBot(-2) - 2];
     const d = [Math.sin(TH), -Math.cos(TH)], n = [Math.cos(TH), Math.sin(TH)];
-    const C = [cible[0] + 38 * d[0], cible[1] + 38 * d[1]];          // le bout du bouchon, en mm de la coupe
+    const C = [cible[0] + 25 * d[0], cible[1] + 25 * d[1]];          // le bout du bouchon, en mm de la coupe
     const W = (a, b) => P(C[0] + a * d[0] + b * n[0], C[1] + a * d[1] + b * n[1]);   // a : le long de l'axe, b : en travers
     return { s, ox, oy, P, W, cible };
   };
@@ -249,23 +249,32 @@ module.exports = (h) => {
       const pts = [[k * (G - 3), peau(k * G) + 0.5], [k * (G - 0.5), peau(k * G) - 2], [k * (G + 3), peau(k * (G + 3)) - 1.6], [k * (G + 9), peau(k * (G + 9)) - 0.9]];
       out.push(h.fleche(cr(pts.map(p => P(...p))), h.a.detail));
     }
-    // la bouteille : bouchon, goulot, épaule, corps coupé par une ligne de rupture
-    const cote = sg => [[0, 13.5 * sg], [11, 13.5 * sg], [11, 11 * sg], [15, 11 * sg], [19, 14 * sg], [25, 25 * sg], [31, 29.5 * sg], [80, 30 * sg]];
+    // la bouteille entière, bouchon en bas : bouchon vissé, goulot, épaule, corps souple pincé au milieu
+    const K = 0.72;
+    const prof = [[0, 5.5], [6, 5.5], [6, 4], [9, 4], [12, 7], [16, 11], [24, 11], [31, 8.6], [38, 11], [47, 11], [50, 8], [51, 0]];
+    const cote = sg => prof.map(([a, b]) => [a * K, b * sg * K]);
     const g1 = cote(1), g2 = cote(-1);
-    const rupt = [[80, 30], [80, -30]];
-    const corps = [...g1.slice().reverse(), ...g2].map(p => W(...p));
-    const tout = [...g1.slice(1).map(p => W(...p)), ...rupt.slice(1, -1).map(p => W(...p)), ...g2.slice(1).reverse().map(p => W(...p))];
-    out.push(h.chemin([W(11, 11), ...tout.slice(2, -2), W(11, -11)], h.a.hachure('eau', 'aucun'), true));
-    out.push(h.chemin([W(0, 13.5), W(11, 13.5), W(11, -13.5), W(0, -13.5)], BL, true));
-    for (const b of [-9, -4.5, 0, 4.5, 9]) out.push(h.path(`M${W(2.5, b).map(f).join(' ')} L${W(8.5, b).map(f).join(' ')}`, h.a.fin));   // les stries du bouchon
-    out.push(h.path(cr(g1.slice(3).map(p => W(...p))), h.a.contour), h.path(cr(g2.slice(3).map(p => W(...p))), h.a.contour));
-    out.push(h.chemin(g1.slice(0, 4).map(p => W(...p)), h.a.contour), h.chemin(g2.slice(0, 4).map(p => W(...p)), h.a.contour));
-    out.push(h.chemin([W(0, 13.5), W(0, -13.5)], h.a.contour));
-    out.push(h.chemin([W(11, 13.5), W(11, -13.5)], h.a.arete));
-    // le trou au milieu du bouchon, et le jet
-    out.push(h.chemin([W(-0.6, 1.2), W(2, 1.2), W(2, -1.2), W(-0.6, -1.2)], h.a.plein, true));
-    const fin = P(...g.cible);
-    out.push(h.fleche(`M${W(-1.2, 0).map(f).join(' ')} L${f(fin[0])} ${f(fin[1])}`, h.a.arete));
+    const corpsB = [...g1.slice(2), ...g2.slice(2, -1).reverse()];
+    out.push(h.path(cr(corpsB.map(p => W(...p)), true), h.a.hachure('eau', 'aucun')));
+    out.push(h.path(cr(corpsB.map(p => W(...p)), true), h.a.contour));
+    out.push(h.chemin([W(6*K, 4*K), W(9*K, 4*K), W(9*K, -4*K), W(6*K, -4*K)], BL, true));
+    out.push(h.chemin([W(6*K, 4*K), W(9*K, 4*K)], h.a.arete), h.chemin([W(6*K, -4*K), W(9*K, -4*K)], h.a.arete));
+    // le pincement : deux plis sur le corps souple
+    for (const sg of [1, -1]) out.push(h.path(cr([W(29*K, 9.4 * sg*K), W(31*K, 6.2 * sg*K), W(33*K, 9.4 * sg*K)]), h.a.fin));
+    // le bouchon vissé et ses stries
+    out.push(h.chemin([W(0, 5.5*K), W(6*K, 5.5*K), W(6*K, -5.5*K), W(0, -5.5*K)], plein(h.a.contour), true));
+    for (const b of [-3.6, -1.8, 1.8, 3.6]) out.push(h.path(`M${W(1*K, b*K).map(f).join(' ')} L${W(5*K, b*K).map(f).join(' ')}`, h.a.fin));
+    // le trou au clou, au milieu du bouchon
+    out.push(h.cercle(...W(0, 0), 0.9 * s, h.a.plein));
+    // le jet : une file de gouttes du trou au fond de la poche, la flèche posée à côté
+    const t0 = W(-1.5, 0), fin = P(...g.cible);
+    const nG = 9;
+    for (let i = 0; i < nG; i++) {
+      const t = (i + 0.5) / nG, x = t0[0] + (fin[0] - t0[0]) * t, y = t0[1] + (fin[1] - t0[1]) * t;
+      out.push(h.ellipse(x, y, 0.9 * s, 0.9 * s, h.a.plein));
+    }
+    const nx = Math.cos(TH) * 4 * s, ny = Math.sin(TH) * 4 * s;
+    out.push(h.fleche(`M${f(t0[0] + nx + (fin[0] - t0[0]) * 0.15)} ${f(t0[1] + ny + (fin[1] - t0[1]) * 0.15)} L${f(t0[0] + nx + (fin[0] - t0[0]) * 0.55)} ${f(t0[1] + ny + (fin[1] - t0[1]) * 0.55)}`, h.a.arete));
     return cadre('jet', z, out.join('\n'));
   };
 
@@ -281,7 +290,7 @@ module.exports = (h) => {
   ];
   const silhouette = DEMI.slice(0, -1).concat(DEMI.slice(1, -1).reverse().map(([x, y]) => [-x, y]));
   const geoCorps = z => {
-    const s = (z.h - 8) / 1760, y0 = 4, x1 = z.l * 0.3, x2 = z.l * 0.72;
+    const s = (z.h - 4) / 1760, y0 = 2, x1 = z.l * 0.27, x2 = z.l * 0.75;
     return { s, y0, x1, x2 };
   };
   const zonesCorps = (X, Y, face) => {
@@ -300,7 +309,7 @@ module.exports = (h) => {
     }
     if (face) zones.push(Z([[-53, 226], [-40, 214], [0, 236], [40, 214], [53, 226], [55, 262], [62, 290], [0, 300], [-62, 290], [-55, 262]]));   // le cou, devant et côtés
     else zones.push(disque(0, 948, 26));                                                           // le tour de l'anus
-    zones.forEach(p => out.push(hachure(p, 2.2, 45, 0.7)));
+    zones.forEach(p => { out.push(hachure(p, 1.5, 45, 0.6)); out.push(h.path(cr(p, true), h.a.fin)); });
     return out.join('\n');
   };
   const dessinCorps = z => {
@@ -371,10 +380,10 @@ module.exports = (h) => {
     ref: '34-01',
     titre: 'Ouvrir un abcès mûr',
     format: 'pleine',
-    desc: 'Sept vues. Vue de dessus : la bosse ovale, la poche qu’on sent sous les doigts, la rougeur autour ; l’index et le pouce de l’autre main la tiennent de part et d’autre, et un seul trait noir est fait au centre, dans le grand axe. En coupe dans ce grand axe : la peau, la poche de pus juste dessous, partagée par deux cloisons ; la lame debout, perpendiculaire à la peau, pointe dans la poche au bout du trait, et une flèche suit la peau jusqu’à l’autre bout, assez loin pour qu’un doigt entre. Le trait fait : seule la loge du milieu se vide, les deux loges derrière les cloisons restent pleines. Le doigt entre par le trait et balaie la poche d’un bout à l’autre : les cloisons sont cassées, il ne reste qu’une poche ; s’il sent battre au fond ou touche l’os, il ressort. Rincer : le goulot d’une bouteille souple, bouchon percé, pleine d’eau bouillie salée, envoie un jet jusqu’au fond de la poche, et l’eau ressort par le trait. En marge, un corps de face et de dos, zones hachurées où l’on n’ouvre jamais : le devant et les côtés du cou, les seins, les mains, le pli de l’aine, les épaules, les coudes, les genoux, les chevilles, et de dos le tour de l’anus ; un visage de face où le triangle entre la racine du nez et les coins de la bouche est hachuré.',
+    desc: 'Sept vues. Vue de dessus : la bosse ovale, la poche qu’on sent sous les doigts, la rougeur autour ; l’index et le pouce de l’autre main la tiennent de part et d’autre, et un seul trait noir est fait au centre, dans le grand axe. En coupe dans ce grand axe : la peau, la poche de pus juste dessous, partagée par deux cloisons ; la lame debout, perpendiculaire à la peau, pointe dans la poche au bout du trait, et une flèche suit la peau jusqu’à l’autre bout, assez loin pour qu’un doigt entre. Le trait fait : seule la loge du milieu se vide : son pus monte par le trait, déborde de la lèvre et coule sur la peau ; les deux loges derrière les cloisons restent pleines. Le doigt entre par le trait et balaie la poche d’un bout à l’autre : les cloisons sont cassées, il ne reste qu’une poche ; s’il sent battre au fond ou touche l’os, il ressort. Rincer : une bouteille souple entière, pincée au milieu, bouchon vissé en bas et percé au clou, pleine d’eau bouillie salée, envoie un jet en file de gouttes jusqu’au fond de la poche, et l’eau ressort par le trait. En marge, un corps de face et de dos, zones hachurées où l’on n’ouvre jamais : le devant et les côtés du cou, les seins, les mains, le pli de l’aine, les épaules, les coudes, les genoux, les chevilles, et de dos le tour de l’anus ; un visage de face où le triangle entre la racine du nez et les coins de la bouche est hachuré.',
     disposition: [['dessus', 'trait'], ['loges', 'doigt'], ['jet', 'corps', 'visage']],
-    hauteurs: [1.05, 1.05, 1.25],
-    largeurs: [[1, 1.2], [1, 1.2], [1.2, 1.1, 0.8]],
+    hauteurs: [0.86, 0.86, 1.62],
+    largeurs: [[1, 1.2], [1, 1.2], [1.05, 1.3, 0.75]],
     vues: {
       dessus: {
         titre: 'Vu de dessus',
@@ -427,8 +436,8 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoJet(z), P = g.P;
           return [
-            { n: 10, rond: [14, 14], cible: g.W(0.6, 0.4), texte: 'percé au clou chauffé' },
-            { n: 11, rond: [z.l - 12, g.W(30, 30)[1] + 22], cible: g.W(34, 10), texte: 'eau bouillie salée, 9 g/L' },
+            { n: 10, rond: [14, 14], cible: g.W(0, 0), texte: 'percé au clou chauffé' },
+            { n: 11, rond: [z.l - 12, 14], cible: g.W(30, 4), texte: 'eau bouillie salée, 9 g/L' },
             { n: 12, rond: [z.l - 12, z.h - 12], cible: P(5, pBot(5) - 2), texte: 'à grande eau, jusqu’au fond' },
           ];
         },
@@ -439,7 +448,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoCorps(z), X1 = x => g.x1 + x * g.s, X2 = x => g.x2 + x * g.s, Y = y => g.y0 + y * g.s;
           return [
-            { n: 13, rond: [12, Y(560)], cible: [X1(-88), Y(530)], texte: 'hachuré : on n’ouvre jamais' },
+            { n: 13, rond: [12, Y(1000)], cible: [X1(-86), Y(922)], texte: 'hachuré : on n’ouvre jamais' },
             { n: 14, rond: [z.l - 12, Y(1150)], cible: [X2(0), Y(955)], texte: 'le tour de l’anus' },
           ];
         },

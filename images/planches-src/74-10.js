@@ -194,10 +194,14 @@ module.exports = (h) => {
             h.cercle(px, yj, 0.9, h.a.plein),
           ].join('\n');
           out.push(thermometre(g, { coupe: true, graduation: true, derriere: arriere, devant: avant }));
-          // la branche se tire ou se pousse : l'écrou tourne dans un sens ou dans l'autre
-          const xa = q.xe + 13, ya = q.yeF;
-          out.push(h.fleche(`M${xa},${r1(ya - 2)} Q${xa + 2},${r1(ya - 10)} ${xa - 1},${r1(ya - 17)}`, h.a.arete));
-          out.push(h.fleche(`M${xa},${r1(ya + 2)} Q${xa + 2},${r1(ya + 10)} ${xa - 1},${r1(ya + 17)}`, h.a.arete));
+          // la pince tourne autour de la tige : arc couché (même aplatissement que le cadran),
+          // devant la tige en trait plein, derrière en tireté, une pointe à chaque bout
+          const rxA = r1(g.s + 62), ryA = r1(rxA * K);
+          const A = a => [r1(x + rxA * Math.cos(rad(a))), r1(yj + ryA * Math.sin(rad(a)))];
+          const arc = (a0, a1) => { let d = `M${A(a0).join(',')}`; const n = 12; for (let i = 1; i <= n; i++) d += ` L${A(a0 + (a1 - a0) * i / n).join(',')}`; return d; };
+          out.push(h.path(arc(178, 2), h.a.arete));
+          out.push(h.fleche(arc(180, 222), h.a.cache));
+          out.push(h.fleche(arc(0, -42), h.a.cache));
           // la coupure du verre
           let d = `M${x - W - 4},${q.yc}`;
           for (let i = 1; i <= 8; i++) d += ` Q${r1(x - W - 4 + (i - 0.5) * (2 * W + 8) / 8)},${q.yc + (i % 2 ? -4 : 4)} ${r1(x - W - 4 + i * (2 * W + 8) / 8)},${q.yc}`;

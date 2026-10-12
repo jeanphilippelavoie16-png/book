@@ -93,8 +93,7 @@ module.exports = (h) => {
     // puis entrent par l'ouverture de 140° jusqu'au collet.
     const piste = [[258, z.h + 4], [262, z.h - 22]];
     for (let t = 100; t <= 134; t += 2) piste.push(surAnneau(t, 13).p);
-    const e0 = surAnneau(139, 10).p, e1 = surAnneau(140, 4).p;
-    piste.push(e0, e1);
+    piste.push(surAnneau(137, 12).p, surAnneau(139, 9).p, surAnneau(140, 4).p, surAnneau(140, -1).p);
     const seg = [];
     for (let i = 1; i < piste.length; i++) seg.push([piste[i - 1], piste[i]]);
     const lg = seg.map(([a, b]) => Math.hypot(b[0] - a[0], b[1] - a[1]));
@@ -112,7 +111,8 @@ module.exports = (h) => {
       cote = -cote;
     }
     const fl = [];
-    for (let t = 106; t <= 131; t += 1.5) fl.push(surAnneau(t, 28).p);
+    for (let t = 106; t <= 134; t += 1.5) fl.push(surAnneau(t, 28).p);
+    fl.push(surAnneau(137, 24).p, surAnneau(139, 15).p, surAnneau(140, 3).p);
     o.push(h.fleche('M ' + fl.map((q) => `${r(q[0])} ${r(q[1])}`).join(' L '), h.a.arete));
     return o.join('\n');
   };
@@ -178,7 +178,7 @@ module.exports = (h) => {
       const t = -Math.PI / 2 + 0.12 + i / 36 * (2 * Math.PI - 0.24);
       boucle.push([r(cx + BR * Math.cos(t)), r(BY + BR * Math.sin(t))]);
     }
-    o.push(fil(boucle));
+    o.push(h.chemin(boucle, h.a.arete));
     o.push(fil([[cx - 1, top - 1], [cx - 12, top - 6], [g + 2, wy + 3]]));
     o.push(h.cercle(cx, top - 1, 3.4, blanc(h.a.arete)));
     o.push(h.cercle(cx, top - 1, 1.2, h.a.plein));
@@ -188,45 +188,47 @@ module.exports = (h) => {
 
   // Le lagopède d'hiver, de profil, tourné vers la droite : tout blanc, la queue noire,
   // les pieds emplumés d'où ne sortent que les griffes. La tête a passé la boucle.
-  const HX = 184, HY = 134, HR = 14;
+  const HX = 189, HY = 129, HR = 12;
   const oiseau = () => {
     const o = [];
-    [[93, 184], [121, 183]].forEach(([x, y]) => {
-      o.push(h.path(`M ${x - 5} ${y} C ${x - 8} ${y + 8} ${x - 8} ${NEIGE - 4} ${x - 6} ${NEIGE} `
-        + `Q ${x - 2} ${NEIGE - 3} ${x + 1} ${NEIGE} Q ${x + 4} ${NEIGE - 3} ${x + 7} ${NEIGE} Q ${x + 10} ${NEIGE - 3} ${x + 13} ${NEIGE} `
-        + `C ${x + 13} ${NEIGE - 7} ${x + 9} ${y + 4} ${x + 7} ${y - 2} Z`, blanc(h.a.arete)));
-      o.push(h.path(`M ${x + 12} ${NEIGE - 1} q 3 -1 5 1 M ${x + 9} ${NEIGE - 1} q 3 -1 5 1`, h.a.detail));
+    // les pieds emplumés : de larges chaussons posés à plat, la patte presque cachée
+    [[114, 0], [140, 1]].forEach(([x]) => {
+      o.push(h.path(`M ${x - 6} 186 C ${x - 8} 196 ${x - 11} 201 ${x - 13} ${NEIGE} L ${x + 15} ${NEIGE} `
+        + `C ${x + 13} 201 ${x + 9} 196 ${x + 6} 186 Z`, blanc(h.a.arete)));
+      [-6, 0, 6].forEach((dx) => o.push(h.path(`M ${x + dx} 196 q 1 4 0 7`, h.a.fin)));
+      o.push(h.path(`M ${x + 13} ${NEIGE - 1} l 4 0.6 M ${x + 9} ${NEIGE - 1} l 4 0.6`, h.a.detail));
     });
     const a = (deg) => [r(HX + HR * Math.cos(deg * Math.PI / 180)), r(HY + HR * Math.sin(deg * Math.PI / 180))];
-    const nuque = a(208), gorge = a(112);
-    o.push(h.path(`M ${nuque[0]} ${nuque[1]} C 165 128 158 131 150 130 C 126 118 86 120 62 134 `
-      + `L 38 137 C 32 139 32 148 35 151 L 60 153 `
-      + `C 66 178 96 192 124 189 C 146 186 156 174 160 164 C 163 157 169 151 ${gorge[0]} ${gorge[1]} `
+    const nuque = a(218), gorge = a(132);
+    // dos arrondi, queue courte, poitrine pleine, cou court où passe la boucle, petite tête
+    o.push(h.path(`M ${nuque[0]} ${nuque[1]} C 170 120 156 110 134 111 C 110 112 92 118 82 128 `
+      + `L 64 135 C 60 138 60 148 63 151 L 80 156 `
+      + `C 88 180 108 191 133 190 C 158 189 174 176 176 160 C 177 152 173 146 ${gorge[0]} ${gorge[1]} `
       + `A ${HR} ${HR} 0 1 0 ${nuque[0]} ${nuque[1]} Z`, blanc(h.a.arete)));
-    // la queue noire, sous les couvertures blanches
-    o.push(h.path('M 48 136 L 38 137 C 32 139 32 148 35 151 L 48 152.2 Q 45 144 48 136 Z', h.a.plein));
+    // la queue noire au bout, sous les couvertures blanches
+    o.push(h.path('M 70 134 L 64 135 C 60 138 60 148 63 151 L 70 153 Q 67 144 70 134 Z', h.a.plein));
     // l'aile repliée
-    o.push(h.path('M 150 148 C 132 140 100 138 74 146', h.a.detail));
-    o.push(h.path('M 138 160 C 120 158 100 155 82 150', h.a.fin));
-    // le bec court et sombre, l'œil
-    const b0 = a(-28), b1 = a(12);
-    o.push(h.path(`M ${b0[0]} ${b0[1]} Q ${r(HX + HR + 6)} ${r(HY - 4)} ${r(HX + HR + 7)} ${r(HY + 2)} Q ${r(HX + HR + 3)} ${r(HY + 4)} ${b1[0]} ${b1[1]} Z`, h.a.plein));
-    o.push(h.cercle(HX + 4, HY - 3, 2.2, h.a.plein));
+    o.push(h.path('M 160 148 C 140 138 110 136 88 146', h.a.detail));
+    o.push(h.path('M 148 166 C 128 166 108 160 94 153', h.a.fin));
+    // le bec court et épais, l'œil
+    const b0 = a(-38), b1 = a(18);
+    o.push(h.path(`M ${b0[0]} ${b0[1]} Q ${r(HX + HR + 4)} ${r(HY - 4)} ${r(HX + HR + 5)} ${r(HY + 1)} Q ${r(HX + HR + 2)} ${r(HY + 4)} ${b1[0]} ${b1[1]} Z`, h.a.plein));
+    o.push(h.cercle(HX + 2, HY - 3, 1.8, h.a.plein));
     return o.join('\n');
   };
 
   const passe = (z) => {
     graine = 3131;
     const o = [neigeSol(z)];
-    const xb = 172;
+    const xb = 176;
     // Le bord de l'ouverture, derrière : la haie mince vue de son bout, qui file au loin.
     [[160, 44], [167, 36], [175, 48], [183, 40]].forEach(([x, y]) => o.push(branche(x, y, null, 3)));
     // La boucle vue de chant : la moitié du fond d'abord…
     const demi = (s) => { const q = []; for (let i = 0; i <= 16; i++) { const t = -Math.PI / 2 + i / 16 * Math.PI; q.push([r(xb + s * 3.5 * Math.cos(t)), r(BY + BR * Math.sin(t))]); } return q; };
-    o.push(fil(demi(-1)));
+    o.push(h.chemin(demi(-1), h.a.arete));
     o.push(oiseau());
     // … puis celle d'avant, par-dessus le cou.
-    o.push(fil(demi(1)));
+    o.push(h.chemin(demi(1), h.a.arete));
     o.push(fil([[xb, BY - BR], [xb + 1, BY - BR - 12]]));
     o.push(h.cercle(xb, BY - BR - 1, 2.6, blanc(h.a.arete)));
     o.push(tours(xb + 2, BY - BR - 18));
@@ -268,7 +270,7 @@ module.exports = (h) => {
         titre: 'En coupe dans l’ouverture',
         dessin: passe,
         renvois: (z) => [
-          { n: 8, rond: [240, 168], cible: [174, BY + BR - 2], texte: 'la tête passe, la boucle serre' },
+          { n: 8, rond: [240, 168], cible: [178, BY + BR - 2], texte: 'la tête passe, la boucle serre' },
         ],
       },
     },

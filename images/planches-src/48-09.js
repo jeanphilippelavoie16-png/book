@@ -72,21 +72,34 @@ module.exports = (h) => {
           // La corde du bout de l'arbre au bâtonnet.
           out.push(h.ligne(241, by - 34, 241, by - 3, h.a.arete));
 
-          // Le lièvre, de face, pour l'échelle.
-          out.push(h.path(`M ${tc - 26} ${sy + 9} C ${tc - 29} ${sy - 8} ${tc - 21} ${sy - 30} ${tc - 8} ${sy - 36} L ${tc + 8} ${sy - 36} C ${tc + 21} ${sy - 30} ${tc + 29} ${sy - 8} ${tc + 26} ${sy + 9} Z`, blanc(h.a.detail)));
-          out.push(h.path(`M ${tc - 5} ${sy - 12} C ${tc - 6} ${sy - 2} ${tc - 8} ${sy + 4} ${tc - 12} ${sy + 9} M ${tc + 5} ${sy - 12} C ${tc + 6} ${sy - 2} ${tc + 8} ${sy + 4} ${tc + 12} ${sy + 9}`, h.a.detail));
-          [-1, 1].forEach((s) => {
-            out.push(h.path(`M ${tc + s * 4} ${sy - 55} C ${tc + s * 5} ${sy - 80} ${tc + s * 9} ${sy - 97} ${tc + s * 13} ${sy - 102} C ${tc + s * 17} ${sy - 98} ${tc + s * 16} ${sy - 78} ${tc + s * 12} ${sy - 53} Z`, blanc(h.a.detail)));
-            out.push(h.path(`M ${tc + s * 9.3} ${sy - 93} C ${tc + s * 10.5} ${sy - 98} ${tc + s * 12} ${sy - 101} ${tc + s * 13} ${sy - 102} C ${tc + s * 15.5} ${sy - 99} ${tc + s * 15.8} ${sy - 96} ${tc + s * 15.5} ${sy - 93} Z`, h.a.plein));
+          // Le lièvre d'Amérique, de face, accroupi sur la piste, pour l'échelle.
+          const L = (pts) => pts.map(([x, y]) => [tc + x, sy + y]);
+          const sym = (f) => [-1, 1].forEach(f);
+          // Gros pieds de derrière, à plat sur la neige tassée.
+          sym((s) => out.push(h.path(`M ${tc + s * 6} ${sy + 9} C ${tc + s * 8} ${sy + 3} ${tc + s * 22} ${sy + 2} ${tc + s * 36} ${sy + 4} C ${tc + s * 40} ${sy + 5} ${tc + s * 40} ${sy + 9} ${tc + s * 36} ${sy + 9} Z`, blanc(h.a.detail))));
+          // Le corps ramassé : cuisses larges en bas, épaules étroites sous la tête.
+          out.push(h.path(`M ${tc - 12} ${sy - 36} C ${tc - 24} ${sy - 30} ${tc - 32} ${sy - 12} ${tc - 30} ${sy + 4} L ${tc + 30} ${sy + 4} C ${tc + 32} ${sy - 12} ${tc + 24} ${sy - 30} ${tc + 12} ${sy - 36} Z`, blanc(h.a.detail)));
+          // Le pli des cuisses.
+          sym((s) => out.push(h.path(`M ${tc + s * 26} ${sy - 14} C ${tc + s * 19} ${sy - 10} ${tc + s * 16} ${sy - 3} ${tc + s * 16} ${sy + 4}`, h.a.fin)));
+          // Pattes de devant, droites, posées entre les pieds.
+          sym((s) => out.push(h.path(`M ${tc + s * 2} ${sy - 18} C ${tc + s * 1} ${sy - 8} ${tc + s * 2} ${sy - 1} ${tc + s * 2} ${sy + 3} C ${tc + s * 2} ${sy + 7} ${tc + s * 10} ${sy + 7} ${tc + s * 10} ${sy + 3} C ${tc + s * 10} ${sy - 3} ${tc + s * 11} ${sy - 10} ${tc + s * 12} ${sy - 16}`, blanc(h.a.detail))));
+          // Oreilles : plus courtes que la tête, le bout noir.
+          sym((s) => {
+            out.push(h.path(`M ${tc + s * 4} ${sy - 58} C ${tc + s * 3} ${sy - 70} ${tc + s * 7} ${sy - 80} ${tc + s * 12} ${sy - 83} C ${tc + s * 17} ${sy - 79} ${tc + s * 16} ${sy - 68} ${tc + s * 12} ${sy - 57} Z`, blanc(h.a.detail)));
+            out.push(h.path(`M ${tc + s * 6.6} ${sy - 77} C ${tc + s * 8.5} ${sy - 80.5} ${tc + s * 10} ${sy - 82} ${tc + s * 12} ${sy - 83} C ${tc + s * 14.5} ${sy - 81} ${tc + s * 15.6} ${sy - 79} ${tc + s * 15.8} ${sy - 77} Z`, h.a.plein));
           });
-          out.push(h.path(`M ${tc} ${sy - 58} C ${tc + 10} ${sy - 58} ${tc + 15} ${sy - 50} ${tc + 14} ${sy - 43} C ${tc + 13} ${sy - 37} ${tc + 6} ${sy - 34} ${tc} ${sy - 34} C ${tc - 6} ${sy - 34} ${tc - 13} ${sy - 37} ${tc - 14} ${sy - 43} C ${tc - 15} ${sy - 50} ${tc - 10} ${sy - 58} ${tc} ${sy - 58} Z`, blanc(h.a.detail)));
-          [-1, 1].forEach((s) => out.push(h.ellipse(tc + s * 11, sy - 48, 1.4, 2.2, h.a.plein)));
-          out.push(h.ellipse(tc, sy - 40, 1.6, 1.1, h.a.plein));
+          // La tête : front étroit, joues larges et touffues, menton.
+          out.push(h.path(`M ${tc} ${sy - 62} C ${tc + 9} ${sy - 62} ${tc + 14} ${sy - 56} ${tc + 15} ${sy - 49} L ${tc + 18} ${sy - 45} L ${tc + 15} ${sy - 43} L ${tc + 17} ${sy - 40} C ${tc + 13} ${sy - 35} ${tc + 6} ${sy - 33} ${tc} ${sy - 33} C ${tc - 6} ${sy - 33} ${tc - 13} ${sy - 35} ${tc - 17} ${sy - 40} L ${tc - 15} ${sy - 43} L ${tc - 18} ${sy - 45} L ${tc - 15} ${sy - 49} C ${tc - 14} ${sy - 56} ${tc - 9} ${sy - 62} ${tc} ${sy - 62} Z`, blanc(h.a.detail)));
+          // Yeux sur les côtés de la tête, en amande.
+          sym((s) => out.push(h.path(`M ${tc + s * 10} ${sy - 50} C ${tc + s * 11} ${sy - 53.5} ${tc + s * 13.5} ${sy - 54} ${tc + s * 14.5} ${sy - 51.5} C ${tc + s * 14} ${sy - 49} ${tc + s * 11.5} ${sy - 48.5} ${tc + s * 10} ${sy - 50} Z`, h.a.plein)));
+          // Nez et bouche fendue.
+          out.push(h.path(`M ${tc - 2.2} ${sy - 42} L ${tc + 2.2} ${sy - 42} L ${tc} ${sy - 39.5} Z`, h.a.plein));
+          out.push(h.path(`M ${tc} ${sy - 39.5} L ${tc} ${sy - 37.5} M ${tc} ${sy - 37.5} C ${tc - 1.5} ${sy - 36} ${tc - 3.5} ${sy - 36} ${tc - 4.5} ${sy - 37} M ${tc} ${sy - 37.5} C ${tc + 1.5} ${sy - 36} ${tc + 3.5} ${sy - 36} ${tc + 4.5} ${sy - 37}`, h.a.fin));
 
-          // La boucle : son bas au menton, le fil monte au bâtonnet.
-          out.push(h.cercle(tc, sy - 61, 27, h.a.arete));
-          out.push(h.cercle(tc, sy - 90.5, 2.5, h.a.arete));
-          out.push(h.ligne(tc, sy - 93, tc, by + 3, h.a.arete));
+          // La boucle : juste plus grande que la tête, son bas au menton, le fil monte au bâtonnet.
+          out.push(h.cercle(tc, sy - 53, 21, h.a.arete));
+          out.push(h.cercle(tc, sy - 76.5, 2.5, h.a.arete));
+          out.push(h.ligne(tc, sy - 79, tc, by + 3, h.a.arete));
 
           // Le bâtonnet, son bout dans le crochet du piquet.
           out.push(h.rect(tc - 16, by - 3, sx0 + 4 - (tc - 16), 6, blanc(h.a.arete)));
@@ -106,7 +119,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: [20, cible[1] - 30], cible },
             { n: 2, rond: [z.l - 22, sy - 48], cible: [264, sy - 48] },
-            { n: 5, rond: [tc - 62, sy - 78], cible: [tc - 27, sy - 61] },
+            { n: 5, rond: [tc - 62, sy - 70], cible: [tc - 21, sy - 53] },
           ].map((r, i) => ({ ...r, texte: ['jeune bouleau plié vers la piste', 'piquet fiché à côté de la piste', 'boucle du collet sur la piste'][i] }));
         },
       },

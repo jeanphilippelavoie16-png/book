@@ -34,6 +34,7 @@ module.exports = (h) => {
   const GYB = [110, 340, 570, 800], GYA = [225, 455, 685, 915];      // les gerbes des deux rangées, en quinconce
 
   const X = x => (x + X0) * K;
+  const MAIN_ROT = 0, MAIN_COTE = 'droite';
 
   // ── le batteur, le manche et le battoir : calculés une fois, pour les deux vues ──
   // Les poignets sont placés pour que le creux de chaque main tombe sur la ligne du manche.
@@ -144,7 +145,7 @@ module.exports = (h) => {
   return {
     ref: '98-01b',
     titre: 'Le fléau : battre sur la toile',
-    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur, en pictogramme penché, tient le manche à deux mains, la main arrière au bout du manche, le battoir est tombé à plat sur les épis ; une gerbe de chaque rangée, couchée sur la toile, les épis qui se croisent au milieu ; la flèche suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
+    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur, en pictogramme penché, tient le manche à deux mains, les deux poings refermés dessus, la main arrière au bout du manche, le battoir est tombé à plat sur les épis ; une gerbe de chaque rangée, couchée sur la toile, les épis qui se croisent au milieu ; la flèche suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
     format: 'pleine',
     disposition: [['coup'], ['plan']],
     hauteurs: [1720, 1180],
@@ -165,15 +166,20 @@ module.exports = (h) => {
           out.push(h.chemin([J, B0], A.arete));
           const pM = V(...b.bout);
           const manche = baton(pM, u, LM * K, RM * K);
-          // le batteur en pictogramme (règle 9) : tête ronde sans visage, membres en bandes, pas de main
-          const bande = (pts, ep) => { const d = pl(pts.map(q => V(...q))); return h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="${f1(ep * K + 3)}" stroke-linecap="round" stroke-linejoin="round"`) + '\n' + h.path(d, `fill="none" stroke="#3A3A3A" stroke-width="${f1(ep * K)}" stroke-linecap="round" stroke-linejoin="round"`); };
+          // le batteur en pictogramme (règle 8) : tête ronde sans visage, membres en bandes ; les
+          // mains, elles, sont dessinées (formes.main) : deux poings refermés sur le manche
+          const bandePx = (pts, ep) => { const d = pl(pts); return h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="${f1(ep * K + 3)}" stroke-linecap="round" stroke-linejoin="round"`) + '\n' + h.path(d, `fill="none" stroke="#3A3A3A" stroke-width="${f1(ep * K)}" stroke-linecap="round" stroke-linejoin="round"`); };
+          const bande = (pts, ep) => bandePx(pts.map(q => V(...q)), ep);
           const Hh = [40, -900], Sh = [312, -1372], Tc = [400, -1525];
-          const brasL = bande([Sh, [345, -1095], b.Gf], 85), brasP = bande([Sh, [292, -1110], b.Gr], 85);
+          const angM = Math.atan2(u[0], -u[1]) * 180 / Math.PI + MAIN_ROT;
+          const mainA = (G) => { const g = V(...G); return F.main({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', cote: MAIN_COTE, echelle: K, diametre: 2 * RM * K, angle: angM, bras: 70 }); };
+          const mL = mainA(b.Gf), mP = mainA(b.Gr);
+          const brasL = bandePx([V(...Sh), V(345, -1095), mL.bras], 85), brasP = bandePx([V(...Sh), V(292, -1110), mP.bras], 85);
           out.push(bande([[230, -22], [70, -45], [60, -480], Hh], 120), bande([[200, -22], [40, -45], [40, -480], Hh], 120));
           out.push(bande([Hh, Sh], 165));
           const tc = V(...Tc); out.push(h.cercle(tc[0], tc[1], 112 * K, 'fill="#3A3A3A" stroke="#FFFFFF" stroke-width="1.5"'));
           out.push(brasL);
-          out.push(manche, brasP);
+          out.push(manche, mL, brasP, mP);
           // la tête du battoir descend autour de l'attache et tombe à plat
           const Rr = LB * K * 0.93, a0 = -58 * Math.PI / 180, a1 = -10 * Math.PI / 180;
           const p0 = [B0[0] + Rr * Math.cos(a0), B0[1] + Rr * Math.sin(a0)], p1 = [B0[0] + Rr * Math.cos(a1), B0[1] + Rr * Math.sin(a1)];

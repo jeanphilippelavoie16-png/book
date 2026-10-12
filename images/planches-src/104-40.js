@@ -123,9 +123,10 @@ module.exports = (h) => {
     // la ligature de babiche au bas du manche
     const lig = [];
     for (let k = 0; k < 4; k++) { const y = mB - 3 - k * 3.2; lig.push(h.path(`M ${f1(hx - D / 2)} ${f1(y + 1)} Q ${f1(hx)} ${f1(y - 1.6)} ${f1(hx + D / 2)} ${f1(y + 1)}`, h.a.detail)); }
-    // règle 9 : le manche seul, sans main ; la flèche dit qu'on pousse
+    // le manche, puis la main qui le serre (vue du dos, les doigts enroulés, le pouce en face)
     out.push(manche);
     out.push(lig.join('\n'));
+    out.push(F.main({ x: hx, y: hy - 6, pose: 'prise', vue: 'dos', diametre: D, bras: 60, echelle: 0.82 }));
     // la coupe de la lame : un losange, relié à la lame par le trait de coupe
     const yc = mB + 7, xq = hx - 30;
     out.push(h.ligne(hx - w - 2, yc, xq + 9, yc, h.a.cache));

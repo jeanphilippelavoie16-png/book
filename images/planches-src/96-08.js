@@ -49,44 +49,57 @@ module.exports = (h) => {
   const doubleFleche = (d) => `<path d="${d}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`;
 
   // ── La vesce (mm) : tiges grimpantes, feuilles à folioles par paires, vrille au bout ────────
-  const vrille = (P, S, ang, L, sens) => {
+  // Une vrille : une courte hampe au bout de la feuille, puis deux ou trois brins en spirale lâche.
+  // acc reçoit le milieu de chaque brin (pour qu'un renvoi tombe sur une vrille).
+  const brin = (P, S, ang, L, sens, acc) => {
     const pts = [S]; let p = S, a = ang;
-    const n = 14, pas = L / n;
-    for (let i = 0; i < n; i++) { a += sens * (6 + i * 3.2); p = add(p, [Math.cos(a * RAD) * pas, Math.sin(a * RAD) * pas]); pts.push(p); }
-    return h.path(lisse(pts.map(q => P(...q))), A.detail);
+    const n = 12, pas = L / n;
+    for (let i = 0; i < n; i++) { a += sens * (4 + i * 2.4); p = add(p, [Math.cos(a * RAD) * pas, Math.sin(a * RAD) * pas]); pts.push(p); }
+    if (acc) acc.push(P(...pts[5]));
+    return h.path(lisse(pts.map(q => P(...q))), tr(1));
   };
-  const feuille = (P, b, ang, L, n, cote) => {
+  const vrille = (P, S, ang, L, nb, acc) => {
+    const h0 = L * 0.22, F0 = add(S, [Math.cos(ang * RAD) * h0, Math.sin(ang * RAD) * h0]);
+    const out = [h.path(`M ${pt(P(...S))} L ${pt(P(...F0))}`, tr(0.9))];
+    const ecarts = nb === 3 ? [-40, 0, 40] : [-32, 32];
+    ecarts.forEach((e, j) => out.push(brin(P, F0, ang + e, L * (0.78 - 0.06 * j), e < 0 ? -1 : 1, acc)));
+    return out.join('\n');
+  };
+  // Une feuille : le pétiole, des folioles étroites par paires, la vrille ramifiée au bout (≈ L/3).
+  const feuille = (P, b, ang, L, n, cote, acc, nb = 3) => {
     const u = [Math.cos(ang * RAD), Math.sin(ang * RAD)], nn = perp(u);
-    const f = t => add(add(b, mul(u, L * t)), mul(nn, cote * L * 0.07 * Math.sin(Math.PI * t)));
-    const out = [h.path(lisse([0, 0.25, 0.5, 0.75, 1].map(t => P(...f(t)))), A.detail)];
-    const lf = L * 0.2, wf = lf * 0.32;
+    const f = t => add(add(b, mul(u, L * t)), mul(nn, cote * L * 0.05 * Math.sin(Math.PI * t)));
+    const out = [h.path(lisse([0, 0.25, 0.5, 0.75, 1].map(t => P(...f(t)))), tr(0.9))];
+    const lf = L * 0.36, wf = lf * 0.22;
     for (let i = 0; i < n; i++) {
-      const t = 0.1 + 0.8 * i / (n - 1), B = f(t), tg = uni(sub(f(t + 0.01), f(t - 0.01)));
+      const t = 0.14 + 0.78 * i / (n - 1), B = f(t), tg = uni(sub(f(t + 0.01), f(t - 0.01)));
+      const l = lf * (1 - 0.25 * i / (n - 1));
       for (const sg of [1, -1]) {
-        const dir = tourne(tg, sg * 42), T = add(B, mul(dir, lf)), M = mul(add(B, T), 0.5), q = perp(dir);
-        out.push(h.path(`M ${pt(P(...B))} Q ${pt(P(...add(M, mul(q, wf))))} ${pt(P(...T))} Q ${pt(P(...sub(M, mul(q, wf))))} ${pt(P(...B))} Z`, tr(0.5, '#fff')));
+        const dir = tourne(tg, sg * 62), T = add(B, mul(dir, l)), M = mul(add(B, T), 0.5), q = perp(dir);
+        out.push(h.path(`M ${pt(P(...B))} Q ${pt(P(...add(M, mul(q, wf))))} ${pt(P(...T))} Q ${pt(P(...sub(M, mul(q, wf))))} ${pt(P(...B))} Z`, tr(0.7, '#fff')));
       }
     }
     const fin = f(1), a = Math.atan2(u[1], u[0]) / RAD;
-    out.push(vrille(P, fin, a - 18, L * 0.42, 1), vrille(P, fin, a + 22, L * 0.36, -1));
+    out.push(vrille(P, fin, a, L / 3, nb, acc));
     return out.join('\n');
   };
-  // Les tiges, relatives au collet ; une feuille à chaque nœud, d'un côté puis de l'autre.
+  // Les tiges, relatives au collet ; quatre feuilles en tout, une ou deux par tige.
   const TIGES = [
     [[0, 0], [-6, -40], [-18, -85], [-36, -130], [-60, -170], [-82, -196]],
     [[0, 0], [4, -50], [8, -100], [6, -150], [-2, -196], [-10, -236]],
     [[0, 0], [10, -38], [28, -80], [52, -118], [82, -150], [112, -168]],
   ];
-  const plante = (P, C, L = 84) => {
+  const NOEUDS = [[2, 5], [4], [3]];
+  const plante = (P, C, L = 150, acc) => {
     const out = [];
     TIGES.forEach((tige, k) => {
       const pts = tige.map(p => add(C, p));
       out.push(h.path(lisse(pts.map(p => P(...p))), A.arete));
-      for (let i = 1 + (k % 2); i < pts.length; i += 2) {
+      for (const i of NOEUDS[k]) {
         const tg = uni(sub(pts[Math.min(i + 1, pts.length - 1)], pts[i - 1]));
         const cote = (i + k) % 2 ? 1 : -1;
-        const a = Math.atan2(tg[1], tg[0]) / RAD + cote * 52;
-        out.push(feuille(P, pts[i], a, i === pts.length - 1 ? L * 0.8 : L, 8, -cote));
+        const a = Math.atan2(tg[1], tg[0]) / RAD + cote * 50;
+        out.push(feuille(P, pts[i], a, L, 4, -cote, acc, (i + k) % 2 ? 3 : 2));
       }
     });
     return out.join('\n');
@@ -154,8 +167,8 @@ module.exports = (h) => {
       deterrer: {
         titre: 'Au semis, déterrer quelques vesces',
         dessin: z => {
-          const s = Math.min((z.h - 6) / 700, (z.l - 10) / 640);
-          const ox = z.l * 0.46, oy = 4 + 470 * s;
+          const s = Math.min((z.h - 6) / 790, (z.l - 10) / 640);
+          const ox = z.l * 0.46, oy = 4 + 580 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
           const out = [];
           const trou = [[-150, 0], [-142, 70], [-114, 140], [-58, 182], [0, 190], [58, 182], [114, 140], [142, 70], [150, 0]];
@@ -176,11 +189,13 @@ module.exports = (h) => {
           return out.join('\n');
         },
         renvois: z => {
-          const s = Math.min((z.h - 6) / 700, (z.l - 10) / 640);
-          const ox = z.l * 0.46, oy = 4 + 470 * s;
+          const s = Math.min((z.h - 6) / 790, (z.l - 10) / 640);
+          const ox = z.l * 0.46, oy = 4 + 580 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
+          const acc = []; plante(P, [0, -212], 150, acc);
+          const v = acc.reduce((m, q) => (q[0] - q[1] > m[0] - m[1] ? q : m));
           return [
-            { n: 1, rond: [z.l - 14, 14], cible: P(150, -380) },
+            { n: 1, rond: [z.l - 14, 14], cible: v },
             { n: 2, rond: [14, z.h * 0.62], cible: P(-66, -150), texte: 'les nodules, collés aux racines' },
           ].map((r, i) => ({ texte: 'vesce jargeau : feuilles à vrilles', ...r }));
         },
@@ -213,10 +228,10 @@ module.exports = (h) => {
           const hautTiges = tiges.map(t => h.path(lisse(t.map(p => P(...p))), A.arete)).join('\n');
           const feuilles = [];
           tiges.forEach((t, k) => {
-            for (let i = 2; i < t.length; i++) {
+            for (const i of [[3], [2, 4], [3]][k]) {
               const tg = uni(sub(t[Math.min(i + 1, t.length - 1)], t[i - 1]));
               const cote = (i + k) % 2 ? 1 : -1;
-              feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, i === t.length - 1 ? 52 : 64, 8, -cote));
+              feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, 120, 4, -cote, null, (i + k) % 2 ? 3 : 2));
             }
           });
           const m = F.main({ x: P(0, 0)[0], y: P(0, 0)[1], pose: 'prise', vue: 'dos', diametre: 14 * s, echelle: s, bras: 40 });
@@ -302,8 +317,30 @@ module.exports = (h) => {
             const rr = 0.9, rn = 1.3, zc = -3.5;
             out.push(h.path(`M ${pt(Q(-3.6, -rr))} L ${pt(Q(3.6, -rr))} Q ${pt(Q(3.9, 0))} ${pt(Q(3.6, rr))} L ${pt(Q(-3.6, rr))} Q ${pt(Q(-3.9, 0))} ${pt(Q(-3.6, -rr))} Z`, tr(1.4, '#fff')));
             out.push(union([capsule(Q(0, 0, -0.5), Q(0, 0, zc), rn * 0.8 * k, rn * k)], 2.4));
-            const f = Q(0, 0, zc);
-            out.push(h.cercle(f[0], f[1], rn * k, A.hachure('neige', 'arete')));
+            const f = Q(0, 0, zc), R = rn * k;
+            const corps = capsule(Q(0, 0, -0.5), Q(0, 0, zc), rn * 0.8 * k, rn * k);
+            out.push(h.cercle(f[0], f[1], R, tr(1.4, '#fff')));
+            if (i === 0) {
+              // rose ou rouge : un pointillé serré qui remplit la face
+              const e = R / 6.5;
+              for (let gx = -R; gx <= R; gx += e) for (let gy = -R; gy <= R; gy += e * 0.87) {
+                const x = gx + ((Math.round((gy + R) / (e * 0.87)) % 2) ? e / 2 : 0);
+                if (Math.hypot(x, gy) < R - 2.2) out.push(h.cercle(r1(f[0] + x), r1(f[1] + gy), 0.85, A.plein));
+              }
+            } else if (i === 1) {
+              // beige : presque blanc, quelques points
+              for (const [x, y] of [[-0.35, -0.3], [0.3, -0.42], [0.05, 0.1], [-0.4, 0.38], [0.42, 0.3]])
+                out.push(h.cercle(r1(f[0] + x * R), r1(f[1] + y * R), 0.85, A.plein));
+            } else {
+              // vert dans tout le nodule : une hachure fine sur la face et sur toute la longueur
+              const id = 'hv96-08';
+              out.push(`<clipPath id="${id}"><path d="${corps}"/><circle cx="${f[0]}" cy="${f[1]}" r="${r1(R)}"/></clipPath>`);
+              const traits = [];
+              for (let d = -4 * R; d <= 4 * R; d += 2.6) traits.push(`M ${r1(f[0] + d - 3 * R)} ${r1(f[1] + 3 * R)} L ${r1(f[0] + d + 3 * R)} ${r1(f[1] - 3 * R)}`);
+              out.push(`<g clip-path="url(#${id})">` + h.path(traits.join(' '), tr(0.5)) + '</g>');
+              out.push(h.path(corps, tr(2.4)));
+            }
+            out.push(h.cercle(f[0], f[1], R, A.arete));
           }
           return out.join('\n');
         },

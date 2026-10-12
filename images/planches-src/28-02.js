@@ -119,7 +119,7 @@ module.exports = (h) => {
   // haut du crâne en y = −124 ; le cou coupé vers y = 126 (nuque) et 155 (gorge). Sur la vue, ce
   // y file vers la droite (vers les pieds) et ce x vers le bas (s = +1, le visage tourné vers le
   // bas de la page) ou vers le haut (s = −1).
-  const NARINE = [5 + Math.cos(25 * RAD) * 110, -32 + Math.sin(25 * RAD) * 110];                          // l'embout entre dans l'ouverture de la narine
+  const NARINE = [105, 16.5];                                    // l'embout entre dans l'ouverture de la narine
   const AXE = 66;                                   // la seringue part vers le menton et les pieds
   // la couverture : son bord remonté aux épaules, le revers, deux plis sur les bras
   const BORD = [[-320, 250], [-210, 204], [-130, 162], [-62, 126], [0, 130], [62, 152], [130, 184], [210, 226], [320, 266]];
@@ -129,7 +129,7 @@ module.exports = (h) => {
     [[150, 272], [160, 350], [156, 460]],
     [[-40, 250], [-10, 330], [-30, 460]],
   ];
-  // Règle 9 : pas de visage. La tête est le pictogramme de la règle 8 : un rond plein sans
+  // (ancienne tête ronde sans visage, rejetée par JP : « tête wtf » ; gardée hors usage)
   // visage et le cou en bande ; la narine est l'endroit du rond où l'embout entre.
   const TC = [5, -32], TR_ = 108;
   const teteRonde = (M) => {
@@ -159,7 +159,7 @@ module.exports = (h) => {
     const u = [Math.sin(AXE * RAD), s * Math.cos(AXE * RAD)];
     const sg = seringue(P, u, E * 0.95);
     out.push(sg.svg);
-    out.push(teteRonde(T));
+    out.push(teteEnfant(T));
     // la couverture, par-dessus le cou coupé ; elle file hors de la vue
     const loin = 900;
     const couv = [];

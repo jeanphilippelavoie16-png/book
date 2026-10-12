@@ -106,9 +106,11 @@ module.exports = (h) => {
       [-7, -73.5], [-15, -70.5], [-20, -64], [-18, -54], [-15.5, -40], [-14, -24], [-12.5, -9], [-8, -1.5]];
     const ax = TOES.map(([b, p]) => ({ b, p, ...axe(b, p) }));
     const u = (t) => { const d = [t.p[0] - t.b[0], t.p[1] - t.b[1]], L = Math.hypot(...d); return [d[0] / L, d[1] / L]; };
-    const le = (t, k, cote) => {            // point du bord d'un doigt : k de 0 (base) à 1 (pointe), cote = ±1
+    const MARGE = 1.2;                     // jeu entre le bord du doigt et le contour de la palmure, en mm
+    const le = (t, k, cote) => {            // point du contour le long d'un doigt : k de 0 (base) à 1 (pointe), cote = ±1
       const d = u(t), n = [-d[1] * cote, d[0] * cote];
-      return [t.b[0] + (t.p[0] - t.b[0]) * k + n[0] * RX, t.b[1] + (t.p[1] - t.b[1]) * k + n[1] * RX];
+      const w = RX * Math.sqrt(Math.max(0, 1 - (2 * k - 1) ** 2)) + MARGE;   // demi-largeur de l'ellipse à cet endroit, plus le jeu
+      return [t.b[0] + (t.p[0] - t.b[0]) * k + n[0] * w, t.b[1] + (t.p[1] - t.b[1]) * k + n[1] * w];
     };
     const bout = (t) => { const d = u(t); return [t.p[0] + d[0] * RX * 0.6, t.p[1] + d[1] * RX * 0.6]; };
     const creux = (t1, t2) => {             // fond de la palmure entre deux doigts : 7 mm en retrait de leurs pointes
@@ -120,9 +122,9 @@ module.exports = (h) => {
     // la palmure part de l'avant de la plante (le bord qui passe sous la plante est caché par le noir)
     const palmure = [
       [0, -56], [16, -63],
-      le(t5, 0.15, 1), le(t5, 0.5, 1), le(t5, 0.85, 1), bout(t5),
+      ...[0.1, 0.3, 0.5, 0.7, 0.88].map((k) => le(t5, k, 1)), bout(t5),
       creux(t5, t4), bout(t4), creux(t4, t3), bout(t3), creux(t3, t2), bout(t2), creux(t2, t1),
-      bout(t1), le(t1, 0.85, -1), le(t1, 0.5, -1), le(t1, 0.15, -1),
+      bout(t1), ...[0.88, 0.7, 0.5, 0.3, 0.1].map((k) => le(t1, k, -1)),
       [-16, -63],
     ];
     return [

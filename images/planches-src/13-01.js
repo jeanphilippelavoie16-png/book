@@ -113,20 +113,13 @@ module.exports = (h) => {
           out.push(h.path(`M ${F - 8} ${top + 7} L ${F + 8} ${top + 7} L ${F + 8} ${G - 2} Q ${F + 16} ${G - 1} ${F + 20} ${G + 3} L ${F - 20} ${G + 3} Q ${F - 16} ${G - 1} ${F - 8} ${G - 2} Z`, h.a.plein));
 
           // Le palier : un nœud de bois dur.
-          out.push(h.path(lisse(dep(F, P, [[-33, 2], [-30, -9], [-18, -15], [0, -16], [18, -14], [30, -8], [34, 3], [26, 12], [8, 14], [-10, 14], [-26, 11]]), true), blanc(h.a.contour)));
+          const palierSvg = h.path(lisse(dep(F, P, [[-33, 2], [-30, -9], [-18, -15], [0, -16], [18, -14], [30, -8], [34, 3], [26, 12], [8, 14], [-10, 14], [-26, 11]]), true), blanc(h.a.contour));
+          out.push(palierSvg);
           // le haut du foret, caché dans le creux
           out.push(h.path(`M ${F - 9} ${P + 13} L ${F - 9} ${P + 5} Q ${F - 9} ${P - 4} ${F} ${P - 4} Q ${F + 9} ${P - 4} ${F + 9} ${P + 5} L ${F + 9} ${P + 13}`, h.a.cache));
 
-          // La main gauche sur le palier, l'avant-bras qui monte.
-          const d = [-0.6, -0.8], p = [0.8, -0.6];
-          const jusquEnHaut = ([u, v]) => { const k = (P + v - 6) / 0.8; return [u + d[0] * k, 6 - P]; };
-          const Tc = [-59.2, -89.6], Bc = [-100.8, -58.4];
-          out.push(h.path(lisse(dep(F, P, [Tc, [-41.2, -65.6], [-18, -52], [10, -47], [34, -41], [50, -30], [57, -12], [55, 6], [48, 17], [41, 15], [38, 2], [35, -10], [28, -16], [0, -17], [-24, -17], [-34, -10], [-37, 4], [-41, 12], [-47, 9], [-51, -6], [-58, -24], [-82.8, -34.4], Bc]), false) + ' Z', blanc(h.a.arete)));
-          out.push(h.path(lisse(dep(F, P, [[38, -35], [47, -17], [48, 4]]), false), h.a.detail));
-          out.push(h.path(lisse(dep(F, P, [[-30, -22], [-40, -14], [-43, -2]]), false), h.a.detail));
-          // la manche
-          const Ts = [Tc[0] + 5 * p[0], Tc[1] + 5 * p[1]], Bs = [Bc[0] - 5 * p[0], Bc[1] - 5 * p[1]];
-          out.push(h.chemin(dep(F, P, [jusquEnHaut(Ts), Ts, Bs, jusquEnHaut(Bs)]), blanc(h.a.arete)));
+          // La main gauche sur le palier : la paume dessus, les doigts qui l'enserrent, l'avant-bras qui monte.
+          out.push(h.formes.main({ x: F + 14, y: P - 14, pose: 'appui', vue: 'profil', echelle: 0.44, inclinaison: 84, bras: 150 }).svg);
 
           // Le va-et-vient de l'arc.
           const ya = yb - 55;

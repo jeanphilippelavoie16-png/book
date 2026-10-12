@@ -332,9 +332,7 @@ module.exports = (h) => {
           const { R, bx, by } = geoDoigts(z), k = R * 2.1;
           const arc = [];
           for (let a = -45; a <= 45; a += 5) arc.push([bx + k * Math.cos(a * Math.PI / 180), by + k * Math.sin(a * Math.PI / 180)]);
-          const hb = R * 1.9;            // pas de doigts (règle 9) : deux flèches opposées, dessus et dessous
-          return [boulette(bx, by, R * 1.4), fl(arc),
-            fl([[bx - hb, by - R * 2.2], [bx + hb, by - R * 2.2]]), fl([[bx + hb, by + R * 2.2], [bx - hb, by + R * 2.2]])].join('\n');
+          return [paire(z, R * 1.4), boulette(bx, by, R * 1.4), fl(arc)].join('\n');
         },
         renvois: z => {
           const { R, bx, by } = geoDoigts(z);
@@ -355,7 +353,7 @@ module.exports = (h) => {
             const dr = lisse([[x1 + wa, yB - R * 0.4], [xm + wm, by], [x0 + wa, yH + R * 0.4]], false, 6);
             return ferme([...g, ...dr], blanc(A.detail));
           };
-          return [fl([[bx - R * 2.6, yH], [bx - R * 2.6, yH - R * 2]]), fl([[bx - R * 2.6, yB], [bx - R * 2.6, yB + R * 2]]),
+          return [paire(z, e), fl([[bx - R * 2.6, yH], [bx - R * 2.6, yH - R * 2]]), fl([[bx - R * 2.6, yB], [bx - R * 2.6, yB + R * 2]]),
             fil(bx - R * 0.9, bx - R * 1.0, R * 0.32, R * 0.08), fil(bx + R * 0.05, bx + R * 0.15, R * 0.36, R * 0.1), fil(bx + R * 0.95, bx + R * 0.85, R * 0.28, R * 0.07),
             reste(yH - 0.5, 1), reste(yB + 0.5, -1)].join('\n');
         },

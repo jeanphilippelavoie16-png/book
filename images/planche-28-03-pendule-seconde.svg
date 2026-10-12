@@ -34,11 +34,12 @@
 <line x1="180.5" y1="38" x2="180.5" y2="329.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M186.7 334.5 L183.6 339.9 L177.4 339.9 L174.3 334.5 L177.4 329.1 L183.6 329.1 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="180.5" cy="334.5" r="3.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="189.7" y1="334.5" x2="238.9" y2="334.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="232.9" y1="35" x2="232.9" y2="334.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="226.9" y1="35" x2="238.9" y2="35" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="226.9" y1="334.5" x2="238.9" y2="334.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="266" y="188.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">1000 mm</text>
+<line x1="184.5" y1="35" x2="258.9" y2="35" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="189.7" y1="334.5" x2="258.9" y2="334.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="252.9" y1="35" x2="252.9" y2="334.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M252.9 35 L249.4 46 L256.4 46 Z" fill="#000000" stroke="none"/>
+<path d="M252.9 334.5 L249.4 323.5 L256.4 323.5 Z" fill="#000000" stroke="none"/>
+<g transform="rotate(-90 269.9 184.7)"><text x="269.9" y="184.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" paint-order="stroke">1000 mm</text></g>
 </g>
 <text x="423.3" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le poids</text>
 <g transform="translate(423.3 46)" data-vue="poids">

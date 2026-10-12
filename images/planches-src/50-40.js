@@ -11,6 +11,7 @@ module.exports = (h) => {
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const motif = (id, at) => at.replace('fill="none"', `fill="url(#${id})"`);
   const NOIR = '#1A1A1A';
+  const PINCE_ANG = 60;
   const dOf = (pts, ferme = false) => pts.map((p, i) => `${i ? 'L' : 'M'}${f(p[0])} ${f(p[1])}`).join(' ') + (ferme ? ' Z' : '');
   const add = (p, q, k = 1) => [p[0] + q[0] * k, p[1] + q[1] * k];
   const unit = v => { const n = Math.hypot(v[0], v[1]); return [v[0] / n, v[1] / n]; };
@@ -132,8 +133,10 @@ module.exports = (h) => {
     const b = base(P, S);
     const grip = [b.c0[0] + (b.c1[0] - b.c0[0]) * 0.48, b.c0[1]];
     out.push(b.svg);
+    // la main qui tient la base par-dessus, le poing fermé autour, l'avant-bras qui monte
+    out.push(F.main({ x: grip[0], y: grip[1], pose: 'prise', vue: 'dos', angle: 90, diametre: 2 * b.r + 4, bras: 70, echelle: S * 0.85 }));
     // le geste : on la tourne au-dessus des braises
-    { const [cx, cy] = b.c0; out.push(h.fleche(`M${f(cx - 18)} ${f(cy - 30)} A 22 22 0 0 1 ${f(cx + 18)} ${f(cy - 30)}`, A.arete)); }
+    { const [cx, cy] = b.c0; out.push(h.fleche(`M${f(cx + 18)} ${f(cy + 34)} A 24 24 0 0 1 ${f(cx - 18)} ${f(cy + 34)}`, A.arete)); }
     // les braises : des tisons de bois carbonisé, craquelés en damier, sur un lit de cendre
     const xa = P(0.04 * Lp, 0, 0)[0], xb = P(1.02 * Lp, 0, 0)[0];
     const cendre = [[xa, sol]];
@@ -254,8 +257,10 @@ module.exports = (h) => {
     ].join('\n');
     out.push(rabat);
     const [px, py] = v.prise, mk = S * 1.25;
+    // la main qui pince le bord libre de la plaque, le poignet qui monte
+    out.push(F.main({ x: px, y: py, pose: 'pince', vue: 'profil', angle: PINCE_ANG, bras: 50, echelle: S * 1.15 }));
     // la traction : vers le haut, à côté du poignet
-    out.push(h.fleche(`M${f(px)} ${f(py - 6 * mk)} L${f(px)} ${f(py - 70 * mk)}`, A.arete));
+    out.push(h.fleche(`M${f(px + 40 * mk)} ${f(py - 6 * mk)} L${f(px + 40 * mk)} ${f(py - 70 * mk)}`, A.arete));
     return out.join('\n');
   };
 
@@ -279,6 +284,7 @@ module.exports = (h) => {
   };
   const dessinNappe = z => {
     const v = vueNappe(z), { x0, x1, yb, ym, tf, xj } = v;
+    const NX = xj - 150;
     const out = [];
     const coupe = (x, y0, y1, n = 6) => {                    // trait de coupe, en zigzag
       const pts = [];
@@ -317,8 +323,9 @@ module.exports = (h) => {
     out.push(h.path(dOf(nappe, true), motif('p5040-gras', 'fill="none" stroke="none"')));
     out.push(h.path(dOf(nappe, true), A.arete));
     // la poussée : le pouce avance à plat, vers la nappe encore collée
+    out.push(F.main({ x: NX, y: Y(NX), pose: 'appui', vue: 'profil', angle: v.tang(NX), inclinaison: 22, bras: 70, echelle: 1.1 }));
     const fy = Y(xj) - 100;
-    out.push(h.fleche(`M${f(xj - 100)} ${f(Y(xj - 100) - 14)} L${f(xj - 12)} ${f(Y(xj - 12) - 8)}`, A.arete));
+    out.push(h.fleche(`M${f(xj + 10)} ${f(Y(xj + 10) - 4)} L${f(xj + 70)} ${f(Y(xj + 70) - 3)}`, A.arete));
 
     return out.join(String.fromCharCode(10));
   };

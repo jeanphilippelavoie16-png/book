@@ -140,9 +140,9 @@ module.exports = (h) => {
       const { yT, xCh, xMoule, xPlat, A, u, Lm } = verserGeo(z);
       const hm = [A[0] + u[0] * Lm * 0.4, A[1] + u[1] * Lm * 0.4];
       return [
-        { n: 1, rond: [xCh + 90, yT - 110], cible: [xCh + 30, yT - 40], texte: 'Le bouillon filtré, encore chaud' },
-        { n: 2, rond: [hm[0] - 40, hm[1] + 6], cible: hm, texte: 'La louche, sans attendre qu’il tiédisse' },
-        { n: 3, rond: [xMoule - 72, yT - 50], cible: [xMoule - 22, yT - 7], texte: 'Plats larges et bas : une couche mince' },
+        { n: 1, rond: [xCh + 90, yT - 110], cible: [xCh + 30, yT - 40], texte: 'le bouillon filtré, encore chaud' },
+        { n: 2, rond: [hm[0] - 40, hm[1] + 6], cible: hm, texte: 'la louche, sans attendre qu’il tiédisse' },
+        { n: 3, rond: [xMoule - 72, yT - 50], cible: [xMoule - 22, yT - 7], texte: 'plats larges et bas : une couche mince' },
       ];
     },
   };
@@ -165,7 +165,7 @@ module.exports = (h) => {
     renvois: z => {
       const ys = ySurf(z);
       return [
-        { n: 4, rond: [z.l - 18, ys - mm(250) - 10], cible: [z.l / 2 + mm(150) - 12, ys - mm(250) * 0.5], texte: 'Plein, couvert, posé : le fond seul touche' },
+        { n: 4, rond: [z.l - 18, ys - mm(250) - 10], cible: [z.l / 2 + mm(150) - 12, ys - mm(250) * 0.5], texte: 'plein, couvert, posé : le fond seul touche' },
       ];
     },
   };
@@ -212,10 +212,10 @@ module.exports = (h) => {
     renvois: z => {
       const g = troueGeo(z), ys = g.ys;
       return [
-        { n: 5, rond: [13, z.h - 11], cible: [g.cx - mm(300), ys + g.prof * 0.3], texte: 'Un trou gros comme un bac à vaisselle' },
-        { n: 6, rond: [g.plat.cx + 50, z.h - 11], cible: [g.plat.cx + 18, ys + g.prof], texte: 'Les plats assis au fond, côte à côte' },
-        { n: 7, rond: [g.plat.cx - 40, ys - 40], cible: [g.plat.cx - 60, ys - 2], texte: 'Couvercle à demi, l’autre moitié ouverte' },
-        { n: 8, rond: [(g.plat.cx + g.moule.cx) / 2 - 30, ys - 44], cible: [(g.plat.cx + mm(160) + g.moule.cx - mm(65)) / 2, ys + 14], texte: 'Neige tassée tout autour, jusqu’au bord' },
+        { n: 5, rond: [13, z.h - 11], cible: [g.cx - mm(300), ys + g.prof * 0.3], texte: 'un trou gros comme un bac à vaisselle' },
+        { n: 6, rond: [g.plat.cx + 50, z.h - 11], cible: [g.plat.cx + 18, ys + g.prof], texte: 'les plats assis au fond, côte à côte' },
+        { n: 7, rond: [g.plat.cx - 40, ys - 40], cible: [g.plat.cx - 60, ys - 2], texte: 'couvercle à demi, l’autre moitié ouverte' },
+        { n: 8, rond: [(g.plat.cx + g.moule.cx) / 2 - 30, ys - 44], cible: [(g.plat.cx + mm(160) + g.moule.cx - mm(65)) / 2, ys + 14], texte: 'neige tassée tout autour, jusqu’au bord' },
       ];
     },
   };
@@ -224,27 +224,44 @@ module.exports = (h) => {
   // 4. À défaut de plat : la tôle repliée aux quatre coins
   // ════════════════════════════════════════════════════════════════════════════════════════
   const toleGeo = z => {
-    const L0 = 118, W0 = 74, m0 = 24;
-    const largeurTot = (L0 + 2 * m0) + 30 + (L0 + W0 * 0.5);
-    const s = Math.min(1, (z.l - 42) / largeurTot, (z.h - 16) / (W0 + 2 * m0 + 8));
-    return { L: L0 * s, W: W0 * s, m: m0 * s, s };
+    const L0 = 118, W0 = 74, m0 = 24, c0 = 2.3 * m0, kp = 0.5;   // le patron, plus petit que le bac
+    const largeurTot = (L0 + 2 * m0) * kp + c0 + (L0 + W0 * 0.5);
+    const s = Math.min((z.l - 28 - 3 * 22) / largeurTot, (z.h - 22) / (W0 * 0.34 + m0 + W0 * 0.2 + 30));
+    const L = L0 * s, W = W0 * s, m = m0 * s, c = c0 * s;
+    const Lp = L * kp, Wp = W * kp, mp = m * kp;
+    const px = 28, py = (z.h - (Wp + 2 * mp)) / 2;
+    const cx = px + Lp + 2 * mp + 22 + m * 1.0, cy = z.h - 34;
+    const ox = px + Lp + 2 * mp + 22 + c + 22, oy = z.h - 14;
+    return { L, W, m, s, px, py, cx, cy, ox, oy, Lp, Wp, mp };
   };
   const tole = {
     titre: 'À défaut : la tôle repliée aux quatre coins',
     dessin: z => {
-      const { L, W, m } = toleGeo(z);
+      const { L, W, m, px, py, cx, cy, ox, oy, Lp, Wp, mp } = toleGeo(z);
       const out = [];
       // le patron, vu de dessus : les plis en tireté
-      const px = 28, py = (z.h - (W + 2 * m)) / 2;
-      const X = [px, px + m, px + m + L, px + 2 * m + L], Y = [py, py + m, py + m + W, py + 2 * m + W];
-      out.push(h.rect(px, py, L + 2 * m, W + 2 * m, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`));
+      const X = [px, px + mp, px + mp + Lp, px + 2 * mp + Lp], Y = [py, py + mp, py + mp + Wp, py + 2 * mp + Wp];
+      out.push(h.rect(px, py, Lp + 2 * mp, Wp + 2 * mp, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`));
       for (const x of [X[1], X[2]]) out.push(h.ligne(x, Y[0], x, Y[3], h.a.cache));
       for (const y of [Y[1], Y[2]]) out.push(h.ligne(X[0], y, X[3], y, h.a.cache));
       out.push(h.ligne(X[0], Y[0], X[1], Y[1], h.a.cache), h.ligne(X[3], Y[0], X[2], Y[1], h.a.cache));
       out.push(h.ligne(X[0], Y[3], X[1], Y[2], h.a.cache), h.ligne(X[3], Y[3], X[2], Y[2], h.a.cache));
 
+      // un coin à mi-pliage : les deux côtés relevés, le carré du coin pincé en triangle
+      const C = (x, y, zz) => [cx + x + y * 0.5, cy - y * 0.34 - zz];
+      const blanc = `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`;
+      const fc = pts => h.path(P(pts.map(p => C(...p)), true), blanc);
+      const a = 1.2 * m, d = m / Math.SQRT2;
+      out.push(fc([[0, 0, 0], [a, 0, 0], [a, a, 0], [0, a, 0]]));            // un bout du fond
+      out.push(fc([[0, 0, 0], [0, a, 0], [0, a, m], [0, 0, m]]));            // le petit côté, relevé
+      out.push(fc([[0, 0, 0], [a, 0, 0], [a, 0, m], [0, 0, m]]));            // le grand côté, relevé
+      const tip = [-d, -d, m];
+      out.push(fc([[0, 0, 0], [0, 0, m], tip]));                             // l'oreille, pincée
+      out.push(h.path(P([C(0, 0, 0), C(...tip)]), h.a.cache));               // sa diagonale, le pli
+      const T = C(...tip), D = C(a * 0.7, 0, m * 0.55);
+      out.push(h.fleche(`M ${f(T[0] - 2)} ${f(T[1] - 4)} C ${f(T[0] + 6)} ${f(T[1] - 30)}, ${f(D[0] + 4)} ${f(D[1] - 34)}, ${f(D[0])} ${f(D[1] - 4)}`, h.a.arete));
+
       // le bac plié, en perspective cavalière
-      const ox = X[3] + 30, oy = py + 2 * m + W - 6;
       const Q = (x, y, zz) => [ox + x + y * 0.5, oy - y * 0.34 - zz];
       const face = pts => h.path(P(pts.map(p => Q(...p)), true), `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`);
       out.push(face([[0, 0, 0], [L, 0, 0], [L, W, 0], [0, W, 0]]));          // le fond
@@ -261,25 +278,24 @@ module.exports = (h) => {
       return out.join('\n');
     },
     renvois: z => {
-      const { L, W, m } = toleGeo(z);
-      const px = 28, py = (z.h - (W + 2 * m)) / 2;
-      const ox = px + 2 * m + L + 30, oy = py + 2 * m + W - 6;
+      const { L, W, m, px, py, cx, cy, ox, oy, Lp, Wp, mp } = toleGeo(z);
       return [
-        { n: 9, rond: [11, py + m + W * 0.2], cible: [px + m, py + m + W * 0.6], texte: 'Tôle pliée sur les tiretés' },
-        { n: 10, rond: [ox + L + W * 0.5 + 12, oy - 2], cible: [ox + L - m / 3, oy - m * 0.6], texte: 'Chaque coin en oreille, rabattu contre le côté' },
+        { n: 9, rond: [11, py + mp + Wp * 0.2], cible: [px + mp, py + mp + Wp * 0.6], texte: 'tôle pliée sur les tiretés' },
+        { n: 10, rond: [cx - m * 1.0, z.h - 12], cible: [cx - m * 0.35, cy - m * 0.5], texte: 'coin pincé en oreille, rabattu au côté' },
+        { n: 11, rond: [z.l - 14, 14], cible: [ox + L - m / 3, oy - m * 0.6], texte: 'le bac plié, les oreilles à plat' },
       ];
     },
   };
 
   // ════════════════════════════════════════════════════════════════════════════════════════
-  // 5. À défaut de contenant : le creux taillé dans la neige tassée, doublé d'un sac
+  // 5. À défaut de contenant : le creux dans la neige tassée, doublé d'un sac
   // ════════════════════════════════════════════════════════════════════════════════════════
   const sacGeo = z => {
     const ys = z.h - 44, cx = z.l / 2, demi = Math.min(mm(230), z.l / 2 - 50), pr = mm(55);
     return { ys, cx, demi, pr };
   };
   const sac = {
-    titre: 'À défaut : un creux dans la neige, doublé d’un sac',
+    titre: 'À défaut : un creux doublé d’un sac',
     dessin: z => {
       const { ys, cx, demi, pr } = sacGeo(z);
       // le creux : un fond plat aux bords arrondis
@@ -319,8 +335,7 @@ module.exports = (h) => {
     renvois: z => {
       const { ys, cx, demi, pr } = sacGeo(z);
       return [
-        { n: 11, rond: [cx - demi - 20, z.h - 16], cible: [cx - demi + pr * 0.6, ys + pr * 0.9], texte: 'Creux taillé dans la neige tassée' },
-        { n: 12, rond: [cx + demi + 10, ys - 30], cible: [cx + demi - pr * 0.3, ys + pr * 0.1], texte: 'Doublé d’un sac, les bords rabattus' },
+        { n: 12, rond: [cx + demi + 10, ys - 30], cible: [cx + demi - pr * 0.3, ys + pr * 0.1], texte: 'creux dans la neige, doublé d’un sac' },
       ];
     },
   };
@@ -331,12 +346,12 @@ module.exports = (h) => {
     desc: 'Le bouillon chaud se partage tout de suite à la louche en plats larges et bas. '
       + 'Comparaison : le chaudron plein et couvert posé sur la croûte ne touche la neige que par le fond ; '
       + 'les plats bas assis dans un trou gros comme un bac à vaisselle, à demi couverts, la neige tassée à la main jusqu’au bord. '
-      + 'À défaut de plats : une tôle pliée en bac, les coins repliés en oreille ; un creux taillé dans la neige tassée et doublé d’un sac. '
+      + 'À défaut de plats : une tôle pliée en bac, les coins repliés en oreille ; un creux dans la neige tassée et doublé d’un sac. '
       + 'Encadré danger : le chaudron plein laissé refroidir seul se jette au matin.',
     format: 'pleine',
     disposition: [['verser'], ['croute', 'enneige'], ['tole', 'sac']],
-    hauteurs: [1.15, 1.2, 0.75],
-    largeurs: [[1], [2, 3], [1.1, 1]],
+    hauteurs: [1.0, 1.15, 0.95],
+    largeurs: [[1], [2, 3], [2.1, 1]],
     vues: { verser, croute, enneige, tole, sac },
     danger: 'Un chaudron plein laissé refroidir seul passe la nuit entre 4 et 60 °C : il se jette au matin. '
       + 'La cuisson du lendemain ne détruit pas toutes les toxines déjà produites.',

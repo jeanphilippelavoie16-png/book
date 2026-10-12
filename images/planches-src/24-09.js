@@ -111,7 +111,11 @@ module.exports = (h) => {
 
     // la main serrée sur le manche : elle peint le manche derrière ses doigts
     const t = Vs([0, 0]);
-    const manche = h.rect(t[0] - D_MANCHE * s / 2, t[1] - MANCHE * s, D_MANCHE * s, 2 * MANCHE * s, h.a.hachure('bois', 'arete'));
+    // bois non coupé : blanc, quelques traits fins de fil parallèles au manche
+    const mx = t[0] - D_MANCHE * s / 2, my = t[1] - MANCHE * s, mh = 2 * MANCHE * s;
+    const filM = [[-9, 0.05, 0.42], [-2, 0.58, 0.95], [6, 0.08, 0.35], [10, 0.62, 0.9], [2, 0.2, 0.3]]
+      .map(([dx, a, b]) => h.ligne(t[0] + dx * s, my + a * mh, t[0] + dx * s, my + b * mh, h.a.fin)).join('\n');
+    const manche = h.rect(mx, my, D_MANCHE * s, mh, `fill="${B}" ${h.a.arete.replace(/fill="[^"]*"/, '')}`) + '\n' + filM;
     out.push(h.formes.main({ x: t[0], y: t[1], pose: 'prise', vue: 'dos', echelle: s, diametre: D_MANCHE * s, bras: BRAS_M, objet: manche }));
     // le raccord avec la main : le bout rond de son trait déborde dans l'avant-bras, on le recouvre
     out.push(h.path(`M${P2(V([221, interp(dessus, 221)]))} L${P2(V([230.6, -32.8]))} L${P2(V([230.6, 33.8]))} L${P2(V([221, interp(bas, 221)]))} Z`, BLANC));
@@ -135,7 +139,12 @@ module.exports = (h) => {
     for (let yy = 0; yy <= 740; yy += 20) { g.push(V([axe(yy) - hw(yy), -yy])); d.push(V([axe(yy) + hw(yy), -yy])); }
     const manche = lisse(d) + ` L${P2(g[g.length - 1])}` + lisse(g.slice().reverse(), false, false)
       + ` Q${P2(V([axe(0), 3]))} ${P2(d[0])} Z`;
-    out.push(h.path(manche, BLANC), h.path(manche, h.a.hachure('bois', 'arete')));
+    out.push(h.path(manche, BLANC));
+    for (const [k, a, b] of [[-8, 170, 330], [-3, 400, 640], [5, 200, 420], [9, 480, 690], [1, 660, 735]]) {
+      const pts = []; for (let yy = a; yy <= b; yy += 20) pts.push(V([axe(yy) + k, -yy]));
+      out.push(h.path(lisse(pts), h.a.fin));
+    }
+    out.push(h.path(manche, h.a.arete));
     // la prise grossie, au bout où la main serre
     const pg = [], pd = [];
     for (let yy = 35; yy <= 147; yy += 16) { pg.push(V([axe(yy) - 24, -yy])); pd.push(V([axe(yy) + 24, -yy])); }
@@ -176,7 +185,9 @@ module.exports = (h) => {
     const rupt = [V([178, -HB]), V([183, -7]), V([173, 7]), V([178, HB])];
     const bois = lisse(haut) + lisse(rupt, false, false) + lisse(bas.slice().reverse(), false, false)
       + ` Q${P2(V([-3, 0]))} ${P2(haut[0])} Z`;
-    out.push(h.path(bois, BLANC), h.path(bois, h.a.hachure('bois', 'aucun')));
+    out.push(h.path(bois, BLANC));
+    for (const [y, a, b] of [[-9, 4, 30], [-2, 8, 33], [7, 3, 26], [-10, 150, 176], [3, 152, 172], [11, 158, 177]])
+      out.push(h.ligne(...V([a, y]), ...V([b, y]), h.a.fin));
     out.push(h.path(lisse(haut), h.a.contour), h.path(lisse(bas), h.a.contour));
     out.push(h.path(`M${P2(bas[0])} Q${P2(V([-3, 0]))} ${P2(haut[0])}`, h.a.contour));
     out.push(h.path(lisse(rupt), h.a.detail));

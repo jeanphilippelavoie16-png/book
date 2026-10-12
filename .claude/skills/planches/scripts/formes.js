@@ -568,15 +568,308 @@ module.exports = function formes(h) {
     return { pieces, trou: { x: x0, y: 0, r: R, pente }, poignet: [Wx, 0], bras: [cut, 0] };
   }
 
-  const POSES = {
-    'prise/profil': (R, o) => priseProfil(R, o),
-    'prise/dos': (R, o) => priseDos(R, o),
-    'prise/paume': (R, o) => prisePaume(R, o),
-    'boule/profil': (R, o) => bouleProfil(R, o),
-    'pince/profil': (R, o) => pinceProfil(o),
-    'appui/profil': (R, o) => appuiProfil(o),
-    'appui/dos': (R, o) => appuiDos(o),
+  // ═══ les mains, deuxième construction (12 octobre) ═══════════════════════════════════
+  // Proportions d'une main d'adulte : paume de 96 du poignet à la jointure du majeur, majeur de
+  // 94 ; les doigts s'effilent d'un tiers de la base au bout ; le pouce part du bas de la paume,
+  // près du poignet. Chaque doigt est un contour lisse (pas de plis) : la jointure se lit par la
+  // courbe du dos qui saille, le ventre se creuse un peu à la flexion. Peu de traits intérieurs.
+  // lissage centripète : passe par chaque point sans boucle ni dépassement
+  function lisseC(pts, ferme = false) {
+    const n = pts.length, cmds = [['M', pts[0]]];
+    const P = i => ferme ? pts[(i + n) % n] : (i < 0 ? sub(mul(pts[0], 2), pts[1]) : i > n - 1 ? sub(mul(pts[n - 1], 2), pts[n - 2]) : pts[i]);
+    const fin = ferme ? n : n - 1;
+    for (let i = 0; i < fin; i++) {
+      const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2);
+      const d1 = Math.max(1e-3, Math.sqrt(lon(sub(p1, p0)))), d2 = Math.max(1e-3, Math.sqrt(lon(sub(p2, p1)))), d3 = Math.max(1e-3, Math.sqrt(lon(sub(p3, p2))));
+      const b1 = mul(add(add(mul(p2, d1 * d1), mul(p0, -d2 * d2)), mul(p1, 2 * d1 * d1 + 3 * d1 * d2 + d2 * d2)), 1 / (3 * d1 * (d1 + d2)));
+      const b2 = mul(add(add(mul(p1, d3 * d3), mul(p3, -d2 * d2)), mul(p2, 2 * d3 * d3 + 3 * d3 * d2 + d2 * d2)), 1 / (3 * d3 * (d3 + d2)));
+      cmds.push(['C', b1, b2, p2]);
+    }
+    if (ferme) cmds.push(['Z']);
+    return cmds;
+  }
+  const D2 = {
+    index:       { ph: [41, 25, 20], w: [9.4, 8.3, 7.4, 6.5] },
+    majeur:      { ph: [45, 27, 21], w: [9.7, 8.6, 7.6, 6.7] },
+    annulaire:   { ph: [42, 26, 20], w: [9.2, 8.1, 7.2, 6.3] },
+    auriculaire: { ph: [32, 20, 18], w: [8.2, 7.1, 6.3, 5.6] },
+    pouce:       { ph: [44, 31, 25], w: [12.5, 11, 10, 8.6] },
   };
+  // la chaîne d'un doigt : ses points, la dernière phalange raccourcie du rayon du bout
+  function chaine2(nom, P0, d0, flex, sens = 1, k = 1) {
+    const d = D2[nom], ph = d.ph.map((L, i) => (i === d.ph.length - 1 ? L - d.w[d.w.length - 1] : L) * k);
+    return plie(P0, d0, ph, flex, sens);
+  }
+  // Un doigt : contour lisse d'une chaîne (pts) et de ses demi-largeurs (w, une par point).
+  //   sens   +1 : le dos à gauche du sens de marche
+  //   ouvre  { dos, ventre } : mm depuis P0 où le trait commence sur chaque bord (dessous : caché)
+  //   ongle  'dessus' · 'cote' · null ; base : de combien le blanc recule sous la pièce voisine
+  function doigt2(pts, w, o = {}) {
+    const { sens = 1, ouvre = {}, ongle = null, base = 12, coupe = false, baseRonde = false } = o;
+    const n = pts.length - 1;
+    const U = []; for (let i = 0; i < n; i++) U.push(uni(sub(pts[i + 1], pts[i])));
+    const S = [0]; for (let i = 0; i < n; i++) S.push(S[i] + lon(sub(pts[i + 1], pts[i])));
+    const dos = [], ven = [];
+    const pousse = (P, u, wd, wv, s) => { const nn = mul(gau(u), sens); dos.push({ p: add(P, mul(nn, wd)), s }); ven.push({ p: sub(P, mul(nn, wv)), s }); };
+    for (let i = 0; i <= n; i++) {
+      const u = i === 0 ? U[0] : i === n ? U[n - 1] : uni(add(U[i - 1], U[i]));
+      let fl = 0;
+      if (i > 0 && i < n) fl = borne(angleDe(U[i - 1], U[i]) * sens / 70, -1, 1.4);
+      // le dos de la jointure qui saille, le ventre qui se creuse
+      pousse(pts[i], u, w[i] * (1 + 0.1 * Math.max(fl, 0)), w[i] * (1 - 0.14 * Math.max(fl, 0)), S[i]);
+      if (i < n) for (const t of [0.2, 0.4, 0.6, 0.8, ...[ouvre.dos, ouvre.ventre].filter(e => e > S[i] + 1 && e < S[i + 1] - 1).map(e => (e - S[i]) / (S[i + 1] - S[i]))].sort((x, y) => x - y)) {   // le coussinet bombe un peu côté ventre
+        const mm = lerp(pts[i], pts[i + 1], t), wm = w[i] + (w[i + 1] - w[i]) * t;
+        pousse(mm, U[i], wm, wm * (1 + 0.035), S[i] + (S[i + 1] - S[i]) * t);
+      }
+    }
+    const c = pts[n], u = U[n - 1], nn = mul(gau(u), sens), r = w[n];
+    const bout = [add(c, mul(add(mul(nn, 0.72), mul(u, 0.72)), r)), add(c, mul(u, r * 1.02)), add(c, mul(add(mul(nn, -0.72), mul(u, 0.72)), r))];
+    let L = [...dos.map(q => q.p), ...bout, ...ven.slice().reverse().map(q => q.p)];
+    if (baseRonde) {   // la base arrondie : une jointure pliée vue de dessus
+      const c0 = pts[0], u0b = mul(U[0], -1), n0 = mul(gau(U[0]), sens), r0 = w[0];
+      const cap = [add(c0, mul(add(mul(n0, -0.72), mul(u0b, 0.72)), r0)), add(c0, mul(u0b, r0 * 1.02)), add(c0, mul(add(mul(n0, 0.72), mul(u0b, 0.72)), r0))];
+      L = [...L, ...cap, L[0]];
+    }
+    const cm = lisseC(L);
+    const dern = (A, v) => { let k = 0; A.forEach((q, j) => { if (q.s <= v + 0.01) k = j; }); return k; };
+    const a = dern(dos, ouvre.dos || 0);
+    const iv = dern(ven, ouvre.ventre || 0);
+    const b = L.length - 1 - Math.max(0, iv);
+    const tr = baseRonde ? cm : [['M', L[a]], ...cm.slice(a + 1, b + 1)];
+    const u0 = U[0];
+    const remp = coupe || baseRonde ? [...cm, ['Z']]
+      : [['M', sub(L[0], mul(u0, base))], ['L', L[0]], ...cm.slice(1), ['L', sub(L[L.length - 1], mul(u0, base))], ['Z']];
+    const det = [];
+    if (ongle) {
+      const P = pts[n - 1], Ln = lon(sub(c, P)) + r, at = (s, t) => add(add(P, mul(u, s)), mul(nn, t));
+      if (ongle === 'dessus') {
+        const hw = w[n] * 0.62, s0 = Ln * 0.42, s1 = Ln * 0.56, s2 = Ln + r * 0.15 - r * 0.5;
+        const sE = Ln - r * 0.62;
+        det.push([['M', at(sE, hw * 0.92)], ['L', at(s1, hw)], ['C', at(s0, hw), at(s0, -hw), at(s1, -hw)], ['L', at(sE, -hw * 0.92)]]);
+      } else {
+        const wn = w[n - 1] * 0.8;
+        det.push([['M', at(Ln * 0.38, wn)], ['Q', at(Ln * 0.5, wn * 0.45), at(Ln * 0.92, w[n] * 0.35)]]);
+      }
+    }
+    return { remp, trait: [tr], det, _L: L };
+  }
+  // Une plaque (paume, avant-bras) : un contour fermé lisse, tracé seulement sur les plages données
+  // (indices de points, a → b, dans l'ordre du contour).
+  function plaque(pts, plages, det = []) {
+    const cm = lisseC(pts, true), n = pts.length;
+    const tr = plages.map(([a, b]) => { const out = [['M', pts[a % n]]]; for (let i = a; i < b; i++) out.push(cm[(i % n) + 1]); return out; });
+    return { remp: cm, trait: tr, det };
+  }
+  // le point d'un doigt2 à s mm le long de sa chaîne, sur un bord (+1 dos, -1 ventre)
+  const bord2 = (pts, w, sens, cote, s) => {
+    const W = w.slice(0, -1).map((v, i) => [v, w[i + 1]]);
+    return pointBord(pts, W, sens, cote, s);
+  };
+
+  // ── dos : la main à plat vue de dessus (doigts vers la droite, pouce en haut) ──
+  function appuiDos2(o) {
+    const Wx = -94, cut = Wx - o.bras, pieces = [];
+    const g = [['index', [0, -28], -3], ['majeur', [4, -9.2], -0.5], ['annulaire', [1, 9.4], 2.5], ['auriculaire', [-9, 27], 6.5]]
+      .map(([nom, P0, a]) => ({ nom, w: D2[nom].w.map(v => v * 0.96), pts: chaine2(nom, P0, dirA(a), [0, 1.5, 1]) }));
+    // le pouce : il part du bas de la paume, près du poignet, ouvert d'une quarantaine de degrés
+    const ptsP = plie([Wx + 14, -19], dirA(-40), [44, 31, 25 - 8.6], [0, 16, 8], 1);
+    const wP = D2.pouce.w;
+    const pDos = s => bord2(ptsP, wP, 1, 1, s), pVen = s => bord2(ptsP, wP, 1, -1, s);
+    const iHaut = s => bord2(g[0].pts, g[0].w, 1, 1, s), aBas = s => bord2(g[3].pts, g[3].w, 1, -1, s);
+    // la paume : du poignet (côté pouce) par la palmure jusqu'à l'index, puis le bord cubital
+    const P = [[cut, -30], [Wx - 10, -30], pDos(0), pVen(30), pVen(52), [-14, -40], iHaut(4), [20, -28], [24, 0], [18, 26], aBas(6),
+      [-20, 38.5], [-56, 36.5], [Wx, 30.5], [cut, 32]];
+    pieces.push(plaque(P, [[0, 2], [4, 6], [10, 14]]));
+    const sW = 24;
+    g.forEach((d, i) => pieces.push(doigt2(d.pts, d.w, { ouvre: { dos: i === 0 ? 4 : sW, ventre: i === 3 ? 6 : sW }, ongle: 'dessus' })));
+    pieces.push(doigt2(ptsP, wP, { ouvre: { dos: 0, ventre: 52 }, ongle: 'dessus', base: 16 }));
+    // les palmures entre les doigts : un petit creux, du bord d'un doigt à celui du voisin
+    const webs = [];
+    for (let i = 0; i < 3; i++) {
+      const a = g[i], b = g[i + 1];
+      const pa = bord2(a.pts, a.w, 1, -1, sW), pb = bord2(b.pts, b.w, 1, 1, sW);
+      const fw = lerp(bord2(a.pts, a.w, 1, -1, sW - 7), bord2(b.pts, b.w, 1, 1, sW - 7), 0.5);
+      webs.push([['M', pa], ['Q', fw, pb]]);
+    }
+    pieces.push({ remp: null, trait: webs, det: [], silhouette: false });
+    // les têtes des métacarpiens, à peine marquées
+    const nodes = g.slice(0, 3).map(d => { const p = add(d.pts[0], [-1, 0]), w = d.w[0] * 0.3; return [['M', add(p, [-1.5, -w])], ['Q', add(p, [2, 0]), add(p, [-1.5, w])]]; });
+    pieces.push(traits(nodes, 0.5));
+    return { pieces, trou: { x: 0, y: 0, r: 0 }, poignet: [Wx, 0], bras: [cut, 0] };
+  }
+
+  // ── profil : la prise, le manche vu par le bout ──
+  // Le poing vu du côté du pouce : le dos de la main en haut, la paume posée sur le manche, l'index
+  // qui descend devant, passe dessous et revient ; le pouce couché sous le manche, par-dessus
+  // l'index, son bout près de la deuxième jointure de l'index.
+  const surCercle = (a0, Ls, rr, sg = 1) => { const out = [mul(dirA(a0), rr)]; let a = a0; for (const L of Ls) { a += sg * 2 * Math.asin(Math.min(0.99, L / (2 * rr))) / RAD; out.push(mul(dirA(a), rr)); } return out; };
+  function priseProfil2(R, o) {
+    const wI0 = D2.index.w, rc = R + wI0[1] + 0.4;
+    const arc = surCercle(-60, D2.index.ph.map((L, i) => i === 2 ? L - wI0[3] - 10 : L), rc);
+    const MI = arc[0];
+    // la chaîne de l'index part du dos de la main : la jointure saille en arrondi
+    const uDos = dirA(-3);
+    const ptsI = [sub(MI, mul(uDos, 26)), ...arc], wI = [9.8, ...wI0];
+    const W = [MI[0] - 92, MI[1] + 11], F = [W[0] - o.bras, W[1] + 1];
+    const iDos = s => bord2(ptsI, wI, 1, 1, s);
+    const dosW = [W[0], iDos(0)[1] - 0.5];
+    // le majeur, derrière : sa jointure dépasse à peine sous celle de l'index
+    const arcM = surCercle(-52, D2.majeur.ph.map((L, i) => i === 2 ? L - D2.majeur.w[3] : L), rc + 2.2);
+    const ptsM = [sub(arcM[0], mul(uDos, 26)), ...arcM], wM = [9.8, ...D2.majeur.w];
+    // le pouce, couché sous le manche
+    const yT = R + wI0[1] + 3.2;
+    const PIP = arc[1];
+    const ptsT = [[W[0] + 22, W[1] + 15], [-R - 8, yT + 0.5], [PIP[0] - 24, yT + 1.2], [PIP[0] - 11, yT - 0.8]];
+    const wT = [12.5, 10.8, 9.8, 8.6];
+    const tVen = s => bord2(ptsT, wT, 1, -1, s), tDos = s => bord2(ptsT, wT, 1, 1, s);
+    const P = [[F[0], dosW[1] + 1], dosW, iDos(0), iDos(26), mul(dirA(-60), R - 1),
+      mul(dirA(-110), R - 1), mul(dirA(-150), R - 1), mul(dirA(-190), R - 1), tDos(40), tVen(4), [W[0] + 4, W[1] + 19.5], [F[0], W[1] + 20.5]];
+    const pieces = [];
+    pieces.push(plaque(P, [[0, 2], [9, 11]]));
+    pieces.push(doigt2(ptsI, wI, { sens: 1, ouvre: { dos: 0, ventre: 300 }, base: 4 }));
+    pieces.push(doigt2(ptsT, wT, { sens: 1, ouvre: { dos: 40, ventre: 4 }, ongle: 'cote', base: 14 }));
+    pieces.push({ remp: [...lisse(arcPts(R, 0, 360, 12), true)], trait: [], det: [], silhouette: false });
+    return { pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F, couche: 99 };
+  }
+
+  // ── profil : la boule tenue dans le « C » du pouce et des doigts ──
+  // Vue du côté du pouce : la palmure contre la pierre, le pouce couché dessus, l'index qui passe
+  // dessous et remonte de l'autre côté ; le majeur, derrière, dépasse au bout. serre (0 à 1,3).
+  function bouleProfil2(R, o) {
+    const s = o.serre == null ? 1 : borne(o.serre, 0, 1.3);
+    const wI0 = D2.index.w, r0 = R + wI0[1] + 0.4, rc = r0 * (s < 1 ? 1 + (1 - s) * 0.5 : 1);
+    const a0 = 140;
+    const cI = mul(dirA(a0), r0 - rc);                // moins serré : la courbe s'ouvre
+    const arc = surCercle(a0, D2.index.ph.map((L, i) => (i === 2 ? L - wI0[3] : L) * (s > 1 ? 1 : 1)), rc, -1).map(p => add(p, cI));
+    const MI = arc[0], uDos = dirA(11);
+    const ptsI = [sub(MI, mul(uDos, 26)), ...arc], wI = [9.8, ...wI0];
+    const arcM = surCercle(a0 + 2, D2.majeur.ph.map((L, i) => i === 2 ? L - D2.majeur.w[3] : L), rc + 0.6, -1).map(p => add(p, cI));
+    const ptsM = [sub(arcM[0], mul(uDos, 26)), ...arcM], wM = [9.8, ...D2.majeur.w];
+    const W = sub(MI, mul(uDos, 92)), F = sub(W, mul(uDos, o.bras));
+    const nH = gau(uDos);                       // vers le haut : le côté du pouce
+    // le pouce : il part de la base de la paume et se couche sur le haut de la pierre
+    const T0 = add(add(W, mul(uDos, 16)), mul(nH, 13)), rT = R + 10.6;
+    let aT = 190, e = 1e9;
+    for (let a = 185; a <= 250; a += 0.5) { const q = Math.abs(lon(sub(mul(dirA(a), rT), T0)) - 46); if (q < e) { e = q; aT = a; } }
+    const arcT = surCercle(aT, [31, 25 - 8.6].map(L => L), rT, 1);
+    const ptsT = [T0, ...arcT], wT = [12.8, 11, 10, 8.6];
+    const iDos = q => bord2(ptsI, wI, -1, 1, q), tDos = q => bord2(ptsT, wT, 1, 1, q), tVen = q => bord2(ptsT, wT, 1, -1, q);
+    const aP = Math.atan2(-(tVen(46)[1]), -(tVen(46)[0]));
+    const P = [add(F, mul(nH, 20)), tDos(0), tVen(46), mul(dirA(aT - 8), R - 1), mul(dirA((aT - 8 + a0) / 2), R - 1), mul(dirA(a0 + 4), R - 1),
+      iDos(26), iDos(0), add(W, mul(nH, -19.5)), add(F, mul(nH, -20.5))];
+    const pieces = [];
+    pieces.push(doigt2(ptsM, wM, { sens: -1, ouvre: { dos: 100, ventre: 100 }, base: 4 }));
+    pieces.push(plaque(P, [[0, 1], [7, 9]]));
+    pieces.push(doigt2(ptsI, wI, { sens: -1, ouvre: { dos: 0, ventre: 300 }, base: 4 }));
+    pieces.push(doigt2(ptsT, wT, { sens: 1, ouvre: { dos: 0, ventre: 46 }, ongle: 'cote', base: 4 }));
+    return { pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F };
+  }
+
+  // ── profil : la pince, le bout du pouce contre le bout de l'index ──
+  // Le dos de la main en haut ; l'index qui s'arrondit, le pouce qui monte à sa rencontre, pulpe
+  // contre pulpe : le rond entre les deux fait le geste. Derrière, le majeur et l'annulaire
+  // repliés, un peu plus à chaque doigt. trou : le point pincé.
+  function pinceProfil2(o) {
+    const W = [0, 0], F = [-o.bras, 0], uDos = dirA(3);
+    const MI = [92, 1];
+    const ptsI = [sub(MI, mul(uDos, 26)), ...chaine2('index', MI, dirA(28), [0, 52, 28])], wI = [9.8, ...D2.index.w];
+    const MM = add(MI, [-4, 3]);
+    const ptsM = [sub(MM, mul(uDos, 26)), ...chaine2('majeur', MM, dirA(50), [0, 95, 60])], wM = [9.8, ...D2.majeur.w];
+    // le point pincé : la pulpe de l'index
+    const nI = ptsI.length - 1, uI = uni(sub(ptsI[nI], ptsI[nI - 1])), vI = mul(gau(uI), -1);
+    const Q = add(ptsI[nI], mul(vI, wI[nI]));
+    // le pouce : de la base de la paume, il plie à sa jointure et vient pulpe contre pulpe
+    const T0 = [30, 22], T1 = add(T0, mul(dirA(22), 44));
+    const cible = add(Q, mul(vI, 8.6 + 0.3));
+    const s1 = ik2(T1, 31, 25 - 8.6, cible, 1), s2 = ik2(T1, 31, 25 - 8.6, cible, -1);
+    const [, T2, T3] = s1[1][1] < s2[1][1] ? s1 : s2;
+    const ptsT = [T0, T1, T2, T3], wT = [12.5, 11, 9.8, 8.6];
+    const iVen = q => bord2(ptsI, wI, 1, -1, q), tDos = q => bord2(ptsT, wT, 1, 1, q), tVen = q => bord2(ptsT, wT, 1, -1, q);
+    const creux = lerp(iVen(34), tDos(40), 0.5);
+    const P = [[F[0], -20], [W[0], -20.5], [44, -18], add(ptsI[0], [0, -9.8]), iVen(40), add(creux, [-4, 0]), tDos(40), tVen(0), [W[0] + 6, 19.5], [F[0], 20.5]];
+    const pieces = [];
+    pieces.push(plaque(P, [[0, 3], [4, 6], [7, 9]]));
+    pieces.push(doigt2(ptsI, wI, { ouvre: { dos: 0, ventre: 40 }, ongle: 'cote', base: 4 }));
+    pieces.push(doigt2(ptsT, wT, { ouvre: { dos: 40, ventre: 0 }, ongle: 'cote', base: 4 }));
+    return { pieces, trou: { x: Q[0], y: Q[1], r: 0 }, poignet: W, bras: F, couche: pieces.length - 2 };
+  }
+
+  // ── profil : la paume à plat qui appuie (la surface est la ligne y = 0) ──
+  // Le poignet cassé vers le haut, le talon de la main et les doigts sur la surface, le pouce
+  // couché devant, ongle en haut. Le majeur, plus long, dépasse l'index au bout.
+  function appuiProfil2(o) {
+    const inc = o.inclinaison == null ? 50 : o.inclinaison;
+    const W = [-50, -27], F = add(W, mul(dirA(180 + inc), o.bras));
+    const uF = uni(sub(W, F)), nD = gau(uF);          // nD : le dos de l'avant-bras
+    const ptsI = [[14, -17.5], [42, -14.5], [83, -10], [108, -8.6], [127.5 - 6.5, -7]], wI = [10, 9.4, 8.3, 7.4, 6.5];
+    const ptsM = [[18, -17], [46, -14], [91, -9.3], [118, -8.2], [139 - 6.7, -6.8]], wM = [10, 9.7, 8.6, 7.6, 6.7];
+    const ptsT = [[-34, -13], [8, -10.6], [38, -9.4], [55, -8.4]], wT = [12, 10.6, 9.4, 8.4];
+    const tVen = q => bord2(ptsT, wT, 1, -1, q);
+    const P = [add(F, mul(nD, 20)), add(W, mul(nD, 19)), [-6, -33], [14, -27.5], [30, -24.5], [40, -5], [-20, -0.5],
+      [-46, -1.5], [-60, -8], add(W, mul(nD, -19.5)), add(F, mul(nD, -20.5))];
+    const pieces = [];
+    pieces.push(doigt2(ptsM, wM, { base: 4, ouvre: { dos: 105, ventre: 105 } }));
+    pieces.push(plaque(P, [[0, 3], [6, 10]]));
+    pieces.push(doigt2(ptsI, wI, { ouvre: { dos: 0, ventre: 0 }, ongle: 'cote', base: 4 }));
+    pieces.push(doigt2(ptsT, wT, { ouvre: { dos: 44, ventre: 0 }, ongle: 'cote', base: 10 }));
+    return { pieces, trou: { x: 0, y: 0, r: 0 }, poignet: W, bras: F };
+  }
+
+  // ── dos : la prise vue du dos de la main (le manche passe derrière le poing) ──
+  // La rangée des jointures, les premières phalanges qui partent vers le manche et tournent derrière
+  // lui (leur bout arrondi est la deuxième jointure) ; le pouce couché en travers, en haut.
+  function priseDos2(R, o) {
+    const pieces = [], Wx = -94, cut = Wx - o.bras, xh = 10;
+    const bandes = [['auriculaire', [-10, 27], 16], ['annulaire', [-1, 9.4], 26], ['majeur', [3, -9.4], 30], ['index', [0, -27.6], 27]];
+    const g = bandes.map(([nom, P0, L]) => { const w0 = D2[nom].w[0] * 0.98; return { nom, w: [w0, w0 * 0.96], pts: [P0, add(P0, [L + 0.4 * R, 0.4])] }; });
+    // le pouce : il part de la base de la paume, côté haut, monte le long de l'index et se couche
+    // sur le manche, le bout tourné vers les doigts
+    const ptsP = [[Wx + 18, -20], [-44, -38], [-12, -44], [12 + 0.3 * R, -40]], wP = [12.5, 11, 10, 8.6];
+    const pDos = q => bord2(ptsP, wP, 1, 1, q);
+    const aBas = q => bord2(g[0].pts, g[0].w, 1, -1, q);
+    const P = [[cut, -31], pDos(0), [-30, -30], [-6, -36], [10, -10], [8, 20], aBas(2), [-28, 37.5], [-60, 34.5], [Wx, 30], [cut, 32]];
+    pieces.push(plaque(P, [[0, 1], [6, 10]]));
+    g.forEach(d => pieces.push(doigt2(d.pts, d.w, { base: 14, ouvre: { dos: 0, ventre: 0 } })));
+    const nodes = g.map(d => { const p = add(d.pts[0], [4, 0]), w = d.w[0] * 0.42; return [['M', add(p, [0, -w])], ['Q', add(p, [-4.5, 0]), add(p, [0, w])]]; });
+    pieces.push(traits(nodes, 0.5));
+    pieces.push(doigt2(ptsP, wP, { sens: 1, ouvre: { dos: 0, ventre: 40 }, ongle: 'dessus', base: 4 }));
+    return { pieces, trou: { x: xh, y: 0, r: R }, poignet: [Wx, 0], bras: [cut, 0] };
+  }
+
+  // ── paume : la prise vue du côté de la paume (les doigts passent devant le manche) ──
+  // Les doigts reviennent du côté droit du manche vers la paume, l'un sous l'autre, le majeur le
+  // plus long ; le pouce part du gras de la paume et se couche en travers sur l'index.
+  function prisePaume2(R, o) {
+    const pieces = [], Wx = -94, cut = Wx - o.bras, xh = 4;
+    const doigts = [['auriculaire', -26, 0.8], ['annulaire', -9.4, 0.95], ['majeur', 9.4, 1], ['index', 27, 0.92]];
+    const g = doigts.map(([nom, y, k]) => {
+      const d = D2[nom], x1 = xh + R + d.w[1] - 1;
+      const P1 = [x1, y], P2 = [x1 - d.ph[1] * k - 2, y + 0.6], P3 = [P2[0] - (d.ph[2] - d.w[3]) * k, y + 1.4];
+      return { nom, w: [d.w[1] + 1.2, d.w[2] + 0.2, d.w[3] - 0.4], pts: [P1, P2, P3] };
+    });
+    // le pouce : du gras de la paume, près du poignet, en travers sur l'index
+    const ptsP = [[Wx + 18, 22], [-46, 40], [-14, 40], [8 + 0.5 * R, 32]], wP = [13, 11.2, 10, 8.8];
+    const pDos = q => bord2(ptsP, wP, 1, 1, q), pVen = q => bord2(ptsP, wP, 1, -1, q);
+    const P = [[cut, -32], [Wx, -30], [-60, -34], [-30, -38.5], [xh - R - 2, -33], [xh - 2, -24], [xh - 2, 20], pDos(40), pVen(0), [Wx, 31], [cut, 34]];
+    // le pli du pouce : il contourne l'éminence, de la commissure vers le poignet
+    const pli = lisseC([pDos(44), [-40, 18], [-62, 12], [-78, 6]]);
+    pieces.push(plaque(P, [[0, 4], [8, 10]], [pli]));
+    g.forEach(d => pieces.push(doigt2(d.pts, d.w, { baseRonde: true })));
+    // la deuxième jointure, à droite du manche : le bout arrondi de la première phalange
+    pieces.push(doigt2(ptsP, wP, { ouvre: { dos: 40, ventre: 0 }, base: 16 }));
+    return { pieces, trou: { x: xh, y: 0, r: R }, poignet: [Wx, 0], bras: [cut, 0] };
+  }
+
+  const POSES = {
+    'prise/profil': (R, o) => priseProfil2(R, o),
+    'prise/dos': (R, o) => priseDos2(R, o),
+    'prise/paume': (R, o) => prisePaume2(R, o),
+    'boule/profil': (R, o) => bouleProfil2(R, o),
+    'pince/profil': (R, o) => pinceProfil2(o),
+    'appui/profil': (R, o) => appuiProfil2(o),
+    'appui/dos': (R, o) => appuiDos2(o),
+  };
+
 
   // main({ x, y, pose, vue, cote, echelle, angle, diametre, bras, objet, trait, serre, inclinaison })
   //   x, y      le centre de l'objet tenu (le trou) ; pince : le point pincé (le bout de l'index) ;

@@ -163,31 +163,36 @@ module.exports = (h) => {
   // ─── Vue 2 : le voile blanc ────────────────────────────────────────────────────────────
   const voile = z => {
     const o = [];
-    const W = Math.min(64, z.l * 0.42), H = Math.min(112, z.h - 28);
-    const px = z.l * 0.46, py = z.h - 4;
+    const W = 60, H = 112;                          // le même bocal que « Racler »
+    const px = z.l * 0.42, py = z.h - 4;
     const P = pot(rep(px, py, 0), W, H);
     const yPulpe = py - H * 0.22, yEau = py - H * 0.46;
-    // le voile : une peau mate, bosselée, pleine de petites colonies rondes
+    // le voile : une croûte continue d'une paroi à l'autre, le dessus ridé, un pointillé serré
     const r = alea(31), bosses = [];
     const x0 = px - W / 2, x1 = px + W / 2;
-    for (let x = x0; x <= x1 + 0.1; x += W / 14) bosses.push([x, yEau - 7 - r() * 3]);
-    const dVoile = `M${pt([x0, yEau + 2])} L${bosses.map(pt).join(' L')} L${pt([x1, yEau + 2])} Z`;
+    for (let x = x0 - 4; x <= x1 + 4.1; x += 2.2) bosses.push([x, yEau - 3 - r() * 1.4]);
+    const dVoile = `M${pt([x0 - 4, yEau])} L${bosses.map(pt).join(' L')} L${pt([x1 + 4, yEau])} Z`;
     const colonies = [];
-    for (let i = 0; i < 34; i++) colonies.push(h.cercle(x0 + 2 + r() * (W - 4), yEau - 5.5 + r() * 6, 0.9 + r() * 1.3, A.fin));
+    for (let i = 0; i < 260; i++) {
+      const x = x0 + r() * W, y = yEau - 0.6 - r() * 2.6;
+      colonies.push(h.cercle(x, y, 0.32, A.plein));
+    }
     o.push(decoupe(P.inter, [
-      h.rect(px - W, yEau, 2 * W, py - yEau + 2, sans('eau')),
-      h.rect(px - W, yPulpe, 2 * W, py - yPulpe + 2, A.blanc),
+      h.rect(px - W / 2 - 4, yEau, W + 8, py - yEau + 2, sans('eau')),
+      h.rect(px - W / 2 - 4, yPulpe, W + 8, py - yPulpe + 2, A.blanc),
       ...pulpe(x0, x1, yPulpe + 3, py - 4, 10, 11),
       ...pulpe(x0, x1, yEau + 4, yEau + 12, 4, 5, { graines: false }),
-      h.path(`M${px - W} ${r1(yPulpe)} Q${r1(px - W / 4)} ${r1(yPulpe - 3)} ${r1(px)} ${r1(yPulpe + 1)} T${r1(px + W)} ${r1(yPulpe)}`, A.detail),
-      h.path(dVoile, bD),
+      h.path(`M${px - W / 2 - 4} ${r1(yPulpe)} Q${r1(px - W / 4)} ${r1(yPulpe - 3)} ${r1(px)} ${r1(yPulpe + 1)} T${r1(px + W / 2 + 4)} ${r1(yPulpe)}`, A.detail),
+      h.path(dVoile, A.blanc),
       ...colonies,
+      h.path(`M${pt(bosses[0])} L${bosses.slice(1).map(pt).join(' L')}`, A.detail),
+      h.ligne(px - W / 2 - 4, yEau, px + W / 2 + 4, yEau, A.detail),
     ]));
     o.push(...P.trait);
     return {
       svg: o.join('\n'),
       renvois: [
-        { n: 3, rond: [px + W / 2 + 18, yEau - 30], cible: [px + W / 4, yEau - 3], texte: 'voile blanc : c’est prêt' },
+        { n: 3, rond: [px + W / 2 + 18, yEau - 30], cible: [px + W / 4, yEau - 2], texte: 'voile blanc : c’est prêt' },
       ],
     };
   };
@@ -314,11 +319,15 @@ module.exports = (h) => {
   const etendre = z => {
     const g = guenille(z, 3);
     const o = [...g.o, ...g.pos.map(([x, y, a]) => graine(x, y, a, 3.2, 2.2))];
+    // l'accolade qui tient les deux rangs
+    const xa = Math.max(...g.pos.map(p => p[0])) + 6, ya = Math.min(...g.pos.map(p => p[1])) - 5, yb = Math.max(...g.pos.map(p => p[1])) + 5, ym = (ya + yb) / 2;
+    o.push(h.path(`M${r1(xa)} ${r1(ya)} Q${r1(xa + 3)} ${r1(ya)} ${r1(xa + 3)} ${r1(ya + 4)} L${r1(xa + 3)} ${r1(ym - 3)} Q${r1(xa + 3)} ${r1(ym)} ${r1(xa + 6)} ${r1(ym)} Q${r1(xa + 3)} ${r1(ym)} ${r1(xa + 3)} ${r1(ym + 3)} L${r1(xa + 3)} ${r1(yb - 4)} Q${r1(xa + 3)} ${r1(yb)} ${r1(xa)} ${r1(yb)}`, A.detail));
+    g.acc = [xa + 6, ym];
     return {
       svg: o.join('\n'),
       renvois: [
         { n: 8, rond: [g.x0 + 14, g.y1 - 12], cible: [g.x0 + 40, g.y1 - 26], texte: 'coton ou papier humide' },
-        { n: 9, rond: [g.x1 - 22, g.y0 + 14], cible: [g.pos[9][0] - 2, g.pos[9][1] - 1], texte: '20 graines (× 5), ou 100' },
+        { n: 9, rond: [g.x1 - 22, g.y0 + 14], cible: g.acc, texte: '20 graines (× 5), ou 100' },
       ],
     };
   };
@@ -348,10 +357,17 @@ module.exports = (h) => {
     const W = Math.min(50, z.l * 0.24), H = Math.min(z.h - 16, 96);
     const px = z.l - W / 2 - 12, py = z.h - 4;
     const P = pot(rep(px, py, 0), W, H, { ferme: true });
-    const lr = W * 0.5, hr = H * 0.72;
+    const lr = W * 0.56, hr = H * 0.66, ry = lr / 2 * 0.4, yt = py - hr, yf = py - G_VERRE - ry;
+    const spd = [];
+    for (let t = 0; t <= tours * 360; t += 12) {
+      const rr = (3 + pas * t / 360) * (lr / 2) / R, a = t * RAD;
+      spd.push([px + rr * Math.cos(a), yt + rr * Math.sin(a) * 0.4]);
+    }
     o.push(decoupe(P.inter, [
-      h.path(`M${r1(px - lr / 2)} ${r1(py - G_VERRE)} L${r1(px - lr / 2)} ${r1(py - hr)} A${r1(lr / 2)} 3 0 0 1 ${r1(px + lr / 2)} ${r1(py - hr)} L${r1(px + lr / 2)} ${r1(py - G_VERRE)} Z`, bD),
-      h.path(`M${r1(px + lr * 0.18)} ${r1(py - G_VERRE)} L${r1(px + lr * 0.18)} ${r1(py - hr + 2.5)}`, A.fin),
+      h.path(`M${r1(px - lr / 2)} ${r1(yt)} L${r1(px - lr / 2)} ${r1(yf)} A${r1(lr / 2)} ${r1(ry)} 0 0 0 ${r1(px + lr / 2)} ${r1(yf)} L${r1(px + lr / 2)} ${r1(yt)} Z`, bA),
+      h.ellipse(px, yt, lr / 2, ry, bA),
+      h.chemin(spd, A.detail),
+      h.path(`M${r1(px + lr * 0.3)} ${r1(yt + ry * 0.9)} L${r1(px + lr * 0.3)} ${r1(yf + ry * 0.9)}`, A.fin),
     ]));
     o.push(...P.trait);
     o.push(h.fleche(`M${r1(xb + R * 0.8)} ${r1(cy)} L${r1(px - W / 2 - 8)} ${r1(cy)}`, A.arete));
@@ -359,7 +375,7 @@ module.exports = (h) => {
       svg: o.join('\n'),
       renvois: [
         { n: 10, rond: [xa - 2, cy + R + 22], cible: [xa, cy + 5], texte: 'rouler, les graines dedans' },
-        { n: 11, rond: [px - W / 2 - 16, py - H - 2], cible: [px - W / 2 + 4, py - H * 0.55], texte: 'pot fermé, clarté indirecte' },
+        { n: 11, rond: [px - W / 2 - 16, py - H - 2], cible: [px - W * 0.3, py - H - 1], texte: 'pot fermé, clarté indirecte' },
       ],
     };
   };
@@ -495,13 +511,18 @@ module.exports = (h) => {
     o.push(h.ligne(cj[0] + du[0] / dl * rj, cj[1] + du[1] / dl * rj, Lx - du[0] / dl * Lr, Ly - du[1] / dl * Lr, A.detail));
     const rond = Z([Wn / 2 - g / 2, -Hp - 1.5]);
 
+    // le renvoi 15 sort de la rondelle vers la gauche, dans le blanc, puis descend
+    const coude = [Lx - Lr * 0.55, rond[1]];
+    o.push(h.ligne(rond[0] - 3, rond[1], coude[0], coude[1], 'fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"'));
+    o.push(h.ligne(rond[0] - 3, rond[1], coude[0], coude[1], 'fill="none" stroke="#000000" stroke-width="0.5" stroke-dasharray="3 2.5"'));
+    o.push(h.cercle(rond[0] - 3, rond[1], 1.8, 'fill="#000000" stroke="#FFFFFF" stroke-width="0.7"'));
     const s0 = sachets[0], s1 = sachets[2];
     const bord = X0 + Wc;
     return {
       svg: o.join('\n'),
       renvois: [
         { n: 14, rond: [X0 - 26, Yt + 4], cible: [X0 + 2.5, Yt + 20], texte: 'caisse de métal à couvercle' },
-        { n: 15, rond: [Lx - Lr * 0.2, Ly + Lr + 18], cible: [rond[0] - 4, rond[1]], texte: 'rondelle de chambre à air' },
+        { n: 15, rond: [coude[0], Ly + Lr + 18], cible: coude, texte: 'rondelle de chambre à air' },
         { n: 16, rond: [X0 - 26, s0.ey + 10], cible: [s0.ex + 4, s0.ey + 10], texte: 'étiquette sur le sachet' },
         { n: 17, rond: [bord + 26, s1.ey + 7], cible: [s1.ex + s1.ew - 3, s1.ey + 7], texte: 'étiquette dans le sachet' },
         { n: 18, rond: [X0 - 26, yi - 6], cible: [xi0 + 8, yi - 6], texte: 'dessiccant au fond' },

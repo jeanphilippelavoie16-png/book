@@ -68,18 +68,29 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // Le feu dans le foyer du poêle : deux bûches et des flammes qui lèchent la plaque.
-  const feu = (x0, x1, yHaut, yBas) => {
-    const out = [];
-    const r = Math.min(13, (yBas - yHaut) * 0.2);
-    const flamme = (x, ht, w) => h.path(`M ${f(x - w)} ${f(yBas - r)} C ${f(x - w - 3)} ${f(yBas - r - ht * 0.45)} ${f(x - 3)} ${f(yBas - r - ht * 0.7)} ${f(x + 2)} ${f(yBas - r - ht)} C ${f(x + 5)} ${f(yBas - r - ht * 0.62)} ${f(x + w + 3)} ${f(yBas - r - ht * 0.42)} ${f(x + w)} ${f(yBas - r)} Z`, blancArete);
-    const ht = yBas - yHaut - r - 4;
-    const cx = (x0 + x1) / 2, L = x1 - x0;
-    [[-0.3, 0.8, 0.07], [0.3, 0.85, 0.07], [-0.12, 1, 0.08], [0.12, 0.95, 0.075], [0, 0.7, 0.05]].forEach(([u, k, w]) => out.push(flamme(cx + u * L, ht * k, L * w)));
-    const buche = (x, y) => [h.cercle(x, y, r, h.a.blanc), h.cercle(x, y, r, h.a.hachure('bois', 'arete')), h.cercle(x, y, r * 0.35, h.a.fin)].join('\n');
-    [-0.36, -0.12, 0.12, 0.36].forEach(u => out.push(buche(cx + u * L, yBas - r)));
-    return out.join('\n');
+  // Le feu dans le foyer, repris de la 88-03 : trois bûches en pyramide, vues par le bout,
+  // et des langues de flamme (trait intérieur) qui montent des bûches vers la plaque.
+  const buche = (cx, cy, r) => [
+    h.cercle(cx, cy, r, blancArete),
+    h.cercle(cx, cy, r - 2, h.a.fin),
+    h.cercle(cx + r * 0.08, cy - r * 0.05, r * 0.42, h.a.fin),
+    h.path(`M ${f(cx + r * 0.12)} ${f(cy - r * 0.02)} Q ${f(cx + r * 0.5)} ${f(cy + r * 0.1)} ${f(cx + r * 0.7)} ${f(cy + r * 0.5)}`, h.a.fin),
+  ].join('\n');
+  const flamme = (cx, yb, l, ht, p = 0) => {
+    const langue = (l2, h2, p2) => `M ${f(cx - l2 / 2)} ${f(yb)} C ${f(cx - l2 * 0.62)} ${f(yb - h2 * 0.5)} ${f(cx - l2 * 0.08 + p2)} ${f(yb - h2 * 0.62)} ${f(cx + p2)} ${f(yb - h2)} C ${f(cx + l2 * 0.2 + p2 * 0.6)} ${f(yb - h2 * 0.6)} ${f(cx + l2 * 0.62)} ${f(yb - h2 * 0.45)} ${f(cx + l2 / 2)} ${f(yb)} Z`;
+    return [h.path(langue(l, ht, p), blancArete), h.path(langue(l * 0.45, ht * 0.5, p * 0.5), h.a.fin)].join('\n');
   };
+  const feu = (cx, ySole, hf) => {
+    const r = 9;
+    return [
+      flamme(cx - 20, ySole - 12, 18, hf * 0.66, -3),
+      flamme(cx + 21, ySole - 12, 18, hf * 0.62, 3),
+      flamme(cx - 4, ySole - 28, 22, hf * 0.5, 2),
+      flamme(cx + 9, ySole - 22, 14, hf * 0.52, 4),
+      buche(cx - 16, ySole - r, r), buche(cx + 16, ySole - r, r), buche(cx, ySole - r - 15, r),
+    ].join('\n');
+  };
+  const chaleur = d => [h.path(d, halo), h.fleche(d, h.a.cache)].join('\n');
 
   // Un filet de vapeur : tireté, qui monte et se recourbe.
   const vapeur = d => [h.path(d, halo), h.fleche(d, h.a.cache)].join('\n');
@@ -130,7 +141,9 @@ module.exports = (h) => {
           const g = gC(z), out = [];
           // le poêle : la plaque du dessus et le foyer
           const px0 = 6, px1 = z.l - 6, ep = 9, yFond = z.h - 4;
-          out.push(feu(px0 + 20, px1 - 20, g.yP + ep, yFond - 2));
+          out.push(feu(g.cx, yFond, (yFond - g.yP - ep) * 0.88));
+          // la chaleur monte du feu dans la plaque, sous le chaudron
+          [-0.3, 0.3].forEach(u => out.push(chaleur(`M ${f(g.cx + u * g.Wi)} ${f(yFond - 30)} L ${f(g.cx + u * g.Wi)} ${f(g.yP + ep + 3)}`)));
           out.push(h.rect(px0, g.yP, px1 - px0, ep, h.a.blanc), h.rect(px0, g.yP, px1 - px0, ep, h.a.hachure('metal', 'arete')));
           out.push(h.rect(px0 + 4, g.yP + ep, 8, yFond - g.yP - ep, h.a.hachure('metal', 'arete')));
           out.push(h.rect(px1 - 12, g.yP + ep, 8, yFond - g.yP - ep, h.a.hachure('metal', 'arete')));

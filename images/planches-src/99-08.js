@@ -190,13 +190,20 @@ module.exports = (h) => {
       const m = [(a[0] + c[0]) / 2 + 2, (a[1] + c[1]) / 2 + 4];
       o.push(`<path d="M${pt(m)} q${r1(8 * Math.sign(dx || 1))} 6 ${r1(12 * Math.sign(dx || 1))} 16" ${A.detail}/>`);
     });
-    // la souche : le pied ligneux, bosselé, d'où partent les tiges
+    // le collet : le pied ligneux, bombé, qui affleure au sol ; écorce et nœuds
     const souche = [];
-    for (let i = 0; i < 36; i++) {
-      const a = 2 * Math.PI * i / 36, bosse = 1 + 0.08 * Math.sin(5 * a) + 0.05 * Math.sin(9 * a + 1);
-      souche.push([g.cx + 52 * bosse * Math.cos(a), g.gy + 26 + 19 * bosse * Math.sin(a)]);
+    for (let i = 0; i <= 24; i++) {
+      const a = Math.PI * i / 24, bosse = 1 + 0.06 * Math.sin(5 * a);
+      souche.push([g.cx - 18 - 40 * bosse * Math.cos(a), g.gy + 2 - 12 * bosse * Math.sin(a)]);
     }
-    o.push(h.chemin(souche, bA, true));
+    const bas = [];
+    for (let i = 0; i <= 20; i++) { const a = Math.PI * i / 20; bas.push([g.cx - 18 + 40 * Math.cos(a) * (0.9 - 0.15 * Math.sin(a)), g.gy + 2 + 30 * Math.sin(a)]); }
+    o.push(h.chemin([...souche, ...bas], bA, true));
+    [[-44, 8, -40, 22], [-30, 4, -26, 26], [-6, 6, -10, 24], [8, 6, 10, 18]].forEach(([x1, y1, x2, y2]) =>
+      o.push(`<path d="M${r1(g.cx + x1)} ${r1(g.gy + y1)} Q${r1(g.cx + (x1 + x2) / 2 + 3)} ${r1(g.gy + (y1 + y2) / 2)} ${r1(g.cx + x2)} ${r1(g.gy + y2)}" ${A.fin}/>`));
+    [[-38, 15, 3.2, 2.2], [-16, 22, 2.6, 1.8], [2, 13, 2.4, 1.7]].forEach(([dx, dy, rx, ry]) => {
+      o.push(h.ellipse(g.cx + dx, g.gy + dy, rx, ry, A.detail), h.ellipse(g.cx + dx, g.gy + dy, rx * 0.4, ry * 0.4, A.fin));
+    });
     // deux tiges gardées : elles montent de la souche et sortent de la vue par le haut
     const monte = (c, w0, w1, nb) => {
       const s = tige(c, w0, w1), n = 30, G = [], D = [];
@@ -213,10 +220,12 @@ module.exports = (h) => {
     o.push(monte([[g.cx - 8, g.gy + 14], [g.cx - 6, g.gy - 60], [g.cx - 2, g.gy - 110], [g.cx - 8, -2]], 10, 8, [[0.5, -1], [0.7, 1]]));
     // le chicot du vieux bois, coupé au ras du sol : sa face à plat, les cernes
     const { sx, rs } = g;
-    o.push(h.path(`M${sx - rs} ${g.gy} L${sx - rs - 1} ${g.gy + 16} Q${sx} ${g.gy + 22} ${sx + rs + 1} ${g.gy + 16} L${sx + rs} ${g.gy} Z`, bD));
-    o.push(h.ellipse(sx, g.gy, rs, 3.8, bA));
-    [0.78, 0.58, 0.38].forEach(f => o.push(h.ellipse(sx, g.gy, rs * f, 3.8 * f, A.fin)));
-    o.push(h.cercle(sx, g.gy, 1, A.plein));
+    const cy = g.gy + 0.6;
+    o.push(h.rect(sx - rs - 2, cy - 4, 2 * rs + 4, 8, A.blanc));
+    o.push(h.path(`M${sx - rs - 2} ${r1(cy)} L${sx - rs} ${r1(cy + 1.6)} M${sx + rs} ${r1(cy + 1.6)} L${sx + rs + 2} ${r1(cy)}`, A.arete));
+    o.push(h.ellipse(sx, cy, rs, 3.8, bA));
+    [0.78, 0.58, 0.38].forEach(f => o.push(h.ellipse(sx, cy, rs * f, 3.8 * f, A.fin)));
+    o.push(h.cercle(sx, cy, 1, A.plein));
     // le bout enlevé, levé au-dessus du chicot : même grosseur, écorce crevassée, bas coupé
     const P0 = [g.piece.x, g.piece.y], haut = [g.piece.x + 7, -2];
     const piece = tige([P0, add(P0, [2, -40]), add(haut, [-3, 30]), haut], 2 * rs, 2 * rs - 3);
@@ -239,15 +248,16 @@ module.exports = (h) => {
     const S = liste.map(({ a, bx, tx, ht }) => {
       const b = [cx + bx * k, gy + 1], e = [cx + tx * k, gy - ht * H];
       const c = [b, [b[0] + (e[0] - b[0]) * 0.06, gy - ht * H * 0.42], [b[0] + (e[0] - b[0]) * 0.62, gy - ht * H * 0.8], e];
-      const w = { 1: [2.4, 0.9], 2: [3.2, 1], 3: [4, 1.1], 4: [5, 1.3] }[a];
+      const w = { 1: [2.4, 0.9], 2: [3.2, 1], 3: [5.4, 1.5], 4: [5, 1.3] }[a];
       const s = tige(c, w[0], w[1]); s.age = a;
       const cote0 = tx < 0 ? -1 : 1;
       if (a >= 2) {
         const ts = a === 2 ? [0.42, 0.56, 0.7, 0.83] : [0.3, 0.43, 0.56, 0.69, 0.81];
         ts.forEach((t, i) => {
-          const cote = i % 2 ? -cote0 : cote0, L = (a === 2 ? 17 : 22) * k * (0.85 + 0.3 * R());
-          const r = rameau(s, t, cote, 34 + 10 * R(), L, a === 2 ? 1.2 : 1.6, 0.55, 0.45);
-          if (a >= 3) rameau(r, 0.5, -cote, 40, L * 0.45, 0.85, 0.45, 0.5);
+          const cote = i % 2 ? -cote0 : cote0, L = (a === 2 ? 17 : a === 3 ? 30 : 22) * k * (0.85 + 0.3 * R());
+          const r = rameau(s, t, cote, 34 + 10 * R(), L, a === 2 ? 1.2 : a === 3 ? 2.1 : 1.6, 0.55, 0.45);
+          if (a >= 3) rameau(r, 0.5, -cote, 40, L * (a === 3 ? 0.55 : 0.45), a === 3 ? 1.1 : 0.85, 0.45, 0.5);
+          if (a === 3) rameau(r, 0.32, cote, 44, L * 0.38, 1, 0.45, 0.5);
           if (a === 4) rameau(r, 0.25, cote, 44, L * 0.35, 0.8, 0.45, 0.5);
           if (courts && a < 4) rameau(r, 0.2, -cote, 70, 3.2, 1.3, 1.1, 0.1);
         });

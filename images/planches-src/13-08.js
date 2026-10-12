@@ -208,8 +208,8 @@ module.exports = (h) => {
           const sx = cx + 0.22 * W, sy = yT + 4 + 0.4 * (ry - 3);
           out.push(h.path(`M ${f(sx)} ${f(sy - 3)} C ${f(sx - 8)} ${f(sy - 14)} ${f(sx + 8)} ${f(sy - 24)} ${f(sx)} ${f(sy - 34)} S ${f(sx + 6)} ${f(sy - 52)} ${f(sx - 2)} ${f(sy - 60)}`, h.a.fin));
 
-          // L'anse : les deux brins montent jusqu'au poing.
-          const py = poing.y + 30;
+          // L'anse : les deux brins montent jusqu'au bord de la vue (la main est hors champ, loin du corps).
+          const py = 2;
           out.push(h.path(`M ${xl + 3} ${yA} L ${xl - 5} ${yA} Q ${xl - 9} ${yA} ${xl - 8} ${yA - 6} L ${poing.x - 5} ${py}`, h.a.arete));
           out.push(h.path(`M ${xr - 3} ${yA} L ${xr + 5} ${yA} Q ${xr + 9} ${yA} ${xr + 8} ${yA - 6} L ${poing.x + 5} ${py}`, h.a.arete));
           const kx = (poing.x - 5 - (xl - 8)), ky = (py - (yA - 6)), kL = Math.hypot(kx, ky);
@@ -217,41 +217,13 @@ module.exports = (h) => {
           out.push(torsade(xr + 8, yA - 6, xr + 8 - kx * 24 / kL, yA - 6 + ky * 24 / kL));
           out.push(h.cercle(xl, yA, 2.2, h.a.plein), h.cercle(xr, yA, 2.2, h.a.plein));
 
-          // La mitaine fermée sur le fil, la manche qui part vers le haut.
-          const X = poing.x, Y = poing.y, s = 1.55;
-          const p = (dx, dy) => `${f(X + dx * s)} ${f(Y + dy * s)}`;
-          const q = (dx, dy) => [f(X + dx * s), f(Y + dy * s)];
-          const A = q(-28, -12), B = q(-17, 16), v = [-16 * s, -19 * s];
-          const A2 = [f(A[0] + v[0]), f(A[1] + v[1])], B2 = [f(B[0] + v[0]), f(B[1] + v[1])];
-          const pente = v[0] / v[1];
-          const bout = (P, dx) => [f(P[0] + (4 - P[1]) * pente + dx), 4];
-          // la manche du manteau, qui part vers le corps
-          out.push(h.chemin([A2, bout(A2, -3), bout(B2, 6), B2], h.a.blanc, true));
-          out.push(h.ligne(A2[0], A2[1], ...bout(A2, -3), h.a.arete), h.ligne(B2[0], B2[1], ...bout(B2, 6), h.a.arete));
-          // le poignet tricoté en côtes
-          out.push(h.chemin([A, B, B2, A2], h.a.blanc, true));
-          let cotes = '';
-          for (let i = 1; i < 8; i++) {
-            const t = i / 8, px = A[0] + (B[0] - A[0]) * t, py = A[1] + (B[1] - A[1]) * t;
-            cotes += `M ${f(px)} ${f(py)} L ${f(px + v[0])} ${f(py + v[1])} `;
-          }
-          out.push(h.path(cotes, h.a.detail));
-          out.push(h.chemin([A, B, B2, A2], h.a.arete, true));
-          // la mitaine fermée sur le fil
-          const m = `M ${A[0]} ${A[1]} C ${p(-8, -26)} ${p(24, -25)} ${p(32, -8)} C ${p(38, 8)} ${p(28, 23)} ${p(8, 22)} C ${p(-4, 22)} ${p(-12, 20)} ${B[0]} ${B[1]}`;
-          out.push(h.path(m + " Z", h.a.blanc));
-          out.push(h.path(m, h.a.contour));
-          // le pouce de la mitaine, refermé en travers des doigts, le bout qui dépasse devant
-          const pouce = `M ${p(-12, 2)} C ${p(0, -2)} ${p(22, 2)} ${p(32, 8)} C ${p(41, 12)} ${p(39, 25)} ${p(28, 25)} C ${p(16, 26)} ${p(0, 22)} ${p(-12, 14)}`;
-          out.push(h.path(pouce + ' Z', h.a.blanc));
-          out.push(h.path(pouce, h.a.arete));
           return out.join('\n');
         },
         renvois: z => {
           const { xl, yA, poing, cx } = portee(z);
           return [
             { n: 7, rond: [xl - 26, yA + 34], cible: [xl - 7, yA - 12], texte: 'fil de broche, bout tordu' },
-            { n: 8, rond: [poing.x + 86, poing.y + 6], cible: [poing.x + 52, poing.y + 2], texte: 'au bout du fil, loin du corps' },
+            { n: 8, rond: [poing.x + 70, 40], cible: [poing.x + 8, 40], texte: 'tenue au bout du fil, loin du corps' },
           ];
         },
       },

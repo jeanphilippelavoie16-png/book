@@ -137,7 +137,7 @@ module.exports = (h) => {
     out.push(poly(Array.from({ length: 16 }, (_, i) => { const a = 2 * Math.PI * i / 16; return P(TROU[0] + RT * Math.cos(a), PAT[1], TROU[1] + RT * Math.sin(a)); }), A.plein));
     const ap = P(...APEX);
     out.push(F.cordes([
-      { pts: [P(TROU[0], PAT[1], TROU[1]), P(2000, 610, 210), ap], ep, debut: 'coupe', fin: 'ouvert' },
+      { pts: [P(TROU[0], PAT[1], TROU[1]), P(TROU[0] + 10, PAT[1] - 60, TROU[1] + 6), P(2000, 560, 210), ap], ep, debut: 'coupe', fin: 'ouvert' },
       { pts: [P(TROU[0], PAT[0] + E, TROU[1]), P(2000, 290, 210), ap], ep, debut: 'coupe', fin: 'ouvert' },
       { pts: [ap, P(APEX[0] + 80, APEX[1] - 42, APEX[2]), P(APEX[0] + 160, APEX[1], APEX[2]), P(APEX[0] + 80, APEX[1] + 42, APEX[2]), ap], ep, debut: 'ouvert', fin: 'ouvert' },
     ]));
@@ -207,19 +207,21 @@ module.exports = (h) => {
     const out = [];
     const ep = Math.max(2.6, 16 * s);
     const ap = [X(APEX[0]), Y(APEX[1])];
-    // les deux brins, la boucle et son nœud
-    out.push(F.cordes([
-      { pts: [[X(TROU[0]), Y(PAT[1] + E / 2)], [X(2000), Y(575)], ap], ep, debut: 'coupe', fin: 'ouvert' },
-      { pts: [[X(TROU[0]), Y(PAT[0] + E / 2)], [X(2000), Y(325)], ap], ep, debut: 'coupe', fin: 'ouvert' },
-      { pts: [ap, [X(APEX[0] + 80), Y(APEX[1] - 42)], [X(APEX[0] + 160), Y(APEX[1])], [X(APEX[0] + 80), Y(APEX[1] + 42)], ap], ep, debut: 'ouvert', fin: 'ouvert' },
-    ]));
-    out.push(noeud(ap, [1, 0], ep * 1.25));
     // les nez des patins, qui dépassent du plancher ; le trou de part en part, caché
     for (const p of PAT) {
       out.push(h.rect(X(XAV), Y(p + E), (L - XAV) * s, E * s, bA));
       out.push(ligne([[X(XAV), Y(p + E / 2)], [X(L), Y(p + E / 2)]]));
       for (const dx of [-RT, RT]) out.push(ligne([[X(TROU[0] + dx), Y(p)], [X(TROU[0] + dx), Y(p + E)]], A.cache));
     }
+    // la corde à travers chaque patin, cachée : du trou sur la face intérieure au nœud dehors
+    for (const p of PAT) for (const dx of [-ep / 2 / s, ep / 2 / s]) out.push(ligne([[X(TROU[0]) + dx * s, Y(p)], [X(TROU[0]) + dx * s, Y(p + E)]], A.cache));
+    // les deux brins, la boucle et son nœud
+    out.push(F.cordes([
+      { pts: [[X(TROU[0]), Y(PAT[1])], [X(TROU[0] + 15), Y(PAT[1] - 45)], [X(2000), Y(560)], ap], ep, debut: 'coupe', fin: 'ouvert' },
+      { pts: [[X(TROU[0]), Y(PAT[0] + E)], [X(TROU[0] + 15), Y(PAT[0] + E + 45)], [X(2000), Y(340)], ap], ep, debut: 'coupe', fin: 'ouvert' },
+      { pts: [ap, [X(APEX[0] + 80), Y(APEX[1] - 42)], [X(APEX[0] + 160), Y(APEX[1])], [X(APEX[0] + 80), Y(APEX[1] + 42)], ap], ep, debut: 'ouvert', fin: 'ouvert' },
+    ]));
+    out.push(noeud(ap, [1, 0], ep * 1.25));
     // les nœuds d'arrêt, dehors
     out.push(noeud([X(TROU[0]), Y(PAT[0] - 12)], [0, 1], ep * 1.2, [[X(TROU[0] + 25), Y(PAT[0] - 70)], [X(TROU[0] + 60), Y(PAT[0] - 95)]]));
     out.push(noeud([X(TROU[0]), Y(PAT[1] + E + 12)], [0, -1], ep * 1.2, [[X(TROU[0] + 25), Y(PAT[1] + E + 70)], [X(TROU[0] + 60), Y(PAT[1] + E + 95)]]));

@@ -117,7 +117,7 @@ module.exports = (h) => {
     out.push(h.path(lisse(P(areoleHaut ? AR_ARC_HAUT.slice(1) : AR_ARC)), A.detail));
     // bosse : le dessous du sein, mou, qui se gonfle contre le menton (bonne prise)
     let bas = S_BAS.map(M);
-    if (bosse) bas = bas.map(p => add(p, [bosse.dx * Math.exp(-(((p[1] - bosse.y) / bosse.s) ** 2)), 0]));
+    if (bosse) bas = bas.map(p => add(p, [(bosse.dx + 3) * Math.exp(-(((p[1] - bosse.y) / 14) ** 2)), 0]));
     // le fond blanc : le sein passe devant ce qui est derrière lui (le haut de la couverture)
     const fond = [...echant(P(S_HAUT), 6), ...echant(P(S_MAM), 4), ...echant(bas.map(V), 6), ...echant(P(S_VENTRE), 6), V(M([-400, 340])), V(M([-400, -330]))];
     out.unshift(h.path(poly(fond), A.blanc));
@@ -243,8 +243,8 @@ module.exports = (h) => {
   const BOUT = T_APP.Q(24, 20);
   const PAUME = add(BOUT, mul(D_DOIGTS, -106));
   // la flèche : on amène le bébé au sein, par la main
-  const D_FL = uni([-0.86, -0.5]);
-  const FL1 = add(PAUME, [58, -16]), FL0 = add(FL1, mul(D_FL, -34));
+  // contre le dos, sous la main, longue : c'est tout le bébé qui avance vers le sein
+  const FL0 = add(T_APP.Bq(235), mul(N, 52)), FL1 = add(add(T_APP.Bq(115), mul(N, 46)), [-40, -12]);
 
   // ─── Bonne prise : les deux lèvres posées sur l'aréole, loin du mamelon, plus bas que haut ;
   // la mâchoire s'ouvre d'autant (cherché) ; le sein, mou, se gonfle contre le menton.
@@ -288,7 +288,7 @@ module.exports = (h) => {
 
   // ─── Les vues
   const CADRE_A = [-98, 172, -70, 300];
-  const CADRE_P = [-72, 128, -110, 84];
+  const CADRE_P = [-72, 128, -110, 96];
   const vueApproche = (b, fleche) => z => {
     const { k, V } = cadre(z, ...CADRE_A);
     const out = [bebe(V, S_APP, b, { sFin: 330 }).svg, mere(V), teteDessin(V, S_APP, b, { ouverte: true })];
@@ -312,6 +312,15 @@ module.exports = (h) => {
     const sLevre = cote(V(S(b.haut[b.haut.length - 1])));
     out.push(pointille(echant(tet.map(p => V(S(p))), 8), 2.9, 0.5, q => cote(q) === sLevre));
     out.push(h.path(lisse(tet.map(p => V(S(p)))), A.cache));
+    // le dessous du sein, devant le menton : il part de la lèvre du bas, se creuse contre le
+    // menton qui s'y enfonce, puis reprend sa courbe jusqu'au pli
+    const bz = bonne.bosse;
+    const basB = S_BAS.map(M).map(p => add(p, [(bz.dx + 3) * Math.exp(-(((p[1] - bz.y) / 14) ** 2)), 0]));
+    const ech = echant(basB, 12).filter(p => p[1] > PL[1] + 1);
+    const devant = [PL, ...ech];
+    const derniere = devant[devant.length - 1];
+    out.push(h.path(poly([...devant, [-300, derniere[1]], [-300, PL[1]]].map(V)), A.blanc));
+    out.push(h.path(lisse(devant.map(V)), A.arete));
     return decoupe(z, out.join('\n'));
   };
   const vueRatee = z => {
@@ -346,7 +355,7 @@ module.exports = (h) => {
         dessin: vueApproche(B_GRANDE, true),
         renvois: z => [
           { n: 4, rond: posA(z, [-62, -40]), cible: posA(z, S_APP(mil(B_GRANDE.K, mil(B_GRANDE.haut[4], B_GRANDE.bas[0])))), texte: 'la bouche ouverte très grand' },
-          { n: 5, rond: posA(z, add(FL0, [6, 30])), cible: posA(z, mil(FL0, FL1)), texte: 'alors, l’amener au sein' },
+          { n: 5, rond: posA(z, add(FL0, [26, -40])), cible: posA(z, mil(FL0, FL1)), texte: 'alors, l’amener au sein' },
         ],
       },
       bonne: {
@@ -355,10 +364,10 @@ module.exports = (h) => {
         renvois: z => {
           const S = bonne.S, b = bonne.b;
           return [
-            { n: 6, rond: posP(z, [-64, -60]), cible: posP(z, S(rotJ([-60, 30], b.jaw * 0.5))), texte: 'une grande bouchée d’aréole' },
-            { n: 7, rond: posP(z, [-40, -100]), cible: posP(z, S(b.haut[3])), texte: 'les lèvres retournées' },
-            { n: 8, rond: posP(z, [-64, 60]), cible: posP(z, S(b.bas[5])), texte: 'le menton collé au sein' },
-            { n: 9, rond: posP(z, [8, -100]), cible: posP(z, S(NEZ)), texte: 'le nez dégagé' },
+            { n: 6, rond: posP(z, [-66, 22]), cible: posP(z, S(rotJ([-60, 30], b.jaw * 0.5))), texte: 'une grande bouchée d’aréole' },
+            { n: 7, rond: posP(z, [-64, -96]), cible: posP(z, S(b.haut[3])), texte: 'les lèvres retournées' },
+            { n: 8, rond: posP(z, [-62, 74]), cible: posP(z, S(b.bas[5])), texte: 'le menton collé au sein' },
+            { n: 9, rond: posP(z, [-22, -100]), cible: posP(z, S(NEZ)), texte: 'le nez dégagé' },
             { n: 10, rond: posP(z, [120, 50]), cible: posP(z, S(TETINE_H[3])), texte: 'le mamelon vers le palais' },
           ];
         },
@@ -369,8 +378,8 @@ module.exports = (h) => {
         renvois: z => {
           const S = ratee.S, b = ratee.b;
           return [
-            { n: 11, rond: posP(z, [36, -100]), cible: posP(z, M([-1.2, -2.5])), texte: 'le bout du sein seulement' },
-            { n: 12, rond: posP(z, [-64, -60]), cible: posP(z, M([-17, -6])), texte: 'l’aréole reste dehors' },
+            { n: 11, rond: posP(z, [-52, -30]), cible: posP(z, M([-1.2, -2.5])), texte: 'le bout du sein seulement' },
+            { n: 12, rond: posP(z, [-64, -80]), cible: posP(z, M([-17, -6])), texte: 'l’aréole reste dehors' },
             { n: 13, rond: posP(z, [-60, 62]), cible: posP(z, S(b.bas[5])), texte: 'le menton loin du sein' },
           ];
         },

@@ -301,7 +301,7 @@ module.exports = (h) => {
           const yA = 34;                       // hauteur du fil
           const tA = 44, tB = z.l - 36;       // troncs des deux épinettes
           // neige
-          o.push(h.rect(0, G + 18, z.l, z.h - G - 18, h.a.hachure('neige', 'detail').replace(/stroke="[^"]*"/, 'stroke="none"')));
+          o.push(h.rect(0, G + 3, z.l, z.h - G - 3, h.a.hachure('neige', 'detail').replace(/stroke="[^"]*"/, 'stroke="none"')));
           o.push(h.path(`M 0 ${G + 2} C 120 ${G - 3}, 300 ${G + 4}, 420 ${G} S ${z.l - 60} ${G - 2}, ${z.l} ${G + 1}`, h.a.contour));
           // les épinettes
           o.push(epinette(tA, 6, G + 1, 26));
@@ -331,7 +331,7 @@ module.exports = (h) => {
           o.push(h.path(`M ${d0[0]} ${d0[1]} Q ${d0[0] + 150} ${G - 40}, ${fen[0] + 2} ${fen[1] + 6}`, h.a.contour));
           // le contrepoids : sort par la fenêtre, se couche sur la neige, dans l'axe de l'antenne
           const fenB = [fen[0] + fen[2] - 4, fen[1] + fen[3] - 3];
-          o.push(h.path(`M ${fen[0] + 2} ${fen[1] + fen[3] - 4} C ${c0 - 10} ${G - 20}, ${c0 - 14} ${G + 8}, ${c0 - 30} ${G + 9} C ${c0 - 120} ${G + 12}, ${iA[0] + 90} ${G + 6}, ${iA[0] + 6} ${G + 10}`, h.a.contour));
+          o.push(h.path(`M ${fen[0] + 2} ${fen[1] + fen[3] - 4} C ${c0 - 8} ${G - 20}, ${c0 - 14} ${G - 2}, ${c0 - 30} ${G - 2} C ${c0 - 120} ${G - 6}, ${iA[0] + 120} ${G + 1}, ${iA[0] + 6} ${G - 3}`, h.a.contour));
           return o.join('\n');
         },
         renvois: (z) => {
@@ -343,7 +343,7 @@ module.exports = (h) => {
             { n: 12, rond: [xm, yA - 12], cible: [xm, yA + 15], texte: 'fil long et haut, tendu' },
             { n: 13, rond: [iB[0] - 30, yA - 14], cible: [iB[0] - 4, iB[1] - 4], texte: 'isolateur : bout de bois sec' },
             { n: 14, rond: [230, G - 30], cible: [245.5, 0.75 * G - 20.75], texte: 'descente qui ne touche rien' },
-            { n: 15, rond: [140, G - 22], cible: [140, G + 7], texte: 'contrepoids sur la neige' },
+            { n: 15, rond: [140, G - 22], cible: [140, G - 3], texte: 'contrepoids sur la neige' },
           ];
         },
       },

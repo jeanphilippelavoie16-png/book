@@ -47,7 +47,7 @@ module.exports = (h) => {
     desc: 'Un séchoir de perches fermé de toile sur toutes ses faces, trois claies de baguettes '
       + 'posées sur tasseaux, les truites ouvertes en portefeuille sans se toucher, et l’air lent '
       + 'qui entre par une face, passe entre les claies et ressort par l’autre. En élévation avec '
-      + 'la toile de la porte arrachée, en coupe, une claie vue de dessus et la ligature à la babiche.',
+      + 'la toile de la porte arrachée, en coupe, une claie vue de dessus et la ligature en croix à la babiche : cabestan de départ, trois tours par diagonale, deux tours de serrage, arrêt en demi-clé.',
     format: 'pleine',
     disposition: [['elevation', 'coupe'], ['claie', 'ligature']],
     hauteurs: [3, 2],
@@ -197,68 +197,73 @@ module.exports = (h) => {
         },
         renvois: z => [
           { n: 11, rond: [328, 50], cible: [296, 64], texte: 'truite en portefeuille' },
-          { n: 12, rond: [253, 212], cible: [252, 99], texte: 'un vide entre chaque pièce' },
+          { n: 12, rond: [253, 206], cible: [252, 99], texte: 'un vide entre chaque pièce' },
           { n: 13, rond: [328, 150], cible: [309, 150], texte: 'claie : deux fois le poisson' },
           { n: 14, rond: [22, 49], cible: [51.5, 55.5], texte: 'encoches au lieu du carnet' },
         ],
       },
 
-      // ── Détail : une baguette liée au longeron, à la babiche ──
+      // ── Détail : la ligature en croix, à la babiche, à grande échelle ──
       ligature: {
-        titre: 'Détail : la ligature',
+        titre: 'Détail : la ligature en croix',
         dessin: z => {
-          const cx = z.l / 2, cy = 105, out = [];
-          // longeron
-          // un bois de brin : bord un peu irrégulier, chicots de branches rasées au couteau
-          const brin = `M ${cx - 15},14 L ${cx + 15},14 C ${cx + 13},70 ${cx + 17},140 ${cx + 15},200 ` +
-            `L ${cx - 15},200 C ${cx - 13},140 ${cx - 17},70 ${cx - 15},14 Z`;
-          const brin2 = `M 20,${cy - 9} C 80,${cy - 11} 150,${cy - 7} 210,${cy - 9} L 210,${cy + 9} ` +
-            `C 150,${cy + 7} 80,${cy + 11} 20,${cy + 9} Z`;
-          const chicots = [[[cx + 15, 50], [cx + 20, 46], [cx + 22, 49], [cx + 15, 58]],
-            [[cx - 15, 160], [cx - 21, 164], [cx - 19, 167], [cx - 15, 168]],
-            [[172, cy - 8], [176, cy - 14], [179, cy - 13], [180, cy - 8]]];
-          out.push(
-            ...chicots.map(p => h.chemin(p, h.a.arete)),
-            h.path(brin, h.a.blanc), h.path(brin, h.a.contour),
-            h.ligne(cx + 8, 16, cx + 8, 198, h.a.detail),
-            h.ellipse(cx, 200, 15, 5, h.a.blanc), h.ellipse(cx, 200, 15, 5, h.a.hachure('bois', 'detail')),
-            h.ellipse(cx, 200, 15, 5, h.a.contour),
-          );
-          // baguette posée dessus
-          out.push(
-            h.path(brin2, h.a.blanc), h.path(brin2, h.a.contour),
-            h.ligne(22, cy + 4, 208, cy + 4, h.a.detail),
-            h.ellipse(20, cy, 4, 9, h.a.blanc), h.ellipse(20, cy, 4, 9, h.a.hachure('bois', 'detail')),
-            h.ellipse(20, cy, 4, 9, h.a.contour),
-          );
-          // babiche en croix : trois tours dans un sens, trois dans l'autre
-          const r = Math.SQRT1_2;
-          const lanière = (ux, uy, o, demi) => {
-            const px = -uy, py = ux;               // perpendiculaire
-            const mx = cx + px * o, my = cy + py * o;
-            return [[mx - ux * demi - px * 2.5, my - uy * demi - py * 2.5],
-              [mx + ux * demi - px * 2.5, my + uy * demi - py * 2.5],
-              [mx + ux * demi + px * 2.5, my + uy * demi + py * 2.5],
-              [mx - ux * demi + px * 2.5, my - uy * demi + py * 2.5]];
+          const cx = 112, cy = 92, RV = 27, RH = 18, out = [];
+          const N = '#1A1A1A';
+          // un brin de babiche : cordon rond, deux bords et le blanc entre les deux
+          const brin = (pts) => {
+            const d = 'M ' + pts.map(p => p.map(v => v.toFixed(1)).join(',')).join(' L ');
+            return h.path(d, `fill="none" stroke="${N}" stroke-width="5.4" stroke-linecap="butt" stroke-linejoin="round"`) + '\n' +
+              h.path(d, `fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="butt" stroke-linejoin="round"`);
           };
-          for (const [ux, uy] of [[r, -r], [r, r]]) {
-            for (const o of [-5, 0, 5]) {
-              const p = lanière(ux, uy, o, 21);
-              out.push(h.chemin(p, h.a.blanc, true), h.chemin(p, h.a.arete, true));
+          const dans = (x, y) => (Math.abs(x - cx) <= RV && y > 6 && y < 220) || (Math.abs(y - cy) <= RH && x > 8 && x < 224);
+          // segment diagonal : part du centre décalé, s'arrête au contour où il passe derrière
+          const diag = (ux, uy, o) => {
+            const px = -uy, py = ux, mx = cx + px * o, my = cy + py * o, ext = [];
+            for (const sg of [-1, 1]) {
+              let t = 0;
+              while (dans(mx + sg * ux * (t + 0.5), my + sg * uy * (t + 0.5)) && t < 80) t += 0.5;
+              ext.push([mx + sg * ux * t, my + sg * uy * t]);
             }
+            return brin(ext);
+          };
+          // perche verticale (longeron) et baguette posée devant
+          const perche = `M ${cx - RV},6 C ${cx - RV + 2},70 ${cx - RV - 1},150 ${cx - RV},220 L ${cx + RV},220 ` +
+            `C ${cx + RV + 1},150 ${cx + RV - 2},70 ${cx + RV},6 Z`;
+          const bag = `M 8,${cy - RH} C 70,${cy - RH - 1} 160,${cy - RH + 1} 224,${cy - RH} L 224,${cy + RH} ` +
+            `C 160,${cy + RH + 1} 70,${cy + RH - 1} 8,${cy + RH} Z`;
+          out.push(
+            h.path(perche, h.a.blanc), h.path(perche, h.a.contour),
+            h.ligne(cx + 12, 8, cx + 12, 218, h.a.detail), h.ligne(cx - 15, 120, cx - 15, 200, h.a.fin),
+            h.path(bag, h.a.blanc), h.path(bag, h.a.contour),
+            h.ligne(10, cy + 6, 222, cy + 6, h.a.detail),
+          );
+          // départ : cabestan sur la perche, sous la baguette ; bout court remonté sous les tours
+          out.push(brin([[cx - 12, 168], [cx - 12, cy + 6]]));        // bout court, coincé dessous
+          out.push(brin([[cx - RV, 172], [cx + RV, 172]]), brin([[cx - RV, 152], [cx + RV, 152]]));
+          out.push(brin([[cx - RV, 168], [cx + RV, 156]]));          // le croisement du cabestan, dessus
+          // trois tours dans la première diagonale, puis trois par-dessus dans l'autre
+          const r = Math.SQRT1_2;
+          for (const o of [-9, 0, 9]) out.push(diag(r, r, o));
+          for (const o of [-9, 0, 9]) out.push(diag(r, -r, o));
+          // deux tours de serrage entre baguette et perche, qui pincent les diagonales
+          for (const dx of [-4, 4]) {
+            out.push(brin([[cx - RV - 3 + dx, cy - RH + 9 + dx], [cx - RV + 9 + dx, cy - RH - 3 + dx]]));
+            out.push(brin([[cx + RV - 9 - dx, cy + RH + 3 - dx], [cx + RV + 3 - dx, cy + RH - 9 - dx]]));
           }
-          // le bout de la babiche, arrêté sous le dernier tour
-          const bt = [[cx + 12, cy + 16], [cx + 17, cy + 12], [cx + 40, cy + 43], [cx + 35, cy + 46]];
-          out.push(h.chemin(bt, h.a.blanc, true), h.chemin(bt, h.a.arete, true));
+          // arrêt : demi-clé sur la perche au-dessus de la baguette, le bout libre sort à droite
+          out.push(brin([[cx - RV, 46], [cx + 2, 54], [cx + 30, 40], [cx + 50, 30]]));   // bout libre, passé sous
+          out.push(brin([[cx - RV, 60], [cx + RV, 50]]));          // le tour qui le bloque, dessus
+          out.push(h.path(`M ${cx + 48},28 L ${cx + 53},34`, h.a.detail));
           return out.join('\n');
         },
-        renvois: z => {
-          const cx = z.l / 2;
-          return [
-            { n: 15, rond: [z.l - 28, 50], cible: [z.l - 40, 96], texte: 'aulne, bouleau ou saule' },
-            { n: 16, rond: [z.l - 28, 175], cible: [cx + 40, 147], texte: 'babiche : serre en séchant' },
-          ];
-        },
+        renvois: z => [
+          { n: 15, rond: [22, 30], cible: [100, 20], texte: 'aulne, bouleau ou saule' },
+          { n: 16, rond: [z.l - 22, 20], cible: [160, 31], texte: 'demi-clé : bout libre arrêté' },
+          { n: 17, rond: [z.l - 22, 175], cible: [134, 165], texte: 'départ en cabestan' },
+          { n: 18, rond: [22, 175], cible: [100, 150], texte: 'bout court sous les tours' },
+          { n: 19, rond: [22, 120], cible: [96, 124], texte: 'trois tours par diagonale' },
+          { n: 20, rond: [z.l - 22, 120], cible: [143, 113], texte: 'deux tours de serrage' },
+        ],
       },
     },
   };

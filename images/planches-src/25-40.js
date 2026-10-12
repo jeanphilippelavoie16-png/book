@@ -112,7 +112,8 @@ module.exports = (h) => {
       out.push(th.svg);
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
       // la main et l'avant-bras
-      out.push(h.path(dpoly(Mp(courbeMain().map(mainG)), true), blancA));
+      const SB = 0.68, cB = M(mainG([0, 94 * SB]));
+      out.push(h.formes.main({ x: cB[0], y: cB[1], pose: 'appui', vue: 'dos', angle: -100, cote: 'gauche', echelle: SB * M.k, bras: 260 }));
       return out.join('\n');
     },
     renvois: (z) => {
@@ -208,7 +209,7 @@ module.exports = (h) => {
       const Mp = (Q) => Q.map(M);
       return [
         chaudron(M, Cp),
-        h.path(dpoly(Mp(courbeProfil().map(brasS)), true), blancA),
+        h.formes.main({ x: M(brasS([94 * 0.40, 0]))[0], y: M(brasS([94 * 0.40, 0]))[1], pose: 'appui', vue: 'dos', angle: 145, echelle: 0.40 * M.k, bras: 270 }),
       ].join('\n');
     },
     renvois: (z) => {

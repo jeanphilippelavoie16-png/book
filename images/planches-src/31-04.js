@@ -12,7 +12,7 @@ module.exports = (h) => {
     const yS = yc + 2;                        // surface dans la première
     const yG = yS + 0.11 * H;                 // dessous de la graisse
     const yF = G - 0.15 * H;                  // dessus des solides
-    const yM = G - 0.5 * H;                   // bouche du boyau
+    const yM = (yS + G) / 2;                  // bouche du boyau, à mi-chemin entre surface et fond
     const y2S = G - 0.42 * H;                 // surface dans la seconde
     const hx = x1 + wt * 0.2;                 // branche montante du boyau
     return { G, H, wt, wb, yT, x1, x2, w, yc, yS, yG, yF, yM, y2S, hx };

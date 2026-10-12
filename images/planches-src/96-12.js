@@ -133,7 +133,10 @@ module.exports = (h) => ({
         o.push(h.chemin(tige, h.a.arete, true));
 
         // ── la cote : la seule que donne le chapitre
-        o.push(h.cote(cx - W / 2, yg + 30, cx + W / 2, yg + 30, 'environ 1000 mm ou plus', { cote: 'dessous' }));
+        // deux lignes de rappel des pieds du tas (sous la paille), à travers la bande de sol
+        o.push(h.ligne(cx - W / 2, yg + 1, cx - W / 2, yg + 34, h.a.fin));
+        o.push(h.ligne(cx + W / 2, yg + 1, cx + W / 2, yg + 34, h.a.fin));
+        o.push(h.cote(cx - W / 2, yg + 30, cx + W / 2, yg + 30, '≈ 1 000', { cote: 'dessous' }));
         return o.join('\n');
       },
       renvois: z => {
@@ -141,7 +144,7 @@ module.exports = (h) => ({
         const { cx, yg, W, H, t, xTige, yTete } = g;
         const xd = cx + W / 2 + t;
         return [
-          { n: 1, rond: [xd + 26, yg - H * 0.25], cible: [cx + W * 0.36, yg - H * 0.25], texte: 'le tas, vert et brun mêlés' },
+          { n: 1, rond: [xd + 26, yg - H * 0.25], cible: [cx + W * 0.36, yg - H * 0.25], texte: 'le tas, vert et brun mêlés : au moins 1 m de côté' },
           { n: 2, rond: [xd + 26, yg - H * 0.78], cible: [cx + W * 0.47, yg - H * 0.78], texte: 'paille ou foin, dessus et sur les côtés' },
           { n: 3, rond: [xTige + 44, yTete + 6], cible: [xTige + g.ec, yTete + 12], texte: 'tige de fer ou piquet de métal' },
           { n: 4, rond: [cx - W / 2 - t - 22, g.yCoeur - H * 0.35], cible: [cx - W * 0.17, g.yCoeur - H * 0.1], texte: 'le cœur : la pointe y reste une heure' },

@@ -160,7 +160,7 @@ module.exports = (h) => {
     return { p, W, cx, hn, yb, H, e, yf, rw, ym, wm, hm, dome, r0: W * 0.38, rAnneau: wm * 0.36 };
   };
   const gB = z => {
-    const cx = z.l * 0.46, p = poele(z, cx);
+    const cx = z.l * 0.445, p = poele(z, cx);
     const W2 = Math.min(z.l * 0.84, 262), H2 = 56, e2 = 5, yb2 = p.yT, yf2 = yb2 - e2, eS = 17, yS = yf2 - eS;
     const W1 = W2 - 62, H1 = Math.round(W1 * 0.56), yb1 = yS + 3;
     return { p, cx, W2, H2, e2, yb2, yf2, eS, yS, W1, H1, yb1 };
@@ -231,9 +231,9 @@ module.exports = (h) => {
           return [
             { n: 1, rond: [xr, c.yHaut - 2], cible: [c.xr - 26, c.yr - 7], texte: 'couvercle de fonte, mis' },
             { n: 2, rond: [xr, m.yDome - 2], cible: [g.cx + m.wt / 2 - 8, m.yh - 12], texte: 'miche, moule plus petit' },
-            { n: 3, rond: [xr, g.yb - 50], cible: [c.xr - 3, g.yb - 50], texte: 'chaudron chauffé vide' },
-            { n: 4, rond: [xr, g.yb - 22], cible: [g.cx + g.rAnneau, g.yf - g.rw], texte: 'rond de broche' },
-            { n: 5, rond: [xr, g.yb + 4], cible: [g.cx + g.r0 * 0.87 + 7, g.yb + 4.5], texte: 'écrous ou anneau de broche' },
+            { n: 3, rond: [xr, g.yb - 56], cible: [c.xr - 3, g.yb - 56], texte: 'chaudron chauffé vide' },
+            { n: 4, rond: [xr, g.yb - 32], cible: [g.cx + g.rAnneau, g.yf - g.rw], texte: 'rond de broche' },
+            { n: 5, rond: [xr, g.yb - 7], cible: [g.cx + g.r0 * 0.87 + 9, g.yb + 2], texte: 'écrous ou anneau de broche' },
             { n: 6, rond: [xr, g.p.yT + 30], cible: [z.l - 40, g.p.yT + 6], texte: 'zone chaude du poêle' },
           ];
         },
@@ -297,8 +297,8 @@ module.exports = (h) => {
           const wl = g.W1 * 0.64, hl = g.H1 * 0.56;
           return [
             { n: 9, rond: [xr, c.yf - hl - 4], cible: [g.cx + wl * 0.36, c.yf - hl * 0.7], texte: 'miche sur le fond fariné' },
-            { n: 10, rond: [xr, g.yS - 22], cible: [xr2 - 16, g.yS + 8], texte: 'un doigt de sable sec' },
-            { n: 11, rond: [xr, g.yb2 + 4], cible: [xr2 - 1, g.yb2 - 20], texte: 'chaudron plus large' },
+            { n: 10, rond: [xr, g.yb2 - g.H2 - 6], cible: [xr2 - 22, g.yS + 7], texte: 'un doigt de sable sec' },
+            { n: 11, rond: [xr, g.yb2 - 30], cible: [xr2 - 3, g.yb2 - 3], texte: 'chaudron plus large' },
           ];
         },
       },

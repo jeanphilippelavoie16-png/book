@@ -121,7 +121,12 @@ module.exports = (h) => {
           const xb = r1(q.c1[0][0] + q.c1[0][1] + 7), xa = r1(q.c2[0][0] + q.c2[0][1] + 7);
           const d = `M${xa},${T + 14} L${xa},${r1(y2 + 8)} L${xb},${r1(y1 - 16)} L${xb},${F - 3}`
             + ` L${X1 - 4},${F - 3} Q${X1 + 8},${F - 3} ${X1 + 8},${F + 8}`;
-          out.push(h.path(d, halo(5)), h.fleche(d, h.a.cache));
+          const eau = 'fill="none" stroke="#000000" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"';
+          out.push(h.path(d, halo(6)), h.fleche(d, eau));
+          // deux pointes en route : milieu de la descente, milieu du fond
+          const ym = r1((T + 14 + y2 + 8) / 2), xm = r1((xb + X1 - 4) / 2);
+          out.push(h.fleche(`M${xa},${ym - 3} L${xa},${ym}`, eau));
+          out.push(h.fleche(`M${xm - 3},${F - 3} L${xm},${F - 3}`, eau));
           out.push(goutte(X1 + 8, F + 17));
           // silhouette de la coupe
           out.push(h.chemin([[X0, T], [xi0, T], [xi0, F], [X1, F], [X1, G], [X0, G]], h.a.contour, true));
@@ -158,7 +163,7 @@ module.exports = (h) => {
             { n: 1, rond: [13, F - 7], cible: [xi0 + 18, F - 7], texte: 'glace au fond, avant tout poisson' },
             { n: 3, rond: [z.l - 13, r1(y2)], cible: [xi1 - 7, r1(y2)], texte: 'glace entre poisson et paroi' },
             { n: 4, rond: [13, r1(y1 - 24)], cible: [xi0 + 20, r1(y1 - 24)], texte: 'glace dessus, puis même couche' },
-            { n: 5, rond: [z.l - 13, F - 26], cible: [X1 + 3, F - 6], texte: 'drain ouvert, cheville tirée' },
+            { n: 5, rond: [z.l - 13, F - 26], cible: [X1 - 10, F - 3], texte: 'drain ouvert, cheville tirée' },
             { n: 6, rond: [r1(q.xs + 42), T - 8], cible: [r1(q.xs + 2), T - 1], texte: 'sonde derrière la tête, chair épaisse' },
           ];
         },

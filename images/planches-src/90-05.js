@@ -64,17 +64,49 @@ module.exports = (h) => {
     const R1 = rg + s, R2 = R1 + t;
     return { gx, yg, rg, s, t, R1, R2, face: gx - rg };
   }
-  // La boucle autour du plat-bord droit, de dessus (-90°) à dessous (90°). Posée à même le bois
-  // en haut et en bas, par-dessus le flanc sur le côté extérieur (de -66° à 48°).
-  function boucle(gx, yg, rg, s, t, n = 36) {
-    const w = a => a <= -90 || a >= 76 ? 0 : a < -66 ? (a + 90) / 24 : a <= 48 ? 1 : (76 - a) / 28;
-    const int = [], ext = [];
+  // La boucle autour du plat-bord droit, de dessus à dessous. Posée à même le bois en haut,
+  // par-dessus le flanc sur le côté extérieur ; elle descend dehors le long du flanc, puis
+  // rentre à travers le flanc, sous le plat-bord, et revient sous la traverse.
+  function boucleMed(gx, yg, rg, s, t, n = 36) {
+    const w = a => a < -66 ? (a + 90) / 24 : 1;
+    const o = [];
     for (let i = 0; i <= n; i++) {
-      const a = -90 + 180 * i / n, r = rg + s * w(a), c = Math.cos(rad(a)), si = Math.sin(rad(a));
-      int.push([gx + r * c, yg + r * si]);
-      ext.push([gx + (r + t) * c, yg + (r + t) * si]);
+      const a = -90 + 90 * i / n, r = rg + s * w(a) + t / 2;
+      o.push([gx + r * Math.cos(rad(a)), yg + r * Math.sin(rad(a))]);
     }
-    return { int, ext };
+    const rc = rg + s + t / 2, yb = yg + rg + t / 2;
+    o.push([gx + rc, yg + rg * 0.7]);
+    return densifie(o.concat(cubique([gx + rc, yg + rg * 0.7], [gx + rc, yb], [gx + rg * 0.3, yb], [gx, yb], 16).slice(1)), 1.5);
+  }
+  function boucle(gx, yg, rg, s, t) {
+    const m = boucleMed(gx, yg, rg, s, t), P = bande(m, t), k = m.length;
+    return { int: P.slice(0, k), ext: P.slice(k).reverse() };
+  }
+  const densifie = (pts, pas = 1) => {
+    const o = [pts[0]];
+    for (let i = 1; i < pts.length; i++) {
+      const a = pts[i - 1], b = pts[i], n = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / pas));
+      for (let k = 1; k <= n; k++) o.push([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n]);
+    }
+    return o;
+  };
+  const dedans = (p, poly) => {
+    let c = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+      const [xi, yi] = poly[i], [xj, yj] = poly[j];
+      if ((yi > p[1]) !== (yj > p[1]) && p[0] < (xj - xi) * (p[1] - yi) / (yj - yi) + xi) c = !c;
+    }
+    return c;
+  };
+  // Le flanc coupé net là où la bande le traverse : le morceau du haut (lacé au plat-bord,
+  // jusqu'à la bande) et celui du bas (la coque). Seule la partie qui rentre compte.
+  function flancTroue(pts, gx, yg, rg, s, t, marge) {
+    const m = boucleMed(gx, yg, rg, s, t), i0m = m.findIndex(p => p[1] > yg + rg * 0.7);
+    const zone = bande(m.slice(i0m), t + 2 * marge);
+    const i0 = pts.findIndex(p => dedans(p, zone));
+    let i1 = i0;
+    while (i1 < pts.length && dedans(pts[i1], zone)) i1++;
+    return { haut: pts.slice(0, i0), bas: pts.slice(i1), trou: pts[Math.round((i0 + i1) / 2)] };
   }
 
   // ── La pièce ─────────────────────────────────────────────────────────────────────────
@@ -126,19 +158,20 @@ module.exports = (h) => {
     const mir = p => [2 * cx - p[0], p[1]];
     // Flanc (coque en coupe) : lacé au plat-bord, descend jusqu'au fond.
     const a = rg + s / 2;
-    const haut = arc(gxR, yg, a, -64, 20, 16);
+    const haut = arc(gxR, yg, a, -64, 0, 16);
     const p0 = haut[haut.length - 1];
     const desc = cubique(p0, [p0[0], p0[1] + (ybot - yg) * 0.6], [p0[0] - (gxR - cx) * 0.22, ybot],
       [cx + (gxR - cx) * 0.3, ybot]);
-    const droite = haut.concat(desc.slice(1), [[cx, ybot]]);
-    const gauche = droite.slice().reverse().map(mir);
-    o.push(h.chemin(bande(gauche.concat(droite.slice(1)), s + 0.6), h.a.plein, true));
+    const F = flancTroue(densifie(haut.concat(desc.slice(1), [[cx, ybot]]), 0.5), gxR, yg, rg, s, t, 1.6);
+    const coque = F.bas.slice().reverse().map(mir).concat(F.bas.slice(1));
+    o.push(h.chemin(bande(coque, s + 0.6), h.a.plein, true));
+    [F.haut, F.haut.map(mir)].forEach(m => o.push(h.chemin(bande(m, s + 0.6), h.a.plein, true)));
     // Plats-bords.
     o.push(platbord(gxL, yg, rg));
     o.push(platbord(gxR, yg, rg));
     // Traverse : le plein entre les plats-bords, la bande amincie par-dessus et autour.
     const xtip = gxR - rg - 8 - nL * (2 * dr + 1) - 10;
-    const B = boucle(gxR, yg, rg, s, t, 24);
+    const B = boucle(gxR, yg, rg, s, t);
     const Bg = { int: B.int.map(mir).reverse(), ext: B.ext.map(mir).reverse() };
     const ext = [[2 * cx - xtip, yg + rg + t * 0.65]].concat(Bg.ext, B.ext, [[xtip, yg + rg + t * 0.65]]);
     const int = [[2 * cx - xtip, yg + rg]].concat(Bg.int, B.int, [[xtip, yg + rg]]);
@@ -178,10 +211,11 @@ module.exports = (h) => {
     const o = [];
     // Flanc : lacé au plat-bord, coupé à la ligne du plat-bord, descend hors de la vue.
     const a = rg + s / 2;
-    const haut = arc(gx, yg, a, -64, 20, 20);
+    const haut = arc(gx, yg, a, -64, 0, 20);
     const p0 = haut[haut.length - 1];
-    const bas = cubique(p0, [p0[0], p0[1] + 30], [p0[0] - 2, z.h - 30], [p0[0] - 5, z.h - 2], 12);
-    o.push(h.chemin(bande(haut.concat(bas.slice(1)), s), h.a.plein, true));
+    const bas = cubique(p0, [p0[0], p0[1] + 40], [p0[0] - 2, z.h - 30], [p0[0] - 5, z.h - 2], 16);
+    const F = flancTroue(densifie(haut.concat(bas.slice(1))), gx, yg, rg, s, t, 4);
+    [F.haut, F.bas].forEach(m => o.push(h.chemin(bande(m, s), h.a.plein, true)));
     o.push(platbord(gx, yg, rg));
     // La bande amincie : d'un bois avec la traverse, par-dessus, autour, revenue dessous.
     const B = boucle(gx, yg, rg, s, t);
@@ -288,7 +322,7 @@ module.exports = (h) => {
           const G = Gt(z);
           return [
             { n: 4, rond: [G.gxR + 36, G.yg + 36], cible: [G.gxR + 3, G.yg + 4], texte: 'plat-bord' },
-            { n: 5, rond: [G.cx, G.yg + 46], cible: [G.cx, G.yg + 4], texte: 'tient les flancs comme l’autre' },
+            { n: 5, rond: [G.cx, G.yg + 46], cible: [G.cx, G.yg + 4], texte: 'tient les flancs' },
           ];
         },
       },
@@ -299,11 +333,12 @@ module.exports = (h) => {
           const G = Gd(z);
           const a = rad(-40), Rm = (G.R1 + G.R2) / 2;
           return [
-            { n: 6, rond: [G.gx + 10, 16], cible: [G.gx + Rm * Math.cos(a) - 2, G.yg + Rm * Math.sin(a)], texte: 'par-dessus, dehors, dessous' },
+            { n: 6, rond: [G.gx + 10, 16], cible: [G.gx + Rm * Math.cos(a) - 2, G.yg + Rm * Math.sin(a)], texte: 'dessus, dehors, dessous' },
             { n: 7, rond: [G.face - 6, G.yg - G.rg - G.t - 34], cible: [G.face - 4, G.yg - 8], texte: 'le plein bute sur le plat-bord' },
             { n: 8, rond: [G.face - 8, G.yg + G.rg + G.t + 34], cible: [G.face - 6, G.yg + G.rg + G.t / 2], texte: 'revient sous la traverse' },
             { n: 9, rond: [G.xLn - 20, G.yg + G.rg + G.t + 34], cible: [G.xLn + G.pas, G.yg + G.rg + G.t + G.dr + 0.5], texte: 'racine d’épinette fendue' },
             { n: 10, rond: [G.gx + 58, G.yg + 96], cible: [G.gx + G.rg + 2, G.yg + 80], texte: 'flanc du canot' },
+            { n: 13, rond: [G.gx + 64, G.yg + 64], cible: [G.gx + G.rg + 6, G.yg + G.rg + 2], texte: 'passe le flanc, sous le bord' },
           ];
         },
       },

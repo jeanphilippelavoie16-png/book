@@ -299,7 +299,7 @@ mains : elle reste faisable au complet, mais chaque poste change de méthode.
 gèle pour vrai, suspendre les pièces à l'ombre et hors d'atteinte des bêtes, n'entrer au chalet
 que ce qui va au feu tout de suite (chapitre 73). Sans bain d'eau glacée, la neige en fait un :
 creuser un trou gros comme un bac à vaisselle, y asseoir les contenants à demi couverts et tasser
-la neige tout autour jusqu'au bord. C'est le contact qui refroidit, pas l'air — un chaudron posé
+la neige tout autour jusqu'au bord. À défaut de plats bas, une tôle propre se plie en bac : relever les quatre côtés sur les plis, pincer chaque coin en oreille le long de sa diagonale et le rabattre à plat contre le côté. À défaut de tout contenant, un creux taillé dans la neige tassée et doublé d'un sac propre reçoit le bouillon en couche mince. C'est le contact qui refroidit, pas l'air — un chaudron posé
 sur la croûte met des heures de plus qu'un contenant enfoncé dedans, et ces heures-là se passent
 dans la zone **4-60 °C**. Même règle pour les pièces : étalées, elles refroidissent ; en
 tas, elles ne refroidissent pas.

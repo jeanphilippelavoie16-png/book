@@ -181,44 +181,51 @@ module.exports = (h) => {
   };
 
   // ─── Le test de la poignée ───────────────────────────────────────────────────────────
-  const E = 0.78;                                         // échelle des mains
-  const mains = z => ({ x: z.l * 0.5, ys: [z.h * 0.15, z.h * 0.47, z.h * 0.76] });
+  // Une même main ouverte à plat, vue de dessus, répétée trois fois ; la motte posée sur la paume.
+  const E = 0.6;                                          // échelle des mains
+  const mains = z => ({ x: z.l * 0.5 + 6, ys: [z.h * 0.17, z.h * 0.5, z.h * 0.83] });
   const motte = (cx, cy, rx, ry, graine) => {
     const r = alea(graine), P = [];
     for (let k = 0; k < 28; k++) { const a = k / 28 * 2 * Math.PI; const q = 1 + (r() - 0.5) * 0.1; P.push([cx + rx * q * Math.cos(a), cy + ry * q * Math.sin(a)]); }
     return P;
   };
   const goutte = (gx, gy, k) => `M${f(gx)},${f(gy - 5 * k)} C${f(gx + 1.2 * k)},${f(gy - 2 * k)} ${f(gx + 2.6 * k)},${f(gy)} ${f(gx + 2.6 * k)},${f(gy + 1.3 * k)} A${f(2.6 * k)},${f(2.6 * k)} 0 0 1 ${f(gx - 2.6 * k)},${f(gy + 1.3 * k)} C${f(gx - 2.6 * k)},${f(gy)} ${f(gx - 1.2 * k)},${f(gy - 2 * k)} ${f(gx)},${f(gy - 5 * k)} Z`;
+  const centre = (x, y) => [x - 28 * E, y + 2 * E];      // le creux de la paume
   const dessinMains = z => {
     const { x, ys } = mains(z), out = [];
-    const D = 46 * E, R = D / 2;
-    // 1. trop sec : la motte s'effondre dès qu'on ouvre la main, le sable coule devant les doigts
+    const main = y => h.formes.main({ x, y, pose: 'appui', vue: 'dos', echelle: E, bras: 18 });
+    const R = 24 * E;
+    // 10. trop sec : la motte s'est fendue en morceaux, les grains coulent entre les doigts
     {
-      const y = ys[0];
-      // la motte affaissée au creux de la main, fendue ; des éclats et des grains tombent devant les doigts
-      const P = [[x - R * 0.95, y + R * 0.4], [x - R * 0.82, y + R * 0.02], [x - R * 0.5, y - R * 0.12], [x - R * 0.28, y + R * 0.02], [x + R * 0.02, y - R * 0.2],
-        [x + R * 0.38, y - R * 0.05], [x + R * 0.68, y + R * 0.32], [x + R * 0.58, y + R * 0.78], [x - R * 0.3, y + R * 0.96]];
-      const fentes = pl([[x - R * 0.28, y + R * 0.02], [x - R * 0.18, y + R * 0.3], [x - R * 0.34, y + R * 0.6]]) + ' ' + pl([[x + R * 0.38, y - R * 0.05], [x + R * 0.22, y + R * 0.25], [x + R * 0.34, y + R * 0.52]]);
-      const objet = [h.path(pl(P, true), rempli('arete')), grains(P, 2.3, 41), h.path(fentes, h.a.detail)].join('\n');
-      out.push(h.formes.main({ x, y, pose: 'boule', vue: 'profil', echelle: E, diametre: D, bras: 20, serre: 0.8, objet }));
-      const eclat = (cx, cy, a, g) => { const q = alea(g), t0 = q() * 6; return Array.from({ length: 5 }, (_, k) => { const t = t0 + k / 5 * 2 * Math.PI, rr = a * (0.7 + q() * 0.4); return [cx + rr * Math.cos(t), cy + rr * Math.sin(t)]; }); };
-      const chute = [[x + R * 1.3, y + R * 0.55, 3.6], [x + R * 1.62, y + R * 1.3, 3.0], [x + R * 1.3, y + R * 1.95, 3.3]];
-      chute.forEach(([cx, cy, a], i) => { const M = eclat(cx, cy, a, 50 + i); out.push(h.path(pl(M, true), rempli('detail')), grains(M, 1.8, 55 + i)); });
-      out.push(grains([[x + R * 1.1, y + R * 0.3], [x + R * 1.95, y + R * 0.3], [x + R * 2.1, y + R * 2.5], [x + R * 1.0, y + R * 2.5]], 3.0, 47, 0.4, 0.4));
+      const y = ys[0], [cx, cy] = centre(x, y);
+      out.push(main(y));
+      const morceaux = [[cx - R * 0.45, cy - R * 0.25, R * 0.55, 81], [cx + R * 0.35, cy - R * 0.35, R * 0.48, 82], [cx - R * 0.1, cy + R * 0.5, R * 0.5, 83]];
+      morceaux.forEach(([mx, my, rr, g]) => { const M = motte(mx, my, rr, rr * 0.85, g); out.push(h.path(pl(M, true), rempli('arete')), grains(M, 2.2, g + 5)); });
+      // des grains qui tombent dans les fentes entre les doigts et en bas de la main
+      [[x + 32 * E, y - 19 * E], [x + 34 * E, y + 1 * E], [x + 30 * E, y + 19 * E]].forEach(([gx, gy], i) =>
+        out.push(grains([[gx - 3, gy - 2.5], [gx + 9, gy - 2.5], [gx + 9, gy + 2.5], [gx - 3, gy + 2.5]], 2.2, 91 + i, 0.4, 0.4)));
+      out.push(grains([[cx - R, y + 24 * E], [cx + R * 1.2, y + 24 * E], [cx + R * 1.2, y + 40 * E], [cx - R, y + 40 * E]], 2.8, 97, 0.4, 0.4));
     }
-    // 2. juste : la motte garde la forme des doigts, aucune goutte
+    // 11. juste : la motte entière garde l'empreinte des doigts
     {
-      const y = ys[1], P = motte(x, y, R * 1.02, R * 0.9, 61);
-      const objet = [h.path(pl(P, true), rempli('arete')), grains(P, 2.3, 67)].join('\n');
-      out.push(h.formes.main({ x, y, pose: 'boule', vue: 'profil', echelle: E, diametre: D, bras: 20, objet }));
+      const y = ys[1], [cx, cy] = centre(x, y);
+      out.push(main(y));
+      const P = motte(cx, cy, R * 1.15, R * 0.9, 61);
+      out.push(h.path(pl(P, true), rempli('arete')), grains(P, 2.3, 67));
+      const emp = [-0.55, -0.18, 0.18, 0.55].map(v => [cx + R * 0.15, cy + v * R * 1.3, cx + R * 1.0, cy + v * R * 1.25]);
+      out.push(h.path(emp.map(([a, b, c, d]) => `M${f(a)},${f(b)} Q${f((a + c) / 2)},${f(b + 2)} ${f(c)},${f(d)}`).join(' '), h.a.detail));
     }
-    // 3. détrempé : le poing serré, l'eau coule en gouttes sous la main
+    // 12. détrempé : la motte luit, l'eau fait une flaque sur la paume et goutte du bord
     {
-      const y = ys[2], d = 30 * E, r = d / 2;
-      const objet = [h.cercle(x, y, r, rempli('arete')), grains(motte(x, y, r - 1.2, r - 1.2, 71), 2.1, 73)].join('\n');
-      out.push(h.formes.main({ x, y, pose: 'prise', vue: 'profil', echelle: E, diametre: d, bras: 20, objet }));
-      const yb = y + 37 * E;
-      out.push(h.path([goutte(x - 1, yb + 5, 1.1), goutte(x + 5, yb + 18, 1.2), goutte(x - 4, yb + 31, 1.3)].join(' '), rempli('detail')));
+      const y = ys[2], [cx, cy] = centre(x, y);
+      out.push(main(y));
+      const F = motte(cx + 2, cy + 3, R * 1.5, R * 1.1, 75);
+      out.push(h.path(pl(F, true), h.a.blanc), h.path(pl(F, true), h.a.cache));
+      const P = motte(cx, cy, R * 0.95, R * 0.75, 71);
+      out.push(h.path(pl(P, true), rempli('arete')), grains(P, 2.6, 73));
+      out.push(h.path(`M${f(cx - R * 0.5)},${f(cy - R * 0.35)} Q${f(cx - R * 0.1)},${f(cy - R * 0.6)} ${f(cx + R * 0.35)},${f(cy - R * 0.4)}`, 'fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"'));
+      const yb = y + 34 * E;
+      out.push(h.path([goutte(cx - 4, yb + 6, 1.1), goutte(cx + 4, yb + 16, 1.2), goutte(cx - 2, yb + 27, 1.3)].join(' '), rempli('detail')));
     }
     return out.join('\n');
   };
@@ -272,11 +279,11 @@ module.exports = (h) => {
         titre: 'Une poignée serrée, puis ouverte',
         dessin: dessinMains,
         renvois: z => {
-          const { x, ys } = mains(z), R = 23 * E;
+          const { x, ys } = mains(z), c = y => centre(x, y);
           return [
-            { n: 10, rond: [z.l - 12, ys[0] - R * 1.2], cible: [x + R * 1.5, ys[0] + R * 1.2], texte: 'trop sec : s’effrite, sèche la racine' },
-            { n: 11, rond: [z.l - 12, ys[1] - R * 1.2], cible: [x + R * 0.6, ys[1] - R * 0.2], texte: 'juste : garde sa forme, sans goutte' },
-            { n: 12, rond: [z.l - 12, ys[2] + R * 1.8], cible: [x + 7, ys[2] + 37 * E + 18], texte: 'détrempé : l’eau coule, la racine pourrit' },
+            { n: 10, rond: [12, ys[0] - 30], cible: [c(ys[0])[0] - 8, c(ys[0])[1] - 6], texte: 'trop sec : s’effrite, sèche la racine' },
+            { n: 11, rond: [12, ys[1] - 30], cible: [c(ys[1])[0] - 6, c(ys[1])[1] - 4], texte: 'juste : garde sa forme, sans goutte' },
+            { n: 12, rond: [12, ys[2] - 30], cible: [c(ys[2])[0] - 2, ys[2] + 34 * E + 16], texte: 'détrempé : l’eau coule, la racine pourrit' },
           ];
         },
       },

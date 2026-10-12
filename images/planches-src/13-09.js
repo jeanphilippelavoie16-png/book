@@ -224,6 +224,7 @@ module.exports = (h) => {
     [U.xg, U.yh], ...arc(U.xo - U.ro, U.yh + U.ro, U.ro, 270, 360), ...arc(U.xo - U.ro, U.yb - U.ro, U.ro, 0, 90),
     [U.xg, U.yb], [U.xg, U.ybi], ...arc(U.xo - U.ro, U.yb - U.ro, U.ri, 90, 0), ...arc(U.xo - U.ro, U.yh + U.ro, U.ri, 0, -90), [U.xg, U.yhi],
   ];
+  const ACIER_DX = 0, ACIER_D = 12;            // centre et diamètre de la prise, repère du U
   const TX = E[0] - U.xo;                           // la face qui frappe passe au ras de l'arête
   const TY_AVANT = E[1] - U.yb - 15, TY_FRAPPE = E[1] + 3;
 
@@ -241,10 +242,17 @@ module.exports = (h) => {
 
   const scene = (T, k, frappe, id) => {
     const out = [];
-    out.push(pierreSVG(T, k));                    // règle 9 : plus de main, l'objet dans sa position
+    // la main de la pierre (boule / profil, en miroir) : la pierre tenue dans le creux, le pouce dessus
+    out.push(mainPierre(T, k, pierreSVG(T, k)));
     const ty = frappe ? TY_FRAPPE : TY_AVANT;
-    const M = T([TX, ty]);
     const TU = p => T([TX + p[0], ty + p[1]]);
+    // la main de l'acier (prise / dos) : le poing fermé, les doigts passés dans le U ; le fond du U
+    // se peint par-dessus le bout des doigts, les bras le long de l'index et de l'auriculaire.
+    const cible = T([TX + ACIER_DX, ty]);
+    const opts = { pose: 'prise', vue: 'dos', diametre: ACIER_D * k, echelle: k, bras: 50 };
+    const m0 = F.main({ x: cible[0], y: cible[1], ...opts });
+    const m = F.main({ x: 2 * cible[0] - m0.trou.x, y: 2 * cible[1] - m0.trou.y, ...opts });
+    out.push(String(m));
     out.push(h.chemin(profilU().map(TU), A.plein, true));
     if (!frappe) {
       // la course de la face qui frappe : elle descend au ras de l'arête et continue
@@ -284,7 +292,7 @@ module.exports = (h) => {
   return {
     ref: '13-09',
     titre: 'Le briquet à pierre',
-    desc: 'Le geste, vu de côté, sans les mains : à droite, un caillou de grève cassé, le nez tourné vers la gauche qui finit en arête vive ; l’amadou carbonisé, un carré plat de tissu noirci, posé sur le dessus et arrivant au ras de l’arête. À gauche, l’acier cintré en U, la face extérieure du fond tournée vers la pierre ; un tireté montre qu’elle descend en rasant l’arête, une flèche le sens du coup, vers le bas. De près, au point de frappe : l’acier contre l’arête, les paillettes qui partent, trois qui retombent sur l’amadou. En bas, l’acier : un bout de vieille lime gardé tel quel, dessous le même cintré en U ; et la pierre : un galet dont la cassure fraîche fait une arête coupante, et l’essai qui la juge, l’arête qui raye un éclat de verre.',
+    desc: 'Le geste, vu de côté : à droite, la main de la pierre tient un caillou de grève cassé dans le creux de la paume, le pouce dessus, les doigts repliés dessous ; le nez tourné vers la gauche qui finit en arête vive ; l’amadou carbonisé, un carré plat de tissu noirci, posé sur le dessus et arrivant au ras de l’arête. À gauche, la main de l’acier est fermée, les doigts passés dans l’acier cintré en U, la face extérieure du fond tournée vers la pierre ; un tireté montre qu’elle descend en rasant l’arête, une flèche le sens du coup, vers le bas. De près, au point de frappe : l’acier contre l’arête, les paillettes qui partent, trois qui retombent sur l’amadou. En bas, l’acier : un bout de vieille lime gardé tel quel, dessous le même cintré en U ; et la pierre : un galet dont la cassure fraîche fait une arête coupante, et l’essai qui la juge, l’arête qui raye un éclat de verre.',
     format: 'pleine',
     disposition: [['geste'], ['detail', 'acier', 'pierre']],
     hauteurs: [1, 1.08],
@@ -299,7 +307,7 @@ module.exports = (h) => {
         renvois: z => {
           const { T } = fenetre(z, ...FG);
           return [
-            { n: 1, rond: T([-22, -112]), cible: T([TX + U.xo - 2.5, TY_AVANT - 10]), texte: 'acier en U, la face du dehors frappe' },
+            { n: 1, rond: T([-22, -112]), cible: T([TX + U.xo - 2.5, TY_AVANT - 10]), texte: 'acier en U, les doigts passés dedans' },
             { n: 2, rond: T([-118, 22]), cible: T([-68, 8]), texte: 'frapper vers le bas, en rasant l’arête' },
             { n: 3, rond: T([-26, -74]), cible: T([-49, -20.6]), texte: 'la pierre, l’arête tournée vers l’acier' },
           ];

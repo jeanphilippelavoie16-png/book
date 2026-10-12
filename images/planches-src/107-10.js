@@ -143,22 +143,31 @@ module.exports = (h) => {
         titre: '3. Mater',
         dessin: z => {
           const g = coupeT(z);
-          const fy = g.yT - 12;                  // face du marteau, juste au-dessus
+          const d = 3, hc = 3;                   // tête écrasée : déborde de 3 px de chaque côté
+          const fy = g.yT - hc - 5;              // face du marteau, à 5 px du dessus de la vis
           const lt = 24, ht = 34;
           const hx = g.cx - lt / 2, hy = fy - ht;
+          const xg = g.cx - g.r, xd = g.cx + g.r, yf = g.yT + 2 * P;
           return [
             ...plaqueCoupe(g),
             ...visCoupe(g),
+            // Les deux filets du haut refermés : la vis a rempli le creux, paroi droite et pleine.
+            h.rect(xg - A / 2 - 0.6, g.yT - 0.5, 2 * g.r + A + 1.2, yf - g.yT + 0.5, 'fill="#fff" stroke="none"'),
+            h.ligne(xg, g.yT, xg, yf, h.a.contour),
+            h.ligne(xd, g.yT, xd, yf, h.a.contour),
+            // Le dessus de la vis aplati et élargi par-dessus l'arête du trou.
+            h.path(`M ${xg - d} ${g.yT} L ${xg - d} ${g.yT - hc + 1} Q ${xg - d} ${g.yT - hc} ${xg} ${g.yT - hc} L ${xd} ${g.yT - hc} Q ${xd + d} ${g.yT - hc} ${xd + d} ${g.yT - hc + 1} L ${xd + d} ${g.yT} Z`, blanc(h.a.contour)),
             // Le marteau, face en bas, manche vers la droite.
             h.path(`M ${hx} ${fy - 3} L ${hx} ${hy + 6} Q ${hx} ${hy} ${hx + 6} ${hy} L ${hx + lt - 6} ${hy} Q ${hx + lt} ${hy} ${hx + lt} ${hy + 6} L ${hx + lt} ${fy - 3} L ${hx + lt - 2} ${fy} L ${hx + 2} ${fy} Z`, blanc(h.a.contour)),
             h.path(`M ${hx + lt} ${hy + 10} L ${hx + lt + 84} ${hy + 12} L ${hx + lt + 84} ${hy + 18} L ${hx + lt} ${hy + 19} Z`, blanc(h.a.arete)),
-            h.fleche(`M ${hx - 12} ${hy + 2} L ${hx - 12} ${fy + 6}`),
+            // Le coup : dans l'axe de la vis, pointe contre le dos de la tête.
+            h.fleche(`M ${g.cx} ${hy - 26} L ${g.cx} ${hy - 2}`),
           ].join('\n');
         },
         renvois: z => {
           const g = coupeT(z);
           return [
-            { n: 5, rond: [g.cx + g.r + 32, g.yT - 13], cible: [g.cx + g.r - 6, g.yT + 1], texte: 'matée : elle s’écrase dans le filet' },
+            { n: 5, rond: [g.cx + g.r + 32, g.yT - 13], cible: [g.cx + g.r + 2, g.yT - 1.5], texte: 'matée : elle s’écrase dans le filet' },
           ];
         },
       },
