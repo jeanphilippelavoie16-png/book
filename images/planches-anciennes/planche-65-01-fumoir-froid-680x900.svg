@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="900" viewBox="0 0 680 900" role="img">
+<title>Planche 65-01 — Le fumoir à froid : le feu est ailleurs, la fumée arrive refroidie</title>
+<desc>Coupe de principe, vue de côté. À gauche, un trou à feu creusé dans le sol, profond jusqu'au genou, avec un gradin d'entrée d'air du côté d'où vient le vent. De là part une tranchée couverte de tôle et de terre tassée, en pente légère montante sur 2,5 à 4 m, qui remonte par un coude court dans le plancher de la chambre. La terre reprend la chaleur de la fumée sur toute la course : trois flèches la montrent qui descend dans le sol. La chambre reçoit la fumée en bas et la rend en haut par une sortie que ferme un registre coulissant. Trois pièces pendent à une tringle sans se toucher ni toucher la paroi, et un thermomètre est posé à demeure à leur hauteur. En bas de planche, la même installation avec un tuyau à l'air libre : plusieurs mètres de tôle brûlante à hauteur de hanche, que la tranchée supprime.</desc>
+<defs>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+<clipPath id="sol">
+<path d="M55 322 L436 286 L625 286 L625 418 L55 418 Z M62 321.3 L62 335 L78 335 L78 380 L138 380 L138 374 L500 339 L500 286 L470 286 L470 308 L138 340 L138 314.2 Z" clip-rule="evenodd" fill="none"/>
+</clipPath>
+<clipPath id="paroi">
+<path d="M445 140 L575 140 L575 286 L445 286 Z M453 148 L567 148 L567 278 L453 278 Z M520 140 L550 140 L550 148 L520 148 Z M470 278 L500 278 L500 286 L470 286 Z" clip-rule="evenodd" fill="none"/>
+</clipPath>
+</defs>
+
+<rect x="0" y="0" width="680" height="900" fill="#FFFFFF"/>
+
+<!-- couche 1 : contours exterieurs -->
+<path d="M445 140 L520 140 M550 140 L575 140" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M445 140 L445 286 M575 140 L575 286" fill="none" stroke="#1A1A1A" stroke-width="2.4"/>
+<path d="M445 286 L470 286 M500 286 L575 286" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M120 614 L120 540 L404 534 L404 542 L128 548 L128 614" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+
+<!-- couche 2 : contours internes -->
+<path d="M55 322 L62 321.3" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M138 314.2 L436 286 L445 286" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M575 286 L625 286" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M62 321.3 L62 335 L78 335 L78 380 L138 380 L138 374 L500 339 L500 278" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M470 278 L470 308 L138 340 L138 314.2" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M453 148 L520 148 M550 148 L567 148" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M453 148 L453 278 M567 148 L567 278" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M453 278 L470 278 M500 278 L567 278" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M520 140 L520 148 M550 140 L550 148" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="492" y="132" width="54" height="8" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M554 136 L588 136" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" marker-end="url(#fl)"/>
+<line x1="453" y1="176" x2="567" y2="176" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M471 184 L485 184 L485 236 Q478 246 471 236 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M503 184 L517 184 L517 236 Q510 246 503 236 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M535 184 L549 184 L549 236 Q542 246 535 236 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="560" y1="215" x2="586" y2="215" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="598" cy="215" r="12" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M80 600 L100 600 M130 600 L490 600" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M100 600 L100 630 L130 630 L130 600" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M404 534 L404 475 L469 475 L469 548 L404 548 L404 542" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M412 548 L412 600 M461 548 L461 600" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<!-- couche 3 : details et hachures -->
+<g clip-path="url(#sol)">
+<line x1="55.0" y1="297.0" x2="67.0" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="309.0" x2="79.0" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="321.1" x2="91.1" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="333.1" x2="103.1" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="345.1" x2="115.1" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="357.1" x2="127.1" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="369.1" x2="139.1" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="381.2" x2="151.2" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="393.2" x2="163.2" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="405.2" x2="175.2" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="55.0" y1="417.2" x2="187.2" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="66.2" y1="418.0" x2="199.2" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="78.3" y1="418.0" x2="211.3" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="90.3" y1="418.0" x2="223.3" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="102.3" y1="418.0" x2="235.3" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="114.3" y1="418.0" x2="247.3" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="126.4" y1="418.0" x2="259.4" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="138.4" y1="418.0" x2="271.4" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="150.4" y1="418.0" x2="283.4" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="162.4" y1="418.0" x2="295.4" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="174.4" y1="418.0" x2="307.4" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="186.5" y1="418.0" x2="319.5" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="198.5" y1="418.0" x2="331.5" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="210.5" y1="418.0" x2="343.5" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="222.5" y1="418.0" x2="355.5" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="234.5" y1="418.0" x2="367.5" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="246.6" y1="418.0" x2="379.6" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="258.6" y1="418.0" x2="391.6" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="270.6" y1="418.0" x2="403.6" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="282.6" y1="418.0" x2="415.6" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="294.6" y1="418.0" x2="427.6" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="306.7" y1="418.0" x2="439.7" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="318.7" y1="418.0" x2="451.7" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="330.7" y1="418.0" x2="463.7" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="342.7" y1="418.0" x2="475.7" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="354.7" y1="418.0" x2="487.7" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="366.8" y1="418.0" x2="499.8" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="378.8" y1="418.0" x2="511.8" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="390.8" y1="418.0" x2="523.8" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="402.8" y1="418.0" x2="535.8" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="414.9" y1="418.0" x2="547.9" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="426.9" y1="418.0" x2="559.9" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="438.9" y1="418.0" x2="571.9" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="450.9" y1="418.0" x2="583.9" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="462.9" y1="418.0" x2="595.9" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="475.0" y1="418.0" x2="608.0" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="487.0" y1="418.0" x2="620.0" y2="285.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="499.0" y1="418.0" x2="625.0" y2="292.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="511.0" y1="418.0" x2="625.0" y2="304.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="523.0" y1="418.0" x2="625.0" y2="316.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="535.1" y1="418.0" x2="625.0" y2="328.1" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="547.1" y1="418.0" x2="625.0" y2="340.1" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="559.1" y1="418.0" x2="625.0" y2="352.1" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="571.1" y1="418.0" x2="625.0" y2="364.1" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="583.1" y1="418.0" x2="625.0" y2="376.1" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="595.2" y1="418.0" x2="625.0" y2="388.2" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="607.2" y1="418.0" x2="625.0" y2="400.2" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="619.2" y1="418.0" x2="625.0" y2="412.2" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+</g>
+<g clip-path="url(#paroi)">
+<line x1="445.0" y1="147.1" x2="452.1" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="154.1" x2="459.1" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="161.2" x2="466.2" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="168.3" x2="473.3" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="175.4" x2="480.4" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="182.4" x2="487.4" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="189.5" x2="494.5" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="196.6" x2="501.6" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="203.6" x2="508.6" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="210.7" x2="515.7" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="217.8" x2="522.8" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="224.9" x2="529.9" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="231.9" x2="536.9" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="239.0" x2="544.0" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="246.1" x2="551.1" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="253.1" x2="558.1" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="260.2" x2="565.2" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="267.3" x2="572.3" y2="140.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="274.4" x2="575.0" y2="144.4" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="445.0" y1="281.4" x2="575.0" y2="151.4" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="447.5" y1="286.0" x2="575.0" y2="158.5" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="454.6" y1="286.0" x2="575.0" y2="165.6" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="461.6" y1="286.0" x2="575.0" y2="172.6" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="468.7" y1="286.0" x2="575.0" y2="179.7" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="475.8" y1="286.0" x2="575.0" y2="186.8" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="482.8" y1="286.0" x2="575.0" y2="193.8" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="489.9" y1="286.0" x2="575.0" y2="200.9" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="497.0" y1="286.0" x2="575.0" y2="208.0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="504.1" y1="286.0" x2="575.0" y2="215.1" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="511.1" y1="286.0" x2="575.0" y2="222.1" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="518.2" y1="286.0" x2="575.0" y2="229.2" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="525.3" y1="286.0" x2="575.0" y2="236.3" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="532.3" y1="286.0" x2="575.0" y2="243.3" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="539.4" y1="286.0" x2="575.0" y2="250.4" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="546.5" y1="286.0" x2="575.0" y2="257.5" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="553.6" y1="286.0" x2="575.0" y2="264.6" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="560.6" y1="286.0" x2="575.0" y2="271.6" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="567.7" y1="286.0" x2="575.0" y2="278.7" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+</g>
+<path d="M84 379 L91 372 M95 379 L102 372 M106 379 L113 372 M117 379 L124 372 M128 379 L135 372" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round"/>
+<path d="M478 176 L478 184 M510 176 L510 184 M542 176 L542 184" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M598 215 L605 207" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round"/>
+<path d="M200 369 L200 401" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M290 361 L290 393" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M380 352 L380 384" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" marker-end="url(#fl)"/>
+<line x1="138" y1="446" x2="500" y2="446" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="138" y1="440" x2="138" y2="452" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="500" y1="440" x2="500" y2="452" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="319" y="440" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2,5 à 4 m (8 à 13 pi)</text>
+<line x1="200" y1="546" x2="200" y2="600" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="194" y1="546" x2="206" y2="546" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="194" y1="600" x2="206" y2="600" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="214" y="578" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">hauteur de hanche</text>
+
+<!-- couches 4 et 5 : lignes de rappel et renvois -->
+<line x1="116.5" y1="222.3" x2="70.0" y2="332.0" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="120" cy="214" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="120" y="218" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="253.5" y1="210.3" x2="290.0" y2="297.0" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="250" cy="202" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="250" y="206" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="406.2" y1="171.8" x2="445.0" y2="190.0" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="398" cy="168" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="398" y="172" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="599.4" y1="114.8" x2="546.0" y2="132.0" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="608" cy="112" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="608" y="116" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="412.6" y1="249.3" x2="445.0" y2="238.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="453.0" y1="235.9" x2="471.0" y2="230.0" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="404" cy="252" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="404" y="256" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<line x1="606.3" y1="192.9" x2="598.0" y2="203.0" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="612" cy="186" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="612" y="190" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<line x1="280.0" y1="509.0" x2="280.0" y2="535.0" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="280" cy="500" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="280" y="504" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
+
+<!-- couche 6 : texte, encadre danger, pied de planche -->
+<text x="80" y="654" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">Le même montage avec un tuyau à l'air libre, au lieu de la tranchée.</text>
+
+<rect x="55" y="674" width="570" height="74" rx="2" fill="none" stroke="#9B2C1E" stroke-width="2"/>
+<text x="73" y="700" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — jamais adossé au chalet, jamais sous un auvent fermé, jamais dans un hangar.</text>
+<text x="73" y="720" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">On n'entre pas respirer dans la chambre pour voir si ça fume bien : le monoxyde ne se</text>
+<text x="73" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">voit pas, ne se sent pas, n'irrite pas les yeux. La fumée pique ; lui, non.</text>
+
+<text x="55" y="780" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 65-01 — Le fumoir à froid : le feu est ailleurs, la fumée arrive refroidie.</text>
+<text x="55" y="802" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1 trou à feu profond jusqu'au genou ; l'air entre du côté du vent · 2 tranchée couverte</text>
+<text x="55" y="819" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">de tôle et de terre : c'est la terre qui refroidit · 3 chambre en bois brut ou en acier</text>
+<text x="55" y="836" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">noir, rien de collé ni de galvanisé · 4 entrée en bas, sortie en haut ; le registre est</text>
+<text x="55" y="853" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">le seul réglage · 5 aucune pièce ne touche sa voisine ni la paroi · 6 thermomètre à</text>
+<text x="55" y="870" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">hauteur des pièces · 7 tuyau aérien : de la tôle brûlante à hauteur de hanche</text>
+</svg>

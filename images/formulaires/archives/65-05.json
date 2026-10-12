@@ -1,0 +1,87 @@
+{
+  "ref": "65-05",
+  "chapitre": "CHAPITRE 65 — FUMAGE À FROID",
+  "titre": "Étiquettes À CUIRE et PRÊT-À-MANGER",
+  "consigne": "Une par pièce, qui la suit jusqu'au congélateur. Remplie avant de ranger. Dans le doute, ou sans étiquette : À CUIRE.",
+  "blocs": [
+    {
+      "type": "etiquettes",
+      "par_page": 6,
+      "etiquettes": [
+        {
+          "titre": "À CUIRE",
+          "sous": "74 °C à cœur gibier\n70 °C poisson",
+          "champs": [
+            "Espèce",
+            "Date de salaison",
+            { "label": "Sel", "unite": "% du poids de la viande", "court": true },
+            { "label": "Fumage cumulé", "unite": "h", "court": true },
+            "Sortie du fumoir",
+            { "label": "Gel antiparasitaire", "forme": "choix", "choix": ["fait", "non"] }
+          ]
+        },
+        {
+          "titre": "À CUIRE",
+          "sous": "74 °C à cœur gibier\n70 °C poisson",
+          "champs": [
+            "Espèce",
+            "Date de salaison",
+            { "label": "Sel", "unite": "% du poids de la viande", "court": true },
+            { "label": "Fumage cumulé", "unite": "h", "court": true },
+            "Sortie du fumoir",
+            { "label": "Gel antiparasitaire", "forme": "choix", "choix": ["fait", "non"] }
+          ]
+        },
+        {
+          "titre": "À CUIRE",
+          "sous": "74 °C à cœur gibier\n70 °C poisson",
+          "champs": [
+            "Espèce",
+            "Date de salaison",
+            { "label": "Sel", "unite": "% du poids de la viande", "court": true },
+            { "label": "Fumage cumulé", "unite": "h", "court": true },
+            "Sortie du fumoir",
+            { "label": "Gel antiparasitaire", "forme": "choix", "choix": ["fait", "non"] }
+          ]
+        },
+        {
+          "titre": "À CUIRE",
+          "sous": "74 °C à cœur gibier\n70 °C poisson",
+          "champs": [
+            "Espèce",
+            "Date de salaison",
+            { "label": "Sel", "unite": "% du poids de la viande", "court": true },
+            { "label": "Fumage cumulé", "unite": "h", "court": true },
+            "Sortie du fumoir",
+            { "label": "Gel antiparasitaire", "forme": "choix", "choix": ["fait", "non"] }
+          ]
+        },
+        {
+          "titre": "PRÊT-À-MANGER",
+          "sous": "sel mesuré · gel fait\ngarder congelé",
+          "champs": [
+            "Espèce",
+            "Date de salaison",
+            { "label": "Sel", "unite": "% du poids de la viande", "court": true },
+            { "label": "Fumage cumulé", "unite": "h", "court": true },
+            "Sortie du fumoir",
+            { "label": "Gel antiparasitaire", "forme": "choix", "choix": ["fait", "non"] }
+          ]
+        },
+        {
+          "titre": "PRÊT-À-MANGER",
+          "sous": "sel mesuré · gel fait\ngarder congelé",
+          "champs": [
+            "Espèce",
+            "Date de salaison",
+            { "label": "Sel", "unite": "% du poids de la viande", "court": true },
+            { "label": "Fumage cumulé", "unite": "h", "court": true },
+            "Sortie du fumoir",
+            { "label": "Gel antiparasitaire", "forme": "choix", "choix": ["fait", "non"] }
+          ]
+        }
+      ]
+    }
+  ],
+  "rappel": "Ours et phoque : toujours À CUIRE. Ni le sel, ni la fumée, ni le gel domestique ne tuent la trichine."
+}

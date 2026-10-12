@@ -1,0 +1,64 @@
+{
+  "ref": "85-05",
+  "chapitre": "CHAPITRE 85 — LE STOCK DE PIÈCES ET DE CONSOMMABLES",
+  "titre": "Registre du stock",
+  "consigne": "Au crayon de plomb, une feuille par système. La sortie s'écrit en prenant la pièce, pas au retour en ville.",
+  "blocs": [
+    {
+      "type": "champs",
+      "colonnes": 1,
+      "champs": [
+        {
+          "label": "Système"
+        }
+      ]
+    },
+    {
+      "type": "tableau",
+      "lignes": 4,
+      "colonnes": [
+        {
+          "titre": "Appareil ou produit",
+          "sous": "avertisseur, bouteille, pile, scellant, machine",
+          "largeur": 2.2
+        },
+        {
+          "titre": "Date",
+          "sous": "fabrication, gravée ou achat",
+          "largeur": 1.3
+        },
+        {
+          "titre": "Échéance",
+          "sous": "fumée, bouteille : 10 ans",
+          "largeur": 1.2
+        },
+        {
+          "titre": "Numéro de pièce, cote ou réglage",
+          "sous": "lime, courroie, bougie, fil, tours de lanceur",
+          "largeur": 2.3
+        }
+      ]
+    },
+    {
+      "type": "tableau",
+      "lignes": 16,
+      "colonnes": [
+        {
+          "titre": "Pièce",
+          "sous": "nom, modèle, numéro",
+          "largeur": 4
+        },
+        {
+          "titre": "Entrée",
+          "sous": "date",
+          "largeur": 1
+        },
+        {
+          "titre": "Sortie",
+          "sous": "date, en la prenant",
+          "largeur": 1.2
+        }
+      ]
+    }
+  ]
+}

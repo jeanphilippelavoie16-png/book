@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="900" viewBox="0 0 680 900" role="img">
+<title>Planche 15-01 — Le conduit et sa traversée de mur</title>
+<desc>Deux vues à la même échelle. En haut, coupe verticale d'un mur de chalet traversé par le conduit du poêle : le tuyau part du poêle à gauche, monte, coude, traverse le mur à l'horizontale et remonte dehors à droite. Le trou percé dans le lambris, la charpente et le revêtement est beaucoup plus grand que le tuyau. Un fourreau incombustible borde le passage sur toute l'épaisseur du mur, séparé du bois par de l'air et séparé du tuyau par de l'air. Les joints de tuyau restent dans la pièce et dehors, aucun dans l'épaisseur du mur. En bas, le même passage vu de la pièce : le trou carré, le fourreau qui en fait le tour, le tuyau au centre, et le même espace d'air sur les quatre côtés. Une main posée à plat sur le lambris, à gauche du passage, donne l'échelle et sert de mesure.</desc>
+
+<defs>
+<pattern id="bois" width="8.5" height="8.5" patternUnits="userSpaceOnUse">
+<path d="M0 8.5 L8.5 0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+</pattern>
+<pattern id="fourreau" width="12" height="12" patternUnits="userSpaceOnUse">
+<path d="M0 12 L12 0" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+</pattern>
+</defs>
+
+<rect x="0" y="0" width="680" height="900" fill="#FFFFFF"/>
+
+<!-- ============ VUE PRINCIPALE : coupe verticale du mur ============ -->
+
+<!-- le mur coupé, hachuré en bois, interrompu en haut et en bas -->
+<path d="M400 64 Q412 59 424 64 Q436 69 448 64 Q460 59 472 64 Q484 69 496 64 L496 112 L400 112 Z" fill="url(#bois)"/>
+<path d="M400 280 L496 280 L496 394 Q484 399 472 394 Q460 389 448 394 Q436 399 424 394 Q412 389 400 394 Z" fill="url(#bois)"/>
+
+<!-- le fourreau incombustible, hachure plus large -->
+<rect x="390" y="130" width="116" height="10" fill="url(#fourreau)" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="390" y="252" width="116" height="10" fill="url(#fourreau)" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<!-- arêtes du mur, bords du passage, traits d'interruption -->
+<line x1="400" y1="64" x2="400" y2="112" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="496" y1="64" x2="496" y2="112" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="400" y1="280" x2="400" y2="394" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="496" y1="280" x2="496" y2="394" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="400" y1="112" x2="496" y2="112" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="400" y1="280" x2="496" y2="280" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M400 64 Q412 59 424 64 Q436 69 448 64 Q460 59 472 64 Q484 69 496 64" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M400 394 Q412 389 424 394 Q436 399 448 394 Q460 389 472 394 Q484 399 496 394" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="415" y1="64" x2="415" y2="112" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="415" y1="280" x2="415" y2="392" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="481" y1="64" x2="481" y2="112" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="481" y1="280" x2="481" y2="392" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<!-- le conduit, objet principal -->
+<path d="M120 370 L120 165 L556 165 L556 60" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M182 370 L182 227 L618 227 L618 60" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+
+<!-- les deux joints, gardés hors de l'épaisseur du mur -->
+<path d="M300 165 L300 160 L316 160 L316 165" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M300 227 L300 232 L316 232 L316 227" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M516 165 L516 160 L532 160 L532 165" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M516 227 L516 232 L532 232 L532 227" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+
+<!-- le dessus du poêle, pour dire de quel côté est la pièce -->
+<line x1="55" y1="370" x2="120" y2="370" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="182" y1="370" x2="250" y2="370" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="55" y1="370" x2="55" y2="398" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="250" y1="370" x2="250" y2="398" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+
+<!-- lignes de rappel de la vue principale -->
+<line x1="318.5" y1="84.8" x2="400" y2="112" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="309" y1="141.3" x2="390" y2="135" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="529.3" y1="107.7" x2="502" y2="152" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="541.2" y1="266.1" x2="496" y2="227" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="602.2" y1="275.5" x2="526" y2="232" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+
+<circle cx="310" cy="82" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="310" y="86" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<circle cx="300" cy="142" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="300" y="146" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<circle cx="534" cy="100" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="534" y="104" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<circle cx="548" cy="272" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="548" y="276" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<circle cx="610" cy="280" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="610" y="284" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+
+<!-- ============ DÉTAIL : le même passage vu de la pièce ============ -->
+
+<!-- le lambris de la pièce -->
+<line x1="140" y1="460" x2="540" y2="460" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="140" y1="496" x2="176" y2="496" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="235" y1="496" x2="256" y2="496" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="424" y1="496" x2="540" y2="496" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="140" y1="532" x2="176" y2="532" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="235" y1="532" x2="256" y2="532" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="424" y1="532" x2="540" y2="532" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="140" y1="568" x2="176" y2="568" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="235" y1="568" x2="256" y2="568" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="424" y1="568" x2="540" y2="568" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="140" y1="604" x2="256" y2="604" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="424" y1="604" x2="540" y2="604" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="140" y1="640" x2="540" y2="640" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<!-- le trou dans le bois, le fourreau qui en fait le tour, le tuyau au centre -->
+<rect x="256" y="470" width="168" height="168" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="274" y="488" width="132" height="132" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="284" y="498" width="112" height="112" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="340" cy="554" r="31" fill="none" stroke="#1A1A1A" stroke-width="2.4"/>
+
+<!-- la main posée à plat sur le lambris : c'est l'échelle -->
+<path d="M235 546 L234 518 A4.5 4.5 0 0 0 225 518 L225 528 Q224 530 223 528 L223 502 A4.5 4.5 0 0 0 214 502 L214 524 Q213 526 212 524 L212 496 A4.5 4.5 0 0 0 203 496 L203 522 Q202 524 201 522 L201 503 A4.5 4.5 0 0 0 192 503 L192 545 Q178 549 176 558 Q177 568 192 570 L192 578 L234 578 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="224" y1="528" x2="225" y2="546" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="213" y1="524" x2="215" y2="546" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="202" y1="522" x2="205" y2="546" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<!-- lignes de rappel du détail -->
+<line x1="222.4" y1="620.9" x2="279" y2="600" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="201.1" y1="483.4" x2="207" y2="492" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+
+<circle cx="214" cy="624" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="214" y="628" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<circle cx="196" cy="476" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="196" y="480" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
+
+<!-- encadré danger -->
+<rect x="40" y="690" width="600" height="44" rx="2" fill="none" stroke="#9B2C1E" stroke-width="2"/>
+<text x="58" y="710" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — après un feu de cheminée, le feu couve des heures dans le bois du</text>
+<text x="58" y="726" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">passage, sans fumée du côté de la pièce. On y remet la main le soir, puis la nuit.</text>
+
+<!-- pied de planche -->
+<text x="40" y="766" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 15-01 — Le conduit et sa traversée de mur.</text>
+<text x="40" y="784" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1 le trou bien plus grand que le tuyau · 2 l'incombustible qui borde le passage</text>
+<text x="40" y="800" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3 l'espace d'air : rien ne touche le conduit · 4 la section la plus saine passe ici</text>
+<text x="40" y="816" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5 aucun joint dans l'épaisseur du mur · 6 le même jeu sur les quatre côtés</text>
+<text x="40" y="832" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7 la main à plat sur le bois du passage. Le jeu se lit sur la plaque de l'appareil</text>
+</svg>

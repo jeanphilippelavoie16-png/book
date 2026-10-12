@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="440" viewBox="0 0 680 440" role="img">
+<title>Planche 84-09 — Souder à l'arc avec deux batteries d'auto</title>
+<desc>Vue de côté. Deux batteries de 12 volts posées au sol, reliées en série par la borne positive de la première à la borne négative de la seconde. La borne négative restée libre alimente la masse mordue sur la pièce ; la borne positive restée libre alimente le porte-électrode. Les batteries se tiennent à deux ou trois pas du joint, du côté d'où vient le vent.</desc>
+<defs>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="680" height="440" fill="#FFFFFF"/>
+
+<line x1="40" y1="280" x2="640" y2="280" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+<path d="M46 280 L38 292 M76 280 L68 292 M106 280 L98 292 M136 280 L128 292 M166 280 L158 292 M196 280 L188 292 M226 280 L218 292 M256 280 L248 292 M286 280 L278 292 M316 280 L308 292 M346 280 L338 292 M376 280 L368 292 M406 280 L398 292 M436 280 L428 292 M466 280 L458 292 M496 280 L488 292 M526 280 L518 292 M556 280 L548 292 M586 280 L578 292 M616 280 L608 292 M646 280 L638 292" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round"/>
+
+<path d="M88 230 L88 176 L232 176 A10 10 0 0 1 252 176 L432 176 L432 238" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M242 230 L242 150 L533 150 L533 178" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M134 230 L134 206 L196 206 L196 230" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+<path d="M70 230 L150 230 L150 280 L70 280 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M180 230 L260 230 L260 280 L180 280 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="70" y1="244" x2="150" y2="244" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="180" y1="244" x2="260" y2="244" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M96 230 L96 222 L124 222 L124 230" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M206 230 L206 222 L234 222 L234 230" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+
+<circle cx="88" cy="230" r="7" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="134" cy="230" r="7" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="196" cy="230" r="7" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="242" cy="230" r="7" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M84 230 L92 230 M192 230 L200 230" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round"/>
+<path d="M130 230 L138 230 M134 226 L134 234 M238 230 L246 230 M242 226 L242 234" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round"/>
+
+<path d="M470 256 L490 256 L490 280 L470 280 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M580 256 L600 256 L600 280 L580 280 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M450 236 L620 236 L620 256 L450 256 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="533" y1="236" x2="533" y2="256" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<path d="M426 240 L450 240 M426 252 L450 252 M426 240 L426 252" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+
+<path d="M516 178 L550 178 L550 198 L516 198 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<line x1="533" y1="198" x2="533" y2="232" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M521 230 L513 222 M545 230 L553 222 M533 226 L533 218" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round"/>
+
+<path d="M96 130 L186 130" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round" marker-end="url(#fl)"/>
+
+<line x1="260" y1="306" x2="450" y2="306" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="260" y1="300" x2="260" y2="312" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="450" y1="300" x2="450" y2="312" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="355" y="301" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">deux ou trois pas</text>
+
+<line x1="415" y1="221" x2="429" y2="236" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="408" cy="214" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="408" y="218" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+
+<line x1="65" y1="256" x2="70" y2="256" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="56" cy="256" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="56" y="260" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+
+<line x1="165" y1="223" x2="165" y2="207" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="165" cy="232" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="165" y="236" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+
+<line x1="577" y1="188" x2="551" y2="188" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="586" cy="188" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="586" y="192" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+
+<line x1="83" y1="130" x2="95" y2="130" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="74" cy="130" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="74" y="134" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+
+<rect x="40" y="318" width="600" height="44" rx="2" fill="none" stroke="#9B2C1E" stroke-width="2"/>
+<text x="58" y="338" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — ce n'est pas la batterie qui blesse, c'est l'acide : il part au visage de</text>
+<text x="58" y="354" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">celui qui est penché dessus. L'arc brûle la cornée sans qu'on le sente sur le coup.</text>
+
+<text x="40" y="386" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 84-09 — Souder à l'arc avec deux batteries d'auto.</text>
+<text x="40" y="404" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1 masse mordue sur le métal nu · 2 batteries par terre, du côté d'où vient le vent</text>
+<text x="40" y="420" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3 le + de la première au − de la seconde · 4 porte-électrode sur le + restant · 5 le vent</text>
+</svg>

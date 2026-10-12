@@ -1,0 +1,93 @@
+{
+  "ref": "61-04",
+  "chapitre": "CHAPITRE 61 — POURQUOI LA VIANDE POURRIT",
+  "titre": "Le carnet de conservation",
+  "consigne": "Une feuille par bête, au crayon. Le haut se remplit jusqu'à la découpe ; le tableau suit chaque pièce jusqu'au repas.",
+  "blocs": [
+    {
+      "type": "champs",
+      "titre": "La bête",
+      "sous": "l'heure de la mort s'écrit avant d'y toucher",
+      "colonnes": 2,
+      "champs": [
+        {
+          "label": "Espèce"
+        },
+        {
+          "label": "Date et heure de la mort"
+        },
+        {
+          "label": "Avant la découpe, au-dessus de 4 °C",
+          "unite": "h"
+        },
+        {
+          "label": "dont de 35 à 45 °C",
+          "unite": "h"
+        }
+      ]
+    },
+    {
+      "type": "cases",
+      "titre": "À cœur de cuisse",
+      "sous": "l'heure, les °C, et où était la sonde",
+      "cases": [
+        {
+          "titre": "Mort + 2 h",
+          "sous": "en descente franche"
+        },
+        {
+          "titre": "Mort + 8 h",
+          "sous": "sous 35 °C"
+        },
+        {
+          "titre": "Mort + 24 h",
+          "sous": "7 °C ou moins"
+        }
+      ]
+    },
+    {
+      "type": "tableau",
+      "titre": "Les pièces",
+      "sous": "une ligne par pièce ; ses traits s'ajoutent aux heures de la bête, le compteur ne redescend jamais",
+      "lignes": 14,
+      "colonnes": [
+        {
+          "titre": "Pièce",
+          "sous": "quartier, morceau",
+          "largeur": 84
+        },
+        {
+          "titre": "Poids avant",
+          "sous": "kg",
+          "largeur": 74
+        },
+        {
+          "titre": "Plus de 4 °C",
+          "sous": "traits depuis la découpe",
+          "largeur": 109
+        },
+        {
+          "titre": "Plus de 15,6 °C",
+          "sous": "un trait par heure",
+          "largeur": 90
+        },
+        {
+          "titre": "Filière",
+          "sous": "froid, gel, sel, fumée, séchage, conserve",
+          "largeur": 175
+        },
+        {
+          "titre": "Poids après",
+          "sous": "kg",
+          "largeur": 74
+        },
+        {
+          "titre": "Mangée le",
+          "sous": "date du repas",
+          "largeur": 66
+        }
+      ]
+    }
+  ],
+  "rappel": "Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence : ce sont les heures qui tranchent, pas le nez."
+}

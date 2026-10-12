@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="413" viewBox="0 0 680 413" role="img">
+<title>Planche 107-02 — Les trois joints en coupe</title>
+<desc>Trois joints coupés en travers, côte à côte. À gauche, une soudure bout à bout sur deux plats chanfreinés en V : le cordon remplit le V, et la ligne de fusion passe au-delà des bords d’origine des pièces, qui ont fondu avec l’apport ; le contour extérieur court sans interruption d’une pièce à l’autre par-dessus le cordon, c’est un seul morceau. Au centre, un brasage à recouvrement, fort ou tendre : deux plats superposés, un film d’apport mince dans un jeu serré, un petit congé à chaque bout ; chaque pièce garde son contour entier et ses arêtes vives. À droite, le même recouvrement raté : les pièces laissées écartées, un film d’apport épais qui remplit le vide au lieu d’être tiré par capillarité, et qui ne tient rien.</desc>
+<defs>
+<pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
+</defs>
+<rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
+<text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Soudure</text>
+<g transform="translate(40 46)" data-vue="soudure">
+<path d="M12,85.875 L49.6125,85.875 Q92.5,59.775 135.3875,85.875 L173,85.875 L173.0,85.9 L173.0,110.7 L169.0,115.9 L177.0,121.1 L173.0,126.3 L173.0,151.1 L99.5,151.125 Q92.5,166.785 85.5,151.125 L12,151.125 L12.0,151.1 L12.0,126.3 L16.0,121.1 L8.0,115.9 L12.0,110.7 L12.0,85.9 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M49.6,85.9 Q92.5,59.775 135.4,85.9 C131.8,105.5 103.5,128.3 99.5,151.1 Q92.5,166.785 85.5,151.1 C81.5,128.3 53.2,105.5 49.6,85.9 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M54.6 85.9 L90.5 142" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M130.4 85.9 L94.5 142" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M49.6,85.9 C53.2,105.5 81.5,128.3 85.5,151.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M135.4,85.9 C131.8,105.5 103.5,128.3 99.5,151.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M12,85.875 L49.6125,85.875 Q92.5,59.775 135.3875,85.875 L173,85.875" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M173,151.125 L99.5,151.125 Q92.5,166.785 85.5,151.125 L12,151.125" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="247.3" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Brasage, fort ou tendre</text>
+<g transform="translate(247.3 46)" data-vue="brasage">
+<path d="M12 167.3 L12 149.3 L16 145.5 L8 141.7 L12 138 L12 120 L133.2 120 L133.2 167.3 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M173 69.8 L173 87.7 L169 91.5 L177 95.3 L173 99 L173 117 L51.8 117 L51.8 69.8 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<rect x="51.8" y="117" width="81.4" height="3" fill="#1A1A1A" stroke="none"/>
+<path d="M44.8,120 Q50.54,118.74 51.8,110 L51.8,120 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M140.2,117 Q134.45999999999998,118.26 133.2,127 L133.2,117 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M12 120 L133.2 120 L133.2 167.3 L12 167.3" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M173 69.8 L51.8 69.8 L51.8 117 L173 117" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="454.7" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Brasage à gros jeu : raté</text>
+<g transform="translate(454.7 46)" data-vue="gros">
+<path d="M12 171.3 L12 153.3 L16 149.5 L8 145.7 L12 142 L12 124 L133.2 124 L133.2 171.3 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M173 65.8 L173 83.7 L169 87.5 L177 91.3 L173 95 L173 113 L51.8 113 L51.8 65.8 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<rect x="51.8" y="113" width="81.4" height="11" fill="#1A1A1A" stroke="none"/>
+<path d="M41.8,124 Q50,122.2 51.8,103 L51.8,124 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M143.2,113 Q135,114.8 133.2,134 L133.2,113 Z" fill="#1A1A1A" stroke="none"/>
+<path d="M12 124 L133.2 124 L133.2 171.3 L12 171.3" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M173 65.8 L51.8 65.8 L51.8 113 L173 113" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<line x1="73.4" y1="109.1" x2="116.1" y2="165.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="73.4" y1="109.1" x2="116.1" y2="165.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="116.1" cy="165.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="68" cy="101.9" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="soudure"/>
+<text x="68" y="105.9" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="192.2" y1="219.7" x2="155.2" y2="166.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="192.2" y1="219.7" x2="155.2" y2="166.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="155.2" cy="166.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="197.4" cy="227.1" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="soudure"/>
+<text x="197.4" y="231.1" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="373.1" y1="96.3" x2="351.8" y2="164.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="373.1" y1="96.3" x2="351.8" y2="164.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="351.8" cy="164.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="375.8" cy="87.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="brasage"/>
+<text x="375.8" y="91.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="276.4" y1="123" x2="299.1" y2="139.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="276.4" y1="123" x2="299.1" y2="139.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="299.1" cy="139.4" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="269.1" cy="117.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="brasage"/>
+<text x="269.1" y="121.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="580.6" y1="92.4" x2="559.2" y2="164.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="580.6" y1="92.4" x2="559.2" y2="164.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="559.2" cy="164.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="583.2" cy="83.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="gros"/>
+<text x="583.2" y="87.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<text x="40" y="302" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 107-02 — Les trois joints en coupe.</text>
+<text x="50" y="327" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="56" y="327" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">bord d’origine des pièces, fondu</text>
+<text x="50" y="344" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="56" y="344" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">ligne de fusion : un seul morceau</text>
+<text x="50" y="361" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="56" y="361" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">film d’apport mince, jeu serré</text>
+<text x="50" y="378" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="56" y="378" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">les pièces restent intactes, arêtes vives</text>
+<text x="50" y="395" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="56" y="395" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">joint de remplissage : il ne tient rien</text>
+</svg>

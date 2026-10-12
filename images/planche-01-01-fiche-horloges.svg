@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="900" viewBox="0 0 680 900" role="img">
+<title>Planche 01-01 — La fiche de relevé des quatre horloges</title>
+<desc>Gabarit vierge à recopier à la main sur une feuille, puis à coller à la porte du congélateur. La feuille est en trois bandes, une par vitesse d'horloge. Bande du haut, à remplir une seule fois : l'heure où le courant est tombé, le compte des têtes, les litres d'eau mis de côté. Bande du milieu : les quatre échéances qui tombent à heure fixe, imprimées en délai — plus 6 heures pour le tri du réfrigérateur, plus 24 heures pour un congélateur à demi rempli, plus 48 heures pour un congélateur plein, plus 8, 16 et 24 heures pour l'arrêt d'une heure de la génératrice — chacune suivie d'une case vide où écrire l'heure vraie calculée depuis l'heure 0. Bande du bas, la plus grande : un tableau de onze lignes, une par heure, avec les colonnes heure vraie, heures de panne, température de la pièce chauffée, écart avec l'heure précédente, température buccale, combustible brûlé, et ce qui a été fait. Un crayon dessiné sous la feuille donne l'échelle des lignes. Un filet rouge porte le rappel sur le monoxyde de carbone.</desc>
+
+<rect x="0" y="0" width="680" height="900" fill="#FFFFFF"/>
+
+<rect x="96" y="66" width="528" height="608" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+
+<line x1="96" y1="166" x2="624" y2="166" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="96" y1="276" x2="624" y2="276" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="96" y1="366" x2="624" y2="366" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<line x1="316" y1="124" x2="420" y2="124" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="488" y1="124" x2="522" y2="124" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="558" y1="124" x2="606" y2="124" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="342" y1="156" x2="420" y2="156" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="561" y1="156" x2="598" y2="156" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<line x1="96" y1="198" x2="624" y2="198" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="252" x2="624" y2="252" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="228" y1="198" x2="228" y2="276" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="360" y1="198" x2="360" y2="276" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="492" y1="198" x2="492" y2="276" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<line x1="96" y1="308" x2="624" y2="308" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="158" y1="308" x2="158" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="208" y1="308" x2="208" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="268" y1="308" x2="268" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="320" y1="308" x2="320" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="380" y1="308" x2="380" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="496" y1="308" x2="496" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="394" x2="624" y2="394" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="422" x2="624" y2="422" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="450" x2="624" y2="450" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="478" x2="624" y2="478" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="506" x2="624" y2="506" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="534" x2="624" y2="534" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="562" x2="624" y2="562" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="590" x2="624" y2="590" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="618" x2="624" y2="618" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="96" y1="646" x2="624" y2="646" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<path d="M496 682 L584 682 L616 691 L616 695 L584 704 L496 704 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<line x1="584" y1="682" x2="584" y2="704" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M616 691 L624 693 L616 695" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
+
+<line x1="71" y1="120" x2="96" y2="120" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="71" y1="220" x2="96" y2="220" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="294" y1="685" x2="294" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="438" y1="685" x2="438" y2="674" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<line x1="487" y1="694" x2="496" y2="694" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+
+<circle cx="62" cy="120" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="62" cy="220" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="294" cy="694" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="438" cy="694" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<circle cx="478" cy="694" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<text x="62" y="124" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<text x="62" y="224" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<text x="294" y="698" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<text x="438" y="698" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<text x="478" y="698" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+
+<text x="110" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">À l'heure 0, une seule fois — l'heure, les têtes, l'eau</text>
+<text x="110" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Heure où le courant est tombé :</text>
+<text x="434" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Têtes :</text>
+<text x="530" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">sur</text>
+<text x="110" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Retour annoncé (1 800 790-2424) :</text>
+<text x="434" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Eau mise de côté :</text>
+<text x="604" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">L</text>
+
+<text x="110" y="188" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Le froid déjà payé — ce qui tombe à heure fixe</text>
+<text x="162" y="218" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Frigo</text>
+<text x="162" y="234" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">tri obligatoire</text>
+<text x="162" y="250" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">+ 6 h</text>
+<text x="294" y="218" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Congélateur</text>
+<text x="294" y="234" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">à demi rempli</text>
+<text x="294" y="250" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">+ 24 h</text>
+<text x="426" y="218" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Congélateur</text>
+<text x="426" y="234" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">plein</text>
+<text x="426" y="250" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">+ 48 h</text>
+<text x="558" y="218" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Génératrice</text>
+<text x="558" y="234" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">arrêt d'une heure</text>
+<text x="558" y="250" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">+ 8 h, 16 h, 24 h</text>
+
+<text x="110" y="298" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Le corps et le combustible — chaque heure, une ligne</text>
+<text x="127" y="326" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Heure</text>
+<text x="127" y="342" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">vraie</text>
+<text x="183" y="326" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">h de</text>
+<text x="183" y="342" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">panne</text>
+<text x="238" y="326" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Pièce</text>
+<text x="238" y="342" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">°C</text>
+<text x="238" y="358" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">18 à 24</text>
+<text x="294" y="326" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Écart</text>
+<text x="294" y="342" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">°C</text>
+<text x="350" y="326" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Buccale</text>
+<text x="350" y="342" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">°C</text>
+<text x="350" y="358" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">35 ou +</text>
+<text x="438" y="326" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Bois, essence,</text>
+<text x="438" y="342" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">propane brûlés</text>
+<text x="560" y="334" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Ce qui a été fait</text>
+
+<rect x="96" y="718" width="528" height="56" fill="none" stroke="#9B2C1E" stroke-width="2"/>
+<text x="112" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — génératrice, chaufferette au propane, gril, moteur : dehors,</text>
+<text x="112" y="760" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">jamais dans un bâtiment, un garage ni sous un auvent, même entrouvert.</text>
+
+<text x="40" y="794" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 01-01 — La fiche de relevé des quatre horloges, à recopier.</text>
+<text x="40" y="818" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1 l'heure 0, écrite avant tout le reste · 2 les heures qui tombent, calculées tout de suite</text>
+<text x="40" y="836" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3 l'écart en °C avec l'heure d'avant : c'est la pente qui dit si la nuit est tenable</text>
+<text x="40" y="854" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 ce qui a brûlé en 24 h, multiplié, donne la semaine · 5 le crayon donne l'échelle</text>
+</svg>

@@ -1,0 +1,97 @@
+{
+  "ref": "01-01",
+  "chapitre": "CHAPITRE 1 — LES QUATRE HORLOGES",
+  "titre": "Fiche de relevé d'une panne",
+  "consigne": "Scotchée à la porte du congélateur, crayon attaché. Le haut se remplit une fois ; le tableau, une ligne par heure.",
+  "blocs": [
+    {
+      "type": "champs",
+      "titre": "À l'heure 0",
+      "sous": "une seule fois, avant de réfléchir",
+      "colonnes": 2,
+      "champs": [
+        {
+          "label": "Heure où le courant est tombé"
+        },
+        {
+          "label": "Têtes",
+          "forme": "x-sur-y"
+        },
+        {
+          "label": "Retour annoncé (1 800 790-2424)"
+        },
+        {
+          "label": "Eau mise de côté",
+          "unite": "L",
+          "court": true
+        }
+      ]
+    },
+    {
+      "type": "cases",
+      "titre": "Le froid déjà payé",
+      "sous": "écrire l'heure où chacun tombe",
+      "cases": [
+        {
+          "titre": "Frigo",
+          "sous": "trier à + 6 h"
+        },
+        {
+          "titre": "Congélateur à demi",
+          "sous": "tient + 24 h"
+        },
+        {
+          "titre": "Congélateur plein",
+          "sous": "tient + 48 h"
+        },
+        {
+          "titre": "Génératrice",
+          "sous": "1 h d'arrêt toutes les 8 h"
+        }
+      ]
+    },
+    {
+      "type": "tableau",
+      "titre": "Le corps et le combustible",
+      "sous": "une ligne par heure",
+      "lignes": 14,
+      "colonnes": [
+        {
+          "titre": "Heure",
+          "sous": "vraie",
+          "largeur": 0.8
+        },
+        {
+          "titre": "Heures",
+          "sous": "de panne",
+          "largeur": 0.8
+        },
+        {
+          "titre": "Pièce",
+          "sous": "°C · 18 à 24",
+          "largeur": 0.9
+        },
+        {
+          "titre": "Écart",
+          "sous": "°C depuis h 0",
+          "largeur": 0.9
+        },
+        {
+          "titre": "Buccale",
+          "sous": "°C · 35 ou plus",
+          "largeur": 0.9
+        },
+        {
+          "titre": "Brûlé",
+          "sous": "bois, essence, propane",
+          "largeur": 1.5
+        },
+        {
+          "titre": "Ce qui a été fait",
+          "largeur": 2.4
+        }
+      ]
+    }
+  ],
+  "rappel": "Génératrice, chaufferette au propane, gril, moteur : dehors. Jamais dans un bâtiment, un garage ni sous un auvent, même entrouvert."
+}

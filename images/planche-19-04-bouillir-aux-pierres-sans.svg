@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="413" viewBox="0 0 680 413" role="img">
+<title>Planche 19-04 — Bouillir aux pierres, sans chaudron</title>
+<desc>Coupe d’une fosse doublée d’une peau fraîche et pleine d’eau, avec un feu allumé à l’écart. Une main tient deux bâtons verts en pince et lâche une pierre chaude dans l’eau ; une pierre refroidie est ressortie sur le bord. Le feu ne touche jamais la peau.</desc>
+<defs>
+<pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
+<pattern id="h-gravier" width="10" height="9" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.7" fill="none" stroke="#1A1A1A" stroke-width="0.5"/><circle cx="7.5" cy="7" r="1.3" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
+<pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
+<pattern id="h-pierre" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M1 3 L5 1 L9 3 L8 7 L3 8 Z M10 9 L13 7" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
+<g transform="translate(40 24)" data-vue="coupe">
+<path d="M0,115 L270.0,115 C276.0,194.2 316.2,214.0 375.0,214.0 C433.8,214.0 474.0,194.2 480.0,115.0 L600,115 L600,230 L0,230 Z" fill="url(#h-terre)" stroke="none"/>
+<path d="M0,115 L270.0,115 C276.0,194.2 316.2,214.0 375.0,214.0 C433.8,214.0 474.0,194.2 480.0,115.0 L600,115" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M278.7 135 L278.7 139.6 L280.1 145.4 L281.6 151 L283.3 156.2 L285.2 161.1 L287.3 165.7 L289.6 170.1 L292 174.1 L294.7 177.9 L297.5 181.4 L300.5 184.6 L303.6 187.6 L307 190.4 L310.5 192.9 L314.1 195.2 L317.9 197.3 L321.9 199.2 L326 200.8 L330.3 202.3 L334.7 203.6 L339.3 204.7 L344 205.6 L348.8 206.4 L353.8 207 L358.9 207.4 L364.2 207.8 L369.5 207.9 L375 208 L375 208 L380.5 207.9 L385.8 207.8 L391.1 207.4 L396.2 207 L401.2 206.4 L406 205.6 L410.7 204.7 L415.3 203.6 L419.7 202.3 L424 200.8 L428.1 199.2 L432.1 197.3 L435.9 195.2 L439.5 192.9 L443 190.4 L446.4 187.6 L449.5 184.6 L452.5 181.4 L455.3 177.9 L458 174.1 L460.4 170.1 L462.7 165.7 L464.8 161.1 L466.7 156.2 L468.4 151 L469.9 145.4 L471.3 139.6 L471.3 135 Z" fill="url(#h-eau)" stroke="none"/>
+<line x1="278.7" y1="135" x2="471.3" y2="135" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M423.0,195.0 Q425.2,199.3 419.8,202.0 Q414.3,204.8 407.5,205.0 Q400.7,205.2 398.1,201.3 Q395.6,197.3 395.8,192.8 Q396.0,188.2 403.1,187.2 Q410.2,186.1 415.5,188.5 Q420.8,190.8 423.0,195.0 Z" fill="#FFFFFF" stroke="none"/><path d="M423.0,195.0 Q425.2,199.3 419.8,202.0 Q414.3,204.8 407.5,205.0 Q400.7,205.2 398.1,201.3 Q395.6,197.3 395.8,192.8 Q396.0,188.2 403.1,187.2 Q410.2,186.1 415.5,188.5 Q420.8,190.8 423.0,195.0 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M364.7,202.4 Q361.4,205.9 355.6,205.6 Q349.8,205.2 347.0,202.1 Q344.1,199.0 344.0,194.9 Q343.9,190.9 349.3,189.4 Q354.7,187.8 359.5,189.6 Q364.2,191.5 366.1,195.2 Q368.0,198.9 364.7,202.4 Z" fill="#FFFFFF" stroke="none"/><path d="M364.7,202.4 Q361.4,205.9 355.6,205.6 Q349.8,205.2 347.0,202.1 Q344.1,199.0 344.0,194.9 Q343.9,190.9 349.3,189.4 Q354.7,187.8 359.5,189.6 Q364.2,191.5 366.1,195.2 Q368.0,198.9 364.7,202.4 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="405" cy="174" r="2.6" fill="#fff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="411" cy="158" r="2" fill="#fff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="403" cy="144" r="2.8" fill="#fff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="410" cy="147" r="2.2" fill="#fff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="357" cy="178" r="2" fill="#fff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="351" cy="162" r="2.4" fill="#fff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M275.8,131.5 L272.6,133.5 M277.7,141.9 L274.6,144.1 M280.1,151.4 L277.2,153.9 M283.1,160.1 L280.5,162.8 M286.7,167.9 L284.3,170.9 M290.8,174.9 L288.7,178.1 M295.4,181.2 L293.6,184.6 M300.5,186.8 L299.1,190.3 M306.1,191.6 L305.1,195.3 M312.1,195.8 L311.6,199.5 M318.6,199.3 L318.5,203.1 M325.5,202.2 L325.7,206.0 M332.8,204.6 L333.4,208.4 M340.5,206.5 L341.3,210.2 M348.6,207.9 L349.7,211.5 M357.1,208.8 L358.3,212.4 M365.9,209.3 L367.3,212.9 M384.1,209.3 L385.8,212.8 M392.9,208.8 L394.7,212.1 M401.4,207.9 L403.4,211.1 M409.5,206.5 L411.7,209.6 M417.2,204.6 L419.6,207.6 M424.5,202.2 L427.2,205.0 M431.4,199.3 L434.3,201.8 M437.9,195.8 L441.0,197.9 M444.0,191.6 L447.3,193.4 M449.6,186.7 L453.1,188.2 M454.7,181.2 L458.3,182.2 M459.3,174.9 L463.0,175.5 M463.3,167.9 L467.1,168.1 M466.9,160.0 L470.7,159.9 M469.9,151.4 L473.7,150.9 M472.3,141.9 L476.1,141.1 M474.2,131.5 L477.9,130.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M276.0,120.0 C282.0,190.4 319.6,208.0 375.0,208.0 C430.4,208.0 468.0,190.4 474.0,120.0" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M230.0,112.0 L268.0,112.0 Q276.0,112.0 276.0,120.0" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M474.0,120.0 Q474.0,112.0 482.0,112.0 L520.0,112.0" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M241 103 L247 103 L247 127 L244 134 L241 127 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M503 103 L509 103 L509 127 L506 134 L503 127 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M413.0,129.0 C405.0,117.0 421.0,107.0 413.0,95.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M435.0,129.0 C427.0,117.0 443.0,107.0 435.0,89.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M554.9,104.1 Q556.7,107.8 552.4,110.5 Q548.2,113.2 542.5,113.0 Q536.8,112.9 532.1,110.6 Q527.5,108.2 529.4,104.7 Q531.2,101.1 536.5,100.0 Q541.7,98.8 547.4,99.6 Q553.0,100.4 554.9,104.1 Z" fill="#FFFFFF" stroke="none"/><path d="M554.9,104.1 Q556.7,107.8 552.4,110.5 Q548.2,113.2 542.5,113.0 Q536.8,112.9 532.1,110.6 Q527.5,108.2 529.4,104.7 Q531.2,101.1 536.5,100.0 Q541.7,98.8 547.4,99.6 Q553.0,100.4 554.9,104.1 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M573.0,112.9 Q569.9,114.9 565.8,113.7 Q561.7,112.5 559.5,110.1 Q557.3,107.6 560.1,105.5 Q562.9,103.4 567.0,102.2 Q571.1,101.0 574.1,103.3 Q577.1,105.6 576.6,108.2 Q576.1,110.8 573.0,112.9 Z" fill="#FFFFFF" stroke="none"/><path d="M573.0,112.9 Q569.9,114.9 565.8,113.7 Q561.7,112.5 559.5,110.1 Q557.3,107.6 560.1,105.5 Q562.9,103.4 567.0,102.2 Q571.1,101.0 574.1,103.3 Q577.1,105.6 576.6,108.2 Q576.1,110.8 573.0,112.9 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M457.0,127.0 C471.0,59.0 524.0,55.0 540.0,91.0" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5" marker-end="url(#fl)"/>
+<path d="M70.0,91.0 C68.0,62.2 84.4,52.6 87.0,27.0 C93.5,55.8 99.0,65.4 96.0,91.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M113.0,93.0 C111.0,68.7 118.6,60.6 121.0,39.0 C127.0,63.3 140.0,71.4 137.0,93.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M74.4,91.8 Q75.2,96.3 69.7,98.3 Q64.2,100.3 58.3,99.7 Q52.4,99.0 51.2,94.8 Q50.0,90.5 51.5,86.1 Q52.9,81.7 59.3,81.6 Q65.7,81.5 69.6,84.4 Q73.6,87.4 74.4,91.8 Z" fill="#FFFFFF" stroke="none"/><path d="M74.4,91.8 Q75.2,96.3 69.7,98.3 Q64.2,100.3 58.3,99.7 Q52.4,99.0 51.2,94.8 Q50.0,90.5 51.5,86.1 Q52.9,81.7 59.3,81.6 Q65.7,81.5 69.6,84.4 Q73.6,87.4 74.4,91.8 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M118.5,84.5 Q120.7,89.4 115.8,93.0 Q111.0,96.6 104.7,96.2 Q98.4,95.7 93.0,92.9 Q87.5,90.0 89.5,85.1 Q91.5,80.3 97.6,78.5 Q103.6,76.7 110.0,78.2 Q116.4,79.7 118.5,84.5 Z" fill="#FFFFFF" stroke="none"/><path d="M118.5,84.5 Q120.7,89.4 115.8,93.0 Q111.0,96.6 104.7,96.2 Q98.4,95.7 93.0,92.9 Q87.5,90.0 89.5,85.1 Q91.5,80.3 97.6,78.5 Q103.6,76.7 110.0,78.2 Q116.4,79.7 118.5,84.5 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M154.0,96.7 Q151.6,100.4 145.9,100.2 Q140.2,100.0 135.9,97.6 Q131.5,95.2 132.4,91.3 Q133.3,87.3 137.8,84.6 Q142.3,81.9 147.3,83.9 Q152.4,85.9 154.5,89.4 Q156.5,92.9 154.0,96.7 Z" fill="#FFFFFF" stroke="none"/><path d="M154.0,96.7 Q151.6,100.4 145.9,100.2 Q140.2,100.0 135.9,97.6 Q131.5,95.2 132.4,91.3 Q133.3,87.3 137.8,84.6 Q142.3,81.9 147.3,83.9 Q152.4,85.9 154.5,89.4 Q156.5,92.9 154.0,96.7 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M14.0,115 Q32.0,99 72.0,95 Q102.0,91 132.0,95 Q172.0,99 190.0,115 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M14.0,115 Q32.0,99 72.0,95 Q102.0,91 132.0,95 Q172.0,99 190.0,115 Z" fill="url(#h-gravier)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<circle cx="32" cy="104" r="11" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="32" cy="104" r="6.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="32" cy="104" r="3.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="174" cy="105" r="10" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="174" cy="105" r="6.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="174" cy="105" r="2.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M196.8,50.0 L353.0,86.4 L352.9,90.5 L195.7,53.9 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M195.1,55.8 L347.3,109.7 L345.2,113.3 L194.0,59.6 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M363.2,103.1 Q362.2,106.8 357.4,107.9 Q352.7,109.1 348.8,107.3 Q345.0,105.6 343.2,102.2 Q341.4,98.8 345.0,96.2 Q348.6,93.6 353.0,94.1 Q357.4,94.6 360.8,97.0 Q364.3,99.3 363.2,103.1 Z" fill="#FFFFFF" stroke="none"/><path d="M363.2,103.1 Q362.2,106.8 357.4,107.9 Q352.7,109.1 348.8,107.3 Q345.0,105.6 343.2,102.2 Q341.4,98.8 345.0,96.2 Q348.6,93.6 353.0,94.1 Q357.4,94.6 360.8,97.0 Q364.3,99.3 363.2,103.1 Z" fill="url(#h-pierre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M353.0,113.0 L353.0,132.0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M232.2 43.6 L214.7 13 L216 12.3 L212 0 L177.5 0 L196.4 27.7 L197.7 27 L215.2 57.6 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M232.2 43.6 L214.7 13" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M215.2 57.6 L197.7 27" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M214.7 13 L216 12.3 L212 0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M197.7 27 L196.4 27.7 L177.5 0" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M216 12.3 L196.4 27.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M217.3,47.7 C225.7,43.9 239.1,47.9 245.0,52.7 Q251.1,56.6 248.5,62.1 Q250.5,65.8 247.5,69.1 Q249.5,72.8 245.5,75.8 Q246.3,80.2 240.7,81.7 C232.8,83.5 217.2,80.0 210.9,72.9 C208.5,67.0 212.4,53.6 217.3,47.7 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M248.5,62.1 L241.8,60.1 M247.5,69.1 L239.8,66.8 M245.5,75.8 L238.1,72.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M220.3,51.7 C228.5,52.0 237.1,54.6 242.0,59.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<line x1="540" y1="235.2" x2="504.8" y2="194.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="540" y1="235.2" x2="504.8" y2="194.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="504.8" cy="194.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="545.8" cy="242" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="545.8" y="246" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="61.9" y1="164.7" x2="122" y2="132" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="61.9" y1="164.7" x2="122" y2="132" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="122" cy="132" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="54" cy="169" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="54" y="173" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="69" y1="74.5" x2="91" y2="107" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="69" y1="74.5" x2="91" y2="107" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="91" cy="107" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="64" cy="67" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="64" y="71" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="351.9" y1="74.9" x2="340.2" y2="96.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="351.9" y1="74.9" x2="340.2" y2="96.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="340.2" cy="96.9" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="356.2" cy="66.9" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="356.2" y="70.9" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="417.5" y1="94.1" x2="400" y2="117" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="417.5" y1="94.1" x2="400" y2="117" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="400" cy="117" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="423" cy="87" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="423" y="91" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<line x1="593.4" y1="95.6" x2="586" y2="120" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="593.4" y1="95.6" x2="586" y2="120" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="586" cy="120" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="596" cy="87" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="596" y="91" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<text x="40" y="285" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 19-04 — Bouillir aux pierres, sans chaudron.</text>
+<text x="50" y="310" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="56" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">fosse doublée d’une peau fraîche</text>
+<text x="50" y="327" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="56" y="327" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">brasier à l’écart du contenant</text>
+<text x="50" y="344" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="56" y="344" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">pierre sèche, dense, ramassée en hauteur</text>
+<text x="50" y="361" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="56" y="361" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">pince de deux bâtons verts</text>
+<text x="50" y="378" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="56" y="378" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">pierre chaude lâchée dans l’eau</text>
+<text x="50" y="395" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
+<text x="56" y="395" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">pierre refroidie, ressortie et remplacée</text>
+</svg>

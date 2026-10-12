@@ -1,0 +1,32 @@
+{
+  "titre": "Planches — Le Grand Livre du Chalet",
+  "colonnes": 3,
+  "groupes": [
+    {
+      "id": "refaire",
+      "titre": "À refaire",
+      "planches": [
+        { "svg": "images/planche-65-01-fumoir-froid.svg", "ref": "65-01", "nom": "Le fumoir à froid",
+          "note": "À REFAIRE — une tranchée en coupe, c'est deux traits et une hachure : ça ne dit pas « fumoir »." },
+        { "svg": "images/planche-13-01-trois-temps-eau.svg", "ref": "13-01", "nom": "Décanter, filtrer, désinfecter",
+          "note": "À AMPUTER — la bande du bas est une donnée, et la légende fait onze renvois." },
+        { "svg": "images/planche-15-01-conduit-traversee.svg", "ref": "15-01", "nom": "Le conduit et sa traversée",
+          "note": "À REFAIRE — rien n'y est reconnaissable : ni poêle, ni mur, ni conduit." }
+      ]
+    },
+    {
+      "id": "pretes",
+      "titre": "Prêtes",
+      "planches": [
+        { "svg": "images/planche-84-09-soudage-batteries.svg", "ref": "84-09", "nom": "Souder avec deux batteries",
+          "note": "Montage. Une topologie : quoi se relie à quoi, et dans quel ordre." },
+        { "svg": "images/planche-86-01-mouflage.svg", "ref": "86-01", "nom": "Le mouflage",
+          "note": "Montage. Décrire un palan à quatre brins en mots prend un paragraphe illisible." },
+        { "svg": "images/planche-82-01-angle-affutage.svg", "ref": "82-01", "nom": "L'angle d'affûtage",
+          "note": "Séquence. Une forme que l'œil doit reconnaître et égaler." },
+        { "svg": "images/planche-01-01-fiche-horloges.svg", "ref": "01-01", "nom": "Fiche des quatre horloges",
+          "note": "Gabarit. Un formulaire vierge ne se décrit pas, il se recopie." }
+      ]
+    }
+  ]
+}

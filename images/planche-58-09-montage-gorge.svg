@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
+<title>Planche 58-09 — Le montage en gorge</title>
+<desc>Un éclat d’os aiguisé aux deux bouts, la ligne nouée en son milieu, couché dans l’axe d’un petit poisson servant d’appât. La truite l’avale en long ; à la traction, la pièce pivote en travers de la gorge et ses deux pointes se plantent.</desc>
+<defs>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
+<text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La pièce</text>
+<g transform="translate(40 46)" data-vue="piece">
+<g transform="translate(0 10)">
+<path d="M 22 60 C 60 50 90 49 115 50 C 145 49 175 52 209 60 C 175 68 145 71 115 70 C 90 71 60 69 22 60 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 22 60 C 60 50 90 49 115 50 C 145 49 175 52 209 60 C 175 68 145 71 115 70 C 90 71 60 69 22 60 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 48 54 Q 45 60 48 66" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 183 55 Q 186 60 183 65" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 62 57 L 96 55.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 132 64.5 L 166 63.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="110" y1="48" x2="113" y2="72" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="114" y1="48" x2="117" y2="72" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="118" y1="48" x2="121" y2="72" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="116" cy="46" r="3" fill="#1A1A1A" stroke="none"/>
+<path d="M 116 44 C 122 24 170 18 226 14" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<text x="293.2" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Dans l’appât</text>
+<g transform="translate(293.2 46)" data-vue="appat">
+<g transform="translate(0 12)">
+<path d="M 40 55 C 48 39 72 35 100 35 C 170 37 230 45 260 49 L 292 41 L 282 55 L 292 69 L 260 61 C 230 65 170 73 100 75 C 72 75 48 71 40 55 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 72 39 Q 80 55 72 71" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 130 36 L 142 26 L 162 38" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="56" cy="51" r="3.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="56.5" cy="51" r="1.5" fill="#1A1A1A" stroke="none"/>
+<path d="M 96 55 Q 160 41 224 55 Q 160 69 96 55 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<circle cx="160" cy="55" r="2.5" fill="#1A1A1A" stroke="none"/>
+<path d="M 160 55 L 282 55" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
+<path d="M 282 55 C 305 55 322 50 342 40" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<text x="40" y="209.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Avalé</text>
+<g transform="translate(40 217.8)" data-vue="avale">
+<path d="M 562 96 C 536 62 470 44 390 42 C 300 40 190 56 104 84 L 62 52 Q 84 100 62 148 L 104 114 C 190 140 300 162 390 160 C 470 158 530 134 556 108" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 352 42 C 342 30 334 20 326 16 L 296 22 L 290 46" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 164 66 Q 152 52 142 72" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 200 139 L 188 160 L 168 152 L 172 132" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 300 156 L 286 174 L 272 152" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 476 54 C 450 86 450 120 476 148" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="512" cy="80" r="8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="513" cy="80" r="3.5" fill="#1A1A1A" stroke="none"/>
+<path d="M 562 96 C 520 92 420 86 310 86 C 280 86 280 116 310 116 C 420 116 520 110 556 108 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 562 96 C 520 92 420 86 310 86 C 280 86 280 116 310 116 C 420 116 520 110 556 108" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 330 100 C 334.8 90.4 349.2 88 366 88 C 408 89.2 444 94 462 96.4 L 479 93 L 474 100 L 479 107 L 462 103.6 C 444 106 408 110.8 366 112 C 349.2 112 334.8 109.6 330 100 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 354 90 Q 359 100 354 110" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="340" cy="98" r="2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 355 100 Q 400 92 445 100 Q 400 108 355 100 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 355 100 Q 400 92 445 100 Q 400 108 355 100 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="400" cy="100" r="2.6" fill="#1A1A1A" stroke="none"/>
+<path d="M 400 100 L 474 100 C 510 100 540 102 559 102 C 575 103 588 112 598 126" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="40" y="456.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Tiré</text>
+<g transform="translate(40 464.4)" data-vue="tire">
+<path d="M 562 96 C 536 62 470 44 390 42 C 300 40 190 56 104 84 L 62 52 Q 84 100 62 148 L 104 114 C 190 140 300 162 390 160 C 470 158 530 134 556 108" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 352 42 C 342 30 334 20 326 16 L 296 22 L 290 46" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 164 66 Q 152 52 142 72" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 200 139 L 188 160 L 168 152 L 172 132" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 300 156 L 286 174 L 272 152" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 476 54 C 450 86 450 120 476 148" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="512" cy="80" r="8" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="513" cy="80" r="3.5" fill="#1A1A1A" stroke="none"/>
+<path d="M 562 96 C 520 92 420 86 310 86 C 280 86 280 116 310 116 C 420 116 520 110 556 108 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 562 96 C 520 92 420 86 310 86 C 280 86 280 116 310 116 C 420 116 520 110 556 108" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 330 100 C 334.8 90.4 349.2 88 366 88 C 408 89.2 444 94 462 96.4 L 479 93 L 474 100 L 479 107 L 462 103.6 C 444 106 408 110.8 366 112 C 349.2 112 334.8 109.6 330 100 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 354 90 Q 359 100 354 110" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="340" cy="98" r="2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 400 100 L 474 100 C 510 100 540 102 559 102 L 598 102" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 390 56 Q 407.8 98.2 410 144 Q 392.2 101.8 390 56 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 390 56 Q 407.8 98.2 410 144 Q 392.2 101.8 390 56 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="400" cy="100" r="2.6" fill="#1A1A1A" stroke="none"/>
+<path d="M 566 118 L 596 118" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+</g>
+<line x1="71" y1="86.9" x2="74" y2="113" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="71" y1="86.9" x2="74" y2="113" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="74" cy="113" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="70" cy="78" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="piece"/>
+<text x="70" y="82" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="184.6" y1="144.9" x2="160" y2="128" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="184.6" y1="144.9" x2="160" y2="128" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="160" cy="128" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="192" cy="150" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="piece"/>
+<text x="192" y="154" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="490.6" y1="143.4" x2="483.2" y2="118.5" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="490.6" y1="143.4" x2="483.2" y2="118.5" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="483.2" cy="118.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="493.2" cy="152" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="appat"/>
+<text x="493.2" y="156" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="506" y1="241.9" x2="470" y2="315.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="506" y1="241.9" x2="470" y2="315.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="470" cy="315.6" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="510" cy="233.8" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="avale"/>
+<text x="510" y="237.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="415.5" y1="486.7" x2="430.5" y2="522.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="415.5" y1="486.7" x2="430.5" y2="522.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="430.5" cy="522.4" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="412" cy="478.4" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tire"/>
+<text x="412" y="482.4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<line x1="421.5" y1="643.2" x2="449.5" y2="606.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="421.5" y1="643.2" x2="449.5" y2="606.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="449.5" cy="606.4" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="416" cy="650.4" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="tire"/>
+<text x="416" y="654.4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<text x="40" y="698" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 58-09 — Le montage en gorge.</text>
+<text x="50" y="723" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="56" y="723" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">éclat d’os aiguisé aux deux bouts</text>
+<text x="50" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="56" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">ligne nouée en son milieu</text>
+<text x="50" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="56" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">couché dans l’appât, dans l’axe</text>
+<text x="50" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="56" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">le poisson l’avale en long</text>
+<text x="50" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="56" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">la traction met la pièce en travers</text>
+<text x="50" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
+<text x="56" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">plantée, elle ne ressort plus</text>
+</svg>

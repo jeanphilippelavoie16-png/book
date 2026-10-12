@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="413" viewBox="0 0 680 413" role="img">
+<title>Planche 105-01 — Le fil d’un couteau, en coupe.</title>
+<desc>Cinq coupes très agrandies de la zone du fil d’une lame de couteau, même échelle, même cadrage, le fil vers le bas ; le dos est hors du dessin, au-delà de la ligne de rupture. 1, neuf : les deux faces du biseau se rejoignent en une arête vive. 2, usé : l’arête est devenue un arrondi, le fil neuf est rappelé en pointillé ; retour au grain grossier jusqu’au morfil. 3, replié : toute la pointe est couchée sur le côté ; on la redresse au fusil. 4, écaillé : un éclat en coquille est arraché à une face, la pointe manque, la cassure est en creux et en angles, le fil neuf est rappelé en pointillé ; on ouvre l’angle, et si ça persiste on recule jusqu’à l’acier sain. 5, morfil : le biseau est formé et une pellicule mince, trop mince pour être hachurée, part de l’apex vers le côté ; c’est la preuve que l’apex est atteint, et on l’enlève au cuir. En bas à droite, le couteau entier de profil, avec le plan de coupe marqué au travers de la lame et un petit cercle sur le fil, là où les coupes sont prises.</desc>
+<defs>
+<pattern id="acier" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<path d="M5 0 L5 10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+</pattern>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
+
+<!-- couche 1 : les cinq coupes du fil ; la forme porte sa hachure, le contour la borde -->
+<g transform="translate(100 0)">
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46 L 26 148 L 0 226 L -26 148 Z" fill="url(#acier)" stroke="none"/>
+<path d="M 30 46 L 26 148 L 0 226 L -26 148 L -30 46" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="miter" stroke-miterlimit="10"/>
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+</g>
+<g transform="translate(220 0)">
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46 L 26 148 L 8.54 200.39 A 9 9 0 0 1 -8.54 200.39 L -26 148 Z" fill="url(#acier)" stroke="none"/>
+<path d="M 30 46 L 26 148 L 8.54 200.39 A 9 9 0 0 1 -8.54 200.39 L -26 148 L -30 46" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="miter" stroke-miterlimit="10"/>
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+<path d="M 8.54 200.39 L 0 226 L -8.54 200.39" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+</g>
+<g transform="translate(340 0)">
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46 L 26 148 L 12 190 L 11.52 190.83 L 11.1 191.72 L 10.73 192.65 L 10.43 193.64 L 10.18 194.67 L 10.01 195.74 L 9.91 196.85 L 9.89 197.98 L 9.95 199.14 L 10.09 200.32 L 10.32 201.52 L 10.63 202.72 L 11.03 203.92 L 11.52 205.12 L 12.1 206.3 L 12.78 207.47 L 13.54 208.62 L 14.39 209.73 L 15.33 210.81 L 16.36 211.84 L 17.48 212.82 L 18.68 213.74 L 19.95 214.6 L 21.31 215.39 L 19.72 215.57 L 18.1 215.66 L 16.45 215.64 L 14.78 215.51 L 13.09 215.27 L 11.39 214.93 L 9.69 214.47 L 8 213.89 L 6.32 213.2 L 4.66 212.39 L 3.03 211.47 L 1.44 210.43 L -0.11 209.28 L -1.61 208.01 L -3.04 206.64 L -4.41 205.16 L -5.7 203.58 L -6.9 201.9 L -8.02 200.12 L -9.04 198.25 L -9.95 196.3 L -10.75 194.27 L -11.44 192.17 L -12 190 L -26 148 Z" fill="url(#acier)" stroke="none"/>
+<path d="M 30 46 L 26 148 L 12 190 L 11.52 190.83 L 11.1 191.72 L 10.73 192.65 L 10.43 193.64 L 10.18 194.67 L 10.01 195.74 L 9.91 196.85 L 9.89 197.98 L 9.95 199.14 L 10.09 200.32 L 10.32 201.52 L 10.63 202.72 L 11.03 203.92 L 11.52 205.12 L 12.1 206.3 L 12.78 207.47 L 13.54 208.62 L 14.39 209.73 L 15.33 210.81 L 16.36 211.84 L 17.48 212.82 L 18.68 213.74 L 19.95 214.6 L 21.31 215.39 L 19.72 215.57 L 18.1 215.66 L 16.45 215.64 L 14.78 215.51 L 13.09 215.27 L 11.39 214.93 L 9.69 214.47 L 8 213.89 L 6.32 213.2 L 4.66 212.39 L 3.03 211.47 L 1.44 210.43 L -0.11 209.28 L -1.61 208.01 L -3.04 206.64 L -4.41 205.16 L -5.7 203.58 L -6.9 201.9 L -8.02 200.12 L -9.04 198.25 L -9.95 196.3 L -10.75 194.27 L -11.44 192.17 L -12 190 L -26 148 L -30 46" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="miter" stroke-miterlimit="10"/>
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+</g>
+<g transform="translate(460 0)">
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46 L 26 148 L 6.67 206 L 5.21 199.43 L 5.55 192.42 L -0.01 190.49 L -0.54 183.68 L -7.43 182.3 L -10.75 178.14 L -16.67 176 L -26 148 Z" fill="url(#acier)" stroke="none"/>
+<path d="M 30 46 L 26 148 L 6.67 206 L 5.21 199.43 L 5.55 192.42 L -0.01 190.49 L -0.54 183.68 L -7.43 182.3 L -10.75 178.14 L -16.67 176 L -26 148 L -30 46" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="miter" stroke-miterlimit="10"/>
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+<path d="M 6.67 206 L 0 226 L -16.67 176" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+</g>
+<g transform="translate(580 0)">
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46 L 26 148 L 0 226 L -26 148 Z" fill="url(#acier)" stroke="none"/>
+<path d="M 30 46 L 26 148 L 0 226 L -26 148 L -30 46" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="miter" stroke-miterlimit="10"/>
+<path d="M 0 226 L 0.06 227.25 L 0.23 228.49 L 0.52 229.7 L 0.92 230.89 L 1.42 232.03 L 2.03 233.12 L 2.74 234.15 L 3.54 235.11 L 4.43 235.99 L 5.39 236.78 L 6.42 237.49 L 7.52 238.09 L 8.66 238.59 L 9.85 238.98 L 11.07 239.26 L 12.31 239.43" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M -30 46 C -20 40 -9 40 0 46 C 9 52 20 52 30 46" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+</g>
+
+<!-- couche 2 : un renvoi sous chaque coupe -->
+<circle cx="100" cy="262" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="100" y="266" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<circle cx="220" cy="262" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="220" y="266" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<circle cx="340" cy="262" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="340" y="266" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<circle cx="460" cy="262" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="460" y="266" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<circle cx="580" cy="262" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="580" y="266" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+
+<!-- couche 3 : le couteau entier, de profil ; il dit ce qu'on regarde et à quelle échelle -->
+<path d="M 470 308 L 394 308 C 386 308 382 313 382 319.5 C 382 326 386 331 394 331 L 470 331" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M 470 302 L 477 302 L 477 338 L 470 338 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M 477 308 L 598 308 C 616 309 631 312 642 316 C 624 329 600 337 566 337 L 477 337" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M 481 331 L 566 331 C 596 331 619 325 635 318.5" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="403" cy="319.5" r="2.2" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="426" cy="319.5" r="2.2" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="449" cy="319.5" r="2.2" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<!-- plan de coupe : trait d'axe, bouts forts, flèches qui disent d'où on regarde -->
+<line x1="548" y1="299" x2="548" y2="346" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="9 2.5 1.5 2.5"/>
+<line x1="548" y1="290" x2="548" y2="299" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<line x1="548" y1="346" x2="548" y2="355" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M 548 290 L 534 290" fill="none" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#fl)"/>
+<path d="M 548 355 L 534 355" fill="none" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#fl)"/>
+<circle cx="548" cy="337" r="7" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<!-- couche 4 : pied de planche et légende, un renvoi par ligne -->
+<text x="40" y="298" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 105-01 — Le fil d’un couteau, en coupe.</text>
+<text x="40" y="314" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="56" y="314" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">neuf : deux faces qui se rejoignent</text>
+<text x="40" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="56" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">usé, arrondi : retour au grain grossier</text>
+<text x="40" y="346" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="56" y="346" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">replié sur le côté : redresser au fusil</text>
+<text x="40" y="362" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="56" y="362" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">écaillé : reprendre à angle plus ouvert</text>
+<text x="40" y="378" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="56" y="378" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">morfil : bon signe, finir au cuir</text>
+</svg>

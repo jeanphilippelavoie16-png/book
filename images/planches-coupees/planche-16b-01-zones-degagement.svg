@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="900" viewBox="0 0 680 900" role="img">
+<title>Planche 16b-01 — Les trois zones de dégagement autour du bâtiment</title>
+<desc>Vue de dessus. Le bâtiment et sa galerie au centre, entourés de trois limites de dégagement mesurées depuis le bâtiment, galerie comprise : 1,5 m, 10 m et 30 m. La bande de 0 à 1,5 m est dégagée jusqu'au sol minéral ; celle de 1,5 à 10 m garde ses arbres mais ne reçoit aucun entreposage ; la corde de bois et la bouteille de propane sont au-delà de 10 m, la bouteille avec 3 m de végétation dégagée tout autour. Entre 10 et 30 m, les conifères sont éclaircis. En bas, un détail vu de côté : deux conifères dont les branches sont coupées jusqu'à 2 m du sol et dont les cimes sont séparées de 3 m.</desc>
+
+<rect x="0" y="0" width="680" height="900" fill="#FFFFFF"/>
+
+<rect x="112" y="57" width="456" height="436" rx="195" ry="195" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="242" y="187" width="196" height="176" rx="65" ry="65" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="297.25" y="242.25" width="85.5" height="65.5" rx="9.75" ry="9.75" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<circle cx="200" cy="170" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="247" cy="150" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="295" cy="140" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="340" cy="132" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="387" cy="140" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="434" cy="150" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="481" cy="168" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="175" cy="225" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="160" cy="275" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="178" cy="325" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="505" cy="215" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="520" cy="265" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="505" cy="320" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="290" cy="395" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="340" cy="405" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="390" cy="398" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="270" cy="220" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="410" cy="320" r="10" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<rect x="307" y="252" width="66" height="46" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M319 289 L373 289 M319 289 L319 298" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<rect x="196" y="374" width="60" height="18" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M208 374 L208 392 M220 374 L220 392 M232 374 L232 392 M244 374 L244 392" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<circle cx="460" cy="372" r="19.5" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<circle cx="460" cy="372" r="3.5" fill="#1A1A1A"/>
+
+<line x1="373" y1="256" x2="382.75" y2="256" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="373" y1="251" x2="373" y2="261" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="382.75" y1="251" x2="382.75" y2="261" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="388" y="252" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1,5 m</text>
+
+<line x1="373" y1="275" x2="438" y2="275" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="373" y1="270" x2="373" y2="280" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="438" y1="270" x2="438" y2="280" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="405" y="271" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">10 m</text>
+
+<line x1="373" y1="294" x2="568" y2="294" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="373" y1="289" x2="373" y2="299" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="568" y1="289" x2="568" y2="299" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="470" y="290" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">30 m</text>
+
+<line x1="460" y1="372" x2="479.5" y2="372" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="479.5" y1="367" x2="479.5" y2="377" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="484" y="376" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3 m</text>
+
+<line x1="340" y1="214" x2="340" y2="247" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="340" cy="205" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="340" y="209" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+
+<line x1="209" y1="295.6" x2="270" y2="300" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="200" cy="295" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="200" y="299" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+
+<line x1="172.6" y1="400.1" x2="196" y2="385" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="165" cy="405" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="165" y="409" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+
+<line x1="522.6" y1="414.9" x2="462.9" y2="374" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="530" cy="420" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="530" y="424" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+
+<line x1="464" y1="116.7" x2="440.7" y2="142.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="470" cy="110" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="470" y="114" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+
+<line x1="60" y1="692" x2="390" y2="692" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M72 692 L69 684 M72 692 L72 683 M72 692 L75 684 M116 692 L113 684 M116 692 L116 683 M116 692 L119 684 M178 692 L175 684 M178 692 L178 683 M178 692 L181 684 M224 692 L221 684 M224 692 L224 683 M224 692 L227 684 M296 692 L293 684 M296 692 L296 683 M296 692 L299 684 M330 692 L327 684 M330 692 L330 683 M330 692 L333 684 M366 692 L363 684 M366 692 L366 683 M366 692 L369 684" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<path d="M140 552 L158 606 L151 606 L170 652 L110 652 L129 606 L122 606 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M137 652 L137 692 M143 652 L143 692" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M260 572 L273 616 L267 616 L290 652 L230 652 L253 616 L247 616 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M257 652 L257 692 M263 652 L263 692" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<line x1="98" y1="652" x2="98" y2="692" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="93" y1="652" x2="103" y2="652" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="93" y1="692" x2="103" y2="692" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="88" y="676" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2 m</text>
+
+<line x1="170" y1="630" x2="170" y2="652" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="230" y1="630" x2="230" y2="652" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<line x1="170" y1="636" x2="230" y2="636" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<text x="200" y="632" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3 m</text>
+
+<line x1="191" y1="672" x2="143" y2="672" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="200" cy="672" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="200" y="676" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+
+<rect x="40" y="718" width="600" height="48" rx="2" fill="none" stroke="#9B2C1E" stroke-width="2"/>
+<text x="58" y="739" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">Danger — un réservoir de propane contre un mur qui chauffe monte en pression et</text>
+<text x="58" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">relâche du gaz. Plus lourd que l'air, il coule au sol et attend sous la galerie.</text>
+
+<text x="40" y="794" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 16b-01 — Les trois zones de dégagement autour du bâtiment.</text>
+<text x="40" y="814" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1 de 0 à 1,5 m, galerie comprise : sol minéral · 2 de 1,5 à 10 m : rien d'entreposé</text>
+<text x="40" y="832" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3 bois de chauffage et matériaux à plus de 10 m · 4 propane à plus de 10 m, 3 m dégagés autour</text>
+<text x="40" y="850" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5 de 10 à 30 m : conifères espacés d'au moins 3 m · 6 branches coupées jusqu'à 2 m du sol</text>
+</svg>

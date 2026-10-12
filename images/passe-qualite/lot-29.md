@@ -1,0 +1,85 @@
+# Passe qualité — lot 29
+
+Grille : `images/recommandations-planches.md`. Une section par planche, verdict en tête.
+
+## 110-03 — Le chevillage à tire (`validees/planche-110-03-chevillage-tire.png`)
+
+**Verdict : retouches** — règles : lisibilité, mecanisme
+
+Le mécanisme se lit : trou du tenon décalé vers l'épaulement, cheville pointue qui entre (flèche vers le bas), traverse tirée vers le poteau (flèche vers la gauche, bon sens), puis cheville chassée, cintrée dans le tenon, épaulement au contact. Le poteau hachuré en bois de bout et la traverse en fil distinguent bien les deux pièces. Pas de cote : les trois valeurs sont [À VÉRIFIER] au chapitre, c'est juste. Deux défauts dans la vue de face, qui porte pourtant le point de départ du geste.
+
+1. **Vue « Vu de face », le décalage est minuscule.** Les deux trous et leur recouvrement tiennent dans environ 60 px au milieu d'une vue de 1100 px ; c'est pourtant ce que JP doit reproduire au perçage. Ajouter une loupe circulaire d'environ 240 px de diamètre dans le blanc à gauche du poteau (entre le bord gauche de la vue et le poteau, à mi-hauteur), qui grossit ×4 les deux trous : cercle plein du trou de la joue, cercle tireté du trou du tenon, jour noir du recouvrement. La relier aux trous par un petit cercle tireté autour d'eux. Déplacer les renvois 1 et 2 sur la loupe (1 sur le cercle plein à gauche, 2 sur le tireté à droite) et les retirer de la vue principale.
+2. **Vue « Vu de face », les deux traits verticaux gris qui traversent les trous.** Ce sont les axes des trous (code : `h.a.fin`, trait plein), mais sans l'axe horizontal ni le trait-point ils se lisent comme deux traits parasites ou une fente. Les remplacer, dans la vue et dans la loupe, par une croix d'axes en trait mixte fin (trait-point) sur chaque trou, dépassant le cercle d'environ 6 px ; ou les supprimer.
+3. **Vue « Chassée », renvoi 5.** Le trait de renvoi traverse en diagonale environ 200 px de hachure du poteau avant d'atteindre le jeu au fond de la mortaise, qui fait 12 px : il se perd dans la hachure. Placer le cercle 5 à gauche de la vue, à la hauteur du jeu, et tirer le renvoi à l'horizontale jusqu'au milieu du jeu.
+
+## 110-40 — Lire le fil du bois (`a-valider/planche-110-40-lire-fil-bois.png`)
+
+**Verdict : retouches** — règles : lisibilité, couches
+
+Les trois paires se lisent : fil droit contre fil qui ressort par le chant, cheville fendue au fil contre cheville sciée qui casse en biais, mortaise borgne qui garde l'eau contre mortaise percée qui l'égoutte. Pas de cote : le chapitre n'en donne aucune et on reconnaît plutôt qu'on construit, c'est juste. Trois défauts, dont deux sur l'eau, qui est le sujet des deux dernières vues.
+
+1. **Vue « Percée de part en part », le vide sous le tenon est barré.** Deux traits fins horizontaux (le fil de la paroi du fond, vu à travers) traversent le trou entre le bout du tenon et le dessous de la lisse : au premier regard ils ferment le trou, alors que toute la vue dit qu'il est ouvert. Les supprimer ; le trou reste blanc de bord à bord, et les deux flèches tiretées le traversent seules jusqu'aux gouttes du dessous.
+2. **Vues « Mortaise borgne » et « Percée », le chemin de l'eau est coupé.** Les flèches tiretées extérieures descendent le long du poteau et s'arrêtent sur le dessus de la lisse ; celles du jeu du tenon repartent 45 px plus loin, sous l'épaulement, sans lien. On ne voit pas comment l'eau entre. Dans les deux vues, prolonger chaque flèche extérieure : elle descend le long du poteau, tourne à angle droit vers l'intérieur le long de la ligne de contact épaulement-lisse (tireté sur ce joint), puis descend dans le jeu, une seule flèche continue par côté, pointe en bas. Dans « Mortaise borgne », elle finit dans l'eau stagnante (renvoi 9) ; dans « Percée », elle ressort sous la lisse vers les gouttes (renvoi 10).
+3. **Vue « La cheville fendue », les baguettes ne se lisent pas.** Dans chaque quartier, la fente sur le rayon et la fente le long d'un cerne sont tracées en trait fort, sans jour : l'arc fort se lit comme un cerne plus épais que les autres et le rayon comme une gerce. Ouvrir ces deux fentes d'un jour blanc de 3 à 4 px, comme entre les quartiers, pour que chaque quartier se lise en quatre baguettes séparées ; le renvoi 3 garde sa cible sur la fente radiale du quartier du bas à gauche.
+
+## 111-11 — La forge de fosse (`validees/planche-111-11-forge-fosse.png`)
+
+**Verdict : retouches** — règles : mecanisme, couches, lisibilité
+
+Le principe se lit du premier coup : tuyau enterré qui débouche au fond et air qui traverse le charbon par en dessous, contre air soufflé par-dessus qui fait une grande flamme ; plan du trou avec le tuyau enterré en tireté et son bout hors terre ; rigole qui descend la paroi jusqu'au fond. Les cotes « deux mains ouvertes » et « un avant-bras » sont celles du chapitre (§ Le foyer), qui ne donne aucune mesure en mm : les garder telles quelles, c'est juste. L'encadré danger (galets qui éclatent) est un mécanisme et a sa place. Deux défauts de trame, qui brouillent justement ce qui distingue le bon foyer du raté.
+
+1. **Vue « En coupe : l'air par en dessous », le charbon ne descend pas jusqu'à la bouche.** Les morceaux sont clairsemés (environ deux fois moins serrés que dans « Raté ») et tout le fond de la fosse autour de la bouche (renvoi 2) est blanc : on voit un tuyau qui souffle dans une cavité vide, pas « sous le charbon ». Remplir le charbon à la même densité que dans « Raté », du fond de la fosse jusqu'au dôme, bouche comprise ; garder seulement un liseré blanc de 2 à 3 px autour des flèches d'air tiretées et du tuyau, pour que les flèches se lisent à travers les morceaux.
+2. **Vue « Sans tuyau : la rigole », les pierres plates (renvoi 7) portent le symbole du charbon.** Chaque pierre est un petit rectangle qui contient un polygone, le même que les morceaux de charbon des deux vues du haut : la rigole se lit comme une boîte de charbon. Redessiner les pierres en dalles plates couchées sur la rigole, en tuiles qui se chevauchent d'environ un quart de leur longueur, contour fort, remplies de hachures croisées fines (ou laissées blanches), sans polygone à l'intérieur. La terre battue (renvoi 8) garde son pointillé.
+3. **Même vue, la demi-fosse est vide.** À droite de la rigole, jusqu'à l'axe en trait mixte, il n'y a rien : la flèche d'air qui remonte au fond monte dans le blanc, et on ne reconnaît pas le foyer des vues du haut. Dessiner le lit de charbon dans la demi-fosse (même symbole et même densité que dans « En coupe »), du fond jusqu'au niveau du sol, et faire monter la flèche d'air dedans sur 80 à 100 px, avec le même liseré blanc qu'au point 1.
+
+## 111-40 — Tremper une lame (`a-valider/planche-111-40-tremper-lame.png`)
+
+**Verdict : retouches** — règles : mains, mecanisme, lisibilité
+
+La suite se lit : l'aimant qui colle au dos puis qui pend, la plongée verticale dans un bac plus creux que la lame avec le couvercle à plat à côté, la flèche double dans l'axe, les bulles ; la lime poussée (flèche vers la pointe de la lime, bon sens) qui glisse ou qui mord avec sa limaille ; le revenu avec le fil dans l'eau et quatre trames bien distinctes du dos au fil. Pas de cote : rien ne se construit ici, c'est juste. L'encadré danger est un mécanisme et a sa place. Trois défauts, dont un de main.
+
+1. **Vues « L'aimant colle » et « L'aimant décroche », les deux mains.** C'est une moufle sans doigts, et le pincement est un petit cercle aux traits interrompus au milieu : le type de main que JP a rejeté. La main n'apporte rien au geste (c'est le fil de fer qui compte). Supprimer les deux mains et les avant-bras ; prolonger le fil de fer jusqu'au bord de la vue (vers le haut à gauche dans « colle », vers le haut dans « décroche »), coupé net au bord du cadre. Garder l'aimant, sa position et la flèche courbe de la deuxième vue.
+2. **Vue « Le revenu différentiel », la flamme ne touche pas le dos.** C'est un trait fin en forme de plume qui finit en boucle, 5 à 10 px au-dessus du dos : on ne voit pas qu'elle chauffe le dos (renvoi 10). La redessiner en flamme de chalumeau : un dard intérieur court en trait fort à la sortie de la buse, une enveloppe extérieure en trait fin qui s'élargit et vient s'écraser sur la bande quadrillée du dos, en s'étalant de part et d'autre du point d'impact le long du dos. Le point du renvoi 10 sur le bout du dard.
+3. **Même vue, renvoi 11.** La légende nomme trois couleurs (bleu, violet, bronze), le renvoi pointe une seule bande (entre quadrillé et lignes). Faire partir du cercle 11 trois traits de renvoi, un par bande : quadrillé (bleu), lignes horizontales (violet), hachure en biais (bronze), les trois points alignés sur une même verticale à environ 0,6 de la longueur de la lame, là où les trois bandes sont toutes visibles.
+
+## 112-07 — La lampe à graisse (`validees/planche-112-07-lampe-graisse.png`)
+
+**Verdict : bonne** — règles : lisibilité, cotes
+
+Tout se lit sans légende : la bande de coton qui se torsade (flèche de torsion autour de la mèche), la boîte à bords bas en coupe avec ses nervures, le gras, la mèche couchée au fond qui remonte en biais et passe le bord, la flèche parallèle à la mèche pour la sortir, la flamme au bout ; puis la lampe allumée en perspective sur son support, une seule pointe au bord. Pas de cote : le chapitre (§5-J, variante H) n'en donne aucune pour la lampe, et les 30 cm de l'étape 60 sont une distance d'usage, pas une mesure de fabrication : c'est juste. L'encadré danger est un mécanisme (le monoxyde qui endort) et a sa place. Rien à changer.
+
+## 112-10a — Le baril à lessive (`a-valider/planche-112-10a-baril-lessive.png`)
+
+**Verdict : retouches** — règles : couches, mecanisme, lisibilité
+
+La refonte règle le « beurk » de la 112-10 : la coupe se lit couche par couche, de haut en bas, avec quatre trames bien différentes (eau en tirets, cendre en points, paille en traits gris obliques, branchettes en ronds, fond hachuré percé), un renvoi par couche dans l'ordre (2 à 6). Le montage se comprend : le baril posé par son rebord sur deux blocs, le contenant glissé entre eux sous les trous, le liquide qui revient sur des cendres neuves. Pas de cote : le chapitre ne donne aucune dimension du baril, c'est juste. L'encadré danger est un mécanisme et a sa place. Quatre corrections, la première sur la comparaison bon/raté.
+
+1. **Vue « Tasser par couches », le raté n'est pas nommé.** Les deux barils sont sous un seul titre, alors que celui de droite est le raté (lit lâche, l'eau passe droit et ressort claire) ; sans la légende on croit voir deux étapes du même geste. Scinder le titre : « Tasser par couches » au-dessus du baril de gauche, « Raté : lit lâche » au-dessus de celui de droite, et écarter les deux barils de 30 à 40 px de plus. Donner aussi au lit lâche une trame visiblement différente de la cendre tassée : points environ deux fois plus gros et deux fois plus espacés, avec trois ou quatre petites poches blanches irrégulières, pour qu'il se lise « lâche » avant même la fente du renvoi 15.
+2. **Vue « En coupe », le chemin de l'eau s'arrête à la paille.** Les deux flèches tiretées descendent dans la cendre et s'arrêtent sur la couche de paille ; les gouttes réapparaissent sous le fond. Prolonger chaque flèche à travers la paille et les branchettes (liseré blanc de 2 px pour qu'elle se lise sur les ronds) jusqu'à un trou du fond, la pointe de flèche juste au-dessus du trou ; les gouttes partent de là vers le contenant.
+3. **Vue « Le fond, vu de dessus », les blocs ressemblent à des poignées.** Les deux demi-cercles qui dépassent du baril à gauche et à droite n'ont aucun signe de bois : on lit deux anses. Y tracer deux ou trois cernes concentriques en trait fin (bois de bout, comme les blocs de « De face ») pour qu'ils se lisent comme les deux bûches debout sur lesquelles le baril repose.
+4. **Vue « De face », la flèche de retour traverse le bloc de droite.** Le tireté part du fond du contenant et passe par-dessus les traits du bloc avant de remonter : il se mêle au fil du bois. Faire partir la flèche du bord du contenant (à la surface du liquide) et lui donner un liseré blanc de 3 px sur toute la traversée du bloc.
+
+## 112-10b — Éprouver la lessive, cuire le savon mou (`a-valider/planche-112-10b-eprouver-lessive-cuire-savon.png`)
+
+**Verdict : retouches** — règles : couches, lisibilité
+
+Les quatre temps se lisent : l'œuf qui coule ou qui flotte (une calotte hors du liquide, juste), la fournée d'essai à la cuillère sur le poêle, la lessive versée en filet dans le gras qu'on brasse (flèche de rotation autour du bâton), la pâte que le bâton pousse et qui se replie sur elle-même (flèche dans le sens du bâton). La convention tient d'une vue à l'autre : lessive en tirets, gras et pâte en ondulations. Pas de cote : le chapitre n'en donne aucune, c'est juste. L'encadré danger est un mécanisme et a sa place. Trois corrections, dans la fournée d'essai.
+
+1. **Vue « La fournée d'essai », renvoi 8 : le gras n'a pas de trame.** Dans la boîte « deux liquides », la couche du dessus est blanche entre deux traits : elle se lit comme du vide au-dessus de la lessive, pas comme un second liquide. La remplir des ondulations qui disent « gras » partout ailleurs sur la planche (même trait et même pas que dans la boîte 7), et garder les tirets pour la lessive en dessous, avec le trait net de l'interface entre les deux. Faire partir du cercle 8 deux traits de renvoi, un dans chaque couche.
+2. **Même vue, renvoi 3.** La légende dit « une boîte, au coin du poêle », mais le point du renvoi est sur l'angle de la plaque du poêle, et la boîte est posée à 45 px de ce bord, vers le milieu. Déplacer la boîte (avec le bâton, la cuillère et les gouttes) contre le bord droit de la plaque, et poser le point du renvoi 3 sur la paroi droite de la boîte.
+3. **Même vue, l'échelle.** La boîte d'essai et les deux boîtes de résultat font environ 65 px de large dans une vue de 700 px, et la plaque du poêle prend la moitié de la largeur : le gras (renvoi 4) et le bâton au fond se devinent. Agrandir la boîte d'essai et les deux boîtes 7 et 8 d'environ 40 % (même taille pour les trois), et raccourcir la plaque et le corps du poêle vers la gauche d'autant.
+
+## 112-40 — Les chandelles trempées, le support et le regarnissage (`a-valider/planche-112-40-chandelles-trempees-support-regarnissage.png`)
+
+**Verdict : retouches** — règles : mains, lisibilité
+
+Le trempage se lit (deux mèches lestées d'un écrou, plongées et ressorties d'un trait, flèche en U dans le bon sens), le raccourci de l'eau froide aussi, et le support se comprend grâce à la vue par le bout, qui montre le bâton couché sur le manche et une mèche de chaque côté ; les chaises sont à la bonne échelle par rapport aux chandelles. La suite du regarnissage garde sa convention (liquide en traits horizontaux, suif figé en points, vide en blanc) du moule plein au remplissage. Pas de cote : le chapitre n'en donne aucune, c'est juste. Deux corrections, la première importante.
+
+1. **Vue « La chandelle coulée », la cinquième chandelle se lit comme le résultat.** Elle vient juste après « remplir de nouveau », dans la même rangée et sous le même titre, et elle montre un vide au cœur : on croit que le regarnissage laisse un vide. C'est le raté (renvoi 14, « non regarnie »). La séparer des quatre étapes par un filet vertical fin sur toute la hauteur de la rangée, avec 40 px de blanc de chaque côté, et lui donner son propre titre en italique au-dessus : « Raté : non regarnie ». Raccourcir le titre de la rangée à « La chandelle coulée : regarnir le puits » au-dessus des quatre premiers moules seulement.
+2. **Vues « Tremper dans le suif » et « Figer dans l'eau froide », le pouce.** La main est correcte (quatre doigts séparés, jointures, repliés sur le bâton), mais le pouce est dessiné du même côté que les doigts, couché sur le devant du bâton à droite de l'index : la main ne serre rien. Le passer derrière le bâton : garder seulement la base du pouce qui bombe sur le côté droit de la main, et arrêter son contour au bord supérieur du bâton, sans bout de pouce visible devant. Même correction sur les deux vues (c'est la même main).
+
+## 112-41 — La lessive de soude et la trace (`a-valider/planche-112-41-lessive-soude-trace.png`)
+
+**Verdict : bonne** — règles : lisibilité, mains
+
+Les quatre vues se lisent sans légende : la soude versée dans l'eau en brassant (flèche de versement vers le bas, flèche de rotation autour de la cuillère), le raté barré d'une grande croix où l'eau versée sur la soude fait jaillir des gouttes bien plus haut que le chaudron, la lessive versée en filet dans le gras qu'on brasse, puis la trace en perspective : la coulée qui tombe de la cuillère (flèche vers le bas) et le sillon qui reste en relief sur la surface. Les trames se distinguent et suivent celles de la 112-40 (eau en tirets, gras liquide en traits horizontaux, pâte en points). Pas de main, et c'est le bon choix : l'objet en position et la flèche disent le geste. Pas de cote : le chapitre n'en donne aucune, c'est juste. Rien à changer.

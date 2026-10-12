@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="440" viewBox="0 0 680 440" role="img">
+<title>Planche 82-01 — L'angle d'affûtage du couteau, en trois temps</title>
+<desc>Trois coupes du même tranchant posé sur la pierre, cadrées pareil : seul l'angle change. Au-dessus, le couteau vu de côté, le fil sur la pierre, son biseau noirci au marqueur sur toute la longueur, et le plan des trois coupes. À gauche, l'angle est trop bas : la pierre ne porte que sur l'épaule, l'encre reste au fil. Au centre, l'angle est celui du biseau lui-même : la pierre porte sur tout le biseau, l'encre part partout et le morfil se forme à la pointe. À droite, l'angle est trop haut : la pierre ne prend que le fil et l'arrondit, l'encre reste à l'épaule.</desc>
+<defs>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="680" height="440" fill="#FFFFFF"/>
+
+<!-- couche 1 : vue d'ensemble, le couteau sur la pierre -->
+<rect x="210" y="104" width="260" height="16" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<path d="M222 104 L352 104 L352 80 L300 80 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M352 76 L436 76 Q450 76 450 87 Q450 98 436 98 L352 98" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M350 99 L252 99 L222.5 104" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M238 104 L238 101.4 M243 104 L243 100.5 M248 104 L248 99.7 M253 104 L253 99 M258 104 L258 99 M263 104 L263 99 M268 104 L268 99 M273 104 L273 99 M278 104 L278 99 M283 104 L283 99 M288 104 L288 99 M293 104 L293 99 M298 104 L298 99 M303 104 L303 99 M308 104 L308 99 M313 104 L313 99 M318 104 L318 99 M323 104 L323 99 M328 104 L328 99 M333 104 L333 99 M338 104 L338 99 M343 104 L343 99 M348 104 L348 99" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+
+<line x1="300.5" y1="66" x2="300.5" y2="128" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<path d="M300.5 70 L285 70" fill="none" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#fl)"/>
+<path d="M300.5 124 L285 124" fill="none" stroke="#1A1A1A" stroke-width="1.4" marker-end="url(#fl)"/>
+
+<!-- couche 2 : les trois pierres, identiques -->
+<rect x="40" y="280" width="162" height="20" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="258" y="280" width="162" height="20" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+<rect x="476" y="280" width="162" height="20" fill="none" stroke="#1A1A1A" stroke-width="1.4"/>
+
+<!-- couche 3 : le meme tranchant, trois inclinaisons -->
+<path d="M52.79 271.01 L103.78 280 L193.66 267.38 L189.2 235.68 L99.29 248.31 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M270 280 L321.78 280 L408.1 251.96 L398.21 221.52 L311.86 249.57 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M488 280 L538.99 271.01 L619.12 228.42 L604.11 200.15 L523.94 242.76 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+
+<!-- couche 4 : l'encre restee, et le morfil -->
+<path d="M55.74 271.53 L56.05 269.76 M60.67 272.4 L61.5 267.67 M65.59 273.27 L66.81 266.38 M70.52 274.13 L71.73 267.24 M75.44 275 L76.66 268.11 M80.36 275.87 L81.58 268.97 M85.29 276.74 L86.5 269.84" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M505.73 276.88 L504.51 269.99 M510.65 276.01 L509.44 269.12 M515.57 275.14 L514.36 268.25 M520.5 274.27 L519.28 267.38 M525.42 273.4 L524.21 266.51 M530.34 272.54 L529.13 265.64 M535.27 271.67 L534.05 264.77" fill="none" stroke="#1A1A1A" stroke-width="0.7"/>
+<path d="M270 280 L262.5 278.6 L259.5 274.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+
+<!-- couche 5 : ou la pierre mord -->
+<line x1="95" y1="280" x2="112" y2="280" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="480" y1="280" x2="497" y2="280" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="round"/>
+
+<!-- couche 6 : renvois -->
+<line x1="193.57" y1="84.87" x2="221" y2="102.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="186" cy="80" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="186" y="84" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+
+<circle cx="52" cy="186" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="52" y="190" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<circle cx="270" cy="186" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="270" y="190" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<circle cx="488" cy="186" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>
+<text x="488" y="190" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+
+<!-- couche 7 : pied de planche -->
+<text x="40" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 82-01 — L'angle d'affûtage du couteau, en trois temps.</text>
+<text x="40" y="352" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1 le biseau noirci au marqueur · 2 trop bas : la pierre use l'épaule, l'encre reste au fil</text>
+<text x="40" y="368" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3 l'angle du biseau lui-même : l'encre part partout et le morfil vient</text>
+<text x="40" y="384" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4 trop haut : la pierre ne prend que le fil et l'arrondit, l'encre reste à l'épaule</text>
+<text x="40" y="404" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">Coupes au fil, grossies. Aucun angle n'est coté : la référence est le biseau déjà sur l'outil.</text>
+</svg>

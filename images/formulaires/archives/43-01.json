@@ -1,0 +1,148 @@
+{
+  "ref": "43-01",
+  "chapitre": "CHAPITRE 43 — COMMENT LIRE UNE FICHE D'ESPÈCE",
+  "titre": "Fiche d'une espèce que le livre ne couvre pas",
+  "consigne": "Remplie sur la bête, de haut en bas : ce qui se lit sur une bête entière ne se relit pas sur un tas de viande.",
+  "blocs": [
+    {
+      "type": "champs",
+      "titre": "La bête",
+      "sous": "le terrain, la saison, le tireur",
+      "colonnes": 2,
+      "champs": [
+        {
+          "label": "Espèce, nom au long"
+        },
+        {
+          "label": "Date"
+        },
+        {
+          "label": "Lieu"
+        },
+        {
+          "label": "Tireur"
+        }
+      ]
+    },
+    {
+      "type": "champs",
+      "titre": "Avant le couteau",
+      "sous": "ce qui part avec la peau",
+      "colonnes": 2,
+      "champs": [
+        {
+          "label": "Dents"
+        },
+        {
+          "label": "Pattes"
+        },
+        {
+          "label": "Queue"
+        },
+        {
+          "label": "Oreilles"
+        },
+        {
+          "label": "Pelage"
+        },
+        {
+          "label": "Longueur sans la queue",
+          "unite": "cm",
+          "court": true
+        }
+      ]
+    },
+    {
+      "type": "cases",
+      "titre": "Les pesées",
+      "sous": "trois chiffres, jamais un seul",
+      "cases": [
+        {
+          "titre": "Poids vif",
+          "sous": "kg · avant d'ouvrir"
+        },
+        {
+          "titre": "Carcasse",
+          "sous": "kg · saignée, éviscérée"
+        },
+        {
+          "titre": "Viande désossée",
+          "sous": "kg · à la fin"
+        },
+        {
+          "titre": "Peau sur la carcasse",
+          "sous": "oui · non"
+        }
+      ]
+    },
+    {
+      "type": "cases",
+      "titre": "Le gras",
+      "sous": "au couteau, puis au chaudron",
+      "cases": [
+        {
+          "titre": "Sur le dos",
+          "sous": "en doigts d'épaisseur"
+        },
+        {
+          "titre": "Autour des rognons",
+          "sous": "en doigts d'épaisseur"
+        },
+        {
+          "titre": "Sous la peau",
+          "sous": "en doigts d'épaisseur"
+        },
+        {
+          "titre": "Au chaudron",
+          "sous": "se rend · en grumeaux"
+        }
+      ]
+    },
+    {
+      "type": "cases",
+      "titre": "Le froid",
+      "sous": "l'heure vraie, puis le cœur à 24 h",
+      "cases": [
+        {
+          "titre": "Mort",
+          "sous": "heure"
+        },
+        {
+          "titre": "Éviscération",
+          "sous": "heure"
+        },
+        {
+          "titre": "Quartier épais froid",
+          "sous": "heure · l'os n'est plus tiède"
+        },
+        {
+          "titre": "Cœur à 24 h",
+          "sous": "°C · 7 ou moins"
+        }
+      ]
+    },
+    {
+      "type": "champs",
+      "titre": "À table",
+      "sous": "le soir même, et la fiche se ferme",
+      "colonnes": 2,
+      "champs": [
+        {
+          "label": "Qui a fini son assiette"
+        },
+        {
+          "label": "Qui l'a laissée"
+        },
+        {
+          "label": "Ce que la chair donne"
+        },
+        {
+          "label": "On retourne la chercher",
+          "unite": "oui · non",
+          "court": true
+        }
+      ]
+    }
+  ],
+  "rappel": "Espèce inconnue, espèce à risque : gants, 74 °C à cœur, aucun abat, aucune conservation à froid, rien de cru aux chiens."
+}
