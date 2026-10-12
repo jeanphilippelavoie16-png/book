@@ -1,0 +1,50 @@
+> **Renuméroté une deuxième fois le 27 septembre 2026** (agriculture au tome 5) : chapitre 103 avant cette date. Table : plan/renumerotation-2.json.
+
+> **Renuméroté le 24 septembre 2026** (six tomes) : ancien chapitre 84. Plus bas, les numéros de chapitre sont **les anciens** (table : plan/renumerotation.json).
+
+# Chapitre 84 — Souder, braser, réparer le métal : levée des drapeaux `[À VÉRIFIER]`
+
+- **Passe du :** 24 septembre 2026 (reprise après la coupure de la veille ; aucun fichier de
+  vérification n'existait pour ce chapitre)
+- **Fichier vérifié :** `chapitres/84-souder-braser-reparer-le-metal.md` (lu, pas modifié)
+- **Drapeaux :** 7. Numérotés dans l'ordre du chapitre ; les lignes sont écrites dans l'ordre où
+  elles ont été réglées.
+
+| # | Où | Verdict | Source | À faire |
+| --- | --- | --- | --- | --- |
+| 1 | §2, 3ᵉ principe (thermique) — « La température de préchauffage de la fonte est `[À VÉRIFIER]` : ce qui se tient sans chiffre, c'est le principe — chauffer toute la pièce, pas le point » | **CORRIGÉ** — texte : aucune valeur ; source : la température **dépend du procédé et du métal d'apport**. Arc, électrode de fonte : **121 à 425 °C** ; arc, électrode à base de cuivre : **121 à 204 °C** ; arc, électrode de nickel : aucun préchauffage obligé, **38 °C** recommandés ; électrode d'acier ordinaire, « emergency measure only » : préchauffage minimal, cordons de **19 à 25 mm** martelés chauds, refroidis entre deux ; flamme avec baguette de fonte : préchauffage nécessaire, petite pièce chauffée « to a very dull red heat, visible in a darkened room » ; brasage au bronze : « a 200 F (93 C) preheat is sufficient for most application ». Le principe du texte est confirmé : « Preheating should be general », refroidissement « as slow as possible », pièce couverte d'isolant | `84-us-army-tc9-237-soudage-fonte-flux.md` (+ PDF complet et texte) | « …et la laisser redescendre plus lentement qu'elle n'est montée, couverte, à l'abri de l'air. Combien chauffer dépend de ce qu'on met dans le joint : à l'électrode de fonte, 120 à 425 °C ; à l'électrode de cuivre, 120 à 200 °C ; à l'électrode de nickel, une pièce tiède suffit ; au brasage, une centaine de degrés presque toujours, parce que le bronze plie là où la fonte casse ; à la flamme avec une baguette de fonte, jusqu'au rouge très sombre qu'on ne voit que dans le noir. Sans thermomètre : un bâton de pin qui noircit au contact dit que la pièce est entre 260 et 425 °C — assez pour l'électrode de fonte, trop pour celle de cuivre. L'électrode d'acier ordinaire est un dépannage : presque sans préchauffage, par cordons de 2 à 2,5 cm, chacun martelé chaud et laissé refroidir avant le suivant. » | ✔ appliqué
+| 2 | §4, sous le tableau Matériel, « Les trois trous du chapitre » — « La température de préchauffage de la fonte : `[À VÉRIFIER]` — le ch. 88 traite l'acier. Un chiffre plausible à ces trois places serait pire que le trou. » | **CORRIGÉ** — même source que la ligne 1 : la valeur est publiée, par procédé | `84-us-army-tc9-237-soudage-fonte-flux.md` | « **Les deux trous du chapitre, déclarés plutôt que bouchés.** La teinte du verre filtrant […] L'intensité par diamètre d'électrode […]. Un chiffre plausible à ces deux places serait pire que le trou. Le préchauffage de la fonte, lui, se chiffre par procédé (§2). » | ✔ appliqué
+| 3 | §5.5, étape 32 (brasage de la fonte) — « La température de préchauffage est `[À VÉRIFIER]` ; le principe, lui, se tient sans chiffre » | **CORRIGÉ** — texte : aucune valeur ; source : au brasage (« braze welding »), **93 °C suffisent dans la plupart des cas** ; un fort préchauffage seulement pour une pièce « extremely heavy or complex » ; le bronze, très ductile, « compensates for the lack of ductility of the cast iron » ; « **The cooling rate is not extremely critical** ». Avant de chauffer une fissure : percer un petit trou **1,3 à 2,5 cm** au-delà de chaque bout visible, « If the applied heat causes the crack to run, it will only extend to the drill hole » (vaut aussi pour la pièce brasée) | `84-us-army-tc9-237-soudage-fonte-flux.md` | « **Chauffer large et lentement pour la fonte.** La fonte fissure quand un point chauffe et que le reste est froid. Au brasage il en faut peu : une centaine de degrés sur toute la pièce suffit presque toujours, parce que le bronze plie là où la fonte casse ; seule une pièce très lourde ou très tourmentée demande plus. Avant de chauffer, percer un petit trou 1 à 2,5 cm au-delà de chaque bout de la fissure : si la chaleur la fait courir, elle s'arrête au trou. Braser, puis laisser refroidir à l'abri de l'air ; le lit de cendre ou de sable sec (ch. 88) ne nuit pas. » | ✔ appliqué
+| 4 | §7, tableau, ligne « Fissure fine dans le cordon ou juste à côté » — « préchauffer toute la pièce (température `[À VÉRIFIER]`), refroidir lentement au lit de cendre ou de sable (ch. 88) » | **CORRIGÉ** — même source que la ligne 1 | `84-us-army-tc9-237-soudage-fonte-flux.md` | « **Jeter la réparation.** Meuler complètement, percer un trou au-delà de chaque bout de la fissure, préchauffer toute la pièce selon le procédé (§2 : 120 à 425 °C à l'électrode de fonte, une centaine de degrés au brasage), refroidir lentement au lit de cendre ou de sable (ch. 88), ou passer à l'éclisse boulonnée (§9) » | ✔ appliqué (renvoi mis à §3 : le principe thermique est au §3 « Pourquoi ça marche », pas au §2)
+| 7 | §9-F, « L'étain avec un fer chauffé au poêle » — « Le décapant de plomberie à base de zinc dissous dans l'acide existe aussi et se fabriquait autrefois à la maison — il dégage de l'hydrogène, il se prépare dehors, et ses proportions sont `[À VÉRIFIER]` » | **CORRIGÉ** — texte : proportions inconnues ; source : il n'y a pas de proportion, il y a la **saturation** — « a zinc saturated hydrochloric (muriatic) acid solution », « a solution of zinc cut in hydrochloric (muriatic) acid is commonly used by tin workers as a flux ». Et : « All flux and flux residues must be removed from the metal after the soldering operation is completed » | `84-us-army-tc9-237-soudage-fonte-flux.md` | « Le décapant des ferblantiers est de l'acide chlorhydrique dans lequel on met du zinc jusqu'à ce qu'il n'en mange plus : la proportion, c'est la saturation, et il reste du zinc au fond. Il dégage de l'hydrogène, il se prépare dehors, et son résidu se lave à fond après le joint, parce qu'il continue de ronger. » | ✔ appliqué
+| 5 | §9-A, « Souder à l'arc avec des batteries d'auto » — « Le nombre de batteries qui convient à une électrode donnée est `[À VÉRIFIER]` ; le montage, lui, ne varie pas. » | **INTROUVABLE** — aucune source officielle ni manuel reconnu consulté ne traite du soudage sur batteries (rien dans TC 9-237). Le chapitre a déjà le mécanisme qui permet de s'en passer : « Plus la tension monte, plus l'arc s'amorce et se tient », et l'étape 6 : « ce qui règle, c'est le diamètre de l'électrode et le nombre de batteries » | — | Dire la même chose sans chiffre, par l'essai que le chapitre impose déjà au poste (§5.4, étape 22) : « Le nombre de batteries se règle sur une chute du même métal : on commence à deux, et on en ajoute une tant que l'arc colle ou s'éteint. Le montage, lui, ne varie pas. » | ✔ appliqué
+| 6 | §9-C, « La couture de vis, pour la fonte fendue » — « la version maison est une pâte d'argile et de cendre tamisée, dont les proportions sont `[À VÉRIFIER]`, posée sur une fente propre et cuite doucement au premier feu » | **INTROUVABLE** — aucune proportion trouvée ; le dossier n'a d'ailleurs **aucune source pour la recette elle-même** (argile et cendre). TC 9-237 appuie en revanche le choix du chapitre de ne pas souder une plaque de poêle : il déconseille la soudure de réparation d'une fonte grise qui chauffe et refroidit en service au-delà de **204 °C**, dont la durée « cannot be predicted with accuracy » | `84-us-army-tc9-237-soudage-fonte-flux.md` (pour la remarque sur la plaque de poêle seulement) | Dire la même chose sans proportions : « …la version maison est une pâte d'argile et de cendre tamisée, épaisse comme un mastic, posée sur une fente propre et cuite doucement au premier feu. » Si la recette elle-même doit être sourcée, c'est une recherche à part ; sinon, la phrase peut se couper sans perte : la fente « qui ne retient que la boucane » se ferme au mastic de poêle, déjà nommé | ✔ appliqué (version sans proportions ; la recette reste sans source)
+
+## Bilan
+
+7 drapeaux : **0 LEVÉ**, **5 CORRIGÉS** (1, 2, 3, 4, 7), **2 INTROUVABLES** (5, 6).
+
+Source enregistrée pour cette passe :
+
+- `sources/84-us-army-tc9-237-soudage-fonte-flux.md` (+ `84-us-army-tc9-237-welding-theory-1993.pdf`,
+  document complet, et `-texte.txt`) — US Army, *Welding Theory and Application*, TC 9-237, 1993 :
+  préchauffage de la fonte par procédé, refroidissement, trou d'arrêt de fissure, bâton de pin,
+  décapant de zinc saturé
+
+## Hors drapeaux, trouvé en passant
+
+- **Le bâton de pin** (ligne 1) est un thermomètre de la variante d'urgence : il noircit entre
+  260 et 425 °C. Il vaut une ligne au §9 et au ch. 88, qui cherchait justement comment lire une
+  chaleur sans instrument.
+- **Le trou d'arrêt de fissure** (ligne 3) manque au chapitre : 1,3 à 2,5 cm au-delà de chaque
+  bout visible, avant de chauffer. Il vaut aussi pour la couture de vis du §9-C, qui part d'une
+  fissure.
+- **L'électrode d'acier ordinaire sur la fonte** est permise par la source « as an emergency
+  measure only », en cordons de 19 à 25 mm martelés chauds, électrode de 3,2 mm, polarité inversée
+  (électrode au +) : c'est précisément la situation du §9-A. Si le chapitre ne le dit pas déjà,
+  c'est le geste qui manque à la variante maîtresse.
+- **« Acier froid »** : la source demande de ramener à la température de la pièce une tôle d'acier
+  doux restée au froid avant de la souder — appuie le « froide à −35 °C » du §2.
+- **Le brasage n'exige pas le lit de cendre** : « The cooling rate is not extremely critical »
+  (ligne 3). Le garder ne nuit pas, mais le §2 ne doit pas le présenter comme obligé pour le
+  brasage.

@@ -1,0 +1,17 @@
+ENTRÉES SANS AUCUNE ANCRE (0)
+
+ENTRÉES PRÉSENTES DANS 5 TOMES OU PLUS (trop larges ?)
+  Botulisme : tomes [1, 2, 3, 4, 5]
+  Monoxyde de carbone : tomes [1, 2, 3, 4, 5, 6]
+  Avertisseurs (fumée, monoxyde) : tomes [1, 2, 3, 4, 5]
+  Lièvre d'Amérique (Lepus americanus) : tomes [1, 2, 3, 4, 5]
+  Orignal (Alces americanus) : tomes [1, 2, 3, 4, 5, 6]
+  Éviscération : tomes [1, 2, 3, 4, 5]
+  Sel : tomes [1, 2, 3, 4, 5, 6]
+  Balance (peser sans balance) : tomes [1, 2, 3, 4, 5, 6]
+  Suif : tomes [1, 2, 4, 5, 6]
+  Thermomètre à viande (sonde) : tomes [1, 2, 3, 4, 5]
+  Poêle à bois : tomes [1, 2, 3, 4, 5, 6]
+  Savon : tomes [1, 2, 3, 5, 6]
+
+RENVOIS SANS CIBLE

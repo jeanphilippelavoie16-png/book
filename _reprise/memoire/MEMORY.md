@@ -1,0 +1,8 @@
+- [Règle dure, pas de catégories échappatoires](regle-dure-pas-de-categories-echappatoires.md) — appliquer son principe sans exceptions, mais seulement à ce qu'il visait ; montrer la liste avant une coupe massive
+- [Planches : ce qui se construit](planches-ce-qui-se-construit.md) — une planche pour tout ce qu'on fabrique ou fait ; les constructions en profondeur, plusieurs vues
+- [Pas de paperasse](pas-de-paperasse.md) — registres, carnets, fiches à tenir : « qui va vraiment utiliser ça ? » ; le livre sert à survivre
+- [Toujours montrer pour validation](toujours-montrer-pour-validation.md) — chaque planche, formulaire ou chapitre refait s'envoie à JP (PNG + PDF) ; rien n'est « prêt » avant qu'il l'ait vu
+- [Armes de JP](armes-de-jp.md) — calibre 12, .22, 7 mm Rem Mag, deux .308, .303 British : on compte les munitions pour ces calibres, aucune arme à acheter
+- [Plan de match](plan-de-match.md) — 6 tomes, 114 ch. ; EN PAUSE le 27 sept. : « comment reprendre » en tête de suivi/plan-de-match.md ; donner le coût avant de lancer
+- [Matériel et pourquoi compressés](materiel-et-pourquoi-compresses.md) — §4 seulement l'indispensable, une ligne expliquée par item ; §3 en 3 à 5 phrases
+- [Planches sans relecture](planches-sans-relecture.md) — dessin seul, JP relit lui-même ; workflow .claude/planches-dessin-seul.workflow.js

@@ -1,0 +1,231 @@
+> **Renuméroté le 24 septembre 2026** (six tomes) : ancien chapitre 27. Plus bas, les numéros de chapitre sont **les anciens** (table : plan/renumerotation.json).
+
+# Chapitre 27 — Soigner quand il n'y a personne · fiche de rédaction
+
+- **Fichier :** `chapitres/27-soigner-quand-il-n-y-a.md`
+- **Tome :** 2 — Le corps
+- **Rôle :** 2 — Rédacteur
+- **Date :** 2026-09-20
+- **Longueur :** environ 6 100 mots au fichier, dont environ 5 400 mots utiles
+- **Statut proposé :** RÉD — à envoyer aux portes 3 (technique) et 4 (sécurité) en parallèle
+- **Encadré DANGER :** oui, un seul, trois mécanismes
+- **Réserve de densité :** le chapitre dépasse d'environ 10 % le plafond de 5 000 mots utiles.
+  C'est signalé exprès. Si l'éditeur doit couper, couper dans la section 5-E (brûlure) et dans
+  la section 9, pas dans les sections 6, 7 et 8.
+
+---
+
+## 1. Chiffres à valider
+
+| Chiffre ou affirmation | Où | Pourquoi il faut le valider |
+| --- | --- | --- |
+| Pose du garrot : durée maximale, mécanisme exact du desserrage, position par rapport à l'articulation | § 5-C, étape 18 | Porté `[À VÉRIFIER]` dans le texte. Le *Manuel de secourisme en milieu de travail* de la CNESST (9<sup>e</sup> éd., DC400-702-8, 286 p.) porte la réponse, mais le PDF de 11,8 Mo a dépassé la limite d'extraction de l'outil. **C'est le trou de sourçage principal du chapitre.** À ouvrir à la main |
+| Brûlure : température et durée du refroidissement à l'eau | § 5-E, étape 28 | Porté `[À VÉRIFIER]`. **Aucun chiffre n'est imprimé**, uniquement le mécanisme. Même fichier CNESST à ouvrir. Ne pas « compléter » avec un nombre de mémoire : c'est exactement le scénario du 71 °C du chapitre pilote |
+| RCR : fréquence et profondeur des compressions | § 5-B, étape 11 | **Volontairement absentes.** La page gouvernementale consultée (*Héros en trente*) ne les donne pas. Le chapitre renvoie à la formation. Si le vérificateur technique veut les ajouter, il faut une page officielle, pas un souvenir de cours |
+| Intervalle de rappel du vaccin antitétanique après une blessure à risque | § 5-A, étape 5 | Porté `[À VÉRIFIER]`. La page du Ministère ne donne que le rappel adulte à 50 ans. La règle courante (5 ou 10 ans selon le type de plaie) n'a été trouvée sur aucune page officielle consultée |
+| Chauve-souris trouvée dans une chambre = exposition à la rage sans morsure visible | § 5-D, étape 25 | Porté `[À VÉRIFIER]`. Règle largement diffusée, non captée sur une page officielle. À sourcer ou à retirer, pas à adoucir |
+| Disponibilité 24 h / 7 j du 811 | Absente du chapitre | La page consultée ne le dit pas. Le chapitre **ne l'affirme pas**. Seul le Centre antipoison porte une mention 24/7 sourcée. À ajouter si une page officielle la confirme |
+| Quantités exactes de la trousse CSA Z1220 (25 bandages, 12 compresses, etc.) | § 4 | Reprises d'une **extraction automatique** de la page CNESST. Aucune décision clinique n'en dépend — elles ne servent qu'à dimensionner une trousse — mais la liste doit être relue à l'écran, ligne par ligne, avant impression |
+| Liste des signes qui commandent le 911 | § 6, § 7 | Empruntée au *guide d'autosoins des maladies respiratoires infectieuses* et employée ici **hors de son contexte de publication**, faute d'une liste générale officielle. Emprunt assumé, à faire trancher par le relecteur clinique |
+| 10 minutes de pression directe avant de vérifier un saignement | § 5-C étape 15 et § 6 | Porté `[À VÉRIFIER]`. Durée largement enseignée, aucune source officielle captée. Même fichier CNESST à ouvrir que pour le garrot |
+| Intervalles de surveillance de 15 min / 1 h / 4 h | § 5-F étape 35 et § 6 | Porté `[À VÉRIFIER]` et **écrit dans le texte comme une construction du livre**, pas comme une échelle clinique publiée. À faire valider par le relecteur clinique ou à remplacer |
+| « Au moins 1 L par plaie » pour l'irrigation | § 4 | Porté `[À VÉRIFIER]`. Quantité de dimensionnement, pas un seuil clinique |
+
+Trois nombres du premier jet ont été retirés parce qu'ils n'étaient pas sourçables et qu'ils
+n'avaient pas besoin de l'être : « fièvre 2 à 4 jours après la plaie » (devenu « quelques
+jours »), « tétanos 1 à 14 jours » (ramené au « dans les 2 semaines » de la source), « coton
+bouilli 10 minutes » et « bande d'au moins 5 cm » pour le garrot improvisé (remplacés par le
+mécanisme : gros bouillons, et la largeur qui répartit la pression).
+
+### Chiffres qui, eux, sont sourcés et enregistrés
+
+7 à 10 % de survie perdus par minute · formation de 30 min · renouvellement du secourisme aux
+3 ans · 30 min / 60 min pour la civière et le collet en forêt · lavage d'une morsure 10 à
+15 min · mort inévitable dans les 14 jours suivant les symptômes de la rage · symptômes du
+tétanos dans les 2 semaines · mortalité du tétanos de 10 à 80 % · rappel adulte à 50 ans ·
+20 s de lavage des mains · 60 % d'alcool minimum · 6 h et 8 h sans uriner · 1 800 463-5060 et
+sa disponibilité 24/7 · fibrillation ventriculaire déclenchée par le mouvement sous 28 °C ·
+74 °C à cœur pour le gibier · botulisme de type E dès 3 °C · dimensions de la trousse CSA
+Z1220.
+
+---
+
+## 2. Sources enregistrées
+
+| Fichier | Organisme | Extrait capté |
+| --- | --- | --- |
+| `sources/27-cnesst-materiel-premiers-secours.md` | CNESST (norme CSA Z1220) | Oui, en français — quantités à relire à l'écran |
+| `sources/27-cnesst-registre-premiers-secours.md` | CNESST | Oui, en français, citations exactes |
+| `sources/27-cnesst-formation-secourisme.md` | CNESST | Oui — **mais le manuel de 286 p. n'a pas pu être extrait** |
+| `sources/27-quebec-811-quatre-options.md` | Gouvernement du Québec | Oui, en français |
+| `sources/27-quebec-rage-chez-humain.md` | Gouvernement du Québec | Oui, en français |
+| `sources/27-quebec-tetanos.md` | Gouvernement du Québec | Oui, en français |
+| `sources/27-quebec-rcr-heros-en-trente.md` | Gouvernement du Québec, Urgences-santé, Fondation Cœur + AVC | Oui, en français |
+| `sources/27-reprises-sources-deja-enregistrees.md` | Centre antipoison, Québec.ca, Wilderness Medical Society | Oui — reprises des fichiers maîtres des ch. 3, 5 et 7 |
+
+**Conditions de travail à signaler :** le budget de recherche web de la session a été épuisé
+avant le début de la rédaction. Toutes les pages ci-dessus ont été trouvées en naviguant à la
+main dans l'arborescence de quebec.ca et de cnesst.gouv.qc.ca, sans moteur de recherche.
+Conséquence : **les pages officielles sur la brûlure thermique et sur la maîtrise d'une
+hémorragie n'ont pas été trouvées**, et c'est la raison des deux `[À VÉRIFIER]` les plus
+lourds. Une session avec budget de recherche doit reprendre ces deux sujets en priorité.
+
+---
+
+## 3. Images requises
+
+| # | Sujet | Cadrage | Format |
+| --- | --- | --- | --- |
+| 1 | La feuille de suivi du chalet, remplie à la main : en-tête (nom, heure, lieu, description, blessure, premiers secours donnés) puis la grille horaire à six colonnes, avec quatre ou cinq lignes déjà écrites au crayon | Plan rapproché légèrement de biais, planchette à pince, crayon attaché par une ficelle. L'écriture doit être lisible mais pas parfaite | Pleine page |
+| 2 | La feuille murale collée à l'intérieur de la porte d'armoire de la trousse : numéros (811 et ses options, 911, 1 800 463-5060), allergies, médicaments, statut antitétanique, trois durées d'évacuation | Plan de face, porte ouverte, trousse visible en dessous | Demi-page |
+| 3 | Pression directe sur une plaie de cuisse : paume ouverte, bras tendus, poids du corps au-dessus, montre au poignet du secouriste visible dans le cadre | Vue de trois quarts, au sol, sur une bâche. **La montre doit être nette** — c'est le sujet de l'image | Demi-page |
+| 4 | Garrot posé haut sur une cuisse, heure écrite au crayon feutre sur le front du blessé | Deux vignettes côte à côte : le garrot serré, et le front avec l'heure. Mise en scène, pas de vraie blessure | Demi-page |
+| 5 | Irrigation d'une plaie de main : seringue de 60 mL sans aiguille en jet, contenant d'eau bouillie refroidie à côté, gants aux mains | Plan très rapproché au-dessus d'un bassin, le jet visible | Quart de page |
+| 6 | Le trait de crayon feutre autour d'une rougeur, daté et heuré, et le même bras le lendemain | Deux vignettes côte à côte, même angle, même lumière. Sans les deux vignettes, l'image ne dit rien | Quart de page |
+| 7 | Contenu de la trousse étalé à plat sur une table, chaque item séparé, liste du contenu ouverte à côté | Vue plongeante à la verticale, lumière uniforme | Pleine page |
+
+**Licences :** les sept images sont à produire par JP au chalet — aucune licence à régler.
+Les images 3 et 4 sont des mises en scène : **aucune blessure réelle, aucun sang**, et la
+légende doit le dire, sinon un lecteur croira à une photo de cas. Chaque entrée va quand même
+dans `images/credits.md`.
+
+**Fenêtre :** aucune contrainte de saison. À faire n'importe quand, idéalement le même jour
+que l'inventaire de la trousse (ch. 29), pour ne sortir le matériel qu'une fois.
+
+---
+
+## 4. Renvois
+
+| Chapitre | Raison |
+| --- | --- |
+| 2 — Rester ou partir | La décision d'évacuer appartient au ch. 2 ; le ch. 27 ne fournit que l'évaluation qui la nourrit |
+| 3 — Le froid lui-même | Hypothermie et gelures. Le ch. 27 n'en garde que la conséquence sur la manipulation d'un blessé qui a froid |
+| 7 — Des enfants de 4 et 6 ans · 33 — Les enfants, la peur et la routine | Brûlure et déshydratation chez l'enfant ; donner une tâche vraie à un enfant pendant une urgence |
+| 13 — Eau : puiser, filtrer, désinfecter | Eau bouillie pour irriguer une plaie |
+| 15 — Poêles à bois · 16 — Le feu au chalet · 19 — Communiquer et savoir | Monoxyde de carbone, génératrice, et le lien qui permet d'appeler |
+| 18 — Éclairage | Examiner un blessé de nuit sans fausser les couleurs |
+| 20 — Se déplacer et le carburant | L'évacuation elle-même |
+| 21 — Le voisinage et le groupe de chasse · 23 — S'organiser à plusieurs familles | Le deuxième véhicule, et quelqu'un qui sait qu'on est parti |
+| 25 — Le scorbut et l'arbre de vie · 30 — Plantes médicinales boréales | Thuyone du cèdre, et ce qu'on boit à la place |
+| 26 — Ce qu'un corps demande l'hiver | Nourrir un convalescent |
+| 28 — Hygiène et eaux usées | Déchets de pansement et linge souillé |
+| 29 — Bâtir la pharmacie | Tout ce qui se stocke, se date et se remplace. Le ch. 27 ne dit que ce qui doit être à portée de main |
+| 31 — Ce qu'on ne peut pas soigner | Le point où ce chapitre s'arrête |
+| 32 — Tenir le moral tout un hiver | Le soignant qui devient un risque, et Info-Social en option 2 |
+| 36 — Abattage, saignée, éviscération · 61 — Pourquoi la viande pourrit | Cuisson à 74 °C, et plaies de couteau contaminées |
+| 41 — Abats et organes | Cadmium du foie et des reins de cervidés |
+| 72 — Fumer le poisson · 73 — Conserves et marinades | Botulisme, type E dès 3 °C |
+| 82 — Affûter, limer, aiguiser · 89 — Savon et chandelles | Ciseaux de remplacement ; savon de la variante d'urgence |
+
+Tous les numéros ont été vérifiés contre la liste des 89 chapitres. Aucun renvoi à un chapitre
+inexistant. Le ch. 83 (scie à chaîne) n'a **pas** été renvoyé bien qu'il soit la première cause
+plausible de plaie grave au chalet : à ajouter par l'éditeur quand le ch. 83 existera, dans
+l'étape 8 de la section 5-B.
+
+---
+
+## 5. Relecteur humain requis
+
+**Oui — infirmière clinicienne ou médecin d'urgence, de préférence en pratique de région
+éloignée ou en médecine de milieu isolé.**
+
+Le chapitre enseigne la maîtrise d'une hémorragie, la pose d'un garrot, la conduite devant une
+morsure et des seuils de décision d'évacuation. Chaque chiffre vient d'une page
+gouvernementale, mais **l'assemblage** — quoi faire en premier, quoi surveiller, quand
+renoncer et partir — n'est écrit nulle part et c'est ça qu'il faut faire relire.
+
+Quatre points précis à soumettre :
+
+1. **Le garrot.** Le chapitre dit de le poser haut, de ne jamais le desserrer, et d'écrire
+   l'heure sur le front. Il ne donne aucune durée maximale. Est-ce qu'une durée doit
+   apparaître, et laquelle ?
+2. **L'absence de chiffres pour la RCR et pour le refroidissement d'une brûlure.** C'est un
+   choix de rédaction assumé au nom de la règle 1. Un clinicien peut trouver que l'absence est
+   plus dangereuse que l'approximation. Il faut qu'il le dise.
+3. **Les cinq signaux (conscience, respiration, circulation, température, urine)** et les
+   intervalles de 15 min / 1 h / 4 h. Ce découpage est une construction du livre, pas une
+   échelle validée.
+4. **La liste des signes d'urgence**, empruntée au guide d'autosoins respiratoires et employée
+   ici pour toute situation.
+
+`suivi-chapitres.md` doit marquer le chapitre 27 d'un ⚠ (relecture humaine obligatoire). Le
+tableau de CLAUDE.md liste les chapitres à relecture humaine et **n'inclut pas le 27** : c'est
+une omission, ce chapitre est au moins aussi exposé que *Bâtir la pharmacie*. À trancher par
+l'éditeur.
+
+---
+
+## 6. Notes pour la suite de la chaîne
+
+- **Au vérificateur technique (rôle 3) :** ne pas combler les trois trous volontaires
+  (fréquence de la RCR, durée du refroidissement d'une brûlure, durée maximale du garrot) avec
+  un chiffre de mémoire ou de blogue. Ils sont vides parce qu'aucune page officielle consultée
+  ne les portait, et le manuel de la CNESST qui les porte n'a pas pu être extrait. Les combler
+  demande d'ouvrir le PDF DC400-702-8, pas de chercher un nombre plausible.
+- **Au vérificateur sécurité (rôle 4) :** trois dangers ont été retenus dans l'encadré —
+  hémorragie interne, monoxyde de carbone, rage — et plusieurs ont été écartés pour ne pas
+  diluer. L'anaphylaxie n'est pas dans l'encadré : le matériel la prévoit (auto-injecteur), mais
+  aucune page officielle donnant le geste n'a été captée, et un encadré DANGER sans mécanisme
+  sourcé ne vaut rien. **Si l'anaphylaxie doit entrer dans l'encadré, il faut d'abord la
+  source.** Le tétanos et le botulisme sont traités en section 7, pas en encadré : à confirmer
+  que c'est le bon niveau.
+- **À l'éditeur (rôle 5) :** la section 5-H répète cinq règles qui vivent ailleurs dans le livre
+  (monoxyde et génératrice, thuyone du cèdre, cadmium des abats, botulisme, 74 °C). C'est voulu,
+  c'est la consigne de CLAUDE.md. Ne pas les transformer en simples renvois. Chacune est
+  rattachée à un geste réel du chapitre, pas collée par principe : on veille un malade dans une
+  maison calfeutrée, on lui fait des tisanes, on lui sert du foie pour le remonter, on lui
+  réchauffe des conserves, on lui cuit du gibier.
+- **Vocabulaire posé ici**, à reprendre tel quel ailleurs : *feuille de suivi*, *soignant
+  désigné*, *les cinq signaux*, *trait de rougeur*, *convertir la gravité en heures*,
+  *stabiliser puis partir*. À verser au glossaire.
+- **Frontière avec le ch. 29 :** le ch. 27 ne donne aucune posologie et aucun médicament. Tout
+  ce qui s'avale appartient au ch. 29. Frontière avec le ch. 31 : le ch. 27 s'arrête au moment
+  où la question n'est plus de guérir.
+
+## Notes retirées du chapitre — 23 septembre 2026
+
+- Section 4, en tête du tableau : « Les quantités de la colonne Quantité viennent du contenu
+  minimal des trousses de premiers secours au Québec ; le reste est ce qu'ajoute le
+  hors-réseau. »
+- Étape 5 (tétanos) : « il n'est pas imprimé ici faute d'une page officielle qui le porte
+  [À VÉRIFIER]. »
+- Étape 11 (compressions) : « parce qu'aucune page officielle consultée ne les donne et qu'un
+  rythme inventé est pire qu'un rythme appris. »
+- Étape 28 (brûlure) : « **La durée exacte n'est pas imprimée ici** parce qu'aucune page
+  officielle n'a pu être captée pour ce chapitre [À VÉRIFIER — durée et température de
+  refroidissement]. »
+- Étape 35 (intervalles de surveillance) : « Ces trois intervalles sont une construction du
+  livre, pas une échelle clinique publiée [À VÉRIFIER]. »
+
+## Passe légal et signes — 23 septembre 2026
+
+Aucune phrase de loi, de code ou de municipalité dans le chapitre. Cinq notes de bas de page
+ajoutées pour des signes nommés sans description au premier endroit où ils paraissent :
+
+| Note | Signe | Où | Source enregistrée |
+| --- | --- | --- | --- |
+| [^1] | Bassin instable | §2, mauvais choix | `sources/27-msd-fractures-pelviennes.md` (Manuels MSD grand public, rév. août 2025). « Écrasement » ajouté aux causes de la page, parce que c'est le cas du chapitre (bûche, §8) |
+| [^2] | Saignement interne | §2, mauvais choix | `sources/27-msd-choc.md` (Manuels MSD grand public, rév. mai 2024). Sert aussi de source au tableau de la §8, qui n'en avait pas |
+| [^3] | Plaie qui rougit et qui remonte (lymphangite) | §2, mauvais choix | `sources/27-msd-lymphangite.md` (Manuels MSD grand public, rév. mai 2026) |
+| [^4] | Ne respire pas normalement (respiration agonale) | §5-B, étape 11 | `sources/27-societe-de-sauvetage-respiration-agonale.md` (Société de sauvetage, fiche technique du 12 juillet 2016). « Près de quatre fois sur dix » = « près de 40 % » de la fiche, qui cite une étude américaine de 1991 |
+| [^5] | Peau qui crépite sous le doigt | §7 | `sources/27-msd-infections-necrosantes.md` (Manuels MSD grand public, rév. mai 2026) |
+
+Les Manuels MSD ne sont pas une source gouvernementale. Aucune page de Québec.ca, de Santé
+Canada ou de l'INSPQ décrivant ces signes n'a été trouvée pendant la passe : à remplacer si
+une page officielle se trouve.
+
+## Levée des [À VÉRIFIER] — 24 septembre 2026
+
+Verdicts : `suivi/verifications/27-verifications.md` (9 drapeaux : 2 levés, 6 corrigés, 1 introuvable).
+
+- **Irrigation d'une plaie (§4 Matériel ; §5-D, étape 22) — corrigé :** « au moins 1 L » → au moins 100 à 300 mL et jusqu'à ce qu'on ne voie plus de saleté ; le litre reste comme marge. `sources/27-merck-pro-lacerations-irrigation.md`
+- **Tétanos après une plaie (§5-A, étape 5 ; §6, ligne « Statut vaccinal ») — corrigé :** renvoi au pharmacien ou au 811 remplacé par la valeur : rappel si dernière dose > 5 ans (plaie à risque), > 10 ans (plaie propre) ; rappel à 50 ans confirmé. Note A appliquée au §6. `sources/27-inspq-ciq-2018-plaie-a-risque-tetanos.md`
+- **Pression directe (§5-C, étape 15 ; §6, ligne « Saignement » ; §9 « Sans montre ») — corrigé :** 10 minutes → au moins 5 minutes ; saignement grave : jusqu'à l'arrêt ou jusqu'au garrot. `sources/27-saignement-pression-directe-et-garrot.md`
+- **Pansements empilés (§5-C étape 16 ; §6 hors cible ; §7) — note B appliquée :** un seul pansement par-dessus ; §7 « troisième pansement en moins de 10 minutes » → « deuxième pansement malgré une pression ferme » (la ligne s'appuyait aussi sur l'ancien 10 minutes). Même source + `sources/27-anzcor-9-1-1-saignement.html`
+- **Garrot (§5-C, étape 18) — levé :** ne pas desserrer (mécanisme), moins de 2 h sûr, relais par pansement compressif garrot lâche en place sous trois conditions, plus de 6 h ne s'enlève plus. « Choc » expliqué dans la phrase par ses signes (renvoi à la section 8). `sources/27-saignement-pression-directe-et-garrot.md`
+- **Chauve-souris (§5-D, étape 25) — corrigé :** la seule présence dans la chambre d'un dormeur ne suffit pas ; exposition = contact avec la peau, même bref et sans marque ; cheveux, vêtement, indices chez l'enfant. `sources/27-aspc-guide-immunisation-rage-chauves-souris.md`
+- **Brûlure (§5-E, étape 28) — corrigé :** au moins 20 minutes d'eau fraîche, pas froide ; « refroidir tard ne sert presque à rien » retiré : aide encore jusqu'à 3 heures après. `sources/27-brulure-refroidissement.md`
+- **Intervalles de surveillance (§5-F, étape 35 ; §6, ligne « Blessé, sous surveillance ») — introuvable :** les trois intervalles (15 min, 1 h, 4 h) tombent, remplacés par la surveillance continue tant que c'est grave. `sources/27-anzcor-surveillance-personne-gravement-malade.md`
+- **Solution de réhydratation (§9) — levé :** 3 g de sel et 18 g de sucre par litre ; recette au jus d'orange 360 mL + 600 mL + 2,5 mL de sel. `sources/27-oms-2005-solution-sel-sucre.md`, `sources/05-quebec-rehydratation-gastro.md`
+
+- **Compression §3 et §4 — 27 septembre 2026 :** 967 mots → 215 mots (§3 : 248 → 119 ; §4 : 719 → 96, le tableau de 20 lignes et ses paragraphes d'intro et de fin remplacés par 5 items). Matériel coupé : gants d'examen, compresses compressives et abdominale (doublons de la gaze), bandages élastiques, ruban adhésif, ciseaux à bandage, écharpes et pince à écharde, attelles, couverture de secours, savon, eau bouillie en contenant, seringue d'irrigation, feuille de suivi et crayons, lampe frontale, lingettes, barrière RCR, liste du couvercle, sac à déchets ; consignes coupées : deux trousses maison/chalet, rotation au ch. 32. §3 : chiffre « 7 à 10 % de survie perdus par minute d'arrêt cardiaque » coupé. Déplacé : « cendre de bois pour les mains, jamais dans une plaie » → §5-D, étape 21.

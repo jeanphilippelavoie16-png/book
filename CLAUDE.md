@@ -1,0 +1,308 @@
+# Le Grand Livre du Chalet — instructions du projet
+
+Ce fichier est lu au début de chaque session. Il prime sur tout le reste.
+
+## Ce qu'on fait
+
+Un ouvrage de référence en **6 tomes, 114 chapitres**, sur la conservation des aliments,
+la subsistance et l'autonomie, adapté à la Côte-Nord (forêt boréale, hivers à -35 °C,
+saison de jardin de 90 à 100 jours, orignal, truite, fleuve salé).
+
+## Ce que ce livre est, et ce qu'il n'est pas
+
+**Ce n'est pas un manuel de la CNESST.** C'est un manuel de comment survivre et s'adapter
+à la vie après une catastrophe. Quand tu es dans la marde et que tu n'as rien.
+
+Le test de chaque page : **il n'y a personne à appeler.** Pas d'entrepreneur, pas de
+concession, pas de quincaillerie ouverte, pas de pièce en commande, pas d'inspecteur. Une
+phrase qui suppose le contraire ne sert à rien le jour où le livre sert.
+
+| Ça, ça sort | Ça, ça reste |
+| --- | --- |
+| « Faire appel à un professionnel certifié » | Comment le faire soi-même |
+| **Tout numéro de norme** | Ce que la pièce doit faire |
+| « Ne tentez pas ceci vous-même » | Ce qui arrive si on s'y prend mal, et comment s'y prendre bien |
+| « Remplacer la pièce » | Comment réparer la pièce, ou la fabriquer |
+| « Porter l'équipement de protection réglementaire » | Ce que le geste fait au corps, et quoi mettre entre les deux |
+
+**Aucun numéro de norme dans le livre. Aucun.** Ni CSA, ni CAN/CSA, ni NF EN, ni ASTM, ni
+ULC, ni ANSI, ni ISO, ni NFPA. Ça ne se discute pas et ça ne se garde pas « pour
+référence » : personne ne vérifie un numéro de norme dans le bois, et une ligne de
+matériel qui en aligne six n'est plus une ligne de matériel.
+
+Ce qui reste, c'est **la fonction**.
+
+### Deux exemples, à appliquer partout
+
+**Exemple 1 — la ligne de matériel qui fait un paragraphe.**
+
+> ❌ Pantalon forestier de protection contre les coups de scie (NF EN 381-5, ou ASTM F3325
+> cat. A, C ou D), casque haute visibilité (CSA Z94.1), protecteur oculaire et visière
+> (CAN/CSA Z94.3), protecteurs auditifs (CSA Z94.2), bottes anti-coupures (CSA Z195)
+>
+> ✅ **Scie à chaîne.** Le pantalon de coupe bourre la chaîne et l'arrête : c'est la seule
+> pièce qui fait quelque chose plutôt que de couvrir.
+
+Six numéros deviennent une phrase qui dit pourquoi.
+
+**Exemple 2 — la consigne d'institution.**
+
+> ❌ Coffre verrouillé pour les produits : naphta, essence, antigel, méthanol, huile à
+> lampe, javel, médicaments, piles bouton
+>
+> ✅ *(rien)*
+
+Elle ne se réécrit pas, elle se coupe. Un coffre verrouillé pour de l'huile à lampe dans
+un chalet où on allume la lampe tous les soirs, c'est une inspection de garderie.
+
+## Le lecteur est un père de deux enfants
+
+Il sait ce qui se laisse traîner et ce qui ne se laisse pas traîner. Il n'a pas besoin
+qu'un livre lui apprenne à ranger le poison, à surveiller un enfant près du poêle, à
+attacher les tout-petits ou à mettre les allumettes en hauteur.
+
+**Aucun conseil de sécurité domestique ordinaire dans ce livre.** Ni rangement des
+produits, ni supervision, ni précaution de bon sens parental. Ça ne s'adoucit pas, ça se
+coupe.
+
+Ce qui reste, et c'est rare : le fait qui **surprendrait** un parent compétent, parce que
+le réflexe normal est le mauvais. Un enfant intoxiqué au monoxyde a l'air fatigué ou de
+mauvais caractère, et un parent attentif conclut au caractère : ça, ça vaut d'être écrit,
+parce que ça retourne une lecture naturelle de la situation. « Ranger les produits
+dangereux » ne retourne rien.
+
+Dans le doute, coupe. Un livre qui explique l'évident à un homme qui sait souder perd sa
+crédibilité sur les pages où il a vraiment quelque chose à apprendre.
+
+**La distinction qui tranche tout : le mécanisme reste, la conformité saute.**
+« Le monoxyde de carbone n'a ni odeur ni couleur, tu t'endors au lieu de sortir » sauve
+une vie sans électricité ni inspecteur : ça reste, et ça se répète. « L'appareil doit être
+installé par un entrepreneur détenteur d'une licence » ne sauve personne un mardi de
+janvier à -35 °C : ça saute.
+
+Les neuf rappels de sécurité du tableau plus bas sont tous des mécanismes. Aucun ne saute.
+
+**La débrouille est le sujet, pas l'annexe.** Souder avec deux batteries de char montées
+en série. Faire tourner un moteur avec ce qui reste. Remplacer un joint par du cuir gras.
+Fabriquer l'outil qu'on n'a pas. Chaque fois qu'il existe une manière de faire la chose
+avec rien, elle vaut plus de place que la manière propre avec le bon matériel — parce que
+la manière propre, il la connaît déjà, et parce que le jour où il ouvre ce livre, le bon
+matériel n'est pas là.
+
+C'est pour ça que la **variante d'urgence** (point 9 du gabarit) est le cœur d'un chapitre
+et non sa queue. Un chapitre dont la variante d'urgence est courte est un chapitre qui n'a
+pas fait son travail.
+
+- Tome 1 — Tenir (ch. 00, 00b, 1 à 18)
+- Tome 2 — Le corps (ch. 19 à 40)
+- Tome 3 — Prélever (ch. 41 à 60)
+- Tome 4 — De la bête au garde-manger (ch. 61 à 81)
+- Tome 5 — La forêt, le jardin et le chalet (ch. 82 à 101 ; 96 à 99, l'agriculture, depuis le 27 septembre)
+- Tome 6 — L'atelier (ch. 102 à 112)
+
+Six tomes depuis le 24 septembre 2026 ; numéros actuels depuis le 27 septembre (deuxième
+renumérotation : l'agriculture entre au tome 5, la fin du tome 5 et le tome 6 avancent de quatre). La table des matières est dans
+`plan/tomes-6-proposition.md`, la correspondance ancien → nouveau numéro dans
+`plan/renumerotation.json`. Les fiches de `suivi/` et les `sources/` d'avant cette date citent
+les **anciens** numéros.
+
+**Lecteur type :** JP, sa conjointe, deux enfants (4 et 6 ans).
+Il sait souder, câbler du 12 V et abattre un orignal. Il n'a jamais salé une cuisse
+ni tanné une peau. Écrire pour quelqu'un de compétent de ses mains et débutant en
+conservation.
+
+## Les deux lieux
+
+Il y a **deux endroits**, pas un. Chaque chapitre dit lequel il vise.
+
+| | La maison | Le chalet |
+| --- | --- | --- |
+| Services | Hydro, aqueduc, égout | Hors réseau |
+| Situation | Au village, voisins proches | Isolé |
+| Réserves | Le rangement et le congélateur | Le minimum |
+| Territoire | Aucun | Chasse, pêche, bois, jardin, caveau |
+
+**La règle de bascule, et c'est elle qui décide du cadrage :**
+
+- **Ce qui est court se vit à la maison.** Une panne de trois jours, une tempête, une
+  alerte qui se lève : on ne part pas. La maison a l'eau, l'égout et les voisins.
+- **Ce qui dure finit au chalet.** Dès que l'événement s'étire, la maison devient un
+  lieu sans services au milieu d'autres gens sans services, et le chalet redevient le
+  bon endroit, parce que c'est lui qui a le bois, l'eau et le territoire.
+
+Donc : un chapitre écrit pour la maison **dit qu'il est pour la maison**, et donne
+l'adaptation au chalet. Un chapitre de prélèvement ou de conservation longue est au
+chalet, et on ne fait pas semblant du contraire. Le chapitre 2 (Rester ou partir) porte
+la bascule elle-même : c'est la charnière du livre, pas un chapitre parmi d'autres.
+
+**Format d'impression :** 8 × 10 po, Blurb photo book, 440 pages max par tome,
+papier standard couleur.
+
+## Règles non négociables
+
+1. **Ne jamais inventer un chiffre.** Un chiffre plausible non vérifié est une erreur, pas
+   un placeholder. On cherche la source **avant** d'écrire, on enregistre la page dans
+   `/sources`, on note la provenance dans `suivi/NN-redaction.md`. Ce qu'on ne trouve pas
+   porte `[À VÉRIFIER]`.
+
+   **Mais la provenance ne s'imprime pas.** Aucune attribution dans le texte du livre :
+   ni `(MAPAQ)`, ni `(Santé Canada)`, ni `(INSPQ)`, ni `(CNESST)`, ni aucune autre. Le
+   lecteur veut le chiffre, pas la bibliographie. La traçabilité vit dans `/sources` et
+   dans `/suivi`, où elle sert à qui vérifie — pas au milieu d'une procédure qu'on lit à
+   la lampe frontale.
+
+   La discipline de recherche ne bouge pas d'un pouce. C'est seulement l'affichage qui
+   disparaît. Un rédacteur qui arrête de chercher parce que personne ne verra la source
+   ramène exactement l'erreur du chapitre pilote : 71 °C écrits avec aplomb là où la
+   valeur est 74.
+2. **Les sources officielles priment** sur les blogues et les forums. MAPAQ, Santé
+   Canada, ACIA, INSPQ, gouvernement du Québec. Enregistrer la page dans `/sources`,
+   pas juste le lien : une page de ministère qui disparaît transforme un chiffre validé
+   en chiffre inventé.
+3. **Métrique partout.** Températures en °C, masses en g et kg, volumes en L.
+   L'impérial entre parenthèses seulement pour les dimensions de construction.
+4. **Les pourcentages de sel** sont toujours calculés sur le poids de la viande.
+5. **Écrire dense.** Environ 700 mots utiles par page en 8 × 10. Une phrase qui
+   n'apprend rien saute. Pas de remplissage, pas d'introduction qui annonce ce qui suit.
+6. **Le français québécois**, ton direct. Pas de tutoiement du lecteur dans le corps
+   du livre, mais pas de langue de bois non plus.
+
+## Les rappels de sécurité à répéter partout où ils s'appliquent
+
+Ces règles se répètent dans **chaque** chapitre concerné, pas une seule fois
+dans le livre. Quelqu'un ouvre le livre à une page, pas à la première.
+
+| Règle | Où elle s'applique |
+| --- | --- |
+| Cuisson du gibier sauvage à **74 °C** à cœur (MAPAQ) | Ours, phoque, lièvre, orignal, castor |
+| **Jamais le foie ni les reins de cervidés** — cadmium (MAPAQ) | Abats, orignal |
+| Trichinellose : ni le sel, ni le fumage, ni le gel domestique ne la détruisent | Ours, phoque |
+| Tularémie : gants obligatoires à la manipulation | Lièvre |
+| **Thuyone du cèdre toxique** — sapin baumier ou épinette pour la vitamine C | Scorbut, tisanes, plantes |
+| Botulisme de type E : produit sa toxine dès **3 °C**, donc au frigo | Tout le poisson, surtout fumé |
+| Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence | Salaison, conserves, poisson |
+| Viande maigre seule = mal de caribou, mortel en quelques semaines | Lièvre, orignal, rationnement |
+| Génératrice : **jamais** dans un bâtiment, un garage ou sous un auvent | Stock, carburant, électricité |
+
+## Le gabarit
+
+Chaque chapitre technique suit les **neuf** points de `gabarit-chapitre.md`, dans l'ordre.
+Un chapitre de référence (listes, tableaux) peut remplacer la procédure numérotée par
+des tableaux, mais garde l'ordre général et l'encadré danger.
+
+## Ce qui ne s'imprime pas
+
+**Pas de section Sources dans le livre, et pas d'attribution dans le texte.** C'est un
+document de survie, pas un travail universitaire. On écrit **« 74 °C à cœur »**, pas
+« 74 °C à cœur (MAPAQ) ». Les sources continuent d'être cherchées avant d'écrire et
+enregistrées dans `/sources`, la provenance est notée dans `suivi/NN-redaction.md`, mais
+rien de tout ça n'apparaît sur la page. **Les crédits des images non plus** (JP, 28 septembre
+2026) : `images/credits.md` et les registres restent tenus, et l'assembleur en tire une copie par
+tome dans `livre/credits/`, hors du livre ; aucune page de crédits ne s'imprime.
+
+**Pas d'évidences.** Une ligne qui dit « ne pas rester dans un bâtiment qui brûle » ou
+« obéir aux autorités qui ordonnent l'évacuation » n'apprend rien à personne et vole la
+place de ce qui compte. Un chapitre qui se remplit d'évidences est un chapitre qui n'a
+pas assez de contenu réel : la réponse est d'écrire le contenu, pas de garder le
+remplissage. Ça vaut pour toutes les listes, en particulier « quand c'est un mauvais
+choix ».
+
+**Pas de municipalité, pas de code légal.** Aucune phrase sur un règlement municipal, une loi,
+un code, une norme de construction, un permis ou une obligation légale. Le livre sert le jour
+où personne ne vient vérifier. Ce qui compte dans la règle — le mécanisme qu'elle protège —
+reste, dit comme un fait.
+
+**Aucun numéro de téléphone, aucun service qui répond.** Ni 911, ni Info-Santé, ni Centre
+antipoison, ni ligne d'un ministère, ni municipalité comme service ; ni site à consulter
+(Info-pannes, Québec 511, carte de la SOPFEU, Urgence Québec), ni « joindre la santé publique »,
+ni « signaler aux autorités », ni « le pharmacien tranche », ni « attendre les pompiers ».
+Hydro-Québec reste quand c'est un fait sur le réseau ou la panne. Le test « il n'y a personne à
+appeler » vaut partout, même pour une panne courte à la maison. Deux exceptions tranchées par JP
+le 24 septembre 2026 : **les appareils qu'on possède pour être trouvé restent** (balise 406 MHz,
+SOS de la messagerie satellite, VHF : si quelqu'un répond, tant mieux) ; **la préparation faite
+pendant que tout marche reste** (le rendez-vous annuel avec le pharmacien, l'analyse d'eau du puits). Ce que la phrase disait de la gravité reste : « ce signe
+veut dire que la vie est en jeu », puis ce qu'on fait ici, avec ce qu'on a.
+
+**Un signe nommé s'explique.** Quand le texte nomme un signe, un symptôme ou un repère que le
+lecteur ne peut pas reconnaître sans qu'on le lui décrive, et que le livre ne l'a pas décrit
+avant, l'explication va **en note de bas de page** (`[^1]` en Markdown) : à quoi ça ressemble,
+comment on le voit ou le teste. Un signe qu'on ne sait pas reconnaître ne sert à rien.
+
+**Les méthodes ancestrales restent, avec leur avertissement.** Quand une façon de faire des
+Innus ou d'une autre nation du Nord contredit une règle du livre, on ne la coupe pas : on la
+décrit, on dit **pourquoi elle marche** (ce qui la rend sûre dans leurs conditions), et un
+avertissement dit ce qui la rend dangereuse si on change ces conditions.
+
+**Pas d'inventaire éparpillé.** Les listes d'achat et de stock vivent dans **un seul
+chapitre**, classé par priorité : ce qu'il faut acheter absolument, ce qui est essentiel,
+ce qui est important, ce qu'on ajoute s'il reste du temps et de l'argent. Le Matériel d'un
+chapitre ne liste que l'**indispensable** de **cette** procédure-là — ce sans quoi elle échoue
+ou devient dangereuse —, une ligne par item, 15 à 20 mots, et rien de plus ; le « Pourquoi ça
+marche » tient en trois à cinq phrases (JP, 27 septembre 2026 : « c'est long pour rien » ;
+format dans `gabarit-chapitre.md`). Tout le reste renvoie au chapitre d'achat.
+
+## Les deux chapitres d'ancrage
+
+Ces deux-là ne suivent pas le gabarit. Ils ont leur propre forme, parce qu'ils ont leur
+propre travail.
+
+**Le chapitre principal.** Les catastrophes les plus probables, classées par probabilité
+réelle et non par ce qui fait peur. Pour chacune : quelques points majeurs en gros, et
+rien d'autre. C'est la page qu'on ouvre en panique, à la lampe frontale, avec un enfant
+qui pleure dans l'autre pièce. Il tient sans être lu d'avance. Chaque point renvoie au
+chapitre qui développe. Il ouvre le livre.
+
+**Le chapitre d'achat.** Tout ce qui se procure, en quatre paliers : à acheter
+absolument, essentiel, important, et ce qu'on ajoute s'il reste du temps et de l'argent.
+Chaque ligne dit si c'est pour la maison, pour le chalet, ou pour les deux. C'est le
+seul inventaire du livre.
+
+## La chaîne
+
+Un chapitre passe par : **rédacteur → vérificateur technique + vérificateur sécurité
+→ éditeur → metteur en pages**. Les deux vérificateurs travaillent en parallèle, sur
+des sessions distinctes. Les prompts sont dans `roles.md`.
+
+Un rôle ne fait que sa mission. Le vérificateur technique signale, il ne réécrit pas.
+Le vérificateur sécurité ne juge pas le style. Un rédacteur qui se relit lui-même
+trouve ce qu'il a voulu écrire, pas ce qu'il a écrit.
+
+## Pas de relecture extérieure
+
+**Le livre est à JP, pour JP.** Il n'y a pas de relecture par des pairs ni par des
+spécialistes, et **aucune mention de relecture dans le livre** : ni « relecteur humain
+requis », ni « à faire confirmer par un dentiste », ni « mécanisme à confirmer par le
+relecteur ». La vérification se fait à la source (règle 1) et par les vérificateurs de la
+chaîne. Ce qui ne se vérifie pas à la source porte `[À VÉRIFIER]` — sans nommer de
+relecteur — et se lève ou se coupe avant l'impression.
+
+## Le dossier
+
+```
+/livre
+  /plan          plan maître, ce fichier, gabarit, glossaire, normes graphiques
+  /chapitres     89 fichiers, un par chapitre, nommés NN-titre-court.md
+  /suivi         suivi-chapitres.md + une fiche par chapitre en cours
+  /images        par chapitre, avec credits.md pour les licences
+  /sources       les pages officielles ENREGISTRÉES, pas des liens
+```
+
+## Les images
+
+Rien ne se copie du web sans vérifier la licence. Sources acceptables : Wikimedia
+Commons filtré par licence, iNaturalist, planches du domaine public d'avant 1930,
+agences fédérales américaines, figures de revues scientifiques publiées sous CC BY
+(accepté par JP le 24 septembre 2026), et les photos de JP. Les licences non commerciales
+sont correctes pour un usage privé et à remplacer si le livre se vend un jour.
+Chaque image entre dans `credits.md` avec son auteur, sa licence et son lien.
+
+## Ce qui est déjà fait
+
+- Chapitre 5 (ancien 8) — Le stock permanent du chalet : écrit, 4 portes passées, 3 chiffres à valider
+- Chapitre 68 (ancien 63) — Salaison à sec : écrit (pilote), a servi à calibrer la densité
+
+## Une leçon du pilote
+
+Le premier jet du chapitre de la salaison à sec (68, ancien 63) donnait 71 °C pour la cuisson du gibier. La vraie valeur
+du MAPAQ est 74 °C. Aucune relecture interne n'aurait trouvé ça — seule la vérification
+à la source l'a attrapé. C'est pour ça que la règle 1 existe.

@@ -1,0 +1,698 @@
+# Renumérotation — rapport
+
+657 fichiers renommés ou réécrits.
+
+## À relire à la main (32)
+
+- `05-le-stock-permanent-du-chalet.md` l. 103 : mention de tome à relire : « calories (section 5.3), et elle pèse la viande pour les pourcentages de sel de tout le tome 4, »
+- `103-souder-braser-reparer-le-metal.md` l. 421 : mention de tome à relire : « > plomb ». C'est-à-dire exactement ce que le tome 4 fait cuire, mariner et saler : une cuve de »
+- `41-calendrier-annuel-de.md` l. 231 : mention de tome à relire : « > tome 4 n'est un traitement de sécurité** : seule la chaleur à cœur l'est. Ça vise l'ours noir et »
+- `45-les-armes-les-munitions-et-l-arc.md` l. 14 : mention de tome à relire : « La cartouche est le seul outil du tome 3 qui ne se refait pas au chalet : gardée fraîche, sèche et »
+- `46-comment-lire-une-fiche-d.md` l. 22 : mention de tome à relire : « - Il faut choisir une méthode de conservation. Le champ 10 dit lesquelles du tome 4 s'appliquent, »
+- `46-comment-lire-une-fiche-d.md` l. 72 : mention de tome à relire : « | Balance, 0 à 5 kg, précision au gramme | 1 | Balance à fléau fabriquée : une tringle entaillée en son milieu, la viand »
+- `46-comment-lire-une-fiche-d.md` l. 112 : mention de tome à relire : « | 10 | **Conservation** | Où va la viande | Les méthodes du tome 4 qui s'appliquent, et celles qui ne s'appliquent pas à »
+- `46-comment-lire-une-fiche-d.md` l. 279 : mention de tome à relire : « > trouvées dans la nature résistent à la congélation. Le mécanisme est brutal : quatre des méthodes du tome 4 — saler, s »
+- `46-comment-lire-une-fiche-d.md` l. 393 : mention de tome à relire : « des deux bords. Ce qu'on perd, c'est la certitude du chiffre, donc les méthodes du tome 4 qui en »
+- `52-ours-noir.md` l. 41 : mention de tome à relire : « l'ours noir, et pour aucune autre espèce du tome 3 : »
+- `55-martre-vison-renard-lynx-loup.md` l. 30 : mention de tome à relire : « tome 3 où le rendement se compte en peaux et non en kilos. Une bordure de capuchon en »
+- `55-martre-vison-renard-lynx-loup.md` l. 66 : mention de tome à relire : « - **Pour saler, fumer ou sécher la viande.** Toutes les méthodes du tome 4 sont disponibles pour »
+- `55-martre-vison-renard-lynx-loup.md` l. 542 : mention de tome à relire : « parasite enkysté dans le muscle. Aucune formule de saumure du tome 4 ne rend cette viande sûre »
+- `56-phoque-du-saint-laurent.md` l. 100 : mention de tome à relire : « Autrement dit, quatre des méthodes du tome 4 arrêtent la putréfaction sans toucher au »
+- `56-phoque-du-saint-laurent.md` l. 358 : mention de tome à relire : « > simplicité : quatre des méthodes du tome 4 **conservent la viande sans stériliser le »
+- `57-truite-et-omble-au-lac.md` l. 61 : mention de tome à relire : « Un lac est une réserve qui se recharge, et c'est ce qui le distingue de tout le reste du tome 3. »
+- `57-truite-et-omble-au-lac.md` l. 105 : mention de tome à relire : « | Balance 0 à 5 kg, précision au gramme | 1 | Balance romaine improvisée : une perche, un point d'appui, la prise d'un b »
+- `57-truite-et-omble-au-lac.md` l. 487 : mention de tome à relire : « les pourcentages de sel du tome 4 se calculent sur le poids de la chair, avec un sel dont on »
+- `59-eperlan-et-poisson-du-fleuve.md` l. 14 : mention de tome à relire : « se prennent une à une, puis les refroidir assez vite pour que le tome 4 ait encore quelque chose à »
+- `59-eperlan-et-poisson-du-fleuve.md` l. 85 : mention de tome à relire : « décider dans la première heure de quelle voie du tome 4 il prend. »
+- `67-le-sel.md` l. 30 : mention de tome à relire : « tome 4 qui n'a pas de substitut valable : on peut se passer de fumoir, de congélateur, de »
+- `77-fumer-le-poisson.md` l. 452 : mention de tome à relire : « tiennent dans une poche et c'est le meilleur rapport sécurité-prix de tout le tome 4** : ils sont »
+- `78-conserves-et-marinades.md` l. 28 : mention de tome à relire : « manger** : la conserve est le seul procédé du tome 4 qui sort un aliment cuit, portionné et »
+- `78-conserves-et-marinades.md` l. 411 : mention de tome à relire : « > traitement à l'autoclave à 116 °C est, dans tout le tome 4, **le seul procédé de conservation »
+- `78-conserves-et-marinades.md` l. 471 : mention de tome à relire : « cycle d'autoclave est la seule opération du tome 4 où sortir dix minutes gâche une journée de »
+- `78-conserves-et-marinades.md` l. 614 : mention de tome à relire : « 3. **L'indépendance au froid.** Tout le reste du tome 4 dépend d'un caveau, d'un trou de neige »
+- `79-caveau-a-legumes.md` l. 25 : mention de tome à relire : « le seul procédé du tome 4 qui conserve le légume **vivant et cru**, sans le cuire, sans le saler, »
+- `80-fermentation.md` l. 24 : mention de tome à relire : « procédé du tome 4 qui le permette, parce que c'est le seul qui garde le légume **cru**. Un chalet »
+- `80-fermentation.md` l. 331 : mention de tome à relire : « > Une choucroute bien faite est un des aliments les plus sûrs du tome 4 : «There have been no »
+- `80-fermentation.md` l. 411 : mention de tome à relire : « congélateur, ni propane, ni pots neufs, ni scellage : c'est le seul procédé du tome 4 qui fonctionne »
+- `88-le-pain.md` l. 207 : mention de tome à relire : « d'essai. Le pourcentage se calcule **sur la farine**, comme celui du tome 4 se calcule sur la »
+- `99-babiche-tendons-cordage.md` l. 29 : mention de tome à relire : « animal au complet, ce qui est le vrai sujet du tome 4 : un orignal (*Alces americanus*) donne, après »
+
+## Fichiers
+
+- 00-le-chapitre-principal.md → 00-le-chapitre-principal.md (texte modifié)
+- 00b-acheter-par-priorite.md → 00b-acheter-par-priorite.md (texte modifié)
+- 01-les-quatre-horloges.md → 01-les-quatre-horloges.md
+- 02-rester-ou-partir.md → 02-rester-ou-partir.md
+- 03-panne-majeure-d-hydro-en.md → 03-panne-majeure-d-hydro-en.md (texte modifié)
+- 04-retombees-radioactives.md → 04-retombees-radioactives.md (texte modifié)
+- 05-le-stock-permanent-du-chalet.md → 05-le-stock-permanent-du-chalet.md (texte modifié)
+- 06-la-liste-de-72-heures.md → 06-la-liste-de-72-heures.md (texte modifié)
+- 07-quand-on-a-un-preavis.md → 07-quand-on-a-un-preavis.md
+- 08-listes-par-scenario.md → 08-listes-par-scenario.md (texte modifié)
+- 09-ce-qui-manque-toujours.md → 09-ce-qui-manque-toujours.md (texte modifié)
+- 10-eau-puiser-filtrer-desinfecter.md → 10-eau-puiser-filtrer-desinfecter.md
+- 100-coudre-et-chausser.md → 104-coudre-et-chausser.md (texte modifié)
+- 101-affuter-limer-aiguiser.md → 105-affuter-limer-aiguiser.md (texte modifié)
+- 102-scie-a-chaine-et-petits.md → 106-scie-a-chaine-et-petits.md (texte modifié)
+- 103-souder-braser-reparer-le-metal.md → 107-souder-braser-reparer-le-metal.md (texte modifié)
+- 104-le-stock-de-pieces-et-de.md → 108-le-stock-de-pieces-et-de.md (texte modifié)
+- 105-leviers-poulies-treuils.md → 109-leviers-poulies-treuils.md (texte modifié)
+- 106-assemblages-bois-bois.md → 110-assemblages-bois-bois.md (texte modifié)
+- 107-trempe-et-travail-du-metal-a.md → 111-trempe-et-travail-du-metal-a.md (texte modifié)
+- 108-savon-et-chandelles.md → 112-savon-et-chandelles.md (texte modifié)
+- 11-feu-de-foret.md → 11-feu-de-foret.md (texte modifié)
+- 12-la-tente-d-hiver.md → 12-la-tente-d-hiver.md (texte modifié)
+- 13-feu-sans-allumettes.md → 13-feu-sans-allumettes.md (texte modifié)
+- 14-communiquer-et-savoir.md → 14-communiquer-et-savoir.md
+- 15-se-deplacer-et-le-carburant.md → 15-se-deplacer-et-le-carburant.md (texte modifié)
+- 16-le-voisinage-et-le-groupe-de.md → 16-le-voisinage-et-le-groupe-de.md (texte modifié)
+- 17-qui-cogne-a-la-porte.md → 17-qui-cogne-a-la-porte.md (texte modifié)
+- 18-s-organiser-a-plusieurs.md → 18-s-organiser-a-plusieurs.md (texte modifié)
+- 19-le-mal-de-caribou.md → 19-le-mal-de-caribou.md
+- 20-le-scorbut-et-l-arbre-de-vie.md → 20-le-scorbut-et-l-arbre-de-vie.md (texte modifié)
+- 21-ce-qu-un-corps-demande-l-hiver.md → 21-ce-qu-un-corps-demande-l-hiver.md
+- 22-abats-et-organes.md → 22-abats-et-organes.md (texte modifié)
+- 23-ce-que-personne-ne-garde.md → 23-ce-que-personne-ne-garde.md (texte modifié)
+- 25-le-froid-lui-meme.md → 25-le-froid-lui-meme.md (texte modifié)
+- 26-soigner-quand-il-n-y-a.md → 26-soigner-quand-il-n-y-a.md (texte modifié)
+- 27-les-dents.md → 27-les-dents.md (texte modifié)
+- 30-epidemie.md → 30-epidemie.md (texte modifié)
+- 31-hygiene-et-eaux-usees.md → 31-hygiene-et-eaux-usees.md (texte modifié)
+- 32-batir-la-pharmacie.md → 32-batir-la-pharmacie.md (texte modifié)
+- 33-plantes-medicinales-boreales.md → 33-plantes-medicinales-boreales.md (texte modifié)
+- 35-ce-qu-on-ne-peut-pas-soigner.md → 35-ce-qu-on-ne-peut-pas-soigner.md (texte modifié)
+- 36-tenir-le-moral-tout-un-hiver.md → 36-tenir-le-moral-tout-un-hiver.md (texte modifié)
+- 39-des-enfants-de-4-et-6-ans.md → 39-des-enfants-de-4-et-6-ans.md
+- 40-les-enfants-la-peur-et-la.md → 40-les-enfants-la-peur-et-la.md
+- 41-calendrier-annuel-de.md → 41-calendrier-annuel-de.md (texte modifié)
+- 42-lire-le-territoire-autour-du.md → 42-lire-le-territoire-autour-du.md
+- 43-les-traces-et-les-signes.md → 43-les-traces-et-les-signes.md
+- 44-pister-et-retracer.md → 44-pister-et-retracer.md (texte modifié)
+- 45-les-armes-les-munitions-et-l-arc.md → 45-les-armes-les-munitions-et-l-arc.md (texte modifié)
+- 46-comment-lire-une-fiche-d.md → 46-comment-lire-une-fiche-d.md (texte modifié)
+- 47-chasser-le-petit-gibier.md → 47-chasser-le-petit-gibier.md
+- 48-lievre-d-amerique.md → 48-lievre-d-amerique.md (texte modifié)
+- 49-gelinotte-huppee-et-tetras-du.md → 49-gelinotte-huppee-et-tetras-du.md (texte modifié)
+- 50-castor.md → 50-castor.md (texte modifié)
+- 51-porc-epic.md → 51-porc-epic.md (texte modifié)
+- 52-ours-noir.md → 52-ours-noir.md (texte modifié)
+- 53-rat-musque-ecureuil-roux.md → 53-rat-musque-ecureuil-roux.md (texte modifié)
+- 54-outarde-canards-oiseaux-d-eau.md → 54-outarde-canards-oiseaux-d-eau.md (texte modifié)
+- 55-martre-vison-renard-lynx-loup.md → 55-martre-vison-renard-lynx-loup.md (texte modifié)
+- 56-phoque-du-saint-laurent.md → 56-phoque-du-saint-laurent.md (texte modifié)
+- 57-truite-et-omble-au-lac.md → 57-truite-et-omble-au-lac.md (texte modifié)
+- 58-peche-blanche.md → 58-peche-blanche.md (texte modifié)
+- 59-eperlan-et-poisson-du-fleuve.md → 59-eperlan-et-poisson-du-fleuve.md (texte modifié)
+- 60-nasses-filets-verveux.md → 60-nasses-filets-verveux.md (texte modifié)
+- 61-abattage-saignee-evisceration.md → 61-abattage-saignee-evisceration.md (texte modifié)
+- 62-carte-de-la-carcasse.md → 62-carte-de-la-carcasse.md (texte modifié)
+- 63-quartier-arriere.md → 63-quartier-arriere.md (texte modifié)
+- 64-quartier-avant.md → 64-quartier-avant.md (texte modifié)
+- 65-le-dos.md → 65-le-dos.md (texte modifié)
+- 66-pourquoi-la-viande-pourrit.md → 66-pourquoi-la-viande-pourrit.md (texte modifié)
+- 67-le-sel.md → 67-le-sel.md (texte modifié)
+- 68-salaison-a-sec.md → 68-salaison-a-sec.md (texte modifié)
+- 69-saumure.md → 69-saumure.md
+- 70-fumage-a-froid.md → 70-fumage-a-froid.md (texte modifié)
+- 71-fumage-a-chaud-et-sechage.md → 71-fumage-a-chaud-et-sechage.md (texte modifié)
+- 72-pemmican-et-graisses.md → 72-pemmican-et-graisses.md (texte modifié)
+- 73-froid-naturel.md → 73-froid-naturel.md (texte modifié)
+- 74-un-congelateur-plein-qui.md → 74-un-congelateur-plein-qui.md (texte modifié)
+- 75-traiter-le-poisson-a-la-sortie.md → 75-traiter-le-poisson-a-la-sortie.md (texte modifié)
+- 76-saler-et-secher-la-truite.md → 76-saler-et-secher-la-truite.md (texte modifié)
+- 77-fumer-le-poisson.md → 77-fumer-le-poisson.md
+- 78-conserves-et-marinades.md → 78-conserves-et-marinades.md (texte modifié)
+- 79-caveau-a-legumes.md → 79-caveau-a-legumes.md (texte modifié)
+- 80-fermentation.md → 80-fermentation.md (texte modifié)
+- 81-table-aliment-methode.md → 81-table-aliment-methode.md
+- 82-le-feu-au-chalet.md → 82-le-feu-au-chalet.md (texte modifié)
+- 83-poeles-a-bois-et-rendement.md → 83-poeles-a-bois-et-rendement.md (texte modifié)
+- 84-ouvrir-et-fermer-le-chalet.md → 84-ouvrir-et-fermer-le-chalet.md (texte modifié)
+- 85-eclairage.md → 85-eclairage.md (texte modifié)
+- 86-l-electricite-du-chalet.md → 86-l-electricite-du-chalet.md (texte modifié)
+- 87-sans-propane.md → 87-sans-propane.md (texte modifié)
+- 88-le-pain.md → 88-le-pain.md (texte modifié)
+- 89-raquettes-et-toboggan.md → 89-raquettes-et-toboggan.md (texte modifié)
+- 90-le-canot.md → 90-le-canot.md (texte modifié)
+- 91-petits-fruits.md → 91-petits-fruits.md (texte modifié)
+- 92-plantes-comestibles-boreales.md → 92-plantes-comestibles-boreales.md (texte modifié)
+- 93-champignons.md → 93-champignons.md (texte modifié)
+- 94-seve-gomme-ecorces.md → 94-seve-gomme-ecorces.md (texte modifié)
+- 95-jardin-nordique.md → 95-jardin-nordique.md (texte modifié)
+- 96-semences.md → 100-semences.md (texte modifié)
+- 97-petit-elevage.md → 101-petit-elevage.md (texte modifié)
+- 98-de-la-peau-au-cuir.md → 102-de-la-peau-au-cuir.md (texte modifié)
+- 99-babiche-tendons-cordage.md → 103-babiche-tendons-cordage.md (texte modifié)
+- suivi/100-redaction.md → suivi/104-redaction.md (texte modifié)
+- suivi/101-redaction.md → suivi/105-redaction.md (texte modifié)
+- suivi/102-redaction.md → suivi/106-redaction.md (texte modifié)
+- suivi/103-redaction.md → suivi/107-redaction.md (texte modifié)
+- suivi/104-redaction.md → suivi/108-redaction.md (texte modifié)
+- suivi/105-redaction.md → suivi/109-redaction.md (texte modifié)
+- suivi/106-redaction.md → suivi/110-redaction.md (texte modifié)
+- suivi/107-redaction.md → suivi/111-redaction.md (texte modifié)
+- suivi/108-redaction.md → suivi/112-redaction.md (texte modifié)
+- suivi/96-redaction.md → suivi/100-redaction.md (texte modifié)
+- suivi/97-redaction.md → suivi/101-redaction.md (texte modifié)
+- suivi/98-redaction.md → suivi/102-redaction.md (texte modifié)
+- suivi/99-redaction.md → suivi/103-redaction.md (texte modifié)
+- suivi/verifications/100-verifications.md → suivi/verifications/104-verifications.md (texte modifié)
+- suivi/verifications/101-verifications.md → suivi/verifications/105-verifications.md (texte modifié)
+- suivi/verifications/102-verifications.md → suivi/verifications/106-verifications.md (texte modifié)
+- suivi/verifications/103-verifications.md → suivi/verifications/107-verifications.md (texte modifié)
+- suivi/verifications/104-verifications.md → suivi/verifications/108-verifications.md (texte modifié)
+- suivi/verifications/105-verifications.md → suivi/verifications/109-verifications.md (texte modifié)
+- suivi/verifications/106-verifications.md → suivi/verifications/110-verifications.md (texte modifié)
+- suivi/verifications/107-verifications.md → suivi/verifications/111-verifications.md (texte modifié)
+- suivi/verifications/108-verifications.md → suivi/verifications/112-verifications.md (texte modifié)
+- suivi/verifications/96-verifications.md → suivi/verifications/100-verifications.md (texte modifié)
+- suivi/verifications/97-verifications.md → suivi/verifications/101-verifications.md (texte modifié)
+- suivi/verifications/98-verifications.md → suivi/verifications/102-verifications.md (texte modifié)
+- suivi/verifications/99-verifications.md → suivi/verifications/103-verifications.md (texte modifié)
+- images/planche-01-01-fiche-horloges.svg → images/planche-01-01-fiche-horloges.svg
+- images/planche-03-08-marmite-norvegienne.svg → images/planche-03-08-marmite-norvegienne.svg
+- images/planche-03-09-abri-dans-piece-tente.svg → images/planche-03-09-abri-dans-piece-tente.svg
+- images/planche-03-10-vidanger-maison-dans-bon.svg → images/planche-03-10-vidanger-maison-dans-bon.svg
+- images/planche-04-01a-piece-abri-chargee.svg → images/planche-04-01a-piece-abri-chargee.svg
+- images/planche-04-01b-pompe-carton.svg → images/planche-04-01b-pompe-carton.svg
+- images/planche-09-08-joint-cuir-gras-emporte.svg → images/planche-09-08-joint-cuir-gras-emporte.svg
+- images/planche-10-01-trois-temps-eau.svg → images/planche-10-01-trois-temps-eau.svg
+- images/planche-10-02-buse-pour-puiser-puits.svg → images/planche-10-02-buse-pour-puiser-puits.svg
+- images/planche-10-03-alambic-fortune.svg → images/planche-10-03-alambic-fortune.svg
+- images/planche-10-07-filtre-sable-baril.svg → images/planche-10-07-filtre-sable-baril.svg
+- images/planche-100-02-point-sellier-couture-rabattue.svg → images/planche-104-02-point-sellier-couture-rabattue.svg
+- images/planche-100-04-patron-mocassin-piece.svg → images/planche-104-04-patron-mocassin-piece.svg
+- images/planche-100-15a-patron-mukluk-sa-doublure.svg → images/planche-104-15a-patron-mukluk-sa-doublure.svg
+- images/planche-100-15b-mukluk-monte-sa-doublure.svg → images/planche-104-15b-mukluk-monte-sa-doublure.svg
+- images/planche-101-01-angle-affutage.svg → images/planche-105-01-angle-affutage.svg
+- images/planche-101-03-gouge-limiteur-profondeur.svg → images/planche-105-03-gouge-limiteur-profondeur.svg
+- images/planche-101-07-biseau-hache-lime-bombe.svg → images/planche-105-07-biseau-hache-lime-bombe.svg
+- images/planche-102-01-geometrie-abattage.svg → images/planche-106-01-geometrie-abattage.svg
+- images/planche-102-10a-sciotte-cadre.svg → images/planche-106-10a-sciotte-cadre.svg
+- images/planche-102-10b-reprendre-lame-sciotte.svg → images/planche-106-10b-reprendre-lame-sciotte.svg
+- images/planche-103-02-trois-joints-coupe.svg → images/planche-107-02-trois-joints-coupe.svg
+- images/planche-103-03-trois-cordons-coupe.svg → images/planche-107-03-trois-cordons-coupe.svg
+- images/planche-103-07-eclisse-boulonnee.svg → images/planche-107-07-eclisse-boulonnee.svg
+- images/planche-103-09-soudage-batteries.svg → images/planche-107-09-soudage-batteries.svg
+- images/planche-103-10-couture-vis-pour-fonte.svg → images/planche-107-10-couture-vis-pour-fonte.svg
+- images/planche-105-01-mouflage.svg → images/planche-109-01-mouflage.svg
+- images/planche-105-02-boucle-bout-cable-acier.svg → images/planche-109-02-boucle-bout-cable-acier.svg
+- images/planche-105-08-vindas-treuil-bois-deux.svg → images/planche-109-08-vindas-treuil-bois-deux.svg
+- images/planche-105-12-tourniquet-espagnol.svg → images/planche-109-12-tourniquet-espagnol.svg
+- images/planche-106-01a-mortaise-tenon-mi-bois.svg → images/planche-110-01a-mortaise-tenon-mi-bois.svg
+- images/planche-106-01b-tenon-passant-cle-enture.svg → images/planche-110-01b-tenon-passant-cle-enture.svg
+- images/planche-106-03-chevillage-tire.svg → images/planche-110-03-chevillage-tire.svg
+- images/planche-107-11-forge-fosse.svg → images/planche-111-11-forge-fosse.svg
+- images/planche-108-07-lampe-graisse.svg → images/planche-112-07-lampe-graisse.svg
+- images/planche-108-10a-baril-lessive.svg → images/planche-112-10a-baril-lessive.svg
+- images/planche-108-10b-eprouver-lessive-cuire-savon.svg → images/planche-112-10b-eprouver-lessive-cuire-savon.svg
+- images/planche-11-03-chalet-pare-aux-braises.svg → images/planche-11-03-chalet-pare-aux-braises.svg
+- images/planche-12-01a-tente-poele-montee.svg → images/planche-12-01a-tente-poele-montee.svg
+- images/planche-12-01b-tente-poele-plan-collerette.svg → images/planche-12-01b-tente-poele-plan-collerette.svg
+- images/planche-12-02-sapinage-pose-ecailles.svg → images/planche-12-02-sapinage-pose-ecailles.svg
+- images/planche-12-03-shaputuan.svg → images/planche-12-03-shaputuan.svg
+- images/planche-12-04-cone-deux-baches.svg → images/planche-12-04-cone-deux-baches.svg
+- images/planche-12-05a-maison-blocs-tailler-monter.svg → images/planche-12-05a-maison-blocs-tailler-monter.svg
+- images/planche-12-05b-maison-blocs-coupe.svg → images/planche-12-05b-maison-blocs-coupe.svg
+- images/planche-12-06a-quinzhee.svg → images/planche-12-06a-quinzhee.svg
+- images/planche-12-06b-tranchee-bachee.svg → images/planche-12-06b-tranchee-bachee.svg
+- images/planche-13-01-arc-feu.svg → images/planche-13-01-arc-feu.svg
+- images/planche-13-07-amadou.svg → images/planche-13-07-amadou.svg
+- images/planche-13-08-boite-braise.svg → images/planche-13-08-boite-braise.svg
+- images/planche-13-09-briquet-pierre.svg → images/planche-13-09-briquet-pierre.svg
+- images/planche-13-40-ferrocerium-tas-bois-flamme.svg → images/planche-13-40-ferrocerium-tas-bois-flamme.svg
+- images/planche-14-01-poste-galene.svg → images/planche-14-01-poste-galene.svg
+- images/planche-15-01-sortir-trou-dans-glace.svg → images/planche-15-01-sortir-trou-dans-glace.svg
+- images/planche-16-07-telephone-deux-haut-parleurs.svg → images/planche-16-07-telephone-deux-haut-parleurs.svg
+- images/planche-16-08-traineau-civiere-perches.svg → images/planche-16-08-traineau-civiere-perches.svg
+- images/planche-17-06-renfort-porte.svg → images/planche-17-06-renfort-porte.svg
+- images/planche-19-04-bouillir-aux-pierres-sans.svg → images/planche-19-04-bouillir-aux-pierres-sans.svg
+- images/planche-19-09-casser-os-faire-graisse.svg → images/planche-19-09-casser-os-faire-graisse.svg
+- images/planche-23-02-retourner-gratter-boyau.svg → images/planche-23-02-retourner-gratter-boyau.svg
+- images/planche-25-01-enveloppe-croisee-avec-deux.svg → images/planche-25-01-enveloppe-croisee-avec-deux.svg
+- images/planche-25-40-bain-gelure.svg → images/planche-25-40-bain-gelure.svg
+- images/planche-26-04-garrot-improvise.svg → images/planche-26-04-garrot-improvise.svg
+- images/planche-26-08-attelle-ecorce-moulee-echarpe.svg → images/planche-26-08-attelle-ecorce-moulee-echarpe.svg
+- images/planche-26-09a-deplacer-blesse-bache-deux.svg → images/planche-26-09a-deplacer-blesse-bache-deux.svg
+- images/planche-26-09b-deplacer-blesse-porte-degondee.svg → images/planche-26-09b-deplacer-blesse-porte-degondee.svg
+- images/planche-26-11-pansements-qu-on-fabrique.svg → images/planche-26-11-pansements-qu-on-fabrique.svg
+- images/planche-26-40-appuyer-plaie-puis-laver.svg → images/planche-26-40-appuyer-plaie-puis-laver.svg
+- images/planche-30-01-poste-lavage-pedale-monte.svg → images/planche-30-01-poste-lavage-pedale-monte.svg
+- images/planche-30-40-sas-galerie-chambre-malade.svg → images/planche-30-40-sas-galerie-chambre-malade.svg
+- images/planche-31-01-becosse-fosse-seche.svg → images/planche-31-01-becosse-fosse-seche.svg
+- images/planche-31-04-piege-graisse-deux-chaudieres.svg → images/planche-31-04-piege-graisse-deux-chaudieres.svg
+- images/planche-31-08-creuser-sol-gele-feu.svg → images/planche-31-08-creuser-sol-gele-feu.svg
+- images/planche-45-01a-arc-tire-bille-fendue.svg → images/planche-45-01a-arc-tire-bille-fendue.svg
+- images/planche-45-01b-arc-bille-egaliser-bras.svg → images/planche-45-01b-arc-bille-egaliser-bras.svg
+- images/planche-45-02-corde-fleche-mousse-pointe.svg → images/planche-45-02-corde-fleche-mousse-pointe.svg
+- images/planche-48-08-illet-verrou-collet.svg → images/planche-48-08-illet-verrou-collet.svg
+- images/planche-48-09-collet-ressort-son-declencheur.svg → images/planche-48-09-collet-ressort-son-declencheur.svg
+- images/planche-49-17-perche-collet.svg → images/planche-49-17-perche-collet.svg
+- images/planche-50-10-collet-noyade-castor.svg → images/planche-50-10-collet-noyade-castor.svg
+- images/planche-54-08-glaciere-evaporation.svg → images/planche-54-08-glaciere-evaporation.svg
+- images/planche-55-03-trace-coupes-fourreau-plat.svg → images/planche-55-03-trace-coupes-fourreau-plat.svg
+- images/planche-55-08-assommoir-sa-gachette-trois.svg → images/planche-55-08-assommoir-sa-gachette-trois.svg
+- images/planche-56-02-depouiller-phoque-puis-decoller.svg → images/planche-56-02-depouiller-phoque-puis-decoller.svg
+- images/planche-56-09-lames-fortune.svg → images/planche-56-09-lames-fortune.svg
+- images/planche-57-08-hamecons-qu-on-fait.svg → images/planche-57-08-hamecons-qu-on-fait.svg
+- images/planche-58-07-brimbale-bois.svg → images/planche-58-07-brimbale-bois.svg
+- images/planche-58-09-montage-gorge.svg → images/planche-58-09-montage-gorge.svg
+- images/planche-58-10a-ciseau-glace.svg → images/planche-58-10a-ciseau-glace.svg
+- images/planche-58-10b-trou-main.svg → images/planche-58-10b-trou-main.svg
+- images/planche-59-03-eperlan-vide-seul-geste.svg → images/planche-59-03-eperlan-vide-seul-geste.svg
+- images/planche-59-08-sechoir-poisson-air-libre.svg → images/planche-59-08-sechoir-poisson-air-libre.svg
+- images/planche-59-09-trappe-batture.svg → images/planche-59-09-trappe-batture.svg
+- images/planche-60-01-verveux-cerceaux-monte-pose.svg → images/planche-60-01-verveux-cerceaux-monte-pose.svg
+- images/planche-60-08a-fascine-ruisseau-montee-pieu.svg → images/planche-60-08a-fascine-ruisseau-montee-pieu.svg
+- images/planche-60-08b-fascine-roche-pierres.svg → images/planche-60-08b-fascine-roche-pierres.svg
+- images/planche-60-10-aiguille-maille-ramendage.svg → images/planche-60-10-aiguille-maille-ramendage.svg
+- images/planche-61-02-deux-doigts-v.svg → images/planche-61-02-deux-doigts-v.svg
+- images/planche-61-03-greement-carcasse.svg → images/planche-61-03-greement-carcasse.svg
+- images/planche-61-09-camp-viande.svg → images/planche-61-09-camp-viande.svg
+- images/planche-64-08-sortir-quartier-avant-bois.svg → images/planche-64-08-sortir-quartier-avant-bois.svg
+- images/planche-65-09-froid-qu-on-fabrique.svg → images/planche-65-09-froid-qu-on-fabrique.svg
+- images/planche-67-09-fleau-ses-etalons-eau.svg → images/planche-67-09-fleau-ses-etalons-eau.svg
+- images/planche-67-10-romaine-graduee-aux-bidons.svg → images/planche-67-10-romaine-graduee-aux-bidons.svg
+- images/planche-67-12-claie-graduation.svg → images/planche-67-12-claie-graduation.svg
+- images/planche-67-13-tirer-sel-fleuve.svg → images/planche-67-13-tirer-sel-fleuve.svg
+- images/planche-68-06-caisse-sel-caveau.svg → images/planche-68-06-caisse-sel-caveau.svg
+- images/planche-69-03-tenir-piece-sous-saumure.svg → images/planche-69-03-tenir-piece-sous-saumure.svg
+- images/planche-70-01-fumoir-froid.svg → images/planche-70-01-fumoir-froid.svg
+- images/planche-70-01b-fumoir-froid-vu-dessus.svg → images/planche-70-01b-fumoir-froid-vu-dessus.svg
+- images/planche-70-09-fumoir-fortune-pelle-hache.svg → images/planche-70-09-fumoir-fortune-pelle-hache.svg
+- images/planche-70-12-cage-viande-grillagee.svg → images/planche-70-12-cage-viande-grillagee.svg
+- images/planche-71-02-fumoir-baril-conduit-enterre.svg → images/planche-71-02-fumoir-baril-conduit-enterre.svg
+- images/planche-71-40-lanieres-trancher-etendre-eprouver.svg → images/planche-71-40-lanieres-trancher-etendre-eprouver.svg
+- images/planche-72-40-fondre-gras.svg → images/planche-72-40-fondre-gras.svg
+- images/planche-72-41-pemmican-laniere-seche-bloc.svg → images/planche-72-41-pemmican-laniere-seche-bloc.svg
+- images/planche-73-01-cache-gel-poteaux.svg → images/planche-73-01-cache-gel-poteaux.svg
+- images/planche-73-07-glaciere-blocs-lac.svg → images/planche-73-07-glaciere-blocs-lac.svg
+- images/planche-74-10-recaler-regraduer-thermometre-cadran.svg → images/planche-74-10-recaler-regraduer-thermometre-cadran.svg
+- images/planche-74-11-tente-boucane.svg → images/planche-74-11-tente-boucane.svg
+- images/planche-74-40-congelateur-panne-hiver-coffre.svg → images/planche-74-40-congelateur-panne-hiver-coffre.svg
+- images/planche-75-04-bac-glace-monte-couches.svg → images/planche-75-04-bac-glace-monte-couches.svg
+- images/planche-75-08-glaciere-deux-caisses.svg → images/planche-75-08-glaciere-deux-caisses.svg
+- images/planche-76-03-ouverture-portefeuille.svg → images/planche-76-03-ouverture-portefeuille.svg
+- images/planche-76-05-bac-salage-sec.svg → images/planche-76-05-bac-salage-sec.svg
+- images/planche-76-06-sechoir-truite.svg → images/planche-76-06-sechoir-truite.svg
+- images/planche-79-01a-cave-talus-creusee-drainee.svg → images/planche-79-01a-cave-talus-creusee-drainee.svg
+- images/planche-79-01b-cave-talus-assemblages.svg → images/planche-79-01b-cave-talus-assemblages.svg
+- images/planche-79-06-silo-terre.svg → images/planche-79-06-silo-terre.svg
+- images/planche-82-08a-ramoner-sans-brosse-ecouvillons.svg → images/planche-82-08a-ramoner-sans-brosse-ecouvillons.svg
+- images/planche-82-08b-ramoner-sans-brosse-montages.svg → images/planche-82-08b-ramoner-sans-brosse-montages.svg
+- images/planche-82-10a-poele-qu-on-repare.svg → images/planche-82-10a-poele-qu-on-repare.svg
+- images/planche-82-10b-poele-qu-on-repare.svg → images/planche-82-10b-poele-qu-on-repare.svg
+- images/planche-82-12a-abri-ouvert-feu-long.svg → images/planche-82-12a-abri-ouvert-feu-long.svg
+- images/planche-82-12b-abri-ouvert-plancher-roches.svg → images/planche-82-12b-abri-ouvert-plancher-roches.svg
+- images/planche-83-10-truie-poele-baril-205.svg → images/planche-83-10-truie-poele-baril-205.svg
+- images/planche-86-01a-roue-augets-ruisseau.svg → images/planche-86-01a-roue-augets-ruisseau.svg
+- images/planche-86-01b-roue-augets-multiplicateur-delestage.svg → images/planche-86-01b-roue-augets-multiplicateur-delestage.svg
+- images/planche-86-02-roue-cuillers-montee-pour.svg → images/planche-86-02-roue-cuillers-montee-pour.svg
+- images/planche-86-03a-eolienne-fortune-montee.svg → images/planche-86-03a-eolienne-fortune-montee.svg
+- images/planche-86-03b-eolienne-fortune-lever-mat.svg → images/planche-86-03b-eolienne-fortune-lever-mat.svg
+- images/planche-86-04-chargeur-essence.svg → images/planche-86-04-chargeur-essence.svg
+- images/planche-87-08a-perche-fourches-cremaillere.svg → images/planche-87-08a-perche-fourches-cremaillere.svg
+- images/planche-87-08b-trepied-trois-pierres.svg → images/planche-87-08b-trepied-trois-pierres.svg
+- images/planche-87-09-serpentine-tuyau-poele.svg → images/planche-87-09-serpentine-tuyau-poele.svg
+- images/planche-89-01a-fut-raquette-fendre-assouplir.svg → images/planche-89-01a-fut-raquette-fendre-assouplir.svg
+- images/planche-89-01b-fut-raquette-cintrer-fermer.svg → images/planche-89-01b-fut-raquette-cintrer-fermer.svg
+- images/planche-89-02-contours-recopier.svg → images/planche-89-02-contours-recopier.svg
+- images/planche-89-03-lacage-trois-zones.svg → images/planche-89-03-lacage-trois-zones.svg
+- images/planche-89-04-attache-laniere-simple.svg → images/planche-89-04-attache-laniere-simple.svg
+- images/planche-89-05a-toboggan-deux-planches.svg → images/planche-89-05a-toboggan-deux-planches.svg
+- images/planche-89-05b-tirer-planches-cintrer-tete.svg → images/planche-89-05b-tirer-planches-cintrer-tete.svg
+- images/planche-89-06-raquette-trois-perches.svg → images/planche-89-06-raquette-trois-perches.svg
+- images/planche-89-07-lunettes-fente.svg → images/planche-89-07-lunettes-fente.svg
+- images/planche-90-01-piece-deux-couches-gomme.svg → images/planche-90-01-piece-deux-couches-gomme.svg
+- images/planche-90-02a-canot-peaux-orignal-lit.svg → images/planche-90-02a-canot-peaux-orignal-lit.svg
+- images/planche-90-02b-canot-peaux-orignal-coque.svg → images/planche-90-02b-canot-peaux-orignal-coque.svg
+- images/planche-90-03-portage.svg → images/planche-90-03-portage.svg
+- images/planche-90-04-essai-languette.svg → images/planche-90-04-essai-languette.svg
+- images/planche-90-05-traverse-fortune.svg → images/planche-90-05-traverse-fortune.svg
+- images/planche-90-06-piece-aluminium-rivetee.svg → images/planche-90-06-piece-aluminium-rivetee.svg
+- images/planche-90-07a-canot-ecorce-epinette-seule.svg → images/planche-90-07a-canot-ecorce-epinette-seule.svg
+- images/planche-90-07b-canot-ecorce-epinette-bout.svg → images/planche-90-07b-canot-ecorce-epinette-bout.svg
+- images/planche-91-11-sechoir-caisse-cote-poele.svg → images/planche-91-11-sechoir-caisse-cote-poele.svg
+- images/planche-94-31-auge-billot-pierres-chaudes.svg → images/planche-94-31-auge-billot-pierres-chaudes.svg
+- images/planche-94-33a-casseau-ecorce-arbre-gabarit.svg → images/planche-94-33a-casseau-ecorce-arbre-gabarit.svg
+- images/planche-94-33b-casseau-ecorce-plie-cousu.svg → images/planche-94-33b-casseau-ecorce-plie-cousu.svg
+- images/planche-94-34-poix-gomme.svg → images/planche-94-34-poix-gomme.svg
+- images/planche-95-09-chassis-froid.svg → images/planche-95-09-chassis-froid.svg
+- images/planche-96-05-vanner-chaudron-autre.svg → images/planche-100-05-vanner-chaudron-autre.svg
+- images/planche-97-01-poulailler-hiver.svg → images/planche-101-01-poulailler-hiver.svg
+- images/planche-97-07-tablier-grillage-contre-betes.svg → images/planche-101-07-tablier-grillage-contre-betes.svg
+- images/planche-98-02-poutre-echarner-angle-couteau.svg → images/planche-102-02-poutre-echarner-angle-couteau.svg
+- images/planche-98-07-sac-fumer-sans-fumoir.svg → images/planche-102-07-sac-fumer-sans-fumoir.svg
+- images/planche-99-05-coupe-spirale.svg → images/planche-103-05-coupe-spirale.svg
+- images/planche-99-07-contre-toron.svg → images/planche-103-07-contre-toron.svg
+- images/planche-99-10-wattape-hart.svg → images/planche-103-10-wattape-hart.svg
+- images/planche-99-11-ligature-qui-serre-sechant.svg → images/planche-103-11-ligature-qui-serre-sechant.svg
+- images/validees/planche-03-08-marmite-norvegienne.png → images/validees/planche-03-08-marmite-norvegienne.png
+- images/validees/planche-03-09-abri-dans-piece-tente.png → images/validees/planche-03-09-abri-dans-piece-tente.png
+- images/validees/planche-03-10-vidanger-maison-dans-bon.png → images/validees/planche-03-10-vidanger-maison-dans-bon.png
+- images/validees/planche-04-01a-piece-abri-chargee.png → images/validees/planche-04-01a-piece-abri-chargee.png
+- images/validees/planche-04-01b-pompe-carton.png → images/validees/planche-04-01b-pompe-carton.png
+- images/validees/planche-09-08-joint-cuir-gras-emporte.png → images/validees/planche-09-08-joint-cuir-gras-emporte.png
+- images/validees/planche-10-01-trois-temps-eau.png → images/validees/planche-10-01-trois-temps-eau.png
+- images/validees/planche-10-02-buse-pour-puiser-puits.png → images/validees/planche-10-02-buse-pour-puiser-puits.png
+- images/validees/planche-10-03-alambic-fortune.png → images/validees/planche-10-03-alambic-fortune.png
+- images/validees/planche-10-07-filtre-sable-baril.png → images/validees/planche-10-07-filtre-sable-baril.png
+- images/validees/planche-100-02-point-sellier-couture-rabattue.png → images/validees/planche-104-02-point-sellier-couture-rabattue.png
+- images/validees/planche-100-04-patron-mocassin-piece.png → images/validees/planche-104-04-patron-mocassin-piece.png
+- images/validees/planche-101-01-angle-affutage.png → images/validees/planche-105-01-angle-affutage.png
+- images/validees/planche-101-03-gouge-limiteur-profondeur.png → images/validees/planche-105-03-gouge-limiteur-profondeur.png
+- images/validees/planche-101-07-biseau-hache-lime-bombe.png → images/validees/planche-105-07-biseau-hache-lime-bombe.png
+- images/validees/planche-102-01-geometrie-abattage.png → images/validees/planche-106-01-geometrie-abattage.png
+- images/validees/planche-103-02-trois-joints-coupe.png → images/validees/planche-107-02-trois-joints-coupe.png
+- images/validees/planche-103-03-trois-cordons-coupe.png → images/validees/planche-107-03-trois-cordons-coupe.png
+- images/validees/planche-103-07-eclisse-boulonnee.png → images/validees/planche-107-07-eclisse-boulonnee.png
+- images/validees/planche-103-09-soudage-batteries.png → images/validees/planche-107-09-soudage-batteries.png
+- images/validees/planche-105-01-mouflage.png → images/validees/planche-109-01-mouflage.png
+- images/validees/planche-105-02-boucle-bout-cable-acier.png → images/validees/planche-109-02-boucle-bout-cable-acier.png
+- images/validees/planche-105-08-vindas-treuil-bois-deux.png → images/validees/planche-109-08-vindas-treuil-bois-deux.png
+- images/validees/planche-105-12-tourniquet-espagnol.png → images/validees/planche-109-12-tourniquet-espagnol.png
+- images/validees/planche-106-01a-mortaise-tenon-mi-bois.png → images/validees/planche-110-01a-mortaise-tenon-mi-bois.png
+- images/validees/planche-106-01b-tenon-passant-cle-enture.png → images/validees/planche-110-01b-tenon-passant-cle-enture.png
+- images/validees/planche-106-03-chevillage-tire.png → images/validees/planche-110-03-chevillage-tire.png
+- images/validees/planche-107-11-forge-fosse.png → images/validees/planche-111-11-forge-fosse.png
+- images/validees/planche-108-07-lampe-graisse.png → images/validees/planche-112-07-lampe-graisse.png
+- images/validees/planche-13-01-arc-feu.png → images/validees/planche-13-01-arc-feu.png
+- images/validees/planche-13-07-amadou.png → images/validees/planche-13-07-amadou.png
+- images/validees/planche-13-08-boite-braise.png → images/validees/planche-13-08-boite-braise.png
+- images/validees/planche-14-01-poste-galene.png → images/validees/planche-14-01-poste-galene.png
+- images/validees/planche-15-01-sortir-trou-dans-glace.png → images/validees/planche-15-01-sortir-trou-dans-glace.png
+- images/validees/planche-16-07-telephone-deux-haut-parleurs.png → images/validees/planche-16-07-telephone-deux-haut-parleurs.png
+- images/validees/planche-16-08-traineau-civiere-perches.png → images/validees/planche-16-08-traineau-civiere-perches.png
+- images/validees/planche-17-06-renfort-porte.png → images/validees/planche-17-06-renfort-porte.png
+- images/validees/planche-19-04-bouillir-aux-pierres-sans.png → images/validees/planche-19-04-bouillir-aux-pierres-sans.png
+- images/validees/planche-19-09-casser-os-faire-graisse.png → images/validees/planche-19-09-casser-os-faire-graisse.png
+- images/validees/planche-23-02-retourner-gratter-boyau.png → images/validees/planche-23-02-retourner-gratter-boyau.png
+- images/validees/planche-25-01-enveloppe-croisee-avec-deux.png → images/validees/planche-25-01-enveloppe-croisee-avec-deux.png
+- images/validees/planche-26-04-garrot-improvise.png → images/validees/planche-26-04-garrot-improvise.png
+- images/validees/planche-26-08-attelle-ecorce-moulee-echarpe.png → images/validees/planche-26-08-attelle-ecorce-moulee-echarpe.png
+- images/validees/planche-26-09a-deplacer-blesse-bache-deux.png → images/validees/planche-26-09a-deplacer-blesse-bache-deux.png
+- images/validees/planche-26-09b-deplacer-blesse-porte-degondee.png → images/validees/planche-26-09b-deplacer-blesse-porte-degondee.png
+- images/validees/planche-26-11-pansements-qu-on-fabrique.png → images/validees/planche-26-11-pansements-qu-on-fabrique.png
+- images/validees/planche-30-01-poste-lavage-pedale-monte.png → images/validees/planche-30-01-poste-lavage-pedale-monte.png
+- images/validees/planche-31-01-becosse-fosse-seche.png → images/validees/planche-31-01-becosse-fosse-seche.png
+- images/validees/planche-31-04-piege-graisse-deux-chaudieres.png → images/validees/planche-31-04-piege-graisse-deux-chaudieres.png
+- images/validees/planche-31-08-creuser-sol-gele-feu.png → images/validees/planche-31-08-creuser-sol-gele-feu.png
+- images/validees/planche-48-08-illet-verrou-collet.png → images/validees/planche-48-08-illet-verrou-collet.png
+- images/validees/planche-48-09-collet-ressort-son-declencheur.png → images/validees/planche-48-09-collet-ressort-son-declencheur.png
+- images/validees/planche-54-08-glaciere-evaporation.png → images/validees/planche-54-08-glaciere-evaporation.png
+- images/validees/planche-55-03-trace-coupes-fourreau-plat.png → images/validees/planche-55-03-trace-coupes-fourreau-plat.png
+- images/validees/planche-55-08-assommoir-sa-gachette-trois.png → images/validees/planche-55-08-assommoir-sa-gachette-trois.png
+- images/validees/planche-56-02-depouiller-phoque-puis-decoller.png → images/validees/planche-56-02-depouiller-phoque-puis-decoller.png
+- images/validees/planche-56-09-lames-fortune.png → images/validees/planche-56-09-lames-fortune.png
+- images/validees/planche-57-08-hamecons-qu-on-fait.png → images/validees/planche-57-08-hamecons-qu-on-fait.png
+- images/validees/planche-58-07-brimbale-bois.png → images/validees/planche-58-07-brimbale-bois.png
+- images/validees/planche-58-09-montage-gorge.png → images/validees/planche-58-09-montage-gorge.png
+- images/validees/planche-59-03-eperlan-vide-seul-geste.png → images/validees/planche-59-03-eperlan-vide-seul-geste.png
+- images/validees/planche-59-08-sechoir-poisson-air-libre.png → images/validees/planche-59-08-sechoir-poisson-air-libre.png
+- images/validees/planche-60-01-verveux-cerceaux-monte-pose.png → images/validees/planche-60-01-verveux-cerceaux-monte-pose.png
+- images/validees/planche-60-08a-fascine-ruisseau-montee-pieu.png → images/validees/planche-60-08a-fascine-ruisseau-montee-pieu.png
+- images/validees/planche-60-08b-fascine-roche-pierres.png → images/validees/planche-60-08b-fascine-roche-pierres.png
+- images/validees/planche-61-02-deux-doigts-v.png → images/validees/planche-61-02-deux-doigts-v.png
+- images/validees/planche-61-03-greement-carcasse.png → images/validees/planche-61-03-greement-carcasse.png
+- images/validees/planche-61-09-camp-viande.png → images/validees/planche-61-09-camp-viande.png
+- images/validees/planche-65-09-froid-qu-on-fabrique.png → images/validees/planche-65-09-froid-qu-on-fabrique.png
+- images/validees/planche-67-09-fleau-ses-etalons-eau.png → images/validees/planche-67-09-fleau-ses-etalons-eau.png
+- images/validees/planche-67-10-romaine-graduee-aux-bidons.png → images/validees/planche-67-10-romaine-graduee-aux-bidons.png
+- images/validees/planche-67-12-claie-graduation.png → images/validees/planche-67-12-claie-graduation.png
+- images/validees/planche-67-13-tirer-sel-fleuve.png → images/validees/planche-67-13-tirer-sel-fleuve.png
+- images/validees/planche-68-06-caisse-sel-caveau.png → images/validees/planche-68-06-caisse-sel-caveau.png
+- images/validees/planche-69-03-tenir-piece-sous-saumure.png → images/validees/planche-69-03-tenir-piece-sous-saumure.png
+- images/validees/planche-70-01-fumoir-froid.png → images/validees/planche-70-01-fumoir-froid.png
+- images/validees/planche-70-01b-fumoir-froid-vu-dessus.png → images/validees/planche-70-01b-fumoir-froid-vu-dessus.png
+- images/validees/planche-70-09-fumoir-fortune-pelle-hache.png → images/validees/planche-70-09-fumoir-fortune-pelle-hache.png
+- images/validees/planche-70-12-cage-viande-grillagee.png → images/validees/planche-70-12-cage-viande-grillagee.png
+- images/validees/planche-71-02-fumoir-baril-conduit-enterre.png → images/validees/planche-71-02-fumoir-baril-conduit-enterre.png
+- images/validees/planche-73-01-cache-gel-poteaux.png → images/validees/planche-73-01-cache-gel-poteaux.png
+- images/validees/planche-74-10-recaler-regraduer-thermometre-cadran.png → images/validees/planche-74-10-recaler-regraduer-thermometre-cadran.png
+- images/validees/planche-74-11-tente-boucane.png → images/validees/planche-74-11-tente-boucane.png
+- images/validees/planche-75-04-bac-glace-monte-couches.png → images/validees/planche-75-04-bac-glace-monte-couches.png
+- images/validees/planche-75-08-glaciere-deux-caisses.png → images/validees/planche-75-08-glaciere-deux-caisses.png
+- images/validees/planche-76-03-ouverture-portefeuille.png → images/validees/planche-76-03-ouverture-portefeuille.png
+- images/validees/planche-76-05-bac-salage-sec.png → images/validees/planche-76-05-bac-salage-sec.png
+- images/validees/planche-76-06-sechoir-truite.png → images/validees/planche-76-06-sechoir-truite.png
+- images/validees/planche-79-01a-cave-talus-creusee-drainee.png → images/validees/planche-79-01a-cave-talus-creusee-drainee.png
+- images/validees/planche-79-01b-cave-talus-assemblages.png → images/validees/planche-79-01b-cave-talus-assemblages.png
+- images/validees/planche-79-06-silo-terre.png → images/validees/planche-79-06-silo-terre.png
+- images/validees/planche-82-08a-ramoner-sans-brosse-ecouvillons.png → images/validees/planche-82-08a-ramoner-sans-brosse-ecouvillons.png
+- images/validees/planche-82-08b-ramoner-sans-brosse-montages.png → images/validees/planche-82-08b-ramoner-sans-brosse-montages.png
+- images/validees/planche-82-12a-abri-ouvert-feu-long.png → images/validees/planche-82-12a-abri-ouvert-feu-long.png
+- images/validees/planche-82-12b-abri-ouvert-plancher-roches.png → images/validees/planche-82-12b-abri-ouvert-plancher-roches.png
+- images/validees/planche-83-10-truie-poele-baril-205.png → images/validees/planche-83-10-truie-poele-baril-205.png
+- images/validees/planche-87-08a-perche-fourches-cremaillere.png → images/validees/planche-87-08a-perche-fourches-cremaillere.png
+- images/validees/planche-87-08b-trepied-trois-pierres.png → images/validees/planche-87-08b-trepied-trois-pierres.png
+- images/validees/planche-94-31-auge-billot-pierres-chaudes.png → images/validees/planche-94-31-auge-billot-pierres-chaudes.png
+- images/validees/planche-94-33a-casseau-ecorce-arbre-gabarit.png → images/validees/planche-94-33a-casseau-ecorce-arbre-gabarit.png
+- images/validees/planche-94-33b-casseau-ecorce-plie-cousu.png → images/validees/planche-94-33b-casseau-ecorce-plie-cousu.png
+- images/validees/planche-94-34-poix-gomme.png → images/validees/planche-94-34-poix-gomme.png
+- images/validees/planche-95-09-chassis-froid.png → images/validees/planche-95-09-chassis-froid.png
+- images/validees/planche-96-05-vanner-chaudron-autre.png → images/validees/planche-100-05-vanner-chaudron-autre.png
+- images/validees/planche-97-01-poulailler-hiver.png → images/validees/planche-101-01-poulailler-hiver.png
+- images/validees/planche-97-07-tablier-grillage-contre-betes.png → images/validees/planche-101-07-tablier-grillage-contre-betes.png
+- images/validees/planche-98-02-poutre-echarner-angle-couteau.png → images/validees/planche-102-02-poutre-echarner-angle-couteau.png
+- images/validees/planche-98-07-sac-fumer-sans-fumoir.png → images/validees/planche-102-07-sac-fumer-sans-fumoir.png
+- images/validees/planche-99-05-coupe-spirale.png → images/validees/planche-103-05-coupe-spirale.png
+- images/validees/planche-99-07-contre-toron.png → images/validees/planche-103-07-contre-toron.png
+- images/validees/planche-99-10-wattape-hart.png → images/validees/planche-103-10-wattape-hart.png
+- images/validees/planche-99-11-ligature-qui-serre-sechant.png → images/validees/planche-103-11-ligature-qui-serre-sechant.png
+- images/a-valider/planche-100-15a-patron-mukluk-sa-doublure.png → images/a-valider/planche-104-15a-patron-mukluk-sa-doublure.png
+- images/a-valider/planche-100-15b-mukluk-monte-sa-doublure.png → images/a-valider/planche-104-15b-mukluk-monte-sa-doublure.png
+- images/a-valider/planche-102-10a-sciotte-cadre.png → images/a-valider/planche-106-10a-sciotte-cadre.png
+- images/a-valider/planche-102-10b-reprendre-lame-sciotte.png → images/a-valider/planche-106-10b-reprendre-lame-sciotte.png
+- images/a-valider/planche-103-10-couture-vis-pour-fonte.png → images/a-valider/planche-107-10-couture-vis-pour-fonte.png
+- images/a-valider/planche-108-10a-baril-lessive.png → images/a-valider/planche-112-10a-baril-lessive.png
+- images/a-valider/planche-108-10b-eprouver-lessive-cuire-savon.png → images/a-valider/planche-112-10b-eprouver-lessive-cuire-savon.png
+- images/a-valider/planche-11-03-chalet-pare-aux-braises.png → images/a-valider/planche-11-03-chalet-pare-aux-braises.png
+- images/a-valider/planche-12-01a-tente-poele-montee.png → images/a-valider/planche-12-01a-tente-poele-montee.png
+- images/a-valider/planche-12-01b-tente-poele-plan-collerette.png → images/a-valider/planche-12-01b-tente-poele-plan-collerette.png
+- images/a-valider/planche-12-02-sapinage-pose-ecailles.png → images/a-valider/planche-12-02-sapinage-pose-ecailles.png
+- images/a-valider/planche-12-03-shaputuan.png → images/a-valider/planche-12-03-shaputuan.png
+- images/a-valider/planche-12-04-cone-deux-baches.png → images/a-valider/planche-12-04-cone-deux-baches.png
+- images/a-valider/planche-12-05a-maison-blocs-tailler-monter.png → images/a-valider/planche-12-05a-maison-blocs-tailler-monter.png
+- images/a-valider/planche-12-05b-maison-blocs-coupe.png → images/a-valider/planche-12-05b-maison-blocs-coupe.png
+- images/a-valider/planche-12-06a-quinzhee.png → images/a-valider/planche-12-06a-quinzhee.png
+- images/a-valider/planche-12-06b-tranchee-bachee.png → images/a-valider/planche-12-06b-tranchee-bachee.png
+- images/a-valider/planche-13-09-briquet-pierre.png → images/a-valider/planche-13-09-briquet-pierre.png
+- images/a-valider/planche-13-40-ferrocerium-tas-bois-flamme.png → images/a-valider/planche-13-40-ferrocerium-tas-bois-flamme.png
+- images/a-valider/planche-25-40-bain-gelure.png → images/a-valider/planche-25-40-bain-gelure.png
+- images/a-valider/planche-26-40-appuyer-plaie-puis-laver.png → images/a-valider/planche-26-40-appuyer-plaie-puis-laver.png
+- images/a-valider/planche-30-40-sas-galerie-chambre-malade.png → images/a-valider/planche-30-40-sas-galerie-chambre-malade.png
+- images/a-valider/planche-45-01a-arc-tire-bille-fendue.png → images/a-valider/planche-45-01a-arc-tire-bille-fendue.png
+- images/a-valider/planche-45-01b-arc-bille-egaliser-bras.png → images/a-valider/planche-45-01b-arc-bille-egaliser-bras.png
+- images/a-valider/planche-45-02-corde-fleche-mousse-pointe.png → images/a-valider/planche-45-02-corde-fleche-mousse-pointe.png
+- images/a-valider/planche-49-17-perche-collet.png → images/a-valider/planche-49-17-perche-collet.png
+- images/a-valider/planche-50-10-collet-noyade-castor.png → images/a-valider/planche-50-10-collet-noyade-castor.png
+- images/a-valider/planche-58-10a-ciseau-glace.png → images/a-valider/planche-58-10a-ciseau-glace.png
+- images/a-valider/planche-58-10b-trou-main.png → images/a-valider/planche-58-10b-trou-main.png
+- images/a-valider/planche-59-09-trappe-batture.png → images/a-valider/planche-59-09-trappe-batture.png
+- images/a-valider/planche-60-10-aiguille-maille-ramendage.png → images/a-valider/planche-60-10-aiguille-maille-ramendage.png
+- images/a-valider/planche-64-08-sortir-quartier-avant-bois.png → images/a-valider/planche-64-08-sortir-quartier-avant-bois.png
+- images/a-valider/planche-71-40-lanieres-trancher-etendre-eprouver.png → images/a-valider/planche-71-40-lanieres-trancher-etendre-eprouver.png
+- images/a-valider/planche-72-40-fondre-gras.png → images/a-valider/planche-72-40-fondre-gras.png
+- images/a-valider/planche-72-41-pemmican-laniere-seche-bloc.png → images/a-valider/planche-72-41-pemmican-laniere-seche-bloc.png
+- images/a-valider/planche-73-07-glaciere-blocs-lac.png → images/a-valider/planche-73-07-glaciere-blocs-lac.png
+- images/a-valider/planche-74-40-congelateur-panne-hiver-coffre.png → images/a-valider/planche-74-40-congelateur-panne-hiver-coffre.png
+- images/a-valider/planche-82-10a-poele-qu-on-repare.png → images/a-valider/planche-82-10a-poele-qu-on-repare.png
+- images/a-valider/planche-82-10b-poele-qu-on-repare.png → images/a-valider/planche-82-10b-poele-qu-on-repare.png
+- images/a-valider/planche-86-01a-roue-augets-ruisseau.png → images/a-valider/planche-86-01a-roue-augets-ruisseau.png
+- images/a-valider/planche-86-01b-roue-augets-multiplicateur-delestage.png → images/a-valider/planche-86-01b-roue-augets-multiplicateur-delestage.png
+- images/a-valider/planche-86-02-roue-cuillers-montee-pour.png → images/a-valider/planche-86-02-roue-cuillers-montee-pour.png
+- images/a-valider/planche-86-03a-eolienne-fortune-montee.png → images/a-valider/planche-86-03a-eolienne-fortune-montee.png
+- images/a-valider/planche-86-03b-eolienne-fortune-lever-mat.png → images/a-valider/planche-86-03b-eolienne-fortune-lever-mat.png
+- images/a-valider/planche-86-04-chargeur-essence.png → images/a-valider/planche-86-04-chargeur-essence.png
+- images/a-valider/planche-87-09-serpentine-tuyau-poele.png → images/a-valider/planche-87-09-serpentine-tuyau-poele.png
+- images/a-valider/planche-89-01a-fut-raquette-fendre-assouplir.png → images/a-valider/planche-89-01a-fut-raquette-fendre-assouplir.png
+- images/a-valider/planche-89-01b-fut-raquette-cintrer-fermer.png → images/a-valider/planche-89-01b-fut-raquette-cintrer-fermer.png
+- images/a-valider/planche-89-02-contours-recopier.png → images/a-valider/planche-89-02-contours-recopier.png
+- images/a-valider/planche-89-03-lacage-trois-zones.png → images/a-valider/planche-89-03-lacage-trois-zones.png
+- images/a-valider/planche-89-04-attache-laniere-simple.png → images/a-valider/planche-89-04-attache-laniere-simple.png
+- images/a-valider/planche-89-05a-toboggan-deux-planches.png → images/a-valider/planche-89-05a-toboggan-deux-planches.png
+- images/a-valider/planche-89-05b-tirer-planches-cintrer-tete.png → images/a-valider/planche-89-05b-tirer-planches-cintrer-tete.png
+- images/a-valider/planche-89-06-raquette-trois-perches.png → images/a-valider/planche-89-06-raquette-trois-perches.png
+- images/a-valider/planche-89-07-lunettes-fente.png → images/a-valider/planche-89-07-lunettes-fente.png
+- images/a-valider/planche-90-01-piece-deux-couches-gomme.png → images/a-valider/planche-90-01-piece-deux-couches-gomme.png
+- images/a-valider/planche-90-02a-canot-peaux-orignal-lit.png → images/a-valider/planche-90-02a-canot-peaux-orignal-lit.png
+- images/a-valider/planche-90-02b-canot-peaux-orignal-coque.png → images/a-valider/planche-90-02b-canot-peaux-orignal-coque.png
+- images/a-valider/planche-90-03-portage.png → images/a-valider/planche-90-03-portage.png
+- images/a-valider/planche-90-04-essai-languette.png → images/a-valider/planche-90-04-essai-languette.png
+- images/a-valider/planche-90-05-traverse-fortune.png → images/a-valider/planche-90-05-traverse-fortune.png
+- images/a-valider/planche-90-06-piece-aluminium-rivetee.png → images/a-valider/planche-90-06-piece-aluminium-rivetee.png
+- images/a-valider/planche-90-07a-canot-ecorce-epinette-seule.png → images/a-valider/planche-90-07a-canot-ecorce-epinette-seule.png
+- images/a-valider/planche-90-07b-canot-ecorce-epinette-bout.png → images/a-valider/planche-90-07b-canot-ecorce-epinette-bout.png
+- images/a-valider/planche-91-11-sechoir-caisse-cote-poele.png → images/a-valider/planche-91-11-sechoir-caisse-cote-poele.png
+- images/planches-src/03-08.js → images/planches-src/03-08.js
+- images/planches-src/03-09.js → images/planches-src/03-09.js
+- images/planches-src/03-10.js → images/planches-src/03-10.js
+- images/planches-src/04-01a.js → images/planches-src/04-01a.js
+- images/planches-src/04-01b.js → images/planches-src/04-01b.js
+- images/planches-src/09-08.js → images/planches-src/09-08.js
+- images/planches-src/10-02.js → images/planches-src/10-02.js
+- images/planches-src/10-03.js → images/planches-src/10-03.js
+- images/planches-src/10-07.js → images/planches-src/10-07.js
+- images/planches-src/100-02.js → images/planches-src/104-02.js
+- images/planches-src/100-04.js → images/planches-src/104-04.js
+- images/planches-src/100-15a.js → images/planches-src/104-15a.js
+- images/planches-src/100-15b.js → images/planches-src/104-15b.js
+- images/planches-src/101-03.js → images/planches-src/105-03.js
+- images/planches-src/101-07.js → images/planches-src/105-07.js
+- images/planches-src/102-01.js → images/planches-src/106-01.js
+- images/planches-src/102-10a.js → images/planches-src/106-10a.js
+- images/planches-src/102-10b.js → images/planches-src/106-10b.js
+- images/planches-src/103-02.js → images/planches-src/107-02.js
+- images/planches-src/103-03.js → images/planches-src/107-03.js
+- images/planches-src/103-07.js → images/planches-src/107-07.js
+- images/planches-src/103-10.js → images/planches-src/107-10.js
+- images/planches-src/105-02.js → images/planches-src/109-02.js
+- images/planches-src/105-08.js → images/planches-src/109-08.js
+- images/planches-src/105-12.js → images/planches-src/109-12.js
+- images/planches-src/106-01a.js → images/planches-src/110-01a.js
+- images/planches-src/106-01b.js → images/planches-src/110-01b.js
+- images/planches-src/106-03.js → images/planches-src/110-03.js
+- images/planches-src/107-11.js → images/planches-src/111-11.js
+- images/planches-src/108-07.js → images/planches-src/112-07.js
+- images/planches-src/108-10a.js → images/planches-src/112-10a.js
+- images/planches-src/108-10b.js → images/planches-src/112-10b.js
+- images/planches-src/11-03.js → images/planches-src/11-03.js
+- images/planches-src/12-01a.js → images/planches-src/12-01a.js
+- images/planches-src/12-01b.js → images/planches-src/12-01b.js
+- images/planches-src/12-02.js → images/planches-src/12-02.js
+- images/planches-src/12-03.js → images/planches-src/12-03.js
+- images/planches-src/12-04.js → images/planches-src/12-04.js
+- images/planches-src/12-05a.js → images/planches-src/12-05a.js
+- images/planches-src/12-05b.js → images/planches-src/12-05b.js
+- images/planches-src/12-06a.js → images/planches-src/12-06a.js
+- images/planches-src/12-06b.js → images/planches-src/12-06b.js
+- images/planches-src/13-01.js → images/planches-src/13-01.js
+- images/planches-src/13-07.js → images/planches-src/13-07.js
+- images/planches-src/13-08.js → images/planches-src/13-08.js
+- images/planches-src/13-09.js → images/planches-src/13-09.js
+- images/planches-src/13-40.js → images/planches-src/13-40.js
+- images/planches-src/14-01.js → images/planches-src/14-01.js
+- images/planches-src/15-01.js → images/planches-src/15-01.js
+- images/planches-src/16-07.js → images/planches-src/16-07.js
+- images/planches-src/16-08.js → images/planches-src/16-08.js
+- images/planches-src/17-06.js → images/planches-src/17-06.js
+- images/planches-src/19-04.js → images/planches-src/19-04.js
+- images/planches-src/19-09.js → images/planches-src/19-09.js
+- images/planches-src/23-02.js → images/planches-src/23-02.js
+- images/planches-src/25-01.js → images/planches-src/25-01.js
+- images/planches-src/25-40.js → images/planches-src/25-40.js
+- images/planches-src/26-04.js → images/planches-src/26-04.js
+- images/planches-src/26-08.js → images/planches-src/26-08.js
+- images/planches-src/26-09a.js → images/planches-src/26-09a.js
+- images/planches-src/26-09b.js → images/planches-src/26-09b.js
+- images/planches-src/26-11.js → images/planches-src/26-11.js
+- images/planches-src/26-40.js → images/planches-src/26-40.js
+- images/planches-src/30-01.js → images/planches-src/30-01.js
+- images/planches-src/30-40.js → images/planches-src/30-40.js
+- images/planches-src/31-01.js → images/planches-src/31-01.js
+- images/planches-src/31-04.js → images/planches-src/31-04.js
+- images/planches-src/31-08.js → images/planches-src/31-08.js
+- images/planches-src/45-01a.js → images/planches-src/45-01a.js
+- images/planches-src/45-01b.js → images/planches-src/45-01b.js
+- images/planches-src/45-02.js → images/planches-src/45-02.js
+- images/planches-src/48-08.js → images/planches-src/48-08.js
+- images/planches-src/48-09.js → images/planches-src/48-09.js
+- images/planches-src/49-17.js → images/planches-src/49-17.js
+- images/planches-src/50-10.js → images/planches-src/50-10.js
+- images/planches-src/54-08.js → images/planches-src/54-08.js
+- images/planches-src/55-03.js → images/planches-src/55-03.js
+- images/planches-src/55-08.js → images/planches-src/55-08.js
+- images/planches-src/56-02.js → images/planches-src/56-02.js
+- images/planches-src/56-09.js → images/planches-src/56-09.js
+- images/planches-src/57-08.js → images/planches-src/57-08.js
+- images/planches-src/58-07.js → images/planches-src/58-07.js
+- images/planches-src/58-09.js → images/planches-src/58-09.js
+- images/planches-src/58-10a.js → images/planches-src/58-10a.js
+- images/planches-src/58-10b.js → images/planches-src/58-10b.js
+- images/planches-src/59-03.js → images/planches-src/59-03.js
+- images/planches-src/59-08.js → images/planches-src/59-08.js
+- images/planches-src/59-09.js → images/planches-src/59-09.js
+- images/planches-src/60-01.js → images/planches-src/60-01.js
+- images/planches-src/60-08a.js → images/planches-src/60-08a.js
+- images/planches-src/60-08b.js → images/planches-src/60-08b.js
+- images/planches-src/60-10.js → images/planches-src/60-10.js
+- images/planches-src/61-02.js → images/planches-src/61-02.js
+- images/planches-src/61-03.js → images/planches-src/61-03.js
+- images/planches-src/61-09.js → images/planches-src/61-09.js
+- images/planches-src/64-08.js → images/planches-src/64-08.js
+- images/planches-src/65-09.js → images/planches-src/65-09.js
+- images/planches-src/67-09.js → images/planches-src/67-09.js
+- images/planches-src/67-10.js → images/planches-src/67-10.js
+- images/planches-src/67-12.js → images/planches-src/67-12.js
+- images/planches-src/67-13.js → images/planches-src/67-13.js
+- images/planches-src/68-06.js → images/planches-src/68-06.js
+- images/planches-src/69-03.js → images/planches-src/69-03.js
+- images/planches-src/70-01b.js → images/planches-src/70-01b.js
+- images/planches-src/70-09.js → images/planches-src/70-09.js
+- images/planches-src/70-12.js → images/planches-src/70-12.js
+- images/planches-src/71-02.js → images/planches-src/71-02.js
+- images/planches-src/71-40.js → images/planches-src/71-40.js
+- images/planches-src/72-40.js → images/planches-src/72-40.js
+- images/planches-src/72-41.js → images/planches-src/72-41.js
+- images/planches-src/73-01.js → images/planches-src/73-01.js
+- images/planches-src/73-07.js → images/planches-src/73-07.js
+- images/planches-src/74-10.js → images/planches-src/74-10.js
+- images/planches-src/74-11.js → images/planches-src/74-11.js
+- images/planches-src/74-40.js → images/planches-src/74-40.js
+- images/planches-src/75-04.js → images/planches-src/75-04.js
+- images/planches-src/75-08.js → images/planches-src/75-08.js
+- images/planches-src/76-03.js → images/planches-src/76-03.js
+- images/planches-src/76-05.js → images/planches-src/76-05.js
+- images/planches-src/76-06.js → images/planches-src/76-06.js
+- images/planches-src/79-01a.js → images/planches-src/79-01a.js
+- images/planches-src/79-01b.js → images/planches-src/79-01b.js
+- images/planches-src/79-06.js → images/planches-src/79-06.js
+- images/planches-src/82-08a.js → images/planches-src/82-08a.js
+- images/planches-src/82-08b.js → images/planches-src/82-08b.js
+- images/planches-src/82-10a.js → images/planches-src/82-10a.js
+- images/planches-src/82-10b.js → images/planches-src/82-10b.js
+- images/planches-src/82-12a.js → images/planches-src/82-12a.js
+- images/planches-src/82-12b.js → images/planches-src/82-12b.js
+- images/planches-src/83-10.js → images/planches-src/83-10.js
+- images/planches-src/86-01a.js → images/planches-src/86-01a.js
+- images/planches-src/86-01b.js → images/planches-src/86-01b.js
+- images/planches-src/86-02.js → images/planches-src/86-02.js
+- images/planches-src/86-03a.js → images/planches-src/86-03a.js
+- images/planches-src/86-03b.js → images/planches-src/86-03b.js
+- images/planches-src/86-04.js → images/planches-src/86-04.js
+- images/planches-src/87-08a.js → images/planches-src/87-08a.js
+- images/planches-src/87-08b.js → images/planches-src/87-08b.js
+- images/planches-src/87-09.js → images/planches-src/87-09.js
+- images/planches-src/89-01a.js → images/planches-src/89-01a.js
+- images/planches-src/89-01b.js → images/planches-src/89-01b.js
+- images/planches-src/89-02.js → images/planches-src/89-02.js
+- images/planches-src/89-03.js → images/planches-src/89-03.js
+- images/planches-src/89-04.js → images/planches-src/89-04.js
+- images/planches-src/89-05a.js → images/planches-src/89-05a.js
+- images/planches-src/89-05b.js → images/planches-src/89-05b.js
+- images/planches-src/89-06.js → images/planches-src/89-06.js
+- images/planches-src/89-07.js → images/planches-src/89-07.js
+- images/planches-src/90-01.js → images/planches-src/90-01.js
+- images/planches-src/90-02a.js → images/planches-src/90-02a.js
+- images/planches-src/90-02b.js → images/planches-src/90-02b.js
+- images/planches-src/90-03.js → images/planches-src/90-03.js
+- images/planches-src/90-04.js → images/planches-src/90-04.js
+- images/planches-src/90-05.js → images/planches-src/90-05.js
+- images/planches-src/90-06.js → images/planches-src/90-06.js
+- images/planches-src/90-07a.js → images/planches-src/90-07a.js
+- images/planches-src/90-07b.js → images/planches-src/90-07b.js
+- images/planches-src/91-11.js → images/planches-src/91-11.js
+- images/planches-src/94-31.js → images/planches-src/94-31.js
+- images/planches-src/94-33a.js → images/planches-src/94-33a.js
+- images/planches-src/94-33b.js → images/planches-src/94-33b.js
+- images/planches-src/94-34.js → images/planches-src/94-34.js
+- images/planches-src/95-09.js → images/planches-src/95-09.js
+- images/planches-src/96-05.js → images/planches-src/100-05.js
+- images/planches-src/97-01.js → images/planches-src/101-01.js
+- images/planches-src/97-07.js → images/planches-src/101-07.js
+- images/planches-src/98-02.js → images/planches-src/102-02.js
+- images/planches-src/98-07.js → images/planches-src/102-07.js
+- images/planches-src/99-05.js → images/planches-src/103-05.js
+- images/planches-src/99-07.js → images/planches-src/103-07.js
+- images/planches-src/99-10.js → images/planches-src/103-10.js
+- images/planches-src/99-11.js → images/planches-src/103-11.js

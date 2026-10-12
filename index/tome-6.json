@@ -1,0 +1,5763 @@
+{
+ "tome": 6,
+ "titre": "L'atelier",
+ "chapitres": [
+  "102",
+  "103",
+  "104",
+  "105",
+  "106",
+  "107",
+  "108",
+  "109",
+  "110",
+  "111",
+  "112"
+ ],
+ "etabli_le": "2026-09-27",
+ "nombre_entrees": 123,
+ "entrees": [
+  {
+   "terme": "Abattre un arbre",
+   "voir_aussi": [
+    "Arbre encroué"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "5-C. Abattre un arbre — la géométrie qui décide de la chute",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. Abattre un arbre — la géométrie qui décide de la chute"
+     ],
+     "ligne": 120
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "9-B. Faire tomber l'arbre où on veut, sans treuil",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-B. Faire tomber l'arbre où on veut, sans treuil"
+     ],
+     "ligne": 482
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 299
+    }
+   ]
+  },
+  {
+   "terme": "Affûter",
+   "voir_aussi": [
+    "Morfil",
+    "Pierre à aiguiser et meule"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Affûter un hameçon sans lime diamantée",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Affûter un hameçon sans lime diamantée"
+     ],
+     "ligne": 543
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Chapitre 105 — Affûter, limer, aiguiser",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 32,
+      "libelle": "Affûter avant que ça devienne nécessaire."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. L'entretien qui se fait sur la souche"
+     ],
+     "ligne": 210
+    }
+   ]
+  },
+  {
+   "terme": "Ancrage",
+   "voir_aussi": [
+    "Leviers et poulies"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Les ancrages, quand il n'y a pas d'anneau nulle part",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les ancrages, quand il n'y a pas d'anneau nulle part"
+     ],
+     "ligne": 604
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Choisir l'ancrage en calculant ce qu'il va prendre"
+     },
+     "chemin": [
+      "5. Procédure",
+      "La manœuvre générale"
+     ],
+     "ligne": 112
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 422
+    }
+   ]
+  },
+  {
+   "terme": "Arbre encroué",
+   "voir_aussi": [
+    "Abattre un arbre",
+    "Leviers et poulies"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 23,
+      "libelle": "Arbre encroué."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. Les quatre situations où la scie se pose"
+     ],
+     "ligne": 163
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "5-B. Dégager un arbre encroué",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Dégager un arbre encroué"
+     ],
+     "ligne": 246
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 351
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    }
+   ]
+  },
+  {
+   "terme": "Assemblages bois-bois",
+   "voir_aussi": [
+    "Tenon et mortaise",
+    "Mi-bois"
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Écarter trois bois de l'assemblage lui-même"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.1 Choisir la pièce"
+     ],
+     "ligne": 104
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "Chapitre 110 — Assemblages bois-bois",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "9.8 Ce qu'on perd en la choisissant, dit honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.8 Ce qu'on perd en la choisissant, dit honnêtement"
+     ],
+     "ligne": 576
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Couture d'assemblage ouverte, tissu intact."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — Réparer un vêtement"
+     ],
+     "ligne": 147
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Assouplir la peau",
+   "voir_aussi": [
+    "Tannage"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "H — Assouplir",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — Assouplir"
+     ],
+     "ligne": 269
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Assouplir seul",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Assouplir seul"
+     ],
+     "ligne": 585
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 311
+    }
+   ]
+  },
+  {
+   "terme": "Avoyer une scie",
+   "voir_aussi": [
+    "Affûter"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Avoyer une scie sans avoyeuse",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Avoyer une scie sans avoyeuse"
+     ],
+     "ligne": 510
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "5-E. Les dents de scie",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-E. Les dents de scie"
+     ],
+     "ligne": 225
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    }
+   ]
+  },
+  {
+   "terme": "Babiche",
+   "voir_aussi": [
+    "Tendons (fil de tendon)",
+    "Laçage (raquette)"
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "D — Couper la babiche",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Couper la babiche"
+     ],
+     "ligne": 162
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "Réparer au lieu de refaire",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Réparer au lieu de refaire"
+     ],
+     "ligne": 543
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les outils qu'on se fait",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les outils qu'on se fait"
+     ],
+     "ligne": 461
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les matières qu'on remplace",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les matières qu'on remplace"
+     ],
+     "ligne": 521
+    }
+   ]
+  },
+  {
+   "terme": "Balance (peser sans balance)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pourcentage de sel (calcul)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Peser la charge sans balance",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Peser la charge sans balance"
+     ],
+     "ligne": 491
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    }
+   ]
+  },
+  {
+   "terme": "Batteries (banc, recharge)",
+   "voir_aussi": [
+    "Souder avec des batteries d'auto"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Panneaux solaires",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "A — Souder à l'arc avec des batteries d'auto",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "A — Souder à l'arc avec des batteries d'auto"
+     ],
+     "ligne": 397
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "5.2 Ce qui meurt tout seul sur la tablette",
+     "niveau": 3,
+     "chemin": [
+      "5. Les tableaux du stock",
+      "5.2 Ce qui meurt tout seul sur la tablette"
+     ],
+     "ligne": 99
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    }
+   ]
+  },
+  {
+   "terme": "Bois traité (reconnaître)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Caveau à légumes",
+     "tomes": [
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 295
+    }
+   ]
+  },
+  {
+   "terme": "Bottes (réparer, chausser à -35 °C)",
+   "voir_aussi": [
+    "Mukluk"
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 40,
+      "libelle": "Le cordon du cou-de-pied ne se serre jamais pour tenir la botte au pied."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Le mukluk"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 64,
+      "libelle": "Botte de sécurité."
+     },
+     "chemin": [
+      "5. Procédure",
+      "K — Réparer une botte du commerce"
+     ],
+     "ligne": 295
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "I — Chausser à -35 °C",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Chausser à -35 °C"
+     ],
+     "ligne": 241
+    }
+   ]
+  },
+  {
+   "terme": "Brasage",
+   "voir_aussi": [
+    "Souder à l'arc",
+    "Étain (soudure à l'étain)"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "E — Le brasage au feu de forge",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "E — Le brasage au feu de forge"
+     ],
+     "ligne": 486
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "5.5 Braser au chalumeau",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.5 Braser au chalumeau"
+     ],
+     "ligne": 189
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "Chapitre 107 — Souder, braser, réparer le métal",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Câble d'acier",
+   "voir_aussi": [
+    "Leviers et poulies"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "5-E. Faire une boucle au bout d'un câble d'acier",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-E. Faire une boucle au bout d'un câble d'acier"
+     ],
+     "ligne": 313
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 422
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 378
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Câbler gros et court."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "A — Souder à l'arc avec des batteries d'auto"
+     ],
+     "ligne": 415
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Cadmium",
+   "voir_aussi": [
+    "Orignal (Alces americanus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Abats",
+     "tomes": [
+      2,
+      4
+     ]
+    },
+    {
+     "terme": "Foie",
+     "tomes": [
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    }
+   ]
+  },
+  {
+   "terme": "Carburant (entreposer)",
+   "voir_aussi": [
+    "Génératrice",
+    "Scie à chaîne"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Huile de guide et carburant, faits ensemble."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Les six vérifications avant de tirer le lanceur"
+     ],
+     "ligne": 94
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 38,
+      "libelle": "Carburant."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-G. Le moteur qui refuse de partir — trois branches, dans cet ordre"
+     ],
+     "ligne": 236
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 233
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Cèdre, thuya (Thuja occidentalis)",
+   "latin": "Thuja occidentalis",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Thuyone",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 295
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 23,
+      "libelle": "L'écorce interne."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — La fibre végétale"
+     ],
+     "ligne": 207
+    }
+   ]
+  },
+  {
+   "terme": "Cémentation",
+   "voir_aussi": [
+    "Trempe de l'acier"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "La cémentation au charbon de bois, et ce qu'elle ne fait pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La cémentation au charbon de bois, et ce qu'elle ne fait pas"
+     ],
+     "ligne": 660
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "Ce qui ne se remplace vraiment pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace vraiment pas"
+     ],
+     "ligne": 689
+    }
+   ]
+  },
+  {
+   "terme": "Cendre de bois",
+   "voir_aussi": [
+    "Lessive de cendre"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Sol acide (chaux, cendre)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Faire la lessive de cendre, et la lire sans papier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire la lessive de cendre, et la lire sans papier"
+     ],
+     "ligne": 488
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 609
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "Faire l'alcali au lieu de l'acheter",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire l'alcali au lieu de l'acheter"
+     ],
+     "ligne": 424
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 295
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Le cuir, la pâte et le brunissoir",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le cuir, la pâte et le brunissoir"
+     ],
+     "ligne": 486
+    }
+   ]
+  },
+  {
+   "terme": "Cervelle",
+   "voir_aussi": [
+    "Chamoisage (cervelle)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Prion (maladie débilitante chronique)",
+     "tomes": [
+      2,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "G1 — Chamoisage au cerveau",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G1 — Chamoisage au cerveau"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Chamoiser sans cervelle",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Chamoiser sans cervelle"
+     ],
+     "ligne": 536
+    }
+   ]
+  },
+  {
+   "terme": "Chaîne de scie (affûter)",
+   "voir_aussi": [
+    "Scie à chaîne"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "5-C. La chaîne de scie",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. La chaîne de scie"
+     ],
+     "ligne": 178
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Fabriquer l'étau de souche",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'étau de souche"
+     ],
+     "ligne": 459
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Essuyer, huiler, ranger le fil couvert."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Le couteau — la procédure de référence"
+     ],
+     "ligne": 142
+    }
+   ]
+  },
+  {
+   "terme": "Chamoisage (cervelle)",
+   "voir_aussi": [
+    "Tannage",
+    "Cervelle"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "G1 — Chamoisage au cerveau",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G1 — Chamoisage au cerveau"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "I — Fumer la peau chamoisée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Fumer la peau chamoisée"
+     ],
+     "ligne": 280
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Chamoiser sans cervelle",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Chamoiser sans cervelle"
+     ],
+     "ligne": 536
+    }
+   ]
+  },
+  {
+   "terme": "Chandelles",
+   "voir_aussi": [
+    "Lampe à graisse",
+    "Suif"
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "5-H. Les chandelles trempées",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les chandelles trempées"
+     ],
+     "ligne": 250
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    }
+   ]
+  },
+  {
+   "terme": "Charbon de bois",
+   "voir_aussi": [
+    "Forger"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "La cémentation au charbon de bois, et ce qu'elle ne fait pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La cémentation au charbon de bois, et ce qu'elle ne fait pas"
+     ],
+     "ligne": 660
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "Le charbon qu'on fait soi-même",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le charbon qu'on fait soi-même"
+     ],
+     "ligne": 536
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "E — Le brasage au feu de forge",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "E — Le brasage au feu de forge"
+     ],
+     "ligne": 486
+    }
+   ]
+  },
+  {
+   "terme": "Cheville (chevillage)",
+   "voir_aussi": [
+    "Tenon et mortaise"
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Fendre les chevilles, ne pas les scier."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.6 La cheville et le chevillage à tire"
+     ],
+     "ligne": 204
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Cheville sèche, pièce humide."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.1 L'eau serre mieux qu'un serre-joint"
+     ],
+     "ligne": 397
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Percer le trou de cheville dans la joue de la mortaise, la pièce assemblée à blanc"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.6 La cheville et le chevillage à tire"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Collagène",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gélatine (pattes, peaux, tendons)",
+     "tomes": [
+      2,
+      4
+     ]
+    },
+    {
+     "terme": "Braiser (cuisson longue)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Sécher sans chaleur."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Lever les tendons pendant la boucherie"
+     ],
+     "ligne": 84
+    }
+   ]
+  },
+  {
+   "terme": "Colle de peau",
+   "voir_aussi": [
+    "Assemblages bois-bois"
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "La colle qui sort des retailles",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La colle qui sort des retailles"
+     ],
+     "ligne": 528
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 23,
+      "libelle": "La colle, s'il en faut vraiment"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.5 Assembler sans une seule pièce de métal"
+     ],
+     "ligne": 517
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 418
+    }
+   ]
+  },
+  {
+   "terme": "Conserver une peau crue",
+   "voir_aussi": [
+    "Tannage"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "B — Mettre la peau en conserve, tout de suite",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B — Mettre la peau en conserve, tout de suite"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Épiler sans aucun alcalin",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Épiler sans aucun alcalin"
+     ],
+     "ligne": 514
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 311
+    }
+   ]
+  },
+  {
+   "terme": "Cordage (fibre végétale)",
+   "voir_aussi": [
+    "Babiche",
+    "Nœuds"
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "Faire la corde avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire la corde avec ce qui traîne"
+     ],
+     "ligne": 502
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "G — Tordre : le contre-toron",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Tordre : le contre-toron"
+     ],
+     "ligne": 232
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Le palan de corde et le nœud de camionneur",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le palan de corde et le nœud de camionneur"
+     ],
+     "ligne": 581
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Rouler une bille à la corde double",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Rouler une bille à la corde double"
+     ],
+     "ligne": 567
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Coudre (points, alêne)",
+   "voir_aussi": [
+    "Mocassin",
+    "Réparer un vêtement"
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "C — Coudre le cuir et la peau tannée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Coudre le cuir et la peau tannée"
+     ],
+     "ligne": 122
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "F — Le mocassin d'une pièce à couture froncée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Le mocassin d'une pièce à couture froncée"
+     ],
+     "ligne": 190
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "A — Monter le poste de couture",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Monter le poste de couture"
+     ],
+     "ligne": 86
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Mouiller avant de coudre, pas avant de ranger."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Défibrer et faire le fil"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 33,
+      "libelle": "Le fil de tendon en couture."
+     },
+     "chemin": [
+      "5. Procédure",
+      "H — Poser"
+     ],
+     "ligne": 265
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "C — La couture de vis, pour la fonte fendue",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "C — La couture de vis, pour la fonte fendue"
+     ],
+     "ligne": 461
+    }
+   ]
+  },
+  {
+   "terme": "Couteau (affûter, réparer)",
+   "voir_aussi": [
+    "Affûter",
+    "Morfil"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "5-A. Le couteau — la procédure de référence",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. Le couteau — la procédure de référence"
+     ],
+     "ligne": 121
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Fabriquer l'outillage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'outillage"
+     ],
+     "ligne": 462
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Le cuir, la pâte et le brunissoir",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le cuir, la pâte et le brunissoir"
+     ],
+     "ligne": 486
+    }
+   ]
+  },
+  {
+   "terme": "Cuisson à 74 °C à cœur",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Thermomètre à viande (sonde)",
+     "tomes": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "terme": "Trichinellose",
+     "tomes": [
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Les graillons d'ours ou de phoque qui s'en vont dans une assiette se cuisent à 74 °C à cœur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Fondre le gras"
+     ],
+     "ligne": 127
+    }
+   ]
+  },
+  {
+   "terme": "Dépouiller (enlever la peau)",
+   "voir_aussi": [
+    "Écharner",
+    "Tannage"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "A — Dépouiller, et se protéger pendant qu'on dépouille",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Dépouiller, et se protéger pendant qu'on dépouille"
+     ],
+     "ligne": 101
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Détendeur et raccords",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Propane",
+     "tomes": [
+      1,
+      3,
+      4,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Ne jamais dépasser 103 kPa (15 lb/po²) au détendeur d'acétylène."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.5 Braser au chalumeau"
+     ],
+     "ligne": 195
+    }
+   ]
+  },
+  {
+   "terme": "Doublure de duffel",
+   "voir_aussi": [
+    "Mukluk"
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "H — La doublure de duffel",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — La doublure de duffel"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les matières qu'on remplace",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les matières qu'on remplace"
+     ],
+     "ligne": 521
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 63,
+      "libelle": "Doublure écrasée."
+     },
+     "chemin": [
+      "5. Procédure",
+      "K — Réparer une botte du commerce"
+     ],
+     "ligne": 293
+    }
+   ]
+  },
+  {
+   "terme": "Écharner",
+   "voir_aussi": [
+    "Dépouiller (enlever la peau)",
+    "Tannage"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "D — Écharner",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Écharner"
+     ],
+     "ligne": 159
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Fabriquer l'outillage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'outillage"
+     ],
+     "ligne": 462
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Épiler sans aucun alcalin",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Épiler sans aucun alcalin"
+     ],
+     "ligne": 514
+    }
+   ]
+  },
+  {
+   "terme": "Éclisse boulonnée",
+   "voir_aussi": [
+    "Souder à l'arc"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "B — L'éclisse boulonnée",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "B — L'éclisse boulonnée"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 273
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    }
+   ]
+  },
+  {
+   "terme": "Écorce interne (liber)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Scorbut",
+     "tomes": [
+      2,
+      4,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 23,
+      "libelle": "L'écorce interne."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — La fibre végétale"
+     ],
+     "ligne": 207
+    }
+   ]
+  },
+  {
+   "terme": "Électrode (baguette)",
+   "voir_aussi": [
+    "Souder à l'arc"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Fabriquer la pince de masse et le porte-électrode."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "A — Souder à l'arc avec des batteries d'auto"
+     ],
+     "ligne": 418
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 30,
+      "libelle": "Vérifier la baguette."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.5 Braser au chalumeau"
+     ],
+     "ligne": 203
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 273
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "5.2 Ce qui meurt tout seul sur la tablette",
+     "niveau": 3,
+     "chemin": [
+      "5. Les tableaux du stock",
+      "5.2 Ce qui meurt tout seul sur la tablette"
+     ],
+     "ligne": 99
+    }
+   ]
+  },
+  {
+   "terme": "Enclume",
+   "voir_aussi": [
+    "Forger"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "L'enclume, et les pinces qu'on n'a pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'enclume, et les pinces qu'on n'a pas"
+     ],
+     "ligne": 555
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Séparer physiquement le seau d'eau et le bac d'huile"
+     },
+     "chemin": [
+      "5. Procédure",
+      "B. Monter le poste"
+     ],
+     "ligne": 148
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Ne jamais frapper un acier trempé avec un marteau"
+     },
+     "chemin": [
+      "5. Procédure",
+      "C. Forger"
+     ],
+     "ligne": 171
+    }
+   ]
+  },
+  {
+   "terme": "Épiler la peau (débourrer)",
+   "voir_aussi": [
+    "Lessive de cendre",
+    "Tannage"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "E — Épiler, ou décider de ne pas épiler",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Épiler, ou décider de ne pas épiler"
+     ],
+     "ligne": 170
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Épiler sans aucun alcalin",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Épiler sans aucun alcalin"
+     ],
+     "ligne": 514
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "C — Débourrer la peau",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Débourrer la peau"
+     ],
+     "ligne": 112
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    }
+   ]
+  },
+  {
+   "terme": "Épinette",
+   "voir_aussi": [
+    "Gomme de sapin et d'épinette (résine)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Thuyone",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Arbre de vie (infusion d'aiguilles)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 22,
+      "libelle": "La racine d'épinette (la wattape)."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — La fibre végétale"
+     ],
+     "ligne": 199
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les matières qu'on remplace",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les matières qu'on remplace"
+     ],
+     "ligne": 521
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 295
+    }
+   ]
+  },
+  {
+   "terme": "Étain (soudure à l'étain)",
+   "voir_aussi": [
+    "Brasage"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "F — L'étain avec un fer chauffé au poêle",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "F — L'étain avec un fer chauffé au poêle"
+     ],
+     "ligne": 501
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    }
+   ]
+  },
+  {
+   "terme": "Étau",
+   "voir_aussi": [
+    "Affûter",
+    "Lime"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Fabriquer l'étau de souche",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'étau de souche"
+     ],
+     "ligne": 459
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Casser le coupon durci dans l'étau, d'un coup sec, et regarder la cassure."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. Savoir ce qu'on a dans les mains"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 394
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "La meule à eau à manivelle",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La meule à eau à manivelle"
+     ],
+     "ligne": 551
+    }
+   ]
+  },
+  {
+   "terme": "Extincteur",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Incendie du bâtiment",
+     "tomes": [
+      1,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Placer l'extincteur du côté d'où on s'éloigne du feu"
+     },
+     "chemin": [
+      "5. Procédure",
+      "B. Monter le poste"
+     ],
+     "ligne": 145
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Mettre l'extincteur, le seau et la pelle à portée de bras"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 Préparer le poste — la partie que tout le monde saute"
+     ],
+     "ligne": 141
+    }
+   ]
+  },
+  {
+   "terme": "Fendre le bois",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Bois de chauffage",
+     "tomes": [
+      1,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Fendre les chevilles, ne pas les scier."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.6 La cheville et le chevillage à tire"
+     ],
+     "ligne": 204
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "9.3 Fendre au lieu de scier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.3 Fendre au lieu de scier"
+     ],
+     "ligne": 437
+    }
+   ]
+  },
+  {
+   "terme": "Fièvre des fondeurs (métal galvanisé)",
+   "voir_aussi": [
+    "Souder à l'arc"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Décaper le galvanisé sur toute la zone qui va chauffer"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Préparer le métal"
+     ],
+     "ligne": 153
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 273
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 321
+    }
+   ]
+  },
+  {
+   "terme": "Fonte fendue (réparer)",
+   "voir_aussi": [
+    "Souder à l'arc",
+    "Brasage"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "C — La couture de vis, pour la fonte fendue",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "C — La couture de vis, pour la fonte fendue"
+     ],
+     "ligne": 461
+    }
+   ]
+  },
+  {
+   "terme": "Forger",
+   "voir_aussi": [
+    "Enclume",
+    "Charbon de bois"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "La soufflerie, et pourquoi elle se règle au volet",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La soufflerie, et pourquoi elle se règle au volet"
+     ],
+     "ligne": 516
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Normaliser après le forgeage"
+     },
+     "chemin": [
+      "5. Procédure",
+      "D. Recuire et normaliser"
+     ],
+     "ligne": 191
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "C. Forger",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C. Forger"
+     ],
+     "ligne": 163
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "E — Le brasage au feu de forge",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "E — Le brasage au feu de forge"
+     ],
+     "ligne": 486
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "G — Les outils qu'on fabrique avant d'en avoir besoin",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "G — Les outils qu'on fabrique avant d'en avoir besoin"
+     ],
+     "ligne": 528
+    }
+   ]
+  },
+  {
+   "terme": "Fourrure",
+   "voir_aussi": [
+    "Tannage"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Martre d'Amérique (Martes americana)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "G3 — Mégissage à l'alun, pour la fourrure",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G3 — Mégissage à l'alun, pour la fourrure"
+     ],
+     "ligne": 252
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Les espèces, une par une",
+     "niveau": 3,
+     "chemin": [
+      "2. Quand l'utiliser",
+      "Les espèces, une par une"
+     ],
+     "ligne": 52
+    }
+   ]
+  },
+  {
+   "terme": "Fumer la peau",
+   "voir_aussi": [
+    "Chamoisage (cervelle)"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "I — Fumer la peau chamoisée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Fumer la peau chamoisée"
+     ],
+     "ligne": 280
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Le critère d'arrêt est le poil, pas l'horloge."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E — Épiler, ou décider de ne pas épiler"
+     ],
+     "ligne": 191
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "C — Coudre le cuir et la peau tannée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Coudre le cuir et la peau tannée"
+     ],
+     "ligne": 122
+    }
+   ]
+  },
+  {
+   "terme": "Fumoir (monter)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Fumage à froid",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Fumage à chaud",
+     "tomes": [
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Fumer sans fumoir",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fumer sans fumoir"
+     ],
+     "ligne": 571
+    }
+   ]
+  },
+  {
+   "terme": "Gabarit du pied",
+   "voir_aussi": [
+    "Mocassin"
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "E — Le gabarit du pied",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Le gabarit du pied"
+     ],
+     "ligne": 171
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "H — La doublure de duffel",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — La doublure de duffel"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les matières qu'on remplace",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les matières qu'on remplace"
+     ],
+     "ligne": 521
+    }
+   ]
+  },
+  {
+   "terme": "Garder le feu (couver)",
+   "voir_aussi": [
+    "Poêle à bois"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Feu sans allumettes",
+     "tomes": [
+      1
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Allumer, monter le lit de braise, réduire l'air."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B. Monter le poste"
+     ],
+     "ligne": 159
+    }
+   ]
+  },
+  {
+   "terme": "Génératrice",
+   "voir_aussi": [
+    "Monoxyde de carbone",
+    "Carburant (entreposer)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Électricité du chalet (12 V)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Si une génératrice ou un poste à moteur alimente le travail"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 Préparer le poste — la partie que tout le monde saute"
+     ],
+     "ligne": 144
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 351
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 295
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "5-I. Les autres petits moteurs",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-I. Les autres petits moteurs"
+     ],
+     "ligne": 281
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    }
+   ]
+  },
+  {
+   "terme": "Godendard",
+   "voir_aussi": [
+    "Scie à chaîne"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "9-A. Couper l'hiver sans un litre d'essence",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Couper l'hiver sans un litre d'essence"
+     ],
+     "ligne": 441
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "9-D. Ce qui ne se remplace pas, et il faut le dire",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-D. Ce qui ne se remplace pas, et il faut le dire"
+     ],
+     "ligne": 569
+    }
+   ]
+  },
+  {
+   "terme": "Gomme de sapin et d'épinette (résine)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Canot (réparer)",
+     "tomes": [
+      3,
+      5
+     ]
+    },
+    {
+     "terme": "Poix",
+     "tomes": [
+      3,
+      5
+     ]
+    },
+    {
+     "terme": "Onguent",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les matières qu'on remplace",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les matières qu'on remplace"
+     ],
+     "ligne": 521
+    }
+   ]
+  },
+  {
+   "terme": "Graisse (fondre le gras)",
+   "voir_aussi": [
+    "Suif"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pemmican",
+     "tomes": [
+      3,
+      4
+     ]
+    },
+    {
+     "terme": "Cretons",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "5-A. Fondre le gras",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. Fondre le gras"
+     ],
+     "ligne": 105
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    }
+   ]
+  },
+  {
+   "terme": "Hache",
+   "voir_aussi": [
+    "Affûter",
+    "Fendre le bois"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "5-B. La hache",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. La hache"
+     ],
+     "ligne": 161
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Équarrir à la hache."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.3 Fendre au lieu de scier"
+     ],
+     "ligne": 455
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Essuyer, huiler, ranger le fil couvert."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Le couteau — la procédure de référence"
+     ],
+     "ligne": 142
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 44,
+      "libelle": "Sur une hache ou une herminette, ne durcir que le taillant."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. Revenir"
+     ],
+     "ligne": 264
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Brûler le trou"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer le manche de lime"
+     ],
+     "ligne": 450
+    }
+   ]
+  },
+  {
+   "terme": "Hameçon et leurre",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pêche blanche",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Affûter un hameçon sans lime diamantée",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Affûter un hameçon sans lime diamantée"
+     ],
+     "ligne": 543
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    }
+   ]
+  },
+  {
+   "terme": "Huile de trempe",
+   "voir_aussi": [
+    "Trempe de l'acier"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "Le bain, quand il n'y a plus d'huile de trempe",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le bain, quand il n'y a plus d'huile de trempe"
+     ],
+     "ligne": 573
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 482
+    }
+   ]
+  },
+  {
+   "terme": "Joint de cuir gras",
+   "voir_aussi": [
+    "Pièces de rechange (stock)"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Refaire le joint d'un vérin en cuir gras",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Refaire le joint d'un vérin en cuir gras"
+     ],
+     "ligne": 622
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 378
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Joints toriques",
+   "voir_aussi": [
+    "Pièces de rechange (stock)"
+   ],
+   "ancres": [
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "5.3 Les pièces par système",
+     "niveau": 3,
+     "chemin": [
+      "5. Les tableaux du stock",
+      "5.3 Les pièces par système"
+     ],
+     "ligne": 125
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "5.4 La quincaillerie, autrement dit ce qui manque toujours",
+     "niveau": 3,
+     "chemin": [
+      "5. Les tableaux du stock",
+      "5.4 La quincaillerie, autrement dit ce qui manque toujours"
+     ],
+     "ligne": 155
+    }
+   ]
+  },
+  {
+   "terme": "Laçage (raquette)",
+   "voir_aussi": [
+    "Babiche"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Raquettes (fabriquer)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 32,
+      "libelle": "Le laçage de raquette."
+     },
+     "chemin": [
+      "5. Procédure",
+      "H — Poser"
+     ],
+     "ligne": 260
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "Réparer au lieu de refaire",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Réparer au lieu de refaire"
+     ],
+     "ligne": 543
+    }
+   ]
+  },
+  {
+   "terme": "Lampe à graisse",
+   "voir_aussi": [
+    "Chandelles",
+    "Lard de phoque (huile)"
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "5-J. La lampe à graisse",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-J. La lampe à graisse"
+     ],
+     "ligne": 276
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    }
+   ]
+  },
+  {
+   "terme": "Lard de phoque (huile)",
+   "voir_aussi": [
+    "Phoque",
+    "Lampe à graisse"
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 27
+    }
+   ]
+  },
+  {
+   "terme": "Lessive de cendre",
+   "voir_aussi": [
+    "Savon",
+    "Épiler la peau (débourrer)"
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "5-C. La lessive de soude",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. La lessive de soude"
+     ],
+     "ligne": 140
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Faire la lessive de cendre, et la lire sans papier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire la lessive de cendre, et la lire sans papier"
+     ],
+     "ligne": 488
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 317
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 609
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    }
+   ]
+  },
+  {
+   "terme": "Lever un bâtiment (cric)",
+   "voir_aussi": [
+    "Leviers et poulies"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "5-C. Lever un coin de bâtiment",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. Lever un coin de bâtiment"
+     ],
+     "ligne": 272
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Refaire le joint d'un vérin en cuir gras",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Refaire le joint d'un vérin en cuir gras"
+     ],
+     "ligne": 622
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Leviers et poulies",
+   "voir_aussi": [
+    "Treuil (vindas, tire-fort)",
+    "Câble d'acier"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Le palan de corde et le nœud de camionneur",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le palan de corde et le nœud de camionneur"
+     ],
+     "ligne": 581
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Monter une charge d'un mètre au levier et aux cales",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Monter une charge d'un mètre au levier et aux cales"
+     ],
+     "ligne": 508
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 378
+    }
+   ]
+  },
+  {
+   "terme": "Lime",
+   "voir_aussi": [
+    "Affûter"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Ressusciter une lime",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ressusciter une lime"
+     ],
+     "ligne": 521
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Fabriquer le manche de lime",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer le manche de lime"
+     ],
+     "ligne": 437
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Limer en poussant."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. La hache"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Recuire quand il faut percer, limer ou scier"
+     },
+     "chemin": [
+      "5. Procédure",
+      "D. Recuire et normaliser"
+     ],
+     "ligne": 195
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 35,
+      "libelle": "Essuyer, et vérifier à la lime tout de suite."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E. Tremper"
+     ],
+     "ligne": 226
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les outils qu'on se fait",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les outils qu'on se fait"
+     ],
+     "ligne": 461
+    }
+   ]
+  },
+  {
+   "terme": "Manche d'outil (emmancher)",
+   "voir_aussi": [
+    "Hache",
+    "Lime"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Fabriquer le manche de lime",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer le manche de lime"
+     ],
+     "ligne": 437
+    }
+   ]
+  },
+  {
+   "terme": "Masques",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Épidémie",
+     "tomes": [
+      1,
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "etape": {
+      "n": 35,
+      "libelle": "Lunettes et masque au mélange de la poudre."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G3 — Mégissage à l'alun, pour la fourrure"
+     ],
+     "ligne": 254
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Mèches",
+   "voir_aussi": [
+    "Chandelles"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Lampe à huile (kérosène)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 42,
+      "libelle": "Aucune âme métallique."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-G. Les mèches"
+     ],
+     "ligne": 239
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "5-J. La lampe à graisse",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-J. La lampe à graisse"
+     ],
+     "ligne": 276
+    }
+   ]
+  },
+  {
+   "terme": "Mégissage à l'alun",
+   "voir_aussi": [
+    "Tannage",
+    "Fourrure"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "G3 — Mégissage à l'alun, pour la fourrure",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G3 — Mégissage à l'alun, pour la fourrure"
+     ],
+     "ligne": 252
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 311
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "E — Épiler, ou décider de ne pas épiler",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Épiler, ou décider de ne pas épiler"
+     ],
+     "ligne": 170
+    }
+   ]
+  },
+  {
+   "terme": "Mélange essence-huile (moteur 2 temps)",
+   "voir_aussi": [
+    "Scie à chaîne",
+    "Carburant (entreposer)"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "9-C. Faire tourner la machine sur ce qui reste",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. Faire tourner la machine sur ce qui reste"
+     ],
+     "ligne": 507
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Bois sous tension."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. Les quatre situations où la scie se pose"
+     ],
+     "ligne": 181
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 40,
+      "libelle": "Réglages de carburateur."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-G. Le moteur qui refuse de partir — trois branches, dans cet ordre"
+     ],
+     "ligne": 245
+    }
+   ]
+  },
+  {
+   "terme": "Mi-bois",
+   "voir_aussi": [
+    "Assemblages bois-bois"
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Un bout pourri : la greffe à mi-bois."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.6 Réparer au lieu de remplacer"
+     ],
+     "ligne": 529
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "5.4 Le mi-bois",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.4 Le mi-bois"
+     ],
+     "ligne": 161
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    }
+   ]
+  },
+  {
+   "terme": "Mocassin",
+   "voir_aussi": [
+    "Mukluk",
+    "Gabarit du pied"
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "F — Le mocassin d'une pièce à couture froncée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Le mocassin d'une pièce à couture froncée"
+     ],
+     "ligne": 190
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Surjet"
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Les quatre points"
+     ],
+     "ligne": 106
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "G — Le mukluk",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Le mukluk"
+     ],
+     "ligne": 209
+    }
+   ]
+  },
+  {
+   "terme": "Monoxyde de carbone",
+   "voir_aussi": [
+    "Génératrice",
+    "Poêle à bois"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Avertisseurs (fumée, monoxyde)",
+     "tomes": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "terme": "Abri de pêche chauffé",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    }
+   ]
+  },
+  {
+   "terme": "Morfil",
+   "voir_aussi": [
+    "Affûter"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Enlever le morfil sur le dos"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. Ciseau à bois et fer de rabot"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 297
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Reformer d'un seul côté"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Le couteau — la procédure de référence"
+     ],
+     "ligne": 133
+    }
+   ]
+  },
+  {
+   "terme": "Mukluk",
+   "voir_aussi": [
+    "Mocassin",
+    "Doublure de duffel"
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "G — Le mukluk",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Le mukluk"
+     ],
+     "ligne": 209
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    }
+   ]
+  },
+  {
+   "terme": "Nœud de camionneur",
+   "voir_aussi": [
+    "Nœuds"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Le palan de corde et le nœud de camionneur",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le palan de corde et le nœud de camionneur"
+     ],
+     "ligne": 581
+    }
+   ]
+  },
+  {
+   "terme": "Nœuds",
+   "voir_aussi": [
+    "Cordage (fibre végétale)"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Le palan de corde et le nœud de camionneur",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le palan de corde et le nœud de camionneur"
+     ],
+     "ligne": 581
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Le danger est de la laisser pendre."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Sortir quelqu'un d'un trou, quand il n'y a pas d'autre issue"
+     ],
+     "ligne": 664
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Allonger un fil sans nœud."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Défibrer et faire le fil"
+     ],
+     "ligne": 102
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 378
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "Réparer au lieu de refaire",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Réparer au lieu de refaire"
+     ],
+     "ligne": 543
+    }
+   ]
+  },
+  {
+   "terme": "Orignal (Alces americanus)",
+   "latin": "Alces americanus",
+   "voir_aussi": [
+    "Cadmium"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Carte de la carcasse (découpe)",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Retracer une bête blessée",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "5-A. Suspendre un orignal",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. Suspendre un orignal"
+     ],
+     "ligne": 155
+    }
+   ]
+  },
+  {
+   "terme": "Ortie dioïque (Urtica dioica)",
+   "latin": "Urtica dioica",
+   "voir_aussi": [
+    "Cordage (fibre végétale)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Plantes comestibles (cueillette)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Les fibres d'appoint."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — La fibre végétale"
+     ],
+     "ligne": 227
+    }
+   ]
+  },
+  {
+   "terme": "Ours noir (Ursus americanus)",
+   "latin": "Ursus americanus",
+   "voir_aussi": [
+    "Graisse (fondre le gras)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Trichinellose",
+     "tomes": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "terme": "Cretons",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Les graillons d'ours ou de phoque qui s'en vont dans une assiette se cuisent à 74 °C à cœur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Fondre le gras"
+     ],
+     "ligne": 127
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    }
+   ]
+  },
+  {
+   "terme": "Palan et suspendre une bête",
+   "voir_aussi": [
+    "Leviers et poulies"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Ne pas suspendre par un seul brin."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Suspendre un orignal"
+     ],
+     "ligne": 172
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Le palan de corde et le nœud de camionneur",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le palan de corde et le nœud de camionneur"
+     ],
+     "ligne": 581
+    }
+   ]
+  },
+  {
+   "terme": "Pantalon de coupe",
+   "voir_aussi": [
+    "Scie à chaîne"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 351
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "9-D. Ce qui ne se remplace pas, et il faut le dire",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-D. Ce qui ne se remplace pas, et il faut le dire"
+     ],
+     "ligne": 569
+    }
+   ]
+  },
+  {
+   "terme": "Percer sans mèche",
+   "voir_aussi": [
+    "Tenon et mortaise"
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Percer la mortaise avant de la ciseler."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.5 La mortaise et le tenon"
+     ],
+     "ligne": 176
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Percer le trou de cheville dans la joue de la mortaise, la pièce assemblée à blanc"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.6 La cheville et le chevillage à tire"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "9.2 Percer sans mèche",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Percer sans mèche"
+     ],
+     "ligne": 411
+    }
+   ]
+  },
+  {
+   "terme": "Petit moteur qui ne part pas",
+   "voir_aussi": [
+    "Scie à chaîne"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "5-I. Les autres petits moteurs",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-I. Les autres petits moteurs"
+     ],
+     "ligne": 281
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "5-G. Le moteur qui refuse de partir — trois branches, dans cet ordre",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-G. Le moteur qui refuse de partir — trois branches, dans cet ordre"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "Chapitre 106 — Scie à chaîne et petits moteurs",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "5.3 Les pièces par système",
+     "niveau": 3,
+     "chemin": [
+      "5. Les tableaux du stock",
+      "5.3 Les pièces par système"
+     ],
+     "ligne": 125
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Phoque",
+   "voir_aussi": [
+    "Lard de phoque (huile)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Trichinellose",
+     "tomes": [
+      2,
+      3,
+      4
+     ]
+    },
+    {
+     "terme": "Mise à mort (confirmer la mort)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Les graillons d'ours ou de phoque qui s'en vont dans une assiette se cuisent à 74 °C à cœur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Fondre le gras"
+     ],
+     "ligne": 127
+    }
+   ]
+  },
+  {
+   "terme": "Pièces de rechange (stock)",
+   "voir_aussi": [
+    "Joints toriques"
+   ],
+   "ancres": [
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "5.4 La quincaillerie, autrement dit ce qui manque toujours",
+     "niveau": 3,
+     "chemin": [
+      "5. Les tableaux du stock",
+      "5.4 La quincaillerie, autrement dit ce qui manque toujours"
+     ],
+     "ligne": 155
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "Chapitre 108 — Le stock de pièces et de consommables",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    }
+   ]
+  },
+  {
+   "terme": "Pierre à aiguiser et meule",
+   "voir_aussi": [
+    "Affûter"
+   ],
+   "ancres": [
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Inspecter la meule"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. Au touret ou à la meuleuse — seulement pour réparer un profil"
+     ],
+     "ligne": 243
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "La meule à eau à manivelle",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La meule à eau à manivelle"
+     ],
+     "ligne": 551
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Trouver l'abrasif",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Trouver l'abrasif"
+     ],
+     "ligne": 401
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Décider où sera le travail à la meule."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B. Monter le poste"
+     ],
+     "ligne": 150
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 37,
+      "libelle": "Polir une face de la pièce à la brosse d'acier et au papier abrasif"
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. Revenir"
+     ],
+     "ligne": 234
+    }
+   ]
+  },
+  {
+   "terme": "Plomb (eau, soudure, grenaille)",
+   "voir_aussi": [
+    "Étain (soudure à l'étain)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Grenaille",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 42,
+      "libelle": "Aucune âme métallique."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-G. Les mèches"
+     ],
+     "ligne": 239
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    }
+   ]
+  },
+  {
+   "terme": "Poêle à bois",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Bois de chauffage",
+     "tomes": [
+      1,
+      5
+     ]
+    },
+    {
+     "terme": "Créosote",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 67,
+      "libelle": "Un vêtement ample près d'un poêle brûle plus vite qu'un vêtement ajusté."
+     },
+     "chemin": [
+      "5. Procédure",
+      "L — Coudre pour un enfant de 4 et un de 6 ans"
+     ],
+     "ligne": 313
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "F — L'étain avec un fer chauffé au poêle",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "F — L'étain avec un fer chauffé au poêle"
+     ],
+     "ligne": 501
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Sécher à l'ombre, à l'air, loin du poêle."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E — Étirer, sécher, ranger"
+     ],
+     "ligne": 187
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 60,
+      "libelle": "L'adhésif de contact se travaille dehors ou fenêtre ouverte, loin du poêle."
+     },
+     "chemin": [
+      "5. Procédure",
+      "K — Réparer une botte du commerce"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 295
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    }
+   ]
+  },
+  {
+   "terme": "Rancissement",
+   "voir_aussi": [
+    "Graisse (fondre le gras)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pemmican",
+     "tomes": [
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 27
+    }
+   ]
+  },
+  {
+   "terme": "Rebond (scie à chaîne)",
+   "voir_aussi": [
+    "Scie à chaîne"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 351
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 319
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Retirer le fourreau et faire le tour de la scie."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Les six vérifications avant de tirer le lanceur"
+     ],
+     "ligne": 81
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Démarrer frein engagé, scie au sol"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. Le plein et le démarrage"
+     ],
+     "ligne": 115
+    }
+   ]
+  },
+  {
+   "terme": "Reconnaître l'acier (doux, au carbone)",
+   "voir_aussi": [
+    "Trempe de l'acier"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Chauffer le coupon jusqu'à ce qu'il ne colle plus à l'aimant"
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. Savoir ce qu'on a dans les mains"
+     ],
+     "ligne": 119
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Vérifier à l'aimant, sur la partie la plus épaisse."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E. Tremper"
+     ],
+     "ligne": 212
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Trier la ferraille en trois tas avec un aimant, à froid."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. Savoir ce qu'on a dans les mains"
+     ],
+     "ligne": 103
+    }
+   ]
+  },
+  {
+   "terme": "Recuire et normaliser",
+   "voir_aussi": [
+    "Trempe de l'acier"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Normaliser après le forgeage"
+     },
+     "chemin": [
+      "5. Procédure",
+      "D. Recuire et normaliser"
+     ],
+     "ligne": 191
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Recuire quand il faut percer, limer ou scier"
+     },
+     "chemin": [
+      "5. Procédure",
+      "D. Recuire et normaliser"
+     ],
+     "ligne": 195
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    }
+   ]
+  },
+  {
+   "terme": "Réparer un vêtement",
+   "voir_aussi": [
+    "Coudre (points, alêne)"
+   ],
+   "ancres": [
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "D — Réparer un vêtement",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Réparer un vêtement"
+     ],
+     "ligne": 145
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "etape": {
+      "n": 64,
+      "libelle": "Botte de sécurité."
+     },
+     "chemin": [
+      "5. Procédure",
+      "K — Réparer une botte du commerce"
+     ],
+     "ligne": 295
+    }
+   ]
+  },
+  {
+   "terme": "Réservoir (réparer)",
+   "voir_aussi": [
+    "Souder à l'arc"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "H — Préparer un réservoir, quand il n'y a vraiment pas d'autre pièce",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "H — Préparer un réservoir, quand il n'y a vraiment pas d'autre pièce"
+     ],
+     "ligne": 543
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 42,
+      "libelle": "Vider le réservoir dans le bidon à mélange"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-H. Remisage et redémarrage"
+     ],
+     "ligne": 258
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 343
+    }
+   ]
+  },
+  {
+   "terme": "Revenu (couleurs)",
+   "voir_aussi": [
+    "Trempe de l'acier"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 36,
+      "libelle": "Enchaîner sur le revenu sans attendre."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E. Tremper"
+     ],
+     "ligne": 228
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 43,
+      "libelle": "Revenu différentiel sur une lame"
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. Revenir"
+     ],
+     "ligne": 260
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "Le revenu sans four et sans papier abrasif",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le revenu sans four et sans papier abrasif"
+     ],
+     "ligne": 607
+    }
+   ]
+  },
+  {
+   "terme": "Rivet",
+   "voir_aussi": [
+    "Éclisse boulonnée"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "D — Le rivet, la ligature, le frettage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "D — Le rivet, la ligature, le frettage"
+     ],
+     "ligne": 476
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "9-C. Faire tourner la machine sur ce qui reste",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. Faire tourner la machine sur ce qui reste"
+     ],
+     "ligne": 507
+    }
+   ]
+  },
+  {
+   "terme": "Rouissage",
+   "voir_aussi": [
+    "Ortie dioïque (Urtica dioica)",
+    "Cordage (fibre végétale)"
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 24,
+      "libelle": "Le rouissage."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — La fibre végétale"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Les fibres d'appoint."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — La fibre végétale"
+     ],
+     "ligne": 227
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    }
+   ]
+  },
+  {
+   "terme": "Savon",
+   "voir_aussi": [
+    "Lessive de cendre",
+    "Suif",
+    "Soude caustique"
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "5-E. Le savon cuit — et pourquoi c'est le bon choix au chalet",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-E. Le savon cuit — et pourquoi c'est le bon choix au chalet"
+     ],
+     "ligne": 194
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 36,
+      "libelle": "Ne jamais tester un savon avec la langue."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. Vérifier, ranger, étiqueter"
+     ],
+     "ligne": 212
+    }
+   ]
+  },
+  {
+   "terme": "Scie à chaîne",
+   "voir_aussi": [
+    "Chaîne de scie (affûter)",
+    "Rebond (scie à chaîne)",
+    "Abattre un arbre",
+    "Carburant (entreposer)"
+   ],
+   "ancres": [
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Retirer le fourreau et faire le tour de la scie."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Les six vérifications avant de tirer le lanceur"
+     ],
+     "ligne": 81
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Lire l'arbre avant de toucher à la scie."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-C. Abattre un arbre — la géométrie qui décide de la chute"
+     ],
+     "ligne": 122
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Retirer la scie, frein engagé, et partir par un chemin de repli"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-C. Abattre un arbre — la géométrie qui décide de la chute"
+     ],
+     "ligne": 154
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "titre": "Fabriquer l'étau de souche",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'étau de souche"
+     ],
+     "ligne": 459
+    }
+   ]
+  },
+  {
+   "terme": "Sel",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pourcentage de sel (calcul)",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Faire du sel (eau de mer)",
+     "tomes": [
+      3,
+      4
+     ]
+    },
+    {
+     "terme": "Nitrite de sodium (sel nitrité)",
+     "tomes": [
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Voie 2, le sel."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Mettre la peau en conserve, tout de suite"
+     ],
+     "ligne": 133
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Décider d'abord si la peau attend."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Débourrer la peau"
+     ],
+     "ligne": 114
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "Le bain, quand il n'y a plus d'huile de trempe",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le bain, quand il n'y a plus d'huile de trempe"
+     ],
+     "ligne": 573
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 293
+    }
+   ]
+  },
+  {
+   "terme": "Solvants chlorés (phosgène)",
+   "voir_aussi": [
+    "Souder à l'arc"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Dégraisser à l'eau chaude savonneuse"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Préparer le métal"
+     ],
+     "ligne": 155
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    }
+   ]
+  },
+  {
+   "terme": "Soude caustique",
+   "voir_aussi": [
+    "Savon",
+    "Lessive de cendre"
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Verser la soude dans l'eau, lentement, en brassant. Jamais l'eau sur la soude."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-C. La lessive de soude"
+     ],
+     "ligne": 151
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Peser l'eau dans le chaudron d'inox d'abord. Peser la soude à part."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-C. La lessive de soude"
+     ],
+     "ligne": 150
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 443
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "etape": {
+      "n": 35,
+      "libelle": "Lunettes et masque au mélange de la poudre."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G3 — Mégissage à l'alun, pour la fourrure"
+     ],
+     "ligne": 254
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    }
+   ]
+  },
+  {
+   "terme": "Souder à l'arc",
+   "voir_aussi": [
+    "Souder avec des batteries d'auto",
+    "Brasage"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "5.4 Souder à l'arc",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.4 Souder à l'arc"
+     ],
+     "ligne": 170
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "A — Souder à l'arc avec des batteries d'auto",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "A — Souder à l'arc avec des batteries d'auto"
+     ],
+     "ligne": 397
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 422
+    }
+   ]
+  },
+  {
+   "terme": "Souder avec des batteries d'auto",
+   "voir_aussi": [
+    "Souder à l'arc"
+   ],
+   "ancres": [
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "titre": "A — Souder à l'arc avec des batteries d'auto",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "A — Souder à l'arc avec des batteries d'auto"
+     ],
+     "ligne": 397
+    }
+   ]
+  },
+  {
+   "terme": "Suif",
+   "voir_aussi": [
+    "Savon",
+    "Chandelles"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gras périrénal (graisse de rognon)",
+     "tomes": [
+      2,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "5-B. Laver le suif",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Laver le suif"
+     ],
+     "ligne": 129
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "112",
+     "fichier": "112-savon-et-chandelles.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 27
+    },
+    {
+     "ch": "108",
+     "fichier": "108-le-stock-de-pieces-et-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 346
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les matières qu'on remplace",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les matières qu'on remplace"
+     ],
+     "ligne": 521
+    }
+   ]
+  },
+  {
+   "terme": "Sulfure d'hydrogène (tannage)",
+   "voir_aussi": [
+    "Épiler la peau (débourrer)",
+    "Tannage"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "F — Neutraliser",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Neutraliser"
+     ],
+     "ligne": 199
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    }
+   ]
+  },
+  {
+   "terme": "Tannage",
+   "voir_aussi": [
+    "Chamoisage (cervelle)",
+    "Tannage végétal (écorce)",
+    "Mégissage à l'alun"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Tanner à l'écorce sans rien mesurer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Tanner à l'écorce sans rien mesurer"
+     ],
+     "ligne": 550
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "G — Tanner",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner"
+     ],
+     "ligne": 213
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "G2 — Tannage végétal à l'écorce",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G2 — Tannage végétal à l'écorce"
+     ],
+     "ligne": 228
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "C — Coudre le cuir et la peau tannée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Coudre le cuir et la peau tannée"
+     ],
+     "ligne": 122
+    }
+   ]
+  },
+  {
+   "terme": "Tannage végétal (écorce)",
+   "voir_aussi": [
+    "Tannage"
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "G2 — Tannage végétal à l'écorce",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "G — Tanner",
+      "G2 — Tannage végétal à l'écorce"
+     ],
+     "ligne": 228
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "Tanner à l'écorce sans rien mesurer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Tanner à l'écorce sans rien mesurer"
+     ],
+     "ligne": 550
+    },
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 75
+    }
+   ]
+  },
+  {
+   "terme": "Tarière",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pêche blanche",
+     "tomes": [
+      3
+     ]
+    },
+    {
+     "terme": "Glace de lac (récolter, glacière)",
+     "tomes": [
+      2,
+      3,
+      4,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 6,
+      "libelle": "La tarière-cuillère"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Percer sans mèche"
+     ],
+     "ligne": 433
+    }
+   ]
+  },
+  {
+   "terme": "Tendons (fil de tendon)",
+   "voir_aussi": [
+    "Babiche",
+    "Collagène"
+   ],
+   "ancres": [
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "A — Lever les tendons pendant la boucherie",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Lever les tendons pendant la boucherie"
+     ],
+     "ligne": 69
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "etape": {
+      "n": 33,
+      "libelle": "Le fil de tendon en couture."
+     },
+     "chemin": [
+      "5. Procédure",
+      "H — Poser"
+     ],
+     "ligne": 265
+    },
+    {
+     "ch": "103",
+     "fichier": "103-babiche-tendons-cordage.md",
+     "titre": "Chapitre 103 — Babiche, tendons, cordage",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Teneur en eau du bois",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Bois de chauffage",
+     "tomes": [
+      1,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "5.2 Amener le bois à sa teneur en eau",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.2 Amener le bois à sa teneur en eau"
+     ],
+     "ligne": 125
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 37,
+      "libelle": "Inscrire la date et la teneur en eau mesurée"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.8 Monter, contrôler, laisser bouger"
+     ],
+     "ligne": 249
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 255
+    }
+   ]
+  },
+  {
+   "terme": "Tenon et mortaise",
+   "voir_aussi": [
+    "Assemblages bois-bois"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Cheville (entorse)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Le tenon fendu et coiné"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.5 Assembler sans une seule pièce de métal"
+     ],
+     "ligne": 494
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Régler la largeur de la mortaise sur la largeur d'un ciseau qu'on possède."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Tracer"
+     ],
+     "ligne": 156
+    },
+    {
+     "ch": "110",
+     "fichier": "110-assemblages-bois-bois.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Percer le trou de cheville dans la joue de la mortaise, la pièce assemblée à blanc"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.6 La cheville et le chevillage à tire"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Thuya",
+   "voir": [
+    "Cèdre, thuya (Thuja occidentalis)"
+   ]
+  },
+  {
+   "terme": "Tourniquet espagnol",
+   "voir_aussi": [
+    "Leviers et poulies"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Le tourniquet espagnol",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le tourniquet espagnol"
+     ],
+     "ligne": 595
+    }
+   ]
+  },
+  {
+   "terme": "Trempe de l'acier",
+   "voir_aussi": [
+    "Revenu (couleurs)",
+    "Huile de trempe"
+   ],
+   "ancres": [
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "titre": "Le bain, quand il n'y a plus d'huile de trempe",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le bain, quand il n'y a plus d'huile de trempe"
+     ],
+     "ligne": 573
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 42,
+      "libelle": "Sur un outil à frapper, ne pas tremper la tête."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. Revenir"
+     ],
+     "ligne": 256
+    },
+    {
+     "ch": "111",
+     "fichier": "111-trempe-et-travail-du-metal-a.md",
+     "etape": {
+      "n": 50,
+      "libelle": "Couvrir le bac de trempe"
+     },
+     "chemin": [
+      "5. Procédure",
+      "G. Vérifier, redresser, finir"
+     ],
+     "ligne": 281
+    },
+    {
+     "ch": "107",
+     "fichier": "107-souder-braser-reparer-le-metal.md",
+     "etape": {
+      "n": 34,
+      "libelle": "Laisser refroidir à l'air libre. Ne pas tremper."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.6 Refroidir, contrôler, finir"
+     ],
+     "ligne": 221
+    },
+    {
+     "ch": "105",
+     "fichier": "105-affuter-limer-aiguiser.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Tremper souvent."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. Au touret ou à la meuleuse — seulement pour réparer un profil"
+     ],
+     "ligne": 265
+    },
+    {
+     "ch": "104",
+     "fichier": "104-coudre-et-chausser.md",
+     "titre": "Les outils qu'on se fait",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les outils qu'on se fait"
+     ],
+     "ligne": 461
+    }
+   ]
+  },
+  {
+   "terme": "Treuil (vindas, tire-fort)",
+   "voir_aussi": [
+    "Leviers et poulies"
+   ],
+   "ancres": [
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Le vindas, treuil de bois à deux barres",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le vindas, treuil de bois à deux barres"
+     ],
+     "ligne": 547
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "5-B. Dégager un arbre encroué",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Dégager un arbre encroué"
+     ],
+     "ligne": 246
+    },
+    {
+     "ch": "109",
+     "fichier": "109-leviers-poulies-treuils.md",
+     "titre": "Chapitre 109 — Leviers, poulies, treuils",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "106",
+     "fichier": "106-scie-a-chaine-et-petits.md",
+     "titre": "9-B. Faire tomber l'arbre où on veut, sans treuil",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-B. Faire tomber l'arbre où on veut, sans treuil"
+     ],
+     "ligne": 482
+    }
+   ]
+  },
+  {
+   "terme": "Vinaigre",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Marinades (vinaigre)",
+     "tomes": [
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "102",
+     "fichier": "102-de-la-peau-au-cuir.md",
+     "titre": "F — Neutraliser",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Neutraliser"
+     ],
+     "ligne": 199
+    }
+   ]
+  }
+ ]
+}

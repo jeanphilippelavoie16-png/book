@@ -1,0 +1,23 @@
+> **Renuméroté le 24 septembre 2026** (six tomes) : ancien chapitre 21. Plus bas, les numéros de chapitre sont **les anciens** (table : plan/renumerotation.json).
+
+# Chapitre 21 — Le voisinage et le groupe de chasse : levée des drapeaux `[À VÉRIFIER]`
+
+- **Passe du :** 24 septembre 2026 (reprise d'une passe coupée le 23 au soir : sa source
+  AdventureSmart était enregistrée, sa fiche de vérification n'avait pas été écrite)
+- **Fichier vérifié :** `chapitres/21-le-voisinage-et-le-groupe-de.md` (lu, pas modifié)
+- **Bilan :** 3 drapeaux sur 3 lignes — **1 LEVÉ**, **1 CORRIGÉ**, **1 INTROUVABLE**
+
+Sources de cette passe :
+
+- enregistrée le 23 septembre 2026 par la passe coupée, relue ici : `21-adventuresmart-signaux-detresse.md`
+- enregistrée le 24 septembre 2026 : `21-gsu-hyperphysics-calibres-fil.md` (+ `.html`)
+- reprises : `02-transports-canada-aim-signaux-sol-air.md` (trois feux), `42-sante-canada-poisson-fume-botulisme-type-e.md` et `22-sante-canada-poisson-fume-botulisme-type-e.md` (3 °C)
+
+« LEVÉ » couvre aussi les drapeaux où le texte n'avait **pas** de valeur et où la source en
+fournit une : la colonne « à faire » donne alors la valeur à insérer.
+
+| # | Où | Verdict | Source | À faire |
+| --- | --- | --- | --- | --- |
+| 1 | § 5 Procédure, point 5 « Convenir d'un signal de détresse audible » : « La convention exacte est à choisir localement `[À VÉRIFIER]` : aucune convention officielle québécoise pour le voisinage n'a été trouvée. » | **CORRIGÉ** — texte : aucune convention ; source : il en existe une, celle que connaissent les équipes de recherche au sol : **3 coups de sifflet, une pause, 3 coups**, et on recommence, en s'arrêtant de temps en temps pour entendre la réponse (programme national canadien de prévention en recherche et sauvetage). Pour ce qui se voit, le signal de détresse normalisé au feu est **trois feux en triangle** | `sources/21-adventuresmart-signaux-detresse.md` (23 septembre 2026) ; `sources/02-transports-canada-aim-signaux-sol-air.md` (trois feux) | « …Préférer un sifflet, une corne, un drapeau de couleur au mât, une lumière fixe à une fenêtre convenue. Pour ce qui s'entend, prendre la convention que les chercheurs connaissent déjà : **trois coups, une pause, trois coups**, et on recommence, en se taisant de temps en temps pour entendre la réponse. Pour ce qui se voit de loin, trois feux en triangle. Le drapeau et la lumière à la fenêtre se conviennent entre voisins, les mêmes pour tous les foyers. La fabrication de ces signaux avec rien est à la section 9. » — La phrase sur la recherche (« aucune convention officielle… n'a été trouvée ») saute | ✔ appliqué
+| 2 | § 8 DANGER (encadré de la viande partagée), puce « Poisson fumé offert : botulisme de type E » : « La toxine se produit dès **3 °C** `[À VÉRIFIER]`, donc au réfrigérateur » | **LEVÉ** — « une température d'entreposage gardée en deçà de 3 °C » est ce qui arrête les souches non protéolytiques, type E compris ; au-dessus, elles croissent, et un réfrigérateur réglé à 4 °C ne les arrête pas. Même lecture que les chapitres 12 et 42 | `sources/42-sante-canada-poisson-fume-botulisme-type-e.md` (version française) ; `sources/22-sante-canada-poisson-fume-botulisme-type-e.md` (anglaise) — reprises, 20 septembre 2026 | Retirer le drapeau : « La toxine se produit dès **3 °C**, donc au réfrigérateur, et elle ne change ni l'odeur, ni le goût, ni l'apparence. » (suite inchangée) | ✔ appliqué
+| 3 | § 9 Variante d'urgence, « Le fil entre deux bâtiments, sans pile » : « La portée dépend de la grosseur du fil et de la longueur du parcours, et elle tombe vite `[À VÉRIFIER]` : ça s'essaie une fois l'été, à la vraie distance » | **INTROUVABLE** — aucune source consultée ne mesure la portée d'un téléphone fait de deux haut-parleurs, ni ne dit à quelle vitesse elle tombe. Le mécanisme, lui, se source : la voix se perd dans la résistance du fil, et le fil de cuivre de calibre 22 a **52,7 Ω/km**, le calibre 14 **8,28 Ω/km** — six fois moins, donc la même voix six fois plus loin pour la même perte (calcul). Le seul chiffre de portée croisé porte sur un téléphone militaire sans pile fait pour ça ; il ne se transpose pas à des haut-parleurs d’auto, n’a pas été enregistré et n’est pas proposé | `sources/21-gsu-hyperphysics-calibres-fil.md` (+ `.html`) | Dire la même chose sans « vite », avec le mécanisme : « La voix se perd dans la résistance du fil, donc la portée dépend de sa grosseur et de sa longueur : le calibre 14 a six fois moins de résistance que le calibre 22 et porte la même voix six fois plus loin. On prend le plus gros fil qu'on a. Ça s'essaie une fois l'été, à la vraie distance, pas le soir où ça compte. » | ✔ appliqué

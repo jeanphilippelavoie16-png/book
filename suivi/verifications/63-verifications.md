@@ -1,0 +1,15 @@
+> **Renuméroté le 24 septembre 2026** (six tomes) : ancien chapitre 38. Plus bas, les numéros de chapitre sont **les anciens** (table : plan/renumerotation.json).
+
+# Chapitre 38 — Le quartier arrière : levée des `[À VÉRIFIER]`
+
+- **Passe du :** 24 septembre 2026
+- **Fichier vérifié :** `chapitres/38-quartier-arriere.md` (lu, pas modifié)
+- **Bilan :** 2 drapeaux — **1 LEVÉ**, **1 CORRIGÉ**, **0 INTROUVABLE**
+
+« LEVÉ » couvre aussi le drapeau où le texte n'avait **pas** de valeur et où la source en
+fournit une : la colonne « à faire » donne alors la valeur à insérer.
+
+| # | Où | Verdict | Source | À faire |
+| --- | --- | --- | --- | --- |
+| 1 | §5, étape 14 « Refroidir les pièces séparées » : « S'il faut laisser maturer, c'est dans cette plage et à couvert ; la durée n'est pas chiffrée dans ce livre **[À VÉRIFIER]** » | **LEVÉ** — le texte n'avait pas de valeur, la source en fournit une : **7 à 14 jours à 34-37 °F (1 à 3 °C), jamais plus de deux semaines** ; inutile sur une bête de moins d'un an (viande déjà tendre, qui sèche). Pas de maturation si la bête a été tuée par temps chaud sans refroidissement rapide, a couru longtemps, a été blessée et suivie plusieurs heures, a de gros dégâts de balle, ou si la carcasse est très souillée. Limon, moisissure ou mauvaise odeur : on arrête, on pare, on congèle | `sources/38-wdfw-maturation-gibier.md` (+ page enregistrée `38-wdfw-food-safety-game-meat.html`) | « S'il faut laisser maturer, c'est entre 1 et 3 °C, à couvert, de 7 à 14 jours et jamais plus de deux semaines. La surface devient sèche et mate et une croûte se forme ; si elle devient visqueuse, moisit ou sent mauvais, on arrête, on pare ce qui est atteint et on congèle le reste. On ne fait pas maturer un veau de l'année, une bête tuée par temps doux et refroidie tard, une bête qui a couru ou qu'on a suivie des heures blessée, ni une cuisse très abîmée par la balle ou souillée : elle se gâte au lieu de mûrir. » Le « croûte sèche et mate » n'est pas dans la source : garder comme observation, pas comme critère de réussite | ✔ appliqué
+| 2 | §8 DANGER, note [^1] (mal de caribou) : « viennent la fatigue, le mal de tête, la nausée, puis une diarrhée vers la fin de la première semaine `[À VÉRIFIER]` » | **CORRIGÉ** — texte : « vers la fin de la première semaine » ; source : « Diarrhoea will start in from **a week to 10 days** and will not be relieved unless you secure fat » (Stefansson 1944, p. 234, cité mot pour mot par Speth et Spielmann 1983). C'est un récit d'explorateur rapporté par une revue à comité de lecture, pas une description clinique : c'est la seule source au dossier qui chiffre le délai | `sources/21-speth-spielmann-1983-stefansson-mal-de-caribou.md` (déjà au dossier) ; recoupé par `sources/38-mal-de-caribou-signes.md` (Hektoen : « sept à dix jours ») | « …viennent la fatigue, le mal de tête, la nausée, puis une diarrhée entre une semaine et dix jours. Plus de viande maigre n'y change rien : c'est le gras qui le renverse. » Même formulation que la note du ch. 21 | ✔ appliqué

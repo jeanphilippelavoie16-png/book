@@ -1,0 +1,8343 @@
+{
+ "tome": 4,
+ "titre": "De la bête au garde-manger",
+ "chapitres": [
+  "61",
+  "62",
+  "63",
+  "64",
+  "65",
+  "66",
+  "67",
+  "68",
+  "69",
+  "70",
+  "71",
+  "72",
+  "73",
+  "74",
+  "75",
+  "76",
+  "77",
+  "78",
+  "79",
+  "80",
+  "81"
+ ],
+ "etabli_le": "2026-09-27",
+ "nombre_entrees": 150,
+ "entrees": [
+  {
+   "terme": "Abats",
+   "voir_aussi": [
+    "Foie",
+    "Cadmium",
+    "Rognons (reins)",
+    "Panse (tripes)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Langue",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 3,
+      "libelle": "L'ours, le phoque, le haché, les abats, la bête blessée au ventre."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, et ce qui ne se remplace pas"
+     ],
+     "ligne": 545
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Les abats."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 207
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Ouvrir la peau, pas le ventre."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 163
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Récupérer sur le bloc sorti — et laisser ce qui ne se garde pas."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 187
+    }
+   ]
+  },
+  {
+   "terme": "Abattage (saignée, éviscération)",
+   "voir_aussi": [
+    "Saignée",
+    "Éviscération"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Chapitre 61 — Abattage, saignée, éviscération",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Activité de l'eau (aw)",
+   "voir_aussi": [
+    "Sel",
+    "Séchage de la viande (viande séchée)"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 68
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 69
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Peser, et peser encore."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Le séchage"
+     ],
+     "ligne": 176
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 3,
+      "libelle": "La mesure fine, pas la mesure."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.8 Ce qui ne se remplace pas, et ce qu'on perd"
+     ],
+     "ligne": 503
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Choisir deux barrières plutôt qu'une."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc D — Choisir une filière avant que le compteur soit épuisé"
+     ],
+     "ligne": 317
+    }
+   ]
+  },
+  {
+   "terme": "Ail dans l'huile (botulisme)",
+   "voir_aussi": [
+    "Botulisme"
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "5-B. Les autres légumes, en saumure",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Les autres légumes, en saumure"
+     ],
+     "ligne": 198
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 327
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Trier aussi ce qui n'est pas de la viande."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 221
+    }
+   ]
+  },
+  {
+   "terme": "Aliments acides et peu acides",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "pH (acidité)"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "5.3 Voie A — le bain d'eau bouillante (aliments acides seulement)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.3 Voie A — le bain d'eau bouillante (aliments acides seulement)"
+     ],
+     "ligne": 210
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "5.4 Voie B — l'autoclave (aliments peu acides)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.4 Voie B — l'autoclave (aliments peu acides)"
+     ],
+     "ligne": 223
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    }
+   ]
+  },
+  {
+   "terme": "Armes à feu (sécurité, rangement)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Munitions (cartouches)",
+     "tomes": [
+      1,
+      3
+     ]
+    },
+    {
+     "terme": "Carabine et fusil (entretien, réglage)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Après le tir, attendre, puis approcher l'arme chargée et prête."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 126
+    }
+   ]
+  },
+  {
+   "terme": "Autoclave",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "Botulisme"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "5.4 Voie B — l'autoclave (aliments peu acides)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.4 Voie B — l'autoclave (aliments peu acides)"
+     ],
+     "ligne": 223
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Gibier",
+     "niveau": 2,
+     "chemin": [
+      "Gibier"
+     ],
+     "ligne": 59
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Récoltes",
+     "niveau": 2,
+     "chemin": [
+      "Récoltes"
+     ],
+     "ligne": 87
+    }
+   ]
+  },
+  {
+   "terme": "Avertisseurs (fumée, monoxyde)",
+   "voir_aussi": [
+    "Monoxyde de carbone"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Incendie du bâtiment",
+     "tomes": [
+      1,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 6,
+      "libelle": "L'avertisseur de monoxyde de carbone."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, et ce qui ne se remplace pas"
+     ],
+     "ligne": 554
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    }
+   ]
+  },
+  {
+   "terme": "Bain d'eau bouillante (bain-marie)",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "Aliments acides et peu acides"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "5.3 Voie A — le bain d'eau bouillante (aliments acides seulement)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.3 Voie A — le bain d'eau bouillante (aliments acides seulement)"
+     ],
+     "ligne": 210
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "Le bain d'eau bouillante, avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le bain d'eau bouillante, avec ce qui traîne"
+     ],
+     "ligne": 540
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    }
+   ]
+  },
+  {
+   "terme": "Balance (peser sans balance)",
+   "voir_aussi": [
+    "Pourcentage de sel (calcul)"
+   ],
+   "ancres": [
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "Peser sans balance",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Peser sans balance"
+     ],
+     "ligne": 428
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "9.1 La balance, fabriquée",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.1 La balance, fabriquée"
+     ],
+     "ligne": 324
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Vérifier la balance avant chaque saison"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc B — Peser, jamais mesurer (étapes 6 à 11)"
+     ],
+     "ligne": 195
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "Récupérer et réparer au lieu de racheter",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Récupérer et réparer au lieu de racheter"
+     ],
+     "ligne": 518
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "La romaine : peser sans balance",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La romaine : peser sans balance"
+     ],
+     "ligne": 508
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "Peser au gramme sans balance",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Peser au gramme sans balance"
+     ],
+     "ligne": 375
+    }
+   ]
+  },
+  {
+   "terme": "Barrières (combiner)",
+   "voir_aussi": [
+    "Pourquoi la viande pourrit"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les barrières se combinent, et c'est pour ça que les vieilles méthodes marchent",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les barrières se combinent, et c'est pour ça que les vieilles méthodes marchent"
+     ],
+     "ligne": 169
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Choisir deux barrières plutôt qu'une."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc D — Choisir une filière avant que le compteur soit épuisé"
+     ],
+     "ligne": 317
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 2,
+      "libelle": "La barrière du nitrite."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.8 Ce qui ne se remplace pas, et ce qu'on perd"
+     ],
+     "ligne": 500
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 4,
+      "libelle": "La barrière contre la trichinellose."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace vraiment pas"
+     ],
+     "ligne": 617
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "Ce qui ne se remplace pas, dit net",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas, dit net"
+     ],
+     "ligne": 553
+    }
+   ]
+  },
+  {
+   "terme": "Bois de fumage",
+   "voir_aussi": [
+    "Fumoir (monter)"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Un feu de boucane sous la viande"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le travail, seul et sans rien"
+     ],
+     "ligne": 391
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Pas de résineux vif"
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Le bois"
+     ],
+     "ligne": 193
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "Les matières qu'on n'a pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les matières qu'on n'a pas"
+     ],
+     "ligne": 482
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Feuillus secs, écorcés."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Le bois"
+     ],
+     "ligne": 188
+    }
+   ]
+  },
+  {
+   "terme": "Bois traité (reconnaître)",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "La caisse, la tablette, et comment reconnaître le bois traité sans étiquette",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La caisse, la tablette, et comment reconnaître le bois traité sans étiquette"
+     ],
+     "ligne": 509
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Poser tablettes, caisses et plancher à claire-voie en bois non traité."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Creuser et bâtir"
+     ],
+     "ligne": 228
+    }
+   ]
+  },
+  {
+   "terme": "Botulisme",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "Poisson fumé",
+    "Autoclave",
+    "Botulisme de type E (poisson)"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 327
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 73
+    }
+   ]
+  },
+  {
+   "terme": "Botulisme de type E (poisson)",
+   "voir_aussi": [
+    "Botulisme",
+    "Poisson fumé",
+    "Traiter le poisson à la sortie de l'eau"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 379
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 73
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 399
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "etape": {
+      "n": 29,
+      "libelle": "Pour du poisson qui reste au froid sans geler :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "H — Emballer"
+     ],
+     "ligne": 258
+    }
+   ]
+  },
+  {
+   "terme": "Bouleau à papier (Betula papyrifera)",
+   "latin": "Betula papyrifera",
+   "voir_aussi": [
+    "Écorce de bouleau (contenants, allumage)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Sève (bouleau, érable)",
+     "tomes": [
+      2,
+      3,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Couvrir à l'écorce de bouleau ou à la toile"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le travail, seul et sans rien"
+     ],
+     "ligne": 389
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    }
+   ]
+  },
+  {
+   "terme": "Boyaux (saucisse)",
+   "voir_aussi": [
+    "Panse (tripes)"
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 2,
+      "libelle": "La viande hachée et la saucisse."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 204
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Parer, et parer large."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Router."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 201
+    }
+   ]
+  },
+  {
+   "terme": "Braiser (cuisson longue)",
+   "voir_aussi": [
+    "Collagène"
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Un plat interrompu dans la mijoteuse se jette."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 228
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 51
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.2 Quartier arrière",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.2 Quartier arrière"
+     ],
+     "ligne": 135
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.4 Quartier avant",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.4 Quartier avant"
+     ],
+     "ligne": 158
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Router."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 361
+    }
+   ]
+  },
+  {
+   "terme": "Brûlure de congélation",
+   "voir_aussi": [
+    "Glaçage (protéger le gelé)"
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Emballer serré, en double, et chasser l'air."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase C — Monter la cache de gel et la remplir"
+     ],
+     "ligne": 239
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Emballer sans papier : le glaçage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Emballer sans papier : le glaçage"
+     ],
+     "ligne": 484
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 65
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 380
+    }
+   ]
+  },
+  {
+   "terme": "Cadmium",
+   "voir_aussi": [
+    "Abats",
+    "Foie",
+    "Orignal (Alces americanus)"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "8. ⚠ DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. ⚠ DANGER"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 249
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 349
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    }
+   ]
+  },
+  {
+   "terme": "Capelan (Mallotus villosus)",
+   "latin": "Mallotus villosus",
+   "voir_aussi": [
+    "Éperlan arc-en-ciel (Osmerus mordax)"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "F — Trier par destination",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Trier par destination"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "J — Trois cas particuliers",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "J — Trois cas particuliers"
+     ],
+     "ligne": 301
+    }
+   ]
+  },
+  {
+   "terme": "Carte de la carcasse (découpe)",
+   "voir_aussi": [
+    "Quartier arrière",
+    "Quartier avant",
+    "Le dos (longe et filet)"
+   ],
+   "ancres": [
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "Démonter sans ouvrir la cavité",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Démonter sans ouvrir la cavité"
+     ],
+     "ligne": 336
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.1 Les cinq régions et l'ordre de démontage",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.1 Les cinq régions et l'ordre de démontage"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "Chapitre 62 — Carte de la carcasse",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 24,
+      "libelle": "Découper des blocs réguliers, les plus gros que l'équipe peut manœuvrer."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Récolter la glace de lac pour l'été"
+     ],
+     "ligne": 276
+    }
+   ]
+  },
+  {
+   "terme": "Caveau à légumes",
+   "voir_aussi": [
+    "Silo de terre",
+    "Légumes-racines (entreposer)"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 77
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "9.6 La caisse de sel dans le caveau",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.6 La caisse de sel dans le caveau"
+     ],
+     "ligne": 432
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Récoltes",
+     "niveau": 2,
+     "chemin": [
+      "Récoltes"
+     ],
+     "ligne": 87
+    }
+   ]
+  },
+  {
+   "terme": "Cerf de Virginie (Odocoileus virginianus)",
+   "latin": "Odocoileus virginianus",
+   "voir_aussi": [
+    "Orignal (Alces americanus)"
+   ],
+   "ancres": [
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 20
+    }
+   ]
+  },
+  {
+   "terme": "Chambre de séchage",
+   "voir_aussi": [
+    "Salaison à sec"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Sécher sans chambre de séchage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Sécher sans chambre de séchage"
+     ],
+     "ligne": 560
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 204
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les barrières se combinent, et c'est pour ça que les vieilles méthodes marchent",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les barrières se combinent, et c'est pour ça que les vieilles méthodes marchent"
+     ],
+     "ligne": 169
+    }
+   ]
+  },
+  {
+   "terme": "Chou",
+   "voir_aussi": [
+    "Choucroute"
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "Fabriquer le banc à chou",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer le banc à chou"
+     ],
+     "ligne": 499
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Sortir le chou (*Brassica oleracea*) et le laisser prendre la température de la pièce."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. La choucroute, fournée de référence"
+     ],
+     "ligne": 137
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Calculer et peser le sel à 2,25 % du poids du chou paré"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. La choucroute, fournée de référence"
+     ],
+     "ligne": 150
+    }
+   ]
+  },
+  {
+   "terme": "Choucroute",
+   "voir_aussi": [
+    "Fermentation (lactofermentation)",
+    "Vitamine C"
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "5-A. La choucroute, fournée de référence",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. La choucroute, fournée de référence"
+     ],
+     "ligne": 135
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Compter sur la choucroute seule n'est pas prudent."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-C. Combien il en faut — l'arithmétique de la vitamine C d'hiver"
+     ],
+     "ligne": 243
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 71
+    }
+   ]
+  },
+  {
+   "terme": "Cœur et diaphragme (abats)",
+   "voir_aussi": [
+    "Abats"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Trancher le sternum et le diaphragme."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 173
+    }
+   ]
+  },
+  {
+   "terme": "Collagène",
+   "voir_aussi": [
+    "Gélatine (pattes, peaux, tendons)",
+    "Braiser (cuisson longue)"
+   ],
+   "ancres": [
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.4 Quartier avant",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.4 Quartier avant"
+     ],
+     "ligne": 158
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 33
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.2 Quartier arrière",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.2 Quartier arrière"
+     ],
+     "ligne": 135
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 361
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 55
+    }
+   ]
+  },
+  {
+   "terme": "Compteur d'heures (temps au chaud)",
+   "voir_aussi": [
+    "Zone de danger (4 à 60 °C)"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Le compteur ne redescend jamais."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc C — Tenir le compte des heures"
+     ],
+     "ligne": 295
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Le compteur sans crayon",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le compteur sans crayon"
+     ],
+     "ligne": 529
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Le temps s'additionne",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Le temps s'additionne"
+     ],
+     "ligne": 181
+    }
+   ]
+  },
+  {
+   "terme": "Confit",
+   "voir_aussi": [
+    "Graisse (fondre le gras)"
+   ],
+   "ancres": [
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Gibier",
+     "niveau": 2,
+     "chemin": [
+      "Gibier"
+     ],
+     "ligne": 59
+    }
+   ]
+  },
+  {
+   "terme": "Confitures et gelées",
+   "voir_aussi": [
+    "Petits fruits"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Nommer l'aliment et sa voie."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.1 Décider de la voie, avant de laver un seul pot"
+     ],
+     "ligne": 165
+    }
+   ]
+  },
+  {
+   "terme": "Congélateur qui dégèle",
+   "voir_aussi": [
+    "Recongeler",
+    "Décongeler"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Panne d'électricité",
+     "tomes": [
+      1
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "Phase G — Les cas particuliers d'un congélateur de chasse",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 296
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 398
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "Chapitre 74 — Un congélateur plein qui dégèle",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Mesurer le congélateur, ne pas le régler."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. Fumage à froid — la voie réservée"
+     ],
+     "ligne": 225
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Pour du poisson qui s'en va au congélateur :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "H — Emballer"
+     ],
+     "ligne": 255
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "Les instruments qu'on n'a pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les instruments qu'on n'a pas"
+     ],
+     "ligne": 426
+    }
+   ]
+  },
+  {
+   "terme": "Congélation antiparasitaire (poisson)",
+   "voir_aussi": [
+    "Poisson fumé",
+    "Traiter le poisson à la sortie de l'eau"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid"
+     ],
+     "ligne": 269
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "K — Le cas où la congélation antiparasitaire est réellement possible",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "K — Le cas où la congélation antiparasitaire est réellement possible"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Congélation antiparasitaire, avant ou après le fumage"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. Fumage à froid — la voie réservée"
+     ],
+     "ligne": 221
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Régler la question des parasites du poisson maintenant."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Décider avant d'allumer"
+     ],
+     "ligne": 140
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "Les instruments qu'on n'a pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les instruments qu'on n'a pas"
+     ],
+     "ligne": 426
+    }
+   ]
+  },
+  {
+   "terme": "Conserves (mise en pot)",
+   "voir_aussi": [
+    "Autoclave",
+    "Bain d'eau bouillante (bain-marie)",
+    "Botulisme"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "Chapitre 78 — Conserves et marinades",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 22
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 398
+    }
+   ]
+  },
+  {
+   "terme": "Couvercles et scellement",
+   "voir_aussi": [
+    "Conserves (mise en pot)"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "Faire durer les couvercles, et à quoi sert celui qui a servi",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire durer les couvercles, et à quoi sert celui qui a servi"
+     ],
+     "ligne": 554
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 22,
+      "libelle": "Vérifier le scellement, un pot à la fois."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.5 Après, et c'est là que ça se joue"
+     ],
+     "ligne": 259
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Poser le couvercle neuf et visser l'anneau du bout des doigts"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 Préparer les pots et remplir"
+     ],
+     "ligne": 207
+    }
+   ]
+  },
+  {
+   "terme": "Crosses de fougère (Matteuccia struthiopteris)",
+   "latin": "Matteuccia struthiopteris",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Plantes comestibles (cueillette)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Récoltes",
+     "niveau": 2,
+     "chemin": [
+      "Récoltes"
+     ],
+     "ligne": 87
+    }
+   ]
+  },
+  {
+   "terme": "Croûtage",
+   "voir_aussi": [
+    "Séchage de la viande (viande séchée)"
+   ],
+   "ancres": [
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Parer."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.1 Avant de sortir le sel"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Sécher au froid et lentement."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Le séchage"
+     ],
+     "ligne": 171
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 223
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "Les mouches, et le premier jour",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les mouches, et le premier jour"
+     ],
+     "ligne": 526
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 278
+    }
+   ]
+  },
+  {
+   "terme": "Cuisson à 74 °C à cœur",
+   "voir_aussi": [
+    "Thermomètre à viande (sonde)",
+    "Trichinellose"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Cuire tout le gibier à 74 °C à cœur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc E — Vérifier, cuire, décongeler"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Réchauffer les restes à 74 °C"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc E — Vérifier, cuire, décongeler"
+     ],
+     "ligne": 341
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Cuire à 74 °C à cœur."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 250
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Le 74 °C du gibier ne s'applique pas ici."
+     },
+     "chemin": [
+      "5. Procédure",
+      "J — Avant de manger"
+     ],
+     "ligne": 307
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Cuire à 74 °C à cœur, sans exception."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 246
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 27,
+      "libelle": "Réchauffer la viande en conserve à 74 °C à cœur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.5 Après, et c'est là que ça se joue"
+     ],
+     "ligne": 281
+    }
+   ]
+  },
+  {
+   "terme": "Décongeler",
+   "voir_aussi": [
+    "Congélateur qui dégèle"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 27,
+      "libelle": "Décongeler au réfrigérateur entre 0 °C et 4 °C"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc E — Vérifier, cuire, décongeler"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 30,
+      "libelle": "Décongeler seulement au froid."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase E — Sortir de l'hiver"
+     ],
+     "ligne": 305
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid"
+     ],
+     "ligne": 269
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Appliquer le critère, qui est un critère d'état."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase C — Mesurer, jamais estimer"
+     ],
+     "ligne": 178
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 24,
+      "libelle": "Une seule fois."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase F — Recongeler proprement ce qui se recongèle"
+     ],
+     "ligne": 290
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 49
+    }
+   ]
+  },
+  {
+   "terme": "Dépouiller (enlever la peau)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Écharner",
+     "tomes": [
+      3,
+      6
+     ]
+    },
+    {
+     "terme": "Tannage",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 27,
+      "libelle": "Un lièvre d'Amérique (*Lepus americanus*) gelé dans sa peau se dépouille avec des gants."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Dépouiller si ce n'est pas fait."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 152
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas"
+     ],
+     "ligne": 460
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 48
+    }
+   ]
+  },
+  {
+   "terme": "Désosser",
+   "voir_aussi": [
+    "Carte de la carcasse (découpe)"
+   ],
+   "ancres": [
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Désosser."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "La pièce épaisse sans seringue"
+     ],
+     "ligne": 477
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 263
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 55
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Mesurer avant de décider."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 127
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    }
+   ]
+  },
+  {
+   "terme": "Dessaler",
+   "voir_aussi": [
+    "Salaison à sec",
+    "Saumure"
+   ],
+   "ancres": [
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "Dessaler avec rien",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Dessaler avec rien"
+     ],
+     "ligne": 493
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Dessaler"
+     },
+     "chemin": [
+      "5. Procédure",
+      "J — Avant de manger"
+     ],
+     "ligne": 301
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "9.6 La caisse de sel dans le caveau",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.6 La caisse de sel dans le caveau"
+     ],
+     "ligne": 432
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Dessaler et former la pellicule."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — La séance de fumage"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 502
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Chiffrer ce que ça donne à table, pour quatre personnes dont deux enfants."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc C — Le pourcentage, et ce qu'il coûte à table (étapes 12 à 17)"
+     ],
+     "ligne": 236
+    }
+   ]
+  },
+  {
+   "terme": "Le dos (longe et filet)",
+   "voir_aussi": [
+    "Carte de la carcasse (découpe)"
+   ],
+   "ancres": [
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Deuxième trait : la limite basse de la longe."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Décoller la longe de l'arrière vers l'avant."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 194
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Lever la longe."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Démonter sans ouvrir la cavité"
+     ],
+     "ligne": 351
+    }
+   ]
+  },
+  {
+   "terme": "Eau de fonte (neige, glace)",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Tente d'hiver",
+     "tomes": [
+      1,
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Prévoir l'écoulement de l'eau de fonte par le bas."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Récolter la glace de lac pour l'été"
+     ],
+     "ligne": 288
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "Le froid qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le froid qu'on fabrique"
+     ],
+     "ligne": 470
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "E — Refroidir : l'étape qui décide de tout",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Refroidir : l'étape qui décide de tout"
+     ],
+     "ligne": 179
+    }
+   ]
+  },
+  {
+   "terme": "Eau potable (puiser, filtrer, désinfecter)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Ébullition de l'eau",
+     "tomes": [
+      1,
+      2
+     ]
+    },
+    {
+     "terme": "Javel",
+     "tomes": [
+      1,
+      2,
+      3,
+      5
+     ]
+    },
+    {
+     "terme": "Filtre à eau",
+     "tomes": [
+      1
+     ]
+    },
+    {
+     "terme": "Puits (analyser, désinfecter)",
+     "tomes": [
+      1
+     ]
+    },
+    {
+     "terme": "Giardia",
+     "tomes": [
+      1,
+      2,
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "Quand il n'y a pas d'eau potable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Quand il n'y a pas d'eau potable"
+     ],
+     "ligne": 567
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Décanter, puis filtrer, avant de chauffer."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 491
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "A — Avant de partir : préparer le froid, pas le poisson",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Avant de partir : préparer le froid, pas le poisson"
+     ],
+     "ligne": 113
+    }
+   ]
+  },
+  {
+   "terme": "Écorce de bouleau (contenants, allumage)",
+   "voir_aussi": [
+    "Bouleau à papier (Betula papyrifera)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Canot d'écorce",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Couvrir à l'écorce de bouleau ou à la toile"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le travail, seul et sans rien"
+     ],
+     "ligne": 389
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    }
+   ]
+  },
+  {
+   "terme": "Emballer et étiqueter la viande",
+   "voir_aussi": [
+    "Congélateur qui dégèle"
+   ],
+   "ancres": [
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.7 L'étiquette et l'emballage",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.7 L'étiquette et l'emballage"
+     ],
+     "ligne": 212
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Emballer serré, en double, et chasser l'air."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase C — Monter la cache de gel et la remplir"
+     ],
+     "ligne": 239
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Emballer sans papier : le glaçage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Emballer sans papier : le glaçage"
+     ],
+     "ligne": 484
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Emballer selon le froid disponible."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Fumage à chaud"
+     ],
+     "ligne": 204
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "H — Emballer",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — Emballer"
+     ],
+     "ligne": 253
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Étiqueter pendant que la journée est encore fraîche dans la tête."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 230
+    }
+   ]
+  },
+  {
+   "terme": "Éperlan arc-en-ciel (Osmerus mordax)",
+   "latin": "Osmerus mordax",
+   "voir_aussi": [
+    "Capelan (Mallotus villosus)",
+    "Traiter le poisson à la sortie de l'eau"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "F — Trier par destination",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Trier par destination"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "J — Trois cas particuliers",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "J — Trois cas particuliers"
+     ],
+     "ligne": 301
+    }
+   ]
+  },
+  {
+   "terme": "Éviscération",
+   "voir_aussi": [
+    "Saignée",
+    "Panse percée (souillure)"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Éviscérer quand même, tout de suite, sur place."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le travail, seul et sans rien"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Chapitre 61 — Abattage, saignée, éviscération",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "D — Éviscérer",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Éviscérer"
+     ],
+     "ligne": 155
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Éviscérer immédiatement."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc A — Les trente premières minutes"
+     ],
+     "ligne": 237
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Éviscérer immédiatement et ouvrir la cage"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase B — Refroidir une bête fraîche quand le froid n'est pas encore là"
+     ],
+     "ligne": 187
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 247
+    }
+   ]
+  },
+  {
+   "terme": "Faire du sel (eau de mer)",
+   "voir_aussi": [
+    "Sel"
+   ],
+   "ancres": [
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "Tirer du sel du fleuve",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Tirer du sel du fleuve"
+     ],
+     "ligne": 476
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "9.5 Faire le sel, et le refaire",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.5 Faire le sel, et le refaire"
+     ],
+     "ligne": 403
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "La voie du sel, et le sel qu'on fait soi-même",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La voie du sel, et le sel qu'on fait soi-même"
+     ],
+     "ligne": 574
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "Faire du sel quand il n'en reste plus",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire du sel quand il n'en reste plus"
+     ],
+     "ligne": 574
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "Faire du sel, et surtout l'économiser",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire du sel, et surtout l'économiser"
+     ],
+     "ligne": 451
+    }
+   ]
+  },
+  {
+   "terme": "Fermentation (lactofermentation)",
+   "voir_aussi": [
+    "Choucroute",
+    "Saumure"
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 327
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 71
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 408
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "L'acide quand il n'y a plus de vinaigre acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'acide quand il n'y a plus de vinaigre acheté"
+     ],
+     "ligne": 572
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 56
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Récoltes",
+     "niveau": 2,
+     "chemin": [
+      "Récoltes"
+     ],
+     "ligne": 87
+    }
+   ]
+  },
+  {
+   "terme": "Fièvre des fondeurs (métal galvanisé)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Souder à l'arc",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Sortir tout ce qui est aluminium, galvanisé ou cuivre"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Avant d'allumer — décider la sortie"
+     ],
+     "ligne": 162
+    }
+   ]
+  },
+  {
+   "terme": "Foie",
+   "voir_aussi": [
+    "Abats",
+    "Cadmium"
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Le foie et les reins de cervidés ne se sauvent pas, parce qu'ils ne se mangent pas."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 304
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "8. ⚠ DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. ⚠ DANGER"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 349
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Récupérer sur le bloc sorti — et laisser ce qui ne se garde pas."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 187
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 292
+    }
+   ]
+  },
+  {
+   "terme": "Froid naturel (cache de gel)",
+   "voir_aussi": [
+    "Glace de lac (récolter, glacière)",
+    "Glaçage (protéger le gelé)"
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Phase A — Savoir si le froid naturel est utilisable cette semaine-là",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase A — Savoir si le froid naturel est utilisable cette semaine-là"
+     ],
+     "ligne": 154
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Phase C — Monter la cache de gel et la remplir",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase C — Monter la cache de gel et la remplir"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Chapitre 73 — Froid naturel",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Fumage à chaud",
+   "voir_aussi": [
+    "Fumoir (monter)",
+    "Séchage de la viande (viande séchée)"
+   ],
+   "ancres": [
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Le froid en aval du fumage à chaud."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, et ce qui ne se remplace pas"
+     ],
+     "ligne": 540
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "A — Fumage à chaud",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Fumage à chaud"
+     ],
+     "ligne": 141
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "Chapitre 71 — Fumage à chaud et séchage",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "5-C. Fumage à chaud — la voie du livre",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. Fumage à chaud — la voie du livre"
+     ],
+     "ligne": 196
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Gibier",
+     "niveau": 2,
+     "chemin": [
+      "Gibier"
+     ],
+     "ligne": 59
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Fumage à froid",
+   "voir_aussi": [
+    "Fumoir (monter)",
+    "Listeria",
+    "Poisson fumé"
+   ],
+   "ancres": [
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 316
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "Chapitre 70 — Fumage à froid",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "5-D. Fumage à froid — la voie réservée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-D. Fumage à froid — la voie réservée"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 59
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid"
+     ],
+     "ligne": 269
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    }
+   ]
+  },
+  {
+   "terme": "Fumoir (monter)",
+   "voir_aussi": [
+    "Fumage à froid",
+    "Fumage à chaud"
+   ],
+   "ancres": [
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Placer le fumoir à l'écart."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Monter le fumoir"
+     ],
+     "ligne": 179
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 25,
+      "libelle": "Nettoyer le fumoir entre les charges."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E — Après le fumage"
+     ],
+     "ligne": 277
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 316
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Monter le fumoir avant d'y mettre quoi que ce soit."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Fumage à chaud"
+     ],
+     "ligne": 176
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    }
+   ]
+  },
+  {
+   "terme": "Ganglions (retirer)",
+   "voir_aussi": [
+    "Prion (maladie débilitante chronique)"
+   ],
+   "ancres": [
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Retirer les ganglions."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 159
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 242
+    }
+   ]
+  },
+  {
+   "terme": "Gaz carbonique",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Percer deux conduits, jamais un seul."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Creuser et bâtir"
+     ],
+     "ligne": 216
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 77
+    }
+   ]
+  },
+  {
+   "terme": "Gélatine (pattes, peaux, tendons)",
+   "voir_aussi": [
+    "Collagène"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Tendons (fil de tendon)",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 33
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 245
+    }
+   ]
+  },
+  {
+   "terme": "Glaçage (protéger le gelé)",
+   "voir_aussi": [
+    "Froid naturel (cache de gel)"
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Emballer sans papier : le glaçage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Emballer sans papier : le glaçage"
+     ],
+     "ligne": 484
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 586
+    }
+   ]
+  },
+  {
+   "terme": "Glace de lac (récolter, glacière)",
+   "voir_aussi": [
+    "Froid naturel (cache de gel)"
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Phase D — Récolter la glace de lac pour l'été",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Récolter la glace de lac pour l'été"
+     ],
+     "ligne": 259
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "La glacière qu'on bâtit, et le froid qu'on met dedans",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La glacière qu'on bâtit, et le froid qu'on met dedans"
+     ],
+     "ligne": 510
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 65
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "A — Avant de partir : préparer le froid, pas le poisson",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Avant de partir : préparer le froid, pas le poisson"
+     ],
+     "ligne": 113
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Fabriquer l'enceinte",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'enceinte"
+     ],
+     "ligne": 428
+    }
+   ]
+  },
+  {
+   "terme": "Gomme de sapin et d'épinette (résine)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Canot (réparer)",
+     "tomes": [
+      3,
+      5
+     ]
+    },
+    {
+     "terme": "Poix",
+     "tomes": [
+      3,
+      5
+     ]
+    },
+    {
+     "terme": "Onguent",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Pas de résineux vif"
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Le bois"
+     ],
+     "ligne": 193
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    }
+   ]
+  },
+  {
+   "terme": "Graisse (fondre le gras)",
+   "voir_aussi": [
+    "Suif",
+    "Pemmican"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Cretons",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "A — Fondre le gras",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Fondre le gras"
+     ],
+     "ligne": 115
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Fondre le gras le soir même."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le travail, seul et sans rien"
+     ],
+     "ligne": 398
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 315
+    }
+   ]
+  },
+  {
+   "terme": "Graisse d'os",
+   "voir_aussi": [
+    "Moelle"
+   ],
+   "ancres": [
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "B — La graisse d'os",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B — La graisse d'os"
+     ],
+     "ligne": 177
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 298
+    }
+   ]
+  },
+  {
+   "terme": "Grand brochet (Esox lucius)",
+   "latin": "Esox lucius",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pêche blanche",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Gras périrénal (graisse de rognon)",
+   "voir_aussi": [
+    "Suif",
+    "Pemmican"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Récupérer sur le bloc sorti — et laisser ce qui ne se garde pas."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 187
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas"
+     ],
+     "ligne": 460
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Trier le gras par dureté, avant tout le reste."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Fondre le gras"
+     ],
+     "ligne": 117
+    }
+   ]
+  },
+  {
+   "terme": "Gravlax",
+   "voir_aussi": [
+    "Congélation antiparasitaire (poisson)"
+   ],
+   "ancres": [
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 395
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "La distinction qui compte : ce qui gâte et ce qui empoisonne ne sont pas les mêmes bactéries",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "La distinction qui compte : ce qui gâte et ce qui empoisonne ne sont pas les mêmes bactéries"
+     ],
+     "ligne": 91
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 16
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 399
+    }
+   ]
+  },
+  {
+   "terme": "Hareng atlantique (Clupea harengus)",
+   "latin": "Clupea harengus",
+   "voir_aussi": [
+    "Maquereau bleu (Scomber scombrus)"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "F — Trier par destination",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Trier par destination"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 379
+    }
+   ]
+  },
+  {
+   "terme": "Humidité relative (hygromètre)",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "Le thermomètre et l'hygromètre qu'on n'a pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le thermomètre et l'hygromètre qu'on n'a pas"
+     ],
+     "ligne": 465
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 289
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    }
+   ]
+  },
+  {
+   "terme": "Indicateur d'acidité (chou rouge)",
+   "voir_aussi": [
+    "pH (acidité)"
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "Fabriquer l'indicateur d'acidité, et savoir ce qu'il ne dit pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'indicateur d'acidité, et savoir ce qu'il ne dit pas"
+     ],
+     "ligne": 455
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "4. Matériel",
+     "niveau": 2,
+     "chemin": [
+      "4. Matériel"
+     ],
+     "ligne": 116
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "Ce qui ne devient jamais une variante d'urgence",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne devient jamais une variante d'urgence"
+     ],
+     "ligne": 612
+    }
+   ]
+  },
+  {
+   "terme": "Injecter la saumure",
+   "voir_aussi": [
+    "Saumure"
+   ],
+   "ancres": [
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Injecter, pour les pièces épaisses seulement."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 208
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Injecteur de fortune."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "La pièce épaisse sans seringue"
+     ],
+     "ligne": 482
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Tenir au froid et compter les jours."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 194
+    }
+   ]
+  },
+  {
+   "terme": "Iode (sel iodé, carence)",
+   "voir_aussi": [
+    "Sel"
+   ],
+   "ancres": [
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Garder le sel iodé à l'armoire, aux deux places."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc C — Le pourcentage, et ce qu'il coûte à table (étapes 12 à 17)"
+     ],
+     "ligne": 252
+    }
+   ]
+  },
+  {
+   "terme": "Jambon",
+   "voir_aussi": [
+    "Salaison à sec"
+   ],
+   "ancres": [
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Préparer le mélange."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 Le salage"
+     ],
+     "ligne": 118
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Sécher au froid et lentement."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Le séchage"
+     ],
+     "ligne": 171
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Peser, et peser encore."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Le séchage"
+     ],
+     "ligne": 176
+    }
+   ]
+  },
+  {
+   "terme": "Jarret",
+   "voir_aussi": [
+    "Quartier arrière",
+    "Quartier avant"
+   ],
+   "ancres": [
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Séparer le jarret."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 182
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 348
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Les outils qu'on n'a pas, et comment on les fait",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les outils qu'on n'a pas, et comment on les fait"
+     ],
+     "ligne": 404
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.1 Les cinq régions et l'ordre de démontage",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.1 Les cinq régions et l'ordre de démontage"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Router."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Diriger chaque muscle."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 198
+    }
+   ]
+  },
+  {
+   "terme": "Juger une saumure (œuf, pomme de terre)",
+   "voir_aussi": [
+    "Saumure"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Juger une saumure sans pèse-sel",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Juger une saumure sans pèse-sel"
+     ],
+     "ligne": 572
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 502
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 358
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 54
+    }
+   ]
+  },
+  {
+   "terme": "Légumes-racines (entreposer)",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Ouvrir du côté abrité du vent"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le silo de terre"
+     ],
+     "ligne": 578
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "Laisser les racines où elles ont poussé",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Laisser les racines où elles ont poussé"
+     ],
+     "ligne": 597
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "5-B. Les autres légumes, en saumure",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Les autres légumes, en saumure"
+     ],
+     "ligne": 198
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    }
+   ]
+  },
+  {
+   "terme": "Lever les filets",
+   "voir_aussi": [
+    "Traiter le poisson à la sortie de l'eau"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "G — Lever les filets, ou garder entier",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Lever les filets, ou garder entier"
+     ],
+     "ligne": 239
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Lever les filets ou ouvrir le poisson en papillon"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. Saumure, salage et pellicule"
+     ],
+     "ligne": 171
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "D — Éviscérer",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Éviscérer"
+     ],
+     "ligne": 155
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "Le poisson qui se garde tout seul",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le poisson qui se garde tout seul"
+     ],
+     "ligne": 456
+    }
+   ]
+  },
+  {
+   "terme": "Lièvre d'Amérique (Lepus americanus)",
+   "latin": "Lepus americanus",
+   "voir_aussi": [
+    "Tularémie",
+    "Mal de caribou (viande maigre seule)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Collet",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 27,
+      "libelle": "Un lièvre d'Amérique (*Lepus americanus*) gelé dans sa peau se dépouille avec des gants."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Gibier",
+     "niveau": 2,
+     "chemin": [
+      "Gibier"
+     ],
+     "ligne": 59
+    }
+   ]
+  },
+  {
+   "terme": "Listeria",
+   "voir_aussi": [
+    "Poisson fumé",
+    "Fumage à froid"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 73
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 316
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Réserver un poste au cru et un poste au fini"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Avant d'allumer — décider la sortie"
+     ],
+     "ligne": 164
+    }
+   ]
+  },
+  {
+   "terme": "Mal de caribou (viande maigre seule)",
+   "voir_aussi": [
+    "Lièvre d'Amérique (Lepus americanus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gras dans la ration",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Protéines (plafond)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "8. ⚠ DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. ⚠ DANGER"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 349
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Mouler, refroidir, envelopper, étiqueter."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Monter le pemmican"
+     ],
+     "ligne": 258
+    }
+   ]
+  },
+  {
+   "terme": "Manomètre",
+   "voir_aussi": [
+    "Autoclave"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "Quand le manomètre ment : le poids vaut mieux que l'aiguille",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Quand le manomètre ment : le poids vaut mieux que l'aiguille"
+     ],
+     "ligne": 478
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 289
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Laisser retomber la pression toute seule."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.4 Voie B — l'autoclave (aliments peu acides)"
+     ],
+     "ligne": 249
+    }
+   ]
+  },
+  {
+   "terme": "Maquereau bleu (Scomber scombrus)",
+   "latin": "Scomber scombrus",
+   "voir_aussi": [
+    "Hareng atlantique (Clupea harengus)"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "F — Trier par destination",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Trier par destination"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 379
+    }
+   ]
+  },
+  {
+   "terme": "Marinades (vinaigre)",
+   "voir_aussi": [
+    "Vinaigre",
+    "Conserves (mise en pot)"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "Chapitre 78 — Conserves et marinades",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Saler ou mariner au réfrigérateur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Séchage"
+     ],
+     "ligne": 225
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid"
+     ],
+     "ligne": 269
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "L'acide quand il n'y a plus de vinaigre acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'acide quand il n'y a plus de vinaigre acheté"
+     ],
+     "ligne": 572
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Classer les sels par ce que l'étiquette déclare."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc A — Choisir le sel (étapes 1 à 5)"
+     ],
+     "ligne": 165
+    }
+   ]
+  },
+  {
+   "terme": "Maturation de la viande",
+   "voir_aussi": [
+    "Quartier arrière",
+    "Le dos (longe et filet)"
+   ],
+   "ancres": [
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 51
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 242
+    }
+   ]
+  },
+  {
+   "terme": "Méthode de conservation selon l'aliment (table)",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "Salaison à sec",
+    "Fumage à chaud"
+   ],
+   "ancres": [
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Chapitre 81 — La table aliment → méthode",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Moelle",
+   "voir_aussi": [
+    "Graisse d'os"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gras dans la ration",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.5 Le gras, os par os et nappe par nappe",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.5 Le gras, os par os et nappe par nappe"
+     ],
+     "ligne": 169
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Router."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Gibier",
+     "niveau": 2,
+     "chemin": [
+      "Gibier"
+     ],
+     "ligne": 59
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Étiqueter, puis entreposer au froid et au noir."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Fondre le gras"
+     ],
+     "ligne": 164
+    }
+   ]
+  },
+  {
+   "terme": "Moisissure",
+   "voir_aussi": [
+    "Salaison à sec"
+   ],
+   "ancres": [
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 223
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 306
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 278
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "5-D. La température, et pourquoi le chapitre tranche à 18-22 °C",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-D. La température, et pourquoi le chapitre tranche à 18-22 °C"
+     ],
+     "ligne": 266
+    }
+   ]
+  },
+  {
+   "terme": "Monoxyde de carbone",
+   "voir_aussi": [
+    "Avertisseurs (fumée, monoxyde)",
+    "Poêle à bois"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Génératrice",
+     "tomes": [
+      1,
+      3,
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Abri de pêche chauffé",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 6,
+      "libelle": "L'avertisseur de monoxyde de carbone."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, et ce qui ne se remplace pas"
+     ],
+     "ligne": 554
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 316
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 292
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Mouches",
+   "voir_aussi": [
+    "Séchage de la viande (viande séchée)"
+   ],
+   "ancres": [
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "Les mouches, et le premier jour",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les mouches, et le premier jour"
+     ],
+     "ligne": 526
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "Le séchage au vent, et la fumée qui ne conserve rien",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le séchage au vent, et la fumée qui ne conserve rien"
+     ],
+     "ligne": 604
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Sécher le sel à fond avant de l'employer."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 511
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "Le fumoir qu'on monte avec ce qu'il y a",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le fumoir qu'on monte avec ce qu'il y a"
+     ],
+     "ligne": 394
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "Le sel qu'on n'a pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le sel qu'on n'a pas"
+     ],
+     "ligne": 479
+    }
+   ]
+  },
+  {
+   "terme": "Nitrite de sodium (sel nitrité)",
+   "voir_aussi": [
+    "Salpêtre (nitrate de potassium)",
+    "Salaison à sec"
+   ],
+   "ancres": [
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Calculer le nitrite, s'il y en a."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 164
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "Bloc D — Le nitrite, si on en emploie (étapes 18 à 24)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Bloc D — Le nitrite, si on en emploie (étapes 18 à 24)"
+     ],
+     "ligne": 256
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 2,
+      "libelle": "La barrière du nitrite."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.8 Ce qui ne se remplace pas, et ce qu'on perd"
+     ],
+     "ligne": 500
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "Sans nitrite",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Sans nitrite"
+     ],
+     "ligne": 486
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 69
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 372
+    }
+   ]
+  },
+  {
+   "terme": "Oignon et ail",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 327
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Récoltes",
+     "niveau": 2,
+     "chemin": [
+      "Récoltes"
+     ],
+     "ligne": 87
+    }
+   ]
+  },
+  {
+   "terme": "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)",
+   "latin": "Salvelinus fontinalis",
+   "voir_aussi": [
+    "Traiter le poisson à la sortie de l'eau"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Touladi, truite grise (Salvelinus namaycush)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "A — Ce qui entre",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Ce qui entre"
+     ],
+     "ligne": 121
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "Chapitre 76 — Saler et sécher la truite",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Poisson",
+     "niveau": 2,
+     "chemin": [
+      "Poisson"
+     ],
+     "ligne": 75
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "F — Trier par destination",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Trier par destination"
+     ],
+     "ligne": 201
+    }
+   ]
+  },
+  {
+   "terme": "Orignal (Alces americanus)",
+   "latin": "Alces americanus",
+   "voir_aussi": [
+    "Carte de la carcasse (découpe)",
+    "Cadmium"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Retracer une bête blessée",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "8. ⚠ DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. ⚠ DANGER"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 55
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 292
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    }
+   ]
+  },
+  {
+   "terme": "Ours noir (Ursus americanus)",
+   "latin": "Ursus americanus",
+   "voir_aussi": [
+    "Trichinellose",
+    "Graisse (fondre le gras)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Cretons",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "8. ⚠ DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. ⚠ DANGER"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 292
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 25,
+      "libelle": "L'ours et le phoque sortent du tri ordinaire."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 298
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 3,
+      "libelle": "L'ours, le phoque, le haché, les abats, la bête blessée au ventre."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, et ce qui ne se remplace pas"
+     ],
+     "ligne": 545
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    }
+   ]
+  },
+  {
+   "terme": "Pain",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Levain",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Bannique",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Farine",
+     "tomes": [
+      1,
+      2,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Les petits fruits, les légumes, le pain, les plats cuisinés"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 211
+    }
+   ]
+  },
+  {
+   "terme": "Palan et suspendre une bête",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Leviers et poulies",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Ouvrir et suspendre."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 207
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Suspendre hors de portée des prédateurs"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le travail, seul et sans rien"
+     ],
+     "ligne": 395
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Suspendre, ou poser propre."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 146
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "Lever sans palan",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Lever sans palan"
+     ],
+     "ligne": 367
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Suspendre ou coucher."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 132
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Suspendre."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Le séchage"
+     ],
+     "ligne": 167
+    }
+   ]
+  },
+  {
+   "terme": "Panse (tripes)",
+   "voir_aussi": [
+    "Abats",
+    "Éviscération"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 267
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas"
+     ],
+     "ligne": 460
+    }
+   ]
+  },
+  {
+   "terme": "Panse percée (souillure)",
+   "voir_aussi": [
+    "Éviscération"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 48
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Gants, puis position."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 148
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Lier et couper à la sortie."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 177
+    }
+   ]
+  },
+  {
+   "terme": "Parer (parures)",
+   "voir_aussi": [
+    "Carte de la carcasse (découpe)"
+   ],
+   "ancres": [
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Parer avant d'ouvrir."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 153
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Parer selon la destination, pas selon l'apparence."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 187
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 245
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "Ce qu'on perd en choisissant cette variante, et il faut le nommer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd en choisissant cette variante, et il faut le nommer"
+     ],
+     "ligne": 431
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Parer, et parer large."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 183
+    }
+   ]
+  },
+  {
+   "terme": "Pellicule (fumage du poisson)",
+   "voir_aussi": [
+    "Poisson fumé",
+    "Fumage à froid"
+   ],
+   "ancres": [
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Former la pellicule."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. Saumure, salage et pellicule"
+     ],
+     "ligne": 189
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Dessaler et former la pellicule."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — La séance de fumage"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Rincer et faire la pellicule."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Fumage à chaud"
+     ],
+     "ligne": 172
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 302
+    }
+   ]
+  },
+  {
+   "terme": "Pemmican",
+   "voir_aussi": [
+    "Graisse (fondre le gras)",
+    "Séchage de la viande (viande séchée)"
+   ],
+   "ancres": [
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "C — Monter le pemmican",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Monter le pemmican"
+     ],
+     "ligne": 194
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 315
+    }
+   ]
+  },
+  {
+   "terme": "Perte de masse (suivre le séchage)",
+   "voir_aussi": [
+    "Salaison à sec",
+    "Poisson salé-séché"
+   ],
+   "ancres": [
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "H — Le suivi de masse, qui remplace ce qu'on ne peut pas mesurer",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — Le suivi de masse, qui remplace ce qu'on ne peut pas mesurer"
+     ],
+     "ligne": 267
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Peser, et peser encore."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.3 Le séchage"
+     ],
+     "ligne": 176
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "etape": {
+      "n": 3,
+      "libelle": "La mesure fine, pas la mesure."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.8 Ce qui ne se remplace pas, et ce qu'on perd"
+     ],
+     "ligne": 503
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 204
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Savoir que le produit fini est plus salé que le pourcentage appliqué."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc C — Le pourcentage, et ce qu'il coûte à table (étapes 12 à 17)"
+     ],
+     "ligne": 230
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Sécher le sel à fond avant de l'employer."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 511
+    }
+   ]
+  },
+  {
+   "terme": "Petits fruits",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Bleuet (Vaccinium angustifolium)",
+     "tomes": [
+      2,
+      5
+     ]
+    },
+    {
+     "terme": "Airelle (graine rouge)",
+     "tomes": [
+      2,
+      5
+     ]
+    },
+    {
+     "terme": "Chicoutai, plaquebière (Rubus chamaemorus)",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Atoca, canneberge (Vaccinium oxycoccos)",
+     "tomes": [
+      2,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Petits fruits, en option et à contrecœur."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Monter le pemmican"
+     ],
+     "ligne": 252
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Les petits fruits, les légumes, le pain, les plats cuisinés"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 211
+    }
+   ]
+  },
+  {
+   "terme": "pH (acidité)",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "Fermentation (lactofermentation)"
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "Fabriquer l'indicateur d'acidité, et savoir ce qu'il ne dit pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'indicateur d'acidité, et savoir ce qu'il ne dit pas"
+     ],
+     "ligne": 455
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Mesurer le pH de la saumure"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. La choucroute, fournée de référence"
+     ],
+     "ligne": 180
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 56
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "4. Matériel",
+     "niveau": 2,
+     "chemin": [
+      "4. Matériel"
+     ],
+     "ligne": 122
+    }
+   ]
+  },
+  {
+   "terme": "Phoque",
+   "voir_aussi": [
+    "Trichinellose"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Lard de phoque (huile)",
+     "tomes": [
+      3,
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Mise à mort (confirmer la mort)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 25,
+      "libelle": "L'ours et le phoque sortent du tri ordinaire."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 298
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 3,
+      "libelle": "L'ours, le phoque, le haché, les abats, la bête blessée au ventre."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, et ce qui ne se remplace pas"
+     ],
+     "ligne": 545
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    }
+   ]
+  },
+  {
+   "terme": "Poêle à bois",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Bois de chauffage",
+     "tomes": [
+      1,
+      5
+     ]
+    },
+    {
+     "terme": "Créosote",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "Tenir 116 °C sur un poêle à bois",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Tenir 116 °C sur un poêle à bois"
+     ],
+     "ligne": 452
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 19,
+      "libelle": "Tenir la chaleur stable."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.4 Voie B — l'autoclave (aliments peu acides)"
+     ],
+     "ligne": 239
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "Tenir 18 à 22 °C sans thermostat",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Tenir 18 à 22 °C sans thermostat"
+     ],
+     "ligne": 557
+    }
+   ]
+  },
+  {
+   "terme": "Poisson fumé",
+   "voir_aussi": [
+    "Botulisme de type E (poisson)",
+    "Fumage à chaud",
+    "Listeria"
+   ],
+   "ancres": [
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 320
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "Chapitre 77 — Fumer le poisson",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 73
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 316
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "Le froid qu'on n'a pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le froid qu'on n'a pas"
+     ],
+     "ligne": 511
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 379
+    }
+   ]
+  },
+  {
+   "terme": "Poisson salé-séché",
+   "voir_aussi": [
+    "Salaison à sec"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Morue franche (Gadus morhua)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "E — Le salage à sec",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Le salage à sec"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Ne pas manger cru un poisson salé-séché"
+     },
+     "chemin": [
+      "5. Procédure",
+      "J — Avant de manger"
+     ],
+     "ligne": 311
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "Chapitre 76 — Saler et sécher la truite",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Pomme de terre",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Mildiou",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Récoltes",
+     "niveau": 2,
+     "chemin": [
+      "Récoltes"
+     ],
+     "ligne": 87
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Faire le préconditionnement des espèces qui l'exigent, avant la descente"
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Préparer la récolte"
+     ],
+     "ligne": 249
+    }
+   ]
+  },
+  {
+   "terme": "Pourcentage de sel (calcul)",
+   "voir_aussi": [
+    "Sel",
+    "Balance (peser sans balance)"
+   ],
+   "ancres": [
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Tous les pourcentages de sel de ce livre se calculent sur le poids de la viande."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc C — Le pourcentage, et ce qu'il coûte à table (étapes 12 à 17)"
+     ],
+     "ligne": 217
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Le pourcentage de sel, et pourquoi les chiffres d'ailleurs ne se recopient pas",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Le pourcentage de sel, et pourquoi les chiffres d'ailleurs ne se recopient pas"
+     ],
+     "ligne": 193
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 1,
+      "libelle": "La pesée du lot et le pourcentage de sel."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "La balance qu'on fabrique"
+     ],
+     "ligne": 464
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Calculer et peser le sel à 2,25 % du poids du chou paré"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. La choucroute, fournée de référence"
+     ],
+     "ligne": 150
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Peser et étiqueter chaque pièce."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 195
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Calculer le sel."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 142
+    }
+   ]
+  },
+  {
+   "terme": "Pourquoi la viande pourrit",
+   "voir_aussi": [
+    "Zone de danger (4 à 60 °C)",
+    "Activité de l'eau (aw)"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Ce qui détruit la viande, ce sont quatre processus différents, et ils n'ont pas les mêmes ennemis",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Ce qui détruit la viande, ce sont quatre processus différents, et ils n'ont pas les mêmes ennemis"
+     ],
+     "ligne": 55
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "La distinction qui compte : ce qui gâte et ce qui empoisonne ne sont pas les mêmes bactéries",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "La distinction qui compte : ce qui gâte et ce qui empoisonne ne sont pas les mêmes bactéries"
+     ],
+     "ligne": 91
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Chapitre 66 — Pourquoi la viande pourrit",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Pas de résineux vif"
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Le bois"
+     ],
+     "ligne": 193
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    }
+   ]
+  },
+  {
+   "terme": "Prion (maladie débilitante chronique)",
+   "voir_aussi": [
+    "Orignal (Alces americanus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Cervelle",
+     "tomes": [
+      2,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Décider si la bête se débite."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 119
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 287
+    }
+   ]
+  },
+  {
+   "terme": "Propane",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Détendeur et raccords",
+     "tomes": [
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Fuite de gaz (eau savonneuse)",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Réfrigérateur à absorption",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Compter le bois ou le propane."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.1 Décider de la voie, avant de laver un seul pot"
+     ],
+     "ligne": 180
+    }
+   ]
+  },
+  {
+   "terme": "Quartier arrière",
+   "voir_aussi": [
+    "Carte de la carcasse (découpe)"
+   ],
+   "ancres": [
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "Chapitre 63 — Quartier arrière",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 348
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.2 Quartier arrière",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.2 Quartier arrière"
+     ],
+     "ligne": 135
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 48
+    }
+   ]
+  },
+  {
+   "terme": "Quartier avant",
+   "voir_aussi": [
+    "Carte de la carcasse (découpe)"
+   ],
+   "ancres": [
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 55
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 292
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 361
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "5.4 Quartier avant",
+     "niveau": 3,
+     "chemin": [
+      "5. La carte",
+      "5.4 Quartier avant"
+     ],
+     "ligne": 158
+    }
+   ]
+  },
+  {
+   "terme": "Rancissement",
+   "voir_aussi": [
+    "Graisse (fondre le gras)",
+    "Pemmican"
+   ],
+   "ancres": [
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 298
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 43
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Ce qui détruit la viande, ce sont quatre processus différents, et ils n'ont pas les mêmes ennemis",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Ce qui détruit la viande, ce sont quatre processus différents, et ils n'ont pas les mêmes ennemis"
+     ],
+     "ligne": 55
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Garder la peau jusqu'à la sortie du bois."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc A — Les trente premières minutes"
+     ],
+     "ligne": 247
+    }
+   ]
+  },
+  {
+   "terme": "Recongeler",
+   "voir_aussi": [
+    "Congélateur qui dégèle"
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "Phase F — Recongeler proprement ce qui se recongèle",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase F — Recongeler proprement ce qui se recongèle"
+     ],
+     "ligne": 280
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 49
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Appliquer le critère, qui est un critère d'état."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase C — Mesurer, jamais estimer"
+     ],
+     "ligne": 178
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Congélation antiparasitaire, si le poisson sera mangé cru, mariné, salé ou fumé à froid"
+     ],
+     "ligne": 269
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 358
+    }
+   ]
+  },
+  {
+   "terme": "Redoux",
+   "voir_aussi": [
+    "Froid naturel (cache de gel)"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Par redoux, faire travailler l'évaporation."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le travail, seul et sans rien"
+     ],
+     "ligne": 382
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Fabriquer l'enceinte",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'enceinte"
+     ],
+     "ligne": 428
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 19,
+      "libelle": "Séparer physiquement trois familles de produits"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase C — Monter la cache de gel et la remplir"
+     ],
+     "ligne": 253
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 586
+    }
+   ]
+  },
+  {
+   "terme": "Refroidir la carcasse",
+   "voir_aussi": [
+    "Froid naturel (cache de gel)",
+    "Zone de danger (4 à 60 °C)"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 247
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 48
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas"
+     ],
+     "ligne": 460
+    }
+   ]
+  },
+  {
+   "terme": "Rendement en viande",
+   "voir_aussi": [
+    "Carte de la carcasse (découpe)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Fiche d'espèce (lire)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Le rendement."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 489
+    }
+   ]
+  },
+  {
+   "terme": "Rognons (reins)",
+   "voir_aussi": [
+    "Abats",
+    "Cadmium",
+    "Suif"
+   ],
+   "ancres": [
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Repérer les reins et ne pas les manger."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 157
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Le foie et les reins de cervidés ne se sauvent pas, parce qu'ils ne se mangent pas."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 304
+    },
+    {
+     "ch": "63",
+     "fichier": "63-quartier-arriere.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "62",
+     "fichier": "62-carte-de-la-carcasse.md",
+     "titre": "8. ⚠ DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. ⚠ DANGER"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 399
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 349
+    }
+   ]
+  },
+  {
+   "terme": "Saignée",
+   "voir_aussi": [
+    "Éviscération"
+   ],
+   "ancres": [
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "etape": {
+      "n": 7,
+      "libelle": "La saignée."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 154
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Chapitre 61 — Abattage, saignée, éviscération",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "C — Tuer et saigner",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Tuer et saigner"
+     ],
+     "ligne": 141
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 339
+    }
+   ]
+  },
+  {
+   "terme": "Salaison à sec",
+   "voir_aussi": [
+    "Sel",
+    "Nitrite de sodium (sel nitrité)",
+    "Chambre de séchage"
+   ],
+   "ancres": [
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "Chapitre 68 — Salaison à sec",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 249
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "E — Le salage à sec",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Le salage à sec"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 23
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "D — Peser, et peser le sel",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Peser, et peser le sel"
+     ],
+     "ligne": 176
+    }
+   ]
+  },
+  {
+   "terme": "Salpêtre (nitrate de potassium)",
+   "voir_aussi": [
+    "Nitrite de sodium (sel nitrité)"
+   ],
+   "ancres": [
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Le salpêtre et sa forme moderne."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Décider avant d'allumer"
+     ],
+     "ligne": 149
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Le salpêtre (nitrate de potassium)."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Fumage à chaud"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 69
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 249
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Router."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 201
+    }
+   ]
+  },
+  {
+   "terme": "Saumure",
+   "voir_aussi": [
+    "Juger une saumure (œuf, pomme de terre)",
+    "Dessaler"
+   ],
+   "ancres": [
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 296
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 54
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Injecter, pour les pièces épaisses seulement."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 208
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "5-B. Les autres légumes, en saumure",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Les autres légumes, en saumure"
+     ],
+     "ligne": 198
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "Partir la fournée avec de la saumure vivante",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Partir la fournée avec de la saumure vivante"
+     ],
+     "ligne": 578
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "5-B. Saumure, salage et pellicule",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Saumure, salage et pellicule"
+     ],
+     "ligne": 169
+    }
+   ]
+  },
+  {
+   "terme": "Scorbut",
+   "voir_aussi": [
+    "Vitamine C",
+    "Choucroute",
+    "Petits fruits"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Arbre de vie (infusion d'aiguilles)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 71
+    }
+   ]
+  },
+  {
+   "terme": "Séchage de la viande (viande séchée)",
+   "voir_aussi": [
+    "Fumage à chaud",
+    "Pemmican",
+    "Séchoir et claie"
+   ],
+   "ancres": [
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "B — Séchage",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B — Séchage"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "Chapitre 71 — Fumage à chaud et séchage",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Sécher sans chambre de séchage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Sécher sans chambre de séchage"
+     ],
+     "ligne": 560
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "5.3 Le séchage",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.3 Le séchage"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "65",
+     "fichier": "65-le-dos.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 353
+    }
+   ]
+  },
+  {
+   "terme": "Séchoir et claie",
+   "voir_aussi": [
+    "Séchage de la viande (viande séchée)"
+   ],
+   "ancres": [
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "Monter un séchoir sans fumoir",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Monter un séchoir sans fumoir"
+     ],
+     "ligne": 605
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "Le fumoir qu'on monte avec ce qu'il y a",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le fumoir qu'on monte avec ce qu'il y a"
+     ],
+     "ligne": 394
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 278
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Tailler la chair en traits parallèles jusqu'à la peau sans la traverser"
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 578
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    }
+   ]
+  },
+  {
+   "terme": "Sel",
+   "voir_aussi": [
+    "Pourcentage de sel (calcul)",
+    "Faire du sel (eau de mer)",
+    "Nitrite de sodium (sel nitrité)"
+   ],
+   "ancres": [
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Classer les sels par ce que l'étiquette déclare."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc A — Choisir le sel (étapes 1 à 5)"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "titre": "Tirer du sel du fleuve",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Tirer du sel du fleuve"
+     ],
+     "ligne": 476
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Reconnaître ce qui peut se trouver dans un sac de sel."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc A — Choisir le sel (étapes 1 à 5)"
+     ],
+     "ligne": 159
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "9.5 Faire le sel, et le refaire",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.5 Faire le sel, et le refaire"
+     ],
+     "ligne": 403
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "Faire du sel, et surtout l'économiser",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire du sel, et surtout l'économiser"
+     ],
+     "ligne": 451
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "9.6 La caisse de sel dans le caveau",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.6 La caisse de sel dans le caveau"
+     ],
+     "ligne": 432
+    }
+   ]
+  },
+  {
+   "terme": "Sel de table, sel iodé, gros sel (choisir)",
+   "voir_aussi": [
+    "Sel"
+   ],
+   "ancres": [
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Garder le sel iodé à l'armoire, aux deux places."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc C — Le pourcentage, et ce qu'il coûte à table (étapes 12 à 17)"
+     ],
+     "ligne": 252
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Traiter le sel de mer non raffiné comme un ingrédient inconnu."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc A — Choisir le sel (étapes 1 à 5)"
+     ],
+     "ligne": 179
+    },
+    {
+     "ch": "67",
+     "fichier": "67-le-sel.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Classer les sels par ce que l'étiquette déclare."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc A — Choisir le sel (étapes 1 à 5)"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "76",
+     "fichier": "76-saler-et-secher-la-truite.md",
+     "titre": "D — Peser, et peser le sel",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Peser, et peser le sel"
+     ],
+     "ligne": 176
+    }
+   ]
+  },
+  {
+   "terme": "Semences (garder)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Test de germination",
+     "tomes": [
+      1,
+      5
+     ]
+    },
+    {
+     "terme": "Pollinisation et croisement",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 30,
+      "libelle": "Les semences ne sont pas de la nourriture."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase G — Les cas particuliers d'un congélateur de chasse"
+     ],
+     "ligne": 331
+    }
+   ]
+  },
+  {
+   "terme": "Silo de terre",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "Creuser sans machine : la cave de talus",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Creuser sans machine : la cave de talus"
+     ],
+     "ligne": 427
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "Le silo de terre",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le silo de terre"
+     ],
+     "ligne": 555
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "Le baril enterré",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le baril enterré"
+     ],
+     "ligne": 612
+    }
+   ]
+  },
+  {
+   "terme": "Solanine (pomme de terre verte)",
+   "voir_aussi": [
+    "Pomme de terre"
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 77
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 289
+    }
+   ]
+  },
+  {
+   "terme": "Sphaigne",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Règles (menstruations)",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Papier hygiénique (remplacer)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Enfouir les racines les plus sensibles à la déshydratation"
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Charger et tenir"
+     ],
+     "ligne": 268
+    },
+    {
+     "ch": "79",
+     "fichier": "79-caveau-a-legumes.md",
+     "titre": "Enfouir, quand il n'y a ni sable ni sciure",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Enfouir, quand il n'y a ni sable ni sciure"
+     ],
+     "ligne": 489
+    }
+   ]
+  },
+  {
+   "terme": "Staphylocoque doré",
+   "voir_aussi": [
+    "Salaison à sec",
+    "Zone de danger (4 à 60 °C)"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Marquer d'un trait double toute heure passée entre 35 °C et 45 °C"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc C — Tenir le compte des heures"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 399
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Sécher sans chambre de séchage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Sécher sans chambre de séchage"
+     ],
+     "ligne": 560
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 249
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 296
+    },
+    {
+     "ch": "69",
+     "fichier": "69-saumure.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    }
+   ]
+  },
+  {
+   "terme": "Suif",
+   "voir_aussi": [
+    "Gras périrénal (graisse de rognon)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Savon",
+     "tomes": [
+      1,
+      2,
+      3,
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Chandelles",
+     "tomes": [
+      1,
+      2,
+      5,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Le gras, le suif et le saindoux"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 210
+    },
+    {
+     "ch": "72",
+     "fichier": "72-pemmican-et-graisses.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 43
+    }
+   ]
+  },
+  {
+   "terme": "Tarière",
+   "voir_aussi": [
+    "Glace de lac (récolter, glacière)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pêche blanche",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Faire la glace quand le lac ne la donne pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire la glace quand le lac ne la donne pas"
+     ],
+     "ligne": 502
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Attendre bien plus que le minimum de circulation."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Récolter la glace de lac pour l'été"
+     ],
+     "ligne": 261
+    }
+   ]
+  },
+  {
+   "terme": "Témoin de dégel",
+   "voir_aussi": [
+    "Congélateur qui dégèle"
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Savoir ce qui s'est passé pendant qu'on n'était pas là",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Savoir ce qui s'est passé pendant qu'on n'était pas là"
+     ],
+     "ligne": 561
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 586
+    }
+   ]
+  },
+  {
+   "terme": "Thermomètre à viande (sonde)",
+   "voir_aussi": [
+    "Cuisson à 74 °C à cœur"
+   ],
+   "ancres": [
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 24,
+      "libelle": "Étalonner les thermomètres deux fois par année."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc E — Vérifier, cuire, décongeler"
+     ],
+     "ligne": 334
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Une sonde numérique ne se recale pas."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Refaire l'échelle de température au lieu d'acheter un thermomètre"
+     ],
+     "ligne": 504
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 391
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "Mesurer sans sonde",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Mesurer sans sonde"
+     ],
+     "ligne": 448
+    },
+    {
+     "ch": "77",
+     "fichier": "77-fumer-le-poisson.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Planter la sonde dans la partie la plus épaisse du plus gros filet"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-C. Fumage à chaud — la voie du livre"
+     ],
+     "ligne": 205
+    },
+    {
+     "ch": "68",
+     "fichier": "68-salaison-a-sec.md",
+     "titre": "9.2 Le thermomètre, réparé plutôt que remplacé",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Le thermomètre, réparé plutôt que remplacé"
+     ],
+     "ligne": 356
+    }
+   ]
+  },
+  {
+   "terme": "Thermomètre minimum-maximum",
+   "voir_aussi": [
+    "Froid naturel (cache de gel)",
+    "Congélateur qui dégèle"
+   ],
+   "ancres": [
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Installer le thermomètre à minimum-maximum avant d'avoir quoi que ce soit à conserver."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase A — Savoir si le froid naturel est utilisable cette semaine-là"
+     ],
+     "ligne": 156
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 33,
+      "libelle": "Installer un thermomètre min-max, et le lire chaque semaine."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase H — Après"
+     ],
+     "ligne": 347
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Savoir ce qui s'est passé pendant qu'on n'était pas là",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Savoir ce qui s'est passé pendant qu'on n'était pas là"
+     ],
+     "ligne": 561
+    },
+    {
+     "ch": "73",
+     "fichier": "73-froid-naturel.md",
+     "titre": "Ce qu'on perd, honnêtement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, honnêtement"
+     ],
+     "ligne": 586
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "Faire repartir la machine avant de vider le coffre",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire repartir la machine avant de vider le coffre"
+     ],
+     "ligne": 475
+    }
+   ]
+  },
+  {
+   "terme": "Traiter le poisson à la sortie de l'eau",
+   "voir_aussi": [
+    "Botulisme de type E (poisson)",
+    "Lever les filets"
+   ],
+   "ancres": [
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "Chapitre 75 — Traiter le poisson à la sortie de l'eau",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "F — Trier par destination",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Trier par destination"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "75",
+     "fichier": "75-traiter-le-poisson-a-la-sortie.md",
+     "titre": "Le froid qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le froid qu'on fabrique"
+     ],
+     "ligne": 470
+    }
+   ]
+  },
+  {
+   "terme": "Trichinellose",
+   "voir_aussi": [
+    "Ours noir (Ursus americanus)",
+    "Phoque",
+    "Cuisson à 74 °C à cœur"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Morse",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "etape": {
+      "n": 4,
+      "libelle": "La barrière contre la trichinellose."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace vraiment pas"
+     ],
+     "ligne": 617
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 292
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 399
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 459
+    }
+   ]
+  },
+  {
+   "terme": "Truite mouchetée",
+   "voir": [
+    "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)"
+   ]
+  },
+  {
+   "terme": "Tularémie",
+   "voir_aussi": [
+    "Lièvre d'Amérique (Lepus americanus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Rat musqué (Ondatra zibethicus)",
+     "tomes": [
+      3
+     ]
+    },
+    {
+     "terme": "Castor (Castor canadensis)",
+     "tomes": [
+      2,
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "81",
+     "fichier": "81-table-aliment-methode.md",
+     "titre": "Gibier",
+     "niveau": 2,
+     "chemin": [
+      "Gibier"
+     ],
+     "ligne": 59
+    },
+    {
+     "ch": "61",
+     "fichier": "61-abattage-saignee-evisceration.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 287
+    }
+   ]
+  },
+  {
+   "terme": "Viande hachée",
+   "voir_aussi": [
+    "Parer (parures)"
+   ],
+   "ancres": [
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Hacher au froid."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 226
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 292
+    },
+    {
+     "ch": "64",
+     "fichier": "64-quartier-avant.md",
+     "etape": {
+      "n": 3,
+      "libelle": "La hachette sur billot."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 432
+    },
+    {
+     "ch": "70",
+     "fichier": "70-fumage-a-froid.md",
+     "titre": "Le montage, à la pelle et à la hache",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le montage, à la pelle et à la hache"
+     ],
+     "ligne": 386
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "etape": {
+      "n": 3,
+      "libelle": "L'ours, le phoque, le haché, les abats, la bête blessée au ventre."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qu'on perd, et ce qui ne se remplace pas"
+     ],
+     "ligne": 545
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 2,
+      "libelle": "La viande hachée et la saucisse."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase D — Le tri en trois piles, dans l'ordre du risque"
+     ],
+     "ligne": 204
+    }
+   ]
+  },
+  {
+   "terme": "Vinaigre",
+   "voir_aussi": [
+    "Marinades (vinaigre)"
+   ],
+   "ancres": [
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "L'acide quand il n'y a plus de vinaigre acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'acide quand il n'y a plus de vinaigre acheté"
+     ],
+     "ligne": 572
+    },
+    {
+     "ch": "78",
+     "fichier": "78-conserves-et-marinades.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 335
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "Fabriquer l'indicateur d'acidité, et savoir ce qu'il ne dit pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer l'indicateur d'acidité, et savoir ce qu'il ne dit pas"
+     ],
+     "ligne": 455
+    }
+   ]
+  },
+  {
+   "terme": "Vitamine C",
+   "voir_aussi": [
+    "Scorbut",
+    "Choucroute",
+    "Petits fruits"
+   ],
+   "ancres": [
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "5-C. Combien il en faut — l'arithmétique de la vitamine C d'hiver",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. Combien il en faut — l'arithmétique de la vitamine C d'hiver"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "80",
+     "fichier": "80-fermentation.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 71
+    }
+   ]
+  },
+  {
+   "terme": "Zone de danger (4 à 60 °C)",
+   "voir_aussi": [
+    "Pourquoi la viande pourrit",
+    "Compteur d'heures (temps au chaud)"
+   ],
+   "ancres": [
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 299
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Lire le thermomètre extérieur, pas la sensation."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase B — Établir dans lequel des quatre cas on se trouve"
+     ],
+     "ligne": 144
+    },
+    {
+     "ch": "71",
+     "fichier": "71-fumage-a-chaud-et-sechage.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 68
+    },
+    {
+     "ch": "74",
+     "fichier": "74-un-congelateur-plein-qui.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 49
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "etape": {
+      "n": 27,
+      "libelle": "Décongeler au réfrigérateur entre 0 °C et 4 °C"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bloc E — Vérifier, cuire, décongeler"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "66",
+     "fichier": "66-pourquoi-la-viande-pourrit.md",
+     "titre": "Les six leviers, et les seuils qui vont avec",
+     "niveau": 3,
+     "chemin": [
+      "3. Pourquoi ça marche",
+      "Les six leviers, et les seuils qui vont avec"
+     ],
+     "ligne": 111
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,505 @@
+# Passe paperasse — ce que les agents ont gardé en hésitant
+
+501 doutes, chapitre par chapitre. Chaque ligne se tranche par JP ou se laisse.
+
+- 22: Étapes 1 et 2 (« Les écrire », « Écrire aussi ce qui n'est jamais donné ») et §7 « Écrire la procédure le lendemain… se règle avec un crayon » : gardé
+- 22: Étape 22 « Noter l'heure » quand la personne refuse de partir : gardé, c'est deux mots au moment de l'appel, pas un journal.
+- 22: L'écrit après une arme montrée (§7) est coupé comme journal. C'est pourtant la seule consigne écrite qui avait un enjeu légal (« le monde revient, un 
+- 22: « Code criminel, art. 87 » (3 fois : §3, étape 22, §8) : gardé. C'est un article de loi, pas un organisme, mais c'est une référence du même genre qu'u
+- 22: La phrase sur la responsabilité de la municipalité (étape 8, citation « déployer des ressources… ») est gardée, parce que la municipalité est la desti
+- 22: Dans suivi/22-redaction.md, le glossaire annonce encore « cahier de bord » comme terme créé par le chapitre et repris aux ch. 21 et 23. Le terme n'exi
+- 88: Les quatre notes déplacées (« aucune source officielle canadienne ne le publie », deux « affirmation de ce livre », « non documenté par une source off
+- 88: §8 D « Le chapitre 88 ajoute un cas que le chapitre 84 ne traite pas » : gardé. C'est une phrase de coordination entre chapitres qui pourrait devenir 
+- 88: Encadré d'ouverture (« Aucune température de chauffe dans ce chapitre… ») : gardé, parce qu'il s'adresse au lecteur.
+- 88: Dans la ligne Matériel, « une [encoche] par essai réussi, deux pour l'huile » est ambigu à côté de la nouvelle étape 8 (eau ou huile). Je n'y ai pas t
+- 49: Étape 1, « on note l'endroit » (deux bêtes lentes au même ruisseau) : gardé. C'est retenir un lieu pour décider d'arrêter d'y relever, pas un carnet.
+- 49: Les phrases « aucune source consultée… » (étape 16, fin du §8, lessive de cendres au §9 avec son `[À VÉRIFIER]`, antibiotique au §9) et « aucun barème
+- 49: Fenêtre d'incubation : seule la fourchette de la fiche (3 à 6 jours, jusqu'à 3 semaines) reste dans le texte. Celle de la page web (3 à 5 jours, parfo
+- 49: Au §8 bloc 3, « ÉVAR » reste sans explication une fois « de Santé Canada » retiré. Le sigle n'est défini nulle part dans le chapitre.
+- 49: Le 1 877 346-6763 (signalement d'animal malade), le 811 et Info-Santé sont gardés comme des numéros qu'on appelle.
+- 72: §5-B étape 8 : j'ai coupé la consigne de tout noter pour refaire la même salaison. C'est du barème fait maison, donc ça sort selon la règle. Mais le c
+- 72: §5-D étape 17 et §6 : j'ai gardé la lecture quotidienne du thermomètre pendant la congélation antiparasitaire de 7 jours. C'est une mesure qui sert à 
+- 72: §9 étalonnage : j'ai gardé « Noter les deux écarts » (glace et eau bouillante). Ça fait partie de la mesure, puisqu'on compare les deux écarts dans la
+- 72: §5-E étape 25 : j'ai gardé l'étiquette au feutre sur chaque paquet (espèce, voie, date de fumage, dates de congélation antiparasitaire) et « Un paquet
+- 72: §9 : j'ai gardé « masse » dans ce qu'on écrit sur le paquet d'urgence, pour les limites de mercure en grammes. L'étiquette de l'étape 25 ne porte pas 
+- 72: §4 cèdre : j'ai laissé « Extension assumée du livre, non sourcée — [À VÉRIFIER] ». C'est un drapeau de travail collé au marqueur, pas une attribution.
+- 72: §5-B étape 7 : j'ai laissé « tant qu'elle n'est pas tranchée le chapitre reste incomplet comme mode d'emploi ». C'est un drapeau de travail attaché au
+- 72: J'ai laissé les citations sans nom d'organisme (« est répandue dans les milieux aquatiques », « survit au fumage à froid… », « Seul un avertisseur de 
+- 38: §5 étape 16 : j'ai gardé « Coupon de transport et enregistrement : chapitres 21 et 34 ». C'est de la conformité administrative plutôt que de la tenue 
+- 38: §5 étape 12 et §6 Au pesage : j'ai gardé « Peser et étiqueter chaque pièce. Espèce, muscle, date, masse » et « Notée sur l'étiquette ». La masse est é
+- 38: §8 point 1 : j'ai gardé « Le diagnostic n'est possible que par analyse du cerveau et des ganglions… depuis plus de 12 mois ». Ce n'est pas une attribu
+- 38: §8 point 3 : en retirant l'OMS, « la quantité tolérée » n'a plus de référence explicite. Le fait (cent fois plus) reste, et la provenance est dans /su
+- ea: Le peson romain (section 9) : « La position d'équilibre se marque une fois sur la perche, avec la date et le poids : la perche devient la courbe de cr
+- ea: Le poids des enfants avec la date, sur le couvercle (Matériel, 5-A étape 7, ligne « Chaque automne » des points de contrôle) : gardé, parce que c'est 
+- ea: 5-A, étape 1 « Inventorier avant d'acheter » : j'ai gardé le fait de vider le coffre et de le passer produit par produit avant d'acheter, parce que c'
+- ea: La phrase sur les deux rotations par an (« convention de cet ouvrage… pas d'une source ») : je l'ai traitée comme une note de provenance et l'ai dépla
+- ea: La copie papier des ordonnances et du profil pharmacologique (Matériel) : gardée. C'est un document qu'on apporte, pas une tenue de livres.
+- ea: Des citations entre guillemets restent sans organisme nommé : « loin des sources de chaleur », « dans n'importe quelle pharmacie au Québec, à tout mom
+- ea: Gardés parce que ce ne sont pas des attributions : « rappel à jour selon le calendrier québécois » (tétanos) et « sauf sur avis de la santé publique »
+- ea: 6 L par personne : « dans la trousse officielle » -> « dans la trousse d'urgence ». Sans « officielle », on ne voit plus que c'est une réserve de 3 jo
+- ea: Danger 6, phrase méta gardée : « Cet avertissement est répété ici parce que c'est ici que le lecteur range ses tisanes à côté de ses médicaments. »
+- ea: Les seuils de fièvre « plus de 4 h » et « plus de 48 h » demandent de savoir quand la fièvre a commencé. Je n'ai rien ajouté pour l'écrire : c'est une
+- ea: Dans suivi/29-redaction.md, les notes existantes renvoient encore aux citations du Gouvernement du Québec et au registre ; je n'y ai pas touché, à par
+- ea: Gardé : l'étape 12 (révision chaque automne) et la ligne de contrôle « chaque automne, unités datées revues ». C'est l'entretien de la carte, qui est 
+- ea: Gardé : « écrire la date d'observation à côté de chaque unité datée » (§5 étape 5), la déclinaison avec sa variation et l'année dans le coin de la car
+- ea: Gardé : étape 1, « noter le temps et les kilomètres au GPS » pendant les sorties chronométrées. C'est une mesure qui sert tout de suite à tracer les c
+- ea: Gardé : l'itinéraire et l'heure de retour laissés par écrit au chalet (contrôles, signes d'échec, dernier paragraphe). C'est de la sécurité, pas de la
+- ea: Gardé : « Bulletin de la SOPFEU s'il y a du réseau » dans les points de contrôle. C'est un service qu'on consulte, pas une attribution, même si la SOP
+- ea: Gardés comme outils ou noms propres, pas comme attributions : le calculateur du Service géomagnétique du Canada, Forêt ouverte (foretouverte.gouv.qc.c
+- ea: Point de contrôle estran : « Aucun n'existe dans les sources consultées » → « Aucun n'existe ». L'affirmation est plus forte, mais elle rejoint ce que
+- ea: Photo des pistes coupée (matériel et étape 6) : c'était de l'archivage pour réinterpréter six mois plus tard. JP peut vouloir la garder comme aide à l
+- ea: Notes déplacées dans suivi/35-redaction.md : la phrase « aucune densité… n'a été obtenue d'une source officielle », « Ce trou est une limite de la doc
+- ea: « Rien ne rattache Trichinella au castor » est un peu plus affirmatif que « aucune source consultée n'associe ». La réserve d'origine est déplacée dan
+- ea: Gardés : Info-Santé 811 et la ligne rage 1 877 346-6763, qu'on appelle vraiment
+- ea: Gardé : « Le piégeage est réglementé au Québec. Périodes, engins et permis se lisent pour l'année en cours » (§5, intro). Ce n'est ni de la paperasse 
+- ea: Gardées telles quelles : les mentions « Aucune source officielle trouvée » à l'intérieur des marqueurs [À VÉRIFIER] (castoréum, échaudage de la queue,
+- ea: Gardés : les passages entre guillemets, sans le nom de l'organisme (« au moins 1 minute », « 10 à 15 minutes », les citations sur la glace et sur le 1
+- 68: Étape 2 : j'ai gardé la lecture quotidienne du min-max parce que c'est une mesure. Sans carnet, le « maximum de la semaine » de l'étape 3 tient sur la
+- 68: Étape 17 : l'étiquette « pièce, poids, date d'entrée » est gardée parce qu'elle s'écrit sur le paquet. Reste à voir si le poids sert vraiment
+- 68: Signe d'échec « glacière vidée bien avant la date des années précédentes » gardé : sans carnet, cette comparaison repose seulement sur la mémoire
+- 68: Pots de saumure : « écrire la valeur sur chaque pot » est gardé, parce que ça s'écrit sur la chose
+- 68: « Les seuils publiés » (10 et 12 cm) est gardé : aucun organisme n'est nommé, mais c'est un reste de provenance
+- 68: Des citations entre guillemets restent sans leur source (« Placez un thermomètre […] près de la porte », « Servez-vous de branches… », etc.). Elles se
+- 68: Renumérotation : suivi/68-redaction.md renvoie encore aux anciens numéros (ancienne étape 26, désormais 25). Je ne l'ai pas modifié
+- 48: J'ai traité le passage ACIA/71 °C comme une note de provenance et je l'ai déplacé sans le réécrire. Si JP veut que le lecteur sache qu'une valeur plus
+- 48: L'étape 16 (« Emballer, identifier, dater », avec OURS écrit sur le paquet) est gardée : ça s'écrit sur la chose, et c'est ce qui fait survivre la règ
+- 48: L'échantillon congelé, identifié et daté, est gardé parce que c'est un objet et pas un registre. Mais il suppose un laboratoire, ce qui heurte le prin
+- 48: §7 : « la date du repas, quel morceau, la liste de ceux qui en ont mangé » est gardé. C'est de l'information à donner au soignant, pas de la tenue de 
+- 48: Les formules « le livre n'a aucune source qui autorise… », « faute de source » et « le livre n'a aucune valeur » sont gardées : elles portent une cons
+- 48: Info-Santé 811 est gardé : c'est un service qu'on appelle. Le marqueur [À VÉRIFIER — USDA…] est gardé tel quel
+- 00: « Cette page ne suit pas le gabarit du livre » parle du projet plutôt qu'au lecteur. Je l'ai gardé, et il n'y a pas de suivi/00-redaction.md
+- 00: Bloc 4 : le marqueur [À VÉRIFIER — à mesurer et à écrire sur la fiche] est gardé tel quel. Il renvoie pourtant à une fiche à remplir : à réécrire quan
+- 00: Bloc 4 : la transformation ne garde que l'heure de l'accident et celle du garrot. La série d'observations horaires disparaît. Le ch. 27 peut encore de
+- 00: Tableau du seuil : « plan écrit » est gardé. C'est un plan préparé d'avance, pas un registre, mais le mot « écrit » pourrait sauter
+- 00: « En saison, la SOPFEU publie le niveau de danger… » est gardé comme service qu'on consulte (au même titre que Québec 511), pas comme attribution. Le 
+- 62: §9 : « Ça se mesure la première fois, en pesant le sel obtenu et en comptant les brassées brûlées » (rendement de l'évaporation au feu). Gardé parce q
+- 62: Les trois nombres sur le bac restent non négociables : le ch. 63 juge la fin de salaison sur la perte de masse, et le §7 jette un lot qu'on ne peut pl
+- 62: Remarques sur l'état des sources gardées parce qu'elles ne nomment aucun organisme : étape 5 « Le livre n'a pas retrouvé de disposition canadienne », 
+- 62: Des citations officielles restent entre guillemets, sans nom de source. C'est conforme à la règle, mais elles se lisent encore comme des citations
+- 73: Barème recopié à la main : gardé parce que c'est la référence de la procédure, pas un registre
+- 73: Étape 24 : l'étiquette du pot garde ses cinq champs (aliment, espèce, date, barème, voie). Elle est sur la chose elle-même, et le §7 juge un pot sur c
+- 73: OMS retirée deux fois de la fin d'une citation sur le cadmium (« …que la quantité tolérée »). À remettre si JP la voit comme un repère et non comme un
+- 73: Gardé parce que ce sont des remarques sur l'état des sources, pas des attributions : « aucune page officielle canadienne n'en donne » (ligne Livret) e
+- 73: Ruban sur la poignée de l'autoclave : l'endroit est à valider, la chaleur peut le décoller
+- 73: La citation anglaise « attainable with pressure canners operated at 10 to 15 PSIG » reste, sans source nommée
+- 58: Le système SOURCÉ / NON SOURCÉ affiche la provenance dans le livre, ce que CLAUDE.md exclut : bandeau ⚠ de tête, colonne État de chaque fiche et du ta
+- 58: « le projet » et « ce projet » restent dans des phrases adressées au lecteur (§8 points 1 et 4, 9-D, 9-E) : c'est du vocabulaire interne, « ce livre »
+- 58: Étiquette réduite à trois champs. Si JP veut garder la station, pour jeter les pots d'une station qui s'avère polluée, elle se remet
+- 58: Incohérence déjà présente, non touchée : le chapeau du tableau 3 dit « Aucune ligne n'a de source officielle », alors que l'herbe à puce et la berce y
+- 58: Gardés parce que ce sont des outils d'identification et de récolte, écrits sur la chose elle-même : l'herbier en 9-C (nom, nom latin, station, mois au
+- ea: Ligne de tableau « Fin de séance / masse » coupée avec son drapeau « Perte visée [À VÉRIFIER] ». Le drapeau n'est plus dans le chapitre mais il est re
+- ea: Étape 17 : j'ai gardé « la lire au thermomètre chaque heure ». C'est une mesure qui décide sur le moment d'éteindre ou non, pas un relevé.
+- ea: Étiquette réduite à 4 mentions. Date de sortie gardée pour la limite de 14 jours ; gel antiparasitaire gardé parce qu'il décide si le poisson peut se 
+- ea: Le feutre reste « Non » négociable : le texte justifie encore pourquoi une pièce non marquée devient ambiguë. Cela dit, la règle « pièce non marquée =
+- ea: Étape 1 : le chapitre renvoie maintenant aux critères de fin de salaison des ch. 63 et 64. Je n'y ai pas recopié le critère de fermeté au pouce du ch.
+- ea: Des citations entre guillemets, sans organisme nommé, restent : CO « ne se voit pas et ne se sent pas », « seul un avertisseur […] », « répandue dans 
+- ea: « Le avant ou après est la seule souplesse accordée » (étape 3) sous-entend encore une autorité. Je l'ai gardé. — **Réglé le 24-09 (ch. 65, passe légal et signes) : « accordée » retiré ; la phrase dit « la seule souplesse, et elle est utile ».**
+- ea: « la quantité tolérée par l'OMS » est devenue « la quantité tolérable » : le sens se déplace un peu.
+- ea: Dans suivi/65-redaction.md, en plus des deux notes déplacées telles quelles, j'ai ajouté la provenance des attributions retirées et la ligne de tablea
+- ea: Étape 16 : j'ai gardé le mois de prise marqué sur la peau. Selon le texte, c'est la seule mention qui sert une vraie décision : quelle peau va à la bo
+- ea: Étape 2 : « un repère qui se voit de la piste » est une reformulation de « avec son repère ». Je n'ai ajouté ni matériau ni chiffre.
+- ea: Étape 18 : « peser, étiqueter » la viande avant le congélateur est gardé. Ce sont une mesure et une marque sur le paquet, pas un registre.
+- ea: Gardés parce qu'ils sont hors du champ de cette passe, mais contraires au test « personne à appeler » : « on signale au bureau régional de la faune » 
+- ea: Fin du §9 : « la date et l'endroit écrits dessus » sur la bête qui a mordu est gardé. C'est écrit sur la chose même et ça sert la décision sur la rage
+- ea: « aucune page officielle ne les nomme » est devenu « on ne les nomme pas d'habitude » : léger glissement de sens.
+- ea: « De l'avis général des piégeurs » (lynx comestible, [À VÉRIFIER]) est gardé : ce n'est pas un organisme.
+- ea: Des citations entre guillemets, sans organisme nommé, restent (trichine, rage, échinococcose, chien) ; à JP de décider s'il faut les dé-guillemeter.
+- ea: Dans suivi/51-redaction.md, en plus de la note déplacée telle quelle, j'ai ajouté la provenance des attributions retirées, pour qui vérifie.
+- 34: La baguette à encoches et le piquet du solstice (section 9) sont gardés. Ils servent à savoir quel jour on est, pas à tenir des comptes. Si JP y voit 
+- 34: « Bilan : inventaire contre le nombre de jours jusqu'au printemps » (décembre, tableau mois par mois) est gardé : c'est un comptage qui sert à décider
+- 34: La date écrite à la main sur les brochures de réglementation (matériel, 5.1, section 6, section 7) est gardée : elle est écrite sur la chose. Le rende
+- 34: L'enregistrement du gibier dans les 48 h est gardé : c'est une obligation légale, pas de la tenue de livres
+- 34: Incohérence de chiffre, non touchée : la cible de la section 6 donne ≥ 12 cm pour la motoneige et dit en même temps que le livre retient la valeur la 
+- 34: « Aucune durée n'est publiée pour du poisson fumé gardé à température ambiante » (sections 6 et 8) est gardé tel quel : ça dit ce qu'on ne sait pas, s
+- 34: Aucune note interne dans ce chapitre, donc rien de déplacé dans suivi/34-redaction.md
+- 16: La SOPFEU est gardée partout où elle désigne l'outil qu'on consulte : l'indice de danger (section 2, 5B, section 6), la carte des feux (5C.1, section 
+- 16: Le seuil de départ écrit sur la porte est gardé, sans fiche ni signature : c'est un engagement pris à froid contre le penchant à rester, qui sert une 
+- 16: 5A.11 « Photographier le bâtiment et son contenu, pièce par pièce, une fois par année » est gardé, avec la ligne de la section 6 (1 jeu de moins de 12
+- 16: Le mot daté en double laissé à la porte au départ (5F.7) est gardé : c'est un message pour ceux qui chercheront, écrit sur la chose, pas un registre
+- 16: « Au chalet personne ne le fera à la place de JP » (5J.5) est gardé : c'est le lecteur, pas une note au projet
+- 16: suivi/16b-redaction.md n'existait pas. Je l'ai créé avec un en-tête minimal et la section « Notes retirées du chapitre — 23 septembre 2026 », qui cont
+- 16: La phrase « La carte de la SOPFEU sert à ça : « consulter la carte de la SOPFEU pour planifier les déplacements » » tourne en rond. Laissée telle quel
+- ea: §3 : j'ai gardé « Un stock est un système d'inventaire avant d'être un tas de boîtes ». Le paragraphe parle de l'oubli, mais la formule appelle la ten
+- ea: §5.1, point 3 : j'ai gardé la cible de 30 jours d'autonomie calculée et « le calcul est ce qui le rend visible avant la panne ». Sans registre ni fréq
+- ea: §5.6 : j'ai gardé « compter les rangées vides à la fonte, bûcher ce total plus une corde ». C'est une mesure qui sert la saison suivante. Sans elle, l
+- ea: Calories écrites sur le couvercle de la chaudière (transformé à partir du registre) : ça sert au rationnement, mais c'est une écriture de plus. À coup
+- ea: Numéros d'urgence : l'endroit, « à l'intérieur de la porte du local », est mon choix. Avant, ils vivaient dans le registre.
+- ea: En retirant la ligne d'inventaire du §6, on perd aussi le contrôle « aucun poste sous 50 % / racheter avant de repartir ».
+- ea: §5.1 : j'ai gardé le « Fichier canadien sur les éléments nutritifs » comme outil de consultation plutôt que comme attribution. C'est une base en ligne
+- ea: Tableau E : les classes M20, D2 et D5 du bois de chauffage sont des désignations de norme. C'est hors de cette passe, mais CLAUDE.md interdit tout num — **Réglé le 23-09 (ch. 8, passe légal et signes) : désignations retirées, « ≤ 20 % » et « 5 cm et moins » restent.**
+- ea: §5.2 : j'ai laissé entre guillemets, sans nom de source, la citation « les solvants peuvent devenir volatils… ». Tableau A : j'ai laissé « Plancher of
+- ea: « * (chapitre 73)* » était probablement le reste d'une ligne de sources coupée. Mon remplacement, « Conserves maison : chapitre 73 », est à confirmer.
+- ea: Le bâton à encoches planté à la descente du canot (une encoche par engin à l'eau) est parti avec le carnet, dont il était le substitut. Si JP veut gar
+- ea: §9 : sans le carnet, le risque « engin fantôme quand la famille lève le camp » reste couvert par le démontage de l'ouverture et la dragage le jour mêm
+- ea: Citations laissées entre guillemets, sans nom d'organisme : §5, étape 15 (« Une température interne minimale de 70 °C… ») ; §8.1 (chiffres de noyade, 
+- ea: §2 : le passage sur la légalité (la possession d'un verveux est une infraction) est gardé comme contenu. Seule la parenthèse « (règlement du Québec) » — **Réglé le 23-09 (ch. 56, passe légal et signes) : passage retiré au complet, avec les autres mentions de la loi au §2, au §3 et au §9.**
+- ea: Les marqueurs de type `[À VÉRIFIER — non sourcé]` sont gardés tels quels, parce que ce sont des drapeaux de travail.
+- ea: Étape 4 : j'ai gardé la date sur le gabarit parce qu'elle mesure la croissance de l'enfant pour tailler la paire suivante. JP pourrait y voir de la st
+- ea: Étape 69 : j'ai gardé « marquer chaque pièce au nom », qui s'écrit sur la chose et sert à trier les mitaines des deux enfants.
+- ea: §5-C, étape 11 et §9, doublure feutrée : j'ai gardé « Aucune valeur en millimètres n'est publiée ici » et « Aucune température de lavage n'est publiée
+- ea: Citations laissées entre guillemets, sans nom d'organisme : sur le coton (§3 et étape 44) et sur la mortalité du tétanos (§8.3).
+- ea: §8.3 : « gants à usage unique » est gardé tel quel. C'est hors de cette passe, mais c'est une consigne qui suppose un magasin.
+- ea: Info-Santé 811 est gardé, parce que c'est un service qu'on appelle et non une attribution.
+- 33: Étape 4 : l'enfant de 6 ans qui écrit la température dans son cahier servait peut-être aussi d'exercice d'écriture. Je l'ai coupé comme relevé quotidi
+- 33: Étape 50 et §6 : le point hebdomadaire entre adultes reste, sans cahier ni écorce. L'argument « une dégradation lente se voit d'une semaine à l'autre 
+- 33: Étape 9 : j'ai écrit le poids sur le montant de porte, puisque le contrôle hebdomadaire du poids (§6, envoi au ch. 26) a besoin d'un chiffre de départ
+- 33: Gardés sans hésiter, mais signalés : « inscrire sur le calendrier la date à laquelle on décide de sortir » (§9, le 811). C'est écrit sur la chose et ç
+- 33: Hors de mon mandat, mais le lecteur de CLAUDE.md le verra : l'étape 5, « Écrire la liste de ce qu'un enfant ne fait jamais, et l'afficher », ressemble
+- 36: §9 Mesurer sans sonde : j'ai coupé la colonne d'heures et de températures de l'air. Elle servait bien une décision (la destination des quartiers), mai
+- 36: Étape 18 : sans noter les lectures, la « descente franche » du contrôle à 2 à 4 h se compare de mémoire entre deux chiffres. J'ai jugé que ça suffisai
+- 36: Gardés parce qu'écrits sur la chose et utiles à une décision : l'étiquette du quartier (espèce, chasseur, date, ce qui a cloché, étape 21), « Noter ce
+- 36: Hors de mon mandat (c'est de la conformité, pas de la tenue de livres) : l'étape 4 et le §6 « Bête marquée » (apposer ce que la réglementation demande
+- 36: J'ai laissé les citations entre guillemets qui ne nomment aucun organisme (§8 cadmium, trichinellose, tétanos, prion, étapes 16 et 17, tableau « Ce qu
+- 09: §5.3 : la fiche de suivi du ch. 9 disait que le tableau des sources de l'eau « ne doit pas être réduit à une ligne à la mise en pages ». Je l'ai rempl
+- 09: §8 génératrice : « 6 mètres (20 pieds) ». J'ai gardé l'impérial entre parenthèses. Ce n'est pas une dimension de construction (règle 3 de CLAUDE.md), 
+- 09: J'ai laissé les citations entre guillemets qui ne nomment aucun organisme : la javel en §5.3 (« À l'aide d'un compte-gouttes propre… ») et l'ébullitio
+- 09: « Numéros à inscrire » : la date de vérification (20 septembre 2026) est passée au suivi, où une note demandait déjà de revalider les numéros si l'imp
+- ea: J'ai créé suivi/00b-redaction.md, qui n'existait pas, pour y déposer la note retirée. C'était la fin de la cellule du sel iodé, sur les deux chapitres
+- ea: Gardé : le thermomètre enregistreur (2.A) et « Une année de relevés est la condition d'entrée des chapitres 63 et 76 ». C'est un relevé sur un an, don
+- ea: Gardé : le paragraphe « Les quantités. Celles qui portent une source sont des quantités… un chiffre plausible non sourcé est une erreur ». Il ne nomme
+- ea: Gardé : les mentions datée, datés, étiquetés au marqueur, date de récolte et valeur écrite sur la carte. C'est de l'écriture sur la chose elle-même.
+- ea: Gardé : « Consommation mesurée de l'hiver précédent + 1 corde ». C'est une mesure, pas un registre.
+- ea: Gardé : les citations entre guillemets qui ne nomment aucune source (gants jetables, « Arrosez abondamment… », « Un feu de forêt peut restreindre… », 
+- ea: Gardé, hors de cette passe : « Ne se prend que si la santé publique le demande » (iodure de potassium). Ce n'est pas une attribution, mais la phrase s
+- ea: Gardé : la liste courte écrite, dessinée et affichée, les planches par espèce, la liste des espèces refusées (§ 5-A, étape 4) et le spécimen pressé at
+- ea: Gardé : le point de contrôle « Chaque semaine : total pesé, 250 g maximum ». Il suppose un compte hebdomadaire, mais c'est le seul plafond de sécurité
+- ea: Tableau Vocabulaire : j'ai retiré « (Québec) », mais le titre « aucun de ces noms n'est validé par une source officielle » et la colonne État (Sourcé 
+- ea: Gardé : les citations entre guillemets qui ne nomment plus aucune source, et « (définition du litre) » et « (définition de l'échelle Celsius) ».
+- ea: Gardé tels quels : les [À VÉRIFIER] qui contiennent « page officielle » ou « source officielle captée ». Ce sont des drapeaux de travail.
+- ea: Bloc 5 : la fiche 45 (point 7) disait que le rédacteur refusait d'écrire « mortel en 2 à 3 semaines » comme un fait, en attente d'arbitrage. J'ai gard
+- ea: « on note l'endroit » (bloc 2) voulait peut-être dire « retenir ». La conduite « ne plus prélever dans ce secteur-là » reste.
+- ea: Gardé : les étiquettes « plombs retirés » et « plombs non vérifiés », et la date sur le confit. C'est de l'écriture sur la chose.
+- ea: Gardé : le numéro du Réseau canadien pour la santé de la faune (1-800-567-2033). C'est un service qu'on appelle.
+- ea: Gardé : les citations entre guillemets sans nom (« Conservez la viande fraîche… », « Gardez toute viande congelée… », « Insérez le thermomètre… »).
+- ea: J'ai réparé au passage une coupure de ligne fautive dans le bloc 3 (« en évitant les os » suivi d'une ligne qui commençait par « , et »).
+- 52: Compas, colonne Substitution : « en notant l'heure à chaque changement » de cap. Gardé : c'est de la navigation à l'estime pour rentrer dans la brume,
+- 52: Section 7, bête échouée : « on note l'endroit, et on ne passe plus par là ». Gardé : ça veut dire retenir l'endroit pour l'éviter, pas l'écrire.
+- 52: Étape 27 « Identifier chaque contenant : espèce, date, usage prévu (table ou lampe) ». Gardé tel quel : c'est déjà écrit sur la chose et ça sert à une
+- 52: Des tournures de dossier restent à côté des [À VÉRIFIER] : « aucune source officielle retrouvée » (champ 4), « aucune source » (champ 5), « la seule v
+- 52: Le « côté papier » fédéral (section 2 et champ 3 : le phoque se « pêche », il relève du fédéral) n'a pas été touché : c'est de la réglementation, pas  → **Tranché (passe légal et signes, 23 sept.) : retiré** — paragraphe de la section 2 et champ 3 coupés, texte d'origine dans suivi/52-redaction.md.
+- 52: Les citations entre guillemets (sur Trichinella, le botulisme, l'éviscération, le « réflexe de la nage ») sont gardées sans nom d'organisme. Elles sen
+- 52: La note de relecture externe (chasseur de phoque avec permis, second avis en salubrité) est maintenant seulement dans suivi/52-redaction.md. Le chapit
+- 26: Pesée hebdomadaire : gardée comme mesure qui décide de la ration, seul le carnet devient un chiffre au crayon sur le cadre de porte. Si JP juge que mê
+- 26: Matériel « Tasses et cuillères à mesurer, avec une table de masses écrite au mur » : gardé, c'est un outil de mesure fait une fois pendant que la bala
+- 26: Matériel « Les chiffres de la section 5 recopiés à la main et affichés dans la cuisine » : gardé (fiche de référence, pas un registre), mais c'est une
+- 26: Point de contrôle « Au tiers et aux deux tiers de l'hiver : inventaire du garde-manger contre le calendrier » : gardé, c'est un comptage fait au momen
+- 26: Les termes ANR, AS, AMT et ÉVAM sont gardés : ce sont des notions de nutrition, pas des noms d'organisme. ANREF est retiré partout où il servait de so
+- 26: Le marqueur de la ligne vitamine D contient encore « à faire fixer par le relecteur » : laissé parce que les marqueurs [À VÉRIFIER] ne se touchent pas
+- 26: Incohérence repérée, non corrigée : la section 3 dit que « actif » = 60 minutes d'activité modérée par jour, la section 5.1 dit 30 minutes. Un des deu
+- 26: La recommandation de passer le chapitre 8 de 9 000 à 9 500 kcal/jour ne vit plus que dans suivi/26-redaction.md. Le paragraphe du chapitre dit toujour
+- 13: Aucune tenue de livres trouvée dans ce chapitre. Tout ce qui s'écrit est déjà sur la chose elle-même et sert une décision : nombre de gouttes écrit su
+- 13: « Analyse en laboratoire, 2 microbiologiques + 1 chimique par année » (matériel et points de contrôle) n'est pas de la paperasse, mais suppose un labo
+- 13: Beaucoup de citations entre guillemets restent sans nom d'organisme (avis d'ébullition, CT du chlore, turbidité, plomb, CO, nitrates). Elles se lisent
+- 13: Plusieurs [À VÉRIFIER] contiennent « aucune source officielle canadienne trouvée » ou « source officielle à joindre » : gardés tels quels, ce sont des
+- 13: « Réserve visée, deux chiffres officiels qui ne mesurent pas la même chose » (étape 24) : gardé, ne nomme personne.
+- 13: Le paragraphe d'arbitrage d'origine est copié mot pour mot dans suivi/13-redaction.md, avec la liste des provenances retirées (Québec Tularémie, INSPQ
+- ea: J'ai gardé la fiche de décision : la ligne du matériel, le tableau des valeurs et ses renvois aux étapes 3 et 5, aux points de contrôle et à la sectio
+- ea: J'ai gardé « on écrit quatre chiffres sur du papier » (étape 3), « quatre mesures écrites » (section 1), « Écrire l'heure et les quatre chiffres » (si
+- ea: J'ai gardé l'heure de la prochaine décision sur le papier collé à la porte et le mot daté sur la porte : c'est écrit sur la chose.
+- ea: J'ai gardé la SOPFEU dans la section feu de forêt. C'est le service qu'on consulte pour la situation du jour, comme Québec 511, Hydro-Québec ou Urgenc
+- ea: Il reste des citations entre « » de pages officielles, sans nom d'organisme : réfrigérateur 4 à 6 h, congélateur 48 h, « au moins 18 °C », « une dizai
+- ea: J'ai gardé « la distance notée au chemin plutôt qu'au compteur » (section 9) : c'est une façon de mesurer pour remplir la fiche.
+- ea: J'ai gardé « il n'existe aucun seuil officiel d'évacuation » : c'est un fait, pas une attribution.
+- ea: J'ai gardé le cahier de cueillette (matériel, noté Non négociable), le « croquis au carnet » de 5-A.6 et « le carnet » dans l'intro de la section 9. L
+- ea: J'ai gardé les étiquettes à six champs, le point de contrôle « 6 champs sur 6 » et « six champs » à la section 9 : elles sont écrites sur la botte ou 
+- ea: J'ai gardé 5-C.6, « Faire le tour des pots une fois l'an, aux mêmes dates que la rotation du stock (ch. 8) ». C'est un contrôle à l'odeur, pas de l'éc
+- ea: Le retrait de la colonne État est le plus gros changement de ce chapitre. Le détail ligne par ligne est intact dans suivi/30-redaction.md : sourcé ou 
+- ea: Le renvoi du saule vers le tableau 2 pointe vers un tableau qui ne contient pas le saule. L'erreur existait déjà ; je ne l'ai pas corrigée.
+- ea: Il reste des citations entre « » de pages officielles, sans nom d'organisme : urushiol, anaphylaxie, fumée d'herbe à puce, « 24 heures sur 24 ».
+- ea: J'ai gardé tels quels « [À VÉRIFIER : aucune distance officielle captée] » et « [À VÉRIFIER : aucune température de séchage sourcée] » : ce sont des d
+- ea: J'ai coupé le carnet de secteurs : c'est un carnet pour la saison prochaine, que le tableau présentait comme « le seul item qui prend de la valeur cha
+- ea: J'ai coupé la photo avec le carnet (fruit inconnu, point de contrôle), parce que c'était le geste de la fiche d'espèce inconnue. Au sens strict, une p
+- ea: Route 4 : j'ai changé « à mesurer » en « à surveiller » pour ne pas sous-entendre un suivi écrit sur plusieurs années. Ce n'était pas une mesure faite
+- ea: J'ai gardé les étiquettes et le crayon indélébile (Non négociable), « Étiqueter espèce et date » et « étiqueter, dater » : c'est écrit sur le pot.
+- ea: Il reste des citations entre « » sans nom d'organisme : échinocoque, botulisme, « ralentissent la pénétration de la chaleur », « Ne donnez jamais… à v
+- ea: Il y avait déjà des retours de chariot isolés au milieu des lignes 12, 201, 449 et 492. Je n'y ai pas touché.
+- ea: J'ai gardé tel quel « [À VÉRIFIER — aucune source officielle canadienne obtenue] » dans l'encadré DANGER : c'est un drapeau de travail.
+- 05: §9 « Sans thermomètre » : j'ai transformé la série de respirations (chiffre écrit sur la porte) au lieu de la couper, parce que la décision d'appeler 
+- 05: §6 : j'ai gardé les deux recomptes hebdomadaires (jours de vivres ÷ jours annoncés, jours d'ordonnance restants). Ce sont des mesures qui déclenchent 
+- 05: Étape 5 (compter l'autonomie en jours, poste par poste) : gardée, parce que c'est un calcul fait une fois avant de fermer
+- 05: Étape 3 : la feuille coupée donnait aussi la dose de chacun. C'est l'étiquette de la pharmacie sur le flacon qui la porte déjà
+- 05: Étape 2 « Liste écrite d'avance » pour la dernière sortie : gardée, parce qu'elle sert pendant la sortie elle-même
+- 05: J'ai retiré le « (calcul) » après les 70 % de l'alcool coupé. C'est une étiquette de provenance, pas un organisme
+- 05: Le drapeau « [À VÉRIFIER — aucune source officielle ne chiffre l'aération fractionnée] » est gardé tel quel
+- 74: La date de gel est le cas le plus limite de la passe. Je l'ai coupée parce que c'est une statistique « pour la saison prochaine » tenue sur trois ans.
+- 74: Étape 1 (noter l'heure où le soleil frappe le site et celle où il le quitte, en juillet et en août) : gardée, parce que c'est une mesure qui décide du
+- 74: « Règle d'atelier, non sourcée » apparaît cinq fois (étapes 14, 18, 30, §9 lecture des plantes, §9 démarrage sans lampe). C'est une étiquette de prove
+- 74: J'ai laissé les formules « publié(e) » / « le livre n'en invente pas » quand elles ne nomment aucune source (étape 25, §9 « Aucune dose n'est publiée 
+- 50: Le 1-800-567-2033 et le nom du Réseau canadien pour la santé de la faune sont gardés : c'est un service qu'on appelle, pas une attribution
+- 50: §8 point 5 : j'ai gardé que l'extension du seuil de 3 °C à la sauvagine est une prudence du livre, parce que ça dit au lecteur le niveau de certitude.
+- 50: Étape 12 : j'ai gardé « les chiffres qui circulent sortent de blogues », un avertissement au lecteur plutôt qu'une attribution
+- 50: Les mêmes consignes de l'ECCC reviennent plusieurs fois (signes, gants, Javel, chien). Chaque mention retirée compte pour une, d'où le total élevé
+- 42: Étape 1 « Écrire la liste sur un carton » (l'ordre de traitement de la cinquième part) : gardée. C'est un plan de travail qui sert dans les heures qui
+- 42: Matériel « Étiquettes et crayon indélébile » et « Rincer, refroidir, étiqueter » (étape 6) : gardés, parce que l'écriture se fait sur la chose elle-mê
+- 42: §7 « Signal à retenir sur l'état du troupeau [À VÉRIFIER] » : gardé. C'est une observation, pas une consigne d'écrire
+- 42: Hors mandat, pour le vérificateur technique : ce chapitre (étape 4) renvoie au chapitre 63 pour la conversion salpêtre / sel nitrité, alors que le cha
+- ea: Section 9, « La carte de six lignes » écrite au crayon et clouée près de la porte : je l'ai gardée. C'est un aide-mémoire à lire, pas un relevé à remp
+- ea: Points de contrôle, la ligne « Une fois l'an » (vérifier que les fiches au mur correspondent au livre) : gardée, parce que rien ne s'y écrit, mais ell
+- ea: Champ 3 : les noms « Québec, secteur Faune », « ECCC » et « MPO » sont gardés. Ils disent qui fait la règle, c'est le contenu même du champ, et non un
+- ea: Gardés, parce qu'aucun organisme n'y est nommé : « ne bougent que si une source officielle bouge » (section 3), « L'apport de référence canadien » (5-
+- ea: 5-H : gardé « Le guide québécois du poisson de pêche sportive en eau douce n'a pas été retrouvé », qui explique un `[À VÉRIFIER]`. C'est un état de re
+- ea: Signes d'échec : la ligne « chiffre sans source entre parenthèses » a été déplacée au suivi et non réécrite. Une fois les sources retirées, elle aurai
+- ea: Fait remarqué en passant, sans y toucher : pour le tétras du Canada, le sens « Falcipennis, anciennement Canachites » est peut-être inversé, les liste
+- ea: Gardé : « publié quotidiennement par Pêches et Océans Canada » (secteur coquillier). C'est le service qu'on consulte pour décider, donc un outil et no
+- ea: Gardées : les citations entre guillemets qui ne nomment aucun organisme (Clostridium « répandue dans les milieux aquatiques », « Même un bon nageur… »
+- ea: Épaisseur de glace : « voire 25 cm » reste ambigu (à pied ? en motoneige ?), comme dans l'original. Le drapeau `[À VÉRIFIER]` est gardé.
+- ea: Encadré, phycotoxines : la phrase qui refuse de dire si la cuisson détruit la toxine est gardée. Si la vérification confirme que la toxine paralysante
+- ea: Gardés, parce que ce sont des gestes faits sur la chose même ou des mesures prises au moment de s'en servir : l'écart du thermomètre écrit au ruban su
+- ea: Étape 11 et points de contrôle : « poids en grammes sur l'étiquette, avec la date et le nom de la pièce » et la mention « ours » sur le paquet sont ga
+- ea: Étape 2, la station d'enregistrement : gardée. C'est une démarche légale, pas de la tenue de livres, et elle est déjà conditionnelle (« tant qu'il y a
+- ea: Gardées, faute d'organisme nommé : les citations sur le cadmium (« Ne mangez pas le foie… »), sur la génératrice (« au moins 6 mètres ») et sur le CO 
+- ea: Variante d'urgence, « on marque le bâton pour les fois suivantes » : gardé, parce que c'est la graduation d'un outil et non un registre.
+- ea: Gardé : Centre antipoison 1 800 463-5060 et 9-1-1, des outils et non des attributions.
+- ea: Point de contrôle « aucun avis d'interdiction en vigueur » (feu dehors) : gardé, parce que ce n'est ni de la paperasse ni une attribution. Il suppose 
+- ea: Gardées, faute d'organisme nommé : les citations sur l'hypothermie (« manque de coordination », « jugement affaibli »), sur les cendres (contenant mét
+- ea: Les 35 et 175 ppm étaient des valeurs d'exposition au travail (VEMP, VECD). J'ai gardé les chiffres sans les sigles. Ce sont des seuils de conformité 
+- 54: Section 3 : « le guide québécois de consommation du poisson de pêche sportive n'a pas pu être obtenu, donc ce livre n'écrit aucun seuil… `[À VÉRIFIER]
+- 54: La brochure de réglementation de l'année reste partout (matériel non négociable, 5-A 1, appâts, nombre de lignes). Elle n'entre pas dans le mandat de  — **Réglé le 23-09 (passe légal et signes) : ligne Brochure retirée du §4, ancienne étape 5-A 1 supprimée, toutes les mentions de brochure, de nombre de lignes et de règles d'appâts retirées (§4, §5-D, §5-E, §6, §7, §9-C). La peau sur la chair reste, pour le mercure.**
+- 54: « Note écrite sur la table » et étape 5-A 4 (dire où on va, à quelle heure on rentre) : gardées. C'est ce qui déclenche une recherche, pas de la tenue
+- 54: Plusieurs citations entre guillemets restent sans nom d'organisme (neige isolante, vent en km/h, 1-10-1, CO, CNESST sur l'hypothermie). Aucune attribu
+- 54: « la seule voie officielle est la congélation » et « les deux seules congélations officielles » : l'adjectif est gardé, aucun organisme nommé.
+- 70: Étape 31, étiqueter chaque paquet (espèce, date, poids, destination) : gardée, puisque l'écriture est sur la chose elle-même. Le poids est peut-être d
+- 70: « Preuve du protocole antiparasitaire » (points de contrôle, étape 34, section 9) : gardée. C'est la lecture du thermomètre à demeure, pas un registre
+- 70: « lecture au moins une fois par jour à bord » (points de contrôle) : gardée comme une mesure, rien ne dit de l'écrire.
+- 70: La brochure de réglementation de l'année reste en renvoi (étapes 8 et 18). Hors mandat. — **Réglé le 23-09 (passe légal et signes) : ancienne étape 8 supprimée, « si la réglementation le permet » et « ni pour la réglementation de l'année » retirés.**
+- 70: Les citations sans nom d'organisme restent entre guillemets (« Éviter de consommer… », « Congelez les aliments… », « Il est recommandé de ne pas le co
+- 14: DANGER, botulisme : le drapeau « [À VÉRIFIER — chiffre tiré du tableau de sécurité du projet, page officielle à enregistrer au ch. 72] » contient une 
+- 14: DANGER CO : « En milieu de travail, la VEMP est de 35 ppm, la VECD de 175 ppm, et le seuil de danger immédiat… 1 200 ppm ». Ce sont des valeurs de con — **Réglé le 23-09 (passe légal et signes) : VEMP et VECD retirées ; restent le seuil de danger immédiat (1 200 ppm) et les maximums dans une maison.**
+- 14: « Un avertisseur de CO homologué n'a pas l'obligation de sonner avant 30 jours à 30 ppm » : gardé, c'est un mécanisme utile même s'il parle de norme. — **Réglé le 23-09 (passe légal et signes) : devient « est fait pour rester muet 30 jours à 30 ppm », sans « homologué » ni « obligation ».**
+- 14: Tout ce qui s'écrit au crayon gras sur la bouteille est gardé : masse à vide, masse pleine, « fuite », bouteille périmée, consigne d'usage (« déjeuner — **Réglé le 23-09 (passe légal et signes) pour la bouteille périmée seulement : l'étape du collet et de la requalification est supprimée (règle de requalification). Le reste du crayon gras est gardé.**
+- 14: Pesée hebdomadaire des bouteilles et relevé horaire de la pièce chaude les 6 premières heures (points de contrôle) : gardés comme mesures, rien ne dit
+- 14: Étape 22 : « Le nouvel horaire s'écrit au mur » pour les enfants est gardé. Ce n'est pas un registre, mais ça frôle le conseil parental ordinaire.
+- 83: Aucune paperasse trouvée dans ce chapitre. « Étiqueté au couteau sur le métal » (bidon) et « bougies, filtres et joints stockés par machine, étiquetés
+- 83: Les trois passages CCHST/CNESST sont à la fois des attributions et des notes pour le vérificateur. Je les compte dans les attributions retirées ; ils 
+- 83: DANGER 3 : « La règle du livre, répétée ici parce qu'on ouvre un livre à une page : » fait écho à CLAUDE.md, mais s'adresse au lecteur. Gardé.
+- 83: Les renvois « manuel de l'appareil » (écartement de bougie, réglages de carburateur, rapport de mélange) supposent qu'on a encore le manuel. Hors mand
+- 83: Quelqu'un doit vérifier que l'échelle d'abattage (1/3 du diamètre, 22,5 m) est bien la valeur retenue maintenant que la justification « la plus pruden
+- ea: J'ai gardé l'« inventaire d'automne » (§2) et les lignes « Septembre, inventaire » du §6 (couverture la plus courte, sel contre poids de viande). Elle
+- ea: Sans le carnet, « consommation quotidienne mesurée » (5.2), « consommation mensuelle observée » (famille 3) et « durée de vie mesurée » (famille 2) ne
+- ea: Deux idées sont parties avec le tableau du carnet : « un article qui n'a pas bougé en douze mois est une immobilisation » et « ce qui s'est vidé en pr
+- ea: La liste des échéances sur la porte du rangement est la seule coupe limite. Je l'ai coupée parce que la date est déjà écrite au marqueur sur chaque ar
+- ea: DANGER : j'ai gardé la citation « 100 fois la quantité tolérée par l'Organisation mondiale de la santé ». L'OMS y sert d'étalon de la mesure, pas de s
+- ea: Le §6 garde la citation « Chaque mois, vérifiez vos avertisseurs… » entre guillemets. Elle ne nomme plus aucun organisme, mais les guillemets sentent 
+- ea: Gardé avec son drapeau : « [À VÉRIFIER] : aucune source ministérielle, les chiffres qui circulent sont commerciaux » (essence). C'est une note sur l'é
+- ea: Beaucoup de citations entre guillemets restent en place sans nom d'organisme. Elles se lisent comme des citations venues de nulle part. On pourrait le
+- ea: Gardées avec leur drapeau [À VÉRIFIER] : trois phrases sur l'état des sources. Étape 2 : « Ce livre ne publie aucune profondeur… la donnée n'est pas d
+- ea: Gardé : la lecture quotidienne du thermomètre du plancher (§6, automne et hiver). On lit et on agit sur-le-champ, en fermant les registres ; rien ne s
+- ea: Gardé : « Elle se relève sur le terrain même » (étape 2). C'est la mesure de la profondeur de gel, pas une écriture.
+- ea: Hors du mandat de cette passe, mais contraire à CLAUDE.md : « Masque qui filtre les fines particules (N95) » (§4 et §8) porte une désignation de norme
+- ea: Gardé à l'étape 9 : « reporter chaque arbre sur un croquis du secteur (ch. 35) ». C'est du papier, mais c'est une carte pour retrouver les arbres sous
+- ea: Gardé à l'étape 23 : « Compter la consommation en cordes, pas en brassées, et empiler à part ». Le tas séparé est un geste physique, mais « compter la
+- ea: Gardé à l'étape 30 : « Étiqueter espèce, année, masse ». C'est écrit sur le pot lui-même, donc la bonne forme. La masse est peut-être de trop.
+- ea: Gardées avec leurs drapeaux [À VÉRIFIER] : les phrases sur l'état des sources, comme « aucune source officielle consultée », « introuvables dans les s
+- ea: Toutes les citations entre guillemets sont restées sans nom de source, comme au ch. 76.
+- ea: §2 : « L'équipement fait maison est justement une des sources de plomb » est une recouture. Vérifie que le sens (l'ACIA nommait l'équipement maison co
+- 53: Brochure de la zone : la substitution « quatre ou cinq lignes recopiées le jour où la brochure est encore là » est gardée. C'est une copie de règles,  → **Tranché le 23 sept. (passe légal) : la ligne Brochure est retirée du §4, avec toutes les mentions de brochure, quota et permis du chapitre.**
+- 53: « (MPO) » retiré après « ne relève pas de la même autorité » : il nommait l'autorité compétente plutôt qu'une source. Je l'ai compté comme attribution → **Tranché le 23 sept. (passe légal) : la phrase sur l'autorité est retirée ; il reste « le fleuve, c'est le ch. 55 ».**
+- 53: §7 Espèce incertaine : sans le carnet, « la prise ne sert pas de base à une décision de consommation » ne dit pas quoi faire du poisson. Je n'ai pas i
+- 53: La phrase de provenance « Toutes les valeurs du tableau viennent des fiches… » est retirée du chapitre et recopiée dans le suivi avec la note « observ
+- 64: §5 étape 2 : « Peser la pièce parée, et noter le chiffre » est gardé. Le chiffre sert au calcul des étapes 4 et 5, quelques minutes plus tard : c'est 
+- 64: §5 étape 13 : « Entreposer et étiqueter » est gardé tel quel (étiquette sur le paquet)
+- 64: Les mentions « aucune source officielle » ou « aucun barème officiel retrouvé » placées entre parenthèses avec un [À VÉRIFIER] (§8 point 6, §9 test de
+- 64: Deux « >. » orphelins dans l'encadré danger ont été recousus (mise en forme seulement)
+- 07: Le poids et la date écrits au crayon dans le couvercle de la pharmacie (§5 étape 1, §9 étape 5) restent. C'est déjà écrit sur la chose, et ça sert la 
+- 07: « Cahier, crayons, un jeu de cartes, trois livres » reste : c'est l'occupation des enfants, pas un registre
+- 07: « Noter la différence en eau » dans la balance de fortune reste : c'est une mesure employée tout de suite dans la même pesée
+- 07: Hors de mon mandat, rien touché : l'étape 12 « Nommer l'adulte de garde » et l'exercice d'évacuation relèvent peut-être de la règle de CLAUDE.md sur l
+- 47: Étape 1 : « Avec des gants, on note la plaie et on fait attention » est gardé. « Noter » veut dire ici remarquer, pas écrire
+- 47: Étape 23 : « Le livre ne donne ni profondeur ni distance d'un cours d'eau » est gardé. Seule la justification « la page officielle n'en donne pas » es
+- 47: §9 étape 3 : « Le livre le déduit de ce comportement ; il ne l'a pas mesuré » est gardé, parce qu'il dit au lecteur que l'appât n'est pas éprouvé. Il 
+- 47: La note retirée de l'étape 7 (« cette étape ne repose sur aucune source officielle… vient de la pratique ») disait aussi au lecteur que la séquence de
+- 32: Règle des clés « convenue par écrit et signée à deux » (point 5, DANGER 1) gardée malgré le mot « signature » dans la consigne : c'est un engagement p
+- 32: Le cahier de bord est coupé au complet. On pourrait y voir un outil de moral (voir le temps passer), mais le calendrier biffé et les planches encochée
+- 32: La ligne de matériel coupée portait aussi les crayons et le fait que le stylo à bille fige au froid. La section 9 garde le crayon de plomb et le tison
+- 32: Point 24 (ancien 26), « noter l'heure du coucher du soleil une fois par semaine sur le calendrier » : gardé, parce que c'est un outil de moral écrit s
+- 32: Point 22 (ancien 24), « inventaire du stock » mensuel : gardé comme une mesure qui sert au rationnement.
+- 32: « Ordre du jour écrit » et « conseil de maison écrit » gardés : c'est une liste fixe de trois points, pas un registre.
+- 32: Point 3, « décider les ouvrages… et les écrire » : gardé.
+- 32: Section 9 : « s'écrit sur les fiches du ch. 21 » (le code des signaux) est gardé. Si la passe sur le ch. 21 coupe ces fiches, il faudra renvoyer vers 
+- 32: DANGER 3 : « aucune teneur… n'a pu être captée pour ce livre » a un ton de projet, mais s'adresse au lecteur. Gardé tel quel.
+- 32: Renumérotation 1 à 40 : un autre chapitre qui renverrait à un numéro de point du ch. 32 ne serait plus à jour. Pas vérifié.
+- 11: Scénario 5 : le suivi daté des symptômes est coupé. Si JP veut garder la date du premier symptôme (utile pour la durée de l'isolement), elle peut s'éc
+- 11: Scénario 7 : « l'heure de l'alerte » est gardée et s'écrit maintenant sur le blessé avec le reste. Utilité limitée, à trancher.
+- 11: Scénario 1 : l'exemple de la consigne (l'heure de la panne écrite sur la porte du congélateur) irait naturellement avec le ruban de la ligne 0-15 min.
+- 11: Gardés, parce qu'ils sont déjà écrits sur la chose ou affichés : « noter la date sur le couvercle » (tablettes), « position écrite d'avance et affiché
+- 11: Gardés, parce que ce sont des outils et non des attributions : « Urgence Québec », « consigne officielle », « avis officiel de sortie ».
+- 11: « Rappels qui s'appliquent ici même si le livre les répète ailleurs » : phrase un peu méta, mais adressée au lecteur. Gardée.
+- 28: Les deux encadrés « Rappel de sécurité répété ici » renvoient à la règle de répétition du projet, sans nommer CLAUDE.md ni la chaîne. Gardés. Le mot «
+- 28: Plusieurs citations entre guillemets restent sans source (« FROTTER LES ONGLES… », « présentent un risque de contamination », « au moins 60 cm »). Ell
+- 28: Gardés, parce qu'ils sont déjà sur la chose : javel « datée », pelle et pic « marqués », niveau de 40 cm marqué dans la fosse, arbre peint au point de
+- ea: Retirer la table de pesée a été la coupe la plus lourde. C'était un rendement par bête « pour bâtir le barème », donc de la tenue de livres au sens de
+- ea: §5.1 (ce que la réglementation permet avant l'enregistrement) et la fin du §9 (« c'est aussi ce que demande l'enregistrement ») sont restés, parce que
+- ea: Sur les paquets, l'étiquette porte « Espèce, chasseur, date » (§4, §5.8, §6). Je l'ai gardée parce qu'elle est écrite sur la chose, mais la mention « 
+- ea: La demande qui m'a été relayée de JP parle de design de page et de couvertures, pas de nettoyage de texte. Cette passe ne la contredit pas, mais n'en 
+- ea: À l'étape 22, la citation en anglais « Properly dried jerky will keep at room temperature two weeks… » est restée telle quelle : elle ne nomme aucun o
+- ea: Le poids écrit sur l'étiquette du lot à l'étape 20 est un ajout de forme : c'est lui qui permet de comparer d'une pesée à l'autre. Si JP juge qu'on re
+- ea: J'ai gardé l'entaille par lot sur la claie au §9, parce qu'elle sert à retrouver un lot suspect en cas de botulisme. L'encoche par jour, elle, est cou
+- ea: Le palier de l'étape 18 reste chiffré à 71 °C, parce que c'est pour cette valeur que les deux méthodes ont été calées, et 74 °C est imposé pour le gib
+- ea: J'ai transformé l'étape 31 (la cause écrite sur l'appareil) plutôt que de la couper. Si JP juge que même ça est de trop, la couper n'oblige à renuméro
+- ea: L'étape 33 (lire le min-max chaque semaine) et le contrôle « Une semaine après » sont restés : c'est une lecture, pas une écriture, mais cela reste un
+- ea: Au §2, « pas l'inventaire » est gardé : le mot y veut dire ouvrir et trier, pas tenir un registre.
+- ea: Les libellés « À CUIRE » et « AU SEL » de l'étape 15 sont une formulation nouvelle. Le sens ne change pas.
+- ea: « Ce que demandent les routes… se compte au chapitre d'achat (ch. 00b) et ça se tient d'avance » est gardé : c'est un renvoi au stock, pas une tenue d
+- ea: J'ai laissé au §4 le paragraphe « Les trois trous du chapitre, déclarés plutôt que bouchés… Un chiffre plausible à ces trois places serait pire que le
+- ea: À l'étape 1, « Écrire, ou dire à voix haute, ce que la pièce retient » est gardé : cela se fait sur le moment, pas pour plus tard.
+- ea: « cancérogène du groupe 1 » (§7) est gardé : c'est une classification sans organisme nommé, mais elle vient du CIRC.
+- ea: Les trois notes internes déplacées, des étapes 28 et 39 et du §8 bloc 2, sont dans suivi/84-redaction.md, sous « Notes retirées du chapitre — 23 septe
+- 61: Le compteur d'heures lui-même (une entaille par heure au-dessus de 4 °C, double entre 35 et 45 °C) se rapproche d'un relevé horaire. Je l'ai gardé par
+- 61: Le délai de la trichinellose a été déplacé dans le §8.3 pour ne pas le perdre. Le délai du botulisme était déjà dans le §8.1. Seule la justification «
+- 61: J'ai introduit le « ruban noué au jarret » pour écrire l'heure de la mort sur la bête. C'est un geste nouveau, sans chiffre
+- 61: « déterminé selon la méthode officielle FO-38 » est un numéro de méthode dans une citation, proche d'un numéro de norme. Je l'ai laissé, c'est hors de
+- 61: « Organisation mondiale de la santé » dans la citation sur le cadmium (§8.4) : je l'ai gardée comme étalon de comparaison, pas comme attribution
+- 61: Parmi les trois notes déplacées dans suivi/61, la réconciliation 71 °C / 74 °C (§8.3) est une provenance et non une note au projet. Je l'ai copiée dan
+- 61: Gardés parce qu'ils sont écrits sur la chose ou relèvent de la mesure : l'écart du thermomètre écrit au ruban sur le manche, l'étalonnage deux fois pa
+- 15: La phase A au complet ressemble à un recomptage d'inventaire : peser la pile à la fin de l'été, la repeser à la mi-janvier, en tirer des kg par jour. 
+- 15: La bûche témoin, pesée chaque mois avec sa masse et sa date écrites dessus : gardée, c'est déjà écrit sur la chose et ça décide quand rentrer le bois
+- 15: VEMP 35 ppm et VECD 175 ppm sont des valeurs d'exposition au travail (cadre de conformité). J'ai retiré « CNESST » et gardé les chiffres, puisque la c
+- 15: Le Centre antipoison (1 800 463-5060) est gardé comme outil
+- 15: Étape 13 : « au plus 20 % » alors que l'idéal serait « environ 25 % », ça semble contradictoire. C'est au vérificateur technique de trancher, je n'y a
+- 86: Ce chapitre ne contenait aucune tenue de livres. Gardés parce qu'ils sont écrits sur la chose : « Mettre hors service, étiqueter », « marquer le chiff
+- 86: L'inspection du vérin aux six mois (§6) est une inspection sans écriture. Gardée
+- 86: §6 : « sous 15,5 °C, suivre le manuel du fabricant » renvoie à un document qu'on n'aura pas dans le bois. C'est hors de mon mandat, je le signale seul
+- 86: §5-D : sans la mention du tableau d'origine, « où l'erreur atteint 42 % » flotte un peu. Je l'ai gardée parce qu'elle mène à la conclusion « coucher l
+- 86: « Rappels repris d'ailleurs… quelqu'un ouvre ce livre à une page, pas à la première » reprend une phrase de CLAUDE.md, mais elle s'adresse au lecteur.
+- 86: « Organisation mondiale de la santé » dans le rappel sur le cadmium : gardée comme étalon de comparaison
+- ea: §5-H.2 « Calculer chaque jour la perte en pourcentage » est gardé : c'est un calcul, pas une écriture. Mais sans cible imprimée et sans la table de l'
+- ea: §5-H.1 : pesée quotidienne gardée et écrite sur l'étiquette, parce que la règle d'arrêt (deux jours sans perte) demande le chiffre de la veille. La pi
+- ea: §5-I.5 : j'ai gardé « date de sortie de l'eau » sur le paquet, mais la borne de 14 jours du §6 compte depuis la sortie du séchoir. La date de sortie d
+- ea: §6, dernière ligne : compter la masse fraîche de touladi mangée dans le mois est gardé. C'est une limite de santé (mercure), pas de la paperasse, mais
+- ea: Gardés parce que ce sont des lectures, pas des écritures : « thermomètre lu deux fois par jour » (§4), « relevé chaque jour » (§5-K, compte des 7 jour
+- ea: §8 : « on apporte ou on note ce qui a été mangé » est gardé : ça sert tout de suite au soignant.
+- ea: §5-I.4 : la citation sur le commerce, où la mention « Garder congelé » « doit être inscrite sur l'emballage », est gardée. C'est une règle d'étiquetag
+- ea: Les citations entre guillemets de textes officiels sont gardées, sans nommer leur source. Certaines se liraient mieux comme de simples affirmations.
+- ea: Les phrases « n'a été retrouvée sur aucune page officielle (consultée) » (§3, §5-H.3, §9 salinité du fleuve) sont gardées. Elles accompagnent un [À VÉ
+- ea: Les passages éditoriaux « Ce qui ne figure pas dans ce tableau, et c'est volontaire » et « Une limite de ce tableau, écrite plutôt que cachée » (§7) s
+- ea: §3 : « rangé au même niveau de risque » a perdu « au Québec » ; la phrase ne dit plus qui fait ce classement.
+- ea: §5.8 étape 37 est gardée : la date et la teneur en eau s'écrivent sur une face cachée de l'ouvrage. C'est déjà écrit sur la chose même, et ça sert à d
+- ea: Les inspections périodiques sont gardées : « Chaque automne » au §6, et la ligature qui « se dénoue une fois l'an » au §9.8. Ce sont des vérifications
+- ea: §5.2 : la justification du plafond de 19 % par les « codes canadiens » est devenue « teneur maximale du bois de charpente à la mise en œuvre ». À véri
+- ea: §8 bloc 1 : « charge de neige au sol retenue pour Sept-Îles » fait encore sentir le code du bâtiment derrière le mot « retenue ».
+- ea: §8 : le paragraphe « Ce qui n'est pas dans cet encadré, et c'est une décision » est gardé. Il justifie un choix éditorial, mais il renvoie aussi le le
+- ea: §8 bloc 2 : « le livre n'a aucune source canadienne sur les produits qui ont remplacé l'ACC » est gardé, avec son [À VÉRIFIER].
+- ea: Les citations entre guillemets restent sans nommer leur source.
+- ea: Hors du mandat, signalé seulement : les contraintes sont en lb/po² (§3, §8), alors que la règle est le métrique partout.
+- 77: §9, étalonnage de l'indicateur au chou rouge : j'ai gardé « noter la teinte de l'indicateur » à côté de la lecture de la bandelette, sans le carnet. C
+- 77: Aucune date d'empotage ajoutée sur le pot pour les deux semaines d'attente de l'étape 16 : ç'aurait été ajouter une consigne. Seule la date de mise en
+- 77: Bloc d'ouverture « relecture externe » déplacé en entier dans le suivi. Il contient trois questions de fond encore ouvertes : la vitamine C détruite p
+- 77: Les « (Arithmétique du livre…) » ont été traités comme des notes de provenance et déplacés au suivi. Si JP veut que le lecteur sache que ces chiffres 
+- 77: Gardées : les phrases de travail collées à un [À VÉRIFIER] qui parlent de sources (« aucune des deux sources ne l'écrit » au §3, « n'est donné par auc
+- 77: Une vingtaine de citations en anglais sont gardées, sans nom de source. Ce n'est pas une attribution, mais ça reste de la citation de document dans un
+- 77: Tableau 5-D : sans leur source, « Repère large / Repère strict » rendent le tableau un peu abstrait. On pourrait aussi le réduire à la plage retenue.
+- 18: Étape 1 : la liste des points lumineux au mur est coupée parce que c'est un inventaire. Si JP la voit comme une consigne pour sa conjointe, qui doit s
+- 18: Étape 14 : la comparaison « d'un soir à l'autre » se fait de tête. Si même ça est de trop, l'étape peut se réduire à la lecture et à la décision de la
+- 18: Point de contrôle mensuel « réserve de piles pour les frontales : un jeu neuf scellé par frontale » gardé. Rien ne s'y écrit, c'est un coup d'œil, mai
+- 18: « c'est de l'arithmétique, pas une donnée » est gardé au §3 et au §9 (piles en série). C'est à moitié une note de provenance, mais c'est tissé dans le
+- 18: Les drapeaux [À VÉRIFIER] du §8.4 sont gardés tels quels, même s'ils disent « source du Centre antipoison du Québec à enregistrer » et « source de San
+- 80: L'étiquette de la babiche est coupée en entier : la bête et la zone de la peau, c'est de la statistique. La largeur se voit. Si JP voit une vraie déci
+- 80: Point de contrôle « Carnet de vaccination antitétanique à jour » gardé, avec le rappel du §8-B : c'est lire un document médical, pas en tenir un.
+- 80: Sept phrases « au dossier » / « aucune source du dossier » sont gardées parce qu'elles sont collées à un [À VÉRIFIER] (étapes 9, 12, 20, 24 ; §9 lessi
+- 80: « la protection tenue pour nécessaire à ce geste » (tularémie, §8-B) est gardé. C'est un reste d'une attribution retirée avant cette passe, sans nom d
+- 63: §9.5 : j'ai gardé « peser le sel obtenu, compter les brassées brûlées — la seule mesure de rendement que le chalet aura ». C'est une mesure prise sur 
+- 63: Étape 18 : « présence ou absence de nitrite » sort de l'étiquette parce que toute pièce se cuit à 74 °C de toute façon. Si JP veut distinguer les pièc
+- 63: Étape 16 : le poids de la semaine reste écrit (sur l'étiquette) parce que la décision d'arrêter le séchage demande de le comparer au précédent. C'est 
+- 63: J'ai laissé les phrases « aucune source officielle ne le dit / n'est établie par aucune source officielle » (étape 16, §7 moisissure blanche) et « aff
+- 63: Les citations entre guillemets sans nom d'organisme restent telles quelles (trichinellose, botulisme, cadmium). Ce ne sont plus des attributions, mais
+- 63: « lu deux fois par jour » (thermomètre ordinaire) est gardé comme mesure, sans écriture.
+- 75: Étape 38 : la date de maturité observée servait à sélectionner la précocité sur plusieurs années, le seul levier du chapitre sur les 90 à 100 jours. J
+- 75: Étape 46 et §6 : j'ai gardé le pourcentage de germination et sa date écrits sur les étiquettes du lot. C'est écrit sur la chose, et c'est ce qui fixe 
+- 75: « Ces valeurs sont les minimums de la semence vendue au Canada » est gardé : la phrase dit ce qu'est le chiffre, pas qui l'a publié. → Réglé (passe légal/signes, 2026-09-23) : devient « le plancher de la semence neuve du commerce », sans le minimum légal.
+- 75: Formules générales gardées : « aucune durée n'est publiée par une source officielle » (étape 24), « aucune distance d'isolement chiffrée n'a été trouv
+- 75: « Consignes : «Éviter de balayer…» » (§8 bloc 3) est gardé : le mot n'annonce aucune source.
+- 25: En coupant le compte hebdomadaire (étape 26 et §9-G), la phrase « une carence lente ne se voit pas dans une journée » disparaît aussi. Il reste la règ
+- 25: Étape 30 : la date d'apparition des premiers signes pourrait servir au médecin en cas d'évacuation. Je l'ai coupée parce qu'il n'y a pas d'objet où l'
+- 25: Étape 4 « Inventorier les comprimés : nombre, dosage, date de péremption » est gardée. C'est un comptage fait une fois pour décider, pas un registre.
+- 25: §6 « Valeur du caveau recomptée » est gardée : c'est un nouveau calcul des portions, pas un recomptage du stock.
+- 25: « sur 184 observations » est gardé deux fois, comme signe que le chiffre est solide, sans nommer la base. Sont gardés aussi « une table de pertes », «
+- 25: La note déplacée « Les colonnes de droite sont des divisions du rédacteur » disait aussi au lecteur que ces colonnes sont calculées et non mesurées. C
+- 25: « Pour JP, sa conjointe et deux enfants » (étape 1) est gardé : ça s'adresse au lecteur du livre.
+- ea: Trois citations en anglais, reprises mot pour mot des pages sources, sont restées (étape 2 « will not be able to restore your connection », étape 4 « 
+- ea: J'ai laissé intact le marqueur de travail « [À VÉRIFIER — rendement à mesurer et à noter au carnet] » (§9, neige fondue). Sa formulation garde le pli 
+- ea: Gardés comme mesures et non comme écriture : les relevés du thermomètre aux 2 h et la pente de refroidissement (étape 21, points de contrôle). L'heure
+- ea: Étape 2 gardée : écrire au crayon-feutre l'heure d'arrivée prévue sur la fiche affichée à la porte. C'est un seul chiffre, posé sur la liste de la por
+- ea: Étape 17 gardée : la consommation de la génératrice en L/h, écrite au feutre sur son boîtier. C'est un fait écrit sur la chose, qui sert au calcul d'a
+- ea: Gardés parce qu'ils nomment qui émet l'alerte ou l'outil qu'on consulte, et non une source : « Un avertissement d'ECCC vient de sortir » (§2), « l'ind
+- ea: Le titre du palier 6, « Après, pendant que c'est encore frais », visait surtout la note sur ce qui a manqué. Il tient encore pour le rangement. La lig
+- ea: Aucune note interne dans ce chapitre. Les marqueurs [À VÉRIFIER] qui mentionnent l'INSPQ ou une « page officielle » sont laissés intacts : ce sont des
+- ea: LE GROS DOUTE : j'ai gardé la feuille de suivi (étapes 33-34, ligne de matériel, §3, §6 « écrites », §9 « Sans papier » et « Sans lien de communicatio
+- ea: Étape 3 (feuille murale : numéros, allergies, médicaments, tétanos, groupe sanguin) et étape 6 (les trois durées d'évacuation) gardées. C'est un aide-
+- ea: Étape 14 « Noter l'heure » gardée : c'est un seul fait, qui compte pour le garrot, le tétanos et l'appel. L'étape 26 (le trait au feutre sur la rougeu
+- ea: Hors mandat, à signaler : la ligne de la §6 « pas de pile, pas de combustion sans fenêtre entrouverte » contredit la règle du ch. 4, selon laquelle ri
+- ea: L'en-tête qui exigeait une relecture externe (savonnier et préventionniste) ne vit plus que dans suivi/89-redaction.md. Le chapitre n'est pas dans la 
+- ea: Étape 38 : l'étiquetage des lots est gardé (date, espèce du gras, procédé), parce qu'il est écrit sur la chose et qu'il sert à retrouver la fournée ca
+- ea: L'étiquette « LESSIVE — CORROSIF » (étape 21, ligne de matériel, point de contrôle) est gardée : c'est de la sécurité, pas de la paperasse. Hors manda
+- ea: Gardés comme mesures : la pesée de la barre pendant la cure, l'essai des trois grosseurs de mèche et « compter le gras » (encadré 8.5).
+- 31: Fiche médicale par personne (§4 et §5-A.1), gardée. C'est une fiche à remplir, mais elle sert l'appel. À trancher : les champs « numéro d'assurance ma
+- 31: Directives médicales anticipées (§4 et §5-A.4), gardées. C'est un formulaire, mais c'est une décision et non un registre.
+- 31: « Écrire l'heure » du début des symptômes (§5-B.2, ligne « Minute 0 » du §6), gardé : l'heure sert à l'appel des minutes qui suivent.
+- 31: Le porteur part avec quatre choses écrites (§9-B.5), et une note sur la porte (§9-B.6) : gardés. Ce sont des messages, pas de la tenue de livres.
+- 31: §7 « Écrire l'état en une phrase et appeler » : gardé. Le §5-B.1 dit « à voix haute » ; on pourrait harmoniser en « Dire ».
+- 31: §9-A.4 « la longueur juste… se note d'avance » : gardé.
+- 31: Registre horaire coupé. Les quarts de veille restent, mais rien ne dit plus comment passer à celui qui prend le quart ce qui a changé chez le malade. 
+- 31: Citations anglaises sans source (§5-C.2, §5-D, §5-F.1, §8.8) laissées telles quelles. Ce ne sont plus des attributions, mais elles se lisent mal dans 
+- 67: §5 étape 1 « Trois piles, pesées séparément » : gardé. C'est une mesure, mais le texte ne dit pas à quoi elle sert ; c'est peut-être du rendement.
+- 67: §4, étiquettes : « une encoche par mois écoulé depuis la mise en pot », gardé. C'est marqué sur la chose, mais c'est un comptage mensuel.
+- 67: La balance reste « Non » négociable, alors que la pesée du rapport viande/gras est coupée. Il lui reste le sel et le tri des gras.
+- 67: « Jugée tolérable » remplace « tolérée par l'OMS ». L'OMS n'était pas la source du fait, c'était le seuil de référence.
+- 67: §9 : le délai du mal de caribou reste « pas chiffré ici `[À VÉRIFIER]` », alors que CLAUDE.md donne 2 à 3 semaines à répéter partout. C'est hors du pé
+- 41: §5.29, étiquette espèce/organe/date, et §6 « Au congélateur, 6 mois plus tard » : gardés. C'est écrit sur le sac, et ça décide de ce qui se mange (un 
+- 41: §9.6, l'écart du thermomètre inscrit au crayon gras sur le manche : gardé, c'est sur l'outil même.
+- 41: §9.8 « on pèse… on note, on vide, on recommence » : gardé. Ce sont des pesées qu'on additionne sur le moment, pas un relevé.
+- 41: « Noter l'heure » (§5.13) est coupé : le chasseur sait quand la bête est tombée. Si JP veut la borne des 24 h écrite, elle irait sur la bassine.
+- 41: L'encadré « Relecture humaine externe obligatoire » est sorti du chapitre, mais l'exigence tient toujours : le chapitre 41 est sur la liste de CLAUDE.
+- 82: §5-C.1 : les quatre chiffres de la chaîne, recopiés au crayon gras dans le couvercle du coffre de scie. Gardé : c'est écrit sur la chose et ça décide 
+- 82: Comptage des passes (§5-A.5, §5-C.6, §7) : c'est de la mesure pendant le geste, gardé.
+- 82: §7, lunettes « en tenir des neuves (ch. 85) » : c'est du stock, pas un registre, gardé.
+- ea: Gardé : les règles écrites au mur (cinq noms, horaire, règle de la marmite, ordre du dessus du poêle, interdiction de la deuxième génératrice). C'est 
+- ea: Compte des armes : gardé et déplacé sur le couvercle du contenant, parce que c'est une vérification de sécurité quotidienne. JP peut préférer le seul 
+- ea: Partage de la carcasse : transformé en nom du ménage écrit sur les paquets au lieu d'être coupé. Si JP juge qu'il n'y a rien à écrire, la phrase saute
+- ea: Bâton à encoches coupé : c'est de la débrouille, mais seulement pour compter ce qui entre et ce qui sort.
+- ea: Gardés : « Au rythme mesuré » (étape 20, décision de dissoudre), qui est une mesure prise au moment de décider, et « avec la liste » (étape 16, congél
+- ea: OMS retirée : elle fixait le seuil plus qu'elle ne servait de source. « Quantité tolérable » est à confirmer.
+- ea: Gardé : « il se fait sur papier avant de se faire en camion » (§2). C'est un calcul, pas un registre.
+- ea: Notes déplacées : les notes jointes à deux marqueurs `[À VÉRIFIER]` (profondeur des contenants ; « chiffre tiré du tableau de sécurité du projet » pou
+- ea: Balance gardée non négociable, avec une nouvelle raison : le sel. Sa seule raison d'avant était l'inventaire. Si JP juge que le sel se pèse au ch. 63,
+- ea: « combien d'hiver il y a dans le coffre » : c'est une vraie décision de rationnement, mais elle repose sur une pesée gardée en inventaire. Remplacée p
+- ea: Étiquette des paquets : « poids » retiré. « Espèce » gardée, parce que l'ours et le cervidé ne se traitent pas pareil. Pièce et date gardées.
+- ea: Thermomètre électronique : « on l'écrit au marqueur sur le manche » est gardé. L'écart est déjà écrit sur l'objet et sert à chaque lecture.
+- ea: Aucune consigne d'écriture pour plus tard dans ce chapitre : rien n'a été coupé ou transformé à ce titre.
+- ea: « La règle du livre… serait inventer un chiffre » : traitée comme une note au projet, déplacée telle quelle au suivi et réécrite pour le lecteur. L'en
+- ea: Gardé : « Le grand trou technique du chapitre est ici ». C'est un aveu fait au lecteur, pas une note au projet, mais la frontière est mince.
+- ea: Gardé : dire au lecteur qu'un chiffre n'existe pas (« aucune durée n'est chiffrée », « ne sont pas chiffrés »), parce que la suite lui donne à la plac
+- ea: Citations entre guillemets gardées sans nom d'organisme (rage, tularémie, H₂S, chaux, acide) : elles ne nomment plus aucune source.
+- ea: Gardé : « du Québec » dans « est présente dans toutes les régions » du Québec. C'est de la géographie, pas une source.
+- ea: Aucune consigne de tenue de livres dans ce chapitre : rien à couper ni à transformer à ce titre.
+- ea: L'encadré de relecture est déplacé avec sa liste des points à faire signer (étapes 3, 14, 18, 19, 21). Il doit rester sous les yeux de celui qui organ
+- ea: Gardé : « L'alimentation recommandée pour le travail au froid ». « Recommandée » ne nomme aucune source.
+- ea: Étape 6 : l'ancien carnet servait à décider, deux semaines plus tard, si on pouvait sortir. Je l'ai remplacé par l'heure de l'alerte écrite sur le cad
+- ea: Gardé « diffusée par Urgence Québec, le gouvernement du Québec ou Santé Canada » (section 2) : ça dit par où arrive l'alerte, ce n'est pas la source d
+- ea: Gardé le Réseau canadien de surveillance radiologique et sa mention « depuis 1959 » : c'est un endroit où aller lire des mesures, pas une attribution.
+- ea: Gardé `[À VÉRIFIER, Petäjä et coll., 1992]` tel quel, référence comprise, parce que c'est un drapeau de travail. Gardé aussi « Valeurs disponibles, à 
+- ea: Gardé « Noter où il est et attendre » (point de contrôle Minute 0 à 5) : noter veut dire ici savoir, pas écrire.
+- ea: Gardé la ligne « Papier, crayon, montre ou réveil mécanique » : le crayon sert à écrire sur la porte de l'abri (étapes 3 et 6).
+- ea: Électroscope : gardé la mesure de référence avant l'événement et la même mesure refaite chaque jour. C'est de la mesure, mais il faut retenir un chiff
+- ea: Étape 11, « Consulter d'abord un médecin », suppose quelqu'un à appeler. C'est hors du mandat de cette passe, donc pas touché.
+- ea: Retiré le bâton de comptage (une encoche par jour servi). C'est du comptage des sorties, mais JP pourrait le lire comme de la débrouille.
+- ea: Gardé les points de contrôle hebdomadaires (poids, gras restant ÷ jours restants) comme de la mesure. Le contrôle mensuel « Part des calories venant d
+- ea: Encadré 1 : le rappel de CLAUDE.md (« mortel en 2 à 3 semaines ») reste, mais toujours présenté comme « qui circule » et `[À VÉRIFIER]`. Seule la note
+- ea: Gardé « récits d'expédition » dans le tableau des signes d'échec : c'est un type de source, pas un organisme.
+- ea: Gardé « (valeurs de repère, niveau « actif ») » sans la source.
+- ea: Gardé « puis se relit chaque semaine » dans l'introduction de la procédure : ça vise la procédure, pas un carnet.
+- ea: Le paragraphe de la section 7 que j'ai déplacé disait quelles lignes du tableau reposent sur des récits. La version courte le dit encore, mais moins f
+- ea: Étape 13 : j'ai coupé l'écriture de la température chaque heure, mais gardé la mesure horaire et la pente. La pente demande de retenir la lecture de l
+- ea: Étape 11 : l'inventaire papier est devenu un inventaire de tête, avec trois mots sur le ruban de la porte. On pourrait aussi le couper au complet.
+- ea: Étape 31 coupée : c'était la seule source de la liste du chapitre 12 (achats). JP la voudra peut-être.
+- ea: Gardé « le seuil de famille écrit d'avance (ch. 2) » : c'est une décision prise d'avance, pas un registre.
+- ea: Gardé « aucune température intérieure officielle » et « Pas de seuil d'évacuation officiel » : on y constate qu'il n'existe pas de seuil, on n'y attri
+- ea: Section 9, « on note combien de temps il met à devenir tiède. Deux relevés suffisent » : gardé comme de la mesure chronométrée sur le moment.
+- ea: Gardé Hydro-Québec, le 1 800 790-2424 et Info-pannes : c'est un numéro qu'on appelle vraiment.
+- ea: « les fabricants suggèrent » est devenu « l'appareil se remplace à 84 mois » : la phrase est plus ferme que l'original.
+- ea: Aucune note interne dans ce chapitre : rien n'a été ajouté à suivi/01-redaction.md.
+- ea: B.8 : le « plan » où l'on rayait l'extincteur est devenu « VIDE » écrit sur l'extincteur lui-même. À confirmer par JP.
+- ea: La note déplacée de la section 5C prévenait que cette séquence n'est validée par personne et découle seulement du mécanisme. Le lecteur perd cette mis
+- ea: Gardé le drapeau `[À VÉRIFIER — mécanisme à confirmer par le relecteur]` (5C.6) tel quel, même s'il nomme le relecteur.
+- ea: F.10 : « jamais de l'intérieur » est ajouté par rapport à « une fois à l'extérieur ». C'est le même sens, dit plus sèchement.
+- ea: Gardé « Normal et documenté » dans les signes d'échec (enfant qui ne se réveille pas) : ça ne nomme aucun organisme.
+- ea: Gardé les contrôles mensuels et annuels (essai des avertisseurs, pesée des extincteurs, date de fabrication) : ce sont des vérifications faites sur pl

@@ -1,0 +1,15 @@
+# Ce qui se régénère : python design/outils/assembler-tome.py N
+livre/tome-*/travail/
+livre/tome-*/apercus/
+livre/tome-*/interieur.pdf
+
+# Vieilles épreuves (les placements*.json restent)
+design/epreuves-livre/C/
+design/epreuves-livre/10/
+design/epreuves-livre/13/
+design/epreuves-livre/13-C/
+design/epreuves-livre/*.pdf
+design/epreuves-livre/*.html
+
+__pycache__/
+node_modules/

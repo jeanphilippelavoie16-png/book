@@ -1,0 +1,752 @@
+# Vocabulaire de l'index — Le Grand Livre du Chalet
+#
+# Ce fichier dit QUOI indexer et COMMENT le reconnaître. Le script index/outils/construire-index.py
+# trouve OÙ (les ancres) et écrit index/tome-N.json et index/general.json.
+#
+# Une entrée par ligne, cinq champs séparés par « | » :
+#   Terme affiché [Nom latin] | motifs | voir aussi | chapitres forts | tomes
+#
+# - Terme affiché : le nom courant québécois. Le nom latin entre crochets, seulement s'il est au
+#   glossaire (plan/glossaire.md) ; l'index l'imprime entre parenthèses, en italique.
+# - Motifs : expressions régulières, séparées par « ; », appliquées au texte en minuscules SANS
+#   ACCENTS (é -> e, œ -> oe, apostrophe droite). Un motif qui commence par « ~ » s'applique au
+#   texte en minuscules AVEC accents (utile pour maïs / mais).
+# - Voir aussi : autres termes de ce fichier (sans le nom latin), séparés par « ; ».
+# - Chapitres forts : numéros, séparés par « , », le premier étant celui qui porte le sujet.
+#   Ils passent devant, et une mention plus courte y suffit.
+# - Tomes : restreint l'entrée à ces tomes (quand le mot change de sens d'un tome à l'autre).
+#
+# Renvoi pur (sans ancre) :   Terme -> Cible ; Autre cible
+#
+# Pas de mot trop courant (« eau », « bois » seuls). Au plus six ancres par entrée : le script
+# garde les plus utiles.
+
+# ======================================================================= DANGERS QUI TUENT
+Botulisme | botuli\w* ; clostridium botulinum | Conserves ; Poisson fumé ; Autoclave ; Botulisme de type E | 78,66,77,75,69
+Botulisme de type E (poisson) | type e\b | Botulisme ; Poisson fumé ; Traiter le poisson à la sortie de l'eau | 77,75,66,57,59
+Monoxyde de carbone | monoxyde ; avertisseurs? de co\b ; intoxication au co\b ; \bco\b (?=\(|n'a|ne se) | Génératrice ; Avertisseurs ; Abri de pêche chauffé ; Poêle à bois | 00,03,39,40,58,82
+Génératrice | generatrices? ; commutateur de transfert | Monoxyde de carbone ; Carburant ; Électricité du chalet | 03,86,01,15
+Trichinellose | trichin\w* | Ours noir ; Phoque ; Cuisson à 74 °C à cœur ; Morse | 52,56,22,66,55
+Tularémie | tularemi\w* ; francisella | Lièvre d'Amérique ; Rat musqué ; Castor | 48,53,50,47,61
+Thuyone | thuyone | Cèdre ; Sapin baumier ; Épinette | 20,33,34,37
+Cadmium | cadmium | Abats ; Foie ; Orignal | 22,61,23
+Mal de caribou (viande maigre seule) | mal de caribou ; famine du lapin ; viande maigre | Gras dans la ration ; Protéines ; Lièvre d'Amérique | 19,48,21,72
+Scorbut | scorbut\w* | Vitamine C ; Arbre de vie ; Choucroute ; Petits fruits | 20,80,91,21
+Hypothermie | hypotherm\w* | Gelure ; Passer à travers la glace ; Réchauffer une personne | 25,00,17,39,58
+Cuisson à 74 °C à cœur | 74 ?°c ; 74 degres | Thermomètre à viande ; Trichinellose | 66,52,48,22,63
+Zone de danger (4 à 60 °C) | zone de danger ; entre 4 (°c )?et 60 ?°c ; \b4 a 60 ?°c | Pourquoi la viande pourrit ; Compteur d'heures | 66,71,74,73
+Prion (maladie débilitante chronique) | \bprions?\b ; maladie debilitante ; \bmdc\b | Cervelle ; Orignal | 65,63,22,23
+Rage | \brage\b(?! de dents) | Morsure ; Castor ; Renard roux | 55,50,51,53,26
+Échinococcose (ver hydatique) | echinococ\w* ; hydatique | Kystes dans la viande ; Loup gris ; Abats | 22,55,43
+Kystes dans la viande | \bkystes?\b ; nodules? blancs? | Échinococcose ; Abats | 22,50,48 | 2,3,4
+Listeria | listeria | Poisson fumé ; Fumage à froid | 66,77,75,70
+Staphylocoque doré | staphyloco\w* ; aureus | Salaison à sec ; Zone de danger | 66,68,69
+E. coli | \be\. ?coli\b ; escherichia | Eau potable ; Bécosse | 10,31,66
+Giardia | giardia | Eau potable ; Castor | 10,31,50
+Cryptosporidium | cryptosporid\w* | Eau potable ; Giardia | 10,31
+Cicutaire maculée, mortelle [Cicuta maculata] | cicutaire | Plantes toxiques (sosies) | 33,92
+Plantes toxiques (sosies) | \bsosies?\b ; plantes? toxiques? ; especes? toxiques? ; se confond\w* | Cicutaire maculée ; Vérâtre vert ; Kalmia ; If du Canada ; Champignons | 92,33,34,93
+Amanite (mortelle) | amanit\w* | Champignons | 93
+Influenza aviaire | influenza ; grippe aviaire | Faune malade ; Poules | 101,54,56,30
+Pile bouton avalée | piles? bouton | Enfant qui a avalé quelque chose | 39,40,30
+Fièvre des fondeurs (métal galvanisé) | fievre des fondeurs ; galvanis\w* | Souder à l'arc | 107,111
+Solvants chlorés (phosgène) | phosgene ; solvants? chlores? ; \bchlores\b | Souder à l'arc | 107
+Plomb (eau, soudure, grenaille) | (?<!fil a )\bplomb\b(?!-etain)(?! ouvert) ; plomberie au plomb | Grenaille ; Étain | 10,49,107 | 1,3,6
+Sulfure d'hydrogène (tannage) | sulfure | Épiler la peau ; Tannage | 102
+
+# ======================================================================= TOME 1 — TENIR
+Liste d'achat (quatre paliers) | acheter absolument ; acheter par priorite ; palier [1-4] — (a acheter|essentiel|important|s'il reste) ; si on n'achete qu'une chose | Stock permanent du chalet ; Trousse de 72 heures | 00b | 1
+Quatre horloges | quatre horloges ; trois horloges ; horloges? (du|de la|des) (froid|eau|co|corps|nourriture|sang) ; horloge (courte|longue) ; plus courte des horloges | Rester ou partir ; Préavis | 01,02 | 1,2,3
+Rester ou partir | rester ou partir ; \bla bascule\b ; si on reste ; si on part | Quatre horloges ; Évacuation ; Préavis | 02,00,08 | 1,2
+Évacuation | \bevacu(er|ation|ations|e|es)\b(?! (de l'eau|des eaux|des gaz|des fumees)) | Rester ou partir ; Feu de forêt ; Incendie du bâtiment ; Évacuer un blessé ou un malade | 02,07,11,82,08 | 1,5
+Préavis | \bpreavis\b | Rester ou partir ; Trousse de 72 heures | 07,08,02
+Panne d'électricité | pannes? (majeure|de courant|d'hydro|d'electricite|de reseau|du reseau|electrique|generale) ; hydro-quebec ; le courant tombe ; le courant, sans | Génératrice ; Congélateur qui dégèle ; Plomberie ; Chauffer une seule pièce | 03,00,01,08,07
+Chauffer une seule pièce | volume chauffe ; piece chauffee ; replier (le volume|la maison) ; chauffer une (seule )?piece ; maison a une seule piece | Panne d'électricité ; Poêle à bois | 03,01,30,84
+Plomberie (vidanger, antigel) | vidang\w* ; plomberie ; antigel ; siphons? | Panne d'électricité ; Fermer le chalet à l'automne | 03,84,07,01
+Avertisseurs (fumée, monoxyde) | avertisseurs? | Monoxyde de carbone ; Incendie du bâtiment | 00b,03,82,39,00
+Stock permanent du chalet | stock permanent ; stock du chalet ; la methode du stock | Rotation du stock ; Liste d'achat ; Trousse de 72 heures | 05 | 1
+Rotation du stock | rotation (rapide|du stock|des stocks|des conserves|des denrees)? ; \bla rotation\b ; faire tourner le stock ; premier entre, premier sorti | Stock permanent du chalet ; Médicaments | 05,09,32 | 1,2
+Trousse de 72 heures | 72 heures ; trousse (d'urgence|du vehicule|de 72) ; sac d'evacuation | Listes par scénario ; Préavis ; Papiers et argent | 06,08,07 | 1,2
+Listes par scénario | \bscenarios?\b | Trousse de 72 heures ; Rester ou partir | 08 | 1
+Papiers et argent | \bpapiers\b ; argent comptant ; \bcles\b | Trousse de 72 heures | 06,00b,08 | 1
+Réserve d'eau | reserve d'eau ; stock d'eau ; dimensionner l'eau ; eau de reserve ; litres? d'eau par (personne|jour) ; baignoire | Eau potable ; Javel | 05,07,06,01 | 1
+Eau potable (puiser, filtrer, désinfecter) | eau potable ; eau (suspecte|brute|de surface|du lac) ; puiser ; decanter ; desinfect\w* l'eau | Ébullition de l'eau ; Javel ; Filtre à eau ; Puits ; Giardia | 10,00,39,75 | 1,2,4
+Ébullition de l'eau | ebullition ; faire bouillir l'eau ; bouillir (l'eau|une minute|1 minute) ; bouillons? d'une minute | Eau potable ; Javel | 10,01,30 | 1,2
+Javel | \bjavel\b ; hypochlorite | Eau potable ; Désinfecter sans javel | 10,31,30,46
+Désinfecter sans javel | (desinfecter|desinfection) sans javel ; quand la javel est finie ; sans eau de javel | Javel ; Savon | 46,30,54,101
+Filtre à eau | filtres? (a eau|ceramique|a gravite|de sable|en ceramique) ; \bfiltrer\b ; filtration ; prefiltr\w* | Eau potable | 10 | 1
+Puits (analyser, désinfecter) | \bpuits\b(?! (absorbant|d'evacuation|d'arbre|scelle)) ; tubage ; desinfection choc | Eau potable ; Avis d'ébullition | 10 | 1
+Avis d'ébullition | avis d'ebullition | Eau potable | 10,07
+Eau de fonte (neige, glace) | fonte de (la )?neige ; faire fondre (de )?la neige ; neige fondue ; eau de fonte | Eau potable ; Tente d'hiver | 10,12,25,75
+Feu de forêt | feux? de foret ; incendie de foret ; \bfront\b (du feu|de feu) ; saison des feux | Zone défendable ; Évacuation ; Fumée d'incendie | 11,00,08 | 1,2,5
+Zone défendable | zone defendable ; zone immediate ; zone etendue ; sol mineral | Feu de forêt | 11 | 1
+Fumée d'incendie (air intérieur) | particules fines ; purificateur ; fumee (du|des|d'un) (feu|feux|incendie) ; filtre hepa ; hepa\b | Feu de forêt ; Enfants de 4 et 6 ans | 11 | 1
+Tente d'hiver | tentes? (d'hiver|de prospecteur|a poele|de toile|prospecteur) | Poêle de tente ; Sapinage ; Shaputuan ; Abri de neige | 12,37 | 1,2
+Poêle de tente | poele (sur pieux|de tente|a bois de tente) ; traversee du tuyau ; pare-etincelles ; collerette | Tente d'hiver ; Monoxyde de carbone | 12 | 1
+Shaputuan | shaputuan | Tente d'hiver | 12
+Quinzhee | quinzh?ee | Abri de neige | 12
+Abri de neige (maison de neige, caverne) | abris? de neige ; maisons? de neige ; caverne ; congere ; maison de blocs ; trou d'aeration ; puits d'arbre ; tranchee bachee | Quinzhee ; Tente d'hiver ; Neige foulée | 12,00,25 | 1,2
+Neige foulée (plancher) | neige foulee ; plancher (de neige )?foule ; \bfouler\b ; frittage | Abri de neige | 12 | 1
+Sapinage | sapinage | Tente d'hiver ; Sapin baumier | 12
+Appentis de bâche | appentis ; \bbaches?\b | Tente d'hiver | 12,70,00 | 1
+Feu sans allumettes | sans allumettes ; allumer (un|le) feu ; premiere etincelle ; bucher d'allumage | Ferrocérium ; Amadou ; Arc à feu ; Lentille | 13 | 1
+Ferrocérium | ferrocerium ; tige de ferro | Feu sans allumettes ; Amadou | 13
+Amadou | \bamadou\w* | Feu sans allumettes ; Amadouvier | 13
+Amadouvier [Fomes fomentarius] | amadouvier ; fomes | Amadou | 13
+Arc à feu | arc a feu | Feu sans allumettes | 13
+Silex et briquet à pierre | \bsilex\b ; briquet a pierre ; acier a briquet | Feu sans allumettes ; Amadou | 13
+Lentille (feu au soleil) | \blentilles?\b ; \bloupe\b ; le rayon | Feu sans allumettes | 13 | 1
+Pile et laine d'acier | laine d'acier | Feu sans allumettes | 13,05 | 1
+Garder le feu (couver) | tenir le feu ; feu (de la nuit|de nuit) ; \bcouver\b ; qu'on n'eteint pas ; garder la braise ; lit de braise | Poêle à bois ; Feu sans allumettes | 13,83,12
+Bois d'allumage (écorce, bois gras) | bois d'allumage ; bois gras ; allume-feu ; barbe de quenouille ; petit bois | Feu sans allumettes ; Écorce de bouleau | 13,83
+Radio | \bradios?\b ; ondes (moyennes|courtes) ; radio-meteo | Messagerie satellite ; VHF ; Balise de détresse | 14,00b,06 | 1,2,3
+VHF | \bvhf\b | Radio ; Balise de détresse | 14,58,59,90
+Balise de détresse (406 MHz) | \bbalises?\b ; 406 mhz ; plb\b | Messagerie satellite ; Se faire voir et entendre | 14,35,00b
+Messagerie satellite | satellit\w* | Balise de détresse ; Radio | 14,35,00b
+Se faire voir et entendre (signaux) | se faire (voir|entendre) ; \bsignaux\b ; signal de detresse ; miroir de signalisation ; \bsifflets?\b ; feux de signalisation | Balise de détresse ; Sifflet | 14,35,39 | 1,2
+Carburant (entreposer) | \bcarburants?\b ; stabilisateur ; \bdiesel\b ; essence (ordinaire|sans plomb) ; bidons? d'essence | Génératrice ; Scie à chaîne | 15,106,05,108
+Motoneige | motoneiges? | Véhicule immobilisé dans la neige | 15,08,58 | 1,3
+Véhicule immobilisé dans la neige | vehicule immobilise ; immobilise en chemin ; echappement obstrue ; pot d'echappement ; tuyau d'echappement | Monoxyde de carbone ; Hypothermie | 08,15,02,00 | 1
+Voisinage et entraide | voisin\w* ; entraide ; \bla dette\b | Groupe de chasse ; Plusieurs familles | 16,18,36 | 1,2
+Groupe de chasse | groupe de chasse | Voisinage et entraide ; Orignal | 16,41 | 1,3
+Sortir un blessé (brancard, traîneau) | sortir un blesse ; brancards? ; traineau d'evacuation ; bouger un blesse ; civiere | Évacuer un blessé ou un malade ; Toboggan | 16,35,26 | 1,2
+Visiteurs (qui cogne à la porte) | visiteurs? ; qui cogne ; quelqu'un cogne ; heberg\w* | Voisinage et entraide ; Porte | 17 | 1
+Porte (renforcer, voir sans ouvrir) | chambranle ; la porte, et l'endroit ; voir sans ouvrir ; judas | Visiteurs | 17 | 1
+Plusieurs familles (s'organiser) | plusieurs familles ; regroupement ; cuisine commune ; menages? ; douze personnes | Voisinage et entraide ; Lavage des mains | 18 | 1
+Armes à feu (sécurité, rangement) | armes? a feu ; verrou (de culasse|de pontet) ; culasse ; armes? chargees? ; entreposer les armes ; delai entre soi et l'arme | Munitions ; Carabine et fusil | 45,18,38,36,17
+Pics à glace | pics? a glace ; \bpics\b | Passer à travers la glace | 58,00,39,25
+Passer à travers la glace | a travers la glace ; passe au travers ; passer au travers ; passe a travers ; tombe a l'eau | Pics à glace ; Hypothermie ; Épaisseur de la glace | 25,00,58,39 | 1,2,3
+Épaisseur de la glace (sonder) | sonder la glace ; epaisseur de (la )?glace ; glace (noire|blanche|pourrie|grise) ; lire la glace ; glace portante | Passer à travers la glace ; Pêche blanche | 58,42,00,15 | 1,3
+
+# ======================================================================= TOME 2 — LE CORPS
+Calories (besoins) | \bkcal\b ; \bcalories?\b ; besoins? energetiques? | Protéines ; Glucides ; Gras dans la ration | 21,19,05 | 1,2
+Protéines (plafond) | \bproteines?\b ; plafond proteique ; \buree\b | Mal de caribou ; Calories | 19,21 | 2
+Gras dans la ration | \blipides\b ; chercher (le )?gras ; plancher de gras | Mal de caribou ; Pemmican ; Graisse (fondre le gras) | 19,21,72 | 2,4
+Glucides | \bglucides\b ; amidon | Calories | 21,19 | 2
+Vitamine C | vitamine c\b ; acide ascorbique ; ascorbique ; antiscorbutique | Scorbut ; Choucroute ; Petits fruits | 20,80,91,79
+Arbre de vie (infusion d'aiguilles) | arbre de vie ; annedda ; infusion d'(aiguilles|epinette|sapin) ; tasse d'aiguilles | Scorbut ; Sapin baumier ; Thuyone | 20 | 2
+Bière d'épinette | biere d'epinette | Scorbut | 20
+Grain germé | grains? germes? ; germee ; pot de germination ; faire germer | Scorbut ; Semences | 20 | 2
+Iode (sel iodé, carence) | sel iode ; carence en iode ; goitre ; iodure (de potassium )?dans le sel | Sel | 21,67 | 2,4
+Iode (comprimés contre les retombées) | iodure de potassium ; comprimes? d'iode ; \biode\b(?! \(teinture| en teinture) ; thyroid\w* | Retombées radioactives | 04 | 1
+Retombées radioactives | retombees ; radioacti\w* ; \bpanache\b ; \bcesium\b ; strontium | Iode (comprimés contre les retombées) ; Décontamination ; Rester ou partir | 04,00,08 | 1
+Décontamination | decontamin\w* ; se decontaminer ; sceller (la|une) piece | Retombées radioactives | 04 | 1
+Abats | \babats?\b ; organes | Foie ; Cadmium ; Langue ; Rognons ; Panse | 22,23,61
+Foie | \bfoies?\b | Abats ; Cadmium | 22,61,48 | 2,3,4
+Rognons (reins) | \brognons?\b ; \breins\b | Abats ; Cadmium ; Suif | 22,23 | 2,4
+Langue | \blangues?\b | Abats | 22,23 | 2,4
+Cœur et diaphragme (abats) | coeur,? (le )?diaphragme ; \bdiaphragmes?\b ; le coeur\. ; le coeur, | Abats | 22 | 2,4
+Cervelle | \bcervelles?\b ; \bcerveaux?\b | Prion ; Chamoisage | 22,23,102
+Moelle | \bmoelles?\b ; os a moelle | Graisse d'os ; Gras dans la ration | 23,19,72 | 2,4
+Panse (tripes) | \bpanses?\b ; tripes? | Abats ; Éviscération | 23,22,61 | 2,4
+Boyaux (saucisse) | \bboyaux?\b ; saucisses? ; boudin | Panse | 23,64 | 2,4
+Gélatine (pattes, peaux, tendons) | gelatin\w* ; bouillon de pattes | Collagène ; Tendons | 23,62 | 2,4
+Morse | \bmorses?\b | Trichinellose ; Abats | 22 | 2
+Tour de rein | tours? de reins? ; lumbago ; mal de dos ; bas du dos | Lever et porter ; Hernie | 24 | 2
+Lever et porter (le dos) | lever, porter ; porter (une charge|lourd) ; porte-buches ; lever (une charge|du sol|une bille|lourd) | Tour de rein ; Courroie de front | 24,109 | 2
+Courroie de front | courroie de front | Portage ; Lever et porter | 24,90 | 2,5
+Entorse | \bentorses?\b | Attelle ; Genou ; Cheville | 24,26 | 2
+Genou | \bgenoux?\b ; rotule ; menisque ; ligament croise | Entorse ; Attelle | 24 | 2
+Cheville (entorse) | \bchevilles?\b ; etrier de cheville | Entorse | 24 | 2
+Épaule, coude, poignet (tendinite) | tendinite\w* ; epicondyl\w* ; \bcoudes?\b ; \bpoignets?\b ; \bepaules?\b | Lever et porter | 24 | 2
+Mains (engourdies, doigt mort) | doigt mort ; raynaud ; vibrations ; canal carpien ; grossir le manche | Épaule, coude, poignet | 24 | 2
+Muscle froissé | muscles? froisses? ; claquage ; dechirure musculaire | Entorse | 24 | 2
+Ampoules aux pieds | \bampoules?\b ; coussinet en beigne | Pieds | 24,25 | 2
+Pieds (soins, ongle incarné) | ongles? incarnes? ; gouttiere d'ongle ; \bpieds?\b (mouilles|gonfles|blesses) | Ampoules aux pieds ; Pied d'immersion | 24 | 2
+Hernie | \bhernies?\b | Tour de rein | 24 | 2
+Béquille | \bbequilles?\b | Entorse ; Attelle | 24 | 2
+Attelle | \battelles?\b | Entorse ; Fracture ; Dent arrachée par un coup | 24,26,27 | 2
+Fracture | \bfractur\w* | Attelle ; Sortir un blessé | 26,24,35 | 2
+Luxation | \bluxation\w* ; se deboite | Attelle | 24,26 | 2
+Chevalet de sciage | chevalets? de sciage ; \bchevalet\b | Lever et porter | 24 | 2
+Gelure | \bgelures?\b ; \bengelures?\b | Hypothermie ; Pied d'immersion | 25,39 | 1,2,3
+Pied d'immersion | pieds? d'immersion ; pied de tranchee | Gelure | 25
+Réchauffer une personne | rechauffer (un|une|quelqu'un|l'enfant|le blesse) ; rechauffement ; bain chaud | Hypothermie ; Gelure | 25,17,39 | 1,2
+Frissons | \bfrisson\w* | Hypothermie ; Fièvre | 25,28 | 2
+Garrot | \bgarrots?\b(?! a oeil) | Saignement | 26,00,00b | 1,2
+Saignement (arrêter) | \bsaignements?\b ; pression directe ; saigne abondamment ; hemostat\w* | Garrot ; Plaie | 26,00,29 | 1,2
+Plaie (nettoyer, fermer, infection) | \bplaies?\b ; irriguer | Saignement ; Pansement ; Tétanos | 26,34,28 | 1,2
+Pansement | \bpansements?\b ; \bgaze\b ; bandage | Plaie | 26,32 | 1,2
+Brûlure | \bbrulures?\b(?! de congelation) | Plaie | 26,34 | 1,2
+Morsure | \bmorsures?\b | Rage ; Plaie | 26,55,50 | 2,3
+Tétanos | \btetanos\b | Plaie ; Piquants de porc-épic | 26,51 | 2,3
+État de choc | etat de choc ; peau froide et moite ; froide et moite ; choc hemorragique | Saignement | 26 | 2
+Pouls (prendre) | \bpouls\b | État de choc | 38,26,35 | 2
+Réanimation (RCR) | \brcr\b ; arret cardiaque ; compressions (thoraciques)? ; massage cardiaque | Ce qu'on ne peut pas soigner | 35,26 | 2
+Mal de dents | rage de dents ; mal de dents ; \bcaries?\b ; lire la douleur | Abcès dentaire ; Clou de girofle | 27 | 2
+Abcès dentaire | abces (dentaire|de la dent|a la dent|d'une dent) ; \bla bulle\b ; ouvre la bulle | Mal de dents | 27 | 2
+Dent cassée | dents? cassees? ; mâchoire cassée ; machoire cassee | Obturation tombée | 27 | 2
+Dent arrachée par un coup (replanter) | dents? (arrachees?|replantees?) ; replanter ; attelle de (cire|fil) | Attelle | 27 | 2
+Obturation tombée (plombage) | obturations? ; plombages? ; ciment (dentaire|temporaire) ; oxyde de zinc | Dent cassée ; Clou de girofle | 27 | 2
+Arracher une dent | arracher une dent ; extraction | Mal de dents | 27 | 2
+Clou de girofle (eugénol) | girofle ; eugenol | Mal de dents | 27,00b | 1,2
+Brosse à dents et dentifrice | brosses? a dents ; dentifrice ; brosse de branche ; soie dentaire | Mal de dents | 27 | 2
+Fièvre | \bfievres?\b(?! des fondeurs) ; \bfievreux\b ; antipyretique | Thermomètre clinique ; Ibuprofène et acétaminophène ; Frissons | 28,26,32,34,30 | 2
+Otite | \botites?\b ; mal d'oreille | Fièvre | 28 | 2
+Mal de gorge (angine) | mal de gorge ; \bangine\b ; streptocoque ; \bla gorge\b | Fièvre | 28,34 | 2
+Sinusite | sinusite ; \bsinus\b | Rhume | 28,27 | 2
+Rhume | \brhumes?\b | Toux ; Sinusite | 28,34 | 2
+Toux | \btoux\b | Bronchite et pneumonie ; Rhume | 28,34 | 2
+Bronchite et pneumonie | bronchite ; pneumonie | Toux ; Fièvre | 28,30 | 2
+Infection urinaire | infections? urinaires? ; bruler en urinant ; brulure en urinant ; cystite | Fièvre | 28,29 | 2
+Gastro (vomissements) | \bgastro\w* ; vomiss\w* ; vomit | Déshydratation ; Diarrhée | 28,39,30 | 2
+Diarrhée | diarrhee | Gastro ; Déshydratation | 34,28,30 | 2
+Déshydratation | deshydrat\w* | Solution de réhydratation ; Gastro | 28,39,30,32 | 2
+Solution de réhydratation | solutions? de rehydratation ; rehydratation (orale)? ; sachets? de rehydratation | Déshydratation ; Gastro | 32,39,30,28 | 2
+Œil rouge (conjonctivite) | oeil rouge ; yeux rouges ; conjonctivite | Laver un œil | 28 | 2
+Laver un œil | laver (un |l')oeil ; laver les yeux ; rincer l'oeil | Œil rouge | 28 | 2
+Cellulite (peau qui s'infecte) | \bcellulite\b ; erysipele ; rougeur qui s'etend ; rougeur (qui )?progresse | Abcès ; Plaie | 28 | 2
+Abcès (peau, furoncle) | \babces\b ; furoncles? | Cellulite ; Compresse chaude | 28,34 | 2
+Impétigo | impetigo | Cellulite | 28 | 2
+Zona | \bzona\b | Fièvre | 28 | 2
+Méningite (nuque raide) | meningite ; nuque raide ; test du verre ; purpura | Fièvre | 28,35 | 2
+Compresse chaude | compresses? chaudes? ; compresse qui garde | Abcès | 28,34 | 2
+Solution saline | solution saline ; eau salee (tiede|bouillie) | Sinusite ; Plaie | 28 | 2
+Antibiotiques | antibiotiques? | Pharmacie ; Ce qu'on ne peut pas soigner | 28,32,35 | 2
+Ibuprofène et acétaminophène | ibuprofene ; acetaminophene ; analgesiques? ; aspirine | Fièvre ; Pharmacie | 32,28 | 2
+Thermomètre clinique | thermometres? (clinique|buccal|medical|auriculaire) ; temperature buccale ; rectale? | Fièvre | 32,39,28 | 2
+Compter sans montre (pendule) | pendule ; compter sans montre | Pouls | 28 | 2
+Règles (menstruations) | menstru\w* ; les regles sans ; regles (trop )?abondantes ; serviettes? (lavables|qu'on coud|hygieniques) ; coupe menstruelle | Sphaigne ; Accouchement | 29 | 2
+Contraception (espacer les naissances) | contracept\w* ; espacer les naissances ; collier des jours ; methode des jours ; glaire | Allaitement | 29 | 2
+Grossesse | grossesses? ; enceintes? | Accouchement ; Prééclampsie | 29,21,19 | 2
+Prééclampsie | preeclampsie ; eclampsie | Grossesse | 29 | 2
+Accouchement | accouch\w* ; contractions ; le travail et la naissance | Grossesse ; Cordon ombilical ; Placenta ; Hémorragie après l'accouchement | 29 | 2
+Bébé qui ne respire pas | ne respire pas ; insufflations? ; reanimation du (nouveau-ne|bebe) | Accouchement ; Réanimation | 29 | 2
+Cordon ombilical | cordon ombilical ; le cordon ; couper le cordon ; nombril | Accouchement ; Placenta | 29 | 2
+Placenta | placenta | Accouchement ; Hémorragie après l'accouchement | 29 | 2
+Hémorragie après l'accouchement | hemorragie (apres|du post) ; post-partum ; uterus ; misoprostol | Placenta ; Saignement | 29 | 2
+Allaitement | allait\w* ; tetees? ; \bseins?\b ; mamelons? ; mastite ; exprimer le lait | Nouveau-né ; Grossesse | 29,21 | 2
+Nouveau-né | nouveau-nes? ; jaunisse ; la premiere semaine | Allaitement ; Accouchement | 29 | 2
+Sphaigne | sphaigne | Règles ; Papier hygiénique | 29,31,79
+Épidémie | \bepidemi\w* | Sas et quarantaine ; Masques ; Lavage des mains | 30,00,08 | 1,2
+Sas et quarantaine | \bsas\b ; quarantaine ; confinement ; se fermer | Épidémie | 30,04,101 | 1,2,5
+Masques | \bmasques?\b | Épidémie | 30,53,102
+Lavage des mains | lavage des mains ; laver les mains ; se laver les mains ; poste de lavage ; station de lavage ; bidon basculant | Savon ; Épidémie | 31,30,18 | 1,2
+Faune malade (épizootie) | epizootie ; faune (qui est )?malade ; animal suspect ; betes? malades? ; bete suspecte | Tularémie ; Influenza aviaire ; Fiche d'espèce | 30,48,46,53
+Bécosse (latrines) | \bbecosses?\b ; \blatrines?\b | Eaux grises ; Seau de nuit | 31,18 | 1,2
+Seau de nuit (toilette intérieure) | seau (de nuit|interieur|hygienique) ; toilette seche ; baril de retention | Bécosse | 31 | 2
+Eaux grises | eaux grises ; puits absorbant ; piege a graisse | Bécosse | 31 | 2
+Toilette du corps | toilette (a l'eponge|du corps) ; debarbouillette ; laver le corps | Savon | 31 | 2
+Laver le linge | laver le linge ; lavage du linge ; la lessive devient ; essorage ; planche a laver ; \ble linge\b | Poux ; Gale | 31,34 | 2
+Vaisselle | vaisselle | Lavage des mains | 31,18 | 1,2
+Papier hygiénique (remplacer) | papier hygienique | Sphaigne | 31 | 2
+Poux | \bpoux\b ; lentes ; peigne fin | Gale ; Laver le linge | 34,31 | 2
+Gale | \bgale\b ; scabicide ; acariens? | Poux ; Laver le linge | 34,31 | 2
+Pied d'athlète et teigne (mycoses) | pied d'athlete ; mycoses? ; teigne | Poux | 34 | 2
+Piqûres (insectes) | \bpiqures?\b ; \bdard\b ; guepes? ; moustiques? ; mouches noires | Allergie grave | 34 | 2
+Allergie grave (anaphylaxie) | anaphyla\w* ; auto-injecteurs? ; epinephrine ; adrenaline | Piqûres | 32,34,35 | 2
+Constipation | constipation | Diarrhée | 34 | 2
+Insomnie | insomni\w* ; dormir | Sommeil | 38,34,37 | 2
+Pharmacie (bâtir) | pharmacie | Médicaments ; Ordonnances | 32 | 2
+Médicaments (péremption, gel) | peremption ; medicaments? (perimes?|geles?|expires?) ; temoin de gel ; hors gel | Pharmacie | 32 | 2
+Ordonnances (médicaments chroniques) | ordonnances? | Pharmacie | 32,06,00b | 1,2
+Dose selon le poids | mg/kg ; mg par kg ; peser un enfant ; pese-personne ; dose (selon|au|par) (le )?(poids|kilo) | Pharmacie ; Balance | 32,39 | 2
+Plantes médicinales (identifier) | plantes? medicinales? ; regle d'identification ; herbier | Plantes toxiques (sosies) ; Tisane | 33,34 | 2
+Tisane (infusion, décoction) | \btisanes?\b ; \binfusions?\b ; \bdecoctions?\b | Arbre de vie ; Plantes médicinales ; Thuyone | 33,34,20 | 2
+Onguent | \bonguents?\b ; baumes? | Gomme de sapin et d'épinette | 33,34,24 | 2
+Cataplasme | cataplasm\w* | Plantes médicinales | 33,34 | 2
+Sirop contre la toux | \bsirop\b(?! d'erable) ; sirops? (contre|pour) la toux | Toux ; Miel | 34 | 2
+Miel | \bmiel\b | Sirop contre la toux ; Toux | 34,28 | 2
+Thé du Labrador [Rhododendron groenlandicum] | the du labrador ; \bledon\b | Plantes médicinales | 33,34
+Saule [Salix spp.] | \bsaules?\b ; salicine | Plantes médicinales | 34,33 | 2,3,5
+Framboisier (feuilles) | framboisiers? | Petits fruits | 34 | 2
+Peuplier baumier (bourgeons) | peupliers? baumiers? ; bourgeons de peuplier ; baume de gilead | Onguent | 34 | 2
+Résine de sapin et d'épinette | \bresines?\b ; gomme de (sapin|epinette) ; gomme propre | Onguent ; Gomme de sapin et d'épinette | 34 | 2
+Kalmia (toxique) | kalmia | Plantes toxiques (sosies) ; Thé du Labrador | 33,34,92
+Herbe à puce | herbe a puce ; urushiol | Plantes toxiques (sosies) | 33,92
+Berce (brûlures) | \bberces?\b | Plantes toxiques (sosies) | 33,92
+Évacuer un blessé ou un malade (décider) | decider d'evacuer ; evacu\w* (un|le|du|d'un|la|l') ?(blesse|malade|patient|personne|enfant) ; evacuation (medicale|sanitaire) ; decider de l'evacuation | Ce qu'on ne peut pas soigner ; Sortir un blessé | 35 | 2
+Ce qu'on ne peut pas soigner | ce qu'on ne peut pas soigner ; quand la reponse est non | Évacuer un blessé ou un malade | 35 | 2
+Appendicite | appendic\w* | Ce qu'on ne peut pas soigner | 35 | 2
+AVC | \bavc\b ; accident vasculaire | Ce qu'on ne peut pas soigner | 35 | 2
+Crise cardiaque | infarctus ; crise cardiaque ; douleur (a la|dans la) poitrine ; serrement | Réanimation (RCR) | 35,38 | 2
+Quand quelqu'un meurt | quand quelqu'un meurt ; personnes? mortes? ; la mort ; le mort ; signes de (la )?mort ; rigidite | Deuil | 35,38 | 2
+Moral (tenir l'hiver) | \bmoral\b | Dépression ; Routine ; Fête et veillée | 36 | 2
+Dépression | depress\w* | Moral ; Quelqu'un qui décroche | 36,38 | 2
+Quelqu'un qui décroche (idées suicidaires) | suicid\w* ; decroche ; en finir ; garder quelqu'un en danger | Dépression ; Armes à feu | 38,36 | 2
+Routine (journée type) | routines? ; journee type | Moral ; Enfants : peur et routine | 40,36,39 | 2
+Fête et veillée | \bfetes?\b ; veillees? ; reserve de plaisir | Moral | 36 | 2
+Chicane (conflits, colère) | chicanes? ; conflits? ; colere | Moral | 38,36 | 2
+Lumière de l'hiver (luminothérapie) | luminotherapie ; lumiere de l'hiver ; \blux\b | Moral ; Sauna | 37,36 | 2
+Sauna | \bsaunas?\b | Bain de vapeur ; Pierres de sauna | 37 | 2
+Bain de vapeur (suerie) | bain de vapeur ; suerie ; sous une bache | Sauna | 37 | 2
+Pierres de sauna | pierres? (de sauna|du sauna) ; cage (a|de) pierres ; monter les pierres | Sauna | 37 | 2
+Sauna à fumée | sauna a fumee | Sauna | 37 | 2
+Balai de bouleau | balai de bouleau | Sauna | 37
+Truie (poêle de baril) | \btruies?\b ; poele (de|en) baril ; baril d'acier | Sauna ; Poêle à bois | 37,83
+Sommeil | \bsommeil\b ; dormir au chaud | Insomnie | 37,38,40 | 2
+Massage et étirements | massages? ; etirements? | Sauna | 37 | 2
+Évanouissement | evanou\w* ; malaise | Sauna | 37 | 2
+Deuil | \bdeuil\b ; chagrin ; funerailles | Quand quelqu'un meurt | 38 | 2
+Crise de panique | crises? de panique ; \bpanique\b | Peur et anxiété | 38 | 2
+Peur et anxiété | \bpeurs?\b ; anxi\w* ; angoiss\w* | Crise de panique ; Enfants : peur et routine | 38,40 | 2
+Alcool (sevrage) | \balcool\b ; sevrage ; delirium ; buveur | Tabac | 38 | 2
+Tabac | \btabac\b ; nicotine ; fumeur | Alcool | 38 | 2
+Premières heures après un choc | premieres heures ; apres le choc ; vingt-quatre premieres heures | Deuil ; Peur et anxiété | 38,40,39 | 2
+Enfants de 4 et 6 ans | enfants? de 4 et (de )?6 ans ; les deux enfants ; ou dorment les enfants ; mettre la maison et le chalet au niveau | Enfants : peur et routine | 39
+Enfants : peur et routine | enfants?, la peur ; doudou ; objet de reconfort ; cauchemar\w* ; jours neufs | Routine ; Peur et anxiété | 40 | 2
+Annoncer une mauvaise nouvelle | mauvaise nouvelle ; annoncer | Deuil | 40,38 | 2
+Jouets (fabriquer) | jouets? | Enfants : peur et routine | 40 | 2
+Enfant qui manque (perdu) | enfant qui manque ; enfants? perdus? ; enfant egare ; s'est egare | Sifflet | 39 | 2
+Enfant qui a avalé quelque chose | avale quelque chose ; a avale ; ingestion ; ingere | Pile bouton avalée | 39,40 | 2
+Noyade | noyade ; se noie ; se noyer | Vêtement de flottaison | 39,90 | 2,5
+Vêtement de flottaison (VFI) | \bvfi\b ; gilets? de sauvetage ; vetements? de flottaison | Noyade ; Canot | 58,57,90,39
+Sifflet | \bsifflets?\b | Enfant qui manque ; Se faire voir et entendre | 39,14 | 1,2
+
+# ======================================================================= TOME 3 — PRÉLEVER
+Calendrier de prélèvement | calendrier | Rut ; Montaison | 41 | 3
+Rut | \brut\b | Orignal ; Calendrier de prélèvement | 41,43,44 | 3
+Montaison (poisson) | montaison ; \bfrai\b ; fraye | Calendrier de prélèvement | 41,59,57 | 3
+Boussole et déclinaison | boussole ; declinaison ; nord magnetique ; nord vrai ; aiguille aimantee | Carte du territoire ; Trouver le sud sans boussole | 42 | 3,5
+Carte du territoire | fond de carte ; se faire une carte ; cartograph\w* ; \bla carte\b ; unites? de lecture | Boussole et déclinaison | 42 | 3
+Lire le territoire (brûlis, coupes, lisières) | brulis ; coupes? (forestieres?|a blanc|recentes?) ; chablis ; repousse ; lisieres? | Carte du territoire | 42 | 3
+Traces et empreintes | \bempreintes?\b ; \bpistes?\b ; foulee | Crottes ; Signes sur les arbres | 43,44 | 3
+Crottes (fèces) | \bcrottes?\b ; \bfeces\b ; excrements | Traces et empreintes | 43 | 3
+Signes sur les arbres | signes sur les arbres ; frotti\w* ; ecorce rongee ; \bbrout\b ; griffades? | Traces et empreintes | 43 | 3
+Dater une trace | dater ; age d'une (trace|piste|empreinte) | Traces et empreintes | 43 | 3
+Retracer une bête blessée | retrac\w* ; betes? (touchees?|blessees?) ; bete retrouvee | Sang (lire la blessure) ; Chien de sang | 44 | 3
+Sang (lire la blessure) | lire (le|du) sang ; sang (rouge vif|mousseux|presque noir|clair|fonce) ; point d'impact ; touchee? (a la )?panse | Retracer une bête blessée | 44 | 3
+Chien de sang | chiens? de sang ; \bchien\b | Retracer une bête blessée | 44 | 3
+Attendre après le tir | au coup de feu ; attendre ; temps d'attente | Retracer une bête blessée | 44 | 3
+Munitions (cartouches) | \bmunitions?\b ; \bcartouches?\b(?! filtrante) | Armes à feu ; Calibre | 45,00b,47,18 | 1,2,3
+Carabine et fusil (entretien, réglage) | \bcarabines?\b ; \bfusils? de chasse ; \bcanon\b ; lunette ; guidon ; nettoyer (l'arme|le canon) ; regler l'arme | Armes à feu ; Munitions | 45 | 3
+Calibre (choisir selon la bête) | \bcalibres?\b ; \.22\b ; calibre 12 | Munitions ; Grenaille | 47,45 | 3
+Grenaille | grenaille ; \bplombs\b ; choke | Calibre | 49,47,54 | 3
+Arc (fabriquer) | \barcs?\b(?! a feu) ; bille fendue ; corde d'arc | Flèche | 45 | 3
+Flèche (mousse, pointe large) | \bfleches?\b | Arc ; Lance-pierre et fronde | 45,47 | 3
+Lance-pierre et fronde | lance-pierres? ; \bfrondes?\b | Bâton de jet ; Flèche | 45,47 | 3
+Bâton de jet | batons? de jet | Lance-pierre et fronde | 47 | 3
+Fiche d'espèce (lire) | fiches? d'espece ; fiche-type | Rendement en viande | 46 | 3
+Rendement en viande | rendement ; poids vif ; poids carcasse ; viande desossee | Fiche d'espèce ; Carte de la carcasse | 46,62 | 3,4
+Petit gibier (chasser) | petit gibier | Lièvre d'Amérique ; Gélinotte huppée ; Tétras du Canada | 47 | 3
+Lièvre d'Amérique [Lepus americanus] | \blievres?\b | Collet ; Tularémie ; Mal de caribou | 48,47
+Collet | \bcollets?\b ; fil a collet | Lièvre d'Amérique ; Pièges | 48,47,53 | 3
+Gélinotte huppée [Bonasa umbellus] | gelinottes? | Tétras du Canada ; Plumer | 49,47
+Tétras du Canada [Canachites canadensis] | tetras | Gélinotte huppée | 49,47
+Perdrix -> Gélinotte huppée ; Tétras du Canada
+Lagopède des saules [Lagopus lagopus] | lagopedes? | Tétras du Canada | 47
+Plumer (échauder) | \bplumer\b ; \bplumaison\b ; echaud\w* | Jabot | 49,54,101
+Jabot | jabot ; gesier | Plumer | 49,54
+Confit | \bconfits?\b ; confite? | Graisse (fondre le gras) | 49,54,52
+Castor [Castor canadensis] | \bcastors?\b | Castoréum ; Giardia ; Tularémie | 50
+Castoréum | castoreum | Castor | 50
+Porc-épic [Erethizon dorsatum] | porc-epics? ; porcs-epics | Piquants de porc-épic | 51
+Piquants de porc-épic | piquants? ; aiguillons | Porc-épic ; Tétanos | 51 | 3
+Ours noir [Ursus americanus] | \bours\b(?! polaire) | Trichinellose ; Graisse (fondre le gras) ; Cretons | 52 | 2,3,4,6
+Cretons | cretons | Ours noir | 52
+Rat musqué [Ondatra zibethicus] | rats? musques? | Tularémie | 53,47
+Écureuil roux [Tamiasciurus hudsonicus] | ecureuils? | Petit gibier | 53,47
+Marmotte [Marmota monax] | marmottes? | Rat musqué | 53
+Outarde [Branta canadensis] | outardes? ; bernaches? | Canards ; Sauvagine | 54,47
+Bernache du Canada -> Outarde
+Canards | canards? ; sarcelles? ; eiders? ; hareldes? ; \bharles?\b ; colvert | Outarde ; Duvet ; Sauvagine | 54,47
+Sauvagine (oiseaux d'eau) | sauvagine ; oiseaux d'eau ; appelants? | Canards ; Outarde | 54,47 | 3
+Duvet | \bduvet\b | Canards | 54
+Martre d'Amérique [Martes americana] | martres? | Fourrure ; Pièges | 55
+Vison d'Amérique [Neogale vison] | visons? | Fourrure | 55
+Renard roux [Vulpes vulpes] | renards? | Fourrure ; Rage | 55
+Lynx du Canada [Lynx canadensis] | \blynx\b | Fourrure | 55
+Loup gris [Canis lupus] | \bloups?\b | Échinococcose | 55
+Coyote [Canis latrans] | coyotes? | Loup gris | 55,43
+Fourrure | fourrures? | Tannage ; Martre d'Amérique | 55,102,53
+Pièges (piégeage) | \bpieges?\b ; piegeage ; assommoirs? ; ligne de trappe ; trappe\b | Collet ; Appât | 55,53,50 | 3
+Appât | \bappats?\b ; appater | Pièges | 55,60 | 3
+Glandes (retirer) | \bglandes?\b ; \bmusc\b | Castoréum | 50,53,55 | 3
+Phoque | phoques? | Trichinellose ; Lard de phoque ; Mise à mort | 56 | 2,3,4,5,6
+Lard de phoque (huile) | lard de phoque ; huile de phoque ; \blard\b | Phoque ; Lampe à graisse | 56,112,85
+Mise à mort (confirmer la mort) | mise a mort ; confirm\w* (de )?la mort ; reflexe (de|du) (clignement|la cornee|cornee) ; gourdin ; hakapik | Phoque ; Abattage | 56,61 | 3,4
+Omble de fontaine, truite mouchetée [Salvelinus fontinalis] | omble de fontaine ; truites? mouchetees? ; \btruites?\b | Touladi ; Traiter le poisson à la sortie de l'eau | 57,76
+Truite mouchetée -> Omble de fontaine
+Touladi, truite grise [Salvelinus namaycush] | touladis? ; truites? grises? | Omble de fontaine | 57
+Truite grise -> Touladi
+Omble chevalier [Salvelinus alpinus] | omble chevalier | Omble de fontaine | 57
+Saumon atlantique [Salmo salar] | saumons? | Poisson fumé | 57,59
+Pêche blanche | peche blanche ; peche sur la glace ; pecher sous la glace | Épaisseur de la glace ; Tarière ; Abri de pêche chauffé | 58 | 3
+Tarière | tarieres? | Pêche blanche ; Glace de lac | 58,73
+Brimbale | brimbales? | Pêche blanche | 58
+Abri de pêche chauffé | abris? (de peche )?chauffes? ; cabanes? a peche ; abri de peche | Monoxyde de carbone ; Pêche blanche | 58 | 3
+Hameçon et leurre | hamecons? ; \bleurres?\b ; turlutte ; \bcuillers?\b | Pêche blanche | 57,58,105 | 3,6
+Lotte, loche [Lota lota] | \blottes?\b ; \bloches?\b | Pêche blanche | 58,22
+Grand brochet [Esox lucius] | brochets? | Pêche blanche | 58,77
+Perchaude [Perca flavescens] | perchaudes? | Pêche blanche | 58
+Éperlan arc-en-ciel [Osmerus mordax] | eperlans? | Capelan ; Traiter le poisson à la sortie de l'eau | 59,75
+Capelan [Mallotus villosus] | capelans? | Éperlan arc-en-ciel | 59,75
+Poulamon atlantique [Microgadus tomcod] | poulamons? | Éperlan arc-en-ciel | 59
+Hareng atlantique [Clupea harengus] | harengs? | Maquereau bleu | 59,75
+Maquereau bleu [Scomber scombrus] | maquereaux? | Hareng atlantique | 59,75
+Morue franche [Gadus morhua] | morues? | Poisson salé-séché | 59
+Anguille d'Amérique [Anguilla rostrata] | anguilles? | Nasse | 59,57
+Mollusques bivalves (moules, myes) | mollusques? ; bivalves? ; \bmyes?\b ; moules? bleues? ; coquillier | Marée rouge | 59 | 3,4
+Marée rouge (toxine des mollusques) | maree rouge ; toxines? paralysantes? ; phycotoxine ; intoxication paralysante | Mollusques bivalves | 59 | 3
+Marées (batture) | \bmarees?\b ; batture ; chemin de retraite | Éperlan arc-en-ciel | 59 | 3
+Congélation antiparasitaire (poisson) | antiparasitaire ; anisakis ; parasites? du poisson ; vers? (du|dans le) poisson | Poisson fumé ; Traiter le poisson à la sortie de l'eau | 75,59,77,76
+Nasse | nasses? | Verveux ; Filet maillant | 60
+Verveux | verveux | Nasse | 60
+Filet maillant | filets? maillants? ; filets? de peche ; nappe de filet ; aiguille a filet ; mailles? | Nasse | 60 | 3
+Bourolle et carrelet | bourolles? ; carrelets? | Nasse | 60
+Piège fixe (fascine) | piege fixe ; fascine ; clayonnage | Nasse | 60 | 3
+Dépouiller (enlever la peau) | depouill\w* | Écharner ; Tannage | 61,55,48,102
+Écharner | echarn\w* ; ecarn\w* | Dépouiller ; Tannage | 102,55,56
+
+# ======================================================================= TOME 4 — DE LA BÊTE AU GARDE-MANGER
+Orignal [Alces americanus] | orignaux? ; \borignal\b | Carte de la carcasse ; Cadmium ; Retracer une bête blessée | 61,62,44
+Caribou [Rangifer tarandus] | caribous?\b(?! \)) | Mal de caribou | 19,43 | 2,3,4
+Cerf de Virginie [Odocoileus virginianus] | cerfs? de virginie ; \bcerfs?\b | Orignal | 43,65
+Abattage (saignée, éviscération) | abattage ; abattre la bete | Saignée ; Éviscération | 61 | 4
+Saignée | \bsaignees?\b ; saigner la bete ; saigner (le|un) (poisson|oiseau) | Éviscération | 61,75,56
+Éviscération | evisc\w* ; vider la bete ; vider le poisson | Saignée ; Panse percée | 61,75
+Panse percée (souillure) | panse percee ; souillures? ; contenu (digestif|de la panse) | Éviscération | 61 | 4
+Refroidir la carcasse | refroidi\w* (la carcasse|la bete|la viande|le quartier) ; centre du cuissot ; ecarteurs? | Froid naturel ; Zone de danger | 61,73,66 | 4
+Gras périrénal (graisse de rognon) | perirenal ; graisse de rognon ; gras de rognon | Suif ; Pemmican | 61,72
+Palan et suspendre une bête | \bpalans?\b ; suspendre ; guindeau ; trepied | Leviers et poulies | 61,109 | 4,6
+Carte de la carcasse (découpe) | carte de la carcasse ; ordre de demontage ; demont\w* ; decoupe | Quartier arrière ; Quartier avant ; Le dos | 62 | 4
+Quartier arrière | quartiers? arrieres? ; cuissot | Carte de la carcasse | 63 | 4
+Quartier avant | quartiers? avants? ; epaule | Carte de la carcasse | 64 | 4
+Le dos (longe et filet) | \blonges?\b ; filet mignon ; psoas ; \bfilets\b interieurs | Carte de la carcasse | 65 | 4
+Désosser | desoss\w* | Carte de la carcasse | 63,64,65 | 4
+Jarret | \bjarrets?\b | Quartier arrière ; Quartier avant | 63,64 | 4
+Viande hachée | viandes? hachees? ; \bhachee?s?\b ; hachoir ; \bhacher\b | Parer | 64,62 | 4
+Braiser (cuisson longue) | braisage ; braiser ; \bbraises?\b(?= ou| long| hache) ; cuisson longue ; mijot\w* | Collagène | 62,64 | 4
+Collagène | collagene | Gélatine ; Braiser | 62,103 | 4,6
+Parer (parures) | \bparer\b ; \bparage\b ; parures? | Carte de la carcasse | 62,63 | 4
+Ganglions (retirer) | ganglions? | Prion | 63,22 | 2,4
+Emballer et étiqueter la viande | emball\w* ; papier kraft ; etiquet\w* | Congélateur qui dégèle | 62,73,75 | 4
+Pourquoi la viande pourrit | pourri\w* ; quatre processus ; ce qui gate | Zone de danger ; Activité de l'eau | 66 | 4
+Activité de l'eau (aw) | activite de l'eau ; \baw\b | Sel ; Séchage de la viande | 66,67,68,71
+pH (acidité) | \bph\b ; acidit\w* | Conserves ; Fermentation | 66,78,80
+Barrières (combiner) | barrieres? ; leviers? (de conservation)? | Pourquoi la viande pourrit | 66 | 4
+Compteur d'heures (temps au chaud) | compteur ; le temps s'additionne ; heures cumulees | Zone de danger | 66 | 4
+Rancissement | rancis\w* ; \brancie?s?\b ; oxydation | Graisse (fondre le gras) ; Pemmican | 72,66,112
+Moisissure | moisissures? ; \bmoisie?s?\b | Salaison à sec | 68,88,80,71
+Sel | \bsel\b ; \bsels\b | Pourcentage de sel ; Faire du sel ; Nitrite de sodium | 67,68,69
+Sel de table, sel iodé, gros sel (choisir) | sel (de table|iode|sans additif|de mer|marin|casher|a marinade|de conservation|raffine|fin|gros) ; gros sel | Sel | 67 | 4
+Faire du sel (eau de mer) | faire (du|le|son) sel ; tirer (du )?sel ; sel du fleuve ; eau de mer ; le sel qu'on fait ; recuperer le sel | Sel | 67,68,54,59
+Pourcentage de sel (calcul) | pourcentage de sel ; % du poids ; calcul inverse ; poids de la viande | Sel ; Balance (peser sans balance) | 67,68,69 | 4
+Nitrite de sodium (sel nitrité) | nitrit\w* | Salpêtre ; Salaison à sec | 67,68,69
+Salpêtre (nitrate de potassium) | salpetre ; nitrate de potassium | Nitrite de sodium | 67,55
+Balance (peser sans balance) | \bbalances?\b ; \bfleau\b ; romaine ; peser sans balance ; pierre-etalon | Pourcentage de sel | 67,68,66,46
+Dessaler | dessal\w* | Salaison à sec ; Saumure | 69,67,68
+Salaison à sec | salaisons? a sec ; salage a sec ; saler a sec ; salaison sec | Sel ; Nitrite de sodium ; Chambre de séchage | 68,76
+Jambon | jambons? | Salaison à sec | 68
+Chambre de séchage | chambres? de (sechage|salaison) | Salaison à sec | 68,66
+Croûtage | croutage ; \bcroute\b | Séchage de la viande | 68,71,59
+Saumure | saumures? | Juger une saumure ; Dessaler | 69,77,80
+Juger une saumure (œuf, pomme de terre) | pese-sel ; oeuf (qui )?flotte ; pomme de terre (qui )?flotte ; saumure saturee ; juger une saumure | Saumure | 69,66
+Injecter la saumure | inject\w* | Saumure | 69 | 4
+Fumage à froid | fumage a froid ; fumes? a froid ; fumer a froid ; fumage froid | Fumoir ; Listeria ; Poisson fumé | 70,77
+Fumoir (monter) | fumoirs? | Fumage à froid ; Fumage à chaud | 70,71,77
+Bois de fumage | bois de fumage ; essences? de bois ; boucane | Fumoir | 70,71,77
+Fumage à chaud | fumage a chaud ; fumes? a chaud ; fumer a chaud ; fumage chaud | Fumoir ; Séchage de la viande | 71,77
+Séchage de la viande (viande séchée) | viandes? sechees? ; lanieres? ; sechage | Fumage à chaud ; Pemmican ; Séchoir et claie | 71,72,68 | 4
+Séchoir et claie | sechoirs? ; claies? | Séchage de la viande | 71,76,91
+Mouches | \bmouches?\b(?! noires) | Séchage de la viande | 71,61,76 | 4
+Pemmican | pemmican | Graisse (fondre le gras) ; Séchage de la viande | 72
+Graisse (fondre le gras) | fondre (le )?gras ; gras fondu ; graisses? fondues? ; fonte du gras ; refondre | Suif ; Pemmican ; Cretons | 72,52,112,56
+Graisse d'os | graisses? d'os ; bouillir les os ; os concasses | Moelle | 72,23
+Suif | \bsuif\b | Savon ; Chandelles ; Gras périrénal | 112,72,23
+Froid naturel (cache de gel) | froid naturel ; caches? de gel ; froid exterieur | Glace de lac ; Glaçage | 73 | 4
+Glace de lac (récolter, glacière) | glace de lac ; recolter la glace ; glacieres? | Froid naturel | 73,75,87
+Glaçage (protéger le gelé) | glacage ; \bglacer\b | Froid naturel | 73,59,75
+Brûlure de congélation | brulures? de congelation | Glaçage | 73,74
+Thermomètre minimum-maximum | min(imum)?-max(imum)? ; minimum-maximum ; thermometres? enregistreurs? | Froid naturel ; Congélateur qui dégèle | 73,74,68
+Redoux | redoux | Froid naturel | 73
+Thermomètre à viande (sonde) | thermometres? a viande ; \bsondes?\b ; thermometre (numerique|a cadran) ; etalonner (le|les) thermometres? ; thermometre etalonne | Cuisson à 74 °C à cœur | 66,46,68,69
+Congélateur qui dégèle | congelateurs? | Recongeler ; Décongeler ; Panne d'électricité | 74,01,03,00 | 1,3,4,5
+Recongeler | recongel\w* | Congélateur qui dégèle | 74,75
+Décongeler | decongel\w* | Congélateur qui dégèle | 74,66,75
+Traiter le poisson à la sortie de l'eau | a la sortie de l'eau ; saigner (le )?poisson ; poisson saigne ; bac (a|de) glace | Botulisme de type E ; Lever les filets | 75 | 3,4
+Lever les filets | lever (les )?filets ; filets de poisson ; fileter ; paroi du ventre | Traiter le poisson à la sortie de l'eau | 75 | 4
+Poisson salé-séché | sale-seche ; salee?s?-sechee?s? ; saler et secher ; salage a sec | Morue franche ; Salaison à sec | 76 | 4
+Gravlax | gravlax | Congélation antiparasitaire | 76,66
+Poisson fumé | poissons? fumes? ; fumer le poisson ; saumon fume ; truite fumee | Botulisme de type E ; Fumage à chaud ; Listeria | 77
+Conserves (mise en pot) | mise en conserve ; mettre en conserve ; \bconserves\b ; conserve (maison|de viande|domestique|de poisson) ; \bla conserve\b | Autoclave ; Bain d'eau bouillante ; Botulisme | 78
+Autoclave | autoclaves? ; marmites? a pression | Conserves ; Botulisme | 78,52
+Bain d'eau bouillante (bain-marie) | bain d'eau bouillante ; bain-marie | Conserves ; Aliments acides et peu acides | 78,91
+Aliments acides et peu acides | peu acides? ; aliments? acides? | Conserves ; pH | 78
+Couvercles et scellement | couvercles? (neufs?|de pot|a vis|plats?|usages?) ; scellement ; pots? scelles? ; sceller (un|le|les) pots? ; les couvercles | Conserves | 78,91 | 4,5
+Manomètre | manometres? | Autoclave | 78
+Marinades (vinaigre) | marinades? ; \bmariner\b ; \bmarine(e|es)?\b(?! (mammifere|marin)) | Vinaigre ; Conserves | 78,80
+Vinaigre | vinaigres? | Marinades | 91,78
+Confitures et gelées | confitures?\b ; pectine ; gelees? (de fruits?|de petits|sans pectine|de pommettes|de gadelles) | Petits fruits | 91,78
+Caveau à légumes | caveaux? | Silo de terre ; Légumes-racines | 79,95
+Silo de terre | silos? ; cave de talus ; baril enterre | Caveau à légumes | 79
+Légumes-racines (entreposer) | legumes-racines ; carottes? ; betteraves? ; navets? ; rutabagas? ; panais ; celeri-rave | Caveau à légumes | 79,98
+Pomme de terre | pommes? de terre | Caveau à légumes ; Mildiou | 98,79,95,100 | 2,4,5
+Solanine (pomme de terre verte) | verdissement ; solanine ; glyco-?alcaloides? | Pomme de terre | 79,95,98
+Humidité relative (hygromètre) | hygrometres? ; humidite relative | Caveau à légumes | 79,100
+Bois traité (reconnaître) | bois traites? | Caveau à légumes | 79,95,110
+Gaz carbonique | gaz carbonique ; dioxyde de carbone ; \bco2\b | Caveau à légumes | 79
+Fermentation (lactofermentation) | lactofermentation ; fermentation ; fermente\w* ; fermenter ; fournee de choucroute | Choucroute ; Saumure | 80
+Choucroute | choucroute | Fermentation ; Vitamine C | 80,20
+Chou | \bchoux?\b | Choucroute | 80,98
+Indicateur d'acidité (chou rouge) | indicateurs? ; bandelettes? ; anthocyanes? ; chou rouge | pH | 80 | 4
+Méthode de conservation selon l'aliment (table) | table aliment ; quelle methode | Conserves ; Salaison à sec ; Fumage à chaud | 81 | 4
+
+# ======================================================================= TOME 5 — LA FORÊT, LE JARDIN ET LE CHALET
+Incendie du bâtiment | \bincendies?\b(?! de foret) ; batiment (prend|en) feu ; feu de batiment ; departs? de feu ; le batiment prend feu | Extincteur ; Feu de cheminée ; Évacuation | 82,00,08
+Feu de cheminée | feux? de cheminee | Créosote ; Ramonage | 82,83
+Feu d'huile ou de graisse | feux? d'huile ; feux? de graisse | Incendie du bâtiment | 82
+Extincteur | extincteurs? | Incendie du bâtiment | 82,00,00b
+Créosote | \bcreosote\b | Ramonage ; Feu de cheminée | 83,82
+Ramonage | \bramon\w* | Créosote | 83,82
+Poêle à bois | poeles? a bois ; \bpoeles?\b | Bois de chauffage ; Créosote | 83,82,84
+Bois de chauffage | bois de chauffage ; corde de bois ; bois (humide|sec|vert) ; humidimetre ; buche temoin ; masse de bois | Fendre le bois ; Poêle à bois | 83 | 1,5
+Fendre le bois | \bfend(re|age|eur)\b ; coin d'acier | Bois de chauffage | 83,24,110 | 1,2,5,6
+Tuyau de poêle (réparer) | tuyaux? de poele ; reparer le tuyau ; traversee du tuyau ; tuyau perce | Feu de cheminée | 82,12,84
+Fermer le chalet à l'automne | fermer (le chalet|a l'automne) ; fermeture | Ouvrir le chalet au printemps | 84,108 | 5
+Ouvrir le chalet au printemps | ouvrir (le chalet|au printemps) | Fermer le chalet à l'automne | 84 | 5
+Chalet gelé (arriver en plein hiver) | chalet (ferme et )?gele ; arriver en plein hiver ; degeler sans | Poêle à bois | 84 | 5
+Souris et rongeurs | \bsouris\b ; rongeurs? | Hantavirus | 84,05 | 1,2,4,5
+Hantavirus | hantavirus | Souris et rongeurs | 84,05
+Pompe à eau (amorcer) | pompes? (a eau|du lac|a main|submersible|du puits) ; clapet de pied ; amorcer la pompe ; \bpompe\b | Plomberie | 84,03 | 1,5
+Lampe à huile (kérosène) | lampes? a (huile|kerosene|petrole) ; kerosene ; huile a lampe ; verres? de lampe | Mèches ; Lampe à graisse | 85
+Lampe à graisse | lampes? a graisse ; meche flottante | Chandelles ; Lard de phoque | 85,112,56
+Chandelles | chandelles? | Lampe à graisse ; Suif | 112,85
+Mèches | (?<!sans )\bmeches?\b(?! de (perceuse|tarriere)) | Chandelles ; Lampe à huile | 112,85 | 5,6
+Naphte (essence blanche) | naphte ; naphta ; essence blanche | Lampe à huile | 85
+Éclairage | eclairage ; multiplier le peu de lumiere ; deplacer la journee | Lampe à huile ; Lampe frontale et piles | 85 | 5
+Lampe frontale et piles | lampes? frontales? ; piles? (alcalines|au lithium|rechargeables) | Éclairage | 85,06 | 1,5
+Électricité du chalet (12 V) | electricite ; 12 v\b ; 12 volts ; cablage | Panneaux solaires ; Batteries | 86 | 5
+Panneaux solaires | panneaux? ; solaires? | Batteries | 86 | 5
+Batteries (banc, recharge) | \bbatteries?\b | Panneaux solaires ; Souder avec des batteries d'auto | 86,107,108 | 5,6
+Onduleur | onduleurs? | Électricité du chalet | 86
+Alternateur (chargeur à essence) | alternateurs? | Batteries | 86
+Bilan en wattheures | wattheures? ; \bwh\b ; \bkwh\b | Électricité du chalet | 86
+Courant du ruisseau et vent | ruisseau ; roue a aubes ; dynamo ; eolienne ; \ble vent\b | Électricité du chalet | 86 | 5
+Trouver le sud sans boussole | trouver le (sud|nord) ; sans boussole ; etoile polaire ; ombre (d'un|du) baton | Boussole et déclinaison | 86,42 | 3,5
+Froid mécanique (réfrigérateur) | refrigerateurs? ; compresseur | Congélateur qui dégèle | 86,87 | 5
+Propane | propane | Détendeur et raccords ; Fuite de gaz ; Réfrigérateur à absorption | 87,03
+Détendeur et raccords | detendeurs? ; raccords? | Propane | 87
+Fuite de gaz (eau savonneuse) | fuites? de (gaz|propane) ; eau savonneuse ; odeur de propane | Propane | 87
+Réfrigérateur à absorption | absorption | Propane | 87,86
+Eau chaude sans chauffe-eau | chauffe-eau ; eau chaude | Propane | 87,84,03 | 1,5
+Cuire dehors (foyer, crémaillère) | foyer exterieur ; cremaillere ; dehors : le foyer | Propane | 87 | 5
+Pain | \bpains?\b | Levain ; Bannique ; Farine | 88
+Levain | levains? | Pain ; Levure | 88
+Bannique | banniques? | Pain | 88
+Levure | levures? | Levain | 88
+Poudre à pâte (remplacer) | poudre a pate ; bicarbonate | Bannique | 88
+Moudre le grain | moudre ; moulins? ; mouture ; moud\b | Farine ; Blé | 88,98
+Farine | farines? | Pain ; Moudre le grain | 88,05
+Blé [Triticum aestivum] | \bble\b | Farine ; Céréales à la main | 88,98 | 5
+Ergot [Claviceps purpurea] | \bergots?\b | Seigle ; Blé | 88,98
+Cuire sans four | cuire sans four ; \bfours?\b ; cocotte ; four de terre | Pain | 88 | 5
+Raquettes (fabriquer) | raquettes? | Babiche ; Laçage | 89 | 5
+Toboggan | toboggans? | Raquettes ; Harnais | 89
+Laçage (raquette) | \blacage\b ; \blacer\b | Babiche ; Raquettes | 89,103
+Cintrer le bois (vapeur) | cintr\w* ; etuv\w* ; assouplir le bois | Raquettes ; Canot | 89,90 | 5,6
+Couteau croche | couteaux? croches? | Raquettes | 89,90
+Harnais (tirer une charge) | harnais ; tirer une charge ; tirer sans harnais | Toboggan | 89 | 5
+Canot (réparer) | \bcanots?\b | Gomme de sapin et d'épinette ; Portage ; Vêtement de flottaison | 90
+Portage | portage ; porter le canot ; joug | Canot ; Courroie de front | 90
+Gomme de sapin et d'épinette (résine) | \bgomme\b ; \bresines?\b | Canot ; Poix ; Onguent | 90,94,34
+Canot d'écorce | canots? d'ecorce ; canots? de peaux | Canot | 90
+Chavirer en eau froide | chavir\w* ; 1-10-1 ; choc du froid ; immersion en eau froide | Hypothermie ; Canot ; Passer à travers la glace | 90,25,58 | 2,3,5
+Petits fruits | petits fruits | Bleuet ; Airelle ; Chicoutai ; Atoca | 91
+Bleuet [Vaccinium angustifolium] | bleuets? | Petits fruits | 91
+Airelle (graine rouge) | airelles? ; graines? rouges? | Petits fruits | 91
+Graine rouge -> Airelle
+Chicoutai, plaquebière [Rubus chamaemorus] | chicoutai ; plaquebiere | Petits fruits | 91
+Plaquebière -> Chicoutai
+Atoca, canneberge [Vaccinium oxycoccos] | atocas? ; canneberges? | Petits fruits | 91,20
+Canneberge -> Atoca
+Camarine noire [Empetrum nigrum] | camarine | Petits fruits | 91,20
+Framboise | framboises? | Petits fruits | 91
+Cerisier de Virginie [Prunus virginiana] | cerisiers? ; \bcerises?\b | Petits fruits | 94,91
+Actée rouge (toxique) | actee | Petits fruits ; Plantes toxiques (sosies) | 91
+Sorbier | sorbiers? ; cormiers? ; \bcormes?\b | Petits fruits | 91
+Gadelles et groseilles | gadell\w* ; groseill\w* | Petits fruits ; Arbustes fruitiers | 91,99 | 5
+Amélanchier | amelanchier\w* | Arbustes fruitiers | 99,91
+Rosier sauvage (cynorhodon) | cynorr?hodons? ; rosiers? ; eglantier | Vitamine C | 20,91
+Plantes comestibles (cueillette) | plantes? comestibles? ; sortie de cueillette | Plantes toxiques (sosies) | 92 | 5
+Crosses de fougère [Matteuccia struthiopteris] | crosses? de fougere ; \bcrosses\b ; tetes?-de-violon ; fougere-a-l'autruche | Plantes comestibles | 92 | 4,5
+Quenouille [Typha latifolia] | quenouilles? | Plantes comestibles ; Bois d'allumage | 92,13
+Ail des bois | ail des bois | Plantes comestibles | 92
+Pissenlit | pissenlits? | Plantes comestibles | 92
+Ortie dioïque [Urtica dioica] | \borties?\b | Plantes comestibles ; Cordage | 92,103
+Chénopode (chou gras) | chenopode ; chou gras | Plantes comestibles | 92
+Algues (laminaire) | laminaires? ; \balgues?\b | Plantes comestibles ; Varech | 92,96
+Iris versicolore (toxique) | \biris\b | Plantes toxiques (sosies) | 92
+Vérâtre vert, toxique [Veratrum viride] | veratre | Plantes toxiques (sosies) | 92,33
+If du Canada, toxique [Taxus canadensis] | if du canada | Plantes toxiques (sosies) | 92,20
+Champignons | champignons? | Amanite ; Sporée | 93,04
+Sporée | sporees? | Champignons | 93
+Coprin | coprins? | Champignons ; Alcool | 93
+Clitocybe | clitocybes? | Champignons | 93
+Morille | morilles? | Champignons | 93
+Chanterelle | chanterelles? | Champignons | 93
+Sève (bouleau, érable) | \bseves?\b | Sirop d'érable ; Entailler | 94
+Sirop d'érable | \bsirops? d'erable ; \bsirop\b ; sucre d'erable | Sève | 94 | 5
+Entailler | entaill\w* ; chalumeaux? | Sève | 94 | 5
+Érable [Acer rubrum / A. saccharum] | erables? | Sève | 94
+Bouleau à papier [Betula papyrifera] | bouleaux? | Écorce de bouleau ; Sève | 94,13,90
+Écorce de bouleau (contenants, allumage) | ecorces? (externes? )?de bouleau ; boites? d'ecorce | Bouleau à papier ; Canot d'écorce | 94,13,33,90
+Écorce interne (liber) | ecorces? internes? ; \bliber\b | Scorbut | 94,20
+Poix | \bpoix\b | Gomme de sapin et d'épinette | 94,90,45
+Épinette | \bepinettes?\b | Thuyone ; Gomme de sapin et d'épinette ; Arbre de vie | 20,94,90
+Sapin baumier [Abies balsamea] | sapin baumier ; \bsapins?\b | Thuyone ; Sapinage ; Arbre de vie | 20,33,34
+Cèdre, thuya [Thuja occidentalis] | \bcedres?\b ; \bthuyas?\b | Thuyone | 20,33,34
+Thuya -> Cèdre
+Jardin nordique | jardins? ; potagers? | Compost ; Semis ; Allonger la saison | 95,99 | 5
+Compost | compost\w* | Jardin nordique ; Fumier | 95,96
+Paillis | paillis ; paillage ; pailler | Jardin nordique | 95,97
+Semis | \bsemis\b ; \bsemer\b | Jardin nordique ; Semences | 97,95,100 | 5
+Repiquer et transplanter | repiqu\w* ; transplant\w* ; endurcir | Semis | 97,95 | 5
+Gel au jardin (nuits de gel) | nuits? de gel ; gelees? (tardives?|hatives?|blanches?) ; derniere gelee ; premiere gelee ; nuit du gel | Allonger la saison | 97,95,98 | 5
+Allonger la saison | allonger la saison ; saison de (jardin|croissance) | Couche chaude ; Châssis froid ; Serre | 97 | 5
+Couche chaude | couches? chaudes? | Fumier ; Allonger la saison | 97
+Châssis froid | chassis | Allonger la saison | 97
+Tunnel et agrotextile | tunnels? ; agrotextiles? ; couvertures? flottantes? | Allonger la saison | 97 | 5
+Serre | \bserres?\b (adossee|froide|chaude) ; \bla serre\b ; \bune serre\b | Allonger la saison | 97 | 5
+Ados et buttes | \bados\b ; \bbuttes?\b ; billons? | Jardin nordique | 97,99,96 | 5
+Variétés hâtives | varietes? hatives? ; \bhati(f|ve|ves|fs)\b | Semences | 97,99,100 | 5
+Sol acide (chaux, cendre) | acidite du sol ; sols? acides? ; \bchaux\b ; chaul\w* ; ph du sol ; corriger l'acidite | Cendre de bois ; Faire la terre | 96 | 5
+Faire la terre | faire la terre ; nourrir la terre ; ouvrir le champ ; defrich\w* ; essouch\w* | Sol acide ; Fumier ; Engrais vert | 96 | 5
+Fumier | fumiers? | Compost ; Couche chaude | 96,97,101
+Engrais vert (pois, vesce, trèfle) | engrais verts? ; vesce ; trefle ; legumineuses? | Faire la terre ; Azote | 96 | 5
+Varech (algues au jardin) | varech | Faire la terre | 96,98
+Cendre de bois | cendres? de bois ; \bcendres?\b | Sol acide ; Lessive de cendre | 96,112,102 | 5,6
+Azote | \bazote\b | Engrais vert | 96 | 5
+Rotation des cultures et jachère | jachere ; rotation des cultures ; la rotation et la jachere | Faire la terre | 96,99 | 5
+Podzol | podzol | Faire la terre | 96
+Hernie du chou | hernie | Chou ; Rotation des cultures et jachère | 96 | 5
+Mildiou | mildiou | Pomme de terre | 98
+Gourgane (fève) | gourganes? ; \bfeves?\b | Favisme | 98
+Favisme | favisme | Gourgane | 98
+Pois secs | \bpois\b | Gourgane | 98,96 | 5
+Orge | \borge\b | Céréales à la main | 98,20 | 2,5
+Avoine | avoine | Céréales à la main | 98,21 | 2,5
+Seigle | seigle | Céréales à la main ; Ergot | 98,88 | 5
+Céréales à la main (battre, vanner) | cereales ; battage ; \bbattre\b ; vann\w* | Moudre le grain | 98 | 5
+Courge | courges? | Trois Sœurs | 98,99
+Oignon et ail | oignons? ; \bail\b | Caveau à légumes | 98,79
+Ce qu'il faut semer pour quatre | pour quatre ; metres? carres | Pomme de terre | 98 | 5
+Trois Sœurs (maïs, haricot, courge) | trois soeurs | Maïs ; Courge ; Haricot | 99
+Maïs | ~\bmaïs\b | Trois Sœurs | 99 | 5
+Haricot | haricots? | Trois Sœurs | 99,100
+Foin (faucher à la main) | \bfoin\b ; \bfaux\b ; fauch\w* ; fenil | Pâturage | 99,101 | 5
+Pâturage | paturages? | Foin | 99
+Rhubarbe | rhubarbe | Arbustes fruitiers | 99 | 5
+Topinambour | topinambours? | Jardin nordique | 99
+Arbustes fruitiers (planter) | gadelliers? ; camerisiers? ; argousiers? ; pommiers? ; pommetiers? ; arbustes? fruitiers? ; vivaces | Gadelles et groseilles ; Amélanchier | 99 | 5
+Multiplier sans pépinière (bouture, marcotte) | bouture\w* ; marcott\w* ; division ; drageons? | Arbustes fruitiers | 99
+Semer selon la lune | \blune\b ; selon les signes | Semis | 99
+Talle (gérer) | \btalles?\b | Petits fruits | 99,91,92
+Semences (garder) | semences? ; \bgraines?\b(?! rouges?) | Test de germination ; Pollinisation et croisement | 100,98
+Pollinisation et croisement | pollinis\w* ; allogames? ; autogames? ; croisements? | Semences | 100
+Test de germination | test de germination ; pouvoir germinatif ; taux de germination | Semences | 100,09
+Hybrides | hybrides? | Semences | 100
+Poules | \bpoules?\b ; poulailler ; poussins? ; pondeuses? | Œufs ; Influenza aviaire | 101
+Lapins d'élevage | \blapins?\b ; clapiers? | Maladie hémorragique du lapin | 101
+Maladie hémorragique du lapin | maladie hemorragique | Lapins d'élevage | 101
+Œufs | \boeufs?\b | Poules | 101 | 5
+Moulée (ration des bêtes) | moulee ; fourrage ; abreuvoir ; mangeoire | Poules ; Lapins d'élevage | 101
+Chèvre | chevres? | Pâturage | 101,99
+
+# ======================================================================= TOME 6 — L'ATELIER
+Tannage | tann\w* | Chamoisage ; Tannage végétal ; Mégissage à l'alun | 102
+Chamoisage (cervelle) | chamois\w* | Tannage ; Cervelle | 102
+Tannage végétal (écorce) | tannage vegetal ; tanin ; pruche | Tannage | 102
+Mégissage à l'alun | megissage ; \balun\b | Tannage ; Fourrure | 102
+Épiler la peau (débourrer) | epil\w* ; debourr\w* | Lessive de cendre ; Tannage | 102,103
+Conserver une peau crue | peaux? crues? ; saler la peau ; mettre la peau en conserve | Tannage | 102 | 6
+Fumer la peau | fumer la peau ; peaux? fumees? ; peau chamoisee | Chamoisage | 102,104
+Assouplir la peau | assoupli\w* | Tannage | 102 | 6
+Lessive de cendre | lessive de cendres? ; lessive de soude ; \blessive\b | Savon ; Épiler la peau | 112,102,103 | 6
+Soude caustique | \bsoude\b ; hydroxyde de sodium ; caustique | Savon ; Lessive de cendre | 112,102
+Babiche | babiche | Tendons ; Laçage | 103,89
+Tendons (fil de tendon) | \btendons?\b ; \bnerf\b | Babiche ; Collagène | 103 | 6
+Cordage (fibre végétale) | cordages? ; \bcordes?\b ; torons? ; contre-toron ; epissures? | Babiche ; Nœuds | 103,109 | 6
+Colle de peau | colles? (de peau|animale|de retailles|forte|de poisson) ; \bla colle\b | Assemblages bois-bois | 103,110 | 6
+Rouissage | rouiss\w* | Ortie dioïque ; Cordage | 103
+Nœuds | noeuds? | Cordage | 109,103 | 6
+Coudre (points, alêne) | \bcoudre\b ; coutures? ; surjet ; point de sellier ; alenes? ; fil cire | Mocassin ; Réparer un vêtement | 104 | 6
+Réparer un vêtement | reparer un vetement ; recoudre ; fermetures? eclair ; rapiec\w* | Coudre | 104 | 6
+Mocassin | mocassins? | Mukluk ; Gabarit du pied | 104
+Mukluk | mukluks? | Mocassin ; Doublure de duffel | 104
+Doublure de duffel | duffel ; doublures? | Mukluk | 104
+Gabarit du pied | gabarit du pied | Mocassin | 104
+Bottes (réparer, chausser à -35 °C) | \bbottes?\b ; chausser | Mukluk | 104 | 6
+Affûter | \baffut(er|age|e|ee|es|ez|ons|ent|ant)\b | Morfil ; Pierre à aiguiser et meule | 105
+Morfil | morfil | Affûter | 105
+Pierre à aiguiser et meule | pierres? a aiguiser ; \bmeules?\b ; touret ; abrasifs? | Affûter | 105
+Lime | \blimes?\b ; \blimer\b | Affûter | 105,111
+Hache | \bhaches?\b | Affûter ; Fendre le bois | 105,83 | 5,6
+Chaîne de scie (affûter) | chaines? de scie ; guide-chaine | Scie à chaîne | 105,106
+Avoyer une scie | \bavoy\w* | Affûter | 105
+Scie à chaîne | scies? a chaine ; \bla scie\b ; tronconneuse | Chaîne de scie ; Rebond ; Abattre un arbre ; Carburant | 106
+Rebond (scie à chaîne) | rebond | Scie à chaîne | 106
+Abattre un arbre | abattre (un|l'|des|d'un) arbres? ; trait d'abattage ; abattage (d'un |des )?arbres? ; faire tomber l'arbre | Arbre encroué | 106,109 | 5,6
+Arbre encroué | encroue | Abattre un arbre ; Leviers et poulies | 106,109
+Petit moteur qui ne part pas | bougies? ; carburateur ; ne part pas ; refuse de partir ; petits moteurs ; hors-bord | Scie à chaîne | 106 | 6
+Pantalon de coupe | pantalons? de coupe | Scie à chaîne | 106,00b
+Godendard | godendard | Scie à chaîne | 106,09
+Souder à l'arc | \bsoud(er|ure|ures|age|ant|eur|euse|ez|ons)\b ; \bsoudees?\b ; souder a l'arc ; poste a souder | Souder avec des batteries d'auto ; Brasage | 107 | 6
+Souder avec des batteries d'auto | batteries (d'auto|de char|en serie|montees) | Souder à l'arc | 107
+Brasage | \bbras(age|er|ure)\b ; borax | Souder à l'arc ; Étain | 107
+Étain (soudure à l'étain) | \betain\b | Brasage | 107
+Électrode (baguette) | electrodes? ; baguettes? | Souder à l'arc | 107,108 | 6
+Éclisse boulonnée | eclisses? | Souder à l'arc | 107
+Rivet | rivets? ; riveter | Éclisse boulonnée | 107,90
+Réservoir (réparer) | reservoirs? | Souder à l'arc | 107 | 6
+Pièces de rechange (stock) | pieces de rechange ; stock de pieces ; quincaillerie ; consommables | Joints toriques | 108,09 | 1,6
+Joints toriques | joints? toriques? | Pièces de rechange | 108,09
+Joint de cuir gras | cuir gras | Pièces de rechange | 109,31
+Leviers et poulies | \bleviers?\b ; poulies? ; moufl\w* ; palan | Treuil ; Câble d'acier | 109 | 6
+Treuil (vindas, tire-fort) | treuils? ; vindas ; tire-fort | Leviers et poulies | 109
+Câble d'acier | cables?( d'acier)? ; serre-cables | Leviers et poulies | 109 | 6
+Lever un bâtiment (cric) | \bcric\b ; lever un coin ; verins? | Leviers et poulies | 109
+Nœud de camionneur | noeud de camionneur | Nœuds | 109
+Tourniquet espagnol | tourniquet espagnol | Leviers et poulies | 109
+Ancrage | ancrages? | Leviers et poulies | 109 | 6
+Assemblages bois-bois | assemblages? | Tenon et mortaise ; Mi-bois | 110 | 6
+Tenon et mortaise | tenons? ; mortaises? | Assemblages bois-bois ; Cheville | 110
+Mi-bois | mi-bois | Assemblages bois-bois | 110
+Cheville (chevillage) | chevill\w* | Tenon et mortaise | 110 | 6
+Teneur en eau du bois | teneur en eau | Bois de chauffage | 110,83
+Percer sans mèche | percer sans ; fer rouge ; percer (un|le|les|des) trous? ; percer la mortaise | Tenon et mortaise | 110,89 | 5,6
+Trempe de l'acier | \btremp(e|er|ee)\b ; bac de trempe | Revenu ; Huile de trempe | 111 | 6
+Revenu (couleurs) | \brevenu\b ; couleurs? de revenu ; jaune paille | Trempe de l'acier | 111
+Forger | forg(er|e|es|eage|eron|ee|ees)\b ; soufflet ; soufflerie | Enclume ; Charbon de bois | 111
+Recuire et normaliser | recui\w* ; normalis\w* | Trempe de l'acier | 111 | 6
+Reconnaître l'acier (doux, au carbone) | aciers? (doux|au carbone|a ressort|dur) ; test (de )?l'etincelle ; aimant | Trempe de l'acier | 111 | 6
+Enclume | enclumes? | Forger | 111
+Charbon de bois | charbon de bois | Forger | 111,107
+Huile de trempe | huile de trempe | Trempe de l'acier | 111
+Cémentation | cementation | Trempe de l'acier | 111
+Savon | \bsavons?\b | Lessive de cendre ; Suif ; Soude caustique | 112,31,30
+
+# ----------------------------------------------------------------------- ajouts de la relecture
+Étau | \betaux?\b ; etau de souche | Affûter ; Lime | 105 | 6
+Couteau (affûter, réparer) | \bcouteaux?\b | Affûter ; Morfil | 105 | 6
+Manche d'outil (emmancher) | emmanch\w* ; manches? (de hache|d'outil|de lime) | Hache ; Lime | 105 | 6
+Maturation de la viande | maturation ; rassis\w* | Quartier arrière ; Le dos | 63,65,22 | 2,4
+Pellicule (fumage du poisson) | pellicule | Poisson fumé ; Fumage à froid | 77,70 | 4
+Perte de masse (suivre le séchage) | perte de masse ; suivi de masse ; poids frais | Salaison à sec ; Poisson salé-séché | 68,76,67,69 | 4
+Toilette sans pression (chasse au seau) | reservoir de (la )?toilette ; chasse d'eau ; seau d'eau dans la (toilette|cuvette) ; cuvette | Plomberie ; Panne d'électricité | 03,07,08 | 1
+Anémie (manque de fer) | anemi\w* | Grossesse ; Calories | 21,29 | 2
+Vitamine D | vitamine d\b | Lumière de l'hiver | 21,37,36 | 2
+Diabète et insuline | diabet\w* ; insuline | Ordonnances ; Pharmacie | 32,03,07 | 1,2
+Fermer une plaie (suture) | sutur\w* ; steri-?strips? ; points de rapprochement ; (re)?fermer (une|la) plaie | Plaie ; Pansement | 26 | 2
+Convulsions | convulsion\w* | Fièvre ; Thuyone | 28,39,20 | 2
+Tiques | \btiques?\b ; maladie de lyme ; \blyme\b | Porc-épic ; Piqûres | 51,53,34
+Innus (savoirs et façons de faire) | \binnus?\b ; \binnue?s\b ; usage innu | Shaputuan ; Couteau croche ; Canot d'écorce | 12,34,89,90
+Ail dans l'huile (botulisme) | ail dans l'huile ; huiles? aromatisees? | Botulisme | 80,92,74
+Clé d'air (régler le poêle) | cle d'air ; arrivee d'air | Poêle à bois ; Créosote | 83,82 | 5
+Pagaie | pagaies? | Canot | 90
+Arrosage | arros(er|age|oir|e)\b | Jardin nordique | 95,97 | 5
+Désherber (sarcler) | desherb\w* ; sarcl\w* ; mauvaises herbes | Jardin nordique | 95 | 5
+Clôture (lièvre, chevreuil, bêtes) | clotur\w* | Jardin nordique ; Poules | 95,99,101 | 5
+Terreau (semis) | terreau | Semis | 97 | 5
+Témoin de dégel | temoin de degel | Congélateur qui dégèle | 01,73
+Chaufferette (propane, intérieur) | chaufferettes? | Monoxyde de carbone ; Propane | 03,01,58
+Ouvre-boîte (ouvrir une conserve) | ouvre-boites? ; ouvrir une conserve | Stock permanent du chalet | 05 | 1
+Conserve bombée | (boites?|conserves?|couvercles?|pots?|canettes?) bombees? ; bombement | Botulisme ; Conserves | 05,78
+Foène | foenes? | Omble de fontaine | 57
+Mélange essence-huile (moteur 2 temps) | deux temps ; 2 temps ; melange (essence|d'essence) | Scie à chaîne ; Carburant | 106 | 1,6
+Fonte fendue (réparer) | fonte fendue ; couture de vis | Souder à l'arc ; Brasage | 107
+Route coupée (isolement) | routes? (coupee|fermee)s? ; isolement | Rester ou partir ; Stock permanent du chalet | 08,00,09 | 1
+Denrées sèches (riz, farine, légumineuses) | \briz\b ; legumineuses? seches? ; denrees? seches? ; calories seches | Stock permanent du chalet ; Farine | 05 | 1
+Blessure grave loin des secours | blessures? graves? ; blesses? graves? ; hors de portee des secours ; loin de tout | Garrot ; Saignement ; Sortir un blessé | 00,08 | 1
+Abattre une volaille ou un lapin | tuer, saigner ; habiller ; tuer (la|une) poule ; abattre (la|une) poule | Poules ; Lapins d'élevage ; Plumer | 101 | 5
+Pêche à la ligne | peche a la ligne ; pecher (du|au) bord ; peche du bord ; ligne dormante ; cannes? a peche | Hameçon et leurre ; Omble de fontaine | 57 | 3

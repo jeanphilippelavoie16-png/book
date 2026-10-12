@@ -1,0 +1,50 @@
+> **Renuméroté le 24 septembre 2026** (six tomes) : ancien chapitre 54. Plus bas, les numéros de chapitre sont **les anciens** (table : plan/renumerotation.json).
+
+# Chapitre 54 — Pêche blanche : levée des `[À VÉRIFIER]`
+
+- **Passe du :** 24 septembre 2026 (reprise après la coupure du 23 au soir)
+- **Fichier vérifié :** `chapitres/54-peche-blanche.md` (lu, pas modifié)
+- **Drapeaux au chapitre :** 7 (lignes 100, 110, 116, 157, 164, 279, 405)
+- **Bilan :** 7 drapeaux — **1 LEVÉ**, **4 CORRIGÉS**, **2 INTROUVABLES** (longueur de corde,
+  diamètre de tarière : les deux se disent sans chiffre)
+
+« LEVÉ » couvre aussi les drapeaux où le texte n'avait **pas** de valeur et où la source en
+fournit une : la colonne « à faire » donne alors la valeur à insérer. Les fiches
+`54-eccc-manice-glace-pourrie.md` et `54-mndnr-glace-alveolee-printemps.md` du 23 au soir servent
+la note sur la glace pourrie, pas un drapeau.
+
+| # | Où | Verdict | Source | À faire |
+| --- | --- | --- | --- | --- |
+| 1 | §5-B, étape 8 « Regarder la carotte et la couleur », l. 162-164 : « Blanche ou opaque : bulles d'air, plus fragile — et il n'existe **aucun facteur de correction** chiffré pour elle, donc une glace blanche ne satisfait pas au chiffre `[À VÉRIFIER]` » | **CORRIGÉ** — le texte dit qu'aucun facteur n'existe ; deux organismes en donnent un : la glace blanche est « only about half as strong as new, clear ice. Double the above thickness guidelines when traveling on white ice » ; la Croix-Rouge canadienne : « en général, elle est seulement à moitié aussi solide que la glace bleu pâle » | `sources/54-mndnr-glace-blanche-double-sondage-corde.md` (page enregistrée : `sources/54-mndnr-ice-thickness.html`) ; `sources/35-croix-rouge-securite-sur-la-glace.md` (déjà au dossier) | « Blanche ou opaque : de la neige gorgée d'eau qui a regelé, pleine de bulles d'air, environ deux fois moins solide que la glace claire. Sur glace blanche, on double l'épaisseur exigée. Grise ou foncée : de l'eau, on s'en éloigne. » Voir la note A sur les seuils eux-mêmes ✔ appliqué (note A comprise : 15 cm à pied, 20 cm en groupe, 25 cm en motoneige, partout dans le chapitre) |
+| 2 | §6 Points de contrôle, ligne « Premier trou / Couleur de la carotte », l. 279 : « Blanche ou opaque : aucun facteur de correction officiel `[À VÉRIFIER]`, donc la cible n'est pas atteinte » | **CORRIGÉ** — même source que la ligne 1 : moitié aussi solide, épaisseur doublée | Même fiche que la ligne 1 | « Blanche ou opaque : deux fois moins solide, on double l'épaisseur exigée. Grise ou foncée : on s'éloigne » ✔ appliqué |
+| 3 | §5-B, étape 6 « Sonder en avançant », l. 156-157 : « Sonder à intervalle régulier — une dizaine de pas est une pratique de terrain, pas une valeur officielle `[À VÉRIFIER]`. » | **CORRIGÉ** — la source ne dit pas « une dizaine de pas » mais **à chaque pas**, au ciseau, surtout en début et en fin de saison : « you can stab the ice in front of you with each step you take to ensure the ice has not suddenly become thinner » ; et le sondage ne remplace pas la mesure au ruban, à refaire souvent. Elle ajoute qu'on ne juge pas l'épaisseur à la facilité avec laquelle l'outil perce | `sources/54-mndnr-glace-blanche-double-sondage-corde.md` (page enregistrée : `sources/54-mndnr-check-ice-thickness.html`) | « Sonder à chaque pas, devant soi, en début et en fin de saison : la glace peut s'amincir d'un pas à l'autre. Le sondage ne remplace pas la mesure au trou, et la facilité avec laquelle la perche ou le ciseau entre ne dit pas l'épaisseur. » ✔ appliqué |
+| 4 | §4 Matériel, ligne « Corde flottante, avec un objet flottant noué au bout », dernière colonne, l. 110 : « **Non négociable**. Assez longue pour atteindre un trou depuis la glace qui porte `[À VÉRIFIER]` » | **INTROUVABLE** — aucune longueur chiffrée dans les sources consultées (Minnesota DNR, Wisconsin DNR, Croix-Rouge, Société de sauvetage). La fonction, elle, est sourcée : on reste à distance sur la glace sûre, on lance un bout, la personne s'attache avant d'être trop faible pour tenir, on tire pendant qu'elle bat des pieds à l'horizontale, et si elle tire le sauveteur vers le trou, on lâche et on recommence | `sources/54-mndnr-glace-blanche-double-sondage-corde.md` (pages enregistrées : `sources/54-mndnr-ice-safety-gear.html`, `sources/54-mndnr-saving.html`) | Retirer le drapeau ; la phrase dit déjà la fonction sans chiffre : « **Non négociable**. Assez longue pour être lancée jusqu'au trou depuis la glace qui porte, sans que le sauveteur s'approche du bord. » ✔ appliqué |
+| 5 | §3 Pourquoi ça marche, le mercure, l. 97-101 : « le guide québécois de consommation du poisson de pêche sportive n'a pas pu être obtenu, donc ce livre n'écrit aucun seuil de repas ni aucune taille limite `[À VÉRIFIER]` » | **LEVÉ** — le guide a été obtenu depuis (fiche du ch. 53). Recommandations générales, sans avis propre au lac : **doré, brochet, touladi, achigan, maskinongé : 2 repas par mois** ; **perchaude, lotte, meunier, barbotte, crapet, esturgeon : 4 repas par mois** ; **grand corégone, omble de fontaine, autres truites sauf le touladi, éperlan : 8 repas par mois** ; un repas = **230 g de poisson avant cuisson** ; la limite mensuelle compte **toutes les espèces ensemble**. Pour les **jeunes enfants**, les espèces à 2 repas se mangent « de manière occasionnelle seulement ». **Aucune taille limite générale** : la teneur monte avec la taille (« plus les poissons sont gros, moins on peut en manger ») et les avis par taille existent **lac par lac** (près de 1 400 sites) dans l'application du ministère | `sources/53-melccfp-guide-consommation-poisson-eau-douce.md` ; recoupé par `sources/53-quebec-consommation-poisson-recommandations.md` (déjà au dossier) | « Le mercure, qui ne se détruit par aucun traitement et dont la teneur monte avec la taille et le rang du prédateur. Sans avis propre au lac : doré, brochet et touladi, 2 repas par mois ; perchaude et lotte, 4 ; corégone et omble de fontaine, 8 — un repas, c'est 230 g de poisson cru, et le mois compte toutes les espèces ensemble. Pour les enfants, les trois gros prédateurs restent occasionnels. Plus le poisson est gros, moins on en mange. » — et c'est justement le doré, le brochet et le touladi que la pêche blanche vise (suite inchangée). Voir la note B ✔ appliqué |
+| 6 | §8 Danger, note [^2] (mal de caribou), l. 403-405 : « viennent la fatigue, le mal de tête, la nausée, puis une diarrhée vers la fin de la première semaine `[À VÉRIFIER]` » | **CORRIGÉ** — le récit source donne « **from a week to 10 days** » : « Diarrhoea will start in from a week to 10 days and will not be relieved unless you secure fat. » La fin de la première semaine est le début de la fourchette, pas sa totalité. Statut : récit d'explorateur (Stefansson) cité dans un article évalué par les pairs ; aucune source officielle ne décrit le tableau | `sources/21-speth-spielmann-1983-stefansson-mal-de-caribou.md` ; `sources/36-mal-de-caribou-signes.md` (déjà au dossier) | « …viennent la fatigue, le mal de tête, la nausée, puis une diarrhée entre une semaine et dix jours, que seul le gras arrête. Plus de poisson maigre n'y change rien : c'est le gras qui le renverse. » Voir la note C sur le « deux à trois semaines » du même encadré ✔ appliqué (« que seul le gras arrête » omis : la phrase suivante le dit déjà ; note C appliquée : « quelques semaines », l. 62, 401 et 577) |
+| 7 | §4 Matériel, ligne « Tarière à glace manuelle », dernière colonne, l. 116 : « Oui. Un diamètre de 150 à 200 mm couvre les espèces visées `[À VÉRIFIER]` » | **INTROUVABLE** — aucune source officielle ni technique consultée ne relie un diamètre de trou aux espèces (les pages du Minnesota DNR parlent de la tarière pour mesurer la glace, sans diamètre). Le budget de recherche web de la session était épuisé avant ce drapeau : les pages de fabricants de tarières n'ont pas pu être cherchées | Aucune nouvelle | Dire la même chose sans le chiffre : « Oui. Le trou se perce à la taille du plus gros poisson qu'on espère sortir : celui qui ne passe pas se perd au trou. S'il bloque, on élargit au ciseau (section 9-A). » ✔ appliqué |
+
+## Notes hors drapeau
+
+**A — Les seuils eux-mêmes (étape 7, §6).** Le chapitre donne **10 cm à pied et 12 cm en
+motoneige** (Société de sauvetage), sans autre valeur : la page de la Croix-Rouge répondait 403
+le 20 septembre, et la fiche de la Société de sauvetage prévoyait de signaler l'écart. Elle a
+été lue depuis, en copie d'archive (`sources/35-croix-rouge-securite-sur-la-glace.md`) : **15 cm pour la
+marche ou le patinage individuels, 20 cm en groupe, 25 cm pour les motoneiges**. Le chapitre 35
+applique déjà la règle du livre, la plus prudente des deux, et écrit 15 cm et 25 cm. Le
+chapitre 54 devrait faire pareil ; avec la glace blanche doublée (lignes 1 et 2), ça donne 30 cm
+à pied et 50 cm en motoneige sur glace blanche. Une pêche blanche se fait en groupe, souvent
+avec des enfants : la ligne « 20 cm pour le patinage en groupe ou les jeux » la concerne aussi.
+
+**B — Mercure (ligne 5).** La phrase « ce livre n'écrit aucun seuil de repas » est devenue fausse
+dès que la fiche du ch. 53 a trouvé le guide. Le même trou était signalé aux ch. 43, 53 et 55
+(`sources/54-NON-OBTENUES-pages-cherchees-sans-succes.md`) : les chapitres qui le portent encore
+sont à reprendre avec la même fiche. Le guide note aussi qu'un pêcheur qui ne mange du poisson
+qu'à son voyage annuel court un risque « quasi inexistant » : les limites visent la
+consommation régulière, qui est exactement celle d'un hiver au chalet.
+
+**C — « Mortel en deux à trois semaines » (encadré DANGER, l. 397).** Pas marqué `[À VÉRIFIER]`
+dans ce chapitre, mais aucune source du dossier ne donne ce délai. Le récit source dit « Death
+will result after several weeks » (`sources/21-speth-spielmann-1983-stefansson-mal-de-caribou.md`),
+et `sources/36-mal-de-caribou-signes.md` le note déjà. Le chiffre vient du tableau de sécurité de
+`CLAUDE.md`, pas d'une source (même constat que la note B de `12-verifications.md`). Proposition
+pour ce chapitre : « mortel après quelques semaines ».

@@ -1,0 +1,695 @@
+# Renumérotation — rapport
+
+644 fichiers renommés ou réécrits.
+
+> **Relu à la main le 24 septembre 2026.** Ne pas relancer `renumeroter.js` : il remappe à l'aveugle et
+> décalerait une deuxième fois des numéros déjà nouveaux. Les 34 points ci-dessous sont traités (4 plages
+> réécrites ; mentions de tome corrigées en 41, 99 et 107, les autres étaient justes). Le script avait manqué,
+> et c'est corrigé : 110 renvois « Ch. N » à majuscule, 301 cellules de colonnes « Ch. » / « Chapitre » /
+> « Renvoi » / « Fiches visées » (00, 00b, 41, 42, 45, 46, 52, 54, 62, 64, 74, 81), 29 numéros de planche
+> nus du ch. 62 (« 37-16 » → « 62-16 »), une trentaine de renvois coupés par un retour à la ligne, une
+> parenthèse (« chapitres 68 (à sec), 64 (saumure)… ») ou nus (« le 69 », « au 76 », « fiches 44, 46 et 49 »).
+
+## À relire à la main (34)
+
+- `08-le-stock-permanent-du-chalet.md` l. 103 : mention de tome à relire : « calories (section 5.3), et elle pèse la viande pour les pourcentages de sel de tout le tome 4, »
+- `14b-le-pain.md` l. 207 : mention de tome à relire : « d'essai. Le pourcentage se calcule **sur la farine**, comme celui du tome 4 se calcule sur la »
+- `35-lire-le-territoire-autour-du.md` l. 42 : plage « 43 à 60 » coupée par la renumérotation (nouveaux : 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 91, 92, 93, 94) — à réécrire à la main
+- `35b-les-armes-les-munitions-et-l-arc.md` l. 14 : mention de tome à relire : « La cartouche est le seul outil du tome 3 qui ne se refait pas au chalet : gardée fraîche, sèche et »
+- `43-comment-lire-une-fiche-d.md` l. 11 : plage « 44 à 60 » coupée par la renumérotation (nouveaux : 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 91, 92, 93, 94) — à réécrire à la main
+- `43-comment-lire-une-fiche-d.md` l. 22 : mention de tome à relire : « - Il faut choisir une méthode de conservation. Le champ 10 dit lesquelles du tome 4 s'appliquent, »
+- `43-comment-lire-une-fiche-d.md` l. 72 : mention de tome à relire : « | Balance, 0 à 5 kg, précision au gramme | 1 | Balance à fléau fabriquée : une tringle entaillée en son milieu, la viand »
+- `43-comment-lire-une-fiche-d.md` l. 112 : mention de tome à relire : « | 10 | **Conservation** | Où va la viande | Les méthodes du tome 4 qui s'appliquent, et celles qui ne s'appliquent pas à »
+- `43-comment-lire-une-fiche-d.md` l. 279 : mention de tome à relire : « > trouvées dans la nature résistent à la congélation. Le mécanisme est brutal : quatre des méthodes du tome 4 — saler, s »
+- `43-comment-lire-une-fiche-d.md` l. 393 : mention de tome à relire : « des deux bords. Ce qu'on perd, c'est la certitude du chiffre, donc les méthodes du tome 4 qui en »
+- `45-gelinotte-huppee-et-tetras-du.md` l. 44 : plage « 36 à 42 » coupée par la renumérotation (nouveaux : 22, 23, 61, 62, 63, 64, 65) — à réécrire à la main
+- `48-ours-noir.md` l. 41 : mention de tome à relire : « l'ours noir, et pour aucune autre espèce du tome 3 : »
+- `51-martre-vison-renard-lynx-loup.md` l. 30 : mention de tome à relire : « tome 3 où le rendement se compte en peaux et non en kilos. Une bordure de capuchon en »
+- `51-martre-vison-renard-lynx-loup.md` l. 66 : mention de tome à relire : « - **Pour saler, fumer ou sécher la viande.** Toutes les méthodes du tome 4 sont disponibles pour »
+- `51-martre-vison-renard-lynx-loup.md` l. 542 : mention de tome à relire : « parasite enkysté dans le muscle. Aucune formule de saumure du tome 4 ne rend cette viande sûre »
+- `52-phoque-du-saint-laurent.md` l. 100 : mention de tome à relire : « Autrement dit, quatre des méthodes du tome 4 arrêtent la putréfaction sans toucher au »
+- `52-phoque-du-saint-laurent.md` l. 358 : mention de tome à relire : « > simplicité : quatre des méthodes du tome 4 **conservent la viande sans stériliser le »
+- `53-truite-et-omble-au-lac.md` l. 61 : mention de tome à relire : « Un lac est une réserve qui se recharge, et c'est ce qui le distingue de tout le reste du tome 3. »
+- `53-truite-et-omble-au-lac.md` l. 105 : mention de tome à relire : « | Balance 0 à 5 kg, précision au gramme | 1 | Balance romaine improvisée : une perche, un point d'appui, la prise d'un b »
+- `53-truite-et-omble-au-lac.md` l. 487 : mention de tome à relire : « les pourcentages de sel du tome 4 se calculent sur le poids de la chair, avec un sel dont on »
+- `55-eperlan-et-poisson-du-fleuve.md` l. 14 : mention de tome à relire : « se prennent une à une, puis les refroidir assez vite pour que le tome 4 ait encore quelque chose à »
+- `55-eperlan-et-poisson-du-fleuve.md` l. 85 : mention de tome à relire : « décider dans la première heure de quelle voie du tome 4 il prend. »
+- `62-le-sel.md` l. 30 : mention de tome à relire : « tome 4 qui n'a pas de substitut valable : on peut se passer de fumoir, de congélateur, de »
+- `68-froid-naturel.md` l. 61 : plage « 37 à 41 » coupée par la renumérotation (nouveaux : 22, 62, 63, 64, 65) — à réécrire à la main
+- `72-fumer-le-poisson.md` l. 452 : mention de tome à relire : « tiennent dans une poche et c'est le meilleur rapport sécurité-prix de tout le tome 4** : ils sont »
+- `73-conserves-et-marinades.md` l. 28 : mention de tome à relire : « manger** : la conserve est le seul procédé du tome 4 qui sort un aliment cuit, portionné et »
+- `73-conserves-et-marinades.md` l. 411 : mention de tome à relire : « > traitement à l'autoclave à 116 °C est, dans tout le tome 4, **le seul procédé de conservation »
+- `73-conserves-et-marinades.md` l. 471 : mention de tome à relire : « cycle d'autoclave est la seule opération du tome 4 où sortir dix minutes gâche une journée de »
+- `73-conserves-et-marinades.md` l. 614 : mention de tome à relire : « 3. **L'indépendance au froid.** Tout le reste du tome 4 dépend d'un caveau, d'un trou de neige »
+- `76-caveau-a-legumes.md` l. 25 : mention de tome à relire : « le seul procédé du tome 4 qui conserve le légume **vivant et cru**, sans le cuire, sans le saler, »
+- `77-fermentation.md` l. 24 : mention de tome à relire : « procédé du tome 4 qui le permette, parce que c'est le seul qui garde le légume **cru**. Un chalet »
+- `77-fermentation.md` l. 331 : mention de tome à relire : « > Une choucroute bien faite est un des aliments les plus sûrs du tome 4 : «There have been no »
+- `77-fermentation.md` l. 411 : mention de tome à relire : « congélateur, ni propane, ni pots neufs, ni scellage : c'est le seul procédé du tome 4 qui fonctionne »
+- `84-souder-braser-reparer-le-metal.md` l. 421 : mention de tome à relire : « > plomb ». C'est-à-dire exactement ce que le tome 4 fait cuire, mariner et saler : une cuve de »
+
+## Fichiers
+
+- 00-le-chapitre-principal.md → 00-le-chapitre-principal.md (texte modifié)
+- 00b-acheter-par-priorite.md → 00b-acheter-par-priorite.md (texte modifié)
+- 01-les-quatre-horloges.md → 01-les-quatre-horloges.md (texte modifié)
+- 02-rester-ou-partir.md → 02-rester-ou-partir.md (texte modifié)
+- 03-le-froid-lui-meme.md → 25-le-froid-lui-meme.md (texte modifié)
+- 04-panne-majeure-d-hydro-en.md → 03-panne-majeure-d-hydro-en.md (texte modifié)
+- 05-epidemie.md → 30-epidemie.md (texte modifié)
+- 06-retombees-radioactives.md → 04-retombees-radioactives.md (texte modifié)
+- 07-des-enfants-de-4-et-6-ans.md → 39-des-enfants-de-4-et-6-ans.md (texte modifié)
+- 08-le-stock-permanent-du-chalet.md → 05-le-stock-permanent-du-chalet.md (texte modifié)
+- 09-la-liste-de-72-heures.md → 06-la-liste-de-72-heures.md (texte modifié)
+- 10-quand-on-a-un-preavis.md → 07-quand-on-a-un-preavis.md (texte modifié)
+- 11-listes-par-scenario.md → 08-listes-par-scenario.md (texte modifié)
+- 12-ce-qui-manque-toujours.md → 09-ce-qui-manque-toujours.md (texte modifié)
+- 13-eau-puiser-filtrer-desinfecter.md → 10-eau-puiser-filtrer-desinfecter.md (texte modifié)
+- 14-sans-propane.md → 87-sans-propane.md (texte modifié)
+- 14b-le-pain.md → 88-le-pain.md (texte modifié)
+- 15-poeles-a-bois-et-rendement.md → 83-poeles-a-bois-et-rendement.md (texte modifié)
+- 15b-ouvrir-et-fermer-le-chalet.md → 84-ouvrir-et-fermer-le-chalet.md (texte modifié)
+- 16-le-feu-au-chalet.md → 82-le-feu-au-chalet.md (texte modifié)
+- 16b-feu-de-foret.md → 11-feu-de-foret.md (texte modifié)
+- 16c-la-tente-d-hiver.md → 12-la-tente-d-hiver.md (texte modifié)
+- 17-feu-sans-allumettes.md → 13-feu-sans-allumettes.md (texte modifié)
+- 18-eclairage.md → 85-eclairage.md (texte modifié)
+- 18b-l-electricite-du-chalet.md → 86-l-electricite-du-chalet.md (texte modifié)
+- 19-communiquer-et-savoir.md → 14-communiquer-et-savoir.md (texte modifié)
+- 20-se-deplacer-et-le-carburant.md → 15-se-deplacer-et-le-carburant.md (texte modifié)
+- 20b-raquettes-et-toboggan.md → 89-raquettes-et-toboggan.md (texte modifié)
+- 20c-le-canot.md → 90-le-canot.md (texte modifié)
+- 21-le-voisinage-et-le-groupe-de.md → 16-le-voisinage-et-le-groupe-de.md (texte modifié)
+- 22-qui-cogne-a-la-porte.md → 17-qui-cogne-a-la-porte.md (texte modifié)
+- 23-s-organiser-a-plusieurs.md → 18-s-organiser-a-plusieurs.md (texte modifié)
+- 24-le-mal-de-caribou.md → 19-le-mal-de-caribou.md (texte modifié)
+- 25-le-scorbut-et-l-arbre-de-vie.md → 20-le-scorbut-et-l-arbre-de-vie.md (texte modifié)
+- 26-ce-qu-un-corps-demande-l-hiver.md → 21-ce-qu-un-corps-demande-l-hiver.md (texte modifié)
+- 27-soigner-quand-il-n-y-a.md → 26-soigner-quand-il-n-y-a.md (texte modifié)
+- 27b-les-dents.md → 27-les-dents.md (texte modifié)
+- 28-hygiene-et-eaux-usees.md → 31-hygiene-et-eaux-usees.md (texte modifié)
+- 29-batir-la-pharmacie.md → 32-batir-la-pharmacie.md (texte modifié)
+- 30-plantes-medicinales-boreales.md → 33-plantes-medicinales-boreales.md (texte modifié)
+- 31-ce-qu-on-ne-peut-pas-soigner.md → 35-ce-qu-on-ne-peut-pas-soigner.md (texte modifié)
+- 32-tenir-le-moral-tout-un-hiver.md → 36-tenir-le-moral-tout-un-hiver.md (texte modifié)
+- 33-les-enfants-la-peur-et-la.md → 40-les-enfants-la-peur-et-la.md (texte modifié)
+- 34-calendrier-annuel-de.md → 41-calendrier-annuel-de.md (texte modifié)
+- 35-lire-le-territoire-autour-du.md → 42-lire-le-territoire-autour-du.md (texte modifié)
+- 35b-les-armes-les-munitions-et-l-arc.md → 45-les-armes-les-munitions-et-l-arc.md (texte modifié)
+- 35c-les-traces-et-les-signes.md → 43-les-traces-et-les-signes.md (texte modifié)
+- 35d-pister-et-retracer.md → 44-pister-et-retracer.md (texte modifié)
+- 36-abattage-saignee-evisceration.md → 61-abattage-saignee-evisceration.md (texte modifié)
+- 37-carte-de-la-carcasse.md → 62-carte-de-la-carcasse.md (texte modifié)
+- 38-quartier-arriere.md → 63-quartier-arriere.md (texte modifié)
+- 39-quartier-avant.md → 64-quartier-avant.md (texte modifié)
+- 40-le-dos.md → 65-le-dos.md (texte modifié)
+- 41-abats-et-organes.md → 22-abats-et-organes.md (texte modifié)
+- 42-ce-que-personne-ne-garde.md → 23-ce-que-personne-ne-garde.md (texte modifié)
+- 43-comment-lire-une-fiche-d.md → 46-comment-lire-une-fiche-d.md (texte modifié)
+- 43b-chasser-le-petit-gibier.md → 47-chasser-le-petit-gibier.md (texte modifié)
+- 44-lievre-d-amerique.md → 48-lievre-d-amerique.md (texte modifié)
+- 45-gelinotte-huppee-et-tetras-du.md → 49-gelinotte-huppee-et-tetras-du.md (texte modifié)
+- 46-castor.md → 50-castor.md (texte modifié)
+- 47-porc-epic.md → 51-porc-epic.md (texte modifié)
+- 48-ours-noir.md → 52-ours-noir.md (texte modifié)
+- 49-rat-musque-ecureuil-roux.md → 53-rat-musque-ecureuil-roux.md (texte modifié)
+- 50-outarde-canards-oiseaux-d-eau.md → 54-outarde-canards-oiseaux-d-eau.md (texte modifié)
+- 51-martre-vison-renard-lynx-loup.md → 55-martre-vison-renard-lynx-loup.md (texte modifié)
+- 52-phoque-du-saint-laurent.md → 56-phoque-du-saint-laurent.md (texte modifié)
+- 53-truite-et-omble-au-lac.md → 57-truite-et-omble-au-lac.md (texte modifié)
+- 54-peche-blanche.md → 58-peche-blanche.md (texte modifié)
+- 55-eperlan-et-poisson-du-fleuve.md → 59-eperlan-et-poisson-du-fleuve.md (texte modifié)
+- 56-nasses-filets-verveux.md → 60-nasses-filets-verveux.md (texte modifié)
+- 57-petits-fruits.md → 91-petits-fruits.md (texte modifié)
+- 58-plantes-comestibles-boreales.md → 92-plantes-comestibles-boreales.md (texte modifié)
+- 59-champignons.md → 93-champignons.md (texte modifié)
+- 60-seve-gomme-ecorces.md → 94-seve-gomme-ecorces.md (texte modifié)
+- 61-pourquoi-la-viande-pourrit.md → 66-pourquoi-la-viande-pourrit.md (texte modifié)
+- 62-le-sel.md → 67-le-sel.md (texte modifié)
+- 63-salaison-a-sec.md → 68-salaison-a-sec.md (texte modifié)
+- 64-saumure.md → 69-saumure.md (texte modifié)
+- 65-fumage-a-froid.md → 70-fumage-a-froid.md (texte modifié)
+- 66-fumage-a-chaud-et-sechage.md → 71-fumage-a-chaud-et-sechage.md (texte modifié)
+- 67-pemmican-et-graisses.md → 72-pemmican-et-graisses.md (texte modifié)
+- 68-froid-naturel.md → 73-froid-naturel.md (texte modifié)
+- 69-un-congelateur-plein-qui.md → 74-un-congelateur-plein-qui.md (texte modifié)
+- 70-traiter-le-poisson-a-la-sortie.md → 75-traiter-le-poisson-a-la-sortie.md (texte modifié)
+- 71-saler-et-secher-la-truite.md → 76-saler-et-secher-la-truite.md (texte modifié)
+- 72-fumer-le-poisson.md → 77-fumer-le-poisson.md (texte modifié)
+- 73-conserves-et-marinades.md → 78-conserves-et-marinades.md (texte modifié)
+- 74-jardin-nordique.md → 95-jardin-nordique.md (texte modifié)
+- 75-semences.md → 96-semences.md (texte modifié)
+- 76-caveau-a-legumes.md → 79-caveau-a-legumes.md (texte modifié)
+- 77-fermentation.md → 80-fermentation.md (texte modifié)
+- 78-petit-elevage.md → 97-petit-elevage.md (texte modifié)
+- 79-de-la-peau-au-cuir.md → 98-de-la-peau-au-cuir.md (texte modifié)
+- 80-babiche-tendons-cordage.md → 99-babiche-tendons-cordage.md (texte modifié)
+- 81-coudre-et-chausser.md → 100-coudre-et-chausser.md (texte modifié)
+- 82-affuter-limer-aiguiser.md → 101-affuter-limer-aiguiser.md (texte modifié)
+- 83-scie-a-chaine-et-petits.md → 102-scie-a-chaine-et-petits.md (texte modifié)
+- 84-souder-braser-reparer-le-metal.md → 103-souder-braser-reparer-le-metal.md (texte modifié)
+- 85-le-stock-de-pieces-et-de.md → 104-le-stock-de-pieces-et-de.md (texte modifié)
+- 86-leviers-poulies-treuils.md → 105-leviers-poulies-treuils.md (texte modifié)
+- 87-assemblages-bois-bois.md → 106-assemblages-bois-bois.md (texte modifié)
+- 88-trempe-et-travail-du-metal-a.md → 107-trempe-et-travail-du-metal-a.md (texte modifié)
+- 89-savon-et-chandelles.md → 108-savon-et-chandelles.md (texte modifié)
+- 89b-table-aliment-methode.md → 81-table-aliment-methode.md (texte modifié)
+- suivi/00-redaction.md → suivi/00-redaction.md (texte modifié)
+- suivi/00b-redaction.md → suivi/00b-redaction.md (texte modifié)
+- suivi/01-redaction.md → suivi/01-redaction.md (texte modifié)
+- suivi/02-redaction.md → suivi/02-redaction.md (texte modifié)
+- suivi/03-redaction.md → suivi/25-redaction.md (texte modifié)
+- suivi/04-redaction.md → suivi/03-redaction.md (texte modifié)
+- suivi/05-redaction.md → suivi/30-redaction.md (texte modifié)
+- suivi/06-redaction.md → suivi/04-redaction.md (texte modifié)
+- suivi/07-redaction.md → suivi/39-redaction.md (texte modifié)
+- suivi/08-redaction.md → suivi/05-redaction.md (texte modifié)
+- suivi/09-redaction.md → suivi/06-redaction.md (texte modifié)
+- suivi/10-redaction.md → suivi/07-redaction.md (texte modifié)
+- suivi/11-redaction.md → suivi/08-redaction.md (texte modifié)
+- suivi/12-redaction.md → suivi/09-redaction.md (texte modifié)
+- suivi/13-redaction.md → suivi/10-redaction.md (texte modifié)
+- suivi/14-redaction.md → suivi/87-redaction.md (texte modifié)
+- suivi/14b-redaction.md → suivi/88-redaction.md (texte modifié)
+- suivi/15-redaction.md → suivi/83-redaction.md (texte modifié)
+- suivi/15b-redaction.md → suivi/84-redaction.md (texte modifié)
+- suivi/16-redaction.md → suivi/82-redaction.md (texte modifié)
+- suivi/16b-redaction.md → suivi/11-redaction.md (texte modifié)
+- suivi/16c-redaction.md → suivi/12-redaction.md (texte modifié)
+- suivi/17-redaction.md → suivi/13-redaction.md (texte modifié)
+- suivi/18-redaction.md → suivi/85-redaction.md (texte modifié)
+- suivi/18b-redaction.md → suivi/86-redaction.md (texte modifié)
+- suivi/19-redaction.md → suivi/14-redaction.md (texte modifié)
+- suivi/20-redaction.md → suivi/15-redaction.md (texte modifié)
+- suivi/20b-redaction.md → suivi/89-redaction.md (texte modifié)
+- suivi/20c-redaction.md → suivi/90-redaction.md (texte modifié)
+- suivi/21-redaction.md → suivi/16-redaction.md (texte modifié)
+- suivi/22-redaction.md → suivi/17-redaction.md (texte modifié)
+- suivi/23-redaction.md → suivi/18-redaction.md (texte modifié)
+- suivi/24-redaction.md → suivi/19-redaction.md (texte modifié)
+- suivi/25-redaction.md → suivi/20-redaction.md (texte modifié)
+- suivi/26-redaction.md → suivi/21-redaction.md (texte modifié)
+- suivi/27-redaction.md → suivi/26-redaction.md (texte modifié)
+- suivi/27b-redaction.md → suivi/27-redaction.md (texte modifié)
+- suivi/28-redaction.md → suivi/31-redaction.md (texte modifié)
+- suivi/29-redaction.md → suivi/32-redaction.md (texte modifié)
+- suivi/30-redaction.md → suivi/33-redaction.md (texte modifié)
+- suivi/31-redaction.md → suivi/35-redaction.md (texte modifié)
+- suivi/32-redaction.md → suivi/36-redaction.md (texte modifié)
+- suivi/33-redaction.md → suivi/40-redaction.md (texte modifié)
+- suivi/34-redaction.md → suivi/41-redaction.md (texte modifié)
+- suivi/35-redaction.md → suivi/42-redaction.md (texte modifié)
+- suivi/35b-redaction.md → suivi/45-redaction.md (texte modifié)
+- suivi/35c-redaction.md → suivi/43-redaction.md (texte modifié)
+- suivi/35d-redaction.md → suivi/44-redaction.md (texte modifié)
+- suivi/36-redaction.md → suivi/61-redaction.md (texte modifié)
+- suivi/37-redaction.md → suivi/62-redaction.md (texte modifié)
+- suivi/38-redaction.md → suivi/63-redaction.md (texte modifié)
+- suivi/39-redaction.md → suivi/64-redaction.md (texte modifié)
+- suivi/40-redaction.md → suivi/65-redaction.md (texte modifié)
+- suivi/41-redaction.md → suivi/22-redaction.md (texte modifié)
+- suivi/42-redaction.md → suivi/23-redaction.md (texte modifié)
+- suivi/43-redaction.md → suivi/46-redaction.md (texte modifié)
+- suivi/43b-redaction.md → suivi/47-redaction.md (texte modifié)
+- suivi/44-redaction.md → suivi/48-redaction.md (texte modifié)
+- suivi/45-redaction.md → suivi/49-redaction.md (texte modifié)
+- suivi/46-redaction.md → suivi/50-redaction.md (texte modifié)
+- suivi/47-redaction.md → suivi/51-redaction.md (texte modifié)
+- suivi/48-redaction.md → suivi/52-redaction.md (texte modifié)
+- suivi/49-redaction.md → suivi/53-redaction.md (texte modifié)
+- suivi/50-redaction.md → suivi/54-redaction.md (texte modifié)
+- suivi/51-redaction.md → suivi/55-redaction.md (texte modifié)
+- suivi/52-redaction.md → suivi/56-redaction.md (texte modifié)
+- suivi/53-redaction.md → suivi/57-redaction.md (texte modifié)
+- suivi/54-redaction.md → suivi/58-redaction.md (texte modifié)
+- suivi/55-redaction.md → suivi/59-redaction.md (texte modifié)
+- suivi/56-redaction.md → suivi/60-redaction.md (texte modifié)
+- suivi/57-redaction.md → suivi/91-redaction.md (texte modifié)
+- suivi/58-redaction.md → suivi/92-redaction.md (texte modifié)
+- suivi/59-redaction.md → suivi/93-redaction.md (texte modifié)
+- suivi/60-redaction.md → suivi/94-redaction.md (texte modifié)
+- suivi/61-redaction.md → suivi/66-redaction.md (texte modifié)
+- suivi/62-redaction.md → suivi/67-redaction.md (texte modifié)
+- suivi/63-redaction.md → suivi/68-redaction.md (texte modifié)
+- suivi/64-redaction.md → suivi/69-redaction.md (texte modifié)
+- suivi/65-redaction.md → suivi/70-redaction.md (texte modifié)
+- suivi/66-redaction.md → suivi/71-redaction.md (texte modifié)
+- suivi/67-redaction.md → suivi/72-redaction.md (texte modifié)
+- suivi/68-redaction.md → suivi/73-redaction.md (texte modifié)
+- suivi/69-redaction.md → suivi/74-redaction.md (texte modifié)
+- suivi/70-redaction.md → suivi/75-redaction.md (texte modifié)
+- suivi/71-redaction.md → suivi/76-redaction.md (texte modifié)
+- suivi/72-redaction.md → suivi/77-redaction.md (texte modifié)
+- suivi/73-redaction.md → suivi/78-redaction.md (texte modifié)
+- suivi/74-redaction.md → suivi/95-redaction.md (texte modifié)
+- suivi/75-redaction.md → suivi/96-redaction.md (texte modifié)
+- suivi/76-redaction.md → suivi/79-redaction.md (texte modifié)
+- suivi/77-redaction.md → suivi/80-redaction.md (texte modifié)
+- suivi/78-redaction.md → suivi/97-redaction.md (texte modifié)
+- suivi/79-redaction.md → suivi/98-redaction.md (texte modifié)
+- suivi/80-redaction.md → suivi/99-redaction.md (texte modifié)
+- suivi/81-redaction.md → suivi/100-redaction.md (texte modifié)
+- suivi/82-redaction.md → suivi/101-redaction.md (texte modifié)
+- suivi/83-redaction.md → suivi/102-redaction.md (texte modifié)
+- suivi/84-redaction.md → suivi/103-redaction.md (texte modifié)
+- suivi/85-redaction.md → suivi/104-redaction.md (texte modifié)
+- suivi/86-redaction.md → suivi/105-redaction.md (texte modifié)
+- suivi/87-redaction.md → suivi/106-redaction.md (texte modifié)
+- suivi/88-redaction.md → suivi/107-redaction.md (texte modifié)
+- suivi/89-redaction.md → suivi/108-redaction.md (texte modifié)
+- suivi/89b-redaction.md → suivi/81-redaction.md (texte modifié)
+- suivi/verifications/00-verifications.md → suivi/verifications/00-verifications.md (texte modifié)
+- suivi/verifications/00b-verifications.md → suivi/verifications/00b-verifications.md (texte modifié)
+- suivi/verifications/01-verifications.md → suivi/verifications/01-verifications.md (texte modifié)
+- suivi/verifications/02-verifications.md → suivi/verifications/02-verifications.md (texte modifié)
+- suivi/verifications/03-verifications.md → suivi/verifications/25-verifications.md (texte modifié)
+- suivi/verifications/04-verifications.md → suivi/verifications/03-verifications.md (texte modifié)
+- suivi/verifications/05-verifications.md → suivi/verifications/30-verifications.md (texte modifié)
+- suivi/verifications/06-verifications.md → suivi/verifications/04-verifications.md (texte modifié)
+- suivi/verifications/07-verifications.md → suivi/verifications/39-verifications.md (texte modifié)
+- suivi/verifications/08-verifications.md → suivi/verifications/05-verifications.md (texte modifié)
+- suivi/verifications/09-verifications.md → suivi/verifications/06-verifications.md (texte modifié)
+- suivi/verifications/10-verifications.md → suivi/verifications/07-verifications.md (texte modifié)
+- suivi/verifications/11-verifications.md → suivi/verifications/08-verifications.md (texte modifié)
+- suivi/verifications/12-verifications.md → suivi/verifications/09-verifications.md (texte modifié)
+- suivi/verifications/13-verifications.md → suivi/verifications/10-verifications.md (texte modifié)
+- suivi/verifications/14-verifications.md → suivi/verifications/87-verifications.md (texte modifié)
+- suivi/verifications/14b-verifications.md → suivi/verifications/88-verifications.md (texte modifié)
+- suivi/verifications/15-verifications.md → suivi/verifications/83-verifications.md (texte modifié)
+- suivi/verifications/15b-verifications.md → suivi/verifications/84-verifications.md (texte modifié)
+- suivi/verifications/16-verifications.md → suivi/verifications/82-verifications.md (texte modifié)
+- suivi/verifications/16b-verifications.md → suivi/verifications/11-verifications.md (texte modifié)
+- suivi/verifications/16c-verifications.md → suivi/verifications/12-verifications.md (texte modifié)
+- suivi/verifications/17-verifications.md → suivi/verifications/13-verifications.md (texte modifié)
+- suivi/verifications/18-verifications.md → suivi/verifications/85-verifications.md (texte modifié)
+- suivi/verifications/18b-verifications.md → suivi/verifications/86-verifications.md (texte modifié)
+- suivi/verifications/19-verifications.md → suivi/verifications/14-verifications.md (texte modifié)
+- suivi/verifications/20-verifications.md → suivi/verifications/15-verifications.md (texte modifié)
+- suivi/verifications/20b-verifications.md → suivi/verifications/89-verifications.md (texte modifié)
+- suivi/verifications/20c-verifications.md → suivi/verifications/90-verifications.md (texte modifié)
+- suivi/verifications/21-verifications.md → suivi/verifications/16-verifications.md (texte modifié)
+- suivi/verifications/22-verifications.md → suivi/verifications/17-verifications.md (texte modifié)
+- suivi/verifications/23-verifications.md → suivi/verifications/18-verifications.md (texte modifié)
+- suivi/verifications/24-verifications.md → suivi/verifications/19-verifications.md (texte modifié)
+- suivi/verifications/25-verifications.md → suivi/verifications/20-verifications.md (texte modifié)
+- suivi/verifications/26-verifications.md → suivi/verifications/21-verifications.md (texte modifié)
+- suivi/verifications/27-verifications.md → suivi/verifications/26-verifications.md (texte modifié)
+- suivi/verifications/27b-verifications.md → suivi/verifications/27-verifications.md (texte modifié)
+- suivi/verifications/28-verifications.md → suivi/verifications/31-verifications.md (texte modifié)
+- suivi/verifications/29-verifications.md → suivi/verifications/32-verifications.md (texte modifié)
+- suivi/verifications/30-verifications.md → suivi/verifications/33-verifications.md (texte modifié)
+- suivi/verifications/31-verifications.md → suivi/verifications/35-verifications.md (texte modifié)
+- suivi/verifications/32-verifications.md → suivi/verifications/36-verifications.md (texte modifié)
+- suivi/verifications/33-verifications.md → suivi/verifications/40-verifications.md (texte modifié)
+- suivi/verifications/34-verifications.md → suivi/verifications/41-verifications.md (texte modifié)
+- suivi/verifications/35-verifications.md → suivi/verifications/42-verifications.md (texte modifié)
+- suivi/verifications/35b-verifications.md → suivi/verifications/45-verifications.md (texte modifié)
+- suivi/verifications/35c-verifications.md → suivi/verifications/43-verifications.md (texte modifié)
+- suivi/verifications/35d-verifications.md → suivi/verifications/44-verifications.md (texte modifié)
+- suivi/verifications/36-verifications.md → suivi/verifications/61-verifications.md (texte modifié)
+- suivi/verifications/37-verifications.md → suivi/verifications/62-verifications.md (texte modifié)
+- suivi/verifications/38-verifications.md → suivi/verifications/63-verifications.md (texte modifié)
+- suivi/verifications/39-verifications.md → suivi/verifications/64-verifications.md (texte modifié)
+- suivi/verifications/40-verifications.md → suivi/verifications/65-verifications.md (texte modifié)
+- suivi/verifications/41-verifications.md → suivi/verifications/22-verifications.md (texte modifié)
+- suivi/verifications/42-verifications.md → suivi/verifications/23-verifications.md (texte modifié)
+- suivi/verifications/43-verifications.md → suivi/verifications/46-verifications.md (texte modifié)
+- suivi/verifications/43b-verifications.md → suivi/verifications/47-verifications.md (texte modifié)
+- suivi/verifications/44-verifications.md → suivi/verifications/48-verifications.md (texte modifié)
+- suivi/verifications/45-verifications.md → suivi/verifications/49-verifications.md (texte modifié)
+- suivi/verifications/46-verifications.md → suivi/verifications/50-verifications.md (texte modifié)
+- suivi/verifications/47-verifications.md → suivi/verifications/51-verifications.md (texte modifié)
+- suivi/verifications/48-verifications.md → suivi/verifications/52-verifications.md (texte modifié)
+- suivi/verifications/49-verifications.md → suivi/verifications/53-verifications.md (texte modifié)
+- suivi/verifications/50-verifications.md → suivi/verifications/54-verifications.md (texte modifié)
+- suivi/verifications/51-verifications.md → suivi/verifications/55-verifications.md (texte modifié)
+- suivi/verifications/52-verifications.md → suivi/verifications/56-verifications.md (texte modifié)
+- suivi/verifications/53-verifications.md → suivi/verifications/57-verifications.md (texte modifié)
+- suivi/verifications/54-verifications.md → suivi/verifications/58-verifications.md (texte modifié)
+- suivi/verifications/55-verifications.md → suivi/verifications/59-verifications.md (texte modifié)
+- suivi/verifications/56-verifications.md → suivi/verifications/60-verifications.md (texte modifié)
+- suivi/verifications/57-verifications.md → suivi/verifications/91-verifications.md (texte modifié)
+- suivi/verifications/58-verifications.md → suivi/verifications/92-verifications.md (texte modifié)
+- suivi/verifications/59-verifications.md → suivi/verifications/93-verifications.md (texte modifié)
+- suivi/verifications/60-verifications.md → suivi/verifications/94-verifications.md (texte modifié)
+- suivi/verifications/61-verifications.md → suivi/verifications/66-verifications.md (texte modifié)
+- suivi/verifications/62-verifications.md → suivi/verifications/67-verifications.md (texte modifié)
+- suivi/verifications/63-verifications.md → suivi/verifications/68-verifications.md (texte modifié)
+- suivi/verifications/64-verifications.md → suivi/verifications/69-verifications.md (texte modifié)
+- suivi/verifications/65-verifications.md → suivi/verifications/70-verifications.md (texte modifié)
+- suivi/verifications/66-verifications.md → suivi/verifications/71-verifications.md (texte modifié)
+- suivi/verifications/67-verifications.md → suivi/verifications/72-verifications.md (texte modifié)
+- suivi/verifications/68-verifications.md → suivi/verifications/73-verifications.md (texte modifié)
+- suivi/verifications/69-verifications.md → suivi/verifications/74-verifications.md (texte modifié)
+- suivi/verifications/70-verifications.md → suivi/verifications/75-verifications.md (texte modifié)
+- suivi/verifications/71-verifications.md → suivi/verifications/76-verifications.md (texte modifié)
+- suivi/verifications/72-verifications.md → suivi/verifications/77-verifications.md (texte modifié)
+- suivi/verifications/73-verifications.md → suivi/verifications/78-verifications.md (texte modifié)
+- suivi/verifications/74-verifications.md → suivi/verifications/95-verifications.md (texte modifié)
+- suivi/verifications/75-verifications.md → suivi/verifications/96-verifications.md (texte modifié)
+- suivi/verifications/76-verifications.md → suivi/verifications/79-verifications.md (texte modifié)
+- suivi/verifications/77-verifications.md → suivi/verifications/80-verifications.md (texte modifié)
+- suivi/verifications/78-verifications.md → suivi/verifications/97-verifications.md (texte modifié)
+- suivi/verifications/79-verifications.md → suivi/verifications/98-verifications.md (texte modifié)
+- suivi/verifications/80-verifications.md → suivi/verifications/99-verifications.md (texte modifié)
+- suivi/verifications/81-verifications.md → suivi/verifications/100-verifications.md (texte modifié)
+- suivi/verifications/82-verifications.md → suivi/verifications/101-verifications.md (texte modifié)
+- suivi/verifications/83-verifications.md → suivi/verifications/102-verifications.md (texte modifié)
+- suivi/verifications/84-verifications.md → suivi/verifications/103-verifications.md (texte modifié)
+- suivi/verifications/85-verifications.md → suivi/verifications/104-verifications.md (texte modifié)
+- suivi/verifications/86-verifications.md → suivi/verifications/105-verifications.md (texte modifié)
+- suivi/verifications/87-verifications.md → suivi/verifications/106-verifications.md (texte modifié)
+- suivi/verifications/88-verifications.md → suivi/verifications/107-verifications.md (texte modifié)
+- suivi/verifications/89-verifications.md → suivi/verifications/108-verifications.md (texte modifié)
+- suivi/verifications/89b-verifications.md → suivi/verifications/81-verifications.md (texte modifié)
+- images/planche-01-01-fiche-horloges.svg → images/planche-01-01-fiche-horloges.svg
+- images/planche-03-01-enveloppe-croisee-avec-deux.svg → images/planche-25-01-enveloppe-croisee-avec-deux.svg
+- images/planche-04-08-marmite-norvegienne.svg → images/planche-03-08-marmite-norvegienne.svg
+- images/planche-04-09-abri-dans-piece-tente.svg → images/planche-03-09-abri-dans-piece-tente.svg
+- images/planche-04-10-vidanger-maison-dans-bon.svg → images/planche-03-10-vidanger-maison-dans-bon.svg
+- images/planche-05-01-poste-lavage-pedale-monte.svg → images/planche-30-01-poste-lavage-pedale-monte.svg
+- images/planche-06-01a-piece-abri-chargee.svg → images/planche-04-01a-piece-abri-chargee.svg
+- images/planche-06-01b-pompe-carton.svg → images/planche-04-01b-pompe-carton.svg
+- images/planche-12-08-joint-cuir-gras-emporte.svg → images/planche-09-08-joint-cuir-gras-emporte.svg
+- images/planche-13-01-trois-temps-eau.svg → images/planche-10-01-trois-temps-eau.svg
+- images/planche-13-02-buse-pour-puiser-puits.svg → images/planche-10-02-buse-pour-puiser-puits.svg
+- images/planche-13-03-alambic-fortune.svg → images/planche-10-03-alambic-fortune.svg
+- images/planche-13-07-filtre-sable-baril.svg → images/planche-10-07-filtre-sable-baril.svg
+- images/planche-14-08a-perche-fourches-cremaillere.svg → images/planche-87-08a-perche-fourches-cremaillere.svg
+- images/planche-14-08b-trepied-trois-pierres.svg → images/planche-87-08b-trepied-trois-pierres.svg
+- images/planche-15-10-truie-poele-baril-205.svg → images/planche-83-10-truie-poele-baril-205.svg
+- images/planche-16-08a-ramoner-sans-brosse-ecouvillons.svg → images/planche-82-08a-ramoner-sans-brosse-ecouvillons.svg
+- images/planche-16-08b-ramoner-sans-brosse-montages.svg → images/planche-82-08b-ramoner-sans-brosse-montages.svg
+- images/planche-16-12a-abri-ouvert-feu-long.svg → images/planche-82-12a-abri-ouvert-feu-long.svg
+- images/planche-16-12b-abri-ouvert-plancher-roches.svg → images/planche-82-12b-abri-ouvert-plancher-roches.svg
+- images/planche-17-01-arc-feu.svg → images/planche-13-01-arc-feu.svg
+- images/planche-17-07-amadou.svg → images/planche-13-07-amadou.svg
+- images/planche-17-08-boite-braise.svg → images/planche-13-08-boite-braise.svg
+- images/planche-19-01-poste-galene.svg → images/planche-14-01-poste-galene.svg
+- images/planche-20-01-sortir-trou-dans-glace.svg → images/planche-15-01-sortir-trou-dans-glace.svg
+- images/planche-21-07-telephone-deux-haut-parleurs.svg → images/planche-16-07-telephone-deux-haut-parleurs.svg
+- images/planche-21-08-traineau-civiere-perches.svg → images/planche-16-08-traineau-civiere-perches.svg
+- images/planche-22-06-renfort-porte.svg → images/planche-17-06-renfort-porte.svg
+- images/planche-24-04-bouillir-aux-pierres-sans.svg → images/planche-19-04-bouillir-aux-pierres-sans.svg
+- images/planche-24-09-casser-os-faire-graisse.svg → images/planche-19-09-casser-os-faire-graisse.svg
+- images/planche-27-04-garrot-improvise.svg → images/planche-26-04-garrot-improvise.svg
+- images/planche-27-08-attelle-ecorce-moulee-echarpe.svg → images/planche-26-08-attelle-ecorce-moulee-echarpe.svg
+- images/planche-27-09a-deplacer-blesse-bache-deux.svg → images/planche-26-09a-deplacer-blesse-bache-deux.svg
+- images/planche-27-09b-deplacer-blesse-porte-degondee.svg → images/planche-26-09b-deplacer-blesse-porte-degondee.svg
+- images/planche-27-11-pansements-qu-on-fabrique.svg → images/planche-26-11-pansements-qu-on-fabrique.svg
+- images/planche-28-01-becosse-fosse-seche.svg → images/planche-31-01-becosse-fosse-seche.svg
+- images/planche-28-04-piege-graisse-deux-chaudieres.svg → images/planche-31-04-piege-graisse-deux-chaudieres.svg
+- images/planche-28-08-creuser-sol-gele-feu.svg → images/planche-31-08-creuser-sol-gele-feu.svg
+- images/planche-36-02-deux-doigts-v.svg → images/planche-61-02-deux-doigts-v.svg
+- images/planche-36-03-greement-carcasse.svg → images/planche-61-03-greement-carcasse.svg
+- images/planche-36-09-camp-viande.svg → images/planche-61-09-camp-viande.svg
+- images/planche-40-09-froid-qu-on-fabrique.svg → images/planche-65-09-froid-qu-on-fabrique.svg
+- images/planche-42-02-retourner-gratter-boyau.svg → images/planche-23-02-retourner-gratter-boyau.svg
+- images/planche-44-08-illet-verrou-collet.svg → images/planche-48-08-illet-verrou-collet.svg
+- images/planche-44-09-collet-ressort-son-declencheur.svg → images/planche-48-09-collet-ressort-son-declencheur.svg
+- images/planche-50-08-glaciere-evaporation.svg → images/planche-54-08-glaciere-evaporation.svg
+- images/planche-51-03-trace-coupes-fourreau-plat.svg → images/planche-55-03-trace-coupes-fourreau-plat.svg
+- images/planche-51-08-assommoir-sa-gachette-trois.svg → images/planche-55-08-assommoir-sa-gachette-trois.svg
+- images/planche-52-02-depouiller-phoque-puis-decoller.svg → images/planche-56-02-depouiller-phoque-puis-decoller.svg
+- images/planche-52-09-lames-fortune.svg → images/planche-56-09-lames-fortune.svg
+- images/planche-53-08-hamecons-qu-on-fait.svg → images/planche-57-08-hamecons-qu-on-fait.svg
+- images/planche-54-07-brimbale-bois.svg → images/planche-58-07-brimbale-bois.svg
+- images/planche-54-09-montage-gorge.svg → images/planche-58-09-montage-gorge.svg
+- images/planche-55-03-eperlan-vide-seul-geste.svg → images/planche-59-03-eperlan-vide-seul-geste.svg
+- images/planche-55-08-sechoir-poisson-air-libre.svg → images/planche-59-08-sechoir-poisson-air-libre.svg
+- images/planche-56-01-verveux-cerceaux-monte-pose.svg → images/planche-60-01-verveux-cerceaux-monte-pose.svg
+- images/planche-56-08a-fascine-ruisseau-montee-pieu.svg → images/planche-60-08a-fascine-ruisseau-montee-pieu.svg
+- images/planche-56-08b-fascine-roche-pierres.svg → images/planche-60-08b-fascine-roche-pierres.svg
+- images/planche-60-31-auge-billot-pierres-chaudes.svg → images/planche-94-31-auge-billot-pierres-chaudes.svg
+- images/planche-60-33a-casseau-ecorce-arbre-gabarit.svg → images/planche-94-33a-casseau-ecorce-arbre-gabarit.svg
+- images/planche-60-33b-casseau-ecorce-plie-cousu.svg → images/planche-94-33b-casseau-ecorce-plie-cousu.svg
+- images/planche-60-34-poix-gomme.svg → images/planche-94-34-poix-gomme.svg
+- images/planche-62-09-fleau-ses-etalons-eau.svg → images/planche-67-09-fleau-ses-etalons-eau.svg
+- images/planche-62-10-romaine-graduee-aux-bidons.svg → images/planche-67-10-romaine-graduee-aux-bidons.svg
+- images/planche-62-12-claie-graduation.svg → images/planche-67-12-claie-graduation.svg
+- images/planche-62-13-tirer-sel-fleuve.svg → images/planche-67-13-tirer-sel-fleuve.svg
+- images/planche-63-06-caisse-sel-caveau.svg → images/planche-68-06-caisse-sel-caveau.svg
+- images/planche-64-03-tenir-piece-sous-saumure.svg → images/planche-69-03-tenir-piece-sous-saumure.svg
+- images/planche-65-01-fumoir-froid.svg → images/planche-70-01-fumoir-froid.svg
+- images/planche-65-01b-fumoir-froid-vu-dessus.svg → images/planche-70-01b-fumoir-froid-vu-dessus.svg
+- images/planche-65-09-fumoir-fortune-pelle-hache.svg → images/planche-70-09-fumoir-fortune-pelle-hache.svg
+- images/planche-65-12-cage-viande-grillagee.svg → images/planche-70-12-cage-viande-grillagee.svg
+- images/planche-66-02-fumoir-baril-conduit-enterre.svg → images/planche-71-02-fumoir-baril-conduit-enterre.svg
+- images/planche-68-01-cache-gel-poteaux.svg → images/planche-73-01-cache-gel-poteaux.svg
+- images/planche-69-10-recaler-regraduer-thermometre-cadran.svg → images/planche-74-10-recaler-regraduer-thermometre-cadran.svg
+- images/planche-69-11-tente-boucane.svg → images/planche-74-11-tente-boucane.svg
+- images/planche-70-04-bac-glace-monte-couches.svg → images/planche-75-04-bac-glace-monte-couches.svg
+- images/planche-70-08-glaciere-deux-caisses.svg → images/planche-75-08-glaciere-deux-caisses.svg
+- images/planche-71-03-ouverture-portefeuille.svg → images/planche-76-03-ouverture-portefeuille.svg
+- images/planche-71-05-bac-salage-sec.svg → images/planche-76-05-bac-salage-sec.svg
+- images/planche-71-06-sechoir-truite.svg → images/planche-76-06-sechoir-truite.svg
+- images/planche-74-09-chassis-froid.svg → images/planche-95-09-chassis-froid.svg
+- images/planche-75-05-vanner-chaudron-autre.svg → images/planche-96-05-vanner-chaudron-autre.svg
+- images/planche-76-01a-cave-talus-creusee-drainee.svg → images/planche-79-01a-cave-talus-creusee-drainee.svg
+- images/planche-76-01b-cave-talus-assemblages.svg → images/planche-79-01b-cave-talus-assemblages.svg
+- images/planche-76-06-silo-terre.svg → images/planche-79-06-silo-terre.svg
+- images/planche-78-01-poulailler-hiver.svg → images/planche-97-01-poulailler-hiver.svg
+- images/planche-78-07-tablier-grillage-contre-betes.svg → images/planche-97-07-tablier-grillage-contre-betes.svg
+- images/planche-79-02-poutre-echarner-angle-couteau.svg → images/planche-98-02-poutre-echarner-angle-couteau.svg
+- images/planche-79-07-sac-fumer-sans-fumoir.svg → images/planche-98-07-sac-fumer-sans-fumoir.svg
+- images/planche-80-05-coupe-spirale.svg → images/planche-99-05-coupe-spirale.svg
+- images/planche-80-07-contre-toron.svg → images/planche-99-07-contre-toron.svg
+- images/planche-80-10-wattape-hart.svg → images/planche-99-10-wattape-hart.svg
+- images/planche-80-11-ligature-qui-serre-sechant.svg → images/planche-99-11-ligature-qui-serre-sechant.svg
+- images/planche-81-02-point-sellier-couture-rabattue.svg → images/planche-100-02-point-sellier-couture-rabattue.svg
+- images/planche-81-04-patron-mocassin-piece.svg → images/planche-100-04-patron-mocassin-piece.svg
+- images/planche-82-01-angle-affutage.svg → images/planche-101-01-angle-affutage.svg
+- images/planche-82-03-gouge-limiteur-profondeur.svg → images/planche-101-03-gouge-limiteur-profondeur.svg
+- images/planche-82-07-biseau-hache-lime-bombe.svg → images/planche-101-07-biseau-hache-lime-bombe.svg
+- images/planche-83-01-geometrie-abattage.svg → images/planche-102-01-geometrie-abattage.svg
+- images/planche-84-02-trois-joints-coupe.svg → images/planche-103-02-trois-joints-coupe.svg
+- images/planche-84-03-trois-cordons-coupe.svg → images/planche-103-03-trois-cordons-coupe.svg
+- images/planche-84-07-eclisse-boulonnee.svg → images/planche-103-07-eclisse-boulonnee.svg
+- images/planche-84-09-soudage-batteries.svg → images/planche-103-09-soudage-batteries.svg
+- images/planche-86-01-mouflage.svg → images/planche-105-01-mouflage.svg
+- images/planche-86-02-boucle-bout-cable-acier.svg → images/planche-105-02-boucle-bout-cable-acier.svg
+- images/planche-86-08-vindas-treuil-bois-deux.svg → images/planche-105-08-vindas-treuil-bois-deux.svg
+- images/planche-86-12-tourniquet-espagnol.svg → images/planche-105-12-tourniquet-espagnol.svg
+- images/planche-87-01a-mortaise-tenon-mi-bois.svg → images/planche-106-01a-mortaise-tenon-mi-bois.svg
+- images/planche-87-01b-tenon-passant-cle-enture.svg → images/planche-106-01b-tenon-passant-cle-enture.svg
+- images/planche-87-03-chevillage-tire.svg → images/planche-106-03-chevillage-tire.svg
+- images/planche-88-11-forge-fosse.svg → images/planche-107-11-forge-fosse.svg
+- images/planche-89-07-lampe-graisse.svg → images/planche-108-07-lampe-graisse.svg
+- images/validees/planche-03-01-enveloppe-croisee-avec-deux.png → images/validees/planche-25-01-enveloppe-croisee-avec-deux.png
+- images/validees/planche-04-08-marmite-norvegienne.png → images/validees/planche-03-08-marmite-norvegienne.png
+- images/validees/planche-04-09-abri-dans-piece-tente.png → images/validees/planche-03-09-abri-dans-piece-tente.png
+- images/validees/planche-04-10-vidanger-maison-dans-bon.png → images/validees/planche-03-10-vidanger-maison-dans-bon.png
+- images/validees/planche-05-01-poste-lavage-pedale-monte.png → images/validees/planche-30-01-poste-lavage-pedale-monte.png
+- images/validees/planche-06-01a-piece-abri-chargee.png → images/validees/planche-04-01a-piece-abri-chargee.png
+- images/validees/planche-06-01b-pompe-carton.png → images/validees/planche-04-01b-pompe-carton.png
+- images/validees/planche-12-08-joint-cuir-gras-emporte.png → images/validees/planche-09-08-joint-cuir-gras-emporte.png
+- images/validees/planche-13-01-trois-temps-eau.png → images/validees/planche-10-01-trois-temps-eau.png
+- images/validees/planche-13-02-buse-pour-puiser-puits.png → images/validees/planche-10-02-buse-pour-puiser-puits.png
+- images/validees/planche-13-03-alambic-fortune.png → images/validees/planche-10-03-alambic-fortune.png
+- images/validees/planche-13-07-filtre-sable-baril.png → images/validees/planche-10-07-filtre-sable-baril.png
+- images/validees/planche-14-08a-perche-fourches-cremaillere.png → images/validees/planche-87-08a-perche-fourches-cremaillere.png
+- images/validees/planche-14-08b-trepied-trois-pierres.png → images/validees/planche-87-08b-trepied-trois-pierres.png
+- images/validees/planche-15-10-truie-poele-baril-205.png → images/validees/planche-83-10-truie-poele-baril-205.png
+- images/validees/planche-16-08a-ramoner-sans-brosse-ecouvillons.png → images/validees/planche-82-08a-ramoner-sans-brosse-ecouvillons.png
+- images/validees/planche-16-08b-ramoner-sans-brosse-montages.png → images/validees/planche-82-08b-ramoner-sans-brosse-montages.png
+- images/validees/planche-16-12a-abri-ouvert-feu-long.png → images/validees/planche-82-12a-abri-ouvert-feu-long.png
+- images/validees/planche-16-12b-abri-ouvert-plancher-roches.png → images/validees/planche-82-12b-abri-ouvert-plancher-roches.png
+- images/validees/planche-17-01-arc-feu.png → images/validees/planche-13-01-arc-feu.png
+- images/validees/planche-17-07-amadou.png → images/validees/planche-13-07-amadou.png
+- images/validees/planche-17-08-boite-braise.png → images/validees/planche-13-08-boite-braise.png
+- images/validees/planche-19-01-poste-galene.png → images/validees/planche-14-01-poste-galene.png
+- images/validees/planche-20-01-sortir-trou-dans-glace.png → images/validees/planche-15-01-sortir-trou-dans-glace.png
+- images/validees/planche-21-07-telephone-deux-haut-parleurs.png → images/validees/planche-16-07-telephone-deux-haut-parleurs.png
+- images/validees/planche-21-08-traineau-civiere-perches.png → images/validees/planche-16-08-traineau-civiere-perches.png
+- images/validees/planche-22-06-renfort-porte.png → images/validees/planche-17-06-renfort-porte.png
+- images/validees/planche-24-04-bouillir-aux-pierres-sans.png → images/validees/planche-19-04-bouillir-aux-pierres-sans.png
+- images/validees/planche-24-09-casser-os-faire-graisse.png → images/validees/planche-19-09-casser-os-faire-graisse.png
+- images/validees/planche-27-04-garrot-improvise.png → images/validees/planche-26-04-garrot-improvise.png
+- images/validees/planche-27-08-attelle-ecorce-moulee-echarpe.png → images/validees/planche-26-08-attelle-ecorce-moulee-echarpe.png
+- images/validees/planche-27-09a-deplacer-blesse-bache-deux.png → images/validees/planche-26-09a-deplacer-blesse-bache-deux.png
+- images/validees/planche-27-09b-deplacer-blesse-porte-degondee.png → images/validees/planche-26-09b-deplacer-blesse-porte-degondee.png
+- images/validees/planche-27-11-pansements-qu-on-fabrique.png → images/validees/planche-26-11-pansements-qu-on-fabrique.png
+- images/validees/planche-28-01-becosse-fosse-seche.png → images/validees/planche-31-01-becosse-fosse-seche.png
+- images/validees/planche-28-04-piege-graisse-deux-chaudieres.png → images/validees/planche-31-04-piege-graisse-deux-chaudieres.png
+- images/validees/planche-28-08-creuser-sol-gele-feu.png → images/validees/planche-31-08-creuser-sol-gele-feu.png
+- images/validees/planche-36-02-deux-doigts-v.png → images/validees/planche-61-02-deux-doigts-v.png
+- images/validees/planche-36-03-greement-carcasse.png → images/validees/planche-61-03-greement-carcasse.png
+- images/validees/planche-36-09-camp-viande.png → images/validees/planche-61-09-camp-viande.png
+- images/validees/planche-40-09-froid-qu-on-fabrique.png → images/validees/planche-65-09-froid-qu-on-fabrique.png
+- images/validees/planche-42-02-retourner-gratter-boyau.png → images/validees/planche-23-02-retourner-gratter-boyau.png
+- images/validees/planche-44-08-illet-verrou-collet.png → images/validees/planche-48-08-illet-verrou-collet.png
+- images/validees/planche-44-09-collet-ressort-son-declencheur.png → images/validees/planche-48-09-collet-ressort-son-declencheur.png
+- images/validees/planche-50-08-glaciere-evaporation.png → images/validees/planche-54-08-glaciere-evaporation.png
+- images/validees/planche-51-03-trace-coupes-fourreau-plat.png → images/validees/planche-55-03-trace-coupes-fourreau-plat.png
+- images/validees/planche-51-08-assommoir-sa-gachette-trois.png → images/validees/planche-55-08-assommoir-sa-gachette-trois.png
+- images/validees/planche-52-02-depouiller-phoque-puis-decoller.png → images/validees/planche-56-02-depouiller-phoque-puis-decoller.png
+- images/validees/planche-52-09-lames-fortune.png → images/validees/planche-56-09-lames-fortune.png
+- images/validees/planche-53-08-hamecons-qu-on-fait.png → images/validees/planche-57-08-hamecons-qu-on-fait.png
+- images/validees/planche-54-07-brimbale-bois.png → images/validees/planche-58-07-brimbale-bois.png
+- images/validees/planche-54-09-montage-gorge.png → images/validees/planche-58-09-montage-gorge.png
+- images/validees/planche-55-03-eperlan-vide-seul-geste.png → images/validees/planche-59-03-eperlan-vide-seul-geste.png
+- images/validees/planche-55-08-sechoir-poisson-air-libre.png → images/validees/planche-59-08-sechoir-poisson-air-libre.png
+- images/validees/planche-56-01-verveux-cerceaux-monte-pose.png → images/validees/planche-60-01-verveux-cerceaux-monte-pose.png
+- images/validees/planche-56-08a-fascine-ruisseau-montee-pieu.png → images/validees/planche-60-08a-fascine-ruisseau-montee-pieu.png
+- images/validees/planche-56-08b-fascine-roche-pierres.png → images/validees/planche-60-08b-fascine-roche-pierres.png
+- images/validees/planche-60-31-auge-billot-pierres-chaudes.png → images/validees/planche-94-31-auge-billot-pierres-chaudes.png
+- images/validees/planche-60-33a-casseau-ecorce-arbre-gabarit.png → images/validees/planche-94-33a-casseau-ecorce-arbre-gabarit.png
+- images/validees/planche-60-33b-casseau-ecorce-plie-cousu.png → images/validees/planche-94-33b-casseau-ecorce-plie-cousu.png
+- images/validees/planche-60-34-poix-gomme.png → images/validees/planche-94-34-poix-gomme.png
+- images/validees/planche-62-09-fleau-ses-etalons-eau.png → images/validees/planche-67-09-fleau-ses-etalons-eau.png
+- images/validees/planche-62-10-romaine-graduee-aux-bidons.png → images/validees/planche-67-10-romaine-graduee-aux-bidons.png
+- images/validees/planche-62-12-claie-graduation.png → images/validees/planche-67-12-claie-graduation.png
+- images/validees/planche-62-13-tirer-sel-fleuve.png → images/validees/planche-67-13-tirer-sel-fleuve.png
+- images/validees/planche-63-06-caisse-sel-caveau.png → images/validees/planche-68-06-caisse-sel-caveau.png
+- images/validees/planche-64-03-tenir-piece-sous-saumure.png → images/validees/planche-69-03-tenir-piece-sous-saumure.png
+- images/validees/planche-65-01-fumoir-froid.png → images/validees/planche-70-01-fumoir-froid.png
+- images/validees/planche-65-01b-fumoir-froid-vu-dessus.png → images/validees/planche-70-01b-fumoir-froid-vu-dessus.png
+- images/validees/planche-65-09-fumoir-fortune-pelle-hache.png → images/validees/planche-70-09-fumoir-fortune-pelle-hache.png
+- images/validees/planche-65-12-cage-viande-grillagee.png → images/validees/planche-70-12-cage-viande-grillagee.png
+- images/validees/planche-66-02-fumoir-baril-conduit-enterre.png → images/validees/planche-71-02-fumoir-baril-conduit-enterre.png
+- images/validees/planche-68-01-cache-gel-poteaux.png → images/validees/planche-73-01-cache-gel-poteaux.png
+- images/validees/planche-69-10-recaler-regraduer-thermometre-cadran.png → images/validees/planche-74-10-recaler-regraduer-thermometre-cadran.png
+- images/validees/planche-69-11-tente-boucane.png → images/validees/planche-74-11-tente-boucane.png
+- images/validees/planche-70-04-bac-glace-monte-couches.png → images/validees/planche-75-04-bac-glace-monte-couches.png
+- images/validees/planche-70-08-glaciere-deux-caisses.png → images/validees/planche-75-08-glaciere-deux-caisses.png
+- images/validees/planche-71-03-ouverture-portefeuille.png → images/validees/planche-76-03-ouverture-portefeuille.png
+- images/validees/planche-71-05-bac-salage-sec.png → images/validees/planche-76-05-bac-salage-sec.png
+- images/validees/planche-71-06-sechoir-truite.png → images/validees/planche-76-06-sechoir-truite.png
+- images/validees/planche-74-09-chassis-froid.png → images/validees/planche-95-09-chassis-froid.png
+- images/validees/planche-75-05-vanner-chaudron-autre.png → images/validees/planche-96-05-vanner-chaudron-autre.png
+- images/validees/planche-76-01a-cave-talus-creusee-drainee.png → images/validees/planche-79-01a-cave-talus-creusee-drainee.png
+- images/validees/planche-76-01b-cave-talus-assemblages.png → images/validees/planche-79-01b-cave-talus-assemblages.png
+- images/validees/planche-76-06-silo-terre.png → images/validees/planche-79-06-silo-terre.png
+- images/validees/planche-78-01-poulailler-hiver.png → images/validees/planche-97-01-poulailler-hiver.png
+- images/validees/planche-78-07-tablier-grillage-contre-betes.png → images/validees/planche-97-07-tablier-grillage-contre-betes.png
+- images/validees/planche-79-02-poutre-echarner-angle-couteau.png → images/validees/planche-98-02-poutre-echarner-angle-couteau.png
+- images/validees/planche-79-07-sac-fumer-sans-fumoir.png → images/validees/planche-98-07-sac-fumer-sans-fumoir.png
+- images/validees/planche-80-05-coupe-spirale.png → images/validees/planche-99-05-coupe-spirale.png
+- images/validees/planche-80-07-contre-toron.png → images/validees/planche-99-07-contre-toron.png
+- images/validees/planche-80-10-wattape-hart.png → images/validees/planche-99-10-wattape-hart.png
+- images/validees/planche-80-11-ligature-qui-serre-sechant.png → images/validees/planche-99-11-ligature-qui-serre-sechant.png
+- images/validees/planche-81-02-point-sellier-couture-rabattue.png → images/validees/planche-100-02-point-sellier-couture-rabattue.png
+- images/validees/planche-81-04-patron-mocassin-piece.png → images/validees/planche-100-04-patron-mocassin-piece.png
+- images/validees/planche-82-01-angle-affutage.png → images/validees/planche-101-01-angle-affutage.png
+- images/validees/planche-82-03-gouge-limiteur-profondeur.png → images/validees/planche-101-03-gouge-limiteur-profondeur.png
+- images/validees/planche-82-07-biseau-hache-lime-bombe.png → images/validees/planche-101-07-biseau-hache-lime-bombe.png
+- images/validees/planche-83-01-geometrie-abattage.png → images/validees/planche-102-01-geometrie-abattage.png
+- images/validees/planche-84-02-trois-joints-coupe.png → images/validees/planche-103-02-trois-joints-coupe.png
+- images/validees/planche-84-03-trois-cordons-coupe.png → images/validees/planche-103-03-trois-cordons-coupe.png
+- images/validees/planche-84-07-eclisse-boulonnee.png → images/validees/planche-103-07-eclisse-boulonnee.png
+- images/validees/planche-84-09-soudage-batteries.png → images/validees/planche-103-09-soudage-batteries.png
+- images/validees/planche-86-01-mouflage.png → images/validees/planche-105-01-mouflage.png
+- images/validees/planche-86-02-boucle-bout-cable-acier.png → images/validees/planche-105-02-boucle-bout-cable-acier.png
+- images/validees/planche-86-08-vindas-treuil-bois-deux.png → images/validees/planche-105-08-vindas-treuil-bois-deux.png
+- images/validees/planche-86-12-tourniquet-espagnol.png → images/validees/planche-105-12-tourniquet-espagnol.png
+- images/validees/planche-87-01a-mortaise-tenon-mi-bois.png → images/validees/planche-106-01a-mortaise-tenon-mi-bois.png
+- images/validees/planche-87-01b-tenon-passant-cle-enture.png → images/validees/planche-106-01b-tenon-passant-cle-enture.png
+- images/validees/planche-87-03-chevillage-tire.png → images/validees/planche-106-03-chevillage-tire.png
+- images/validees/planche-88-11-forge-fosse.png → images/validees/planche-107-11-forge-fosse.png
+- images/validees/planche-89-07-lampe-graisse.png → images/validees/planche-108-07-lampe-graisse.png
+- images/planches-src/03-01.js → images/planches-src/25-01.js
+- images/planches-src/04-08.js → images/planches-src/03-08.js
+- images/planches-src/04-09.js → images/planches-src/03-09.js
+- images/planches-src/04-10.js → images/planches-src/03-10.js
+- images/planches-src/05-01.js → images/planches-src/30-01.js
+- images/planches-src/06-01a.js → images/planches-src/04-01a.js
+- images/planches-src/06-01b.js → images/planches-src/04-01b.js
+- images/planches-src/12-08.js → images/planches-src/09-08.js
+- images/planches-src/13-02.js → images/planches-src/10-02.js
+- images/planches-src/13-03.js → images/planches-src/10-03.js
+- images/planches-src/13-07.js → images/planches-src/10-07.js
+- images/planches-src/14-08a.js → images/planches-src/87-08a.js
+- images/planches-src/14-08b.js → images/planches-src/87-08b.js
+- images/planches-src/15-10.js → images/planches-src/83-10.js
+- images/planches-src/16-08a.js → images/planches-src/82-08a.js
+- images/planches-src/16-08b.js → images/planches-src/82-08b.js
+- images/planches-src/16-12a.js → images/planches-src/82-12a.js
+- images/planches-src/16-12b.js → images/planches-src/82-12b.js
+- images/planches-src/17-01.js → images/planches-src/13-01.js
+- images/planches-src/17-07.js → images/planches-src/13-07.js
+- images/planches-src/17-08.js → images/planches-src/13-08.js
+- images/planches-src/19-01.js → images/planches-src/14-01.js
+- images/planches-src/20-01.js → images/planches-src/15-01.js
+- images/planches-src/21-07.js → images/planches-src/16-07.js
+- images/planches-src/21-08.js → images/planches-src/16-08.js
+- images/planches-src/22-06.js → images/planches-src/17-06.js
+- images/planches-src/24-04.js → images/planches-src/19-04.js
+- images/planches-src/24-09.js → images/planches-src/19-09.js
+- images/planches-src/27-04.js → images/planches-src/26-04.js
+- images/planches-src/27-08.js → images/planches-src/26-08.js
+- images/planches-src/27-09a.js → images/planches-src/26-09a.js
+- images/planches-src/27-09b.js → images/planches-src/26-09b.js
+- images/planches-src/27-11.js → images/planches-src/26-11.js
+- images/planches-src/28-01.js → images/planches-src/31-01.js
+- images/planches-src/28-04.js → images/planches-src/31-04.js
+- images/planches-src/28-08.js → images/planches-src/31-08.js
+- images/planches-src/36-02.js → images/planches-src/61-02.js
+- images/planches-src/36-03.js → images/planches-src/61-03.js
+- images/planches-src/36-09.js → images/planches-src/61-09.js
+- images/planches-src/40-09.js → images/planches-src/65-09.js
+- images/planches-src/42-02.js → images/planches-src/23-02.js
+- images/planches-src/44-08.js → images/planches-src/48-08.js
+- images/planches-src/44-09.js → images/planches-src/48-09.js
+- images/planches-src/50-08.js → images/planches-src/54-08.js
+- images/planches-src/51-03.js → images/planches-src/55-03.js
+- images/planches-src/51-08.js → images/planches-src/55-08.js
+- images/planches-src/52-02.js → images/planches-src/56-02.js
+- images/planches-src/52-09.js → images/planches-src/56-09.js
+- images/planches-src/53-08.js → images/planches-src/57-08.js
+- images/planches-src/54-07.js → images/planches-src/58-07.js
+- images/planches-src/54-09.js → images/planches-src/58-09.js
+- images/planches-src/55-03.js → images/planches-src/59-03.js
+- images/planches-src/55-08.js → images/planches-src/59-08.js
+- images/planches-src/56-01.js → images/planches-src/60-01.js
+- images/planches-src/56-08a.js → images/planches-src/60-08a.js
+- images/planches-src/56-08b.js → images/planches-src/60-08b.js
+- images/planches-src/60-31.js → images/planches-src/94-31.js
+- images/planches-src/60-33a.js → images/planches-src/94-33a.js
+- images/planches-src/60-33b.js → images/planches-src/94-33b.js
+- images/planches-src/60-34.js → images/planches-src/94-34.js
+- images/planches-src/62-09.js → images/planches-src/67-09.js
+- images/planches-src/62-10.js → images/planches-src/67-10.js
+- images/planches-src/62-12.js → images/planches-src/67-12.js
+- images/planches-src/62-13.js → images/planches-src/67-13.js
+- images/planches-src/63-06.js → images/planches-src/68-06.js
+- images/planches-src/64-03.js → images/planches-src/69-03.js
+- images/planches-src/65-01b.js → images/planches-src/70-01b.js
+- images/planches-src/65-09.js → images/planches-src/70-09.js
+- images/planches-src/65-12.js → images/planches-src/70-12.js
+- images/planches-src/66-02.js → images/planches-src/71-02.js
+- images/planches-src/68-01.js → images/planches-src/73-01.js
+- images/planches-src/69-10.js → images/planches-src/74-10.js
+- images/planches-src/69-11.js → images/planches-src/74-11.js
+- images/planches-src/70-04.js → images/planches-src/75-04.js
+- images/planches-src/70-08.js → images/planches-src/75-08.js
+- images/planches-src/71-03.js → images/planches-src/76-03.js
+- images/planches-src/71-05.js → images/planches-src/76-05.js
+- images/planches-src/71-06.js → images/planches-src/76-06.js
+- images/planches-src/74-09.js → images/planches-src/95-09.js
+- images/planches-src/75-05.js → images/planches-src/96-05.js
+- images/planches-src/76-01a.js → images/planches-src/79-01a.js
+- images/planches-src/76-01b.js → images/planches-src/79-01b.js
+- images/planches-src/76-06.js → images/planches-src/79-06.js
+- images/planches-src/78-01.js → images/planches-src/97-01.js
+- images/planches-src/78-07.js → images/planches-src/97-07.js
+- images/planches-src/79-02.js → images/planches-src/98-02.js
+- images/planches-src/79-07.js → images/planches-src/98-07.js
+- images/planches-src/80-05.js → images/planches-src/99-05.js
+- images/planches-src/80-07.js → images/planches-src/99-07.js
+- images/planches-src/80-10.js → images/planches-src/99-10.js
+- images/planches-src/80-11.js → images/planches-src/99-11.js
+- images/planches-src/81-02.js → images/planches-src/100-02.js
+- images/planches-src/81-04.js → images/planches-src/100-04.js
+- images/planches-src/82-03.js → images/planches-src/101-03.js
+- images/planches-src/82-07.js → images/planches-src/101-07.js
+- images/planches-src/83-01.js → images/planches-src/102-01.js
+- images/planches-src/84-02.js → images/planches-src/103-02.js
+- images/planches-src/84-03.js → images/planches-src/103-03.js
+- images/planches-src/84-07.js → images/planches-src/103-07.js
+- images/planches-src/86-02.js → images/planches-src/105-02.js
+- images/planches-src/86-08.js → images/planches-src/105-08.js
+- images/planches-src/86-12.js → images/planches-src/105-12.js
+- images/planches-src/87-01a.js → images/planches-src/106-01a.js
+- images/planches-src/87-01b.js → images/planches-src/106-01b.js
+- images/planches-src/87-03.js → images/planches-src/106-03.js
+- images/planches-src/88-11.js → images/planches-src/107-11.js
+- images/planches-src/89-07.js → images/planches-src/108-07.js

@@ -1,0 +1,6688 @@
+{
+ "tome": 1,
+ "titre": "Tenir",
+ "chapitres": [
+  "00",
+  "00b",
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18"
+ ],
+ "etabli_le": "2026-09-27",
+ "nombre_entrees": 133,
+ "entrees": [
+  {
+   "terme": "Abri de neige (maison de neige, caverne)",
+   "voir_aussi": [
+    "Quinzhee",
+    "Tente d'hiver",
+    "Neige foulée (plancher)"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "I-2. La caverne dans une congère",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "I. La maison de neige",
+      "I-2. La caverne dans une congère"
+     ],
+     "ligne": 350
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "I. La maison de neige",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I. La maison de neige"
+     ],
+     "ligne": 302
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "I-3. La maison de blocs",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "I. La maison de neige",
+      "I-3. La maison de blocs"
+     ],
+     "ligne": 358
+    }
+   ]
+  },
+  {
+   "terme": "Amadou",
+   "voir_aussi": [
+    "Feu sans allumettes",
+    "Amadouvier (Fomes fomentarius)"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "L'amadou qu'on récolte et celui qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'amadou qu'on récolte et celui qu'on fabrique"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "E. Amadou carbonisé et silex — la réserve qui ne s'achète pas (étapes 19 à 22)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E. Amadou carbonisé et silex — la réserve qui ne s'achète pas (étapes 19 à 22)"
+     ],
+     "ligne": 154
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Le briquet à pierre, quand il n'y a plus de tige",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le briquet à pierre, quand il n'y a plus de tige"
+     ],
+     "ligne": 347
+    }
+   ]
+  },
+  {
+   "terme": "Amadouvier (Fomes fomentarius)",
+   "latin": "Fomes fomentarius",
+   "voir_aussi": [
+    "Amadou"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "F. Tenir le feu plutôt que le rallumer (étapes 23 à 26)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F. Tenir le feu plutôt que le rallumer (étapes 23 à 26)"
+     ],
+     "ligne": 169
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Le feu le moins cher est celui qu'on n'éteint pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le feu le moins cher est celui qu'on n'éteint pas"
+     ],
+     "ligne": 290
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "L'amadou qu'on récolte et celui qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'amadou qu'on récolte et celui qu'on fabrique"
+     ],
+     "ligne": 318
+    }
+   ]
+  },
+  {
+   "terme": "Appentis de bâche",
+   "voir_aussi": [
+    "Tente d'hiver"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 3,
+      "libelle": "La bâche du bas se pose en premier."
+     },
+     "chemin": [
+      "5. Procédure",
+      "H. Le cône de bâches"
+     ],
+     "ligne": 270
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 4,
+      "libelle": "La bâche"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'appentis de bâche"
+     ],
+     "ligne": 524
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 4,
+      "libelle": "La bâche du haut se pose en dernier"
+     },
+     "chemin": [
+      "5. Procédure",
+      "H. Le cône de bâches"
+     ],
+     "ligne": 279
+    }
+   ]
+  },
+  {
+   "terme": "Arc à feu",
+   "voir_aussi": [
+    "Feu sans allumettes"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "L'arc à feu",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'arc à feu"
+     ],
+     "ligne": 406
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 15
+    }
+   ]
+  },
+  {
+   "terme": "Armes à feu (sécurité, rangement)",
+   "voir_aussi": [
+    "Munitions (cartouches)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Carabine et fusil (entretien, réglage)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "Quand quelqu'un cogne",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Quand quelqu'un cogne"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Immobiliser les armes avant de décharger le camion."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 95
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 217
+    }
+   ]
+  },
+  {
+   "terme": "Avertisseurs (fumée, monoxyde)",
+   "voir_aussi": [
+    "Monoxyde de carbone",
+    "Incendie du bâtiment"
+   ],
+   "ancres": [
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.A Ce qui avertit pendant que tout le monde dort",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.A Ce qui avertit pendant que tout le monde dort"
+     ],
+     "ligne": 51
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Tester l'avertisseur de CO au bouton"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 0 à heure 1 — ce qui se fait avant de réfléchir"
+     ],
+     "ligne": 128
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "etape": {
+      "n": 1,
+      "libelle": "L'avertisseur de CO."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 560
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "5 · Le monoxyde, sans avertisseur",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "5 · Le monoxyde, sans avertisseur"
+     ],
+     "ligne": 463
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 3,
+      "libelle": "L'avertisseur de CO"
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. La nuit sous la toile"
+     ],
+     "ligne": 201
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Si on n'achète qu'une chose ce mois-ci",
+     "niveau": 2,
+     "chemin": [
+      "Si on n'achète qu'une chose ce mois-ci"
+     ],
+     "ligne": 616
+    }
+   ]
+  },
+  {
+   "terme": "Avis d'ébullition",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)"
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "J — À la maison : l'avis d'ébullition, la coupure, le plomb",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "J — À la maison : l'avis d'ébullition, la coupure, le plomb"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "E — Désinfecter : l'ébullition, méthode de référence",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Désinfecter : l'ébullition, méthode de référence"
+     ],
+     "ligne": 166
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Si un avis est en vigueur, savoir lequel avant de remplir."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 121
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 417
+    }
+   ]
+  },
+  {
+   "terme": "Balance (peser sans balance)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pourcentage de sel (calcul)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "Peser sans balance",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Peser sans balance"
+     ],
+     "ligne": 594
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.1 Mesurer quand l'instrument est mort",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.1 Mesurer quand l'instrument est mort"
+     ],
+     "ligne": 192
+    }
+   ]
+  },
+  {
+   "terme": "Balise de détresse (406 MHz)",
+   "voir_aussi": [
+    "Messagerie satellite",
+    "Se faire voir et entendre (signaux)"
+   ],
+   "ancres": [
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Enregistrer la balise, si le chalet en a une"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Avant la saison — une journée de travail, une fois"
+     ],
+     "ligne": 126
+    },
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 209
+    },
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Faire l'essai complet, pendant que tout va bien."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Avant la saison — une journée de travail, une fois"
+     ],
+     "ligne": 136
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Palier 4 — S'il reste du temps et de l'argent",
+     "niveau": 2,
+     "chemin": [
+      "Palier 4 — S'il reste du temps et de l'argent"
+     ],
+     "ligne": 315
+    }
+   ]
+  },
+  {
+   "terme": "Bécosse (latrines)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Eaux grises",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Seau de nuit (toilette intérieure)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 202
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 184
+    }
+   ]
+  },
+  {
+   "terme": "Blessure grave loin des secours",
+   "voir_aussi": [
+    "Garrot",
+    "Saignement (arrêter)",
+    "Sortir un blessé (brancard, traîneau)"
+   ],
+   "ancres": [
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 7 — Blessure grave, loin de tout — **chalet**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 7 — Blessure grave, loin de tout — **chalet**"
+     ],
+     "ligne": 206
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "4. Une blessure hors de portée des secours — **Chalet**",
+     "niveau": 2,
+     "chemin": [
+      "4. Une blessure hors de portée des secours — **Chalet**"
+     ],
+     "ligne": 124
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "La table",
+     "niveau": 2,
+     "chemin": [
+      "La table"
+     ],
+     "ligne": 23
+    }
+   ]
+  },
+  {
+   "terme": "Bois d'allumage (écorce, bois gras)",
+   "voir_aussi": [
+    "Feu sans allumettes",
+    "Écorce de bouleau (contenants, allumage)"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 219
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "L'amadou qu'on récolte et celui qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'amadou qu'on récolte et celui qu'on fabrique"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Ce qui ne se remplace vraiment pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace vraiment pas"
+     ],
+     "ligne": 434
+    }
+   ]
+  },
+  {
+   "terme": "Bois de chauffage",
+   "voir_aussi": [
+    "Poêle à bois"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Fendre le bois",
+     "tomes": [
+      2,
+      5,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Le bois de chauffage et le propane, à plus de 10 m."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. La zone défendable — le travail d'été, étalé sur des années"
+     ],
+     "ligne": 107
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Rentrer trois jours de bois sec"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 156
+    }
+   ]
+  },
+  {
+   "terme": "Botulisme",
+   "voir_aussi": [
+    "Conserves (mise en pot)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Poisson fumé",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Autoclave",
+     "tomes": [
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "terme": "Botulisme de type E (poisson)",
+     "tomes": [
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 468
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 320
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 326
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 231
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 157
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Bouleau à papier (Betula papyrifera)",
+   "latin": "Betula papyrifera",
+   "voir_aussi": [
+    "Écorce de bouleau (contenants, allumage)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Sève (bouleau, érable)",
+     "tomes": [
+      2,
+      3,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "L'amadou qu'on récolte et celui qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'amadou qu'on récolte et celui qu'on fabrique"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "B. Ferrocérium — la méthode par défaut (étapes 7 à 12)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B. Ferrocérium — la méthode par défaut (étapes 7 à 12)"
+     ],
+     "ligne": 107
+    }
+   ]
+  },
+  {
+   "terme": "Calories (besoins)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Protéines (plafond)",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Glucides",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Gras dans la ration",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.1 Les trois calculs à faire",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.1 Les trois calculs à faire"
+     ],
+     "ligne": 69
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.3 Tableau B — Choisir les calories sèches",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.3 Tableau B — Choisir les calories sèches"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.5 Calories",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.5 Calories"
+     ],
+     "ligne": 120
+    }
+   ]
+  },
+  {
+   "terme": "Carburant (entreposer)",
+   "voir_aussi": [
+    "Génératrice"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Scie à chaîne",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Avec un clapet de fortune."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 83
+    },
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "Chapitre 15 — Se déplacer et le carburant",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.6 Tableau E — Chaleur et carburant",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.6 Tableau E — Chaleur et carburant"
+     ],
+     "ligne": 293
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Prendre le carburant avec soi."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. Partir — le chalet"
+     ],
+     "ligne": 239
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 468
+    }
+   ]
+  },
+  {
+   "terme": "Champignons",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Amanite (mortelle)",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Sporée",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "Les mois et les années, au chalet — le gibier, le poisson, les champignons",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Les mois et les années, au chalet — le gibier, le poisson, les champignons"
+     ],
+     "ligne": 210
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 333
+    }
+   ]
+  },
+  {
+   "terme": "Chandelles",
+   "voir_aussi": [
+    "Suif"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Lampe à graisse",
+     "tomes": [
+      5,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "9.5 Lumière et piles",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.5 Lumière et piles"
+     ],
+     "ligne": 319
+    }
+   ]
+  },
+  {
+   "terme": "Chauffer une seule pièce",
+   "voir_aussi": [
+    "Panne d'électricité",
+    "Poêle à bois"
+   ],
+   "ancres": [
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Fermer la maison à une seule pièce."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 0 à heure 1 — ce qui se fait avant de réfléchir"
+     ],
+     "ligne": 150
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Prendre la température de la pièce chauffée chaque heure."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 1 à heure 6 — la fenêtre où tout se décide"
+     ],
+     "ligne": 175
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "Les six premières heures",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Les six premières heures"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    }
+   ]
+  },
+  {
+   "terme": "Chaufferette (propane, intérieur)",
+   "voir_aussi": [
+    "Monoxyde de carbone",
+    "Propane"
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Vérifier que le chauffage d'appoint est un appareil d'intérieur."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 0 à heure 1 — ce qui se fait avant de réfléchir"
+     ],
+     "ligne": 124
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 320
+    }
+   ]
+  },
+  {
+   "terme": "Clou de girofle (eugénol)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Mal de dents",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Palier 3 — Important",
+     "niveau": 2,
+     "chemin": [
+      "Palier 3 — Important"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Congélateur qui dégèle",
+   "voir_aussi": [
+    "Panne d'électricité"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Recongeler",
+     "tomes": [
+      4,
+      5
+     ]
+    },
+    {
+     "terme": "Décongeler",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.5 Tableau D — Les conserves et le congélateur",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.5 Tableau D — Les conserves et le congélateur"
+     ],
+     "ligne": 256
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "titre": "Remplir le congélateur pour le faire durer deux fois plus",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Remplir le congélateur pour le faire durer deux fois plus"
+     ],
+     "ligne": 452
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Poser le témoin de dégel dans le congélateur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 1 à heure 6 — la fenêtre où tout se décide"
+     ],
+     "ligne": 167
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 8 — Le froid artificiel lâche : congélateur ou propane — **les deux, chacun le sien**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 8 — Le froid artificiel lâche : congélateur ou propane — **les deux, chacun le sien**"
+     ],
+     "ligne": 227
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "7. Le congélateur dégèle — **Maison**",
+     "niveau": 2,
+     "chemin": [
+      "7. Le congélateur dégèle — **Maison**"
+     ],
+     "ligne": 205
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "7 · Le congélateur, sans froid",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "7 · Le congélateur, sans froid"
+     ],
+     "ligne": 490
+    }
+   ]
+  },
+  {
+   "terme": "Conserve bombée",
+   "voir_aussi": [
+    "Botulisme",
+    "Conserves (mise en pot)"
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 468
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 435
+    }
+   ]
+  },
+  {
+   "terme": "Conserves (mise en pot)",
+   "voir_aussi": [
+    "Botulisme"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Autoclave",
+     "tomes": [
+      3,
+      4,
+      5
+     ]
+    },
+    {
+     "terme": "Bain d'eau bouillante (bain-marie)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.5 Tableau D — Les conserves et le congélateur",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.5 Tableau D — Les conserves et le congélateur"
+     ],
+     "ligne": 256
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 468
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.5 Calories",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.5 Calories"
+     ],
+     "ligne": 120
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 231
+    }
+   ]
+  },
+  {
+   "terme": "Cryptosporidium",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)",
+    "Giardia"
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "F — Désinfecter : la javel, méthode d'appoint",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Désinfecter : la javel, méthode d'appoint"
+     ],
+     "ligne": 197
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 467
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 538
+    }
+   ]
+  },
+  {
+   "terme": "Décontamination",
+   "voir_aussi": [
+    "Retombées radioactives"
+   ],
+   "ancres": [
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Sceller la pièce d'abri."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Sceller, puis se décontaminer"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 333
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 275
+    }
+   ]
+  },
+  {
+   "terme": "Denrées sèches (riz, farine, légumineuses)",
+   "voir_aussi": [
+    "Stock permanent du chalet",
+    "Farine"
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.3 Tableau B — Choisir les calories sèches",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.3 Tableau B — Choisir les calories sèches"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "Le contenant, quand il n'y en a plus de neuf",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le contenant, quand il n'y en a plus de neuf"
+     ],
+     "ligne": 562
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.1 Les trois calculs à faire",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.1 Les trois calculs à faire"
+     ],
+     "ligne": 69
+    }
+   ]
+  },
+  {
+   "terme": "Diabète et insuline",
+   "voir_aussi": [
+    "Ordonnances (médicaments chroniques)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pharmacie (bâtir)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "Les aliments — de la sixième heure au troisième jour",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Les aliments — de la sixième heure au troisième jour"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Elle tourne bien mais ne sort pas de courant."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 608
+    }
+   ]
+  },
+  {
+   "terme": "E. coli",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)",
+    "Bécosse (latrines)"
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 444
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 417
+    }
+   ]
+  },
+  {
+   "terme": "Eau chaude sans chauffe-eau",
+   "voir_aussi": [
+    "Propane"
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 38,
+      "libelle": "Vidanger aussi le chauffe-eau si l'absence dépasse la durée de l'événement"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 5 — Quand le préavis est un préavis d'évacuation"
+     ],
+     "ligne": 290
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "La plomberie — la décision se prend avant, pas après",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "La plomberie — la décision se prend avant, pas après"
+     ],
+     "ligne": 194
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 460
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "L'hygiène sans rien d'acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'hygiène sans rien d'acheté"
+     ],
+     "ligne": 434
+    }
+   ]
+  },
+  {
+   "terme": "Eau de fonte (neige, glace)",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)",
+    "Tente d'hiver"
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 444
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 4,
+      "libelle": "La bâche du haut se pose en dernier"
+     },
+     "chemin": [
+      "5. Procédure",
+      "H. Le cône de bâches"
+     ],
+     "ligne": 279
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Garder de la neige pour le banc."
+     },
+     "chemin": [
+      "5. Procédure",
+      "I. La maison de neige",
+      "I-1. Le quinzhee : la butte brassée, dans n'importe quelle neige"
+     ],
+     "ligne": 334
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "C'est le bon choix",
+     "niveau": 3,
+     "chemin": [
+      "2. Quand l'utiliser",
+      "C'est le bon choix"
+     ],
+     "ligne": 26
+    }
+   ]
+  },
+  {
+   "terme": "Eau potable (puiser, filtrer, désinfecter)",
+   "voir_aussi": [
+    "Ébullition de l'eau",
+    "Javel",
+    "Filtre à eau",
+    "Puits (analyser, désinfecter)",
+    "Giardia"
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "B — Puiser",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B — Puiser"
+     ],
+     "ligne": 133
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "C — Décanter",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Décanter"
+     ],
+     "ligne": 143
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 538
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "9. L'eau cesse d'être buvable — **Les deux**",
+     "niveau": 2,
+     "chemin": [
+      "9. L'eau cesse d'être buvable — **Les deux**"
+     ],
+     "ligne": 242
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "titre": "Les quatre horloges",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Les quatre horloges"
+     ],
+     "ligne": 78
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.2 Tableau A — Dimensionner l'eau",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.2 Tableau A — Dimensionner l'eau"
+     ],
+     "ligne": 155
+    }
+   ]
+  },
+  {
+   "terme": "Ébullition de l'eau",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)",
+    "Javel"
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "E — Désinfecter : l'ébullition, méthode de référence",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Désinfecter : l'ébullition, méthode de référence"
+     ],
+     "ligne": 166
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "J — À la maison : l'avis d'ébullition, la coupure, le plomb",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "J — À la maison : l'avis d'ébullition, la coupure, le plomb"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 538
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Si un avis est en vigueur, savoir lequel avant de remplir."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 121
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "titre": "Les quatre horloges",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Les quatre horloges"
+     ],
+     "ligne": 78
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Reprendre l'horloge 2 au propre"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Après 48 heures — l'horloge longue"
+     ],
+     "ligne": 255
+    }
+   ]
+  },
+  {
+   "terme": "Écorce de bouleau (contenants, allumage)",
+   "voir_aussi": [
+    "Bouleau à papier (Betula papyrifera)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Canot d'écorce",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "L'amadou qu'on récolte et celui qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'amadou qu'on récolte et celui qu'on fabrique"
+     ],
+     "ligne": 318
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "B. Ferrocérium — la méthode par défaut (étapes 7 à 12)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B. Ferrocérium — la méthode par défaut (étapes 7 à 12)"
+     ],
+     "ligne": 107
+    }
+   ]
+  },
+  {
+   "terme": "Enfants de 4 et 6 ans",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Enfants : peur et routine",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.9 Les enfants de 4 et 6 ans",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.9 Les enfants de 4 et 6 ans"
+     ],
+     "ligne": 170
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "H. La fumée, et les deux enfants",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H. La fumée, et les deux enfants"
+     ],
+     "ligne": 283
+    }
+   ]
+  },
+  {
+   "terme": "Épaisseur de la glace (sonder)",
+   "voir_aussi": [
+    "Passer à travers la glace"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pêche blanche",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 239
+    }
+   ]
+  },
+  {
+   "terme": "Épidémie",
+   "voir_aussi": [
+    "Sas et quarantaine",
+    "Lavage des mains"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Masques",
+     "tomes": [
+      2,
+      3,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 5 — Épidémie, on se ferme — **les deux, et ils tirent en sens contraire**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 5 — Épidémie, on se ferme — **les deux, et ils tirent en sens contraire**"
+     ],
+     "ligne": 156
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "10. Épidémie — **Les deux**",
+     "niveau": 2,
+     "chemin": [
+      "10. Épidémie — **Les deux**"
+     ],
+     "ligne": 259
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "10 · L'épidémie, sans pharmacie",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "10 · L'épidémie, sans pharmacie"
+     ],
+     "ligne": 541
+    }
+   ]
+  },
+  {
+   "terme": "Évacuation",
+   "voir_aussi": [
+    "Rester ou partir",
+    "Feu de forêt",
+    "Incendie du bâtiment"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Évacuer un blessé ou un malade (décider)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 3 — Évacuation avec préavis de quelques heures — **maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 3 — Évacuation avec préavis de quelques heures — **maison**"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "titre": "Palier 5 — Quand le préavis est un préavis d'évacuation",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Palier 5 — Quand le préavis est un préavis d'évacuation"
+     ],
+     "ligne": 275
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 4 — Feu dans le bâtiment, évacuation immédiate — **les deux**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 4 — Feu dans le bâtiment, évacuation immédiate — **les deux**"
+     ],
+     "ligne": 133
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "Étape 3 — Lire les quatre horloges, montre en main (15 minutes)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Étape 3 — Lire les quatre horloges, montre en main (15 minutes)"
+     ],
+     "ligne": 96
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "Trois situations qui déplacent la ligne",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "Étape 5 — Mesurer la route, pas l'envie de partir (10 minutes)",
+      "Trois situations qui déplacent la ligne"
+     ],
+     "ligne": 192
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Préparer l'emplacement de la génératrice pendant qu'il fait clair."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 184
+    }
+   ]
+  },
+  {
+   "terme": "Éviscération",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Saignée",
+     "tomes": [
+      3,
+      4
+     ]
+    },
+    {
+     "terme": "Panse percée (souillure)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Éviscérer immédiatement"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Le groupe de chasse à l'orignal"
+     ],
+     "ligne": 140
+    }
+   ]
+  },
+  {
+   "terme": "Extincteur",
+   "voir_aussi": [
+    "Incendie du bâtiment"
+   ],
+   "ancres": [
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "6 · Le feu de bâtiment, sans extincteur",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "6 · Le feu de bâtiment, sans extincteur"
+     ],
+     "ligne": 477
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.G Le feu du bâtiment, et le feu de forêt",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.G Le feu du bâtiment, et le feu de forêt"
+     ],
+     "ligne": 119
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "Le tableau de substitution",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "Le tableau de substitution"
+     ],
+     "ligne": 580
+    }
+   ]
+  },
+  {
+   "terme": "Farine",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pain",
+     "tomes": [
+      4,
+      5
+     ]
+    },
+    {
+     "terme": "Moudre le grain",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Un sac de farine, c'est une journée."
+     },
+     "chemin": [
+      "5. La méthode du stock",
+      "5.1 Les trois calculs à faire"
+     ],
+     "ligne": 141
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 333
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.3 Tableau B — Choisir les calories sèches",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.3 Tableau B — Choisir les calories sèches"
+     ],
+     "ligne": 183
+    }
+   ]
+  },
+  {
+   "terme": "Ferrocérium",
+   "voir_aussi": [
+    "Feu sans allumettes",
+    "Amadou"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "B. Ferrocérium — la méthode par défaut (étapes 7 à 12)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B. Ferrocérium — la méthode par défaut (étapes 7 à 12)"
+     ],
+     "ligne": 107
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Le briquet à pierre, quand il n'y a plus de tige",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le briquet à pierre, quand il n'y a plus de tige"
+     ],
+     "ligne": 347
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 285
+    }
+   ]
+  },
+  {
+   "terme": "Feu de forêt",
+   "voir_aussi": [
+    "Zone défendable",
+    "Évacuation",
+    "Fumée d'incendie (air intérieur)"
+   ],
+   "ancres": [
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "Chapitre 11 — Le feu de forêt",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "3. Feu de forêt : la fumée, puis le front — **Les deux**",
+     "niveau": 2,
+     "chemin": [
+      "3. Feu de forêt : la fumée, puis le front — **Les deux**"
+     ],
+     "ligne": 83
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 39,
+      "libelle": "En feu de forêt, arroser abondamment le terrain et les toitures"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 5 — Quand le préavis est un préavis d'évacuation"
+     ],
+     "ligne": 295
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.G Le feu du bâtiment, et le feu de forêt",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.G Le feu du bâtiment, et le feu de forêt"
+     ],
+     "ligne": 119
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "2.E Le feu de forêt et la fumée",
+     "niveau": 3,
+     "chemin": [
+      "Palier 2 — Essentiel",
+      "2.E Le feu de forêt et la fumée"
+     ],
+     "ligne": 245
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 452
+    }
+   ]
+  },
+  {
+   "terme": "Feu sans allumettes",
+   "voir_aussi": [
+    "Ferrocérium",
+    "Amadou",
+    "Arc à feu",
+    "Lentille (feu au soleil)"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "A. Monter le bûcher avant de faire la première étincelle (étapes 1 à 6)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A. Monter le bûcher avant de faire la première étincelle (étapes 1 à 6)"
+     ],
+     "ligne": 82
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Chapitre 13 — Feu sans allumettes",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 219
+    }
+   ]
+  },
+  {
+   "terme": "Filtre à eau",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)"
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "D — Filtrer",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Filtrer"
+     ],
+     "ligne": 150
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "Chapitre 10 — Eau : puiser, filtrer, désinfecter",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 417
+    }
+   ]
+  },
+  {
+   "terme": "Fumée d'incendie (air intérieur)",
+   "voir_aussi": [
+    "Feu de forêt",
+    "Enfants de 4 et 6 ans"
+   ],
+   "ancres": [
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "De l'air pour les enfants, sans purificateur",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "De l'air pour les enfants, sans purificateur"
+     ],
+     "ligne": 628
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "H. La fumée, et les deux enfants",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H. La fumée, et les deux enfants"
+     ],
+     "ligne": 283
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 452
+    }
+   ]
+  },
+  {
+   "terme": "Garder le feu (couver)",
+   "voir_aussi": [
+    "Poêle à bois",
+    "Feu sans allumettes"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "F. Tenir le feu plutôt que le rallumer (étapes 23 à 26)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F. Tenir le feu plutôt que le rallumer (étapes 23 à 26)"
+     ],
+     "ligne": 169
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Le feu le moins cher est celui qu'on n'éteint pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le feu le moins cher est celui qu'on n'éteint pas"
+     ],
+     "ligne": 290
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "Le feu de la nuit",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le feu de la nuit"
+     ],
+     "ligne": 549
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 219
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 3,
+      "libelle": "La bâche du bas se pose en premier."
+     },
+     "chemin": [
+      "5. Procédure",
+      "H. Le cône de bâches"
+     ],
+     "ligne": 270
+    }
+   ]
+  },
+  {
+   "terme": "Garrot",
+   "voir_aussi": [
+    "Saignement (arrêter)"
+   ],
+   "ancres": [
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "E. Le corps",
+     "niveau": 3,
+     "chemin": [
+      "Ce qui remplace ce qu'on n'a pas acheté",
+      "E. Le corps"
+     ],
+     "ligne": 529
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.E Le corps",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.E Le corps"
+     ],
+     "ligne": 94
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "9. Variante d'urgence — rien n'a été préparé",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence — rien n'a été préparé"
+     ],
+     "ligne": 376
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "4 · La blessure, sans trousse",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "4 · La blessure, sans trousse"
+     ],
+     "ligne": 439
+    }
+   ]
+  },
+  {
+   "terme": "Génératrice",
+   "voir_aussi": [
+    "Monoxyde de carbone",
+    "Carburant (entreposer)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Électricité du chalet (12 V)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "La génératrice, s'il y en a une",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "La génératrice, s'il y en a une"
+     ],
+     "ligne": 156
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Si une génératrice entre en service, couper l'entrée principale d'abord."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 0 à heure 1 — ce qui se fait avant de réfléchir"
+     ],
+     "ligne": 137
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Préparer l'emplacement de la génératrice pendant qu'il fait clair."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 184
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Si la génératrice tourne, l'éteindre 1 heure toutes les 8 heures"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 1 à heure 6 — la fenêtre où tout se décide"
+     ],
+     "ligne": 189
+    },
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 83
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Essayer la génératrice en charge, maintenant."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 163
+    }
+   ]
+  },
+  {
+   "terme": "Giardia",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Castor (Castor canadensis)",
+     "tomes": [
+      2,
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 444
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "D — Filtrer",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Filtrer"
+     ],
+     "ligne": 150
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 467
+    }
+   ]
+  },
+  {
+   "terme": "Godendard",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Scie à chaîne",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.3 Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.3 Ce qui ne se remplace pas"
+     ],
+     "ligne": 252
+    }
+   ]
+  },
+  {
+   "terme": "Groupe de chasse",
+   "voir_aussi": [
+    "Voisinage et entraide",
+    "Orignal (Alces americanus)"
+   ],
+   "ancres": [
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "titre": "Le groupe de chasse à l'orignal",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Le groupe de chasse à l'orignal"
+     ],
+     "ligne": 131
+    },
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "titre": "Chapitre 16 — Le voisinage et le groupe de chasse",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Hypothermie",
+   "voir_aussi": [
+    "Passer à travers la glace",
+    "Réchauffer une personne"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gelure",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "Quand quelqu'un cogne",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Quand quelqu'un cogne"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 181
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "8. Passer à travers la glace — **Chalet**",
+     "niveau": 2,
+     "chemin": [
+      "8. Passer à travers la glace — **Chalet**"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "8 · La glace, sans équipement",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "8 · La glace, sans équipement"
+     ],
+     "ligne": 505
+    }
+   ]
+  },
+  {
+   "terme": "Incendie du bâtiment",
+   "voir_aussi": [
+    "Extincteur",
+    "Évacuation"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Feu de cheminée",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "6 · Le feu de bâtiment, sans extincteur",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "6 · Le feu de bâtiment, sans extincteur"
+     ],
+     "ligne": 477
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "6. Le bâtiment prend feu — **Les deux**",
+     "niveau": 2,
+     "chemin": [
+      "6. Le bâtiment prend feu — **Les deux**"
+     ],
+     "ligne": 176
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 333
+    }
+   ]
+  },
+  {
+   "terme": "Innus (savoirs et façons de faire)",
+   "voir_aussi": [
+    "Shaputuan"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Couteau croche",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Canot d'écorce",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "G. Le shaputuan : la longue tente à deux portes",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G. Le shaputuan : la longue tente à deux portes"
+     ],
+     "ligne": 219
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "H. Le cône de bâches",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H. Le cône de bâches"
+     ],
+     "ligne": 254
+    }
+   ]
+  },
+  {
+   "terme": "Iode (comprimés contre les retombées)",
+   "voir_aussi": [
+    "Retombées radioactives"
+   ],
+   "ancres": [
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 275
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 333
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Ne donner l'iode que contre de l'iode radioactif, et dans la fenêtre de l'étape 10."
+     },
+     "chemin": [
+      "5. Procédure",
+      "L'iode"
+     ],
+     "ligne": 125
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "F — Désinfecter : la javel, méthode d'appoint",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Désinfecter : la javel, méthode d'appoint"
+     ],
+     "ligne": 197
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "11 · Les retombées, sans rien",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "11 · Les retombées, sans rien"
+     ],
+     "ligne": 560
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 6 — Retombées radioactives, mise à l'abri — **là où on est, donc la maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 6 — Retombées radioactives, mise à l'abri — **là où on est, donc la maison**"
+     ],
+     "ligne": 177
+    }
+   ]
+  },
+  {
+   "terme": "Javel",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Désinfecter sans javel",
+     "tomes": [
+      2,
+      3,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "F — Désinfecter : la javel, méthode d'appoint",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — Désinfecter : la javel, méthode d'appoint"
+     ],
+     "ligne": 197
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 538
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "H — Le puits : analyser, puis désinfecter",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — Le puits : analyser, puis désinfecter"
+     ],
+     "ligne": 271
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "9.3 L'eau, quand il n'y a plus de pression",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.3 L'eau, quand il n'y a plus de pression"
+     ],
+     "ligne": 289
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Joints toriques",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pièces de rechange (stock)",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "5.4 Ce qui meurt sans être touché",
+     "niveau": 3,
+     "chemin": [
+      "5. La passe de correction",
+      "5.4 Ce qui meurt sans être touché"
+     ],
+     "ligne": 84
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Lampe frontale et piles",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Éclairage",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.6 Lumière, feu, énergie",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.6 Lumière, feu, énergie"
+     ],
+     "ligne": 137
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.1 Le minimum, qui sert d'étalon",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.1 Le minimum, qui sert d'étalon"
+     ],
+     "ligne": 50
+    }
+   ]
+  },
+  {
+   "terme": "Lavage des mains",
+   "voir_aussi": [
+    "Savon",
+    "Épidémie"
+   ],
+   "ancres": [
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Ouvrir un point de lavage des mains qui fonctionne l'hiver"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 119
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 184
+    }
+   ]
+  },
+  {
+   "terme": "Lentille (feu au soleil)",
+   "voir_aussi": [
+    "Feu sans allumettes"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "D. Lentille — gratuite, saisonnière, silencieuse (étapes 16 à 18)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D. Lentille — gratuite, saisonnière, silencieuse (étapes 16 à 18)"
+     ],
+     "ligne": 143
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Le rayon, quand il y a du soleil et pas de loupe",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le rayon, quand il y a du soleil et pas de loupe"
+     ],
+     "ligne": 394
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "E. Amadou carbonisé et silex — la réserve qui ne s'achète pas (étapes 19 à 22)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E. Amadou carbonisé et silex — la réserve qui ne s'achète pas (étapes 19 à 22)"
+     ],
+     "ligne": 154
+    }
+   ]
+  },
+  {
+   "terme": "Lièvre d'Amérique (Lepus americanus)",
+   "latin": "Lepus americanus",
+   "voir_aussi": [
+    "Tularémie"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Collet",
+     "tomes": [
+      3
+     ]
+    },
+    {
+     "terme": "Mal de caribou (viande maigre seule)",
+     "tomes": [
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 23,
+      "libelle": "Gants jetables pour manipuler le lièvre"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 6 à heure 48 — le tri"
+     ],
+     "ligne": 231
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "E — Désinfecter : l'ébullition, méthode de référence",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Désinfecter : l'ébullition, méthode de référence"
+     ],
+     "ligne": 166
+    }
+   ]
+  },
+  {
+   "terme": "Lime",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Affûter",
+     "tomes": [
+      3,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "D. Le métal, l'outil et la réparation",
+     "niveau": 3,
+     "chemin": [
+      "Ce qui remplace ce qu'on n'a pas acheté",
+      "D. Le métal, l'outil et la réparation"
+     ],
+     "ligne": 480
+    }
+   ]
+  },
+  {
+   "terme": "Liste d'achat (quatre paliers)",
+   "voir_aussi": [
+    "Stock permanent du chalet",
+    "Trousse de 72 heures"
+   ],
+   "ancres": [
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Palier 1 — À acheter absolument",
+     "niveau": 2,
+     "chemin": [
+      "Palier 1 — À acheter absolument"
+     ],
+     "ligne": 45
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Palier 2 — Essentiel",
+     "niveau": 2,
+     "chemin": [
+      "Palier 2 — Essentiel"
+     ],
+     "ligne": 174
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Palier 3 — Important",
+     "niveau": 2,
+     "chemin": [
+      "Palier 3 — Important"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Listes par scénario",
+   "voir_aussi": [
+    "Trousse de 72 heures",
+    "Rester ou partir"
+   ],
+   "ancres": [
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 1 — Panne majeure d'Hydro en janvier, on reste — **maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 1 — Panne majeure d'Hydro en janvier, on reste — **maison**"
+     ],
+     "ligne": 62
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 4 — Feu dans le bâtiment, évacuation immédiate — **les deux**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 4 — Feu dans le bâtiment, évacuation immédiate — **les deux**"
+     ],
+     "ligne": 133
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 7 — Blessure grave, loin de tout — **chalet**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 7 — Blessure grave, loin de tout — **chalet**"
+     ],
+     "ligne": 206
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "Étape 7 — Trancher avec la règle du pire scénario",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Étape 7 — Trancher avec la règle du pire scénario"
+     ],
+     "ligne": 230
+    }
+   ]
+  },
+  {
+   "terme": "Mélange essence-huile (moteur 2 temps)",
+   "voir_aussi": [
+    "Carburant (entreposer)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Scie à chaîne",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Avec un clapet de fortune."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 343
+    }
+   ]
+  },
+  {
+   "terme": "Messagerie satellite",
+   "voir_aussi": [
+    "Balise de détresse (406 MHz)",
+    "Radio"
+   ],
+   "ancres": [
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas"
+     ],
+     "ligne": 463
+    },
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 222
+    },
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 19
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.F Voir, savoir, joindre",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.F Voir, savoir, joindre"
+     ],
+     "ligne": 109
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Palier 4 — S'il reste du temps et de l'argent",
+     "niveau": 2,
+     "chemin": [
+      "Palier 4 — S'il reste du temps et de l'argent"
+     ],
+     "ligne": 315
+    }
+   ]
+  },
+  {
+   "terme": "Moisissure",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Salaison à sec",
+     "tomes": [
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 435
+    }
+   ]
+  },
+  {
+   "terme": "Monoxyde de carbone",
+   "voir_aussi": [
+    "Génératrice",
+    "Avertisseurs (fumée, monoxyde)",
+    "Poêle à bois"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Abri de pêche chauffé",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "5. Le monoxyde de carbone — **Les deux**",
+     "niveau": 2,
+     "chemin": [
+      "5. Le monoxyde de carbone — **Les deux**"
+     ],
+     "ligne": 148
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "5 · Le monoxyde, sans avertisseur",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "5 · Le monoxyde, sans avertisseur"
+     ],
+     "ligne": 463
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Tester l'avertisseur de CO au bouton"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 0 à heure 1 — ce qui se fait avant de réfléchir"
+     ],
+     "ligne": 128
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "etape": {
+      "n": 1,
+      "libelle": "L'avertisseur de CO."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 560
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 19,
+      "libelle": "Piles neuves dans l'avertisseur de monoxyde de carbone, et essai au bouton."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 197
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 3,
+      "libelle": "L'avertisseur de CO"
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. La nuit sous la toile"
+     ],
+     "ligne": 201
+    }
+   ]
+  },
+  {
+   "terme": "Motoneige",
+   "voir_aussi": [
+    "Véhicule immobilisé dans la neige"
+   ],
+   "ancres": [
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 83
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 9 — Immobilisé en chemin, véhicule ou motoneige — **la route entre les deux**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 9 — Immobilisé en chemin, véhicule ou motoneige — **la route entre les deux**"
+     ],
+     "ligne": 257
+    },
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Avec un clapet de fortune."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 398
+    },
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 256
+    }
+   ]
+  },
+  {
+   "terme": "Munitions (cartouches)",
+   "voir_aussi": [
+    "Armes à feu (sécurité, rangement)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Calibre (choisir selon la bête)",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "2.F Lire le territoire",
+     "niveau": 3,
+     "chemin": [
+      "Palier 2 — Essentiel",
+      "2.F Lire le territoire"
+     ],
+     "ligne": 259
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "2.A Eau, énergie, chaleur",
+     "niveau": 3,
+     "chemin": [
+      "Palier 2 — Essentiel",
+      "2.A Eau, énergie, chaleur"
+     ],
+     "ligne": 179
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Chaque ménage annonce ce qu'il apporte, par quantité"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 84
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Immobiliser les armes avant de décharger le camion."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 95
+    }
+   ]
+  },
+  {
+   "terme": "Neige foulée (plancher)",
+   "voir_aussi": [
+    "Abri de neige (maison de neige, caverne)"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Enlever les raquettes et fouler en bottes"
+     },
+     "chemin": [
+      "5. Procédure",
+      "B. Le plancher de neige foulée"
+     ],
+     "ligne": 94
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Fouler l'aire"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'appentis de bâche"
+     ],
+     "ligne": 520
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 411
+    }
+   ]
+  },
+  {
+   "terme": "Ordonnances (médicaments chroniques)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pharmacie (bâtir)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 22,
+      "libelle": "Sortir la pharmacie et les médicaments sur ordonnance"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 222
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.7 Soins, médicaments, hygiène",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.7 Soins, médicaments, hygiène"
+     ],
+     "ligne": 146
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "9.7 Ce qui ne se remplace pas, franchement",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.7 Ce qui ne se remplace pas, franchement"
+     ],
+     "ligne": 343
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.E Le corps",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.E Le corps"
+     ],
+     "ligne": 94
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "G. Ce qui ne se remplace vraiment par rien",
+     "niveau": 3,
+     "chemin": [
+      "Ce qui remplace ce qu'on n'a pas acheté",
+      "G. Ce qui ne se remplace vraiment par rien"
+     ],
+     "ligne": 587
+    }
+   ]
+  },
+  {
+   "terme": "Orignal (Alces americanus)",
+   "latin": "Alces americanus",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Carte de la carcasse (découpe)",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Cadmium",
+     "tomes": [
+      2,
+      4,
+      6
+     ]
+    },
+    {
+     "terme": "Retracer une bête blessée",
+     "tomes": [
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 22,
+      "libelle": "Ne pas garder le foie ni les reins d'orignal ni d'aucun cervidé."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 6 à heure 48 — le tri"
+     ],
+     "ligne": 227
+    },
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "titre": "Le groupe de chasse à l'orignal",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Le groupe de chasse à l'orignal"
+     ],
+     "ligne": 131
+    }
+   ]
+  },
+  {
+   "terme": "Ouvre-boîte (ouvrir une conserve)",
+   "voir_aussi": [
+    "Stock permanent du chalet"
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "Ouvrir une conserve sans ouvre-boîte",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ouvrir une conserve sans ouvre-boîte"
+     ],
+     "ligne": 646
+    }
+   ]
+  },
+  {
+   "terme": "Panne d'électricité",
+   "voir_aussi": [
+    "Génératrice",
+    "Congélateur qui dégèle",
+    "Plomberie (vidanger, antigel)",
+    "Chauffer une seule pièce"
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "Chapitre 3 — Panne majeure d'Hydro en janvier",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 1 — Panne majeure d'Hydro en janvier, on reste — **maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 1 — Panne majeure d'Hydro en janvier, on reste — **maison**"
+     ],
+     "ligne": 62
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "1 · Le courant, sans génératrice",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "1 · Le courant, sans génératrice"
+     ],
+     "ligne": 380
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Si la rue est éclairée et pas la maison"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Les quinze premières minutes"
+     ],
+     "ligne": 86
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 326
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "1. Le courant tombe — **Maison**",
+     "niveau": 2,
+     "chemin": [
+      "1. Le courant tombe — **Maison**"
+     ],
+     "ligne": 41
+    }
+   ]
+  },
+  {
+   "terme": "Pantalon de coupe",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Scie à chaîne",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.I Ce qui est au palier 1 uniquement pour qui fait le travail",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.I Ce qui est au palier 1 uniquement pour qui fait le travail"
+     ],
+     "ligne": 141
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "G. Ce qui ne se remplace vraiment par rien",
+     "niveau": 3,
+     "chemin": [
+      "Ce qui remplace ce qu'on n'a pas acheté",
+      "G. Ce qui ne se remplace vraiment par rien"
+     ],
+     "ligne": 587
+    }
+   ]
+  },
+  {
+   "terme": "Papiers et argent",
+   "voir_aussi": [
+    "Trousse de 72 heures"
+   ],
+   "ancres": [
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.8 Papiers, argent, clés",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.8 Papiers, argent, clés"
+     ],
+     "ligne": 156
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "9.2 Les papiers, sans boîte étanche",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Les papiers, sans boîte étanche"
+     ],
+     "ligne": 281
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.H Les papiers et l'argent",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.H Les papiers et l'argent"
+     ],
+     "ligne": 133
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.G Le feu du bâtiment, et le feu de forêt",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.G Le feu du bâtiment, et le feu de forêt"
+     ],
+     "ligne": 119
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Sortir les sacs et les papiers du bâtiment"
+     },
+     "chemin": [
+      "5. Procédure",
+      "C. Quand un feu est déclaré dans le secteur"
+     ],
+     "ligne": 147
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.1 Le minimum, qui sert d'étalon",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.1 Le minimum, qui sert d'étalon"
+     ],
+     "ligne": 50
+    }
+   ]
+  },
+  {
+   "terme": "Passer à travers la glace",
+   "voir_aussi": [
+    "Pics à glace",
+    "Hypothermie",
+    "Épaisseur de la glace (sonder)"
+   ],
+   "ancres": [
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "8. Passer à travers la glace — **Chalet**",
+     "niveau": 2,
+     "chemin": [
+      "8. Passer à travers la glace — **Chalet**"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "La table",
+     "niveau": 2,
+     "chemin": [
+      "La table"
+     ],
+     "ligne": 23
+    }
+   ]
+  },
+  {
+   "terme": "Pics à glace",
+   "voir_aussi": [
+    "Passer à travers la glace"
+   ],
+   "ancres": [
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 83
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "8. Passer à travers la glace — **Chalet**",
+     "niveau": 2,
+     "chemin": [
+      "8. Passer à travers la glace — **Chalet**"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "Le tableau de substitution",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "Le tableau de substitution"
+     ],
+     "ligne": 580
+    }
+   ]
+  },
+  {
+   "terme": "Pile et laine d'acier",
+   "voir_aussi": [
+    "Feu sans allumettes"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "C. Pile et laine d'acier — la méthode qui marche avec des mains gelées (étapes 13 à 15)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C. Pile et laine d'acier — la méthode qui marche avec des mains gelées (étapes 13 à 15)"
+     ],
+     "ligne": 128
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "Les rongeurs sans pièges et sans laine d'acier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les rongeurs sans pièges et sans laine d'acier"
+     ],
+     "ligne": 629
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Le feu à la batterie",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le feu à la batterie"
+     ],
+     "ligne": 371
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 414
+    }
+   ]
+  },
+  {
+   "terme": "Plomb (eau, soudure, grenaille)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Grenaille",
+     "tomes": [
+      3
+     ]
+    },
+    {
+     "terme": "Étain (soudure à l'étain)",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "etape": {
+      "n": 42,
+      "libelle": "Le plomb, quand la maison est vieille."
+     },
+     "chemin": [
+      "5. Procédure",
+      "J — À la maison : l'avis d'ébullition, la coupure, le plomb"
+     ],
+     "ligne": 382
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 467
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 417
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "2.F Lire le territoire",
+     "niveau": 3,
+     "chemin": [
+      "Palier 2 — Essentiel",
+      "2.F Lire le territoire"
+     ],
+     "ligne": 259
+    }
+   ]
+  },
+  {
+   "terme": "Plomberie (vidanger, antigel)",
+   "voir_aussi": [
+    "Panne d'électricité"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Fermer le chalet à l'automne",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "La plomberie — la décision se prend avant, pas après",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "La plomberie — la décision se prend avant, pas après"
+     ],
+     "ligne": 194
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 305
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Protéger la plomberie contre le gel."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 3 — De H-6 à H-1"
+     ],
+     "ligne": 249
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 38,
+      "libelle": "Vidanger aussi le chauffe-eau si l'absence dépasse la durée de l'événement"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 5 — Quand le préavis est un préavis d'évacuation"
+     ],
+     "ligne": 290
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Le bâtiment, l'hiver."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Étape 9 — Si on part : les gestes de la première heure"
+     ],
+     "ligne": 275
+    }
+   ]
+  },
+  {
+   "terme": "Plusieurs familles (s'organiser)",
+   "voir_aussi": [
+    "Voisinage et entraide",
+    "Lavage des mains"
+   ],
+   "ancres": [
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 217
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Chaque ménage annonce ce qu'il apporte, par quantité"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 84
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 326
+    }
+   ]
+  },
+  {
+   "terme": "Poêle à bois",
+   "voir_aussi": [
+    "Bois de chauffage"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Créosote",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "La tente à poêle faite avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La tente à poêle faite avec ce qui traîne"
+     ],
+     "ligne": 593
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 433
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 326
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "9. Variante d'urgence — rien n'a été préparé",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence — rien n'a été préparé"
+     ],
+     "ligne": 376
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Fermer la clé d'air du poêle, vider le cendrier dans son contenant métallique"
+     },
+     "chemin": [
+      "5. Procédure",
+      "F. Partir — le chalet"
+     ],
+     "ligne": 246
+    }
+   ]
+  },
+  {
+   "terme": "Poêle de tente",
+   "voir_aussi": [
+    "Tente d'hiver",
+    "Monoxyde de carbone"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "D. Le poêle sur pieux et la traversée du tuyau",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D. Le poêle sur pieux et la traversée du tuyau"
+     ],
+     "ligne": 135
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 389
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 411
+    }
+   ]
+  },
+  {
+   "terme": "Pompe à eau (amorcer)",
+   "voir_aussi": [
+    "Plomberie (vidanger, antigel)"
+   ],
+   "ancres": [
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "Faire de l'eau sous pression sans pompe",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire de l'eau sous pression sans pompe"
+     ],
+     "ligne": 575
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "Les six premières heures",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Les six premières heures"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "3 · Le feu, sans pompe",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "3 · Le feu, sans pompe"
+     ],
+     "ligne": 423
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "G. L'eau : ce qui marche et ce qui est du théâtre",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G. L'eau : ce qui marche et ce qui est du théâtre"
+     ],
+     "ligne": 258
+    }
+   ]
+  },
+  {
+   "terme": "Porte (renforcer, voir sans ouvrir)",
+   "voir_aussi": [
+    "Visiteurs (qui cogne à la porte)"
+   ],
+   "ancres": [
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "La porte, et l'endroit où elle cède",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La porte, et l'endroit où elle cède"
+     ],
+     "ligne": 310
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "Voir sans ouvrir, et regarder sans être vu",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Voir sans ouvrir, et regarder sans être vu"
+     ],
+     "ligne": 270
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "4. Matériel",
+     "niveau": 2,
+     "chemin": [
+      "4. Matériel"
+     ],
+     "ligne": 65
+    }
+   ]
+  },
+  {
+   "terme": "Préavis",
+   "voir_aussi": [
+    "Rester ou partir",
+    "Trousse de 72 heures"
+   ],
+   "ancres": [
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Si le préavis est une pluie forte ou une crue, obturer au lieu de remplir."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 2 — De H-24 à H-6"
+     ],
+     "ligne": 204
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "titre": "Palier 5 — Quand le préavis est un préavis d'évacuation",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Palier 5 — Quand le préavis est un préavis d'évacuation"
+     ],
+     "ligne": 275
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Elle tourne bien mais ne sort pas de courant."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 608
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 3 — Évacuation avec préavis de quelques heures — **maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 3 — Évacuation avec préavis de quelques heures — **maison**"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "C'est la bonne procédure quand",
+     "niveau": 3,
+     "chemin": [
+      "2. Quand l'utiliser",
+      "C'est la bonne procédure quand"
+     ],
+     "ligne": 29
+    }
+   ]
+  },
+  {
+   "terme": "Propane",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Détendeur et raccords",
+     "tomes": [
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Fuite de gaz (eau savonneuse)",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Réfrigérateur à absorption",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 8 — Le froid artificiel lâche : congélateur ou propane — **les deux, chacun le sien**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 8 — Le froid artificiel lâche : congélateur ou propane — **les deux, chacun le sien**"
+     ],
+     "ligne": 227
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Le bois de chauffage et le propane, à plus de 10 m."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. La zone défendable — le travail d'été, étalé sur des années"
+     ],
+     "ligne": 107
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Trois mètres de végétation dégagée autour du réservoir de propane"
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. La zone défendable — le travail d'été, étalé sur des années"
+     ],
+     "ligne": 112
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 326
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.6 Tableau E — Chaleur et carburant",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.6 Tableau E — Chaleur et carburant"
+     ],
+     "ligne": 293
+    }
+   ]
+  },
+  {
+   "terme": "Puits (analyser, désinfecter)",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)",
+    "Avis d'ébullition"
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "H — Le puits : analyser, puis désinfecter",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — Le puits : analyser, puis désinfecter"
+     ],
+     "ligne": 271
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 417
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "A — Choisir la prise d'eau",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Choisir la prise d'eau"
+     ],
+     "ligne": 117
+    }
+   ]
+  },
+  {
+   "terme": "Quatre horloges",
+   "voir_aussi": [
+    "Rester ou partir",
+    "Préavis"
+   ],
+   "ancres": [
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "titre": "Lire trois horloges sur quatre sans un seul instrument",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Lire trois horloges sur quatre sans un seul instrument"
+     ],
+     "ligne": 404
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "titre": "Les quatre horloges",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Les quatre horloges"
+     ],
+     "ligne": 78
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Couper l'horloge du CO avant tout le reste."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 0 à heure 1 — ce qui se fait avant de réfléchir"
+     ],
+     "ligne": 119
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "Étape 3 — Lire les quatre horloges, montre en main (15 minutes)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Étape 3 — Lire les quatre horloges, montre en main (15 minutes)"
+     ],
+     "ligne": 96
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "1.C Le froid, qui est la plus courte des horloges",
+     "niveau": 3,
+     "chemin": [
+      "Palier 1 — À acheter absolument",
+      "1.C Le froid, qui est la plus courte des horloges"
+     ],
+     "ligne": 69
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 312
+    }
+   ]
+  },
+  {
+   "terme": "Quenouille (Typha latifolia)",
+   "latin": "Typha latifolia",
+   "voir_aussi": [
+    "Bois d'allumage (écorce, bois gras)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Plantes comestibles (cueillette)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "L'amadou qu'on récolte et celui qu'on fabrique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'amadou qu'on récolte et celui qu'on fabrique"
+     ],
+     "ligne": 318
+    }
+   ]
+  },
+  {
+   "terme": "Quinzhee",
+   "voir_aussi": [
+    "Abri de neige (maison de neige, caverne)"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "I-1. Le quinzhee : la butte brassée, dans n'importe quelle neige",
+     "niveau": 4,
+     "chemin": [
+      "5. Procédure",
+      "I. La maison de neige",
+      "I-1. Le quinzhee : la butte brassée, dans n'importe quelle neige"
+     ],
+     "ligne": 313
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 389
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Assez de neige, et la bonne."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. Choisir la place, pour tous les abris"
+     ],
+     "ligne": 85
+    }
+   ]
+  },
+  {
+   "terme": "Radio",
+   "voir_aussi": [
+    "Messagerie satellite",
+    "VHF",
+    "Balise de détresse (406 MHz)"
+   ],
+   "ancres": [
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "Se parler d'un bâtiment à l'autre sans radio",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Se parler d'un bâtiment à l'autre sans radio"
+     ],
+     "ligne": 375
+    },
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Fixer la veille radio."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bâtir le réseau, hors crise — la rue d'abord, le rang ensuite"
+     ],
+     "ligne": 97
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Ouvrir la radio et la laisser ouverte."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Les premières minutes"
+     ],
+     "ligne": 101
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "etape": {
+      "n": 5,
+      "libelle": "La terre et l'antenne"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Écouter sans une seule pile"
+     ],
+     "ligne": 338
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "Palier 3 — Important",
+     "niveau": 2,
+     "chemin": [
+      "Palier 3 — Important"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Réchauffer une personne",
+   "voir_aussi": [
+    "Hypothermie"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gelure",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "Réchauffer quelqu'un sans le faire entrer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Réchauffer quelqu'un sans le faire entrer"
+     ],
+     "ligne": 361
+    }
+   ]
+  },
+  {
+   "terme": "Réserve d'eau",
+   "voir_aussi": [
+    "Eau potable (puiser, filtrer, désinfecter)",
+    "Javel"
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.2 Tableau A — Dimensionner l'eau",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.2 Tableau A — Dimensionner l'eau"
+     ],
+     "ligne": 155
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 460
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 330
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.1 Les trois calculs à faire",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.1 Les trois calculs à faire"
+     ],
+     "ligne": 69
+    },
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Remplir tout ce qui se remplit pendant que l'aqueduc donne encore"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 1 à heure 6 — la fenêtre où tout se décide"
+     ],
+     "ligne": 156
+    }
+   ]
+  },
+  {
+   "terme": "Rester ou partir",
+   "voir_aussi": [
+    "Quatre horloges",
+    "Évacuation",
+    "Préavis"
+   ],
+   "ancres": [
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "Étape 8 — Si on reste : les gestes de la première heure",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Étape 8 — Si on reste : les gestes de la première heure"
+     ],
+     "ligne": 244
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "Étape 9 — Si on part : les gestes de la première heure",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Étape 9 — Si on part : les gestes de la première heure"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 398
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 2 — Route coupée, isolement de 2 à 8 semaines — **la bascule**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 2 — Route coupée, isolement de 2 à 8 semaines — **la bascule**"
+     ],
+     "ligne": 85
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "Le seuil : à partir de quand ça cesse d'être court",
+     "niveau": 2,
+     "chemin": [
+      "Le seuil : à partir de quand ça cesse d'être court"
+     ],
+     "ligne": 300
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "5. Le monoxyde de carbone — **Les deux**",
+     "niveau": 2,
+     "chemin": [
+      "5. Le monoxyde de carbone — **Les deux**"
+     ],
+     "ligne": 148
+    }
+   ]
+  },
+  {
+   "terme": "Retombées radioactives",
+   "voir_aussi": [
+    "Iode (comprimés contre les retombées)",
+    "Décontamination",
+    "Rester ou partir"
+   ],
+   "ancres": [
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 333
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Ne donner l'iode que contre de l'iode radioactif, et dans la fenêtre de l'étape 10."
+     },
+     "chemin": [
+      "5. Procédure",
+      "L'iode"
+     ],
+     "ligne": 125
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 275
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 6 — Retombées radioactives, mise à l'abri — **là où on est, donc la maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 6 — Retombées radioactives, mise à l'abri — **là où on est, donc la maison**"
+     ],
+     "ligne": 177
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "11. Retombées radioactives — **Les deux**",
+     "niveau": 2,
+     "chemin": [
+      "11. Retombées radioactives — **Les deux**"
+     ],
+     "ligne": 277
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "11 · Les retombées, sans rien",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "11 · Les retombées, sans rien"
+     ],
+     "ligne": 560
+    }
+   ]
+  },
+  {
+   "terme": "Rotation du stock",
+   "voir_aussi": [
+    "Stock permanent du chalet"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Médicaments (péremption, gel)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.10 La rotation",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.10 La rotation"
+     ],
+     "ligne": 388
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "5.3 Faire tourner le stock",
+     "niveau": 3,
+     "chemin": [
+      "5. La passe de correction",
+      "5.3 Faire tourner le stock"
+     ],
+     "ligne": 71
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.3 Tableau B — Choisir les calories sèches",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.3 Tableau B — Choisir les calories sèches"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.8 Le stock des enfants se périme autrement",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.8 Le stock des enfants se périme autrement"
+     ],
+     "ligne": 350
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "5.1 Les quatre familles de calcul",
+     "niveau": 3,
+     "chemin": [
+      "5. La passe de correction",
+      "5.1 Les quatre familles de calcul"
+     ],
+     "ligne": 42
+    }
+   ]
+  },
+  {
+   "terme": "Route coupée (isolement)",
+   "voir_aussi": [
+    "Rester ou partir",
+    "Stock permanent du chalet"
+   ],
+   "ancres": [
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 2 — Route coupée, isolement de 2 à 8 semaines — **la bascule**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 2 — Route coupée, isolement de 2 à 8 semaines — **la bascule**"
+     ],
+     "ligne": 85
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 5 — Épidémie, on se ferme — **les deux, et ils tirent en sens contraire**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 5 — Épidémie, on se ferme — **les deux, et ils tirent en sens contraire**"
+     ],
+     "ligne": 156
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "5.1 Les quatre familles de calcul",
+     "niveau": 3,
+     "chemin": [
+      "5. La passe de correction",
+      "5.1 Les quatre familles de calcul"
+     ],
+     "ligne": 42
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "5.2 Calculer une couverture",
+     "niveau": 3,
+     "chemin": [
+      "5. La passe de correction",
+      "5.2 Calculer une couverture"
+     ],
+     "ligne": 57
+    }
+   ]
+  },
+  {
+   "terme": "Saignement (arrêter)",
+   "voir_aussi": [
+    "Garrot"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Plaie (nettoyer, fermer, infection)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "4 · La blessure, sans trousse",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "4 · La blessure, sans trousse"
+     ],
+     "ligne": 439
+    }
+   ]
+  },
+  {
+   "terme": "Sapin baumier (Abies balsamea)",
+   "latin": "Abies balsamea",
+   "voir_aussi": [
+    "Sapinage"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Thuyone",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Arbre de vie (infusion d'aiguilles)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Sapinage",
+   "voir_aussi": [
+    "Tente d'hiver",
+    "Sapin baumier (Abies balsamea)"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Pas de sapinage autour du poêle."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D. Le poêle sur pieux et la traversée du tuyau"
+     ],
+     "ligne": 146
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "E. Le sapinage posé en écailles",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E. Le sapinage posé en écailles"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "Le lit",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le lit"
+     ],
+     "ligne": 541
+    }
+   ]
+  },
+  {
+   "terme": "Sas et quarantaine",
+   "voir_aussi": [
+    "Épidémie"
+   ],
+   "ancres": [
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Installer un sas à l'entrée et y déshabiller ceux qui étaient dehors."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Sceller, puis se décontaminer"
+     ],
+     "ligne": 113
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 333
+    }
+   ]
+  },
+  {
+   "terme": "Saumure",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Juger une saumure (œuf, pomme de terre)",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Dessaler",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "etape": {
+      "n": 22,
+      "libelle": "Faire tremper avant de cuire."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Les mois et les années, au chalet — le gibier, le poisson, les champignons"
+     ],
+     "ligne": 229
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 538
+    }
+   ]
+  },
+  {
+   "terme": "Savon",
+   "voir_aussi": [
+    "Suif"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Lessive de cendre",
+     "tomes": [
+      6
+     ]
+    },
+    {
+     "terme": "Soude caustique",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "J — À la maison : l'avis d'ébullition, la coupure, le plomb",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "J — À la maison : l'avis d'ébullition, la coupure, le plomb"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "E. Le corps",
+     "niveau": 3,
+     "chemin": [
+      "Ce qui remplace ce qu'on n'a pas acheté",
+      "E. Le corps"
+     ],
+     "ligne": 529
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 326
+    },
+    {
+     "ch": "00",
+     "fichier": "00-le-chapitre-principal.md",
+     "titre": "10 · L'épidémie, sans pharmacie",
+     "niveau": 3,
+     "chemin": [
+      "Quand il n'y a rien",
+      "10 · L'épidémie, sans pharmacie"
+     ],
+     "ligne": 541
+    }
+   ]
+  },
+  {
+   "terme": "Se faire voir et entendre (signaux)",
+   "voir_aussi": [
+    "Balise de détresse (406 MHz)",
+    "Sifflet"
+   ],
+   "ancres": [
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "Se faire voir et se faire entendre",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Se faire voir et se faire entendre"
+     ],
+     "ligne": 390
+    },
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Convenir d'un signal de détresse audible"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Bâtir le réseau, hors crise — la rue d'abord, le rang ensuite"
+     ],
+     "ligne": 101
+    }
+   ]
+  },
+  {
+   "terme": "Sel",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pourcentage de sel (calcul)",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Faire du sel (eau de mer)",
+     "tomes": [
+      3,
+      4
+     ]
+    },
+    {
+     "terme": "Nitrite de sodium (sel nitrité)",
+     "tomes": [
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5.4 Tableau C — Le gras et le sel",
+     "niveau": 3,
+     "chemin": [
+      "5. La méthode du stock",
+      "5.4 Tableau C — Le gras et le sel"
+     ],
+     "ligne": 220
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 538
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "Ce que le territoire remplace, et ce qu'il ne remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce que le territoire remplace, et ce qu'il ne remplace pas"
+     ],
+     "ligne": 658
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 157
+    },
+    {
+     "ch": "00b",
+     "fichier": "00b-acheter-par-priorite.md",
+     "titre": "C. La viande, le sel et le froid",
+     "niveau": 3,
+     "chemin": [
+      "Ce qui remplace ce qu'on n'a pas acheté",
+      "C. La viande, le sel et le froid"
+     ],
+     "ligne": 426
+    },
+    {
+     "ch": "04",
+     "fichier": "04-retombees-radioactives.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 333
+    }
+   ]
+  },
+  {
+   "terme": "Shaputuan",
+   "voir_aussi": [
+    "Tente d'hiver"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "G. Le shaputuan : la longue tente à deux portes",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G. Le shaputuan : la longue tente à deux portes"
+     ],
+     "ligne": 219
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Assez de neige, et la bonne."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A. Choisir la place, pour tous les abris"
+     ],
+     "ligne": 85
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "etape": {
+      "n": 8,
+      "libelle": "La première flambée se fait vive, air grand ouvert."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D. Le poêle sur pieux et la traversée du tuyau"
+     ],
+     "ligne": 161
+    }
+   ]
+  },
+  {
+   "terme": "Sifflet",
+   "voir_aussi": [
+    "Se faire voir et entendre (signaux)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Enfant qui manque (perdu)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "Se faire voir et se faire entendre",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Se faire voir et se faire entendre"
+     ],
+     "ligne": 390
+    }
+   ]
+  },
+  {
+   "terme": "Silex et briquet à pierre",
+   "voir_aussi": [
+    "Feu sans allumettes",
+    "Amadou"
+   ],
+   "ancres": [
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "Le briquet à pierre, quand il n'y a plus de tige",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le briquet à pierre, quand il n'y a plus de tige"
+     ],
+     "ligne": 347
+    },
+    {
+     "ch": "13",
+     "fichier": "13-feu-sans-allumettes.md",
+     "titre": "E. Amadou carbonisé et silex — la réserve qui ne s'achète pas (étapes 19 à 22)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E. Amadou carbonisé et silex — la réserve qui ne s'achète pas (étapes 19 à 22)"
+     ],
+     "ligne": 154
+    }
+   ]
+  },
+  {
+   "terme": "Sortir un blessé (brancard, traîneau)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Évacuer un blessé ou un malade (décider)",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Toboggan",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "titre": "Sortir un blessé",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Sortir un blessé"
+     ],
+     "ligne": 195
+    },
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 306
+    }
+   ]
+  },
+  {
+   "terme": "Souris et rongeurs",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Hantavirus",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "Les rongeurs sans pièges et sans laine d'acier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Les rongeurs sans pièges et sans laine d'acier"
+     ],
+     "ligne": 629
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 41
+    }
+   ]
+  },
+  {
+   "terme": "Stock permanent du chalet",
+   "voir_aussi": [
+    "Rotation du stock",
+    "Liste d'achat (quatre paliers)",
+    "Trousse de 72 heures"
+   ],
+   "ancres": [
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "5. La méthode du stock",
+     "niveau": 2,
+     "chemin": [
+      "5. La méthode du stock"
+     ],
+     "ligne": 64
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "Chapitre 5 — Le stock permanent du chalet",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "05",
+     "fichier": "05-le-stock-permanent-du-chalet.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 468
+    }
+   ]
+  },
+  {
+   "terme": "Suif",
+   "voir_aussi": [
+    "Savon",
+    "Chandelles"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gras périrénal (graisse de rognon)",
+     "tomes": [
+      2,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Témoin de dégel",
+   "voir_aussi": [
+    "Congélateur qui dégèle"
+   ],
+   "ancres": [
+    {
+     "ch": "01",
+     "fichier": "01-les-quatre-horloges.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Poser le témoin de dégel dans le congélateur"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Heure 1 à heure 6 — la fenêtre où tout se décide"
+     ],
+     "ligne": 167
+    }
+   ]
+  },
+  {
+   "terme": "Tente d'hiver",
+   "voir_aussi": [
+    "Poêle de tente",
+    "Sapinage",
+    "Shaputuan",
+    "Abri de neige (maison de neige, caverne)"
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "C. La tente de prospecteur : la charpente se coupe sur place",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C. La tente de prospecteur : la charpente se coupe sur place"
+     ],
+     "ligne": 107
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "La tente à poêle faite avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La tente à poêle faite avec ce qui traîne"
+     ],
+     "ligne": 593
+    },
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "Chapitre 12 — La tente d'hiver et l'abri de neige",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    }
+   ]
+  },
+  {
+   "terme": "Test de germination",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Semences (garder)",
+     "tomes": [
+      2,
+      4,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "5.4 Ce qui meurt sans être touché",
+     "niveau": 3,
+     "chemin": [
+      "5. La passe de correction",
+      "5.4 Ce qui meurt sans être touché"
+     ],
+     "ligne": 84
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 137
+    }
+   ]
+  },
+  {
+   "terme": "Thermomètre à viande (sonde)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Cuisson à 74 °C à cœur",
+     "tomes": [
+      2,
+      3,
+      4,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    },
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.1 Mesurer quand l'instrument est mort",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.1 Mesurer quand l'instrument est mort"
+     ],
+     "ligne": 192
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 326
+    }
+   ]
+  },
+  {
+   "terme": "Toilette sans pression (chasse au seau)",
+   "voir_aussi": [
+    "Plomberie (vidanger, antigel)",
+    "Panne d'électricité"
+   ],
+   "ancres": [
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 460
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "La plomberie — la décision se prend avant, pas après",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "La plomberie — la décision se prend avant, pas après"
+     ],
+     "ligne": 194
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 37,
+      "libelle": "En hiver, mettre le bâtiment hors gel avant de partir"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 5 — Quand le préavis est un préavis d'évacuation"
+     ],
+     "ligne": 284
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 1 — Panne majeure d'Hydro en janvier, on reste — **maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 1 — Panne majeure d'Hydro en janvier, on reste — **maison**"
+     ],
+     "ligne": 62
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 3 — Évacuation avec préavis de quelques heures — **maison**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 3 — Évacuation avec préavis de quelques heures — **maison**"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "03",
+     "fichier": "03-panne-majeure-d-hydro-en.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 392
+    }
+   ]
+  },
+  {
+   "terme": "Trousse de 72 heures",
+   "voir_aussi": [
+    "Listes par scénario",
+    "Préavis",
+    "Papiers et argent"
+   ],
+   "ancres": [
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "5.10 La trousse du véhicule",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure — ce qui entre, selon quelle règle",
+      "5.10 La trousse du véhicule"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "La trousse de 72 heures est le bon outil quand",
+     "niveau": 3,
+     "chemin": [
+      "2. Quand l'utiliser",
+      "La trousse de 72 heures est le bon outil quand"
+     ],
+     "ligne": 19
+    },
+    {
+     "ch": "06",
+     "fichier": "06-la-liste-de-72-heures.md",
+     "titre": "Chapitre 6 — La liste de 72 heures",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 36,
+      "libelle": "Charger la trousse d'urgence du chapitre 00b, et y ajouter ce qui ne s'entrepose pas"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 5 — Quand le préavis est un préavis d'évacuation"
+     ],
+     "ligne": 281
+    },
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "G — Entreposer",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Entreposer"
+     ],
+     "ligne": 244
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 9 — Immobilisé en chemin, véhicule ou motoneige — **la route entre les deux**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 9 — Immobilisé en chemin, véhicule ou motoneige — **la route entre les deux**"
+     ],
+     "ligne": 257
+    }
+   ]
+  },
+  {
+   "terme": "Tularémie",
+   "voir_aussi": [
+    "Lièvre d'Amérique (Lepus americanus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Rat musqué (Ondatra zibethicus)",
+     "tomes": [
+      3
+     ]
+    },
+    {
+     "terme": "Castor (Castor canadensis)",
+     "tomes": [
+      2,
+      3
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "10",
+     "fichier": "10-eau-puiser-filtrer-desinfecter.md",
+     "titre": "E — Désinfecter : l'ébullition, méthode de référence",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Désinfecter : l'ébullition, méthode de référence"
+     ],
+     "ligne": 166
+    }
+   ]
+  },
+  {
+   "terme": "Tuyau de poêle (réparer)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Feu de cheminée",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "12",
+     "fichier": "12-la-tente-d-hiver.md",
+     "titre": "D. Le poêle sur pieux et la traversée du tuyau",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D. Le poêle sur pieux et la traversée du tuyau"
+     ],
+     "ligne": 135
+    }
+   ]
+  },
+  {
+   "terme": "Vaisselle",
+   "voir_aussi": [
+    "Lavage des mains"
+   ],
+   "ancres": [
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 326
+    },
+    {
+     "ch": "18",
+     "fichier": "18-s-organiser-a-plusieurs.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 217
+    }
+   ]
+  },
+  {
+   "terme": "Véhicule immobilisé dans la neige",
+   "voir_aussi": [
+    "Monoxyde de carbone",
+    "Hypothermie"
+   ],
+   "ancres": [
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 9 — Immobilisé en chemin, véhicule ou motoneige — **la route entre les deux**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 9 — Immobilisé en chemin, véhicule ou motoneige — **la route entre les deux**"
+     ],
+     "ligne": 257
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 355
+    },
+    {
+     "ch": "15",
+     "fichier": "15-se-deplacer-et-le-carburant.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 83
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 312
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 333
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "9. Variante d'urgence — rien n'a été préparé",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence — rien n'a été préparé"
+     ],
+     "ligne": 376
+    }
+   ]
+  },
+  {
+   "terme": "VHF",
+   "voir_aussi": [
+    "Radio",
+    "Balise de détresse (406 MHz)"
+   ],
+   "ancres": [
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Palier 2 — le message d'urgence."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Quand ça tourne mal — trois paliers, jamais un seul"
+     ],
+     "ligne": 176
+    },
+    {
+     "ch": "14",
+     "fichier": "14-communiquer-et-savoir.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 61
+    }
+   ]
+  },
+  {
+   "terme": "Vinaigre",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Marinades (vinaigre)",
+     "tomes": [
+      3,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "09",
+     "fichier": "09-ce-qui-manque-toujours.md",
+     "titre": "9.2 Fabriquer le consommable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9.2 Fabriquer le consommable"
+     ],
+     "ligne": 214
+    }
+   ]
+  },
+  {
+   "terme": "Visiteurs (qui cogne à la porte)",
+   "voir_aussi": [
+    "Voisinage et entraide",
+    "Porte (renforcer, voir sans ouvrir)"
+   ],
+   "ancres": [
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "Quand quelqu'un cogne",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Quand quelqu'un cogne"
+     ],
+     "ligne": 108
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "Si on héberge",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Si on héberge"
+     ],
+     "ligne": 163
+    },
+    {
+     "ch": "17",
+     "fichier": "17-qui-cogne-a-la-porte.md",
+     "titre": "Avant que quelqu'un cogne",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Avant que quelqu'un cogne"
+     ],
+     "ligne": 75
+    }
+   ]
+  },
+  {
+   "terme": "Voisinage et entraide",
+   "voir_aussi": [
+    "Groupe de chasse",
+    "Plusieurs familles (s'organiser)"
+   ],
+   "ancres": [
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 244
+    },
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "etape": {
+      "n": 22,
+      "libelle": "Dégager un arbre chez le voisin après un verglas : la ligne avant l'arbre."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Travailler et vivre à plusieurs"
+     ],
+     "ligne": 185
+    },
+    {
+     "ch": "16",
+     "fichier": "16-le-voisinage-et-le-groupe-de.md",
+     "titre": "La dette",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "La dette"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "07",
+     "fichier": "07-quand-on-a-un-preavis.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Prévenir les proches et le voisinage par message texte, pas par appel."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Palier 1 — La première demi-heure"
+     ],
+     "ligne": 103
+    },
+    {
+     "ch": "08",
+     "fichier": "08-listes-par-scenario.md",
+     "titre": "Scénario 4 — Feu dans le bâtiment, évacuation immédiate — **les deux**",
+     "niveau": 3,
+     "chemin": [
+      "5. Les neuf listes",
+      "Scénario 4 — Feu dans le bâtiment, évacuation immédiate — **les deux**"
+     ],
+     "ligne": 133
+    },
+    {
+     "ch": "02",
+     "fichier": "02-rester-ou-partir.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 398
+    }
+   ]
+  },
+  {
+   "terme": "Zone défendable",
+   "voir_aussi": [
+    "Feu de forêt"
+   ],
+   "ancres": [
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "A. La zone défendable — le travail d'été, étalé sur des années",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A. La zone défendable — le travail d'été, étalé sur des années"
+     ],
+     "ligne": 82
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Refaire la zone défendable avant de refaire le reste."
+     },
+     "chemin": [
+      "5. Procédure",
+      "J. Après"
+     ],
+     "ligne": 393
+    },
+    {
+     "ch": "11",
+     "fichier": "11-feu-de-foret.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 403
+    }
+   ]
+  }
+ ]
+}

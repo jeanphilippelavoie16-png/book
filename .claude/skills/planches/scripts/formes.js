@@ -1,0 +1,1018 @@
+// formes.js — la bibliothèque de formes des planches : mains, personnages, fil, corde et filet.
+//
+// Branchée dans composer-planche.js : une description y accède par h.formes. Une main, une tête,
+// une corde ne se dessinent plus à main levée planche par planche : elles se construisent par
+// ces fonctions, pour avoir partout les mêmes proportions et le même trait. La feuille d'essai
+// images/planches-src/_formes-essai.js les montre toutes ; _formes-essai-mains.js, -corps.js et
+// -fil.js les montrent en grand.
+//
+//   main({ x, y, pose, vue, cote, echelle, angle, diametre, bras, objet, trait, serre, inclinaison })
+//   personnage({ x, y, pose, echelle, cote, angle, penche, regard, mains, trait })
+//   tete({ x, y, echelle, angle, cote, trait }) · buste({ x, y, echelle, angle, cote, regard, trait })
+//   corde(pts, { ep, debut, fin, fleche, torons, passages, jeu, trait }) · cordes([brin, …], options)
+//   aiguilleFilet({ x, y, longueur, angle, chargee }) · moule({ x, y, longueur, largeur, angle })
+//   maille({ x, y, echelle, ep, fleche, jeu, trait })
+//
+// Chaque fonction rend un objet qui se colle comme une chaîne (join, gabarit `${}`) et qui porte
+// la géométrie utile, en coordonnées de la vue : m.trou (où se dessine l'objet tenu), m.poignet…
+// Les formes sont peintes en blanc : ce qui est dessiné avant est caché là où elles passent devant.
+//
+// L'objet tenu : le plus simple est de le passer par objet (du SVG), la main le peint à sa place.
+// Sinon, l'ordre compte, et il suit la profondeur :
+//   prise / dos, prise / paume, boule   l'objet AVANT la main (il passe derrière les doigts) ;
+//   prise / profil                      le bout du manche APRÈS la main : il vient vers l'œil. La
+//                                       main peint déjà le fond blanc du trou (une hachure est
+//                                       transparente) ;
+//   pince / profil                      par objet : il se glisse entre l'index et le pouce.
+//
+//   const m = h.formes.main({ x: 200, y: 180, pose: 'prise', vue: 'profil', diametre: 34 });
+//   out.push(m, h.cercle(m.trou.x, m.trou.y, m.trou.r, h.a.hachure('bois', 'contour')));
+//
+// Le trait suit la hiérarchie du livre : la silhouette sort à ~1,5 (un 2,4 dont la forme recouvre
+// la moitié intérieure), les contours intérieurs à 0,7, les ongles et les plis à 0,5.
+// trait: 'fort' monte d'un cran (silhouette ~1,9, intérieur 1,4, plis 0,7).
+//
+// Unités internes : des millimètres d'adulte ; echelle = unités de vue par mm. À echelle 1, une
+// main fait 190 du poignet au bout du majeur ; un personnage debout, 1750.
+
+'use strict';
+
+module.exports = function formes(h) {
+  const NOIR = '#1A1A1A', BLANC = '#FFFFFF';
+  const f1 = v => Math.round(v * 10) / 10;
+  const trait = ep => `fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round" stroke-linecap="round"`;
+  const FOND = `fill="${BLANC}" stroke="none"`;
+
+  // ─── géométrie ────────────────────────────────────────────────────────────────────────
+  const add = (a, b) => [a[0] + b[0], a[1] + b[1]];
+  const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
+  const mul = (a, k) => [a[0] * k, a[1] * k];
+  const lon = a => Math.hypot(a[0], a[1]);
+  const uni = a => { const l = Math.hypot(a[0], a[1]) || 1; return [a[0] / l, a[1] / l]; };
+  const gau = u => [u[1], -u[0]];                 // à gauche du sens de marche (y vers le bas)
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1];
+  const crx = (a, b) => a[0] * b[1] - a[1] * b[0];
+  const RAD = Math.PI / 180;
+  const dirA = deg => [Math.cos(deg * RAD), Math.sin(deg * RAD)];
+  const tourne = (a, deg) => { const c = Math.cos(deg * RAD), s = Math.sin(deg * RAD); return [a[0] * c - a[1] * s, a[0] * s + a[1] * c]; };
+  const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  const angleDe = (a, b) => Math.atan2(crx(a, b), dot(a, b)) / RAD;   // + : sens horaire à l'écran
+  const borne = (v, a, b) => Math.max(a, Math.min(b, v));
+  function inter(p, u, q, v) {
+    const d = crx(u, v);
+    if (Math.abs(d) < 1e-6) return null;
+    return add(p, mul(u, crx(sub(q, p), v) / d));
+  }
+  const cubique = (a, b, c, d, t) => {
+    const m = 1 - t;
+    return [m * m * m * a[0] + 3 * m * m * t * b[0] + 3 * m * t * t * c[0] + t * t * t * d[0],
+            m * m * m * a[1] + 3 * m * m * t * b[1] + 3 * m * t * t * c[1] + t * t * t * d[1]];
+  };
+  const quad = (a, c, b, t) => { const m = 1 - t; return [m * m * a[0] + 2 * m * t * c[0] + t * t * b[0], m * m * a[1] + 2 * m * t * c[1] + t * t * b[1]]; };
+
+  // Un chemin est une liste de commandes absolues : ['M', p] ['L', p] ['Q', c, p] ['C', c1, c2, p] ['Z'].
+  // Il se construit dans un repère propre (mm, ancre en 0 0) et passe par T pour aller dans la vue.
+  const ser = (cmds, T) => cmds.map(c => c[0] + c.slice(1).map(p => { const q = T(p); return `${f1(q[0])} ${f1(q[1])}`; }).join(' ')).join(' ');
+  function repere({ x = 0, y = 0, echelle = 1, angle = 0, miroir = false }) {
+    return p => {
+      const q = tourne(mul(miroir ? [-p[0], p[1]] : p, echelle), angle);
+      return [x + q[0], y + q[1]];
+    };
+  }
+  // Un résultat : se colle comme une chaîne, porte sa géométrie.
+  const forme = (svg, info = {}) => Object.assign({ svg, toString() { return svg; } }, info);
+  // Lissage : une suite de points devient une courbe qui passe par chacun (Catmull-Rom).
+  function lisse(pts, ferme = false) {
+    const n = pts.length, cmds = [['M', pts[0]]];
+    const P = i => ferme ? pts[(i + n) % n] : pts[borne(i, 0, n - 1)];
+    const fin = ferme ? n : n - 1;
+    for (let i = 0; i < fin; i++) {
+      const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2);
+      cmds.push(['C', add(p1, mul(sub(p2, p0), 1 / 6)), sub(p2, mul(sub(p3, p1), 1 / 6)), p2]);
+    }
+    if (ferme) cmds.push(['Z']);
+    return cmds;
+  }
+  const suite = (...listes) => listes.flatMap((l, i) => i ? l.slice(1) : l);   // colle des chemins bout à bout
+
+  // ─── le tube : un doigt, un pouce, un bras, une jambe ────────────────────────────────
+  // Une chaîne d'os P0…Pn. Chaque segment a sa demi-épaisseur côté dos et côté ventre, au début
+  // et à la fin. Là où la chaîne plie, le côté extérieur fait une jointure arrondie (l'os qui
+  // saille) et le côté intérieur un pli net : c'est ce qui sépare un doigt d'une saucisse. Le
+  // ventre de chaque phalange bombe un peu (le coussinet).
+  //   sens    +1 : le dos est à gauche du sens de marche ; -1 : à droite
+  //   bout    'doigt' · 'rond' · 'phalange' (jointure pliée vue de dessus) · 'plat' · 'ouvert'
+  //   ongle   'cote' (vu de profil) · 'dessus' (vu du dos) · null
+  //   base    de combien le blanc s'enfonce sous la pièce voisine (la paume), sans trait
+  //   ouvre   { dos, ventre } : le trait de chaque bord ne commence qu'à tant de mm de P0
+  //           (un doigt vu du dos ne se détache de la paume qu'à la commissure)
+  function tube(o) {
+    const { pts, dos, ventre, sens = 1, coussin = [], bosseDos = [], bout = 'doigt', ongle = null,
+      base = 0, plis = false, rides = [], baseRonde = false, ouvre = null } = o;
+    const n = pts.length - 1;
+    const U = [], N = [];
+    for (let i = 0; i < n; i++) { const u = uni(sub(pts[i + 1], pts[i])); U.push(u); N.push(mul(gau(u), sens)); }
+    function bord(s) {
+      const W = s > 0 ? dos : ventre;
+      const seg = [];
+      for (let i = 0; i < n; i++) {
+        const on = mul(N[i], s);
+        seg.push({ a: add(pts[i], mul(on, W[i][0])), b: add(pts[i + 1], mul(on, W[i][1])), u: U[i], o: on,
+          bom: s < 0 ? (coussin[i] || 0) : (bosseDos[i] || 0) });
+      }
+      const jn = [];
+      for (let j = 1; j < n; j++) {
+        const A = seg[j - 1], B = seg[j];
+        const vers = dot(B.u, A.o);
+        const K = inter(A.a, A.u, B.a, B.u);
+        const lim = 2.6 * Math.max(W[j][0], W[j - 1][1], 3);
+        const ok = K && lon(sub(K, pts[j])) < lim;
+        if (vers > 0.03 && ok && dot(sub(K, A.a), A.u) > 1 && dot(sub(B.b, K), B.u) > 1) {
+          A.b = K; B.a = K; jn.push({ t: 'pli', K, j });
+        } else if (vers < -0.03 && ok) jn.push({ t: 'coude', K, j });
+        else jn.push({ t: 'lisse', j });
+      }
+      return { seg, jn };
+    }
+    const D = bord(1), Vb = bord(-1);
+    const ctrl = sg => add(lerp(sg.a, sg.b, 0.5), mul(sg.o, 2 * sg.bom));
+    const arete = (sg, rev) => {
+      const q = rev ? sg.a : sg.b;
+      return sg.bom ? [['Q', ctrl(sg), q]] : [['L', q]];
+    };
+    const joint = (A, B, jn, rev) => {
+      if (jn.t === 'pli') return [];
+      const [p, up, q, uq] = rev ? [B.a, mul(B.u, -1), A.b, mul(A.u, -1)] : [A.b, A.u, B.a, B.u];
+      const d = lon(sub(q, p));
+      if (d < 0.3) return [['L', q]];
+      if (jn.t === 'coude') {
+        const k = Math.min(lon(sub(jn.K, p)), lon(sub(jn.K, q))) * 0.62;
+        return [['C', add(p, mul(up, k)), sub(q, mul(uq, k)), q]];
+      }
+      return [['C', add(p, mul(up, d / 3)), sub(q, mul(uq, d / 3)), q]];
+    };
+    const L0 = lon(sub(pts[1], pts[0]));
+    const tD = ouvre ? borne((ouvre.dos || 0) / L0, 0, 0.9) : 0;
+    const tV = ouvre ? borne((ouvre.ventre || 0) / L0, 0, 0.9) : 0;
+    // bord du dos, de la base au bout ; bord du ventre, du bout à la base
+    const dosC = (t0) => {
+      const s0 = D.seg[0], out = [];
+      let p0 = s0.a;
+      if (t0) { if (s0.bom) { const c = ctrl(s0); p0 = quad(s0.a, c, s0.b, t0); out.push(['Q', lerp(c, s0.b, t0), s0.b]); } else { p0 = lerp(s0.a, s0.b, t0); out.push(['L', s0.b]); } }
+      else out.push(...arete(s0, false));
+      for (let i = 1; i < n; i++) { out.push(...joint(D.seg[i - 1], D.seg[i], D.jn[i - 1], false)); out.push(...arete(D.seg[i], false)); }
+      return { p0, out };
+    };
+    const ventreC = (t0) => {
+      const out = [];
+      for (let i = n - 1; i >= 1; i--) { out.push(...arete(Vb.seg[i], true)); out.push(...joint(Vb.seg[i - 1], Vb.seg[i], Vb.jn[i - 1], true)); }
+      const s0 = Vb.seg[0];
+      if (t0) { if (s0.bom) { const c = ctrl(s0); out.push(['Q', lerp(c, s0.b, t0), quad(s0.a, c, s0.b, t0)]); } else out.push(['L', lerp(s0.a, s0.b, t0)]); }
+      else out.push(...arete(s0, true));
+      return out;
+    };
+    // le bout
+    const A = D.seg[n - 1].b, B = Vb.seg[n - 1].b, u = U[n - 1], w = lon(sub(A, B));
+    const k = { doigt: [0.74, 0.6], rond: [0.67, 0.67], phalange: [0.42, 0.42] }[bout] || [0, 0];
+    const cap = k[0] ? ['C', add(A, mul(u, k[0] * w)), add(B, mul(u, k[1] * w)), B] : null;
+    const D0 = D.seg[0].a, V0 = Vb.seg[0].a, u0 = U[0], wb = lon(sub(D0, V0));
+    const capBase = ['C', sub(V0, mul(u0, 0.67 * wb)), sub(D0, mul(u0, 0.67 * wb)), D0];
+    // le trait
+    const dT = dosC(tD);
+    const tr = [['M', dT.p0], ...dT.out];
+    if (cap) tr.push(cap); else if (bout === 'plat') tr.push(['L', B]); else tr.push(['M', B]);
+    tr.push(...ventreC(tV));
+    if (baseRonde) tr.push(capBase);
+    // le blanc
+    const dF = dosC(0);
+    const re = baseRonde
+      ? [['M', D0], ...dF.out, cap || ['L', B], ...ventreC(0), capBase, ['Z']]
+      : [['M', sub(D0, mul(u0, base))], ['L', D0], ...dF.out, cap || ['L', B], ...ventreC(0), ['L', sub(V0, mul(u0, base))], ['Z']];
+    const det = [];
+    if (plis) for (const jn of Vb.jn) if (jn.t === 'pli') {
+      const P = pts[jn.j], v = sub(P, jn.K), l = lon(v);
+      det.push([['M', jn.K], ['L', add(jn.K, mul(uni(v), Math.min(3.2, l * 0.45)))]]);
+    }
+    for (const r of rides) {
+      const j = r.j, P = pts[j], uu = uni(add(U[j - 1] || U[j], U[j] || U[j - 1])), nn = gau(uu);
+      const hw = (dos[j] ? dos[j][0] : dos[j - 1][1]) * (r.l || 0.5);
+      for (let q = 0; q < (r.n || 1); q++) {
+        const c = add(P, mul(uu, (q - ((r.n || 1) - 1) / 2) * 2.2));
+        det.push([['M', add(c, mul(nn, hw))], ['Q', add(c, mul(uu, 1.6)), sub(c, mul(nn, hw))]]);
+      }
+    }
+    if (ongle) {
+      const P = pts[n - 1], L = lon(sub(pts[n], P)), o1 = N[n - 1];
+      const dw = s => dos[n - 1][0] + (dos[n - 1][1] - dos[n - 1][0]) * s;
+      if (ongle === 'cote') {
+        const N0 = add(add(P, mul(u, 0.4 * L)), mul(o1, dw(0.4)));
+        const E = cubique(A, cap ? cap[1] : A, cap ? cap[2] : B, B, 0.16);
+        det.push([['M', N0], ['C', add(add(P, mul(u, 0.5 * L)), mul(o1, dw(0.5) - 2.3)), add(add(P, mul(u, 0.88 * L)), mul(o1, dw(0.88) - 2.1)), E]]);
+      } else {
+        const hw = dw(0.7) * 0.5, s0 = 0.46 * L, s1 = 0.58 * L, s2 = 0.96 * L;
+        const at = (s, t) => add(add(P, mul(u, s)), mul(o1, t));
+        det.push([['M', at(s2, hw)], ['L', at(s1, hw)], ['C', at(s0, hw), at(s0, -hw), at(s1, -hw)], ['L', at(s2, -hw)]]);
+      }
+    }
+    return { remp: re, trait: [tr], det };
+  }
+  // Le point d'un bord du tube à s mm de P0 le long de la chaîne (cote +1 dos, -1 ventre).
+  function pointBord(pts, W, sens, cote, s) {
+    let i = 0, acc = 0;
+    while (i < pts.length - 2 && acc + lon(sub(pts[i + 1], pts[i])) < s) { acc += lon(sub(pts[i + 1], pts[i])); i++; }
+    const L = lon(sub(pts[i + 1], pts[i])), t = borne((s - acc) / L, 0, 1);
+    const nrm = mul(gau(uni(sub(pts[i + 1], pts[i]))), sens * cote);
+    return add(lerp(pts[i], pts[i + 1], t), mul(nrm, W[i][0] + (W[i][1] - W[i][0]) * t));
+  }
+
+  // Peint une liste de pièces, de la plus lointaine à la plus proche.
+  // Passe 1 : la silhouette, un 2,4 sous tout. Passe 2 : chaque pièce, son blanc, son trait, ses détails.
+  // objet : du SVG glissé entre les pièces, à la couche `couche` (0 : derrière tout).
+  function peindre(pieces, T, fort = false, objet = '', couche = 0) {
+    const eI = fort ? 1.4 : 0.7, eD = fort ? 0.7 : 0.5;
+    const out = [];
+    if (objet && couche <= 0) out.push(objet);
+    for (const p of pieces) if (p.silhouette !== false) for (const t of p.trait) out.push(`<path d="${ser(t, T)}" ${trait(2.4)}/>`);
+    pieces.forEach((p, i) => {
+      if (objet && couche > 0 && i === couche) out.push(objet);
+      if (p.remp) out.push(`<path d="${ser(p.remp, T)}" ${FOND}/>`);
+      for (const t of p.trait) out.push(`<path d="${ser(t, T)}" ${trait(p.ep || eI)}/>`);
+      for (const d of p.det || []) out.push(`<path d="${ser(d, T)}" ${trait(p.epDet || eD)}/>`);
+    });
+    if (objet && couche >= pieces.length) out.push(objet);
+    return out.join('\n');
+  }
+
+  // ─── la main ──────────────────────────────────────────────────────────────────────────
+  // Longueurs des phalanges (mm) et épaisseurs aux jointures, de la base au bout.
+  const DG = {
+    index:       { ph: [43, 25, 21], ep: [19, 16.2, 14.2, 12.2] },
+    majeur:      { ph: [46, 28, 22], ep: [19.5, 16.8, 14.8, 12.6] },
+    annulaire:   { ph: [43, 27, 21], ep: [18, 15.6, 13.8, 11.8] },
+    auriculaire: { ph: [34, 20, 19], ep: [16, 13.6, 12.2, 10.6] },
+  };
+  const POUCE = { ph: [44, 32, 26] };
+  const profilDoigt = ep => ({
+    dos: [[ep[0] * 0.44, ep[1] * 0.44], [ep[1] * 0.44, ep[2] * 0.44], [ep[2] * 0.44, ep[3] * 0.44]],
+    ventre: [[ep[0] * 0.56, ep[1] * 0.54], [ep[1] * 0.54, ep[2] * 0.54], [ep[2] * 0.54, ep[3] * 0.52]],
+    coussin: [0.9, 0.8, 0.9],
+  });
+  const faceW = ep => [[ep[0] / 2, ep[1] / 2], [ep[1] / 2, ep[2] / 2], [ep[2] / 2, ep[3] / 2]];
+
+  // La tangente qu'on prend depuis P pour s'enrouler autour d'un cercle (centre C, rayon rho).
+  function tangente(P, C, rho, sens) {
+    const v = sub(C, P), d = lon(v);
+    if (d <= rho + 0.01) return uni(tourne(v, -90 * sens));
+    return uni(tourne(v, -Math.asin(rho / d) / RAD * sens));
+  }
+  // Une chaîne qui s'enroule autour d'un cercle : chaque phalange tangente, flexions bornées.
+  function enroule(P0, d0, C, rhos, longueurs, sens, maxi) {
+    const pts = [P0]; let d = uni(d0), P = P0;
+    longueurs.forEach((L, i) => {
+      const t0 = tangente(P, C, rhos[i], sens);
+      const f = borne(angleDe(d, t0) * sens, 0, maxi[i]);
+      d = tourne(d, f * sens); P = add(P, mul(d, L)); pts.push(P);
+    });
+    return pts;
+  }
+  // Une chaîne par ses angles de flexion (degrés, dans le sens `sens`) depuis la direction d0.
+  function plie(P0, d0, longueurs, flex, sens = 1) {
+    const pts = [P0]; let d = uni(d0), P = P0;
+    longueurs.forEach((L, i) => { d = tourne(d, flex[i] * sens); P = add(P, mul(d, L)); pts.push(P); });
+    return pts;
+  }
+  // Deux segments dont le bout tombe sur la cible ; la jointure saille du côté `sens`.
+  function ik2(P0, L1, L2, cible, sens) {
+    const v = sub(cible, P0), d = borne(lon(v), Math.abs(L1 - L2) + 0.01, L1 + L2 - 0.01);
+    const a = Math.acos(borne((L1 * L1 + d * d - L2 * L2) / (2 * L1 * d), -1, 1)) / RAD;
+    const P1 = add(P0, mul(tourne(uni(v), -a * sens), L1));
+    return [P0, P1, add(P1, mul(uni(sub(cible, P1)), L2))];
+  }
+
+  const doigtProfil = (pts, ep, sens, opts = {}) => {
+    const p = profilDoigt(ep);
+    return tube({ pts, dos: p.dos, ventre: p.ventre, coussin: p.coussin, sens, bout: 'doigt', ongle: 'cote', base: 10, plis: true, ...opts });
+  };
+  const POUCE_FACE = [[12.5, 11], [11, 10.5], [10.5, 8.2]];
+  const pouceFace = (pts, o = {}) => tube({ pts, sens: 1, dos: POUCE_FACE, ventre: POUCE_FACE,
+    coussin: [0, -0.3, 0.3], bosseDos: [0, -0.3, 0.3], bout: 'rond', ongle: 'dessus', base: 14, ...o });
+  const doigtFace = (d, pts, o = {}) => tube({ pts, dos: faceW(d.ep), ventre: faceW(d.ep), coussin: [-0.15, -0.1, 0.15], bosseDos: [-0.15, -0.1, 0.15],
+    bout: 'rond', ongle: 'dessus', base: 16, ...o });
+  // des détails seuls, peints par-dessus tout (jointures, plis de la paume)
+  const traits = (det, ep) => ({ remp: null, trait: [], det, silhouette: false, epDet: ep });
+  // les points d'une cubique de A (tangente tA) à B (tangente tB), sans B : un arc sans cassure
+  const cubPts = (A, tA, B, tB, kA, kB, n = 5) => { const c1 = add(A, mul(uni(tA), kA)), c2 = sub(B, mul(uni(tB), kB));
+    return Array.from({ length: n }, (_, i) => cubique(A, c1, c2, B, i / n)); };
+  const arcPts = (r, a0, a1, n = 6) => Array.from({ length: n + 1 }, (_, i) => mul(dirA(a0 + (a1 - a0) * i / n), r));
+
+  // ─── la main de profil, vue du côté du pouce ──────────────────────────────────────────
+  // Une seule construction pour toutes les poses de profil. Du plus loin au plus proche :
+  //   1. les autres doigts (majeur, annulaire…), derrière l'index ;
+  //   2. l'avant-bras, la paume et l'index d'un seul tube : le dos de la main file du poignet à
+  //      l'ongle sans cassure, la jointure saille en arrondi, le pli se creuse en dedans ;
+  //   3. l'éminence du pouce (le gras de la paume), pièce à part, dessinée par ses deux bords :
+  //      aDos mène au bord dos du pouce, aVentre à son bord paume ; fond referme le blanc par
+  //      l'intérieur de la paume sans trait ;
+  //   4. le pouce, de sa jointure de base au bout.
+  const EP_POUCE = { dos: [[10, 9.3], [9.3, 7.4]], ventre: [[11, 10.2], [10.2, 8.2]] };
+  function mainProfil(c) {
+    const { F, W, ptsI, sensI = 1, autres = [], ptsT, sensT = -sensI, ouvreT = {}, aDos, aVentre, fond, larg,
+      traitDos = true, traitVentre = true, anneau = null, index = {} } = c;
+    const L = { dF: 21, vF: 22, dW: 18.5, vW: 20.5, dM: DG.index.ep[0] * 0.44, vM: 13, ...larg };
+    const pieces = [];
+    for (const a of autres) pieces.push(doigtProfil(a.pts, DG[a.nom].ep, sensI, { base: 24, plis: false, ...(a.o || {}) }));
+    const pr = profilDoigt(DG.index.ep);
+    pieces.push(tube({ pts: [F, W, ...ptsI], sens: sensI,
+      dos: [[L.dF, L.dW], [L.dW, L.dM], ...pr.dos], ventre: [[L.vF, L.vW], [L.vW, L.vM], ...pr.ventre],
+      coussin: [0, 0, ...(index.coussin || pr.coussin)], bout: 'doigt', ongle: 'cote', plis: index.plis !== false }));
+    // l'anneau entre le pouce et l'index : un blanc sans trait, en retrait de ses bords (qui gardent
+    // leur épaisseur de silhouette), qui cache les doigts de derrière
+    if (anneau) pieces.push({ remp: [...lisse(anneau, true)], trait: [], det: [], silhouette: false });
+    const E = EP_POUCE;
+    const Td = pointBord(ptsT, E.dos, sensT, 1, ouvreT.dos || 0), Tv = pointBord(ptsT, E.ventre, sensT, -1, 0);
+    const Ts = pointBord(ptsT, E.ventre, sensT, -1, ouvreT.ventre || 0);
+    const Tdd = pointBord(ptsT, E.dos, sensT, 1, 0);
+    const uD = uni(sub(pointBord(ptsT, E.dos, sensT, 1, (ouvreT.dos || 0) + 1), Td));
+    const uV = uni(sub(pointBord(ptsT, E.ventre, sensT, -1, (ouvreT.ventre || 0) + 1), Ts));
+    const lDos = lisse([...aDos, sub(Td, mul(uD, 5)), Td]);
+    const lVen = lisse([...aVentre, sub(Ts, mul(uV, 5)), Ts]);
+    const remp = [...lDos, ['L', Tdd], ['L', Tv], ['L', Ts],
+      ...lisse([Ts, sub(Ts, mul(uV, 5)), ...aVentre.slice().reverse()]).slice(1), ...fond.map(p => ['L', p]), ['Z']];
+    pieces.push({ remp, trait: [traitDos ? lDos : null, traitVentre ? lVen : null].filter(Boolean), det: [] });
+    pieces.push(tube({ pts: ptsT, sens: sensT, dos: E.dos, ventre: E.ventre, coussin: [0.8, 1], bout: 'doigt', ongle: 'cote',
+      base: 6, plis: true, ouvre: { dos: ouvreT.dos || 0, ventre: ouvreT.ventre || 0 } }));
+    return pieces;
+  }
+  // la distance du centre C à la droite AB, et la normale unitaire de AB tournée vers C
+  const versC = (A, B, C) => { const d = uni(sub(B, A)); let n = gau(d); if (dot(sub(C, A), n) < 0) n = mul(n, -1); return { dist: dot(sub(C, A), n), n }; };
+
+  // ── profil : la prise, le manche vu par le bout ──
+  // Le poing fermé vu du côté du pouce : le dos de la main en haut, la paume posée sur le manche,
+  // l'index qui descend devant et revient dessous ; le pouce couché sous le manche, par-dessus
+  // l'index, son bout contre la deuxième phalange. Le manche se voit dans l'anneau.
+  function priseProfil(R, o) {
+    const C = [0, 0], ep = DG.index.ep;
+    const M = [(R + 14.8) * 0.84, -(R + 14.8)];
+    const W = add(M, [-80, 3]), F = add(W, [-o.bras, 0]);
+    const rh = (e, k) => [R + e[0] * 0.56 - 0.9 + k[0], R + e[1] * 0.54 - 0.9 + k[1], R + e[2] * 0.54 - 0.9 + k[2]];
+    const ptsI = enroule(M, sub(M, W), C, rh(ep, [0, 0, 0]), DG.index.ph, 1, [100, 100, 80]);
+    // le majeur, derrière : même tour, mais sa deuxième phalange passe un peu plus bas
+    const ptsM = enroule(add(M, [0.5, 0.5]), sub(M, W), C, rh(DG.majeur.ep, [0, 4.5, 4.5]), DG.majeur.ph, 1, [100, 100, 80]);
+    // le pouce couché sous le manche, mince ; son bout s'arrête sur la deuxième phalange de l'index
+    const rT = R + 7.5, th = 128, u1 = dirA(th - 90);
+    const Tm = sub(mul(dirA(th), rT), mul(u1, POUCE.ph[1] / 2));
+    const ptsT = enroule(Tm, u1, C, [rT, rT - 1], [POUCE.ph[1], POUCE.ph[2] * 0.92], -1, [2, 34]);
+    const Td = add(Tm, mul(gau(u1), -EP_POUCE.dos[0][0]));
+    // l'éminence : un arc sans cassure, du dessous du poignet au dos du pouce
+    const A0 = add(W, [-30, 20.6]), k = lon(sub(Td, A0));
+    const aDos = cubPts(A0, dirA(4), Td, u1, k * 0.5, k * 0.36, 6);
+    const aVentre = arcPts(R - 0.8, 242, 160, 3);
+    const fond = [add(aVentre[0], [0, -5]), add(W, [8, 12]), add(A0, [0, -7])];
+    const pieces = mainProfil({ F, W, ptsI, ptsT, autres: [{ nom: 'majeur', pts: ptsM, o: { ouvre: { ventre: 80, dos: 50 } } }],
+      ouvreT: { ventre: 26 }, aDos, aVentre, fond });
+    // le bout du manche vient vers l'œil : la main peint le fond blanc du trou, le manche se
+    // dessine après elle (ou passe par objet, qui se peint par-dessus)
+    pieces.push({ remp: [...lisse(arcPts(R, 0, 360, 12), true)], trait: [], det: [], silhouette: false });
+    return { pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F, couche: 99 };
+  }
+
+  // ── profil : la boule tenue dans le « C » du pouce et des doigts ──
+  // La main sous la pierre, la paume tournée vers elle, vue du côté du pouce : le pouce couché
+  // dessus, l'index et le majeur passés dessous, la pierre calée dans la palmure. Le devant de la
+  // pierre reste libre. serre (0 à 1,3) : de combien les doigts s'enroulent.
+  function bouleProfil(R, o) {
+    const C = [0, 0], ep = DG.index.ep, serre = o.serre == null ? 1 : o.serre;
+    const uF = dirA(25), vn = gau(uF);            // sensI = -1 : la paume regarde la pierre
+    let M = mul(dirA(112), R + 14), W = sub(M, mul(uF, 72));
+    for (let i = 0; i < 3; i++) {                 // la paume tangente à la pierre
+      const { dist, n } = versC(add(W, mul(vn, 20.5)), add(M, mul(vn, 13)), C);
+      const d = mul(n, dist - (R + 0.4)); M = add(M, d); W = add(W, d);
+    }
+    const F = sub(W, mul(uF, o.bras));
+    const rh = (e, k) => [R + e[0] * 0.56 + 0.3, R + e[1] * 0.54 + 0.3, R + e[2] * 0.54 + 0.3].map(r => r * k);
+    const ptsI = enroule(M, uF, C, rh(ep, 1), DG.index.ph, -1, [60, 45, 30].map(a => a * serre));
+    const M2 = add(M, add(mul(uF, 4), mul(vn, -4)));
+    const ptsM = enroule(M2, uF, C, rh(DG.majeur.ep, 1.02), DG.majeur.ph, -1, [60, 52, 35].map(a => a * serre));
+    // le pouce : son métacarpien part du poignet, côté paume ; ses phalanges se couchent sur la pierre
+    const T0 = add(add(W, mul(uF, 20)), mul(vn, 13));
+    const rT = R + 10.5;
+    let best = null;
+    for (let th = 230; th <= 290; th += 1) {
+      const u1 = dirA(th + 90), Tm = sub(mul(dirA(th), rT), mul(u1, POUCE.ph[1] / 2));
+      const e = Math.abs(lon(sub(Tm, T0)) - 46);
+      if (!best || e < best.e) best = { e, th, u1, Tm };
+    }
+    const ptsT = enroule(best.Tm, best.u1, C, [rT, rT - 1], POUCE.ph.slice(1), 1, [2, 28]);
+    const uMeta = uni(sub(best.Tm, T0)), nMeta = gau(uMeta);
+    const A0 = add(sub(W, mul(uF, 14)), mul(vn, 20.8));
+    // le col entre l'avant-bras et le pouce, en creux arrondi
+    const D2 = add(add(best.Tm, mul(nMeta, 10.5)), mul(uMeta, -8));
+    const kc = lon(sub(D2, A0));
+    const aDos = [...cubPts(A0, uF, D2, uMeta, kc * 0.55, kc * 0.45, 5), D2];
+    const { n: nP } = versC(add(W, mul(vn, 20.5)), add(M, mul(vn, 13)), C);
+    const aP = Math.atan2(-nP[1], -nP[0]) / RAD;
+    const aVentre = arcPts(R + 0.4, aP, (best.th > aP ? best.th : best.th + 360) - 10, 5);
+    const fond = [add(aVentre[0], mul(vn, -5)), add(W, mul(vn, 12)), add(A0, mul(vn, -7))];
+    const pieces = mainProfil({ F, W, ptsI, sensI: -1, autres: [{ nom: 'majeur', pts: ptsM, o: { ouvre: { dos: 26 } } }], ptsT, sensT: 1,
+      ouvreT: { ventre: POUCE.ph[1] / 2 }, aDos, aVentre, fond });
+    return { pieces, trou: { x: 0, y: 0, r: R }, poignet: W, bras: F };
+  }
+
+  // ── profil : la pince, le bout du pouce contre le bout de l'index ──
+  // Le dos de la main en haut, l'index qui s'arrondit vers le bas, le pouce qui monte à sa
+  // rencontre : l'anneau entre les deux fait reconnaître le geste. Derrière, le majeur,
+  // l'annulaire et l'auriculaire repliés de plus en plus : c'est eux qui font une main et
+  // pas une pince de homard. trou : le point pincé (le bout de l'index).
+  function pinceProfil(o) {
+    const W = [0, 0], F = [-o.bras, 0], M = [80, 2], d0 = [1, 0.03];
+    const ptsI = plie(M, d0, DG.index.ph, [30, 55, 30], 1);
+    const Q = ptsI[3];
+    // les trois autres doigts repliés serré dans la paume : cachés derrière la palmure
+    const autres = [['auriculaire', [-19, 9], [96, 105, 70]], ['annulaire', [-11, 6], [94, 105, 70]], ['majeur', [-4, 3.5], [92, 105, 70]]]
+      .map(([nom, dM, flex]) => ({ nom, pts: plie(add(M, dM), d0, DG[nom].ph, flex, 1), o: { ouvre: { dos: 30 } } }));
+    // le pouce : il sort du gras de la paume, plie à sa jointure et vient buter sous le bout de l'index
+    const T0 = [28, 27], Tm = add(T0, mul(dirA(34), 40));
+    const [, T2, T3] = ik2(Tm, POUCE.ph[1], POUCE.ph[2], add(Q, [1, 3]), -1);
+    const ptsT = [Tm, T2, T3];
+    const uT = uni(sub(T2, Tm));
+    const Td = add(Tm, mul(gau(uT), -EP_POUCE.dos[0][0]));
+    const A0 = add(W, [-30, 20.8]), k = lon(sub(Td, A0));
+    const aDos = cubPts(A0, dirA(5), Td, dirA(34), k * 0.45, k * 0.3, 5);
+    // la palmure, opaque, du milieu de la première phalange de l'index à celle du pouce
+    const pr = profilDoigt(DG.index.ep);
+    const sI = 28, sT = 14;
+    const Wb = pointBord(ptsI, pr.ventre, 1, -1, sI), Ts = pointBord(ptsT, EP_POUCE.ventre, -1, -1, sT);
+    // la palmure part dans le prolongement du bord de l'index et arrive dans celui du pouce : un U
+    const uP = uni(sub(ptsI[1], ptsI[0])), kW = lon(sub(Ts, Wb));
+    const aVentre = cubPts(Wb, mul(uP, -1), Ts, uni(sub(ptsT[1], ptsT[0])), kW * 0.75, kW * 0.6, 5);
+    const creux = aVentre[3];
+    const fond = [add(Wb, [-2, -7]), add(M, [0, 4]), add(W, [8, 12]), add(A0, [0, -7])];
+    const LI = DG.index.ph.reduce((a, b) => a + b), LT = POUCE.ph[1] + POUCE.ph[2], r = 2.6;
+    const vI = pr.ventre.map(w => w.map(v => v + r)), vT = EP_POUCE.ventre.map(w => w.map(v => v + r));
+    const anneau = [];
+    for (let q = sI + 3; q <= LI - 9; q += 5) anneau.push(pointBord(ptsI, vI, 1, -1, q));
+    for (let q = LT - 8; q >= sT + 3; q -= 5) anneau.push(pointBord(ptsT, vT, -1, -1, q));
+    const cA = anneau.reduce((a, p) => add(a, mul(p, 1 / anneau.length)), [0, 0]);
+    anneau.push(add(creux, mul(uni(sub(cA, creux)), r)));
+    const pieces = mainProfil({ F, W, ptsI, autres, ptsT, ouvreT: { ventre: sT }, aDos, aVentre, fond, anneau, index: { coussin: [2.2, 2, 1.8], plis: false } });
+    return { pieces, trou: { x: Q[0], y: Q[1], r: 0 }, poignet: W, bras: F, couche: pieces.length - 2 };
+  }
+
+  // ── profil : la paume à plat qui appuie (la surface est la ligne y = 0) ──
+  // Le poignet cassé vers le haut, le talon de la main et les doigts sur la surface, le pouce
+  // couché devant, ongle en haut. Le majeur, plus long, dépasse l'index au bout.
+  function appuiProfil(o) {
+    const inc = o.inclinaison == null ? 50 : o.inclinaison;
+    const W = [-50, -26], M = [40, -14.2];
+    const F = add(W, mul(dirA(180 + inc), o.bras));
+    const ptsI = [M, [82, -9.4], [106.5, -8.3], [127, -7.2]];
+    const autres = [{ nom: 'majeur', pts: [[44, -15.2], [89.5, -9.9], [117, -8.8], [138.5, -7.6]] }];
+    const ptsT = [[4, -10.6], [35.5, -9.6], [60.5, -8.3]];
+    const uF = uni(sub(W, F)), vn = mul(gau(uF), -1);
+    const A0 = add(sub(W, mul(uF, 16)), mul(vn, 24.3));
+    // le bord paume : le talon qui s'écrase sur la surface, puis le dessous du pouce
+    const aVentre = [A0, [-62, -6], [-48, 0], [-20, 0.2]];
+    // le bord dos du pouce : il remonte le long du métacarpien jusqu'au poignet et s'y perd
+    const aDos = [[-34, -20], [-18, -19.5]];
+    const fond = [add(W, mul(vn, 10)), [-36, -24]];
+    const pieces = mainProfil({ F, W, ptsI, autres, ptsT, sensT: 1, aDos, aVentre, fond,
+      larg: { dF: 22, vF: 21, dW: 17, vW: 24, dM: 9, vM: 12.5 } });
+    return { pieces, trou: { x: 0, y: 0, r: 0 }, poignet: W, bras: F };
+  }
+
+  // ── dos : la main à plat vue de dessus (doigts vers la droite, pouce en haut) ──
+  // Les doigts serrés, à peine écartés, le majeur le plus long ; le pouce ouvert d'une
+  // quarantaine de degrés ; la palmure du pouce en creux ; le bord de l'auriculaire qui file
+  // jusqu'au poignet.
+  function appuiDos(o) {
+    const pieces = [], Wx = -92, cut = Wx - o.bras;
+    const doigts = [['index', [0, -27.5], -2.5], ['majeur', [4.5, -8.8], -0.3], ['annulaire', [1, 9.6], 2.2], ['auriculaire', [-9, 26.8], 5.5]]
+      .map(([nom, P0, a]) => ({ nom, d: { ...DG[nom], ep: DG[nom].ep.map(v => v * 1.07) }, pts: plie(P0, dirA(a), DG[nom].ph, [0, 1, 0.8], 1) }));
+    const ptsP = [[Wx + 10, -21], add([Wx + 10, -21], mul(dirA(-38), 44))];
+    ptsP.push(add(ptsP[1], mul(dirA(-24), POUCE.ph[1])));
+    ptsP.push(add(ptsP[2], mul(dirA(-17), POUCE.ph[2])));
+    const wP = [[13.5, 11.5], [11, 10.5], [10.5, 8.4]];
+    const bP = s => pointBord(ptsP, wP, 1, 1, s), vP = s => pointBord(ptsP, wP, 1, -1, s);
+    const wF = g => faceW(g.d.ep);
+    const bI = s => pointBord(doigts[0].pts, wF(doigts[0]), 1, 1, s);
+    const vA = s => pointBord(doigts[3].pts, wF(doigts[3]), 1, -1, s);
+    const sW = 21;
+    // le bord du pouce continue celui de l'avant-bras ; la palmure du pouce ; le bord cubital
+    const haut = lisse([[cut, -30.5], [Wx - 8, -29.5], bP(0)]);
+    const web1 = lisse([vP(58), [-2, -45], bI(5)]);
+    const cubital = lisse([vA(8), [12, 37.5], [-20, 38.5], [-55, 35], [Wx, 30], [cut, 31.5]]);
+    const webs = [];
+    for (let i = 0; i < 3; i++) {
+      const a = doigts[i], b = doigts[i + 1];
+      const pa = pointBord(a.pts, wF(a), 1, -1, sW), pb = pointBord(b.pts, wF(b), 1, 1, sW);
+      const fondW = lerp(pointBord(a.pts, wF(a), 1, -1, sW - 4), pointBord(b.pts, wF(b), 1, 1, sW - 4), 0.5);
+      webs.push([['M', pa], ['Q', fondW, pb]]);
+    }
+    const remp = [...lisse([[cut, -30.5], [Wx - 8, -29.5], bP(0), vP(40), vP(58), [-2, -45], bI(5), [30, -30], [40, 0], [30, 30], vA(8), [12, 37.5], [-20, 38.5], [-55, 35], [Wx, 30], [cut, 31.5]]), ['Z']];
+    // les têtes des métacarpiens, à peine marquées
+    const nodes = doigts.slice(0, 3).map(g => { const p = g.pts[0], w = g.d.ep[0] * 0.28; return [['M', add(p, [-2, -w])], ['Q', add(p, [2.5, 0]), add(p, [-2, w])]]; });
+    pieces.push({ remp, trait: [haut, web1, cubital, ...webs], det: [] });
+    doigts.forEach((g, i) => pieces.push(doigtFace(g.d, g.pts, { ouvre: { dos: i === 0 ? 5 : sW, ventre: i === 3 ? 8 : sW } })));
+    pieces.push(pouceFace(ptsP, { dos: wP, ventre: wP, ouvre: { dos: 0, ventre: 58 } }));
+    pieces.push(traits(nodes, 0.5));
+    return { pieces, trou: { x: 0, y: 0, r: 0 }, poignet: [Wx, 0], bras: [cut, 0] };
+  }
+
+  // ── dos : la prise vue du dos de la main (le manche passe derrière le poing) ──
+  function priseDos(R, o) {
+    const pieces = [], Wx = -88, cut = Wx - o.bras;
+    const ptsP = [[-80, -17], [-40, -37], [-8, -45], [14 + 0.3 * R, -41]];
+    const wD = [[11, 10], [10, 9.5], [9.5, 7.5]], wV = [[14, 10.5], [10.5, 10], [10, 8]];
+    const bP = pointBord(ptsP, wD, 1, 1, 0);
+    const bandes = [
+      ['auriculaire', [-9, 28.5], [17 + 0.3 * R, 29]],
+      ['annulaire', [0, 11], [27 + 0.3 * R, 11.5]],
+      ['majeur', [3, -7.5], [31 + 0.3 * R, -7.5]],
+      ['index', [0, -26.5], [27 + 0.3 * R, -26]],
+    ];
+    const wA = DG.auriculaire.ep[0] / 2;
+    const cubital = lisse([add(bandes[0][1], [2, wA]), [-26, 37.5], [-56, 33.5], [Wx, 29], [cut, 34]]);
+    const remp = [...lisse([[cut, -33], [Wx, -28], bP, [-40, -30], [-10, -36], [8, -30], [10, 0], [6, 34], add(bandes[0][1], [2, wA]), [-26, 37.5], [-56, 33.5], [Wx, 29], [cut, 34]]), ['Z']];
+    pieces.push({ remp, trait: [lisse([[cut, -33], [Wx - 12, -29.5], bP]), cubital], det: [] });
+    const arcs = [];
+    for (const [nom, a, b] of bandes) {
+      const d = DG[nom], w = d.ep[0] / 2, w1 = d.ep[1] / 2 + 0.4;
+      pieces.push(tube({ pts: [a, b], dos: [[w, w1]], ventre: [[w, w1]], bout: 'phalange', base: 14, coussin: [0.4], bosseDos: [0.4],
+        ouvre: nom === 'auriculaire' ? { ventre: 2 } : null }));
+      arcs.push([['M', add(a, [3.5, -w * 0.5])], ['Q', add(a, [-1.2, 0]), add(a, [3.5, w * 0.5])]]);
+    }
+    pieces.push(tube({ pts: ptsP, sens: 1, dos: wD, ventre: wV, coussin: [0, 0.6, 0.8], bout: 'doigt', ongle: 'cote', base: 16, ouvre: { ventre: 34 } }));
+    pieces.push(traits(arcs));
+    return { pieces, trou: { x: 12 - 0.05 * R, y: 0, r: R, pente: -0.22 }, poignet: [Wx, 0], bras: [cut, 0] };
+  }
+
+  // ── paume : la prise vue du côté de la paume (les doigts passent devant le manche) ──
+  function prisePaume(R, o) {
+    const pieces = [], Wx = -92, cut = Wx - o.bras, x0 = 2, pente = 0.22;
+    const ptsP = [[-78, 21], [-42, 36], [-10, 30], [R + 4, 16]];
+    const vP = s => pointBord(ptsP, POUCE_FACE, 1, -1, s), bP = s => pointBord(ptsP, POUCE_FACE, 1, 1, s);
+    const hautP = [[cut, -33], [Wx, -28], [-62, -33.5], [-34, -37.5], [-18, -35]];
+    const remp = [...lisse([...hautP, [-10, -20], [-10, 20], bP(34), bP(12), vP(0), [Wx, 30], [cut, 35]]), ['Z']];
+    // le pli du pouce : il part de la commissure et contourne l'éminence du pouce
+    const pli = lisse([bP(36), [-40, 16], [-62, 12], [-80, 4]]);
+    pieces.push({ remp, trait: [lisse(hautP), lisse([vP(0), [Wx, 30.5], [cut, 35]])], det: [pli] });
+    const doigts = [['auriculaire', -25.5, 0.8], ['annulaire', -10.2, 0.9], ['majeur', 6.5, 1], ['index', 23.5, 0.93]];
+    for (const [nom, y, k] of doigts) {
+      const d = DG[nom], xP = x0 + pente * y + R + 11;
+      const P1 = [xP, y], P2 = [xP - d.ph[1] * k - 2, y + 0.8], P3 = [P2[0] - d.ph[2] * 0.7, y + 2.2];
+      const hw = [d.ep[1] / 2 + 0.5, d.ep[2] / 2 + 0.4, d.ep[3] / 2 + 0.2];
+      const W2 = [[hw[0], hw[1]], [hw[1], hw[2]]];
+      pieces.push(tube({ pts: [P1, P2, P3], dos: W2, ventre: W2, coussin: [-0.3, 0.2], bosseDos: [-0.3, 0.2], bout: 'rond', ongle: 'dessus', baseRonde: true, rides: [{ j: 1, n: 1, l: 0.45 }] }));
+    }
+    pieces.push(pouceFace(ptsP, { base: 18, ouvre: { dos: 36, ventre: 0 } }));
+    return { pieces, trou: { x: x0, y: 0, r: R, pente }, poignet: [Wx, 0], bras: [cut, 0] };
+  }
+
+  const POSES = {
+    'prise/profil': (R, o) => priseProfil(R, o),
+    'prise/dos': (R, o) => priseDos(R, o),
+    'prise/paume': (R, o) => prisePaume(R, o),
+    'boule/profil': (R, o) => bouleProfil(R, o),
+    'pince/profil': (R, o) => pinceProfil(o),
+    'appui/profil': (R, o) => appuiProfil(o),
+    'appui/dos': (R, o) => appuiDos(o),
+  };
+
+  // main({ x, y, pose, vue, cote, echelle, angle, diametre, bras, objet, trait, serre, inclinaison })
+  //   x, y      le centre de l'objet tenu (le trou) ; pince : le point pincé (le bout de l'index) ;
+  //             appui : sur la surface, sous le milieu de la paume
+  //   pose/vue  'prise' : 'profil' (le poing vu du côté du pouce, le manche vu par le bout)
+  //                       'dos' · 'paume' (le manche vertical à angle 0, vu du dos ou de la paume)
+  //             'pince' : 'profil' (le bout du pouce contre le bout de l'index, l'anneau entre les deux)
+  //             'boule' : 'profil' (la pierre dans le « C » : le pouce dessus, les doigts dessous)
+  //             'appui' : 'profil' (la paume à plat sur la surface y = 0) · 'dos' (vue de dessus)
+  //   cote      'droite' (défaut) · 'gauche' : la même main en miroir
+  //   echelle   unités de vue par mm (1 : une main de 190 du poignet au bout du majeur)
+  //   angle     rotation en degrés, sens horaire, autour de (x, y)
+  //   diametre  prise et boule : le diamètre de l'objet tenu, en unités de vue
+  //   bras      longueur d'avant-bras dessinée, en mm (défaut 60)
+  //   objet     du SVG que la main peint à sa place dans la profondeur (voir la tête du fichier)
+  //   trait     'moyen' (défaut) · 'fort'
+  //   serre     boule : de combien les doigts s'enroulent (1 par défaut, 0 à 1,3)
+  //   inclinaison  appui / profil : l'angle de l'avant-bras sur la surface (50 par défaut)
+  // Rend : trou { x, y, r, axe } (axe : le sens du manche, vers le haut à angle 0), poignet, bras.
+  function main(o = {}) {
+    const pose = o.pose || 'prise', vue = o.vue || 'profil', cle = `${pose}/${vue}`;
+    if (!POSES[cle]) throw new Error(`main : « ${cle} » inconnue (connues : ${Object.keys(POSES).join(', ')})`);
+    const e = o.echelle || 1;
+    const R = o.diametre ? o.diametre / 2 / e : (pose === 'boule' ? 32 : 16);
+    const g = POSES[cle](R, { bras: o.bras == null ? 60 : o.bras, jeu: o.jeu, inclinaison: o.inclinaison, serre: o.serre });
+    const pre = g.trou.pente ? Math.atan(g.trou.pente) / RAD : 0;     // manche vertical à angle 0
+    const c0 = tourne([g.trou.x, g.trou.y], pre);
+    const Tp = repere({ x: o.x || 0, y: o.y || 0, echelle: e, angle: o.angle || 0, miroir: o.cote === 'gauche' });
+    const T = p => Tp(sub(tourne(p, pre), c0));
+    const svg = `<g data-forme="main-${pose}-${vue}">\n${peindre(g.pieces, T, o.trait === 'fort', o.objet || '', o.objet ? Math.min(g.couche || 0, g.pieces.length) : 0)}\n</g>`;
+    const axe = tourne([0, -1], o.angle || 0);
+    const pt = p => T(p).map(f1);
+    return forme(svg, {
+      trou: { x: o.x || 0, y: o.y || 0, r: g.trou.r ? f1(R * e) : 0, axe: axe.map(v => Math.round(v * 1000) / 1000) },
+      poignet: pt(g.poignet), bras: pt(g.bras),
+    });
+  }
+
+  // ─── les personnages ──────────────────────────────────────────────────────────────────
+  // De profil, le regard vers la droite (cote 'gauche' : vers la gauche). Une silhouette au trait,
+  // sans visage ni vêtement : le crâne, le nez, la bouche, le menton et l'oreille suffisent.
+  // Mesures d'un adulte de 1750 mm (tête 230, tronc 545 de la hanche à la base du cou, cuisse 440,
+  // jambe 430, bras 300, avant-bras 255, main 185, pied 262). Origine au sol, y vers le bas.
+
+  // La tête, repère à l'oreille.
+  const TETE = (() => {
+    const crane = lisse([[-50, 60], [-77, 32], [-91, -22], [-80, -84], [-24, -124], [36, -119], [81, -86], [96, -48]]);
+    const front = lisse([[96, -48], [91, -29]]);
+    const nez = lisse([[91, -29], [103, -8], [119, 15], [114, 25]]);
+    const bouche = lisse([[114, 25], [101, 31], [104, 44], [99, 56], [95, 67]]);
+    const menton = lisse([[95, 67], [100, 84], [88, 99], [58, 103]]);
+    const contour = suite(crane, front, nez, bouche, menton);
+    const oreille = [[['M', [5, -27]], ['C', [-17, -35], [-23, 17], [1, 23]]], [['M', [-3, -14]], ['Q', [-11, -3], [-4, 9]]]];
+    return { contour, oreille, nuque: [-50, 60], gorge: [58, 103], bouche: [104, 46], nez: [119, 15], atlas: [4, 32], oeil: [70, -32] };
+  })();
+  const tetePiece = (TT) => {
+    const c = TETE.contour.map(k => [k[0], ...k.slice(1).map(TT)]);
+    return { remp: [...c, ['L', TT([10, 92])], ['L', TT(TETE.nuque)], ['Z']], trait: [c], det: TETE.oreille.map(l => l.map(k => [k[0], ...k.slice(1).map(TT)])) };
+  };
+  // Le tronc, repère à la hanche (tête du fémur), le haut vers -y, le devant vers +x. Le bassin
+  // (sous la taille) et la poitrine (au-dessus) tournent chacun d'un bloc ; la taille fait le lien.
+  const TRONC = {
+    dos: [[-74, 104], [-102, 58], [-121, -8], [-108, -92], [-92, -170], [-95, -250], [-110, -340], [-118, -420], [-100, -492], [-68, -540]],
+    face: [[74, 68], [86, -24], [97, -112], [92, -200], [98, -290], [113, -372], [110, -442], [88, -505], [54, -544]],
+    epaule: [-14, -470],
+  };
+  const JAMBE = { dos: [[76, 50], [47, 31]], ventre: [[86, 52], [53, 33]], coussin: [0, 11] };
+  const BRAS = { dos: [[50, 40], [40, 25], [25, 13]], ventre: [[50, 37], [43, 26], [26, 14]], coussin: [0, 4, 1.5], L: [300, 255, 185] };
+  // le pied, repère à la cheville, semelle en y = 80 quand il est à plat
+  const PIED = [[70, 20], [140, 47], [187, 57], [205, 69], [196, 78], [140, 80], [70, 76], [-28, 80], [-57, 62], [-55, 26]];
+
+  function piedPiece(A, avant, arriere, angle) {
+    const P = PIED.map(p => add(A, tourne(p, angle)));
+    const c = lisse([avant, ...P, arriere]);
+    return { remp: [...c, ['L', A], ['Z']], trait: [c], det: [] };
+  }
+  function jambe(Hh, K, A, angPied, ouvre, base = 90) {
+    const t = tube({ pts: [Hh, K, A], sens: 1, dos: JAMBE.dos, ventre: JAMBE.ventre, coussin: JAMBE.coussin, bout: 'ouvert', base, plis: false, ouvre });
+    const u = uni(sub(A, K)), n = gau(u);
+    return [t, piedPiece(A, add(A, mul(n, JAMBE.dos[1][1])), sub(A, mul(n, JAMBE.ventre[1][1])), angPied)];
+  }
+  function bras(S, cible, dirMain, coude) {
+    const [, E, Wr] = ik2(S, BRAS.L[0], BRAS.L[1], cible, coude);
+    const fin = add(Wr, mul(uni(dirMain || sub(Wr, E)), BRAS.L[2]));
+    return Object.assign(tube({ pts: [S, E, Wr, fin], sens: -1, dos: BRAS.dos, ventre: BRAS.ventre, coussin: BRAS.coussin, bout: 'rond', baseRonde: true }), { fin, poignet: Wr });
+  }
+
+  // Les postures, dans le repère du personnage (sol en y = 0) : hanche H, penché du tronc (degrés
+  // vers l'avant), regard (la tête, + vers le bas), jambes proche et loin (genou K, cheville A, angle
+  // du pied), poignets (où ils vont, et la direction de la main), coude (+1 : le coude sort vers
+  // l'arrière quand le bras descend vers l'avant).
+  const POSTURES = {
+    debout: { H: [0, -950], penche: 3, regard: 0,
+      proche: { K: [12, -515], A: [0, -85], pied: 0 }, loin: { K: [-6, -515], A: [-34, -85], pied: 0 },
+      mains: { proche: [[28, -868], [0.1, 1]], loin: [[-6, -872], [0.06, 1]] }, coude: -1 },
+    accroupi: { H: [-150, -300], penche: 36, regard: 6, assis: true, bassin: 0.85,
+      proche: { K: [272, -420], A: [0, -85], pied: 0 }, loin: { K: [256, -426], A: [-16, -85], pied: 0 },
+      mains: { proche: [[392, -300], [0.25, 1]], loin: [[372, -312], [0.2, 1]] }, coude: -1 },
+    genoux: { H: [-45, -495], penche: 18, regard: 12,
+      proche: { K: [0, -58], A: [-410, -200], pied: 95 }, loin: { K: [-14, -58], A: [-424, -200], pied: 95 },
+      mains: { proche: [[250, -480], [0.8, 0.6]], loin: [[232, -492], [0.8, 0.6]] }, coude: -1 },
+    genou: { H: [-110, -470], penche: 6, regard: 8,
+      proche: { K: [320, -515], A: [305, -85], pied: 0 }, loin: { K: [-58, -58], A: [-465, -200], pied: 95 },
+      mains: { proche: [[335, -585], [0.3, 1]], loin: [[300, -575], [0.3, 1]] }, coude: -1 },
+  };
+
+  // personnage({ x, y, pose, echelle, cote, angle, penche, regard, mains, trait })
+  //   x, y     le point au sol sous le personnage (debout : entre les pieds ; à genoux : sous le genou)
+  //   pose     'debout' · 'accroupi' · 'genoux' (les deux genoux au sol) · 'genou' (un genou au sol)
+  //   echelle  unités de vue par mm (0,2 : 355 de haut debout)
+  //   penche   inclinaison du tronc en degrés vers l'avant ; regard : la tête, + vers le bas
+  //   mains    { proche: [x, y], loin: [x, y] } : où poser les poignets, en coordonnées de la vue
+  //            (le bras se plie tout seul ; une cible hors d'atteinte donne le bras tendu vers elle)
+  // Rend : bouche, oeil, nez, hanche, mains { proche, loin } (le bout des doigts) et poignets, en
+  // coordonnées de la vue.
+  function personnage(o = {}) {
+    const P = POSTURES[o.pose || 'debout'];
+    if (!P) throw new Error(`personnage : pose « ${o.pose} » inconnue (connues : ${Object.keys(POSTURES).join(', ')})`);
+    const e = o.echelle || 0.2, ox = o.x || 0, oy = o.y || 0, ang = o.angle || 0, mir = o.cote === 'gauche';
+    const T = repere({ x: ox, y: oy, echelle: e, angle: ang, miroir: mir });
+    const Tinv = q => { let p = tourne(sub(q, [ox, oy]), -ang); p = mul(p, 1 / e); return mir ? [-p[0], p[1]] : p; };
+    const lean = o.penche == null ? P.penche : o.penche, regard = o.regard == null ? P.regard : o.regard;
+    // le bassin tourne du tiers, la poitrine en entier ; la taille (y de -150 à -300) fait le lien
+    const kb = P.bassin || 0.35;
+    const kP = y => { const t = borne((-150 - y) / 150, 0, 1); return kb + (1 - kb) * t * t * (3 - 2 * t); };
+    const H = P.H, TT = p => add(H, tourne(p, lean * kP(p[1])));
+    const S = TT(TRONC.epaule);
+    const bp = k => {
+      const cible = o.mains && o.mains[k] ? Tinv(o.mains[k]) : P.mains[k][0];
+      const dir = o.mains && o.mains[k] ? null : P.mains[k][1];
+      return bras(k === 'loin' ? add(S, [-8, -4]) : S, cible, dir, P.coude);
+    };
+    // le tronc ; assis, la fesse se prolonge sous la cuisse
+    const dos = TRONC.dos.map(TT), face = TRONC.face.map(TT);
+    const dosT = P.assis ? [pointBord([H, P.proche.K, P.proche.A], JAMBE.ventre, 1, -1, 0), TT([-40, 102]), ...dos.slice(1)] : dos;
+    const tronc = { remp: [...lisse([...dosT, TT([-8, -556]), ...face.slice().reverse()]), ['Z']], trait: [lisse(dosT), lisse(face)], det: [] };
+    // le cou et la tête
+    const cou0 = TT([-6, -540]), dCou = tourne([0, -1], lean * 0.5 + 10);
+    const atlas = add(cou0, mul(dCou, 84));
+    const rot = lean * 0.35 + regard;
+    const Et = sub(atlas, tourne(TETE.atlas, rot));
+    const TH = p => add(Et, tourne(p, rot));
+    const f0 = face[face.length - 1], b0 = dos[dos.length - 1], g1 = TH(TETE.gorge), n1 = TH(TETE.nuque);
+    const lf = lisse([f0, lerp(f0, g1, 0.5), g1]), lb = lisse([b0, lerp(b0, n1, 0.5), n1]);
+    const cou = { remp: [...lf, ['L', n1], ['L', b0], ['Z']], trait: [lf, lb], det: [] };
+    const tete = tetePiece(TH);
+    // les jambes : le haut de la cuisse se fond dans le bassin. Dans l'axe du tronc, ses traits
+    // partent de l'aine et du pli de la fesse ; pliée vers l'avant, ils partent là où la cuisse
+    // sort du tronc.
+    const polyT = [...dos, TT([-8, -556]), ...face.slice().reverse()];
+    const dedans = (p, poly) => { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const a = poly[i], b = poly[j];
+      if ((a[1] > p[1]) !== (b[1] > p[1]) && p[0] < (b[0] - a[0]) * (p[1] - a[1]) / (b[1] - a[1]) + a[0]) c = !c; } return c; };
+    const sortie = (pts, W, cote) => { for (let q = 0; q < 420; q += 3) if (!dedans(pointBord(pts, W, 1, cote, q), polyT)) return q + 3; return 420; };
+    const ouvJ = (Hh, L) => {
+      const u = uni(sub(L.K, Hh));
+      if (dot(u, tourne([0, 1], lean * kb)) > 0.7) return { dos: 70, ventre: 105 };
+      const pts = [Hh, L.K, L.A];
+      return { dos: sortie(pts, JAMBE.dos, 1), ventre: P.assis ? 0 : sortie(pts, JAMBE.ventre, -1) };
+    };
+    const Hl = add(H, [-10, 0]);
+    const bJ = P.assis ? 0 : 90;
+    const jp = jambe(H, P.proche.K, P.proche.A, P.proche.pied, ouvJ(H, P.proche), bJ), jl = jambe(Hl, P.loin.K, P.loin.A, P.loin.pied, ouvJ(Hl, P.loin), bJ);
+    const bl = bp('loin'), bpr = bp('proche');
+    const pieces = [bl, ...jl, tronc, cou, tete, ...jp, bpr];
+    const svg = `<g data-forme="personnage-${o.pose || 'debout'}">\n${peindre(pieces, T, o.trait === 'fort')}\n</g>`;
+    const vue = p => T(p).map(f1);
+    return forme(svg, { bouche: vue(TH(TETE.bouche)), oeil: vue(TH(TETE.oeil)), nez: vue(TH(TETE.nez)), hanche: vue(H),
+      mains: { proche: vue(bpr.fin), loin: vue(bl.fin) }, poignets: { proche: vue(bpr.poignet), loin: vue(bl.poignet) } });
+  }
+
+  // tete({ x, y, echelle, angle, cote, trait }) : la tête seule, de profil, repère à l'oreille, avec le
+  // haut du cou coupé net.
+  function tete(o = {}) {
+    const e = o.echelle || 1;
+    const T = repere({ x: o.x || 0, y: o.y || 0, echelle: e, angle: o.angle || 0, miroir: o.cote === 'gauche' });
+    const id = p => p;
+    const g = TETE.gorge, n = TETE.nuque;
+    const g2 = [g[0] - 8, g[1] + 52], n2 = [n[0] + 6, n[1] + 66];
+    const lg = lisse([g, [g[0] - 5, g[1] + 26], g2]), ln = lisse([n, [n[0] + 2, n[1] + 34], n2]);
+    const cou = { remp: [...lg, ['L', n2], ...lisse([n2, [n[0] + 2, n[1] + 34], n]).slice(1), ['L', g], ['Z']], trait: [lg, ln], det: [] };
+    const svg = `<g data-forme="tete">\n${peindre([cou, tetePiece(id)], T, o.trait === 'fort')}\n</g>`;
+    return forme(svg, { bouche: T(TETE.bouche).map(f1), nez: T(TETE.nez).map(f1), oeil: T(TETE.oeil).map(f1) });
+  }
+
+  // buste({ x, y, echelle, angle, cote, regard, trait }) : tête, cou, épaules et haut du tronc, coupé
+  // sous la poitrine ; repère au milieu de la coupe. Le bras proche pend, coupé avec le tronc.
+  function buste(o = {}) {
+    const e = o.echelle || 0.5, regard = o.regard || 0;
+    const T = repere({ x: o.x || 0, y: o.y || 0, echelle: e, angle: o.angle || 0, miroir: o.cote === 'gauche' });
+    const coupe = -300, TT = p => [p[0], p[1] - coupe];
+    const garde = l => l.filter(p => p[1] < coupe - 20);
+    const dos = [[-112, coupe], ...garde(TRONC.dos)].map(TT), face = [[100, coupe], ...garde(TRONC.face)].map(TT);
+    const tronc = { remp: [...lisse([...dos, TT([-8, -556]), ...face.slice().reverse()]), ['Z']], trait: [lisse(dos), lisse(face)], det: [] };
+    const cou0 = TT([-6, -540]), dCou = tourne([0, -1], 10);
+    const atlas = add(cou0, mul(dCou, 84));
+    const Et = sub(atlas, tourne(TETE.atlas, regard));
+    const TH = p => add(Et, tourne(p, regard));
+    const f0 = face[face.length - 1], b0 = dos[dos.length - 1];
+    const lf = lisse([f0, TH(TETE.gorge)]), lb = lisse([b0, TH(TETE.nuque)]);
+    const cou = { remp: [...lf, ['L', TH(TETE.nuque)], ['L', b0], ['Z']], trait: [lf, lb], det: [] };
+    // le bras qui pend, coupé au niveau de la coupe du tronc
+    const S = TT(TRONC.epaule), E = [S[0] + 3, 0];
+    const brasP = tube({ pts: [S, E], sens: -1, dos: [[50, 43]], ventre: [[50, 40]], bout: 'ouvert', baseRonde: true });
+    const svg = `<g data-forme="buste">\n${peindre([tronc, cou, tetePiece(TH), brasP], T, o.trait === 'fort')}\n</g>`;
+    return forme(svg, { bouche: T(TH(TETE.bouche)).map(f1), nez: T(TH(TETE.nez)).map(f1), oeil: T(TH(TETE.oeil)).map(f1) });
+  }
+
+  // ─── le fil et la corde ───────────────────────────────────────────────────────────────
+  // cordes(brins, options) dessine un ou plusieurs brins en bande à deux bords, avec leurs
+  // croisements. Chaque brin : { pts: [[x, y, z?], …], ep, debut, fin, fleche, torons, passages }.
+  //   pts      les points de passage, en coordonnées de la vue ; la courbe passe par chacun.
+  //            z (facultatif) : la hauteur ; à un croisement, le brin le plus haut passe dessus.
+  //   ep       épaisseur de la bande (défaut 6) ; torons : true pour la corde commise
+  //   debut, fin   'libre' (bout effiloché) · 'fixe' (la corde continue : cassure) · 'coupe' · 'ouvert'
+  //   fleche   { de: 0.1, a: 0.3, cote: 'gauche' | 'droite' } : le sens de marche, en fractions du brin
+  //   passages sans z : ['dessus', 'dessous', …] dans l'ordre des croisements le long du brin ;
+  //            sans rien, les croisements alternent.
+  // options : { jeu: 2.5 (le blanc de part et d'autre du brin du dessus), trait: 'arete' | 'contour' | 'detail' }
+  function echantillonne(pts3, pas) {
+    const pts = pts3.map(p => [p[0], p[1]]), zs = pts3.map(p => (p[2] == null ? null : p[2]));
+    const cm = lisse(pts);
+    const P = [pts[0]], Z = [zs[0]];
+    let prev = pts[0];
+    cm.slice(1).forEach((c, k) => {
+      const L = lon(sub(c[1], prev)) + lon(sub(c[2], c[1])) + lon(sub(c[3], c[2]));
+      const n = Math.max(2, Math.ceil(L / pas));
+      for (let i = 1; i <= n; i++) {
+        const t = i / n;
+        P.push(cubique(prev, c[1], c[2], c[3], t));
+        Z.push(zs[k] == null || zs[k + 1] == null ? null : zs[k] + (zs[k + 1] - zs[k]) * (3 * t * t - 2 * t * t * t));
+      }
+      prev = c[3];
+    });
+    const S = [0], Tg = [], N = [];
+    for (let i = 1; i < P.length; i++) S.push(S[i - 1] + lon(sub(P[i], P[i - 1])));
+    for (let i = 0; i < P.length; i++) { const t = uni(sub(P[Math.min(i + 1, P.length - 1)], P[Math.max(i - 1, 0)])); Tg.push(t); N.push(gau(t)); }
+    return { P, Z, S, T: Tg, N };
+  }
+  function segInter(a, b, c, d) {
+    const r = sub(b, a), s = sub(d, c), den = crx(r, s);
+    if (Math.abs(den) < 1e-9) return null;
+    const t = crx(sub(c, a), s) / den, u = crx(sub(c, a), r) / den;
+    return t >= 0 && t < 1 && u >= 0 && u < 1 ? [t, u] : null;
+  }
+  const distPoly = (p, poly) => {
+    let m = Infinity;
+    for (let i = 0; i < poly.length - 1; i++) {
+      const a = poly[i], b = poly[i + 1], ab = sub(b, a), t = borne(dot(sub(p, a), ab) / (dot(ab, ab) || 1), 0, 1);
+      m = Math.min(m, lon(sub(p, add(a, mul(ab, t)))));
+    }
+    return m;
+  };
+  function cordes(brins, opt = {}) {
+    const jeu = opt.jeu == null ? 2.5 : opt.jeu;
+    const ep = { contour: 2.4, arete: 1.4, detail: 0.7 }[opt.trait || 'arete'];
+    const B = brins.map(b => ({ ...b, w: b.ep || 6, ...echantillonne(b.pts, Math.max(0.8, (b.ep || 6) / 5)) }));
+    // les croisements
+    const X = [];
+    B.forEach((a, ia) => B.forEach((b, ib) => {
+      if (ib < ia) return;
+      for (let i = 0; i < a.P.length - 1; i++) {
+        for (let j = ib === ia ? i + 2 : 0; j < b.P.length - 1; j++) {
+          if (ib === ia && b.S[j] - a.S[i + 1] < 2 * a.w) continue;
+          const r = segInter(a.P[i], a.P[i + 1], b.P[j], b.P[j + 1]);
+          if (!r) continue;
+          const sa = a.S[i] + r[0] * (a.S[i + 1] - a.S[i]), sb = b.S[j] + r[1] * (b.S[j + 1] - b.S[j]);
+          if (X.some(x => x.a === ia && x.b === ib && Math.abs(x.sa - sa) < 1 && Math.abs(x.sb - sb) < 1)) continue;
+          const za = a.Z[i] == null ? null : a.Z[i] + (a.Z[i + 1] - a.Z[i]) * r[0];
+          const zb = b.Z[j] == null ? null : b.Z[j] + (b.Z[j + 1] - b.Z[j]) * r[1];
+          X.push({ a: ia, b: ib, sa, sb, ia: i + r[0], ib: j + r[1], za, zb, dessus: null });
+        }
+      }
+    }));
+    X.forEach(x => { if (x.za != null && x.zb != null && Math.abs(x.za - x.zb) > 1e-6) x.dessus = x.za > x.zb ? 'a' : 'b'; });
+    // passages déclarés, puis alternance
+    B.forEach((b, k) => {
+      const ev = [];
+      X.forEach(x => { if (x.a === k) ev.push({ x, s: x.sa, moi: 'a' }); if (x.b === k) ev.push({ x, s: x.sb, moi: 'b' }); });
+      ev.sort((p, q) => p.s - q.s);
+      let dernier = null;
+      ev.forEach((v, idx) => {
+        const voulu = b.passages && b.passages[idx];
+        if (v.x.dessus == null && voulu) v.x.dessus = voulu === 'dessus' ? v.moi : (v.moi === 'a' ? 'b' : 'a');
+        if (v.x.dessus == null) v.x.dessus = dernier === 'dessus' ? (v.moi === 'a' ? 'b' : 'a') : v.moi;
+        dernier = v.x.dessus === v.moi ? 'dessus' : 'dessous';
+      });
+    });
+    // les coupes du brin du dessous : chaque bord s'arrête à `jeu` du bord du brin du dessus
+    B.forEach(b => { b.coupes = []; });
+    X.forEach(x => {
+      const [dessus, sD, iD, dessous, iU] = x.dessus === 'a' ? [B[x.a], x.sa, x.ia, B[x.b], x.ib] : [B[x.b], x.sb, x.ib, B[x.a], x.ia];
+      const loc = [];
+      const rayon = 6 * (dessus.w + dessous.w) + 30;
+      dessus.P.forEach((p, i) => { if (Math.abs(dessus.S[i] - sD) < rayon) loc.push(p); });
+      const lim = dessus.w / 2 + jeu;
+      const bordU = (i, s) => add(dessous.P[i], mul(dessous.N[i], s * dessous.w / 2));
+      const cherche = (s, pas) => {
+        let i = Math.round(iU);
+        for (let k = 0; k < 4000; k++) {
+          const j = i + pas;
+          if (j < 0 || j > dessous.P.length - 1) return j < 0 ? 0 : dessous.P.length - 1;
+          if (distPoly(bordU(j, s), loc) >= lim) {
+            // affine entre i et j
+            let lo = i, hi = j;
+            for (let r = 0; r < 12; r++) {
+              const m = (lo + hi) / 2, p = lerp(bordU(Math.floor(m), s), bordU(Math.ceil(m), s), m - Math.floor(m));
+              if (distPoly(p, loc) >= lim) hi = m; else lo = m;
+            }
+            return hi;
+          }
+          i = j;
+        }
+        return i;
+      };
+      dessous.coupes.push({ g: [cherche(1, -1), cherche(1, 1)], d: [cherche(-1, -1), cherche(-1, 1)] });
+    });
+    // on fusionne les coupes qui se touchent
+    B.forEach(b => {
+      const c = b.coupes.map(k => ({ ...k, lo: Math.min(k.g[0], k.d[0]), hi: Math.max(k.g[1], k.d[1]) })).sort((p, q) => p.lo - q.lo);
+      const f = [];
+      for (const k of c) {
+        const l = f[f.length - 1];
+        if (l && k.lo <= l.hi + 1) { l.g = [Math.min(l.g[0], k.g[0]), Math.max(l.g[1], k.g[1])]; l.d = [Math.min(l.d[0], k.d[0]), Math.max(l.d[1], k.d[1])]; l.hi = Math.max(l.hi, k.hi); }
+        else f.push({ ...k });
+      }
+      b.coupes = f;
+    });
+    // le dessin
+    const out = [], det = [], fl = [];
+    const pt = (b, i, s) => { const k = borne(i, 0, b.P.length - 1), a = Math.floor(k), c = Math.min(a + 1, b.P.length - 1), t = k - a;
+      return lerp(add(b.P[a], mul(b.N[a], s * b.w / 2)), add(b.P[c], mul(b.N[c], s * b.w / 2)), t); };
+    const run = (b, s, i0, i1) => { const q = [pt(b, i0, s)]; for (let i = Math.ceil(i0 + 1e-6); i < i1; i++) q.push(pt(b, i, s)); q.push(pt(b, i1, s)); return q; };
+    const poly = q => q.map((p, i) => `${i ? 'L' : 'M'}${f1(p[0])} ${f1(p[1])}`).join(' ');
+    const bouts = (b, i, sensB, style) => {
+      const g = pt(b, i, 1), d = pt(b, i, -1), t = mul(b.T[borne(Math.round(i), 0, b.P.length - 1)], sensB), w = b.w, m = lerp(g, d, 0.5);
+      if (style === 'coupe' || style === 'libre') out.push(`<path d="${poly([g, d])}" ${trait(ep)}/>`);
+      if (style === 'libre') {
+        const tr = [];
+        for (const k of [-0.3, 0, 0.3]) { const a = add(m, mul(sub(g, m), k * 2)); tr.push(`M${f1(a[0])} ${f1(a[1])} L${f1(a[0] + t[0] * w * 0.85 + (g[0] - m[0]) * k)} ${f1(a[1] + t[1] * w * 0.85 + (g[1] - m[1]) * k)}`); }
+        det.push(`<path d="${tr.join(' ')}" ${trait(0.7)}/>`);
+      }
+      if (style === 'fixe') {
+        const n = sub(g, m);
+        out.push(`<path d="M${f1(g[0])} ${f1(g[1])} Q${f1(m[0] + n[0] * 0.5 + t[0] * w * 0.7)} ${f1(m[1] + n[1] * 0.5 + t[1] * w * 0.7)} ${f1(m[0])} ${f1(m[1])} Q${f1(m[0] - n[0] * 0.5 - t[0] * w * 0.7)} ${f1(m[1] - n[1] * 0.5 - t[1] * w * 0.7)} ${f1(d[0])} ${f1(d[1])}" ${trait(ep)}/>`);
+      }
+    };
+    B.forEach(b => {
+      const nP = b.P.length - 1;
+      const bornes = [{ g: [0, 0], d: [0, 0] }, ...b.coupes, { g: [nP, nP], d: [nP, nP] }];
+      for (let k = 0; k < bornes.length - 1; k++) {
+        const g0 = bornes[k].g[1], g1 = bornes[k + 1].g[0], d0 = bornes[k].d[1], d1 = bornes[k + 1].d[0];
+        if (g1 - g0 < 0.5 || d1 - d0 < 0.5) continue;
+        const G = run(b, 1, g0, g1), D = run(b, -1, d0, d1);
+        out.push(`<path d="${poly([...G, ...D.slice().reverse()])} Z" ${FOND}/>`);
+        out.push(`<path d="${poly(G)}" ${trait(ep)}/>`, `<path d="${poly(D)}" ${trait(ep)}/>`);
+        if (b.torons) {
+          const i0 = Math.max(g0, d0), i1 = Math.min(g1, d1), tr = [];
+          for (let s = b.S[Math.ceil(i0)] + b.w * 0.7; s < b.S[Math.floor(i1)] - b.w * 0.7; s += b.w * 0.85) {
+            let i = 0; while (i < nP && b.S[i + 1] < s) i++;
+            const p = b.P[i], t = b.T[i], n = b.N[i], w2 = b.w / 2 - 0.6;
+            const a = add(add(p, mul(n, w2)), mul(t, -b.w * 0.28)), c = add(sub(p, mul(n, w2)), mul(t, b.w * 0.28));
+            tr.push(`M${f1(a[0])} ${f1(a[1])} Q${f1(p[0] + t[0] * b.w * 0.12)} ${f1(p[1] + t[1] * b.w * 0.12)} ${f1(c[0])} ${f1(c[1])}`);
+          }
+          if (tr.length) det.push(`<path d="${tr.join(' ')}" ${trait(0.5)}/>`);
+        }
+        if (k === 0) bouts(b, 0, -1, b.debut || 'coupe');
+        if (k === bornes.length - 2) bouts(b, nP, 1, b.fin || 'coupe');
+      }
+      if (b.fleche) {
+        const L = b.S[nP], s0 = (b.fleche.de ?? 0.1) * L, s1 = (b.fleche.a ?? 0.3) * L, cote = b.fleche.cote === 'droite' ? -1 : 1;
+        const q = [];
+        for (let i = 0; i <= nP; i++) if (b.S[i] >= s0 && b.S[i] <= s1) q.push(add(b.P[i], mul(b.N[i], cote * (b.w / 2 + 7))));
+        if (q.length > 1) fl.push(h.fleche(poly(q.filter((p, i) => i % 3 === 0 || i === q.length - 1)), trait(1.4)));
+      }
+    });
+    return forme([...out, ...det, ...fl].join('\n'), { croisements: X.map(x => ({ x: f1(B[x.a].P[Math.floor(x.ia)][0]), y: f1(B[x.a].P[Math.floor(x.ia)][1]), dessus: x.dessus === 'a' ? x.a : x.b })) });
+  }
+  const corde = (pts, o = {}) => cordes([{ pts, ...o }], o);
+
+  // ─── le filet ─────────────────────────────────────────────────────────────────────────
+  // aiguilleFilet({ x, y, longueur, angle, chargee }) : l'aiguille à filet, pointe vers +x à angle 0,
+  // la langue dans sa fenêtre, la fourche au talon ; chargée, le fil court de la fourche à la langue.
+  function aiguilleFilet(o = {}) {
+    const L = o.longueur || 200, T = repere({ x: o.x || 0, y: o.y || 0, echelle: L, angle: o.angle || 0 });
+    const w = 0.07;
+    const corps = [['M', [0.5, 0]], ['Q', [0.44, -w * 0.95], [0.34, -w]], ['L', [-0.5, -w]], ['L', [-0.5, -0.024]], ['L', [-0.43, -0.024]],
+      ['C', [-0.405, -0.024], [-0.405, 0.024], [-0.43, 0.024]], ['L', [-0.5, 0.024]], ['L', [-0.5, w]], ['L', [0.34, w]], ['Q', [0.44, w * 0.95], [0.5, 0]], ['Z']];
+    const fen = [['M', [-0.06, -0.036]], ['L', [0.24, -0.036]], ['Q', [0.31, -0.03], [0.33, 0]], ['Q', [0.31, 0.03], [0.24, 0.036]], ['L', [-0.06, 0.036]],
+      ['Q', [-0.08, 0.036], [-0.08, 0]], ['Q', [-0.08, -0.036], [-0.06, -0.036]], ['Z']];
+    const langue = [['M', [-0.08, -0.013]], ['L', [0.2, -0.011]], ['Q', [0.245, -0.006], [0.26, 0]], ['Q', [0.245, 0.006], [0.2, 0.011]], ['L', [-0.08, 0.013]]];
+    const s = [`<path d="${ser(corps, T)}" fill="${BLANC}" ${trait(2.4).replace('fill="none" ', '')}/>`,
+      `<path d="${ser(fen, T)}" ${trait(1.4)}/>`, `<path d="${ser(langue, T)}" fill="${BLANC}" ${trait(1.4).replace('fill="none" ', '')}/>`];
+    if (o.chargee !== false) {
+      // le fil chargé : un fuseau de tours serrés, pris dans la fourche et autour de la langue
+      const fus = [['M', [-0.43, -0.012]], ['C', [-0.3, -0.05], [0.1, -0.05], [0.235, -0.014]], ['Q', [0.25, 0], [0.235, 0.014]], ['C', [0.1, 0.05], [-0.3, 0.05], [-0.43, 0.012]], ['Z']];
+      const tours = [];
+      for (const k of [-0.6, -0.2, 0.2, 0.6]) tours.push(['M', [-0.4, 0.03 * k]], ['C', [-0.25, 0.062 * k], [0.08, 0.062 * k], [0.22, 0.02 * k]]);
+      s.push(`<path d="${ser(fus, T)}" fill="${BLANC}" ${trait(1.4).replace('fill="none" ', '')}/>`, `<path d="${ser(tours, T)}" ${trait(0.5)}/>`);
+    }
+    const p = q => T(q).map(f1);
+    return forme(`<g data-forme="aiguille-filet">\n${s.join('\n')}\n</g>`, { pointe: p([0.5, 0]), talon: p([-0.5, 0]), langue: p([0.26, 0]) });
+  }
+  // moule({ x, y, longueur, largeur, angle }) : la latte à mailles ; x, y le milieu du bord du haut.
+  function moule(o = {}) {
+    const L = o.longueur || 240, l = o.largeur || 40, T = repere({ x: o.x || 0, y: o.y || 0, angle: o.angle || 0 });
+    const r = Math.min(6, l / 5);
+    const c = [['M', [-L / 2 + r, 0]], ['L', [L / 2 - r, 0]], ['Q', [L / 2, 0], [L / 2, r]], ['L', [L / 2, l - r]], ['Q', [L / 2, l], [L / 2 - r, l]],
+      ['L', [-L / 2 + r, l]], ['Q', [-L / 2, l], [-L / 2, l - r]], ['L', [-L / 2, r]], ['Q', [-L / 2, 0], [-L / 2 + r, 0]], ['Z']];
+    const arr = [['M', [-L / 2 + r, 3.2]], ['L', [L / 2 - r, 3.2]]];
+    const svg = `<g data-forme="moule">\n<path d="${ser(c, T)}" fill="${BLANC}" ${trait(2.4).replace('fill="none" ', '')}/>\n<path d="${ser(arr, T)}" ${trait(0.7)}/>\n</g>`;
+    return forme(svg, { haut: [T([-L / 2, 0]).map(f1), T([L / 2, 0]).map(f1)] });
+  }
+  // maille({ x, y, echelle, ep, fleche, trait }) : le nœud de filet (nœud d'écoute) desserré, au bas
+  // d'une maille. x, y : le fond de la maille du dessus, un U dont les deux brins montent vers les
+  // nœuds du rang d'avant. Le fil de l'aiguille, venu d'en bas à gauche (le dormant, qui vient du
+  // moule), passe DERRIÈRE le brin gauche et entre dans la maille ; il ressort DEVANT le brin droit,
+  // fait le tour des deux brins par DERRIÈRE, revient DEVANT le brin gauche, passe SOUS lui-même
+  // (entre son dormant et la maille) et sort DEVANT le brin droit, vers le bas à droite (le courant,
+  // qui va à l'aiguille). Sept croisements, chacun dessus ou dessous comme dans le nœud réel.
+  function maille(o = {}) {
+    const e = o.echelle || 1, x = o.x || 0, y = o.y || 0, w = o.ep || 5;
+    const P = l => l.map(p => [x + p[0] * e, y + p[1] * e, p[2]]);
+    const U = P([[-44, -115, 0], [-30, -70, 0], [-18, -32, 0], [-11, -8, 0], [-5, 3, 0], [0, 6, 0], [5, 3, 0], [11, -8, 0], [18, -32, 0], [30, -70, 0], [44, -115, 0]]);
+    const F = P([[-58, 118, -1], [-38, 60, -1], [-21, 10, -1], [-13, -12, -1],        // derrière le brin gauche
+      [-7, -20, 1.6], [-2, -25, 2], [12, -40, 1.6], [26, -55, 1],                      // devant le brin droit
+      [42, -60, 1], [50, -72, 0], [42, -82, -1], [34, -82, -1], [0, -84, -1], [-34, -82, -1],   // le tour, par derrière
+      [-46, -80, -1], [-53, -66, 0], [-44, -54, 1], [-25, -52, 1],                     // devant le brin gauche
+      [-12, -40, 0.7], [-2, -25, 0.5], [7, -14, 1], [12, -8, 1],                       // sous le dormant, devant le brin droit
+      [22, 20, 1], [36, 68, 1], [46, 114, 1]]);
+    const c = cordes([
+      { pts: U, ep: w, debut: 'ouvert', fin: 'ouvert' },
+      { pts: F, ep: w, debut: 'fixe', fin: 'libre', fleche: o.fleche === false ? null : { de: 0.88, a: 0.985, cote: 'droite' } },
+    ], { jeu: o.jeu, trait: o.trait });
+    return forme(c.svg, { fond: [x, y], croisements: c.croisements });
+  }
+
+  return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille,
+    _interne: { tube, peindre, repere, lisse, ser, forme, enroule, plie, ik2, tangente, pointBord, suite, cubPts, arcPts, mainProfil } };
+};

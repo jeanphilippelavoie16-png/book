@@ -1,0 +1,8690 @@
+{
+ "tome": 3,
+ "titre": "Prélever",
+ "chapitres": [
+  "41",
+  "42",
+  "43",
+  "44",
+  "45",
+  "46",
+  "47",
+  "48",
+  "49",
+  "50",
+  "51",
+  "52",
+  "53",
+  "54",
+  "55",
+  "56",
+  "57",
+  "58",
+  "59",
+  "60"
+ ],
+ "etabli_le": "2026-09-27",
+ "nombre_entrees": 168,
+ "entrees": [
+  {
+   "terme": "Abri de pêche chauffé",
+   "voir_aussi": [
+    "Monoxyde de carbone",
+    "Pêche blanche"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 27,
+      "libelle": "Ne jamais mettre la prise dans un sac fermé à l'intérieur de l'abri chauffé."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-E. Traiter la prise sur la glace — la partie que la plupart des gens sautent"
+     ],
+     "ligne": 226
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "5-F. L'abri chauffé, si on en a un",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-F. L'abri chauffé, si on en a un"
+     ],
+     "ligne": 234
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9-D. Sans abri chauffé",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-D. Sans abri chauffé"
+     ],
+     "ligne": 503
+    }
+   ]
+  },
+  {
+   "terme": "Affûter",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Morfil",
+     "tomes": [
+      6
+     ]
+    },
+    {
+     "terme": "Pierre à aiguiser et meule",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Ne pas laisser bleuir l'acier en l'affûtant."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-B. Les deux lames, quand il n'y en a qu'une"
+     ],
+     "ligne": 460
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 37,
+      "libelle": "Sécher le matériel, faire fondre la glace des couteaux, affûter"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-G. Le retour, et la suite"
+     ],
+     "ligne": 264
+    }
+   ]
+  },
+  {
+   "terme": "Anguille d'Amérique (Anguilla rostrata)",
+   "latin": "Anguilla rostrata",
+   "voir_aussi": [
+    "Nasse"
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Le tri qui décide de tout",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Le tri qui décide de tout"
+     ],
+     "ligne": 174
+    }
+   ]
+  },
+  {
+   "terme": "Appât",
+   "voir_aussi": [
+    "Pièges (piégeage)"
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Prendre la bête sans engin acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Prendre la bête sans engin acheté"
+     ],
+     "ligne": 354
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 3,
+      "libelle": "L'appât se fabrique avec de la sueur."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 377
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Vider le coffre à pêche de tout poisson appât."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. La sortie, du chalet au chalet"
+     ],
+     "ligne": 145
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "Savoir qui vient la nuit, sans veiller",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Savoir qui vient la nuit, sans veiller"
+     ],
+     "ligne": 548
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Approcher une bête vivante avec un bâton et rien d'autre",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Approcher une bête vivante avec un bâton et rien d'autre"
+     ],
+     "ligne": 398
+    }
+   ]
+  },
+  {
+   "terme": "Arc (fabriquer)",
+   "voir_aussi": [
+    "Flèche (mousse, pointe large)"
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "L'arc tiré d'une bille fendue",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'arc tiré d'une bille fendue"
+     ],
+     "ligne": 540
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "La pointe large, pour plus gros que le petit gibier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La pointe large, pour plus gros que le petit gibier"
+     ],
+     "ligne": 696
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 454
+    }
+   ]
+  },
+  {
+   "terme": "Armes à feu (sécurité, rangement)",
+   "voir_aussi": [
+    "Munitions (cartouches)",
+    "Carabine et fusil (entretien, réglage)"
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Une culasse gelée ne se force pas."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Rentrer et sortir l'arme"
+     ],
+     "ligne": 281
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 22,
+      "libelle": "De la culasse vers la bouche."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E — Nettoyer après le tir"
+     ],
+     "ligne": 311
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 56
+    }
+   ]
+  },
+  {
+   "terme": "Attendre après le tir",
+   "voir_aussi": [
+    "Retracer une bête blessée"
+   ],
+   "ancres": [
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "B — Au coup de feu",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B — Au coup de feu"
+     ],
+     "ligne": 209
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "C — Attendre",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — Attendre"
+     ],
+     "ligne": 237
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 34,
+      "libelle": "Attendre qu'ils soient énormes."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Canards et outarde"
+     ],
+     "ligne": 375
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 442
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 7,
+      "libelle": "À la brunante, attendre sur les coulées."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Le lièvre"
+     ],
+     "ligne": 191
+    }
+   ]
+  },
+  {
+   "terme": "Autoclave",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "Botulisme"
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "Garder sans pots, sans autoclave et sans froid mécanique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Garder sans pots, sans autoclave et sans froid mécanique"
+     ],
+     "ligne": 448
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 312
+    }
+   ]
+  },
+  {
+   "terme": "Avertisseurs (fumée, monoxyde)",
+   "voir_aussi": [
+    "Monoxyde de carbone"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Incendie du bâtiment",
+     "tomes": [
+      1,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 29,
+      "libelle": "L'avertisseur de monoxyde de carbone entre avant l'appareil de chauffage."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. L'abri chauffé, si on en a un"
+     ],
+     "ligne": 236
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Balance (peser sans balance)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pourcentage de sel (calcul)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "La balance qu'on fabrique, et l'étalon qui est gratuit",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La balance qu'on fabrique, et l'étalon qui est gratuit"
+     ],
+     "ligne": 516
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "Fabriquer de quoi peser",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fabriquer de quoi peser"
+     ],
+     "ligne": 348
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "4. Matériel",
+     "niveau": 2,
+     "chemin": [
+      "4. Matériel"
+     ],
+     "ligne": 63
+    }
+   ]
+  },
+  {
+   "terme": "Bâton de jet",
+   "voir_aussi": [
+    "Lance-pierre et fronde"
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Le bâton de jet",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le bâton de jet"
+     ],
+     "ligne": 614
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "4. Matériel",
+     "niveau": 2,
+     "chemin": [
+      "4. Matériel"
+     ],
+     "ligne": 116
+    }
+   ]
+  },
+  {
+   "terme": "Bernache du Canada",
+   "voir": [
+    "Outarde (Branta canadensis)"
+   ]
+  },
+  {
+   "terme": "Botulisme",
+   "voir_aussi": [
+    "Conserves (mise en pot)",
+    "Autoclave",
+    "Botulisme de type E (poisson)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Poisson fumé",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 357
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 288
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 312
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 236
+    }
+   ]
+  },
+  {
+   "terme": "Botulisme de type E (poisson)",
+   "voir_aussi": [
+    "Botulisme"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Poisson fumé",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Traiter le poisson à la sortie de l'eau",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-D. Garder sans sel acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-D. Garder sans sel acheté"
+     ],
+     "ligne": 476
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 236
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 30,
+      "libelle": "Fumage."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — Les voies de conservation, et laquelle prendre"
+     ],
+     "ligne": 221
+    }
+   ]
+  },
+  {
+   "terme": "Bourolle et carrelet",
+   "voir_aussi": [
+    "Nasse"
+   ],
+   "ancres": [
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Phase A — Le petit engin : bourolle et carrelet",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase A — Le petit engin : bourolle et carrelet"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Le petit poisson est de la nourriture",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le petit poisson est de la nourriture"
+     ],
+     "ligne": 456
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Choisir l'engin selon ce qu'on veut en faire du poisson."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Phase B — Nasse, verveux et filet"
+     ],
+     "ligne": 149
+    }
+   ]
+  },
+  {
+   "terme": "Boussole et déclinaison",
+   "voir_aussi": [
+    "Carte du territoire",
+    "Trouver le sud sans boussole"
+   ],
+   "ancres": [
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "3. Corriger la boussole — l'étape que tout le monde saute",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "3. Corriger la boussole — l'étape que tout le monde saute"
+     ],
+     "ligne": 170
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Mesurer sa déclinaison au lieu d'aller la chercher."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Se faire une carte quand il n'y a pas de carte"
+     ],
+     "ligne": 500
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "4. Matériel",
+     "niveau": 2,
+     "chemin": [
+      "4. Matériel"
+     ],
+     "ligne": 87
+    }
+   ]
+  },
+  {
+   "terme": "Brimbale",
+   "voir_aussi": [
+    "Pêche blanche"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Disposer les brimbales"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. Pêcher"
+     ],
+     "ligne": 194
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9-C. La ligne, l'hameçon, la brimbale",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. La ligne, l'hameçon, la brimbale"
+     ],
+     "ligne": 470
+    }
+   ]
+  },
+  {
+   "terme": "Calendrier de prélèvement",
+   "voir_aussi": [
+    "Rut",
+    "Montaison (poisson)"
+   ],
+   "ancres": [
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 301
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5.4 Le calendrier du travail, pas de la prise",
+     "niveau": 3,
+     "chemin": [
+      "5. Le calendrier",
+      "5.4 Le calendrier du travail, pas de la prise"
+     ],
+     "ligne": 157
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5. Le calendrier",
+     "niveau": 2,
+     "chemin": [
+      "5. Le calendrier"
+     ],
+     "ligne": 99
+    }
+   ]
+  },
+  {
+   "terme": "Calibre (choisir selon la bête)",
+   "voir_aussi": [
+    "Munitions (cartouches)",
+    "Grenaille"
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 42,
+      "libelle": "La .22 sur ce qui s'assoit, le fusil sur ce qui vole et sur rien d'autre."
+     },
+     "chemin": [
+      "5. Procédure",
+      "J — Tirer peu, prendre beaucoup"
+     ],
+     "ligne": 434
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Partir avec l'arme de la bête qu'on va chercher, pas avec celle qui traîne."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Choisir l'arme selon la bête, avant de sortir"
+     ],
+     "ligne": 141
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Compter les bêtes, pas les boîtes."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Compter avant l'automne"
+     ],
+     "ligne": 182
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 19,
+      "libelle": "Le tirer perché, à la .22, à la tête seulement."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — Le tétras du Canada"
+     ],
+     "ligne": 275
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Ajouter la pratique, à la .22."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Compter avant l'automne"
+     ],
+     "ligne": 209
+    }
+   ]
+  },
+  {
+   "terme": "Canards",
+   "voir_aussi": [
+    "Outarde (Branta canadensis)",
+    "Duvet",
+    "Sauvagine (oiseaux d'eau)"
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Les oiseaux dont parle ce chapitre",
+     "niveau": 3,
+     "chemin": [
+      "2. Quand l'utiliser",
+      "Les oiseaux dont parle ce chapitre"
+     ],
+     "ligne": 23
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Chapitre 54 — Outarde, canards, oiseaux d'eau",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "G — Canards et outarde",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Canards et outarde"
+     ],
+     "ligne": 350
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 20
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-F. Les rongeurs, le lièvre et les oiseaux",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-F. Les rongeurs, le lièvre et les oiseaux"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Canot (réparer)",
+   "voir_aussi": [
+    "Vêtement de flottaison (VFI)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gomme de sapin et d'épinette (résine)",
+     "tomes": [
+      2,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Portage",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    }
+   ]
+  },
+  {
+   "terme": "Capelan (Mallotus villosus)",
+   "latin": "Mallotus villosus",
+   "voir_aussi": [
+    "Éperlan arc-en-ciel (Osmerus mordax)"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Le capelan se sèche entier"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "D — Sécher : le séchoir qu'on bâtit et la course contre la croûte"
+     ],
+     "ligne": 545
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "E — Les petits poissons en masse",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Les petits poissons en masse"
+     ],
+     "ligne": 190
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    }
+   ]
+  },
+  {
+   "terme": "Carabine et fusil (entretien, réglage)",
+   "voir_aussi": [
+    "Armes à feu (sécurité, rangement)",
+    "Munitions (cartouches)"
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 39,
+      "libelle": "Un seul calibre par poche, par veste, par caisse, au fusil comme à la carabine."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Le clic, le coup faible, le mauvais calibre"
+     ],
+     "ligne": 388
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 38,
+      "libelle": "Vérifier le canon, selon l'arme."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Le clic, le coup faible, le mauvais calibre"
+     ],
+     "ligne": 372
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Un canon chaud ne se pose pas dans la neige."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Rentrer et sortir l'arme"
+     ],
+     "ligne": 285
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "L'orignal d'hiver, à la raquette",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'orignal d'hiver, à la raquette"
+     ],
+     "ligne": 711
+    }
+   ]
+  },
+  {
+   "terme": "Caribou (Rangifer tarandus)",
+   "latin": "Rangifer tarandus",
+   "voir_aussi": [
+    "Mal de caribou (viande maigre seule)"
+   ],
+   "ancres": [
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-H. Les confusions",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les confusions"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-B. Les cervidés",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Les cervidés"
+     ],
+     "ligne": 229
+    }
+   ]
+  },
+  {
+   "terme": "Carte du territoire",
+   "voir_aussi": [
+    "Boussole et déclinaison"
+   ],
+   "ancres": [
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "5. Classer le terrain en unités de lecture",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5. Classer le terrain en unités de lecture"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "2. Monter le fond de carte",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "2. Monter le fond de carte"
+     ],
+     "ligne": 144
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "7. Écrire la décision sur la carte, pas l'observation",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "7. Écrire la décision sur la carte, pas l'observation"
+     ],
+     "ligne": 257
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "La carte de six lignes",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La carte de six lignes"
+     ],
+     "ligne": 330
+    }
+   ]
+  },
+  {
+   "terme": "Castor (Castor canadensis)",
+   "latin": "Castor canadensis",
+   "voir_aussi": [
+    "Castoréum",
+    "Giardia",
+    "Tularémie"
+   ],
+   "ancres": [
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 330
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 387
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "5. Classer le terrain en unités de lecture",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5. Classer le terrain en unités de lecture"
+     ],
+     "ligne": 218
+    }
+   ]
+  },
+  {
+   "terme": "Castoréum",
+   "voir_aussi": [
+    "Castor (Castor canadensis)"
+   ],
+   "ancres": [
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Sortir les glandes entières, dans un contenant fermé."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 184
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Repérer les glandes AVANT de couper."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 172
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 387
+    }
+   ]
+  },
+  {
+   "terme": "Caveau à légumes",
+   "voir_aussi": [
+    "Légumes-racines (entreposer)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Silo de terre",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "Garder sans pots, sans autoclave et sans froid mécanique",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Garder sans pots, sans autoclave et sans froid mécanique"
+     ],
+     "ligne": 448
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5.2 Le calendrier, mois par mois",
+     "niveau": 3,
+     "chemin": [
+      "5. Le calendrier",
+      "5.2 Le calendrier, mois par mois"
+     ],
+     "ligne": 117
+    }
+   ]
+  },
+  {
+   "terme": "Cerf de Virginie (Odocoileus virginianus)",
+   "latin": "Odocoileus virginianus",
+   "voir_aussi": [
+    "Orignal (Alces americanus)"
+   ],
+   "ancres": [
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Lire la réaction et choisir l'attente."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Attendre"
+     ],
+     "ligne": 239
+    }
+   ]
+  },
+  {
+   "terme": "Chaufferette (propane, intérieur)",
+   "voir_aussi": [
+    "Monoxyde de carbone",
+    "Propane"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 32,
+      "libelle": "Une chaufferette au propane est un appareil à risque"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. L'abri chauffé, si on en a un"
+     ],
+     "ligne": 245
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Chavirer en eau froide",
+   "voir_aussi": [
+    "Hypothermie",
+    "Canot (réparer)",
+    "Passer à travers la glace"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Chien de sang",
+   "voir_aussi": [
+    "Retracer une bête blessée"
+   ],
+   "ancres": [
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "Faire un chien de sang avec le chien du chalet",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire un chien de sang avec le chien du chalet"
+     ],
+     "ligne": 633
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 41,
+      "libelle": "N'importe quel bon chien de chasse peut apprendre"
+     },
+     "chemin": [
+      "5. Procédure",
+      "H — Le chien"
+     ],
+     "ligne": 412
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "Retracer sans chien",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Retracer sans chien"
+     ],
+     "ligne": 615
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Le chien est le seul accident de ce chapitre qui se règle entièrement d'avance :"
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 460
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Le chien, s'il n'y a plus rien à lui donner",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le chien, s'il n'y a plus rien à lui donner"
+     ],
+     "ligne": 530
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Le chien ne mange rien de cru."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 240
+    }
+   ]
+  },
+  {
+   "terme": "Collet",
+   "voir_aussi": [
+    "Lièvre d'Amérique (Lepus americanus)",
+    "Pièges (piégeage)"
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "Faire le fil à collet",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Faire le fil à collet"
+     ],
+     "ligne": 401
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "Le collet à ressort, quand la ligne ne se relève pas tous les jours",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le collet à ressort, quand la ligne ne se relève pas tous les jours"
+     ],
+     "ligne": 467
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Faire les collets en basse saison, et les essayer à la main."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Avant de poser le premier collet"
+     ],
+     "ligne": 155
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Le collet au bout d'une perche remplace le fusil quand la bête est perchée."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 367
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 301
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Le lagopède, l'hiver où il descend",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le lagopède, l'hiver où il descend"
+     ],
+     "ligne": 661
+    }
+   ]
+  },
+  {
+   "terme": "Confit",
+   "voir_aussi": [
+    "Graisse (fondre le gras)"
+   ],
+   "ancres": [
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 288
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 27,
+      "libelle": "Confit — cuire d'abord, couvrir de gras ensuite."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver la viande"
+     ],
+     "ligne": 242
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 335
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 267
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 312
+    }
+   ]
+  },
+  {
+   "terme": "Congélateur qui dégèle",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Recongeler",
+     "tomes": [
+      4,
+      5
+     ]
+    },
+    {
+     "terme": "Décongeler",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Panne d'électricité",
+     "tomes": [
+      1
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 22,
+      "libelle": "Conserver «entre 0 °C et 4 °C », au congélateur à «-18 °C ou moins »"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 217
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "9-G. Garder la viande sans congélateur",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-G. Garder la viande sans congélateur"
+     ],
+     "ligne": 555
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 301
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "G — Congélation antiparasitaire, avant toute consommation crue",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Congélation antiparasitaire, avant toute consommation crue"
+     ],
+     "ligne": 230
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 272
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 45
+    }
+   ]
+  },
+  {
+   "terme": "Congélation antiparasitaire (poisson)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Poisson fumé",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Traiter le poisson à la sortie de l'eau",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "G — Congélation antiparasitaire, avant toute consommation crue",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Congélation antiparasitaire, avant toute consommation crue"
+     ],
+     "ligne": 230
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    }
+   ]
+  },
+  {
+   "terme": "Conserves (mise en pot)",
+   "voir_aussi": [
+    "Autoclave",
+    "Botulisme"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Bain d'eau bouillante (bain-marie)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 19,
+      "libelle": "Mettre en conserve, ou pas."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 231
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Mise en conserve sous pression"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver la viande"
+     ],
+     "ligne": 238
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Marinades et conserves."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — Les voies de conservation, et laquelle prendre"
+     ],
+     "ligne": 224
+    }
+   ]
+  },
+  {
+   "terme": "Coyote (Canis latrans)",
+   "latin": "Canis latrans",
+   "voir_aussi": [
+    "Loup gris (Canis lupus)"
+   ],
+   "ancres": [
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-H. Les confusions",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les confusions"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 57
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 72
+    }
+   ]
+  },
+  {
+   "terme": "Cretons",
+   "voir_aussi": [
+    "Ours noir (Ursus americanus)"
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 24,
+      "libelle": "Les cretons du fond sont cuits"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Fondre le gras"
+     ],
+     "ligne": 229
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "Fondre le gras sans le bon chaudron",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fondre le gras sans le bon chaudron"
+     ],
+     "ligne": 425
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Lire la fin du rendu sur le chaudron, pas sur une horloge."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Fondre le gras"
+     ],
+     "ligne": 218
+    }
+   ]
+  },
+  {
+   "terme": "Crottes (fèces)",
+   "voir_aussi": [
+    "Traces et empreintes"
+   ],
+   "ancres": [
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "Lire une crotte avec un bâtonnet",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Lire une crotte avec un bâtonnet"
+     ],
+     "ligne": 592
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-F. Les rongeurs, le lièvre et les oiseaux",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-F. Les rongeurs, le lièvre et les oiseaux"
+     ],
+     "ligne": 274
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-D. Les canidés et le lynx",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-D. Les canidés et le lynx"
+     ],
+     "ligne": 245
+    }
+   ]
+  },
+  {
+   "terme": "Croûtage",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Séchage de la viande (viande séchée)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Sécher : le séchoir qu'on bâtit et la course contre la croûte",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "D — Sécher : le séchoir qu'on bâtit et la course contre la croûte"
+     ],
+     "ligne": 514
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "L'orignal d'hiver, à la raquette",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'orignal d'hiver, à la raquette"
+     ],
+     "ligne": 711
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Geler un par un, à plat."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "C — Geler dehors, et le glaçage qui remplace le sac sous vide"
+     ],
+     "ligne": 486
+    }
+   ]
+  },
+  {
+   "terme": "Cuisson à 74 °C à cœur",
+   "voir_aussi": [
+    "Thermomètre à viande (sonde)",
+    "Trichinellose"
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Cuire à 74 °C à cœur, mesurés."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver et cuire"
+     ],
+     "ligne": 278
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 19,
+      "libelle": "Cuire à 74 °C à cœur, à la sonde, chaque fois."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 252
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Cuire à 74 °C à cœur, mesurés."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 243
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Cuire à 74 °C à cœur"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "La carte de six lignes"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Cuire à 74 °C à cœur, mesuré à la sonde"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 213
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 62
+    }
+   ]
+  },
+  {
+   "terme": "Dater une trace",
+   "voir_aussi": [
+    "Traces et empreintes"
+   ],
+   "ancres": [
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Dater dans la neige."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Lire une trace, dans l'ordre"
+     ],
+     "ligne": 197
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Dater dans la boue."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Lire une trace, dans l'ordre"
+     ],
+     "ligne": 205
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "Dater sans rien",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Dater sans rien"
+     ],
+     "ligne": 526
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Dater la piste au souffle : chapitre 43 (étape 9)."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Pister une bête vivante"
+     ],
+     "ligne": 130
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Emballer, identifier, dater."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Démonter la viande"
+     ],
+     "ligne": 203
+    }
+   ]
+  },
+  {
+   "terme": "Dépouiller (enlever la peau)",
+   "voir_aussi": [
+    "Écharner"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Tannage",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Rapporter le lièvre entier, non dépouillé, à l'extérieur du corps."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Transporter"
+     ],
+     "ligne": 210
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Dépouiller."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Préparer"
+     ],
+     "ligne": 236
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Dépouiller en fourreau"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 186
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Dépouiller à plat"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 200
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Plumer ou dépouiller, et savoir ce qu'on perd."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Dépouiller ouvert, pas en fourreau."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 176
+    }
+   ]
+  },
+  {
+   "terme": "Désinfecter sans javel",
+   "voir_aussi": [
+    "Javel",
+    "Savon"
+   ],
+   "ancres": [
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "Désinfecter quand la javel est finie",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Désinfecter quand la javel est finie"
+     ],
+     "ligne": 396
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Désinfecter sans javel",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Désinfecter sans javel"
+     ],
+     "ligne": 556
+    }
+   ]
+  },
+  {
+   "terme": "Duvet",
+   "voir_aussi": [
+    "Canards"
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Le duvet, qui est le seul produit de l'oiseau qui dure des années",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le duvet, qui est le seul produit de l'oiseau qui dure des années"
+     ],
+     "ligne": 569
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Plumer, ou renoncer à plumer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Plumer, ou renoncer à plumer"
+     ],
+     "ligne": 476
+    }
+   ]
+  },
+  {
+   "terme": "Écharner",
+   "voir_aussi": [
+    "Dépouiller (enlever la peau)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Tannage",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Écharner."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 205
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 29,
+      "libelle": "Écharner la peau le jour même"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-H. La peau, les tendons, les os"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "9-H. La peau sans sel et sans couteau à écharner",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-H. La peau sans sel et sans couteau à écharner"
+     ],
+     "ligne": 572
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Le poste de dépouillement fabriqué",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le poste de dépouillement fabriqué"
+     ],
+     "ligne": 422
+    }
+   ]
+  },
+  {
+   "terme": "Échinococcose (ver hydatique)",
+   "voir_aussi": [
+    "Kystes dans la viande",
+    "Loup gris (Canis lupus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Abats",
+     "tomes": [
+      2,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Gants, et poste de travail dédié."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 181
+    }
+   ]
+  },
+  {
+   "terme": "Écureuil roux (Tamiasciurus hudsonicus)",
+   "latin": "Tamiasciurus hudsonicus",
+   "voir_aussi": [
+    "Petit gibier (chasser)"
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "Chapitre 53 — Rat musqué, écureuil roux, marmotte",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "L'écureuil, le rat musqué, la sauvagine sans cartouches",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'écureuil, le rat musqué, la sauvagine sans cartouches"
+     ],
+     "ligne": 732
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "F — L'écureuil roux",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "F — L'écureuil roux"
+     ],
+     "ligne": 312
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-H. Les confusions",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les confusions"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Dépouiller."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 179
+    }
+   ]
+  },
+  {
+   "terme": "Épaisseur de la glace (sonder)",
+   "voir_aussi": [
+    "Passer à travers la glace",
+    "Pêche blanche"
+   ],
+   "ancres": [
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "9. Sonder la glace",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "9. Sonder la glace"
+     ],
+     "ligne": 277
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "5-B. Lire la glace, du bord jusqu'au trou",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Lire la glace, du bord jusqu'au trou"
+     ],
+     "ligne": 152
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Sonder la glace à chaque déplacement, pas une fois par hiver."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 132
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 64
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "La glace, l'air et les personnes",
+     "niveau": 3,
+     "chemin": [
+      "7. Signes d'échec",
+      "La glace, l'air et les personnes"
+     ],
+     "ligne": 297
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 377
+    }
+   ]
+  },
+  {
+   "terme": "Éperlan arc-en-ciel (Osmerus mordax)",
+   "latin": "Osmerus mordax",
+   "voir_aussi": [
+    "Capelan (Mallotus villosus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Traiter le poisson à la sortie de l'eau",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "Chapitre 59 — Éperlan et poisson du fleuve",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "E — Les petits poissons en masse",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Les petits poissons en masse"
+     ],
+     "ligne": 190
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    }
+   ]
+  },
+  {
+   "terme": "Épinette",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Thuyone",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Gomme de sapin et d'épinette (résine)",
+     "tomes": [
+      2,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Arbre de vie (infusion d'aiguilles)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Le chercher dans l'épinette."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — Le tétras du Canada"
+     ],
+     "ligne": 264
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "5. Classer le terrain en unités de lecture",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5. Classer le terrain en unités de lecture"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    }
+   ]
+  },
+  {
+   "terme": "Éviscération",
+   "voir_aussi": [
+    "Saignée"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Panse percée (souillure)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Éviscérer sans percer."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Préparer"
+     ],
+     "ligne": 243
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Éviscérer, et tout de suite."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 199
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Éviscérer tout de suite."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 170
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Éviscérer immédiatement."
+     },
+     "chemin": [
+      "5. Procédure",
+      "En forêt"
+     ],
+     "ligne": 156
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Éviscérer, et regarder ce qui sort."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 198
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Si la viande est gardée, éviscérer."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 167
+    }
+   ]
+  },
+  {
+   "terme": "Faire du sel (eau de mer)",
+   "voir_aussi": [
+    "Sel"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "E — Faire le sel avec le fleuve",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "E — Faire le sel avec le fleuve"
+     ],
+     "ligne": 548
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Le sel qu'on fait soi-même",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le sel qu'on fait soi-même"
+     ],
+     "ligne": 499
+    }
+   ]
+  },
+  {
+   "terme": "Faune malade (épizootie)",
+   "voir_aussi": [
+    "Tularémie",
+    "Influenza aviaire",
+    "Fiche d'espèce (lire)"
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "Quand il n'y a personne à appeler",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Quand il n'y a personne à appeler"
+     ],
+     "ligne": 565
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Nettoyer dans le bon ordre, et retirer les gants en dernier."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Préparer"
+     ],
+     "ligne": 260
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 295
+    }
+   ]
+  },
+  {
+   "terme": "Fiche d'espèce (lire)",
+   "voir_aussi": [
+    "Rendement en viande"
+   ],
+   "ancres": [
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-H. Les trois variantes de la fiche-type",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les trois variantes de la fiche-type"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "Chapitre 46 — Comment lire une fiche d'espèce",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "5-A. La fiche d'espèce (ch. 46)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. La fiche d'espèce (ch. 46)"
+     ],
+     "ligne": 128
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-G. Ce qu'une fiche ne dit jamais",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-G. Ce qu'une fiche ne dit jamais"
+     ],
+     "ligne": 179
+    }
+   ]
+  },
+  {
+   "terme": "Filet maillant",
+   "voir_aussi": [
+    "Nasse"
+   ],
+   "ancres": [
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Nouer une nappe quand il n'y a pas de filet",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Nouer une nappe quand il n'y a pas de filet"
+     ],
+     "ligne": 399
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Réparer au lieu de remplacer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Réparer au lieu de remplacer"
+     ],
+     "ligne": 419
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    }
+   ]
+  },
+  {
+   "terme": "Flèche (mousse, pointe large)",
+   "voir_aussi": [
+    "Arc (fabriquer)",
+    "Lance-pierre et fronde"
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "La flèche mousse",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La flèche mousse"
+     ],
+     "ligne": 663
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "La flèche mousse et le lance-pierre, à la chasse",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La flèche mousse et le lance-pierre, à la chasse"
+     ],
+     "ligne": 707
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "L'arc tiré d'une bille fendue",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'arc tiré d'une bille fendue"
+     ],
+     "ligne": 540
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "La pointe large, pour plus gros que le petit gibier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La pointe large, pour plus gros que le petit gibier"
+     ],
+     "ligne": 696
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 22,
+      "libelle": "Lire la flèche, s'il y en a une."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — Lire le point d'impact et le sang"
+     ],
+     "ligne": 303
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Ce qui change : on ne chasse plus la bête, on chasse l'immobilité",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui change : on ne chasse plus la bête, on chasse l'immobilité"
+     ],
+     "ligne": 581
+    }
+   ]
+  },
+  {
+   "terme": "Foène",
+   "voir_aussi": [
+    "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)"
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    }
+   ]
+  },
+  {
+   "terme": "Foie",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Abats",
+     "tomes": [
+      2,
+      4
+     ]
+    },
+    {
+     "terme": "Cadmium",
+     "tomes": [
+      2,
+      4,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Inspecter le foie, la rate et les poumons — c'est l'étape qu'on ne saute jamais."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Préparer"
+     ],
+     "ligne": 249
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Décider du foie avec les yeux, pas avec l'habitude."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 228
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Garder le cœur, le gésier et le foie ; laisser le reste."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 160
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 33,
+      "libelle": "Le foie ne va pas aux enfants. Jamais."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-I. Ce qui ne se garde pas"
+     ],
+     "ligne": 273
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 350
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Lire la réaction et choisir l'attente."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Attendre"
+     ],
+     "ligne": 239
+    }
+   ]
+  },
+  {
+   "terme": "Fourrure",
+   "voir_aussi": [
+    "Martre d'Amérique (Martes americana)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Tannage",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Mouiller la fourrure, généreusement."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 163
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Humecter la fourrure avant de commencer."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Préparer"
+     ],
+     "ligne": 226
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 373
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 72
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Réparer au lieu de jeter",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Réparer au lieu de jeter"
+     ],
+     "ligne": 447
+    }
+   ]
+  },
+  {
+   "terme": "Fumage à chaud",
+   "voir_aussi": [
+    "Fumoir (monter)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Séchage de la viande (viande séchée)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Fumage à chaud (ch. 71) :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver la viande"
+     ],
+     "ligne": 246
+    }
+   ]
+  },
+  {
+   "terme": "Fumoir (monter)",
+   "voir_aussi": [
+    "Fumage à chaud"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Fumage à froid",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Si la viande part au sel, au séchoir ou au fumoir."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 250
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "Savoir qui vient la nuit, sans veiller",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Savoir qui vient la nuit, sans veiller"
+     ],
+     "ligne": 548
+    }
+   ]
+  },
+  {
+   "terme": "Gélinotte huppée (Bonasa umbellus)",
+   "latin": "Bonasa umbellus",
+   "voir_aussi": [
+    "Tétras du Canada (Canachites canadensis)",
+    "Plumer (échauder)"
+   ],
+   "ancres": [
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "Chapitre 49 — Gélinotte huppée et tétras du Canada",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "S'approcher sans arme : le contraire de la gélinotte au fusil",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "S'approcher sans arme : le contraire de la gélinotte au fusil"
+     ],
+     "ligne": 596
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 52
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "C — La gélinotte huppée",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "C — La gélinotte huppée"
+     ],
+     "ligne": 218
+    }
+   ]
+  },
+  {
+   "terme": "Génératrice",
+   "voir_aussi": [
+    "Monoxyde de carbone"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Carburant (entreposer)",
+     "tomes": [
+      1,
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Électricité du chalet (12 V)",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Aucune génératrice, jamais, dans un abri, une cabane, un garage ou sous un auvent."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. L'abri chauffé, si on en a un"
+     ],
+     "ligne": 242
+    }
+   ]
+  },
+  {
+   "terme": "Giardia",
+   "voir_aussi": [
+    "Castor (Castor canadensis)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Eau potable (puiser, filtrer, désinfecter)",
+     "tomes": [
+      1,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 330
+    }
+   ]
+  },
+  {
+   "terme": "Glaçage (protéger le gelé)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Froid naturel (cache de gel)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "C — Geler dehors, et le glaçage qui remplace le sac sous vide",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "C — Geler dehors, et le glaçage qui remplace le sac sous vide"
+     ],
+     "ligne": 480
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Glacer les pièces gelées"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-G. Garder la viande sans congélateur"
+     ],
+     "ligne": 559
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 29,
+      "libelle": "Le glaçage à l'eau remplace tous les emballages."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-F. Conserver sans électricité"
+     ],
+     "ligne": 563
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 35,
+      "libelle": "Filtrer pour vrai."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "H — Sauver le gras au lieu de le perdre"
+     ],
+     "ligne": 619
+    }
+   ]
+  },
+  {
+   "terme": "Glace de lac (récolter, glacière)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Froid naturel (cache de gel)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "etape": {
+      "n": 3,
+      "libelle": "La glacière à évaporation"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Refroidir sans compresseur"
+     ],
+     "ligne": 452
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Charger la glacière avant de charger les cannes."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. La sortie, du chalet au chalet"
+     ],
+     "ligne": 149
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "etape": {
+      "n": 13,
+      "libelle": "Ranger la glacière ouverte et sèche."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. La sortie, du chalet au chalet"
+     ],
+     "ligne": 191
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Garder la prise sans glacière",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Garder la prise sans glacière"
+     ],
+     "ligne": 442
+    }
+   ]
+  },
+  {
+   "terme": "Glandes (retirer)",
+   "voir_aussi": [
+    "Castoréum"
+   ],
+   "ancres": [
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Sortir les glandes entières, dans un contenant fermé."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 184
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Retirer les glandes, avant d'ouvrir le ventre."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Repérer les glandes AVANT de couper."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 172
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 57
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Le bassin, lentement."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 193
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    }
+   ]
+  },
+  {
+   "terme": "Graisse (fondre le gras)",
+   "voir_aussi": [
+    "Pemmican",
+    "Cretons"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Suif",
+     "tomes": [
+      1,
+      2,
+      4,
+      5,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "Fondre le gras",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Fondre le gras"
+     ],
+     "ligne": 209
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "Fondre le gras sans le bon chaudron",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fondre le gras sans le bon chaudron"
+     ],
+     "ligne": 425
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "5-G. Fondre le gras",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-G. Fondre le gras"
+     ],
+     "ligne": 241
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Fondre le gras sans feu réglable",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Fondre le gras sans feu réglable"
+     ],
+     "ligne": 490
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "5-A. La fiche d'espèce (ch. 46)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. La fiche d'espèce (ch. 46)"
+     ],
+     "ligne": 128
+    }
+   ]
+  },
+  {
+   "terme": "Grand brochet (Esox lucius)",
+   "latin": "Esox lucius",
+   "voir_aussi": [
+    "Pêche blanche"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 64
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 14,
+      "libelle": "La ligne"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. La ligne, l'hameçon, la brimbale"
+     ],
+     "ligne": 486
+    }
+   ]
+  },
+  {
+   "terme": "Grenaille",
+   "voir_aussi": [
+    "Calibre (choisir selon la bête)"
+   ],
+   "ancres": [
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Chercher les plombs, une fois l'oiseau nu."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 192
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Une seule sorte de grenaille par veste."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Choisir l'arme selon la bête, avant de sortir"
+     ],
+     "ligne": 157
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Compter les bêtes, pas les boîtes."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Compter avant l'automne"
+     ],
+     "ligne": 182
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 34,
+      "libelle": "Attendre qu'ils soient énormes."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Canards et outarde"
+     ],
+     "ligne": 375
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Congeler à -18 °C ou moins, entier ou en morceaux."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 201
+    }
+   ]
+  },
+  {
+   "terme": "Hameçon et leurre",
+   "voir_aussi": [
+    "Pêche blanche"
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 12,
+      "libelle": "L'hameçon en fil de fer"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. La ligne, l'hameçon, la brimbale"
+     ],
+     "ligne": 472
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Le leurre"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. La ligne, l'hameçon, la brimbale"
+     ],
+     "ligne": 492
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Pour remettre :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. La sortie, du chalet au chalet"
+     ],
+     "ligne": 160
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-C. Vider sans lame, réparer sans pièce",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. Vider sans lame, réparer sans pièce"
+     ],
+     "ligne": 451
+    }
+   ]
+  },
+  {
+   "terme": "Hareng atlantique (Clupea harengus)",
+   "latin": "Clupea harengus",
+   "voir_aussi": [
+    "Maquereau bleu (Scomber scombrus)"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Le tri qui décide de tout",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Le tri qui décide de tout"
+     ],
+     "ligne": 174
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Séchage et salage."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — Les voies de conservation, et laquelle prendre"
+     ],
+     "ligne": 216
+    }
+   ]
+  },
+  {
+   "terme": "Hypothermie",
+   "voir_aussi": [
+    "Passer à travers la glace"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gelure",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Réchauffer une personne",
+     "tomes": [
+      1,
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "La glace, l'air et les personnes",
+     "niveau": 3,
+     "chemin": [
+      "7. Signes d'échec",
+      "La glace, l'air et les personnes"
+     ],
+     "ligne": 297
+    }
+   ]
+  },
+  {
+   "terme": "Influenza aviaire",
+   "voir_aussi": [
+    "Faune malade (épizootie)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Poules",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 357
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "5-A. La fiche d'espèce (ch. 46)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. La fiche d'espèce (ch. 46)"
+     ],
+     "ligne": 128
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 335
+    }
+   ]
+  },
+  {
+   "terme": "Innus (savoirs et façons de faire)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Shaputuan",
+     "tomes": [
+      1
+     ]
+    },
+    {
+     "terme": "Couteau croche",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Canot d'écorce",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    }
+   ]
+  },
+  {
+   "terme": "Jabot",
+   "voir_aussi": [
+    "Plumer (échauder)"
+   ],
+   "ancres": [
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Sortir le jabot par le haut du cou."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 154
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Garder le cœur, le gésier et le foie ; laisser le reste."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 160
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 52
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 116
+    }
+   ]
+  },
+  {
+   "terme": "Javel",
+   "voir_aussi": [
+    "Désinfecter sans javel"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Eau potable (puiser, filtrer, désinfecter)",
+     "tomes": [
+      1,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "Désinfecter quand la javel est finie",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Désinfecter quand la javel est finie"
+     ],
+     "ligne": 396
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Désinfecter sans javel",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Désinfecter sans javel"
+     ],
+     "ligne": 556
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Désinfecter, en respectant la durée."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 236
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-C. Le socle chiffré, identique dans toutes les fiches",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. Le socle chiffré, identique dans toutes les fiches"
+     ],
+     "ligne": 116
+    }
+   ]
+  },
+  {
+   "terme": "Kystes dans la viande",
+   "voir_aussi": [
+    "Échinococcose (ver hydatique)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Abats",
+     "tomes": [
+      2,
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 305
+    }
+   ]
+  },
+  {
+   "terme": "Lagopède des saules (Lagopus lagopus)",
+   "latin": "Lagopus lagopus",
+   "voir_aussi": [
+    "Tétras du Canada (Canachites canadensis)"
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Le lagopède, l'hiver où il descend",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le lagopède, l'hiver où il descend"
+     ],
+     "ligne": 661
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "E — Le lagopède des saules",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "E — Le lagopède des saules"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 499
+    }
+   ]
+  },
+  {
+   "terme": "Lance-pierre et fronde",
+   "voir_aussi": [
+    "Bâton de jet",
+    "Flèche (mousse, pointe large)"
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "Le lance-pierre, la fronde et le bâton",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le lance-pierre, la fronde et le bâton"
+     ],
+     "ligne": 774
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "La flèche mousse et le lance-pierre, à la chasse",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La flèche mousse et le lance-pierre, à la chasse"
+     ],
+     "ligne": 707
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Ce qui change : on ne chasse plus la bête, on chasse l'immobilité",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui change : on ne chasse plus la bête, on chasse l'immobilité"
+     ],
+     "ligne": 581
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 454
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas"
+     ],
+     "ligne": 841
+    }
+   ]
+  },
+  {
+   "terme": "Lard de phoque (huile)",
+   "voir_aussi": [
+    "Phoque"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Lampe à graisse",
+     "tomes": [
+      5,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Trancher le lard en dés ou en lanières minces au fur et à mesure"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-E. Dépouiller et récupérer le lard"
+     ],
+     "ligne": 220
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Décoller ensuite le lard de la peau, à plat"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-E. Dépouiller et récupérer le lard"
+     ],
+     "ligne": 217
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "9-C. Fondre le lard sans marmite de fonte et sans thermostat",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. Fondre le lard sans marmite de fonte et sans thermostat"
+     ],
+     "ligne": 469
+    }
+   ]
+  },
+  {
+   "terme": "Légumes-racines (entreposer)",
+   "voir_aussi": [
+    "Caveau à légumes"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Regarder la carotte et la couleur."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. Lire la glace, du bord jusqu'au trou"
+     ],
+     "ligne": 165
+    }
+   ]
+  },
+  {
+   "terme": "Lièvre d'Amérique (Lepus americanus)",
+   "latin": "Lepus americanus",
+   "voir_aussi": [
+    "Collet",
+    "Tularémie",
+    "Mal de caribou (viande maigre seule)"
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "Garder le lièvre quand le froid n'est plus garanti : cuire d'abord, sécher ensuite",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Garder le lièvre quand le froid n'est plus garanti : cuire d'abord, sécher ensuite"
+     ],
+     "ligne": 538
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas"
+     ],
+     "ligne": 598
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Rapporter le lièvre entier, non dépouillé, à l'extérieur du corps."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Transporter"
+     ],
+     "ligne": 210
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Le lièvre sans arme",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le lièvre sans arme"
+     ],
+     "ligne": 689
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 8,
+      "libelle": "Le lièvre levé tourne en rond quand on le pousse : l'un pousse, l'autre attend."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Le lièvre"
+     ],
+     "ligne": 196
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-F. Les rongeurs, le lièvre et les oiseaux",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-F. Les rongeurs, le lièvre et les oiseaux"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Lime",
+   "voir_aussi": [
+    "Affûter"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 5,
+      "libelle": "La lime sert sur la glace, pas au retour."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Ouvrir la glace à la main"
+     ],
+     "ligne": 439
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "La pointe large, pour plus gros que le petit gibier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La pointe large, pour plus gros que le petit gibier"
+     ],
+     "ligne": 696
+    }
+   ]
+  },
+  {
+   "terme": "Lire le territoire (brûlis, coupes, lisières)",
+   "voir_aussi": [
+    "Carte du territoire"
+   ],
+   "ancres": [
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "5. Classer le terrain en unités de lecture",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5. Classer le terrain en unités de lecture"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "6. Marcher les lisières, pas les milieux",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "6. Marcher les lisières, pas les milieux"
+     ],
+     "ligne": 244
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Chercher la jeune tremblaie."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — La gélinotte huppée"
+     ],
+     "ligne": 220
+    }
+   ]
+  },
+  {
+   "terme": "Lotte, loche (Lota lota)",
+   "latin": "Lota lota",
+   "voir_aussi": [
+    "Pêche blanche"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Le gras, qui est le vrai manque de cette variante."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-F. Conserver sans électricité"
+     ],
+     "ligne": 575
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 64
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 16
+    }
+   ]
+  },
+  {
+   "terme": "Loup gris (Canis lupus)",
+   "latin": "Canis lupus",
+   "voir_aussi": [
+    "Échinococcose (ver hydatique)"
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Chapitre 55 — Martre, vison, renard, lynx, loup",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-H. Les confusions",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les confusions"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 360
+    }
+   ]
+  },
+  {
+   "terme": "Lynx du Canada (Lynx canadensis)",
+   "latin": "Lynx canadensis",
+   "voir_aussi": [
+    "Fourrure"
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Chapitre 55 — Martre, vison, renard, lynx, loup",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-D. Les canidés et le lynx",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-D. Les canidés et le lynx"
+     ],
+     "ligne": 245
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-H. Les confusions",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les confusions"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "C'est le bon choix",
+     "niveau": 3,
+     "chemin": [
+      "2. Quand l'utiliser",
+      "C'est le bon choix"
+     ],
+     "ligne": 23
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 44
+    }
+   ]
+  },
+  {
+   "terme": "Mal de caribou (viande maigre seule)",
+   "voir_aussi": [
+    "Lièvre d'Amérique (Lepus americanus)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gras dans la ration",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Protéines (plafond)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "Rappels qui s'appliquent au moment où ce territoire donne de la viande",
+     "niveau": 3,
+     "chemin": [
+      "8. Danger",
+      "Rappels qui s'appliquent au moment où ce territoire donne de la viande"
+     ],
+     "ligne": 424
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-F. La ligne de gras, et pourquoi chaque fiche la porte",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-F. La ligne de gras, et pourquoi chaque fiche la porte"
+     ],
+     "ligne": 166
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 312
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "Remplacer ce qui manque",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Remplacer ce qui manque"
+     ],
+     "ligne": 499
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 333
+    }
+   ]
+  },
+  {
+   "terme": "Maquereau bleu (Scomber scombrus)",
+   "latin": "Scomber scombrus",
+   "voir_aussi": [
+    "Hareng atlantique (Clupea harengus)"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Le tri qui décide de tout",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Le tri qui décide de tout"
+     ],
+     "ligne": 174
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "B — Prendre",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B — Prendre"
+     ],
+     "ligne": 138
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 28,
+      "libelle": "Séchage et salage."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — Les voies de conservation, et laquelle prendre"
+     ],
+     "ligne": 216
+    }
+   ]
+  },
+  {
+   "terme": "Marée rouge (toxine des mollusques)",
+   "voir_aussi": [
+    "Mollusques bivalves (moules, myes)"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 35,
+      "libelle": "Filtrer pour vrai."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "H — Sauver le gras au lieu de le perdre"
+     ],
+     "ligne": 619
+    }
+   ]
+  },
+  {
+   "terme": "Marées (batture)",
+   "voir_aussi": [
+    "Éperlan arc-en-ciel (Osmerus mordax)"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 29,
+      "libelle": "La trappe de batture."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "F — Fabriquer et réparer l'engin"
+     ],
+     "ligne": 585
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "A — Avant de descendre au fleuve",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "A — Avant de descendre au fleuve"
+     ],
+     "ligne": 120
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Le piège fixe au ruisseau",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le piège fixe au ruisseau"
+     ],
+     "ligne": 341
+    }
+   ]
+  },
+  {
+   "terme": "Marinades (vinaigre)",
+   "voir_aussi": [
+    "Conserves (mise en pot)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Vinaigre",
+     "tomes": [
+      1,
+      4,
+      5,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Marinades et conserves."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — Les voies de conservation, et laquelle prendre"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 26,
+      "libelle": "Ce sel n'est pas du sel à marinade."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "E — Faire le sel avec le fleuve"
+     ],
+     "ligne": 568
+    }
+   ]
+  },
+  {
+   "terme": "Marmotte (Marmota monax)",
+   "latin": "Marmota monax",
+   "voir_aussi": [
+    "Rat musqué (Ondatra zibethicus)"
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 12,
+      "libelle": "Le gras de marmotte se traite séparément, tout de suite."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "Chapitre 53 — Rat musqué, écureuil roux, marmotte",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    }
+   ]
+  },
+  {
+   "terme": "Martre d'Amérique (Martes americana)",
+   "latin": "Martes americana",
+   "voir_aussi": [
+    "Fourrure",
+    "Pièges (piégeage)"
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Chapitre 55 — Martre, vison, renard, lynx, loup",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Prendre la bête sans engin acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Prendre la bête sans engin acheté"
+     ],
+     "ligne": 354
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-E. Les mustélidés",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-E. Les mustélidés"
+     ],
+     "ligne": 257
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-H. Les confusions",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les confusions"
+     ],
+     "ligne": 309
+    }
+   ]
+  },
+  {
+   "terme": "Masques",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Épidémie",
+     "tomes": [
+      1,
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 317
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 265
+    }
+   ]
+  },
+  {
+   "terme": "Mise à mort (confirmer la mort)",
+   "voir_aussi": [
+    "Phoque"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Abattage (saignée, éviscération)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "5-D. La mise à mort et la confirmation de la mort",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-D. La mise à mort et la confirmation de la mort"
+     ],
+     "ligne": 185
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 320
+    }
+   ]
+  },
+  {
+   "terme": "Mollusques bivalves (moules, myes)",
+   "voir_aussi": [
+    "Marée rouge (toxine des mollusques)"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "I — Mollusques bivalves : la règle est ailleurs",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "I — Mollusques bivalves : la règle est ailleurs"
+     ],
+     "ligne": 260
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 35,
+      "libelle": "Filtrer pour vrai."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "H — Sauver le gras au lieu de le perdre"
+     ],
+     "ligne": 619
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 220
+    }
+   ]
+  },
+  {
+   "terme": "Monoxyde de carbone",
+   "voir_aussi": [
+    "Génératrice",
+    "Avertisseurs (fumée, monoxyde)",
+    "Abri de pêche chauffé",
+    "Poêle à bois"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Pas d'appareil à combustion, pas de monoxyde de carbone."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-D. Sans abri chauffé"
+     ],
+     "ligne": 505
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 29,
+      "libelle": "L'avertisseur de monoxyde de carbone entre avant l'appareil de chauffage."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. L'abri chauffé, si on en a un"
+     ],
+     "ligne": 236
+    }
+   ]
+  },
+  {
+   "terme": "Montaison (poisson)",
+   "voir_aussi": [
+    "Calendrier de prélèvement"
+   ],
+   "ancres": [
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5.3 Les fenêtres, par ressource",
+     "niveau": 3,
+     "chemin": [
+      "5. Le calendrier",
+      "5.3 Les fenêtres, par ressource"
+     ],
+     "ligne": 134
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5.2 Le calendrier, mois par mois",
+     "niveau": 3,
+     "chemin": [
+      "5. Le calendrier",
+      "5.2 Le calendrier, mois par mois"
+     ],
+     "ligne": 117
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 45
+    }
+   ]
+  },
+  {
+   "terme": "Morsure",
+   "voir_aussi": [
+    "Rage"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Plaie (nettoyer, fermer, infection)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Ce qui ne se remplace vraiment pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace vraiment pas"
+     ],
+     "ligne": 545
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 330
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 305
+    }
+   ]
+  },
+  {
+   "terme": "Morue franche (Gadus morhua)",
+   "latin": "Gadus morhua",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Poisson salé-séché",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "B — Prendre",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "B — Prendre"
+     ],
+     "ligne": 138
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Le tri qui décide de tout",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Le tri qui décide de tout"
+     ],
+     "ligne": 174
+    }
+   ]
+  },
+  {
+   "terme": "Motoneige",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Véhicule immobilisé dans la neige",
+     "tomes": [
+      1
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 35,
+      "libelle": "Après une chute, un choc sur la lunette ou un trajet à la motoneige"
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — Régler l'arme sans armurier"
+     ],
+     "ligne": 351
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "9. Sonder la glace",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "9. Sonder la glace"
+     ],
+     "ligne": 277
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Percer un premier trou avant de s'installer, et mesurer."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. Lire la glace, du bord jusqu'au trou"
+     ],
+     "ligne": 161
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 410
+    }
+   ]
+  },
+  {
+   "terme": "Munitions (cartouches)",
+   "voir_aussi": [
+    "Armes à feu (sécurité, rangement)",
+    "Calibre (choisir selon la bête)"
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Séparer ce qui se tire de ce qui se garde."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Compter avant l'automne"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Les plus vieilles d'abord, et jamais la même cartouche tous les jours."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Garder les cartouches vivantes"
+     ],
+     "ligne": 253
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 454
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Quand il reste quelques cartouches",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Quand il reste quelques cartouches"
+     ],
+     "ligne": 745
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "L'écureuil, le rat musqué, la sauvagine sans cartouches",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'écureuil, le rat musqué, la sauvagine sans cartouches"
+     ],
+     "ligne": 732
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Quand il n'y a plus de cartouches",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Quand il n'y a plus de cartouches"
+     ],
+     "ligne": 580
+    }
+   ]
+  },
+  {
+   "terme": "Nasse",
+   "voir_aussi": [
+    "Verveux",
+    "Filet maillant"
+   ],
+   "ancres": [
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Phase B — Nasse, verveux et filet",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase B — Nasse, verveux et filet"
+     ],
+     "ligne": 147
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "La nasse, quand il n'y a plus de grillage",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La nasse, quand il n'y a plus de grillage"
+     ],
+     "ligne": 385
+    }
+   ]
+  },
+  {
+   "terme": "Nitrite de sodium (sel nitrité)",
+   "voir_aussi": [
+    "Salpêtre (nitrate de potassium)",
+    "Salaison à sec"
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Ce qui se garde, et ce qui se mange tout de suite",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui se garde, et ce qui se mange tout de suite"
+     ],
+     "ligne": 591
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 30,
+      "libelle": "Salpêtre (nitrate de potassium) :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver la viande"
+     ],
+     "ligne": 251
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Le sel qu'on fait soi-même",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le sel qu'on fait soi-même"
+     ],
+     "ligne": 499
+    }
+   ]
+  },
+  {
+   "terme": "Omble chevalier (Salvelinus alpinus)",
+   "latin": "Salvelinus alpinus",
+   "voir_aussi": [
+    "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)"
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "5-A. Les quatre salmonidés, et ce qui les sépare",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. Les quatre salmonidés, et ce qui les sépare"
+     ],
+     "ligne": 111
+    }
+   ]
+  },
+  {
+   "terme": "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)",
+   "latin": "Salvelinus fontinalis",
+   "voir_aussi": [
+    "Touladi, truite grise (Salvelinus namaycush)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Traiter le poisson à la sortie de l'eau",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "5-A. Les quatre salmonidés, et ce qui les sépare",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. Les quatre salmonidés, et ce qui les sépare"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 51
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5.3 Les fenêtres, par ressource",
+     "niveau": 3,
+     "chemin": [
+      "5. Le calendrier",
+      "5.3 Les fenêtres, par ressource"
+     ],
+     "ligne": 134
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-I. Les espèces couvertes, et leur nom latin",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-I. Les espèces couvertes, et leur nom latin"
+     ],
+     "ligne": 223
+    }
+   ]
+  },
+  {
+   "terme": "Orignal (Alces americanus)",
+   "latin": "Alces americanus",
+   "voir_aussi": [
+    "Retracer une bête blessée"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Carte de la carcasse (découpe)",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Cadmium",
+     "tomes": [
+      2,
+      4,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "L'orignal d'hiver, à la raquette",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'orignal d'hiver, à la raquette"
+     ],
+     "ligne": 711
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 475
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "5. Classer le terrain en unités de lecture",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5. Classer le terrain en unités de lecture"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Séparer ce qui se tire de ce qui se garde."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Compter avant l'automne"
+     ],
+     "ligne": 215
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "L'arc tiré d'une bille fendue",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'arc tiré d'une bille fendue"
+     ],
+     "ligne": 540
+    }
+   ]
+  },
+  {
+   "terme": "Ours noir (Ursus americanus)",
+   "latin": "Ursus americanus",
+   "voir_aussi": [
+    "Trichinellose",
+    "Graisse (fondre le gras)",
+    "Cretons"
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 312
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 62
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "Refroidir — le point où l'ours diffère d'un cervidé",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Refroidir — le point où l'ours diffère d'un cervidé"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 475
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-C. L'ours noir",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. L'ours noir"
+     ],
+     "ligne": 239
+    }
+   ]
+  },
+  {
+   "terme": "Outarde (Branta canadensis)",
+   "latin": "Branta canadensis",
+   "voir_aussi": [
+    "Canards",
+    "Sauvagine (oiseaux d'eau)"
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Chapitre 54 — Outarde, canards, oiseaux d'eau",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "G — Canards et outarde",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "G — Canards et outarde"
+     ],
+     "ligne": 350
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Les oiseaux dont parle ce chapitre",
+     "niveau": 3,
+     "chemin": [
+      "2. Quand l'utiliser",
+      "Les oiseaux dont parle ce chapitre"
+     ],
+     "ligne": 23
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 116
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-F. Les rongeurs, le lièvre et les oiseaux",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-F. Les rongeurs, le lièvre et les oiseaux"
+     ],
+     "ligne": 274
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 20
+    }
+   ]
+  },
+  {
+   "terme": "Passer à travers la glace",
+   "voir_aussi": [
+    "Pics à glace",
+    "Hypothermie",
+    "Épaisseur de la glace (sonder)"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9-E. Si quelqu'un passe à travers, et qu'il n'y a ni corde ni pics",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-E. Si quelqu'un passe à travers, et qu'il n'y a ni corde ni pics"
+     ],
+     "ligne": 529
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Pêche à la ligne",
+   "voir_aussi": [
+    "Hameçon et leurre",
+    "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)"
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 286
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-E. Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-E. Ce qui ne se remplace pas"
+     ],
+     "ligne": 508
+    }
+   ]
+  },
+  {
+   "terme": "Pêche blanche",
+   "voir_aussi": [
+    "Épaisseur de la glace (sonder)",
+    "Tarière",
+    "Abri de pêche chauffé"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "Chapitre 58 — Pêche blanche",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 38,
+      "libelle": "À la cuisine : 70 °C à cœur, mesurés"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-G. Le retour, et la suite"
+     ],
+     "ligne": 266
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    }
+   ]
+  },
+  {
+   "terme": "Pemmican",
+   "voir_aussi": [
+    "Graisse (fondre le gras)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Séchage de la viande (viande séchée)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Pemmican (ch. 72) :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver la viande"
+     ],
+     "ligne": 257
+    }
+   ]
+  },
+  {
+   "terme": "Perchaude (Perca flavescens)",
+   "latin": "Perca flavescens",
+   "voir_aussi": [
+    "Pêche blanche"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 329
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 31,
+      "libelle": "Le gras, qui est le vrai manque de cette variante."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-F. Conserver sans électricité"
+     ],
+     "ligne": 575
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 64
+    }
+   ]
+  },
+  {
+   "terme": "Perdrix",
+   "voir": [
+    "Gélinotte huppée (Bonasa umbellus)",
+    "Tétras du Canada (Canachites canadensis)"
+   ]
+  },
+  {
+   "terme": "Petit gibier (chasser)",
+   "voir_aussi": [
+    "Lièvre d'Amérique (Lepus americanus)",
+    "Gélinotte huppée (Bonasa umbellus)",
+    "Tétras du Canada (Canachites canadensis)"
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Chapitre 47 — Chasser le petit gibier",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 499
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "J — Le petit gibier touché",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "J — Le petit gibier touché"
+     ],
+     "ligne": 431
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "La pointe large, pour plus gros que le petit gibier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La pointe large, pour plus gros que le petit gibier"
+     ],
+     "ligne": 696
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 20
+    }
+   ]
+  },
+  {
+   "terme": "Phoque",
+   "voir_aussi": [
+    "Trichinellose",
+    "Lard de phoque (huile)",
+    "Mise à mort (confirmer la mort)"
+   ],
+   "ancres": [
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "5-A. La fiche d'espèce (ch. 46)",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. La fiche d'espèce (ch. 46)"
+     ],
+     "ligne": 128
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 16
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Séparer ce qui se tire de ce qui se garde."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Compter avant l'automne"
+     ],
+     "ligne": 215
+    }
+   ]
+  },
+  {
+   "terme": "Pics à glace",
+   "voir_aussi": [
+    "Passer à travers la glace"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9-E. Si quelqu'un passe à travers, et qu'il n'y a ni corde ni pics",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-E. Si quelqu'un passe à travers, et qu'il n'y a ni corde ni pics"
+     ],
+     "ligne": 529
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 274
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Charger le traîneau dans l'ordre inverse de l'usage :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Avant de partir du chalet"
+     ],
+     "ligne": 148
+    }
+   ]
+  },
+  {
+   "terme": "Piège fixe (fascine)",
+   "voir_aussi": [
+    "Nasse"
+   ],
+   "ancres": [
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Le piège fixe au ruisseau",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le piège fixe au ruisseau"
+     ],
+     "ligne": 341
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Ce qui ne se remplace pas, et il faut le savoir d'avance",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui ne se remplace pas, et il faut le savoir d'avance"
+     ],
+     "ligne": 473
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Nouer une nappe quand il n'y a pas de filet",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Nouer une nappe quand il n'y a pas de filet"
+     ],
+     "ligne": 399
+    }
+   ]
+  },
+  {
+   "terme": "Pièges (piégeage)",
+   "voir_aussi": [
+    "Collet",
+    "Appât"
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Se gréer avant de sortir la bête du piège ou du sac."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 157
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 2,
+      "libelle": "Ne jamais faire une ligne de trappe seul."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 143
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Le piège fixe au ruisseau",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le piège fixe au ruisseau"
+     ],
+     "ligne": 341
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Prendre la bête sans engin acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Prendre la bête sans engin acheté"
+     ],
+     "ligne": 354
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 29,
+      "libelle": "La trappe de batture."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "F — Fabriquer et réparer l'engin"
+     ],
+     "ligne": 585
+    }
+   ]
+  },
+  {
+   "terme": "Piquants de porc-épic",
+   "voir_aussi": [
+    "Porc-épic (Erethizon dorsatum)",
+    "Tétanos"
+   ],
+   "ancres": [
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Le délai remplace l'appel, et c'est la seule chose qu'on tient encore."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 472
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Verser les piquants dans le contenant rigide et fermer le couvercle immédiatement."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 189
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Poser la peau à plat, piquants vers le haut, sur la toile"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 200
+    }
+   ]
+  },
+  {
+   "terme": "Plomb (eau, soudure, grenaille)",
+   "voir_aussi": [
+    "Grenaille"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Étain (soudure à l'étain)",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 499
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Le plomb"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. La ligne, l'hameçon, la brimbale"
+     ],
+     "ligne": 490
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 288
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 357
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 74
+    }
+   ]
+  },
+  {
+   "terme": "Plumer (échauder)",
+   "voir_aussi": [
+    "Jabot"
+   ],
+   "ancres": [
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 9,
+      "libelle": "Plumer à sec, ou échauder."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 176
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Plumer ou dépouiller, et savoir ce qu'on perd."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 183
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Plumer, ou renoncer à plumer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Plumer, ou renoncer à plumer"
+     ],
+     "ligne": 476
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "5. Procédure",
+     "niveau": 2,
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 188
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 360
+    }
+   ]
+  },
+  {
+   "terme": "Poêle à bois",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Bois de chauffage",
+     "tomes": [
+      1,
+      5
+     ]
+    },
+    {
+     "terme": "Créosote",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 15,
+      "libelle": "Sécher à l'air frais, sec, en mouvement, loin du poêle."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 224
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "9-C. Fondre le lard sans marmite de fonte et sans thermostat",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-C. Fondre le lard sans marmite de fonte et sans thermostat"
+     ],
+     "ligne": 469
+    }
+   ]
+  },
+  {
+   "terme": "Poix",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Gomme de sapin et d'épinette (résine)",
+     "tomes": [
+      2,
+      4,
+      5,
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "La flèche mousse",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La flèche mousse"
+     ],
+     "ligne": 663
+    },
+    {
+     "ch": "45",
+     "fichier": "45-les-armes-les-munitions-et-l-arc.md",
+     "titre": "La pointe large, pour plus gros que le petit gibier",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "La pointe large, pour plus gros que le petit gibier"
+     ],
+     "ligne": 696
+    }
+   ]
+  },
+  {
+   "terme": "Porc-épic (Erethizon dorsatum)",
+   "latin": "Erethizon dorsatum",
+   "voir_aussi": [
+    "Piquants de porc-épic"
+   ],
+   "ancres": [
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 282
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "titre": "Chapitre 51 — Porc-épic",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 18
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 57
+    }
+   ]
+  },
+  {
+   "terme": "Poulamon atlantique (Microgadus tomcod)",
+   "latin": "Microgadus tomcod",
+   "voir_aussi": [
+    "Éperlan arc-en-ciel (Osmerus mordax)"
+   ],
+   "ancres": [
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Le tri qui décide de tout",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Le tri qui décide de tout"
+     ],
+     "ligne": 174
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "A — Ce qui se décide avant de descendre",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "A — Ce qui se décide avant de descendre"
+     ],
+     "ligne": 443
+    }
+   ]
+  },
+  {
+   "terme": "Propane",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Détendeur et raccords",
+     "tomes": [
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Fuite de gaz (eau savonneuse)",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Réfrigérateur à absorption",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 32,
+      "libelle": "Une chaufferette au propane est un appareil à risque"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-F. L'abri chauffé, si on en a un"
+     ],
+     "ligne": 245
+    }
+   ]
+  },
+  {
+   "terme": "Quatre horloges",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Rester ou partir",
+     "tomes": [
+      1
+     ]
+    },
+    {
+     "terme": "Préavis",
+     "tomes": [
+      1
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5.1 Les quatre horloges qui fixent une fenêtre",
+     "niveau": 3,
+     "chemin": [
+      "5. Le calendrier",
+      "5.1 Les quatre horloges qui fixent une fenêtre"
+     ],
+     "ligne": 101
+    }
+   ]
+  },
+  {
+   "terme": "Rage",
+   "voir_aussi": [
+    "Morsure",
+    "Castor (Castor canadensis)",
+    "Renard roux (Vulpes vulpes)"
+   ],
+   "ancres": [
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 282
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 330
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Relever la ligne avec des gants dans la poche et un plan pour une bête vivante."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5.2 De la ligne à la peau séchée"
+     ],
+     "ligne": 152
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 387
+    }
+   ]
+  },
+  {
+   "terme": "Rat musqué (Ondatra zibethicus)",
+   "latin": "Ondatra zibethicus",
+   "voir_aussi": [
+    "Tularémie"
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 57
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "Chapitre 53 — Rat musqué, écureuil roux, marmotte",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "L'écureuil, le rat musqué, la sauvagine sans cartouches",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'écureuil, le rat musqué, la sauvagine sans cartouches"
+     ],
+     "ligne": 732
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "2. Quand l'utiliser",
+     "niveau": 2,
+     "chemin": [
+      "2. Quand l'utiliser"
+     ],
+     "ligne": 17
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "H — Le rat musqué",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "H — Le rat musqué"
+     ],
+     "ligne": 396
+    }
+   ]
+  },
+  {
+   "terme": "Renard roux (Vulpes vulpes)",
+   "latin": "Vulpes vulpes",
+   "voir_aussi": [
+    "Fourrure",
+    "Rage"
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 287
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Chapitre 55 — Martre, vison, renard, lynx, loup",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-H. Les confusions",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les confusions"
+     ],
+     "ligne": 309
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 360
+    }
+   ]
+  },
+  {
+   "terme": "Rendement en viande",
+   "voir_aussi": [
+    "Fiche d'espèce (lire)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Carte de la carcasse (découpe)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-E. La ligne de rendement, et pourquoi elle porte trois masses",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-E. La ligne de rendement, et pourquoi elle porte trois masses"
+     ],
+     "ligne": 148
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 42
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-B. Les champs",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Les champs"
+     ],
+     "ligne": 100
+    }
+   ]
+  },
+  {
+   "terme": "Retracer une bête blessée",
+   "voir_aussi": [
+    "Sang (lire la blessure)",
+    "Chien de sang"
+   ],
+   "ancres": [
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "Retracer sans neige et sans sang",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Retracer sans neige et sans sang"
+     ],
+     "ligne": 569
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "Retracer sans lampe",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Retracer sans lampe"
+     ],
+     "ligne": 590
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "Retracer sans chien",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Retracer sans chien"
+     ],
+     "ligne": 615
+    }
+   ]
+  },
+  {
+   "terme": "Rut",
+   "voir_aussi": [
+    "Orignal (Alces americanus)",
+    "Calendrier de prélèvement"
+   ],
+   "ancres": [
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "5.3 Les fenêtres, par ressource",
+     "niveau": 3,
+     "chemin": [
+      "5. Le calendrier",
+      "5.3 Les fenêtres, par ressource"
+     ],
+     "ligne": 134
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Deviner où elle va."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Pister une bête vivante"
+     ],
+     "ligne": 184
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 45
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-G. Les signes sur les arbres",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-G. Les signes sur les arbres"
+     ],
+     "ligne": 289
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 360
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 475
+    }
+   ]
+  },
+  {
+   "terme": "Saignée",
+   "voir_aussi": [
+    "Éviscération"
+   ],
+   "ancres": [
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 10,
+      "libelle": "Saignée."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. La mise à mort et la confirmation de la mort"
+     ],
+     "ligne": 199
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 11,
+      "libelle": "Écrire l'heure de la saignée au crayon gras sur la chaudière des pièces."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-D. La mise à mort et la confirmation de la mort"
+     ],
+     "ligne": 204
+    }
+   ]
+  },
+  {
+   "terme": "Salaison à sec",
+   "voir_aussi": [
+    "Sel",
+    "Nitrite de sodium (sel nitrité)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Chambre de séchage",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "etape": {
+      "n": 30,
+      "libelle": "Saler à sec pour la conservation temporaire"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-H. La peau, les tendons, les os"
+     ],
+     "ligne": 264
+    }
+   ]
+  },
+  {
+   "terme": "Salpêtre (nitrate de potassium)",
+   "voir_aussi": [
+    "Nitrite de sodium (sel nitrité)"
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Le salpêtre (nitrate de potassium), pour couper court à l'idée",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le salpêtre (nitrate de potassium), pour couper court à l'idée"
+     ],
+     "ligne": 537
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 30,
+      "libelle": "Salpêtre (nitrate de potassium) :"
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver la viande"
+     ],
+     "ligne": 251
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 288
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Ce qui se garde, et ce qui se mange tout de suite",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui se garde, et ce qui se mange tout de suite"
+     ],
+     "ligne": 591
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-G. Ce qu'une fiche ne dit jamais",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-G. Ce qu'une fiche ne dit jamais"
+     ],
+     "ligne": 179
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "5-C. Ce que le livre n'imprime pas",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. Ce que le livre n'imprime pas"
+     ],
+     "ligne": 194
+    }
+   ]
+  },
+  {
+   "terme": "Sang (lire la blessure)",
+   "voir_aussi": [
+    "Retracer une bête blessée"
+   ],
+   "ancres": [
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 20,
+      "libelle": "Aller au point d'impact par le côté."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — Lire le point d'impact et le sang"
+     ],
+     "ligne": 277
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Lire le sang."
+     },
+     "chemin": [
+      "5. Procédure",
+      "D — Lire le point d'impact et le sang"
+     ],
+     "ligne": 282
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 18,
+      "libelle": "Lire la réaction et choisir l'attente."
+     },
+     "chemin": [
+      "5. Procédure",
+      "C — Attendre"
+     ],
+     "ligne": 239
+    }
+   ]
+  },
+  {
+   "terme": "Sapin baumier (Abies balsamea)",
+   "latin": "Abies balsamea",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Thuyone",
+     "tomes": [
+      2
+     ]
+    },
+    {
+     "terme": "Sapinage",
+     "tomes": [
+      1
+     ]
+    },
+    {
+     "terme": "Arbre de vie (infusion d'aiguilles)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "titre": "5. Classer le terrain en unités de lecture",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5. Classer le terrain en unités de lecture"
+     ],
+     "ligne": 218
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "5-H. Les trois variantes de la fiche-type",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-H. Les trois variantes de la fiche-type"
+     ],
+     "ligne": 188
+    }
+   ]
+  },
+  {
+   "terme": "Saule (Salix spp.)",
+   "latin": "Salix spp.",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Plantes médicinales (identifier)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Savoir s'il est descendu cette année, puis le chercher dans les saules."
+     },
+     "chemin": [
+      "5. Procédure",
+      "E — Le lagopède des saules"
+     ],
+     "ligne": 289
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Le lagopède, l'hiver où il descend",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le lagopède, l'hiver où il descend"
+     ],
+     "ligne": 661
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-F. Les rongeurs, le lièvre et les oiseaux",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-F. Les rongeurs, le lièvre et les oiseaux"
+     ],
+     "ligne": 274
+    }
+   ]
+  },
+  {
+   "terme": "Saumon atlantique (Salmo salar)",
+   "latin": "Salmo salar",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Poisson fumé",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-A. Prendre le poisson avec ce qui traîne",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-A. Prendre le poisson avec ce qui traîne"
+     ],
+     "ligne": 294
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 51
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Le tri qui décide de tout",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Le tri qui décide de tout"
+     ],
+     "ligne": 174
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 344
+    }
+   ]
+  },
+  {
+   "terme": "Saumure",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Juger une saumure (œuf, pomme de terre)",
+     "tomes": [
+      4
+     ]
+    },
+    {
+     "terme": "Dessaler",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "etape": {
+      "n": 29,
+      "libelle": "Salaison et saumure (ch. 68, 69) sur viande d'ours cuite seulement."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Conserver la viande"
+     ],
+     "ligne": 248
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "etape": {
+      "n": 29,
+      "libelle": "Saumure."
+     },
+     "chemin": [
+      "5. Procédure",
+      "F — Les voies de conservation, et laquelle prendre"
+     ],
+     "ligne": 220
+    }
+   ]
+  },
+  {
+   "terme": "Sauvagine (oiseaux d'eau)",
+   "voir_aussi": [
+    "Canards",
+    "Outarde (Branta canadensis)"
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "L'écureuil, le rat musqué, la sauvagine sans cartouches",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "L'écureuil, le rat musqué, la sauvagine sans cartouches"
+     ],
+     "ligne": 732
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Chapitre 54 — Outarde, canards, oiseaux d'eau",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 32,
+      "libelle": "Poser les appelants pour qu'on les voie d'en haut."
+     },
+     "chemin": [
+      "5. Procédure",
+      "G — Canards et outarde"
+     ],
+     "ligne": 366
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Quand il n'y a plus de cartouches",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Quand il n'y a plus de cartouches"
+     ],
+     "ligne": 580
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 357
+    }
+   ]
+  },
+  {
+   "terme": "Savon",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Lessive de cendre",
+     "tomes": [
+      6
+     ]
+    },
+    {
+     "terme": "Suif",
+     "tomes": [
+      1,
+      2,
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "terme": "Soude caustique",
+     "tomes": [
+      6
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Sans savon"
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 468
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 24,
+      "libelle": "Laver les mains et les avant-bras à l'eau chaude et au savon"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 230
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Nettoyer dans le bon ordre, et retirer les gants en dernier."
+     },
+     "chemin": [
+      "5. Procédure",
+      "Préparer"
+     ],
+     "ligne": 260
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 387
+    }
+   ]
+  },
+  {
+   "terme": "Séchoir et claie",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Séchage de la viande (viande séchée)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Si la viande part au sel, au séchoir ou au fumoir."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 250
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "D — Sécher : le séchoir qu'on bâtit et la course contre la croûte",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "D — Sécher : le séchoir qu'on bâtit et la course contre la croûte"
+     ],
+     "ligne": 514
+    }
+   ]
+  },
+  {
+   "terme": "Sel",
+   "voir_aussi": [
+    "Faire du sel (eau de mer)",
+    "Nitrite de sodium (sel nitrité)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Pourcentage de sel (calcul)",
+     "tomes": [
+      4
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Le sel qu'on fait soi-même",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le sel qu'on fait soi-même"
+     ],
+     "ligne": 499
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-D. Garder sans sel acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-D. Garder sans sel acheté"
+     ],
+     "ligne": 476
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 16,
+      "libelle": "Si la viande part au sel, au séchoir ou au fumoir."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 250
+    },
+    {
+     "ch": "59",
+     "fichier": "59-eperlan-et-poisson-du-fleuve.md",
+     "titre": "E — Faire le sel avec le fleuve",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "E — Faire le sel avec le fleuve"
+     ],
+     "ligne": 548
+    },
+    {
+     "ch": "41",
+     "fichier": "41-calendrier-annuel-de.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 301
+    },
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Ce qui se garde, et ce qui se mange tout de suite",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Ce qui se garde, et ce qui se mange tout de suite"
+     ],
+     "ligne": 591
+    }
+   ]
+  },
+  {
+   "terme": "Sève (bouleau, érable)",
+   "voir_aussi": [],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Sirop d'érable",
+     "tomes": [
+      5
+     ]
+    },
+    {
+     "terme": "Entailler",
+     "tomes": [
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-G. Les signes sur les arbres",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-G. Les signes sur les arbres"
+     ],
+     "ligne": 289
+    }
+   ]
+  },
+  {
+   "terme": "Signes sur les arbres",
+   "voir_aussi": [
+    "Traces et empreintes"
+   ],
+   "ancres": [
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-G. Les signes sur les arbres",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-G. Les signes sur les arbres"
+     ],
+     "ligne": 289
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-B. Les cervidés",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-B. Les cervidés"
+     ],
+     "ligne": 229
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "5-C. L'ours noir",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-C. L'ours noir"
+     ],
+     "ligne": 239
+    }
+   ]
+  },
+  {
+   "terme": "Tarière",
+   "voir_aussi": [
+    "Pêche blanche",
+    "Glace de lac (récolter, glacière)"
+   ],
+   "ancres": [
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9-B. Réparer la tarière au lieu d'en chercher une",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-B. Réparer la tarière au lieu d'en chercher une"
+     ],
+     "ligne": 452
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9-G. Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-G. Ce qui ne se remplace pas"
+     ],
+     "ligne": 583
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 410
+    }
+   ]
+  },
+  {
+   "terme": "Tétanos",
+   "voir_aussi": [
+    "Piquants de porc-épic"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Plaie (nettoyer, fermer, infection)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 282
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 17,
+      "libelle": "Le délai remplace l'appel, et c'est la seule chose qu'on tient encore."
+     },
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 472
+    }
+   ]
+  },
+  {
+   "terme": "Tétras du Canada (Canachites canadensis)",
+   "latin": "Canachites canadensis",
+   "voir_aussi": [
+    "Gélinotte huppée (Bonasa umbellus)"
+   ],
+   "ancres": [
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "Le tétras : la perche, le bâton, et le plus bas d'abord",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le tétras : la perche, le bâton, et le plus bas d'abord"
+     ],
+     "ligne": 644
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "Chapitre 49 — Gélinotte huppée et tétras du Canada",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "titre": "D — Le tétras du Canada",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "D — Le tétras du Canada"
+     ],
+     "ligne": 262
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 288
+    },
+    {
+     "ch": "49",
+     "fichier": "49-gelinotte-huppee-et-tetras-du.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 52
+    }
+   ]
+  },
+  {
+   "terme": "Thermomètre à viande (sonde)",
+   "voir_aussi": [
+    "Cuisson à 74 °C à cœur"
+   ],
+   "ancres": [
+    {
+     "ch": "54",
+     "fichier": "54-outarde-canards-oiseaux-d-eau.md",
+     "titre": "Cuire sans sonde",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Cuire sans sonde"
+     ],
+     "ligne": 534
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "Retrouver la mesure quand le thermomètre manque",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Retrouver la mesure quand le thermomètre manque"
+     ],
+     "ligne": 377
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "Vérifier le thermomètre, et le réparer au lieu de le remplacer",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Vérifier le thermomètre, et le réparer au lieu de le remplacer"
+     ],
+     "ligne": 367
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Refroidir entre 0 et 4 °C, et vérifier à la sonde."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 211
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "etape": {
+      "n": 19,
+      "libelle": "Cuire à 74 °C à cœur, à la sonde, chaque fois."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 252
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "etape": {
+      "n": 21,
+      "libelle": "Cuire à 74 °C à cœur, mesuré à la sonde"
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 213
+    }
+   ]
+  },
+  {
+   "terme": "Tiques",
+   "voir_aussi": [
+    "Porc-épic (Erethizon dorsatum)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Piqûres (insectes)",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Retirer les tiques visibles, sans les écraser."
+     },
+     "chemin": [
+      "5. Procédure"
+     ],
+     "ligne": 169
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 282
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 265
+    },
+    {
+     "ch": "51",
+     "fichier": "51-porc-epic.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 261
+    }
+   ]
+  },
+  {
+   "terme": "Touladi, truite grise (Salvelinus namaycush)",
+   "latin": "Salvelinus namaycush",
+   "voir_aussi": [
+    "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)"
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "5-A. Les quatre salmonidés, et ce qui les sépare",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-A. Les quatre salmonidés, et ce qui les sépare"
+     ],
+     "ligne": 111
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "9-E. Ce qui ne se remplace pas",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "9-E. Ce qui ne se remplace pas"
+     ],
+     "ligne": 508
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 51
+    }
+   ]
+  },
+  {
+   "terme": "Traces et empreintes",
+   "voir_aussi": [
+    "Crottes (fèces)",
+    "Signes sur les arbres"
+   ],
+   "ancres": [
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "etape": {
+      "n": 4,
+      "libelle": "la largeur de la piste"
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Le bâton de pistage"
+     ],
+     "ligne": 478
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "titre": "Approcher la bête au bout de la piste",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Approcher la bête au bout de la piste"
+     ],
+     "ligne": 663
+    },
+    {
+     "ch": "43",
+     "fichier": "43-les-traces-et-les-signes.md",
+     "etape": {
+      "n": 4,
+      "libelle": "Chercher la meilleure empreinte, pas la première."
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-A. Lire une trace, dans l'ordre"
+     ],
+     "ligne": 168
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 7,
+      "libelle": "Quand la piste se met à tourner, la quitter."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Pister une bête vivante"
+     ],
+     "ligne": 165
+    },
+    {
+     "ch": "44",
+     "fichier": "44-pister-et-retracer.md",
+     "etape": {
+      "n": 1,
+      "libelle": "Reconnaître la piste d'orignal : chapitre 43 (5-B)."
+     },
+     "chemin": [
+      "5. Procédure",
+      "A — Pister une bête vivante"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "47",
+     "fichier": "47-chasser-le-petit-gibier.md",
+     "etape": {
+      "n": 6,
+      "libelle": "Le matin d'après une neige, suivre la piste de la nuit."
+     },
+     "chemin": [
+      "5. Procédure",
+      "B — Le lièvre"
+     ],
+     "ligne": 182
+    }
+   ]
+  },
+  {
+   "terme": "Trichinellose",
+   "voir_aussi": [
+    "Ours noir (Ursus americanus)",
+    "Phoque",
+    "Cuisson à 74 °C à cœur"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Morse",
+     "tomes": [
+      2
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 62
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 337
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 281
+    },
+    {
+     "ch": "56",
+     "fichier": "56-phoque-du-saint-laurent.md",
+     "titre": "5-J. Où va la viande",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5-J. Où va la viande"
+     ],
+     "ligne": 291
+    },
+    {
+     "ch": "52",
+     "fichier": "52-ours-noir.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 312
+    },
+    {
+     "ch": "46",
+     "fichier": "46-comment-lire-une-fiche-d.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 271
+    }
+   ]
+  },
+  {
+   "terme": "Trouver le sud sans boussole",
+   "voir_aussi": [
+    "Boussole et déclinaison"
+   ],
+   "ancres": [
+    {
+     "ch": "42",
+     "fichier": "42-lire-le-territoire-autour-du.md",
+     "etape": {
+      "n": 5,
+      "libelle": "Trouver le nord par trois moyens qui ne tombent jamais en panne ensemble."
+     },
+     "chemin": [
+      "9. Variante d'urgence",
+      "Se faire une carte quand il n'y a pas de carte"
+     ],
+     "ligne": 484
+    }
+   ]
+  },
+  {
+   "terme": "Truite grise",
+   "voir": [
+    "Touladi, truite grise (Salvelinus namaycush)"
+   ]
+  },
+  {
+   "terme": "Truite mouchetée",
+   "voir": [
+    "Omble de fontaine, truite mouchetée (Salvelinus fontinalis)"
+   ]
+  },
+  {
+   "terme": "Tularémie",
+   "voir_aussi": [
+    "Lièvre d'Amérique (Lepus americanus)",
+    "Rat musqué (Ondatra zibethicus)",
+    "Castor (Castor canadensis)"
+   ],
+   "ancres": [
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 44
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 333
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "9. Variante d'urgence",
+     "niveau": 2,
+     "chemin": [
+      "9. Variante d'urgence"
+     ],
+     "ligne": 373
+    },
+    {
+     "ch": "48",
+     "fichier": "48-lievre-d-amerique.md",
+     "titre": "8. DANGER",
+     "niveau": 2,
+     "chemin": [
+      "8. DANGER"
+     ],
+     "ligne": 350
+    },
+    {
+     "ch": "50",
+     "fichier": "50-castor.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 305
+    },
+    {
+     "ch": "53",
+     "fichier": "53-rat-musque-ecureuil-roux.md",
+     "titre": "7. Signes d'échec",
+     "niveau": 2,
+     "chemin": [
+      "7. Signes d'échec"
+     ],
+     "ligne": 295
+    }
+   ]
+  },
+  {
+   "terme": "Verveux",
+   "voir_aussi": [
+    "Nasse"
+   ],
+   "ancres": [
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Phase B — Nasse, verveux et filet",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "Phase B — Nasse, verveux et filet"
+     ],
+     "ligne": 147
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "Chapitre 60 — Nasses, filets, verveux",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "60",
+     "fichier": "60-nasses-filets-verveux.md",
+     "titre": "3. Pourquoi ça marche",
+     "niveau": 2,
+     "chemin": [
+      "3. Pourquoi ça marche"
+     ],
+     "ligne": 46
+    }
+   ]
+  },
+  {
+   "terme": "Vêtement de flottaison (VFI)",
+   "voir_aussi": [
+    "Canot (réparer)"
+   ],
+   "voir_aussi_ailleurs": [
+    {
+     "terme": "Noyade",
+     "tomes": [
+      2,
+      5
+     ]
+    }
+   ],
+   "ancres": [
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "etape": {
+      "n": 3,
+      "libelle": "Enfiler les VFI à terre"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-B. La sortie, du chalet au chalet"
+     ],
+     "ligne": 151
+    },
+    {
+     "ch": "57",
+     "fichier": "57-truite-et-omble-au-lac.md",
+     "titre": "8. Danger",
+     "niveau": 2,
+     "chemin": [
+      "8. Danger"
+     ],
+     "ligne": 236
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "6. Points de contrôle",
+     "niveau": 2,
+     "chemin": [
+      "6. Points de contrôle"
+     ],
+     "ligne": 274
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "titre": "4. Matériel",
+     "niveau": 2,
+     "chemin": [
+      "4. Matériel"
+     ],
+     "ligne": 106
+    },
+    {
+     "ch": "58",
+     "fichier": "58-peche-blanche.md",
+     "etape": {
+      "n": 14,
+      "libelle": "Installer les enfants d'un seul côté"
+     },
+     "chemin": [
+      "5. Procédure",
+      "5-C. Ouvrir et installer le poste"
+     ],
+     "ligne": 184
+    }
+   ]
+  },
+  {
+   "terme": "Vison d'Amérique (Neogale vison)",
+   "latin": "Neogale vison",
+   "voir_aussi": [
+    "Fourrure"
+   ],
+   "ancres": [
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Chapitre 55 — Martre, vison, renard, lynx, loup",
+     "niveau": 1,
+     "chemin": [],
+     "ligne": 1
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "5.1 Les cinq espèces, en un coup d'œil",
+     "niveau": 3,
+     "chemin": [
+      "5. Procédure",
+      "5.1 Les cinq espèces, en un coup d'œil"
+     ],
+     "ligne": 123
+    },
+    {
+     "ch": "55",
+     "fichier": "55-martre-vison-renard-lynx-loup.md",
+     "titre": "Prendre la bête sans engin acheté",
+     "niveau": 3,
+     "chemin": [
+      "9. Variante d'urgence",
+      "Prendre la bête sans engin acheté"
+     ],
+     "ligne": 354
+    }
+   ]
+  }
+ ]
+}
