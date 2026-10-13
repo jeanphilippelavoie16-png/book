@@ -198,7 +198,10 @@ def shoo():
 #   "garder": [[[x, y], …]]   l'encre de ces polygones part avec la partie ET reste en place : le trait
 #                             commun à deux morceaux qu'on écarte (le dessous de l'index, le dessus du pouce).
 #   "decaler": [[x, dy], …]   au lieu de plier : la partie glisse verticalement de dy(x) (interpolé entre
-#                             les stations, en px de la source) ; pivot, angle et rayon sont ignorés.
+#                             les stations, en px de la source) ; pivot, angle et rayon sont ignorés ;
+#                             avec "axe": "x", les stations sont [[y, dx], …] et la partie glisse de côté.
+# Option de la pose (bibliothèque B) : "cadre": [x0, y0, x1, y1]  recadre le modèle écrit (px de la pose, après
+#                             la marge) ; ses coordonnées partent alors de (x0, y0).
 # Option de la pose (bibliothèque B) : "lisser": px  un flou léger de l'encre avant le calque, contre les
 #                             marches d'escalier qu'une partie tournée laisse sur son trait (0,3 suffit).
 # Et une option de la pose : "rogner": px  rogne le blanc qui dépasse du trait (la frange qu'une partie
@@ -263,7 +266,7 @@ def plier(m, k, poly, pivot, angle, rayon, charniere=None, chaine=(), zone=None)
     return src, reste
 
 
-def decaler(m, k, poly, stations, M=0):
+def decaler(m, k, poly, stations, M=0, axe='y'):
     """(la partie de m dans poly glissée verticalement de dy(x) ; le reste de m). stations [[x, dy], …]
     en pixels de la source, dy interpolé entre elles (constant au-delà) : ramène un renflement sur une
     ligne (le gras du pouce sur la ligne doigts-poignet) sans fendre la main."""
@@ -274,9 +277,12 @@ def decaler(m, k, poly, stations, M=0):
     partie, reste = m & zone, m & ~zone
     H, W = m.shape
     xs = np.array([q[0] + M for q in stations]) * k; ds = np.array([q[1] for q in stations]) * k
-    dy = ndi.gaussian_filter1d(np.interp(np.arange(W, dtype=float), xs, ds), 2 * k, mode='nearest')   # sans coude
+    n = W if axe == 'y' else H
+    d = ndi.gaussian_filter1d(np.interp(np.arange(n, dtype=float), xs, ds), 2 * k, mode='nearest')   # sans coude
     yy, xx = np.mgrid[:H, :W].astype(float)
-    return ndi.map_coordinates(partie.astype(float), [yy - dy[None, :], xx], order=1) > 0.5, reste
+    if axe == 'x':                                 # glisser de côté : dx(y)
+        return ndi.map_coordinates(partie.astype(float), [yy, xx - d[:, None]], order=1) > 0.5, reste
+    return ndi.map_coordinates(partie.astype(float), [yy - d[None, :], xx], order=1) > 0.5, reste
 
 
 def articuler(ident, spec):
@@ -333,8 +339,9 @@ def articuler(ident, spec):
             garde[rr, cc] = True
         garde &= enc
         if pt.get('decaler'):                      # glisser la partie d'une hauteur qui varie le long de x
-            p_enc, r_enc = decaler(enc, k, poly, pt['decaler'], M)
-            p_sil, r_sil = decaler(sil, k, poly, pt['decaler'], M)
+            ax = pt.get('axe', 'y')
+            p_enc, r_enc = decaler(enc, k, poly, pt['decaler'], M, ax)
+            p_sil, r_sil = decaler(sil, k, poly, pt['decaler'], M, ax)
         elif i in mis_de_cote:                     # une partie qui suit : tirée de sa source mise de côté
             e0, s0 = mis_de_cote[i]
             tout = np.ones_like(enc)
@@ -372,6 +379,11 @@ def articuler(ident, spec):
         r_ = max(1, int(spec['rogner'] * k))       # laissée par une partie écartée) est rogné : le blanc
         sil = ndi.binary_erosion(sil, structure=disk(r_)) | ndi.binary_fill_holes(enc)   # s'arrête au trait
     sil = ndi.binary_fill_holes(ndi.binary_closing(sil | enc, structure=disk(max(1, int(1.0 * k)))))   # pas de jour dans le blanc
+    if spec.get('cadre'):                          # "cadre": [x0, y0, x1, y1] en px de la pose : recadre le modèle
+        x0, y0, x1, y1 = spec['cadre']             # (une main prise seule dans une planche de deux) ; les
+        sl = (slice(int(y0 * k), int(y1 * k)), slice(int(x0 * k), int(x1 * k)))   # coordonnées du modèle
+        enc, om, sil = enc[sl], om[sl], sil[sl]    # partent alors de (x0, y0)
+        b = (b[0] + x0, b[1] + y0, b[0] + x1, b[1] + y1) + tuple(b[4:])
     poids_l = POIDS.get(ident[0]) or POIDS.get(spec['source'][0], [1.0])   # b… : les poids de sa source
     src = f"pose construite sur {spec['source']}"
     ecrire(ident, enc, om, k, b, src, poids_l[0], sil)
