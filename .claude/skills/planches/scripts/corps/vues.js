@@ -1127,6 +1127,14 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
       const a = Math.abs(aire(p.CL));
       if (a > 0 && Math.abs(aire(I.inter(p.CL, occ))) / a > 0.55) { p.groupe = 'loin'; loin.add(p.id); }
     }
+    // l'avant-bras et sa main ensemble, derrière le tronc et cachés pour plus de la moitié : le côté loin
+    // aussi (vanner de dos : la main en l'air devant soi ne dépasse plus de l'épaule en bosse blanche) (agent 5)
+    for (const c of ['P', 'L']) {
+      const av = pieces.find(p => p.id === 'avantbras' + c), mn = pieces.find(p => p.id === 'main' + c);
+      if (!av || !mn || loin.has(av.id) || av.z >= -20 || mn.z >= -20) continue;
+      const u = I.unionCL([av.CL, mn.CL]), a = Math.abs(aire(u));
+      if (a > 0 && Math.abs(aire(I.inter(u, occ))) / a > 0.45) { av.groupe = 'loin'; loin.add(av.id); }
+    }
     for (const p of pieces) if (/^main[PL]$/.test(p.id) && loin.has('avantbras' + p.id.slice(-1))) p.groupe = 'loin';
   }
   const G = {};
