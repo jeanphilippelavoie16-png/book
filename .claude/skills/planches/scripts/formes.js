@@ -17,6 +17,7 @@
 //   aiguilleFilet({ x, y, longueur, angle, chargee }) · moule({ x, y, longueur, largeur, angle })
 //   maille({ x, y, echelle, ep, fleche, jeu, trait })
 //   modele(id, { x, y, ancre, angle, echelle, miroir, masquer, bras })   un modèle calqué (images/modeles)
+//   corps({ x, y, pose, vue, age, echelle, cote, angles, mains, pieds, objetP, objetL })   le corps simple (corps/moteur.js)
 //
 // Chaque fonction rend un objet qui se colle comme une chaîne (join, gabarit `${}`) et qui porte
 // la géométrie utile, en coordonnées de la vue : m.trou (où se dessine l'objet tenu), m.poignet…
@@ -1961,6 +1962,6 @@ module.exports = function formes(h) {
     return forme(out.join('\n'), { P, l: W, h: H, trait: ep });
   }
 
-  return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille, modele,
+  return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille, modele, corps: (...a) => require('./corps/moteur').corps(...a),
     _interne: { tube, peindre, repere, lisse, ser, forme, enroule, plie, ik2, tangente, pointBord, suite, cubPts, arcPts, mainProfil, personnageAncien, brasVersMain, capsule } };
 };

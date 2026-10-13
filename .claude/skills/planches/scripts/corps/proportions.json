@@ -1,0 +1,225 @@
+{
+  "source": "Adultes : Drillis R., Contini R. (1966) Body Segment Parameters, rapport 1166-03, New York University, fractions de la taille H telles que reproduites dans Winter D.A. (2009) Biomechanics and Motor Control of Human Movement, 4e éd., Wiley, fig. 4.1. Enfants : mêmes fractions corrigées par (1) le canon tête/taille de Domljan, Iliev & Jurčević Lulić (2024) Applied Sciences 14:7185, (2) le rapport segment supérieur/inférieur de Turan et coll. (2005) Acta Paediatrica 94:407, (3) l'écart envergure-taille d'Engelbach (cité en secondaire), (4) la correction d'épaules de Wisner et coll. (ISBS, Michigan State Motor Performance Study), (5) le pied de 6 ans NCHS série 11. Les pages n'ont pas pu être enregistrées (réseau de la session fermé à ces sites) : les fractions Drillis-Contini sont relevées de la figure de Winter, les valeurs enfant viennent des résumés. Usage : dessin des planches seulement, rien de ceci ne s'imprime.",
+  "unites": "mm",
+  "definitions": {
+    "taille": "debout, du sol au vertex",
+    "tete.hauteur": "vertex -> menton",
+    "tete.largeur": "largeur de la tête, de face (eu-eu)",
+    "tete.profondeur": "longueur de la tête, de profil, front -> nuque (g-op)",
+    "cou": "menton -> ligne des épaules (hauteur visible du cou de profil)",
+    "tronc": "ligne des épaules (base du cou) -> hanche (grand trochanter)",
+    "epaules": "largeur aux épaules entre acromions (repère Drillis-Contini, pas la largeur hors-tout des deltoïdes)",
+    "bassin": "largeur aux hanches (trochanters)",
+    "bras": "épaule -> coude",
+    "avantbras": "coude -> poignet",
+    "main": "poignet -> bout du majeur",
+    "cuisse": "hanche -> genou",
+    "jambe": "genou -> cheville",
+    "cheville": "hauteur de la cheville au-dessus du sol",
+    "pied": "talon -> orteils (longueur), largeur aux métatarses",
+    "hauteurs": "hauteur au-dessus du sol, debout, bras le long du corps"
+  },
+  "fractions_drillis_contini": {
+    "vertex": 1.0,
+    "yeux": 0.936,
+    "menton": 0.87,
+    "epaule": 0.818,
+    "poitrine": 0.72,
+    "coude": 0.63,
+    "hanche": 0.53,
+    "poignet": 0.485,
+    "bout_doigts": 0.377,
+    "genou": 0.285,
+    "cheville": 0.039,
+    "bras": 0.186,
+    "avantbras": 0.146,
+    "main": 0.108,
+    "cuisse": 0.245,
+    "jambe": 0.246,
+    "pied": 0.152,
+    "pied_largeur": 0.055,
+    "epaules_largeur": 0.259,
+    "bassin_largeur": 0.191
+  },
+  "alias": {
+    "adulte": "homme",
+    "enfant": "enfant6"
+  },
+  "ages": {
+    "homme": {
+      "taille": 1750,
+      "tete": {
+        "hauteur": 227.5,
+        "largeur": 155,
+        "profondeur": 195
+      },
+      "cou": 91.0,
+      "tronc": 504.0,
+      "epaules": 453.2,
+      "bassin": 334.2,
+      "bras": 325.5,
+      "avantbras": 255.5,
+      "main": 189.0,
+      "cuisse": 428.8,
+      "jambe": 430.5,
+      "cheville": 68.2,
+      "pied": {
+        "longueur": 266.0,
+        "largeur": 96.2
+      },
+      "hauteurs": {
+        "yeux": 1638.0,
+        "menton": 1522.5,
+        "epaule": 1431.5,
+        "coude": 1102.5,
+        "hanche": 927.5,
+        "poignet": 848.8,
+        "bout_doigts": 659.8,
+        "genou": 498.7,
+        "cheville": 68.2
+      },
+      "tetes_de_haut": 7.69,
+      "provenance": {
+        "tete.hauteur, cou, tronc, bras, avantbras, main, cuisse, jambe, cheville, pied, epaules, bassin, hauteurs": "Drillis & Contini 1966 (fractions de H, Winter 2009 fig. 4.1) x taille",
+        "tete.largeur, tete.profondeur": "[À VÉRIFIER] valeurs courantes des tables adultes (eu-eu, g-op), non recoupées"
+      }
+    },
+    "femme": {
+      "taille": 1630,
+      "tete": {
+        "hauteur": 211.9,
+        "largeur": 148,
+        "profondeur": 187
+      },
+      "cou": 84.8,
+      "tronc": 469.4,
+      "epaules": 422.2,
+      "bassin": 311.3,
+      "bras": 303.2,
+      "avantbras": 238.0,
+      "main": 176.0,
+      "cuisse": 399.3,
+      "jambe": 401.0,
+      "cheville": 63.6,
+      "pied": {
+        "longueur": 247.8,
+        "largeur": 89.7
+      },
+      "hauteurs": {
+        "yeux": 1525.7,
+        "menton": 1418.1,
+        "epaule": 1333.3,
+        "coude": 1026.9,
+        "hanche": 863.9,
+        "poignet": 790.5,
+        "bout_doigts": 614.5,
+        "genou": 464.5,
+        "cheville": 63.6
+      },
+      "tetes_de_haut": 7.69,
+      "provenance": {
+        "tete.hauteur, cou, tronc, bras, avantbras, main, cuisse, jambe, cheville, pied, epaules, bassin, hauteurs": "Drillis & Contini 1966 (fractions de H, Winter 2009 fig. 4.1) x taille",
+        "tete.largeur, tete.profondeur": "[À VÉRIFIER] valeurs courantes des tables adultes (eu-eu, g-op), non recoupées",
+        "remarque": "Drillis-Contini est un modèle unique (non sexué) : la femme est l'homme à 1630. Épaules plus étroites et bassin plus large chez la femme : écart non sourcé ici, laissé au dessin des contours (vues.js / moteur.js) [À VÉRIFIER]."
+      }
+    },
+    "enfant6": {
+      "taille": 1150,
+      "tete": {
+        "hauteur": 184.4,
+        "largeur": 138.9,
+        "profondeur": 174.8
+      },
+      "cou": 60.5,
+      "tronc": 335.1,
+      "epaules": 256.8,
+      "bassin": 219.7,
+      "bras": 210.6,
+      "avantbras": 165.3,
+      "main": 122.3,
+      "cuisse": 263.5,
+      "jambe": 264.6,
+      "cheville": 42.0,
+      "pied": {
+        "longueur": 180.5,
+        "largeur": 65.3
+      },
+      "hauteurs": {
+        "menton": 965.6,
+        "epaule": 905.2,
+        "hanche": 570.1,
+        "genou": 306.6,
+        "cheville": 42.0,
+        "coude": 694.6,
+        "poignet": 529.3,
+        "bout_doigts": 407.1
+      },
+      "tetes_de_haut": 6.24,
+      "facteurs": {
+        "membre_inferieur": 0.9353,
+        "membre_superieur": 0.9843,
+        "epaules": 0.8621,
+        "tete_largeur": 0.8964
+      },
+      "provenance": {
+        "tete.hauteur": "H / canon ; canon 6.24 têtes interpolé entre 2 ans (5,59-5,72) et 15 ans (7,50-7,60), Domljan et coll. 2024",
+        "cuisse, jambe, cheville, hanche, genou": "Drillis-Contini x 0.935 : rapport (sous-pubis/H) enfant/adulte, d'après segment sup./inf. 1.055 (interpolé, Turan et coll. 2005) contre 0,922 adulte",
+        "cou, tronc": "le reste de H (H - hanche - tête), partagé cou/tronc comme Drillis-Contini (0,052 : 0,288)",
+        "bras, avantbras, main": "Drillis-Contini x 0.984 : envergure - taille -18 mm (Engelbach ; 6 ans interpolé vers 0 à 9 ans)",
+        "epaules": "Drillis-Contini / 1,16 : surestimation de 16 % chez l'enfant (Wisner et coll., ISBS)",
+        "bassin": "Drillis-Contini adulte, sans correction enfant [À VÉRIFIER]",
+        "tete.largeur, tete.profondeur": "adulte x périmètre crânien garçon 4 ans / homme (50,6 / 56,45) ; même facteur à 6 ans [À VÉRIFIER]",
+        "pied": "NCHS série 11 : 90 % des garçons de 6 ans entre 16,2 et 19,9 cm, milieu retenu"
+      }
+    },
+    "enfant4": {
+      "taille": 1030,
+      "tete": {
+        "hauteur": 173.2,
+        "largeur": 138.9,
+        "profondeur": 174.8
+      },
+      "cou": 54.3,
+      "tronc": 300.6,
+      "epaules": 230.0,
+      "bassin": 196.7,
+      "bras": 186.0,
+      "avantbras": 146.0,
+      "main": 108.0,
+      "cuisse": 232.0,
+      "jambe": 233.0,
+      "cheville": 36.9,
+      "pied": {
+        "longueur": 156.6,
+        "largeur": 56.6
+      },
+      "hauteurs": {
+        "menton": 856.8,
+        "epaule": 802.5,
+        "hanche": 502.0,
+        "genou": 269.9,
+        "cheville": 36.9,
+        "coude": 616.5,
+        "poignet": 470.5,
+        "bout_doigts": 362.5
+      },
+      "tetes_de_haut": 5.95,
+      "facteurs": {
+        "membre_inferieur": 0.9195,
+        "membre_superieur": 0.9709,
+        "epaules": 0.8621,
+        "tete_largeur": 0.8964
+      },
+      "provenance": {
+        "tete.hauteur": "H / canon ; canon 5.95 têtes interpolé entre 2 ans (5,59-5,72) et 15 ans (7,50-7,60), Domljan et coll. 2024",
+        "cuisse, jambe, cheville, hanche, genou": "Drillis-Contini x 0.919 : rapport (sous-pubis/H) enfant/adulte, d'après segment sup./inf. 1.090 (interpolé, Turan et coll. 2005) contre 0,922 adulte",
+        "cou, tronc": "le reste de H (H - hanche - tête), partagé cou/tronc comme Drillis-Contini (0,052 : 0,288)",
+        "bras, avantbras, main": "Drillis-Contini x 0.971 : envergure - taille -30 mm (Engelbach ; 6 ans interpolé vers 0 à 9 ans)",
+        "epaules": "Drillis-Contini / 1,16 : surestimation de 16 % chez l'enfant (Wisner et coll., ISBS)",
+        "bassin": "Drillis-Contini adulte, sans correction enfant [À VÉRIFIER]",
+        "tete.largeur, tete.profondeur": "adulte x périmètre crânien garçon 4 ans / homme (50,6 / 56,45) ; même facteur à 6 ans [À VÉRIFIER]",
+        "pied": "Drillis-Contini 0,152 H (pas de donnée enfant 4 ans trouvée) [À VÉRIFIER]"
+      }
+    }
+  }
+}
