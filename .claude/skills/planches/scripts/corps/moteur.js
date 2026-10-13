@@ -6,7 +6,7 @@
 // aux articulations, pas de couture au col ni à la ceinture, pas de muscles, pas de visage.
 //
 //   corps({ x, y, pose, vue, age, echelle, cote, angles, mains, pieds, trait, objetP, objetL })
-//     x, y      le point au sol sous l'appui (debout : sous les chevilles), en unités de vue
+//     x, y      le point au sol sous l'appui (debout : sous les chevilles), en unités de vue ; voir appui
 //     pose      un id de poses.json (ou des poses intégrées ci-dessous) ; angles surcharge la pose
 //     vue       'profil' (ce fichier) ; 'face', 'dos', 'dessus' viennent de vues.js
 //     age       'adulte' (homme) · 'femme' · 'enfant6' · 'enfant4' ('enfant' = 'enfant6')
@@ -23,6 +23,8 @@
 //     cheveux   ignoré de profil : pas de masse de cheveux (elle faisait une tuque)
 //     teteDevant  true : la tête par-dessus le bras proche (à plat ventre, bras tendus devant : d'office)
 //     appui     surcharge celui de la pose : pieds · genouP · genoux · fesses · dos · ventre · cote
+//               (le point le plus bas pose au sol en y) · avantbras (pendu par les avant-bras : (x, y) sous
+//               les avant-bras, entre les coudes, les jambes ne cherchent pas de sol) · aucun ((x, y) = le bassin)
 //     ancrer    false : ne pas poser les pieds (ou le pied du genou au sol) en pliant la jambe
 //     masquer   ['brasL', 'brasP', 'jambeL', 'jambeP'] : ces membres ne se dessinent pas
 //     angles.dos      courbure du dos en degrés (0 droit ; 40 à 50 : le dos rond du raté)
@@ -33,7 +35,7 @@
 //   .mainP .mainL                { x, y, angle, axe, r, objet }  le point de prise, l'axe de l'objet tenu
 //                                (degrés écran), l'axe de la main, le rayon du manche, l'ordre conseillé
 //   .tete                        { x, y, haut: [x, y], angle }   le centre de la tête, son sommet
-//   .pieds                       { P: { cheville, talon, pointe, plante }, L: … }
+//   .pieds                       { P: { cheville, talon, pointe, plante, bas }, L: … }   bas : le point le plus bas du pied
 //   .boite                       { x0, y0, x1, y1 }
 //   .articulations               tous les points du squelette (épaule, coude, hanche, genou…)
 //   .siege                       le dessous des fesses (pour poser une chaise, une bûche) ; avec siege
@@ -635,13 +637,19 @@ function ancrerPieds(A, Pr, pieds, solCible = null) {
     // la jambe ne va pas plus loin (tendue derrière, qui pousse) : le pied se met sur la pointe,
     // le talon se lève jusqu'à ce que les orteils touchent ; assis trop haut, le pied pend
     if (ecart <= 0 || solCible !== null) continue;
+    // des deux sens (la pointe qui descend, le talon qui descend), celui qui touche le plus tôt :
+    // la jambe tendue derrière se met sur la pointe, la jambe tendue devant pose le talon
     const p0 = A['pied' + c] !== undefined ? A['pied' + c] : A['jambe' + c] + 90;
-    const sens = p0 >= 0 ? -1 : 1;                                  // vers la pointe en bas
-    const f = dp => { const B = { ...A, _appui: A._appui, ['pied' + c]: p0 + sens * dp }; return basPied(B).r[c].sole - sol; };
-    let a = 0, b = 60, fa = f(a), fb = f(b);
-    if (fa * fb > 0) continue;
-    for (let k = 0; k < 12; k++) { const m = (a + b) / 2, fm = f(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
-    A['pied' + c] = p0 + sens * (a + b) / 2;
+    let mieux = null;
+    for (const sens of [-1, 1]) {
+      const f = dp => { const B = { ...A, _appui: A._appui, ['pied' + c]: p0 + sens * dp }; return basPied(B).r[c].sole - sol; };
+      let a = 0, b = 60, fa = f(a), fb = f(b);
+      if (fa * fb > 0) continue;
+      for (let k = 0; k < 12; k++) { const m = (a + b) / 2, fm = f(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
+      const dp = (a + b) / 2;
+      if (!mieux || dp < mieux.dp) mieux = { dp, sens };
+    }
+    if (mieux) A['pied' + c] = p0 + mieux.sens * mieux.dp;
   }
 }
 
@@ -792,11 +800,19 @@ function corps(o = {}) {
   let yMax = -Infinity, xMin = Infinity, xMax = -Infinity, yMin = Infinity;
   for (const Pp of tous) for (const q of Pp) { const x = q.X / SC, y = q.Y / SC; if (y > yMax) yMax = y; if (y < yMin) yMin = y; if (x < xMin) xMin = x; if (x > xMax) xMax = x; }
   if (solSiege !== null && yMax < solSiege + 5) yMax = solSiege;     // assis : le sol sous le siège, même si les pieds pendent
-  const appui = o.appui || poseDef.appui || 'pieds';
+  const appui = appui0;
   let x0;
   if (appui === 'pieds') x0 = (j.chevilleP[0] + j.chevilleL[0]) / 2;
   else if (appui === 'genouP') x0 = j.genouP[0];
   else if (appui === 'genoux') x0 = (j.genouP[0] + j.genouL[0]) / 2;
+  else if (appui === 'avantbras') {
+    // pendu par les avant-bras (au bord de la glace) : (x, y) = sous les avant-bras, entre les coudes ;
+    // pas de sol, les jambes pendent comme la pose les met
+    let b = -Infinity;
+    for (const c of ['P', 'L']) if (!cache.has('bras' + c)) for (const poly of P['bras' + c].parSegment[1]) for (const p of poly) b = Math.max(b, p[1]);
+    yMax = isFinite(b) ? b : j.coudeP[1];
+    x0 = (j.coudeP[0] + j.coudeL[0]) / 2;
+  } else if (appui === 'aucun') { x0 = j.bassin[0]; yMax = j.bassin[1]; }  // sans appui : (x, y) = le bassin
   else x0 = j.bassin[0];
   const s = o.echelle || 0.2, m = o.cote === 'gauche' ? -1 : 1;
   const X = o.x || 0, Y = o.y || 0;
@@ -808,7 +824,7 @@ function corps(o = {}) {
   const f1 = v => (Math.round(v * 100) / 100).toString();
   const tol = 0.06 / s;                                              // l'allègement, en mm, pour 0,06 de vue
   const dFerme = paths => paths.map(Pp => { const q = allege(deCL(Pp), tol, true).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + ' Z'; }).join(' ');
-  const dOuvert = ls => ls.filter(l => longueur(l) > 22).map(l => { const q = allege(l, tol).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L'); }).join(' ');
+  const dOuvert = ls => ls.filter(l => longueur(l) > 28).map(l => { const q = allege(l, tol).map(T); return 'M' + q.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L'); }).join(' ');
   const plein = (paths, coul, ep) => paths.length ? `<path d="${dFerme(paths)}" fill="${coul}" fill-rule="nonzero" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round"/>` : '';
   const ligne = (ls, ep) => { const d = dOuvert(ls); return d ? `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"/>` : ''; };
 
@@ -826,7 +842,11 @@ function corps(o = {}) {
   const tc = add(j.nuque, tourne(mul([0, -80], Pr.tete), A.tete)), th = add(j.nuque, tourne(mul([-4, -190], Pr.tete), A.tete));
   geo.tete = { x: T(tc)[0], y: T(tc)[1], haut: T(th), angle: ang(A.tete) };
   geo.pieds = {};
-  for (const c of ['P', 'L']) { const pi = info.pieds[c]; geo.pieds[c] = { cheville: T(pi.cheville), talon: pi.talon && T(pi.talon), pointe: pi.pointe && T(pi.pointe), plante: pi.plante && T(pi.plante) }; }
+  for (const c of ['P', 'L']) {
+    const pi = info.pieds[c];
+    let b = null; for (const poly of P['jambe' + c].pied || []) for (const p of poly) if (!b || p[1] > b[1]) b = p;   // le point le plus bas du pied
+    geo.pieds[c] = { cheville: T(pi.cheville), talon: pi.talon && T(pi.talon), pointe: pi.pointe && T(pi.pointe), plante: pi.plante && T(pi.plante), bas: b && T(b) };
+  }
   const b0 = T([xMin, yMin]), b1 = T([xMax, yMax]);
   geo.boite = { x0: Math.min(b0[0], b1[0]), y0: b0[1], x1: Math.max(b0[0], b1[0]), y1: b1[1] };
   geo.sol = Y;

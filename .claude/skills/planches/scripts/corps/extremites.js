@@ -24,7 +24,11 @@
 //             dans le membre — coupe nette à x = −18 pour la main, y = −18 pour le pied —, bords
 //             parallèles à l'axe sur ce débord : l'union avec la bande se fait bord à bord.
 //   details   [d…] traits intérieurs ouverts, à 0,7 : au plus un (il sépare le pouce, marque le
-//             poing ou la semelle) ; deux sous une semelle de botte (talon net, avant de cambrure)
+//             poing, dessine l'arc du bout dur de face) ; deux sous une semelle de botte (talon net,
+//             avant de cambrure). Le trait de SEMELLE (botte de profil, de dos, de dessous) ne vient
+//             que si l'on sait qu'on dessine assez grand : options.echelle ≥ 0,16 (unités de vue par
+//             mm réel), ou placer({ echelle ≥ 0,16 }) ; plus petit, il ferait une barre noire avec le
+//             contour et le sol. Vue de dessus, pas de rebord de semelle (il doublait le contour).
 //   attache   { x, y, largeur, angle, coupe } : le poignet / la cheville, sa largeur VUE dans cette
 //             vue (le bord de la bande tombe à ±largeur/2), l'axe du membre (0 : +x pour la main,
 //             −90 : vers le haut pour le pied), coupe : où le contour est tranché (dessus / dessous
@@ -34,6 +38,10 @@
 //             pointe : le bout de l'index ; pince : le point pincé ; ouverte, plat : le creux de la
 //             paume. pied : la plante (la charnière des orteils, au sol)
 //   bout, pouce (main) · talon, pointe, plante (pied) : [x, y] — trou (prise) : { x, y, r }
+//   appuis    pied : { talon, plante, bout } — le dessous du talon, de la plante (la charnière des
+//             orteils) et du bout : sur la pointe, c'est la plante qui touche ; à plat, talon et plante
+//   bas(angle) le point le plus bas du contour une fois l'extrémité tournée de `angle` (degrés écran,
+//             comme placer) : le point qui touche le sol, à prendre pour ancrer un pied sur la pointe
 //   polygone  le contour en points (≈ 0,05 mm), pour une union qui ne veut pas de courbes
 //   boite     { x, y, l, h } · face : la face retenue · sorte : 'main-prise-dos'…
 //   placer({ x, y, angle, echelle, miroir }) → le même objet, en coordonnées de la vue (angle :
@@ -51,7 +59,9 @@
 // La face par défaut dépend de la vue du corps, du côté et de la pose (FACE_DEFAUT, exporté) :
 //   profil P (main droite, côté vu)  ouverte, prise, pointe : dos · plat : tranche · porte, pince : pouce
 //   profil L (main gauche, derrière) ouverte, prise, pointe : paume · plat, pince : pouce · porte : tranche
-//   face (le corps de face)          ouverte, porte, pince : pouce · plat, prise, pointe : dos
+//   face (le corps de face)          ouverte, prise, porte, pince : pouce · plat, pointe : dos
+//                                    (la main qui pend tient l'anse par le pouce : le poing est rond)
+//   dos (le corps de dos)            ouverte, prise, porte, pince : tranche · plat, pointe : dos
 // La pince se lit par le pouce (l'anneau pouce-index) ; vue du dos elle ne se lit pas.
 //
 // Options communes : face, rotation, plie, recouvrement, poignet / cheville (largeur vue imposée,
@@ -65,7 +75,10 @@
 //   à quatre pattes : plat, tranche, plie 90).
 // Pied : angle (pied − jambe, convention du brief : 90 = pied d'équerre ; poser ensuite le résultat
 //   tourné de −jambe), orteils (pli à la plante, degrés, positif vers le haut ; botte : 50 au plus,
-//   elle est raide), pointe: true + piedAbs (sur la pointe : orteils = 90 − piedAbs, à plat au sol).
+//   elle est raide ; le pli se répartit sur 34 mm devant la charnière), pointe: true + piedAbs (sur la
+//   pointe : orteils = 90 − piedAbs, à plat au sol), echelle (voir details). Pied en extension : le
+//   talon remonte derrière la jambe, entier (la coupe du raccord ne tranche que dans la largeur de
+//   la jambe) et tenu par le tendon d'Achille.
 //
 // Construction : chaque extrémité est un petit volume. La main : des sphères dont on prend
 // l'enveloppe convexe par morceaux (la paume, la moufle des quatre doigts phalange par phalange, le
@@ -632,7 +645,7 @@ function poseMain(pose, o) {
   switch (pose) {
     case 'ouverte': {     // la main qui pend, détendue
       const doigts = [fl(5, 9, 4), fl(6, 11, 5), fl(8, 13, 6), fl(10, 15, 7)].map((f, i) => doigtPlie(DOIGTS[i], f));
-      const p = pouce([0.7, -0.7, 0.18], [118, -72, 6], [0, -1, -0.2]);
+      const p = pouce([0.66, -0.75, 0.16], [114, -80, 6], [0, -1, -0.2]);
       return { doigts, pouce: p, points: { prise: [70, 0, 20], bout: doigts[1][3] } };
     }
     case 'plat': {        // posée à plat, paume en bas : la paume et les doigts sur un même plan
@@ -672,10 +685,10 @@ function poseMain(pose, o) {
     case 'pince': {       // le pouce et l'index qui pincent
       // l'index s'enroule vers la paume, le pouce vient chercher sa pulpe : un anneau. Les trois
       // autres doigts restent presque tendus, dans le plan de la main : l'anneau se détache.
-      const doigts = [doigtPlie(DOIGTS[0], [42, 66, 32]), doigtPlie(DOIGTS[1], [14, 20, 10]), doigtPlie(DOIGTS[2], [18, 24, 12]), doigtPlie(DOIGTS[3], [22, 28, 14])];
+      const doigts = [doigtPlie(DOIGTS[0], [40, 62, 30]), doigtPlie(DOIGTS[1], [26, 34, 18]), doigtPlie(DOIGTS[2], [30, 38, 20]), doigtPlie(DOIGTS[3], [34, 42, 22])];
       const ix = doigts[0], dd = U3(S3(ix[3], ix[2])), k = U3(X3([Math.cos(DOIGTS[0].ecart * RAD), Math.sin(DOIGTS[0].ecart * RAD), 0], [0, 0, 1]));
       const pad = U3(rot3(dd, k, 90));                                  // la pulpe de l'index
-      const cible = A3(ix[3], M3(pad, DOIGTS[0].r[3] + POUCE.r[3] - 3));
+      const cible = A3(A3(ix[3], M3(pad, DOIGTS[0].r[3] + POUCE.r[3] - 5)), M3(dd, -4));
       const p = pouce([0.72, -0.32, 0.62], cible, [0, -0.5, -1]);
       return { doigts, pouce: p, points: { prise: A3(ix[3], M3(pad, DOIGTS[0].r[3] - 0.5)), bout: ix[3] }, index: true };
     }
@@ -697,7 +710,8 @@ function volumeMain(pose, o) {
   const mcp = P.doigts.map((c, i) => sph(c[0], DOIGTS[i].r[0]));
   coques.push({ s: [...base, sph([33, -21, 7], 15.5), sph([46, 24, 4], 15), sph(POUCE.cmc, POUCE.r[0]), ...mcp], piece: 'paume', groupe: 'main' });
   // les doigts : une moufle, l'enveloppe de deux doigts voisins phalange par phalange
-  const rails = P.doigts.map((c, i) => c.map((p, k) => sph(p, DOIGTS[i].r[k])));
+  const gros = pose === 'prise' ? [1.6, 1.4, 0.6, 0.3] : [0, 0, 0, 0];
+  const rails = P.doigts.map((c, i) => c.map((p, k) => sph(p, DOIGTS[i].r[k] + gros[k])));
   const pieceDoigt = i => (P.index && i === 0 ? 'index' : 'doigts');
   for (let i = 0; i < 4; i++) for (let k = 0; k < 3; k++) {
     const dv = k >= 1 ? 1 : 0;           // prise : les phalanges du milieu et du bout passent devant le manche
@@ -726,10 +740,10 @@ const FACES = { dos: 0, pouce: 90, paume: 180, tranche: 270 };
 const FACE_DEFAUT = {
   profil: { P: { ouverte: 'dos', plat: 'tranche', prise: 'dos', porte: 'pouce', pointe: 'dos', pince: 'pouce' },
             L: { ouverte: 'paume', plat: 'pouce', prise: 'paume', porte: 'tranche', pointe: 'paume', pince: 'pouce' } },
-  face:   { P: { ouverte: 'pouce', plat: 'dos', prise: 'dos', porte: 'pouce', pointe: 'dos', pince: 'pouce' },
-            L: { ouverte: 'pouce', plat: 'dos', prise: 'dos', porte: 'pouce', pointe: 'dos', pince: 'pouce' } },
-  dos:    { P: { ouverte: 'tranche', plat: 'dos', prise: 'dos', porte: 'tranche', pointe: 'dos', pince: 'tranche' },
-            L: { ouverte: 'tranche', plat: 'dos', prise: 'dos', porte: 'tranche', pointe: 'dos', pince: 'tranche' } },
+  face:   { P: { ouverte: 'pouce', plat: 'dos', prise: 'pouce', porte: 'pouce', pointe: 'dos', pince: 'pouce' },
+            L: { ouverte: 'pouce', plat: 'dos', prise: 'pouce', porte: 'pouce', pointe: 'dos', pince: 'pouce' } },
+  dos:    { P: { ouverte: 'tranche', plat: 'dos', prise: 'tranche', porte: 'tranche', pointe: 'dos', pince: 'tranche' },
+            L: { ouverte: 'tranche', plat: 'dos', prise: 'tranche', porte: 'tranche', pointe: 'dos', pince: 'tranche' } },
   dessus: { P: { ouverte: 'dos', plat: 'dos', prise: 'pouce', porte: 'paume', pointe: 'dos', pince: 'dos' },
             L: { ouverte: 'dos', plat: 'dos', prise: 'pouce', porte: 'paume', pointe: 'dos', pince: 'dos' } },
 };
@@ -749,6 +763,7 @@ function facteurs(age) {
 
 // ─── le résultat : géométrie + placement + SVG ─────────────────────────────────────────────
 const NOIR = '#1A1A1A', BLANC = '#FFFFFF';
+const SEUIL_FIN = 0.16;                // unité de vue par mm sous laquelle le trait de semelle saute
 function resultat(base, k) {
   const S = p => [p[0] * k, p[1] * k];
   const sc = cubes => cubes.map(b => b.map(S));
@@ -783,12 +798,13 @@ function resultat(base, k) {
   };
   const id = p => [p[0], p[1]];
   const loc = fabrique(id, a => a, 1);
+  if (base.detailsFins && !(base.echelle >= SEUIL_FIN)) loc.details = [];
   loc.placer = (o = {}) => {
     const e = o.echelle || 1, a = o.angle || 0, mi = !!o.miroir, x = o.x || 0, y = o.y || 0;
     const T = p => { const q = tourne([p[0] * e, (mi ? -p[1] : p[1]) * e], a); return [x + q[0], y + q[1]]; };
     const ang = d => (mi ? -d : d) + a;
     const r = fabrique(T, ang, e);
-    if (base.detailsFins && e < 0.16) r.details = [];          // trait de semelle : il ferait une barre
+    if (base.detailsFins && e < SEUIL_FIN) r.details = [];     // trait de semelle : il ferait une barre
     r.svg = (op = {}) => peindre(r, Object.assign({}, op, { echelle: e }));
     r.toString = () => peindre(r, { echelle: e });
     return r;
@@ -842,9 +858,10 @@ function main(...args) {
     const ph = phi * RAD, cs = Math.cos(ph), sn = Math.sin(ph);
     const proj = p => { const Y = p[1] * cs - p[2] * sn, Z = p[1] * sn + p[2] * cs; return [p[0], gauche ? -Y : Y, Z]; };
     // le trait intérieur : il sépare le pouce, ou il marque le poing (les doigts repliés)
-    const lignes = [[['pouce'], ['paume', 'doigts', 'index']]];
+    const plate = pose === 'ouverte' || pose === 'plat' || pose === 'porte';
+    const lignes = plate && face === 'dos' && o.rotation == null ? [] : [[['pouce'], ['paume', 'doigts', 'index']]];
     if (pose === 'prise' || pose === 'pointe') lignes.push([['index'], ['doigts', 'paume']], [['doigts'], ['paume']]);
-    const modele = { coques: V.coques, groupes: { main: pose === 'prise' || pose === 'pointe' ? 3.9 : 3.4 }, lignes, nLignes: 1, points: V.points, trous: pose === 'pince' ? 25 : 0,
+    const modele = { coques: V.coques, groupes: { main: pose === 'prise' ? 5.2 : pose === 'pince' ? 4.6 : pose === 'pointe' ? 3.9 : 3.4 }, lignes, nLignes: 1, points: V.points, trous: pose === 'pince' ? 25 : 0,
       devant: V.P.devant || null };
     const g = construire(modele, { proj, plie: o.plie || 0, coupe: { axe: 0, val: -rec, demi: larg0 * kPoignet / 2 + 0.6 } });
     // au plus un trait : quand les doigts passent devant le manche, c'est leur bord qui marque le poing
@@ -919,12 +936,14 @@ function volumePied(type, o) {
   const partDe = x => (x > plante[0] + 0.01 ? 2 : 1);
   // une section plate (une super-ellipse de points, r = 0) : l'enveloppe de deux sections voisines
   // est le tronçon de loft, sans rien qui déborde en X ; les bouts se ferment par les courbes
-  const NS = 28, EXP = 2.6;
+  const NS = 32, EXP = 2.6, EXPB = nu ? 3 : 5;
   const section = (x, w, zt, zb, yc, part) => {
     const h = Math.max(0.2, (zb - zt) / 2), zc = (zt + zb) / 2, ww = Math.max(0.2, w), pts = [];
     for (let k = 0; k < NS; k++) {
       const a = (k / NS) * 2 * Math.PI, c = Math.cos(a), sn = Math.sin(a);
-      pts.push(S([x, yc + ww * Math.sign(c) * Math.pow(Math.abs(c), 2 / EXP), zc + h * Math.sign(sn) * Math.pow(Math.abs(sn), 2 / EXP)], 0, part));
+      // le bas de la section plus carré (la tige pose à plat sur la semelle, sans taille au-dessus)
+      const ex = sn > 0 ? EXPB : EXP;
+      pts.push(S([x, yc + ww * Math.sign(c) * Math.pow(Math.abs(c), 2 / ex), zc + h * Math.sign(sn) * Math.pow(Math.abs(sn), 2 / ex)], 0, part));
     }
     return pts;
   };
@@ -1005,17 +1024,20 @@ function pied(...args) {
     // rebord de semelle doublerait le contour : rien. Sous ~0,16 unité/mm (option echelle), les traits
     // de semelle sautent : à cette taille ils se fondent dans le contour et le sol en une barre noire.
     const SEM = ['talon', 'cambrure', 'semelle'], TIGE = ['tige', 'bout'];
-    const fin = o.echelle != null && o.echelle < 0.16;
     const lignes = type !== 'botte' ? []
       : vue === 'face' ? [[['bout'], ['tige'], true]]
-      : vue === 'dessus' || fin ? []
+      : vue === 'dessus' ? []
       : vue === 'dessous' ? [[['talon'], ['cambrure'], true], [['semelle'], ['cambrure'], true]]
       : [[SEM, TIGE, true]];
     const modele = { coques, groupes: V.groupes, lignes, nLignes: type === 'botte' && vue === 'dessous' ? 2 : 1, points: V.points,
       margeTrait: type === 'botte' ? 0.12 : 0.2, rogne: type === 'botte' ? 0.8 : 1.2, traitMin: 10 };
     const larg = (o.cheville ? o.cheville / k : (type === 'nu' ? 68 : 75));
     const g = construire(modele, { proj, coupe: enBout ? null : { axe: 1, val: -rec, demi: larg / 2 + 0.6 } });
-    const base = { contour: g.contour, details: g.details, polygone: g.polygone, sorte: `pied-${type}-${vue}` };
+    // le trait de semelle (profil, dos, dessous) ne se rend que si on sait qu'on dessine assez grand :
+    // options.echelle ≥ 0,16 unité de vue par mm, ou placer({ echelle }) à cette taille. En dessous il
+    // se fond avec le contour et le sol en une barre noire.
+    const fins = type === 'botte' && vue !== 'face';
+    const base = { contour: g.contour, details: g.details, polygone: g.polygone, sorte: `pied-${type}-${vue}`, detailsFins: fins };
     base.attache = enBout ? { x: 0, y: 0, largeur: f2(larg), angle: -90, coupe: null, section: f2(larg / 2) }
       : { x: 0, y: 0, largeur: f2(larg), angle: -90, coupe: -rec };
     const P2 = n => g.pts[n] && [f2(g.pts[n][0]), f2(g.pts[n][1])];
@@ -1024,10 +1046,9 @@ function pied(...args) {
     // les points d'appui possibles (le talon, la plante, le dessous du bout) : le plus bas, une fois
     // le pied posé, touche le sol ; bas(angle) le donne directement, d'après le contour
     base.appuis = { talon: P2('talon'), plante: P2('plante'), bout: P2('boutSol') };
-    base.detailsFins = type === 'botte' && vue !== 'face';
-    CACHE.set(cle, resultat(base, k));
+    CACHE.set(cle, base);
   }
-  return CACHE.get(cle);
+  return resultat(Object.assign({}, CACHE.get(cle), { echelle: o.echelle }), k);
 }
 
 module.exports = { main, pied, peindre, FACES, FACE_DEFAUT, _interne: { construire, volumeMain, volumePied, isolignes, versCubiques } };

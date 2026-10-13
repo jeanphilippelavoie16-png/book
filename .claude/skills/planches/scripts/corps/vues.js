@@ -268,6 +268,7 @@ function demiTronc(g, angleBras) {
   const al = angleBras || 0;
   const yC = Y(z.cou + 0.018 * H), yA = Y(z.acromion), yE = Y(z.epaule), yS = Y(z.aisselle), yT = Y(z.taille);
   const w = lisseEtape(35, 100, al);                     // 0 : bras pendant ; 1 : bras levé
+  const wN = lisseEtape(-5, -45, al);                    // 1 : le bras croise devant le corps
   const hausse = 0.014 * H * lisseEtape(40, 160, al);    // le trapèze monte avec le bras
   const bras = MEMBRES.face.bras, km = g.km;
   // l'épaule ronde : un quart d'ellipse du haut de l'épaule (un peu en dedans de l'acromion) au bord
@@ -284,7 +285,7 @@ function demiTronc(g, angleBras) {
   const xL = x.epaule + bras[0][2] * km * 0.92;
   const L = (a, b) => a + (b - a) * w;
   const p = g.pente;
-  const xS = L(xS0, x.aisselle);
+  const xS = L(xS0, x.aisselle) + (x.aisselle - L(xS0, x.aisselle)) * wN;
   return [
     [0, yC - 34], [-x.cou * 0.6, yC - 34], [-x.cou, yC - 28],
     [-x.cou - 4, yC - 5],
@@ -293,8 +294,16 @@ function demiTronc(g, angleBras) {
     ...(() => { const E = arc(30), N = [-x.cou - 4, yC - 5], out = [];
       for (const f of [0.25, 0.55, 0.8]) out.push([N[0] + (E[0] - N[0]) * f, N[1] + (E[1] - hausse - N[1]) * f + 0.004 * H * p * Math.sin(f * Math.PI)]);
       return out; })(),
-    ...[30, 55, 78, 98, 125].map(th => { const q = arc(th); return [L(q[0], -(x0 + (xL - x0) * th / 125)), L(q[1] - hausse * (1 - th / 125), yA - hausse + (yE - yA + hausse) * th / 125)]; }),
-    [-L(xS + 0.55 * (xD - 8 - xS), xL - 4), L(yS - 0.42 * (yS - yE), yE + 0.3 * (yS - yE))],
+    // bras qui croise devant le corps (angle négatif) : le deltoïde suit le bras, l'épaule tombe
+    // droit sur le flanc (pas de crochet)
+    ...[30, 55, 78, 98, 125].map(th => {
+      const q = arc(th);
+      let r = [L(q[0], -(x0 + (xL - x0) * th / 125)), L(q[1] - hausse * (1 - th / 125), yA - hausse + (yE - yA + hausse) * th / 125)];
+      if (wN > 0) { const u = th / 125, cible = [-(x0 + 8 + (x.aisselle + 2 - x0 - 8) * u * u), yA + 4 + (yS - yA) * 0.85 * u]; r = [r[0] + (cible[0] - r[0]) * wN, r[1] + (cible[1] - r[1]) * wN]; }
+      return r;
+    }),
+    (() => { const r = [-L(xS + 0.55 * (xD - 8 - xS), xL - 4), L(yS - 0.42 * (yS - yE), yE + 0.3 * (yS - yE))];
+      return wN > 0 ? [r[0] + (-(x.aisselle + 3) - r[0]) * wN, r[1]] : r; })(),
     [-xS, yS],
     [-(xS - 0.1 * (xS - x.taille)), yS + 0.3 * (yT - yS)],
     [-(x.taille + 0.38 * (xS - x.taille)), yS + 0.64 * (yT - yS)],
@@ -536,26 +545,43 @@ function frontal(a, k, c) {
 function spherique(az, el, c) {
   return [Math.cos(el * RAD) * Math.cos(az * RAD), sgn(c) * Math.cos(el * RAD) * Math.sin(az * RAD), Math.sin(el * RAD)];
 }
+// poses.json, relu seulement s'il a changé sur le disque
+let POSES_CACHE = { t: -1, liste: null };
+function posesJSON() {
+  try {
+    const fs = require('fs'), path = require('path'), f = path.join(__dirname, 'poses.json');
+    if (!fs.existsSync(f)) return null;
+    const t = fs.statSync(f).mtimeMs;
+    if (t !== POSES_CACHE.t) { const pj = JSON.parse(fs.readFileSync(f, 'utf8')); POSES_CACHE = { t, liste: Array.isArray(pj) ? pj : (pj.poses || Object.values(pj)) }; }
+    return POSES_CACHE.liste;
+  } catch (e) { return POSES_CACHE.liste; }      // en cours d'écriture : la dernière lue
+}
 function lirePose(o, M) {
   // la pose : un objet, un id de poses.json (de la bonne vue d'abord), ou une pose du moteur
   let pd = typeof o.pose === 'object' && o.pose ? o.pose : null;
   const vue = o.vue;
   if (!pd) {
     const id = o.pose || 'debout';
-    let liste = null;
-    try {
-      const fs = require('fs'), path = require('path'), f = path.join(__dirname, 'poses.json');
-      if (fs.existsSync(f)) { const pj = JSON.parse(fs.readFileSync(f, 'utf8')); liste = Array.isArray(pj) ? pj : (pj.poses || Object.values(pj)); }
-    } catch (e) { liste = null; }
+    const liste = posesJSON();
     if (Array.isArray(liste)) pd = liste.find(q => q && q.id === id && q.vue === vue) || liste.find(q => q && q.id === id && (!q.vue || q.vue === 'profil'))
       || liste.find(q => q && q.id === id) || null;      // une pose de face rendue de dos (et l'inverse) : mêmes angles 3D (agent 5)
     if (!pd && M && M.poses && M.poses[id]) pd = { ...M.poses[id], vue: 'profil' };
-    if (!pd) pd = { vue: 'profil', angles: {} };
+    if (!pd) {
+      // un id mal tapé ne passe pas inaperçu : il se rend debout, avec un avertissement
+      if (id !== 'debout') console.warn(`vues.corps : pose « ${id} » inconnue (ni dans poses.json ni dans le moteur) : rendue debout`);
+      pd = { vue: 'profil', angles: {} };
+    }
   }
   const A = Object.assign({}, pd.angles || {}, o.angles || {});
   const sorte = pd.vue && pd.vue !== 'profil' ? pd.vue : 'profil';
   const rac = Object.assign({}, pd.raccourcis || {}, o.raccourcis || {}, A.raccourcis || {});
   const elev = Object.assign({}, pd.elevations || {}, o.elevations || {});
+  // à genoux, de face ou de dos sans raccourci donné : le tibia part en arrière, au sol
+  const appui0 = o.appui || pd.appui;
+  if (sorte !== 'profil' && sorte !== 'dessus' && (appui0 === 'genoux' || appui0 === 'genouP')) {
+    if (rac.jambeP === undefined && rac.jambe === undefined) rac.jambeP = -0.12;
+    if (appui0 === 'genoux' && rac.jambeL === undefined && rac.jambe === undefined) rac.jambeL = -0.12;
+  }
   for (const T_ of [rac, elev]) for (const k of MEMBRES_NOMS) {
     if (T_[k] !== undefined) { if (T_[k + 'P'] === undefined) T_[k + 'P'] = T_[k]; if (T_[k + 'L'] === undefined) T_[k + 'L'] = T_[k]; }
   }
@@ -719,7 +745,7 @@ function corps(o = {}, M) {
   // la projection : écran (mm, y vers le bas) et profondeur (+ vers l'œil)
   const proj = vue === 'face' ? p => [-p[1], -p[2]] : vue === 'dos' ? p => [p[1], -p[2]] : p => [p[0], p[1]];
   const prof = vue === 'face' ? p => p[0] : vue === 'dos' ? p => -p[0] : p => p[2];
-  const pieces = [], geo0 = {};
+  const pieces = [], geo0 = {}, angB = { P: 0, L: 0 };
   const pc = (id, poly, z, extra = {}) => pieces.push({ id, poly, z, ...extra });
   const planaire = vue !== 'dessus';
   // ─ le tronc, le bassin, le cou, la tête
@@ -731,12 +757,26 @@ function corps(o = {}, M) {
       const dehors = gaucheE ? [-bas_[1], bas_[0]] : [bas_[1], -bas_[0]];
       return Math.atan2(dot(v, dehors), dot(v, bas_)) / RAD;
     };
+    angB.P = aBras('P'); angB.L = aBras('L');
     const gaucheEcran = vue === 'face' ? 'P' : 'L';
     const tr = deuxMoities(demiTronc(g, aBras(gaucheEcran)), demiTronc(g, aBras(gaucheEcran === 'P' ? 'L' : 'P')));
-    const Rt = q => { const v = rotZ(rotX(rotY([0, (vue === 'face' ? -1 : 1) * q[0], -q[1]], S.penche), S.cote), S.azT); return proj(v); };
+    // la taille plie peu à peu : sous l'aisselle le tronc tourne en entier, à la taille presque pas
+    // (pas de marche au flanc quand il penche de côté)
+    const yBas = g.z.hanche - g.z.taille + 40, yHaut = g.z.hanche - g.z.aisselle;
+    const Rt = q => { const f = 0.15 + 0.85 * lisseEtape(yBas, yHaut, q[1]); const v = rotZ(rotX(rotY([0, (vue === 'face' ? -1 : 1) * q[0], -q[1]], S.penche * (0.4 + 0.6 * f)), S.cote * f), S.azT); return proj(v); };
     pc('tronc', tr.map(Rt), 0.01);
     const Rb = q => proj(rotZ([0, (vue === 'face' ? -1 : 1) * q[0], -q[1]], S.azB));
     pc('bassin', bassinFaceDe(g).map(Rb), 0, { voisins: [{ id: 'tronc', joint: Rb([0, -150]), R: 9999 }] });
+    // accroupi, assis bas : les cuisses pliées vers l'avant, le fessier pend sous les hanches, rond
+    // (sans lui, le bas du bassin fait une arête plate : un banc invisible)
+    const flexC = Math.min(...['P', 'L'].map(c => Math.max(0, S.dir['cuisse' + c][0])));
+    if (flexC > 0.55) {
+      const k = lisseEtape(0.55, 0.85, flexC), yJ = g.z.hanche - g.z.entrejambe;
+      const f = superEllipse({ cx: 0, cy: yJ * (0.25 + 0.55 * k), av: g.x.hanches * 0.9, ar: g.x.hanches * 0.9, w: yJ * (0.5 + 0.55 * k), n: 2.3, k: 72 })
+        .map(([x, y]) => [x, y]).map(q => proj(rotZ([0, (vue === 'face' ? -1 : 1) * q[0], -q[1]], S.azB)));
+      // de face, derrière les cuisses ; de dos, devant (c'est lui qu'on voit)
+      pc('fesses', f, vue === 'face' ? -2 : 40, { voisins: [{ id: 'bassin', joint: Rb([0, 0]), R: 9999 }, { id: 'tronc', joint: Rb([0, -150]), R: 9999 }] });
+    }
     const c0 = proj(J.cou), c1 = proj(J.pivot), dC = sub(c1, c0);
     pc('cou', tube(c0, c1, SEG.cou, [-uni(dC)[1], uni(dC)[0]], BOUTS.cou, Math.max(0.2, lon(dC) / Lg.cou), [0, -1]), -1,
       { voisins: [{ id: 'tronc', joint: c0, R: 9999 }] });
@@ -806,7 +846,10 @@ function corps(o = {}, M) {
     const rang = (a, b) => planaire ? 'corps' : ((a[2] + b[2]) / 2 - zE <= -160 ? 'brasbas' + c : (a[2] + b[2]) / 2 - zE >= 160 ? 'brashaut' + c : 'corps');
     const rB = Math.min(1, Math.hypot(...sub(proj(El), proj(E))) / Lg.bras), rA = Math.min(1, Math.hypot(...sub(proj(W), proj(El))) / Lg.avantbras);
     const kR = r => Math.max(0.22, r);
-    os('bras' + c, E, El, SEG.bras, BOUTS.bras, Lg.bras, zDe(E, El) + biais, { groupe: rang(E, El),
+    // le bras qui croise devant le corps : le deltoïde ne fait plus saillie dehors
+    const wNb = planaire ? lisseEtape(-5, -45, angB[c]) : 0;
+    const tabB = wNb > 0 ? SEG.bras.map(([t, e, i]) => [t, e + (Math.min(e, i + 2) - e) * wNb, i]) : SEG.bras;
+    os('bras' + c, E, El, tabB, BOUTS.bras, Lg.bras, zDe(E, El) + biais, { groupe: rang(E, El),
       voisins: [{ id: 'tronc', joint: proj(E), R: planaire ? (g.z.epaule - g.z.aisselle) * 1.02 * kR(rB) : 0.7 * SEG.bras[0][1] }] });
     os('avantbras' + c, El, W, SEG.avantbras, BOUTS.avantbras, Lg.avantbras, zDe(El, W) + biais, { groupe: rang(El, W),
       voisins: [{ id: 'bras' + c, joint: proj(El), R: 1.5 * SEG.avantbras[0][1] * (planaire ? kR(rA) : 1) }] });
@@ -987,19 +1030,23 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     }
     // les contours intérieurs : le bord d'une pièce qui tombe sur une pièce de derrière, hors des
     // joints avec ses voisines et hors de ce qui passe devant elle
+    // Le bord se trace partout où il tombe dans la silhouette (y compris le jour étroit que la
+    // fermeture a bouché : le bras qui frôle le flanc garde un bord continu), sauf sous ce qui passe
+    // devant et autour de ses articulations (la couture : le bout du coude ne fait pas de boule).
     const lignes = [];
     for (const p of gr.pieces) {
       const derriere = gr.pieces.filter(q => q !== p && q.z < p.z);
       if (!derriere.length) continue;
       const devant = gr.pieces.filter(q => q !== p && q.z > p.z);
-      let region = [];
-      for (const q of derriere) {
+      const zones = [];
+      for (const q of gr.pieces) {
+        if (q === p) continue;
         const v = (p.voisins || []).find(w => w.id === q.id) || (q.voisins || []).find(w => w.id === p.id);
-        let rq = q.CL;
-        if (v && v.R > 0) rq = I.moins(rq, disque(v.joint, Math.min(v.R, 4000)));
-        region = I.unionCL([region, rq]);
+        if (v && v.R > 0) zones.push(disque(v.joint, Math.min(v.R, 4000))[0]);
       }
+      let region = gr.CL;
       if (devant.length) region = I.moins(region, I.unionCL(devant.map(q => q.CL)));
+      if (zones.length) region = I.moins(region, I.unionCL([zones]));
       lignes.push(...I.bordsDans(p.CL, I.decale(region, -E)));
     }
     out.push(ligne(lignes, tr.int), ligne(gr.fentes, tr.int, '', 4));
