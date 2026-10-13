@@ -548,6 +548,7 @@ function piedPose(A, Pr, j, c, type, seg = SEGMENTS_PROFIL, kM = Pr.largeurs.mem
   const kp = Pr.pied;
   const fin = seg.jambe[seg.jambe.length - 1];
   const opt = { cheville: (fin[1] + fin[2]) * kM / kp, angle: Math.round((ap - A['jambe' + c]) * 2) / 2 };
+  if (A._echelle) opt.echelle = Math.round(A._echelle * kp * 1000) / 1000;   // le trait de semelle : seulement assez grand
   // la pointe pique vers le sol et le pied porte (debout, à genou) : les orteils se couchent à plat
   // vers l'avant (sur la pointe, orteils repliés sous soi) ; A.orteilsP / A.orteilsL l'imposent
   const imp = A['orteils' + c];
@@ -642,7 +643,7 @@ function ancrerPieds(A, Pr, pieds, solCible = null) {
     const p0 = A['pied' + c] !== undefined ? A['pied' + c] : A['jambe' + c] + 90;
     let mieux = null;
     for (const sens of [-1, 1]) {
-      const f = dp => { const B = { ...A, _appui: A._appui, ['pied' + c]: p0 + sens * dp }; return basPied(B).r[c].sole - sol; };
+      const f = dp => { const B = { ...A, _appui: A._appui, _echelle: A._echelle, ['pied' + c]: p0 + sens * dp }; return basPied(B).r[c].sole - sol; };
       let a = 0, b = 60, fa = f(a), fb = f(b);
       if (fa * fb > 0) continue;
       for (let k = 0; k < 12; k++) { const m = (a + b) / 2, fm = f(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
@@ -659,7 +660,7 @@ function ancrerGenoux(A, Pr, pieds, cotes) {
   for (const c of cotes) {
     const j0 = A['jambe' + c], p0 = A['pied' + c] !== undefined ? A['pied' + c] : j0 + 90;
     const ecart = dj => {
-      const B = { ...A, _appui: A._appui, ['jambe' + c]: j0 + dj, ['pied' + c]: p0 + dj };
+      const B = { ...A, _appui: A._appui, _echelle: A._echelle, ['jambe' + c]: j0 + dj, ['pied' + c]: p0 + dj };
       const { j } = squelette(B, Pr);
       const pp = piedPose(B, Pr, j, c, (pieds && pieds[c]) || 'botte');
       let dy = -Infinity;
@@ -714,6 +715,7 @@ function corps(o = {}) {
   const piedsO = typeof pieds === 'string' ? { P: pieds, L: pieds } : pieds;
   const appui0 = o.appui || poseDef.appui || 'pieds';
   Object.defineProperty(A, '_appui', { value: appui0, enumerable: false });
+  Object.defineProperty(A, '_echelle', { value: o.echelle || 0.2, enumerable: false });
   // assis : le dessus du siège (mm sous la fesse) fixe le sol ; les pieds le rejoignent s'ils peuvent
   const siegeH = o.siege !== undefined ? o.siege : poseDef.siege;
   let solSiege = null;

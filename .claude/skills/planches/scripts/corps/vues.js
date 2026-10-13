@@ -889,7 +889,7 @@ function corps(o = {}, M) {
     // le pied
     const tp = (typeof P.pieds === 'string' ? P.pieds : (P.pieds && P.pieds[c])) || 'botte';
     const kp = Lg.pied / 266;
-    const ef = extremiteVue(M, 'pied', tp, vue, c, { cheville: (SEG.jambe[SEG.jambe.length - 1][1] + SEG.jambe[SEG.jambe.length - 1][2]) / kp });
+    const ef = extremiteVue(M, 'pied', tp, vue, c, { cheville: (SEG.jambe[SEG.jambe.length - 1][1] + SEG.jambe[SEG.jambe.length - 1][2]) / kp, echelle: (o.echelle || 0.2) * kp });
     const pa = proj(A_);
     let TP, piedSorte = null;
     if (planaire) {
@@ -919,7 +919,7 @@ function corps(o = {}, M) {
       TP = q => add(pa, rot([q[0] * kp, q[1] * kp * (ef.ext ? 1 : sgn(c))], azP + (arriere ? 180 : 0)));
     }
     if (piedSorte === 'semelle') {
-      const es = extremiteVue(M, 'pied', tp, 'dessous', c, { cheville: (SEG.jambe[SEG.jambe.length - 1][1] + SEG.jambe[SEG.jambe.length - 1][2]) / kp });
+      const es = extremiteVue(M, 'pied', tp, 'dessous', c, { cheville: (SEG.jambe[SEG.jambe.length - 1][1] + SEG.jambe[SEG.jambe.length - 1][2]) / kp, echelle: (o.echelle || 0.2) * kp });
       const TS = q => add(pa, rot([q[0] * kp, q[1] * kp], -90));
       pc('pied' + c, es.contours.map(q => q.map(TS))[0], prof(A_) + biais + 3, { fusion: es.contours.slice(1).map(q => q.map(TS)), details: es.details.map(q => q.map(TS)), groupe: 'corps', voisins: [{ id: 'jambe' + c, joint: pa, R: 9999 }] });
     } else if (piedSorte === 'bout') {
@@ -959,6 +959,16 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     const pP = geo.pieds.P.cheville, pL = geo.pieds.L.cheville;
     x0 = appui === 'pieds' ? (pP[0] + pL[0]) / 2 : proj(J.bassin)[0];
     y0 = yMax;
+    if (appui === 'genoux') x0 = (proj(J.genouP)[0] + proj(J.genouL)[0]) / 2;
+    else if (appui === 'genouP') x0 = proj(J.genouP)[0];
+    else if (appui === 'avantbras') {
+      // pendu par les avant-bras (au bord de la glace) : (x, y) sous les avant-bras, entre les coudes ;
+      // pas de sol
+      let b = -Infinity;
+      for (const p of pieces) if (/^avantbras/.test(p.id)) for (const P_ of p.CL) for (const q of P_) b = Math.max(b, q.Y / SC);
+      y0 = isFinite(b) ? b : proj(J.coudeP)[1];
+      x0 = (proj(J.coudeP)[0] + proj(J.coudeL)[0]) / 2;
+    } else if (appui === 'aucun') { x0 = proj(J.bassin)[0]; y0 = proj(J.bassin)[1]; }   // sans appui : (x, y) = le bassin
     const ang0 = o.angle || 0;
     T = ang0 ? q => { const v = rot([m * s * (q[0] - x0), s * (q[1] - y0)], ang0); return [X + v[0], Y + v[1]]; } : q => [X + m * s * (q[0] - x0), Y + s * (q[1] - y0)];
   } else {
@@ -1098,7 +1108,7 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     gg.tete = { x: tc[0], y: tc[1], haut: T(geo.teteH || proj(J.pivot)), angle: (geo.teteA || 0) * (m < 0 ? -1 : 1) + (planaire ? 0 : (o.angle || 0)), pivot: T(proj(J.pivot)) };
     const b0 = T([xMin, yMin]), b1 = T([xMax, yMax]);
     gg.boite = { x0: Math.min(b0[0], b1[0]), y0: Math.min(b0[1], b1[1]), x1: Math.max(b0[0], b1[0]), y1: Math.max(b0[1], b1[1]) };
-    gg.sol = planaire && !o._couche ? Y : null;
+    gg.sol = planaire && !o._couche && P.appui !== 'avantbras' && P.appui !== 'aucun' ? Y : null;
     gg.echelle = s; gg.miroir = m < 0; gg.vue = vue;
     gg.versVue = q => T(proj(q));          // un point du squelette 3D (mm) → la vue
     return gg;
