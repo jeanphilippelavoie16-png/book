@@ -928,7 +928,7 @@ function volumePied(type, o) {
   dalle(-66, -14, 3, ws, zS, () => zB, ycS, 'talon');
   dalle(-16, 50, 4, ws, zS, () => zB - 6, ycS, 'cambrure');
   dalle(48, 215, 3, ws, zS, x => zB - Math.pow(Math.max(0, (x - 150) / 67), 2) * 8, ycS, 'semelle');
-  return { coques, groupes: { haut: 3.0, semelle: 1.0 }, points: { talon: [-67, 0, zB, 1], plante: [plante[0], 0, plante[1], 1], pointe: [215, -8, zB - 8, 2] }, piedT, ortT, plante };
+  return { coques, groupes: { haut: 3.0, semelle: 1.4 }, points: { talon: [-67, 0, zB, 1], plante: [plante[0], 0, plante[1], 1], pointe: [215, -8, zB - 8, 2] }, piedT, ortT, plante };
 }
 const VUES_PIED = {
   // [x, y, z] depuis (X, Y, Z) ; z petit = près de l'œil
