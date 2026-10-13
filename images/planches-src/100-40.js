@@ -557,7 +557,12 @@ module.exports = (h) => {
     // la chaudière par-dessus
     o.push(h.path(`M${r1(xb)} ${r1(yt)} L${r1(xb)} ${r1(yb)} L${r1(xb + Wb)} ${r1(yb)} L${r1(xb + Wb)} ${r1(yt)} L${r1(xb + Wb - t)} ${r1(yt)} L${r1(xb + Wb - t)} ${r1(yb - t)} L${r1(xb + t)} ${r1(yb - t)} L${r1(xb + t)} ${r1(yt)} Z`, A.plein));
     // la main qui appuie sur le fond du pot et le tient sous l'eau
-    const m = F.main({ x: cx, y: cyFond, pose: 'appui', vue: 'profil', echelle: 0.44, bras: 110, cote: 'gauche' });
+    // modèle s10-plat retourné et en miroir : paume en bas sur le fond du pot, les doigts vers la
+    // gauche, le pouce dessous ; penché de 10,7° pour que doigts et pouce portent, le talon levé ;
+    // l'avant-bras remonte à droite et sort par le haut (214 px = 190 mm)
+    const m = F.modele('s10-plat', { x: cx - Wp / 2 + 3, y: cyFond - 1, ancre: [14, 47], angle: 180 - 10.7, miroir: true, echelle: 0.44 * 190 / 214,
+      masquer: [[228, 0, 245, 125]],
+      bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], vers: [Math.cos(-55 * Math.PI / 180), Math.sin(-55 * Math.PI / 180)], bord: z } });
     o.push(m.toString());
     return {
       svg: o.join('\n'),

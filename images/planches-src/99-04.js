@@ -120,14 +120,17 @@ module.exports = (h) => {
       },
       dos: {
         titre: 'Retirée : d’abord le dos de la main',
-        // La main droite de la bibliothèque, relâchée, vue de profil, tournée doigts en haut : le dos
-        // de la main (les jointures) vient contre la tige, les doigts se replient en s'en éloignant.
+        // La main à plat, de profil, tournée doigts en haut : le dos de la main (les jointures) vient
+        // contre la tige.
         dessin: z => {
           const xr = z.l * 0.58, yh = z.h * 0.58, D = 20, xL = xr - D / 2;
           const bas = z.h - 18;
           return [
             h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour')),
-            F.main({ x: xL - 13, y: yh, pose: 'pend', vue: 'profil', cote: 'gauche', angle: 96, echelle: 0.6, bras: 64 }),
+            // modèle s10-plat (la main à plat de côté), en miroir, les doigts en haut : le dos de la
+            // main, à la hauteur des jointures (110, 98,5), contre la tige ; l'avant-bras descend hors du cadre
+            F.modele('s10-plat', { x: xL - 0.8, y: yh - 12, ancre: [110, 98.5], angle: -90, miroir: true, echelle: 0.6 * 190 / 214,
+              masquer: [[228, 0, 245, 125]], bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } }),
             // toucher, retirer : perpendiculaire à la tige
             h.fleche(`M${xL - 92} ${yh + 6} L${xL - 64} ${yh + 6}`, A.arete),
             h.fleche(`M${xL - 68} ${yh + 22} L${xL - 96} ${yh + 22}`, A.arete),
@@ -146,7 +149,10 @@ module.exports = (h) => {
           const xr = z.l * 0.58, yh = z.h * 0.46, D = 20;
           const bas = z.h - 18;
           const tige = h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour'));
-          return [tige, F.main({ x: xr, y: yh, pose: 'prise', vue: 'paume', diametre: D, bras: 44 })].join('\n');
+          // modèle s11 (poing fermé vu de la paume), main droite (miroir) tournée d'un quart : la tige
+          // verticale passe dans le poing (bâton du modèle ≈ 25 px = D), l'avant-bras sort à gauche
+          return [tige, F.modele('s11', { x: xr, y: yh, ancre: [68, 42], angle: 90, miroir: true, echelle: D / 25,
+            masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })].join('\n');
         },
         renvois: z => {
           const xr = z.l * 0.58, yh = z.h * 0.46;

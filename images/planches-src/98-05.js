@@ -144,9 +144,15 @@ module.exports = (h) => {
     const ouv = [];
     for (let i = 0; i < 9; i++) { const t = rg(); ouv.push(grain(mx + mR * 0.22 + t * mR * 0.25 + rg() * 3, my + mR * 0.42 + t * mR * 0.38 + rg() * 3, 60 + rg() * 60, 1.1)); }
     const med = [h.cercle(mx, my, mR, A.blanc), h.cercle(mx, my, mR, A.arete),
-      F.main({ x: mx + mR * 0.05, y: my - mR * 0.4, pose: 'prise', vue: 'profil', echelle: mR / 250, diametre: 34 * mR / 250, angle: 0, bras: 40 }),
+      // modèle s05 (les doigts repliés sur ce qu'ils tiennent, le pouce dessus), en miroir :
+      // l'avant-bras à gauche, le creux du poing plein de grain (140 px du poignet aux jointures ≈ 110 mm)
+      F.modele('s05', { x: mx + mR * 0.12, y: my - mR * 0.4, ancre: [12, 30], miroir: true, echelle: 0.96 * mR / 250, masquer: [[222, 0, 240, 120]],
+        bras: { a: [222, 39.1], a0: [200, 38.1], b: [222, 104.3], b0: [200, 100.8], long: 0.12 * mR } }),
       poing.join(''),
-      F.main({ x: mx - mR * 0.15, y: my + mR * 0.3, pose: 'appui', vue: 'dos', echelle: mR / 250, angle: 22, bras: 40 }),
+      // modèle s10-plat retourné (la main à plat, paume en bas, les doigts vers la droite), penché
+      // de 22° : la main ouverte, le grain part du bout des doigts (214 px = 190 mm)
+      F.modele('s10-plat', { x: mx + mR * 0.2, y: my + mR * 0.4, ancre: [14, 47], angle: 180 + 22, echelle: 1.2 * 190 / 214 * mR / 250,
+        masquer: [[228, 0, 245, 125]], bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], long: 0.12 * mR } }),
       ouv.join('\n'),
       h.fleche(`M ${f(mx + mR * 0.55)} ${f(my - mR * 0.5)} Q ${f(mx + mR * 0.78)} ${f(my - mR * 0.2)} ${f(mx + mR * 0.6)} ${f(my + mR * 0.12)}`, A.detail)].join('\n');
     // le grain qui quitte la main ouverte, en éventail, et tombe devant

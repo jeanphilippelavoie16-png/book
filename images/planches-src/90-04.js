@@ -23,11 +23,15 @@ module.exports = (h) => {
     return `${op} ${o.join(' ')}`;
   }).join(' ');
 
-  // Le poing qui serre la languette, vu du dos : x, y au milieu de la prise. gauche : l'avant-bras
-  // part vers la droite (main gauche) ; angle : -90 pour une languette couchée, l'avant-bras en bas.
-  const poing = (x, y, e, { gauche = false, angle = 0, bras = 30 } = {}) => h.formes.main({
-    x, y, pose: 'prise', vue: 'dos', cote: gauche ? 'gauche' : 'droite', angle, echelle: e,
-    diametre: 12, bras }).toString();
+  // Le poing qui serre la languette : x, y au milieu de la prise. gauche : l'avant-bras part vers
+  // la droite (main gauche) ; angle : -90 pour une languette couchée, l'avant-bras en bas.
+  // Modèle s11 (poing fermé vu de la paume) : la languette passe dans le poing, le pouce en haut ;
+  // main droite en miroir (avant-bras à gauche), main gauche telle quelle (avant-bras à droite).
+  // L'avant-bras du modèle s'arrête court, ouvert.
+  const poing = (x, y, e, { gauche = false, angle = 0, bras = 30 } = {}) => h.formes.modele('s11', {
+    x, y, ancre: [68, 42], angle: (gauche ? -90 : 90) + angle, miroir: !gauche, echelle: e,
+    masquer: [[0, 150, 140, 175]],
+    bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: bras * e + 10 } }).toString();
 
   // Languette vue de face, verticale : bout déchiré en haut, gomme noire de yG au bout.
   // yG = null : pas de gomme. w : demi-largeur.
@@ -224,7 +228,10 @@ module.exports = (h) => {
         o.push(h.path(`M ${f(px - 1.2)} ${f(py)} Q ${f(mx - 0.4)} ${f(my)} ${f(X - 2)} ${f(qy)} L ${f(X + 2)} ${f(qy)} Q ${f(mx + 0.4)} ${f(my)} ${f(px + 1.2)} ${f(py)} Z`, h.a.plein));
       });
     }
-    o.push(h.formes.main({ x: tx, y: ty, pose: 'pince', vue: 'profil', cote: 'gauche', angle: -30, echelle: 0.47, bras: 22 }).toString());
+    // modèle s09 (le pouce et l'index qui pincent, de côté) : le point pincé sur la gomme,
+    // l'avant-bras qui remonte à droite
+    o.push(h.formes.modele('s09', { x: tx, y: ty, ancre: [12, 66], angle: -45, echelle: 0.475, masquer: [[200, 0, 230, 125]],
+      bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], long: 22 } }).toString());
     if (colle) o.push(h.ellipse(tx, ty + 1.5, 4, 1.8, h.a.plein));   // la gomme restée sur la pulpe
     // Le va-et-vient du frottement, à gauche des doigts, parallèle à la languette.
     const ya = ty + 2, xa = tx - 44, xb = tx - 12;

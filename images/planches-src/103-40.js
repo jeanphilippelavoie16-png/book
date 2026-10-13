@@ -305,8 +305,11 @@ module.exports = (h) => {
           out.push(h.chemin([V(-425, 0), V(-20, 0), V(-20, eT), V(-425, eT)], blanc(A.arete), true));
           // la main gauche pince le bout sec qui dépasse du billot
           // le bout, serré entre le pouce et l'index : la pince de profil
-          out.push(F.main({ x: V(-392, eT / 2)[0], y: V(-392, eT / 2)[1], pose: 'pince', vue: 'profil', echelle: s, bras: 40, angle: 8,
-            objet: h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true) }));
+          // modèle s09 (le pouce et l'index qui pincent, de côté), en miroir : le point pincé sur le
+          // tendon, l'avant-bras qui remonte à gauche (188 px = 190 mm)
+          out.push(h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true));
+          out.push(F.modele('s09', { x: V(-392, eT / 2)[0], y: V(-392, eT / 2)[1], ancre: [12, 66], angle: 15, miroir: true, echelle: s * 190 / 188,
+            masquer: [[200, 0, 230, 125]], bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } }));
 
           // le maillet taillé dans une bûche de bouleau, levé ; le poing droit sur le manche
           const phi = 28 * Math.PI / 180, ax = [Math.cos(phi), Math.sin(phi)], nx = [-ax[1], ax[0]];
@@ -329,7 +332,12 @@ module.exports = (h) => {
           mSvg += h.path(D(bout(1)) + ' Z', blanc(A.arete));
           mSvg += h.path(D(bout(0.62)) + ' Z', A.fin) + h.path(D(bout(0.3)) + ' Z', A.fin);
           const tr = V(Fp[0], Fp[1]);
-          out.push(F.main({ x: tr[0], y: tr[1], pose: 'prise', vue: 'dos', echelle: s, diametre: 2 * rm * s, angle: 90 - 28, bras: 80, objet: mSvg }));
+          // modèle s11 (poing fermé), main droite (miroir) : le manche dans le poing, le pouce vers la
+          // tête, l'avant-bras qui monte à gauche hors du cadre ; à la taille d'une main (113 px ≈ 95 mm),
+          // le manche, plus gros que le trou du poing, passe derrière les doigts
+          out.push(mSvg);
+          out.push(F.modele('s11', { x: tr[0], y: tr[1], ancre: [68, 42], angle: 180 - 28, miroir: true, echelle: 0.84 * s,
+            masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
           // la frappe : l'arc que décrit la tête
           const R = 335, arc = [];
           for (let a = 27; a >= 5; a -= 2) { const r = a * Math.PI / 180; arc.push(V(Fp[0] + R * Math.cos(r), Fp[1] + R * Math.sin(r))); }
