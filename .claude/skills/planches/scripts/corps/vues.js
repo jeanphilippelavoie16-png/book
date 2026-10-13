@@ -882,7 +882,12 @@ function corps(o = {}, M) {
     const tabB = wNb > 0 ? SEG.bras.map(([t, e, i]) => [t, e + (Math.min(e, i + 2) - e) * wNb, i]) : SEG.bras;
     os('bras' + c, E, El, tabB, BOUTS.bras, Lg.bras, zDe(E, El) + biais, { groupe: rang(E, El),
       voisins: [{ id: 'tronc', joint: proj(E), R: planaire ? (g.z.epaule - g.z.aisselle) * 1.02 * kR(rB) : 0.7 * SEG.bras[0][1] }] });
-    os('avantbras' + c, El, W, SEG.avantbras, BOUTS.avantbras, Lg.avantbras, zDe(El, W) + biais, { groupe: rang(El, W),
+    // dessus : l'avant-bras reste dans le groupe du bras (sinon son bout rond se trace en couture au
+    // coude), sauf s'il pend presque droit sous l'épaule ; de même la main avec l'avant-bras (agent 5)
+    // (un avant-bras levé au-dessus de l'épaule garde son rang « haut » : sinon le groupe du tronc
+    // monterait au-dessus de la tête et la cacherait)
+    const gB = rang(E, El), rA0 = rang(El, W), gA = (!planaire && S.dir['avantbras' + c][2] > -0.85 && rA0 !== 'brashaut' + c) ? gB : rA0;
+    os('avantbras' + c, El, W, SEG.avantbras, BOUTS.avantbras, Lg.avantbras, zDe(El, W) + biais, { groupe: gA,
       voisins: [{ id: 'bras' + c, joint: proj(El), R: 1.5 * SEG.avantbras[0][1] * (planaire ? kR(rA) : 1) }] });
     // la main : la forme d'extrémité, le long de la direction de la main, raccourcie ; vue de bout
     // (de face, une main qui vient vers l'œil), le poing ou la main vus par le bout des doigts
@@ -913,7 +918,7 @@ function corps(o = {}, M) {
       mainPoly = em.contours.map(q => q.map(TM))[0]; mainFus = em.contours.slice(1).map(q => q.map(TM)); mainDet = em.details.map(q => q.map(TM));
     }
     const zM = prof(W) + biais + (deBout ? 30 : 2);
-    pc('main' + c, mainPoly, zM, { fusion: mainFus, details: mainDet, groupe: rang(W, a3(W, m3(dM, 90))),
+    pc('main' + c, mainPoly, zM, { fusion: mainFus, details: mainDet, groupe: (() => { const rM0 = rang(W, a3(W, m3(dM, 90))); return (!planaire && S.dir['main' + c][2] > -0.85 && rM0 !== 'brashaut' + c) ? gA : rM0; })(),
       voisins: [{ id: 'avantbras' + c, joint: p0, R: 42 * km * (planaire ? kR(rV) : 1) }] });
     const rPrise = em.prise && em.prise.r != null ? em.prise.r * km : (P.prise && P.prise[c] ? P.prise[c] / 2 * km : (/prise|poing/.test(tm) ? 16 * km : null));
     geo.mains[c] = { poignet: p0, prise: deBout ? add(p0, mul(v2, 55 * km)) : (em.prise ? TM([em.prise.x, em.prise.y]) : p0), angle: angM + (em.prise && em.prise.angle ? (miroirM ? -1 : 1) * em.prise.angle : 0), axe: angM, type: tm, r: rPrise, deBout };
@@ -960,6 +965,13 @@ function corps(o = {}, M) {
     } else if (piedSorte !== 'cache') pc('pied' + c, ef.contours.map(q => q.map(TP))[0], planaire ? prof(A_) + biais + 3 : A_[2] - 60,
       { fusion: ef.contours.slice(1).map(q => q.map(TP)), details: ef.details.map(q => q.map(TP)), groupe: planaire ? 'corps' : 'pied' + c, voisins: [{ id: 'jambe' + c, joint: pa, R: 9999 }], cache: !planaire && (o.caches === true || o.caches === 'pieds' || (Array.isArray(o.caches) && o.caches.includes('pieds'))) });
     geo.pieds[c] = { cheville: pa };
+  }
+  // masquer : ['jambeP', 'jambeL', 'brasP', 'brasL'] — ces membres ne se dessinent pas (comme le moteur de
+  // profil ; 60-40 : les jambes dans le bateau) (agent 5)
+  if (Array.isArray(o.masquer) && o.masquer.length) {
+    const parties = { jambe: ['cuisse', 'jambe', 'pied'], bras: ['bras', 'avantbras', 'main'] };
+    const ote = new Set(o.masquer.flatMap(k => { const m = /^(jambe|bras)([PL])$/.exec(k); return m ? parties[m[1]].map(n => n + m[2]) : []; }));
+    for (let i = pieces.length - 1; i >= 0; i--) if (ote.has(pieces[i].id)) pieces.splice(i, 1);
   }
   return peindre(o, M, C, P, S, J, pieces, geo, proj, vue);
 }
