@@ -218,18 +218,10 @@ def masques_modele(ident):
     return enc, om, silhouette(enc, om, k, FERMER.get(ident, [])), k, b
 
 
-def plier(m, k, poly, pivot, angle, rayon, charniere=None):
-    """(la partie de m dans poly, pliée autour de pivot ; le reste de m). charniere [[x, y], [x, y]] :
-    la rotation monte avec la distance à ce segment (la ligne des jointures) au lieu de la distance au
-    pivot ; la partie reste soudée tout le long du segment, pas seulement au pivot."""
-    from skimage.draw import polygon as remplir
-    zone = np.zeros_like(m)
-    rr, cc = remplir(np.array([q[1] for q in poly]) * k, np.array([q[0] for q in poly]) * k, m.shape)
-    zone[rr, cc] = True
-    partie, reste = m & zone, m & ~zone
-    H, W = m.shape
+def retour(yy, xx, k, pivot, angle, rayon, charniere=None):
+    """Pour chaque pixel d'arrivée (yy, xx), le pixel de départ du pli autour de pivot (inverse exact
+    du pli : la rotation ne dépend que de la distance au pivot, que la rotation garde)."""
     cy, cx = pivot[1] * k, pivot[0] * k
-    yy, xx = np.mgrid[:H, :W].astype(float)
     r, phi = np.hypot(xx - cx, yy - cy), np.arctan2(yy - cy, xx - cx)
     if charniere:                                  # distance au segment des jointures
         (ax, ay), (bx, by) = [(q[0] * k, q[1] * k) for q in charniere]
@@ -239,7 +231,33 @@ def plier(m, k, poly, pivot, angle, rayon, charniere=None):
     else:
         t = np.clip(r / (rayon * k), 0, 1)
     th = np.deg2rad(angle) * t * t * (3 - 2 * t)
-    src = ndi.map_coordinates(partie.astype(float), [cy + r * np.sin(phi - th), cx + r * np.cos(phi - th)], order=1) > 0.5
+    return cy + r * np.sin(phi - th), cx + r * np.cos(phi - th)
+
+
+def zone_poly(m, k, poly):
+    from skimage.draw import polygon as remplir
+    zone = np.zeros_like(m)
+    rr, cc = remplir(np.array([q[1] for q in poly]) * k, np.array([q[0] for q in poly]) * k, m.shape)
+    zone[rr, cc] = True
+    return zone
+
+
+def plier(m, k, poly, pivot, angle, rayon, charniere=None, chaine=(), zone=None):
+    """(la partie de m dans poly, pliée autour de pivot ; le reste de m). charniere [[x, y], [x, y]] :
+    la rotation monte avec la distance à ce segment (la ligne des jointures) au lieu de la distance au
+    pivot ; la partie reste soudée tout le long du segment, pas seulement au pivot.
+    chaine [(pivot, angle, rayon, charniere), …] : les plis des parties parentes, du parent direct au
+    tronc ; la partie est pliée sur elle-même PUIS emportée par eux, en un seul tirage depuis la source
+    (rien ne se perd hors du cadre entre deux plis). zone : le masque de la partie, s'il est déjà fait."""
+    if zone is None:
+        zone = zone_poly(m, k, poly)
+    partie, reste = m & zone, m & ~zone
+    H, W = m.shape
+    yy, xx = np.mgrid[:H, :W].astype(float)
+    for pv, a, rr_, ch in reversed(list(chaine)):  # l'arrivée, ramenée par le tronc, puis par le bras…
+        yy, xx = retour(yy, xx, k, pv, a, rr_, ch)
+    sy, sx = retour(yy, xx, k, pivot, angle, rayon, charniere)   # …puis par la partie elle-même
+    src = ndi.map_coordinates(partie.astype(float), [sy, sx], order=1) > 0.5
     return src, reste
 
 
@@ -278,20 +296,34 @@ def articuler(ident, spec):
         q = [[x + M, y + M] for x, y in poly]
         rr, cc = remplir(np.array([y for x, y in q]) * k, np.array([x for x, y in q]) * k, enc.shape)
         enc[rr, cc] = False; sil[rr, cc] = False; om[rr, cc] = False
-    faits = []                                     # (pivot effectif, angle, parent) des parties déjà pliées
-    def suivre(q, i):
-        chaine = []
-        while i is not None:
-            chaine.append(i); i = faits[i][2]
-        for j in reversed(chaine):                 # du tronc vers le bout : le bras, puis l'avant-bras
-            (cx, cy), a, _ = faits[j]
-            c, s_ = np.cos(np.deg2rad(a)), np.sin(np.deg2rad(a))
-            q = [cx + (q[0] - cx) * c - (q[1] - cy) * s_, cy + (q[0] - cx) * s_ + (q[1] - cy) * c]
-        return q
-    for pt in spec.get('parties', []):
-        par = pt.get('suit')                        # l'avant-bras suit le bras : son poly et son pivot ont tourné
-        poly = [suivre(q, par) for q in pt['poly']]; pv = suivre(pt['pivot'], par)
-        faits.append((pv, pt['angle'], par))
+    # Les parties qui en suivent une autre ("suit": index du parent) : l'avant-bras suit le bras. Leur
+    # poly, leur pivot, leur charnière se donnent sur la SOURCE, comme ceux du parent. Le parent part sans
+    # elles ; chacune est mise de côté telle qu'à la source, puis tirée d'un coup par son pli et ceux de
+    # ses parents (avant le 13 oct., l'avant-bras se pliait sur le bras déjà tourné : ce qui sortait du
+    # cadre au premier pli — la main d'un bras levé — était perdu).
+    P = spec.get('parties', [])
+    enfants = {i: [j for j, q in enumerate(P) if q.get('suit') == i] for i in range(len(P))}
+    def descendants(i):
+        out = []
+        for j in enfants[i]:
+            out += [j] + descendants(j)
+        return out
+    zones = [zone_poly(enc, k, pt['poly']) for pt in P]
+    propre = [zones[i] & ~np.any([zones[j] for j in descendants(i)] or [np.zeros_like(enc)], axis=0) for i in range(len(P))]
+    mis_de_cote = {}                               # index → (encre, silhouette) de la partie, à la source
+    def chaine(i):
+        out, j = [], P[i].get('suit')
+        while j is not None:
+            q = P[j]
+            out.append((q['pivot'], q['angle'], q['rayon'], [[c[0] + M, c[1] + M] for c in q['charniere']] if q.get('charniere') else None))
+            j = q.get('suit')
+        return out
+    for i, pt in enumerate(P):
+        poly, pv = pt['poly'], pt['pivot']
+        for j in descendants(i):                   # les enfants partent avec la source, avant que rien ne bouge
+            if j not in mis_de_cote:
+                mis_de_cote[j] = (enc & propre[j], sil & propre[j])
+                enc, sil = enc & ~propre[j], sil & ~propre[j]
         ch = [[q[0] + M, q[1] + M] for q in pt['charniere']] if pt.get('charniere') else None
         garde = np.zeros_like(enc)                 # "garder" : l'encre de ces polygones part avec la partie
         for gp in pt.get('garder', []):            # ET reste en place (le trait commun au pouce et à l'index)
@@ -301,9 +333,15 @@ def articuler(ident, spec):
         if pt.get('decaler'):                      # glisser la partie d'une hauteur qui varie le long de x
             p_enc, r_enc = decaler(enc, k, poly, pt['decaler'], M)
             p_sil, r_sil = decaler(sil, k, poly, pt['decaler'], M)
+        elif i in mis_de_cote:                     # une partie qui suit : tirée de sa source mise de côté
+            e0, s0 = mis_de_cote[i]
+            tout = np.ones_like(enc)
+            p_enc, _ = plier(e0, k, poly, pv, pt['angle'], pt['rayon'], ch, chaine(i), tout)
+            p_sil, _ = plier(s0, k, poly, pv, pt['angle'], pt['rayon'], ch, chaine(i), tout)
+            r_enc, r_sil = enc, sil
         else:
-            p_enc, r_enc = plier(enc, k, poly, pv, pt['angle'], pt['rayon'], ch)
-            p_sil, r_sil = plier(sil, k, poly, pv, pt['angle'], pt['rayon'], ch)
+            p_enc, r_enc = plier(enc, k, poly, pv, pt['angle'], pt['rayon'], ch, (), propre[i])
+            p_sil, r_sil = plier(sil, k, poly, pv, pt['angle'], pt['rayon'], ch, (), propre[i])
         dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
         enc = (r_enc & ~dedans) | p_enc | garde    # la partie passe devant : son blanc cache le reste
         sil = r_sil | p_sil
