@@ -131,7 +131,8 @@ demi-page, le 0,5 tient encore ; en dessous, il disparaît. Ne descends jamais s
 
 La règle qui porte le plus : **si un trait ne sépare pas deux choses, il ne devrait pas
 exister.** Les cadres décoratifs, les fonds gris, les ombres douces, les dégradés : rien
-de tout ça ne survit en noir et blanc sur papier standard.
+de tout ça ne survit sur papier standard. Les seuls gris permis sont les deux aplats francs
+de la charte, plus bas.
 
 ### 2. Le dessin se reconnaît avant qu'on lise la légende
 
@@ -263,10 +264,41 @@ Planche NN-NN — Titre en une ligne, en minuscules.
 Le numéro suit le chapitre : `84-09` est la neuvième planche du chapitre 84. Le titre est
 en casse de phrase, jamais en capitales.
 
-S'il y a un encadré danger sur la planche, il est **en filet rouge `#9B2C1E`, 2 unités**,
-et c'est la seule couleur autorisée dans tout le livre. Tout le reste est en `#1A1A1A` sur
-blanc. Le rouge ne sert jamais à autre chose : s'il apparaît ailleurs, il cesse de vouloir
-dire danger.
+S'il y a un encadré danger sur la planche, il est **en filet rouge `#9B2C1E`, 2 unités**.
+
+### La charte : deux poids, deux gris, un rouge
+
+JP l'a choisie le 13 octobre 2026. Elle vaut pour chaque planche refaite. Tout le reste est
+en `#1A1A1A` sur blanc.
+
+1. **Deux poids de trait.** Le contour de ce qui compte pèse, le reste est fin. L'objet du
+   geste a son contour à 2,4 (`h.a.contour`), ses arêtes à 1,4 et ses détails à 0,7. Le corps
+   simple garde son 1,5 / 0,7, ou `trait: 'fort'` (1,9) quand il est lui-même le sujet de la
+   vue. Un dessin où tout est à 1,4 est plat.
+2. **Deux gris, en aplats francs.**
+   - `h.a.loin` (`#E6E6E6`) : ce qui est derrière. C'est le membre loin (le moteur des corps
+     le fait déjà), le plan d'arrière, ou l'objet secondaire qu'on doit voir sans qu'il prenne
+     l'œil.
+   - `h.a.ombre` (`#CFCFCF`) : la face à l'ombre d'un volume, avec la lumière qui vient d'en
+     haut à gauche. C'est la face de droite ou de dessous d'une bûche, d'une caisse, d'un
+     poteau. Une face par volume.
+
+   Jamais de dégradé ni d'ombre portée. Pas de gris sur un corps, à part son côté loin. Pas
+   de gris sur une coupe hachurée : la hachure dit déjà la matière. On peint l'aplat d'abord,
+   puis le trait par-dessus.
+3. **Un rouge, `#9B2C1E`, pour ce qui compte**, et à quatre usages seulement :
+   - `h.geste(d)` : la flèche du geste à faire, c'est-à-dire le sens de la poussée, du
+     tirage ou du mouvement. Une par vue, deux au plus. Les autres flèches (l'eau, l'air, la
+     fumée, une pièce qui se déplace) restent noires ;
+   - `h.controle(x, y, r)` : le cercle du point à contrôler, l'endroit que l'œil doit
+     vérifier (le dos droit, le pouce sous le manche, la pointe qui touche). Sur un raté, il
+     marque l'endroit où ça casse, pas tout le dessin ;
+   - `h.a.zone` : le filet tireté de la zone dangereuse, là où la lame passe ou là où la
+     bûche tombe ;
+   - l'encadré danger.
+
+   Jamais en aplat, jamais en texte hors de l'encadré danger, jamais en décor. Le vérificateur
+   grogne au-delà de huit marques rouges : passé ce nombre, le rouge ne désigne plus rien.
 
 ## Le texte sur la planche
 

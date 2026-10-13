@@ -50,6 +50,16 @@ nouvelle numérotation (six tomes).
    il montre la **position**, rien d'autre ; (b) **le gros plan** sur la seule région qui compte (les
    mains et le bassin, le pied et la cheville), sans le reste du corps. Jamais de ventre, de seins ou de
    visage détaillés. Une grossesse se dit par un ventre arrondi simple dans le pictogramme.
+   **Depuis le 13 octobre 2026, le corps entier passe par la bibliothèque des corps simples**
+   (`h.formes.corps`, `.claude/skills/planches/scripts/corps/`) : JP l'a demandée « pas bonhomme
+   allumette, mais genre silhouette simple mais claire ». C'est une silhouette blanche à un seul
+   contour, avec le côté loin en gris, sans visage ni anatomie. Elle remplace le pictogramme (a) ;
+   le gros plan (b) reste, avec les mains calquées.
+9. **La charte : deux poids, deux gris, un rouge** (JP, 13 octobre 2026). Le contour de ce qui compte
+   pèse, le reste est fin. Le premier gris est pour le plan loin, le second pour la face à l'ombre
+   d'un volume, en aplats francs. Le rouge `#9B2C1E` sert à la flèche du geste, au point à
+   contrôler, à la zone dangereuse et à l'encadré danger, et à rien d'autre. Le détail est dans
+   `.claude/skills/planches/SKILL.md`, à la section « La charte ».
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en

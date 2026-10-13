@@ -9,6 +9,7 @@ const fs = require('fs');
 const ROUGE_DANGER = '9b2c1e';
 const NOIR = '1a1a1a';
 const BLANC = 'ffffff';
+const GRIS = ['e6e6e6', 'cfcfcf'];   // la charte : le gris du plan loin, le gris de la face à l'ombre
 const EPAISSEURS = [2.4, 1.4, 0.7, 0.5];
 
 function verifier(chemin) {
@@ -59,12 +60,16 @@ function verifier(chemin) {
   // --- couleurs ---
   const couleurs = [...new Set((s.match(/#[0-9A-Fa-f]{3,6}/g) || []).map(c => c.slice(1).toLowerCase()))]
     .map(c => c.length === 3 ? c.split('').map(x => x + x).join('') : c);
-  const interdites = couleurs.filter(c => ![NOIR, BLANC, ROUGE_DANGER, '3a3a3a', '000000'].includes(c));
+  const interdites = couleurs.filter(c => ![NOIR, BLANC, ROUGE_DANGER, ...GRIS, '3a3a3a', '000000'].includes(c));
   if (interdites.length)
-    dur.push(`couleurs hors palette : ${interdites.map(c => '#' + c).join(', ')} — le livre est en noir, blanc, et le rouge #9B2C1E des encadrés danger`);
-  const rouges = (s.match(new RegExp('#' + ROUGE_DANGER, 'gi')) || []).length;
-  if (rouges && !/danger/i.test(s))
-    dur.push('le rouge est employé sans qu’il soit question de danger : il perd son sens partout ailleurs');
+    dur.push(`couleurs hors palette : ${interdites.map(c => '#' + c).join(', ')} — la charte est noir, blanc, deux gris (#E6E6E6, #CFCFCF) et le rouge #9B2C1E`);
+  // Le rouge marque ce qui compte : flèche du geste, zone dangereuse, point à contrôler, encadré
+  // danger. Au-delà de quelques marques, il ne désigne plus rien.
+  const marquesRouges = (s.match(new RegExp('<(?:path|circle|line|rect|ellipse|polyline|polygon)\\b[^>]*stroke="#' + ROUGE_DANGER, 'gi')) || []).length;
+  if (marquesRouges > 8)
+    mou.push(`${marquesRouges} marques rouges : le rouge ne désigne plus rien quand il est partout (une flèche du geste, un point à contrôler, une zone par vue)`);
+  if (new RegExp('<(?:path|circle|rect|ellipse|polygon)\\b[^>]*fill="#' + ROUGE_DANGER + '"(?![^>]*marker)', 'i').test(s.replace(/<marker[\s\S]*?<\/marker>/g, '')))
+    mou.push('aplat rouge : le rouge se met en trait, jamais en surface');
 
   // --- hiérarchie des traits ---
   // Un trait blanc n'est pas un trait : c'est le liseré qui garde une cote ou une ligne de
