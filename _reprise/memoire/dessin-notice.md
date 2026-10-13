@@ -18,3 +18,14 @@ Ce qui marche : **calquer fidèlement** ses images de référence avec `.claude/
 **13 oct., fin.** JP : « les mains sont pas belles, prends celle-là, pi prends le temps de bien les faire » — une planche de mains de shoo_arts (iStock, trait fin égal). Calquée (modèles s01–s20), posée dans les cinq planches : s11 (poing) pour 104-40, 13-09 (acier) et 50-40 ; s05 (pierre dans le creux de la main) pour 13-09 ; s09 (pince) pour 50-40 et 27-04 ; s03 (main qui pend) pour 25-40. Kibbitzer est écarté.
 JP ensuite : « c'est bien mais pas encore parfait, les formes que tu as pas de main, construis-les à partir des formes que tu as déjà pour pouvoir les adapter » → poses construites (modeles.py poses, images/modeles/poses.json) ; s10-plat remplace la main à plat des gestes dans 50-40.
 
+
+**13 octobre 2026 (soir), après les cinq pilotes des corps simples dans les planches :**
+- **La charte.** JP l'a demandée : deux poids de trait, deux gris (`h.a.loin` et `h.a.ombre`) et le rouge `#9B2C1E`. Le rouge
+  sert à la flèche du geste, au point à contrôler, à la zone dangereuse et à l'encadré danger. Elle est dans
+  `planches/SKILL.md`, section « La charte ».
+- **Les profils.** « Les vues de côté sont toutes vraiment belles. Élimine toutes les vues de face et de haut. » Un corps
+  ne se montre plus que de profil. Une vue de dessus d'un objet seul reste, sans corps.
+- **Les mains en gros plan.** « Les mains, je veux qu'on fasse le même principe qu'on a fait pour les bonhommes de côté,
+  agents pis révision, parce que c'est pas acceptable. » Les mains calquées (shoo, Kibbitzer) sont donc refusées elles
+  aussi. Une bibliothèque de mains simples est en construction : `planches/scripts/mains/`, `mainSimple()`, quatre
+  agents puis un réviseur, brief dans le scratch `mains-lib/brief.md`.

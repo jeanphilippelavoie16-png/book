@@ -418,6 +418,12 @@ chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planch
   (tête ronde sans visage, bandes d'épaisseur égale) : debout, penche, accroupi, assis,
   assis-sol, couche, genoux, genou, portage ; `age: 'enfant'`, `enceinte`, `rendu: 'plein'`.
   Une main qui tient l'objet : `prises: { proche: { …options de main() } }`.
+- **Un corps se montre de profil, jamais de face, de dos ni de dessus** (JP, 13 octobre 2026 : « les vues
+  de côté sont toutes vraiment belles, élimine toutes les vues de face et de haut »). Le corps entier passe par
+  `h.formes.corps` (la bibliothèque des corps simples, `scripts/corps/`). Une vue de dessus d'un objet seul
+  reste, sans corps.
+- **Les gros plans de mains** attendent la bibliothèque de mains simples (`scripts/mains/`, `mainSimple`) :
+  JP a jugé les mains calquées « pas acceptables ».
 - Il manque une pose, un âge, une prise ? **On l'ajoute à formes.js**, on la regarde en grand
   sur les feuilles d'essai (`images/planches-src/_formes-essai-*.js`), puis on s'en sert.
 
