@@ -117,19 +117,18 @@ module.exports = (h) => {
       out.push(th.svg);
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
       // la main et l'avant-bras : la main relâchée qui pend, doigts serrés, vue du dos
-      // modèle k16 (main ouverte, vue du dos) tête en bas : la main relâchée pend, doigts serrés ; sa
-      // coupe de poignet est masquée, l'avant-bras continue vers le haut et sort du cadre
-      { const SM = 1.15 * M.k, W0 = M([XW, YW + 4]);
-        const o = { x: W0[0], y: W0[1], ancre: [72, 137], angle: 175.7, echelle: SM, masquer: [[0, 137, 110, 175]] };
-        const m = h.formes.modele('k16', o);
-        out.push(h.formes.modele('k16', { ...o, bras: { a: [51.4, 137], b: [93.1, 137], vers: [-0.17, -0.98], bord: z } })); }
+      // modèle s03 (la main relâchée qui pend, paume vers l'œil, doigts en bas) : l'avant-bras monte
+      // et sort du cadre
+      { const W0 = M([XW, YW + 4]);
+        out.push(h.formes.modele('s03', { x: W0[0], y: W0[1], ancre: [85, 30], angle: 4, echelle: 0.95 * M.k, masquer: [[0, 0, 125, 14]],
+          bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } })); }
       return out.join('\n');
     },
     renvois: (z) => {
       const M = cadre(z, 600, 370);
       return [
         { n: 1, rond: M([96, 196]), cible: M([154, 196]), texte: 'thermomètre : 37 à 39 °C' },
-        { n: 2, rond: M([96, 230]), cible: M(mainAxe(130)), texte: 'ne touche ni fond ni parois' },
+        { n: 2, rond: M([96, 230]), cible: M([XW - 22, YW + 152]), texte: 'ne touche ni fond ni parois' },
         { n: 3, rond: M([96, 300]), cible: M([150, 300]), texte: 'chaudron ou glacière de camp' },
         { n: 4, rond: M([292, 64]), cible: M(mainAxe(12, -8)), texte: 'souple, rouge-violacé, 30 min' },
         { n: 5, rond: M([408, 186]), cible: M([319, 138]), texte: 'versée à côté, jamais dessus' },
@@ -218,10 +217,10 @@ module.exports = (h) => {
       const Mp = (Q) => Q.map(M);
       return [
         chaudron(M, Cp),
-        // le même modèle k16, la main saine qui entre de biais, doigts devant ; l'avant-bras remonte à droite
-        (() => { const SM = 0.6 * M.k, W0 = M(WP);
-          const o = { x: W0[0], y: W0[1], ancre: [72, 137], angle: 240.7, echelle: SM, masquer: [[0, 137, 110, 175]] };
-          return h.formes.modele('k16', { ...o, bras: { a: [51.4, 137], b: [93.1, 137], vers: [0.82, -0.57], bord: z } }); })(),
+        // le même modèle s03, la main saine qui entre de biais, doigts devant ; l'avant-bras remonte à droite
+        (() => { const W0 = M(WP);
+          return h.formes.modele('s03', { x: W0[0], y: W0[1], ancre: [85, 30], angle: 55, echelle: 0.5 * M.k, masquer: [[0, 0, 125, 14]],
+            bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } }); })(),
       ].join('\n');
     },
     renvois: (z) => {

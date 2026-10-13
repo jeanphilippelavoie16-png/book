@@ -218,31 +218,34 @@ module.exports = (h) => {
     { q: [-27.5, -15], fin: [-22, -9] },
   ];
 
-  // Le poing calqué (modèle k11 : poing fermé sur un bâton, vu du dos de la main), son bâton
-  // masqué. centre : le milieu de la prise, en coordonnées de la scène ; sigma : pixels du modèle
-  // → unités de scène ; bras : l'avant-bras, en unités de scène. Au gros plan, le modèle aminci
-  // (k11f) garde un trait du poids de celui du livre.
-  const poing = (T, k, o) => {
-    const id = k > 2.4 ? 'k11f' : 'k11', c = T(o.centre), SM = o.sigma * k;
-    return String(F.modele(id, { x: c[0], y: c[1], ancre: [72, 47.5], angle: o.angle, echelle: SM, miroir: o.miroir,
-      masquer: [[0, 36, 29.9, 57.5], [29.9, 39.6, 35.8, 43.1], [107, 34, 140, 57.3], [0, 104, 140, 135]], masquerEncre: [[83.5, 43.5, 97.5, 57]],
-      bras: { a: [32.1, 104], a0: [31.6, 92], b: [73.6, 104], b0: [73.2, 92], long: o.bras * k, ep: (id === 'k11f' ? 0.85 : 1.85) * SM } }));
+  // Les mains calquées (images/modeles) : s11, le poing fermé vu de la paume (la main de l'acier) ;
+  // s05, la main aux doigts repliés vue de la paume, la pierre dans son creux. centre : où tombe
+  // l'ancre, en coordonnées de la scène ; sigma : pixels du modèle → unités de scène ; long : le
+  // bras, en unités de scène (la vue le coupe à son bord).
+  const mainModele = (T, k, id, o) => {
+    const c = T(o.centre);
+    return String(F.modele(id, { x: c[0], y: c[1], ancre: o.ancre, angle: o.angle || 0, echelle: o.sigma * k, miroir: o.miroir,
+      masquer: o.masquer, bras: { ...o.bras, long: o.long * k } }));
   };
+  const ACIER = { ancre: [68, 42], angle: 90, sigma: 0.75, miroir: true, masquer: [[0, 150, 140, 175]], long: 110,
+    bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135] } };
+  const PIERRE = { ancre: [12, 30], sigma: 0.9, masquer: [[222, 0, 240, 120]], long: 80,
+    bras: { a: [222, 39.1], a0: [200, 38.1], b: [222, 104.3], b0: [200, 100.8] } };
 
   const scene = (T, k, frappe) => {
     const out = [];
-    // la main de la pierre : le poing tourné d'un quart, l'avant-bras à droite, le pouce en haut à
-    // gauche sur la pierre ; la pierre se peint d'abord, elle passe derrière les doigts
+    // la main de la pierre : la pierre dans le creux de la main, le pouce dessus, les doigts repliés
+    // dessous, l'avant-bras à droite ; la pierre se peint d'abord, elle passe derrière les doigts
     out.push(pierreSVG(T, k));
-    out.push(poing(T, k, { centre: [45.5, -4.8], angle: -90, sigma: 0.95, miroir: false, bras: 110 }));
+    out.push(mainModele(T, k, 's05', { ...PIERRE, centre: [16, -14] }));
     const ty = frappe ? TY_FRAPPE : TY_AVANT;
     const TU = p => T([TX + p[0], ty + p[1]]);
     // la main de l'acier (prise / dos) : le poing fermé, les doigts passés dans le U ; les bras du
     // U passent sous le pouce et sous le bord de la main, le fond devant les doigts repliés.
     out.push(h.chemin(profilU().map(TU), A.plein, true));
     const cible = T([TX, ty]);
-    // la main de l'acier : le même poing, en main droite, l'avant-bras à gauche, les doigts dans le U
-    out.push(poing(T, k, { centre: [TX, ty], angle: 90, sigma: 0.95, miroir: true, bras: 100 }));
+    // la main de l'acier : le poing fermé, en main droite, l'avant-bras à gauche, les doigts dans le U
+    out.push(mainModele(T, k, 's11', { ...ACIER, centre: [TX + 13, ty] }));
     if (!frappe) {
       // la course de la face qui frappe : elle descend au ras de l'arête et continue
       out.push(h.path(`M ${pt(TU([U.xo, U.yb - U.ro]))} L ${pt(T([E[0], 40]))}`, A.cache));

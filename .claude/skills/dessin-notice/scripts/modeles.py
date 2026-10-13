@@ -86,7 +86,7 @@ def ecrire(ident, encre, ombre, k, boite, source, poids=1.0, sil=None):
 
 # Chaque modèle s'écrit à plusieurs poids de trait (id, id@50, id@35…) : formes.modele() prend
 # celui dont le contour, à l'échelle de la planche, tombe le plus près du trait voulu (1,3).
-POIDS = {'k': [0.72, 0.5, 0.35, 0.25], 'g': [1.0, 0.7, 0.5]}
+POIDS = {'k': [0.72, 0.5, 0.35, 0.25], 'g': [1.0, 0.7, 0.5], 's': [1.0, 0.75, 0.55, 0.4]}
 
 
 def serie(prefixe, masques, k, source, colle=3.0, poids=1.0):
@@ -152,9 +152,29 @@ def gestes():
     return serie('g', [encre], K, '1.png (gestes)', colle=2.0)
 
 
+def shoo():
+    """La planche de mains de shoo_arts (iStock, 5.jpg), la plus propre : trait égal et fin. La
+    bande du filigrane est ramenée au blanc avant le calque (vectoriser.sous_bande)."""
+    from vectoriser import sous_bande
+    pk = os.path.join(TMP, 'mains5-tons.pkl')
+    if os.path.exists(pk):
+        encre = pickle.load(open(pk, 'rb'))
+    else:
+        src = sous_bande(f'{IMG}/5.jpg', (586, 641, 1001, 725), os.path.join(TMP, 'mains5-propre.png'), masques=[(0, 990, 120, 1024)])
+        NIV = [(110, '#2E2E2E'), (165, '#6E6E6E'), (205, '#9C9C9C')]
+        cs = calque_tons(gris(src, None, 4, sigma=0.45), 4, NIV, cmax=205.0, rayon=2.0, miette=3.0)
+        encre = np.zeros_like(cs[0][0])
+        for m, _ in cs:
+            encre |= m
+        pickle.dump(encre, open(pk, 'wb'))
+    return serie('s', [encre], 4, '5.jpg (shoo_arts, iStock)', colle=3.0)
+
+
 if __name__ == '__main__':
     quoi = sys.argv[1:] or ['tous']
     if quoi[0] in ('kibbitzer', 'tous'):
         print(contact('contact-kibbitzer', kibbitzer(), col=5))
     if quoi[0] in ('gestes', 'tous'):
         print(contact('contact-gestes', gestes(), col=8))
+    if quoi[0] in ('shoo', 'tous'):
+        print(contact('contact-shoo', shoo(), col=6))

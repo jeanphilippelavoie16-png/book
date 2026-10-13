@@ -17,7 +17,8 @@ description: Dessiner les mains, les têtes et les personnages des planches du G
    et boutons de site masqués, potrace. Rien n'est redessiné ni « encré » par-dessus.
 2. **La bibliothèque.** `scripts/modeles.py tous` découpe chaque planche de référence en modèles :
    `images/modeles/k01…k20` (Kibbitzer : prises de bâton, de corde, de tasse, poing, main qui pend),
-   `g01…g37` (gestes au trait fin : pince, pouce levé, crayon, main à plat). Chaque modèle a une
+   `g01…g37` (gestes au trait fin : pince, pouce levé, crayon, main à plat), et **`s01…s20`
+   (shoo_arts : la planche que JP a choisie, « prends celle-là » — à prendre en premier)**. Chaque modèle a une
    silhouette blanche et l'encre, à plusieurs poids de trait (`k11`, `k11@50`, `k11@35`…), et porte
    son épaisseur de contour (`data-trait`). Les planches-contact : `contact-kibbitzer.png`,
    `contact-gestes.png` (scratchpad de la session, à refaire avec `modeles.py`).
@@ -35,8 +36,9 @@ Ce que JP a demandé en voyant les premières planches posées (13 oct.), et que
   direction des bords du poignet, s'élargit vers le coude et se courbe. Il sort du cadre quand le bord
   de la vue est à portée (`bras.bord: z`), sinon il s'arrête court, sur une coupe en ellipse chez
   Kibbitzer (comme ses avant-bras) ou sur deux traits ouverts pour les gestes.
-- **Un seul style par planche** : Kibbitzer (trait vivant, plus gras) ou gestes (trait fin égal),
-  pas les deux mélangés dans la même planche.
+- **Les mains de shoo_arts d'abord** (s…) : JP a trouvé celles de Kibbitzer pas belles. Les gestes
+  (g…) ont le même trait fin égal et complètent quand une pose manque (la main à plat de 50-40).
+  Kibbitzer (k…) ne se mélange pas aux deux autres.
 
 Ce qui manque encore : les têtes de profil, les enfants, les personnages en action (assis, accroupi,
 qui porte). Aucune référence ne les couvre : en demander à JP avant de dessiner.

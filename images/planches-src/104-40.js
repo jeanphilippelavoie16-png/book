@@ -100,9 +100,9 @@ module.exports = (h) => {
 
   // ── Rangée 1, à gauche : la main tient l'alêne et perce les deux épaisseurs ─────────────
   const tenir = z => {
-    const e = 1.05, SM = 1.36, D = 13 * SM;          // manche de bois franc, au diamètre du bâton du modèle
+    const e = 1.05, SM = 0.82, D = 25 * SM;          // manche de bois franc, plein dans le poing du modèle
     const hx = z.l * 0.66, hy = z.h - 128;         // le centre du poing
-    const mT = hy - 40 * e, mB = hy + 64 * e;        // bouts du manche : le bout rond dans le talon de la main
+    const mT = hy - 64, mB = hy + 64 * e;            // bouts du manche : le pommeau dépasse du poing en haut
     const manche = [
       h.path(`M ${f1(hx - D / 2)} ${f1(mB)} L ${f1(hx - D / 2)} ${f1(mT + D / 2)} Q ${f1(hx - D / 2)} ${f1(mT)} ${f1(hx)} ${f1(mT)} Q ${f1(hx + D / 2)} ${f1(mT)} ${f1(hx + D / 2)} ${f1(mT + D / 2)} L ${f1(hx + D / 2)} ${f1(mB)} Z`, h.a.hachure('bois', 'arete')),
     ].join('\n');
@@ -123,22 +123,19 @@ module.exports = (h) => {
     // la ligature de babiche au bas du manche
     const lig = [];
     for (let k = 0; k < 4; k++) { const y = mB - 3 - k * 3.2; lig.push(h.path(`M ${f1(hx - D / 2)} ${f1(y + 1)} Q ${f1(hx)} ${f1(y - 1.6)} ${f1(hx + D / 2)} ${f1(y + 1)}`, h.a.detail)); }
-    // le manche, puis la main qui le serre en poignard : le bout du manche dans le talon de la
-    // main, l'auriculaire en haut, le pouce et l'index en bas, vers la lame (vue du dos)
+    // le manche, puis la main qui le serre : l'auriculaire en haut, le pouce et l'index en bas, vers la lame
     out.push(manche);
     out.push(lig.join('\n'));
-    // modèle k11 (poing sur un bâton, vu des doigts) tourné d'un quart : l'avant-bras part à gauche,
-    // l'auriculaire en haut, le pouce en bas ; son bâton est masqué, le manche de la planche passe dedans
-    { const a = [32.1, 104], b = [73.6, 104], o = { x: hx, y: hy, ancre: [72, 47.5], angle: 90, echelle: SM,
-        masquer: [[0, 36, 29.9, 57.5], [29.9, 39.6, 35.8, 43.1], [107, 34, 140, 57.3], [0, 104, 140, 135]], masquerEncre: [[83.5, 43.5, 97.5, 57]] };
-      const m = F.modele('k11', o);
-      out.push(F.modele('k11', { ...o, bras: { a, a0: [31.6, 92], b, b0: [73.2, 92], bord: z } })); }
+    // modèle s11 (poing fermé, vu de la paume) tourné d'un quart : l'avant-bras part à gauche, les
+    // doigts devant, le pouce en bas vers la lame ; le manche passe dans le poing
+    out.push(F.modele('s11', { x: hx, y: hy, ancre: [68, 42], angle: 90, echelle: SM, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     // la coupe de la lame : un losange, relié à la lame par le trait de coupe
     const yc = mB + 7, xq = hx - 30;
     out.push(h.ligne(hx - w - 2, yc, xq + 9, yc, h.a.cache));
     out.push(h.chemin([[xq - 8, yc], [xq, yc - 4], [xq + 8, yc], [xq, yc + 4]], h.a.hachure('metal', 'arete'), true));
     // le geste : on pousse droit dans le cuir
-    out.push(h.fleche(`M ${f1(hx)} ${f1(hy - 104)} L ${f1(hx)} ${f1(hy - 60)}`));
+    out.push(h.fleche(`M ${f1(hx)} ${f1(hy - 118)} L ${f1(hx)} ${f1(hy - 74)}`));
     tenir.pts = { lame: [hx - w - 1, mB + 20] };
     return out.join('\n');
   };

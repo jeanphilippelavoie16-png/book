@@ -160,6 +160,17 @@ def morceaux(masques, k, colle=3.0, part_min=0.04, marge=4):
             continue
         y0, y1, x0, x1 = sl[0].start, sl[0].stop, sl[1].start, sl[1].stop
         boites.append((max(0, x0 - marge), max(0, y0 - marge), min(W, x1 + marge), min(H, y1 + marge), i + 1))
+    # un groupe tout entier dans la boîte d'un plus grand (les plis d'une paume, qui ne touchent pas
+    # le contour) fait partie de ce dessin-là
+    boites.sort(key=lambda b: -(b[2] - b[0]) * (b[3] - b[1]))
+    gardees = []
+    for b in boites:
+        hote = next((g for g in gardees if b[0] >= g[0] - 2 and b[1] >= g[1] - 2 and b[2] <= g[2] + 2 and b[3] <= g[3] + 2), None)
+        if hote is None:
+            gardees.append(b)
+        else:
+            lab[lab == b[4]] = hote[4]
+    boites = gardees
     # rangées : un dessin dont le centre tombe dans la hauteur d'un autre est sur la même rangée
     boites.sort(key=lambda b: (b[1] + b[3]) / 2)
     rangees = []
@@ -178,3 +189,21 @@ def isoler(masques, lab, etiquette, boite, k):
     x0, y0, x1, y1 = boite[:4]
     grp = np.kron(lab[y0:y1, x0:x1] == etiquette, np.ones((k, k), bool))
     return [m[y0 * k:y1 * k, x0 * k:x1 * k] & grp for m in masques]
+
+
+def sous_bande(chemin, boite, sortie, rayon=9, masques=()):
+    """Copie de l'image où une bande de filigrane translucide (boite) est ramenée au blanc : chaque
+    pixel est divisé par le fond local de la bande (médiane sur rayon px), ce qui garde les traits
+    passés dessous et efface le texte clair posé dessus. masques : rectangles passés au blanc."""
+    im = Image.open(chemin).convert('RGB')
+    a = np.asarray(im, float)
+    x0, y0, x1, y1 = boite
+    zone = a[y0:y1, x0:x1].mean(2)
+    fond = ndi.median_filter(zone, size=2 * rayon + 1)
+    fond = np.maximum(fond, ndi.maximum_filter(ndi.median_filter(zone, size=5), size=3) * 0 + fond)
+    norm = np.clip(zone / np.maximum(fond, 1) * 255, 0, 255)
+    a[y0:y1, x0:x1] = norm[..., None]
+    for bx0, by0, bx1, by1 in masques:
+        a[by0:by1, bx0:bx1] = 255
+    Image.fromarray(a.astype(np.uint8)).save(sortie)
+    return sortie

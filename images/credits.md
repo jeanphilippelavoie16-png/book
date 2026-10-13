@@ -1009,4 +1009,7 @@ hors de la famille.**
 - Planche de gestes de la main au trait (pince, pouce levé, crayon) : origine inconnue. Calque :
   `mains-gestes.svg`.
 - Corps de femme face et dos, peau beige : origine inconnue. Pas repris (le tableau 123RF le remplace).
+- Planche de vingt mains au trait fin (prise, pince, poing, main qui pend, pouce levé) : shoo_arts,
+  iStock (aperçu à filigrane, image 948543248). Calque : `mains-shoo.svg` ; modèles s01 à s20 dans
+  `images/modeles/`. C'est la planche de mains que JP a choisie le 13 octobre (« prends celle-là »).
 

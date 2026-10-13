@@ -278,10 +278,11 @@ module.exports = (h) => {
       [poseDoigt(D, false, 9, bx + 2, by - ecart), poseDoigt(D, true, -9, bx + 2, by + ecart)].join('\n') + '\n</g>';
   };
 
-  // La main au trait (modèle calqué g02, de côté : l'index dessus, le pouce dessous, les pulpes
-  // face à face) ; le point entre les deux pulpes tombe en (bx, by), demi = la moitié de leur écart.
-  const GM = z => { const { bx, by } = geoDoigts(z); const s = Math.min(z.h * 0.92 / 80, z.l * 0.62 / 104); return { s, bx, by, demi: 5.4 * s }; };
-  const mainG02 = z => { const { s, bx, by } = GM(z); return String(F.modele('g02', { x: bx, y: by, ancre: [88, 28.6], echelle: s })); };
+  // La main calquée (modèle s09 : le pouce et l'index qui pincent, de côté), retournée pour que les
+  // bouts des doigts soient à droite ; le point où se touchent les deux pulpes tombe en (bx, by).
+  // r : le rayon d'une boulette à la taille de ces doigts.
+  const GM = z => { const { bx, by } = geoDoigts(z); const s = Math.min(z.l * 0.66 / 210, z.h * 0.9 / 123); return { s, bx, by, r: 7.5 * s }; };
+  const mainS09 = z => { const { s, bx, by } = GM(z); return String(F.modele('s09', { x: bx, y: by, ancre: [12, 66], echelle: s, miroir: true, masquer: [[200, 0, 230, 125]] })); };
   const dansVue = (z, id, contenu) => `<clipPath id="${id}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
 
   return {
@@ -335,38 +336,25 @@ module.exports = (h) => {
       bonne: {
         titre: 'Rouler une boulette',
         dessin: z => {
-          const { bx, by, demi } = GM(z), k = demi * 2.7;
+          const { bx, by, r } = GM(z), k = r * 3.2, c = [bx + r * 0.35, by];
           const arc = [];
-          for (let a = -45; a <= 45; a += 5) arc.push([bx + k * Math.cos(a * Math.PI / 180), by + k * Math.sin(a * Math.PI / 180)]);
-          return [dansVue(z, 'doigts-bonne', mainG02(z)), boulette(bx, by, demi * 1.05), fl(arc)].join('\n');
+          for (let a = -45; a <= 45; a += 5) arc.push([c[0] + k * Math.cos(a * Math.PI / 180), c[1] + k * Math.sin(a * Math.PI / 180)]);
+          return [dansVue(z, 'doigts-bonne', mainS09(z)), boulette(c[0], c[1], r), fl(arc)].join('\n');
         },
         renvois: z => {
-          const { bx, by, demi } = GM(z);
-          return [{ n: 6, rond: [z.l - 14, by - demi - 44], cible: [bx + demi * 0.4, by - demi * 0.3], texte: 'roule sans coller : prête' }];
+          const { bx, by, r } = GM(z);
+          return [{ n: 6, rond: [z.l - 14, by - r - 44], cible: [bx + r * 0.6, by - r * 0.4], texte: 'roule sans coller : prête' }];
         },
       },
       colle: {
         titre: 'Elle colle',
         dessin: z => {
-          const { bx, by, demi } = GM(z), R = demi * 0.8;
-          const yH = by - demi, yB = by + demi;          // les deux pulpes
-          // un reste de pâte collé sur chaque pulpe
-          const reste = (y0, sg) => ferme(lisse([[bx - R * 1.5, y0], [bx - R * 0.9, y0 + sg * R * 0.45], [bx + R * 0.1, y0 + sg * R * 0.55], [bx + R * 1.2, y0 + sg * R * 0.3], [bx + R * 1.5, y0 - sg * 1]], false, 5), blanc(A.arete));
-          // un fil de pâte : large aux pulpes, mince au milieu
-          const fil = (x0, x1, wa, wm) => {
-            const xm = (x0 + x1) / 2 + 1;
-            const g = lisse([[x0 - wa, yH + R * 0.3], [xm - wm, by], [x1 - wa, yB - R * 0.3]], false, 6);
-            const dr = lisse([[x1 + wa, yB - R * 0.3], [xm + wm, by], [x0 + wa, yH + R * 0.3]], false, 6);
-            return ferme([...g, ...dr], blanc(A.detail));
-          };
-          const xf = bx + demi * 2.6;                    // les flèches : on écarte les doigts
-          return [dansVue(z, 'doigts-colle', mainG02(z)), fl([[xf, yH - 2], [xf, yH - R * 2.6]]), fl([[xf, yB + 2], [xf, yB + R * 2.6]]),
-            fil(bx - R * 0.8, bx - R * 0.9, R * 0.3, R * 0.08), fil(bx + R * 0.1, bx + R * 0.2, R * 0.34, R * 0.1), fil(bx + R * 0.95, bx + R * 0.85, R * 0.26, R * 0.07),
-            reste(yH + 0.5, 1), reste(yB - 0.5, -1)].join('\n');
+          const { bx, by, r } = GM(z);
+          return [dansVue(z, 'doigts-colle', mainS09(z)), collante(bx + r * 0.4, by, r)].join('\n');
         },
         renvois: z => {
-          const { bx, by, demi } = GM(z);
-          return [{ n: 7, rond: [z.l - 14, by + 4], cible: [bx + demi * 0.75, by], texte: 'colle : ajouter de la poudre' }];
+          const { bx, by, r } = GM(z);
+          return [{ n: 7, rond: [z.l - 14, by + 4], cible: [bx + r * 1.4, by], texte: 'colle : ajouter de la poudre' }];
         },
       },
       parois: {
