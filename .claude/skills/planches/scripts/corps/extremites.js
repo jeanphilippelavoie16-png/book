@@ -19,48 +19,67 @@
 //         le moteur fait pendre la main (+x vers le bas), −y est l'avant du corps.
 //   pied  origine à la cheville, la jambe vers −y (le haut), la pointe vers +x en profil.
 //
-//   contour   d SVG fermé (cubiques) : la silhouette. Elle déborde de `recouvrement` mm dans le
-//             membre (coupe nette à x = −recouvrement pour la main, y = −recouvrement pour le pied),
-//             bords parallèles à l'axe sur ce débord : une union avec la bande de l'avant-bras ou de
-//             la jambe se fait bord à bord, sans marche. Les trous éventuels suivent (evenodd).
-//   details   [d…] traits intérieurs ouverts, à peindre à 0,7 (zéro ou un, deux sous une semelle)
+//   contour   d SVG fermé (cubiques) : la silhouette, une seule forme pleine (la pince seule garde
+//             son anneau, en second sous-chemin : evenodd). Elle déborde de `recouvrement` mm (18)
+//             dans le membre — coupe nette à x = −18 pour la main, y = −18 pour le pied —, bords
+//             parallèles à l'axe sur ce débord : l'union avec la bande se fait bord à bord.
+//   details   [d…] traits intérieurs ouverts, à 0,7 : au plus un (il sépare le pouce, marque le
+//             poing ou la semelle) ; deux sous une semelle de botte (talon net, avant de cambrure)
 //   attache   { x, y, largeur, angle, coupe } : le poignet / la cheville, sa largeur VUE dans cette
-//             vue (le bord de la bande doit tomber à ±largeur/2), angle de l'axe du membre (0 : +x
-//             pour la main, −90 : vers le haut pour le pied), coupe : où le contour est tranché
-//   prise     { x, y, angle, … } : main — le point utile de la pose et l'axe de l'objet (degrés
-//             écran, dans le repère local) ; pied — le point d'appui principal
+//             vue (le bord de la bande tombe à ±largeur/2), l'axe du membre (0 : +x pour la main,
+//             −90 : vers le haut pour le pied), coupe : où le contour est tranché (dessus / dessous
+//             du pied : la jambe est vue par le bout, attache.section = son rayon, pas de coupe)
+//   prise     main : { x, y, angle } — prise : l'axe du manche (+ r, raccourci : 0 vu par le bout) ;
+//             porte : le plan de charge (le fond de la caisse s'y pose ; + normale, vers la caisse) ;
+//             pointe : le bout de l'index ; pince : le point pincé ; ouverte, plat : le creux de la
+//             paume. pied : la plante (la charnière des orteils, au sol)
+//   bout, pouce (main) · talon, pointe, plante (pied) : [x, y] — trou (prise) : { x, y, r }
 //   polygone  le contour en points (≈ 0,05 mm), pour une union qui ne veut pas de courbes
-//   boite     { x, y, l, h }
-//   placer({ x, y, angle, echelle, miroir }) → le même objet, en coordonnées de la vue
+//   boite     { x, y, l, h } · face : la face retenue · sorte : 'main-prise-dos'…
+//   placer({ x, y, angle, echelle, miroir }) → le même objet, en coordonnées de la vue (angle :
+//             où va l'axe +x local, degrés écran)
 //   svg({ x, y, angle, echelle, miroir, objet, trait }) → le SVG, l'objet tenu à sa profondeur
 //
 // La main en prise tient un manche (diametre, défaut 32 mm). L'objet se peint selon r.objet :
 //   'derriere'  avant la main (vue du dos : le manche passe derrière tout le poing) ;
 //   'entre'     après le contour, avant r.devant (vue de la paume : derrière les doigts repliés,
-//               devant la paume) — r.devant = { contour, bord: [d…] (à repeindre au trait de
-//               silhouette), details } ;
+//               devant la paume) — r.devant = { contour (blanc, trait 0,7), bord: [d…] (sa part de
+//               silhouette, à repeindre au trait de silhouette : c'est exactement la même courbe) } ;
 //   'devant'    après la main (manche vu par le bout : le cercle r.prise.r tombe dans le poing).
 // svg({ objet }) fait cet ordre tout seul.
 //
+// La face par défaut dépend de la vue du corps, du côté et de la pose (FACE_DEFAUT, exporté) :
+//   profil P (main droite, côté vu)  ouverte, prise, pointe : dos · plat : tranche · porte, pince : pouce
+//   profil L (main gauche, derrière) ouverte, prise, pointe : paume · plat, pince : pouce · porte : tranche
+//   face (le corps de face)          ouverte, porte, pince : pouce · plat, prise, pointe : dos
+// La pince se lit par le pouce (l'anneau pouce-index) ; vue du dos elle ne se lit pas.
+//
 // Options communes : face, rotation, plie, recouvrement, poignet / cheville (largeur vue imposée,
 // pour coller à la bande du moteur), age ('homme' · 'femme' · 'enfant6' · 'enfant4', lu dans
-// proportions.json ; défaut : aucune mise à l'échelle, le moteur s'en charge).
+// proportions.json ; défaut : aucune mise à l'échelle, le moteur s'en charge par main/190, pied/266).
 // Main : diametre (prise), inclinaison (prise : le manche penché, degrés), face :
 //   'dos' · 'paume' (la main vue à plat, côté dos ou côté paume) · 'pouce' · 'tranche' (vue par la
 //   tranche, côté pouce ou côté petit doigt) ; rotation : un angle de pronation libre (0 dos,
 //   90 pouce, 180 paume, 270 tranche pour la main droite) ; plie : l'angle main − avant-bras dans
-//   le plan de la vue (convention du brief : positif vers −y local, l'avant quand la main pend).
-// Pied : angle (pied − jambe, convention du brief : 90 = pied d'équerre), orteils (pli des orteils
-//   ou de la botte à la plante, degrés, positif vers le haut : 90 − angle absolu du pied pour des
-//   orteils à plat au sol), pointe: true (sur la pointe : orteils posés à plat d'après `angle`).
+//   le plan de la vue (convention du brief : positif vers −y local, l'avant quand la main pend ;
+//   à quatre pattes : plat, tranche, plie 90).
+// Pied : angle (pied − jambe, convention du brief : 90 = pied d'équerre ; poser ensuite le résultat
+//   tourné de −jambe), orteils (pli à la plante, degrés, positif vers le haut ; botte : 50 au plus,
+//   elle est raide), pointe: true + piedAbs (sur la pointe : orteils = 90 − piedAbs, à plat au sol).
 //
-// Construction : chaque extrémité est un petit volume — des sphères dont on prend l'enveloppe
-// convexe par morceaux (la paume, la moufle des quatre doigts, le pouce ; la tige, la semelle, le
-// talon). Le volume tourne pour la vue et se projette ; les enveloppes se remplissent sur une grille
-// de 0,5 mm, un flou gaussien arrondit l'union (c'est lui qui fait les congés : pas de couture au
-// poignet, pas de bosse aux jointures), le contour à mi-hauteur se lit puis s'ajuste en cubiques.
-// Le trait intérieur est le bord de la pièce de devant là où elle passe sur celle de derrière, et
-// il s'arrête avant le contour. Tout est calculé une fois par jeu d'options (cache).
+// Construction : chaque extrémité est un petit volume. La main : des sphères dont on prend
+// l'enveloppe convexe par morceaux (la paume, la moufle des quatre doigts phalange par phalange, le
+// pouce posé par cinématique inverse ; le poing s'enroule autour du manche). Le pied : un loft —
+// à chaque station, une section plate tirée de courbes dessinées (dessus, dessous, demi-largeur) —,
+// la semelle en dalles aux coins arrondis. Le volume tourne pour la vue et se projette ; les
+// enveloppes se remplissent sur une grille de 0,5 mm, un flou gaussien arrondit l'union (c'est lui
+// qui fait les congés : pas de couture au poignet, pas de bosse aux jointures ; la semelle a son flou
+// à elle, plus court, d'où le talon net), le contour à mi-hauteur se lit puis s'ajuste en cubiques.
+// Le trait intérieur est le bord de la pièce de devant là où elle passe sur celle de derrière ; il
+// s'arrête avant le contour, et un bout de moins de 14 mm ne se dessine pas. Tout est calculé une
+// fois par jeu d'options (cache) ; ≈ 70 ms la première fois.
+//
+// Feuille de contrôle : scratchpad corps-lib/agent2/feuille.js (node feuille.js final).
 
 const fs = require('fs');
 const path = require('path');
@@ -810,11 +829,12 @@ function main(...args) {
     const proj = p => { const Y = p[1] * cs - p[2] * sn, Z = p[1] * sn + p[2] * cs; return [p[0], gauche ? -Y : Y, Z]; };
     // le trait intérieur : il sépare le pouce, ou il marque le poing (les doigts repliés)
     const lignes = [[['pouce'], ['paume', 'doigts', 'index']]];
-    if (pose === 'prise' || pose === 'pointe' || pose === 'pince') lignes.push([['index'], ['doigts', 'paume']], [['doigts'], ['paume']]);
+    if (pose === 'prise' || pose === 'pointe') lignes.push([['index'], ['doigts', 'paume']], [['doigts'], ['paume']]);
     const modele = { coques: V.coques, groupes: { main: pose === 'prise' || pose === 'pointe' ? 3.9 : 3.4 }, lignes, nLignes: 1, points: V.points, trous: pose === 'pince' ? 25 : 0,
       devant: V.P.devant || null };
     const g = construire(modele, { proj, plie: o.plie || 0, coupe: { axe: 0, val: -rec } });
-    const base = { contour: g.contour, details: g.details, polygone: g.polygone, devant: g.devant, sorte: `main-${pose}-${face}`, face };
+    // au plus un trait : quand les doigts passent devant le manche, c'est leur bord qui marque le poing
+    const base = { contour: g.contour, details: g.devant ? [] : g.details, polygone: g.polygone, devant: g.devant, sorte: `main-${pose}-${face}`, face };
     const larg = larg0 * kPoignet;
     base.attache = { x: 0, y: 0, largeur: f2(larg), angle: 0, coupe: -rec };
     // la prise

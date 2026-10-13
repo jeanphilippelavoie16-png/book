@@ -674,7 +674,7 @@ function corps(o = {}, M) {
   // la projection : écran (mm, y vers le bas) et profondeur (+ vers l'œil)
   const proj = vue === 'face' ? p => [-p[1], -p[2]] : vue === 'dos' ? p => [p[1], -p[2]] : p => [p[0], p[1]];
   const prof = vue === 'face' ? p => p[0] : vue === 'dos' ? p => -p[0] : p => p[2];
-  const pieces = [];
+  const pieces = [], geo0 = {};
   const pc = (id, poly, z, extra = {}) => pieces.push({ id, poly, z, ...extra });
   const planaire = vue !== 'dessus';
   // ─ le tronc, le bassin, le cou, la tête
@@ -705,6 +705,7 @@ function corps(o = {}, M) {
     };
     const zTete = prof(a3(J.pivot, rotY([60, 0, 80], tr3.penche))) + 40;
     const teteP = C.tete[vue].map(Rh);
+    { const hS = g.z.sommet - g.z.pivot, hM = g.z.pivot - g.z.menton; geo0.teteC = Rh([0, -(hS - hM) / 2]); geo0.teteH = Rh([0, -hS]); geo0.teteA = tr3.cote; }
     const ore = o.oreilles === false ? [] : C.oreilles[vue].map(r => r.map(Rh));
     const chev = o.cheveux === false ? null : C.cheveux[vue].map(Rh);
     pc('tete', teteP, zTete, { fusion: ore, cheveux: chev, voisins: [{ id: 'cou', joint: c1, R: vue === 'face' ? 0 : 9999 }, { id: 'tronc', joint: c0, R: vue === 'face' ? 0 : 9999 }] });
@@ -718,6 +719,7 @@ function corps(o = {}, M) {
     const piv = proj(J.pivot);
     const Rh = q => add(piv, rot([q[0] * Math.cos(Math.max(0, J.teteRep.penche - 20) * RAD * 0.5), q[1]], S.azH));
     const tt = C.tete.dessus.map(Rh);
+    geo0.teteC = Rh([g.tete.long * 0.06, 0]); geo0.teteH = geo0.teteC; geo0.teteA = S.azH;
     pc('tete', tt, J.pivot[2] + 300, {
       fusion: [C.nez.dessus.map(Rh), ...(o.oreilles === false ? [] : C.oreilles.dessus.map(r => r.map(Rh)))],
       cheveux: o.cheveux === false ? null : C.cheveux.dessus.map(Rh), groupe: 'tete',
@@ -745,7 +747,7 @@ function corps(o = {}, M) {
   };
   const zDe = (a, b) => (prof(a) + prof(b)) / 2;
   const biais = planaire ? 60 : 0;          // un membre de face passe devant le tronc à profondeur égale
-  const geo = { mains: {}, pieds: {} };
+  const geo = { mains: {}, pieds: {}, ...geo0 };
   for (const c of ['P', 'L']) {
     const E = J['epaule' + c], El = J['coude' + c], W = J['poignet' + c], H = J['hanche' + c], K = J['genou' + c], A_ = J['cheville' + c];
     // les jambes
@@ -854,7 +856,7 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
   const CLmod = require('./clipper');
   for (const gr of Object.values(G)) {
     gr.z = Math.max(...gr.pieces.map(p => p.z));
-    gr.CL = I.ferme(I.unionCL(gr.pieces.map(p => p.CL)), gr.id === 'tete' ? 2 : planaire ? 9 : 6);
+    gr.CL = I.ferme(I.unionCL(gr.pieces.map(p => p.CL)), gr.id === 'tete' ? 2 : 6);
     // un trou trop étroit pour être une fenêtre (le jour entre le bras et le flanc) se bouche ; son
     // bord reste, en trait intérieur
     gr.fentes = [];
@@ -862,7 +864,7 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     for (const P_ of gr.CL) {
       if (CLmod.Clipper.Orientation(P_)) { garde.push(P_); continue; }
       const plein_ = I.union([I.deCL(P_)]);
-      if (!I.ouvre(plein_, 7).length) gr.fentes.push(I.deCL(P_).concat([I.deCL(P_)[0]]));
+      if (!I.ouvre(plein_, 10).length) gr.fentes.push(I.deCL(P_).concat([I.deCL(P_)[0]]));
       else garde.push(P_);
     }
     gr.CL = garde;
@@ -939,7 +941,10 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
       // le bord des bras : à 1,5 hors du corps, à 0,7 sur le corps
       const corpsSans = I.unionCL(pieces.filter(p => !devant.includes(p) && p.groupe === 'corps').map(p => p.CL));
       out.push(ligne(I.bordsDans(D, I.moins(I.decale(I.unionCL([D, tout]), 4), I.decale(corpsSans, -E))), tr.sil));
-      out.push(ligne(I.bordsDans(D, I.decale(corpsSans, -E)), tr.int));
+      // sur le corps, à 0,7, sauf au raccord de l'épaule (pas de couture)
+      const zonesEp = [];
+      for (const p of devant) for (const v of (p.voisins || [])) if (v.id === 'tronc' && v.R > 0) zonesEp.push(...disque(v.joint, Math.min(v.R, 4000)));
+      out.push(ligne(I.bordsDans(D, I.moins(I.decale(corpsSans, -E), zonesEp)), tr.int));
       for (const p of devant) if (p.details && p.details.length) out.push(ligne(p.details, tr.det, '', 4));
     }
   }
@@ -958,8 +963,8 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
       gg.pieds = gg.pieds || {};
       gg.pieds[c] = { cheville: T(geo.pieds[c].cheville) };
     }
-    const tc = T(proj(J.pivot));
-    gg.tete = { x: tc[0], y: tc[1], haut: T(proj(a3(J.pivot, [0, 0, g().z.sommet - g().z.pivot]))), angle: 0 };
+    const tc = T(geo.teteC || proj(J.pivot));
+    gg.tete = { x: tc[0], y: tc[1], haut: T(geo.teteH || proj(J.pivot)), angle: (geo.teteA || 0) * (m < 0 ? -1 : 1) + (planaire ? 0 : (o.angle || 0)), pivot: T(proj(J.pivot)) };
     const b0 = T([xMin, yMin]), b1 = T([xMax, yMax]);
     gg.boite = { x0: Math.min(b0[0], b1[0]), y0: Math.min(b0[1], b1[1]), x1: Math.max(b0[0], b1[0]), y1: Math.max(b0[1], b1[1]) };
     gg.sol = planaire && !o._couche ? Y : null;
