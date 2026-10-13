@@ -440,8 +440,10 @@ function enveloppeDouce(pts, sigma = 6, k = 240) {
 function troncDessusDe(g, penche = 0) {
   const S = sectionsDe(g).filter(s => !s.bassin);
   if (Math.abs(penche) < 0.5) return [enveloppeDouce(unionRadiale(S))];
-  // penché : les tranches glissent ; leur union a des creux et des pattes, son enveloppe lissée non
-  return [enveloppeDouce(troncDessusTranches(S, penche).flat())];
+  // penché : les tranches glissent ; leur union a des creux et des pattes, son enveloppe lissée non.
+  // Les tranches du bas du bassin suivent aussi : sans elles, un jour s'ouvre entre le dos et les
+  // fesses quand il se penche beaucoup
+  return [enveloppeDouce(troncDessusTranches(sectionsDe(g), penche).flat())];
 }
 function troncDessusTranches(S, penche) {
   const sp = Math.sin(penche * RAD), cp = Math.cos(penche * RAD), out = [];
@@ -452,7 +454,9 @@ function troncDessusTranches(S, penche) {
       const u = j / m, L = k => a[k] + (b[k] - a[k]) * u;
       // une tranche penchée : sa profondeur vue d'en haut est av·cos ; son épaisseur (la hauteur
       // de la tranche vue de biais) s'ajoute derrière quand le dos se voit
-      out.push(superEllipse({ cx: L('z') * sp, av: Math.max(4, L('av') * cp), ar: Math.max(4, L('ar') * cp + 6 * sp), w: L('w'), n: L('n'), k: 64 }));
+      // le bassin (sous la taille) bascule à peine : il garde sa profondeur
+      const zz = L('z'), kz = lisseEtape(-40, 120, zz), cpz = 1 + (cp - 1) * kz, spz = sp * kz;
+      out.push(superEllipse({ cx: zz * sp, av: Math.max(4, L('av') * cpz), ar: Math.max(4, L('ar') * cpz + 6 * spz), w: L('w'), n: L('n'), k: 64 }));
     }
   }
   return out;
@@ -547,6 +551,7 @@ function spherique(az, el, c) {
 }
 // poses.json, relu seulement s'il a changé sur le disque
 let POSES_CACHE = { t: -1, liste: null };
+const DEJA_DIT = new Set();
 function posesJSON() {
   try {
     const fs = require('fs'), path = require('path'), f = path.join(__dirname, 'poses.json');
@@ -568,7 +573,7 @@ function lirePose(o, M) {
     if (!pd && M && M.poses && M.poses[id]) pd = { ...M.poses[id], vue: 'profil' };
     if (!pd) {
       // un id mal tapé ne passe pas inaperçu : il se rend debout, avec un avertissement
-      if (id !== 'debout') console.warn(`vues.corps : pose « ${id} » inconnue (ni dans poses.json ni dans le moteur) : rendue debout`);
+      if (id !== 'debout' && !DEJA_DIT.has(id)) { DEJA_DIT.add(id); console.warn(`vues.corps : pose « ${id} » inconnue (ni dans poses.json ni dans le moteur) : rendue debout`); }
       pd = { vue: 'profil', angles: {} };
     }
   }
@@ -591,7 +596,7 @@ function lirePose(o, M) {
     if (A[k + 'P'] === undefined && A[k + 'L'] !== undefined) A[k + 'P'] = A[k + 'L'];
     if (A[k + 'L'] === undefined && A[k + 'P'] !== undefined) A[k + 'L'] = A[k + 'P'];
   }
-  return { A, sorte, rac, elev, age: pd.age, prise: Object.assign({}, pd.prise || {}, o.prise || {}), objet: pd.objet, appui: o.appui || pd.appui || 'pieds', mains: Object.assign({ P: 'ouverte', L: 'ouverte' }, pd.mains || {}, o.mains || {}), pieds: o.pieds || pd.pieds || 'botte', id: pd.id || o.pose };
+  return { A, sorte, rac, elev, age: pd.age, siege: o.siege !== undefined ? o.siege : pd.siege, prise: Object.assign({}, pd.prise || {}, o.prise || {}), objet: pd.objet, appui: o.appui || pd.appui || 'pieds', mains: Object.assign({ P: 'ouverte', L: 'ouverte' }, pd.mains || {}, o.mains || {}), pieds: o.pieds || pd.pieds || 'botte', id: pd.id || o.pose };
 }
 function squelette3D(P, C) {
   const { A, sorte, rac } = P, g = C.gabarit, Lg = C.longueurs;
@@ -663,7 +668,31 @@ function squelette3D(P, C) {
     const pas = A['pas' + c];
     if (Array.isArray(pas)) { const dv = rotZ([pas[0], s * pas[1], 0], azB); J['cheville' + c] = a3(J['cheville' + c], dv); J['genou' + c] = a3(J['genou' + c], m3(dv, 0.5)); }
   }
-  return { J, dir, azB, azT, azH, penche, cote };
+  // assis (siege, mm sous la fesse) : le sol à cette hauteur ; chaque pied le rejoint en pliant le
+  // genou (deux os, le genou du côté où il était) s'il peut ; sinon (l'enfant sur la chaise) il pend
+  let sol = null;
+  if (P.siege && P.appui === 'pieds') {
+    const zFesse = -0.9 * (g.z.hanche - g.z.entrejambe) - 10;
+    sol = zFesse - P.siege;
+    const Lc = Lg.cuisse, Lj = Lg.jambe, hc = g.z.cheville;
+    for (const c of ['P', 'L']) {
+      const H = J['hanche' + c], K0 = J['genou' + c], A0 = J['cheville' + c];
+      const T = [A0[0], A0[1], sol + hc];
+      if (Math.abs(A0[2] - T[2]) < 1) continue;
+      const D = [T[0] - H[0], T[1] - H[1], T[2] - H[2]], d = Math.hypot(...D);
+      if (d >= Lc + Lj - 0.5 || d <= Math.abs(Lc - Lj) + 1) continue;   // trop loin : le pied pend
+      const u = m3(D, 1 / d), k0 = [K0[0] - H[0], K0[1] - H[1], K0[2] - H[2]];
+      const pr = k0[0] * u[0] + k0[1] * u[1] + k0[2] * u[2];
+      let w = [k0[0] - u[0] * pr, k0[1] - u[1] * pr, k0[2] - u[2] * pr];
+      if (Math.hypot(...w) < 1e-6) w = [1, 0, 0];
+      w = n3(w);
+      const a = (Lc * Lc - Lj * Lj + d * d) / (2 * d), h = Math.sqrt(Math.max(0, Lc * Lc - a * a));
+      const K = a3(H, a3(m3(u, a), m3(w, h)));
+      J['genou' + c] = K; J['cheville' + c] = T;
+      dir['cuisse' + c] = n3([K[0] - H[0], K[1] - H[1], K[2] - H[2]]); dir['jambe' + c] = n3([T[0] - K[0], T[1] - K[1], T[2] - K[2]]);
+    }
+  }
+  return { J, dir, azB, azT, azH, penche, cote, sol };
 }
 
 // ─── extrémités : celles de l'agent 2 (extremites.js) si elles existent, sinon les provisoires ────
@@ -734,7 +763,8 @@ function corps(o = {}, M) {
   if (!o.age && P.age) return corps({ ...o, age: P.age }, M);
   // couché, vu d'en haut : c'est la vue de face (sur le dos) ou de dos (sur le ventre) de la même
   // pose redressée, tournée d'un quart de tour, la tête vers où le tronc s'est couché
-  if (vue === 'dessus' && P.sorte !== 'face' && P.sorte !== 'dos' && Math.abs(+P.A.tronc || 0) >= 60 && !o._couche) {
+  const couche = ['dos', 'ventre', 'cote'].includes(P.appui) || (Math.abs(+P.A.tronc || 0) >= 75 && !['pieds', 'genoux', 'genouP', 'avantbras'].includes(P.appui));
+  if (vue === 'dessus' && P.sorte !== 'face' && P.sorte !== 'dos' && Math.abs(+P.A.tronc || 0) >= 60 && couche && !o._couche) {
     const ph = +P.A.tronc, A2 = {};
     for (const [k, v] of Object.entries(P.A)) A2[k] = (typeof v === 'number' && /^(bras|avantbras|main|cuisse|jambe|pied)[PL]$/.test(k)) ? v + ph : v;
     A2.tronc = 0; A2.cou = (+P.A.cou || 0) - ph; A2.tete = (+P.A.tete || 0) - ph;   // cou, tête : comme le tronc (0 = haut), ils se redressent à l'inverse des membres
@@ -797,7 +827,8 @@ function corps(o = {}, M) {
   } else {
     const Rt = q => rot(q, S.azT), Rb = q => rot(q, S.azB);
     const zT = J.cou[2];
-    pc('bassin', bassinDessusDe(g).map(Rb), 0, { cache: o.caches === true || o.caches === 'bassin' || (Array.isArray(o.caches) && o.caches.includes('bassin')), groupe: 'bassin' });
+    // très penché, le bassin est déjà dans l'enveloppe du tronc (ses tranches y sont)
+    if (Math.abs(S.penche) < 15) pc('bassin', bassinDessusDe(g).map(Rb), 0, { cache: o.caches === true || o.caches === 'bassin' || (Array.isArray(o.caches) && o.caches.includes('bassin')), groupe: 'bassin' });
     pc('tronc', null, zT, { morceaux: troncDessusDe(g, S.penche).map(r => r.map(Rt)) });
     // la tête, à l'aplomb du pivot, tournée ; penchée, elle avance
     const piv = proj(J.pivot);
@@ -959,6 +990,8 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     const pP = geo.pieds.P.cheville, pL = geo.pieds.L.cheville;
     x0 = appui === 'pieds' ? (pP[0] + pL[0]) / 2 : proj(J.bassin)[0];
     y0 = yMax;
+    // assis : le sol est sous le siège, même si les pieds pendent
+    if (S.sol !== null && S.sol !== undefined && appui === 'pieds' && !o._couche) y0 = Math.max(yMax, proj([0, 0, S.sol])[1]);
     if (appui === 'genoux') x0 = (proj(J.genouP)[0] + proj(J.genouL)[0]) / 2;
     else if (appui === 'genouP') x0 = proj(J.genouP)[0];
     else if (appui === 'avantbras') {
@@ -1109,6 +1142,8 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     const b0 = T([xMin, yMin]), b1 = T([xMax, yMax]);
     gg.boite = { x0: Math.min(b0[0], b1[0]), y0: Math.min(b0[1], b1[1]), x1: Math.max(b0[0], b1[0]), y1: Math.max(b0[1], b1[1]) };
     gg.sol = planaire && !o._couche && P.appui !== 'avantbras' && P.appui !== 'aucun' ? Y : null;
+    // le dessous des fesses (pour poser une chaise, une bûche) ; siegeHauteur en unités de vue
+    { const zF = -0.9 * (g().z.hanche - g().z.entrejambe) - 10; gg.siege = T(proj([0, 0, zF])); if (P.siege) gg.siegeHauteur = P.siege * s; }
     gg.echelle = s; gg.miroir = m < 0; gg.vue = vue;
     gg.versVue = q => T(proj(q));          // un point du squelette 3D (mm) → la vue
     return gg;
