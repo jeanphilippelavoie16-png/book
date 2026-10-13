@@ -1,21 +1,22 @@
-// Planche 04-01b — La pompe à carton (chapitre 6, variante « Sans sous-sol et sans caveau », « Ventiler quand même »)
-// Le chapitre ne donne aucune dimension pour la pompe : aucune cote. L'ouverture de porte sert d'échelle.
+// Planche 04-01b — La pompe à carton (chapitre 4, variante « Sans sous-sol et sans caveau », « Ventiler quand même »)
+// Le chapitre ne donne aucune dimension pour la pompe : aucune cote. L'ouverture de porte sert d'échelle
+// (280 de haut pour une porte d'environ 2 m : 0,138 par mm, la même échelle pour le corps de la coupe).
+// Charte du 13 octobre : le battant et la corde pèsent ; gris loin sur ce qu'on voit au-delà (le jambage
+// de la coupe, le dessous du battant de face) et sur la caisse ; rouge : la flèche du tirage dans la
+// coupe, le cercle de la butée dans la vue de dessus (« pour qu'il ne batte que d'un bord »).
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
-
-  const tube = (x1, y1, x2, y2, r) => {
-    const L = Math.hypot(x2 - x1, y2 - y1), nx = -(y2 - y1) / L * r, ny = (x2 - x1) / L * r;
-    return h.path(`M${x1 + nx} ${y1 + ny} L${x2 + nx} ${y2 + ny} A${r} ${r} 0 0 0 ${x2 - nx} ${y2 - ny} L${x1 - nx} ${y1 - ny} A${r} ${r} 0 0 0 ${x1 + nx} ${y1 + ny} Z`, W(A.arete));
-  };
 
   // ── De face, du côté de celui qui tire ─────────────────────────────────────────────
   // La corde vient vers celui qui regarde : de face, on n'en voit que le nœud.
   const face = z => {
     const o = [];
+    // sous le battant, on voit au-delà de la porte : le plan d'arrière, en gris
+    o.push(h.rect(127, 335, 92, 10, A.loin));
     o.push(h.ligne(65, 345, 281, 345, A.arete));
-    o.push(h.chemin([[109, 345], [109, 57], [237, 57], [237, 345]], A.arete));
-    o.push(h.chemin([[117, 345], [117, 65], [229, 65], [229, 345]], A.contour));
+    o.push(h.chemin([[109, 345], [109, 57], [237, 57], [237, 345]], A.detail));     // chambranle
+    o.push(h.chemin([[117, 345], [117, 65], [229, 65], [229, 345]], A.arete));      // l'ouverture
     // le battant et sa charnière de ruban
     o.push(h.rect(121, 70, 104, 265, W(A.contour)));
     o.push(h.rect(119, 59, 108, 20, A.blanc), h.rect(119, 59, 108, 20, A.hachure('grillage', 'arete')));
@@ -29,26 +30,57 @@ module.exports = (h) => {
   };
 
   // ── En coupe : le battant tiré, puis relâché ──────────────────────────────────────
+  // Celui qui tire est assis sur une caisse basse, face au battant, une main devant l'autre sur la
+  // corde. La corde part du nœud au bas du battant et file droit, tendue, jusque dans les poings,
+  // dans l'axe de leur prise (mainP et mainL à 142° : l'axe de la corde, à 2° près). Le bras loin
+  // est posé par le calcul pour que son poing tombe sur la corde, 24 unités devant le poing proche.
+  const NOEUD = [82, 333];
+  const GAP = [5.5, 5.5];                 // la corde cachée dans le poing loin, de part et d'autre de sa prise
+  const tireur = h.formes.corps({
+    x: 232, y: 345, pose: 'assis-tire-corde', cote: 'gauche', echelle: 0.138,
+    mains: { P: 'prise', L: 'prise' }, prise: { P: 4, L: 4 },
+    angles: { brasL: 45, avantbrasL: 94, mainL: 142, mainP: 142 },
+    objetP: g => corde(g),
+  });
+  // La corde est peinte devant le corps loin : elle s'interrompt là où elle entre dans le poing
+  // loin, pour que ce poing la serre au lieu d'être barré par elle ; elle finit dans le poing proche.
+  function corde(g) {
+    const H = [g.mainP.x, g.mainP.y], Lm = [g.mainL.x, g.mainL.y];
+    const u = [H[0] - NOEUD[0], H[1] - NOEUD[1]], L = Math.hypot(u[0], u[1]);
+    const e = [u[0] / L, u[1] / L];
+    const t = ((Lm[0] - NOEUD[0]) * e[0] + (Lm[1] - NOEUD[1]) * e[1]);   // le poing loin, projeté sur la corde
+    const q = k => [NOEUD[0] + e[0] * k, NOEUD[1] + e[1] * k];
+    return [h.chemin([NOEUD, q(t - GAP[0])], A.arete), h.chemin([q(t + GAP[1]), H], A.arete)].join('\n');
+  }
+  // la corde, en unités de vue : du nœud au poing
+  const H = [tireur.mainP.x, tireur.mainP.y];
+  const ru = [H[0] - NOEUD[0], H[1] - NOEUD[1]], rL = Math.hypot(ru[0], ru[1]);
+  const re = [ru[0] / rL, ru[1] / rL], rn = [re[1], -re[0]];                  // rn : du côté du haut de la corde
+  const surCorde = (t, d = 0) => [NOEUD[0] + ru[0] * t + rn[0] * d, NOEUD[1] + ru[1] * t + rn[1] * d];
+
   const coupe = z => {
     const o = [];
     o.push(h.rect(10, 345, 302, 8, A.hachure('bois', 'aucun')), h.ligne(10, 345, 312, 345, A.arete));
+    // le jambage, au-delà du plan de coupe : gris loin ; la latte clouée dessus, en blanc
+    o.push(h.rect(60, 65, 21, 280, A.loin), h.rect(60, 65, 21, 280, A.detail));
+    o.push(h.rect(71, 65, 6, 280, W(A.detail)));
     o.push(h.rect(60, 14, 21, 51, A.hachure('bois', 'contour')));        // linteau, coupé
-    o.push(h.rect(60, 65, 21, 280, A.detail));                          // jambage, au-delà
-    o.push(h.rect(71, 65, 6, 280, A.detail));                           // latte sur le jambage
     o.push(h.rect(77.5, 69, 3, 266, A.plein));                          // battant au repos
     o.push(h.rect(80.5, 48, 2.5, 40, A.plein));                         // ruban
     o.push(h.chemin([[81, 67], [193.4, 308.1]], A.cache));              // battant tiré
-    o.push(h.fleche('M101.9 306.1 A240 240 0 0 0 167 291.1', A.arete));
+    // le bas du battant vient vers celui qui tire : l'arc suit son trajet (centre à la charnière),
+    // juste dessous, pour ne pas croiser la corde
+    o.push(h.fleche('M118.9 336.4 A272 272 0 0 0 187.3 317.4', A.arete));
     o.push(h.fleche('M125 130 L175 130', A.cache));
-    // celui qui tire, assis sur une caisse, face au battant : le pictogramme, la main proche serre la corde
-    // la corde arrive dans le poing dans l'axe du manche, le bout ressort au-dessus du pouce
-    const corde = [h.path('M80 333 Q180 320 246 226', A.arete),
-      h.path('M246 226 L253 216', A.arete)].join('\n');
-    const p = h.formes.personnage({ x: 286, y: 345, pose: 'assis', cote: 'gauche', echelle: 0.13, mains: { loin: [258, 262] },
-      prises: { proche: { x: 246, y: 226, pose: 'prise', vue: 'dos', diametre: 4, angle: 35, objet: corde } } });
-    o.push(h.rect(p.siege[0] - 22, p.siege[1], 44, 345 - p.siege[1], W(A.arete)));
-    o.push(h.cercle(79, 333, 3, A.plein));
-    o.push(p.toString());
+    // la caisse : l'objet secondaire, en gris loin
+    const sx = tireur.siege[0];
+    o.push(h.rect(sx - 24, tireur.siege[1], 46, 345 - tireur.siege[1], A.loin));
+    o.push(h.rect(sx - 24, tireur.siege[1], 46, 345 - tireur.siege[1], A.arete));
+    o.push(tireur.toString());
+    o.push(h.cercle(NOEUD[0] - 1, NOEUD[1], 3, A.plein));
+    // le geste : on tire la corde vers la poitrine
+    const g0 = surCorde(0.60, 14), g1 = surCorde(0.82, 14);
+    o.push(h.geste(`M${g0[0].toFixed(1)} ${g0[1].toFixed(1)} L${g1[0].toFixed(1)} ${g1[1].toFixed(1)}`));
     return `<g transform="translate(0,-12)">\n${o.join('\n')}\n</g>`;
   };
 
@@ -58,14 +90,16 @@ module.exports = (h) => {
     o.push(h.rect(10, 60, 130, 90, A.hachure('bois', 'contour')));
     o.push(h.rect(140, 120, 20, 24, A.blanc), h.rect(140, 120, 20, 24, A.hachure('bois')));
     o.push(h.ligne(122, 132, 159, 132, A.arete), h.rect(159, 128, 2.5, 8, A.plein));
-    // carton ondulé : deux faces et la cannelure
+    // carton ondulé : deux faces et la cannelure ; c'est l'objet, son contour pèse
     const pts = [];
-    for (let x = 148, k = 0; x <= 280; x += 3, k++) pts.push([x, k % 2 ? 150 : 144]);
+    for (let x = 148, k = 0; x <= 280; x += 3, k++) pts.push([x, k % 2 ? 149 : 145]);
     o.push(h.chemin(pts, A.detail));
-    o.push(h.ligne(148, 144, 280, 144, A.arete), h.ligne(148, 150, 280, 150, A.arete), h.ligne(148, 144, 148, 150, A.arete));
+    o.push(h.chemin([[280, 144], [148, 144], [148, 150], [280, 150]], A.contour));
     // battant tiré vers la pièce
     o.push(h.rect(148, 180, 132, 6, A.cache));
     o.push(h.fleche('M215 155 L215 175', A.arete));
+    // à contrôler : le carton porte sur la latte, il ne peut battre que vers la pièce
+    o.push(h.controle(154, 144));
     return o.join('\n');
   };
 
@@ -93,13 +127,15 @@ module.exports = (h) => {
     o.push(vague(74, 46, 216, 46), vague(74, 194, 216, 194), vague(66, 54, 66, 186), vague(224, 54, 224, 186));
     for (let x = 84; x <= 206; x += 20) o.push(h.cercle(x, 43.5, 1.1, A.plein), h.cercle(x, 196.5, 1.1, A.plein));
     for (let y = 70; y <= 170; y += 20) o.push(h.cercle(62.5, y, 1.1, A.plein), h.cercle(227.5, y, 1.1, A.plein));
+    // le cadre, l'objet de la vue : son contour pèse
+    o.push(h.rect(60, 40, 170, 160, A.contour));
     return o.join('\n');
   };
 
   return {
     ref: '04-01b',
     titre: 'La pompe à carton',
-    desc: 'Pompe à air de carton suspendue dans une ouverture de porte : de face, le battant plus petit que l’ouverture, la charnière de ruban en haut, les lattes en butée derrière le battant, le nœud de la corde au bas ; en coupe, quelqu’un assis sur une caisse face au battant, la corde en main, le battant tiré vers lui puis relâché contre la latte ; vu de dessus, le jeu entre le carton et le cadre et la latte clouée au jambage ; le cadre de lattes tendu d’un linge humide pour l’entrée d’air.',
+    desc: 'Pompe à air de carton suspendue dans une ouverture de porte : de face, le battant plus petit que l’ouverture, la charnière de ruban en haut, les lattes en butée derrière le battant, le nœud de la corde au bas ; en coupe, quelqu’un assis sur une caisse face au battant, les deux mains sur la corde tendue, qui la tire vers sa poitrine, le battant tiré vers lui puis relâché contre la latte ; vu de dessus, le jeu entre le carton et le cadre et la latte clouée au jambage, sur laquelle le carton porte ; le cadre de lattes tendu d’un linge humide pour l’entrée d’air.',
     format: 'pleine',
     disposition: [['face', 'coupe'], ['jambage', 'linge']],
     hauteurs: [3, 2],
@@ -119,7 +155,7 @@ module.exports = (h) => {
         titre: 'En coupe',
         dessin: coupe,
         renvois: z => [
-          { n: 5, rond: [196, 218], cible: [203.3, 263.1], texte: 'assis, on tire puis on relâche' },
+          { n: 5, rond: [222, 148], cible: [H[0] - 1.5, H[1] - 12 - 5.5], texte: 'assis, on tire puis on relâche' },
           { n: 6, rond: [30, 228], cible: [77.5, 228], texte: 'relâché, il retombe contre la latte' },
         ],
       },
@@ -128,7 +164,7 @@ module.exports = (h) => {
         dessin: jambage,
         renvois: z => [
           { n: 7, rond: [190, 95], cible: [160, 122], texte: 'latte clouée sur le jambage' },
-          { n: 8, rond: [110, 200], cible: [147, 152], texte: 'l’ouverture moins un jeu, tout autour' },
+          { n: 8, rond: [100, 200], cible: [143, 151], texte: 'l’ouverture moins un jeu, tout autour' },
           { n: 9, rond: [262, 206], cible: [250, 186], texte: 'il ne bat que d’un côté' },
         ],
       },

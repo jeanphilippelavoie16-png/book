@@ -161,7 +161,10 @@ function verifier(chemin) {
   const corps = [...new Set((s.match(/font-size\s*:\s*([\d.]+)px/g) || []).map(m => Number(m.replace(/[^\d.]/g, ''))))];
   const horsCorps = corps.filter(c => c !== 13 && c !== 12);
   if (horsCorps.length) mou.push(`corps de texte hors barème : ${horsCorps.join(', ')} px (le livre n’en a que deux : 13 et 12)`);
-  if (/transform\s*=\s*"[^"]*rotate/.test(s) && /<text/.test(s))
+  // un texte pivoté : sur le <text> lui-même, ou dans un groupe pivoté qui contient du texte
+  // (une main calquée tournée n'en contient pas)
+  const groupesTexte = (s.match(/<g\b[^>]*transform\s*=\s*"[^"]*rotate[^>]*>(?:(?!<\/g>)[\s\S])*?<text/g) || []).length;
+  if (/<text\b[^>]*transform\s*=\s*"[^"]*rotate/.test(s) || groupesTexte)
     mou.push('texte pivoté : illisible sur une planche imprimée, déplace la cote plutôt');
 
   const textes = [...s.matchAll(/<text[^>]*>([^<]+)</g)].map(m => m[1].trim()).filter(Boolean);
@@ -191,7 +194,8 @@ function verifier(chemin) {
   }
 
   // --- renvois et échelle ---
-  const pastilles = s.match(/<circle[^>]*r\s*=\s*"9"[^>]*>/g) || [];
+  // le cercle rouge du point à contrôler n'est pas une pastille, même de rayon 9
+  const pastilles = (s.match(/<circle[^>]*r\s*=\s*"9"[^>]*>/g) || []).filter(c => !/stroke="#9B2C1E"/i.test(c));
   const renvois = pastilles.length;
   // Une construction en plusieurs vues compte six renvois par vue.
   const parVue = {};

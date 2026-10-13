@@ -138,29 +138,50 @@ module.exports = (h) => {
     const ici = (O, u, a, b) => [O[0] + (u[0] * a - u[1] * b) * em, O[1] + (u[1] * a + u[0] * b) * em];
     return { bas, haut, O1, O2, u1, u2, em, ici, svg: [bas, haut].join('\n') };
   };
-  // La vignette de la posture (pictogramme) : à genoux à côté de la personne couchée, penché
-  // au-dessus de la cuisse, les deux bras tendus droit vers le bas, le poids du tronc dans les mains.
-  // La personne couchée sur le dos, en aplat ; celui qui appuie à genoux devant elle, à hauteur de
-  // la hanche, le tronc penché juste assez pour que ses épaules tombent à l'aplomb de ses mains.
-  const posture = (x, y, l, ht) => {
-    const yg = y + ht - 5, e = 0.07;
-    const c = F.personnage({ x: x + 64, y: yg, pose: 'couche', echelle: e, rendu: 'plein' });
-    const H = c.hanche, K = c.genoux.proche;
-    const M = [H[0] + (K[0] - H[0]) * 0.55, H[1] + (K[1] - H[1]) * 0.55 - 61 * e];   // le dessus de la cuisse
-    const L = (545 + 185 * 0.9) * e;                                                    // bras tendu, main comprise
-    let best = null;
-    for (let pc = 15; pc <= 70; pc += 1) {
-      const t = F.personnage({ x: 0, y: yg, pose: 'genoux', penche: pc, echelle: e });
-      const S = t.epaules.proche, err = Math.abs(S[1] + L - M[1]);
-      if (!best || err < best.err) best = { pc, err, dx: S[0] };
+  // Les y où une verticale x coupe les contours d'un SVG fait de polylignes (les corps simples) :
+  // le dessus de la cuisse du blessé, là où les mains se posent.
+  const coupesX = (svg, x) => {
+    const ys = [];
+    for (const m of String(svg).matchAll(/ d="([^"]+)"/g)) {
+      const n = m[1].match(/-?\d+(\.\d+)?/g).map(Number);
+      for (let i = 0; i + 3 < n.length; i += 2) {
+        const [x0, y0, x1, y1] = [n[i], n[i + 1], n[i + 2], n[i + 3]];
+        if (x0 !== x1 && (x0 - x) * (x1 - x) <= 0) ys.push(y0 + (y1 - y0) * (x - x0) / (x1 - x0));
+      }
     }
-    const xa = M[0] - 25 * e - best.dx;
-    const W = [M[0], M[1] - 185 * 0.9 * e];
-    const g = F.personnage({ x: xa, y: yg, pose: 'genoux', penche: best.pc, regard: 35, echelle: e, mains: { proche: W, loin: [W[0] - 1.5, W[1] - 1] } });
-    const S = g.epaules.proche;
-    return { svg: [h.rect(x, y, l, ht, h.a.fin), h.ligne(x + 3, yg, x + l - 3, yg, h.a.detail), c, g,
-      h.fleche(`M${f(S[0])},${f(Math.max(y + 3, S[1] - 34))} L${f(S[0])},${f(S[1] - 13)}`, h.a.arete)].join('\n'),
-      bras: [(S[0] + W[0]) / 2, (S[1] + W[1]) / 2], W };
+    return ys;
+  };
+  // La vignette de la posture, en corps simples : le blessé couché sur le dos (couche-dos), et celui
+  // qui appuie à genoux de l'autre côté de lui, à hauteur de la hanche, tourné vers les pieds
+  // (genoux-appuie) : le blessé, peint par-dessus, cache ses genoux et ses tibias. Les bras droits
+  // (bras = avant-bras), les épaules à l'aplomb des mains ; le tronc penché juste ce qu'il faut pour
+  // que la paume du dessous se pose sur le dessus de la cuisse, à mi-chemin de la hanche au genou ;
+  // l'autre main à plat par-dessus (le coude à peine plié). Même échelle pour les deux corps.
+  // corps() coûte ~0,3 s : la vignette se calcule une fois (dessin et renvois la partagent), et
+  // les deux ajustements se font par bissection.
+  const memo = {};
+  const bissection = (fn, a, b, n = 11) => { let fa = fn(a); for (let i = 0; i < n; i++) { const m = (a + b) / 2, fm = fn(m); if ((fm < 0) === (fa < 0)) { a = m; fa = fm; } else b = m; } return (a + b) / 2; };
+  const deplace = (g, dx) => `<g transform="translate(${f(dx)} 0)">\n${g}\n</g>`;
+  const posture = (x, y, l, ht) => {
+    const cle = [x, y, l, ht].join(',');
+    if (memo[cle]) return memo[cle];
+    const yg = y + ht - 6, e = 0.092;
+    const pat0 = F.corps({ x: 0, y: yg, pose: 'couche-dos', echelle: e }), dp = x + (l - (pat0.boite.x1 - pat0.boite.x0)) / 2 - pat0.boite.x0 + 2;
+    const A = pat0.articulations;
+    const xt = A.hancheP[0] + 0.5 * (A.genouP[0] - A.hancheP[0]), yt = Math.min(...coupesX(pat0, xt));
+    const a = 4, ep = 28 * e;                                   // le bras droit ; l'épaisseur d'une main
+    const angles = (t, ab) => ({ tronc: t, brasP: a, avantbrasP: a, mainP: 90, brasL: a - (ab - a) * 0.5, avantbrasL: ab, mainL: 90 });
+    const essai = (t, ab) => F.corps({ x: 0, y: yg, pose: 'genoux-appuie', echelle: e, trait: 'fort', angles: angles(t, ab) });
+    const t = bissection(t => essai(t, a).mainP.y - yt, 20, 80);
+    const ab = bissection(ab => { const g = essai(t, ab); return (g.mainP.y - ep) - g.mainL.y; }, a, a + 40, 9);
+    const g0 = essai(t, ab), da = xt + dp - g0.mainP.x;
+    const S = [g0.articulations.epauleP[0] + da, g0.articulations.epauleP[1]], W = [g0.articulations.poignetP[0] + da, g0.articulations.poignetP[1]];
+    // la flèche du geste : le long des bras, du côté du tronc, jusqu'au-dessus des mains
+    const u = [W[0] - S[0], W[1] - S[1]], lu = Math.hypot(u[0], u[1]), n = [-u[1] / lu, u[0] / lu];
+    const off = -7, p0 = [S[0] + u[0] * 0.18 + n[0] * off, S[1] + u[1] * 0.18 + n[1] * off], p1 = [S[0] + u[0] * 0.86 + n[0] * off, S[1] + u[1] * 0.86 + n[1] * off];
+    return (memo[cle] = { svg: [h.rect(x, y, l, ht, h.a.fin), deplace(g0, da), deplace(pat0, dp), h.ligne(x + 3, yg, x + l - 3, yg, h.a.detail),
+      h.geste(`M${pt(p0)} L${pt(p1)}`)].join('\n'),
+      bras: [(S[0] + W[0]) / 2, (S[1] + W[1]) / 2], W, mainP: [g0.mainP.x + da, g0.mainP.y], tronc: t, ab });
   };
   // ─── A. Appuyer : vue de dessus, la cuisse de la hanche au genou, la compresse sur la plaie, les
   // deux mains à plat l'une sur l'autre ; en haut, la posture qui met le poids dans les bras tendus.
@@ -169,7 +190,7 @@ module.exports = (h) => {
     const C = cuisseDessus(z, u0, s, cy);
     const P = [C.X(22), cy + 0.3 * s];
     const M = deuxMains(P, s, z);
-    return { s, C, P, M, cy, vg: { x: 2, y: 2, l: z.l - 4, h: 92 } };
+    return { s, C, P, M, cy, vg: { x: 2, y: 2, l: z.l - 4, h: 108 } };
   };
   const dessinA = z => {
     const g = geoA(z), s = g.s, out = [];
