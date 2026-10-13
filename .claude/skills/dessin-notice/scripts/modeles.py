@@ -199,6 +199,8 @@ def shoo():
 #                             commun à deux morceaux qu'on écarte (le dessous de l'index, le dessus du pouce).
 #   "decaler": [[x, dy], …]   au lieu de plier : la partie glisse verticalement de dy(x) (interpolé entre
 #                             les stations, en px de la source) ; pivot, angle et rayon sont ignorés.
+# Option de la pose (bibliothèque B) : "lisser": px  un flou léger de l'encre avant le calque, contre les
+#                             marches d'escalier qu'une partie tournée laisse sur son trait (0,3 suffit).
 # Et une option de la pose : "rogner": px  rogne le blanc qui dépasse du trait (la frange qu'une partie
 #                             écartée laisse le long du trait gardé) ; le blanc enfermé par le trait reste.
 SOURCES = {'s': ('mains5-tons.pkl', 4, 3.0), 'g': ('mains1-tons.pkl', 6, 2.0), 'k': ('mains4-masques.pkl', 6, 3.0),
@@ -362,6 +364,9 @@ def articuler(ident, spec):
         dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
         enc = (enc & ~dedans) | p_enc
         sil = sil | p_sil
+    if spec.get('lisser'):                         # "lisser": px — le trait d'une partie tournée sort en marches
+        s_ = spec['lisser'] * k                    # d'escalier (rééchantillonnage) que potrace suit en bosses :
+        enc = ndi.gaussian_filter(enc.astype(float), s_) > 0.5   # un flou léger puis le seuil les efface
     enc = nettoyer(enc, k, 1.0)
     if spec.get('rogner'):                         # "rogner": px — le blanc qui dépasse du trait (une frange
         r_ = max(1, int(spec['rogner'] * k))       # laissée par une partie écartée) est rogné : le blanc
