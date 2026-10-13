@@ -1215,6 +1215,26 @@
   "source": "s18",
   "rogner": 1.0,
   "note": "Index tendu qui appuie : s18 (index droit, pouce sous l'index, autres doigts repliés), le poignet fermé pour que la main soit blanche (fermetures-biblio-a.json). Pointe vers le bas : angle −90 ; le bout de l'index ≈ (8.5, 18) est le point de contact (ancre). Bras a (241, 25), a0 (222, 27.4), b (237.5, 87), b0 (222, 87.6).",
+  "effacer": [
+   [
+    35.8,
+    12,
+    38,
+    14.6
+   ],
+   [
+    52.3,
+    11,
+    58,
+    19.4
+   ],
+   [
+    51.6,
+    23.4,
+    68.5,
+    35
+   ]
+  ],
   "parties": []
  },
  "b08-pouce-appuie": {
