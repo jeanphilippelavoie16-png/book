@@ -20,3 +20,18 @@ Ce qui la rend belle, et que nos essais n'avaient pas :
 
 Ce style se dessine d'après un vrai modèle (photo ou dessin libre) : c'est exactement le contour
 d'une main photographiée, simplifié. Il ne se construit pas par calcul — six essais l'ont prouvé.
+
+## Suite, 13 octobre
+
+JP a ajouté trois images : un corps de femme face et dos (peau beige, trait fin), un tableau
+homme-femme face et dos (filigrane 123RF : un aperçu de banque d'images, pas une licence) et une
+planche de mains ombrées de rose, signée Kibbitzer (DeviantArt), avec des prises : bâton, corde,
+tasse, poing. Même règle que la première : **ces images sont protégées ou d'origine inconnue, elles
+ne se décalquent pas.** Le décalque des deux premières, repassé par le skill `encrage`, a été rejeté
+(« c'est de pire en pire »).
+
+Ce que le tableau 123RF montre, et qu'on garde : un seul trait gris foncé, égal, pour tout le
+contour ; les lignes intérieures (clavicules, pectoraux, nombril, genoux, omoplates) plus pâles et
+plus courtes ; aucun aplat de peau ; un visage réduit à des yeux, un nez et une bouche simples ; les
+sous-vêtements au même trait pâle. Pour s'en servir sans copier : acheter le vecteur, ou redessiner
+avec l'image à côté, jamais par-dessus.
