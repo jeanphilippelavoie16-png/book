@@ -12,6 +12,13 @@
 // (appui vu du dos) croisées sur la compresse, et la vignette pictogramme donne la posture à genoux,
 // bras tendus ; le poing fait à la main de la plaie profonde devient la main de la bibliothèque
 // (doigts serrés, tendus dans la plaie) ; le pied, un moignon, est redessiné (talon, plante, orteils).
+// Lot 3, corps simples et charte (13 octobre) : les deux vignettes passent par h.formes.corps
+// (genoux-appuie + couche-dos ; couche-dos en petit pour repérer la coupe). L'aidant est à genoux de
+// l'autre côté du blessé : devant lui, ses tibias barraient la tête et le dos du blessé. Deux poids :
+// les compresses, la bouteille et le sac à 2,4, les membres à 1,5. Gris loin : la main du dessous. Gris
+// ombre : la face droite du cou tordu. Rouge : la poussée le long des bras tendus, la paume sur la
+// plaie, les doigts qui tassent la gaze, le poing qui serre la bouteille, le cou qu'on tord. La
+// seconde compresse est posée de travers sur la première : droites, les mains les cachaient toutes deux.
 module.exports = (h) => {
   const F = h.formes;
   const BL = h.a.blanc.split(' ')[0];
@@ -29,6 +36,11 @@ module.exports = (h) => {
     }
     return P[P.length - 1][1];
   };
+  // La charte (13 octobre) : le corps garde le poids des corps simples (1,5) ; l'objet du geste
+  // (la compresse, la bouteille, le sac) porte le contour à 2,4. La main du dessous, plus loin de
+  // l'œil, prend le gris loin comme le membre loin des corps simples.
+  const CORPS = h.a.arete.replace('stroke-width="1.4"', 'stroke-width="1.5"');
+  const loin = svg => String(svg).replace(/<path fill="#FFFFFF"/g, '<path fill="#E6E6E6"');
   const sol = (z, yg) => [h.rect(0, yg, z.l, 8, h.a.hachure('terre', 'aucun')), h.ligne(0, yg, z.l, yg, h.a.arete)].join('\n');
   // ce qui dépasse de la vue (un bras qui sort du cadre) est coupé net au bord
   const decoupe = (id, z, contenu) => `<clipPath id="rogne-26-40-${id}"><rect x="0" y="0" width="${f(z.l)}" height="${f(z.h)}" fill="none"/></clipPath>\n<g clip-path="url(#rogne-26-40-${id})">\n${contenu}\n</g>`;
@@ -87,7 +99,7 @@ module.exports = (h) => {
     const top = x => Y(lisse(HAUT, x / s + u0));
     const dessin = [
       sol(z, yg),
-      h.chemin(profilJambe(X, Y, u0), plein(h.a.contour), true),
+      h.chemin(profilJambe(X, Y, u0), plein(CORPS), true),
       traitsPied(X, Y, s, false),
     ].join('\n');
     return { X, Y, top, dessin };
@@ -101,14 +113,21 @@ module.exports = (h) => {
     for (let x = -2; x < z.l + 3; x += 1.5) { haut.push([x, cy - hw(x)]); bas.push([x, cy + hw(x)]); }
     const dessin = [
       h.chemin([...haut, ...bas.slice().reverse()], h.a.blanc, true),
-      h.chemin(haut, h.a.contour), h.chemin(bas, h.a.contour),
+      h.chemin(haut, CORPS), h.chemin(bas, CORPS),
       // le genou : la cuisse s'y rétrécit, puis la jambe repart
     ].join('\n');
     return { X, U, hw, cy, dessin };
   };
   // Une compresse vue de dessus : un carré de gaze pliée, coins à peine arrondis, le pli marqué.
+  // La compresse sur la plaie (une gaze pliée, ou un linge plié) : assez grande pour dépasser au
+  // bout des doigts, sinon les mains la cachent. La seconde, posée par-dessus, un peu plus petite.
+  // (dx, dy, l, ht) en cm depuis la plaie.
+  // La seconde est tournée d'un quart de tour de travers sur la première : leurs coins sortent de
+  // sous les mains, et l'on voit qu'il y en a deux (posées droites l'une sur l'autre, les mains les
+  // cachaient toutes les deux).
+  const PREMIERE = [1.5, 0, 20, 15], SECONDE = [2.2, -0.2, 19, 14, -14];
   const tampon = (cx, cy, l, ht, at, pli) => {
-    const r = Math.min(l, ht) * 0.06, x0 = cx - l / 2, y0 = cy - ht / 2, x1 = cx + l / 2, y1 = cy + ht / 2;
+    const r = Math.min(l, ht) * 0.12, x0 = cx - l / 2, y0 = cy - ht / 2, x1 = cx + l / 2, y1 = cy + ht / 2;
     const d = `M${f(x0 + r)},${f(y0)} L${f(x1 - r)},${f(y0)} Q${f(x1)},${f(y0)} ${f(x1)},${f(y0 + r)} L${f(x1)},${f(y1 - r)} Q${f(x1)},${f(y1)} ${f(x1 - r)},${f(y1)} L${f(x0 + r)},${f(y1)} Q${f(x0)},${f(y1)} ${f(x0)},${f(y1 - r)} L${f(x0)},${f(y0 + r)} Q${f(x0)},${f(y0)} ${f(x0 + r)},${f(y0)} Z`;
     const out = [h.path(d, at)];
     if (pli) out.push(h.ligne(x0 + 3, y0 + ht * 0.36, x1 - 3, y0 + ht * 0.36, h.a.fin));
@@ -136,7 +155,7 @@ module.exports = (h) => {
     const haut = F.modele('s03-dessus-l1', { x: O2[0], y: O2[1], ancre: [72, 112], angle: d2 - 90, echelle: SD,
       masquer: [[0, 0, 125, 14]], bras: { ...BRAS, vers: dir(196), bord: z } });
     const ici = (O, u, a, b) => [O[0] + (u[0] * a - u[1] * b) * em, O[1] + (u[1] * a + u[0] * b) * em];
-    return { bas, haut, O1, O2, u1, u2, em, ici, svg: [bas, haut].join('\n') };
+    return { bas, haut, O1, O2, u1, u2, em, ici, svg: [loin(bas), haut].join('\n') };
   };
   // Les y où une verticale x coupe les contours d'un SVG fait de polylignes (les corps simples) :
   // le dessus de la cuisse du blessé, là où les mains se posent.
@@ -200,8 +219,10 @@ module.exports = (h) => {
     const g = geoA(z), s = g.s, out = [];
     const v = posture(g.vg.x, g.vg.y, g.vg.l, g.vg.h);
     out.push(v.svg, g.C.dessin);
-    out.push(tampon(g.P[0] + 0.5 * s, g.P[1], 15 * s, 13.5 * s, plein(h.a.arete), true));
+    out.push(tampon(g.P[0] + PREMIERE[0] * s, g.P[1] + PREMIERE[1] * s, PREMIERE[2] * s, PREMIERE[3] * s, plein(h.a.contour), true));
     out.push(g.M.svg);
+    // le point à contrôler : la paume du dessous sur la plaie même
+    out.push(h.controle(g.P[0], g.P[1], 3.4 * s));
     return decoupe('a', z, out.join('\n'));
   };
 
@@ -232,11 +253,12 @@ module.exports = (h) => {
     const [px, py] = g.P;
     // la première, trempée : noire ; le sang passé coule sur la peau vers le côté et tombe au sol
     for (const [dx, amp, ph, k] of [[-1.5, 0.6, 0.4, 2.2], [2.6, 0.5, 2.1, 3.2], [5.6, 0.6, 1.3, 1.4]]) {
-      const x0 = px + dx * s, y0 = py + 6.4 * s, y1 = py + C.hw(x0) + k * s;
+      const x0 = px + dx * s, y0 = py + (PREMIERE[1] + PREMIERE[3] / 2 - 0.4) * s, y1 = py + C.hw(x0) + k * s;
       out.push(filet(x0, y0, y1, amp, ph, 1.6, 0.6, 0));
     }
-    out.push(tampon(px + 0.5 * s, py, 16 * s, 14.6 * s, h.a.plein, false));
-    out.push(tampon(px + 0.2 * s, py - 0.5 * s, 13.4 * s, 12 * s, plein(h.a.arete), true));
+    const T1 = PREMIERE, T2 = SECONDE;
+    out.push(tampon(px + T1[0] * s, py + T1[1] * s, T1[2] * s, T1[3] * s, h.a.plein, false));
+    out.push(`<g transform="rotate(${T2[4]} ${f(px + T2[0] * s)} ${f(py + T2[1] * s)})">`, tampon(px + T2[0] * s, py + T2[1] * s, T2[2] * s, T2[3] * s, plein(h.a.contour), true), '</g>');
     out.push(g.M.svg);
     return decoupe('b', z, out.join('\n'));
   };
@@ -253,8 +275,9 @@ module.exports = (h) => {
     const xf = ax(0.3) + 0.25 * s, K = [xf, yM - 3 * s];
     // la vignette : la jambe entière, en petit, avec le trait de coupe sur la cuisse
     const vg = { x: 2, y: 2, l: Math.min(z.l * 0.47, xf - 1.4 * s - 8) };
-    vg.sv = (vg.l - 8) / 110.5; vg.h = 27 * vg.sv + 12; vg.yg = vg.y + vg.h - 4;
-    vg.X = u => vg.x + 4 + (u + 10) * vg.sv; vg.Y = v => vg.yg - v * vg.sv;
+    // le blessé entier en petit (corps simple couche-dos, trait 1,25 : à cette taille le 1,5 empâte ;
+    // ses traits intérieurs restent à 0,5), le trait de coupe à mi-cuisse
+    vg.e = (vg.l - 9) / 1820; vg.h = 300 * vg.e + 15; vg.yg = vg.y + vg.h - 5;
     // la main gantée, doigts serrés et tendus, le poignet droit : la paume de profil de la
     // bibliothèque, tournée les doigts en bas ; le bout de l'index et du majeur pousse la gaze
     const em = s / 10, yTip = ay(0.5);
@@ -265,21 +288,28 @@ module.exports = (h) => {
       masquer: [[228, 0, 245, 125]],
       bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } });
     main.poignet = main.P([228, 84.2]); main.bras = main.P([246, 84.2]); main.demi = 53.2 / 2 * 190 * em / 214;
-    return { s, em, yg, cx, cy, rx, ry, ytop, xm, yM, ax, ay, w, xf, K: [xf, yM - 3 * s], main, femur: [cx + 1 * s, cy + 2 * s], vg };
+    const geste = [[xf - 2.3 * s, yM - 8.4 * s], [xf - 2.3 * s, yM - 2.7 * s]];
+    return { s, em, yg, cx, cy, rx, ry, ytop, xm, yM, ax, ay, w, xf, K: [xf, yM - 3 * s], main, femur: [cx + 1 * s, cy + 2 * s], vg, geste };
+  };
+  const petitBlesse = vg => {
+    const cle = ['pb', vg.x, vg.y, vg.l].join(',');
+    if (memo[cle]) return memo[cle];
+    const c = F.corps({ x: 0, y: vg.yg, pose: 'couche-dos', echelle: vg.e, trait: 1.25 }), dx = vg.x + (vg.l - (c.boite.x1 - c.boite.x0)) / 2 - c.boite.x0;
+    const A = c.articulations, xc0 = A.hancheP[0] + 0.45 * (A.genouP[0] - A.hancheP[0]);
+    return (memo[cle] = { svg: deplace(c, dx), xc: xc0 + dx, yh: Math.min(...coupesX(c, xc0)) });
   };
   const dessinC = z => {
     const g = geoC(z), s = g.s, out = [sol(z, g.yg)];
     // la vignette
     const vg = g.vg;
     out.push(h.rect(vg.x, vg.y, vg.l, vg.h, h.a.fin));
-    out.push(h.ligne(vg.x + 3, vg.yg, vg.x + vg.l - 3, vg.yg, h.a.detail));
-    out.push(h.chemin(profilJambe(vg.X, vg.Y, -10), plein(h.a.arete), true));
-    out.push(traitsPied(vg.X, vg.Y, vg.sv, true));
-    const xc = vg.X(24), yh = vg.Y(lisse(HAUT, 24));
+    const pb = petitBlesse(vg);
+    out.push(pb.svg, h.ligne(vg.x + 3, vg.yg, vg.x + vg.l - 3, vg.yg, h.a.detail));
+    const xc = pb.xc, yh = pb.yh;
     out.push(h.path(`M${f(xc - 1.3)},${f(yh + 0.6)} Q${f(xc)},${f(yh - 0.9)} ${f(xc + 1.3)},${f(yh + 0.6)} Z`, h.a.plein));   // la plaie
     out.push(h.path(`M${f(xc)},${f(yh - 6)} L${f(xc)},${f(vg.yg + 2.5)}`, `fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-dasharray="4 2.2"`));
-    out.push(h.fleche(`M${f(xc)},${f(yh - 6)} L${f(xc + 7)},${f(yh - 6)}`, h.a.arete));
-    out.push(h.fleche(`M${f(xc)},${f(vg.yg + 2.5)} L${f(xc + 7)},${f(vg.yg + 2.5)}`, h.a.arete));
+    out.push(h.fleche(`M${f(xc)},${f(yh - 6)} L${f(xc + 6)},${f(yh - 6)}`, h.a.detail));
+    out.push(h.fleche(`M${f(xc)},${f(vg.yg + 2.5)} L${f(xc + 6)},${f(vg.yg + 2.5)}`, h.a.detail));
     // la coupe : la chair tramée, le fémur en hachure croisée
     const ovale = (a, b) => { const p = []; for (let i = 0; i <= 120; i++) { const t = i / 120 * 2 * Math.PI; p.push([g.cx + a * Math.cos(t), Math.min(g.cy + b * Math.sin(t), g.yg)]); } return p; };
     out.push(h.chemin(ovale(g.rx, g.ry), h.a.blanc, true));
@@ -323,6 +353,8 @@ module.exports = (h) => {
     }
     const xf = g.xf;
     out.push(h.path(`M${f(xf - r * 0.8)},${f(g.yM - 1.4 * s)} Q${f(xf)},${f(g.yM - 1.05 * s)} ${f(xf + r * 0.8)},${f(g.yM - 1.4 * s)}`, h.a.fin));
+    // le geste : les doigts poussent la gaze jusqu'au fond
+    out.push(h.geste(`M${pt(g.geste[0])} L${pt(g.geste[1])}`));
     return decoupe('c', z, out.join('\n'));
   };
 
@@ -411,6 +443,8 @@ module.exports = (h) => {
     out.push(h.cercle(...W(0, 0), 0.35 * s, h.a.plein));
     // la main qui serre : les doigts repliés autour du corps, le pouce qui creuse la paroi
     out.push(brasCoude(g.main, g.R, g.eH, -58), String(g.main));
+    // le geste : serrer le poing sur la bouteille souple
+    out.push(h.geste(`M${pt(W(20.2, -10.6))} L${pt(W(20.2, -6.3))}`));
     // (le poing du modèle ne creuse pas la paroi : plus de plis de plastique sous le pouce)
     // le jet et ses éclaboussures
     out.push(h.path(`M${pt(g.jet.a)} Q${pt(g.jet.c)} ${pt(g.jet.b)}`, h.a.arete));
@@ -435,7 +469,7 @@ module.exports = (h) => {
     const hp = [], bp = [];
     for (let x = 0; x < z.l; x += 1.5) { hp.push([x, g.top(x)]); bp.push([x, g.Y(lisse(BASC, -2 + x / s))]); }
     hp.push([z.l, g.top(z.l)]); bp.push([z.l, g.Y(lisse(BASC, -2 + z.l / s))]);
-    out.push(h.chemin([...hp, ...bp.slice().reverse()], h.a.blanc, true), h.chemin(hp, h.a.contour), h.chemin(bp, h.a.contour));
+    out.push(h.chemin([...hp, ...bp.slice().reverse()], h.a.blanc, true), h.chemin(hp, CORPS), h.chemin(bp, CORPS));
     const x = g.xw, y = g.yw;
     out.push(h.path(`M${f(x - 2.2 * s)},${f(y + 0.9 * s)} Q${f(x)},${f(y - 0.7 * s)} ${f(x + 2.2 * s)},${f(y - 0.3 * s)} Q${f(x)},${f(y + 0.9 * s)} ${f(x - 2.2 * s)},${f(y + 0.9 * s)} Z`, h.a.plein));
     for (const [dx, dy] of [[-3.4, 1.8], [3.3, 1.2], [-1.2, 2.6], [1.8, 2.4]]) out.push(h.cercle(x + dx * s, y + dy * s, 0.28 * s, h.a.plein));
@@ -449,7 +483,9 @@ module.exports = (h) => {
     out.push(h.path(`M${f(cx + 0.8 * s)},${f(yn + 1 * s)} Q${f(cx + 2.5 * s)},${f(yn + 5 * s)} ${f(cx + 4.6 * s)},${f(yn + 8.6 * s)}`, h.a.detail));
     // le cou tordu, du sac jusqu'au poing, et la touffe de plastique qui dépasse au-dessus
     const yH = g.yF - 6.8 * s;
-    out.push(h.path(`M${f(cx - 1.5 * s)},${f(yn + 0.3 * s)} L${f(cx - 1.1 * s)},${f(g.yF)} L${f(cx + 1.1 * s)},${f(g.yF)} L${f(cx + 1.5 * s)},${f(yn + 0.3 * s)} Z`, plein(h.a.arete)));
+    const cou = `M${f(cx - 1.5 * s)},${f(yn + 0.3 * s)} L${f(cx - 1.1 * s)},${f(g.yF)} L${f(cx + 1.1 * s)},${f(g.yF)} L${f(cx + 1.5 * s)},${f(yn + 0.3 * s)} Z`;
+    // la face à l'ombre du cou tordu (lumière d'en haut à gauche) : l'aplat d'abord, le trait par-dessus
+    out.push(h.path(cou, h.a.blanc), h.path(`M${f(cx + 0.5 * s)},${f(yn + 0.3 * s)} L${f(cx + 0.35 * s)},${f(g.yF)} L${f(cx + 1.1 * s)},${f(g.yF)} L${f(cx + 1.5 * s)},${f(yn + 0.3 * s)} Z`, h.a.ombre), h.path(cou, h.a.arete));
     for (let i = 0; i < 5; i++) { const yy = yn - 0.2 * s - i * 1 * s; out.push(h.path(`M${f(cx - 1.3 * s)},${f(yy)} Q${f(cx)},${f(yy - 0.1 * s)} ${f(cx + 1.3 * s)},${f(yy - 0.9 * s)}`, h.a.detail)); }
     out.push(h.path(`M${f(cx - 1 * s)},${f(g.yF)} L${f(cx - 1 * s)},${f(yH)} Q${f(cx - 2.6 * s)},${f(yH - 1 * s)} ${f(cx - 1.8 * s)},${f(yH - 2.3 * s)} Q${f(cx - 0.8 * s)},${f(yH - 1.5 * s)} ${f(cx - 0.2 * s)},${f(yH - 2.6 * s)} Q${f(cx + 1.3 * s)},${f(yH - 2.1 * s)} ${f(cx + 1.5 * s)},${f(yH - 0.9 * s)} L${f(cx + 1 * s)},${f(yH)} L${f(cx + 1 * s)},${f(g.yF)} Z`, plein(h.a.arete)));
     out.push(h.path(`M${f(cx - 1.2 * s)},${f(yH - 1.6 * s)} Q${f(cx - 0.4 * s)},${f(yH - 0.8 * s)} ${f(cx + 0.2 * s)},${f(yH + 0.2 * s)}`, h.a.fin));
@@ -460,7 +496,7 @@ module.exports = (h) => {
       masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     // tordre : la flèche passe devant le cou
     const ya = (yn + yt) / 2 + 0.3 * s;
-    out.push(h.fleche(`M${f(cx - 4.4 * s)},${f(ya - 0.5 * s)} A${f(4.4 * s)} ${f(1.5 * s)} 0 0 0 ${f(cx + 4.2 * s)},${f(ya - 0.9 * s)}`, h.a.arete));
+    out.push(h.geste(`M${f(cx - 4.4 * s)},${f(ya - 0.5 * s)} A${f(4.4 * s)} ${f(1.5 * s)} 0 0 0 ${f(cx + 4.2 * s)},${f(ya - 0.9 * s)}`));
     // le trou d'épingle, sous l'eau, et le jet jusqu'à la plaie
     const t = g.trou;
     out.push(h.cercle(t[0], t[1], 0.45 * s, h.a.plein));
@@ -472,7 +508,7 @@ module.exports = (h) => {
   return {
     ref: '26-40',
     titre: 'Appuyer sur la plaie, puis la laver',
-    desc: 'Cinq gestes. Appuyer : en vignette, celui qui appuie à genoux à côté de la personne couchée, penché au-dessus de la cuisse, les deux bras tendus droit vers le bas ; dessous, la cuisse vue de dessus, de la hanche au genou, une compresse sur la plaie et les deux mains à plat croisées l’une sur l’autre, doigts vers le genou, la paume du dessous sur la compresse. Quand le sang traverse : même vue, la première compresse trempée, noire, reste en place, une seule autre par-dessus, les mains qui appuient plus fort ; le sang passé coule sur la peau vers le côté. Une plaie profonde de cuisse en coupe, repérée sur une petite jambe entière : la chair tramée, le fémur en hachure croisée, la gaze repliée en accordéon tassée jusqu’au fond par la main gantée, doigts serrés et tendus dans la plaie, son bout libre couché sur la peau. Laver : une bouteille souple tenue bouchon en bas, serrée au poing, les doigts repliés autour du corps et le pouce qui enfonce la paroi, le jet sur la plaie, l’eau sale qui descend le flanc jusqu’au sol. Sans bouteille : un sac de plastique plein d’eau tenu au poing par le cou tordu, le pouce refermé sur l’index, le jet qui sort d’un trou d’épingle dans le coin du bas et tombe sur la plaie de la cuisse.',
+    desc: 'Cinq gestes. Appuyer : en vignette, le blessé couché sur le dos et celui qui appuie à genoux de l’autre côté de lui, à hauteur de la hanche, penché, les bras tendus droit, les épaules à l’aplomb des mains posées à plat sur la cuisse, une flèche rouge le long des bras vers le bas ; dessous, la cuisse vue de dessus, de la hanche au genou, une compresse sur la plaie et les deux mains à plat l’une sur l’autre, doigts vers le genou, la main du dessous en gris, un cercle rouge sur la paume posée sur la plaie. Quand le sang traverse : même vue, la première compresse trempée, noire, reste en place, une seule autre par-dessus, posée de travers, les mains qui appuient plus fort ; le sang passé coule sur la peau vers le côté. Une plaie profonde de cuisse en coupe, repérée sur un petit blessé couché : la chair tramée, le fémur en hachure croisée, la gaze repliée en accordéon tassée jusqu’au fond par la main gantée, doigts serrés et tendus dans la plaie, une flèche rouge vers le fond, son bout libre couché sur la peau. Laver : une bouteille souple tenue bouchon en bas, serrée au poing, une flèche rouge contre les doigts, le jet sur la plaie, l’eau sale qui descend le flanc jusqu’au sol. Sans bouteille : un sac de plastique plein d’eau tenu au poing par le cou tordu, une flèche rouge autour du cou, le jet qui sort d’un trou d’épingle dans le coin du bas et tombe sur la plaie de la cuisse.',
     format: 'pleine',
     disposition: [['appuyer', 'traverse', 'bourrer'], ['laver', 'sac']],
     largeurs: [[1, 1, 1], [3, 2]],
@@ -495,8 +531,8 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoB(z), s = g.s, [px, py] = g.P;
           return [
-            { n: 3, rond: [z.l - 12, py + 15 * s], cible: [px + 7.6 * s, py + 6.6 * s], texte: 'la première reste en place' },
-            { n: 4, rond: [z.l - 12, py - 14 * s], cible: [px + 6.2 * s, py - 5.8 * s], texte: 'une seule autre par-dessus' },
+            { n: 3, rond: [z.l - 12, py + 15 * s], cible: [px + 10.2 * s, py + 6.6 * s], texte: 'la première reste en place' },
+            { n: 4, rond: [z.l - 12, py - 9 * s], cible: [px + 12.3 * s, py + 0.6 * s], texte: 'une seule autre par-dessus' },
             { n: 5, rond: [12, py - 14 * s], cible: g.M.ici(g.M.O2, g.M.u2, -45, 0), texte: 'appuyer plus fort' },
           ];
         },
@@ -507,7 +543,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoC(z), s = g.s;
           return [
-            { n: 6, rond: [12, g.K[1] - 2 * s], cible: [g.xf - 0.9 * s, g.yM - 1.8 * s], texte: 'au doigt ganté' },
+            { n: 6, rond: [12, g.yM - 1.4 * s], cible: [g.xf - 0.9 * s, g.yM - 1.8 * s], texte: 'au doigt ganté' },
             { n: 7, rond: [z.l - 11, g.yM - 1.5 * s], cible: [g.xm + 2.6 * s, g.ytop(g.xm + 2.6 * s) + 0.3], texte: 'trou plein, puis appuyer' },
             { n: 8, rond: [z.l - 11, g.cy + 3.6 * s], cible: [g.ax(0.8), g.ay(0.8)], texte: 'gaze tassée jusqu’au fond' },
           ];
@@ -534,7 +570,7 @@ module.exports = (h) => {
         renvois: z => {
           const g = geoE(z), s = g.s;
           return [
-            { n: 14, rond: [z.l - 12, g.yn - 1 * s], cible: [g.cx + 1.3 * s, g.yn - 2.6 * s], texte: 'le cou tordu pousse l’eau' },
+            { n: 14, rond: [z.l - 12, g.yn - 5.4 * s], cible: [g.cx + 1.2 * s, g.yn - 4.6 * s], texte: 'le cou tordu pousse l’eau' },
             { n: 15, rond: [z.l - 12, g.yn + 15 * s], cible: [g.cx + g.Wd, g.yn + 13 * s], texte: 'sac de plastique épais' },
             { n: 16, rond: [14, g.yb - 8 * s], cible: g.trou, texte: 'trou d’épingle' },
           ];
