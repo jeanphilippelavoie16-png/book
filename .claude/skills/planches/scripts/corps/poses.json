@@ -1,5 +1,5 @@
 {
- "conventions": "Angles absolus en degrés (brief commun). Profil : bras, avantbras, main, cuisse, jambe, pied : 0 = vers le bas, + vers l'avant (+x, où regarde le personnage) ; pied 90 = semelle à plat, orteils devant, -90 = orteils derrière (à genoux, le dessus du pied au sol), 180 = orteils en l'air (couché). Tronc, cou, tete : 0 = vers le haut, + penché vers l'avant ; tronc -90 = couché sur le dos, la tête vers -x. Face, dos, dessus : mêmes clés, dans le plan de la vue, 0 = vers le bas, + vers l'extérieur du corps (bras, jambes) ; en face et dos, pied = ouverture de la pointe (0 = droit vers l'œil). mains (les poses du moteur) : ouverte · plat · prise (autour d'un manche, diamètre dans prise, mm) · porte (paume en l'air sous la charge) · pointe · pince. appui : le point le plus bas pose au sol (pieds · genouP · genoux · fesses · dos · ventre) ; assis sur un siège, l'appui est aux pieds et siege donne la hauteur du dessus du siège sous la fesse (mm, à l'âge de la pose). age : adulte (= homme) · femme · enfant6 · enfant4 (proportions.json) ; la planche peut changer l'âge et surcharger les angles.",
+ "conventions": "Angles absolus en degrés (brief commun). Profil : bras, avantbras, main, cuisse, jambe, pied : 0 = vers le bas, + vers l'avant (+x, où regarde le personnage) ; pied 90 = semelle à plat, orteils devant, -90 = orteils derrière (à genoux, le dessus du pied au sol), 180 = orteils en l'air (couché). Tronc, cou, tete : 0 = vers le haut, + penché vers l'avant ; tronc -90 = couché sur le dos, la tête vers -x. Face, dos, dessus : mêmes clés, dans le plan de la vue, 0 = vers le bas, + vers l'extérieur du corps (bras, jambes) ; en face et dos, pied = ouverture de la pointe (0 = droit vers l'œil). mains (les poses du moteur) : ouverte · plat · prise (autour d'un manche, diamètre dans prise, mm) · porte (paume en l'air sous la charge) · pointe · pince. appui : le point le plus bas pose au sol (pieds · genouP · genoux · fesses · dos · ventre ; avantbras = aucun sol, le corps pend dans l'eau, les avant-bras posés sur la glace : la planche recale par les coudes) ; assis sur un siège, l'appui est aux pieds et siege donne la hauteur du dessus du siège sous la fesse (mm, à l'âge de la pose). age : adulte (= homme) · femme · enfant6 · enfant4 (proportions.json) ; la planche peut changer l'âge et surcharger les angles.",
  "controle": "agent4/squelettes.png (fil de fer, contacts au sol et cibles des mains vérifiés par squelettes.py)",
  "poses": [
   {
@@ -612,15 +612,15 @@
    "vue": "profil",
    "age": "adulte",
    "angles": {
-    "tronc": 8,
-    "cou": 14,
-    "tete": 6,
-    "brasP": -179,
-    "avantbrasP": 46,
-    "mainP": -170,
-    "brasL": 174,
-    "avantbrasL": 41,
-    "mainL": -170,
+    "tronc": 10,
+    "cou": 16,
+    "tete": 8,
+    "brasP": -76,
+    "avantbrasP": -68,
+    "mainP": -60,
+    "brasL": -72,
+    "avantbrasL": -64,
+    "mainL": -56,
     "cuisseP": 18,
     "jambeP": 4,
     "piedP": 102,
@@ -637,8 +637,8 @@
     "P": 33,
     "L": 33
    },
-   "objet": "le canot renversé, la traverse du centre sur la nuque ; les mains tiennent les plats-bords devant la tête",
-   "note": "90-03 (« Seul, la traverse du centre sur la nuque »)"
+   "objet": "le canot renversé sur les épaules, la traverse du centre contre la nuque ; les mains, lancées vers l'arrière, tiennent le bout qui cherche le sol (les plats-bords derrière soi, plus bas que les épaules)",
+   "note": "90-03 (« Seul, la traverse du centre sur la nuque ») — d'après le ch. 90, étape 23 : les mains derrière, pas devant (la planche 90-03 actuelle les met devant la tête : à redessiner). Coudes à peine pliés ; de profil le bras écarté et tiré en arrière se lit presque à l'horizontale"
   },
   {
    "id": "retient-derriere",
@@ -974,15 +974,15 @@
    "vue": "profil",
    "age": "adulte",
    "angles": {
-    "tronc": -6,
+    "tronc": -8,
     "cou": -4,
     "tete": -14,
-    "brasP": 150,
-    "avantbrasP": -132,
-    "mainP": -120,
-    "brasL": 84,
-    "avantbrasL": 90,
-    "mainL": 92,
+    "brasP": -145,
+    "avantbrasP": -60,
+    "mainP": -48,
+    "brasL": 88,
+    "avantbrasL": 92,
+    "mainL": 94,
     "cuisseP": 18,
     "jambeP": 2,
     "piedP": 90,
@@ -998,7 +998,7 @@
    "prise": {
     "P": 30
    },
-   "objet": "le bâton de jet derrière la tête, lancé par-dessus l'épaule ; le bras loin tendu vers le tétras",
+   "objet": "le bras armé : le coude haut, au-dessus et un peu en arrière de l'épaule, l'avant-bras qui descend derrière la tête, le bâton dans le dos ; le bras loin tendu vers le tétras",
    "note": "47-01 (« Par-dessus l'épaule, sur ce qui est perché »)"
   },
   {
@@ -1343,9 +1343,9 @@
     "tronc": 50,
     "cou": 46,
     "tete": 40,
-    "brasP": 12,
-    "avantbrasP": 4,
-    "mainP": 10,
+    "brasP": 10,
+    "avantbrasP": 16,
+    "mainP": 20,
     "brasL": 8,
     "avantbrasL": 12,
     "mainL": 12,
@@ -1745,21 +1745,21 @@
    "vue": "profil",
    "age": "adulte",
    "angles": {
-    "tronc": 94,
-    "cou": 80,
-    "tete": 52,
-    "brasP": 96,
-    "avantbrasP": 98,
-    "mainP": 100,
-    "brasL": 94,
-    "avantbrasL": 96,
-    "mainL": 98,
-    "cuisseP": -92,
-    "jambeP": -80,
+    "tronc": 84,
+    "cou": 62,
+    "tete": 34,
+    "brasP": 70,
+    "avantbrasP": 80,
+    "mainP": 84,
+    "brasL": 66,
+    "avantbrasL": 76,
+    "mainL": 80,
+    "cuisseP": -88,
+    "jambeP": -98,
     "piedP": -20,
-    "cuisseL": -96,
-    "jambeL": -100,
-    "piedL": -40
+    "cuisseL": -92,
+    "jambeL": -106,
+    "piedL": -30
    },
    "appui": "ventre",
    "mains": {
@@ -1771,7 +1771,7 @@
     "L": 30
    },
    "objet": "à plat ventre sur le bord de la glace, les pics plantés près du bord, bras tendus devant ; les jambes battent à l'horizontale",
-   "note": "15-01 (« Se hisser ») : le ventre sur la glace, les jambes encore dans l'eau"
+   "note": "15-01 (« Se hisser ») : le ventre sur la glace, la poitrine un peu relevée, la tête haute au-dessus des bras qui descendent planter les pics ; les jambes battent à l'horizontale, juste sous la surface (elles passent sous la glace : voulu)"
   },
   {
    "id": "eau-avantbras",
@@ -1781,20 +1781,20 @@
     "tronc": -4,
     "cou": 2,
     "tete": -6,
-    "brasP": 74,
-    "avantbrasP": 92,
-    "mainP": 96,
+    "brasP": 71,
+    "avantbrasP": 91,
+    "mainP": 95,
     "brasL": 70,
     "avantbrasL": 90,
     "mainL": 94,
     "cuisseP": 4,
-    "jambeP": 0,
+    "jambeP": -2,
     "piedP": 40,
     "cuisseL": -4,
-    "jambeL": -6,
+    "jambeL": -10,
     "piedL": 40
    },
-   "appui": "pieds",
+   "appui": "avantbras",
    "mains": {
     "P": "prise",
     "L": "prise"
@@ -1804,7 +1804,7 @@
     "L": 30
    },
    "objet": "dans l'eau jusqu'aux aisselles, les avant-bras à plat sur la glace, les pics dans les poings",
-   "note": "15-01 (« Se retourner ») : ancrer par les avant-bras posés sur la glace (la planche donne y), pas par le sol — le corps sous la ligne d'eau"
+   "note": "15-01 (« Se retourner ») : aucun appui au sol — le corps pend dans l'eau, les avant-bras à plat sur la glace. Le moteur pose le point le plus bas (les pieds) en y : la planche recale par les coudes (articulations) ; la ligne d'eau coupe le corps"
   },
   {
    "id": "buste-main-bouche",

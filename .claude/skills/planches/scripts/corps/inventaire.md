@@ -1,6 +1,6 @@
 # Inventaire des corps dans les planches
 
-Agent 4 de la bibliothèque de corps simples, 13 octobre 2026. Relevé fait sur les 365 sources `images/planches-src/*.js`
+Agent 4 de la bibliothèque de corps simples, 13 octobre 2026 (tour 2 : corrections de l’agent 5 reprises, G1, G6, G7, G19). Relevé fait sur les 365 sources `images/planches-src/*.js`
 et leurs PNG rendus (`images/validees/`, `images/a-valider/`). Les poses sont dans `poses.json`, les longueurs dans
 `proportions.json`, le contrôle géométrique dans le scratch `agent4/squelettes.png` (fil de fer, `squelettes.py`).
 
@@ -31,8 +31,9 @@ et leurs PNG rendus (`images/validees/`, `images/a-valider/`). Les poses sont da
 - **mains** (celles du moteur) : `ouverte` · `plat` (à plat, appui) · `prise` (autour d’un manche ; diamètre en mm dans
   `prise` ; un poing fermé = une prise de ~10 mm) · `porte` (paume en l’air sous la charge) · `pointe` · `pince`. Le côté
   vu de la prise (dos / paume / profil) reste à la planche.
-- **appui** : le point posé au sol (`pieds`, `genouP`, `genoux`, `fesses`, `dos`, `ventre`). Assis sur un siège, l’appui
-  est aux pieds et `siege` donne la hauteur du siège.
+- **appui** : le point posé au sol (`pieds`, `genouP`, `genoux`, `fesses`, `dos`, `ventre`) ; `avantbras` : aucun sol, le
+  corps pend dans l’eau, les avant-bras sur la glace (15-01). Assis sur un siège, l’appui est aux pieds et `siege` donne
+  la hauteur du siège.
 
 ## Les planches (55 planches à corps entier ou buste, 88 vues)
 
@@ -61,7 +62,7 @@ et leurs PNG rendus (`images/validees/`, `images/a-valider/`). Les poses sont da
 | 12-06b La tranchée bâchée | En long | profil (cote gauche) | adulte | `couche-dos` | — (dans le sac) | dos | dans un sac, genoux à peine pliés |
 | 13-40 Le ferrocérium, du tas de bois à la flamme | Refermer et souffler | profil (buste) | adulte | `buste-main-bouche` | P boule (nid de fibre ~60 mm, serré lâche) | — (buste) | souffle dans le nid tenu devant la bouche |
 | 15-01 Sortir d’un trou dans la glace | Les pics, faits maison | face (buste) | adulte | `debout-face` | ouvertes | — (buste) | le cordon des pics par-dessus la tête |
-| 15-01 Sortir d’un trou dans la glace | Se retourner | profil (cote gauche) | adulte | `eau-avantbras` | deux prises (pics ~30 mm) | aucun : dans l’eau, ancré par les avant-bras | avant-bras à plat sur la glace |
+| 15-01 Sortir d’un trou dans la glace | Se retourner | profil (cote gauche) | adulte | `eau-avantbras` | deux prises (pics ~30 mm) | avantbras (aucun sol : dans l’eau, les avant-bras sur la glace) | avant-bras à plat sur la glace |
 | 15-01 Sortir d’un trou dans la glace | Se hisser | profil (cote gauche) | adulte | `ventre-hisse` | deux prises (pics plantés) | ventre | à plat ventre sur le bord, jambes dans l’eau |
 | 15-01 Sortir d’un trou dans la glace | Rouler, vu de dessus | face (couché) | adulte | `couche-face` | ouvertes | dos | roule sur la glace |
 | 16-08 Le traîneau-civière de perches | Le cadre, vu de dessus | face (couché) | adulte | `couche-face` | — | dos | le blessé en pointillé |
@@ -118,7 +119,7 @@ et leurs PNG rendus (`images/validees/`, `images/a-valider/`). Les poses sont da
 | 88-05 La pierre dormante, la molette et le tamis | Vu de dessus : les deux mains sur la molette | dessus | adulte | — (gros plan de mains) | deux à plat | — | avant-bras et mains de dessus, épaules en pointillé |
 | 89-05b Tirer les planches, cintrer la tête | Sur le genou, lentement | profil | adulte | `assis-penche` | P prise (pince ~20 mm) · L à plat sur la planche | pieds (bloc) | la planche cintrée sur le genou |
 | 89-05b Tirer les planches, cintrer la tête | La tête, à genoux dessus | profil (cote gauche) | adulte | `genou-tire` | deux prises (bouts de planche ~26 mm) | genouP | tire les bouts vers le haut |
-| 90-03 Le portage | Seul, la traverse du centre sur la nuque | profil | adulte | `portage-canot` | deux prises (plats-bords ~33 mm) | pieds | marche, canot renversé sur les épaules |
+| 90-03 Le portage | Seul, la traverse du centre sur la nuque | profil | adulte | `portage-canot` | deux prises (plats-bords ~33 mm) derrière soi | pieds | marche, canot renversé sur les épaules ; ch. 90 étape 23 : les mains lancées vers l’arrière tiennent le bout qui cherche le sol (la planche actuelle les met devant : à redessiner) |
 | 90-03 Le portage | Épaules haussées / relâchées | face (buste ×2) | adulte | `debout-face` | — | — (buste) | la tête dans le canot, courroie de front |
 | 98-01b Le fléau : battre sur la toile | De côté, dans l’axe des rangées | profil | adulte | `fleau` | deux prises (manche ~35 mm) | pieds | le battoir tombe à plat |
 | 98-05 Semer le grain à la volée | Le geste | profil | adulte | `semer` | P ouverte (lance le grain) · L : la chaudière à l’avant-bras | pieds |  |
@@ -225,8 +226,8 @@ neutre dont les variantes dérivent) ou des variantes relevées dans une planche
 - **Les épaules haussées** (24-05, 90-03) : pas un angle de segment ; le moteur le fait par `angles.hausse` (mm).
 - **À genoux vu de dos ou de face** (60-40) : le tibia vient vers l’œil, aucun angle dans le plan ne le raccourcit ; en
   60-40 les jambes sont cachées par le bordé (`masquer`), ailleurs il faudrait un raccourci dans `vues.js`.
-- **Le corps sous l’eau** (15-01) : la pose existe (`eau-avantbras`, `ventre-hisse`), mais la coupe par la ligne d’eau
-  et l’ancrage par les avant-bras (pas par le sol) sont à la planche.
+- **Le corps sous l’eau** (15-01) : la pose existe (`eau-avantbras`, appui `avantbras` ; `ventre-hisse`), mais la coupe
+  par la ligne d’eau et le recalage par les coudes (le moteur pose les pieds en y) sont à la planche.
 - **Les gros plans de membres** (jambe attelée 24-08, cheville 24-11, poignet 24-12, cuisses 26-04, bras 26-08, pied
   sur la pédale 30-01) : ce ne sont pas des corps entiers ; une jambe ou un bras isolé de la bibliothèque pourrait les
   servir plus tard, mais rien dans cet inventaire ne le demande.

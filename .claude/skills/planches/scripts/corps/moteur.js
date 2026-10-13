@@ -20,7 +20,8 @@
 //     objetP    SVG (ou fonction g => SVG) peint devant le tronc et derrière le bras proche
 //     objetL    SVG (ou fonction g => SVG) peint devant le bras loin et derrière le corps
 //     objet     SVG (ou fonction g => SVG) peint devant tout (le bout d'un manche dans le poing)
-//     cheveux   true : la masse des cheveux, du gris du côté loin
+//     cheveux   ignoré de profil : pas de masse de cheveux (elle faisait une tuque)
+//     teteDevant  true : la tête par-dessus le bras proche (à plat ventre, bras tendus devant : d'office)
 //     appui     surcharge celui de la pose : pieds · genouP · genoux · fesses · dos · ventre · cote
 //     ancrer    false : ne pas poser les pieds (ou le pied du genou au sol) en pliant la jambe
 //     masquer   ['brasL', 'brasP', 'jambeL', 'jambeP'] : ces membres ne se dessinent pas
@@ -35,7 +36,10 @@
 //   .pieds                       { P: { cheville, talon, pointe, plante }, L: … }
 //   .boite                       { x0, y0, x1, y1 }
 //   .articulations               tous les points du squelette (épaule, coude, hanche, genou…)
-//   .siege                       le dessous des fesses (pour poser une chaise, une bûche)
+//   .siege                       le dessous des fesses (pour poser une chaise, une bûche) ; avec siege
+//                                (mm, poses.json), le sol est mis à cette hauteur sous la fesse et les
+//                                pieds le rejoignent s'ils peuvent (l'enfant sur la chaise : ils pendent)
+//   .mainP.r                     le rayon du manche : prise de poses.json (diamètre, mm), sinon 32
 //   .sol                         le y du sol
 //
 // Unités internes : mm, repère du corps x vers l'avant, y vers le bas, origine au bassin.
@@ -185,6 +189,36 @@ function bordsDans(formeCL, regionCL) {
   c.Execute(CL.ClipType.ctIntersection, arbre, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero);
   return recoller(CL.Clipper.OpenPathsFromPolyTree(arbre).map(deCL));
 }
+// les morceaux séparés d'une forme, chacun avec ses trous
+function composantes(paths) {
+  if (!paths.length) return [];
+  const c = new CL.Clipper();
+  c.AddPaths(paths, CL.PolyType.ptSubject, true);
+  const arbre = new CL.PolyTree();
+  c.Execute(CL.ClipType.ctUnion, arbre, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero);
+  const out = [];
+  const visite = n => { for (const e of n.Childs()) { if (!e.IsHole()) { out.push([e.Contour()].concat(e.Childs().map(t => t.Contour()))); for (const t of e.Childs()) visite(t); } } };
+  visite(arbre);
+  return out;
+}
+const aireCL = paths => paths.reduce((a, P) => a + CL.Clipper.Area(P), 0) / (SC * SC);
+// un point (mm) est-il dans la forme ? (les trous comptent)
+function dedans(paths, p) {
+  const q = { X: Math.round(p[0] * SC), Y: Math.round(p[1] * SC) };
+  let n = 0; for (const P of paths) if (CL.Clipper.PointInPolygon(q, P) !== 0) n++;
+  return n % 2 === 1;
+}
+// des lignes ouvertes (listes de points, mm), découpées par une région
+function lignesDans(lignes, regionCL) {
+  if (!lignes.length || !regionCL.length) return [];
+  const c = new CL.Clipper();
+  c.AddPaths(lignes.filter(l => l.length > 1).map(versCL), CL.PolyType.ptSubject, false);
+  c.AddPaths(regionCL, CL.PolyType.ptClip, true);
+  const arbre = new CL.PolyTree();
+  c.Execute(CL.ClipType.ctIntersection, arbre, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero);
+  return recoller(CL.Clipper.OpenPathsFromPolyTree(arbre).map(deCL));
+}
+
 // deux bouts qui se touchent font une seule ligne (la boucle coupée à son point de départ)
 function recoller(lignes) {
   const pres = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]) < 0.05;
@@ -313,17 +347,31 @@ const POSES_INTEGREES = {
   'porte-caisse': { appui: 'pieds', angles: { tronc: -6, cou: 4, tete: 0, brasP: 14, avantbrasP: 92, mainP: 96, brasL: 10, avantbrasL: 88, mainL: 92, cuisseP: 2, jambeP: 0, piedP: 90, cuisseL: -2, jambeL: 0, piedL: 90 }, mains: { P: 'porte', L: 'porte' } },
 };
 
+// lus une fois, relus seulement si le fichier a changé (date de modification)
+const CACHE_JSON = new Map();
 function chargerJSON(nom) {
   const f = path.join(__dirname, nom);
-  try { if (fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { /* fichier en cours d'écriture : on s'en passe */ }
-  return null;
+  try {
+    if (!fs.existsSync(f)) return null;
+    const t = fs.statSync(f).mtimeMs, c = CACHE_JSON.get(f);
+    if (c && c.t === t) return c.v;
+    const v = JSON.parse(fs.readFileSync(f, 'utf8'));
+    CACHE_JSON.set(f, { t, v });
+    return v;
+  } catch (e) { return (CACHE_JSON.get(f) || {}).v || null; }   // fichier en cours d'écriture : le dernier bon
 }
+const DEJA_DIT = new Set();
 function trouverPose(id) {
   const pj = chargerJSON('poses.json');
   const liste = pj && (Array.isArray(pj) ? pj : (pj.poses || Object.values(pj)));
-  if (Array.isArray(liste)) { const p = liste.find(q => q && q.id === id && (!q.vue || q.vue === 'profil')); if (p) return p; }
+  if (Array.isArray(liste)) {
+    const p = liste.find(q => q && q.id === id && (!q.vue || q.vue === 'profil')) || liste.find(q => q && q.id === id);
+    if (p) return p;
+  }
   if (pj && !Array.isArray(pj) && pj[id] && pj[id].angles) return pj[id];
-  return POSES_INTEGREES[id] || null;
+  if (POSES_INTEGREES[id]) return POSES_INTEGREES[id];
+  if (!DEJA_DIT.has(id)) { DEJA_DIT.add(id); console.warn(`corps : pose « ${id} » inconnue (ni poses.json ni le moteur) — rendue debout`); }
+  return null;
 }
 
 // ─── extrémités : celles de l'agent 2 si elles existent, sinon les provisoires ────────────
@@ -535,7 +583,9 @@ function pieces(A, Pr, o) {
     const am = A['main' + c] !== undefined ? A['main' + c] : A['avantbras' + c];
     const km = Pr.main;
     const largP = (seg.avantbras[seg.avantbras.length - 1][1] + seg.avantbras[seg.avantbras.length - 1][2]) * kM;
-    const em = extremite('main', tm, c, { poignet: largP / km, plie: am - A['avantbras' + c] });
+    const optM = { poignet: largP / km, plie: am - A['avantbras' + c] };
+    if (o.prises && o.prises[c]) optM.diametre = o.prises[c] / km;              // le diamètre du manche (prise de poses.json)
+    const em = o.sansExtremites ? { contours: [], details: [] } : extremite('main', tm, c, optM);
     const rotM = 90 - (em.ext ? A['avantbras' + c] : am);
     const TM = p => add(j['poignet' + c], tourne(mul(p, km), rotM));
     const mainPolys = em.contours.map(poly => poly.map(TM));
@@ -545,7 +595,7 @@ function pieces(A, Pr, o) {
     info.mains[c] = { type: tm, prise, angle: 90 - am, poignet: j['poignet' + c], bout: em.bout ? TM(em.bout) : null };
     // le pied
     const tp = (o.pieds && (o.pieds[c] || (typeof o.pieds === 'string' ? o.pieds : null))) || 'botte';
-    const pp = piedPose(A, Pr, j, c, tp, seg, kM);
+    const pp = o.sansExtremites ? { polys: [], details: [] } : piedPose(A, Pr, j, c, tp, seg, kM);
     info.pieds[c] = { cheville: j['cheville' + c], talon: pp.talon, pointe: pp.pointe, plante: pp.plante };
     P['bras' + c] = { morceaux: bras.morceaux, parSegment: bras.parSegment, main: mainPolys, details: mainDet };
     P['jambe' + c] = { morceaux: jambe.morceaux, parSegment: jambe.parSegment, pied: pp.polys, details: pp.details };
@@ -555,28 +605,43 @@ function pieces(A, Pr, o) {
 
 // les deux pieds au sol : le pied qui flotte (ou qui s'enfonce) de quelques centimètres se pose,
 // en pliant le genou (deux os, le genou du côté où il était) ; la cheville garde son x
-function ancrerPieds(A, Pr, pieds) {
-  const bas_ = {};
-  const { j } = squelette(A, Pr);
-  for (const c of ['P', 'L']) {
-    const pp = piedPose(A, Pr, j, c, (pieds && pieds[c]) || 'botte');
-    let dy = -Infinity;
-    for (const poly of pp.polys) for (const p of poly) dy = Math.max(dy, p[1] - j['cheville' + c][1]);
-    bas_[c] = { dy, sole: j['cheville' + c][1] + dy };
-  }
-  const sol = Math.max(bas_.P.sole, bas_.L.sole);
+function ancrerPieds(A, Pr, pieds, solCible = null) {
+  const basPied = B => {
+    const { j } = squelette(B, Pr), r = {};
+    for (const c of ['P', 'L']) {
+      const pp = piedPose(B, Pr, j, c, (pieds && pieds[c]) || 'botte');
+      let dy = -Infinity;
+      for (const poly of pp.polys) for (const p of poly) dy = Math.max(dy, p[1] - j['cheville' + c][1]);
+      r[c] = { dy, sole: j['cheville' + c][1] + dy };
+    }
+    return { j, r };
+  };
+  const { j, r: bas_ } = basPied(A);
+  const sol = solCible !== null ? solCible : Math.max(bas_.P.sole, bas_.L.sole);
   for (const c of ['P', 'L']) {
     const ecart = sol - bas_[c].sole;
-    if (ecart < 0.5 || ecart > 160) continue;
+    if (Math.abs(ecart) < 0.5 || (solCible === null && ecart > 160)) continue;
     const H = j['hanche' + c], K0 = j['genou' + c], Tc = [j['cheville' + c][0], sol - bas_[c].dy];
     const L1 = Pr.cuisse, L2 = Pr.jambe, D = sub(Tc, H), d = lon(D);
-    if (d >= L1 + L2 - 0.5 || d < Math.abs(L1 - L2) + 1) continue;
-    const a = (L1 * L1 - L2 * L2 + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, L1 * L1 - a * a));
-    const M = add(H, mul(uni(D), a)), nn = gau(uni(D));
-    const K1 = add(M, mul(nn, hh)), K2 = sub(M, mul(nn, hh));
-    const K = lon(sub(K1, K0)) < lon(sub(K2, K0)) ? K1 : K2;
-    const angle = v => Math.atan2(v[0], v[1]) / RAD;
-    A['cuisse' + c] = angle(sub(K, H)); A['jambe' + c] = angle(sub(Tc, K));
+    if (d < L1 + L2 - 0.5 && d > Math.abs(L1 - L2) + 1) {
+      const a = (L1 * L1 - L2 * L2 + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, L1 * L1 - a * a));
+      const M = add(H, mul(uni(D), a)), nn = gau(uni(D));
+      const K1 = add(M, mul(nn, hh)), K2 = sub(M, mul(nn, hh));
+      const K = lon(sub(K1, K0)) < lon(sub(K2, K0)) ? K1 : K2;
+      const angle = v => Math.atan2(v[0], v[1]) / RAD;
+      A['cuisse' + c] = angle(sub(K, H)); A['jambe' + c] = angle(sub(Tc, K));
+      continue;
+    }
+    // la jambe ne va pas plus loin (tendue derrière, qui pousse) : le pied se met sur la pointe,
+    // le talon se lève jusqu'à ce que les orteils touchent ; assis trop haut, le pied pend
+    if (ecart <= 0 || solCible !== null) continue;
+    const p0 = A['pied' + c] !== undefined ? A['pied' + c] : A['jambe' + c] + 90;
+    const sens = p0 >= 0 ? -1 : 1;                                  // vers la pointe en bas
+    const f = dp => { const B = { ...A, _appui: A._appui, ['pied' + c]: p0 + sens * dp }; return basPied(B).r[c].sole - sol; };
+    let a = 0, b = 60, fa = f(a), fb = f(b);
+    if (fa * fb > 0) continue;
+    for (let k = 0; k < 12; k++) { const m = (a + b) / 2, fm = f(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
+    A['pied' + c] = p0 + sens * (a + b) / 2;
   }
 }
 
@@ -608,6 +673,15 @@ function ancrerGenoux(A, Pr, pieds, cotes) {
   }
 }
 
+// le dessous des fesses : le point le plus bas du tronc et du haut des cuisses, près de la hanche
+function basFesse(P, j) {
+  let b = null;
+  const voir = polys => { for (const poly of polys) for (const p of poly) if (Math.abs(p[0] - j.bassin[0]) < 160 && (!b || p[1] > b[1])) b = p; };
+  voir(P.tronc.morceaux);
+  voir(P.jambeP.parSegment[0]); voir(P.jambeL.parSegment[0]);
+  return b || j.bassin;
+}
+
 // ─── le rendu ─────────────────────────────────────────────────────────────────────────────
 function corps(o = {}) {
   const vue = o.vue || 'profil';
@@ -632,9 +706,17 @@ function corps(o = {}) {
   const piedsO = typeof pieds === 'string' ? { P: pieds, L: pieds } : pieds;
   const appui0 = o.appui || poseDef.appui || 'pieds';
   Object.defineProperty(A, '_appui', { value: appui0, enumerable: false });
-  if (appui0 === 'pieds' && o.ancrer !== false) ancrerPieds(A, Pr, piedsO);
+  // assis : le dessus du siège (mm sous la fesse) fixe le sol ; les pieds le rejoignent s'ils peuvent
+  const siegeH = o.siege !== undefined ? o.siege : poseDef.siege;
+  let solSiege = null;
+  if (appui0 === 'pieds' && siegeH) {
+    const p0 = pieces(A, Pr, { mains: {}, pieds: piedsO, segments: o.segments, sansExtremites: true });
+    solSiege = basFesse(p0.P, p0.info.j)[1] + siegeH;
+  }
+  if (appui0 === 'pieds' && o.ancrer !== false) ancrerPieds(A, Pr, piedsO, solSiege);
   if ((appui0 === 'genouP' || appui0 === 'genoux') && o.ancrer !== false) ancrerGenoux(A, Pr, piedsO, appui0 === 'genoux' ? ['P', 'L'] : ['P']);
-  const { P, info } = pieces(A, Pr, { mains, pieds: piedsO, segments: o.segments });
+  const prises = Object.assign({}, poseDef.prise || {}, o.prise || {});           // diamètre du manche, mm
+  const { P, info } = pieces(A, Pr, { mains, pieds: piedsO, segments: o.segments, prises });
 
   // les pièces en Clipper ; chaque membre est d'abord unifié et ses plis arrondis
   const R_PLI = 12, R_UNION = 6;
@@ -674,25 +756,42 @@ function corps(o = {}) {
   const kM = Pr.largeurs.membres;
   // la jambe proche devant le tronc, sauf près de la hanche (pas de couture à la ceinture)
   lignes.push(...bordsDans(jP, moins(decale(corpsHaut, -E), zone(j.hancheP, 135 * kM))));
-  // le bras proche devant le tronc, la tête et la jambe, sauf près de l'épaule
-  const derriereBras = unionCL([corpsHaut, jP]);
-  const bordsBras = bordsDans(bP, moins(decale(derriereBras, -E), zone(j.epauleP, 54 * kM)));
+  // le bras proche devant le tronc, la tête et la jambe, sauf près de l'épaule. Plus le bras se
+  // lève vers l'avant, plus la zone muette s'agrandit : un bras tendu devant ne barre pas la
+  // poitrine de ses deux bords (la bandoulière)
+  const leve = Math.max(0, Math.min(1, (A.brasP - 35) / 50));
+  // la tête devant le bras proche : à plat ventre, les bras tendus devant, le bras passe le long de
+  // la tête et la mangerait ; on dessine la tête par-dessus (son contour à 0,7 sur le bras)
+  const aireTete = Math.abs(aireCL(tete));
+  const teteDevant = o.teteDevant !== undefined ? o.teteDevant : (poseDef.teteDevant !== undefined ? poseDef.teteDevant
+    : (bP.length && appui0 === 'ventre' && Math.abs(aireCL(inter(tete, bP))) > 0.15 * aireTete));
+  const derriereBras = teteDevant ? unionCL([tronc, jP]) : unionCL([corpsHaut, jP]);
+  const bordsBras0 = bordsDans(bP, moins(decale(derriereBras, -E), unionCL([zone(j.epauleP, (54 + 70 * leve) * kM), teteDevant ? decale(tete, 1.5) : []])));
+  const bordsTete = teteDevant ? bordsDans(tete, moins(decale(bP, -E), decale(tronc, -E))) : [];
   // le pli profond (accroupi, bras replié) : le mollet contre la cuisse, l'avant-bras contre le bras
   const pli = (m, i0, i1, P0, r) => {
     const a = union(m.parSegment[i0]), b = union(m.parSegment[i1]);
     return bordsDans(b, moins(decale(a, -E), zone(P0, r)));
   };
   const angleEntre = (a, b) => Math.abs(((a - b) % 360 + 540) % 360 - 180);
-  const plisJ = !cache.has('jambeP') && angleEntre(A.cuisseP, A.jambeP) > 100 ? pli(P.jambeP, 0, 1, j.genouP, 62 * kM) : [];
-  const plisB = !cache.has('brasP') && angleEntre(A.brasP, A.avantbrasP) > 110 ? pli(P.brasP, 0, 1, j.coudeP, 46 * kM) : [];
+  const plisJ0 = !cache.has('jambeP') && angleEntre(A.cuisseP, A.jambeP) > 100 ? pli(P.jambeP, 0, 1, j.genouP, 62 * kM) : [];
+  const plisB0 = !cache.has('brasP') && angleEntre(A.brasP, A.avantbrasP) > 110 ? pli(P.brasP, 0, 1, j.coudeP, 46 * kM) : [];
   const plisJL = !cache.has('jambeL') && angleEntre(A.cuisseL, A.jambeL) > 100 ? pli(P.jambeL, 0, 1, j.genouL, 62 * kM) : [];
   const plisBL = !cache.has('brasL') && angleEntre(A.brasL, A.avantbrasL) > 110 ? pli(P.brasL, 0, 1, j.coudeL, 46 * kM) : [];
+  // une ligne intérieure courte part du contour ou n'existe pas : un tiret flottant au milieu du
+  // blanc (la cuisse sous la fesse, le pli du genou) se lit comme une saleté ; une longue (le bras
+  // qui pend devant le corps) reste
+  const rive = decale(proche, -(E + 3));
+  const ancree = ls => ls.filter(l => l.length > 1 && (longueur(l) > 70 * kM || !dedans(rive, l[0]) || !dedans(rive, l[l.length - 1])));
+  lignes.splice(0, lignes.length, ...ancree(lignes));
+  const bordsBras = ancree(bordsBras0), plisJ = ancree(plisJ0), plisB = ancree(plisB0);
   // la main proche : son contour sur l'avant-bras ne se voit pas (union) ; ses détails, oui
 
   // ── le placement : le point le plus bas pose au sol ──
   const tous = unionCL([proche, bL, jL, bP]);
   let yMax = -Infinity, xMin = Infinity, xMax = -Infinity, yMin = Infinity;
   for (const Pp of tous) for (const q of Pp) { const x = q.X / SC, y = q.Y / SC; if (y > yMax) yMax = y; if (y < yMin) yMin = y; if (x < xMin) xMin = x; if (x > xMax) xMax = x; }
+  if (solSiege !== null && yMax < solSiege + 5) yMax = solSiege;     // assis : le sol sous le siège, même si les pieds pendent
   const appui = o.appui || poseDef.appui || 'pieds';
   let x0;
   if (appui === 'pieds') x0 = (j.chevilleP[0] + j.chevilleL[0]) / 2;
@@ -731,35 +830,55 @@ function corps(o = {}) {
   const b0 = T([xMin, yMin]), b1 = T([xMax, yMax]);
   geo.boite = { x0: Math.min(b0[0], b1[0]), y0: b0[1], x1: Math.max(b0[0], b1[0]), y1: b1[1] };
   geo.sol = Y;
-  // le dessous des fesses : le point le plus bas du tronc
-  let bas_ = null; for (const Pp of tronc) for (const q of Pp) { const p = [q.X / SC, q.Y / SC]; if (!bas_ || p[1] > bas_[1]) bas_ = p; }
-  geo.siege = bas_ ? T(bas_) : null;
+  // le dessous des fesses (le dessus du siège quand la pose en donne la hauteur)
+  geo.siege = T(basFesse(P, j));
+  if (siegeH) geo.siegeHauteur = siegeH * s;
   geo.echelle = s; geo.miroir = m < 0;
 
   // ── l'ordre de peinture : loin (gris), objet loin, corps proche, objet proche, bras proche ──
   const quoi = v => (typeof v === 'function' ? v(geo) : (v || ''));
   const det = (ls, ep) => ligne(ls, ep);
   const out = [`<g data-corps="${o.pose || 'pose'}">`];
-  // le côté loin : ce qui n'en dépasse qu'en mince filet le long du côté proche ne se dessine pas
-  // (un double trait, pas une information)
+  // le côté loin. Ce qui en dépasse du corps proche se dessine tel quel, la pointe comprise (la jambe
+  // loin qui sort sous la fesse : un coin net, pas un chapeau). Ne se dessinent pas : un morceau tout
+  // en filet (nulle part 20 mm de large : un double trait, pas une information) et un lambeau plus
+  // petit qu'un poing. Le contour du membre loin se trace là où il se voit.
   const devantLoin = avecObjet ? unionCL([proche, bP]) : proche;
-  const sansFilet = (f, r = 8) => {
-    const vis = ouvre(moins(f, devantLoin), r);
-    return inter(f, unionCL([decale(vis, 1.5), decale(devantLoin, -E)]));
+  const R_FILET = 10 * kM, AIRE_MIN = 7000 * kM * kM, sousProche = decale(devantLoin, -E);
+  // un bout de coude ou de genou qui dépasse seul (sans la main ni le pied) : un lambeau ; la main
+  // loin qui pend au repos (ouverte, bras le long du corps) et ne montre qu'un bout devant la
+  // cuisse : une languette ; ni l'un ni l'autre ne se dessinent
+  const filtreLoin = (f, { bout = null, repos = false } = {}) => {
+    if (!f.length) return { remplir: [], bord: [], region: [] };
+    const garde = [];
+    for (const cp of composantes(moins(f, devantLoin))) {
+      const a = Math.abs(aireCL(cp)), avecBout = bout && dedans(decale(cp, 12), bout);
+      if (!avecBout && a < 12000 * kM * kM) continue;
+      if (avecBout && repos && a < 25000 * kM * kM) continue;
+      if (Math.abs(aireCL(cp)) < AIRE_MIN) continue;
+      const coeur = ouvre(cp, R_FILET);
+      if (!coeur.length) continue;
+      garde.push(...cp);                         // le morceau entier : sa pointe file jusque sous le contour proche
+    }
+    const region = unionCL([decale(garde, 1.5), sousProche]);
+    return { remplir: inter(f, region), bord: bordsDans(f, moins(decale(garde, 1.5), sousProche)), region };
   };
-  const jLd = sansFilet(jL), bLd = sansFilet(unionCL([bL]));
-  out.push(plein(jLd, GRIS, tr.sil), det(P.jambeL.details, tr.det), ligne(plisJL, tr.int));
-  out.push(plein(bLd, GRIS, tr.sil), det(P.brasL.details, tr.det), ligne(plisBL, tr.int));
+  const peindreLoin = (f, details, plis, opt) => {
+    const r = filtreLoin(f, opt);
+    if (!r.remplir.length) return;
+    out.push(`<path d="${dFerme(r.remplir)}" fill="${GRIS}" stroke="none"/>`, ligne(r.bord, tr.sil),
+      det(lignesDans(details, r.remplir), tr.det), ligne(lignesDans(plis, r.remplir), tr.int));
+  };
+  const brasAuRepos = ['ouverte', 'plat'].includes(mains.L) && Math.abs(A.brasL) <= 60 && Math.abs(A.avantbrasL) <= 60;
+  peindreLoin(jL, P.jambeL.details, plisJL, { bout: j.chevilleL });
+  peindreLoin(bL, P.brasL.details, plisBL, { bout: info.mains.L.prise ? info.mains.L.prise.p : j.poignetL, repos: brasAuRepos });
   if (o.objetL) out.push(quoi(o.objetL));
   // le corps proche : le blanc, les cheveux (gris, facultatifs), puis le trait par-dessus
   out.push(`<path d="${dFerme(proche)}" fill="${BLANC}" stroke="none"/>`);
-  if (o.cheveux) {
-    const reg = [versCL(CHEVEUX_PROFIL.map(p => add(j.nuque, tourne(mul(p, Pr.tete), A.tete))))];
-    const ch = inter(tete, reg);
-    if (ch.length) out.push(`<path d="${dFerme(ch)}" fill="${GRIS}" stroke="none"/>`, ligne(bordsDans(ch, decale(tete, -E)), tr.int));
-  }
+  // pas de cheveux de profil (décision du 13 octobre : la masse grise fait une tuque) ; seule la vue
+  // de dos garde la sienne (vues.js). CHEVEUX_PROFIL reste pour mémoire.
   out.push(`<path d="${dFerme(proche)}" fill="none" stroke="${NOIR}" stroke-width="${tr.sil}" stroke-linejoin="round"/>`);
-  out.push(ligne(lignes, tr.int), ligne(plisJ, tr.int), det(P.jambeP.details, tr.det));
+  out.push(ligne(lignes, tr.int), ligne(plisJ, tr.int), det(P.jambeP.details, tr.det), ligne(bordsTete, tr.int));
   if (!avecObjet) out.push(ligne(bordsBras, tr.int), ligne(plisB, tr.int), det(P.brasP.details, tr.det));
   else {
     out.push(quoi(objetP));

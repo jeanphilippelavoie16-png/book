@@ -394,7 +394,12 @@ function construire(modele, vue) {
   const marge = 3 * sigMax + 2;
   x0 -= marge; y0 -= marge; x1 += marge; y1 += marge;
   const cp = vue.coupe;
-  if (cp) { if (cp.axe === 0) x0 = Math.max(x0, cp.val - 3); else y0 = Math.max(y0, cp.val - 3); }
+  // la grille s'arrête à la coupe, sauf ce qui dépasse à côté du membre
+  if (cp) {
+    let loin = cp.val - 3;
+    if (cp.demi) for (const c of coques) for (const p of c.poly) { const sv = cp.axe === 0 ? p[1] : p[0], t = cp.axe === 0 ? p[0] : p[1]; if (Math.abs(sv) > cp.demi + 1) loin = Math.min(loin, t - marge); }
+    if (cp.axe === 0) x0 = Math.max(x0, loin); else y0 = Math.max(y0, loin);
+  }
   const G = { x0, y0, res: RES, nx: Math.ceil((x1 - x0) / RES) + 2, ny: Math.ceil((y1 - y0) / RES) + 2 };
   const N = G.nx * G.ny;
   // masques et profondeurs par pièce
@@ -412,9 +417,12 @@ function construire(modele, vue) {
   }
   const U = new Float32Array(N);
   for (const [g, m] of Object.entries(parGroupe)) { const F = flou(m, G, modele.groupes[g]); for (let i = 0; i < N; i++) if (F[i] > U[i]) U[i] = F[i]; }
+  // la coupe du raccord ne tranche que dans la largeur du membre : ce qui remonte à côté (le talon
+  // d'un pied en extension, des doigts repliés derrière le poignet) reste entier
   if (cp) for (let j = 0; j < G.ny; j++) for (let i = 0; i < G.nx; i++) {
-    const t = cp.axe === 0 ? G.x0 + i * RES : G.y0 + j * RES;
-    const r = borne(0.5 + (t - cp.val) / RES, 0, 1), o = j * G.nx + i;
+    const X = G.x0 + i * RES, Y = G.y0 + j * RES, t = cp.axe === 0 ? X : Y, sv = cp.axe === 0 ? Y : X;
+    const d = cp.demi ? Math.max(t - cp.val, Math.abs(sv) - cp.demi) : t - cp.val;
+    const r = borne(0.5 + d / RES, 0, 1), o = j * G.nx + i;
     if (r < U[o]) U[o] = r;
   }
   // le contour
@@ -463,7 +471,7 @@ function construire(modele, vue) {
     for (const b of isolignes(FA, G, 0.5)) {
       const pts = reechantillonne(b.pts, 0.4, b.ferme), n = pts.length;
       const ok = pts.map(p => valeur(FB, G, p) > 0.5 + marge && valeur(U, G, p) > 0.5 + marge && (force || profondeur(Aa, p) < profondeur(Bb, p) - 0.5)
-        && (!cp || (cp.axe === 0 ? p[0] : p[1]) > cp.val + 2));
+        && (!cp || (cp.axe === 0 ? p[0] : p[1]) > cp.val + 2 || (cp.demi && Math.abs(cp.axe === 0 ? p[1] : p[0]) > cp.demi + 2)));
       // des suites de points retenus (la boucle peut commencer au milieu d'une suite)
       let deb = 0; if (b.ferme && ok.every(Boolean)) { out.push(pts); continue; }
       if (b.ferme) { while (deb < n && ok[deb]) deb++; }
@@ -766,6 +774,11 @@ function resultat(base, k) {
     for (const [nom, q] of Object.entries(base.extras || {})) r[nom] = Array.isArray(q) ? T(q).map(f2) : echPoint(q, T, ang);
     if (geo.devant) r.devant = { contour: dd(geo.devant.contour, true), bord: geo.devant.bord.map(c => dd(c, false)), details: geo.devant.interieur.map(c => dd(c, false)) };
     r.face = base.face; r.sorte = base.sorte;
+    if (base.appuis) { r.appuis = {}; for (const [k, q] of Object.entries(base.appuis)) if (q) r.appuis[k] = T(q).map(f2); }
+    // bas(angle) : le point le plus bas du contour une fois l'extrémité tournée de `angle` (degrés
+    // écran, comme placer) — le point qui touche le sol, rendu dans le repère de cet objet
+    const poly = r.polygone;
+    r.bas = (angle = 0) => { let best = null, by = -Infinity; for (const p of poly) { const y = tourne(p, angle)[1]; if (y > by) { by = y; best = p; } } return best; };
     return r;
   };
   const id = p => [p[0], p[1]];
@@ -775,6 +788,7 @@ function resultat(base, k) {
     const T = p => { const q = tourne([p[0] * e, (mi ? -p[1] : p[1]) * e], a); return [x + q[0], y + q[1]]; };
     const ang = d => (mi ? -d : d) + a;
     const r = fabrique(T, ang, e);
+    if (base.detailsFins && e < 0.16) r.details = [];          // trait de semelle : il ferait une barre
     r.svg = (op = {}) => peindre(r, Object.assign({}, op, { echelle: e }));
     r.toString = () => peindre(r, { echelle: e });
     return r;
@@ -832,7 +846,7 @@ function main(...args) {
     if (pose === 'prise' || pose === 'pointe') lignes.push([['index'], ['doigts', 'paume']], [['doigts'], ['paume']]);
     const modele = { coques: V.coques, groupes: { main: pose === 'prise' || pose === 'pointe' ? 3.9 : 3.4 }, lignes, nLignes: 1, points: V.points, trous: pose === 'pince' ? 25 : 0,
       devant: V.P.devant || null };
-    const g = construire(modele, { proj, plie: o.plie || 0, coupe: { axe: 0, val: -rec } });
+    const g = construire(modele, { proj, plie: o.plie || 0, coupe: { axe: 0, val: -rec, demi: larg0 * kPoignet / 2 + 0.6 } });
     // au plus un trait : quand les doigts passent devant le manche, c'est leur bord qui marque le poing
     const base = { contour: g.contour, details: g.devant ? [] : g.details, polygone: g.polygone, devant: g.devant, sorte: `main-${pose}-${face}`, face };
     const larg = larg0 * kPoignet;
@@ -896,7 +910,12 @@ function volumePied(type, o) {
   const kY = [0, 1, 0];
   const piedT = p => rot3(p, kY, -pf);
   const ortT = p => { const q = [p[0] - plante[0], p[1], p[2] - plante[1]]; const r = rot3(q, kY, ort); return [r[0] + plante[0], r[1], r[2] + plante[1]]; };
-  const S = (p, r, part) => { let q = p; if (part === 2) q = ortT(q); if (part >= 1) q = piedT(q); return [q[0], q[1], q[2], r, part ? 1 : 0]; };
+  // le pli des orteils (ou de la botte) se répartit sur 34 mm devant la charnière : une courbe, pas
+  // une cassure (une seule charnière froissait la tige en bosses)
+  const etale = nu ? 24 : 34;
+  const poidsPli = x => { const t = borne((x - plante[0]) / etale, 0, 1); return t * t * (3 - 2 * t); };
+  const plieOrt = (p, w) => { const q = [p[0] - plante[0], p[1], p[2] - plante[1]]; const r = rot3(q, kY, ort * w); return [r[0] + plante[0], r[1], r[2] + plante[1]]; };
+  const S = (p, r, part) => { let q = p; if (part === 2) q = plieOrt(q, poidsPli(p[0])); if (part >= 1) q = piedT(q); return [q[0], q[1], q[2], r, part ? 1 : 0]; };
   const partDe = x => (x > plante[0] + 0.01 ? 2 : 1);
   // une section plate (une super-ellipse de points, r = 0) : l'enveloppe de deux sections voisines
   // est le tronçon de loft, sans rien qui déborde en X ; les bouts se ferment par les courbes
@@ -923,6 +942,12 @@ function volumePied(type, o) {
   };
   // la jambe (ou la tige) au-dessus de la cheville : fixe
   coques.push({ s: [S([0, 0, -70], rc, 0), S([0, 0, -6], rc, 0)], piece: nu ? 'jambe' : 'tige', groupe: 'haut' });
+  // le tendon d'Achille : quand le pied s'étend, il tend une ligne de la jambe au talon (sans lui, le
+  // talon qui remonte fait un crochet contre la jambe)
+  if (pf > 12) {
+    const k = borne((pf - 12) / 30, 0, 1);
+    coques.push({ s: [S([-rc + 8, 0, -105], 8, 0), S([-rc + 8, 0, -40], 8, 0), S(nu ? [-44, 0, 46] : [-50, 0, 60], 10 * k + 1, 1)], piece: nu ? 'jambe' : 'tige', groupe: 'haut' });
+  }
   if (nu) {
     const f = {
       zt: courbe([[-64, 44], [-61, 22], [-56, 8], [-48, -2], [-39, -9], [0, -18], [32, -10], [52, 4], [80, 19], [110, 30], [140, 39], [162, 44], [182, 46], [196, 49], [204, 55], [208, 62]]),
@@ -931,24 +956,25 @@ function volumePied(type, o) {
       yc: courbe([[-64, 2], [0, 3], [60, 4], [120, 2], [160, -2], [185, -7], [208, -18]]),
     };
     loft(-64, 208, 6, f, 'pied', 'haut');
-    return { coques, groupes: { haut: 3.2 }, points: { talon: [-50, 0, 68, 1], plante: [plante[0], 0, plante[1], 1], pointe: [208, -18, 63, 2] }, piedT, ortT, plante };
+    return { coques, groupes: { haut: 3.2 }, points: { talon: [-50, 0, 68, 1], plante: [plante[0], 0, plante[1], 1], pointe: [208, -18, 63, 2], boutSol: [196, -10, 67, 2] }, piedT, ortT, plante };
   }
   // la botte : la tige arrondie (contrefort, cou-de-pied bombé, bout dur), posée dans la semelle
   const f = {
     zt: courbe([[-66, 58], [-64, 40], [-61, 20], [-56, 6], [-49, -4], [-41, -11], [0, -22], [36, -14], [54, 0], [76, 14], [100, 23], [125, 30], [150, 34], [172, 36], [190, 39], [202, 45], [210, 54], [214, 67]]),
-    zb: courbe([[-66, 70], [-64, 78], [-58, 82], [0, 82], [204, 82], [211, 80], [214, 75]]),
+    zb: courbe([[-66, 70], [-64, 76], [-58, 80], [0, 80], [204, 80], [211, 78], [214, 74]]),
     w: courbe([[-66, 8], [-62, 24], [-54, 31], [-40, 35], [0, 38], [40, 42], [80, 47], [120, 51], [150, 52], [172, 49], [190, 42], [202, 33], [210, 22], [214, 9]]),
     yc: courbe([[-66, 1], [0, 1], [100, 1], [160, -2], [200, -6], [214, -9]]),
   };
-  loft(-66, 214, 6, f, 'tige', 'haut');
+  loft(-66, 152, 6, f, 'tige', 'haut');
+  loft(146, 214, 6, f, 'bout', 'haut');
   // la semelle : 3 mm de débord autour de la tige ; le talon net, la cambrure relevée de 6, le
   // bout relevé de 8
     const ws = courbe([[-66, 3.2], [-65.4, 11], [-64, 17], [-61.5, 23], [-57, 28.5], [-50, 33], [-40, 36.5], [0, 41], [40, 45], [80, 50], [120, 54], [150, 55], [172, 52], [188, 47], [199, 40], [207, 31], [212, 21], [214.6, 11], [215, 3.2]]), ycS = x => f.yc(borne(x, -66, 214));
-  const zS = 76, zB = 92;
+  const zS = 72, zB = 92;
   dalle(-66, -14, 3, ws, zS, () => zB, ycS, 'talon');
   dalle(-16, 50, 4, ws, zS, () => zB - 6, ycS, 'cambrure');
   dalle(48, 215, 3, ws, zS, x => zB - Math.pow(Math.max(0, (x - 150) / 67), 2) * 8, ycS, 'semelle');
-  return { coques, groupes: { haut: 3.0, semelle: 1.4 }, points: { talon: [-67, 0, zB, 1], plante: [plante[0], 0, plante[1], 1], pointe: [215, -8, zB - 8, 2] }, piedT, ortT, plante };
+  return { coques, groupes: { haut: 3.0, semelle: 1.4 }, points: { talon: [-62, 0, zB, 1], plante: [plante[0], 0, plante[1], 1], pointe: [215, -8, zB - 8, 2], boutSol: [206, -6, zB - 6, 2] }, piedT, ortT, plante };
 }
 const VUES_PIED = {
   // [x, y, z] depuis (X, Y, Z) ; z petit = près de l'œil
@@ -975,20 +1001,30 @@ function pied(...args) {
     const coques = enBout ? V.coques.filter(c => c.piece !== 'jambe' && !(c.piece === 'tige' && c.s.every(s => !s[4]))) : V.coques;
     // botte : la semelle d'un trait (le dessus de la semelle dans la tige ; vue de dessus, le bord
     // de la tige sur la semelle) ; dessous, le talon net et l'avant de la cambrure
-    const SEM = ['talon', 'cambrure', 'semelle'];
-    const lignes = type === 'botte'
-      ? (vue === 'dessous' ? [[['talon'], ['cambrure'], true], [['semelle'], ['cambrure'], true]] : vue === 'dessus' ? [[['tige'], SEM, true]] : [[SEM, ['tige'], true]])
-      : [];
+    // De face, c'est l'arc du bout dur qui dit « pied » (la semelle y ferait une barre) ; de dessus, le
+    // rebord de semelle doublerait le contour : rien. Sous ~0,16 unité/mm (option echelle), les traits
+    // de semelle sautent : à cette taille ils se fondent dans le contour et le sol en une barre noire.
+    const SEM = ['talon', 'cambrure', 'semelle'], TIGE = ['tige', 'bout'];
+    const fin = o.echelle != null && o.echelle < 0.16;
+    const lignes = type !== 'botte' ? []
+      : vue === 'face' ? [[['bout'], ['tige'], true]]
+      : vue === 'dessus' || fin ? []
+      : vue === 'dessous' ? [[['talon'], ['cambrure'], true], [['semelle'], ['cambrure'], true]]
+      : [[SEM, TIGE, true]];
     const modele = { coques, groupes: V.groupes, lignes, nLignes: type === 'botte' && vue === 'dessous' ? 2 : 1, points: V.points,
       margeTrait: type === 'botte' ? 0.12 : 0.2, rogne: type === 'botte' ? 0.8 : 1.2, traitMin: 10 };
-    const g = construire(modele, { proj, coupe: enBout ? null : { axe: 1, val: -rec } });
     const larg = (o.cheville ? o.cheville / k : (type === 'nu' ? 68 : 75));
+    const g = construire(modele, { proj, coupe: enBout ? null : { axe: 1, val: -rec, demi: larg / 2 + 0.6 } });
     const base = { contour: g.contour, details: g.details, polygone: g.polygone, sorte: `pied-${type}-${vue}` };
     base.attache = enBout ? { x: 0, y: 0, largeur: f2(larg), angle: -90, coupe: null, section: f2(larg / 2) }
       : { x: 0, y: 0, largeur: f2(larg), angle: -90, coupe: -rec };
     const P2 = n => g.pts[n] && [f2(g.pts[n][0]), f2(g.pts[n][1])];
     base.prise = g.pts.plante ? { x: g.pts.plante[0], y: g.pts.plante[1], angle: 0 } : null;
     base.extras = { talon: P2('talon'), pointe: P2('pointe'), plante: P2('plante') };
+    // les points d'appui possibles (le talon, la plante, le dessous du bout) : le plus bas, une fois
+    // le pied posé, touche le sol ; bas(angle) le donne directement, d'après le contour
+    base.appuis = { talon: P2('talon'), plante: P2('plante'), bout: P2('boutSol') };
+    base.detailsFins = type === 'botte' && vue !== 'face';
     CACHE.set(cle, resultat(base, k));
   }
   return CACHE.get(cle);
