@@ -754,7 +754,7 @@ function extremiteVue(M, sorte, type, vue, cote, opts = {}) {
       const r = E[sorte](type, vue, cote, opts);
       if (r && r.contour) {
         const polys = I.aplatir(r.contour).filter(q => q.length > 2);
-        if (polys.length) return { contours: polys, details: (r.details || []).flatMap(dd => I.aplatir(dd).map(q => (q.ferme ? q.concat([q[0]]) : q))), prise: r.prise, attache: r.attache, ext: true };
+        if (polys.length) return { contours: polys, details: (r.details || []).flatMap(dd => I.aplatir(dd).map(q => (q.ferme ? q.concat([q[0]]) : q))), prise: r.prise, attache: r.attache, objet: r.objet, ext: true };
       }
     } catch (e) { /* contrat pas encore tenu dans cette vue : les provisoires */ }
   }
@@ -1003,7 +1003,7 @@ function corps(o = {}, M) {
     pc('main' + c, mainPoly, zM, { fusion: mainFus, details: mainDet, groupe: (() => { const rM0 = rang(W, a3(W, m3(dM, 90))); return (!planaire && S.dir['main' + c][2] > -0.85 && rM0 !== 'brashaut' + c) ? gA : rM0; })(),
       voisins: [{ id: 'avantbras' + c, joint: p0, R: 42 * km * (planaire ? kR(rV) : 1) }] });
     const rPrise = em.prise && em.prise.r != null ? em.prise.r * km : (P.prise && P.prise[c] ? P.prise[c] / 2 * km : (/prise|poing/.test(tm) ? 16 * km : null));
-    geo.mains[c] = { poignet: p0, prise: poingF ? TM([0, 0]) : deBout ? add(p0, mul(v2, 55 * km)) : (em.prise ? TM([em.prise.x, em.prise.y]) : p0), angle: angM + (em.prise && em.prise.angle ? (miroirM ? -1 : 1) * em.prise.angle : 0), axe: angM, type: tm, r: rPrise, deBout };
+    geo.mains[c] = { ordre: em.objet || null, poignet: p0, prise: poingF ? TM([0, 0]) : deBout ? add(p0, mul(v2, 55 * km)) : (em.prise ? TM([em.prise.x, em.prise.y]) : p0), angle: angM + (em.prise && em.prise.angle ? (miroirM ? -1 : 1) * em.prise.angle : 0), axe: angM, type: tm, r: rPrise, deBout };
     // le pied
     const tp = (typeof P.pieds === 'string' ? P.pieds : (P.pieds && P.pieds[c])) || 'botte';
     const kp = Lg.pied / 266;
@@ -1262,7 +1262,9 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
       const mi = geo.mains[c], pr = T(mi.prise);
       const a = planaire ? (m > 0 ? mi.angle : 180 - mi.angle) : mi.angle * m + (o.angle || 0);
       gg['main' + c] = { x: pr[0], y: pr[1], angle: a, axe: planaire ? (m > 0 ? mi.axe : 180 - mi.axe) : mi.axe * m + (o.angle || 0), type: mi.type,
-        r: mi.r != null ? mi.r * s : undefined, deBout: !!mi.deBout, objet: P.objet };
+        r: mi.r != null ? mi.r * s : undefined, deBout: !!mi.deBout,
+        // objet : l'ordre conseillé (« devant » / « derrière »), comme de profil ; note : le texte de la pose (agent 5)
+        objet: mi.ordre, note: P.objet };
       gg.pieds = gg.pieds || {};
       gg.pieds[c] = { cheville: T(geo.pieds[c].cheville) };
     }
