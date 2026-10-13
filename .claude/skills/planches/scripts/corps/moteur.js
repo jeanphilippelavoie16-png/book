@@ -172,8 +172,11 @@ function sansTrous(paths, aireMin = 7000) {
 }
 function decale(paths, mm) {
   if (!paths.length || !mm) return paths;
+  // nettoyés d'abord : un polygone qui se touche en un point (l'union d'une botte et d'un tibia) fait
+  // déborder le décalage de plusieurs mm
+  const propres = CL.Clipper.SimplifyPolygons(CL.Clipper.CleanPolygons(paths, 2), CL.PolyFillType.pftNonZero);
   const co = new CL.ClipperOffset(2, 0.04 * SC);
-  co.AddPaths(paths, CL.JoinType.jtRound, CL.EndType.etClosedPolygon);
+  co.AddPaths(propres, CL.JoinType.jtRound, CL.EndType.etClosedPolygon);
   const sol = new CL.Paths();
   co.Execute(sol, mm * SC);
   return sol;
@@ -608,66 +611,79 @@ function pieces(A, Pr, o) {
 
 // les deux pieds au sol : le pied qui flotte (ou qui s'enfonce) de quelques centimètres se pose,
 // en pliant le genou (deux os, le genou du côté où il était) ; la cheville garde son x
+// Les pieds posés. Le pied se construit une fois (extremites.js coûte) ; pendant la recherche il
+// tourne d'un bloc autour de la cheville, ce qui suffit à trouver son point le plus bas.
+function piedRelatif(A, Pr, pieds, c) {
+  const { j } = squelette(A, Pr);
+  const pp = piedPose(A, Pr, j, c, (pieds && pieds[c]) || 'botte');
+  const C = j['cheville' + c];
+  return pp.polys.flat().map(p => sub(p, C));
+}
+const basTourne = (rel, deg) => { let m = -Infinity; for (const p of rel) m = Math.max(m, tourne(p, deg)[1]); return m; };
+// le pied +d degrés (la pointe qui monte) : le contour tourne de −d à l'écran
+const angleDe = v => Math.atan2(v[0], v[1]) / RAD;
+
+// Debout : les deux pieds au sol. Le pied qui flotte (ou s'enfonce) se pose en pliant le genou, la
+// cheville garde son x. Une jambe tendue qui ne descend pas plus : si son pied pique vers le sol
+// (pied < 75, le pied arrière qui pousse), il se met sur la pointe ; sinon il reste comme la pose le
+// met (à plat, ou talon planté pointe levée) et c'est l'AUTRE genou qui plie pour le rejoindre.
 function ancrerPieds(A, Pr, pieds, solCible = null) {
-  const basPied = B => {
-    const { j } = squelette(B, Pr), r = {};
-    for (const c of ['P', 'L']) {
-      const pp = piedPose(B, Pr, j, c, (pieds && pieds[c]) || 'botte');
-      let dy = -Infinity;
-      for (const poly of pp.polys) for (const p of poly) dy = Math.max(dy, p[1] - j['cheville' + c][1]);
-      r[c] = { dy, sole: j['cheville' + c][1] + dy };
-    }
-    return { j, r };
-  };
-  const { j, r: bas_ } = basPied(A);
-  const sol = solCible !== null ? solCible : Math.max(bas_.P.sole, bas_.L.sole);
+  // deux passes : la seconde reprend le pied reconstruit aux angles trouvés (la tige suit le tibia)
+  ancrerPieds1(A, Pr, pieds, solCible);
+  ancrerPieds1(A, Pr, pieds, solCible, true);
+}
+function ancrerPieds1(A, Pr, pieds, solCible = null, reprise = false) {
+  const { j } = squelette(A, Pr);
+  const rel = { P: piedRelatif(A, Pr, pieds, 'P'), L: piedRelatif(A, Pr, pieds, 'L') };
+  const ap = c => (A['pied' + c] !== undefined ? A['pied' + c] : A['jambe' + c] + 90);
+  const dy = { P: basTourne(rel.P, 0), L: basTourne(rel.L, 0) };
+  const sole = c => j['cheville' + c][1] + dy[c];
+  const L1 = Pr.cuisse, L2 = Pr.jambe;
+  const atteint = (c, sol) => lon(sub([j['cheville' + c][0], sol - dy[c]], j['hanche' + c])) < L1 + L2 - 0.5;
+  let sol = solCible !== null ? solCible : Math.max(sole('P'), sole('L'));
+  if (solCible === null) {
+    // un pied à plat (ou sur le talon) que sa jambe tendue ne descend pas jusqu'au sol : le sol monte à lui
+    if (!reprise) for (const c of ['P', 'L']) if (sol - sole(c) > 0.5 && sol - sole(c) <= 160 && !atteint(c, sol) && ap(c) >= 75) sol = Math.min(sol, sole(c));
+  }
   for (const c of ['P', 'L']) {
-    const ecart = sol - bas_[c].sole;
+    const ecart = sol - sole(c);
     if (Math.abs(ecart) < 0.5 || (solCible === null && ecart > 160)) continue;
-    const H = j['hanche' + c], K0 = j['genou' + c], Tc = [j['cheville' + c][0], sol - bas_[c].dy];
-    const L1 = Pr.cuisse, L2 = Pr.jambe, D = sub(Tc, H), d = lon(D);
+    const H = j['hanche' + c], K0 = j['genou' + c], Tc = [j['cheville' + c][0], sol - dy[c]];
+    const D = sub(Tc, H), d = lon(D);
     if (d < L1 + L2 - 0.5 && d > Math.abs(L1 - L2) + 1) {
       const a = (L1 * L1 - L2 * L2 + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, L1 * L1 - a * a));
       const M = add(H, mul(uni(D), a)), nn = gau(uni(D));
       const K1 = add(M, mul(nn, hh)), K2 = sub(M, mul(nn, hh));
       const K = lon(sub(K1, K0)) < lon(sub(K2, K0)) ? K1 : K2;
-      const angle = v => Math.atan2(v[0], v[1]) / RAD;
-      A['cuisse' + c] = angle(sub(K, H)); A['jambe' + c] = angle(sub(Tc, K));
+      A['cuisse' + c] = angleDe(sub(K, H)); A['jambe' + c] = angleDe(sub(Tc, K));
       continue;
     }
-    // la jambe ne va pas plus loin (tendue derrière, qui pousse) : le pied se met sur la pointe,
-    // le talon se lève jusqu'à ce que les orteils touchent ; assis trop haut, le pied pend
-    if (ecart <= 0 || solCible !== null) continue;
-    // des deux sens (la pointe qui descend, le talon qui descend), celui qui touche le plus tôt :
-    // la jambe tendue derrière se met sur la pointe, la jambe tendue devant pose le talon
-    const p0 = A['pied' + c] !== undefined ? A['pied' + c] : A['jambe' + c] + 90;
-    let mieux = null;
-    for (const sens of [-1, 1]) {
-      const f = dp => { const B = { ...A, _appui: A._appui, _echelle: A._echelle, ['pied' + c]: p0 + sens * dp }; return basPied(B).r[c].sole - sol; };
-      let a = 0, b = 60, fa = f(a), fb = f(b);
-      if (fa * fb > 0) continue;
-      for (let k = 0; k < 12; k++) { const m = (a + b) / 2, fm = f(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
-      const dp = (a + b) / 2;
-      if (!mieux || dp < mieux.dp) mieux = { dp, sens };
-    }
-    if (mieux) A['pied' + c] = p0 + mieux.sens * mieux.dp;
+    // le pied arrière qui pousse, jambe tendue : sur la pointe, le talon se lève jusqu'au sol
+    if (ecart <= 0 || solCible !== null || ap(c) >= 75) continue;
+    const C = j['cheville' + c], f = dp => C[1] + basTourne(rel[c], dp) - sol;   // dp : la pointe qui descend
+    let a = 0, b = 60, fa = f(a), fb = f(b);
+    if (fa * fb > 0) continue;
+    for (let k = 0; k < 16; k++) { const m = (a + b) / 2, fm = f(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
+    A['pied' + c] = ap(c) - (a + b) / 2;
   }
 }
 
 // à genou : la jambe au sol pivote autour du genou jusqu'à ce que la pointe du pied touche le sol
-// à la hauteur du genou (la cheville garde son pli)
+// à la hauteur du genou (la cheville garde son pli : le pied tourne avec le tibia)
+function basGenou(A, Pr, c) {
+  // le dessous du genou : le point le plus bas de la jambe près du genou
+  const { P, info } = pieces(A, Pr, { mains: {}, pieds: {}, sansExtremites: true });
+  const K = info.j['genou' + c];
+  let b = -Infinity;
+  for (const seg of P['jambe' + c].parSegment) for (const poly of seg) for (const p of poly) if (lon(sub(p, K)) < 130) b = Math.max(b, p[1]);
+  return isFinite(b) ? b : K[1] + 52 * Pr.largeurs.membres;
+}
 function ancrerGenoux(A, Pr, pieds, cotes) {
-  for (const c of cotes) {
-    const j0 = A['jambe' + c], p0 = A['pied' + c] !== undefined ? A['pied' + c] : j0 + 90;
-    const ecart = dj => {
-      const B = { ...A, _appui: A._appui, _echelle: A._echelle, ['jambe' + c]: j0 + dj, ['pied' + c]: p0 + dj };
-      const { j } = squelette(B, Pr);
-      const pp = piedPose(B, Pr, j, c, (pieds && pieds[c]) || 'botte');
-      let dy = -Infinity;
-      for (const poly of pp.polys) for (const p of poly) dy = Math.max(dy, p[1]);
-      return dy - (j['genou' + c][1] + 52 * Pr.largeurs.membres);
-    };
-    // la racine la plus proche de zéro : le pied trop bas, le tibia se relève ; trop haut, il s'abaisse
+  for (const passe of [0, 1]) for (const c of cotes) {
+    const { j } = squelette(A, Pr);
+    const rel = piedRelatif(A, Pr, pieds, c);
+    const K = j['genou' + c], C0 = sub(j['cheville' + c], K), bas = basGenou(A, Pr, c);
+    const ecart = dj => K[1] + tourne(C0, -dj)[1] + basTourne(rel, -dj) - bas;
     const f0 = ecart(0);
     if (Math.abs(f0) < 0.5) continue;
     let a = null, b = null, fa, fb;
@@ -676,10 +692,30 @@ function ancrerGenoux(A, Pr, pieds, cotes) {
       if (a !== null) break;
     }
     if (a === null) continue;
-    for (let k = 0; k < 12; k++) { const m = (a + b) / 2, fm = ecart(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
+    for (let k = 0; k < 16; k++) { const m = (a + b) / 2, fm = ecart(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
     const dj = (a + b) / 2;
-    A['jambe' + c] = j0 + dj; A['pied' + c] = p0 + dj;
+    A['jambe' + c] += dj; A['pied' + c] = (A['pied' + c] !== undefined ? A['pied' + c] : A['jambe' + c] - dj + 90) + dj;
   }
+  // un genou au sol : le pied de l'autre jambe se pose au même sol (le genou plie, le pied reste à plat)
+  if (cotes.length === 1) {
+    const autre = cotes[0] === 'P' ? 'L' : 'P';
+    const sol = basGenou(A, Pr, cotes[0]);
+    const seul = { ...pieds };
+    for (const passe of [0, 1]) ancrerUn(A, Pr, seul, autre, sol);
+  }
+}
+// une seule jambe, à un sol donné, par le genou
+function ancrerUn(A, Pr, pieds, c, sol) {
+  const { j } = squelette(A, Pr);
+  const rel = piedRelatif(A, Pr, pieds, c), dy = basTourne(rel, 0);
+  const H = j['hanche' + c], K0 = j['genou' + c], Tc = [j['cheville' + c][0], sol - dy];
+  const L1 = Pr.cuisse, L2 = Pr.jambe, D = sub(Tc, H), d = lon(D);
+  if (Math.abs(j['cheville' + c][1] + dy - sol) < 0.5 || d >= L1 + L2 - 0.5 || d <= Math.abs(L1 - L2) + 1) return;
+  const a = (L1 * L1 - L2 * L2 + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, L1 * L1 - a * a));
+  const M = add(H, mul(uni(D), a)), nn = gau(uni(D));
+  const K1 = add(M, mul(nn, hh)), K2 = sub(M, mul(nn, hh));
+  const K = lon(sub(K1, K0)) < lon(sub(K2, K0)) ? K1 : K2;
+  A['cuisse' + c] = angleDe(sub(K, H)); A['jambe' + c] = angleDe(sub(Tc, K));
 }
 
 // le dessous des fesses : le point le plus bas du tronc et du haut des cuisses, près de la hanche
@@ -776,7 +812,13 @@ function corps(o = {}) {
   const teteDevant = o.teteDevant !== undefined ? o.teteDevant : (poseDef.teteDevant !== undefined ? poseDef.teteDevant
     : (bP.length && appui0 === 'ventre' && Math.abs(aireCL(inter(tete, bP))) > 0.15 * aireTete));
   const derriereBras = teteDevant ? unionCL([tronc, jP]) : unionCL([corpsHaut, jP]);
-  const bordsBras0 = bordsDans(bP, moins(decale(derriereBras, -E), unionCL([zone(j.epauleP, (54 + 70 * leve) * kM), teteDevant ? decale(tete, 1.5) : []])));
+  // le bord du dessus d'un bras levé devant (son côté avant) garde un bout près de l'épaule : sans
+  // lui, le bras semble sortir sous le menton ; le bord du dessous s'arrête tôt (pas de bandoulière)
+  const uB = bas(A.brasP), nB = gau(uB), S_ = j.epauleP, G_ = 3000;
+  const demi = sg => [versCL([sub(S_, mul(uB, G_)), add(S_, mul(uB, G_)), add(add(S_, mul(uB, G_)), mul(nB, sg * G_)), add(sub(S_, mul(uB, G_)), mul(nB, sg * G_))])];
+  const baseBras = moins(decale(derriereBras, -E), teteDevant ? decale(tete, 1.5) : []);
+  const bordsBras0 = recoller(bordsDans(bP, moins(inter(baseBras, demi(1)), zone(S_, (54 - 14 * leve) * kM)))
+    .concat(bordsDans(bP, moins(inter(baseBras, demi(-1)), zone(S_, (54 + 70 * leve) * kM)))));
   const bordsTete = teteDevant ? bordsDans(tete, moins(decale(bP, -E), decale(tronc, -E))) : [];
   // le pli profond (accroupi, bras replié) : le mollet contre la cuisse, l'avant-bras contre le bras
   const pli = (m, i0, i1, P0, r) => {
@@ -793,7 +835,10 @@ function corps(o = {}) {
   // qui pend devant le corps) reste
   const rive = decale(proche, -(E + 3));
   const ancree = ls => ls.filter(l => l.length > 1 && (longueur(l) > 70 * kM || !dedans(rive, l[0]) || !dedans(rive, l[l.length - 1])));
-  lignes.splice(0, lignes.length, ...ancree(lignes));
+  // la cuisse sur le ventre : un bout de moins de 6 cm à l'aine n'est qu'un tiret
+  // et la cuisse vue sur le ventre part du contour (l'aine, le creux entre cuisse et bras) ou n'existe pas
+  const rive2 = decale(proche, -(E + 7));
+  lignes.splice(0, lignes.length, ...lignes.filter(l => l.length > 1 && longueur(l) > 60 * kM && (!dedans(rive2, l[0]) || !dedans(rive2, l[l.length - 1]))));
   const bordsBras = ancree(bordsBras0), plisJ = ancree(plisJ0), plisB = ancree(plisB0);
   // la main proche : son contour sur l'avant-bras ne se voit pas (union) ; ses détails, oui
 
@@ -862,25 +907,23 @@ function corps(o = {}) {
   const det = (ls, ep) => ligne(ls, ep);
   const out = [`<g data-corps="${o.pose || 'pose'}">`];
   // le côté loin. Ce qui en dépasse du corps proche se dessine tel quel, la pointe comprise (la jambe
-  // loin qui sort sous la fesse : un coin net, pas un chapeau). Ne se dessinent pas : un morceau tout
-  // en filet (nulle part 20 mm de large : un double trait, pas une information) et un lambeau plus
-  // petit qu'un poing. Le contour du membre loin se trace là où il se voit.
+  // loin qui sort sous la fesse : un coin net, pas un chapeau). Ne se dessinent pas, sauf s'ils portent
+  // la main ou le pied : un morceau tout en filet (nulle part 20 mm de large : un double trait, pas une
+  // information) et un lambeau plus petit qu'un poing. Le contour loin se trace là où il se voit.
   const devantLoin = avecObjet ? unionCL([proche, bP]) : proche;
-  const R_FILET = 10 * kM, AIRE_MIN = 7000 * kM * kM, sousProche = decale(devantLoin, -E);
-  // un bout de coude ou de genou qui dépasse seul (sans la main ni le pied) : un lambeau ; la main
-  // loin qui pend au repos (ouverte, bras le long du corps) et ne montre qu'un bout devant la
-  // cuisse : une languette ; ni l'un ni l'autre ne se dessinent
-  const filtreLoin = (f, { bout = null, repos = false } = {}) => {
+  const R_FILET = 10 * kM, sousProche = decale(devantLoin, -E);
+  // Une main ou un pied loin ne s'efface jamais (la main loin à plat sur la planche, au genou, fait
+  // la moitié du geste). Ne s'efface qu'un lambeau de membre : un bout de coude, de genou, de cuisse
+  // qui dépasse seul, plus petit qu'un poing ou tout en filet.
+  const filtreLoin = (f, { bout = [] } = {}) => {
     if (!f.length) return { remplir: [], bord: [], region: [] };
     const garde = [];
     for (const cp of composantes(moins(f, devantLoin))) {
-      const a = Math.abs(aireCL(cp)), avecBout = bout && dedans(decale(cp, 12), bout);
-      if (!avecBout && a < 12000 * kM * kM) continue;
-      if (avecBout && repos && a < 25000 * kM * kM) continue;
-      if (Math.abs(aireCL(cp)) < AIRE_MIN) continue;
-      const coeur = ouvre(cp, R_FILET);
-      if (!coeur.length) continue;
-      garde.push(...cp);                         // le morceau entier : sa pointe file jusque sous le contour proche
+      const surBout = bout.length ? inter(cp, bout) : [];
+      const extremite = Math.abs(aireCL(surBout)) > 600 * kM * kM;
+      const epais = Math.abs(aireCL(cp)) >= 12000 * kM * kM && ouvre(cp, R_FILET).length > 0;
+      if (epais) garde.push(...cp);              // le morceau entier : sa pointe file jusque sous le contour proche
+      else if (extremite) garde.push(...inter(cp, decale(surBout, 25 * kM)));   // la main, le pied, sans la lame qui y mène
     }
     const region = unionCL([decale(garde, 1.5), sousProche]);
     return { remplir: inter(f, region), bord: bordsDans(f, moins(decale(garde, 1.5), sousProche)), region };
@@ -891,9 +934,8 @@ function corps(o = {}) {
     out.push(`<path d="${dFerme(r.remplir)}" fill="${GRIS}" stroke="none"/>`, ligne(r.bord, tr.sil),
       det(lignesDans(details, r.remplir), tr.det), ligne(lignesDans(plis, r.remplir), tr.int));
   };
-  const brasAuRepos = ['ouverte', 'plat'].includes(mains.L) && Math.abs(A.brasL) <= 60 && Math.abs(A.avantbrasL) <= 60;
-  peindreLoin(jL, P.jambeL.details, plisJL, { bout: j.chevilleL });
-  peindreLoin(bL, P.brasL.details, plisBL, { bout: info.mains.L.prise ? info.mains.L.prise.p : j.poignetL, repos: brasAuRepos });
+  peindreLoin(jL, P.jambeL.details, plisJL, { bout: P.jambeL.pied && P.jambeL.pied.length ? union(P.jambeL.pied) : [] });
+  peindreLoin(bL, P.brasL.details, plisBL, { bout: P.brasL.main && P.brasL.main.length ? union(P.brasL.main) : [] });
   if (o.objetL) out.push(quoi(o.objetL));
   // le corps proche : le blanc, les cheveux (gris, facultatifs), puis le trait par-dessus
   out.push(`<path d="${dFerme(proche)}" fill="${BLANC}" stroke="none"/>`);
