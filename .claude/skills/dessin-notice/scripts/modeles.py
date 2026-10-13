@@ -197,6 +197,11 @@ def shoo():
 #                             sert à plier un bloc large (les quatre doigts) sans fendre la main ;
 #   "garder": [[[x, y], …]]   l'encre de ces polygones part avec la partie ET reste en place : le trait
 #                             commun à deux morceaux qu'on écarte (le dessous de l'index, le dessus du pouce).
+#   "suit": i                 la partie suit la partie i (l'avant-bras suit le bras) : son poly, son pivot,
+#                             sa charnière se donnent sur la SOURCE ; elle se plie sur elle-même puis est
+#                             emportée par le pli de i (et de ses parents), en un seul tirage depuis la source.
+#   "exacte": true            le pli à charnière inversé juste (sinon la distance au segment se lit à
+#                             l'arrivée : bon pour un doigt, faux pour une épaule pliée à 100° et plus).
 #   "decaler": [[x, dy], …]   au lieu de plier : la partie glisse verticalement de dy(x) (interpolé entre
 #                             les stations, en px de la source) ; pivot, angle et rayon sont ignorés ;
 #                             avec "axe": "x", les stations sont [[y, dx], …] et la partie glisse de côté.
@@ -227,20 +232,29 @@ def masques_modele(ident):
     return enc, om, silhouette(enc, om, k, FERMER.get(ident, [])), k, b
 
 
-def retour(yy, xx, k, pivot, angle, rayon, charniere=None):
-    """Pour chaque pixel d'arrivée (yy, xx), le pixel de départ du pli autour de pivot (inverse exact
-    du pli : la rotation ne dépend que de la distance au pivot, que la rotation garde)."""
+def retour(yy, xx, k, pivot, angle, rayon, charniere=None, exacte=False):
+    """Pour chaque pixel d'arrivée (yy, xx), le pixel de départ du pli autour de pivot. Sans charnière,
+    c'est l'inverse exact (la rotation ne dépend que de la distance au pivot, que la rotation garde).
+    Avec charnière, la distance au segment se lit à l'arrivée : juste pour un petit pli (un pouce), fausse
+    pour un grand (une épaule à 160° : le pli s'étale en éventail et des traits se perdent) ;
+    exacte=True la lit au départ, par itération (point fixe)."""
     cy, cx = pivot[1] * k, pivot[0] * k
     r, phi = np.hypot(xx - cx, yy - cy), np.arctan2(yy - cy, xx - cx)
-    if charniere:                                  # distance au segment des jointures
-        (ax, ay), (bx, by) = [(q[0] * k, q[1] * k) for q in charniere]
-        vx, vy = bx - ax, by - ay
-        u = np.clip(((xx - ax) * vx + (yy - ay) * vy) / (vx * vx + vy * vy), 0, 1)
-        t = np.clip(np.hypot(xx - ax - u * vx, yy - ay - u * vy) / (rayon * k), 0, 1)
-    else:
-        t = np.clip(r / (rayon * k), 0, 1)
-    th = np.deg2rad(angle) * t * t * (3 - 2 * t)
-    return cy + r * np.sin(phi - th), cx + r * np.cos(phi - th)
+    def tourner(y, x):
+        if charniere:                              # distance au segment des jointures
+            (ax, ay), (bx, by) = [(q[0] * k, q[1] * k) for q in charniere]
+            vx, vy = bx - ax, by - ay
+            u = np.clip(((x - ax) * vx + (y - ay) * vy) / (vx * vx + vy * vy), 0, 1)
+            t = np.clip(np.hypot(x - ax - u * vx, y - ay - u * vy) / (rayon * k), 0, 1)
+        else:
+            t = np.clip(r / (rayon * k), 0, 1)
+        th = np.deg2rad(angle) * t * t * (3 - 2 * t)
+        return cy + r * np.sin(phi - th), cx + r * np.cos(phi - th)
+    sy, sx = tourner(yy, xx)
+    if charniere and exacte:
+        for _ in range(12):
+            sy, sx = tourner(sy, sx)
+    return sy, sx
 
 
 def zone_poly(m, k, poly):
@@ -251,7 +265,7 @@ def zone_poly(m, k, poly):
     return zone
 
 
-def plier(m, k, poly, pivot, angle, rayon, charniere=None, chaine=(), zone=None):
+def plier(m, k, poly, pivot, angle, rayon, charniere=None, chaine=(), zone=None, exacte=False):
     """(la partie de m dans poly, pliée autour de pivot ; le reste de m). charniere [[x, y], [x, y]] :
     la rotation monte avec la distance à ce segment (la ligne des jointures) au lieu de la distance au
     pivot ; la partie reste soudée tout le long du segment, pas seulement au pivot.
@@ -263,9 +277,9 @@ def plier(m, k, poly, pivot, angle, rayon, charniere=None, chaine=(), zone=None)
     partie, reste = m & zone, m & ~zone
     H, W = m.shape
     yy, xx = np.mgrid[:H, :W].astype(float)
-    for pv, a, rr_, ch in reversed(list(chaine)):  # l'arrivée, ramenée par le tronc, puis par le bras…
-        yy, xx = retour(yy, xx, k, pv, a, rr_, ch)
-    sy, sx = retour(yy, xx, k, pivot, angle, rayon, charniere)   # …puis par la partie elle-même
+    for pv, a, rr_, ch, ex in reversed(list(chaine)):   # l'arrivée, ramenée par le tronc, puis par le bras…
+        yy, xx = retour(yy, xx, k, pv, a, rr_, ch, ex)
+    sy, sx = retour(yy, xx, k, pivot, angle, rayon, charniere, exacte)   # …puis par la partie elle-même
     src = ndi.map_coordinates(partie.astype(float), [sy, sx], order=1) > 0.5
     return src, reste
 
@@ -327,7 +341,8 @@ def articuler(ident, spec):
         out, j = [], P[i].get('suit')
         while j is not None:
             q = P[j]
-            out.append((q['pivot'], q['angle'], q['rayon'], [[c[0] + M, c[1] + M] for c in q['charniere']] if q.get('charniere') else None))
+            out.append((q['pivot'], q['angle'], q['rayon'], [[c[0] + M, c[1] + M] for c in q['charniere']] if q.get('charniere') else None,
+                        bool(q.get('exacte'))))
             j = q.get('suit')
         return out
     for i, pt in enumerate(P):
@@ -337,6 +352,7 @@ def articuler(ident, spec):
                 mis_de_cote[j] = (enc & propre[j], sil & propre[j])
                 enc, sil = enc & ~propre[j], sil & ~propre[j]
         ch = [[q[0] + M, q[1] + M] for q in pt['charniere']] if pt.get('charniere') else None
+        ex = bool(pt.get('exacte'))                # "exacte": true — le grand pli à charnière, inversé juste
         garde = np.zeros_like(enc)                 # "garder" : l'encre de ces polygones part avec la partie
         for gp in pt.get('garder', []):            # ET reste en place (le trait commun au pouce et à l'index)
             rr, cc = remplir(np.array([y + M for x, y in gp]) * k, np.array([x + M for x, y in gp]) * k, enc.shape)
@@ -349,17 +365,19 @@ def articuler(ident, spec):
         elif i in mis_de_cote:                     # une partie qui suit : tirée de sa source mise de côté
             e0, s0 = mis_de_cote[i]
             tout = np.ones_like(enc)
-            p_enc, _ = plier(e0, k, poly, pv, pt['angle'], pt['rayon'], ch, chaine(i), tout)
-            p_sil, _ = plier(s0, k, poly, pv, pt['angle'], pt['rayon'], ch, chaine(i), tout)
+            p_enc, _ = plier(e0, k, poly, pv, pt['angle'], pt['rayon'], ch, chaine(i), tout, ex)
+            p_sil, _ = plier(s0, k, poly, pv, pt['angle'], pt['rayon'], ch, chaine(i), tout, ex)
             r_enc, r_sil = enc, sil
         else:
-            p_enc, r_enc = plier(enc, k, poly, pv, pt['angle'], pt['rayon'], ch, (), propre[i])
-            p_sil, r_sil = plier(sil, k, poly, pv, pt['angle'], pt['rayon'], ch, (), propre[i])
+            p_enc, r_enc = plier(enc, k, poly, pv, pt['angle'], pt['rayon'], ch, (), propre[i], ex)
+            p_sil, r_sil = plier(sil, k, poly, pv, pt['angle'], pt['rayon'], ch, (), propre[i], ex)
         dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
         enc = (r_enc & ~dedans) | p_enc | garde    # la partie passe devant : son blanc cache le reste
         sil = r_sil | p_sil
     for g in spec.get('greffe', []):
-        g_enc, _, g_sil, kg, _ = masques_modele(g['source'])
+        g_enc, g_om, g_sil, kg, _ = masques_modele(g['source'])
+        if g['source'] == spec['source'] and ident in FERMER:   # même source : le blanc fermé de la pose
+            g_sil = silhouette(g_enc, g_om, kg, FERMER.get(g['source'], []) + FERMER[ident])
         poly = g['poly']
         cx_s, cy_s = g.get('pivot', [float(np.mean([q[0] for q in poly])), float(np.mean([q[1] for q in poly]))])
         zone = np.zeros_like(g_enc)
@@ -368,15 +386,28 @@ def articuler(ident, spec):
         th = np.deg2rad(g.get('angle', 0)); dx, dy = g.get('decalage', [0, 0])
         H, W = enc.shape
         yy, xx = np.mgrid[:H, :W].astype(float)
-        u, v = xx / k - (cx_s + dx + M), yy / k - (cy_s + dy + M)          # pose → source, à l'envers
+        e_ = g.get('echelle', 1.0)                 # "echelle" : le morceau grandit ou rapetisse autour du pivot
+        u, v = (xx / k - (cx_s + dx + M)) / e_, (yy / k - (cy_s + dy + M)) / e_   # pose → source, à l'envers
         sx = cx_s + u * np.cos(th) + v * np.sin(th); sy = cy_s - u * np.sin(th) + v * np.cos(th)
         tirer = lambda m: ndi.map_coordinates((m & zone).astype(float), [sy * kg, sx * kg], order=1) > 0.5
         p_enc, p_sil = tirer(g_enc), tirer(g_sil)
         dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
         enc = (enc & ~dedans) | p_enc
         sil = sil | p_sil
-    for x0, y0, x1, y1 in spec.get('effacer_apres', []):   # après les greffes (px de la pose, marge comprise)
-        enc[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)] = False
+    for e_ in spec.get('effacer_apres', []):       # après les greffes (px de la pose, marge comprise) :
+        if isinstance(e_, dict):                   # {"poly": [[x, y], …]} : l'encre seule (une bosse dans la main) ;
+            rr, cc = remplir(np.array([q[1] for q in e_['poly']]) * k, np.array([q[0] for q in e_['poly']]) * k, enc.shape)
+            if not e_.get('blanc'):                # {"poly": …, "blanc": true} : le blanc seul (une frange hors
+                enc[rr, cc] = False                # du contour, entre deux doigts) ; l'encre reste
+        elif isinstance(e_[0], list):              # un rectangle [x0, y0, x1, y1] ou un polygone [[x, y], …]
+            rr, cc = remplir(np.array([q[1] for q in e_]) * k, np.array([q[0] for q in e_]) * k, enc.shape)
+            enc[rr, cc] = False; sil[rr, cc] = False   # le polygone ôte aussi le blanc (un éperon hors contour)
+        else:
+            x0, y0, x1, y1 = e_
+            enc[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)] = False
+    for e_ in spec.get('encrer_apres', []):        # "encrer_apres": [[[x, y], …]] un raccord d'encre (deux bouts
+        rr, cc = remplir(np.array([q[1] for q in e_]) * k, np.array([q[0] for q in e_]) * k, enc.shape)   # de
+        enc[rr, cc] = True                         # contour qui ne se rejoignent pas), en px de la pose
     if spec.get('lisser'):                         # "lisser": px — le trait d'une partie tournée sort en marches
         s_ = spec['lisser'] * k                    # d'escalier (rééchantillonnage) que potrace suit en bosses :
         enc = ndi.gaussian_filter(enc.astype(float), s_) > 0.5   # un flou léger puis le seuil les efface
@@ -392,6 +423,13 @@ def articuler(ident, spec):
         r_ = max(1, int(spec['rogner'] * k))       # laissée par une partie écartée) est rogné : le blanc
         sil = ndi.binary_erosion(sil, structure=disk(r_)) | ndi.binary_fill_holes(enc)   # s'arrête au trait
     sil = ndi.binary_fill_holes(ndi.binary_closing(sil | enc, structure=disk(max(1, int(1.0 * k)))))   # pas de jour dans le blanc
+    for e_ in spec.get('effacer_apres', []):
+        if isinstance(e_, dict) and e_.get('blanc'):
+            rr, cc = remplir(np.array([q[1] for q in e_['poly']]) * k, np.array([q[0] for q in e_['poly']]) * k, enc.shape)
+            sil[rr, cc] &= enc[rr, cc]
+        elif not isinstance(e_, dict) and isinstance(e_[0], list):   # l'éperon ôté ne revient pas par la fermeture
+            rr, cc = remplir(np.array([q[1] for q in e_]) * k, np.array([q[0] for q in e_]) * k, enc.shape)
+            sil[rr, cc] &= enc[rr, cc]
     if spec.get('cadre'):                          # "cadre": [x0, y0, x1, y1] en px de la pose : recadre le modèle
         x0, y0, x1, y1 = spec['cadre']             # (une main prise seule dans une planche de deux) ; les
         sl = (slice(int(y0 * k), int(y1 * k)), slice(int(x0 * k), int(x1 * k)))   # coordonnées du modèle

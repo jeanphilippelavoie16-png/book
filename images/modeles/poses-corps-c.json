@@ -336,6 +336,14 @@
   "source": "h01",
   "note": "de face, habillé : le bras gauche (à droite à l'écran) levé droit, la main au-dessus de la tête ; l'autre bras le long du corps. Ancre : le sol entre les bottes. Échelle : 0,70 px/mm.",
   "marge": 260,
+  "effacer": [
+   [
+    314,
+    294,
+    332,
+    337
+   ]
+  ],
   "parties": [
    {
     "poly": [
@@ -429,21 +437,42 @@
      ]
     ],
     "pivot": [
-     345,
-     241
+     340,
+     226
     ],
-    "angle": -165,
+    "angle": -162,
     "rayon": 70,
     "charniere": [
      [
-      338,
-      219
+      318,
+      290
      ],
      [
-      311.5,
+      311,
       330
      ]
-    ]
+    ],
+    "garder": [
+     [
+      [
+       306,
+       296
+      ],
+      [
+       314.5,
+       296
+      ],
+      [
+       314.5,
+       406
+      ],
+      [
+       306,
+       406
+      ]
+     ]
+    ],
+    "exacte": true
    },
    {
     "poly": [
@@ -500,7 +529,7 @@
      353,
      445
     ],
-    "angle": -12,
+    "angle": -10,
     "rayon": 45,
     "suit": 0
    }
