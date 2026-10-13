@@ -14,7 +14,6 @@
 // raté, reste noire : ce n'est pas un geste à faire.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
-  const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const f1 = v => Math.round(v * 10) / 10;
   const pt = p => `${f1(p[0])} ${f1(p[1])}`;
   const RAD = Math.PI / 180;
@@ -51,7 +50,7 @@ module.exports = (h) => {
   };
 
   // un homme debout porte la caisse sur ses deux paumes ; la caisse passe entre le tronc et le bras
-  // proche. dos : 'ventre' (le dos de la caisse contre le ventre) ou 'poignet' (la caisse au bout des
+  // proche. cle : 'ventre' (le dos de la caisse contre le ventre) ou 'poignet' (la caisse au bout des
   // mains, son dos au ras des poignets)
   const profil = (z, pose, cle, angles) => {
     const G = z.h - 12, x0 = z.l * 0.27;
@@ -61,10 +60,9 @@ module.exports = (h) => {
     const bx = cle === 'ventre' ? bordAvant(sonde.svg, yb - mm(CH), yb) - 0.6 : sonde.poignetP[0] + mm(12);
     const by = yb - mm(CH);
     const c = F.corps({ ...base, objetP: caisse(bx, by, mm(CL), mm(CH)) });
-    const cheville = c.pieds.P.cheville;
     // l'aplomb des mains : du dessous des mains au sol, pour lire leur distance aux chevilles
     const plomb = h.ligne(c.mainP.x, yb + mm(40), c.mainP.x, G - 1, A.fin + ' stroke-dasharray="3 2.5"');
-    return { svg: [sol(4, z.l - 4, G), c.svg, plomb].join('\n'), G, c, bx, by, yb, cheville, art: c.articulations };
+    return { svg: [sol(4, z.l - 4, G), c.svg, plomb].join('\n'), G, c, bx, by, yb, art: c.articulations };
   };
   // les angles retouchés pour que les mains tombent à 250 et à 500 mm de la cheville proche (le
   // point de contrôle du chapitre) ; à bout de bras, les bras tendus, la caisse presque à la même

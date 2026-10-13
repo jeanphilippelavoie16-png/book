@@ -169,19 +169,23 @@ module.exports = (h) => {
     const pat0 = F.corps({ x: 0, y: yg, pose: 'couche-dos', echelle: e }), dp = x + (l - (pat0.boite.x1 - pat0.boite.x0)) / 2 - pat0.boite.x0 + 2;
     const A = pat0.articulations;
     const xt = A.hancheP[0] + 0.5 * (A.genouP[0] - A.hancheP[0]), yt = Math.min(...coupesX(pat0, xt));
-    const a = 4, ep = 28 * e;                                   // le bras droit ; l'épaisseur d'une main
-    const angles = (t, ab) => ({ tronc: t, brasP: a, avantbrasP: a, mainP: 90, brasL: a - (ab - a) * 0.5, avantbrasL: ab, mainL: 90 });
-    const essai = (t, ab) => F.corps({ x: 0, y: yg, pose: 'genoux-appuie', echelle: e, trait: 'fort', angles: angles(t, ab) });
-    const t = bissection(t => essai(t, a).mainP.y - yt, 20, 80);
-    const ab = bissection(ab => { const g = essai(t, ab); return (g.mainP.y - ep) - g.mainL.y; }, a, a + 40, 9);
-    const g0 = essai(t, ab), da = xt + dp - g0.mainP.x;
+    // Les deux mains à plat l'une sur l'autre ne se lisent pas à cette taille (une main fait 3 px
+    // d'épaisseur) : la main loin reste cachée derrière la proche, la vue de dessus montre les deux.
+    const a = 4, angles = t => ({ tronc: t, brasP: a, avantbrasP: a, mainP: 90, brasL: a, avantbrasL: a, mainL: 90 });
+    const essai = t => F.corps({ x: 0, y: yg, pose: 'genoux-appuie', echelle: e, trait: 'fort', angles: angles(t) });
+    const t = bissection(t => essai(t).mainP.y - yt, 20, 80);
+    const g0 = essai(t), da = xt + dp - g0.mainP.x;
     const S = [g0.articulations.epauleP[0] + da, g0.articulations.epauleP[1]], W = [g0.articulations.poignetP[0] + da, g0.articulations.poignetP[1]];
-    // la flèche du geste : le long des bras, du côté du tronc, jusqu'au-dessus des mains
+    // ses genoux, ses tibias et ses pieds sont derrière le blessé : coupés sous le dessus de la
+    // cuisse (sinon le pied dépasse derrière la tête et le tibia double le dos au sol)
+    const idc = 'rogne-26-40-aidant';
+    const aid = `<clipPath id="${idc}"><rect x="${f(x)}" y="${f(y)}" width="${f(l)}" height="${f(yt + 1 - y)}"/></clipPath>\n<g clip-path="url(#${idc})">\n${deplace(g0, da)}\n</g>`;
+    // la flèche du geste : le long des bras, côté tronc, jusqu'au-dessus des mains
     const u = [W[0] - S[0], W[1] - S[1]], lu = Math.hypot(u[0], u[1]), n = [-u[1] / lu, u[0] / lu];
-    const off = -7, p0 = [S[0] + u[0] * 0.18 + n[0] * off, S[1] + u[1] * 0.18 + n[1] * off], p1 = [S[0] + u[0] * 0.86 + n[0] * off, S[1] + u[1] * 0.86 + n[1] * off];
-    return (memo[cle] = { svg: [h.rect(x, y, l, ht, h.a.fin), deplace(g0, da), deplace(pat0, dp), h.ligne(x + 3, yg, x + l - 3, yg, h.a.detail),
+    const off = 10, p0 = [S[0] + u[0] * 0.15 + n[0] * off, S[1] + u[1] * 0.15 + n[1] * off], p1 = [S[0] + u[0] * 0.9 + n[0] * off, S[1] + u[1] * 0.9 + n[1] * off];
+    return (memo[cle] = { svg: [h.rect(x, y, l, ht, h.a.fin), aid, deplace(pat0, dp), h.ligne(x + 3, yg, x + l - 3, yg, h.a.detail),
       h.geste(`M${pt(p0)} L${pt(p1)}`)].join('\n'),
-      bras: [(S[0] + W[0]) / 2, (S[1] + W[1]) / 2], W, mainP: [g0.mainP.x + da, g0.mainP.y], tronc: t, ab });
+      bras: [(S[0] + W[0]) / 2, (S[1] + W[1]) / 2], W, mainP: [g0.mainP.x + da, g0.mainP.y], tronc: t });
   };
   // ─── A. Appuyer : vue de dessus, la cuisse de la hanche au genou, la compresse sur la plaie, les
   // deux mains à plat l'une sur l'autre ; en haut, la posture qui met le poids dans les bras tendus.

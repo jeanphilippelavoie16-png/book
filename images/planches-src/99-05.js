@@ -1,6 +1,10 @@
 // Planche 99-05 — Faucher à la faux, et aiguiser à la pierre.
 // Chapitre 99, étapes 54 et 55. Aucune cote : le chapitre ne donne aucune mesure de fabrication
 // (le manche est « à la taille du faucheur ») ; 75 cm et 175 cm sont dans la légende.
+// Le faucheur est le corps simple de la bibliothèque (pose « faucher »). La charte : la faux pèse
+// (contour 2,4) ; le fauché en gris loin ; la face à l'ombre du manche, de l'anneau et du biseau ;
+// le rouge sur le coup (dessus), la pierre qui descend du dos au fil (debout, en coupe), la lame à
+// plat à contrôler (profil) et la zone du fil, là où la pierre dérape (étape 55).
 module.exports = (h) => {
   const F = h.formes;
   const f = v => (+v).toFixed(1);
@@ -138,7 +142,7 @@ module.exports = (h) => {
   return {
     ref: '99-05',
     titre: 'Faucher à la faux, et aiguiser à la pierre',
-    desc: 'De profil, le faucheur réglé sur sa faux : bras tendus, les deux mains à peu près à la même hauteur sur les poignées, la lame à plat sur le sol. Vu de dessus : les pieds, la lame en milieu de coup, le demi-cercle de droite à gauche vers l’herbe déjà fauchée, la marche en ligne droite et l’andain laissé derrière. Debout, le manche posé par terre et la pointe à droite : la main gauche tient la lame par le dos, derrière la pierre, qui descend du dos vers le fil à petits coups du talon vers la pointe. En coupe : la pierre sur le dessus, puis sur le dessous.',
+    desc: 'De profil, le faucheur réglé sur sa faux : bras tendus, chaque poing sur sa poignée, les deux mains à peu près à la même hauteur, la lame à plat sur le sol, cerclée de rouge. Vu de dessus : les pieds, la lame en milieu de coup, le demi-cercle rouge de droite à gauche vers l’herbe déjà fauchée (en gris), la marche en ligne droite et l’andain laissé derrière. Debout, le manche posé par terre et la pointe à droite : la main gauche tient la lame par le dos, derrière la pierre, qui descend du dos vers le fil (flèche rouge) à petits coups du talon vers la pointe ; un tireté rouge longe le fil, là où la pierre dérape. En coupe : la pierre sur le dessus, puis sur le dessous.',
     format: 'pleine',
     disposition: [['profil', 'dessus'], ['pierre', 'coupe']],
     hauteurs: [1.45, 1],
