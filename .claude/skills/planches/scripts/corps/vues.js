@@ -25,23 +25,35 @@
 //                     vers l'AVANT du corps (vers l'œil de face), − = vers l'arrière ;
 //        penche     : le tronc penché vers l'avant, en degrés (accroupi : 30 à 50).
 //
-//   3. Une pose de DESSUS : chaque membre { az, el } ou [az, el] (azimut 0 = vers l'avant, + = vers
-//      l'extérieur ; élévation −90 = pendant, 0 = à l'horizontale), ou un nombre = un angle de
-//      profil. Le reste :
-//        tourneBassin, tourneTronc, tourneTete : où regardent le bassin, les épaules, la tête
-//                     (degrés, + = vers SA droite ; la tête suit le tronc, le tronc le bassin) ;
+//   3. Une pose de DESSUS (vue 'dessus') : un membre en nombre = un angle de profil (sagittal :
+//      avantbras 90 = l'avant-bras à l'horizontale devant, la caisse) ; en [az, el] ou { az, el } =
+//      en 3D (azimut 0 = vers l'avant, + = vers l'extérieur ; élévation −90 = pendant, 0 = à
+//      l'horizontale). piedP, piedL en nombre = où pointe le pied (0 = droit devant, + = vers
+//      l'extérieur). Le reste :
 //        tronc      : penché vers l'avant (degrés, comme de profil) ;
-//        tournePiedP, tournePiedL : où pointe le pied (degrés, + = vers l'extérieur) ;
-//        pasP, pasL : [dx, dy] en mm, déplacement de la cheville au sol (un pas), dans le repère
-//                     du bassin (dx vers l'avant, dy vers l'extérieur).
-//      Les jambes debout ne se voient pas d'en haut (sous le corps) : seuls les pieds dépassent.
+//        tourneBassin, tourneTronc, tourneTete : où regardent le bassin, les épaules, la tête
+//                     (degrés, + = vers SA droite ; chacun s'ajoute au précédent : tourneTronc 90
+//                     sur un bassin fixe, c'est le tronc qui tourne d'un quart de tour) ;
+//        piedsAu    : { P: [x, y, az], L: … } les chevilles posées où l'on veut (mm, repère de la
+//                     figure : x devant, y vers sa droite ; az absolu, + vers sa droite) : le pas
+//                     de pivot. Sinon tournePiedP / tournePiedL (sur le bassin, + vers l'extérieur)
+//                     et pasP / pasL [dx, dy] (un pas, dans le repère du bassin).
+//      Les jambes debout et le bras qui pend ne se voient pas d'en haut : seuls les pieds dépassent.
+//      Couché (tronc à ±60° ou plus), la vue de dessus est la vue de face (sur le dos) ou de dos
+//      (sur le ventre) du corps redressé, tournée d'un quart de tour, la tête du côté où il s'est
+//      couché.
 //
 // corps(o) prend en plus : caches (dessus : ce qui est caché sous le corps, redessiné en tireté :
-// 'pieds', 'bassin', ['pieds', 'bassin'] ou true = tout ; rien par défaut), fantome (true : la
-// silhouette seule en tireté, sans fond, pour montrer une position d'avant ; 'pieds' : les pieds
-// seulement), cheveux (true ; false = sans), oreilles (true), angle (dessus : rotation de toute la
-// figure à l'écran, degrés).
-//
+// 'pieds', 'bassin', ['pieds', 'bassin'] ou true ; rien par défaut), fantome (true : la silhouette
+// seule en tireté, sans fond, pour une position d'avant ; 'pieds' : les pieds seulement), cheveux
+// (true ; false = sans), oreilles (true), angle (rotation de toute la figure à l'écran, degrés,
+// autour de x, y : une vue de face « couchée par la planche »), objetP (devant le tronc et les
+// jambes, derrière les bras ; de dessus, derrière les bras et la tête), objetL (derrière tout).
+// Le point x, y : face et dos, au sol sous l'appui (comme le profil) ; dessus, l'aplomb du bassin.
+// Le résultat porte la géométrie du profil : .poignetP/L, .mainP/L { x, y, angle, axe, type },
+// .tete { x, y, haut, angle, pivot }, .pieds.P/L.cheville, .articulations, .boite, .sol, .echelle,
+// et .versVue(p) : un point du squelette 3D (mm, X devant, Y droite, Z haut) vers la vue.
+
 // ─── Les données exportées (homme ; pour(age) pour les autres) ──────────────────────────────────
 //
 //   segments[vue][nom] = [[t, demiLargeurExt, demiLargeurInt], …]   vue : face · dos · dessus
@@ -271,7 +283,7 @@ function demiTronc(g, angleBras) {
   // sous le bras levé, le flanc monte dans le bord du bras
   const xL = x.epaule + bras[0][2] * km * 0.92;
   const L = (a, b) => a + (b - a) * w;
-  const dxT = x.acromion - x.cou, dyT = (yA - hausse) - yC, p = g.pente;
+  const p = g.pente;
   const xS = L(xS0, x.aisselle);
   return [
     [0, yC - 34], [-x.cou * 0.6, yC - 34], [-x.cou, yC - 28],
@@ -679,7 +691,6 @@ function corps(o = {}, M) {
   const planaire = vue !== 'dessus';
   // ─ le tronc, le bassin, le cou, la tête
   if (planaire) {
-    const kT = Math.cos(S.penche * RAD);
     const aBras = c => {                   // l'angle du bras par rapport au tronc, dans le plan de la vue
       const v = sub(proj(J['coude' + c]), proj(J['epaule' + c]));
       const tU = uni(sub(proj(J.cou), proj(J.bassin))), bas_ = mul(tU, -1);
@@ -690,7 +701,6 @@ function corps(o = {}, M) {
     const gaucheEcran = vue === 'face' ? 'P' : 'L';
     const tr = deuxMoities(demiTronc(g, aBras(gaucheEcran)), demiTronc(g, aBras(gaucheEcran === 'P' ? 'L' : 'P')));
     const Rt = q => { const v = rotZ(rotX(rotY([0, (vue === 'face' ? -1 : 1) * q[0], -q[1]], S.penche), S.cote), S.azT); return proj(v); };
-    void kT;
     pc('tronc', tr.map(Rt), 0.01);
     const Rb = q => proj(rotZ([0, (vue === 'face' ? -1 : 1) * q[0], -q[1]], S.azB));
     pc('bassin', bassinFaceDe(g).map(Rb), 0, { voisins: [{ id: 'tronc', joint: Rb([0, -150]), R: 9999 }] });
@@ -710,7 +720,6 @@ function corps(o = {}, M) {
     const chev = o.cheveux === false ? null : C.cheveux[vue].map(Rh);
     pc('tete', teteP, zTete, { fusion: ore, cheveux: chev, voisins: [{ id: 'cou', joint: c1, R: vue === 'face' ? 0 : 9999 }, { id: 'tronc', joint: c0, R: vue === 'face' ? 0 : 9999 }] });
   } else {
-    const sp = Math.sin(S.penche * RAD);
     const Rt = q => rot(q, S.azT), Rb = q => rot(q, S.azB);
     const zT = J.cou[2];
     pc('bassin', bassinDessusDe(g).map(Rb), 0, { cache: o.caches === true || o.caches === 'bassin' || (Array.isArray(o.caches) && o.caches.includes('bassin')), groupe: 'bassin' });
@@ -724,16 +733,14 @@ function corps(o = {}, M) {
       fusion: [C.nez.dessus.map(Rh), ...(o.oreilles === false ? [] : C.oreilles.dessus.map(r => r.map(Rh)))],
       cheveux: o.cheveux === false ? null : C.cheveux.dessus.map(Rh), groupe: 'tete',
     });
-    void sp;
   }
   // ─ les membres
   const nExt = (c, dd, p0) => {
     if (vue === 'dessus') {
       // perpendiculaire à l'os, du côté opposé à l'axe du corps
-      let n = [-dd[1], dd[0]]; const vers = sub(p0, proj([0, 0, 0]));
+      let n = [-dd[1], dd[0]];
       const lat = rot([0, sgn(c)], S.azT);
       if (dot(n, lat) < 0) n = mul(n, -1);
-      void vers;
       return n;
     }
     const ecranGauche = (vue === 'face') === (c === 'P');
@@ -907,14 +914,12 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
       const derriere = gr.pieces.filter(q => q !== p && q.z < p.z);
       if (!derriere.length) continue;
       const devant = gr.pieces.filter(q => q !== p && q.z > p.z);
-      const zones = [];
       let region = [];
       for (const q of derriere) {
         const v = (p.voisins || []).find(w => w.id === q.id) || (q.voisins || []).find(w => w.id === p.id);
         let rq = q.CL;
         if (v && v.R > 0) rq = I.moins(rq, disque(v.joint, Math.min(v.R, 4000)));
         region = I.unionCL([region, rq]);
-        void zones;
       }
       if (devant.length) region = I.moins(region, I.unionCL(devant.map(q => q.CL)));
       lignes.push(...I.bordsDans(p.CL, I.decale(region, -E)));
