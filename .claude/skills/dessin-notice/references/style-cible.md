@@ -1,8 +1,8 @@
 # Le style que JP veut (13 octobre 2026)
 
 JP a envoyé `style/mains-cible-jp.png` : une planche de mains au trait (gestes, pince, pouce levé,
-prise d'un crayon), en disant « de quoi ça a l'air ». **C'est une image d'origine inconnue, sans
-licence vérifiée : elle sert de référence de style, elle ne se décalque pas et ne s'imprime pas.**
+prise d'un crayon), en disant « de quoi ça a l'air ». C'est une image d'origine inconnue, sans
+licence vérifiée ; JP a autorisé le calque pour usage personnel le 13 octobre (voir plus bas).
 
 Ce qui la rend belle, et que nos essais n'avaient pas :
 
@@ -26,12 +26,13 @@ d'une main photographiée, simplifié. Il ne se construit pas par calcul — six
 JP a ajouté trois images : un corps de femme face et dos (peau beige, trait fin), un tableau
 homme-femme face et dos (filigrane 123RF : un aperçu de banque d'images, pas une licence) et une
 planche de mains ombrées de rose, signée Kibbitzer (DeviantArt), avec des prises : bâton, corde,
-tasse, poing. Même règle que la première : **ces images sont protégées ou d'origine inconnue, elles
-ne se décalquent pas.** Le décalque des deux premières, repassé par le skill `encrage`, a été rejeté
-(« c'est de pire en pire »).
+tasse, poing. Elles sont protégées ou d'origine inconnue ; JP a tranché : « c'est pour usage personnel, it's
+all good, calque ». **On les calque fidèlement** avec `scripts/vectoriser.py`, et chaque calque est
+inscrit dans `images/credits.md`, à remplacer si le livre sort de l'usage personnel. Le décalque de la
+petite image de femme, repassé par le skill `encrage`, avait été rejeté (« c'est de pire en pire ») :
+calquer, c'est garder le trait du dessinateur, pas le refaire.
 
 Ce que le tableau 123RF montre, et qu'on garde : un seul trait gris foncé, égal, pour tout le
 contour ; les lignes intérieures (clavicules, pectoraux, nombril, genoux, omoplates) plus pâles et
 plus courtes ; aucun aplat de peau ; un visage réduit à des yeux, un nez et une bouche simples ; les
-sous-vêtements au même trait pâle. Pour s'en servir sans copier : acheter le vecteur, ou redessiner
-avec l'image à côté, jamais par-dessus.
+sous-vêtements au même trait pâle.

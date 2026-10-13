@@ -8,9 +8,9 @@ description: La passe d'encrage d'un dessinateur professionnel sur les dessins a
 > **État, 13 octobre 2026 : la première passe est rejetée.** Le décalque du petit corps de référence
 > de JP (271 px de large), repassé par ce skill, a été jugé « de pire en pire » : l'encrage lisse et
 > symétrise les défauts du décalque, il ne les enlève pas. Une forme fausse au départ reste fausse, en
-> plus propre. Et une image trouvée sur le web (filigrane de banque d'images, dessin signé) ne se
-> décalque pas : ce serait la copier. Ce skill ne sert que sur un dessin qu'on a le droit d'utiliser
-> et dont la forme est déjà juste.
+> plus propre. Le calque fidèle de `dessin-notice/scripts/vectoriser.py` l'a remplacé pour les
+> modèles : il garde le trait du dessinateur au lieu de le refaire. Ce skill ne sert plus que sur un
+> dessin construit dont la forme est déjà juste.
 
 Un décalque donne la forme juste, mais son trait est celui de l'image source : coupé là où les
 pixels s'éclaircissent, doublé là où deux bords se touchent, tremblé par l'agrandissement, avec des

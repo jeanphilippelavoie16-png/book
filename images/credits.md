@@ -994,3 +994,19 @@ Les licences non commerciales sont correctes pour un usage privé et à remplace
 | 89 | 7 | quart de page | La lampe a graisse allumee : coupelle basse, meche couchee, une seule pointe au bord | | | | à acquérir |
 | 89 | 8 | quart de page | Le contenant a cendres reglementaire : metal, fond sureleve, couvercle metallique, dehors, sur surface non com | | | | à acquérir |
 | 89 | 9 | demi-page | Trois gras a la meme temperature de piece, dans des pots identiques : suif d'orignal, gras d'ours noir, lard d | | | | à acquérir |
+
+## Modèles calqués pour les mains, les têtes et les corps des planches (13 octobre 2026)
+
+Images envoyées par JP comme modèles, sans licence libre. JP a autorisé le calque pour l'usage
+personnel du livre (13 octobre 2026). Les calques vivent dans `_reprise/scratchpad/modeles/calque/` ;
+une planche qui en reprend un le dit dans sa fiche. **À remplacer si le livre se vend ou se donne
+hors de la famille.**
+
+- Tableau homme-femme, face et dos, au trait gris : aperçu à filigrane de la banque d'images 123RF,
+  auteur non relevé. Calque : `corps.svg`.
+- Planche de vingt mains (prises de bâton, de corde, de tasse, poing) : Kibbitzer, DeviantArt
+  (signature sur l'image). Calque : `mains-kibbitzer.svg`.
+- Planche de gestes de la main au trait (pince, pouce levé, crayon) : origine inconnue. Calque :
+  `mains-gestes.svg`.
+- Corps de femme face et dos, peau beige : origine inconnue. Pas repris (le tableau 123RF le remplace).
+
