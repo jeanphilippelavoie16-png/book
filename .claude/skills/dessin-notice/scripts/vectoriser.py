@@ -33,7 +33,10 @@ def chemin(masque, k, dx=0.0, dy=0.0, alphamax=1.0, opttol=0.2):
     """Masque → attribut d d'un path SVG, en pixels d'origine (remplissage evenodd)."""
     if not masque.any():
         return ''
-    pl = potrace.Bitmap(~masque).trace(turdsize=2, alphamax=alphamax, opticurve=True, opttolerance=opttol)
+    try:
+        pl = potrace.Bitmap(~masque).trace(turdsize=2, alphamax=alphamax, opticurve=True, opttolerance=opttol)
+    except ValueError:                             # potrace (python) bute parfois sur une racine négative
+        pl = potrace.Bitmap(~masque).trace(turdsize=2, alphamax=alphamax, opticurve=False)   # dans _opticurve
     q = lambda p: f'{p.x / k + dx:.2f},{p.y / k + dy:.2f}'
     d = []
     for c in pl:

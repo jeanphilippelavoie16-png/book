@@ -182,6 +182,25 @@ def shoo():
 #                 "parties": [{ "poly": [[x, y], …], "pivot": [x, y], "angle": -28, "rayon": 15 }] }
 # angle en degrés (sens horaire à l'écran) ; la rotation monte de 0 au pivot à angle à rayon px :
 # l'articulation plie au lieu de casser.
+# Deux options de plus (bibliothèque B, 13 oct.) :
+#   "couper": [[[x, y], …]]   des polygones ôtés de l'encre ET du blanc (un doigt qu'on retire en entier,
+#                             pas seulement ses plis : effacer ne touche que l'encre) ;
+#   "greffe": [{ "source": "s17", "poly": [[x, y], …], "pivot": [x, y], "angle": 12, "decalage": [dx, dy] }]
+#                             un morceau d'une autre main (ou de la même) recollé par-dessus : le poly et le
+#                             pivot sont en pixels de SA source (pivot absent : le centre du poly), le morceau
+#                             tourne d'angle autour du pivot puis glisse de decalage, en pixels de la pose.
+#                             Comme une partie pliée, il passe devant et son blanc cache ce qui est dessous.
+# Une fermeture de poignet propre à la pose se met sous l'id de la pose dans un fermetures*.json.
+# Deux options d'une partie (bibliothèque A, 13 oct.), en pixels de la source comme son poly :
+#   "charniere": [[x, y], [x, y]]  le segment des jointures : la partie y reste soudée sur toute sa
+#                             longueur et la rotation monte avec la distance à ce segment (sur rayon px) ;
+#                             sert à plier un bloc large (les quatre doigts) sans fendre la main ;
+#   "garder": [[[x, y], …]]   l'encre de ces polygones part avec la partie ET reste en place : le trait
+#                             commun à deux morceaux qu'on écarte (le dessous de l'index, le dessus du pouce).
+#   "decaler": [[x, dy], …]   au lieu de plier : la partie glisse verticalement de dy(x) (interpolé entre
+#                             les stations, en px de la source) ; pivot, angle et rayon sont ignorés.
+# Et une option de la pose : "rogner": px  rogne le blanc qui dépasse du trait (la frange qu'une partie
+#                             écartée laisse le long du trait gardé) ; le blanc enfermé par le trait reste.
 SOURCES = {'s': ('mains5-tons.pkl', 4, 3.0), 'g': ('mains1-tons.pkl', 6, 2.0), 'k': ('mains4-masques.pkl', 6, 3.0),
            'h': ('homme7-encre.pkl', 4, 6.0), 'c': ('corps6-encre.pkl', 8, 2.0)}
 
@@ -199,8 +218,10 @@ def masques_modele(ident):
     return enc, om, silhouette(enc, om, k, FERMER.get(ident, [])), k, b
 
 
-def plier(m, k, poly, pivot, angle, rayon):
-    """(la partie de m dans poly, pliée autour de pivot ; le reste de m)."""
+def plier(m, k, poly, pivot, angle, rayon, charniere=None):
+    """(la partie de m dans poly, pliée autour de pivot ; le reste de m). charniere [[x, y], [x, y]] :
+    la rotation monte avec la distance à ce segment (la ligne des jointures) au lieu de la distance au
+    pivot ; la partie reste soudée tout le long du segment, pas seulement au pivot."""
     from skimage.draw import polygon as remplir
     zone = np.zeros_like(m)
     rr, cc = remplir(np.array([q[1] for q in poly]) * k, np.array([q[0] for q in poly]) * k, m.shape)
@@ -210,14 +231,38 @@ def plier(m, k, poly, pivot, angle, rayon):
     cy, cx = pivot[1] * k, pivot[0] * k
     yy, xx = np.mgrid[:H, :W].astype(float)
     r, phi = np.hypot(xx - cx, yy - cy), np.arctan2(yy - cy, xx - cx)
-    t = np.clip(r / (rayon * k), 0, 1)
+    if charniere:                                  # distance au segment des jointures
+        (ax, ay), (bx, by) = [(q[0] * k, q[1] * k) for q in charniere]
+        vx, vy = bx - ax, by - ay
+        u = np.clip(((xx - ax) * vx + (yy - ay) * vy) / (vx * vx + vy * vy), 0, 1)
+        t = np.clip(np.hypot(xx - ax - u * vx, yy - ay - u * vy) / (rayon * k), 0, 1)
+    else:
+        t = np.clip(r / (rayon * k), 0, 1)
     th = np.deg2rad(angle) * t * t * (3 - 2 * t)
     src = ndi.map_coordinates(partie.astype(float), [cy + r * np.sin(phi - th), cx + r * np.cos(phi - th)], order=1) > 0.5
     return src, reste
 
 
+def decaler(m, k, poly, stations, M=0):
+    """(la partie de m dans poly glissée verticalement de dy(x) ; le reste de m). stations [[x, dy], …]
+    en pixels de la source, dy interpolé entre elles (constant au-delà) : ramène un renflement sur une
+    ligne (le gras du pouce sur la ligne doigts-poignet) sans fendre la main."""
+    from skimage.draw import polygon as remplir
+    zone = np.zeros_like(m)
+    rr, cc = remplir(np.array([q[1] for q in poly]) * k, np.array([q[0] for q in poly]) * k, m.shape)
+    zone[rr, cc] = True
+    partie, reste = m & zone, m & ~zone
+    H, W = m.shape
+    xs = np.array([q[0] + M for q in stations]) * k; ds = np.array([q[1] for q in stations]) * k
+    dy = ndi.gaussian_filter1d(np.interp(np.arange(W, dtype=float), xs, ds), 2 * k, mode='nearest')   # sans coude
+    yy, xx = np.mgrid[:H, :W].astype(float)
+    return ndi.map_coordinates(partie.astype(float), [yy - dy[None, :], xx], order=1) > 0.5, reste
+
+
 def articuler(ident, spec):
     enc, om, sil, k, b = masques_modele(spec['source'])
+    if ident in FERMER:                            # la fermeture propre à la pose (en pixels de la source)
+        sil = silhouette(enc, om, k, FERMER.get(spec['source'], []) + FERMER[ident])
     M = spec.get('marge', 0)                       # place autour du modèle pour un bras qui s'écarte (px) ;
     if M:                                          # les coordonnées du nouveau modèle sont décalées de M
         pad = lambda m: np.pad(m, int(M * k))
@@ -228,6 +273,11 @@ def articuler(ident, spec):
                 'parties': [{**pt, 'poly': [dec(q) for q in pt['poly']], 'pivot': dec(pt['pivot'])} for pt in spec.get('parties', [])]}
     for x0, y0, x1, y1 in spec.get('effacer', []):
         enc[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)] = False
+    from skimage.draw import polygon as remplir
+    for poly in spec.get('couper', []):
+        q = [[x + M, y + M] for x, y in poly]
+        rr, cc = remplir(np.array([y for x, y in q]) * k, np.array([x for x, y in q]) * k, enc.shape)
+        enc[rr, cc] = False; sil[rr, cc] = False; om[rr, cc] = False
     faits = []                                     # (pivot effectif, angle, parent) des parties déjà pliées
     def suivre(q, i):
         chaine = []
@@ -242,14 +292,44 @@ def articuler(ident, spec):
         par = pt.get('suit')                        # l'avant-bras suit le bras : son poly et son pivot ont tourné
         poly = [suivre(q, par) for q in pt['poly']]; pv = suivre(pt['pivot'], par)
         faits.append((pv, pt['angle'], par))
-        p_enc, r_enc = plier(enc, k, poly, pv, pt['angle'], pt['rayon'])
-        p_sil, r_sil = plier(sil, k, poly, pv, pt['angle'], pt['rayon'])
+        ch = [[q[0] + M, q[1] + M] for q in pt['charniere']] if pt.get('charniere') else None
+        garde = np.zeros_like(enc)                 # "garder" : l'encre de ces polygones part avec la partie
+        for gp in pt.get('garder', []):            # ET reste en place (le trait commun au pouce et à l'index)
+            rr, cc = remplir(np.array([y + M for x, y in gp]) * k, np.array([x + M for x, y in gp]) * k, enc.shape)
+            garde[rr, cc] = True
+        garde &= enc
+        if pt.get('decaler'):                      # glisser la partie d'une hauteur qui varie le long de x
+            p_enc, r_enc = decaler(enc, k, poly, pt['decaler'], M)
+            p_sil, r_sil = decaler(sil, k, poly, pt['decaler'], M)
+        else:
+            p_enc, r_enc = plier(enc, k, poly, pv, pt['angle'], pt['rayon'], ch)
+            p_sil, r_sil = plier(sil, k, poly, pv, pt['angle'], pt['rayon'], ch)
         dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
-        enc = (r_enc & ~dedans) | p_enc            # la partie passe devant : son blanc cache le reste
+        enc = (r_enc & ~dedans) | p_enc | garde    # la partie passe devant : son blanc cache le reste
         sil = r_sil | p_sil
+    for g in spec.get('greffe', []):
+        g_enc, _, g_sil, kg, _ = masques_modele(g['source'])
+        poly = g['poly']
+        cx_s, cy_s = g.get('pivot', [float(np.mean([q[0] for q in poly])), float(np.mean([q[1] for q in poly]))])
+        zone = np.zeros_like(g_enc)
+        rr, cc = remplir(np.array([q[1] for q in poly]) * kg, np.array([q[0] for q in poly]) * kg, g_enc.shape)
+        zone[rr, cc] = True
+        th = np.deg2rad(g.get('angle', 0)); dx, dy = g.get('decalage', [0, 0])
+        H, W = enc.shape
+        yy, xx = np.mgrid[:H, :W].astype(float)
+        u, v = xx / k - (cx_s + dx + M), yy / k - (cy_s + dy + M)          # pose → source, à l'envers
+        sx = cx_s + u * np.cos(th) + v * np.sin(th); sy = cy_s - u * np.sin(th) + v * np.cos(th)
+        tirer = lambda m: ndi.map_coordinates((m & zone).astype(float), [sy * kg, sx * kg], order=1) > 0.5
+        p_enc, p_sil = tirer(g_enc), tirer(g_sil)
+        dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
+        enc = (enc & ~dedans) | p_enc
+        sil = sil | p_sil
     enc = nettoyer(enc, k, 1.0)
+    if spec.get('rogner'):                         # "rogner": px — le blanc qui dépasse du trait (une frange
+        r_ = max(1, int(spec['rogner'] * k))       # laissée par une partie écartée) est rogné : le blanc
+        sil = ndi.binary_erosion(sil, structure=disk(r_)) | ndi.binary_fill_holes(enc)   # s'arrête au trait
     sil = ndi.binary_fill_holes(ndi.binary_closing(sil | enc, structure=disk(max(1, int(1.0 * k)))))   # pas de jour dans le blanc
-    poids_l = POIDS.get(ident[0], [1.0])
+    poids_l = POIDS.get(ident[0]) or POIDS.get(spec['source'][0], [1.0])   # b… : les poids de sa source
     src = f"pose construite sur {spec['source']}"
     ecrire(ident, enc, om, k, b, src, poids_l[0], sil)
     for p2 in poids_l[1:]:
