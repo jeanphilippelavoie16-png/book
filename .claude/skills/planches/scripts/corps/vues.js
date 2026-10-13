@@ -528,7 +528,8 @@ function lirePose(o, M) {
       const fs = require('fs'), path = require('path'), f = path.join(__dirname, 'poses.json');
       if (fs.existsSync(f)) { const pj = JSON.parse(fs.readFileSync(f, 'utf8')); liste = Array.isArray(pj) ? pj : (pj.poses || Object.values(pj)); }
     } catch (e) { liste = null; }
-    if (Array.isArray(liste)) pd = liste.find(q => q && q.id === id && q.vue === vue) || liste.find(q => q && q.id === id && (!q.vue || q.vue === 'profil')) || null;
+    if (Array.isArray(liste)) pd = liste.find(q => q && q.id === id && q.vue === vue) || liste.find(q => q && q.id === id && (!q.vue || q.vue === 'profil'))
+      || liste.find(q => q && q.id === id) || null;      // une pose de face rendue de dos (et l'inverse) : mêmes angles 3D (agent 5)
     if (!pd && M && M.poses && M.poses[id]) pd = { ...M.poses[id], vue: 'profil' };
     if (!pd) pd = { vue: 'profil', angles: {} };
   }
@@ -554,7 +555,11 @@ function squelette3D(P, C) {
   const azB = num(A.tourneBassin), azT = azB + num(A.tourneTronc), azH = azT + num(A.tourneTete);
   let penche, cote, neck = 0, nod = 0, coteCou = 0;
   if (sorte === 'profil' || sorte === 'dessus') { penche = num(A.tronc); neck = num(A.cou, 12) - penche; nod = num(A.tete) - num(A.cou, 12); cote = 0; }
-  else { penche = num(A.penche); cote = num(A.tronc); coteCou = num(A.cou); nod = 0; neck = sorte === 'face' || sorte === 'dos' ? 10 : 0; }
+  else {
+    // face, dos : tronc, cou, tête en angles ABSOLUS (comme de profil), + = penché vers SA droite (P) ;
+    // rotX tourne vers sa gauche pour un angle positif, d'où le signe moins (agent 5)
+    penche = num(A.penche); cote = -num(A.tronc); coteCou = -(num(A.cou) - num(A.tronc)); nod = 0; neck = sorte === 'face' || sorte === 'dos' ? 10 : 0;
+  }
   // le repère du tronc : penché vers l'avant (autour de Y), puis vers le côté (autour de X), puis tourné
   const RT = v => rotZ(rotX(rotY(v, penche), cote), azT);
   const RB = v => rotZ(v, azB);
@@ -565,7 +570,7 @@ function squelette3D(P, C) {
   J.cou = RT([0, 0, hC]);
   const dCou = n3(rotZ(rotX(rotY([0, 0, 1], penche + neck), cote + coteCou), azT));
   J.pivot = a3(J.cou, m3(dCou, Lg.cou));
-  J.teteRep = { penche: penche + neck + nod, cote: cote + coteCou + num(A.tete) * (sorte === 'face' || sorte === 'dos' ? 1 : 0), az: azH };
+  J.teteRep = { penche: penche + neck + nod, cote: cote + coteCou - (num(A.tete) - num(A.cou)) * (sorte === 'face' || sorte === 'dos' ? 1 : 0), az: azH };
   const dir = {};
   for (const c of ['P', 'L']) {
     const s = sgn(c);
@@ -678,7 +683,7 @@ function corps(o = {}, M) {
   if (vue === 'dessus' && P.sorte !== 'face' && P.sorte !== 'dos' && Math.abs(+P.A.tronc || 0) >= 60 && !o._couche) {
     const ph = +P.A.tronc, A2 = {};
     for (const [k, v] of Object.entries(P.A)) A2[k] = (typeof v === 'number' && /^(bras|avantbras|main|cuisse|jambe|pied)[PL]$/.test(k)) ? v + ph : v;
-    A2.tronc = 0; A2.cou = (+P.A.cou || 0) + ph; A2.tete = (+P.A.tete || 0) + ph;
+    A2.tronc = 0; A2.cou = (+P.A.cou || 0) - ph; A2.tete = (+P.A.tete || 0) - ph;   // cou, tête : comme le tronc (0 = haut), ils se redressent à l'inverse des membres
     return corps({ ...o, vue: ph < 0 ? 'face' : 'dos', pose: { vue: 'profil', id: P.id, angles: A2, mains: P.mains, pieds: P.pieds }, angles: {}, _couche: { dos: ph < 0, az: +P.A.tourneBassin || 0 } }, M);
   }
   const S = squelette3D(P, C), J = S.J;
@@ -871,7 +876,9 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     for (const P_ of gr.CL) {
       if (CLmod.Clipper.Orientation(P_)) { garde.push(P_); continue; }
       const plein_ = I.union([I.deCL(P_)]);
-      if (!I.ouvre(plein_, 10).length) gr.fentes.push(I.deCL(P_).concat([I.deCL(P_)[0]]));
+      // un trou minuscule (moins de 25 cm², le creux de la taille contre le bras) se bouche sans laisser
+      // de bord : sa boucle fermée se lisait comme un « o » parasite sur le flanc (agent 5)
+      if (!I.ouvre(plein_, 10).length) { if (Math.abs(CLmod.Clipper.Area(P_)) / (SC * SC) >= 2500) gr.fentes.push(I.deCL(P_).concat([I.deCL(P_)[0]])); }
       else garde.push(P_);
     }
     gr.CL = garde;
