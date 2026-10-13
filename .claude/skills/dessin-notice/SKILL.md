@@ -9,6 +9,8 @@ description: Dessiner les mains, les têtes et les personnages des planches du G
 > doigts croches, têtes et corps laids). Les outils ici donnent la position juste et un trait net,
 > mais pas encore une forme belle. Ne livre rien de neuf sans un vrai modèle à décalquer (photo de
 > JP, planche du domaine public), et ne te fie pas à ton propre œil pour juger une main.
+> **Le style visé est dans `references/style-cible.md`** (trait fin égal, proportions vraies,
+> poignet ouvert, ongles quand ils se voient) : il remplace la manche de chandail et le trait épais.
 
 Le corps humain est ce que JP regarde en premier sur une planche, et ce qu'il rejette le plus vite.
 Six essais ont raté avant celui-ci ; ce skill garde ce qui a marché et pourquoi le reste a échoué.
