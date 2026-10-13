@@ -630,7 +630,13 @@ function squelette3D(P, C) {
       const v = A[k + c];
       let u;
       if (Array.isArray(v) || (v && typeof v === 'object')) { const az = Array.isArray(v) ? v[0] : v.az, el = Array.isArray(v) ? v[1] : v.el; u = spherique(az, el, c); u = rotZ(u, ['cuisse', 'jambe'].includes(k) ? azB : azT); }
-      else if (sorte === 'face' || sorte === 'dos') u = rotZ(frontal(num(v, k === 'main' ? num(A['avantbras' + c]) : 0), rac[k + c], c), ['cuisse', 'jambe'].includes(k) ? azB : azT);
+      else if (sorte === 'face' || sorte === 'dos') {
+        // une pose écrite de face : un membre qui croise vers l'intérieur passe devant le corps (de
+        // dos, il est caché derrière) ; sans raccourci donné, il vient un peu vers l'avant
+        const ang = num(v, k === 'main' ? num(A['avantbras' + c]) : 0);
+        const rk = rac[k + c] !== undefined ? rac[k + c] : (sorte === 'face' && ang < -20 && !['cuisse', 'jambe'].includes(k) ? 0.92 : undefined);
+        u = rotZ(frontal(ang, rk, c), ['cuisse', 'jambe'].includes(k) ? azB : azT);
+      }
       else if (sorte === 'dessus' && typeof v === 'number' && P.elev[k + c] != null) u = rotZ(spherique(v, P.elev[k + c], c), ['cuisse', 'jambe'].includes(k) ? azB : azT);
       else {
         // un angle de profil ; les bras s'écartent un peu, les genoux s'ouvrent quand la cuisse plie
@@ -671,6 +677,32 @@ function squelette3D(P, C) {
   // assis (siege, mm sous la fesse) : le sol à cette hauteur ; chaque pied le rejoint en pliant le
   // genou (deux os, le genou du côté où il était) s'il peut ; sinon (l'enfant sur la chaise) il pend
   let sol = null;
+  // debout : le pied qui flotte de quelques centimètres se pose (le genou plie ; si la jambe est
+  // trop courte, la cheville glisse un peu vers l'aplomb de la hanche)
+  if (!P.siege && P.appui === 'pieds' && !A.piedsAu) {
+    const zMin = Math.min(J.chevilleP[2], J.chevilleL[2]);
+    const Lc = Lg.cuisse, Lj = Lg.jambe;
+    for (const c of ['P', 'L']) {
+      const H = J['hanche' + c], K0 = J['genou' + c], A0 = J['cheville' + c];
+      const ecart = A0[2] - zMin;
+      if (ecart < 0.5 || ecart > 160) continue;
+      let T = [A0[0], A0[1], zMin];
+      let D = [T[0] - H[0], T[1] - H[1], T[2] - H[2]], d = Math.hypot(...D);
+      if (d >= Lc + Lj - 1) {
+        const hz = T[2] - H[2], rh = Math.hypot(D[0], D[1]), rMax = Math.sqrt(Math.max(0, (Lc + Lj - 2) ** 2 - hz * hz));
+        if (rh > 1e-6) { T = [H[0] + D[0] * rMax / rh, H[1] + D[1] * rMax / rh, T[2]]; D = [T[0] - H[0], T[1] - H[1], T[2] - H[2]]; d = Math.hypot(...D); }
+      }
+      if (d >= Lc + Lj - 0.5 || d <= Math.abs(Lc - Lj) + 1) continue;
+      const u = m3(D, 1 / d), k0 = [K0[0] - H[0], K0[1] - H[1], K0[2] - H[2]];
+      const pr = k0[0] * u[0] + k0[1] * u[1] + k0[2] * u[2];
+      let w = [k0[0] - u[0] * pr, k0[1] - u[1] * pr, k0[2] - u[2] * pr];
+      w = Math.hypot(...w) < 1e-6 ? [1, 0, 0] : n3(w);
+      const a = (Lc * Lc - Lj * Lj + d * d) / (2 * d), h = Math.sqrt(Math.max(0, Lc * Lc - a * a));
+      const K = a3(H, a3(m3(u, a), m3(w, h)));
+      J['genou' + c] = K; J['cheville' + c] = T;
+      dir['cuisse' + c] = n3([K[0] - H[0], K[1] - H[1], K[2] - H[2]]); dir['jambe' + c] = n3([T[0] - K[0], T[1] - K[1], T[2] - K[2]]);
+    }
+  }
   if (P.siege && P.appui === 'pieds') {
     const zFesse = -0.9 * (g.z.hanche - g.z.entrejambe) - 10;
     sol = zFesse - P.siege;
@@ -773,7 +805,14 @@ function corps(o = {}, M) {
   const S = squelette3D(P, C), J = S.J;
   const SEG = C.segments[vue];
   // la projection : écran (mm, y vers le bas) et profondeur (+ vers l'œil)
-  const proj = vue === 'face' ? p => [-p[1], -p[2]] : vue === 'dos' ? p => [p[1], -p[2]] : p => [p[0], p[1]];
+  // de face et de dos, l'œil est un peu au-dessus (plongée, 10° par défaut, comme dans une notice) :
+  // ce qui vient vers lui descend un peu à l'écran ; un avant-bras pointé vers l'œil se lit en
+  // cylindre court au lieu de se réduire à son bout. Un corps debout n'en change pas.
+  const pl = (o.plongee == null ? 10 : o.plongee) * RAD, sp_ = Math.sin(pl), cp_ = Math.cos(pl);
+  // (la plongée ne vaut qu'au-dessus des hanches : les pieds restent posés sur la même ligne de sol)
+  const kP = z => sp_ * lisseEtape(-60, 220, z);
+  const proj = vue === 'face' ? p => [-p[1], -p[2] + p[0] * kP(p[2])] : vue === 'dos' ? p => [p[1], -p[2] - p[0] * kP(p[2])] : p => [p[0], p[1]];
+  void cp_;
   const prof = vue === 'face' ? p => p[0] : vue === 'dos' ? p => -p[0] : p => p[2];
   const pieces = [], geo0 = {}, angB = { P: 0, L: 0 };
   const pc = (id, poly, z, extra = {}) => pieces.push({ id, poly, z, ...extra });
@@ -859,6 +898,18 @@ function corps(o = {}, M) {
     pc(id, tube(p0, p1, table, nExt(id.slice(-1), dd, p0), bouts, r, dSec), z, { p0, p1, r, ...extra });
   };
   const zDe = (a, b) => (prof(a) + prof(b)) / 2;
+  // la profondeur d'un morceau de bras de face ou de dos : comparée à la surface du tronc sous lui
+  // (une ellipse), pas à son axe. Le bras le long du flanc reste devant ; l'avant-bras qui croise le
+  // ventre est devant de face, caché de dos.
+  const zBras = (a, b) => {
+    const m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2];
+    if (!planaire) return prof(m);
+    const zc = J.cou[2] || 1, k = Math.max(0, Math.min(1, m[2] / zc));
+    const xc = proj(J.bassin)[0] + (proj(J.cou)[0] - proj(J.bassin)[0]) * k, x = proj(m)[0] - xc;
+    const W = g.x.taille + (g.x.aisselle - g.x.taille) * k, D = vue === 'face' ? g.p.poitrine * (0.85 + 0.15 * k) : g.p.dos;
+    const surf = D * Math.sqrt(Math.max(0, 1 - (x / W) ** 2));
+    return prof(m) - surf + 45;
+  };
   const biais = planaire ? 60 : 0;          // un membre de face passe devant le tronc à profondeur égale
   const geo = { mains: {}, pieds: {}, ...geo0 };
   for (const c of ['P', 'L']) {
@@ -880,15 +931,19 @@ function corps(o = {}, M) {
     // le bras qui croise devant le corps : le deltoïde ne fait plus saillie dehors
     const wNb = planaire ? lisseEtape(-5, -45, angB[c]) : 0;
     const tabB = wNb > 0 ? SEG.bras.map(([t, e, i]) => [t, e + (Math.min(e, i + 2) - e) * wNb, i]) : SEG.bras;
-    os('bras' + c, E, El, tabB, BOUTS.bras, Lg.bras, zDe(E, El) + biais, { groupe: rang(E, El),
-      voisins: [{ id: 'tronc', joint: proj(E), R: planaire ? (g.z.epaule - g.z.aisselle) * 1.02 * kR(rB) : 0.7 * SEG.bras[0][1] }] });
+    os('bras' + c, E, El, tabB, BOUTS.bras, Lg.bras, zBras(E, El), { groupe: rang(E, El),
+      // la couture à l'épaule : assez grande pour cacher le bout lointain du bras, jamais au point
+      // d'avaler son bout proche (le coude qui vient vers l'œil)
+      voisins: [{ id: 'tronc', joint: proj(E), R: planaire ? Math.min((g.z.epaule - g.z.aisselle) * 1.02, Math.max(30, 0.75 * lon(sub(proj(El), proj(E))))) : 0.7 * SEG.bras[0][1] }] });
     // dessus : l'avant-bras reste dans le groupe du bras (sinon son bout rond se trace en couture au
     // coude), sauf s'il pend presque droit sous l'épaule ; de même la main avec l'avant-bras (agent 5)
     // (un avant-bras levé au-dessus de l'épaule garde son rang « haut » : sinon le groupe du tronc
     // monterait au-dessus de la tête et la cacherait)
     const gB = rang(E, El), rA0 = rang(El, W), gA = (!planaire && S.dir['avantbras' + c][2] > -0.85 && rA0 !== 'brashaut' + c) ? gB : rA0;
-    os('avantbras' + c, El, W, SEG.avantbras, BOUTS.avantbras, Lg.avantbras, zDe(El, W) + biais, { groupe: gA,
-      voisins: [{ id: 'bras' + c, joint: proj(El), R: 1.5 * SEG.avantbras[0][1] * (planaire ? kR(rA) : 1) }] });
+    os('avantbras' + c, El, W, SEG.avantbras, BOUTS.avantbras, Lg.avantbras, zBras(El, W) + 1, { groupe: gA,
+      // au coude : le bout lointain de l'avant-bras en raccourci (son rond au coude) reste caché ; le
+      // cylindre court se lit par ses côtés et son bout proche, que la main recouvre
+      voisins: [{ id: 'bras' + c, joint: proj(El), R: planaire ? Math.min(1.5, Math.max(1.0, 0.75 * lon(sub(proj(W), proj(El))) / SEG.avantbras[0][1])) * SEG.avantbras[0][1] : 1.5 * SEG.avantbras[0][1] }] });
     // la main : la forme d'extrémité, le long de la direction de la main, raccourcie ; vue de bout
     // (de face, une main qui vient vers l'œil), le poing ou la main vus par le bout des doigts
     const dM = S.dir['main' + c], tm = (P.mains && P.mains[c]) || 'ouverte';
@@ -901,14 +956,24 @@ function corps(o = {}, M) {
     // les mains de extremites.js portent déjà leur côté (le pouce) : pas de miroir
     const miroirM = em.ext ? false : (vue === 'dessus' ? c === 'L' : !ecranGauche);
     const deBout = rV < 0.6;
+    const poingF = planaire && /prise|poing|porte|pince/.test(tm);
     let TM, mainPoly, mainFus, mainDet;
-    if (deBout) {
+    if (poingF) {
+      // de face et de dos, le poing est une forme simple : arrondie, à peine plus large que le
+      // poignet, raccourcie le long de son axe (de bout : les jointures, un rond)
+      const u = lon(v2) > 1e-3 ? uni(v2) : uni(sub(proj(W), proj(El)));
+      const lg = (34 + 14 * rV) * km, la = (36 + 8 * rV) * km;
+      const C0 = add(p0, mul(u, lg * Math.max(rV, 0.35)));
+      mainPoly = superEllipse({ av: lg, ar: lg, w: la, n: 2.4, k: 56 }).map(q => add(C0, rot(q, Math.atan2(u[1], u[0]) / RAD)));
+      mainFus = []; mainDet = [];
+      TM = q => add(C0, rot([q[0] * km * 0.3, q[1] * km * 0.3], angM));
+    } else if (deBout) {
       // vue de bout : un rond (main ouverte : plus étroit), centré là où se projette le milieu de la
       // main, posé devant l'avant-bras ; d'en haut, la main qui pend n'est que sa section (la paume
       // contre la cuisse : longue d'avant en arrière, mince en travers)
       const poing = /prise|poing|porte|pince/.test(tm);
-      const C0 = add(p0, mul(v2, (poing ? 55 : 80) * km));
-      const ax = (planaire ? (poing ? 42 : 30) : (poing ? 40 : 44)) * km, ay = (planaire ? (poing ? 45 : 47) : (poing ? 34 : 16)) * km;
+      const C0 = add(p0, mul(v2, (poing ? 55 : 60) * km));
+      const ax = (planaire ? (poing ? 36 : 26) : (poing ? 40 : 44)) * km, ay = (planaire ? (poing ? 36 : 40) : (poing ? 34 : 16)) * km;
       mainPoly = planaire ? superEllipse({ cx: C0[0], cy: C0[1], av: ax, ar: ax, w: ay, n: 2.6, k: 56 })
         : superEllipse({ av: ax, ar: ax, w: ay, n: 2.4, k: 56 }).map(q => add(C0, rot(q, S.azT)));
       mainFus = []; mainDet = [];
@@ -917,11 +982,11 @@ function corps(o = {}, M) {
       TM = q => add(p0, rot([q[0] * km * rM, q[1] * km * (miroirM ? -1 : 1)], angM));
       mainPoly = em.contours.map(q => q.map(TM))[0]; mainFus = em.contours.slice(1).map(q => q.map(TM)); mainDet = em.details.map(q => q.map(TM));
     }
-    const zM = prof(W) + biais + (deBout ? 30 : 2);
+    const zM = zBras(W, a3(W, m3(dM, 60))) + (deBout || poingF ? 30 : 2);
     pc('main' + c, mainPoly, zM, { fusion: mainFus, details: mainDet, groupe: (() => { const rM0 = rang(W, a3(W, m3(dM, 90))); return (!planaire && S.dir['main' + c][2] > -0.85 && rM0 !== 'brashaut' + c) ? gA : rM0; })(),
       voisins: [{ id: 'avantbras' + c, joint: p0, R: 42 * km * (planaire ? kR(rV) : 1) }] });
     const rPrise = em.prise && em.prise.r != null ? em.prise.r * km : (P.prise && P.prise[c] ? P.prise[c] / 2 * km : (/prise|poing/.test(tm) ? 16 * km : null));
-    geo.mains[c] = { poignet: p0, prise: deBout ? add(p0, mul(v2, 55 * km)) : (em.prise ? TM([em.prise.x, em.prise.y]) : p0), angle: angM + (em.prise && em.prise.angle ? (miroirM ? -1 : 1) * em.prise.angle : 0), axe: angM, type: tm, r: rPrise, deBout };
+    geo.mains[c] = { poignet: p0, prise: poingF ? TM([0, 0]) : deBout ? add(p0, mul(v2, 55 * km)) : (em.prise ? TM([em.prise.x, em.prise.y]) : p0), angle: angM + (em.prise && em.prise.angle ? (miroirM ? -1 : 1) * em.prise.angle : 0), axe: angM, type: tm, r: rPrise, deBout };
     // le pied
     const tp = (typeof P.pieds === 'string' ? P.pieds : (P.pieds && P.pieds[c])) || 'botte';
     const kp = Lg.pied / 266;
@@ -1031,6 +1096,9 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
   const disque = (c, r) => [I.versCL(Array.from({ length: 40 }, (_, k) => add(c, [r * Math.cos(k / 40 * 2 * Math.PI), r * Math.sin(k / 40 * 2 * Math.PI)])))];
 
   // les groupes, du plus bas (loin) au plus haut (près de l'œil)
+  // de face et de dos, un morceau de bras nettement derrière le tronc (le bras qui croise devant le
+  // corps, vu de dos ; la main dans le dos, vue de face) est le côté loin : gris, derrière le corps
+  if (planaire) for (const p of pieces) if (/^(bras|avantbras|main)[PL]$/.test(p.id) && p.z < -20) p.groupe = 'loin';
   const G = {};
   for (const p of pieces) (G[p.groupe] = G[p.groupe] || { id: p.groupe, pieces: [] }).pieces.push(p);
   const CLmod = require('./clipper');
@@ -1067,15 +1135,20 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
   const tirets = [];
   for (const gr of ordre) {
     const plus = ordre.filter(h => h.z > gr.z);
-    if (!planaire && plus.length && (gr.id === 'bassin' || gr.id === 'jambes' || /^brasbas/.test(gr.id))) {
+    if (plus.length && (gr.id === 'loin' || (!planaire && (gr.id === 'bassin' || gr.id === 'jambes' || /^brasbas/.test(gr.id))))) {
       // ce qui ne dépasse qu'en mince filet ou en lambeau de ce qui est au-dessus ne se dessine pas
       // (un double trait, un croissant) : le ventre sous la poitrine, le bras qui pend sous l'épaule
       const dessus_ = I.unionCL(plus.map(h => h.CL));
-      const vis = I.ouvre(I.moins(gr.CL, dessus_), gr.id === 'bassin' ? 18 : /^brasbas/.test(gr.id) ? 20 : 12);
+      let vis = I.ouvre(I.moins(gr.CL, dessus_), gr.id === 'bassin' ? 18 : /^brasbas/.test(gr.id) ? 20 : gr.id === 'loin' ? 15 : 12);
+      // côté loin : un bout gris plus petit qu'un poing (le moignon d'avant-bras au coude) ne se dessine pas
+      if (gr.id === 'loin') {
+        const ext = vis.filter(q => CLmod.Clipper.Orientation(q) && Math.abs(CLmod.Clipper.Area(q)) / (SC * SC) >= 2200);
+        vis = ext.length ? ext.concat(vis.filter(q => !CLmod.Clipper.Orientation(q))) : [];
+      }
       gr.CL = vis.length ? I.inter(gr.CL, I.unionCL([I.decale(vis, 4), I.decale(dessus_, -2)])) : [];
       if (!gr.CL.length) { for (const p of gr.pieces) if (p.cache) tirets.push(...I.bordsDans(p.CL, I.decale(dessus_, -E))); continue; }
     }
-    out.push(plein(gr.CL, BLANC));
+    out.push(plein(gr.CL, gr.id === 'loin' ? GRIS : BLANC));
     // les cheveux, gris, dans la tête (moins ce qui passe devant la tête)
     for (const p of gr.pieces) if (p.cheveux) {
       const devant = gr.pieces.filter(q => q.z > p.z);
@@ -1093,15 +1166,19 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
       const derriere = gr.pieces.filter(q => q !== p && q.z < p.z);
       if (!derriere.length) continue;
       const devant = gr.pieces.filter(q => q !== p && q.z > p.z);
-      const zones = [];
+      const zones = [], zonesCL = [];
       for (const q of gr.pieces) {
         if (q === p) continue;
         const v = (p.voisins || []).find(w => w.id === q.id) || (q.voisins || []).find(w => w.id === p.id);
-        if (v && v.R > 0) zones.push(disque(v.joint, Math.min(v.R, 4000))[0]);
+        // une couture « totale » (tronc et bassin, cou, pied) : la zone est la pièce voisine elle-même
+        // (pas un disque géant, qui empêcherait le tronc de tracer son bord devant un membre)
+        if (v && v.R >= 9999) zonesCL.push(...I.decale(q.CL, 2));
+        else if (v && v.R > 0) zones.push(disque(v.joint, Math.min(v.R, 4000))[0]);
       }
       let region = gr.CL;
       if (devant.length) region = I.moins(region, I.unionCL(devant.map(q => q.CL)));
       if (zones.length) region = I.moins(region, I.unionCL([zones]));
+      if (zonesCL.length) region = I.moins(region, zonesCL);
       lignes.push(...I.bordsDans(p.CL, I.decale(region, -E)));
     }
     out.push(ligne(lignes, tr.int), ligne(gr.fentes, tr.int, '', 4));
