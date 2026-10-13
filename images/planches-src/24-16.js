@@ -168,10 +168,11 @@ module.exports = (h) => {
   const N1 = [-94, -250], N2 = [-120, -180];
   const LAC1 = [[46, -130], [0, -180], [-52, -222], N1];
   const LAC2 = [[-56, -48], [-80, -110], [-104, -155], N2];
-  // les deux mains : le point pincé, l'angle (les doigts vers le nœud), la main gauche en miroir
+  // les deux mains : le point pincé, l'angle du modèle s09 en miroir (les pulpes vers le nœud,
+  // l'avant-bras qui part à l'opposé)
   const MAINS = [
-    { P: [-166, -338], angle: 50, cote: 'droite', sort: [-3, -6], mi: [-130, -296] },
-    { P: [-192, -276], angle: 180 - 6, cote: 'gauche', sort: [-8, -2], mi: [-142, -262] },
+    { P: [-166, -338], angle: 76, sort: [-3, -6], mi: [-130, -296] },
+    { P: [-192, -276], angle: -8, sort: [-8, -2], mi: [-142, -262] },
   ];
   const LCENTRE = [-120, -210], LRAYON = 290, LACET = 5;
   // Le genou au sol est la jambe « loin » de la posture 'genou' du personnage : genou (−58, −58),
@@ -241,11 +242,15 @@ module.exports = (h) => {
     o.push(h.ellipse(...V(...N1), 9 * e, 7.5 * e, bl(h.a.detail)));
     for (const M of MAINS) {
       const [px, py] = V(...M.P);
-      o.push(F.main({ x: px, y: py, pose: 'pince', vue: 'profil', echelle: e, angle: M.angle, cote: M.cote, bras: 160 }));
+      // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : le bout du lacet entre les
+      // deux pulpes ; le lacet s'est dessiné avant, la main le cache
+      o.push(F.modele('s09', { x: px, y: py, ancre: [17, 66], miroir: true, angle: M.angle, echelle: e, masquer: [[200, 0, 230, 125]],
+        bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } }));
     }
     // les flèches : chaque main tire son bout, loin du nœud
-    o.push(h.fleche(`M${V(-112, -396).map(f1).join(' ')} L${V(-136, -424).map(f1).join(' ')}`));
-    o.push(h.fleche(`M${V(-238, -322).map(f1).join(' ')} L${V(-282, -322).map(f1).join(' ')}`));
+    // (à côté des mains calquées : l'une le long de l'avant-bras qui monte, l'autre au-dessus de celui qui part à gauche)
+    o.push(h.fleche(`M${V(-116, -420).map(f1).join(' ')} L${V(-128, -462).map(f1).join(' ')}`));
+    o.push(h.fleche(`M${V(-300, -332).map(f1).join(' ')} L${V(-356, -332).map(f1).join(' ')}`));
     o.push('</g>');
     o.push(h.cercle(C[0], C[1], R, h.a.detail));
     return o.join('\n');

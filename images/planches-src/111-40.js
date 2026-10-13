@@ -75,7 +75,11 @@ module.exports = (h) => {
     const bas = colle ? [bx - 4.5, yHaut] : [px, py + ell];
     const fil = F.corde([[px, py - 6], bas], { ep: 2, debut: 'coupe', fin: 'coupe' }).toString();
     const out = [dessinLame(lm), pince({ ...lm.prise, a: [0, 1] }), aimantRect(bas[0], bas[1])];
-    out.push(F.main({ x: px, y: py, pose: 'pince', vue: 'profil', echelle: 0.34, bras: 26, objet: fil }).toString());
+    // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : le fil pincé entre les deux
+    // pulpes, l'avant-bras qui part à gauche ; le fil se dessine d'abord, la main le cache
+    out.push(fil);
+    out.push(F.modele('s09', { x: px, y: py, ancre: [17, 66], miroir: true, echelle: 0.34, masquer: [[200, 0, 230, 125]],
+      bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } }).toString());
     if (!colle) out.push(h.fleche(`M${f(bx - 7)} ${f(yHaut + 5)} Q${f((bx + px) / 2 + 2)} ${f(yHaut + 26)} ${f(px + 7)} ${f(py + ell + 11)}`));
     return { svg: decoupe(id, z, out.join('\n')), bx, hy, px, py, bas, lm };
   };

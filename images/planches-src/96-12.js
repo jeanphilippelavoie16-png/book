@@ -160,8 +160,11 @@ module.exports = (h) => ({
         const tige = [[x - ec, yh + 4], [x - ec / 3, yh - 1], [x + ec / 3, yh + 6], [x + ec, yh + 1],
           [x + ec, yp - 13], [x, yp], [x - ec, yp - 13]];
         const objet = h.chemin(tige, h.a.blanc, true) + '\n' + h.chemin(tige, h.a.arete, true);
-        const m = h.formes.main({ x, y: ym, pose: 'prise', vue: 'paume', cote: 'gauche', angle: 180, diametre: 2 * ec, echelle: g.e, objet, bras: 45 });
-        return String(m);
+        // modèle s11 (poing fermé, vu de la paume) tourné d'un quart : l'avant-bras part à gauche, le
+        // pouce en bas ; la tige, peinte d'abord, passe dans le poing (25 px de bâton = la tige)
+        const m = h.formes.modele('s11', { x, y: ym, ancre: [68, 42], angle: 90, echelle: 2 * ec / 25, masquer: [[0, 150, 140, 175]],
+          bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
+        return objet + '\n' + String(m);
       },
       renvois: z => {
         const g = geoTige(z);

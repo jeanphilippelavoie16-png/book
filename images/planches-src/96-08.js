@@ -235,7 +235,10 @@ module.exports = (h) => {
               feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, 120, 8, -cote, null, (i + k) % 2 ? 3 : 2));
             }
           });
-          const m = F.main({ x: P(0, 0)[0], y: P(0, 0)[1], pose: 'prise', vue: 'dos', diametre: 14 * s, echelle: s, bras: 40 });
+          // modèle s11 (poing fermé, vu de la paume) en miroir et tourné d'un quart : l'avant-bras part
+          // à gauche et sort du cadre, le pouce en haut ; les tiges traversent le poing
+          const m = F.modele('s11', { x: P(0, 0)[0], y: P(0, 0)[1], ancre: [68, 42], angle: 90, miroir: true, echelle: 0.8 * s, masquer: [[0, 150, 140, 175]],
+            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 70 * s, fin: 'ouvert' } });
           out.push(hautTiges, feuilles.join('\n'), m);
           out.push(doubleFleche(`M ${pt(P(196, -60))} L ${pt(P(196, 70))}`));
           return out.join('\n');
@@ -374,10 +377,13 @@ module.exports = (h) => {
           out.push(union(nod.map(([a, b]) => capsule(P(...a), P(...b), 2 * s, 2.4 * s)), 1.4));
           for (const [x, y] of [[-20, -9], [-14, -11], [16, -9], [12, -12], [-8, -8], [8, -8]]) out.push(h.cercle(...P(x, y), 1.2, A.plein));
           out.push(bol(P));
-          // le pilon, tenu au poing
-          const pil = `M ${pt(P(-15, -224))} L ${pt(P(-15, -27))} A ${r1(15 * s)} ${r1(15 * s)} 0 0 0 ${pt(P(15, -27))} L ${pt(P(15, -224))} A ${r1(15 * s)} ${r1(15 * s)} 0 0 0 ${pt(P(-15, -224))} Z`;
+          // le pilon, tenu au poing (au diamètre du poing du modèle)
+          const pil = `M ${pt(P(-12.5, -224))} L ${pt(P(-12.5, -27))} A ${r1(12.5 * s)} ${r1(12.5 * s)} 0 0 0 ${pt(P(12.5, -27))} L ${pt(P(12.5, -224))} A ${r1(12.5 * s)} ${r1(12.5 * s)} 0 0 0 ${pt(P(-12.5, -224))} Z`;
           out.push(h.path(pil, A.hachure('bois', 'contour')));
-          out.push(F.main({ x: P(0, -165)[0], y: P(0, -165)[1], pose: 'prise', vue: 'dos', diametre: 30 * s, echelle: s, bras: 40 }));
+          // modèle s11 (poing fermé, vu de la paume) en miroir et tourné d'un quart : l'avant-bras part
+          // à gauche et sort du cadre, le pouce en haut ; le pilon traverse le poing
+          out.push(F.modele('s11', { x: P(0, -165)[0], y: P(0, -165)[1], ancre: [68, 42], angle: 90, miroir: true, echelle: 1.0 * s, masquer: [[0, 150, 140, 175]],
+            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
           out.push(h.fleche(`M ${pt(P(100, -225))} L ${pt(P(100, -135))}`, A.arete));
           return out.join('\n');
         },

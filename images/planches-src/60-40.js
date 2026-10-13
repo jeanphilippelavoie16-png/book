@@ -99,7 +99,7 @@ module.exports = (h) => {
   // combien le tronc penche, la tête ; où les mains prennent le cerceau (angle sur le cerceau, 0 à
   // droite, -90 en haut). DEVIE : de combien une prise peut tourner hors du rayon du cerceau pour
   // suivre l'avant-bras (le reste du pli se fait au poignet).
-  const PARAM = { x1: 240, p1: 28, r1: 25, a1: { proche: -115, loin: -102 }, x2: 660, p2: 20, r2: 30, dy2: 0, a2: { proche: -93, loin: -82 }, devie: 25 };
+  const PARAM = { x1: 240, p1: 28, r1: 25, a1: { proche: -121, loin: -97 }, x2: 660, p2: 20, r2: 30, dy2: 0, a2: { proche: -93, loin: -82 }, devie: 25 };
   // ─── Vu de l'arrière ──────────────────────────────────────────────────────────────────────
   // Une vraie coupe en travers : le bordé coupé en U (aplat noir), le banc du milieu coupé
   // (hachure bois), le plat-bord coupé de chaque côté. Au-delà de la coupe, rien du bateau sauf
@@ -175,15 +175,11 @@ module.exports = (h) => {
     // s'arrête au poignet de la prise (la palette du personnage est découpée) et l'avant-bras de
     // la prise prolonge le sien. Celle du fond, au-delà du cerceau, le tient par derrière : ses
     // mains sont cachées par le filet, on voit ses bras jusqu'aux poignets, posés sur le bois.
-    const EM = E * 0.85, BRAS_M = 20;
+    const SM = 60 * E / 54.5; // le poignet du modèle (54,5 px) à la largeur du bras du personnage au poignet (60 mm)
     const radial = deg => [Math.cos(deg * RAD), Math.sin(deg * RAD)];
     const angleDe = v => Math.atan2(v[1], v[0]) / RAD;
     const borneA = (a, c, d) => { let x = a - c; while (x > 180) x -= 360; while (x < -180) x += 360; return c + Math.max(-d, Math.min(d, x)); };
     const K = ['proche', 'loin'];
-    const bordsPrise = (G, ang) => {
-      const Rl = EPC / 2 / EM, pre = Math.atan(-0.22) / RAD, c0 = tourne([12 - 0.05 * Rl, 0], pre), cut = -88 - BRAS_M;
-      return [[cut, -33], [cut, 34]].map(p => { const q = tourne(tourne(p, pre).map((v, i) => (v - c0[i]) * EM), ang); return [G[0] + q[0], G[1] + q[1]]; });
-    };
     const tient = (base, angles) => {
       let dir = { proche: radial(angles.proche), loin: radial(angles.loin) }, pers, mains, cibles;
       for (let it = 0; it < 8; it++) {
@@ -191,9 +187,14 @@ module.exports = (h) => {
         for (const k of K) {
           const G = surCerceau(angles[k]);
           const aBras = borneA(angleDe(dir[k]), angles[k], PARAM.devie); // l'avant-bras, près du rayon
-          const m = F.main({ x: G[0], y: G[1], pose: 'prise', vue: 'dos', echelle: EM, angle: aBras - 180, diametre: EPC, bras: BRAS_M });
-          m.bords = bordsPrise(G, aBras - 180);
-          mains[k] = m; cibles[k] = m.bras;
+          // modèle s11 (poing fermé, le bois passe dans le poing ; bâton du modèle ≈ 25 px) :
+          // l'avant-bras du modèle, vers le bas, tourné dans la direction de l'avant-bras du personnage ;
+          // le poignet du modèle (y = 150) s'arrête là, le bras du personnage le prolonge
+          const m = F.modele('s11', { x: G[0], y: G[1], ancre: [68, 42], angle: aBras - 90, echelle: SM, miroir: k === 'loin',
+            masquer: [[0, 150, 140, 175]] });
+          m.bords = [m.P([21.8, 150]), m.P([76.3, 150])];
+          { const t = m.P([68, 42]); m.trou = { x: t[0], y: t[1] }; }
+          mains[k] = m; cibles[k] = m.P([49, 150]);
         }
         pers = F.personnage({ ...base, mains: cibles });
         for (const k of K) { const u = uni([pers.mains[k][0] - pers.poignets[k][0], pers.mains[k][1] - pers.poignets[k][1]]); dir[k] = [-u[0], -u[1]]; }
@@ -206,7 +207,7 @@ module.exports = (h) => {
         return 'M-50 -50 H' + f1(z.l + 50) + ' V' + f1(z.h + 50) + ' H-50 Z M' + q.map(pt).join(' L') + ' Z';
       });
       const poignets = K.map(k => {
-        const P = cibles[k], u = [-dir[k][0], -dir[k][1]], n = [-u[1], u[0]], w = 25.5 * E;
+        const P = cibles[k], u = [-dir[k][0], -dir[k][1]], n = [-u[1], u[0]], w = 54.5 * SM / 2;
         let [a, b] = mains[k].bords;
         const pA = [P[0] + n[0] * w, P[1] + n[1] * w], pB = [P[0] - n[0] * w, P[1] - n[1] * w];
         if ((a[0] - P[0]) * n[0] + (a[1] - P[1]) * n[1] < 0) [a, b] = [b, a];
@@ -248,7 +249,8 @@ module.exports = (h) => {
     out.push(h.cercle(C[0], C[1], R - EPC / 2, A.hachure('grillage', 'arete')));
     out.push(h.path(vague(C[0] - R - 6, C[0] + R + 6, Y0, 1.6, 34), A.arete));
     // les deux mains de devant, sur le bois, et leurs poignets
-    out.push(...L1.poignets, String(L1.mains.loin), String(L1.mains.proche));
+    // (le poignet du modèle tombe sur celui du personnage : plus de raccord à dessiner)
+    out.push(String(L1.mains.loin), String(L1.mains.proche));
     // la coupe, la plus près de l'œil : le banc du milieu, le bordé, les plats-bords
     const yb = -150, eb = 32;
     const banc = [[cote(yb, -1), yb], [cote(yb, 1), yb], [cote(yb + eb, 1), yb + eb], [cote(yb + eb, -1), yb + eb]];

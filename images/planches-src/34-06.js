@@ -244,7 +244,11 @@ module.exports = (h) => {
     // le geste : enfoncer la charge
     out.push(h.fleche(`M${P(surBaton(-22, 14))} L${P(surBaton(-52, 14))}`));
     // la main sur le bâton
-    out.push(String(h.formes.main({ x: HM[0], y: HM[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: ANG, echelle: 0.5, diametre: 12, bras: 190, objet: baton() })));
+    // modèle s11 (poing fermé), main gauche, tourné pour que le bâton (12 de diamètre, 25 px dans le
+    // modèle) suive HAUT : le pouce en haut, l'avant-bras à droite, qui finit ouvert
+    out.push(baton());
+    out.push(String(h.formes.modele('s11', { x: HM[0], y: HM[1], ancre: [68, 42], angle: ANG - 90, echelle: 12 / 25,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 90, fin: 'ouvert' } })));
     return out.join('\n');
   };
 

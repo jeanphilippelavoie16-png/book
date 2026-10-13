@@ -280,11 +280,17 @@ module.exports = (h) => {
     const xc = xFin, yc = yFin;
     o.push(h.chemin([[xc, yc - EP - 8], [xc + 3, yc - EP + 2], [xc - 3, yc - 2], [xc, yc + 6]], A.detail));
     // la main à plat sur le grain, venue par-dessus la perche
-    const m = F.main({ x: xm, y: surf(xm), pose: 'appui', vue: 'profil', echelle: k, bras: 70, inclinaison: 42 });
+    // modèle s10-plat (la main à plat de côté) retourné : la paume posée sur le grain, le pouce
+    // dessous, les doigts vers l'arrière de la claie, l'avant-bras qui remonte à gauche ; tourné de
+    // 10,3° de plus pour que le bout des doigts et le dessous du pouce touchent tous deux le grain
+    const tg = Math.atan2(surf(xm + 45) - surf(xm + 35), 10) * 180 / Math.PI;
+    const m = F.modele('s10-plat', { x: xm + 40, y: surf(xm + 40) - 0.5, ancre: [100, 31], angle: 180 + 10.3 + tg, echelle: 0.89 * k,
+      masquer: [[228, 0, 245, 125]], bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } });
     o.push(m);
     // brasser : aller-retour à plat
-    const yb = surf(xm) - 58;
-    o.push(double(`M${pt([xm - 26, yb])} Q${pt([xm + 34, yb - 10])} ${pt([xm + 94, yb])}`, A.arete));
+    // (au-dessus de la main calquée, dont l'avant-bras remonte à gauche)
+    const yb = surf(xm) - 70;
+    o.push(double(`M${pt([xm + 8, yb])} Q${pt([xm + 63, yb - 10])} ${pt([xm + 118, yb])}`, A.arete));
     return o.join('\n');
   };
 

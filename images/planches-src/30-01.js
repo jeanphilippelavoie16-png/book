@@ -54,8 +54,10 @@ module.exports = (h) => {
     out.push(h.path('M 191,105 Q 194.5,112 195.2,122 L 195.2,199', h.a.detail));
     out.push(h.path('M 193.2,104.2 Q 197,111.5 197.6,122 L 197.6,199.5', h.a.detail));
     // la main sous le filet : de profil, côté pouce, paume vers le haut en creux, l'avant-bras vers la personne
-    out.push(h.formes.main({ x: 206, y: 184, pose: 'boule', vue: 'profil', cote: 'gauche', diametre: 26, serre: 0.25,
-      echelle: 0.42, angle: 25, bras: 140 }));
+    // modèle s10 (la main tendue, paume en l'air, vue de côté) : le filet tombe dans le creux de la
+    // paume, l'avant-bras vers la personne
+    out.push(String(h.formes.modele('s10', { x: 196.4, y: 199, ancre: [100, 47], angle: -6, echelle: 0.42, masquer: [[228, 0, 245, 125]],
+      bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z, fin: 'ouvert' } })));
     // la branche en bout, sous l'avant de la botte
     out.push(h.cercle(br[0], br[1], 9, h.a.hachure('bois')));
     // la botte

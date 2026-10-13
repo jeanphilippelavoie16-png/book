@@ -121,7 +121,10 @@ module.exports = (h) => {
     out.push(pot.svg);
     // la main droite, paume à plat sur le fond du pot, doigts vers le haut, pouce à gauche ; le col et le couvercle restent à découvert, la bande se lit entre la main et l'épaule
     out.push(`<clipPath id="z2805-vueA"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`);
-    out.push(`<g clip-path="url(#z2805-vueA)">${h.formes.main({ x: XA + 46 * EA, y: YA - POT.R * EA + 4, pose: 'appui', vue: 'dos', echelle: EA, angle: -90, bras: 90 })}</g>`);
+    // modèle s03-dos-l3 (la main relâchée de s03 sans les plis de la paume, vue du dos), retournée
+    // doigts en haut et en miroir : le pouce à gauche ; l'avant-bras descend et sort du cadre
+    out.push(`<g clip-path="url(#z2805-vueA)">${h.formes.modele('s03-dos-l3', { x: XA + 46 * EA, y: YA - POT.R * EA + 4, ancre: [70, 90], angle: 180, miroir: true,
+      echelle: 1.0 * EA, masquer: [[0, 0, 125, 14]], bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } })}</g>`);
     return out.join('\n');
   };
 
@@ -215,7 +218,9 @@ module.exports = (h) => {
   // la paume d'une main droite, doigts en haut, à la même échelle que le pied ; le liseré foncé
   // au bord, des points dans le creux de la paume
   const paume = (x, y, e) => {
-    const m = h.formes.main({ x, y, pose: 'ouverte', vue: 'paume', cote: 'gauche', echelle: e, angle: 90, bras: 20 });
+    // modèle s03 (la main relâchée, paume vers l'œil) retourné, doigts en haut : les jointures en
+    // (x, y), le poignet ouvert en bas
+    const m = h.formes.modele('s03', { x, y, ancre: [68, 115], angle: 180, echelle: 1.12 * e });
     const sang = [[-40, -8, 1.4], [-58, 4, 1.2], [-30, 14, 1.5], [-70, -14, 1.3], [-50, 22, 1.2], [-22, -4, 1.2]];
     // repère de la main : jointures en (x, y), poignet à 94 mm plus bas ; les points dans la paume
     return [m, points(sang.map(([dy, dx, r]) => [x - dx * e, y - dy * e, r]))].join('\n');

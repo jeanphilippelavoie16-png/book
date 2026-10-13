@@ -201,9 +201,10 @@ module.exports = (h) => {
     const yS = P(0, 1000)[1];
     o.push(h.ligne(boyau[0][0] - 6, yS, boyau[0][0] + 6, yS, A.arete));
     o.push(bas.toString());
-    const ep = 2.8;
-    o.push(F.main({ x: poing[0], y: poing[1], pose: 'prise', vue: 'dos', cote: 'gauche', diametre: ep * 2.4, echelle: s * 2.2, bras: 60,
-      objet: F.corde(boyau.slice(0, 3), { ep, debut: 'ouvert', fin: 'ouvert' }).toString() }).toString());
+    // la main d'en haut : modèle s11 (poing fermé, vu de la paume) tourné d'un quart vers la gauche,
+    // le pouce en haut, l'avant-bras vers la droite ; le bout du boyau, vertical, traverse le poing
+    o.push(F.modele('s11', { x: poing[0], y: poing[1], ancre: [68, 42], angle: -112, echelle: 0.8 * s * 2.2, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 34 * s * 2.2, fin: 'ouvert' } }).toString());
     // L'eau du bas repasse sur les bottes.
     o.push(eau(Q, [[4830, 2600], [5160, 2600]], 2720), terre(Q, LIT_T, BHT + Y0T, 200));
     // Du poing au sol puis le long de la berge : le boyau passe du côté proche, devant les pieds.
@@ -229,8 +230,11 @@ module.exports = (h) => {
       h.ligne(cx - ri, yEnd, cx - ri, bas, A.fin), h.ligne(cx + ri, yEnd, cx + ri, bas, A.fin),
       h.ligne(cx - R, yEnd, cx - ri, yEnd, A.arete), h.ligne(cx + ri, yEnd, cx + R, yEnd, A.arete),
     ].join('\n');
-    const m = F.main({ x: cx, y: yMain, pose: 'prise', vue: 'dos', cote: 'gauche', diametre: 2 * R, echelle: e, bras: 40, objet: tuyau });
-    o.push(m.toString());
+    // le boyau, puis la main : modèle s11 (poing fermé, vu de la paume) tourné d'un quart vers la
+    // gauche, le pouce en haut, l'avant-bras vers la droite qui sort du cadre ; le boyau traverse le poing
+    o.push(tuyau);
+    o.push(F.modele('s11', { x: cx, y: yMain, ancre: [68, 42], angle: -90, echelle: 0.8 * e, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }).toString());
     // Le niveau de l'eau de la prise, et le geste : on lève.
     o.push(h.ligne(4, yEnd, cx - R - 3, yEnd, A.cache));
     const xf = cx - R - 16 * e;

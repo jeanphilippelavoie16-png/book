@@ -96,12 +96,13 @@ module.exports = (h) => {
     // la lame, droite, qui ne touche la peau qu'au sommet
     h.rect(64, 86, 160, 12, W(h.a.contour)),
     h.ligne(66, 94.5, 222, 94.5, h.a.detail),
-    // les poignées aux deux bouts
-    h.path(membre([[28, 92], [64, 92]], [16, 16], 'rond', 'plat'), W(h.a.arete)),
-    h.path(membre([[260, 92], [224, 92]], [16, 16], 'rond', 'plat'), W(h.a.arete)),
-    // un poing fermé sur chaque poignée, qui appuie vers le bas
-    h.formes.main({ x: 44, y: 92, pose: 'prise', vue: 'dos', diametre: 16, echelle: 0.42, angle: 90, cote: 'droite', bras: 58 }),
-    h.formes.main({ x: 244, y: 92, pose: 'prise', vue: 'dos', diametre: 16, echelle: 0.42, angle: -90, cote: 'gauche', bras: 58 }),
+    // les poignées aux deux bouts, au diamètre du poing du modèle
+    h.path(membre([[12, 92], [64, 92]], [11, 11], 'rond', 'plat'), W(h.a.arete)),
+    h.path(membre([[276, 92], [224, 92]], [11, 11], 'rond', 'plat'), W(h.a.arete)),
+    // un poing fermé sur chaque poignée, qui appuie vers le bas : modèle s11 (poing fermé, vu de la
+    // paume) retourné, l'avant-bras qui monte et sort du cadre, le pouce du côté de la lame
+    ...[[46, true], [242, false]].map(([x, mir]) => String(h.formes.modele('s11', { x, y: 92, ancre: [68, 42], angle: 180, echelle: 0.42, miroir: mir,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }))),
     h.fleche('M84,30 L84,54', h.a.arete),
     h.fleche('M204,30 L204,54', h.a.arete),
   ].join('\n');
@@ -150,7 +151,7 @@ module.exports = (h) => {
         renvois: z => [
           { n: 6, rond: [144, 218], cible: [144, 176], texte: 'billot gros comme une cuisse' },
           { n: 7, rond: [212, 128], cible: [171, 107.8], texte: 'la courbe présente la peau' },
-          { n: 8, rond: [22, 128], cible: [24, 94], texte: 'poignées aux deux bouts' },
+          { n: 8, rond: [22, 128], cible: [16, 92], texte: 'poignées aux deux bouts' },
         ],
       },
       angle: {

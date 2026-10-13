@@ -193,7 +193,12 @@ module.exports = (h) => {
   const centre = (x, y) => [x - 28 * E, y + 2 * E];      // le creux de la paume
   const dessinMains = z => {
     const { x, ys } = mains(z), out = [];
-    const main = y => h.formes.main({ x, y, pose: 'appui', vue: 'dos', echelle: E, bras: 18 });
+    // modèle s08-l5 (la main ouverte de s08, le poignet refermé) en miroir, couchée : la paume en
+    // l'air vue de dessus, les doigts à droite, le pouce en haut, l'avant-bras qui part à gauche ;
+    // le creux de la paume (68, 100) tombe au creux où se pose la motte
+    const main = y => { const [cx, cy] = centre(x, y);
+      return h.formes.modele('s08-l5', { x: cx, y: cy, ancre: [66, 100], miroir: true, angle: 60, echelle: 1.2 * E,
+        bras: { a: [104, 186], a0: [92, 170], b: [166, 152.5], b0: [152, 139], bord: z } }); };
     const R = 24 * E;
     // 10. trop sec : la motte s'est fendue en morceaux, les grains coulent entre les doigts
     {

@@ -8,7 +8,7 @@
 // Refaite le 12 octobre (JP : « seins weird, refait tout »). Le sein est un pictogramme
 // (règle 8) : de face, un rond fermé, l'aréole et le mamelon en deux cercles ; de profil, un
 // dôme simple qui part de la paroi, le mamelon en petite bosse. Aucune anatomie de plus.
-// La main est entière et vient de la bibliothèque (h.formes.main, pose « boule » : le « C »,
+// La main est calquée (modèle s01-c-l1, construit sur la main tendue de shoo_arts : le « C »,
 // le pouce dessus, les doigts dessous), l'avant-bras qui passe devant le torse. Elle reste à
 // la même place sur le sein d'une vue à l'autre : on ne glisse pas. Un geste : aucune cote.
 module.exports = (h) => {
@@ -26,8 +26,16 @@ module.exports = (h) => {
       h.cercle(N[0], N[1], RA, A.arete), h.cercle(N[0], N[1], RM, blanc('arete'))].join('\n');
   }
   // la main de face : le « C » autour de l'aréole, le pouce dessus, l'index dessous, à 4 cm
-  const mainFace = (N, angle = 0) => F.main({ x: N[0], y: N[1], pose: 'boule', vue: 'profil',
-    diametre: 80 * E, echelle: E, bras: 28, serre: 0.7, angle });
+  // La main en « C » : modèle s01-c-l1 (construit sur s01, la main tendue, le pouce levé et ouvert),
+  // en miroir : les doigts vers la droite sous l'aréole, le pouce dessus, l'avant-bras à gauche.
+  // L'ancre (165, 82) : le milieu du « C », entre le pouce et l'index (à 29 mm de chacun). Un court
+  // trait referme la peau entre le pouce et l'index, que le pli du pouce a ouverte.
+  const mainC = (C, angle = 0) => {
+    const m = F.modele('s01-c-l1', { x: C[0], y: C[1], ancre: [165, 82], angle, miroir: true, echelle: E });
+    const a = m.P([177.6, 91.6]), c = m.P([178.6, 94.6]), b = m.P([176.4, 97.6]);
+    return [String(m), h.path(`M ${P(a)} Q ${P(c)} ${P(b)}`, `fill="none" stroke="#1A1A1A" stroke-width="${f(m.trait)}" stroke-linecap="round"`)].join('\n');
+  };
+  const mainFace = (N, angle = 0) => mainC(N, angle);
 
   // ─── le sein de profil : la femme regarde à droite ─────────────────────────────────────
   // O : la paroi à hauteur du mamelon. Un dôme : la pente du dessus, l'arrondi du dessous qui
@@ -48,8 +56,7 @@ module.exports = (h) => {
   }
   // la main de profil : le même « C », le pouce sur le dessus du sein, l'index dessous
   const CP = [56, 2];
-  const mainProfil = (O, dx = 0) => F.main({ x: O[0] + (CP[0] + dx) * E, y: O[1] + CP[1] * E, pose: 'boule', vue: 'profil',
-    diametre: 82 * E, echelle: E, bras: 28, serre: 0.6 });
+  const mainProfil = (O, dx = 0) => mainC([O[0] + (CP[0] + dx) * E, O[1] + CP[1] * E]);
 
   function empreinte(C, rx, ry, rot, tiret) {
     const ov = (k) => { const pts = []; for (let t = 0; t < 360; t += 12) { const x = rx * k * Math.cos(t * RAD), y = ry * k * Math.sin(t * RAD); pts.push([C[0] + x * Math.cos(rot * RAD) - y * Math.sin(rot * RAD), C[1] + x * Math.sin(rot * RAD) + y * Math.cos(rot * RAD)]); } return pts; };

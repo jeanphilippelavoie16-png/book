@@ -278,7 +278,10 @@ module.exports = (h) => {
     out.push(dessinLame(lame(195, 250)));
     touffes.filter(t => t.Y <= Yh).sort((a, b) => b.Y - a.Y).forEach(t => out.push(touffe(t)));
     // la main qui tient la poignée (main gauche, vue du dos)
-    out.push(h.formes.main({ x: grip[0], y: grip[1], pose: 'prise', vue: 'dos', cote: 'gauche', echelle: s, diametre: 44 * s, bras: 130 }));
+    // modèle s11 (poing fermé) tourné d'un quart : la poignée debout dans le poing, le pouce en haut,
+    // l'avant-bras vers la droite, qui sort du cadre
+    out.push(String(h.formes.modele('s11', { x: grip[0], y: grip[1], ancre: [68, 42], angle: -90, echelle: 0.85 * s,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z, fin: 'ouvert' } })));
     // la faucille se tire vers soi
     const f0 = P([Xh + 250, Yh + 40, 175]), f1_ = P([Xh + 420, Yh + 40, 175]);
     out.push(h.fleche(`M${pt(f0)} L${pt(f1_)}`));

@@ -16,14 +16,14 @@ module.exports = (h) => {
   const E = 0.95;          // échelle des vues de l'exercice (unités de vue par mm)
   const DIAM = 54;         // la petite boîte de conserve vue par le bout, en mm
 
-  // Le poignet plié. B : le pivot (milieu de la coupe) ; mo : les options de main() ; a : l'angle
-  // de la main (+ : vers le bas) ; xa : où l'avant-bras sort de la vue, à gauche.
+  // Le poignet plié. B : le pivot (milieu de la coupe) ; mo : la main calquée (images/modeles) —
+  // id, coupe [bord dos, bord paume] en pixels du modèle (le poignet, là où la main est coupée),
+  // angle0, miroir, ech (unités de vue par pixel), masquer (ce qui passe la coupe), k (unités de vue
+  // par mm) ; a : l'angle de la main (+ : vers le bas) ; xa : où l'avant-bras sort de la vue, à gauche.
   function poignetPlie(B, mo, a, xa) {
-    const m0 = F.main(Object.assign({}, mo, { x: 0, y: 0, angle: a }));
-    const c0 = mul(add(m0.coupe[0], m0.coupe[1]), 0.5);
-    const d = sub(B, c0);
-    const m = F.main(Object.assign({}, mo, { x: d[0], y: d[1], angle: a }));
-    const cD = m.coupe[0], cP = m.coupe[1];                 // le bord dos, le bord paume
+    const ancre = mul(add(mo.coupe[0], mo.coupe[1]), 0.5);
+    const m = F.modele(mo.id, { x: B[0], y: B[1], ancre, angle: (mo.angle0 || 0) + a, miroir: mo.miroir, echelle: mo.ech, masquer: mo.masquer });
+    const cD = m.P(mo.coupe[0]), cP = m.P(mo.coupe[1]);     // le bord dos, le bord paume
     const t = Math.hypot(cD[0] - cP[0], cD[1] - cP[1]) / 2;
     const yD = B[1] - t, yP = B[1] + t;                     // l'avant-bras : dos en haut, paume en bas
     const u = rot([1, 0], a);
@@ -38,7 +38,7 @@ module.exports = (h) => {
     // la main d'abord ; puis les deux bords de l'avant-bras, prolongés de L sur le moignon de la
     // main ; puis le fond blanc, qui couvre la moitié intérieure de ces traits (la silhouette sort
     // à ~1,5 comme celle de la main) et le bout coupé du moignon
-    const L = 6 * (mo.echelle || 1);
+    const L = 6 * (mo.k || 1);
     const fL = add(ferme.c, mul(u, L)), oL = add(ouvre.c, mul(u, L));
     const traits = [
       `<path d="M${P([xa, ferme.y])} L${P(X)} L${P(fL)}" ${h.a.contour}/>`,
@@ -49,7 +49,7 @@ module.exports = (h) => {
       h.cercle(B[0], B[1], t, BLANC),
       `<path d="M${P(X)} L${P(fL)} L${P(oL)} L${P(ouvre.c)} L${P(B)} Z" ${BLANC}/>`,
     ].join('\n');
-    return { svg: [m.toString(), traits, fond].join('\n'), m, t, yD, yP, d };
+    return { svg: [m.toString(), traits, fond].join('\n'), m, t, yD, yP };
   }
 
   // La boîte vue par le bout : le rebord du couvercle et le creux du fond.
@@ -80,12 +80,14 @@ module.exports = (h) => {
   }
 
   const HAUT = -45, BAS = 50;                         // la main levée, la main descendue
-  const PRISE = { pose: 'prise', vue: 'profil', diametre: DIAM * E, echelle: E, bras: 12 };
+  // s05 (les doigts repliés, le pouce dessus) en miroir : l'avant-bras à gauche ; la boîte vue par
+  // le bout passe devant le poing, son centre au creux des doigts (48, 58), 34 px de rayon
+  const PRISE = { id: 's05', miroir: true, coupe: [[160, 34.5], [160, 95.1]], ech: DIAM * E / 2 / 34, masquer: [[160, 0, 240, 120]], k: E };
   const vueExercice = (a, depuis, temps, paumeEnHaut = false) => z => {
     const B = [z.l * 0.36, z.h * (paumeEnHaut ? 0.56 : 0.42)];
     const aa = paumeEnHaut ? -a : a;
     const pp = poignetPlie(B, PRISE, aa, 0);
-    const ct = [pp.m.trou.x, pp.m.trou.y], rt = pp.m.trou.r;
+    const ct = pp.m.P([48, 58]), rt = DIAM * E / 2;
     // l'angle du poing vu du poignet, et le rayon de l'arc, juste en dehors des doigts
     const vC = sub(ct, B), aC = Math.atan2(vC[1], vC[0]) / RAD, dC = Math.hypot(vC[0], vC[1]);
     const rho = dC + rt + 34 * E;
@@ -116,17 +118,22 @@ module.exports = (h) => {
   const ES = 0.8, INC = -10;
   const etirement = z => {
     const B = [z.l * 0.40, 40];
-    const PLAT = { pose: 'appui', vue: 'profil', inclinaison: 0, echelle: ES, bras: 12 };
+    // s10-plat (la main tendue, le pouce le long de l'index) retourné : paume en bas, doigts devant
+    const PLAT = { id: 's10-plat', angle0: 180, coupe: [[190, 106.4], [190, 56.2]], ech: 0.89 * ES, masquer: [[190, 0, 245, 125]], k: ES };
     const pp = poignetPlie(B, PLAT, 80, 0);
-    // le dos des doigts de la main pliée : du dos de la jointure au bout de l'index (repère de la main)
-    const V = q => add(pp.d, rot(mul(q, ES), 80));
-    const k0 = V([14, -27.5]), k1 = V([121, -13.5]);
+    // le dos des doigts de la main pliée : du dos de la jointure vers le bout des doigts (pixels du modèle)
+    const k0 = pp.m.P([125, 100]), k1 = pp.m.P([30, 77]);
     const th = Math.atan2(k1[1] - k0[1], k1[0] - k0[0]) / RAD;
     // l'autre main (la gauche), venue d'en dessous : sa paume à plat contre le dos des doigts,
     // ses doigts qui remontent jusqu'aux jointures ; c'est elle qui ramène les doigts vers soi
     const v = rot([1, 0], th), surf = add(k0, mul(v, 126 * ES));
-    const pousse = F.main({ x: surf[0], y: surf[1], pose: 'appui', vue: 'profil', cote: 'gauche', inclinaison: INC,
-      angle: th, echelle: ES, bras: 30 });
+    // s10-plat en miroir : le gras du pouce (115, 28) sur le dos des doigts, le bout des doigts (14, 47)
+    // vers les jointures, la paume tournée vers la main pliée ; l'avant-bras du modèle finit ouvert
+    const aDoigts = Math.atan2(-v[1], -v[0]) / RAD - Math.atan2(19, 101) / RAD;
+    // la paume collée au dos des doigts : le gras du pouce rentre un peu vers la main pliée
+    const colle = add(surf, mul(rot(v, 90), 9));
+    const pousse = F.modele('s10-plat', { x: colle[0], y: colle[1], ancre: [115, 28], angle: aDoigts + 4, miroir: true, echelle: 0.89 * ES,
+      masquer: [[228, 0, 245, 125]] });
     const rho = 150 * ES, pt = t => add(B, rot([rho, 0], t));
     const fl = h.fleche(`M${P(pt(22))} A${f1(rho)} ${f1(rho)} 0 0 1 ${P(pt(62))}`, h.a.arete);
     return { B, pp, pousse, rho, pt, main8: add(add(surf, mul(v, -30 * ES)), mul(rot([0, -1], th), 12 * ES)), svg: [pp.svg, pousse.toString(), fl].join('\n') };

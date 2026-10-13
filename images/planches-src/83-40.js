@@ -210,7 +210,11 @@ module.exports = (h) => {
       h.path(`M${pt(L(14, 16.6))} L${pt(L(78, 16.9))} L${pt(L(78, 20.1))} L${pt(L(14, 20.4))} Z`, W(A.detail)),
       h.path(`M${pt(L(78, 17.3))} L${pt(L(84, 17.6))} L${pt(L(84, 19.4))} L${pt(L(78, 19.7))} Z`, A.plein),
     ].join('\n');
-    o.push(h.formes.main({ x: g.c[0], y: g.c[1], pose: 'prise', vue: 'dos', echelle: s * 0.95, angle: 24, diametre: 10 * g.k, bras: 110, objet: briquet }));
+    // modèle s11 (poing fermé), en main droite (miroir), tourné pour que la poignée suive AX :
+    // le pouce en haut, du côté du tube ; l'avant-bras part à gauche et sort du cadre
+    o.push(briquet);
+    o.push(h.formes.modele('s11', { x: g.c[0], y: g.c[1], ancre: [68, 42], angle: 90 + 24, miroir: true, echelle: 0.85 * s,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     o.push(flamme(g.bout[0] + 1, g.bout[1] + 1, 16 * g.k, 7 * g.k, 1));
     return o.join('\n');
   };

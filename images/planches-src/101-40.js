@@ -211,8 +211,13 @@ module.exports = (h) => {
     const mitre = h.chemin([K(42, 12), K(49, 12), K(49, -12), K(42, -12)], A.plein, true);
     const manche = h.chemin([K(42, 11), K(-58, 11), K(-64, 7), K(-64, -7), K(-58, -11), K(42, -11)], A.hachure('bois', 'arete'), true);
     const mp = P(...Tm);
-    const m = F.main({ x: mp[0], y: mp[1], pose: 'prise', vue: 'dos', angle: ang, diametre: 22 * s, echelle: s, bras: 110, objet: [manche, mitre, lame, fil].join('\n') });
-    out.push(m);
+    // le couteau d'abord : le blanc de la main le cache dans le poing
+    out.push(manche, mitre, lame, fil);
+    // modèle s11 (poing fermé, vu de la paume) en miroir : la lame sort du côté de l'index, à
+    // gauche ; tourné comme la lame, l'avant-bras descend et sort de la loupe. Le manche (22) passe
+    // dans le poing du modèle (25 px).
+    out.push(F.modele('s11', { x: mp[0], y: mp[1], ancre: [68, 42], miroir: true, angle: ang + 90, echelle: 22 * s / 25,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     // le geste : tirer la lame d'un trait
     out.push(h.fleche(`M${r1(P(10, 38)[0])} ${r1(P(10, 38)[1])} L${r1(P(80, 38)[0])} ${r1(P(80, 38)[1])}`));
     // le sang : de la coupe, le long de la tête, puis goutte à goutte

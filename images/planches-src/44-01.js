@@ -168,7 +168,10 @@ module.exports = (h) => {
           out.push(sol(8, z.l - 8, yG));
           out.push(montage(P, s, { yHaut: 12, cache: false, ep: 2, pas: 2.4, graine: 20 }));
           // la main, qui tient le bâton comme pour marcher
-          out.push(h.formes.main({ x: xB, y: yMain, pose: 'prise', vue: 'dos', diametre: 2 * RB * s, echelle: s, bras: 110 }));
+          // modèle s11 (poing fermé, vu de la paume) en miroir et tourné d'un quart : l'avant-bras part
+          // à gauche et sort du cadre, le pouce en haut ; le bâton traverse le poing
+          out.push(h.formes.modele('s11', { x: xB, y: yMain, ancre: [68, 42], angle: 90, miroir: true, echelle: 1.2 * s, masquer: [[0, 150, 140, 175]],
+            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
           // on appuie le bâton à chaque pas ; on avance dans le sens des pointes
           out.push(h.fleche(`M${f([xB + 28, yMain + 30])} L${f([xB + 28, yMain + 88])}`, A.arete));
           const xt = decale(P, LOIN)([78, 0])[0];

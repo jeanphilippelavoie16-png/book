@@ -30,10 +30,12 @@ const POSES = {
 };
 function formesDuLanceur(h) {
   const cle = 'const POSES_P = {';
-  const src = fs.readFileSync(path.join(__dirname, '..', '..', '.claude', 'skills', 'planches', 'scripts', 'formes.js'), 'utf8');
+  const dirFormes = path.join(__dirname, '..', '..', '.claude', 'skills', 'planches', 'scripts');
+  const src = fs.readFileSync(path.join(dirFormes, 'formes.js'), 'utf8');
   if (!src.includes(cle)) throw new Error('47-01 : formes.js n’a plus « const POSES_P = { » ; revoir les poses du lanceur');
   const m = { exports: null };
-  new Function('module', 'require', src.replace(cle, `${cle} ...h.posesEnPlus,`))(m, require);
+  // __dirname : formes.js y trouve images/modeles (les modèles calqués)
+  new Function('module', 'require', '__dirname', src.replace(cle, `${cle} ...h.posesEnPlus,`))(m, require, dirFormes);
   return m.exports(Object.assign(Object.create(h), { posesEnPlus: POSES }));
 }
 
@@ -169,6 +171,16 @@ module.exports = (h) => {
     const talon = [[-62, -40], [-66, 0], [-62, 40]].map(p => add(c, tourne(mul(p, s), ang)));
     return [h.path(cr(pts, true), blanc(1.4)), h.path(cr(talon), A.fin)].join('\n');
   };
+  // Le poing calqué (modèle s11, poing fermé vu de la paume) sur un bout du bâton. C : le centre du
+  // bâton dans le poing ; angM : l'avant-bras part vers -(cos angM, sin angM) ; dB : où file le
+  // bâton, du côté du pouce et de l'index (le petit doigt sur le bout mousse) ; d : son épaisseur
+  // ech : l'échelle du modèle (le bâton, plat et large, déborde un peu le trou du poing). bras : l'avant-bras du modèle, à la longueur voulue.
+  const poingS11 = (C, angM, dB, ech, long) => {
+    const th = angM + 90, pouce = [Math.cos(th * RAD), Math.sin(th * RAD)];
+    return h.formes.modele('s11', { x: C[0], y: C[1], ancre: [68, 42], angle: th, miroir: pouce[0] * dB[0] + pouce[1] * dB[1] < 0,
+      echelle: ech, masquer: [[0, 150, 140, 175]],
+      bras: long ? { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long } : undefined });
+  };
   // Le lanceur vu de dessus : la tête ronde, l'ovale des épaules, le bras droit tendu le long de
   // l'arc qu'il balaie (au départ du geste, derrière lui) et le poing au bout.
   const mainDessus = g => {
@@ -184,13 +196,13 @@ module.exports = (h) => {
     const u = uni(sub(M, g.S));
     const tr = [-u[1], u[0]];                                            // tangent, à l'opposé du geste
     const angM = Math.atan2(u[1], u[0]) / RAD;                          // l'avant-bras de main() part vers +x
-    const cB = add(M, mul(tr, LB * 0.5 - 75 * E));
-    const m = h.formes.main({ x: M[0], y: M[1], pose: 'prise', vue: 'dos', echelle: E, angle: angM, diametre: BATON.w * LB,
-      objet: baton(cB, LB, Math.atan2(tr[1], tr[0]) / RAD) });
-    const W = m.bras.map(Number), w = 44 * E, n = [-u[1], u[0]];
+    const eM = 0.12, cB = add(M, mul(tr, LB * 0.5 - (53 * eM + 2)));   // le bout mousse dépasse du petit doigt
+    const m = poingS11(M, angM, tr, eM);
+    const W = m.P([49, 150]), w = 44 * E, n = [-u[1], u[0]];
     const brasP = [add(g.S, mul(n, w)), add(W, mul(n, w * 0.8)), sub(W, mul(n, w * 0.8)), sub(g.S, mul(n, w))];
     return [
       h.path(poly(brasP), blanc(1.4)),
+      baton(cB, LB, Math.atan2(tr[1], tr[0]) / RAD),
       m.toString(),
       `<ellipse cx="${f1(c[0])}" cy="${f1(c[1])}" rx="${f1(130 * E)}" ry="${f1(240 * E)}" ${blanc(1.4)}/>`,
       h.cercle(c[0] + 25 * E, c[1], 95 * E, blanc(1.4)),
@@ -299,9 +311,8 @@ module.exports = (h) => {
   // la main de la loupe, fermée sur un bout du bâton ; angM : l'angle de main() ; dB : où part le bâton
   const mainLoupe = (C, angM, dB, vue = 'dos') => {
     const L = 740 * SL;
-    const cB = add(C, mul(dB, L * 0.5 - 75 * SL));      // le bout mousse dépasse du poing
-    return h.formes.main({ x: C[0], y: C[1], pose: 'prise', vue, echelle: SL, angle: angM, diametre: BATON.w * L, bras: 260,
-      objet: baton(cB, L, Math.atan2(dB[1], dB[0]) / RAD) }).toString();
+    const eM = 0.4, cB = add(C, mul(dB, L * 0.5 - (53 * eM + 6)));      // le bout mousse dépasse du petit doigt
+    return [baton(cB, L, Math.atan2(dB[1], dB[0]) / RAD), poingS11(C, angM, dB, eM, 80).toString()].join('\n');
   };
 
   // ─── la vue du bâton : par la tranche, de face, en coupe ──────────────────────────────

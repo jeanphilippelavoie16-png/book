@@ -15,7 +15,7 @@
 // le reconnaître, pas à le fabriquer). Le pilon et le bol, les pierres et les braises, la casserole
 // et le pot sont des choix de dessin pour « écraser », « chauffer doucement » et « couler » : ce
 // qu'on trouve partout. Le filtrage se fait directement dans le pot : le linge chaud noué sur son
-// col, la casserole versée dedans. Les mains viennent de la bibliothèque de formes (prise, du dos).
+// col, la casserole versée dedans. Les mains sont le modèle calqué s11 (poing fermé).
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = v => Math.round(v * 10) / 10;
@@ -184,7 +184,7 @@ module.exports = (h) => {
   // ─── 3. Écraser ──────────────────────────────────────────────────────────────────────
   const BOL = { cx: 90, y: 100, rx: 60, ry: 11 };
   const pilonX = 100;
-  const ecraser = () => {
+  const ecraser = z => {
     const out = [];
     const { cx, y, rx, ry } = BOL;
     // le bol de bois, vu de côté
@@ -199,7 +199,10 @@ module.exports = (h) => {
     out.push(h.path(`M${pilonX - 6} ${haut + 4} Q${pilonX - 6} ${haut} ${pilonX} ${haut} Q${pilonX + 6} ${haut} ${pilonX + 6} ${haut + 4} L${pilonX + 8.5} ${bas - 6} Q${pilonX + 8.5} ${bas} ${pilonX} ${bas} Q${pilonX - 8.5} ${bas} ${pilonX - 8.5} ${bas - 6} Z`, blanc(1.4)));
     out.push(h.ligne(pilonX - 2, haut + 10, pilonX - 3, 40, h.a.fin), h.ligne(pilonX + 3, 70, pilonX + 4, 88, h.a.fin));
     // la main, du dos, qui serre le pilon
-    out.push(h.formes.main({ x: pilonX, y: 46, pose: 'prise', vue: 'dos', echelle: 0.4, diametre: 13, bras: 70 }));
+    // modèle s11 (poing fermé, vu de la paume) en miroir, tourné d'un quart : le pilon passe dans le
+    // poing, le pouce en haut, l'avant-bras qui part à gauche et sort du cadre
+    out.push(h.formes.modele('s11', { x: pilonX, y: 50, ancre: [68, 42], angle: 90, miroir: true, echelle: 0.42, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     // le coup, vers le bas
     out.push(h.fleche(`M${pilonX + 40} 24 L${pilonX + 40} 66`));
     return out.join('\n');
@@ -294,7 +297,7 @@ module.exports = (h) => {
   const bec = [JX - 2, 64];
   const centreCass = sub(bec, tourne([-casseLocal.l - 3, -casseLocal.h - 1], TILT));
   const C = p => add(centreCass, tourne(p, TILT));
-  const filtrer = () => {
+  const filtrer = z => {
     const out = [];
     // le pot en coupe : parois et fond pleins
     out.push(h.path(`M${JX - JR} ${JH} L${JX - JR} ${JB - 4} Q${JX - JR} ${JB} ${JX - JR + 4} ${JB} L${JX + JR - 4} ${JB} Q${JX + JR} ${JB} ${JX + JR} ${JB - 4} L${JX + JR} ${JH} L${JX + JR - EPM} ${JH} L${JX + JR - EPM} ${JB - EPM - 2} L${JX - JR + EPM} ${JB - EPM - 2} L${JX - JR + EPM} ${JH} Z`, h.a.plein));
@@ -323,12 +326,17 @@ module.exports = (h) => {
     out.push(h.path(`M${P(corps[0])} L${P(corps[1])} L${P(corps[2])} L${P(corps[3])} Q${P(C([-l, hc]))} ${P(corps[4])} L${P(corps[5])} Q${P(C([l, hc]))} ${P(corps[6])} L${P(corps[7])} L${P(corps[8])} Z`, blanc(2.4)));
     out.push(h.ligne(...C([-l + 1, -hc + 4]), ...C([l - 1, -hc + 4]), h.a.detail));
     const m0 = C([l, -hc + 7]), m1 = C([l + 56, -hc + 7]);
-    const prise = C([l + 42, -hc + 7]);
+    const prise = C([l + 32, -hc + 7]);
     const manche = [C([l, -hc + 4]), C([l + 58, -hc + 5]), C([l + 60, -hc + 7]), C([l + 58, -hc + 9]), C([l, -hc + 10])];
     const objet = h.path(`M${P(manche[0])} L${P(manche[1])} Q${P(manche[2])} ${P(manche[3])} L${P(manche[4])} Z`, blanc(1.4));
-    const axe = uni(sub(m0, m1));
-    const angle = Math.atan2(axe[0], -axe[1]) / RAD;
-    out.push(h.formes.main({ x: prise[0], y: prise[1], pose: 'prise', vue: 'dos', echelle: 0.4, diametre: 7, bras: 70, angle, objet }));
+    // modèle s11 (poing fermé, vu de la paume) en miroir : le manche passe dans le poing, le pouce
+    // du côté de la casserole, l'avant-bras perpendiculaire au manche, qui descend à droite ; le
+    // manche se dessine d'abord, son bout dépasse du poing
+    const d = uni(sub(m1, m0)), perp = [-d[1], d[0]];
+    const angle = Math.atan2(perp[1], perp[0]) / RAD - 90;
+    out.push(objet);
+    out.push(h.formes.modele('s11', { x: prise[0], y: prise[1], ancre: [68, 42], angle, miroir: true, echelle: 0.38, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     return out.join('\n');
   };
 

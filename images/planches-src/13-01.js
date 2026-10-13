@@ -20,7 +20,7 @@ module.exports = (h) => {
     }
     return ferme ? d + ' Z' : d;
   };
-  const MAIN_E = 0.62, MAIN_A = 100;
+  const MAIN_E = 0.66, MAIN_A = -82, MAIN_ANCRE = [30, 52];   // la main du palier : modèle s05
   const dep = (x, y, pts) => pts.map(([u, v]) => [x + u, y + v]);
 
   // Graine fixe pour la poussière : le dessin est le même à chaque composition.
@@ -121,7 +121,11 @@ module.exports = (h) => {
 
           // La main gauche referme le palier : la paume dessus, le pouce d'un côté, l'index et le
           // majeur de l'autre, le dessous libre pour le foret ; l'avant-bras monte.
-          out.push(h.formes.main({ x: F, y: P, pose: 'boule', vue: 'profil', diametre: 2 * RP, echelle: MAIN_E, angle: MAIN_A, bras: 55, serre: 1, objet: palierSvg + '\n' + cacheSvg }).svg);
+          // modèle s05 (doigts repliés, le pouce dessus) tourné : l'avant-bras monte, le bout des doigts
+          // et du pouce referment le haut du palier, peint d'abord (le blanc de la main le cache)
+          out.push(palierSvg, cacheSvg);
+          out.push(String(h.formes.modele('s05', { x: F, y: P, ancre: MAIN_ANCRE, angle: MAIN_A, echelle: MAIN_E,
+            masquer: [[222, 0, 240, 120]], bras: { a: [222, 39.1], a0: [200, 38.1], b: [222, 104.3], b0: [200, 100.8], bord: z } })));
 
           // Le va-et-vient de l'arc.
           const ya = yb - 55;

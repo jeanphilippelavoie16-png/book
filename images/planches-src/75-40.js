@@ -206,7 +206,11 @@ module.exports = (h) => {
     out.push(c.mitre);
     const grip = c.s0 + 0.5 * c.lm;
     const cen = c.K(grip, 0);
-    out.push(F.main({ x: r1(cen[0]), y: r1(cen[1]), pose: 'prise', vue: 'paume', angle: -90 - PENTE, echelle: e, diametre: r1(c.hm), bras: 18, objet: c.manche }));
+    // le manche, puis la main paume en haut : modèle s11 (poing fermé, vu de la paume), le manche
+    // couché dans le poing, le pouce du côté de la lame ; l'avant-bras descend et sort du cadre
+    out.push(c.manche);
+    out.push(F.modele('s11', { x: r1(cen[0]), y: r1(cen[1]), ancre: [68, 42], angle: -PENTE, echelle: 0.8 * e, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     return out.join('\n');
   };
 
@@ -329,7 +333,10 @@ module.exports = (h) => {
     });
     out.push(bra.join('\n'));
     // la main qui tire vers l'arrière, et le sens
-    out.push(F.main({ x: r1(g.pince[0]), y: r1(g.pince[1]), pose: 'pince', vue: 'profil', angle: -22, echelle: e, bras: 30 }));
+    // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : la pince sur les branchies,
+    // l'avant-bras qui repart vers la gauche
+    out.push(F.modele('s09', { x: r1(g.pince[0]), y: r1(g.pince[1]), ancre: [12, 66], angle: 12, miroir: true, echelle: 0.85 * e, masquer: [[200, 0, 230, 125]],
+      bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], long: 120 * e, fin: 'ouvert' } }));
     out.push(h.fleche(`M${f(P(1.05, 0.085))} L${f(P(1.26, 0.085))}`, A.arete));
     return out.join('\n');
   };

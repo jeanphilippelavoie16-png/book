@@ -63,18 +63,16 @@ module.exports = (h) => {
     const out = [];
     // la main sur le bâtonnet, entre les deux pattes
     const bat = baton(P, [-145, 0], [145, 0], 6, 30);
-    // la main gantée : la même prise, un peu plus forte (le gant épaissit les doigts), sans ongle
-    // ni pli (les traits de détail sautent), et le revers du gant qui remonte au-dessus du poignet
-    const sg = s * 1.1;
-    const m = F.main({ x: ox, y: oy, pose: 'prise', vue: 'dos', angle: 90, diametre: 12 * s, echelle: sg, bras: 50, objet: bat });
-    out.push(String(m.svg || m).replace(/<path [^>]*stroke-width="0\.5"[^>]*\/>\n?/g, ''));
-    {
-      const w = m.poignet, b = m.bras, L = Math.hypot(b[0] - w[0], b[1] - w[1]);
-      const u = [(b[0] - w[0]) / L, (b[1] - w[1]) / L], n = [-u[1], u[0]];
-      const C = (t, k) => [r1(w[0] + u[0] * t * sg + n[0] * k * sg), r1(w[1] + u[1] * t * sg + n[1] * k * sg)];
-      out.push(h.chemin([C(-6, -36), C(-6, 37), C(34, 43), C(34, -42)], blanc(h.a.contour), true));
-      out.push(h.path(`M ${C(2, -37).join(' ')} L ${C(2, 38).join(' ')}`, h.a.fin));
-    }
+    // la main gantée : modèle s11-gant-l5 (le poing fermé de s11 sans ongles ni plis : un gant)
+    // retourné, l'avant-bras qui monte et sort du cadre, le bâtonnet qui passe dans le poing ; le
+    // bâtonnet se dessine d'abord ; le revers du gant remonte au-dessus du poignet
+    const sm = 0.85 * s;
+    out.push(bat);
+    const m = F.modele('s11-gant-l5', { x: ox, y: oy, ancre: [68, 42], angle: 180, echelle: sm, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
+    out.push(String(m));
+    out.push(h.chemin([[13, 146], [86, 146], [90, 198], [9, 198]].map(m.P), blanc(h.a.contour), true));
+    out.push(h.path(`M ${m.P([13.5, 154]).map(r1).join(' ')} L ${m.P([86.6, 154]).map(r1).join(' ')}`, h.a.fin));
     // les pattes de devant, derrière la tête
     out.push(h.path(lisse(Pl(pattesAvD), true), blanc(h.a.arete)));
     out.push(h.path(lisse(Pl(miroir(pattesAvD)), true), blanc(h.a.arete)));

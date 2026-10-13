@@ -65,6 +65,22 @@ module.exports = (h) => {
     return h.chemin([a2, b2, [b[0] + d[0], b[1] + d[1]], [a[0] + d[0], a[1] + d[1]]], 'fill="#1A1A1A" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round"', true);
   };
 
+  // Les mains calquées (images/modeles), avec la manche noire d'avBras sur leur poignet.
+  // plat : s10-plat (la main tendue de s10, le pouce le long de l'index) retourné, la paume à plat
+  // sur le ventre, les doigts vers la droite ; (x, y) sous le gras du pouce, le bout des doigts au
+  // même niveau ; incl : l'angle de l'avant-bras sur la surface, vers le haut à gauche.
+  // poingS : s11 (poing fermé), l'avant-bras vers la droite, le pouce en haut ; (x, y) au creux du poing.
+  const manche = (A, B, d) => { const M = [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2]; return { coupe: [A, B], poignet: M, bras: [M[0] + d[0], M[1] + d[1]] }; };
+  const plat = (x, y, s, incl) => {
+    const m = F.modele('s10-plat', { x, y, ancre: [115, 28], angle: 180 + 10.7, echelle: 0.89 * s, masquer: [[228, 0, 245, 125]] });
+    const r = incl * Math.PI / 180;
+    return { svg: String(m), m: manche(m.P([228, 57.6]), m.P([228, 110.8]), [-Math.cos(r), -Math.sin(r)]) };
+  };
+  const poingS = (x, y, s) => {
+    const m = F.modele('s11', { x, y, ancre: [68, 42], angle: -90, echelle: 0.82 * s, masquer: [[0, 125, 140, 175]] });
+    return { svg: String(m), m: manche(m.P([20.1, 125]), m.P([76.7, 125]), [1, 0]) };
+  };
+
   // l'aide, à genoux derrière la mère, tournée vers ses pieds
   // (aplat noir : elle se détache de la mère, dessinée au trait devant elle)
   const aide = (c, xGenou, penche, prises, cote) => {
@@ -104,13 +120,13 @@ module.exports = (h) => {
         dessin: z => {
           const c = cadre(z, W1), s = c.s;
           const [hx, hy] = c.T(-180, 287);
-          const m = F.main({ x: hx, y: hy, pose: 'appui', vue: 'profil', angle: 0, inclinaison: 38, bras: 15, echelle: s });
+          const m = plat(hx, hy, s, 38);
           return coupe('zone-29-04-a', z, [
             sol(z, c),
             mere(c),
             h.path(uterus(c, [10, 120], [-195, 268], 1.05), A.cache),
-            avBras(m),
-            m,
+            avBras(m.m),
+            m.svg,
             tour(hx + 18 * s, hy - 70 * s, 70 * s, 18 * s),
           ].join(NL));
         },
@@ -129,9 +145,9 @@ module.exports = (h) => {
           const vagin = cr(c.P([[100, 200], [60, 222], [20, 232], [-30, 230], [-66, 210], [-76, 168], [-64, 120],
             [-24, 100], [20, 104], [60, 120], [100, 134]]));
           const [qx, qy] = c.T(-8, 166);
-          const poing = F.main({ x: qx, y: qy, pose: 'prise', vue: 'dos', cote: 'gauche', diametre: 22 * s, angle: 0, bras: 15, echelle: s });
+          const poing = poingS(qx, qy, s);
           const [dx, dy] = c.T(-205, 287);
-          const dessus = F.main({ x: dx, y: dy, pose: 'appui', vue: 'profil', angle: 0, inclinaison: 40, bras: 15, echelle: s });
+          const dessus = plat(dx, dy, s, 40);
           const [f1x, f1y] = c.T(-150, 420), [f2x, f2y] = c.T(-95, 340);
           return coupe('zone-29-04-b', z, [
             sol(z, c),
@@ -139,10 +155,10 @@ module.exports = (h) => {
             h.path(uterus(c, [-50, 160], [-200, 270], 0.95), A.arete.replace('fill="none"', 'fill="#FFFFFF"')),
             h.path(vagin, A.blanc),
             h.path(vagin.replace(/ Z$/, ''), A.detail),
-            avBras(poing),
-            poing,
-            avBras(dessus),
-            dessus,
+            avBras(poing.m),
+            poing.svg,
+            avBras(dessus.m),
+            dessus.svg,
             h.fleche(`M ${r1(f1x)} ${r1(f1y)} L ${r1(f2x)} ${r1(f2y)}`, A.arete),
           ].join(NL));
         },

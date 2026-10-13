@@ -118,7 +118,9 @@ module.exports = (h) => {
     // doigts qui s'enroulent vers l'extérieur, l'avant-bras qui remonte vers le corps, hors de la vue
     for (const { s, u, bout } of lon) {
       const g = [bout[0] + u[0] * L * 0.7, bout[1] + u[1] * L * 0.7];
-      out.push(h.formes.main({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', cote: s < 0 ? 'gauche' : 'droite', echelle: 0.46, diametre: 8.4, angle: s * ang, bras: 95 }));
+      // modèle s11 (poing fermé) : le bâton (8,4) dans le poing (25 px), l'avant-bras qui sort du cadre
+      out.push(String(h.formes.modele('s11', { x: g[0], y: g[1], ancre: [68, 42], miroir: s > 0, angle: s * ang + (s < 0 ? -90 : 90), echelle: 0.36,
+        masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })));
     }
     // on serre, on lève
     out.push(h.fleche(`M${f([S[0], S[1] - rs[1] - 8])} L${f([S[0], S[1] - rs[1] - 44])}`, A.arete));
@@ -184,7 +186,9 @@ module.exports = (h) => {
       rameaux.push(h.path(ai, A.fin));
     }
     out.push(...rameaux);
-    out.push(h.formes.main({ x: main[0], y: main[1], pose: 'prise', vue: 'dos', cote: 'droite', echelle: 0.46, diametre: 6, angle: -8, bras: 105 }));
+    // modèle s11 (poing fermé) en miroir : la branche (6) debout dans le poing, l'avant-bras vers la gauche
+    out.push(String(h.formes.modele('s11', { x: main[0], y: main[1], ancre: [68, 42], miroir: true, angle: 82, echelle: 0.3,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })));
     // deux ou trois coups, vers la pointe
     for (const dy of [-34, -20]) out.push(h.fleche(`M${f([spray[0] + 62, spray[1] + dy])} L${f([spray[0] + 34, spray[1] + dy + 4])}`, A.arete));
     return out.join('\n');

@@ -61,10 +61,18 @@ module.exports = (h) => {
   const L = nrm(sub(P, T));
   const ax = uni(sub(P, T)), bx = [-ax[1], ax[0]];
   const enPlace = (u, v) => add(add(T, mul(ax, u)), mul(bx, v));
-  const THETA = Math.atan2(bx[0], -bx[1]) * 180 / Math.PI + 5;
   const DIAM = 22;
+  // La main calquée : modèle s11 (poing fermé, vu de la paume) en miroir, le pouce vers l'avant,
+  // la traverse dans le poing, l'avant-bras tendu vers l'épaule. Le poignet du modèle (58 px de
+  // large en y = 120) a la largeur de l'avant-bras du personnage, qui y arrive ; le reste de
+  // l'avant-bras du modèle est masqué.
+  const ECH = 83 / 58;
+  const angleMain = c => { const d = uni(sub(S, c)); return Math.atan2(-d[0], d[1]) * 180 / Math.PI; };
+  const poing = (c, ang, k = 1, x = c) => F.modele('s11', { x: x[0], y: x[1], ancre: [68, 42], angle: ang, miroir: true, echelle: ECH * k,
+    masquer: [[0, 120, 140, 175]] });
+  const poignetMain = c => poing(c, angleMain(c)).P([49, 120]);
   // la traverse tombe là où arrive la main, le bras tendu
-  const poignetA = u => F.main({ x: enPlace(u, 0)[0], y: enPlace(u, 0)[1], pose: 'prise', vue: 'dos', angle: THETA, diametre: DIAM, echelle: 1 }).poignet;
+  const poignetA = u => poignetMain(enPlace(u, 0));
   let lo = 600, hi = 950;
   for (let i = 0; i < 40; i++) { const m = (lo + hi) / 2; if (nrm(sub(poignetA(m), S)) > 552) lo = m; else hi = m; }
   const uC = (lo + hi) / 2, uF = uC - 170, uR = 60;
@@ -107,7 +115,7 @@ module.exports = (h) => {
   }
 
   const C = enPlace(uC, 0);
-  const W = F.main({ x: C[0], y: C[1], pose: 'prise', vue: 'dos', angle: THETA, diametre: DIAM, echelle: 1, bras: 30 }).poignet;
+  const W = poignetMain(C);
   const dirBras = uni(sub(W, S)), nBras = [-dirBras[1], dirBras[0]];
   const E = add(S, mul(dirBras, 300));       // le coude
 
@@ -178,7 +186,7 @@ module.exports = (h) => {
             const Mb = (u, v) => V(enPlace(u, v));
             out.push(decoupe(bequille(Mb), [bras], true, cadre));
             const c = V(C);
-            out.push(String(F.main({ x: c[0], y: c[1], pose: 'prise', vue: 'dos', angle: THETA, diametre: DIAM * s, echelle: s, bras: 30 })));
+            out.push(String(poing(C, angleMain(C), s, c)));
             // la taille
             const xc = V([500, 0])[0], yt = V([0, -1748])[1];
             out.push(h.ligne(V([60, -1748])[0], yt, xc + 5, yt, rappel));

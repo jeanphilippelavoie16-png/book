@@ -26,11 +26,13 @@ const POSES_EN_PLUS = {
 };
 function formesDuFendeur(h) {
   const cle = 'const POSES_P = {';
-  let src = fs.readFileSync(path.join(__dirname, '..', '..', '.claude', 'skills', 'planches', 'scripts', 'formes.js'), 'utf8');
+  const dossierFormes = path.join(__dirname, '..', '..', '.claude', 'skills', 'planches', 'scripts');
+  let src = fs.readFileSync(path.join(dossierFormes, 'formes.js'), 'utf8');
   if (!src.includes(cle)) throw new Error(`24-02 : formes.js n’a plus « ${cle} » ; revoir la posture du fendeur`);
   src = src.replace(cle, `${cle} ...h.posesEnPlus,`);
   const m = { exports: null };
-  new Function('module', 'require', src)(m, require);
+  // __dirname : modele() y trouve images/modeles
+  new Function('module', 'require', '__dirname', src)(m, require, dossierFormes);
   return m.exports(Object.assign(Object.create(h), { posesEnPlus: POSES_EN_PLUS }));
 }
 
@@ -299,7 +301,12 @@ module.exports = (h) => {
     const surf = ptHache(K0, u, v, DEC + 55, -23);
     const lev = apres ? 0 : LEVE;
     const pm = plus(surf, fois(v, -lev));
-    out.push(F.main({ x: P(...pm)[0], y: P(...pm)[1], pose: 'appui', vue: 'profil', echelle: s, angle: apres ? BASCULE : 0, bras: 105, trait: 'fort' }));
+    // modèle s10-plat (la main à plat de côté) retourné : paume en bas, pouce dessous, doigts vers le
+    // fer ; la ligne du bout des doigts au pouce posée sur le manche ; l'avant-bras remonte à gauche
+    { const q = P(...pm), b = (apres ? BASCULE : 0) * RAD;
+      out.push(F.modele('s10-plat', { x: q[0], y: q[1], ancre: [90, 33], angle: 180 + 14 + (apres ? BASCULE : 0), echelle: 1.2 * s,
+        masquer: [[228, 0, 245, 125]],
+        bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], vers: [-Math.cos(50 * RAD - b), -Math.sin(50 * RAD - b)], bord: z } })); }
     if (!apres) {
       const f0 = ptHache(K0, u, v, DEC + 100, -23 - lev + 22), f1_ = ptHache(K0, u, v, DEC + 100, -23 - 8);
       out.push(h.fleche(`M${XY(P(...f0))} L${XY(P(...f1_))}`, A.arete));

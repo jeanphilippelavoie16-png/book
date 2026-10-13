@@ -240,23 +240,24 @@ module.exports = (h) => {
         dessin: z => {
           const { s, V, a } = geoTiroir(z);
           const out = [];
-          // la main qui tient le bas du tibia, par devant : peinte SOUS la jambe, paume à plat sur
-          // le devant du tibia ; les quatre doigts passent derrière la jambe et s'y perdent
-          const tibia = V([22, 172]);
-          out.push(h.formes.main({ x: tibia[0], y: tibia[1], pose: 'prise', vue: 'dos', cote: 'gauche', echelle: s, diametre: 96 * s }));
+          // la main qui tient le bas du tibia, par devant : modèle s01 (la main ouverte, le pouce
+          // écarté), l'avant-bras vers la droite ; peinte SOUS la jambe, les quatre doigts passent
+          // derrière et s'y perdent ; puis le pouce seul, repeint PAR-DESSUS la jambe, couché sur
+          // la face extérieure du bas du tibia (le reste du modèle masqué : il est déjà dessous)
+          const tib = { x: 0, y: 0, ancre: [82, 18], angle: -10, echelle: 0.8 * s };
+          { const p = V([-14, 175]); tib.x = p[0]; tib.y = p[1]; }
+          out.push(h.formes.modele('s01', tib));
           out.push(silhouette(V, pointe(profil(300), a)), orteil(V, a));
-          // le pouce, côté lecteur, couché sur la face extérieure du bas du tibia
-          const pou = [[40, 182], [18, 180], [-2, 177], [-14, 174]].map(V), ep = 9.5 * s;
-          out.push(`<path d="${courbe(pou)}" fill="none" stroke="${N}" stroke-width="${f(2 * ep + 3.2)}" stroke-linecap="round"/>`);
-          out.push(`<path d="${courbe(pou)}" fill="none" stroke="${B}" stroke-width="${f(2 * ep)}" stroke-linecap="round"/>`);
-          const ong = [[-2, 179], [-10, 177]].map(V);
-          out.push(`<path d="M${f(ong[0][0])} ${f(ong[0][1])} L${f(ong[1][0])} ${f(ong[1][1])}" ${trait(0.6)}/>`);
+          out.push(h.formes.modele('s01', { ...tib, masquer: [[0, 37, 262, 126], [170, 0, 262, 37]] }));
           out.push(bosse(V, [-15, 73], 11, 17, s));
           // le creux du ligament, juste devant la pointe de la cheville extérieure
           out.push(pointNoir(V(piedPoint([3, 58], a * 0.4)), 4.5));
           // la main qui empoigne le talon par derrière : la paume au talon, les doigts sur son côté
           const talon = V(piedPoint(TALON, a));
-          out.push(h.formes.main({ x: talon[0], y: talon[1], pose: 'prise', vue: 'dos', echelle: s, diametre: 56 * s, angle: -24 }));
+          // modèle s05 (les doigts repliés en coupe, le pouce dessus) retourné : l'avant-bras part en
+          // bas à gauche, les doigts enroulés autour du talon
+          out.push(h.formes.modele('s05', { x: talon[0], y: talon[1], ancre: [45, 45], angle: -24, miroir: true, echelle: 1.0 * s,
+            masquer: [[222, 0, 240, 120]], bras: { a: [222, 39.1], a0: [200, 38.1], b: [222, 104.3], b0: [200, 100.8], bord: z } }));
           // le geste : le talon tiré vers l'avant (vers les orteils), contre la main du talon
           const f0 = V(piedPoint([-175, 92], a)), f1 = V(piedPoint([-105, 92], a));
           out.push(h.fleche(`M${f(f0[0])} ${f(f0[1])} L${f(f1[0])} ${f(f1[1])}`, h.a.contour));
@@ -265,7 +266,7 @@ module.exports = (h) => {
         renvois: z => {
           const { V, a } = geoTiroir(z);
           return [
-            R(5, V([160, 255]), V([70, 180])),
+            R(5, V([160, 255]), V([60, 160])),
             R(6, V([-190, 120]), [TALON_V(z)[0], TALON_V(z)[1]]),
             R(7, V([130, 90]), V(piedPoint([5, 58], a * 0.4))),
           ];

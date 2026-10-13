@@ -146,7 +146,10 @@ module.exports = (h) => {
     for (let y = yT + 10; y < yB - 6; y += 11) { let x = xL + 6 + 8 * R(); while (x < X0 - 10) { const l = 5 + 9 * R(), dy = 3 * R(); lent.push(h.ligne(r1(x), r1(y + dy), r1(Math.min(x + l, X0 - 4)), r1(y + dy), h.a.detail)); x += l + 6 + 10 * R(); } }
     const manche = h.chemin([Q(aHc - rM, RH - 2), Q(aHc - rM, bFin - 3), Q(aHc - rM + 3, bFin), Q(aHc + rM - 3, bFin), Q(aHc + rM, bFin - 3), Q(aHc + rM, RH - 2)].map(R1), B(h.a.contour), true);
     const mG = Q(aHc, bGrip);
-    const m = F.main({ x: mG[0], y: mG[1], pose: 'prise', vue: 'dos', cote: 'gauche', echelle: S, angle: TH, diametre: 2 * rM, bras: 36, objet: manche });
+    // modèle s11 (poing fermé) tourné d'un quart : le pouce vers la tête, l'avant-bras vers la droite
+    // qui sort du cadre ; le manche se peint d'abord et passe dans le poing, son bout dépasse dessous
+    const m = [manche, F.modele('s11', { x: mG[0], y: mG[1], ancre: [60, 42], angle: TH - 90, echelle: 0.75,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } })].join('\n');
     const tete = [Q(aH0, -RH + 5), Q(aH0 + 5, -RH), Q(aH0 + LH - 5, -RH), Q(aH0 + LH, -RH + 5), Q(aH0 + LH, RH - 5), Q(aH0 + LH - 5, RH), Q(aH0 + 5, RH), Q(aH0, RH - 5)].map(R1);
     return [
       h.chemin(tour, h.a.blanc, true), ...lent,

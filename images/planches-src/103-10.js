@@ -227,10 +227,17 @@ module.exports = (h) => {
           out.push(copeau(h, 168, 110, 6), copeau(h, 186, 108, 5, -1), copeau(h, 146, 88, 4.5, -1));
           // la main qui tient le couteau : le poing sur le manche, le pouce couché sur le dos de la
           // lame, juste devant la garde, qui y pince la racine (h.formes, prise vue du dos)
-          const mc = h.formes.main({ x: 66, y: 130, pose: 'prise', vue: 'dos', angle: 90, diametre: 18, echelle: 0.6, bras: 50 });
+          // modèle s19-poing-l5 (s19, le poing, le pouce levé, vu de côté) tourné d'un quart : le manche passe dans
+          // le poing, les doigts dessous, le pouce couché vers la pointe sur le dos de la lame,
+          // l'avant-bras qui remonte à gauche
+          const mc = h.formes.modele('s19-poing-l5', { x: 63, y: 130, ancre: [108, 125], angle: 90, echelle: 0.6,
+            bras: { a: [8.5, 138], a0: [20, 125], b: [31, 182.5], b0: [45, 172], bord: z } });
           out.push(mc);
           // l'autre main tire le bout écorcé vers le bas, au travers du pincement
-          const mt = h.formes.main({ x: 102, y: 180, pose: 'prise', vue: 'dos', cote: 'gauche', angle: 4, diametre: 7, echelle: 0.5, bras: 70 });
+          // modèle s11 (poing fermé, vu de la paume) tourné d'un quart à rebours : la racine passe
+          // dans le poing, le pouce en haut, l'avant-bras qui part à droite
+          const mt = h.formes.modele('s11', { x: 104, y: 174, ancre: [68, 42], angle: -90, echelle: 0.45, masquer: [[0, 150, 140, 175]],
+            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
           out.push(mt);
           out.push(h.fleche('M78,160 L78,200'));
           return out.join('\n');

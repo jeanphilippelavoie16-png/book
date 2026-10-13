@@ -24,7 +24,10 @@ K = 6
 
 # Fermetures de silhouette : un poignet laissé ouvert (deux traits qui s'arrêtent) ne se remplit pas
 # tout seul ; on lui donne un segment, invisible, qui ne sert qu'au blanc. En pixels du modèle.
-FERMER = json.load(open(os.path.join(OUT, 'fermetures.json'))) if os.path.exists(os.path.join(OUT, 'fermetures.json')) else {}
+import glob as _glob
+FERMER = {}
+for _f in sorted(_glob.glob(os.path.join(OUT, 'fermetures*.json'))):
+    FERMER.update(json.load(open(_f)))
 
 
 def trace_segment(m, k, a, b, ep=1.2):
@@ -87,7 +90,7 @@ def ecrire(ident, encre, ombre, k, boite, source, poids=1.0, sil=None):
 
 # Chaque modèle s'écrit à plusieurs poids de trait (id, id@50, id@35…) : formes.modele() prend
 # celui dont le contour, à l'échelle de la planche, tombe le plus près du trait voulu (1,3).
-POIDS = {'k': [0.72, 0.5, 0.35, 0.25], 'g': [1.0, 0.7, 0.5], 's': [1.0, 0.75, 0.55, 0.4]}
+POIDS = {'k': [0.72, 0.5, 0.35, 0.25], 'g': [1.0, 0.7, 0.5], 's': [1.0, 0.75, 0.55, 0.4], 'h': [1.0, 0.75, 0.55, 0.4], 'c': [1.0, 0.75, 0.55]}
 
 
 def serie(prefixe, masques, k, source, colle=3.0, poids=1.0):
@@ -179,7 +182,8 @@ def shoo():
 #                 "parties": [{ "poly": [[x, y], …], "pivot": [x, y], "angle": -28, "rayon": 15 }] }
 # angle en degrés (sens horaire à l'écran) ; la rotation monte de 0 au pivot à angle à rayon px :
 # l'articulation plie au lieu de casser.
-SOURCES = {'s': ('mains5-tons.pkl', 4, 3.0), 'g': ('mains1-tons.pkl', 6, 2.0), 'k': ('mains4-masques.pkl', 6, 3.0)}
+SOURCES = {'s': ('mains5-tons.pkl', 4, 3.0), 'g': ('mains1-tons.pkl', 6, 2.0), 'k': ('mains4-masques.pkl', 6, 3.0),
+           'h': ('homme7-encre.pkl', 4, 6.0), 'c': ('corps6-encre.pkl', 8, 2.0)}
 
 
 def masques_modele(ident):
@@ -214,11 +218,32 @@ def plier(m, k, poly, pivot, angle, rayon):
 
 def articuler(ident, spec):
     enc, om, sil, k, b = masques_modele(spec['source'])
+    M = spec.get('marge', 0)                       # place autour du modèle pour un bras qui s'écarte (px) ;
+    if M:                                          # les coordonnées du nouveau modèle sont décalées de M
+        pad = lambda m: np.pad(m, int(M * k))
+        enc, om, sil = pad(enc), pad(om), pad(sil)
+        b = (b[0] - M, b[1] - M, b[2] + M, b[3] + M) + tuple(b[4:])
+        dec = lambda q: [q[0] + M, q[1] + M]
+        spec = {**spec, 'effacer': [[x0 + M, y0 + M, x1 + M, y1 + M] for x0, y0, x1, y1 in spec.get('effacer', [])],
+                'parties': [{**pt, 'poly': [dec(q) for q in pt['poly']], 'pivot': dec(pt['pivot'])} for pt in spec.get('parties', [])]}
     for x0, y0, x1, y1 in spec.get('effacer', []):
         enc[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)] = False
+    faits = []                                     # (pivot effectif, angle, parent) des parties déjà pliées
+    def suivre(q, i):
+        chaine = []
+        while i is not None:
+            chaine.append(i); i = faits[i][2]
+        for j in reversed(chaine):                 # du tronc vers le bout : le bras, puis l'avant-bras
+            (cx, cy), a, _ = faits[j]
+            c, s_ = np.cos(np.deg2rad(a)), np.sin(np.deg2rad(a))
+            q = [cx + (q[0] - cx) * c - (q[1] - cy) * s_, cy + (q[0] - cx) * s_ + (q[1] - cy) * c]
+        return q
     for pt in spec.get('parties', []):
-        p_enc, r_enc = plier(enc, k, pt['poly'], pt['pivot'], pt['angle'], pt['rayon'])
-        p_sil, r_sil = plier(sil, k, pt['poly'], pt['pivot'], pt['angle'], pt['rayon'])
+        par = pt.get('suit')                        # l'avant-bras suit le bras : son poly et son pivot ont tourné
+        poly = [suivre(q, par) for q in pt['poly']]; pv = suivre(pt['pivot'], par)
+        faits.append((pv, pt['angle'], par))
+        p_enc, r_enc = plier(enc, k, poly, pv, pt['angle'], pt['rayon'])
+        p_sil, r_sil = plier(sil, k, poly, pv, pt['angle'], pt['rayon'])
         dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
         enc = (r_enc & ~dedans) | p_enc            # la partie passe devant : son blanc cache le reste
         sil = r_sil | p_sil
@@ -232,10 +257,21 @@ def articuler(ident, spec):
     print(ident, 'construit sur', spec['source'])
 
 
-def poses():
-    f = os.path.join(OUT, 'poses.json')
-    for ident, spec in (json.load(open(f)) if os.path.exists(f) else {}).items():
-        articuler(ident, spec)
+def poses(seuls=()):
+    """Les poses de tous les images/modeles/poses*.json ; seuls : ne construire que ces ids."""
+    for f in sorted(_glob.glob(os.path.join(OUT, 'poses*.json'))):
+        for ident, spec in json.load(open(f)).items():
+            if not seuls or ident in seuls:
+                articuler(ident, spec)
+
+
+def personnages():
+    """Le personnage habillé (7.png, alamy, face) → h01 ; la planche nu face-dos-profils (6.png) → c01…c04."""
+    out = []
+    for pref, pk, k, src, colle in (('h', 'homme7-encre.pkl', 4, '7.png (alamy)', 6.0), ('c', 'corps6-encre.pkl', 8, '6.png', 2.0)):
+        enc = pickle.load(open(os.path.join(TMP, pk), 'rb'))
+        out += serie(pref, [enc], k, src, colle=colle)
+    return out
 
 
 if __name__ == '__main__':
@@ -246,5 +282,7 @@ if __name__ == '__main__':
         print(contact('contact-gestes', gestes(), col=8))
     if quoi[0] in ('shoo', 'tous'):
         print(contact('contact-shoo', shoo(), col=6))
+    if quoi[0] in ('personnages', 'tous'):
+        print(contact('contact-personnages', personnages(), col=5))
     if quoi[0] in ('poses', 'tous'):
-        poses()
+        poses(quoi[1:])

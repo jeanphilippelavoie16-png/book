@@ -221,9 +221,11 @@ module.exports = (h) => {
     const dx = flam[0] - H[0], dy = flam[1] + 2 - H[1];
     const ang = Math.atan2(dx, -dy) * 180 / Math.PI;
     const L = Math.hypot(dx, dy), u = [dx / L, dy / L];
-    const Pb = [H[0] - u[0] * 8, H[1] - u[1] * 8];
+    const Pb = [H[0] - u[0] * 12, H[1] - u[1] * 12];        // le bout de la torche dépasse du poing
     const t = torche(Pb, [flam[0], flam[1] + 2], 4.5, 7);
-    o.push(F.main({ x: H[0], y: H[1], pose: 'prise', vue: 'dos', cote: 'gauche', echelle: 0.14, angle: ang, diametre: 5, bras: 70, objet: t }));
+    // la torche d'abord, puis le modèle s11 (poing fermé) tourné comme elle : elle passe dans le poing
+    o.push(t, F.modele('s11', { x: H[0], y: H[1], ancre: [68, 42], angle: ang - 90, echelle: 0.15,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 24 } }));
     o.push(flamme(flam[0], flam[1] + 2, 12, 17));
     return { svg: o.join('\n'), g, c };
   };

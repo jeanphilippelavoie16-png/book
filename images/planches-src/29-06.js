@@ -11,7 +11,7 @@
 // est penchée de 15° vers l'arrière). Le bébé est dessiné à la main (la bibliothèque n'a pas de
 // nouveau-né), sur la tête de la planche 29-05 retournée : 124 de l'occiput au nez, 131 du sommet
 // au menton, en mm ; le corps est emmailloté dans une couverture jusqu'au cou. La main de la mère
-// vient de h.formes.main (appui, vue du dos), à la même échelle.
+// est le modèle calqué s03-dos-l5 (s03 sans les plis de paume, vue du dos), à la même taille.
 // Ce qui est dans la bouche (le sein étiré, le bout du mamelon) est en tireté.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
@@ -300,7 +300,11 @@ module.exports = (h) => {
     const { k, V } = cadre(z, ...CADRE_A);
     const out = [bebe(V, S_APP, b, { sFin: 330 }).svg, mere(V), teteDessin(V, S_APP, b, { ouverte: true })];
     const p = V(PAUME);
-    out.push(F.main({ x: p[0], y: p[1], pose: 'appui', vue: 'dos', angle: ang(D_DOIGTS), echelle: k, bras: 90 }));
+    // modèle s03-dos-l5 (la main relâchée de s03, sans les plis de paume : vue du dos) retourné et en
+    // miroir : à plat sur le dos du bébé, les doigts vers la nuque, le pouce à gauche, l'avant-bras
+    // qui descend et sort du cadre ; l'ancre, le milieu de la paume (106 mm du bout du majeur)
+    out.push(F.modele('s03-dos-l5', { x: p[0], y: p[1], ancre: [84, 101], angle: ang(D_DOIGTS) - 90, miroir: true, echelle: 1.19 * k,
+      masquer: [[0, 0, 125, 14]], bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], bord: z } }));
     if (fleche) out.push(h.fleche(`M${pt(V(FL0))} L${pt(V(FL1))}`, A.arete));
     return decoupe(z, out.join('\n'));
   };

@@ -104,14 +104,16 @@ const bord = (pts, x, cote, w = W) => {
   return [c[i][0] + n[0] * (w / 2 + 0.6), c[i][1] + n[1] * (w / 2 + 0.6)];
 };
 
-// La main gauche qui pince le pli entre la pulpe du pouce et celle de l'index, vue de profil
-// (h.formes.main, pince / profil) : les brins passent entre les deux pulpes, la boucle du pli
-// cachée sous les doigts.
-const PINCE = { x: -19, y: 3, echelle: 0.8, angle: -18 };
-const main = (h, P, objet) => {
+// La main gauche qui pince le pli entre la pulpe du pouce et celle de l'index, vue de profil :
+// modèle s09 (le pouce et l'index qui pincent, de côté) en miroir, l'avant-bras à gauche jusqu'au
+// bord de la vue ; le point pincé (12, 66) sur le pli. Les brins, peints d'abord, passent entre
+// les deux pulpes, la boucle du pli cachée sous les doigts.
+const PINCE = { x: -19, y: 3, echelle: 0.83, angle: 0 };
+const main = (h, P, z) => {
   const [x, y] = P([PINCE.x, PINCE.y]);
-  return h.formes.main({ x, y, pose: 'pince', vue: 'profil', cote: 'droite',
-    echelle: PINCE.echelle * K, angle: PINCE.angle, bras: 5, objet });
+  return h.formes.modele('s09', { x, y, ancre: [12, 66], angle: PINCE.angle, miroir: true, echelle: PINCE.echelle * K,
+    masquer: [[200, 0, 230, 125]],
+    bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } });
 };
 
 // Anneau de rotation autour d'un brin : moitié arrière en caché, moitié avant fléchée.
@@ -178,7 +180,7 @@ module.exports = (h) => {
               brin(h, Ps(B1), { fibres: [[0.02, 0.92]] }),
               brin(h, Ps(A1), { fibres: [[0, 0.1], [0.46, 0.94]], torsade: [0.11, 0.46] }),
             ].join('\n'),
-            main(h, P),
+            main(h, P, z),
             r.devant,
           ].join('\n');
         },
@@ -198,7 +200,7 @@ module.exports = (h) => {
               brin(h, Ps(B2), { fibres: [[0.02, 0.92]] }),
               brin(h, Ps(A2), { fibres: [[0, 0.1], [0.5, 0.94]], torsade: [0.11, 0.5] }),
             ].join('\n'),
-            main(h, P),
+            main(h, P, z),
             r.devant,
           ].join('\n');
         },

@@ -52,7 +52,7 @@ module.exports = (h) => {
 
   // ── vue 1 : vider (600 × 118) ────────────────────────────────────────────────────────
   const MC_COTE = 'gauche', MC_ANGLE = -90;
-  const pince = [300, 40], MAIN_ANGLE = -60;
+  const pince = [300, 40], MAIN_ANGLE = -30;
   const plat = bez([22, 48], [110, 30], [215, 48], pince);
   const gras = bez(pince, [370, 35], [450, 49], [520, 41], 60);
   const rPlat = 1.3, rRuban = t => 3 - 1.7 * Math.pow(Math.max(0, (t - 0.8) / 0.2), 2);
@@ -68,7 +68,10 @@ module.exports = (h) => {
     ].join('\n');
   };
   // la main pince le boyau entre la pulpe de l'index et celle du pouce, et glisse vers le bout
-  const mainVide = () => boyauVide() + '\n' + h.formes.main({ x: pince[0], y: pince[1], pose: 'pince', vue: 'profil', echelle: 1.12, bras: 4, angle: MAIN_ANGLE });
+  // modèle s09 (le pouce et l'index qui pincent, de côté) en miroir : le boyau passe entre les deux
+  // pulpes, la main derrière la partie déjà vidée, l'avant-bras qui descend à gauche
+  const mainVide = z => boyauVide() + '\n' + h.formes.modele('s09', { x: pince[0], y: pince[1], ancre: [17, 66], miroir: true, angle: MAIN_ANGLE,
+    echelle: 1.1, masquer: [[200, 0, 230, 125]], bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } });
   const crottes = [
     h.path('M 530 67 C 536 64 541 68 539 73 C 537 78 530 77 529 72 Z', h.a.arete),
     h.path('M 540 85 C 545 83 548 87 546 91 C 543 94 538 92 538 88 Z', h.a.arete),
@@ -136,7 +139,10 @@ module.exports = (h) => {
   ].join('\n');
 
   // la main tient le manche par-dessus, le poing fermé, le pouce couché vers la lame
-  const mainCouteau = () => h.formes.main({ x: xTalon + 44, y: yk - 9.5, pose: 'prise', vue: 'dos', cote: MC_COTE, angle: MC_ANGLE, diametre: 17.5, echelle: 0.62, bras: 30 });
+  // modèle s11 (poing fermé, vu de la paume) retourné : le manche passe dans le poing, le pouce du
+  // côté de la lame, l'avant-bras qui monte et sort du cadre
+  const mainCouteau = z => h.formes.modele('s11', { x: xTalon + 41, y: yk - 9.5, ancre: [68, 42], angle: 180, echelle: 0.56, masquer: [[0, 150, 140, 175]],
+    bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
   // ── vue 4 : saler (231 × 194) ───────────────────────────────────────────────────────
   const pot = [
     h.path('M 53 72 Q 115 62 177 72 L 177 174 L 53 174 Z', h.a.hachure('gravier', 'aucun')),
@@ -165,7 +171,7 @@ module.exports = (h) => {
     vues: {
       vider: {
         titre: 'Vider',
-        dessin: z => [mainVide(), crottes, h.fleche('M 380 85 L 460 85')].join('\n'),
+        dessin: z => [mainVide(z), crottes, h.fleche('M 380 85 L 460 85')].join('\n'),
         renvois: z => [
           { n: 1, rond: [400, 118], cible: [300, 54], texte: 'deux doigts serrés qu’on fait glisser' },
         ],
@@ -194,7 +200,7 @@ module.exports = (h) => {
       },
       gratter: {
         titre: 'Gratter',
-        dessin: z => [planche, boyauPlat, tas, couteau, mainCouteau(), h.fleche(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
+        dessin: z => [planche, boyauPlat, tas, couteau, mainCouteau(z), h.fleche(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
         renvois: z => [
           { n: 6, rond: [240, 168], cible: [+f(xs + 30), +f(yk + 1.2)], texte: 'dos du couteau qui racle' },
           { n: 7, rond: [40, 70], cible: [130.2, 107], texte: 'planche mouillée' },

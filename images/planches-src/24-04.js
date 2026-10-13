@@ -300,6 +300,14 @@ module.exports = (h) => {
     ];
   };
 
+  // La main : modèle s11 (poing fermé, vu de la paume) retourné, l'avant-bras qui monte ; son
+  // poignet (le milieu des bords en y = 150 du modèle) tombe sur celui du personnage, les deux
+  // bâtons traversent le poing. SM : pixels du modèle → unités de vue ; G : le milieu des bâtons.
+  const SMP = 1.4;
+  const poing = (wr, e) => { const s = SMP * e; return [wr[0] - 19 * s, wr[1] + 108 * s + 3.5 * e]; };
+  const mainPoing = (G, e) => F.modele('s11', { x: G[0], y: G[1] - 3.5 * e, ancre: [68, 42], angle: 180, echelle: SMP * e,
+    masquer: [[0, 150, 140, 175]] });
+
   // ═══ Vue 4 : porté contre la jambe ═════════════════════════════════════════════════════
   const geoPorte = z => {
     const e = (z.h - 12) / 1800, x0 = z.l * 0.44, y0 = z.h - 6;
@@ -311,9 +319,7 @@ module.exports = (h) => {
     const pers = F.personnage({ x: g.x0, y: g.y0, pose: 'debout', echelle: e, mains: { proche: T([30, -760]) } });
     o.push(pers);
     // la main qui tient les deux poignées : son poignet sur celui du personnage
-    const essai = F.main({ x: 0, y: 0, pose: 'prise', vue: 'dos', angle: 90, diametre: 38 * e, echelle: e, bras: 30 });
-    const wr = pers.poignets.proche;
-    const G = [wr[0] - essai.poignet[0], wr[1] - essai.poignet[1]];
+    const G = poing(pers.poignets.proche, e);
     const Gm = [(G[0] - g.x0) / e, (G[1] - g.y0) / e];                   // en mm, repère du personnage
     const M = ([x, y]) => T([Gm[0] + x, Gm[1] + y]);
     const rh = RB + 2.2, bas = DP + RP + 3;
@@ -347,16 +353,14 @@ module.exports = (h) => {
     o.push(h.path(lisse([[-100, rh + 58], [-78, DP - RP * 0.7]].map(M)), A.fin));
     o.push(h.path(lisse([[96, rh + 58], [74, DP - RP * 0.72]].map(M)), A.fin));
     // la main, par-dessus
-    o.push(F.main({ x: G[0], y: G[1], pose: 'prise', vue: 'dos', angle: 90, diametre: 38 * e, echelle: e, bras: 30 }));
+    o.push(mainPoing(G, e));
     g.G = G;
     return o.join('\n');
   };
   const porteRenvois = z => {
     const g = geoPorte(z), { e, T } = g;
     const pers = F.personnage({ x: g.x0, y: g.y0, pose: 'debout', echelle: e, mains: { proche: T([30, -760]) } });
-    const essai = F.main({ x: 0, y: 0, pose: 'prise', vue: 'dos', angle: 90, diametre: 38 * e, echelle: e, bras: 30 });
-    const wr = pers.poignets.proche;
-    const G = [wr[0] - essai.poignet[0], wr[1] - essai.poignet[1]];
+    const G = poing(pers.poignets.proche, e);
     return [
       { n: 8, rond: [G[0] + 150 * e + 40, G[1] - 40], cible: [G[0] + 30 * e, G[1] - 6], texte: 'une main, bras pendant, rien à serrer' },
       { n: 9, rond: [G[0] + 150 * e + 40, G[1] + (DP + 40) * e], cible: [G[0] + 120 * e, G[1] + (DP + 40) * e], texte: 'la charge pend contre la jambe' },

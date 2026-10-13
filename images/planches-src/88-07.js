@@ -225,8 +225,10 @@ module.exports = (h) => {
     out.push(spirale(T, g.uD, g.n, rBois(g.uD), { libre: true, graine: 5 }));
     const cxL = g.uD - (g.n - 1) * P_;
     out.push(boudin(T, cxL, [[cxL - 7, 44], [cxL + 22, 80], [cxL + 90, 96], [cxL + 170, 98], [cxL + 205, 94]]));
-    const m = F.main({ x: T([g.uM, 0])[0], y: T([g.uM, 0])[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: 90,
-      diametre: 2 * RS * g.e, echelle: g.e * 0.95, bras: 30 });
+    // modèle s11 (poing fermé, vu de la paume) : la baguette passe dans le poing (son trou fait
+    // 25 px, la baguette 25 mm), le pouce du côté du pain, l'avant-bras qui descend et sort du cadre
+    const m = F.modele('s11', { x: T([g.uM, 0])[0], y: T([g.uM, 0])[1], ancre: [68, 42], echelle: g.e, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
     out.push(m.toString());
     return out.join('\n');
   };
@@ -235,7 +237,7 @@ module.exports = (h) => {
   const gBr = z => {
     const e = Math.min(0.64, z.l / 555), yG = z.h - 24, ang = 164;
     const T = repere([z.l - 46, 70], ang, e);
-    return { e, T, yG, u0: 0, uM: 40, uB: 105, u1: 330, uD: 306, n: 5, ur: 150, xf: 44 };
+    return { e, T, yG, u0: 0, uM: 58, uB: 105, u1: 330, uD: 306, n: 5, ur: 150, xf: 44 };
   };
   const auFeu = z => {
     const g = gBr(z), T = g.T, out = [];
@@ -263,8 +265,10 @@ module.exports = (h) => {
     out.push(spirale(T, g.uD, g.n, rBois(g.uD), { graine: 7 }));
     out.push(rotation(T, g.ur, rBois(g.ur)));
     const pm = T([g.uM, 0]);
-    out.push(F.main({ x: pm[0], y: pm[1], pose: 'prise', vue: 'dos', angle: g.T.ang + 90,
-      diametre: 2 * RS * g.e, echelle: g.e * 0.95, bras: 24 }).toString());
+    // modèle s11 en miroir, tourné avec la baguette : le pouce du côté du pain, l'avant-bras qui
+    // descend à droite et sort du cadre ; le bout de la baguette dépasse du poing
+    out.push(F.modele('s11', { x: pm[0], y: pm[1], ancre: [68, 42], miroir: true, angle: g.T.ang - 180, echelle: 0.9 * g.e, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }).toString());
     return out.join('\n');
   };
 

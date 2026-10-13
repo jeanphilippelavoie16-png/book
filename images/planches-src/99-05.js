@@ -249,7 +249,10 @@ module.exports = (h) => {
           // la main et la pierre avancent ensemble, du talon vers la pointe
           out.push(h.fleche(`M${pt(A(330, 128))} L${pt(A(640, 104))}`, h.a.arete));
           // la main gauche, par le dos, juste derrière la pierre
-          out.push(String(F.main({ x: A(240, 74)[0], y: A(240, 74)[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: 125, echelle: 1.15 * e, diametre: 26 * e, bras: 150 })));
+          // modèle s11 (poing fermé) : les doigts referment le dos de la lame, l'avant-bras descend à gauche,
+          // arrêté avant le manche
+          out.push(String(F.modele('s11', { x: A(240, 74)[0], y: A(240, 74)[1], ancre: [68, 42], angle: 35, echelle: 26 * e / 25,
+            masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 150 * e } })));
           return out.join('\n');
         },
         renvois: z => {

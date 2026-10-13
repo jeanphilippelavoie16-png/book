@@ -165,9 +165,13 @@ module.exports = (h) => {
     out.push(pierre(molP(xm)));
     // les deux mains à plat sur la molette ; les avant-bras filent jusqu'au bord de la vue, vers le
     // personnage à genoux derrière la pierre
-    const BRAS_D = Math.round((xm - 4 - 95 - (xa - 30)) );
-    out.push(F.main({ x: X(xm - 4), y: Y(122), pose: 'appui', vue: 'dos', echelle: e, bras: BRAS_D }).toString());
-    out.push(F.main({ x: X(xm - 4), y: Y(-122), pose: 'appui', vue: 'dos', echelle: e, bras: BRAS_D, cote: 'gauche', angle: 180 }).toString());
+    // pose construite s03-dessus-l4 (la main relâchée de s03 sans ses plis de paume) : le dos de la
+    // main, à plat vu de dessus, les doigts vers le grain ; telle quelle, la main gauche (en haut, le
+    // pouce vers le milieu), en miroir la droite (en bas) ; (75, 95) : le milieu de la main
+    const mainDessus = (y, droite) => F.modele('s03-dessus-l4', { x: X(xm - 4), y, ancre: [75, 95], angle: -90, miroir: droite,
+      echelle: 1.23 * e, masquer: [[0, 0, 125, 14]],
+      bras: { a: [59.1, 14], a0: [57.9, 26], b: [112.7, 14], b0: [110.7, 26], vers: [-1, 0], bord: z } }).toString();
+    out.push(mainDessus(Y(122), true), mainDessus(Y(-122), false));
     // le va-et-vient
     out.push(double(X(xg), Y(272), X(xm), Y(272)));
     return out.join('\n');

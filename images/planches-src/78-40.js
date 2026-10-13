@@ -173,7 +173,11 @@ module.exports = (h) => {
     const ed = bm.dr[bm.dr.length - 1];
     const retour = bm.dr.slice().reverse().slice(1).map(p => `L${f(p[0])} ${f(p[1])}`).join(' ');
     const manche = h.path(`${d(bm.g)} A${f(5 * s)} ${f(5 * s)} 0 0 1 ${f(ed[0])} ${f(ed[1])} ${retour} Z`, blanc(A.arete));
-    out.push(h.formes.main({ x: g.prise[0], y: g.prise[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: g.angle, diametre: 10 * s, echelle: s, bras: 55, objet: manche }));
+    // modèle s11 (poing fermé, vu de la paume) en miroir : l'avant-bras part à droite, le pouce en bas
+    // du côté du bol ; le manche, peint d'abord, passe dans le poing
+    out.push(manche);
+    out.push(h.formes.modele('s11', { x: g.prise[0], y: g.prise[1], ancre: [68, 42], angle: g.angle - 90, miroir: true, echelle: 0.75 * s, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], vers: [1, -0.35], bord: z } }));
     return out.join('\n');
   };
 
@@ -213,7 +217,11 @@ module.exports = (h) => {
     out.push(p.verre);
     // le haut de la spatule, que la main tient
     const haut = [h.path(d([P(sx0, 140), P(sx0, 262), P(sx1, 262), P(sx1, 140)], true), A.blanc), h.path(d([P(sx0, 140), P(sx0, 262), P(sx1, 262), P(sx1, 140)]), A.arete), fil(144, 256)].join(' ');
-    out.push(h.formes.main({ x: P(SPX, 215)[0], y: P(SPX, 215)[1], pose: 'prise', vue: 'dos', angle: 0, diametre: SPL * s, echelle: s, bras: 40, objet: haut }));
+    // modèle s11 tourné d'un quart : l'avant-bras part à gauche, le pouce en bas vers le pot ; le haut
+    // de la spatule, peint d'abord, passe dans le poing
+    out.push(haut);
+    out.push(h.formes.modele('s11', { x: P(SPX, 215)[0], y: P(SPX, 215)[1], ancre: [68, 42], angle: 90, echelle: 0.75 * s, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], vers: [-1, 0.35], bord: z } }));
     // le geste : la spatule descend le long de la paroi
     out.push(h.fleche(`M${f(P(52, 118)[0])} ${f(P(52, 118)[1])} L${f(P(52, 40)[0])} ${f(P(52, 40)[1])}`, A.arete));
     return out.join('\n');

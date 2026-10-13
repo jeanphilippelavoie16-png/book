@@ -68,8 +68,10 @@ module.exports = (h) => {
     out.push(h.path(`M ${BECKET[0] - 6} ${BECKET[1] - 4} Q ${BECKET[0] - 9} ${BECKET[1] - 18} ${BECKET[0]} ${BECKET[1] - 19} Q ${BECKET[0] + 9} ${BECKET[1] - 18} ${BECKET[0] + 6} ${BECKET[1] - 4} Z`, blanc('arete')));
     out.push(h.path(`M ${BECKET[0] - 5} ${BECKET[1] - 12} Q ${BECKET[0]} ${BECKET[1] - 8} ${BECKET[0] + 5} ${BECKET[1] - 13}`, h.a.detail));
     out.push(h.rect(BECKET[0] - EP / 2, BECKET[1] - 4, EP, 12, blanc('arete')));
-    // la main qui tient le brin menant : vue du dos, le pouce vers nous, l'avant-bras vers la droite
-    out.push(h.formes.main({ x: xMen, y: yMain, pose: 'prise', vue: 'dos', cote: 'gauche', echelle: 0.5, diametre: EP, bras: 70 }));
+    // la main qui tient le brin menant : modèle s11 (poing fermé, vu de la paume) tourné d'un quart
+    // vers la gauche, l'avant-bras vers la droite, le pouce en haut ; la corde passe dans le poing
+    out.push(h.formes.modele('s11', { x: xMen, y: yMain, ancre: [68, 42], angle: -90, echelle: 0.36, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 42, fin: 'ouvert' } }));
     // flèches du geste : on tire vers le bas, la charge monte
     out.push(h.fleche(`M ${xMen + 22} ${yU + 50} L ${xMen + 22} ${yU + 96}`, h.a.contour));
     out.push(h.fleche(`M -18 ${yB + 40} L -18 ${yB + 4}`, h.a.contour));

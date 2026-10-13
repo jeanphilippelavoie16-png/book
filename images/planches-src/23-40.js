@@ -124,7 +124,12 @@ module.exports = (h) => {
       ].join('\n');
       // la main tient le manche vers son bout
       const pm = [c1[0] + u[0] * Lm * 0.64, c1[1] + u[1] * Lm * 0.64];
-      out.push(F.main({ x: pm[0], y: pm[1], pose: 'prise', vue: 'dos', angle: 148, diametre: wm + 1, echelle: 0.54, bras: 34, objet: louche }));
+      // modèle s11 (poing fermé) en miroir, le manche dans le poing (bâton du modèle ≈ 25 px, plus
+      // gros que le manche : il passe derrière les doigts), le pouce vers le bol ; l'avant-bras monte
+      // à droite et sort du cadre
+      out.push(louche);
+      out.push(F.modele('s11', { x: pm[0], y: pm[1], ancre: [68, 42], angle: Math.atan2(u[1], u[0]) * 180 / Math.PI, miroir: true, echelle: 0.45,
+        masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
 
       // le filet de bouillon, de la lèvre au plat
       const yS = plat.gL[1];
@@ -203,7 +208,13 @@ module.exports = (h) => {
       out.push(couvercle(moule.TL[0] - 6, moule.cx, ys));
       // la main qui tasse la neige entre le moule et le bord du trou
       const xg = moule.TR[0] + (g.cx + mm(310) - moule.TR[0]) / 2;
-      out.push(F.main({ x: xg + 36, y: ys, pose: 'appui', vue: 'profil', cote: 'gauche', echelle: E, bras: 46, inclinaison: 55 }));
+      // modèle s10-plat (la main à plat, construite sur s10) retourné et en miroir : paume en bas, les
+      // doigts vers la gauche, le pouce dessous ; penché de 10,7° pour que le bout des doigts et le
+      // pouce portent sur la neige, le talon levé ; l'avant-bras remonte à droite
+      { const SP = 0.89 * E;                               // 190 mm du poignet au bout du majeur = 214 px
+        out.push(F.modele('s10-plat', { x: xg + 8, y: ys - 1, ancre: [14, 47], angle: 180 - 10.7, miroir: true, echelle: SP,
+          masquer: [[228, 0, 245, 125]],
+          bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], vers: [Math.cos(-55 * Math.PI / 180), Math.sin(-55 * Math.PI / 180)], long: 40, bord: z } })); }
       out.push(h.fleche(`M ${f(xg + 30)} ${f(ys - 46)} L ${f(xg + 30)} ${f(ys - 24)}`, h.a.arete));
       // tasser aussi dans les deux autres joints
       const xa = (g.cx - mm(310) + plat.TL[0]) / 2, xb = (plat.TR[0] + moule.TL[0]) / 2;

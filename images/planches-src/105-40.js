@@ -299,13 +299,18 @@ module.exports = (h) => {
     }
     // le rebord arrondi : un second trait fin en dedans, du côté de l'ombre
     const dedans = bordPts.slice(8, 34).map(([x, y]) => [cx + (x - cx) * 0.9, cy + (y - cy) * 0.86]);
-    const kn = couteau({ x: xh - 50 * e, y: yh, k: e, miroir: true });
+    const kn = couteau({ x: xh - 50 * e, y: yh, k: e, miroir: true, manche: 135 });   // le bout du manche dépasse du poing
     // la boue grise : une traînée le long du fil, sur la pierre
     const yF = yh - 13 * e, xa = xh - 170 * e - 22, xb = xh - 50 * e - 4;
     const boueIn = [];
     for (let i = 0; i <= 16; i++) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF - 1.5 - 11 * Math.sin(Math.PI * t) ** 0.7 - 2 * Math.sin(9 * t)]); }
     for (let i = 16; i >= 0; i--) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF + 3]); }
-    const m = F.main({ x: xh, y: yh, pose: 'prise', vue: 'dos', angle: -90, echelle: e, diametre: 24 * e, bras: 90, objet: kn.svg });
+    // modèle s11 (poing fermé, vu de la paume) en miroir : la lame sort du côté de l'index, à gauche,
+    // l'avant-bras descend et sort du cadre. Posé hors du groupe tourné (pour que le bras se coupe au
+    // bord de la vue), à la place et à l'angle du manche ; le manche (24) passe dans le poing (25 px).
+    const pm = R([xh, yh]);
+    const m = F.modele('s11', { x: pm[0], y: pm[1], ancre: [68, 42], miroir: true, angle: ROT, echelle: 24 * e / 25,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
     const svg = [`<g transform="rotate(${ROT} ${f1(cx)} ${f1(cy)})">`,
       h.path(lisseFerme(bord), A.blanc),
       semis(bordPts, 7, 0.55, 11),
@@ -313,10 +318,11 @@ module.exports = (h) => {
       h.path(D(boueIn, true), A.blanc),
       semis(boueIn, 2.2, 0.6, 5),
       h.path(lisseFerme(bord), A.contour),
-      m,
+      kn.svg,
       // du talon (près de la mitre) à la pointe, sur la pierre, en suivant le fil
       h.fleche(`M${f1(xb - 8)},${f1(yF - 10)} L${f1(xa + 70)},${f1(yF - 10)} Q${f1(xa + 20)},${f1(yF - 10)} ${f1(xa + 4)},${f1(yh - 4 * e - 4)}`),
       '</g>',
+      m,
     ].join('\n');
     return {
       svg,

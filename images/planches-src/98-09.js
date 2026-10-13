@@ -119,7 +119,10 @@ module.exports = (h) => {
     const P = a => [xm + rx * Math.cos(a * RAD), ym + ry * Math.sin(a * RAD)];
     o.push(h.fleche(`M${pt(P(200))} A${rx} ${ry} 0 0 0 ${pt(P(90))} A${rx} ${ry} 0 0 0 ${pt(P(-10))}`, A.arete));
     // la main
-    const m = F.main({ x: G[0], y: G[1], pose: 'prise', vue: 'dos', echelle: s, diametre: d, angle: ang, bras: 45 });
+    // modèle s11 (poing fermé, vu de la paume) : l'avant-bras à gauche, le pouce vers le bas du bâton ;
+    // le bâton (25 px dans le poing du modèle) passe dans le poing
+    const m = F.modele('s11', { x: G[0], y: G[1], ancre: [68, 42], angle: ang + 90, echelle: d / 25, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
     o.push(m.toString());
     const yB = yt - 12, xB = S[0] + (yB - yS) * e[0] / e[1];
     const y2 = yS + (yb - yS) * 0.72;
@@ -187,7 +190,9 @@ module.exports = (h) => {
     o.push(h.path(`M${pt(bm(M0, 1))} L${pt(bm(M1, 1))} Q${pt([M1[0] + e[0] * 6, M1[1] + e[1] * 6])} ${pt(bm(M1, -1))} L${pt(bm(M0, -1))} Z`, bA));
     // la main : pouce vers l'écumoire, l'avant-bras qui part vers la droite
     const ang = Math.atan2(-e[0], e[1]) / RAD;
-    const m = F.main({ x: G[0], y: G[1], pose: 'prise', vue: 'dos', echelle: s, diametre: dm, angle: ang, bras: 30 });
+    // modèle s11 en miroir : l'avant-bras à droite, le pouce vers l'écumoire ; le manche passe dans le poing
+    const m = F.modele('s11', { x: G[0], y: G[1], ancre: [68, 42], angle: ang + 90, miroir: true, echelle: dm / 25, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } });
     o.push(m.toString());
     // le geste : lever hors de la chaudière
     o.push(h.fleche(`M${pt(E(-ex - 8, 4))} C${pt(E(-ex - 14, -34))} ${pt(E(-12, -58))} ${pt(E(14, -54))}`, A.arete));

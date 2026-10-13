@@ -222,7 +222,10 @@ module.exports = (h) => {
     const cm = at(Lb + Lm / 2, lb / 2 - 1);
     out.push(h.chemin([at(Lb, -3), at(Lb + Lm, -3), at(Lb + Lm + 4, lb / 2 - 1), at(Lb + Lm, lb + 1), at(Lb, lb + 1)].map(P), bA, true));
     const C = P(cm);
-    out.push(F.main({ x: C[0], y: C[1], pose: 'prise', vue: 'dos', angle: 215, diametre: (lm + 6) * s, echelle: s, bras: 50 }));
+    // modèle s11 (poing fermé) en miroir, tourné comme le manche : la lame sort côté index, vers la
+    // pointe ; le manche (16) passe dans le poing (25 px), l'avant-bras tourne vers la droite, au-dessus de la pièce
+    out.push(F.modele('s11', { x: C[0], y: C[1], ancre: [68, 42], miroir: true, angle: 215 + 90, echelle: (lm + 4) * s / 25,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], vers: [0.92, -0.38], bord: z } }));
 
     // le couteau avance le long du fût
     const f1 = P([292, 76]), f2 = P([392, 86]);

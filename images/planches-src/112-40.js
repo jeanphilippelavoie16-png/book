@@ -41,10 +41,13 @@ module.exports = (h) => {
     xs.forEach(x => out.push(F.corde([[x, yc0 + 4], [x, ys]], { ep: 2.2, debut: 'ouvert', fin: 'ouvert' })));
     // le bâton, tenu par la main
     const bt = baton(cx - o.demi, cx + o.demi, ys, rb);
-    const m = o.sansMain ? null : F.main({ x: cx, y: ys, pose: 'prise', vue: 'dos', angle: 90, echelle, bras: o.bras || 60, diametre: 2 * rb, objet: bt });
+    // modèle s11 (poing fermé vu de la paume) tourné d'un demi-tour : l'avant-bras monte hors du
+    // cadre, le bâton passe dans le poing (bâton du modèle ≈ 25 px : echelle = 2 rb / 25)
+    const m = o.sansMain ? null : F.modele('s11', { x: cx, y: ys, ancre: [68, 42], angle: 180, echelle: 2 * rb / 25,
+      masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: o.z } });
     if (o.dessous) out.push(o.dessous);
-    out.push(m || bt);
-    // le pouce fait le tour du bâton et vient se poser sur l'index : la main le peint elle-même
+    out.push(bt);
+    if (m) out.push(m);
     // le tour de mèche par-devant et le bout qui pend
     xs.forEach(x => out.push(F.corde([[x - 2.5, ys - rb - 0.8], [x + 2.5, ys + rb + 0.8], [x + 4, ys + rb + 7]], { ep: 2.2, debut: 'ouvert', fin: 'libre' })));
     // les chandelles
@@ -86,7 +89,7 @@ module.exports = (h) => {
     // la paire, plongée jusqu'au fond
     const haut = yL + 1 - ys;                            // la mèche n'a pris le suif que sous la surface
     const long = yi1 - 26 - (ys + haut);
-    const p = paire(cx, ys, { ecart: 84, long, lh: 9, lb: 13, echelle: 0.6, bras: Math.max(20, ys / 0.6 - 118), demi: 80, rb: 7.5, haut });
+    const p = paire(cx, ys, { ecart: 84, long, lh: 9, lb: 13, demi: 80, rb: 7.5, haut, z });
     out.push(p.svg);
     // le geste
     const xu = cx + W / 2 + 22;
@@ -118,7 +121,7 @@ module.exports = (h) => {
     out.push(h.chemin([[cx - Wh / 2, top], [cx - Wb / 2, sol], [cx + Wb / 2, sol], [cx + Wh / 2, top]], A.contour));
     const haut = 32;
     const long = sol - 3 - 26 - (ys + haut);
-    const p = paire(cx, ys, { ecart: 84, long, lh: 9, lb: 13, echelle: 0.6, bras: Math.max(20, ys / 0.6 - 118), demi: 80, rb: 7.5, haut });
+    const p = paire(cx, ys, { ecart: 84, long, lh: 9, lb: 13, demi: 80, rb: 7.5, haut, z });
     out.push(p.svg);
     return {
       svg: out.join('\n'),

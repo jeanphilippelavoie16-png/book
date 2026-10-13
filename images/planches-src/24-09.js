@@ -47,57 +47,6 @@ module.exports = (h) => {
   // q en travers, négatif du côté du pouce (le dessus), positif du côté du petit doigt.
   const LAB = 255, BRAS_M = 25, D_MANCHE = 36;
 
-  // ─── Le poing serré sur le manche, vu du dos de la main ─────────────────────────────
-  // Repère de la scène (mm) : le centre du manche en 0 0, le poignet en x = -104, le pouce en
-  // haut. Main droite, avant-bras horizontal, manche vertical de 36 qui passe DERRIÈRE la main.
-  // Ce qu'on voit d'un poing de dos : le dos de la main du poignet à la rangée des jointures ;
-  // les quatre doigts, l'un sous l'autre, qui partent en s'enroulant autour du manche — de ce
-  // côté on ne voit que le dessus des premières phalanges et la jointure du milieu qui fait le
-  // bout arrondi, jamais l'ongle (il est de l'autre côté du manche) ; le pouce couché par-dessus
-  // l'index, son ongle vu de biais. Le petit doigt est plus court et plus en retrait.
-  const poing = (Vs) => {
-    const L = pts => pts.map(Vs);
-    const out = [];
-    const ARETE = h.a.arete, DET = h.a.detail, FIN = h.a.fin;
-    const PLEIN = `fill="${B}" ${ARETE.replace(/fill="[^"]*"/, '')}`;
-    // les doigts, du petit à l'index : chacun recouvre le bord du précédent
-    // [y haut, y bas, x de la base, x du bout]
-    const doigts = [[16.5, 31.8, -40, 23], [-0.6, 17.6, -40, 31.5], [-19.4, 0.4, -40, 34.5], [-38, -18.6, -40, 31]];
-    doigts.forEach(([y0, y1, xb, xt], i) => {
-      const hh = y1 - y0, r = hh * 0.52, ym = (y0 + y1) / 2;
-      // le dessus de la phalange un peu bombé, le bout carré-arrondi de la jointure pliée
-      const d = lisse(L([[xb, y0], [xt - r - 6, y0 - 0.4], [xt - r * 0.45, y0 + hh * 0.06], [xt, ym - hh * 0.05],
-        [xt - r * 0.4, y1 - hh * 0.04], [xt - r - 6, y1 + 0.3], [xb, y1]])) + ` L${P2(Vs([xb, y0]))} Z`;
-      out.push(h.path(d, PLEIN));
-      // les plis de la jointure du milieu, sur le dessus du doigt plié
-      const xk = xt - r * 1.5;
-      out.push(h.path(lisse(L([[xk, ym - hh * 0.28], [xk - 2.2, ym], [xk, ym + hh * 0.26]])), FIN));
-    });
-    // le dos de la main : du poignet à la rangée des jointures, qui saillent une par une
-    const front = [[-5, -28.5], [-9.5, -19], [-2, -9.5], [-7.5, 0], [-5.5, 8.5], [-11, 17], [-13.5, 24], [-19, 32.6]];
-    const bas = [[-19, 32.6], [-38, 34.6], [-66, 35.2], [-92, 32.4], [-112, 32.4], [-129, 34]];
-    const haut = [[-129, -33], [-112, -31.2], [-90, -31.6], [-60, -33.8], [-30, -34], [-5, -28.5]];
-    const dos = lisse(L(haut)) + lisse(L(front), false, false).replace(/^M[^C]*/, ' ') + lisse(L(bas), false, false).replace(/^M[^C]*/, ' ') + ` L${P2(Vs([-134, 35.4]))} L${P2(Vs([-134, -34.4]))} Z`;
-    // comme l'avant-bras : le trait de 2,4 d'abord, le blanc en recouvre la moitié intérieure
-    out.push(h.path(lisse(L(bas)), h.a.contour));
-    out.push(h.path(dos, BLANC));
-    // la rangée des jointures : un trait fin, qui se perd entre deux doigts
-    for (const [a, b, c] of [[[-8.4, -32.6], [-5.6, -28.2], [-6.8, -23.4]], [[-5, -14.4], [-2.8, -9.4], [-4, -4.4]], [[-7.8, 4], [-6.2, 8.6], [-7.6, 13.2]], [[-14.2, 20.4], [-13.6, 24.2], [-15.8, 28.2]]])
-      out.push(h.path(lisse(L([a, b, c])), DET));
-    // le pouce : il part du poignet, longe le dessus de la main et se couche sur l'index,
-    // le bout vers la jointure du milieu de l'index
-    const pHaut = [[-129, -33], [-112, -31.2], [-86, -35], [-56, -44], [-26, -48.2], [0, -48], [16, -45.6], [25, -40.6]];
-    const pBout = [[25, -40.6], [26.4, -35.4], [21.5, -31.4], [8, -30.4], [-12, -31.4], [-30, -33.6], [-44, -35]];
-    const pouce = lisse(L(pHaut)) + lisse(L(pBout), false, false).replace(/^M[^C]*/, ' ') + ` L${P2(Vs([-70, -24]))} L${P2(Vs([-134, -24]))} L${P2(Vs([-134, -34.4]))} L${P2(Vs([-129, -33]))} Z`;
-    out.push(h.path(lisse(L(pHaut)), h.a.contour));
-    out.push(h.path(pouce, BLANC));
-    out.push(h.path(lisse(L(pBout)), ARETE));
-    // l'ongle, vu de biais sur le dessus du bout ; le pli de l'articulation
-    out.push(h.path(lisse(L([[5, -46.4], [14, -44.6], [21.6, -40.2], [22.6, -37.6]])) , DET));
-    out.push(h.path(lisse(L([[5, -46.4], [6.8, -43.2], [14.5, -41.6], [21.2, -38.8]])), FIN));
-    out.push(h.path(lisse(L([[-16, -47.6], [-17.8, -42], [-16.4, -36.4]])), FIN));
-    return out.join('\n');
-  };
   const bras = (z) => {
     const m0 = h.formes.main({ x: 0, y: 0, pose: 'prise', vue: 'dos', echelle: 1, diametre: D_MANCHE, bras: BRAS_M });
     const u = norm(sub(m0.bras, m0.poignet));          // du poignet vers le coude
@@ -169,7 +118,18 @@ module.exports = (h) => {
       .map(([dx, a, b]) => h.ligne(t[0] + dx * s, my + a * mh, t[0] + dx * s, my + b * mh, h.a.fin)).join('\n');
     const manche = h.rect(mx, my, D_MANCHE * s, mh, `fill="${B}" ${h.a.arete.replace(/fill="[^"]*"/, '')}`) + '\n' + filM;
     out.push(manche);
-    out.push(poing(Vs));
+    // modèle s11 (poing fermé vu de la paume), en main droite (miroir) tourné d'un quart : le pouce
+    // en haut, l'avant-bras à gauche, le manche vertical passe dans le poing (il dépasse en haut et en
+    // bas). Son poignet (y = 150, bords à 21,8 et 76,3) se pose sur le bout de l'avant-bras dessiné
+    // (p = 230) : même largeur, même milieu ; le manche, vertical, reste dans le poing.
+    {
+      const A1 = V([230, -33]), A2 = V([230, 34]);
+      const em = (Math.hypot(A2[0] - A1[0], A2[1] - A1[1]) - 1.2) / 54.5;   // le trait de l'avant-bras sort 0,6 en dedans de son bord
+      const M = mul(add(A1, A2), 0.5);
+      // l'ancre (68, 42) est à 108 px du poignet le long du bras, 19 px en travers (vers le petit doigt)
+      out.push(h.formes.modele('s11', { x: t[0], y: M[1] - 19 * em, ancre: [68, 42], angle: 90, miroir: true, echelle: em,
+        masquer: [[0, 150, 140, 175]] }));
+    }
 
     return { svg: out.join('\n'), V };
   };

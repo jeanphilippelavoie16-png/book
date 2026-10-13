@@ -300,7 +300,11 @@ module.exports = (h) => {
     const tip = L(PTE), Lb = 76, Lh = 58, u0 = Lb + 4;
     const kn = couteau(pt(T, tip), [0, -1], 1, Lb * s, 11 * s, Lh * s);
     const cM = pt(T, [tip[0], tip[1] - u0 - Lh * 0.48]);
-    o.push(F.main({ x: cM[0], y: cM[1], pose: 'prise', vue: 'dos', diametre: 11.6 * s, echelle: 0.46 * s, bras: 60, objet: kn }).toString());
+    // modèle s11 (poing fermé, vu de la paume) tourné d'un quart : l'avant-bras part à gauche, le
+    // pouce en bas vers la lame ; le manche, peint d'abord, passe dans le poing (25 px de bâton = le manche)
+    o.push(kn);
+    o.push(F.modele('s11', { x: cM[0], y: cM[1], ancre: [68, 42], angle: 90, echelle: 0.46 * s, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }).toString());
     // la langue, sous l'eau, sur le fond
     o.push(h.path(lis(PROF.map(L), T, true), plein(A.contour)));
     o.push(h.path(lis(FLANC.map(L), T), A.fin));

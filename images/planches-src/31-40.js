@@ -268,7 +268,10 @@ module.exports = (h) => {
     const [a0, a1] = [P(-150, -96), P(150, -96)];
     const top = P(0, -330);
     out.push(h.path(`M${f(a0[0])} ${f(a0[1])} C${f(a0[0])} ${f(top[1] + 40 * s)} ${f(top[0] - 90 * s)} ${f(top[1])} ${f(top[0])} ${f(top[1])} C${f(top[0] + 90 * s)} ${f(top[1])} ${f(a1[0])} ${f(top[1] + 40 * s)} ${f(a1[0])} ${f(a1[1])}`, h.a.arete));
-    out.push(h.formes.main({ x: top[0], y: top[1], pose: 'prise', vue: 'dos', angle: 90, diametre: 22 * s, echelle: s, bras: 90 }));
+    // modèle s11 (poing fermé, vu de la paume) retourné : l'avant-bras monte et sort du cadre, l'anse
+    // passe dans le poing
+    out.push(h.formes.modele('s11', { x: top[0], y: top[1], ancre: [68, 42], angle: 180, echelle: 0.8 * s, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     // le courant, et le va-et-vient de la main
     const c0 = P(-360, 90), c1 = P(-200, 90);
     out.push(h.fleche(`M${f(c0[0])} ${f(c0[1])} L${f(c1[0])} ${f(c1[1])}`, h.a.arete));
