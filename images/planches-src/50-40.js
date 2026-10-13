@@ -134,7 +134,13 @@ module.exports = (h) => {
     const grip = [b.c0[0] + (b.c1[0] - b.c0[0]) * 0.48, b.c0[1]];
     out.push(b.svg);
     // la main qui tient la base par-dessus, le poing fermé autour, l'avant-bras qui monte
-    out.push(F.main({ x: grip[0], y: grip[1], pose: 'prise', vue: 'dos', angle: 90, diametre: 2 * b.r + 4, bras: 70, echelle: S * 0.85 }));
+    // modèle k11 (poing sur un bâton) retourné : l'avant-bras monte, les doigts passent sous la base ;
+    // le bâton du modèle est masqué, la base de la queue passe dans le poing
+    { const SM = 1.35 * S, a = [32.1, 104], b = [73.6, 104];
+      const o = { x: grip[0], y: grip[1], ancre: [72, 47.5], angle: 180, echelle: SM,
+        masquer: [[0, 36, 29.9, 57.5], [29.9, 39.6, 35.8, 43.1], [107, 34, 140, 57.3], [0, 104, 140, 135]], masquerEncre: [[83.5, 43.5, 97.5, 57]] };
+      const m = F.modele('k11', o);
+      out.push(F.modele('k11', { ...o, bras: { a, a0: [31.6, 92], b, b0: [73.2, 92], bord: z } })); }
     // le geste : on la tourne au-dessus des braises
     { const [cx, cy] = b.c0; out.push(h.fleche(`M${f(cx + 18)} ${f(cy + 34)} A 24 24 0 0 1 ${f(cx - 18)} ${f(cy + 34)}`, A.arete)); }
     // les braises : des tisons de bois carbonisé, craquelés en damier, sur un lit de cendre
@@ -258,9 +264,14 @@ module.exports = (h) => {
     out.push(rabat);
     const [px, py] = v.prise, mk = S * 1.25;
     // la main qui pince le bord libre de la plaque, le poignet qui monte
-    out.push(F.main({ x: px, y: py, pose: 'pince', vue: 'profil', angle: PINCE_ANG, bras: 50, echelle: S * 1.15 }));
+    // modèle k12 (le pouce et l'index pincent un fil) tourné d'un quart : la pince en bas, sur le
+    // bord libre ; l'avant-bras monte vers la droite. Le fil et les traits de mouvement sont masqués.
+    { const SM = 1.0 * S;
+      out.push(F.modele('k12', { x: px, y: py, ancre: [24, 65], angle: -90, echelle: SM,
+        masquer: [[0, 30, 23.5, 57.5], [100.5, 12, 120, 46], [61, 4, 72, 15.5], [76, 6, 93, 21.5], [100, 138, 165, 170]],
+        bras: { a: [114.7, 138], a0: [112.6, 132], b: [149, 138], b0: [145.9, 128], bord: z } })); }
     // la traction : vers le haut, à côté du poignet
-    out.push(h.fleche(`M${f(px + 40 * mk)} ${f(py - 6 * mk)} L${f(px + 40 * mk)} ${f(py - 70 * mk)}`, A.arete));
+    out.push(h.fleche(`M${f(px + 78 * mk)} ${f(py + 4 * mk)} L${f(px + 78 * mk)} ${f(py - 60 * mk)}`, A.arete));
     return out.join('\n');
   };
 
@@ -307,7 +318,7 @@ module.exports = (h) => {
     // le rabat déjà levé : de la jointure, il monte vers la gauche et finit dans la main
     const jx = xj + 8, Y = x => ym(x);
     const axe = lisse([
-      [xj - 112, Y(xj - 112) - 52], [xj - 70, Y(xj - 70) - 46], [xj - 30, Y(xj - 30) - 38], [xj, Y(xj) - 30],
+      [xj - 104, Y(xj - 104) - 38], [xj - 70, Y(xj - 70) - 38], [xj - 30, Y(xj - 30) - 34], [xj, Y(xj) - 28],
       [jx + 12, Y(jx + 12) - tf / 2 - 6], [jx + 40, Y(jx + 40) - tf / 2],
       ...Array.from({ length: 12 }, (_, i) => { const x = jx + 60 + (x1 - jx - 60) * (i + 1) / 12; return [x, ym(x) - tf / 2]; }),
     ], false, 6);
@@ -323,7 +334,12 @@ module.exports = (h) => {
     out.push(h.path(dOf(nappe, true), motif('p5040-gras', 'fill="none" stroke="none"')));
     out.push(h.path(dOf(nappe, true), A.arete));
     // la poussée : le pouce avance à plat, vers la nappe encore collée
-    out.push(F.main({ x: NX, y: Y(NX), pose: 'appui', vue: 'profil', angle: v.tang(NX), inclinaison: 22, bras: 70, echelle: 1.1 }));
+    // modèle g16 (la main à plat qui avance, doigts allongés) : la paume sur la viande, le bout des
+    // doigts sous le bord de la nappe ; le poignet se relève, l'avant-bras monte vers la gauche
+    { const SM = 1.55, xp = xj - 42;
+      out.push(F.modele('g16', { x: xp, y: Y(xp) - 1, ancre: [85, 51], angle: v.tang(xp), echelle: SM,
+        masquer: [[0, 0, 40, 70]],
+        bras: { a: [40, 20.1], b: [40, 49.1], vers: [-1, -0.42], bord: z } })); }
     const fy = Y(xj) - 100;
     out.push(h.fleche(`M${f(xj + 10)} ${f(Y(xj + 10) - 4)} L${f(xj + 70)} ${f(Y(xj + 70) - 3)}`, A.arete));
 

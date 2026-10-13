@@ -16,6 +16,7 @@
 //   corde(pts, { ep, debut, fin, fleche, torons, passages, jeu, trait }) · cordes([brin, …], options)
 //   aiguilleFilet({ x, y, longueur, angle, chargee }) · moule({ x, y, longueur, largeur, angle })
 //   maille({ x, y, echelle, ep, fleche, jeu, trait })
+//   modele(id, { x, y, ancre, angle, echelle, miroir, masquer, bras })   un modèle calqué (images/modeles)
 //
 // Chaque fonction rend un objet qui se colle comme une chaîne (join, gabarit `${}`) et qui porte
 // la géométrie utile, en coordonnées de la vue : m.trou (où se dessine l'objet tenu), m.poignet…
@@ -1844,6 +1845,122 @@ module.exports = function formes(h) {
     return forme(c.svg, { fond: [x, y], croisements: c.croisements });
   }
 
-  return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille,
+  // ─── modèles calqués ──────────────────────────────────────────────────────────────────
+  // Les mains, têtes et corps calqués sur les références de JP (skill dessin-notice,
+  // scripts/modeles.py) : images/modeles/<id>.svg, une silhouette blanche et l'encre du
+  // dessinateur, en pixels du modèle, écrits à plusieurs poids de trait (id, id@50, id@35…).
+  // modele() les pose dans la vue et prend le poids dont le contour tombe sur le trait voulu.
+  //
+  //   modele(id, { x, y, ancre, angle, echelle, miroir, trait, masquer, masquerEncre, bras })
+  //   ancre    [ax, ay] en pixels du modèle : le point qui tombe en (x, y) (défaut : le centre)
+  //   echelle  unités de vue par pixel du modèle ; angle en degrés, sens horaire à l'écran
+  //   miroir   true : retourné gauche-droite autour de l'ancre (une main droite devient gauche)
+  //   trait    l'épaisseur voulue du contour, en unités de vue (défaut 1,3 : un peu plus fin que les objets, comme les mains du livre)
+  //   masquer  [[x0, y0, x1, y1], …] en pixels du modèle : ce qui ne se dessine pas, encre et
+  //            blanc (le bâton du modèle quand la planche dessine son propre manche, une coupe
+  //            de poignet quand le bras continue)
+  //   masquerEncre  pareil, l'encre seulement : le blanc reste (un bout de bâton vu entre deux doigts)
+  //   bras     { a, b, a0, b0, vers, long, gonfle, cote } : l'avant-bras qui prolonge le poignet.
+  //            a et b, ses deux bords en pixels du modèle ; a0, b0, un point plus haut sur chaque
+  //            bord (le bras part dans leur direction), sinon vers, la direction dans la vue.
+  //            L'avant-bras a sa forme : il s'élargit du poignet vers le coude (gonfle, défaut
+  //            0,4 de la largeur du poignet, surtout du côté cote : 'a' ou 'b'), et il s'arrête,
+  //            à long unités de vue ; ou, avec bord: z ({ l, h }), il sort du cadre quand le bord
+  //            est à portée d'avant-bras, et sinon il s'arrête court : sur une coupe en ellipse
+  //            pour les modèles de Kibbitzer (k…), sur deux traits ouverts pour les gestes (g…).
+  // Rend la forme ; m.P([px, py]) donne la place d'un point du modèle dans la vue.
+  const fsMod = require('fs'), pathMod = require('path');
+  const DOSSIER_MODELES = pathMod.join(__dirname, '..', '..', '..', '..', 'images', 'modeles');
+  const cacheModeles = {};
+  const variantesModele = id => cacheModeles[id] || (cacheModeles[id] = fsMod.readdirSync(DOSSIER_MODELES)
+    .filter(f => f === id + '.svg' || (f.startsWith(id + '@') && f.endsWith('.svg')))
+    .map(f => { const t = fsMod.readFileSync(pathMod.join(DOSSIER_MODELES, f), 'utf8'); return { t, tr: +((t.match(/data-trait="([\d.]+)"/) || [])[1] || 1.5) }; }));
+  // Une courbe lisse par des points (Catmull-Rom), en commandes SVG.
+  const courbePts = pts => {
+    const q = p => `${f1(p[0])} ${f1(p[1])}`, n = pts.length, at = i => pts[Math.max(0, Math.min(n - 1, i))];
+    let d = `M${q(pts[0])}`;
+    for (let i = 0; i < n - 1; i++) {
+      const p0 = at(i - 1), p1 = at(i), p2 = at(i + 1), p3 = at(i + 2);
+      d += ` C${q([p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6])} ${q([p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6])} ${q(p2)}`;
+    }
+    return d;
+  };
+  let nModele = 0;
+  function modele(id, o = {}) {
+    const s = o.echelle || 1, ang = o.angle || 0, sx = o.miroir ? -1 : 1, voulu = o.trait || 1.3;
+    const vs = variantesModele(id);
+    if (!vs.length) throw new Error(`modèle ${id} introuvable dans images/modeles`);
+    const v = vs.reduce((m, w) => Math.abs(Math.log(w.tr * s / voulu)) < Math.abs(Math.log(m.tr * s / voulu)) ? w : m);
+    const txt = v.t, ep = v.tr * s;                 // le trait du contour, tel qu'il sort dans la vue
+    const vb = txt.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+    const W = +vb[1], H = +vb[2];
+    const dSil = (txt.match(/id="silhouette"[^>]*\sd="([^"]*)"/) || [])[1] || '';
+    const dEnc = (txt.match(/id="encre"[^>]*\sd="([^"]*)"/) || [])[1] || '';
+    const [ax, ay] = o.ancre || [W / 2, H / 2];
+    const x = o.x || 0, y = o.y || 0;
+    const c = Math.cos(ang * RAD), sn = Math.sin(ang * RAD);
+    const P = ([px, py]) => { const u = sx * s * (px - ax), w = s * (py - ay); return [x + u * c - w * sn, y + u * sn + w * c]; };
+    const out = [];
+    if (o.bras) {
+      const b = o.bras, A = P(b.a), B = P(b.b);
+      const da = b.a0 ? uni(sub(A, P(b.a0))) : uni(b.vers), db = b.b0 ? uni(sub(B, P(b.b0))) : uni(b.vers);
+      const d = b.vers ? uni(b.vers) : uni(add(da, db)), w0 = lon(sub(B, A));
+      // bord : la vue { l, h } ; le bras va jusqu'à son bord (il sort du cadre), sinon long
+      const auBord = z => { const M = mul(add(A, B), 0.5), t = [];
+        if (d[0] < -1e-6) t.push((M[0] - 2) / -d[0]); if (d[0] > 1e-6) t.push((z.l - 2 - M[0]) / d[0]);
+        if (d[1] < -1e-6) t.push((M[1] - 2) / -d[1]); if (d[1] > 1e-6) t.push((z.h - 2 - M[1]) / d[1]);
+        return Math.max(4, Math.min(...t)); };
+      const nAB = uni(sub(B, A)), Lf = 4.2 * w0;   // un avant-bras entier, du poignet au coude
+      // Jusqu'au bord quand le bord est à portée d'avant-bras ; sinon coupé à mi-longueur, et la
+      // coupe se dessine (une ellipse, comme les avant-bras des modèles) : un bras qui file sur
+      // toute la vue a l'air fou.
+      const dBord = b.bord ? auBord(b.bord) : Infinity;
+      const coupe = b.long == null && dBord > 1.7 * Lf;
+      const L = b.long != null ? b.long : coupe ? 0.45 * Lf : dBord + 0.12 * w0;
+      const gonfle = b.gonfle == null ? 0.4 : b.gonfle, part = b.cote === 'b' ? 0.3 : 0.7;
+      // l'élargissement : nul au poignet, plein aux deux tiers (le ventre des muscles), un peu moins au coude
+      const prof = t => { const u = Math.min(1, t / 0.68); return gonfle * u * u * (3 - 2 * u) * (t > 0.68 ? 1 - 0.3 * Math.min(1, (t - 0.68) / 0.32) : 1); };
+      const N = 16, ga = [A], gb = [B];
+      let pa = A, pb = B;
+      for (let i = 1; i <= N; i++) {
+        const sd = L * i / N, ds = L / N, k = Math.exp(-sd / (0.6 * w0));
+        pa = add(pa, mul(uni(add(mul(da, k), mul(d, 1 - k))), ds));     // chaque bord part dans sa direction
+        pb = add(pb, mul(uni(add(mul(db, k), mul(d, 1 - k))), ds));     // et rejoint celle du bras
+        const e = w0 * prof(sd / Lf);
+        ga.push(add(pa, mul(nAB, -e * part))); gb.push(add(pb, mul(nAB, e * (1 - part))));
+      }
+      const q = p => `${f1(p[0])} ${f1(p[1])}`, et = f1(Math.max(0.5, ep));
+      const bras = [`<path ${FOND} d="M${q(ga[0])} ${ga.slice(1).map(p => 'L' + q(p)).join(' ')} ${gb.slice().reverse().map(p => 'L' + q(p)).join(' ')} Z"/>`,
+        `<path ${trait(et)} d="${courbePts(ga)}"/>`, `<path ${trait(et)} d="${courbePts(gb)}"/>`];
+      // la fin d'un bras coupé suit le modèle : l'ellipse de la section chez Kibbitzer (k…), deux
+      // traits qui s'arrêtent dans la planche de gestes (g…) ; b.fin : 'coupe' ou 'ouvert' pour forcer
+      const fin = b.fin || (id[0] === 'g' ? 'ouvert' : 'coupe');
+      if (coupe && fin === 'coupe') {                  // la coupe : l'ellipse de la section, vue de biais
+        const E1 = ga[N], E2 = gb[N], Cm = mul(add(E1, E2), 0.5), r1 = lon(sub(E2, E1)) / 2, r2 = r1 * 0.26;
+        const angE = Math.atan2(E2[1] - E1[1], E2[0] - E1[0]) / RAD;
+        bras.push(`<ellipse cx="${f1(Cm[0])}" cy="${f1(Cm[1])}" rx="${f1(r1)}" ry="${f1(r2)}" transform="rotate(${f1(angE)} ${f1(Cm[0])} ${f1(Cm[1])})" fill="${BLANC}" stroke="${NOIR}" stroke-width="${et}"/>`);
+      }
+      if (b.bord && !coupe) {                          // il sort du cadre : coupé net au bord de la vue
+        const idc = `modele-${++nModele}`;
+        out.push(`<clipPath id="${idc}"><rect x="0" y="0" width="${f1(b.bord.l)}" height="${f1(b.bord.h)}"/></clipPath>`, `<g clip-path="url(#${idc})">`, ...bras, '</g>');
+      } else out.push(...bras);
+    }
+    const tr = `translate(${f1(x)} ${f1(y)}) rotate(${f1(ang)}) scale(${(sx * s).toFixed(4)} ${s.toFixed(4)}) translate(${f1(-ax)} ${f1(-ay)})`;
+    const masque = rects => {
+      if (!rects || !rects.length) return '';
+      const idm = `modele-${++nModele}`;
+      out.push(`<defs><mask id="${idm}" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${H}">` +
+        `<rect x="0" y="0" width="${W}" height="${H}" fill="${BLANC}"/>` +
+        rects.map(([x0, y0, x1, y1]) => `<rect x="${x0}" y="${y0}" width="${x1 - x0}" height="${y1 - y0}" fill="#000000"/>`).join('') +
+        `</mask></defs>`);
+      return ` mask="url(#${idm})"`;
+    };
+    const mTout = masque(o.masquer), mEncre = masque(o.masquerEncre);
+    out.push(`<g data-modele="${id}" transform="${tr}"${mTout}><path fill="${BLANC}" fill-rule="evenodd" d="${dSil}"/>` +
+      `<g${mEncre}><path fill="${NOIR}" fill-rule="evenodd" d="${dEnc}"/></g></g>`);
+    return forme(out.join('\n'), { P, l: W, h: H, trait: ep });
+  }
+
+  return { main, personnage, tete, buste, corde, cordes, aiguilleFilet, moule, maille, modele,
     _interne: { tube, peindre, repere, lisse, ser, forme, enroule, plie, ik2, tangente, pointBord, suite, cubPts, arcPts, mainProfil, personnageAncien, brasVersMain, capsule } };
 };

@@ -5,12 +5,41 @@ description: Dessiner les mains, les têtes et les personnages des planches du G
 
 # Mains, têtes et corps au style notice
 
-> **État au 13 octobre 2026 : JP a rejeté la première feuille faite avec ce skill** (pouce en crochet,
-> doigts croches, têtes et corps laids). Les outils ici donnent la position juste et un trait net,
-> mais pas encore une forme belle. Ne livre rien de neuf sans un vrai modèle à décalquer (photo de
-> JP, planche du domaine public), et ne te fie pas à ton propre œil pour juger une main.
-> **Le style visé est dans `references/style-cible.md`** (trait fin égal, proportions vraies,
-> poignet ouvert, ongles quand ils se voient) : il remplace la manche de chandail et le trait épais.
+> **Depuis le 13 octobre 2026, une main, une tête ou un corps de planche se calque, il ne se
+> construit plus.** Les constructions de ce skill (main 3D, courbes au canon) ont toutes été rejetées.
+> JP a fourni ses modèles (références dans `references/style-cible.md`) et autorisé le calque pour
+> l'usage personnel du livre. La méthode qui marche est plus bas, « Calquer puis poser ».
+
+## Calquer puis poser (la méthode)
+
+1. **Le calque.** `scripts/vectoriser.py` : l'image agrandie, chaque trait coupé à mi-chemin entre
+   son cœur et le fond (il garde son épaisseur), un gris par trait d'une jonction à l'autre, filigrane
+   et boutons de site masqués, potrace. Rien n'est redessiné ni « encré » par-dessus.
+2. **La bibliothèque.** `scripts/modeles.py tous` découpe chaque planche de référence en modèles :
+   `images/modeles/k01…k20` (Kibbitzer : prises de bâton, de corde, de tasse, poing, main qui pend),
+   `g01…g37` (gestes au trait fin : pince, pouce levé, crayon, main à plat). Chaque modèle a une
+   silhouette blanche et l'encre, à plusieurs poids de trait (`k11`, `k11@50`, `k11@35`…), et porte
+   son épaisseur de contour (`data-trait`). Les planches-contact : `contact-kibbitzer.png`,
+   `contact-gestes.png` (scratchpad de la session, à refaire avec `modeles.py`).
+3. **La pose.** Dans une planche : `h.formes.modele(id, { x, y, ancre, angle, echelle, miroir,
+   masquer, masquerEncre, bras })` (voir formes.js). `scripts/fiche_modele.py k11` donne le modèle
+   sur une grille de 10 px pour lire l'ancre et ce qu'il faut masquer (le bâton du modèle quand la
+   planche a son manche) ; `scripts/bords_modele.py k11 y=104 y=92` donne le milieu exact des bords
+   du poignet, d'où part le bras.
+
+Ce que JP a demandé en voyant les premières planches posées (13 oct.), et que `modele()` fait :
+
+- **Le trait fin.** Le poids est choisi tout seul pour que le contour sorte à 1,3 dans la vue
+  (option `trait`), le poids des mains du livre ; les traits intérieurs suivent en proportion.
+- **Un bras a une forme de bras.** « Pas juste un long bras droit » : l'avant-bras part dans la
+  direction des bords du poignet, s'élargit vers le coude et se courbe. Il sort du cadre quand le bord
+  de la vue est à portée (`bras.bord: z`), sinon il s'arrête court, sur une coupe en ellipse chez
+  Kibbitzer (comme ses avant-bras) ou sur deux traits ouverts pour les gestes.
+- **Un seul style par planche** : Kibbitzer (trait vivant, plus gras) ou gestes (trait fin égal),
+  pas les deux mélangés dans la même planche.
+
+Ce qui manque encore : les têtes de profil, les enfants, les personnages en action (assis, accroupi,
+qui porte). Aucune référence ne les couvre : en demander à JP avant de dessiner.
 
 Le corps humain est ce que JP regarde en premier sur une planche, et ce qu'il rejette le plus vite.
 Six essais ont raté avant celui-ci ; ce skill garde ce qui a marché et pourquoi le reste a échoué.

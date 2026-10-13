@@ -117,7 +117,12 @@ module.exports = (h) => {
       out.push(th.svg);
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
       // la main et l'avant-bras : la main relâchée qui pend, doigts serrés, vue du dos
-      out.push(h.formes.main({ x: M(MAIN_C)[0], y: M(MAIN_C)[1], pose: 'pend', vue: 'dos', angle: -100, cote: 'gauche', echelle: SB * M.k, bras: 165 }));
+      // modèle k16 (main ouverte, vue du dos) tête en bas : la main relâchée pend, doigts serrés ; sa
+      // coupe de poignet est masquée, l'avant-bras continue vers le haut et sort du cadre
+      { const SM = 1.15 * M.k, W0 = M([XW, YW + 4]);
+        const o = { x: W0[0], y: W0[1], ancre: [72, 137], angle: 175.7, echelle: SM, masquer: [[0, 137, 110, 175]] };
+        const m = h.formes.modele('k16', o);
+        out.push(h.formes.modele('k16', { ...o, bras: { a: [51.4, 137], b: [93.1, 137], vers: [-0.17, -0.98], bord: z } })); }
       return out.join('\n');
     },
     renvois: (z) => {
@@ -213,7 +218,10 @@ module.exports = (h) => {
       const Mp = (Q) => Q.map(M);
       return [
         chaudron(M, Cp),
-        h.formes.main({ x: M(brasS([54 * 0.42, 0]))[0], y: M(brasS([54 * 0.42, 0]))[1], pose: 'pend', vue: 'dos', angle: 145, echelle: 0.42 * M.k, bras: 270 }),
+        // le même modèle k16, la main saine qui entre de biais, doigts devant ; l'avant-bras remonte à droite
+        (() => { const SM = 0.6 * M.k, W0 = M(WP);
+          const o = { x: W0[0], y: W0[1], ancre: [72, 137], angle: 240.7, echelle: SM, masquer: [[0, 137, 110, 175]] };
+          return h.formes.modele('k16', { ...o, bras: { a: [51.4, 137], b: [93.1, 137], vers: [0.82, -0.57], bord: z } }); })(),
       ].join('\n');
     },
     renvois: (z) => {

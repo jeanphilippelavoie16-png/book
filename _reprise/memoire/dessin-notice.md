@@ -12,3 +12,6 @@ Ce qui marche : **calquer fidèlement** ses images de référence avec `.claude/
 **Why:** un pouce mal placé ou un trait tremblé, il le voit tout de suite ; aucune construction par calcul n'a tenu. Les images ne sont pas sous licence libre : JP a tranché le 13 oct. (« c'est pour usage personnel, it's all good, calque »).
 
 **How to apply:** pour une main, une tête ou un corps de planche, partir d'un de ces calques (`_reprise/scratchpad/modeles/calque/`), jamais d'une construction. Chaque calque est inscrit dans `images/credits.md` (section des modèles calqués) : usage personnel, à remplacer si le livre se vend ou se donne hors de la famille. Montrer toute feuille à JP avant de toucher aux planches. Voir [[regle-dure-pas-de-categories-echappatoires]] (enlever la main n'était pas la réponse).
+
+**Pose dans les planches (13 oct., suite).** `images/modeles/` + `formes.modele()` ; essai sur 50-40, 25-40, 13-09, 104-40, 27-04 montré à JP. Ses demandes en voyant les premières : « une forme de bras, pas juste un fucking long bras droit, au pire le couper » et « les lignes plus fines pour respecter le style des dessins qu'on a » — d'où le trait choisi à 1,3 et l'avant-bras galbé ou coupé. 28-02 (tête d'enfant de profil, enfant assis) attend une référence.
+

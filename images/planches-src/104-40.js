@@ -100,7 +100,7 @@ module.exports = (h) => {
 
   // ── Rangée 1, à gauche : la main tient l'alêne et perce les deux épaisseurs ─────────────
   const tenir = z => {
-    const e = 1.05, D = 24 * e;                     // manche de bois franc
+    const e = 1.05, SM = 1.36, D = 13 * SM;          // manche de bois franc, au diamètre du bâton du modèle
     const hx = z.l * 0.66, hy = z.h - 128;         // le centre du poing
     const mT = hy - 40 * e, mB = hy + 64 * e;        // bouts du manche : le bout rond dans le talon de la main
     const manche = [
@@ -127,13 +127,18 @@ module.exports = (h) => {
     // main, l'auriculaire en haut, le pouce et l'index en bas, vers la lame (vue du dos)
     out.push(manche);
     out.push(lig.join('\n'));
-    out.push(F.main({ x: hx, y: hy, pose: 'prise', vue: 'dos', cote: 'gauche', angle: 180, diametre: D, bras: 30, echelle: 1 }));
+    // modèle k11 (poing sur un bâton, vu des doigts) tourné d'un quart : l'avant-bras part à gauche,
+    // l'auriculaire en haut, le pouce en bas ; son bâton est masqué, le manche de la planche passe dedans
+    { const a = [32.1, 104], b = [73.6, 104], o = { x: hx, y: hy, ancre: [72, 47.5], angle: 90, echelle: SM,
+        masquer: [[0, 36, 29.9, 57.5], [29.9, 39.6, 35.8, 43.1], [107, 34, 140, 57.3], [0, 104, 140, 135]], masquerEncre: [[83.5, 43.5, 97.5, 57]] };
+      const m = F.modele('k11', o);
+      out.push(F.modele('k11', { ...o, bras: { a, a0: [31.6, 92], b, b0: [73.2, 92], bord: z } })); }
     // la coupe de la lame : un losange, relié à la lame par le trait de coupe
     const yc = mB + 7, xq = hx - 30;
     out.push(h.ligne(hx - w - 2, yc, xq + 9, yc, h.a.cache));
     out.push(h.chemin([[xq - 8, yc], [xq, yc - 4], [xq + 8, yc], [xq, yc + 4]], h.a.hachure('metal', 'arete'), true));
     // le geste : on pousse droit dans le cuir
-    out.push(h.fleche(`M ${f1(hx)} ${f1(mT - 44)} L ${f1(hx)} ${f1(mT - 8)}`));
+    out.push(h.fleche(`M ${f1(hx)} ${f1(hy - 104)} L ${f1(hx)} ${f1(hy - 60)}`));
     tenir.pts = { lame: [hx - w - 1, mB + 20] };
     return out.join('\n');
   };
