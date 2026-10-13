@@ -843,6 +843,12 @@
   "source": "h01",
   "note": "de face, habillé : la main gauche (à droite à l'écran) sur la hanche, le coude écarté ; l'autre bras le long du corps. Ancre : le sol entre les bottes. Échelle : 0,70 px/mm.",
   "marge": 160,
+  "jour": [
+   [
+    505,
+    600
+   ]
+  ],
   "parties": [
    {
     "poly": [
@@ -1004,11 +1010,11 @@
      ]
     ],
     "pivot": [
-     370,
-     447
+     361,
+     450
     ],
     "angle": 76,
-    "rayon": 45,
+    "rayon": 38,
     "suit": 0
    }
   ]

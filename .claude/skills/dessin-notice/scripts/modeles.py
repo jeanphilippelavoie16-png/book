@@ -207,6 +207,8 @@ def shoo():
 #                             avec "axe": "x", les stations sont [[y, dx], …] et la partie glisse de côté.
 # Option de la pose (bibliothèque B) : "effacer_apres": [[x0, y0, x1, y1]]  comme effacer, mais après les parties et les
 #                             greffes, en px de la pose (marge comprise) : l'amorce d'un trait voisin venue avec une greffe.
+# Option de la pose (lot C, 13 oct.) : "jour": [[x, y], …]  un point (px de la pose, marge comprise) dans chaque vide
+#                             qu'un membre enferme contre le corps (le coude d'une main sur la hanche) : il reste vide.
 # Option de la pose (bibliothèque B) : "cadre": [x0, y0, x1, y1]  recadre le modèle écrit (px de la pose, après
 #                             la marge) ; ses coordonnées partent alors de (x0, y0).
 # Option de la pose (bibliothèque B) : "lisser": px  un flou léger de l'encre avant le calque, contre les
@@ -422,7 +424,14 @@ def articuler(ident, spec):
     if spec.get('rogner'):                         # "rogner": px — le blanc qui dépasse du trait (une frange
         r_ = max(1, int(spec['rogner'] * k))       # laissée par une partie écartée) est rogné : le blanc
         sil = ndi.binary_erosion(sil, structure=disk(r_)) | ndi.binary_fill_holes(enc)   # s'arrête au trait
-    sil = ndi.binary_fill_holes(ndi.binary_closing(sil | enc, structure=disk(max(1, int(1.0 * k)))))   # pas de jour dans le blanc
+    ferme = ndi.binary_closing(sil | enc, structure=disk(max(1, int(1.0 * k))))
+    sil = ndi.binary_fill_holes(ferme)             # pas de jour dans le blanc…
+    if spec.get('jour'):                           # …sauf le vide qu'un membre enferme (la main sur la hanche) :
+        trous, _ = ndi.label(sil & ~ferme)         # "jour": [[x, y], …] un point de chaque vide, px de la pose
+        for x, y in spec['jour']:
+            n = trous[int(y * k), int(x * k)]
+            if n:
+                sil &= trous != n
     for e_ in spec.get('effacer_apres', []):
         if isinstance(e_, dict) and e_.get('blanc'):
             rr, cc = remplir(np.array([q[1] for q in e_['poly']]) * k, np.array([q[0] for q in e_['poly']]) * k, enc.shape)
