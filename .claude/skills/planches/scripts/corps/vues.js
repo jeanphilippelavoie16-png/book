@@ -36,9 +36,11 @@
 //                     du bassin (dx vers l'avant, dy vers l'extérieur).
 //      Les jambes debout ne se voient pas d'en haut (sous le corps) : seuls les pieds dépassent.
 //
-// corps(o) prend en plus : caches (dessus : 'pieds' par défaut — le bord des pieds caché sous le
-// corps en tireté ; true = pieds, jambes et bassin ; false = rien), cheveux (true ; false = sans),
-// oreilles (true), angle (dessus : rotation de toute la figure à l'écran, degrés).
+// corps(o) prend en plus : caches (dessus : ce qui est caché sous le corps, redessiné en tireté :
+// 'pieds', 'bassin', ['pieds', 'bassin'] ou true = tout ; rien par défaut), fantome (true : la
+// silhouette seule en tireté, sans fond, pour montrer une position d'avant ; 'pieds' : les pieds
+// seulement), cheveux (true ; false = sans), oreilles (true), angle (dessus : rotation de toute la
+// figure à l'écran, degrés).
 //
 // ─── Les données exportées (homme ; pour(age) pour les autres) ──────────────────────────────────
 //
@@ -144,7 +146,7 @@ const GABARITS = {
       epaule: 1432, acromion: 1460, cou: 1481, pivot: 1565, menton: 1522, sommet: 1750 },
     x: { hanche: 90, hanches: 172, taille: 138, aisselle: 163, epaule: 175, acromion: 190, cou: 58 },
     tete: { larg: 155, long: 195, oreille: 13 },
-    p: { poitrine: 122, dos: 112, taille: 104, tailleDos: 92, ventre: 100, fesses: 124, epauleAv: 62, epauleAr: 70 },
+    p: { poitrine: 122, dos: 112, taille: 104, tailleDos: 92, ventre: 100, fesses: 108, epauleAv: 62, epauleAr: 70 },
     l: { bras: 325, avantbras: 255, main: 189, pied: 266 },
     km: 1, kc: 1, pente: 0.3,
   },
@@ -154,7 +156,7 @@ const GABARITS = {
       epaule: 1333, acromion: 1357, cou: 1379, pivot: 1456, menton: 1418, sommet: 1630 },
     x: { hanche: 86, hanches: 180, taille: 118, aisselle: 145, epaule: 158, acromion: 168, cou: 50 },
     tete: { larg: 148, long: 187, oreille: 12 },
-    p: { poitrine: 112, dos: 100, taille: 92, tailleDos: 86, ventre: 96, fesses: 128, epauleAv: 55, epauleAr: 62 },
+    p: { poitrine: 112, dos: 100, taille: 92, tailleDos: 86, ventre: 96, fesses: 100, epauleAv: 55, epauleAr: 62 },
     l: { bras: 303, avantbras: 238, main: 176, pied: 248 },
     km: 0.88, kc: 0.86, pente: 0.42,
   },
@@ -166,7 +168,7 @@ const GABARITS = {
       epaule: 905, acromion: 920, cou: 942, pivot: 1000, menton: 966, sommet: 1150 },
     x: { hanche: 56, hanches: 108, taille: 104, aisselle: 107, epaule: 110, acromion: 118, cou: 38 },
     tete: { larg: 139, long: 175, oreille: 11 },
-    p: { poitrine: 80, dos: 70, taille: 82, tailleDos: 64, ventre: 86, fesses: 78, epauleAv: 40, epauleAr: 46 },
+    p: { poitrine: 80, dos: 70, taille: 82, tailleDos: 64, ventre: 86, fesses: 68, epauleAv: 40, epauleAr: 46 },
     l: { bras: 211, avantbras: 165, main: 122, pied: 180 },
     km: 0.72, kc: 0.7, pente: 0.62,
   },
@@ -176,7 +178,7 @@ const GABARITS = {
       epaule: 802, acromion: 816, cou: 835, pivot: 890, menton: 857, sommet: 1030 },
     x: { hanche: 52, hanches: 102, taille: 100, aisselle: 101, epaule: 103, acromion: 110, cou: 36 },
     tete: { larg: 139, long: 175, oreille: 11 },
-    p: { poitrine: 76, dos: 66, taille: 80, tailleDos: 60, ventre: 86, fesses: 74, epauleAv: 38, epauleAr: 44 },
+    p: { poitrine: 76, dos: 66, taille: 80, tailleDos: 60, ventre: 86, fesses: 64, epauleAv: 38, epauleAr: 44 },
     l: { bras: 186, avantbras: 146, main: 108, pied: 157 },
     km: 0.68, kc: 0.66, pente: 0.66,
   },
@@ -221,7 +223,7 @@ const MEMBRES = {
   // vu d'en haut, un membre à l'horizontale montre sa largeur de face ; vertical, il se réduit à son
   // bout (le bras pendant n'est plus que le rond de l'épaule)
   dessus: {
-    bras: [[0, 56, 46], [0.12, 52, 42], [0.35, 46, 40], [0.65, 41, 38], [0.88, 38, 36], [1, 37, 35]],
+    bras: [[0, 50, 44], [0.12, 50, 42], [0.35, 46, 40], [0.65, 41, 38], [0.88, 38, 36], [1, 37, 35]],
     avantbras: [[0, 37, 35], [0.18, 40, 36], [0.45, 36, 33], [0.75, 31, 28], [1, 28, 26]],
     cuisse: [[0, 86, 74], [0.12, 84, 72], [0.4, 76, 64], [0.72, 65, 55], [0.92, 57, 51], [1, 55, 50]],
     jambe: [[0, 55, 50], [0.12, 53, 50], [0.3, 56, 55], [0.5, 49, 48], [0.75, 39, 37], [0.92, 34, 32], [1, 34, 32]],
@@ -263,7 +265,9 @@ function demiTronc(g, angleBras) {
   const arc = th => [-(x0 + ea * Math.sin(th * RAD)), yA + eb * (1 - Math.cos(th * RAD))];
   // sous le bras pendant, le flanc s'écarte du bras dès l'aisselle (pas de double trait)
   const dz = z.epaule - z.aisselle, tA = Math.min(1, dz / g.l.bras);
-  const xS0 = Math.max(x.taille + 6, x.epaule + dz * Math.sin(Math.max(0, Math.min(25, al)) * RAD) - pchip(bras, tA, 2) * km + 1);
+  // sous le bras pendant, le flanc reste sous le bras : le bord intérieur du bras se voit en trait
+  // fin depuis l'aisselle ; plus bas, le bras quitte la taille et la fenêtre s'ouvre
+  const xS0 = Math.max(x.taille + 8, Math.min(x.aisselle - 2, x.epaule + dz * Math.sin(Math.max(0, Math.min(25, al)) * RAD) - pchip(bras, tA, 2) * km + 18));
   // sous le bras levé, le flanc monte dans le bord du bras
   const xL = x.epaule + bras[0][2] * km * 0.92;
   const L = (a, b) => a + (b - a) * w;
@@ -350,32 +354,68 @@ function cheveuxDosDe(g, tete) {
 // union ; penché, les tranches glissent vers l'avant et l'union montre le dos.
 function sectionsDe(g) {
   const Z = z => z - g.z.hanche, x = g.x, p = g.p, z = g.z;
+  const xD = x.epaule + MEMBRES.face.bras[1][1] * g.km;
   return [
     { z: Z(z.hanchesMax), w: x.hanches, av: p.ventre, ar: p.fesses, n: 2.3, bassin: true },
     { z: Z((z.hanchesMax + z.taille) / 2), w: (x.hanches + x.taille) / 2, av: (p.ventre + p.taille) / 2, ar: (p.fesses + p.tailleDos) / 2, n: 2.3, bassin: true },
     { z: Z(z.taille), w: x.taille, av: p.taille, ar: p.tailleDos, n: 2.3 },
     { z: Z((z.taille + z.aisselle) / 2), w: (x.taille + x.aisselle) / 2, av: (p.taille + p.poitrine) / 2, ar: (p.tailleDos + p.dos) / 2, n: 2.4 },
-    { z: Z(z.aisselle), w: x.aisselle, av: p.poitrine, ar: p.dos, n: 2.6 },
-    { z: Z((z.aisselle + z.epaule) / 2), w: (x.aisselle + x.epaule) / 2, av: p.poitrine * 0.9, ar: p.dos, n: 2.8 },
-    { z: Z(z.epaule), w: x.epaule, av: p.poitrine * 0.72, ar: p.dos * 0.92, n: 3.0 },
-    { z: Z(z.acromion), w: x.acromion, av: p.epauleAv, ar: p.epauleAr, n: 3.2 },
+    { z: Z(z.aisselle), w: x.aisselle, av: p.poitrine, ar: p.dos, n: 2.9 },
+    { z: Z((z.aisselle + z.epaule) / 2), w: (x.aisselle + x.epaule) / 2, av: p.poitrine * 0.92, ar: p.dos, n: 3.2 },
+    // les épaules : l'enveloppe va jusqu'au bord du deltoïde ; l'avant et l'arrière restent presque
+    // parallèles jusqu'au bout, qui s'arrondit (pas de citron) ; le bras pendant reste dedans
+    { z: Z(z.epaule), w: x.epaule + 0.7 * (xD - x.epaule), av: p.poitrine * 0.8, ar: p.dos * 0.95, n: 4 },
+    { z: Z(z.acromion), w: xD + 1, av: p.epauleAv * 1.15, ar: p.epauleAr * 1.12, n: 3.2 },
     { z: Z(z.cou + 0.02 * g.H), w: x.cou * 1.6, av: p.epauleAv * 0.75, ar: p.epauleAr * 0.95, n: 2.4 },
   ];
 }
-function unionRadiale(formes, k = 144) {
+// L'union de super-ellipses centrées au même point : dans chaque direction, le plus grand rayon,
+// adouci (log-somme-exp, tau en mm) : là où deux tranches se croisent, pas de coin rentrant.
+function unionRadiale(formes, k = 180, tau = 4) {
   const out = [];
   for (let i = 0; i < k; i++) {
     const t = i / k * 2 * Math.PI, c = Math.cos(t), s = Math.sin(t);
-    let r = 0;
-    for (const f of formes) { const a = c >= 0 ? f.av : f.ar; r = Math.max(r, ((Math.abs(c) / a) ** f.n + (Math.abs(s) / f.w) ** f.n) ** (-1 / f.n)); }
+    const R = formes.map(f => { const a = c >= 0 ? f.av : f.ar; return ((Math.abs(c) / a) ** f.n + (Math.abs(s) / f.w) ** f.n) ** (-1 / f.n); });
+    const m = Math.max(...R), r = m + tau * Math.log(R.reduce((a, v) => a + Math.exp((v - m) / tau), 0));
     out.push([r * c, r * s]);
   }
   return out;
 }
 // penche : degrés vers l'avant ; rend des polygones à unir (debout, un seul : le contour exact)
+// l'enveloppe convexe (Andrew), puis son rayon lissé autour du centre (gaussienne circulaire) : vu
+// d'en haut, un tronc debout est presque convexe, de la poitrine au bout du deltoïde, sans pans
+function enveloppeDouce(pts, sigma = 6, k = 240) {
+  const P = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const bas = [], haut = [];
+  for (const p of P) { while (bas.length > 1 && cr(bas[bas.length - 2], bas[bas.length - 1], p) <= 0) bas.pop(); bas.push(p); }
+  for (const p of P.slice().reverse()) { while (haut.length > 1 && cr(haut[haut.length - 2], haut[haut.length - 1], p) <= 0) haut.pop(); haut.push(p); }
+  const H = bas.slice(0, -1).concat(haut.slice(0, -1));
+  // le rayon de l'enveloppe dans chaque direction (depuis l'origine, qui est dedans)
+  const R = [];
+  for (let i = 0; i < k; i++) {
+    const t = i / k * 2 * Math.PI, u = [Math.cos(t), Math.sin(t)];
+    let r = 0;
+    for (let j = 0; j < H.length; j++) {
+      const a = H[j], b = H[(j + 1) % H.length], e = [b[0] - a[0], b[1] - a[1]];
+      const den = u[0] * e[1] - u[1] * e[0];
+      if (Math.abs(den) < 1e-9) continue;
+      const tt = (a[0] * e[1] - a[1] * e[0]) / den, ss = (a[0] * u[1] - a[1] * u[0]) / den;
+      if (tt > 0 && ss >= -1e-9 && ss <= 1 + 1e-9) r = Math.max(r, tt);
+    }
+    R.push(r);
+  }
+  const w = Math.ceil(3 * sigma * k / 360), G = [];
+  for (let d = -w; d <= w; d++) G.push(Math.exp(-0.5 * (d * 360 / k / sigma) ** 2));
+  const sG = G.reduce((a, v) => a + v, 0);
+  return R.map((_, i) => {
+    let r = 0; for (let d = -w; d <= w; d++) r += G[d + w] * R[(i + d + k) % k];
+    r /= sG; const t = i / k * 2 * Math.PI; return [r * Math.cos(t), r * Math.sin(t)];
+  });
+}
 function troncDessusDe(g, penche = 0) {
   const S = sectionsDe(g).filter(s => !s.bassin);
-  if (Math.abs(penche) < 0.5) return [unionRadiale(S)];
+  if (Math.abs(penche) < 0.5) return [enveloppeDouce(unionRadiale(S))];
   const sp = Math.sin(penche * RAD), cp = Math.cos(penche * RAD), out = [];
   const zTot = S[S.length - 1].z - S[0].z;
   for (let i = 0; i < S.length - 1; i++) {
@@ -414,7 +454,7 @@ function oreillesDessusDe(g) {
 // les cheveux d'en haut : tout le crâne derrière la ligne du front, un arc ouvert vers l'avant
 function cheveuxDessusDe(g, tete) {
   const L = g.tete.long, W = g.tete.larg, cx = L * 0.06;
-  const xm = cx + L * (g.H < 1300 ? 0.27 : 0.3), xt = cx + L * 0.08, yt = W * 0.47;
+  const xm = cx + L * (g.H < 1300 ? 0.16 : 0.18), xt = cx - L * 0.04, yt = W * 0.49;
   const xh = y => xt + (xm - xt) * Math.max(0, 1 - (Math.abs(y) / yt) ** 2);
   const ligne = [];
   for (let i = 0; i <= 40; i++) { const y = yt - 2 * yt * i / 40; ligne.push([xh(y), y]); }
@@ -484,6 +524,9 @@ function lirePose(o, M) {
   const sorte = pd.vue && pd.vue !== 'profil' ? pd.vue : 'profil';
   const rac = Object.assign({}, pd.raccourcis || {}, o.raccourcis || {}, A.raccourcis || {});
   const elev = Object.assign({}, pd.elevations || {}, o.elevations || {});
+  for (const T_ of [rac, elev]) for (const k of MEMBRES_NOMS) {
+    if (T_[k] !== undefined) { if (T_[k + 'P'] === undefined) T_[k + 'P'] = T_[k]; if (T_[k + 'L'] === undefined) T_[k + 'L'] = T_[k]; }
+  }
   for (const k of MEMBRES_NOMS) {
     if (A[k + 'P'] === undefined && A[k] !== undefined) A[k + 'P'] = A[k];
     if (A[k + 'L'] === undefined && A[k] !== undefined) A[k + 'L'] = A[k];
@@ -526,7 +569,7 @@ function squelette3D(P, C) {
         // un angle de profil ; les bras s'écartent un peu, les genoux s'ouvrent quand la cuisse plie
         const a = num(v, k === 'main' ? num(A['avantbras' + c]) : 0);
         u = sagittal(a);
-        if (k === 'bras' || k === 'avantbras' || k === 'main') u = rotX(u, s * 5 * Math.max(0, Math.cos(a * RAD)));
+        if (k === 'bras' || k === 'avantbras' || k === 'main') u = rotX(u, s * (k === 'bras' ? 2 : 3) * Math.max(0, Math.cos(a * RAD)));
         u = rotZ(u, ['cuisse', 'jambe'].includes(k) ? azB : azT);
       }
       dir[k + c] = n3(u);
@@ -542,6 +585,9 @@ function squelette3D(P, C) {
     J['poignet' + c] = a3(J['coude' + c], m3(dir['avantbras' + c], Lg.avantbras));
     J['genou' + c] = a3(J['hanche' + c], m3(dir['cuisse' + c], Lg.cuisse));
     J['cheville' + c] = a3(J['genou' + c], m3(dir['jambe' + c], Lg.jambe));
+    // les pieds posés (dessus) : piedsAu { P: [x, y, az] } dans le repère de la figure
+    const au = A.piedsAu && A.piedsAu[c];
+    if (Array.isArray(au)) { J['cheville' + c] = [au[0], au[1], J['cheville' + c][2]]; J['genou' + c] = [(J['hanche' + c][0] + au[0]) / 2, (J['hanche' + c][1] + au[1]) / 2, J['genou' + c][2]]; }
     // un pas (dessus) : la cheville glisse au sol
     const pas = A['pas' + c];
     if (Array.isArray(pas)) { const dv = rotZ([pas[0], s * pas[1], 0], azB); J['cheville' + c] = a3(J['cheville' + c], dv); J['genou' + c] = a3(J['genou' + c], m3(dv, 0.5)); }
@@ -615,6 +661,14 @@ function corps(o = {}, M) {
   const C = pour(age, Pr), g = C.gabarit, Lg = C.longueurs;
   const P = lirePose(o, M);
   if (!o.age && P.age) return corps({ ...o, age: P.age }, M);
+  // couché, vu d'en haut : c'est la vue de face (sur le dos) ou de dos (sur le ventre) de la même
+  // pose redressée, tournée d'un quart de tour, la tête vers où le tronc s'est couché
+  if (vue === 'dessus' && P.sorte !== 'face' && P.sorte !== 'dos' && Math.abs(+P.A.tronc || 0) >= 60 && !o._couche) {
+    const ph = +P.A.tronc, A2 = {};
+    for (const [k, v] of Object.entries(P.A)) A2[k] = (typeof v === 'number' && /^(bras|avantbras|main|cuisse|jambe|pied)[PL]$/.test(k)) ? v + ph : v;
+    A2.tronc = 0; A2.cou = (+P.A.cou || 0) + ph; A2.tete = (+P.A.tete || 0) + ph;
+    return corps({ ...o, vue: ph < 0 ? 'face' : 'dos', pose: { vue: 'profil', id: P.id, angles: A2, mains: P.mains, pieds: P.pieds }, angles: {}, _couche: { dos: ph < 0, az: +P.A.tourneBassin || 0 } }, M);
+  }
   const S = squelette3D(P, C), J = S.J;
   const SEG = C.segments[vue];
   // la projection : écran (mm, y vers le bas) et profondeur (+ vers l'œil)
@@ -626,10 +680,12 @@ function corps(o = {}, M) {
   // ─ le tronc, le bassin, le cou, la tête
   if (planaire) {
     const kT = Math.cos(S.penche * RAD);
-    const aBras = c => {                   // l'angle du bras dans le plan de la vue, pour les épaules
+    const aBras = c => {                   // l'angle du bras par rapport au tronc, dans le plan de la vue
       const v = sub(proj(J['coude' + c]), proj(J['epaule' + c]));
-      const out = vue === 'face' ? (c === 'P' ? -1 : 1) : (c === 'P' ? 1 : -1);
-      return Math.atan2(v[0] * out, v[1]) / RAD;
+      const tU = uni(sub(proj(J.cou), proj(J.bassin))), bas_ = mul(tU, -1);
+      const gaucheE = (vue === 'face') === (c === 'P');
+      const dehors = gaucheE ? [-bas_[1], bas_[0]] : [bas_[1], -bas_[0]];
+      return Math.atan2(dot(v, dehors), dot(v, bas_)) / RAD;
     };
     const gaucheEcran = vue === 'face' ? 'P' : 'L';
     const tr = deuxMoities(demiTronc(g, aBras(gaucheEcran)), demiTronc(g, aBras(gaucheEcran === 'P' ? 'L' : 'P')));
@@ -656,7 +712,7 @@ function corps(o = {}, M) {
     const sp = Math.sin(S.penche * RAD);
     const Rt = q => rot(q, S.azT), Rb = q => rot(q, S.azB);
     const zT = J.cou[2];
-    pc('bassin', bassinDessusDe(g).map(Rb), 0, { cache: o.caches === true, groupe: 'bassin' });
+    pc('bassin', bassinDessusDe(g).map(Rb), 0, { cache: o.caches === true || o.caches === 'bassin' || (Array.isArray(o.caches) && o.caches.includes('bassin')), groupe: 'bassin' });
     pc('tronc', null, zT, { morceaux: troncDessusDe(g, S.penche).map(r => r.map(Rt)) });
     // la tête, à l'aplomb du pivot, tournée ; penchée, elle avance
     const piv = proj(J.pivot);
@@ -700,11 +756,15 @@ function corps(o = {}, M) {
     if (visJ) os('jambe' + c, K, A_, SEG.jambe, BOUTS.jambe, Lg.jambe, zDe(K, A_) + biais + (planaire ? 1 : 0), { groupe: grJ, voisins: [{ id: 'cuisse' + c, joint: proj(K), R: 1.4 * SEG.jambe[0][1] }], cache: o.caches === true });
     // le bras
     const pend = !planaire && S.dir['bras' + c][2] < -0.85;
-    os('bras' + c, E, El, SEG.bras, BOUTS.bras, Lg.bras, planaire ? zDe(E, El) + biais : (pend ? J.cou[2] - 1 : zDe(E, El)), { groupe: 'corps', voisins: [{ id: 'tronc', joint: proj(E), R: planaire ? (g.z.epaule - g.z.aisselle) * 1.02 : (pend ? 1.7 : 0.7) * SEG.bras[0][1] }] });
-    os('avantbras' + c, El, W, SEG.avantbras, BOUTS.avantbras, Lg.avantbras, planaire ? zDe(El, W) + biais : zDe(El, W) - (pend ? 2000 : 0), { groupe: 'corps', voisins: [{ id: 'bras' + c, joint: proj(El), R: 1.5 * SEG.avantbras[0][1] }] });
+    // d'en haut, un bras qui pend presque droit reste dans l'enveloppe des épaules : on ne le
+    // dessine pas (son rond déborderait en bosse)
+    const brasCache = !planaire && S.dir['bras' + c][2] < -0.98;
+    if (!brasCache) os('bras' + c, E, El, SEG.bras, BOUTS.bras, Lg.bras, planaire ? zDe(E, El) + biais : (pend ? J.cou[2] - 1 : zDe(E, El)), { groupe: 'corps', voisins: [{ id: 'tronc', joint: proj(E), R: planaire ? (g.z.epaule - g.z.aisselle) * 1.02 : (pend ? 1.7 : 0.7) * SEG.bras[0][1] }] });
+    const avCache = !planaire && pend && (S.dir['avantbras' + c][2] < -0.85 || brasCache && S.dir['avantbras' + c][2] < -0.6);      // sous l'épaule, d'en haut
+    if (!avCache) os('avantbras' + c, El, W, SEG.avantbras, BOUTS.avantbras, Lg.avantbras, planaire ? zDe(El, W) + biais : zDe(El, W) - (pend ? 2000 : 0), { groupe: 'corps', voisins: [{ id: 'bras' + c, joint: proj(El), R: 1.5 * SEG.avantbras[0][1] }] });
     // la main : la forme d'extrémité, le long de la direction de la main, raccourcie
     const dM = S.dir['main' + c], tm = (P.mains && P.mains[c]) || 'ouverte';
-    const mainCachee = !planaire && pend && S.dir['avantbras' + c][2] < -0.85;
+    const mainCachee = !planaire && pend && S.dir['avantbras' + c][2] < -0.85 && S.dir['main' + c][2] < -0.8;
     const km = Lg.main / 190;
     const em = extremiteVue(M, 'main', tm, vue, c, { poignet: (SEG.avantbras[SEG.avantbras.length - 1][1] + SEG.avantbras[SEG.avantbras.length - 1][2]) / km });
     const p0 = proj(W), dm2 = proj(a3(W, dM)), v2 = sub(dm2, p0), rM = Math.max(0.32, Math.min(1, lon(v2)));
@@ -729,13 +789,19 @@ function corps(o = {}, M) {
       const mir = ef.ext ? false : !ecranGauche;
       TP = q => add(pa, rot([q[0] * kp * (mir ? -1 : 1), q[1] * kp], ap));
     } else {
-      const azP = S.azB + (typeof P.A['tournePied' + c] === 'number' ? sgn(c) * P.A['tournePied' + c] : (S.dir['ouvre' + c] || 0) + sgn(c) * 7);
+      // l'azimut du pied : piedsAu (absolu), tournePied (sur le bassin), un nombre en pose de dessus
+      // (absolu, 0 = droit devant, + vers l'extérieur), sinon l'ouverture naturelle
+      const au = P.A.piedsAu && P.A.piedsAu[c];
+      const azP = Array.isArray(au) && au.length > 2 ? au[2]
+        : typeof P.A['tournePied' + c] === 'number' ? S.azB + sgn(c) * P.A['tournePied' + c]
+        : (P.sorte === 'dessus' && typeof P.A['pied' + c] === 'number') ? sgn(c) * (P.A['pied' + c] + 7)
+        : S.azB + (S.dir['ouvre' + c] || 0) + sgn(c) * 7;
       const dJ = S.dir['jambe' + c];
-      const arriere = dJ[0] < -0.6 || (typeof P.A['pied' + c] === 'number' && P.A['pied' + c] < 0);   // à genoux : pointe en arrière
+      const arriere = dJ[0] < -0.6 || (P.sorte !== 'dessus' && typeof P.A['pied' + c] === 'number' && P.A['pied' + c] < 0);   // à genoux : pointe en arrière
       TP = q => add(pa, rot([q[0] * kp, q[1] * kp * (ef.ext ? 1 : sgn(c))], azP + (arriere ? 180 : 0)));
     }
     pc('pied' + c, ef.contours.map(q => q.map(TP))[0], planaire ? prof(A_) + biais + 3 : A_[2] - 60,
-      { fusion: ef.contours.slice(1).map(q => q.map(TP)), details: ef.details.map(q => q.map(TP)), groupe: planaire ? 'corps' : 'pied' + c, voisins: [{ id: 'jambe' + c, joint: pa, R: 9999 }], cache: !planaire && o.caches !== false });
+      { fusion: ef.contours.slice(1).map(q => q.map(TP)), details: ef.details.map(q => q.map(TP)), groupe: planaire ? 'corps' : 'pied' + c, voisins: [{ id: 'jambe' + c, joint: pa, R: 9999 }], cache: !planaire && (o.caches === true || o.caches === 'pieds' || (Array.isArray(o.caches) && o.caches.includes('pieds'))) });
     geo.pieds[c] = { cheville: pa };
   }
   return peindre(o, M, C, P, S, J, pieces, geo, proj, vue);
@@ -755,12 +821,19 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
   for (const p of pieces) for (const P_ of p.CL) for (const q of P_) { const x = q.X / SC, y = q.Y / SC; yMax = Math.max(yMax, y); yMin = Math.min(yMin, y); xMin = Math.min(xMin, x); xMax = Math.max(xMax, x); }
   const s = o.echelle || 0.2, m = o.cote === 'gauche' ? -1 : 1, X = o.x || 0, Y = o.y || 0;
   let T, x0 = 0, y0 = 0;
-  if (planaire) {
+  if (planaire && o._couche) {
+    // couché vu de dessus : le bassin au point (x, y) ; sur le dos (vue de face) la tête vers −x et
+    // sa droite vers +y ; sur le ventre (vue de dos) la tête vers +x
+    const B0 = proj(J.bassin), ang = (o.angle || 0) + o._couche.az;
+    const quart = o._couche.dos ? q => [q[1], -q[0]] : q => [-q[1], q[0]];
+    T = q => { const v = rot(quart([q[0] - B0[0], q[1] - B0[1]]), ang); return [X + s * m * v[0], Y + s * v[1]]; };
+  } else if (planaire) {
     const appui = P.appui;
     const pP = geo.pieds.P.cheville, pL = geo.pieds.L.cheville;
     x0 = appui === 'pieds' ? (pP[0] + pL[0]) / 2 : proj(J.bassin)[0];
     y0 = yMax;
-    T = q => [X + m * s * (q[0] - x0), Y + s * (q[1] - y0)];
+    const ang0 = o.angle || 0;
+    T = ang0 ? q => { const v = rot([m * s * (q[0] - x0), s * (q[1] - y0)], ang0); return [X + v[0], Y + v[1]]; } : q => [X + m * s * (q[0] - x0), Y + s * (q[1] - y0)];
   } else {
     const ang = o.angle || 0;
     T = q => { const v = rot([q[0] * m, q[1]], ang); return [X + s * v[0], Y + s * v[1]]; };
@@ -778,11 +851,31 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
   // les groupes, du plus bas (loin) au plus haut (près de l'œil)
   const G = {};
   for (const p of pieces) (G[p.groupe] = G[p.groupe] || { id: p.groupe, pieces: [] }).pieces.push(p);
+  const CLmod = require('./clipper');
   for (const gr of Object.values(G)) {
     gr.z = Math.max(...gr.pieces.map(p => p.z));
     gr.CL = I.ferme(I.unionCL(gr.pieces.map(p => p.CL)), gr.id === 'tete' ? 2 : planaire ? 9 : 6);
+    // un trou trop étroit pour être une fenêtre (le jour entre le bras et le flanc) se bouche ; son
+    // bord reste, en trait intérieur
+    gr.fentes = [];
+    const garde = [];
+    for (const P_ of gr.CL) {
+      if (CLmod.Clipper.Orientation(P_)) { garde.push(P_); continue; }
+      const plein_ = I.union([I.deCL(P_)]);
+      if (!I.ouvre(plein_, 7).length) gr.fentes.push(I.deCL(P_).concat([I.deCL(P_)[0]]));
+      else garde.push(P_);
+    }
+    gr.CL = garde;
   }
   const ordre = Object.values(G).sort((a, b) => a.z - b.z);
+  // le fantôme : la silhouette seule, en tireté, sans fond (une position d'avant) ; 'pieds' : les
+  // pieds seulement
+  if (o.fantome) {
+    const pris = o.fantome === 'pieds' ? pieces.filter(p => p.id.startsWith('pied')) : null;
+    const CLs = pris ? pris.map(p => p.CL) : ordre.map(gr => gr.CL);
+    const svgF = `<g data-corps="${P.id || 'pose'}" data-vue="${vue}" data-fantome="1">\n` + CLs.map(c => contour(c, tr.int, ' stroke-dasharray="3 2.2"')).join('\n') + '\n</g>';
+    return Object.assign({ svg: svgF, toString() { return svgF; } }, geoVueF());
+  }
   // l'objet tenu : objetP devant le tronc et derrière les bras ; objetL derrière tout
   const quoi = v => (typeof v === 'function' ? v(geoVue()) : (v || ''));
   const out = [`<g data-corps="${P.id || 'pose'}" data-vue="${vue}">`];
@@ -790,6 +883,13 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
   const tirets = [];
   for (const gr of ordre) {
     const plus = ordre.filter(h => h.z > gr.z);
+    if (!planaire && plus.length && (gr.id === 'bassin' || gr.id === 'jambes')) {
+      // ce qui ne dépasse qu'en mince filet de ce qui est au-dessus ne se dessine pas (un double trait)
+      const dessus_ = I.unionCL(plus.map(h => h.CL));
+      const vis = I.ouvre(I.moins(gr.CL, dessus_), 9);
+      gr.CL = vis.length ? I.inter(gr.CL, I.unionCL([I.decale(vis, 4), I.decale(dessus_, -2)])) : [];
+      if (!gr.CL.length) { for (const p of gr.pieces) if (p.cache) tirets.push(...I.bordsDans(p.CL, I.decale(dessus_, -E))); continue; }
+    }
     out.push(plein(gr.CL, BLANC));
     // les cheveux, gris, dans la tête (moins ce qui passe devant la tête)
     for (const p of gr.pieces) if (p.cheveux) {
@@ -817,7 +917,7 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
       if (devant.length) region = I.moins(region, I.unionCL(devant.map(q => q.CL)));
       lignes.push(...I.bordsDans(p.CL, I.decale(region, -E)));
     }
-    out.push(ligne(lignes, tr.int));
+    out.push(ligne(lignes, tr.int), ligne(gr.fentes, tr.int, '', 4));
     for (const p of gr.pieces) if (p.details && p.details.length) out.push(ligne(p.details, tr.det, '', 4));
     out.push(contour(gr.CL, tr.sil));
     if (gr.id === 'corps' && o.objetP && !planaire) { /* dessus : l'objet après le corps */ }
@@ -862,12 +962,13 @@ function peindre(o, M, C, P, S, J, pieces, geo, proj, vue) {
     gg.tete = { x: tc[0], y: tc[1], haut: T(proj(a3(J.pivot, [0, 0, g().z.sommet - g().z.pivot]))), angle: 0 };
     const b0 = T([xMin, yMin]), b1 = T([xMax, yMax]);
     gg.boite = { x0: Math.min(b0[0], b1[0]), y0: Math.min(b0[1], b1[1]), x1: Math.max(b0[0], b1[0]), y1: Math.max(b0[1], b1[1]) };
-    gg.sol = planaire ? Y : null;
+    gg.sol = planaire && !o._couche ? Y : null;
     gg.echelle = s; gg.miroir = m < 0; gg.vue = vue;
     gg.versVue = q => T(proj(q));          // un point du squelette 3D (mm) → la vue
     return gg;
   }
   function g() { return C.gabarit; }
+  function geoVueF() { return geoVue(); }
   return Object.assign({ svg, toString() { return svg; } }, geoVue());
 }
 

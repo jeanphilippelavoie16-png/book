@@ -431,29 +431,33 @@ function construire(modele, vue) {
   // les traits intérieurs : bord de A à l'intérieur de B, quand A est devant
   const lignes = [];
   const essais = modele.lignes || [];
-  for (const [Aa, Bb] of essais) {
+  for (const [Aa, Bb, force] of essais) {
     if (lignes.length >= (modele.nLignes || 1)) break;
-    const tr = traitInterieur(Aa, Bb) .concat(traitInterieur(Bb, Aa));
+    const tr = force ? traitInterieur(Aa, Bb, true) : traitInterieur(Aa, Bb).concat(traitInterieur(Bb, Aa));
     tr.sort((a, b) => longueur(b) - longueur(a));
     for (const t of tr) if (lignes.length < (modele.nLignes || 1)) lignes.push(t);
   }
-  function traitInterieur(Aa, Bb) {
+  function traitInterieur(Aa, Bb, force = false) {
     if (!Aa.some(n => pieces[n]) || !Bb.some(n => pieces[n])) return [];
     const FA = champ(Aa), FB = champ(Bb), out = [];
     const marge = modele.margeTrait || 0.2;
     for (const b of isolignes(FA, G, 0.5)) {
       const pts = reechantillonne(b.pts, 0.4, b.ferme), n = pts.length;
-      const ok = pts.map(p => valeur(FB, G, p) > 0.5 + marge && valeur(U, G, p) > 0.5 + marge && profondeur(Aa, p) < profondeur(Bb, p) - 0.5
+      const ok = pts.map(p => valeur(FB, G, p) > 0.5 + marge && valeur(U, G, p) > 0.5 + marge && (force || profondeur(Aa, p) < profondeur(Bb, p) - 0.5)
         && (!cp || (cp.axe === 0 ? p[0] : p[1]) > cp.val + 2));
       // des suites de points retenus (la boucle peut commencer au milieu d'une suite)
       let deb = 0; if (b.ferme && ok.every(Boolean)) { out.push(pts); continue; }
       if (b.ferme) { while (deb < n && ok[deb]) deb++; }
-      let cur = [];
+      // les suites séparées par un trou de moins de 3 mm se recollent (un pli de la grille, pas un vrai bout)
+      const trou = Math.round(3 / 0.4);
+      let cur = [], vide = 0, enAttente = [];
       for (let k = 0; k <= n; k++) {
         const i = (deb + k) % n, bon = k < n && ok[i] && (b.ferme || deb + k < n);
-        if (bon) cur.push(pts[i]);
-        else { if (cur.length) out.push(cur); cur = []; }
+        if (bon) { if (vide && vide <= trou && cur.length) cur.push(...enAttente); else if (vide && cur.length) { out.push(cur); cur = []; }
+          vide = 0; enAttente = []; cur.push(pts[i]); }
+        else { vide++; if (k < n) enAttente.push(pts[i]); }
       }
+      if (cur.length) out.push(cur);
     }
     const rogne = modele.rogne == null ? 1.2 : modele.rogne, mini = modele.traitMin || 14;
     return out.map(l => rogner(l, rogne)).filter(l => l.length > 2 && longueur(l) >= mini);
@@ -639,11 +643,13 @@ function poseMain(pose, o) {
       return { doigts, pouce: p, points: { prise: doigts[0][3], bout: doigts[0][3] }, index: true };
     }
     case 'pince': {       // le pouce et l'index qui pincent
-      const doigts = [doigtPlie(DOIGTS[0], [32, 44, 18]), doigtPlie(DOIGTS[1], [44, 62, 34]), doigtPlie(DOIGTS[2], [52, 70, 40]), doigtPlie(DOIGTS[3], [58, 74, 44])];
+      // l'index s'enroule vers la paume, le pouce vient chercher sa pulpe : un anneau. Les trois
+      // autres doigts restent presque tendus, dans le plan de la main : l'anneau se détache.
+      const doigts = [doigtPlie(DOIGTS[0], [42, 66, 32]), doigtPlie(DOIGTS[1], [14, 20, 10]), doigtPlie(DOIGTS[2], [18, 24, 12]), doigtPlie(DOIGTS[3], [22, 28, 14])];
       const ix = doigts[0], dd = U3(S3(ix[3], ix[2])), k = U3(X3([Math.cos(DOIGTS[0].ecart * RAD), Math.sin(DOIGTS[0].ecart * RAD), 0], [0, 0, 1]));
       const pad = U3(rot3(dd, k, 90));                                  // la pulpe de l'index
-      const cible = A3(ix[3], M3(pad, DOIGTS[0].r[3] + POUCE.r[3] - 1.5));
-      const p = pouce([0.62, -0.52, 0.6], cible, [0, -1, 0.2]);
+      const cible = A3(ix[3], M3(pad, DOIGTS[0].r[3] + POUCE.r[3] - 3));
+      const p = pouce([0.72, -0.32, 0.62], cible, [0, -0.5, -1]);
       return { doigts, pouce: p, points: { prise: A3(ix[3], M3(pad, DOIGTS[0].r[3] - 0.5)), bout: ix[3] }, index: true };
     }
     default: throw new Error(`main : pose « ${pose} » inconnue (connues : ouverte, plat, prise, porte, pointe, pince)`);
@@ -843,70 +849,86 @@ function main(...args) {
 // Repère du volume (pied DROIT) : X vers l'avant, Y vers la droite (le dehors du pied droit),
 // Z vers le bas. La cheville (l'articulation) en (0, 0, 0). Millimètres d'homme.
 //   nu     266 de long, sol à Z = 68, cheville 68 de large
-//   botte  290 de long, sol à Z = 92 (semelle de 22), tige ronde de 75 à la cheville
+//   botte  290 de long, sol à Z = 92 (semelle de 16, talon net, cambrure relevée de 6), tige
+//          ronde de 75 à la cheville ; elle plie à la plante de 50° au plus (une botte est raide)
+// Le volume est un « loft » : à chaque station X, une section (stade arrondi) tirée de trois
+// courbes dessinées — le dessus zt(X), le dessous zb(X), la demi-largeur w(X) et son centre yc(X).
+const courbe = pts => x => {                       // Catmull-Rom par des points [x, v] triés
+  const n = pts.length;
+  if (x <= pts[0][0]) return pts[0][1];
+  if (x >= pts[n - 1][0]) return pts[n - 1][1];
+  let i = 0; while (pts[i + 1][0] < x) i++;
+  const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(n - 1, i + 2)];
+  const t = (x - p1[0]) / (p2[0] - p1[0]);
+  const m1 = ((p2[1] - p0[1]) / (p2[0] - p0[0] || 1)) * (p2[0] - p1[0]), m2 = ((p3[1] - p1[1]) / (p3[0] - p1[0] || 1)) * (p2[0] - p1[0]);
+  const t2 = t * t, t3 = t2 * t;
+  return (2 * t3 - 3 * t2 + 1) * p1[1] + (t3 - 2 * t2 + t) * m1 + (-2 * t3 + 3 * t2) * p2[1] + (t3 - t2) * m2;
+};
 function volumePied(type, o) {
   const coques = [], nu = type === 'nu';
   const rc = (o.cheville || (nu ? 68 : 75)) / 2;
-  const plante = nu ? [140, 68] : [146, 92];          // la charnière des orteils : X, Z (sous la plante)
+  const plante = nu ? [142, 68] : [150, 92];          // la charnière des orteils : X, Z (sous la plante)
   const ang = o.angle == null ? 90 : o.angle;
   const pf = 90 - ang;                                 // flexion plantaire : la pointe descend
   let ort = o.orteils || 0;
-  // pied : tourne autour de Y à la cheville ; orteils : autour de la charnière
+  if (o.pointe && o.orteils == null) ort = 90 - (o.piedAbs == null ? ang : o.piedAbs);
+  ort = borne(ort, nu ? -30 : -15, nu ? 95 : 50);
   const kY = [0, 1, 0];
-  const piedT = p => rot3(p, kY, -pf);               // + : la pointe vers le bas (X vers +Z)
+  const piedT = p => rot3(p, kY, -pf);
   const ortT = p => { const q = [p[0] - plante[0], p[1], p[2] - plante[1]]; const r = rot3(q, kY, ort); return [r[0] + plante[0], r[1], r[2] + plante[1]]; };
-  if (o.pointe && o.orteils == null) {
-    // sur la pointe : les orteils à plat au sol. piedAbs : l'angle absolu du pied (convention du
-    // brief, 90 = à plat vers l'avant) ; sans lui, la jambe est supposée verticale.
-    ort = borne(90 - (o.piedAbs == null ? ang : o.piedAbs), 0, 95);
-  }
-  const S = (p, r, part) => {                          // part : 0 jambe, 1 pied, 2 orteils
-    let q = p;
-    if (part === 2) q = ortT(q);
-    if (part >= 1) q = piedT(q);
-    return [q[0], q[1], q[2], r, part ? 1 : 0];
+  const S = (p, r, part) => { let q = p; if (part === 2) q = ortT(q); if (part >= 1) q = piedT(q); return [q[0], q[1], q[2], r, part ? 1 : 0]; };
+  const partDe = x => (x > plante[0] + 0.01 ? 2 : 1);
+  // une section plate (une super-ellipse de points, r = 0) : l'enveloppe de deux sections voisines
+  // est le tronçon de loft, sans rien qui déborde en X ; les bouts se ferment par les courbes
+  const NS = 28, EXP = 2.6;
+  const section = (x, w, zt, zb, yc, part) => {
+    const h = Math.max(0.2, (zb - zt) / 2), zc = (zt + zb) / 2, ww = Math.max(0.2, w), pts = [];
+    for (let k = 0; k < NS; k++) {
+      const a = (k / NS) * 2 * Math.PI, c = Math.cos(a), sn = Math.sin(a);
+      pts.push(S([x, yc + ww * Math.sign(c) * Math.pow(Math.abs(c), 2 / EXP), zc + h * Math.sign(sn) * Math.pow(Math.abs(sn), 2 / EXP)], 0, part));
+    }
+    return pts;
   };
-  const jambe = [S([0, 0, -70], rc, 0), S([0, 0, -8], rc, 0)];
-  coques.push({ s: jambe, piece: 'jambe', groupe: 'haut' });
+  const loft = (x0, x1, pas, f, piece, groupe) => {
+    const xs = []; for (let x = x0; x < x1 - 1e-6; x += pas) xs.push(x); xs.push(x1);
+    const anneaux = xs.map(x => section(x, f.w(x), f.zt(x), f.zb(x), f.yc(x), partDe(x)));
+    for (let i = 0; i < anneaux.length - 1; i++) coques.push({ s: [...anneaux[i], ...anneaux[i + 1]], piece, groupe });
+  };
+  // une dalle de semelle : boîte aux coins arrondis de r, dessus zt, dessous zb(x)
+  const dalle = (x0, x1, pas, w, zt, zb, yc, piece, r = 3) => {
+    const xs = []; for (let x = x0; x < x1 - 1e-6; x += pas) xs.push(x); xs.push(x1);
+    const an = xs.map((x, i) => { const xx = x, ww = Math.max(0.1, w(x) - r), y = yc(x);
+      return [S([xx, y - ww, zt + r], r, partDe(x)), S([xx, y + ww, zt + r], r, partDe(x)), S([xx, y - ww, zb(x) - r], r, partDe(x)), S([xx, y + ww, zb(x) - r], r, partDe(x))]; });
+    for (let i = 0; i < an.length - 1; i++) coques.push({ s: [...an[i], ...an[i + 1]], piece, groupe: 'semelle' });
+  };
+  // la jambe (ou la tige) au-dessus de la cheville : fixe
+  coques.push({ s: [S([0, 0, -70], rc, 0), S([0, 0, -6], rc, 0)], piece: nu ? 'jambe' : 'tige', groupe: 'haut' });
   if (nu) {
-    const talon = S([-36, 3, 41], 27, 1), chev = S([2, 0, 10], 29, 1), cou = S([46, -6, 22], 25, 1), cou2 = S([92, -10, 38], 20, 1);
-    const ext = S([70, 30, 56], 12, 1), int = S([70, -24, 46], 16, 1);
-    const b1 = S([140, -30, 54], 14, 1), b5 = S([118, 33, 57], 11, 1);
-    coques.push({ s: [jambe[1], chev], piece: 'jambe', groupe: 'haut' });
-    coques.push({ s: [talon, chev, cou, cou2, ext, int, b1, b5], piece: 'pied', groupe: 'haut' });
-    const o1 = S([188, -29, 58], 10.5, 2), o2 = S([192, -11, 61], 8.5, 2), o3 = S([182, 5, 62], 8, 2), o4 = S([170, 18, 63], 7.5, 2), o5 = S([157, 30, 63], 7, 2);
-    const b1t = S([140, -30, 54], 14, 2), b5t = S([118, 33, 57], 11, 2), bm = S([132, 0, 55], 13, 2);
-    coques.push({ s: [b1, b5, S([132, 0, 55], 13, 1), b1t, b5t, bm], piece: 'pied', groupe: 'haut' });
-    coques.push({ s: [b1t, o1], piece: 'gros', groupe: 'haut' });
-    coques.push({ s: [bm, b5t, o2, o3, o4, o5], piece: 'orteils', groupe: 'haut' });
-    return { coques, groupes: { haut: 2.6 }, points: { talon: [-63, 0, 68, 1], plante: [plante[0], 0, plante[1], 1], pointe: [200, -20, 64, 2] }, piedT, ortT, plante };
+    const f = {
+      zt: courbe([[-64, 44], [-61, 22], [-56, 8], [-48, -2], [-39, -9], [0, -18], [32, -10], [52, 4], [80, 19], [110, 30], [140, 39], [162, 44], [182, 46], [196, 49], [204, 55], [208, 62]]),
+      zb: courbe([[-64, 50], [-60, 61], [-52, 66], [-40, 68], [-10, 68], [20, 67], [60, 66], [100, 67], [130, 68], [182, 68], [198, 67], [205, 65], [208, 63]]),
+      w: courbe([[-64, 6], [-60, 19], [-52, 26], [-38, 30], [0, 32], [40, 35], [80, 41], [115, 47], [140, 50], [160, 49], [178, 45], [192, 37], [202, 25], [208, 8]]),
+      yc: courbe([[-64, 2], [0, 3], [60, 4], [120, 2], [160, -2], [185, -7], [208, -18]]),
+    };
+    loft(-64, 208, 6, f, 'pied', 'haut');
+    return { coques, groupes: { haut: 3.2 }, points: { talon: [-50, 0, 68, 1], plante: [plante[0], 0, plante[1], 1], pointe: [208, -18, 63, 2] }, piedT, ortT, plante };
   }
-  // la botte : la tige (ronde à la cheville), l'empeigne, le bout dur ; la semelle et le talon
-  const tige = [S([0, 0, -70], rc, 0), S([0, 0, -8], rc, 0)];
-  coques.push({ s: tige, piece: 'tige', groupe: 'haut' });
-  const contrefort = S([-38, 0, 50], 34, 1), chev = S([2, 0, 14], rc - 1, 1);
-  coques.push({ s: [tige[1], chev], piece: 'tige', groupe: 'haut' });
-  const cou = S([52, -4, 30], 31, 1), cou2 = S([104, -6, 50], 27, 1);
-  const lat = S([128, 34, 64], 21, 1), med = S([136, -32, 63], 22, 1);
-  coques.push({ s: [contrefort, chev, cou, cou2, lat, med], piece: 'tige', groupe: 'haut' });
-  const lat2 = S([128, 34, 64], 21, 2), med2 = S([136, -32, 63], 22, 2), mil2 = S([140, 0, 60], 24, 2);
-  const bout1 = S([186, -16, 66], 20, 2), bout2 = S([186, 10, 67], 19, 2), bout3 = S([198, -4, 70], 15, 2);
-  coques.push({ s: [lat, med, S([140, 0, 60], 24, 1), lat2, med2, mil2], piece: 'tige', groupe: 'haut' });
-  coques.push({ s: [lat2, med2, mil2, bout1, bout2, bout3], piece: 'tige', groupe: 'haut' });
-  // la semelle : une dalle de 22 mm, arrondie de 3 ; le talon net, la cambrure relevée de 6 mm
-  const r = 3.2, zH = 78, zB = 92;
-  const larg = x => (x < -20 ? 31 : x < 60 ? 31 + (x + 20) * 0.22 : x < 150 ? 48.6 + (x - 60) * 0.05 : 53);
-  const dalle = (xs, part, yDec = 0, bas = () => zB) => {
-    const s = [];
-    for (const x of xs) { const w = larg(x) - r; for (const y of [-w + yDec, w + yDec]) { s.push(S([x, y, zH + r], r, part)); s.push(S([x, y, bas(x) - r], r, part)); } }
-    return s;
+  // la botte : la tige arrondie (contrefort, cou-de-pied bombé, bout dur), posée dans la semelle
+  const f = {
+    zt: courbe([[-66, 58], [-64, 40], [-61, 20], [-56, 6], [-49, -4], [-41, -11], [0, -22], [36, -14], [54, 0], [76, 14], [100, 23], [125, 30], [150, 34], [172, 36], [190, 39], [202, 45], [210, 54], [214, 67]]),
+    zb: courbe([[-66, 70], [-64, 78], [-58, 82], [0, 82], [204, 82], [211, 80], [214, 75]]),
+    w: courbe([[-66, 8], [-62, 24], [-54, 31], [-40, 35], [0, 38], [40, 42], [80, 47], [120, 51], [150, 52], [172, 49], [190, 42], [202, 33], [210, 22], [214, 9]]),
+    yc: courbe([[-66, 1], [0, 1], [100, 1], [160, -2], [200, -6], [214, -9]]),
   };
-  coques.push({ s: dalle([-75, -62, -50, -14], 1), piece: 'talon', groupe: 'semelle' });
-  coques.push({ s: dalle([-16, 20, 52], 1, 0, () => zB - 6), piece: 'cambrure', groupe: 'semelle' });
-  coques.push({ s: dalle([50, 100, 146], 1), piece: 'semelle', groupe: 'semelle' });
-  const ressaut = x => zB - Math.pow(Math.max(0, (x - 146) / 72), 2) * 9;
-  coques.push({ s: [...dalle([146], 1), ...dalle([146, 180, 205, 214], 2, -2, ressaut)].filter(Boolean), piece: 'semelle', groupe: 'semelle' });
-  return { coques, groupes: { haut: 2.8, semelle: 0.7 }, points: { talon: [-75, 0, zB, 1], plante: [plante[0], 0, plante[1], 1], pointe: [218, 0, zB - 9, 2] }, piedT, ortT, plante };
+  loft(-66, 214, 6, f, 'tige', 'haut');
+  // la semelle : 3 mm de débord autour de la tige ; le talon net, la cambrure relevée de 6, le
+  // bout relevé de 8
+    const ws = courbe([[-66, 3.2], [-65.4, 11], [-64, 17], [-61.5, 23], [-57, 28.5], [-50, 33], [-40, 36.5], [0, 41], [40, 45], [80, 50], [120, 54], [150, 55], [172, 52], [188, 47], [199, 40], [207, 31], [212, 21], [214.6, 11], [215, 3.2]]), ycS = x => f.yc(borne(x, -66, 214));
+  const zS = 76, zB = 92;
+  dalle(-66, -14, 3, ws, zS, () => zB, ycS, 'talon');
+  dalle(-16, 50, 4, ws, zS, () => zB - 6, ycS, 'cambrure');
+  dalle(48, 215, 3, ws, zS, x => zB - Math.pow(Math.max(0, (x - 150) / 67), 2) * 8, ycS, 'semelle');
+  return { coques, groupes: { haut: 3.0, semelle: 1.0 }, points: { talon: [-67, 0, zB, 1], plante: [plante[0], 0, plante[1], 1], pointe: [215, -8, zB - 8, 2] }, piedT, ortT, plante };
 }
 const VUES_PIED = {
   // [x, y, z] depuis (X, Y, Z) ; z petit = près de l'œil
@@ -931,9 +953,12 @@ function pied(...args) {
     const proj = p => { const q = vp(gauche ? [p[0], -p[1], p[2]] : p); return q; };
     const enBout = vue === 'dessus' || vue === 'dessous';
     const coques = enBout ? V.coques.filter(c => c.piece !== 'jambe' && !(c.piece === 'tige' && c.s.every(s => !s[4]))) : V.coques;
+    // botte : la semelle d'un trait (le dessus de la semelle dans la tige ; vue de dessus, le bord
+    // de la tige sur la semelle) ; dessous, le talon net et l'avant de la cambrure
+    const SEM = ['talon', 'cambrure', 'semelle'];
     const lignes = type === 'botte'
-      ? (vue === 'dessous' ? [[['talon'], ['cambrure']], [['semelle'], ['cambrure']]] : [[['talon', 'cambrure', 'semelle'], ['tige']]])
-      : [[['gros'], ['orteils']]];
+      ? (vue === 'dessous' ? [[['talon'], ['cambrure'], true], [['semelle'], ['cambrure'], true]] : vue === 'dessus' ? [[['tige'], SEM, true]] : [[SEM, ['tige'], true]])
+      : [];
     const modele = { coques, groupes: V.groupes, lignes, nLignes: type === 'botte' && vue === 'dessous' ? 2 : 1, points: V.points,
       margeTrait: type === 'botte' ? 0.12 : 0.2, rogne: type === 'botte' ? 0.8 : 1.2, traitMin: 10 };
     const g = construire(modele, { proj, coupe: enBout ? null : { axe: 1, val: -rec } });

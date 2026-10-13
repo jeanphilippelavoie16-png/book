@@ -1,0 +1,1867 @@
+{
+ "conventions": "Angles absolus en degrés (brief commun). Profil : bras, avantbras, main, cuisse, jambe, pied : 0 = vers le bas, + vers l'avant (+x, où regarde le personnage) ; pied 90 = semelle à plat, orteils devant, -90 = orteils derrière (à genoux, le dessus du pied au sol), 180 = orteils en l'air (couché). Tronc, cou, tete : 0 = vers le haut, + penché vers l'avant ; tronc -90 = couché sur le dos, la tête vers -x. Face, dos, dessus : mêmes clés, dans le plan de la vue, 0 = vers le bas, + vers l'extérieur du corps (bras, jambes) ; en face et dos, pied = ouverture de la pointe (0 = droit vers l'œil). mains (les poses du moteur) : ouverte · plat · prise (autour d'un manche, diamètre dans prise, mm) · porte (paume en l'air sous la charge) · pointe · pince. appui : le point le plus bas pose au sol (pieds · genouP · genoux · fesses · dos · ventre) ; assis sur un siège, l'appui est aux pieds et siege donne la hauteur du dessus du siège sous la fesse (mm, à l'âge de la pose). age : adulte (= homme) · femme · enfant6 · enfant4 (proportions.json) ; la planche peut changer l'âge et surcharger les angles.",
+ "controle": "agent4/squelettes.png (fil de fer, contacts au sol et cibles des mains vérifiés par squelettes.py)",
+ "poses": [
+  {
+   "id": "debout",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 2,
+    "cou": 8,
+    "tete": 0,
+    "brasP": 4,
+    "avantbrasP": 8,
+    "mainP": 8,
+    "brasL": -4,
+    "avantbrasL": 2,
+    "mainL": 2,
+    "cuisseP": 3,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -3,
+    "jambeL": -3,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Debout au repos, bras le long du corps. 84-03 (dehors, tête levée : tete -25), 84-04, 47-01 (« Sa longueur »), 64-08 (le cadre au dos), 24-06a (« De côté », avec la béquille : voir debout-bequille)"
+  },
+  {
+   "id": "debout-face",
+   "vue": "face",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 0,
+    "tete": 0,
+    "brasP": 6,
+    "avantbrasP": 3,
+    "mainP": 3,
+    "brasL": 6,
+    "avantbrasL": 3,
+    "mainL": 3,
+    "cuisseP": 3,
+    "jambeP": 0,
+    "piedP": 0,
+    "cuisseL": 3,
+    "jambeL": 0,
+    "piedL": 0
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Debout de face, bras le long du corps. 12-03 et 74-11 (pour l'échelle), 04-40 (« Le costume de sortie »), bustes de face recadrés : 15-01 (« Les pics »), 24-06a (« Sous l'aisselle »), 90-03 (sous le canot), 47-02 (dans le canot)"
+  },
+  {
+   "id": "debout-face-bras-ecartes",
+   "vue": "face",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 0,
+    "tete": 0,
+    "brasP": 16,
+    "avantbrasP": 18,
+    "mainP": 18,
+    "brasL": 16,
+    "avantbrasL": 18,
+    "mainL": 18,
+    "cuisseP": 5,
+    "jambeP": 1,
+    "piedP": 0,
+    "cuisseL": 5,
+    "jambeL": 1,
+    "piedL": 0
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Debout de face, bras écartés du corps, paumes en avant : la carte du corps de 34-01 (« Où l'on n'ouvre pas »)"
+  },
+  {
+   "id": "debout-dos-bras-ecartes",
+   "vue": "dos",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 0,
+    "tete": 0,
+    "brasP": 16,
+    "avantbrasP": 18,
+    "mainP": 18,
+    "brasL": 16,
+    "avantbrasL": 18,
+    "mainL": 18,
+    "cuisseP": 5,
+    "jambeP": 1,
+    "piedP": 0,
+    "cuisseL": 5,
+    "jambeL": 1,
+    "piedL": 0
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "La même, vue de dos : 34-01 (« Où l'on n'ouvre pas », de dos)"
+  },
+  {
+   "id": "debout-face-charge-main",
+   "vue": "face",
+   "age": "adulte",
+   "angles": {
+    "tronc": -2,
+    "cou": 0,
+    "tete": 0,
+    "brasP": 2,
+    "avantbrasP": 1,
+    "mainP": 1,
+    "brasL": 6,
+    "avantbrasL": 3,
+    "mainL": 3,
+    "cuisseP": 3,
+    "jambeP": 0,
+    "piedP": 0,
+    "cuisseL": 3,
+    "jambeL": 0,
+    "piedL": 0
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 25
+   },
+   "objet": "les deux poignées du porte-bûches réunies dans la main proche, la charge pend contre la jambe",
+   "note": "24-04 (« Porté contre la jambe ») : bras pendant, rien à serrer ; le tronc à peine penché du côté opposé à la charge"
+  },
+  {
+   "id": "debout-dessus",
+   "vue": "dessus",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 0,
+    "tete": 0,
+    "brasP": 4,
+    "avantbrasP": 4,
+    "mainP": 4,
+    "brasL": 4,
+    "avantbrasL": 4,
+    "mainL": 4,
+    "cuisseP": 0,
+    "jambeP": 0,
+    "piedP": 0,
+    "cuisseL": 0,
+    "jambeL": 0,
+    "piedL": 0
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Debout vu d'en haut (la tête, les épaules, le bout des pieds) : 24-01 (« Les pieds tournent / Le tronc tourne », bras devant : avantbras 90 pour la caisse), 98-05 (le semeur, tout petit). En dessus, 0 = droit devant, + vers l'extérieur"
+  },
+  {
+   "id": "debout-charge-ventre",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -3,
+    "cou": 6,
+    "tete": 4,
+    "brasP": -8,
+    "avantbrasP": 68,
+    "mainP": 90,
+    "brasL": -11,
+    "avantbrasL": 70,
+    "mainL": 86,
+    "cuisseP": 4,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -4,
+    "jambeL": -4,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "porte",
+    "L": "porte"
+   },
+   "objet": "caisse tenue par-dessous, contre le ventre (mains à 250 mm des chevilles)",
+   "note": "24-01 (« Bon : contre le ventre ») : coudes au corps, avant-bras à l'horizontale sous la caisse, le tronc droit. Aussi les brassées tenues dans les bras"
+  },
+  {
+   "id": "debout-bras-tendus",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -6,
+    "cou": 4,
+    "tete": 4,
+    "brasP": 41,
+    "avantbrasP": 94,
+    "mainP": 92,
+    "brasL": 38,
+    "avantbrasL": 99,
+    "mainL": 90,
+    "cuisseP": 4,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -6,
+    "jambeL": -6,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "porte",
+    "L": "porte"
+   },
+   "objet": "caisse au bout des mains (à 500 mm des chevilles et plus) ; 04-40 : le haut du sac pincé",
+   "note": "24-01 (« Raté : à bout de bras » : mains à 50 cm des chevilles) ; 04-40 (« Dans le sas », mains : L pince, P prise, bras un peu plus haut)"
+  },
+  {
+   "id": "debout-perche-devant",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 2,
+    "cou": 8,
+    "tete": 12,
+    "brasP": 30,
+    "avantbrasP": 62,
+    "mainP": 70,
+    "brasL": 24,
+    "avantbrasL": 58,
+    "mainL": 66,
+    "cuisseP": 5,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -6,
+    "jambeL": -6,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 30,
+    "L": 30
+   },
+   "objet": "une longue perche tenue à deux mains devant, à hauteur de taille (louche au bout, au-dessus du feu)",
+   "note": "37-04 (« L'épreuve au feu, dehors ») : tous en arrière, personne penché dessus"
+  },
+  {
+   "id": "scier-debout",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 4,
+    "cou": 8,
+    "tete": 14,
+    "brasP": 22,
+    "avantbrasP": 64,
+    "mainP": 80,
+    "brasL": 3,
+    "avantbrasL": 8,
+    "mainL": 8,
+    "cuisseP": 4,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -4,
+    "jambeL": -4,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 38
+   },
+   "objet": "poignée de la sciotte, à hauteur de hanche (la bille sur le chevalet)",
+   "note": "24-03 (« Du bout, à la même échelle ») : on scie debout, le dos droit"
+  },
+  {
+   "id": "debout-bequille",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 3,
+    "cou": 8,
+    "tete": 2,
+    "brasP": 4,
+    "avantbrasP": 14,
+    "mainP": 14,
+    "brasL": 4,
+    "avantbrasL": 6,
+    "mainL": 6,
+    "cuisseP": 4,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": 12,
+    "jambeL": -44,
+    "piedL": 56
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 30
+   },
+   "objet": "la traverse-poignée de la béquille, là où tombe la main ; la fourche sous l'aisselle, coude tendu",
+   "note": "24-06a (« De côté ») : le pied blessé (loin) soulagé, à peine levé"
+  },
+  {
+   "id": "bras-leve",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 6,
+    "tete": -6,
+    "brasP": 136,
+    "avantbrasP": 170,
+    "mainP": 176,
+    "brasL": -2,
+    "avantbrasL": 4,
+    "mainL": 4,
+    "cuisseP": 3,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -3,
+    "jambeL": -3,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 20
+   },
+   "objet": "le bout du boyau tenu levé au-dessus de la tête",
+   "note": "86-05 (« La hauteur de chute, au boyau ») : levé jusqu'à ce que l'eau ne coule plus"
+  },
+  {
+   "id": "perche-levee",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -4,
+    "cou": 0,
+    "tete": -30,
+    "brasP": 62,
+    "avantbrasP": 126,
+    "mainP": 135,
+    "brasL": 30,
+    "avantbrasL": 104,
+    "mainL": 135,
+    "cuisseP": 6,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -8,
+    "jambeL": -8,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 30,
+    "L": 30
+   },
+   "objet": "une longue perche levée à 45° vers l'avant (au chapeau de la cheminée)",
+   "note": "84-02 (« Du bout du versant ») : debout sur le banc de neige, les deux mains sur la perche, la tête levée"
+  },
+  {
+   "id": "vanner",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -4,
+    "cou": 0,
+    "tete": -12,
+    "brasP": 100,
+    "avantbrasP": 150,
+    "mainP": 160,
+    "brasL": 60,
+    "avantbrasL": 120,
+    "mainL": 140,
+    "cuisseP": 4,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -4,
+    "jambeL": -4,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "plat"
+   },
+   "prise": {
+    "P": 10
+   },
+   "objet": "la chaudière levée à hauteur d'épaule, l'anse dans la main proche, la main loin pousse le fond",
+   "note": "98-08 (« Vanner au vent ») : le grain versé de la hauteur de l'épaule"
+  },
+  {
+   "id": "semer",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 4,
+    "cou": 8,
+    "tete": 16,
+    "brasP": 40,
+    "avantbrasP": 70,
+    "mainP": 86,
+    "brasL": 6,
+    "avantbrasL": 88,
+    "mainL": 92,
+    "cuisseP": 10,
+    "jambeP": 2,
+    "piedP": 96,
+    "cuisseL": -10,
+    "jambeL": -16,
+    "piedL": 80
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "objet": "la chaudière de semence pendue à l'avant-bras loin plié ; la main proche s'ouvre en balayant devant soi",
+   "note": "98-05 (« Le geste ») : en marchant, le bras balaie devant à hauteur de taille"
+  },
+  {
+   "id": "vindas",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 14,
+    "cou": 14,
+    "tete": 10,
+    "brasP": 86,
+    "avantbrasP": 104,
+    "mainP": 110,
+    "brasL": 62,
+    "avantbrasL": 96,
+    "mainL": 100,
+    "cuisseP": 20,
+    "jambeP": 4,
+    "piedP": 90,
+    "cuisseL": -18,
+    "jambeL": -22,
+    "piedL": 82
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 50,
+    "L": 50
+   },
+   "objet": "la barre du vindas, prise à hauteur d'épaule, poussée vers le bas",
+   "note": "109-08 (« La manœuvre, vue du bout ») : la barre se pousse vers le bas, le corps hors du cercle qu'elle balaie"
+  },
+  {
+   "id": "cable-tire",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 6,
+    "cou": 6,
+    "tete": -8,
+    "brasP": 100,
+    "avantbrasP": 122,
+    "mainP": 130,
+    "brasL": 76,
+    "avantbrasL": 62,
+    "mainL": 60,
+    "cuisseP": 4,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -8,
+    "jambeL": -8,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 20,
+    "L": 20
+   },
+   "objet": "la peau à cheval sur le câble tendu à hauteur de tête : une main tire, puis l'autre",
+   "note": "102-40 (« Le câble, vu du bout »)"
+  },
+  {
+   "id": "courroie-front",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 15,
+    "cou": 18,
+    "tete": 12,
+    "brasP": 14,
+    "avantbrasP": 36,
+    "mainP": 36,
+    "brasL": 6,
+    "avantbrasL": 26,
+    "mainL": 26,
+    "cuisseP": 14,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -12,
+    "jambeL": -16,
+    "piedL": 84
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "objet": "la charge au creux des reins, la courroie sur le haut du front",
+   "note": "24-05 (« Épaules haussées / relâchées », buste recadré) : le haut du corps chargé en équilibre au-dessus des hanches ; épaules haussées : angles.hausse du moteur (~40 mm, comme 24-05)"
+  },
+  {
+   "id": "marche",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 5,
+    "cou": 10,
+    "tete": 4,
+    "brasP": -16,
+    "avantbrasP": -4,
+    "mainP": -4,
+    "brasL": 16,
+    "avantbrasL": 30,
+    "mainL": 30,
+    "cuisseP": 20,
+    "jambeP": 4,
+    "piedP": 104,
+    "cuisseL": -14,
+    "jambeL": -26,
+    "piedL": 74
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "La marche, la jambe proche devant (le talon attaque), la loin derrière qui pousse ; base de portage-canot et de marche-brassee"
+  },
+  {
+   "id": "marche-brassee",
+   "vue": "profil",
+   "age": "enfant6",
+   "angles": {
+    "tronc": -2,
+    "cou": 6,
+    "tete": 6,
+    "brasP": 14,
+    "avantbrasP": 74,
+    "mainP": 80,
+    "brasL": 10,
+    "avantbrasL": 70,
+    "mainL": 76,
+    "cuisseP": 18,
+    "jambeP": 4,
+    "piedP": 102,
+    "cuisseL": -12,
+    "jambeL": -24,
+    "piedL": 74
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "objet": "le sac de couchage roulé porté dans les bras, contre la poitrine",
+   "note": "38-01 (« On sort sans s'habiller ») : les deux enfants (6 et 4 ans : age enfant4)"
+  },
+  {
+   "id": "portage-canot",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 8,
+    "cou": 14,
+    "tete": 6,
+    "brasP": -179,
+    "avantbrasP": 46,
+    "mainP": -170,
+    "brasL": 174,
+    "avantbrasL": 41,
+    "mainL": -170,
+    "cuisseP": 18,
+    "jambeP": 4,
+    "piedP": 102,
+    "cuisseL": -14,
+    "jambeL": -24,
+    "piedL": 74
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 33,
+    "L": 33
+   },
+   "objet": "le canot renversé, la traverse du centre sur la nuque ; les mains tiennent les plats-bords devant la tête",
+   "note": "90-03 (« Seul, la traverse du centre sur la nuque »)"
+  },
+  {
+   "id": "retient-derriere",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -6,
+    "cou": 0,
+    "tete": 8,
+    "brasP": -24,
+    "avantbrasP": -22,
+    "mainP": -22,
+    "brasL": -20,
+    "avantbrasL": -18,
+    "mainL": -18,
+    "cuisseP": 22,
+    "jambeP": 6,
+    "piedP": 104,
+    "cuisseL": -12,
+    "jambeL": -24,
+    "piedL": 76
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 40,
+    "L": 40
+   },
+   "objet": "les brancards du traîneau tenus derrière soi, bras tendus vers le bas",
+   "note": "16-08 (« En descente », celui de devant) : les brancards retiennent, il marche devant la charge"
+  },
+  {
+   "id": "penche-pousse",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 57,
+    "cou": 52,
+    "tete": 42,
+    "brasP": 28,
+    "avantbrasP": 72,
+    "mainP": 82,
+    "brasL": 22,
+    "avantbrasL": 66,
+    "mainL": 76,
+    "cuisseP": 10,
+    "jambeP": -2,
+    "piedP": 90,
+    "cuisseL": -14,
+    "jambeL": -10,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 30,
+    "L": 30
+   },
+   "objet": "les deux poignées du couteau (102-02) ou le racloir (103-40), poussés vers le bas-devant ; le ventre appuyé sur le bout de la poutre",
+   "note": "102-02 (« Le poste, de côté » : poussée à deux mains, corps par-dessus), 103-40 (« Le poste de débourrage », tronc 44) — le poids du corps fait le travail"
+  },
+  {
+   "id": "levier",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 45,
+    "cou": 40,
+    "tete": 30,
+    "brasP": 6,
+    "avantbrasP": 51,
+    "mainP": 40,
+    "brasL": -7,
+    "avantbrasL": 61,
+    "mainL": 36,
+    "cuisseP": 14,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -22,
+    "jambeL": -24,
+    "piedL": 74
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 70,
+    "L": 70
+   },
+   "objet": "le bout de la perche-levier, à hauteur de hanche, poussé vers le bas",
+   "note": "109-40 (« Sans vérin : au levier et aux cales »), une fente, le tronc sur la perche"
+  },
+  {
+   "id": "fleau",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 50,
+    "cou": 48,
+    "tete": 44,
+    "brasP": 14,
+    "avantbrasP": 28,
+    "mainP": 40,
+    "brasL": 10,
+    "avantbrasL": 22,
+    "mainL": 34,
+    "cuisseP": 18,
+    "jambeP": -6,
+    "piedP": 90,
+    "cuisseL": 4,
+    "jambeL": -10,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 35,
+    "L": 35
+   },
+   "objet": "le bout du manche du fléau, tenu à deux mains à hauteur de genou",
+   "note": "98-01b (« De côté, dans l'axe des rangées ») : le battoir tombe à plat sur les épis"
+  },
+  {
+   "id": "faucher",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 26,
+    "cou": 26,
+    "tete": 30,
+    "brasP": 30,
+    "avantbrasP": 46,
+    "mainP": 60,
+    "brasL": 18,
+    "avantbrasL": 40,
+    "mainL": 50,
+    "cuisseP": 14,
+    "jambeP": -4,
+    "piedP": 90,
+    "cuisseL": -10,
+    "jambeL": -12,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 30,
+    "L": 30
+   },
+   "objet": "les deux poignées de la faux, presque à la même hauteur, bras tendus ; la lame à plat au sol",
+   "note": "99-05 (« Réglée sur soi ») : bras tendus, les deux mains à peu près à la même hauteur"
+  },
+  {
+   "id": "sonde",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 24,
+    "cou": 24,
+    "tete": 34,
+    "brasP": 34,
+    "avantbrasP": 96,
+    "mainP": 100,
+    "brasL": 40,
+    "avantbrasL": 118,
+    "mainL": 120,
+    "cuisseP": 10,
+    "jambeP": -2,
+    "piedP": 90,
+    "cuisseL": -8,
+    "jambeL": -8,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 14,
+    "L": 14
+   },
+   "objet": "la tige de fer verticale, une main au-dessus de l'autre, enfoncée vers le bas",
+   "note": "99-04 (« Enfoncer au cœur du tas ») : debout sur une planche au sommet du tas"
+  },
+  {
+   "id": "fendre",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 34,
+    "cou": 32,
+    "tete": 44,
+    "brasP": 48,
+    "avantbrasP": 62,
+    "mainP": 76,
+    "brasL": 44,
+    "avantbrasL": 58,
+    "mainL": 72,
+    "cuisseP": 24,
+    "jambeP": -12,
+    "piedP": 90,
+    "cuisseL": 14,
+    "jambeL": -18,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 32,
+    "L": 32
+   },
+   "objet": "la hache : les deux mains au bout du manche, le manche à l'horizontale à l'impact",
+   "note": "24-02 (« À l'impact ») : pieds écartés, les genoux se placent d'un coup à l'impact, le poids descend avec la hache ; la main proche vue de dos, la loin vue de paume"
+  },
+  {
+   "id": "fente-pousse",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 22,
+    "cou": 20,
+    "tete": 6,
+    "brasP": 70,
+    "avantbrasP": 96,
+    "mainP": 110,
+    "brasL": 58,
+    "avantbrasL": 84,
+    "mainL": 100,
+    "cuisseP": 42,
+    "jambeP": -6,
+    "piedP": 90,
+    "cuisseL": -30,
+    "jambeL": -40,
+    "piedL": 76
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 40,
+    "L": 40
+   },
+   "objet": "le bâton à bout rond poussé contre la peau lacée dans le cadre, à hauteur de poitrine",
+   "note": "102-40 (« Le cadre, de côté ») : la fente, le poids passe sur la jambe avant"
+  },
+  {
+   "id": "tire-arriere",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -14,
+    "cou": -8,
+    "tete": 4,
+    "brasP": 58,
+    "avantbrasP": 72,
+    "mainP": 80,
+    "brasL": 52,
+    "avantbrasL": 66,
+    "mainL": 74,
+    "cuisseP": 30,
+    "jambeP": 30,
+    "piedP": 115,
+    "cuisseL": -5,
+    "jambeL": -35,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 30,
+    "L": 30
+   },
+   "objet": "la peau (ou la corde) tirée à deux mains vers soi, à hauteur de taille",
+   "note": "102-40 (« L'arête d'une planche », « À deux » : deux personnes face à face, cote gauche pour l'une) ; 16-08 (« En descente », celui de derrière à la corde, la pente en plus)"
+  },
+  {
+   "id": "lance-bas",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 56,
+    "cou": 50,
+    "tete": 30,
+    "brasP": 50,
+    "avantbrasP": 62,
+    "mainP": 72,
+    "brasL": -54,
+    "avantbrasL": -40,
+    "mainL": -40,
+    "cuisseP": 76,
+    "jambeP": -4,
+    "piedP": 90,
+    "cuisseL": -52,
+    "jambeL": -74,
+    "piedL": 30
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 30
+   },
+   "objet": "le bâton de jet lancé de côté, à hauteur de genou, il part à plat au ras de la neige",
+   "note": "47-01 (« De côté, sur ce qui est au sol ») : fente très basse, le bras proche lancé vers l'avant"
+  },
+  {
+   "id": "lance-haut",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -6,
+    "cou": -4,
+    "tete": -14,
+    "brasP": 150,
+    "avantbrasP": -132,
+    "mainP": -120,
+    "brasL": 84,
+    "avantbrasL": 90,
+    "mainL": 92,
+    "cuisseP": 18,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": -22,
+    "jambeL": -24,
+    "piedL": 70
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "pointe"
+   },
+   "prise": {
+    "P": 30
+   },
+   "objet": "le bâton de jet derrière la tête, lancé par-dessus l'épaule ; le bras loin tendu vers le tétras",
+   "note": "47-01 (« Par-dessus l'épaule, sur ce qui est perché »)"
+  },
+  {
+   "id": "debout-penche-lit",
+   "vue": "profil",
+   "age": "enfant6",
+   "angles": {
+    "tronc": 34,
+    "cou": 30,
+    "tete": 24,
+    "brasP": 56,
+    "avantbrasP": 66,
+    "mainP": 80,
+    "brasL": 50,
+    "avantbrasL": 60,
+    "mainL": 74,
+    "cuisseP": 6,
+    "jambeP": -2,
+    "piedP": 90,
+    "cuisseL": -8,
+    "jambeL": -8,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "plat",
+    "L": "plat"
+   },
+   "objet": "les deux mains sur l'épaule de l'adulte couché dans le lit (secouer)",
+   "note": "38-01 (« 2 · Réveiller ») : l'enfant debout contre le lit"
+  },
+  {
+   "id": "un-pied-mur",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 4,
+    "cou": 8,
+    "tete": 2,
+    "brasP": 61,
+    "avantbrasP": 84,
+    "mainP": 180,
+    "brasL": 8,
+    "avantbrasL": 12,
+    "mainL": 12,
+    "cuisseP": 2,
+    "jambeP": 0,
+    "piedP": 90,
+    "cuisseL": -14,
+    "jambeL": -72,
+    "piedL": 10
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "plat",
+    "L": "ouverte"
+   },
+   "objet": "une main à plat sur le mur, prête (le mur à ~550 mm devant les chevilles)",
+   "note": "24-13 (« D'abord au sol / Puis sur une couverture pliée / Puis sur la planche ») : debout sur le pied blessé (proche), l'autre jambe pliée derrière"
+  },
+  {
+   "id": "quadriceps",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 2,
+    "cou": 8,
+    "tete": 0,
+    "brasP": 72,
+    "avantbrasP": 72,
+    "mainP": 180,
+    "brasL": 23,
+    "avantbrasL": -60,
+    "mainL": -30,
+    "cuisseP": 2,
+    "jambeP": 0,
+    "piedP": 90,
+    "cuisseL": -4,
+    "jambeL": -168,
+    "piedL": -150
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "plat",
+    "L": "prise"
+   },
+   "prise": {
+    "L": 70
+   },
+   "objet": "une main au mur ; l'autre main attrape la cheville, le talon vers la fesse, les genoux côte à côte",
+   "note": "37-07 (« L'avant de la cuisse »)"
+  },
+  {
+   "id": "genoux",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 6,
+    "cou": 10,
+    "tete": 6,
+    "brasP": 6,
+    "avantbrasP": 20,
+    "mainP": 20,
+    "brasL": 2,
+    "avantbrasL": 12,
+    "mainL": 12,
+    "cuisseP": 4,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 2,
+    "jambeL": -90,
+    "piedL": -90
+   },
+   "appui": "genoux",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Les deux genoux au sol, le tronc droit, le dessus des pieds à plat derrière : base des poses à genoux"
+  },
+  {
+   "id": "genoux-appuie",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 48,
+    "cou": 46,
+    "tete": 56,
+    "brasP": -9,
+    "avantbrasP": 21,
+    "mainP": 84,
+    "brasL": -16,
+    "avantbrasL": 25,
+    "mainL": 80,
+    "cuisseP": 12,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 10,
+    "jambeL": -90,
+    "piedL": -90
+   },
+   "appui": "genoux",
+   "mains": {
+    "P": "plat",
+    "L": "plat"
+   },
+   "objet": "les deux paumes l'une sur l'autre sur la plaie, bras tendus : tout son poids",
+   "note": "26-40 (« Appuyer », vignette) : à genoux à côté du blessé couché"
+  },
+  {
+   "id": "genoux-poing",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 26,
+    "cou": 26,
+    "tete": 44,
+    "brasP": 3,
+    "avantbrasP": 16,
+    "mainP": 14,
+    "brasL": -16,
+    "avantbrasL": 22,
+    "mainL": 60,
+    "cuisseP": 10,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 8,
+    "jambeL": -90,
+    "piedL": -90
+   },
+   "appui": "genoux",
+   "mains": {
+    "P": "prise",
+    "L": "plat"
+   },
+   "prise": {
+    "P": 10
+   },
+   "objet": "le poing fermé (prise sur rien) au-dessus du nombril, poussé vers le dos bras tendu ; l'autre main à l'aine",
+   "note": "29-04 (« Toujours rien : comprimer l'aorte », rendu plein) : à genoux à la tête de la mère couchée"
+  },
+  {
+   "id": "genoux-molette",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 56,
+    "cou": 56,
+    "tete": 66,
+    "brasP": 28,
+    "avantbrasP": 28,
+    "mainP": 90,
+    "brasL": 18,
+    "avantbrasL": 35,
+    "mainL": 88,
+    "cuisseP": 28,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 26,
+    "jambeL": -90,
+    "piedL": -90
+   },
+   "appui": "genoux",
+   "mains": {
+    "P": "plat",
+    "L": "plat"
+   },
+   "objet": "la molette tenue à deux mains à plat, poussée et tirée sur la pierre dormante (la pierre à ~120 mm du sol)",
+   "note": "88-05 (« Le va-et-vient, à genoux au bout de la pierre »)"
+  },
+  {
+   "id": "genoux-dos-penche",
+   "vue": "dos",
+   "age": "adulte",
+   "angles": {
+    "tronc": 24,
+    "cou": 20,
+    "tete": 16,
+    "brasP": 74,
+    "avantbrasP": 84,
+    "mainP": 90,
+    "brasL": -34,
+    "avantbrasL": 40,
+    "mainL": 60,
+    "cuisseP": 4,
+    "jambeP": 0,
+    "piedP": 0,
+    "cuisseL": 4,
+    "jambeL": 0,
+    "piedL": 0
+   },
+   "appui": "genoux",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 20,
+    "L": 20
+   },
+   "objet": "le cerceau du verveux, pris à deux mains par-dessus le plat-bord",
+   "note": "60-40 (« Vu de l'arrière ») : deux personnes à genoux au fond du bateau, vues de dos, penchées vers le même bord (l'une devant l'autre, pas de contact). En dos : tronc + = penché vers le côté P ; le bras L traverse devant (av L 40 : vers le côté P). Les jambes sont dans le bateau : masquer jambeP et jambeL (à genoux vu de dos, le tibia vient vers l'œil, aucun angle ne le raccourcit)"
+  },
+  {
+   "id": "quatre-pattes",
+   "vue": "profil",
+   "age": "femme",
+   "angles": {
+    "tronc": 76,
+    "cou": 74,
+    "tete": 60,
+    "brasP": 4,
+    "avantbrasP": 4,
+    "mainP": 90,
+    "brasL": 2,
+    "avantbrasL": 2,
+    "mainL": 90,
+    "cuisseP": 2,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 0,
+    "jambeL": -90,
+    "piedL": -90
+   },
+   "appui": "genoux",
+   "mains": {
+    "P": "plat",
+    "L": "plat"
+   },
+   "note": "29-08 (« 1. À quatre pattes », enceinte) : les genoux sous les hanches, les mains à plat au sol sous les épaules"
+  },
+  {
+   "id": "genou",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 4,
+    "cou": 10,
+    "tete": 8,
+    "brasP": 4,
+    "avantbrasP": 14,
+    "mainP": 14,
+    "brasL": 30,
+    "avantbrasL": 86,
+    "mainL": 92,
+    "cuisseP": 2,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 92,
+    "jambeL": 6,
+    "piedL": 90
+   },
+   "appui": "genouP",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "objet": "la main loin posée sur le genou levé",
+   "note": "24-16 (« Un genou au sol » : la genouillère sur le genou proche, au sol) ; base de genou-torche et genou-tire"
+  },
+  {
+   "id": "genou-torche",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 24,
+    "cou": 22,
+    "tete": 22,
+    "brasP": 52,
+    "avantbrasP": 76,
+    "mainP": 84,
+    "brasL": 30,
+    "avantbrasL": 82,
+    "mainL": 90,
+    "cuisseP": 2,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 92,
+    "jambeL": 6,
+    "piedL": 90
+   },
+   "appui": "genouP",
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 25
+   },
+   "objet": "la torche tenue haut contre l'entrée du tuyau, dans la porte du poêle",
+   "note": "84-03 (« Un adulte au poêle ») : un genou au sol devant le poêle"
+  },
+  {
+   "id": "genou-tire",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 50,
+    "cou": 46,
+    "tete": 40,
+    "brasP": 12,
+    "avantbrasP": 4,
+    "mainP": 10,
+    "brasL": 8,
+    "avantbrasL": -4,
+    "mainL": 4,
+    "cuisseP": 2,
+    "jambeP": -90,
+    "piedP": -90,
+    "cuisseL": 92,
+    "jambeL": 6,
+    "piedL": 90
+   },
+   "appui": "genouP",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 26,
+    "L": 26
+   },
+   "objet": "les deux bouts de la planche tirés vers le haut, le genou levé appuyé dessus",
+   "note": "89-05b (« La tête, à genoux dessus »)"
+  },
+  {
+   "id": "assis",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 4,
+    "cou": 8,
+    "tete": 8,
+    "brasP": 14,
+    "avantbrasP": 62,
+    "mainP": 70,
+    "brasL": 10,
+    "avantbrasL": 58,
+    "mainL": 66,
+    "cuisseP": 88,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": 88,
+    "jambeL": -2,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "siege": 429,
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "objet": "sur une chaise ou un bloc (siège ~ hauteur du genou), les mains sur les cuisses",
+   "note": "Assis au repos ; base des poses assises"
+  },
+  {
+   "id": "assis-tire-corde",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -4,
+    "cou": 2,
+    "tete": 10,
+    "brasP": 30,
+    "avantbrasP": 132,
+    "mainP": 140,
+    "brasL": 26,
+    "avantbrasL": 124,
+    "mainL": 132,
+    "cuisseP": 84,
+    "jambeP": 4,
+    "piedP": 90,
+    "cuisseL": 84,
+    "jambeL": -4,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "siege": 453,
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 4
+   },
+   "objet": "la corde de la pompe à carton tirée vers la poitrine, puis relâchée",
+   "note": "04-01b (« En coupe », cote gauche)"
+  },
+  {
+   "id": "assis-penche",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 34,
+    "cou": 34,
+    "tete": 40,
+    "brasP": 3,
+    "avantbrasP": 54,
+    "mainP": 10,
+    "brasL": -32,
+    "avantbrasL": 74,
+    "mainL": 80,
+    "cuisseP": 88,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": 88,
+    "jambeL": -2,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "siege": 460,
+   "mains": {
+    "P": "prise",
+    "L": "plat"
+   },
+   "prise": {
+    "P": 20
+   },
+   "objet": "la planche cintrée sur le genou : une main l'appuie, l'autre tire la pince vers le bas",
+   "note": "89-05b (« Sur le genou, lentement »)"
+  },
+  {
+   "id": "assis-penche-bol",
+   "vue": "profil",
+   "age": "enfant4",
+   "angles": {
+    "tronc": 30,
+    "cou": 36,
+    "tete": 52,
+    "brasP": 26,
+    "avantbrasP": 108,
+    "mainP": 92,
+    "brasL": 20,
+    "avantbrasL": 108,
+    "mainL": 90,
+    "cuisseP": 88,
+    "jambeP": 2,
+    "piedP": 90,
+    "cuisseL": 88,
+    "jambeL": -2,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "siege": 244,
+   "mains": {
+    "P": "plat",
+    "L": "plat"
+   },
+   "objet": "les avant-bras posés sur la table, la tête au-dessus du bol",
+   "note": "28-02 (« Il se relève et crache ») : l'enfant de 4 ans sur un tabouret"
+  },
+  {
+   "id": "assis-sifflet",
+   "vue": "profil",
+   "age": "enfant6",
+   "angles": {
+    "tronc": 0,
+    "cou": 6,
+    "tete": 4,
+    "brasP": 158,
+    "avantbrasP": 2,
+    "mainP": -176,
+    "brasL": 10,
+    "avantbrasL": 64,
+    "mainL": 70,
+    "cuisseP": 88,
+    "jambeP": 4,
+    "piedP": 90,
+    "cuisseL": 88,
+    "jambeL": -4,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "siege": 258,
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 10
+   },
+   "objet": "le sifflet à la bouche ; l'autre main sur la cuisse",
+   "note": "38-01 (« Dans l'abri, on attend ») : assis sur une caisse, dans son habit"
+  },
+  {
+   "id": "ischios",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 48,
+    "cou": 48,
+    "tete": 56,
+    "brasP": 81,
+    "avantbrasP": 25,
+    "mainP": 85,
+    "brasL": 82,
+    "avantbrasL": 20,
+    "mainL": 80,
+    "cuisseP": 90,
+    "jambeP": 90,
+    "piedP": 172,
+    "cuisseL": 82,
+    "jambeL": 2,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "siege": 526,
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 60,
+    "L": 60
+   },
+   "objet": "une jambe allongée sur le banc, les mains vers la cheville ; l'autre pied au sol",
+   "note": "37-07 (« L'arrière de la cuisse ») : penché à partir des hanches, le dos reste droit. Le siège : le banc (fesses), la jambe proche posée dessus"
+  },
+  {
+   "id": "assis-sol",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -14,
+    "cou": -6,
+    "tete": 4,
+    "brasP": 6,
+    "avantbrasP": 60,
+    "mainP": 76,
+    "brasL": 2,
+    "avantbrasL": 56,
+    "mainL": 72,
+    "cuisseP": 90,
+    "jambeP": 90,
+    "piedP": 176,
+    "cuisseL": 90,
+    "jambeL": 90,
+    "piedL": 176
+   },
+   "appui": "fesses",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "objet": "assis par terre, jambes allongées devant, le dos appuyé (au mur, à l'autre)",
+   "note": "04-01a (« Ou les portes appuyées au mur »), 38-01 (« Dedans, ensemble » : deux enfants dans leurs sacs, l'un contre l'autre)"
+  },
+  {
+   "id": "couche-dos",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -90,
+    "cou": -90,
+    "tete": -90,
+    "brasP": 87,
+    "avantbrasP": 88,
+    "mainP": 90,
+    "brasL": 87,
+    "avantbrasL": 88,
+    "mainL": 90,
+    "cuisseP": 88,
+    "jambeP": 87,
+    "piedP": 172,
+    "cuisseL": 88,
+    "jambeL": 87,
+    "piedL": 172
+   },
+   "appui": "dos",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Couché sur le dos, la tête vers l'arrière (−x), jambes allongées, bras le long du corps. 03-09 (« Moins chaud / Plus chaud » : genoux à peine fléchis, cuisse 82 jambe 98), 04-01a, 12-04, 12-06a, 12-06b (« En long »), 16-08 (le blessé), 26-40 (vignettes), 28-04, 84-04 (l'enfant : age enfant4), 38-01 (l'adulte au lit)"
+  },
+  {
+   "id": "couche-face",
+   "vue": "face",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 0,
+    "tete": 0,
+    "brasP": 5,
+    "avantbrasP": 3,
+    "mainP": 3,
+    "brasL": 5,
+    "avantbrasL": 3,
+    "mainL": 3,
+    "cuisseP": 3,
+    "jambeP": 0,
+    "piedP": 0,
+    "cuisseL": 3,
+    "jambeL": 0,
+    "piedL": 0
+   },
+   "appui": "dos",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Couché sur le dos vu d'en haut = la vue de face, couchée par la planche (angle ±90). 03-09 (« Vu de dessus » : 2 adultes, 2 enfants), 15-01 (« Rouler »), 16-08, 25-01 (« Étendre, coucher au milieu »), 26-09a, 26-09b (« Vu de dessus »)"
+  },
+  {
+   "id": "couche-genoux",
+   "vue": "profil",
+   "age": "femme",
+   "angles": {
+    "tronc": -90,
+    "cou": -90,
+    "tete": -90,
+    "brasP": 88,
+    "avantbrasP": 90,
+    "mainP": 90,
+    "brasL": 88,
+    "avantbrasL": 90,
+    "mainL": 90,
+    "cuisseP": 136,
+    "jambeP": 36,
+    "piedP": 90,
+    "cuisseL": 132,
+    "jambeL": 39,
+    "piedL": 90
+   },
+   "appui": "dos",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "note": "Couchée sur le dos, genoux relevés, pieds à plat : 29-04 (la mère, les trois vues)"
+  },
+  {
+   "id": "couche-genoux-poitrine",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -90,
+    "cou": -90,
+    "tete": -89,
+    "brasP": 164,
+    "avantbrasP": 99,
+    "mainP": 160,
+    "brasL": 172,
+    "avantbrasL": 91,
+    "mainL": 156,
+    "cuisseP": -150,
+    "jambeP": 126,
+    "piedP": 170,
+    "cuisseL": -146,
+    "jambeL": 130,
+    "piedL": 170
+   },
+   "appui": "dos",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 90,
+    "L": 90
+   },
+   "objet": "les deux genoux ramenés sur la poitrine avec les bras (mains sous les genoux, sur les tibias)",
+   "note": "37-07 (« Le bas du dos »)"
+  },
+  {
+   "id": "couche-replie",
+   "vue": "profil",
+   "age": "femme",
+   "angles": {
+    "tronc": -90,
+    "cou": -90,
+    "tete": -78,
+    "brasP": 151,
+    "avantbrasP": 106,
+    "mainP": -170,
+    "brasL": 158,
+    "avantbrasL": 99,
+    "mainL": -170,
+    "cuisseP": -158,
+    "jambeP": 110,
+    "piedP": 130,
+    "cuisseL": -154,
+    "jambeL": 114,
+    "piedL": 130
+   },
+   "appui": "dos",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 110,
+    "L": 110
+   },
+   "objet": "elle tire ses genoux vers ses épaules, les mains sous les genoux",
+   "note": "29-08 (« 2. Sur le dos, au bord du lit, les genoux vers les épaules », enceinte ; la tête un peu soulevée) — les mains de l'aidant sont des gros plans à part"
+  },
+  {
+   "id": "ventre-hisse",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 94,
+    "cou": 80,
+    "tete": 52,
+    "brasP": 96,
+    "avantbrasP": 98,
+    "mainP": 100,
+    "brasL": 94,
+    "avantbrasL": 96,
+    "mainL": 98,
+    "cuisseP": -92,
+    "jambeP": -80,
+    "piedP": -20,
+    "cuisseL": -96,
+    "jambeL": -100,
+    "piedL": -40
+   },
+   "appui": "ventre",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 30,
+    "L": 30
+   },
+   "objet": "à plat ventre sur le bord de la glace, les pics plantés près du bord, bras tendus devant ; les jambes battent à l'horizontale",
+   "note": "15-01 (« Se hisser ») : le ventre sur la glace, les jambes encore dans l'eau"
+  },
+  {
+   "id": "eau-avantbras",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": -4,
+    "cou": 2,
+    "tete": -6,
+    "brasP": 74,
+    "avantbrasP": 92,
+    "mainP": 96,
+    "brasL": 70,
+    "avantbrasL": 90,
+    "mainL": 94,
+    "cuisseP": 4,
+    "jambeP": 0,
+    "piedP": 40,
+    "cuisseL": -4,
+    "jambeL": -6,
+    "piedL": 40
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "prise"
+   },
+   "prise": {
+    "P": 30,
+    "L": 30
+   },
+   "objet": "dans l'eau jusqu'aux aisselles, les avant-bras à plat sur la glace, les pics dans les poings",
+   "note": "15-01 (« Se retourner ») : ancrer par les avant-bras posés sur la glace (la planche donne y), pas par le sol — le corps sous la ligne d'eau"
+  },
+  {
+   "id": "buste-main-bouche",
+   "vue": "profil",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 6,
+    "tete": 2,
+    "brasP": 158,
+    "avantbrasP": 3,
+    "mainP": -170,
+    "brasL": 0,
+    "avantbrasL": 4,
+    "mainL": 4,
+    "cuisseP": 2,
+    "jambeP": 0,
+    "piedP": 90,
+    "cuisseL": -2,
+    "jambeL": -2,
+    "piedL": 90
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "prise",
+    "L": "ouverte"
+   },
+   "prise": {
+    "P": 7
+   },
+   "objet": "le rameau (ou la boule de fibre) tenu sous le nez, à la bouche",
+   "note": "13-40 (« Refermer et souffler » : boule ~60 mm, serrée lâche), 27-05 (« Casser, sentir / Mâcher un bout » : rameau ~7 mm) — buste recadré"
+  },
+  {
+   "id": "echarpe-face",
+   "vue": "face",
+   "age": "adulte",
+   "angles": {
+    "tronc": 0,
+    "cou": 0,
+    "tete": 0,
+    "brasP": 4,
+    "avantbrasP": -84,
+    "mainP": -88,
+    "brasL": 6,
+    "avantbrasL": 3,
+    "mainL": 3,
+    "cuisseP": 3,
+    "jambeP": 0,
+    "piedP": 0,
+    "cuisseL": 3,
+    "jambeL": 0,
+    "piedL": 0
+   },
+   "appui": "pieds",
+   "mains": {
+    "P": "ouverte",
+    "L": "ouverte"
+   },
+   "objet": "l'avant-bras proche plié à angle droit devant le ventre, dans l'écharpe",
+   "note": "26-08 (« L'écharpe », buste recadré, en chemise : les vêtements sont hors V1)"
+  }
+ ]
+}
