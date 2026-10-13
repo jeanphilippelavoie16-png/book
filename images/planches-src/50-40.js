@@ -285,7 +285,7 @@ module.exports = (h) => {
     // dos de la main, pris sur la pose « appui / profil » à echelle 1 (bras 60, inclinaison 26)
     const M = ([dx, dy]) => [xm + e * (dx * Math.cos(th) - dy * Math.sin(th)), y0 + e * (dx * Math.sin(th) + dy * Math.cos(th))];
     const dosMain = [[142, -12], [100, -17], [60, -18], [30, -25], [0, -29], [-40, -46], [-70, -60]].map(M);
-    const pouce = [xj - 15, ym(xj - 6) - 9];
+    const pouce = [xj - 84, ym(xj - 84) - 6];          // le bout du pouce, sous la nappe
     return { x0, x1, yb, ym, tf, xj, tang, e, xm, y0, angle, dosMain, pouce, M };
   };
   const dessinNappe = z => {
@@ -329,12 +329,13 @@ module.exports = (h) => {
     out.push(h.path(dOf(nappe, true), motif('p5040-gras', 'fill="none" stroke="none"')));
     out.push(h.path(dOf(nappe, true), A.arete));
     // la poussée : le pouce avance à plat, vers la nappe encore collée
-    // modèle g16 (la main à plat qui avance, doigts allongés) : la paume sur la viande, le bout des
-    // doigts sous le bord de la nappe ; le poignet se relève, l'avant-bras monte vers la gauche
-    { const SM = 1.55, xp = xj - 42;
-      out.push(F.modele('g16', { x: xp, y: Y(xp) - 1, ancre: [85, 51], angle: v.tang(xp), echelle: SM,
-        masquer: [[0, 0, 40, 70]],
-        bras: { a: [40, 20.1], b: [40, 49.1], vers: [-1, -0.42], bord: z } })); }
+    // modèle s10-plat (construit sur s10 : la main tendue, le pouce ramené le long de l'index) retourné :
+    // la main à plat, paume sur la viande, le bout des doigts sous le bord de la nappe, le pouce dessous ;
+    // l'avant-bras repart vers la gauche
+    { const xt = xj - 6;
+      out.push(F.modele('s10-plat', { x: xt, y: Y(xt) - 0.5, ancre: [14, 47], angle: 180 + 10.7 + v.tang(xt), echelle: 1.0,
+        masquer: [[228, 0, 245, 125]],
+        bras: { a: [228, 57.6], a0: [210, 58.4], b: [228, 110.8], b0: [210, 108.8], bord: z } })); }
     const fy = Y(xj) - 100;
     out.push(h.fleche(`M${f(xj + 10)} ${f(Y(xj + 10) - 4)} L${f(xj + 70)} ${f(Y(xj + 70) - 3)}`, A.arete));
 

@@ -5,7 +5,8 @@ l'image d'origine :
   silhouette  la forme pleine, en blanc dans la planche : elle cache ce qui passe derrière
   encre       le trait du dessinateur, en #1A1A1A
 
-  python3 modeles.py kibbitzer|gestes|tous      écrit les modèles et une planche-contact numérotée
+  python3 modeles.py kibbitzer|gestes|shoo|poses|tous   écrit les modèles (et une planche-contact numérotée) ;
+                                                  poses : les poses construites de poses.json
 
 formes.modele() (planches/scripts/formes.js) les pose dans une planche : point d'ancrage, angle,
 échelle, miroir, et des rectangles à effacer (le bâton d'origine quand la planche a le sien)."""
@@ -170,6 +171,73 @@ def shoo():
     return serie('s', [encre], 4, '5.jpg (shoo_arts, iStock)', colle=3.0)
 
 
+# ─── poses construites : un modèle articulé ──────────────────────────────────────────────
+# Une pose qui manque se construit à partir d'un modèle qu'on a : on efface ce qui ne va plus (les
+# plis d'une paume qu'on ne voit plus), on coupe une partie (le pouce, un doigt) et on la plie
+# autour de son articulation, puis elle se recolle par-dessus le reste. images/modeles/poses.json :
+#   "s10-plat": { "source": "s10", "effacer": [[x0, y0, x1, y1]],
+#                 "parties": [{ "poly": [[x, y], …], "pivot": [x, y], "angle": -28, "rayon": 15 }] }
+# angle en degrés (sens horaire à l'écran) ; la rotation monte de 0 au pivot à angle à rayon px :
+# l'articulation plie au lieu de casser.
+SOURCES = {'s': ('mains5-tons.pkl', 4, 3.0), 'g': ('mains1-tons.pkl', 6, 2.0), 'k': ('mains4-masques.pkl', 6, 3.0)}
+
+
+def masques_modele(ident):
+    """(encre, ombre, silhouette, k, boîte) d'un modèle de la bibliothèque, à l'échelle de son calque."""
+    pk, k, colle = SOURCES[ident[0]]
+    data = pickle.load(open(os.path.join(TMP, pk), 'rb'))
+    masques = list(data) if isinstance(data, tuple) else [data]
+    boites, lab = morceaux(masques, k, colle=colle)
+    b = boites[int(ident[1:3]) - 1]
+    ms = isoler(masques, lab, b[4], b, k)
+    enc = ms[0]
+    om = ms[1] if len(ms) > 1 else np.zeros_like(enc)
+    return enc, om, silhouette(enc, om, k, FERMER.get(ident, [])), k, b
+
+
+def plier(m, k, poly, pivot, angle, rayon):
+    """(la partie de m dans poly, pliée autour de pivot ; le reste de m)."""
+    from skimage.draw import polygon as remplir
+    zone = np.zeros_like(m)
+    rr, cc = remplir(np.array([q[1] for q in poly]) * k, np.array([q[0] for q in poly]) * k, m.shape)
+    zone[rr, cc] = True
+    partie, reste = m & zone, m & ~zone
+    H, W = m.shape
+    cy, cx = pivot[1] * k, pivot[0] * k
+    yy, xx = np.mgrid[:H, :W].astype(float)
+    r, phi = np.hypot(xx - cx, yy - cy), np.arctan2(yy - cy, xx - cx)
+    t = np.clip(r / (rayon * k), 0, 1)
+    th = np.deg2rad(angle) * t * t * (3 - 2 * t)
+    src = ndi.map_coordinates(partie.astype(float), [cy + r * np.sin(phi - th), cx + r * np.cos(phi - th)], order=1) > 0.5
+    return src, reste
+
+
+def articuler(ident, spec):
+    enc, om, sil, k, b = masques_modele(spec['source'])
+    for x0, y0, x1, y1 in spec.get('effacer', []):
+        enc[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)] = False
+    for pt in spec.get('parties', []):
+        p_enc, r_enc = plier(enc, k, pt['poly'], pt['pivot'], pt['angle'], pt['rayon'])
+        p_sil, r_sil = plier(sil, k, pt['poly'], pt['pivot'], pt['angle'], pt['rayon'])
+        dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
+        enc = (r_enc & ~dedans) | p_enc            # la partie passe devant : son blanc cache le reste
+        sil = r_sil | p_sil
+    enc = nettoyer(enc, k, 1.0)
+    sil = ndi.binary_fill_holes(ndi.binary_closing(sil | enc, structure=disk(max(1, int(1.0 * k)))))   # pas de jour dans le blanc
+    poids_l = POIDS.get(ident[0], [1.0])
+    src = f"pose construite sur {spec['source']}"
+    ecrire(ident, enc, om, k, b, src, poids_l[0], sil)
+    for p2 in poids_l[1:]:
+        ecrire(f'{ident}@{round(p2 * 100)}', enc, om, k, b, src, p2, sil)
+    print(ident, 'construit sur', spec['source'])
+
+
+def poses():
+    f = os.path.join(OUT, 'poses.json')
+    for ident, spec in (json.load(open(f)) if os.path.exists(f) else {}).items():
+        articuler(ident, spec)
+
+
 if __name__ == '__main__':
     quoi = sys.argv[1:] or ['tous']
     if quoi[0] in ('kibbitzer', 'tous'):
@@ -178,3 +246,5 @@ if __name__ == '__main__':
         print(contact('contact-gestes', gestes(), col=8))
     if quoi[0] in ('shoo', 'tous'):
         print(contact('contact-shoo', shoo(), col=6))
+    if quoi[0] in ('poses', 'tous'):
+        poses()

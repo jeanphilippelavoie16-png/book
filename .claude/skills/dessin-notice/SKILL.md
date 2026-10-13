@@ -28,6 +28,17 @@ description: Dessiner les mains, les têtes et les personnages des planches du G
    planche a son manche) ; `scripts/bords_modele.py k11 y=104 y=92` donne le milieu exact des bords
    du poignet, d'où part le bras.
 
+4. **La pose qui manque se construit** sur un modèle qu'on a (JP, 13 oct. : « les formes que tu as
+   pas de main, construis-les à partir des formes que tu as déjà pour pouvoir les adapter »).
+   `images/modeles/poses.json` décrit la pose : le modèle source, ce qu'on efface (des plis de paume
+   qu'on ne verrait plus), et les parties à plier — un polygone autour du pouce ou d'un doigt, son
+   pivot, l'angle, le rayon sur lequel l'articulation plie. `modeles.py poses` écrit le nouveau
+   modèle à tous les poids ; il se pose comme les autres. La partie pliée passe devant le reste (son
+   blanc cache les traits dessous) et le blanc est refermé, sans jour. Le pivot se met **sur le
+   contour qui ne doit pas bouger** (le dos de la main pour un pouce), sinon le trait casse au pli.
+   Premier exemple : `s10-plat` (la main tendue de s10, le pouce ramené le long de l'index ;
+   retournée, la main à plat paume en bas de 50-40).
+
 Ce que JP a demandé en voyant les premières planches posées (13 oct.), et que `modele()` fait :
 
 - **Le trait fin.** Le poids est choisi tout seul pour que le contour sorte à 1,3 dans la vue
@@ -36,9 +47,9 @@ Ce que JP a demandé en voyant les premières planches posées (13 oct.), et que
   direction des bords du poignet, s'élargit vers le coude et se courbe. Il sort du cadre quand le bord
   de la vue est à portée (`bras.bord: z`), sinon il s'arrête court, sur une coupe en ellipse chez
   Kibbitzer (comme ses avant-bras) ou sur deux traits ouverts pour les gestes.
-- **Les mains de shoo_arts d'abord** (s…) : JP a trouvé celles de Kibbitzer pas belles. Les gestes
-  (g…) ont le même trait fin égal et complètent quand une pose manque (la main à plat de 50-40).
-  Kibbitzer (k…) ne se mélange pas aux deux autres.
+- **Les mains de shoo_arts d'abord** (s…) : JP a trouvé celles de Kibbitzer pas belles. Une pose
+  qui manque se construit sur un s… (point 4) plutôt que d'aller la chercher dans une autre
+  planche de référence ; les gestes (g…) ne servent qu'en dernier recours, Kibbitzer (k…) plus du tout.
 
 Ce qui manque encore : les têtes de profil, les enfants, les personnages en action (assis, accroupi,
 qui porte). Aucune référence ne les couvre : en demander à JP avant de dessiner.

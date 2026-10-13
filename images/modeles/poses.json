@@ -1,0 +1,50 @@
+{
+ "s10-plat": {
+  "source": "s10",
+  "note": "la main tendue paume en l'air, le pouce ramené le long de l'index ; retournée (angle 180) : la main à plat, paume en bas, le pouce dessous",
+  "effacer": [
+   [
+    100,
+    48,
+    165,
+    80
+   ]
+  ],
+  "parties": [
+   {
+    "poly": [
+     [
+      70,
+      0
+     ],
+     [
+      126,
+      0
+     ],
+     [
+      150,
+      26
+     ],
+     [
+      124,
+      46
+     ],
+     [
+      96,
+      48
+     ],
+     [
+      74,
+      36
+     ]
+    ],
+    "pivot": [
+     146,
+     30
+    ],
+    "angle": -26,
+    "rayon": 30
+   }
+  ]
+ }
+}
