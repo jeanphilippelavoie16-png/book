@@ -5,6 +5,11 @@ description: Dessiner les mains, les têtes et les personnages des planches du G
 
 # Mains, têtes et corps au style notice
 
+> **État au 13 octobre 2026 : JP a rejeté la première feuille faite avec ce skill** (pouce en crochet,
+> doigts croches, têtes et corps laids). Les outils ici donnent la position juste et un trait net,
+> mais pas encore une forme belle. Ne livre rien de neuf sans un vrai modèle à décalquer (photo de
+> JP, planche du domaine public), et ne te fie pas à ton propre œil pour juger une main.
+
 Le corps humain est ce que JP regarde en premier sur une planche, et ce qu'il rejette le plus vite.
 Six essais ont raté avant celui-ci ; ce skill garde ce qui a marché et pourquoi le reste a échoué.
 

@@ -39,3 +39,4 @@ notice les grossit un peu (`RAYON = 1.12`, `LONG = 0.94`).
 | Trois dessinateurs + juge, en 2D | mieux mais « pas beau » | même limite : pas de vraie position |
 | Main 3D rendue en trait réaliste | « ouff non » | juste mais lourde : trop de relief, trait tremblé |
 | Main 3D aplatie au style notice | bonne direction, trait encore haché | passer par les courbes de Bézier |
+| Skill dessin-notice, 1re feuille (13 oct.) | « pas bon » : pouce de la main à plat en crochet, doigts tout croches, têtes et corps laids | mon propre jugement a classé cette main parmi les meilleures : il ne vaut rien sur les mains. Partir d'un vrai modèle (photo, planche ancienne) |
