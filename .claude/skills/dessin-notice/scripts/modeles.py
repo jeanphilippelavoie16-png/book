@@ -200,11 +200,15 @@ def shoo():
 #   "decaler": [[x, dy], …]   au lieu de plier : la partie glisse verticalement de dy(x) (interpolé entre
 #                             les stations, en px de la source) ; pivot, angle et rayon sont ignorés ;
 #                             avec "axe": "x", les stations sont [[y, dx], …] et la partie glisse de côté.
+# Option de la pose (bibliothèque B) : "effacer_apres": [[x0, y0, x1, y1]]  comme effacer, mais après les parties et les
+#                             greffes, en px de la pose (marge comprise) : l'amorce d'un trait voisin venue avec une greffe.
 # Option de la pose (bibliothèque B) : "cadre": [x0, y0, x1, y1]  recadre le modèle écrit (px de la pose, après
 #                             la marge) ; ses coordonnées partent alors de (x0, y0).
 # Option de la pose (bibliothèque B) : "lisser": px  un flou léger de l'encre avant le calque, contre les
 #                             marches d'escalier qu'une partie tournée laisse sur son trait (0,3 suffit).
-# Et une option de la pose : "rogner": px  rogne le blanc qui dépasse du trait (la frange qu'une partie
+# Et deux options de la pose : "polir": [[x0, y0, x1, y1, r], …] lisse le bord du trait dans ces rectangles
+#                             (ôte les crans et les bouts plus minces que 2 r, bouche les encoches) ;
+#                             "rogner": px  rogne le blanc qui dépasse du trait (la frange qu'une partie
 #                             écartée laisse le long du trait gardé) ; le blanc enfermé par le trait reste.
 SOURCES = {'s': ('mains5-tons.pkl', 4, 3.0), 'g': ('mains1-tons.pkl', 6, 2.0), 'k': ('mains4-masques.pkl', 6, 3.0),
            'h': ('homme7-encre.pkl', 4, 6.0), 'c': ('corps6-encre.pkl', 8, 2.0)}
@@ -371,9 +375,18 @@ def articuler(ident, spec):
         dedans = ndi.binary_erosion(p_sil, structure=disk(max(1, int(0.8 * k))))
         enc = (enc & ~dedans) | p_enc
         sil = sil | p_sil
+    for x0, y0, x1, y1 in spec.get('effacer_apres', []):   # après les greffes (px de la pose, marge comprise)
+        enc[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)] = False
     if spec.get('lisser'):                         # "lisser": px — le trait d'une partie tournée sort en marches
         s_ = spec['lisser'] * k                    # d'escalier (rééchantillonnage) que potrace suit en bosses :
         enc = ndi.gaussian_filter(enc.astype(float), s_) > 0.5   # un flou léger puis le seuil les efface
+    for x0, y0, x1, y1, r_ in spec.get('polir', []):   # "polir": le bord du trait lissé dans un rectangle :
+        sl = (slice(int((y0 + M) * k), int((y1 + M) * k)), slice(int((x0 + M) * k), int((x1 + M) * k)))
+        dq = disk(max(1, int(r_ * k)))                  # ouverture (ôte les crans qui dépassent),
+        z = np.pad(enc[sl], int(2 * r_ * k) + 2, mode='edge')   # puis fermeture (bouche les encoches)
+        z = ndi.binary_closing(ndi.binary_opening(z, structure=dq), structure=dq)
+        q_ = int(2 * r_ * k) + 2
+        enc[sl] = z[q_:-q_, q_:-q_]
     enc = nettoyer(enc, k, 1.0)
     if spec.get('rogner'):                         # "rogner": px — le blanc qui dépasse du trait (une frange
         r_ = max(1, int(spec['rogner'] * k))       # laissée par une partie écartée) est rogné : le blanc
