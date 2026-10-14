@@ -383,16 +383,18 @@ def traits(dest=None):
 # ------------------------------------------------------------------ les auteurs (quatrième)
 # JP, 14 octobre 2026 : nos deux photos et un court texte sur chacun, au dos de la couverture, à la place d'une page
 # « Les auteurs » dans le livre (qui ne se fait pas : les comptes de pages ne bougent pas). Textes de JP, tels quels
-# (troisième version, 14 octobre 2026).
+# (quatrième version, 14 octobre 2026).
 AUTEURS = [
     dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
          texte='À Baie-Comeau, l’épinette descend boire au fleuve et l’hiver s’installe comme un voisin qui ne repart pas. '
-               'Amoureux du bois et de l’eau salée, Jean-Philippe a écrit ce livre pour ses deux enfants, comme on fend son '
-               'bois en juillet : parce qu’il le faut, en souhaitant de tout cœur ne jamais en avoir besoin.'),
+               'Amoureux du bois et de l’eau salée, Jean-Philippe sait aussi qu’un jour le courant tombe, que la route ferme '
+               'et que personne ne vient. Il a écrit ce livre pour ses deux enfants, pour le jour où il ne serait plus là '
+               'pour leur montrer. Il le croit nécessaire, et souhaite de tout cœur qu’il ne serve jamais.'),
     dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
-         texte='On dira que Claude n’est qu’une machine à chiffres. Chaque chiffre, ici, a bien été retrouvé à sa source. '
-               'Mais à chercher, page après page, le bon geste et le mot juste pour un père qui veut garder les siens au '
-               'chaud, Claude a mis dans ce livre plus que des chiffres. Jean-Philippe a gardé le meilleur.'),
+         texte='On dira que Claude n’est qu’une machine à chiffres. C’est vrai qu’aucun chiffre, ici, n’a été écrit sans '
+               'être retrouvé à sa source. Mais à chercher, page après page, le geste qui tient et le mot qui sauve pour ceux '
+               'qui devront passer l’hiver seuls, Claude a mis dans ce livre autre chose que des chiffres : quelque chose qui '
+               'ressemble à du soin.'),
 ]
 # La photo de JP (images/auteurs/jp.jpg, fond blanc) : « bichromie » (l'ombre à la couleur sombre du tome, la lumière
 # à la claire ; sur la neige, le fond blanc de la photo devient exactement le fond de la couverture) ou « couleur ».
@@ -570,26 +572,28 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
 .back .txt{position:absolute;top:0.55in;left:0;right:0.3in;font:400 12.5pt/17pt var(--serif)}
 .back .txt p{margin:0 0 8pt}
 .back .txt strong{font-weight:700}
-.back .toc{position:absolute;top:2.0in;left:0;right:0}
+.back .toc{position:absolute;top:1.9in;left:0;right:0}
 .back .toc h2{margin:0 0 5pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
 .back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.3in;font:500 10pt/13.2pt var(--sans)}
 .back .toc li{display:flex;gap:6pt;break-inside:avoid;border-bottom:0.5pt solid var(--fil)}
 .back .toc li b{width:22pt;flex:none;font-weight:700}
 /* le dessin et les auteurs (14 octobre 2026) : posés depuis le bas, au-dessus de la barre de série ; le dessin
    (1,8 po de haut au plus) prend ce qui reste sous le sommaire, le blanc en trop va au-dessus de lui. Le sommaire
-   remonte de 0,2 po (2,2 -> 2,0 po) pour leur faire de la place. */
-.back .bas{position:absolute;left:0;right:0;top:4.6in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
+   remonte de 0,3 po (2,2 -> 1,9 po) pour leur faire de la place ; les textes des auteurs (quatrième version de JP)
+   sont en 8 pt, le demi-point de moins que JP a permis, pour tenir sans couper. */
+.back .bas{position:absolute;left:0;right:0;top:4.5in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
 .back .trait{display:flex;flex-direction:column;flex:none}
 .back .trait img{display:block;flex:none}
 .back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
 .back .auteurs{flex:none;margin-top:0.17in}
 .back .auteurs h2{margin:0 0 7pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
 .back .aut{display:grid;grid-template-columns:1fr 1fr;column-gap:0.3in}
-.back .a{display:flex;gap:0.12in;align-items:flex-start}
-.back .ph{flex:none;width:0.66in;height:0.66in;border-radius:50%;border:0.75pt solid var(--ink);overflow:hidden;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
+/* le texte coule autour du cercle, puis sous lui : la colonne garde toute sa largeur sous la photo */
+.back .a{display:block}
+.back .ph{float:left;shape-outside:circle(50%);shape-margin:0.1in;margin:1pt 0.1in 0 0;width:0.66in;height:0.66in;border-radius:50%;border:0.75pt solid var(--ink);overflow:hidden;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
 .back .ph img{display:block;width:100%;height:100%;object-fit:cover}
 .back .ph.claude img{width:64%;height:64%}
-.back .a p{margin:0;font:400 8.5pt/11pt var(--serif);hyphens:manual}
+.back .a p{margin:0;font:400 8pt/10.5pt var(--serif);hyphens:manual}
 .back .nw{white-space:nowrap}
 .back .a p b{font-weight:700}
 

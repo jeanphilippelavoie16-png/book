@@ -449,7 +449,8 @@ table.cred td.pg{font:700 9pt/10.4pt var(--sans);white-space:nowrap}
 table.cred td.ln{font:500 7.2pt/9.4pt var(--sans);word-break:break-all;color:var(--k70)}
 .page.ax::after,.page.tp::after{content:none;display:none}
 .dd .block{justify-content:flex-start}
-.dd-txt{margin:2.6in 0 0;text-align:center;text-indent:0;font:italic 400 21pt/1.3 var(--serif);color:var(--k)}
+.dd-txt{margin:2.6in 0 0;text-align:center;text-indent:0;font:italic 400 21pt/1.45 var(--serif);color:var(--k)}
+.dd-2{font-size:15pt}
 .ax-vide{margin-top:18pt;padding:10pt 12pt;background:var(--tp);border-left:3pt solid var(--ta);font:500 10pt/13.5pt var(--sans)}
 """
 
@@ -520,7 +521,7 @@ def annexe_html(tome, chaps, plan, work):
 <div class="tp-serie">{serie}</div></div></section>''')
     # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
     pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">
-<p class="dd-txt">{il(DEDICACE)}</p></div></section>''')
+<p class="dd-txt">{il(DEDICACE[0])}<br><span class="dd-2">{il(DEDICACE[1])}</span></p></div></section>''')
     # --- sommaire
     icone = {"Maison": "m", "Chalet": "c"}
     rangs = []
@@ -552,7 +553,7 @@ def annexe_html(tome, chaps, plan, work):
     open(dst, "w", encoding="utf-8").write(out)
     return dst, ["a-titre", "a-dedicace", "a-sommaire"]
 
-DEDICACE = "À Pierre-Alexis et à Louis-Charles"
+DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sait.")
 
 CREDITS_PAR_PAGE = 16
 
