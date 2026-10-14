@@ -224,7 +224,7 @@ PREMIERS = {
 # comme les cotes.
 CANDIDATS = {
     1: [dict(planche='planche-12-05a-maison-blocs-tailler-monter.svg', vue='spirale', vb=(344.8, 144, 294.4, 190.5), fic='trait-12-05a',
-             cap='Ch. 12 · La maison de blocs : le premier rang et la spirale',
+             cap='Ch. 12 · La maison de blocs',
              sans=[r'<circle cx="235" cy="207\.3" r="13" fill="none" stroke="#9B2C1E"']),
         dict(planche='planche-11-03-chalet-pare-aux-braises.svg', vue='chalet', vb=(37.7, 94.8, 604.6, 252.7), fic='trait-11-03',
              cap='Ch. 11 · Le chalet paré aux braises'),
@@ -407,16 +407,16 @@ def _clair(c):
 
 def auteurs_fichiers(k, dest, photo=None):
     """Les images du bloc des auteurs pour le tome k, écrites dans dest ; rend {image: nom de fichier}."""
-    import shutil
     fond, encre, nom, slug = COUL[k]
     photo = photo or PHOTO
-    src = os.path.join(IMG, 'auteurs', 'jp.jpg')
+    from PIL import Image
+    # recadrée sur le visage (300 px du carré de 400) : dans un cercle de 0,66 po, la photo entière laissait la tête petite
+    src = Image.open(os.path.join(IMG, 'auteurs', 'jp.jpg')).crop((45, 5, 345, 305))
     if photo == 'couleur':
         jp = 'auteur-jp.jpg'
-        shutil.copyfile(src, os.path.join(dest, jp))
+        src.convert('RGB').save(os.path.join(dest, jp), quality=95)
     elif photo == 'bichromie':
-        from PIL import Image
-        im = Image.open(src).convert('L')
+        im = src.convert('L')
         im = im.point([min(255, round(v * 255 / 245)) for v in range(256)])   # le fond de la photo (≥ 245) au blanc franc
         sombre, clair = sorted((_rgb(fond), _rgb(encre)), key=lambda c: 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2])
         jp = 'auteur-jp-%s.png' % slug
@@ -574,7 +574,7 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
 .back .toc li b{width:22pt;flex:none;font-weight:700}
 /* le dessin et les auteurs (14 octobre 2026) : posés depuis le bas, au-dessus de la barre de série ; le dessin
    (1,85 po de haut au plus) prend ce qui reste sous le sommaire, le blanc en trop va au-dessus de lui */
-.back .bas{position:absolute;left:0;right:0;top:4.82in;bottom:0.62in;display:flex;flex-direction:column;justify-content:flex-end}
+.back .bas{position:absolute;left:0;right:0;top:4.8in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
 .back .trait{display:flex;flex-direction:column;flex:none}
 .back .trait img{display:block;flex:none}
 .back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
