@@ -295,10 +295,14 @@ module.exports = (h) => {
       const s = Math.sin(k * Math.PI / 8), c = Math.cos(k * Math.PI / 8);
       out.push(h.path('M' + P(courbe(y => cx + R(y) * s, yt + ry * c, yb + ry * c * 0.9, 16)).join(' L'), A.fin));
     }
-    // les cercles : bande avec l'arc de devant
+    // les cercles : bande avec l'arc de devant, vue de dehors (pas une coupe) : blanche, sa face de
+    // droite à l'ombre à partir du même joint que le baril, le contour par-dessus
     const cercle = (y, hh) => {
-      const r0 = R(y), r2 = R(y + hh);
-      out.push(h.path(`M${r1(cx - r0 - 1)} ${r1(y)} A${r1(r0 + 1)} ${ry} 0 0 0 ${r1(cx + r0 + 1)} ${r1(y)} L${r1(cx + r2 + 1)} ${r1(y + hh)} A${r1(r2 + 1)} ${ry} 0 0 1 ${r1(cx - r2 - 1)} ${r1(y + hh)} Z`, A.hachure('metal', 'arete')));
+      const r0 = R(y), r2 = R(y + hh), c45 = Math.SQRT1_2;
+      const bande = `M${r1(cx - r0 - 1)} ${r1(y)} A${r1(r0 + 1)} ${ry} 0 0 0 ${r1(cx + r0 + 1)} ${r1(y)} L${r1(cx + r2 + 1)} ${r1(y + hh)} A${r1(r2 + 1)} ${ry} 0 0 1 ${r1(cx - r2 - 1)} ${r1(y + hh)} Z`;
+      out.push(h.path(bande, A.blanc));
+      out.push(h.path(`M${r1(cx + (r0 + 1) * c45)} ${r1(y + ry * c45)} A${r1(r0 + 1)} ${ry} 0 0 0 ${r1(cx + r0 + 1)} ${r1(y)} L${r1(cx + r2 + 1)} ${r1(y + hh)} A${r1(r2 + 1)} ${ry} 0 0 1 ${r1(cx + (r2 + 1) * c45)} ${r1(y + hh + ry * c45)} Z`, A.ombre));
+      out.push(h.path(bande, A.arete));
     };
     const yq = yt + H * 0.26;                      // le cercle de quartier, du haut
     [yt + 4, yq, yb - H * 0.26 - 12, yb - 16].forEach(y => cercle(y, 12));

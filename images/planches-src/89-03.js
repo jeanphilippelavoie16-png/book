@@ -425,11 +425,13 @@ function paire(s) {
 // plan du laçage (H : sa profondeur, déjà projetée)
 const arche = (E, F, H) => [E, [E[0] - 0.3, H * 0.45], [E[0] + 0.9, H * 0.88], [(E[0] + F[0]) / 2, H], [F[0] - 0.9, H * 0.88], [F[0] + 0.3, H * 0.45], F];
 const ruban = (R, pts, o = {}) => ({ pts: pts.map(p => R.P([p[0], p[1], p[2] == null ? 0 : p[2]])), ep: WF * R.K, debut: 'ouvert', fin: 'ouvert', ...o });
-// Le dessus d'une paire : le tireté dans le bois, le pont sur le dessus, les deux trous
+// Le dessus d'une paire : le tireté dans le bois, les deux trous percés dans le dessus, plus larges
+// que le brin, puis le brin par-dessus, qui sort de l'un et plonge dans l'autre. Le noir du trou
+// reste visible autour du bout du brin : on lit un trou dans le bois, pas le bout d'une pilule.
 function dessusPaire(h, R, pr_) {
   const out = [cache(h, R, pr_.F, pr_.P, WF), cache(h, R, pr_.Q, pr_.E, WF)];
+  for (const p of [pr_.P, pr_.Q]) out.push(h.ellipse(...R.T(p), 1.8 * R.K, 1.6 * R.K, h.a.plein));
   out.push(h.formes.corde([R.P(pr_.P), R.P(pr_.Q)], { ep: WF * R.K, debut: 'ouvert', fin: 'ouvert', trait: 'contour' }));
-  out.push(trou(h, R, pr_.P), trou(h, R, pr_.Q));
   return out.join('\n');
 }
 

@@ -102,7 +102,7 @@ module.exports = (h) => {
     const R = 75, cx = Math.round(z.l / 2);
     const yF = z.h - 5, yBt = yF - 15, cy = yBt - 92;
     // plancher, caisson, pattes
-    o.push(h.rect(4, yF, z.l - 8, 5, A.hachure('bois', 'aucun')), h.ligne(4, yF, z.l - 4, yF, A.arete));
+    o.push(h.rect(18, yF, z.l - 36, 5, A.hachure('bois', 'aucun')), h.ligne(18, yF, z.l - 18, yF, A.arete));
     o.push(h.rect(cx - 101, yBt, 202, yF - yBt, A.hachure('gravier', 'aucun')), h.ligne(cx - 101, yBt, cx + 101, yBt, A.detail));
     o.push(h.rect(cx - 106, yBt - 4, 5, yF - yBt + 4, W(A.arete)), h.rect(cx + 101, yBt - 4, 5, yF - yBt + 4, W(A.arete)));
     // le tuyau, au bout opposé, qui dépasse derrière : gris loin

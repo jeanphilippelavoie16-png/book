@@ -124,7 +124,7 @@ module.exports = (h) => {
   // ─── Vue 2 : le premier rang et le départ de la spirale, vus de trois quarts.
   const N = 13, D = 2 * Math.PI / N, TH0 = Math.PI / 2 + 0.9 * D, E = 0.5, HT = 180 * E * 2 + 140;
   const sG = z => {
-    const k = Math.min((z.l - 16) / (2 * 180), (z.h - 40) / HT);
+    const k = Math.min((z.l - 4) / (2 * (a + t / 2)), (z.h - 40) / HT);   // en largeur : l'anneau lui-même, son bord extérieur
     const cx = z.l / 2, cy = (z.h - k * HT) / 2 + k * (180 * E + 140);
     const Pr = (r, th, zz) => [cx + k * r * Math.cos(th), cy + k * (E * r * Math.sin(th) - zz)];
     const P3 = (phi, s, c) => { const [r, zz] = surf(s, c); return Pr(r, TH0 - phi, zz); };
@@ -178,7 +178,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['tailler', 'spirale'], ['cle']],
     hauteurs: [1.08, 1],
-    largeurs: [[1, 1.24], [1]],
+    largeurs: [[282, 296], [1]],          // la spirale garde son échelle (limitée en hauteur) ; la taille gagne le reste
     vues: {
       tailler: {
         titre: 'Tailler les blocs',

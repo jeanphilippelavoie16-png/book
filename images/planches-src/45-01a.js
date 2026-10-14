@@ -107,7 +107,7 @@ const repDeg = z => {
 // ── le bout de l’arc, en grand ──
 const K = 1.6;                                     // px par mm
 const repBout = z => {
-  const XT = 320, u0 = 600;                        // le bout ; le bois montré commence à u0
+  const XT = 320, u0 = 561;                        // le bout ; le bois montré commence à u0 (au bord gauche du dégrossi)
   const xu = u => XT - (BOUT - u) * K;
   const YS = 12;                                   // le dos, vue de côté
   const yB = 84;                                   // l’axe, vue du dos
