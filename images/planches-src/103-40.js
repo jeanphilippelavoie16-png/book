@@ -4,8 +4,25 @@
 // outils » (chevalet, racloir émoussé, cadre d'étirage et garrot). Aucune cote : le chapitre n'en
 // donne aucune sur ces objets.
 // 13 oct. : l'homme du poste est le corps simple (pose « penche-pousse », tronc 44), ses bras calculés
-// par poserBras ; « Défibrer au maillet » est un gros plan de mains calquées, laissé tel quel pour la
-// nouvelle bibliothèque. Rouge : la poussée du racloir.
+// par poserBras. 14 oct. : « Défibrer au maillet » prend les mains simples (mains/moteur.js) : la gauche pince
+// le bout sec du tendon, le poing droit tient le manche du maillet. Rouge : la poussée du racloir, la frappe.
+
+// L'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y].
+const poser = (h, o, axe, vers) => {
+  const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+  const e0 = h.formes.mainSimple(base); let best = null;
+  for (const k of [0, 180]) {
+    const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+    const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+    const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+    if (!best || c > best.c) best = { a, c };
+  }
+  return best.a;
+};
+const MAINS_DEF = {
+  pince: { pose: 'pince-laterale', vue: 'pouce', x: -392, vers: [-760, 60], rot: null },
+  maillet: { pose: 'prise-manche', vue: 'paume', rot: [0, -30, 0], vers: [-420, 420] },
+};
 
 // ─── géométrie ───────────────────────────────────────────────────────────────────────
 const f1 = v => Math.round(v * 10) / 10;
@@ -353,9 +370,13 @@ module.exports = (h) => {
           // le bout, serré entre le pouce et l'index : la pince de profil
           // modèle s09 (le pouce et l'index qui pincent, de côté), en miroir : le point pincé sur le
           // tendon, l'avant-bras qui remonte à gauche (188 px = 190 mm)
-          out.push(h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true));
-          out.push(F.modele('s09', { x: V(-392, eT / 2)[0], y: V(-392, eT / 2)[1], ancre: [12, 66], angle: 15, miroir: true, echelle: s * 190 / 188,
-            masquer: [[200, 0, 230, 125]], bras: { a: [200, 64.1], a0: [185, 63.9], b: [200, 112.1], b0: [185, 108.4], bord: z } }));
+          // la main simple, pince latérale vue du côté du pouce (la prise d'une clé) : le tendon serré entre la pulpe
+          // du pouce et le côté de l'index ; l'avant-bras part à gauche. La main est à l'échelle de la vue (en mm).
+          const Mp = MAINS_DEF.pince, bordV = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+          const boutSec = h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true);
+          const pP = V(Mp.x, eT / 2), oP = { x: pP[0], y: pP[1], pose: Mp.pose, vue: Mp.vue, cote: 'gauche', echelle: s, diametre: eT, ...(Mp.rot ? { rotation: Mp.rot } : {}) };
+          const vP = V(...Mp.vers);
+          out.push(F.mainSimple({ ...oP, angle: poser(h, oP, 0, vP), objet: boutSec, avantbras: { vers: vP, bord: bordV, bras: { pli: 0 } } }).svg);
 
           // le maillet taillé dans une bûche de bouleau, levé ; le poing droit sur le manche
           const phi = 28 * Math.PI / 180, ax = [Math.cos(phi), Math.sin(phi)], nx = [-ax[1], ax[0]];
@@ -381,13 +402,16 @@ module.exports = (h) => {
           // modèle s11 (poing fermé), main droite (miroir) : le manche dans le poing, le pouce vers la
           // tête, l'avant-bras qui monte à gauche hors du cadre ; à la taille d'une main (113 px ≈ 95 mm),
           // le manche, plus gros que le trou du poing, passe derrière les doigts
-          out.push(mSvg);
-          out.push(F.modele('s11', { x: tr[0], y: tr[1], ancre: [68, 42], angle: 180 - 28, miroir: true, echelle: 0.84 * s,
-            masquer: [[0, 150, 140, 175]], bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
+          // le poing droit sur le manche (34 mm), côté paume : le pouce vers la tête, l'avant-bras qui monte à gauche
+          // hors du cadre ; le manche entre d'un côté du poing et ressort de l'autre, la tête peinte avec lui
+          const Mm = MAINS_DEF.maillet;
+          const oM = { x: tr[0], y: tr[1], pose: Mm.pose, vue: Mm.vue, cote: 'droite', echelle: s, diametre: 2 * rm, ...(Mm.rot ? { rotation: Mm.rot } : {}) };
+          const vM = V(...Mm.vers);
+          out.push(F.mainSimple({ ...oM, angle: poser(h, oM, -28, vM), objet: mSvg, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
           // la frappe : l'arc que décrit la tête
           const R = 335, arc = [];
           for (let a = 27; a >= 5; a -= 2) { const r = a * Math.PI / 180; arc.push(V(Fp[0] + R * Math.cos(r), Fp[1] + R * Math.sin(r))); }
-          out.push(h.fleche(D(lisse(arc, 3)), A.arete));
+          out.push(h.geste(D(lisse(arc, 3))));
           return out.join('\n');
         },
         renvois: z => {

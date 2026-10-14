@@ -11,6 +11,9 @@
 // nodules coupés, la face de coupe vers l'œil — les couleurs ne se dessinent pas, la légende les
 // dit ; 5 écraser au pilon dans le fond du bol ; 6 les pois roulés dans ce jus.
 // Aucune cote : le chapitre ne donne aucune mesure pour ces gestes.
+// 14 oct. : les deux poings (le rinçage, le pilon) sont des mains simples (mains/moteur.js) au lieu des
+// calques s11 ; la plante du rinçage, qui mordait sur le titre, tient dans sa vue. La charte : les flèches
+// du geste en rouge (secouer, couper, écraser, rouler) ; celles de la motte qui sort de terre restent noires.
 module.exports = (h) => {
   const F = h.formes, A = h.a;
   const NOIR = '#1A1A1A', RAD = Math.PI / 180;
@@ -46,7 +49,27 @@ module.exports = (h) => {
     const a0 = add(c0, mul(n, r0)), a1 = add(c1, mul(n, r1_)), b1 = sub(c1, mul(n, r1_)), b0 = sub(c0, mul(n, r0));
     return `M ${pt(a0)} L ${pt(a1)} A ${r1(r1_)} ${r1(r1_)} 0 0 0 ${pt(b1)} L ${pt(b0)}` + (base ? ` A ${r1(r0)} ${r1(r0)} 0 0 0 ${pt(a0)} Z` : '');
   };
-  const doubleFleche = (d) => `<path d="${d}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`;
+  const doubleFleche = (d) => h.geste(d, { double: true });     // le geste (charte : le rouge)
+  // l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+  // côté de `vers` (le même outil que 104-40 et 50-40)
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // le poing (main gauche simple, prise-manche vue côté paume, penché de 25°) fermé sur un objet debout, le
+  // pouce en haut, l'avant-bras court (130 mm) qui part à gauche ; l'objet peint par le moteur entre les couches
+  const poing = (z, x, y, s, diametre, objet) => {
+    const o = { x, y, pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: s, diametre, rotation: [-25, 0, 0] };
+    const vers = [x - 600, y];
+    return F.mainSimple({ ...o, angle: poser(o, 90, vers), objet, avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 130 } }).svg;
+  };
 
   // ── La vesce (mm) : tiges grimpantes, feuilles à folioles par paires, vrille au bout ────────
   // Une vrille : une courte hampe au bout de la feuille, puis deux ou trois brins en spirale lâche.
@@ -206,8 +229,8 @@ module.exports = (h) => {
       rincer: {
         titre: 'Rincer les racines',
         dessin: z => {
-          const s = Math.min((z.h - 6) / 600, (z.l - 10) / 470);
-          const ox = z.l * 0.52, oy = 4 + 262 * s;
+          const s = Math.min((z.h - 6) / 680, (z.l - 10) / 470);    // la plante entière dans la vue (elle mordait sur le titre)
+          const ox = z.l * 0.52, oy = 4 + 342 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
           const out = [];
           // le seau en coupe, l'eau
@@ -235,17 +258,15 @@ module.exports = (h) => {
               feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, 120, 8, -cote, null, (i + k) % 2 ? 3 : 2));
             }
           });
-          // modèle s11 (poing fermé, vu de la paume) en miroir et tourné d'un quart : l'avant-bras part
-          // à gauche et sort du cadre, le pouce en haut ; les tiges traversent le poing
-          const m = F.modele('s11', { x: P(0, 0)[0], y: P(0, 0)[1], ancre: [68, 42], angle: 90, miroir: true, echelle: 0.8 * s, masquer: [[0, 150, 140, 175]],
-            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], long: 70 * s, fin: 'ouvert' } });
-          out.push(hautTiges, feuilles.join('\n'), m);
+          // le poing sur la poignée de tiges (une douzaine de mm) : les tiges traversent le poing, derrière
+          // les doigts ; les feuilles par-dessus
+          out.push(poing(z, P(0, 0)[0], P(0, 0)[1], s, 12, hautTiges), feuilles.join('\n'));
           out.push(doubleFleche(`M ${pt(P(196, -60))} L ${pt(P(196, 70))}`));
           return out.join('\n');
         },
         renvois: z => {
-          const s = Math.min((z.h - 6) / 600, (z.l - 10) / 470);
-          const ox = z.l * 0.52, oy = 4 + 262 * s;
+          const s = Math.min((z.h - 6) / 680, (z.l - 10) / 470);
+          const ox = z.l * 0.52, oy = 4 + 342 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
           return [{ n: 3, rond: [z.l - 14, z.h * 0.72], cible: P(56, 138), texte: 'la terre part, les nodules restent' }];
         },
@@ -301,7 +322,7 @@ module.exports = (h) => {
           out.push(h.ligne(...Q(6, yT, 0), ...Q(xl, yT, 0), A.contour));
           out.push(h.path(lisse([[10.5, yT - 1.7], [19, yT - 2.6], [xl, yT - 2.9]].map(p => Q(p[0], p[1], 0))), A.fin));
           // le geste : appuyer
-          out.push(h.fleche(`M ${pt(Q(16, yT - 15, 0))} L ${pt(Q(16, yT - 9.8, 0))}`, A.arete));
+          out.push(h.geste(`M ${pt(Q(16, yT - 15, 0))} L ${pt(Q(16, yT - 9.8, 0))}`));      // le geste (charte : le rouge)
           return out.join('\n');
         },
         renvois: z => {
@@ -342,7 +363,7 @@ module.exports = (h) => {
             } else {
               // vert dans tout le nodule : une hachure fine sur la face et sur toute la longueur
               const id = 'hv96-08';
-              out.push(`<clipPath id="${id}"><path d="${corps}"/><circle cx="${f[0]}" cy="${f[1]}" r="${r1(R)}"/></clipPath>`);
+              out.push(`<clipPath id="${id}"><path d="${corps}" fill="none"/><circle cx="${f[0]}" cy="${f[1]}" r="${r1(R)}"/></clipPath>`);
               const traits = [];
               for (let d = -4 * R; d <= 4 * R; d += 2.6) traits.push(`M ${r1(f[0] + d - 3 * R)} ${r1(f[1] + 3 * R)} L ${r1(f[0] + d + 3 * R)} ${r1(f[1] - 3 * R)}`);
               out.push(`<g clip-path="url(#${id})">` + h.path(traits.join(' '), tr(0.5)) + '</g>');
@@ -379,12 +400,9 @@ module.exports = (h) => {
           out.push(bol(P));
           // le pilon, tenu au poing (au diamètre du poing du modèle)
           const pil = `M ${pt(P(-12.5, -224))} L ${pt(P(-12.5, -27))} A ${r1(12.5 * s)} ${r1(12.5 * s)} 0 0 0 ${pt(P(12.5, -27))} L ${pt(P(12.5, -224))} A ${r1(12.5 * s)} ${r1(12.5 * s)} 0 0 0 ${pt(P(-12.5, -224))} Z`;
-          out.push(h.path(pil, A.hachure('bois', 'contour')));
-          // modèle s11 (poing fermé, vu de la paume) en miroir et tourné d'un quart : l'avant-bras part
-          // à gauche et sort du cadre, le pouce en haut ; le pilon traverse le poing
-          out.push(F.modele('s11', { x: P(0, -165)[0], y: P(0, -165)[1], ancre: [68, 42], angle: 90, miroir: true, echelle: 1.0 * s, masquer: [[0, 150, 140, 175]],
-            bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
-          out.push(h.fleche(`M ${pt(P(100, -225))} L ${pt(P(100, -135))}`, A.arete));
+          // le poing sur le pilon (25 mm) : le pilon entre par le haut du poing et ressort par le bas
+          out.push(poing(z, P(0, -165)[0], P(0, -165)[1], s, 25, h.path(pil, A.hachure('bois', 'contour'))));
+          out.push(h.geste(`M ${pt(P(100, -225))} L ${pt(P(100, -135))}`));      // le geste (charte : le rouge)
           return out.join('\n');
         },
         renvois: z => {
@@ -418,7 +436,7 @@ module.exports = (h) => {
           // le geste : faire tourner le bol pour rouler les pois dans le jus
           const el = [];
           for (let i = 0; i <= 40; i++) { const t = (120 + 300 * i / 40) * RAD; el.push(P(Math.cos(t) * 66, -94 + Math.sin(t) * 11)); }
-          out.push(h.fleche(lisse(el), A.arete));
+          out.push(h.geste(lisse(el)));      // le geste (charte : le rouge)
           return out.join('\n');
         },
         renvois: z => {
