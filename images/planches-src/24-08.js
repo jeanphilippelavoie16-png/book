@@ -3,8 +3,8 @@
 // Ch. 24, section 9, « L'attelle de genou » ; les orteils sous l'attelle, tableau des signes.
 //
 // Un blessé couché sur le dos, vu de côté, du dehors : la jambe proche est le corps simple de la
-// bibliothèque (h.formes.corps, couche-dos, pied nu), à grande échelle, la cuisse coupée par le bord
-// de la vue (redessin du 14 octobre : la jambe et le pied dessinés à la main sont partis, et avec
+// bibliothèque (h.formes.corps, couche-dos) avec le pied nu simple à orteils de _pieds.js, à grande
+// échelle, la cuisse coupée par le bord de la vue (redessin du 14 octobre : la jambe et le pied dessinés à la main sont partis, et avec
 // eux la vue de dessus — un corps ne se montre que de profil). Les deux coupes, regardées vers le
 // pied, au genou (A) et au lien sous le genou (B), sont marquées sur la vue de côté ; dans les
 // coupes, le dehors est à gauche. Elles montrent les deux perches que la vue de côté ne montre pas.
@@ -43,15 +43,19 @@ module.exports = (h) => {
   };
 
   // ─── La jambe : le corps simple, couché sur le dos, à grande échelle ────────────────────
-  // h.formes.corps (couche-dos, pied nu), la jambe proche seule : les bras et la jambe loin sont
-  // masqués, et la vue coupe la cuisse à gauche. On lit son contour dans le SVG du moteur (le
-  // blanc du corps proche), en millimètres, pour poser la perche et les liens dessus.
+  // h.formes.corps (couche-dos), la jambe proche seule : les bras et la jambe loin sont masqués, et la
+  // vue coupe la cuisse à gauche. On lit son contour dans le SVG du moteur (le blanc du corps proche),
+  // en millimètres, pour poser la perche et les liens dessus. Le pied : le pied nu simple avec ses
+  // orteils (_pieds.js), repris sur la jambe au-dessus de la cheville, un peu tendu comme au repos.
+  const { jambeEtPied } = require('./_pieds');
   const MASQUE = ['brasP', 'brasL', 'jambeL'];
-  const OPT = { pose: 'couche-dos', pieds: 'nu', masquer: MASQUE };
-  const C1 = h.formes.corps(Object.assign({ x: 0, y: 0, echelle: 1 }, OPT));
-  const KX = C1.articulations.genouP[0];                    // le genou ; u = 0 au milieu du genou
-  const polys = (C1.svg.match(/<path d="([^"]+)" fill="#FFFFFF"/)[1].split('Z')).map(sp =>
-    (sp.match(/-?\d*\.?\d+/g) || []).map(Number).reduce((a, v, i, t) => (i % 2 ? a : a.concat([[t[i] - KX, -t[i + 1]]])), [])).filter(q => q.length > 2);
+  const OPT = { pose: 'couche-dos', masquer: MASQUE };
+  const PIED_OPT = { pied: 'nu', H: 70, angle: 6 };
+  const J1 = jambeEtPied(h, Object.assign({ x: 0, y: 0, echelle: 1 }, OPT), Object.assign({ id: 'p2408-mm' }, PIED_OPT));
+  const KX = J1.corps.articulations.genouP[0];               // le genou ; u = 0 au milieu du genou
+  // le talon du pied simple pose au sol : la jambe se lève d'autant s'il descend plus bas que celui du moteur
+  const LEVE = Math.max(0, ...J1.contour.map(p => p[1]));
+  const polys = J1.polys.map(q => q.map(p => [p[0] - KX, -p[1] + LEVE]));
   // la hauteur du dessus et du dessous de la jambe à la distance u du genou (mm au-dessus du sol)
   const coupeV = u => {
     const ys = [];
@@ -59,7 +63,7 @@ module.exports = (h) => {
     return [Math.max(...ys), Math.min(...ys)];
   };
   const TOP = u => coupeV(u)[0], BAS = u => coupeV(u)[1];
-  const PIED = { pointe: [C1.pieds.P.pointe[0] - KX, -C1.pieds.P.pointe[1]] };
+  const PIED = { pointe: [J1.pointe[0] - KX, -J1.pointe[1] + LEVE] };
 
   // ─── Les perches ──────────────────────────────────────────────────────────────────────
   const X0 = -220, X1 = 370, R = 20;            // de la mi-cuisse à au-dessus de la cheville
@@ -87,7 +91,7 @@ module.exports = (h) => {
       const out = [];
       out.push(h.rect(0, sol, z.l, 10, h.a.hachure('terre', 'aucun')), h.ligne(0, sol, z.l, sol, h.a.arete));
       // la jambe : le corps simple, coupé par le bord de la vue
-      const jambe = h.formes.corps(Object.assign({ x: X(-KX), y: sol, echelle: s }, OPT));
+      const jambe = jambeEtPied(h, Object.assign({ x: X(-KX), y: sol - LEVE * s, echelle: s }, OPT), Object.assign({ id: 'p2408' }, PIED_OPT));
       out.push(`<clipPath id="jambe-2408"><rect x="0" y="0" width="${f(z.l)}" height="${f(sol + 1)}"/></clipPath>`,
         `<g clip-path="url(#jambe-2408)">`, String(jambe), '</g>');
       // la rotule sous la peau, un trait fin

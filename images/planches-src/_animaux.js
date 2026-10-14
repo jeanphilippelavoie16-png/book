@@ -207,4 +207,70 @@ function lievre(h, o = {}) {
   return Object.assign({ svg, toString() { return svg; } }, geo);
 }
 
-module.exports = { lievre, _outils: { ellipse, disque, capsule, bez, trace, lisser, rendu } };
+
+// ─── le canard barboteur (canard noir, colvert) ───────────────────────────────────────────
+// Calqué sur la planche 12 de Fuertes, Birds of New York, 1910 (domaine public), dans le dépôt :
+// images/photos/lot5/50-01c-canard-noir-colvert-fuertes-pl12.jpg. La planche ne montre le canard
+// noir qu'au repos, la tête tournée dans le dos ; la cane colvert qui nage, en bas à droite, a la
+// même silhouette (même genre, même taille) et la tête droite : c'est elle qui est calquée. Le
+// contour a été pris sur un masque de couleur de la planche (le canard brun sur l'eau grise), puis
+// relevé en points clés. Ce qui est sous l'eau (la coque) n'est pas dans la planche : il est
+// dessiné, une courbe douce sous la ligne de flottaison.
+// Les points sont en pixels de la planche (x vers la droite, y vers le bas, la bête regarde à
+// droite) ; la ligne d'eau est à y = 990, le menton à x = 1601. 477 px du bout de la queue au bout
+// du bec = 560 mm (l'ordre de grandeur d'un canard noir ; rien ne s'imprime).
+const CANARD_PL = {
+  dessus: [[1202, 981, 'c'], [1227, 976], [1250, 967], [1263, 953], [1278, 930], [1300, 906], [1323, 885], [1347, 868],
+    [1387, 856], [1425, 848], [1455, 845], [1475, 845], [1493, 836], [1497, 820], [1492, 803], [1489, 783], [1490, 760],
+    [1494, 742], [1502, 724], [1515, 705], [1538, 693], [1556, 691], [1575, 696], [1592, 705], [1600, 715], [1613, 726],
+    [1640, 735], [1667, 738], [1679, 745, 'c'], [1668, 751], [1640, 754.5], [1610, 757], [1601, 757], [1583, 766],
+    [1563, 777], [1551, 790], [1548, 805], [1553, 815], [1568, 833], [1584, 846], [1600, 862], [1612, 880], [1621, 900],
+    [1622, 918], [1618, 940], [1610, 965]],
+  coque: [[1599, 991], [1580, 1022], [1530, 1043], [1440, 1050], [1340, 1043], [1270, 1022], [1235, 997], [1215, 987]],
+  flottaison: [[1600, 990], [1212, 986]],                     // sans coque : la ligne d'eau ferme le contour
+  aile: [[1566, 896], [1530, 915], [1470, 930], [1390, 938], [1320, 948], [1265, 962], [1230, 975]],
+  tertiaires: [[1345, 908], [1295, 935], [1240, 966]],
+  bec: [[1601, 716], [1598, 735], [1601, 756]],                // la base du bec, au ras des plumes
+  commissure: [[1604, 749], [1640, 749], [1676, 746]],
+  oeil: [1566, 718],
+  ancre: [1601, 990], mm: 560 / 477,
+};
+
+// o : x, y (vue) = le point de la ligne d'eau sous le menton ; echelle (vue par mm) ; cote 'droite'
+// (défaut, la bête regarde vers +x) ou 'gauche' ; trait (2,4 par défaut : le canard est le sujet de
+// sa vue ; 1,5 s'il ne l'est pas) ; coque (true par défaut : la partie sous l'eau, pour une coupe).
+function canard(h, o = {}) {
+  const s = o.echelle || 0.3, m = o.cote === 'gauche' ? -1 : 1;
+  const X = o.x || 0, Y = o.y || 0;
+  const ep = o.trait || 2.4, epA = 1.4, epI = 0.7;
+  const C = CANARD_PL, k = C.mm;
+  const mm = ([x, y, c]) => (c ? [(x - C.ancre[0]) * k, (C.ancre[1] - y) * k, c] : [(x - C.ancre[0]) * k, (C.ancre[1] - y) * k]);
+  const Tm = p => [X + m * s * p[0], Y - s * p[1]];
+  const avecCoque = o.coque !== false;
+  const contour = trace(C.dessus.concat(avecCoque ? C.coque : C.flottaison).map(mm));
+  const forme = lisser(cl(contour), 0.6);
+  const R = rendu({ echelle: s }, Tm);
+  const ouvert = l => trace(l.map(mm), false);
+  const oeil = ellipse(mm(C.oeil), 5.2, 4.6, 0, 28);
+  const out = [`<g data-animal="canard">`];
+  out.push(R.plein(forme, BLANC));
+  if (o.dedans) out.push(o.dedans);
+  out.push(R.ligne([ouvert(C.aile)], epA), R.ligne([ouvert(C.tertiaires), ouvert(C.bec), ouvert(C.commissure)], epI));
+  out.push(R.plein(cl(oeil), NOIR));
+  out.push(R.bord(forme, ep));
+  out.push('</g>');
+  const svg = out.filter(Boolean).join('\n');
+  const P = q => Tm(mm(q));
+  const geo = {
+    bec: P([1679, 745]), menton: P([1601, 757]), oeil: P(C.oeil), calotte: P([1556, 691]),
+    // le cou juste sous la tête : devant (la gorge) et derrière (la nuque), à la même hauteur
+    gorge: P([1572, 772]), nuque: P([1490, 772]), poitrail: P([1622, 918]), queue: P([1202, 981]),
+    flottaison: Y, echelle: s, miroir: m < 0, mm: (x, y) => Tm([x, y]),
+  };
+  return Object.assign({ svg, toString() { return svg; } }, geo);
+}
+
+// l'union de polygones (listes de points) : les contours qui en sortent, en listes de points
+const unir = polys => M.union(polys).map(P => M.deCL(P));
+
+module.exports = { lievre, canard, _outils: { ellipse, disque, capsule, bez, trace, lisser, rendu, unir } };

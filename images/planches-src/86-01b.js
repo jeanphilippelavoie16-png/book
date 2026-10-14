@@ -11,8 +11,8 @@
 // Le délestage est pris avant la diode et le fusible : la batterie ne peut pas le nourrir, et
 // la roue ne se retrouve jamais à vide quand le fusible saute.
 //
-// La charte : pas de gris, la planche n'a pas de volume qui en demande (élévation de pièces minces,
-// plan, schéma). Le rouge : un seul point à contrôler, la prise du délestage sur les deux fils,
+// La charte : un gris, le loin, sur les paliers, les montants et la planche de la dynamo de la vue
+// de dessus (ils portent, ils ne sont pas le sujet) ; l'élévation et le schéma n'en ont pas. Le rouge : un seul point à contrôler, la prise du délestage sur les deux fils,
 // côté roue, avant la diode et le fusible. Les flèches de rotation restent noires.
 
 const XA = -2.08, XW = 2.76;                 // étendue en x, élévation et plan
@@ -133,17 +133,21 @@ module.exports = (h) => {
       dessus: {
         titre: 'Vu de dessus',
         dessin: z => {
+          // Hiérarchie (redessin du 14 octobre 2026) : le sujet de la vue est la transmission,
+          // chaque paire dans son plan. Pignons, poulies, jante, chaîne et courroies au trait fort ;
+          // les arbres à 1,4 ; la roue à augets, sa fosse et sa conduite au trait fin ; paliers,
+          // montants et planche de la dynamo en gris loin, sans hachure.
           const P = repD(z), o = [], XR = XA + XW;
-          // fosse de la roue, pleine d'eau de fuite
+          const GRIS = h.a.detail.replace('fill="none"', `fill="${'#E6E6E6'}"`);
+          const BLd = h.a.detail.replace('fill="none"', 'fill="#FFFFFF"');
+          const bloc = (x0, y0, x1, y1) => boite(P, x0, y0, x1, y1, GRIS);
+          // fosse de la roue, pleine d'eau de fuite : l'eau seule, bords au trait fin
           o.push(boite(P, -0.65, 1.03, XR, 1.41, EAU));
-          o.push(trait(P, [[XR, 1.03], [-0.65, 1.03], [-0.65, 1.41], [XR, 1.41]], h.a.arete));
-          // roue : deux disques, augets, axe, palier, plateau
+          o.push(trait(P, [[XR, 1.03], [-0.65, 1.03], [-0.65, 1.41], [XR, 1.41]], h.a.detail));
+          // roue à augets : deux disques, augets, au second plan
           for (const x of [-0.42, -0.2, 0.05, 0.3]) o.push(h.ligne(...P(x, 1.14), ...P(x, 1.30), h.a.detail));
-          for (const d of [1.13, 1.31]) o.push(boite(P, -0.5, d - 0.012, 0.5, d + 0.012, BL));
-          o.push(boite(P, -0.015, 1.0, 0.015, 1.72, BLa));
-          o.push(boite(P, -0.07, 1.43, 0.07, 1.51, h.a.hachure('metal', 'arete')));
-          o.push(boite(P, -0.1, 1.65, 0.1, 1.67, h.a.plein));
-          // conduite, au-dessus de la roue
+          for (const d of [1.13, 1.31]) o.push(boite(P, -0.5, d - 0.012, 0.5, d + 0.012, BLd));
+          // conduite, au-dessus de la roue : trait d'arête, plus le trait fort
           const axe = [[-0.9, 1.02], [-0.8, 1.12], [-0.6, 1.22], [-0.05, 1.22]];
           const dec = (d) => axe.map((p, i) => {
             const a = axe[Math.max(0, i - 1)], b = axe[Math.min(axe.length - 1, i + 1)];
@@ -151,28 +155,32 @@ module.exports = (h) => {
             return [p[0] - d * dy / l, p[1] + d * dx / l];
           });
           const c1 = dec(0.055), c2 = dec(-0.055);
-          o.push(poly(P, [...c1, ...c2.slice().reverse()], h.a.blanc), trait(P, c1, h.a.contour), trait(P, c2, h.a.contour));
+          o.push(poly(P, [...c1, ...c2.slice().reverse()], h.a.blanc), trait(P, c1, h.a.arete), trait(P, c2, h.a.arete));
           o.push(trait(P, [c1[c1.length - 1], c2[c2.length - 1]], h.a.detail));
-          // roue arrière : moyeu entre deux montants, rayons, jante, pignon côté berge
+          // paliers et montants, en gris : ils portent, ils ne sont pas le sujet
+          o.push(bloc(-0.07, 1.43, 0.07, 1.51));
+          for (const ym of [1.515, 1.735]) o.push(bloc(W[0] - 0.024, ym - 0.022, W[0] + 0.024, ym + 0.022));
+          for (const yb of [1.44, 1.69]) o.push(bloc(A[0] - 0.045, yb - 0.022, A[0] + 0.045, yb + 0.022));
+          o.push(bloc(D[0] - 0.1, 1.26, D[0] + 0.1, 1.49));
+          // les trois arbres
+          o.push(boite(P, -0.015, 1.0, 0.015, 1.72, BLa));
+          o.push(boite(P, W[0] - 0.006, 1.52, W[0] + 0.006, 1.73, BLa));
+          o.push(boite(P, A[0] - 0.012, 1.42, A[0] + 0.012, 1.71, BLa));
+          // roue arrière : rayons fins, flasques du moyeu
           for (const xe of [W[0] - RJI, W[0] + RJI, W[0] - 0.18, W[0] + 0.18])
             for (const yf of [1.575, 1.645]) o.push(h.chemin([P(xe, 1.61), P(W[0] + (xe < W[0] ? -0.03 : 0.03), yf)], h.a.fin));
-          o.push(boite(P, W[0] - 0.006, 1.52, W[0] + 0.006, 1.73, BLa));
           for (const yf of [1.575, 1.645]) o.push(h.ligne(...P(W[0] - 0.03, yf), ...P(W[0] + 0.03, yf), h.a.arete));
-          o.push(boite(P, W[0] - RJ, 1.598, W[0] + RJ, 1.622, BLa));
-          for (const ym of [1.515, 1.735]) o.push(boite(P, W[0] - 0.024, ym - 0.022, W[0] + 0.024, ym + 0.022, h.a.hachure('bois', 'arete')));
-          // arbre de renvoi, deux paliers, deux poulies
-          o.push(boite(P, A[0] - 0.012, 1.42, A[0] + 0.012, 1.71, BLa));
-          for (const yb of [1.44, 1.69]) o.push(boite(P, A[0] - 0.045, yb - 0.022, A[0] + 0.045, yb + 0.022, h.a.hachure('metal', 'arete')));
-          // courroies et chaîne, dans leurs plans
-          o.push(h.ligne(...P(A[0], 1.61), ...P(W[0] - RJ, 1.61), h.a.arete));
-          o.push(h.ligne(...P(D[0], 1.50), ...P(A[0], 1.50), h.a.arete));
-          o.push(h.ligne(...P(W[0], 1.66), ...P(0, 1.66), CHAINE));
+          // dynamo : corps vers le ruisseau
+          o.push(boite(P, D[0] - 0.055, 1.29, D[0] + 0.055, 1.47, BLa));
+          // la transmission, au trait fort : chaque paire dans son plan
+          o.push(h.ligne(...P(A[0], 1.61), ...P(W[0] - RJ, 1.61), h.a.contour));     // courroie, plan de la jante
+          o.push(h.ligne(...P(D[0], 1.50), ...P(A[0], 1.50), h.a.contour));          // courroie, plan de la dynamo
+          o.push(h.ligne(...P(W[0], 1.66), ...P(0, 1.66), CHAINE));                 // chaîne, plan du plateau
+          o.push(boite(P, W[0] - RJ, 1.598, W[0] + RJ, 1.622, BL));                    // jante : grande poulie
           o.push(boite(P, A[0] - RPP, 1.598, A[0] + RPP, 1.622, BL), boite(P, A[0] - RGP, 1.485, A[0] + RGP, 1.515, BL));
-          o.push(boite(P, W[0] - RPI, 1.652, W[0] + RPI, 1.668, h.a.plein));
-          // dynamo : planche, corps vers le ruisseau, poulie dans le plan de la grande poulie
-          o.push(boite(P, D[0] - 0.1, 1.26, D[0] + 0.1, 1.49, h.a.hachure('bois', 'arete')));
-          o.push(boite(P, D[0] - 0.055, 1.29, D[0] + 0.055, 1.47, BL));
           o.push(boite(P, D[0] - RDY, 1.488, D[0] + RDY, 1.512, BL));
+          o.push(boite(P, W[0] - RPI, 1.652, W[0] + RPI, 1.668, h.a.plein));          // pignon
+          o.push(boite(P, -0.1, 1.65, 0.1, 1.67, h.a.plein));                          // plateau
           return o.join('\n');
         },
         renvois: z => {

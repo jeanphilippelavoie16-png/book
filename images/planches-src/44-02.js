@@ -1,9 +1,13 @@
 // Planche 44-02 — la ligne de dressage du chien de sang (chapitre 44, « Faire un chien de sang
 // avec le chien du chalet », étapes 1 à 4). En plan : la traîne de foie, les gouttes, le prix au
 // bout, le virage à angle droit, les rubans aux arbres. Aucun chiffre qui ne soit pas au chapitre.
-// La charte : pas de gris (deux vues sont des plans à plat, et le foie est trop petit pour une face
-// à l'ombre). Le rouge : le foie qu'on traîne (le geste). La flèche du sens de la ligne et le trajet
-// du chien restent noirs : ce ne sont pas des gestes.
+// La charte : les arbres du bois, en plan, en gris loin, sans trait ni tronc ; seuls les arbres à
+// ruban gardent leur trait. Le rouge : le foie qu'on traîne (le geste). La flèche du sens de la
+// ligne et le trajet du chien restent noirs : ce ne sont pas des gestes.
+//
+// Redessinée le 14 octobre 2026 : le foie était minuscule et les plans encombrés de quarante arbres
+// au même trait que la ligne. La vue de la traîne est plus large et le foie deux fois plus gros,
+// l'herbe couchée derrière lui plus haute ; les arbres passent au gris et sont moins nombreux.
 module.exports = (h) => {
   const f = v => +v.toFixed(1);
   const blanc = a => a.replace('fill="none"', 'fill="#ffffff"');
@@ -52,24 +56,25 @@ module.exports = (h) => {
   });
 
   // ─── les arbres vus de dessus : l'épinette en étoile de pointes, le tronc au centre ───
-  const epinette = (cx, cy, r) => {
+  const epinette = (cx, cy, r, at = h.a.detail) => {
     const n = 11, rot = alea() * Math.PI, pts = [];
     for (let i = 0; i < 2 * n; i++) {
       const a = rot + i * Math.PI / n, rr = i % 2 ? r * (0.55 + alea() * 0.1) : r * (0.92 + alea() * 0.12);
       pts.push([f(cx + rr * Math.cos(a)), f(cy + rr * Math.sin(a))]);
     }
-    return h.chemin(pts, h.a.detail, true);
+    return h.chemin(pts, at, true);
   };
   // le bouleau : un houppier festonné
-  const bouleau = (cx, cy, r) => {
+  const bouleau = (cx, cy, r, at = h.a.detail) => {
     const n = 8, rot = alea() * Math.PI, pts = [];
     for (let i = 0; i < n; i++) { const a = rot + i * 2 * Math.PI / n, rr = r * (0.86 + alea() * 0.14); pts.push([cx + rr * Math.cos(a), cy + rr * Math.sin(a)]); }
     let d = `M${f(pts[0][0])},${f(pts[0][1])}`;
     for (let i = 1; i <= n; i++) { const p = pts[i % n], q = pts[i - 1], c = Math.hypot(p[0] - q[0], p[1] - q[1]) * 0.62; d += ` A${f(c)},${f(c)} 0 0 1 ${f(p[0])},${f(p[1])}`; }
-    return h.path(d + ' Z', h.a.detail);
+    return h.path(d + ' Z', at);
   };
   const tronc = (cx, cy) => h.cercle(f(cx), f(cy), 1.7, h.a.plein);
-  const arbre = (cx, cy, r) => (alea() < 0.72 ? epinette(cx, cy, r) : bouleau(cx, cy, r)) + tronc(cx, cy);
+  // les arbres du bois, en fond : un aplat gris loin, sans trait ni tronc, pour que la ligne passe devant
+  const arbre = (cx, cy, r) => (alea() < 0.72 ? epinette(cx, cy, r, h.a.loin) : bouleau(cx, cy, r, h.a.loin));
 
   // le tronc ceint d'un ruban, ses deux bouts qui flottent au vent, tous du même côté
   // (ang : le côté où flottent les bouts, à l'opposé de la ligne)
@@ -176,7 +181,7 @@ module.exports = (h) => {
     desc: 'Trois vues. De côté, un morceau de foie noué au bout d’une ficelle, traîné au sol : l’herbe couchée derrière lui, debout devant. En plan, la première ligne du chiot : les empreintes du chiot au départ, la traîne du foie, puis une ligne de gouttes de sang et, au bout, le prix, une queue. En plan, la ligne longue dans le bois : une goutte à chaque pas au départ, puis des gouttes espacées, un virage à angle droit, un ruban noué aux arbres le long de la ligne ; le chien, en tireté, dépasse le virage, tourne, revient et retrouve la ligne jusqu’au prix. L’encadré danger rappelle que le foie se reprend et ne reste jamais sur la ligne.',
     format: 'pleine',
     disposition: [['traine', 'chiot'], ['longue']],
-    largeurs: [[1, 2.7], [1]],
+    largeurs: [[1.4, 2.3], [1]],
     hauteurs: [1, 2.2],
     vues: {
       // ─── De côté : le foie au bout de sa ficelle ───
@@ -184,35 +189,35 @@ module.exports = (h) => {
         titre: 'La traîne du foie',
         dessin: z => {
           graine = 3;
-          const g = f(z.h * 0.72), x = f(z.l * 0.68);
+          const g = f(z.h * 0.74), x = f(z.l * 0.58);
           const out = [];
           out.push(h.ligne(4, g, z.l - 4, g, h.a.arete));
           // l'herbe couchée derrière, en bande, les brins à plat, pointes dans le sens de la traîne
-          for (let bx = 4; bx < x - 18; bx += 3 + alea() * 1.6) {
-            const l = 13 + alea() * 6, hh = 3.5 + alea() * 3;
+          for (let bx = 4; bx < x - 58; bx += 3 + alea() * 1.6) {
+            const l = 14 + alea() * 6, hh = 5 + alea() * 4;
             out.push(h.path(`M${f(bx)},${g} Q${f(bx + l * 0.5)},${f(g - hh)} ${f(bx + l)},${f(g - hh * 0.7)}`, alea() < 0.5 ? h.a.detail : h.a.fin));
           }
           // l'herbe debout devant
-          for (let bx = x + 34; bx < z.l - 10; bx += 12 + alea() * 4) {
+          for (let bx = x + 58; bx < z.l - 10; bx += 12 + alea() * 4) {
             out.push(h.path(`M${f(bx)},${g} Q${f(bx - 2)},${f(g - 7)} ${f(bx - 4)},${f(g - 13)} M${f(bx + 1)},${g} Q${f(bx + 1)},${f(g - 9)} ${f(bx + 2)},${f(g - 15)} M${f(bx + 2)},${g} Q${f(bx + 5)},${f(g - 6)} ${f(bx + 8)},${f(g - 10)}`, h.a.fin));
           }
           // le morceau de foie : plat, mou, irrégulier, deux lobes séparés par une échancrure
-          const X = dx => f(x + dx * 0.72), Y = dy => f(g - dy * 0.9);
+          const X = dx => f(x + dx * 1.5), Y = dy => f(g - dy * 1.6);
           const foie = `M${X(-34)},${Y(1)} C${X(-38)},${Y(6)} ${X(-30)},${Y(11)} ${X(-20)},${Y(10)} C${X(-12)},${Y(12)} ${X(-4)},${Y(11)} ${X(2)},${Y(8)} L${X(6)},${Y(4.5)} L${X(9)},${Y(8)} C${X(16)},${Y(12)} ${X(28)},${Y(10)} ${X(33)},${Y(5)} C${X(35)},${Y(2.5)} ${X(31)},${Y(0.5)} ${X(26)},${g} L${X(-28)},${g} Q${X(-33)},${g} ${X(-34)},${Y(1)} Z`;
           out.push(h.path(foie, blanc(h.a.contour)));
           // le reflet humide
           out.push(h.path(`M${X(-22)},${Y(7.5)} Q${X(-17)},${Y(8.8)} ${X(-12)},${Y(8.5)} M${X(-8)},${Y(8)} L${X(-5)},${Y(7.6)} M${X(14)},${Y(8)} Q${X(18)},${Y(9)} ${X(22)},${Y(8)}`, h.a.fin));
           // la ficelle : un tour autour du lobe de devant, le nœud dessus, le brin vers la main
           out.push(h.path(`M${X(19)},${g} L${X(19)},${Y(10.5)}`, h.a.arete));
-          out.push(h.cercle(X(19), Y(11.5), 2.4, h.a.plein));
+          out.push(h.cercle(X(19), Y(11.5), 3, h.a.plein));
           out.push(h.path(`M${X(19)},${Y(11.5)} L${f(z.l - 6)},${f(z.h * 0.06)}`, h.a.arete));
           // le sens de la traîne
-          out.push(h.path(`M${f(x - 30)},${f(g - 40)} L${f(x + 8)},${f(g - 40)}`, halo));
-          out.push(h.geste(`M${f(x - 32)},${f(g - 40)} L${f(x + 10)},${f(g - 40)}`));
+          out.push(h.path(`M${f(x - 46)},${f(g - 48)} L${f(x + 6)},${f(g - 48)}`, halo));
+          out.push(h.geste(`M${f(x - 48)},${f(g - 48)} L${f(x + 8)},${f(g - 48)}`));
           return out.join('\n');
         },
         renvois: z => [
-          { n: 1, rond: [z.l * 0.2, z.h * 0.93], cible: [z.l * 0.68 - 16, z.h * 0.72 - 6], texte: 'foie au bout d’une ficelle' },
+          { n: 1, rond: [z.l * 0.12, z.h * 0.93], cible: [z.l * 0.58 - 22, z.h * 0.74 - 10], texte: 'foie au bout d’une ficelle' },
         ],
       },
 
@@ -266,7 +271,7 @@ module.exports = (h) => {
           // le sens de la ligne, au départ
           const p0 = route.at(4), p1 = route.at(34);
           const fl = [[p0.x - p0.nx * 13, p0.y - p0.ny * 13], [p1.x - p1.nx * 13, p1.y - p1.ny * 13]];
-          const arbres = semer(z, [route, rChien, mesure(fl)], [...rubans, [C[0] + 4, z.h * 0.03, 18], ...places(renvois)], 40, 9, 16, 6);
+          const arbres = semer(z, [route, rChien, mesure(fl)], [...rubans, [C[0] + 4, z.h * 0.03, 18], ...places(renvois)], 26, 8, 14, 6);
           arbres.forEach(a => out.push(arbre(...a)));
           rubans.forEach(([x, y, r, a]) => out.push(alea() < 0.8 ? epinette(x, y, r) : bouleau(x, y, r), ruban(x, y, a)));
           // la ligne, là où elle passe

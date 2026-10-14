@@ -17,6 +17,10 @@
 // voie ce qui change au bord. Le ruban se voit aussi de côté (sa pose en tour) ; la gaine se fend
 // avant d'être enfilée. Le ruban porte une trame de toile, partout la même.
 //
+// Les orteils (redessin du 14 octobre) : une forme simple au trait du corps simple (1,9, le corps sujet de
+// sa vue), la bibliothèque des corps n'ayant pas d'orteils ; un seul contour, un trait fin entre deux
+// orteils, coupés par le bord de la vue.
+//
 // Géométrie en millimètres d'orteil, repère propre à chaque vue, converti par T(s, ox, oy).
 //
 // La charte : pas de gris sur l'orteil (un corps) ni sur les coupes. La gaine fendue est un volume :
@@ -68,37 +72,41 @@ module.exports = (h) => {
   const TOILE = A.hachure('grillage', 'detail');              // le ruban : une trame de toile
 
   // ─── le pied vu de dessus (pied droit, orteils vers le haut) ───────────────────────────
-  const W = [14.0, 39.6];                                     // la palmure entre les deux orteils
-  const GROS = cr([[-15.6, 44], [-14.6, 38], [-14.4, 30], [-14.1, 22], [-13.4, 14], [-12.0, 5.0], [-9.0, 1.2], [-4.4, -0.2], [0, -0.4],
-    [4.4, 0.2], [8.6, 2.0], [11.2, 5.6], [12.4, 11], [12.6, 19], [12.3, 28], [12.5, 35], [13.2, 38.6], W]);
-  const DEUX = cr([W, [14.9, 36], [14.8, 28], [15.0, 20], [15.9, 14.5], [17.9, 11.4], [21.0, 10.2], [24.1, 10.9], [26.4, 13.4],
-    [27.5, 18], [27.6, 26], [27.2, 33], [27.8, 38.4], [29.0, 40.6]]);
-  const ONGLE2 = cr([[18.7, 21.5], [18.4, 16.8], [19.6, 14.1], [21.7, 13.4], [23.8, 14.0], [25.1, 16.6], [24.8, 21.5], [21.7, 22.6]], true);
-  const PLIS = [cr([[-6.5, 31.6], [-2, 30.7], [2.5, 31.0]]), cr([[-4.5, 33.8], [0, 33.1], [4.5, 33.6]])];
+  // La forme simple des corps de la bibliothèque (redessin du 14 octobre) : un seul contour, blanc, au
+  // trait du corps qui est le sujet de sa vue (1,9) ; aucun pli de peau, aucune lunule. Les deux orteils
+  // sortent par le bas et par la droite de la vue, coupés par son bord. L'ongle, ses replis de peau (le
+  // repli du fond, les deux bourrelets) restent : c'est le sujet de la planche.
+  // un seul contour pour les trois orteils serrés l'un contre l'autre ; entre deux orteils, un trait
+  // intérieur fin qui part du creux et descend jusqu'à la palmure
+  const ORTEILS = cr([[-15.9, 62], [-15.4, 46], [-14.6, 34], [-14.2, 22], [-13.4, 13.5], [-11.8, 5.4], [-8.6, 1.3], [-4.2, -0.3], [0, -0.5],
+    [4.4, 0.1], [8.6, 1.9], [11.3, 5.6], [12.6, 10.5], [13.5, 15.2], [15.2, 13.0], [17.6, 11.0], [21.0, 10.2], [24.1, 10.9], [26.4, 13.4],
+    [27.6, 17.6], [28.6, 21.4], [30.2, 19.0], [32.6, 17.3], [35.5, 16.6], [38.5, 17.0], [41.5, 18.6]]);
+  const ENTRE = [cr([[13.5, 15.4], [13.7, 24], [13.8, 32], [14.0, 39.5]]), cr([[28.6, 21.6], [28.8, 28], [29.0, 34], [29.3, 40.5]])];
+  const TRAIT_ORTEIL = `fill="none" stroke="${NOIR}" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"`;
   const ARC = cr([[8.5, 20.2], [6.2, 22.6], [3, 23.8], [0, 24.1], [-3, 23.8], [-6.4, 22.6], [-9.0, 20.2]]);
   const CUTICULE = cr([[9.9, 20.8], [7.0, 24.0], [3, 25.3], [0, 25.6], [-3, 25.3], [-7.2, 24.0], [-10.3, 20.8]]);
-  const LUNULE = cr([[-5.6, 21.2], [-3, 19.5], [0, 19.1], [3, 19.5], [5.3, 21.2]]);
   const PLI_D = cr([[9.9, 21.4], [10.0, 14], [10.0, 10.2], [10.5, 8.4], [11.5, 7.4]]);
   const PLI_G = cr([[-10.4, 21.4], [-10.5, 14], [-10.5, 10.2], [-10.9, 8.4], [-11.9, 7.3]]);
   const ONGLE_DROIT = [[-9.4, 3.0], [8.9, 3.0], [8.8, 12], ...ARC, [-9.3, 12]];
 
   function pied(V, { ongle = ONGLE_DROIT, pliG = PLI_G } = {}) {
     return [
-      chemin(GROS, V, A.contour), chemin(DEUX, V, A.contour),
-      chemin(ONGLE2, V, A.detail, true),
-      ...PLIS.map(p => chemin(p, V, A.fin)),
-      chemin(CUTICULE, V, A.detail), chemin(LUNULE, V, A.fin),
+      chemin(ORTEILS, V, TRAIT_ORTEIL), ...ENTRE.map(l => chemin(l, V, A.detail)),
+      chemin(CUTICULE, V, A.detail),
       chemin(PLI_D, V, A.detail), pliG ? chemin(pliG, V, A.detail) : '',
       chemin(ongle, V, blancArete, true),
     ].join('\n');
   }
+  // la vue de dessus, découpée par son cadre : les orteils sortent par le bas et par la droite
+  const coupeVue = (z, id, contenu) =>
+    `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
   // l'orteil se dessine un peu long ; on le tasse au-delà du bout de l'ongle, dans le repère de la vue
   const sq = y => y <= 4 ? y : 4 + (y - 4) * 0.78;
-  const cadreDessus = z => { const c = cadre(z, [-19, 29], [-6.5, sq(44)]); return { s: c.s, V: p => c.V([p[0], sq(p[1])]) }; };
+  const cadreDessus = z => { const c = cadre(z, [-19.6, 34], [-6.5, sq(47)]); return { s: c.s, V: p => c.V([p[0], sq(p[1])]) }; };
 
   // Vue 1 — bien coupé : droit, coins carrés, le coin dépasse le bout du bourrelet
   const ONGLE_BON = [[-7.6, 3.0], [8.9, 3.0], [8.8, 12], ...ARC, [-9.3, 12], [-8.9, 7.0]];
-  const vueBon = z => { const V = cadreDessus(z).V, [cx, cy] = V([-8.3, 3.6]); return pied(V, { ongle: ONGLE_BON }) + '\n' + h.controle(cx, cy, 12); };
+  const vueBon = z => { const V = cadreDessus(z).V, [cx, cy] = V([-8.3, 3.6]); return coupeVue(z, 'o2415-bon', pied(V, { ongle: ONGLE_BON })) + '\n' + h.controle(cx, cy, 12); };
 
   // Vue 2 — mal coupé : coins en arrondi, court ; la chair bombe dans le coin ; le bord repousse dedans
   const ONGLE_COURT = [...cr([[-9.3, 16.0], [-8.9, 13.2], [-7.0, 11.2], [-3.4, 10.3], [0, 10.2], [3.4, 10.3], [6.6, 11.2], [8.4, 13.2], [8.8, 16.0]]),
@@ -111,15 +119,16 @@ module.exports = (h) => {
   const yA = 18.5;
   function vueRate(z) {
     const { V } = cadreDessus(z);
-    const out = [pied(V, { ongle: ONGLE_COURT, pliG: null })];
+    const out = [coupeVue(z, 'o2415-rate', pied(V, { ongle: ONGLE_COURT, pliG: null }))];
     out.push(chemin(BOSSE_FOND, V, A.blanc, true), chemin(BOSSE, V, A.arete), chemin(BOSSE_PLI, V, A.fin));
     out.push(fleche([[-9.3, 16.0], [-9.45, 5.2]], V, TIRET));   // le bord qui repousse, dans la chair
     // trait de coupe A–A ; les flèches regardent vers le bout de l'orteil
-    const [xa, ya] = V([-17.4, yA]), [xb] = V([13.6, yA]);
+    const [xa, ya] = V([-16.5, yA]), [xb] = V([15.8, yA]);
     out.push(h.ligne(xa, ya, xb, ya, AXE));
-    for (const x of [xa, xb]) {
+    // la lettre à côté de la flèche, côté dehors : à droite, elle tombe sur le deuxième orteil, loin du trait qui le sépare
+    for (const [x, dx] of [[xa, -8], [xb, 8]]) {
       out.push(fleche([[x, ya], [x, ya - 11]], p => p, A.detail));
-      out.push(h.texte(x, ya - 15, 'A'));
+      out.push(h.texte(x + dx, ya - 5, 'A'));
     }
     return out.join('\n');
   }
@@ -209,9 +218,9 @@ module.exports = (h) => {
   }
 
   // ─── le ruban, vu de côté (face intérieure du pied droit, le bout de l'orteil à droite) ─
-  const PROFIL = cr([[-54, -10.7], [-50, -9.2], [-42, -6.4], [-33, -3.8], [-26, -2.4], [-21.3, -1.7], [-10, -0.6],
+  const PROFIL = cr([[-62, -13.6], [-54, -10.7], [-50, -9.2], [-42, -6.4], [-33, -3.8], [-26, -2.4], [-21.3, -1.7], [-10, -0.6],
     [-1.5, 0.0], [0.9, 1.2], [2.1, 4.5], [2.0, 8.5], [0.6, 12.4], [-3, 16.0], [-8, 18.4], [-15, 19.3], [-21, 18.9],
-    [-24.2, 17.8], [-25.6, 17.3], [-27.2, 18.4], [-34, 19.8], [-40, 20.6], [-45, 21.6], [-50, 23.3], [-54, 24.0]]);
+    [-24.2, 17.8], [-25.6, 17.3], [-27.2, 18.4], [-34, 19.8], [-40, 20.6], [-45, 21.6], [-50, 23.3], [-54, 24.0], [-62, 25.4]]);
   const ONGLE_COTE = [...cr([[0.5, 0.3], [-6, -0.3], [-12, -0.8], [-19.8, -1.45]]), ...cr([[-19.8, -1.45], [-20.8, -0.2], [-19.8, 1.1]]).slice(1),
     ...cr([[-19.8, 1.1], [-12, 1.7], [-5, 1.95], [-0.6, 1.7], [0.5, 0.3]]).slice(1)];
   const PLI_COTE = cr([[-21.8, 2.1], [-12, 2.9], [-5, 3.15], [-0.8, 2.8], [1.3, 1.8]]);
@@ -224,11 +233,11 @@ module.exports = (h) => {
     // le tour qui tient : un tour complet, du dessus jusque sous l'orteil, par-dessus le bout de la bande
     const tour = [[-25.6, -2.34], [-31.0, -3.4], [-34.0, 19.8], [-28.4, 18.8]];
     out.push(chemin(tour, V, A.blanc, true), chemin(tour, V, TOILE, true));
-    out.push(chemin(PROFIL, V, A.contour));
+    out.push(chemin(PROFIL, V, TRAIT_ORTEIL));
     out.push(chemin(PLI_COTE, V, A.detail));
     out.push(chemin(ONGLE_COTE, V, blancArete, true));
     out.push(h.geste(dFleche(map([[-13.0, 9.6], [-21.0, 13.8]], V))));   // tirer dans l'axe de la bande, vers la base
-    return out.join('\n');
+    return coupeVue(z, 'o2415-cote', out.join('\n'));
   }
 
   // ─── la gaine, fendue au couteau ────────────────────────────────────────────────────────
@@ -273,7 +282,7 @@ module.exports = (h) => {
   const PLI_G_GAINE = cr([[-10.4, 21.4], [-10.5, 18.6], [-11.6, 16.8], [-11.9, 10], [-11.8, 5.8], [-12.0, 4.9]]);
   function vueGouttiereDessus(z) {
     const { V } = cadreDessus(z);
-    const out = [pied(V, { pliG: PLI_G_GAINE })];
+    const out = [coupeVue(z, 'o2415-gouttiere', pied(V, { pliG: PLI_G_GAINE }))];
     const x0 = -9.55, lg = 1.45, y0 = 3.0, y1 = 16.4;
     out.push(chemin([[x0 - lg, y0], [x0 - lg, y1], [x0 + lg, y1], [x0 + lg, y0]], V, blancArete, true));
     out.push(chemin([[x0 - lg * 0.45, y0 + 1.2], [x0 - lg * 0.45, y1 - 0.6]], V, A.fin));
@@ -287,7 +296,7 @@ module.exports = (h) => {
   return {
     ref: '24-15',
     titre: 'L’ongle incarné : couper droit, puis soulever le bord',
-    desc: 'Le gros orteil d’un pied droit vu de dessus, le deuxième orteil à côté. Bien coupé : ongle coupé droit, coins carrés, le coin dépasse le bout du bourrelet de peau. Mal coupé : coins en arrondi et ongle court, la chair bombe dans le coin, et le bord qui repousse (tireté, flèche vers le bout) entre dans cette chair. Coupe A en travers de l’orteil, côté intérieur à gauche : le bourrelet enflé et le bord de l’ongle (aplat noir) qui s’y enfonce ; un cercle B entoure ce bord. Puis trois fois le détail B, grossi : un tampon de coton sous le bord, qui passe au-dessus de la peau ; une bande de ruban (trame de toile) collée au ras du bord et tirée vers le bas le long du flanc, la peau écartée de l’ongle ; une gaine fendue qui coiffe le bord de l’ongle, entre l’ongle et la peau. Le ruban vu de côté : un passage du bord de l’ongle jusque sous l’orteil, flèche vers le bas, et un tour revenu par-dessus, derrière l’ongle. Une gaine de fil électrique fendue au couteau : la pointe dans le trou, tranchant en haut, la lame poussée le long du tube ; au bout, l’anneau ouvert. La gaine enfilée sur le bord de l’ongle vue de dessus, glissée depuis le coin.',
+    desc: 'Le gros orteil d’un pied droit vu de dessus, les deux orteils suivants serrés contre lui, le tout coupé par le bord de la vue. Bien coupé : ongle coupé droit, coins carrés, le coin dépasse le bout du bourrelet de peau. Mal coupé : coins en arrondi et ongle court, la chair bombe dans le coin, et le bord qui repousse (tireté, flèche vers le bout) entre dans cette chair. Coupe A en travers de l’orteil, côté intérieur à gauche : le bourrelet enflé et le bord de l’ongle (aplat noir) qui s’y enfonce ; un cercle B entoure ce bord. Puis trois fois le détail B, grossi : un tampon de coton sous le bord, qui passe au-dessus de la peau ; une bande de ruban (trame de toile) collée au ras du bord et tirée vers le bas le long du flanc, la peau écartée de l’ongle ; une gaine fendue qui coiffe le bord de l’ongle, entre l’ongle et la peau. Le ruban vu de côté : un passage du bord de l’ongle jusque sous l’orteil, flèche vers le bas, et un tour revenu par-dessus, derrière l’ongle. Une gaine de fil électrique fendue au couteau : la pointe dans le trou, tranchant en haut, la lame poussée le long du tube ; au bout, l’anneau ouvert. La gaine enfilée sur le bord de l’ongle vue de dessus, glissée depuis le coin.',
     format: 'pleine',
     disposition: [['bon', 'rate', 'rentre'], ['coton', 'ruban', 'rubanCote'], ['gaine', 'gouttiere', 'gouttiereDessus']],
     vues: {

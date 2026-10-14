@@ -53,12 +53,12 @@ module.exports = (h) => ({
       titre: '1. La lisière',
       dessin: z => vueLisiere(h, z),
       renvois: z => {
-        const R = repS(z), L = LIS;
-        const p2 = L.paires[1], p1 = L.paires[0], xm = (p1.E[0] + p2.F[0]) / 2;
+        const R = repS(z, FEN1), L = LIS;
+        const [p1, p2] = L.paires;
         return [
-          { n: 7, rond: [z.l - 13, R.T([0, 36.5])[1]], cible: R.T(p2.P), texte: 'trous en biais, par paires' },
-          { n: 8, rond: [13, R.T([0, 36.5])[1]], cible: R.T(mil(p1.Q, p1.E)), texte: 'court dans le bois, à l’abri' },
-          { n: 9, rond: [R.T([xm, 0])[0], 12], cible: R.T([xm, L.Yi - L.H]), texte: 'lisière : petites boucles' },
+          { n: 7, rond: [z.l - 13, R.T([0, -16.6])[1]], cible: R.T(p2.P), texte: 'trous en biais, par paires' },
+          { n: 8, rond: [13, R.T([0, -16.6])[1]], cible: R.T(mil(p1.Q, p1.E)), texte: 'court dans le bois, à l’abri' },
+          { n: 9, rond: [R.T([14, 0])[0], R.T([0, 12.8])[1]], cible: R.T([14, L.H + 1.1]), texte: 'lisière : petites boucles' },
         ];
       },
     },
@@ -66,10 +66,10 @@ module.exports = (h) => ({
       titre: '2. Le départ, au coin',
       dessin: z => vueDepart(h, z),
       renvois: z => {
-        const R = repS(z), D = depart();
+        const R = repS(z, FEN2), D = depart();
         return [
-          { n: 10, rond: R.T([21.8, 24.2]), cible: R.T(D.virage), texte: 'le bout passe dans la boucle' },
-          { n: 11, rond: R.T([4.6, 17.6]), cible: R.T(D.dansOeil), texte: 'le brin passe dans son œil' },
+          { n: 10, rond: R.T([3.6, 13.6]), cible: R.T(D.surBoucle), texte: 'le bout passe dans la boucle' },
+          { n: 11, rond: R.T([3.6, 21.6]), cible: R.T(D.dansOeil), texte: 'le brin passe dans son œil' },
         ];
       },
     },
@@ -77,9 +77,9 @@ module.exports = (h) => ({
       titre: '3. La boucle suivante',
       dessin: z => vueBoucle(h, z),
       renvois: z => {
-        const R = repS(z), B = boucle();
+        const R = repS(z, FEN3), B = boucle();
         return [
-          { n: 12, rond: [z.l - 13, R.T([0, B.tors2[1] + 2])[1]], cible: R.T(B.tors2), texte: 'boucle prise d’un tour tordu' },
+          { n: 12, rond: [z.l - 13, R.T([0, B.tors[1] - 1])[1]], cible: R.T([B.tors[0] + 2.2, B.tors[1]]), texte: 'boucle prise d’un tour tordu' },
         ];
       },
     },
@@ -87,7 +87,7 @@ module.exports = (h) => ({
       titre: '4. Autour d’une passe',
       dessin: z => vuePasse(h, z),
       renvois: z => {
-        const R = repS(z), P = passe();
+        const R = repS(z, FEN4), P = passe();
         return [
           { n: 13, rond: [13, R.T([0, 34])[1]], cible: R.T(P.dessous), texte: 'tordu autour de la passe' },
         ];
@@ -372,28 +372,39 @@ function vueAiguille(h, z) {
 }
 
 // ─── La pointe en gros plan (millimètres) ───────────────────────────────────────────────
-// Les quatre vues ont la même échelle, une fenêtre de LARG × HAUT mm. Repère : x vers la droite,
-// y vers le bas ; le fût court en bas de la vue, son chant intérieur en y = Yi, sa face extérieure
-// en Yi + 12 (on le voit de dessus, sur son épaisseur).
-const WF = 2.2;            // babiche fine
-const LARG = 32, HAUT = 41;
-function repS(z) {
-  const K = Math.min((z.l - 4) / LARG, (z.h - 4) / HAUT);
-  const ox = (z.l - K * LARG) / 2, oy = (z.h - K * HAUT) / 2;
+// Redessin du 14 octobre 2026 (le laçage se lisait mal : un fût réduit à deux traits, des trous
+// en « pilules », un œil fait de deux filets). Le fût se voit maintenant en biais, d'en haut et
+// du côté du laçage : son dessus en blanc, son chant intérieur en gris d'ombre, ses deux bouts
+// cassés. Le laçage s'étend vers le bas, vers l'œil. Une étape par vue, la babiche en ruban au
+// trait fort, chaque croisement dessus ou dessous, le bout distinct du brin.
+// Projection : X le long du fût, Y vers l'intérieur de la raquette (0 au chant), Z la hauteur ;
+// le plan du laçage à mi-hauteur du fût. Le fût a 27 mm de haut sur 11 mm d'épais à la pointe
+// (étape 5) : ce sont ses proportions, sans cote.
+const WF = 2.2;                                          // babiche fine
+const EPF = 11, HTF = 27, ZL = 13.5;                     // épaisseur et hauteur du fût ; plan du laçage
+const SA = Math.sin(78 * PI / 180), CA = Math.cos(78 * PI / 180);
+const pr = (X, Y, Z = ZL) => [X, Y * SA - (Z - ZL) * CA];
+const YD = pr(0, -EPF, HTF)[1], YA = pr(0, 0, HTF)[1], YB = pr(0, 0, 0)[1];   // arrière du dessus ; arête du chant ; pied du chant
+function repS(z, W) {
+  const K = Math.min((z.l - 4) / (W[1] - W[0]), (z.h - 4) / (W[3] - W[2]));
+  const ox = (z.l - K * (W[1] - W[0])) / 2 - K * W[0], oy = (z.h - K * (W[3] - W[2])) / 2 - K * W[2];
   return { K, T: ([x, y]) => [r1(ox + K * x), r1(oy + K * y)], P: p => [ox + K * p[0], oy + K * p[1], p[2]] };
 }
-// Une paire de trous percés en biais : le brin entre par le chant intérieur en F, court dans le
-// bois jusqu'au trou P sur le dessus, passe sur le dessus jusqu'au trou Q, replonge et ressort
-// par le chant en E.
-function paire(s, Yi) {
-  return { s, F: [s - 4.4, Yi], P: [s - 1.8, Yi + 7.2], Q: [s + 1.8, Yi + 3.4], E: [s + 4.4, Yi] };
-}
-// La boucle de lisière entre la sortie E d'une paire et l'entrée F de la suivante
-const arche = (E, F, H) => [E, [E[0] - 0.3, E[1] - H * 0.45], [E[0] + 0.9, E[1] - H * 0.88], mil(E, F).map((v, i) => i ? v - H : v), [F[0] - 0.9, F[1] - H * 0.88], [F[0] + 0.3, F[1] - H * 0.45], F];
-function futGros(h, R, x0, x1, Yi, bouts = false) {
-  const [a, b] = [R.T([x0, Yi]), R.T([x1, Yi + 12])];
-  const out = [h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], h.a.blanc), h.ligne(a[0], a[1], b[0], a[1], h.a.arete), h.ligne(a[0], b[1], b[0], b[1], h.a.contour)];
-  if (bouts) out.push(h.ligne(a[0], a[1], a[0], b[1], h.a.detail), h.ligne(b[0], a[1], b[0], b[1], h.a.detail));
+const FEN1 = [0, 28, -19, 15], FEN2 = [0, 32, -18, 25], FEN3 = [0, 32, -18, 25], FEN4 = [0, 32, 0, 41];
+// Le fût en biais, de x0 à x1, cassé aux deux bouts : le dessus blanc, le chant gris.
+function futObl(h, R, x0, x1) {
+  const onde = (x, y) => x + 0.7 * Math.sin(2 * PI * (y - YD) / (YB - YD));
+  const cote = (x, ya, yb) => Array.from({ length: 7 }, (_, i) => { const y = ya + (yb - ya) * i / 6; return [onde(x, y), y]; });
+  const face = (ya, yb) => [...cote(x0, yb, ya), ...cote(x1, ya, yb)].map(R.T);
+  const out = [];
+  out.push(h.chemin(face(YD, YA), h.a.blanc, true), h.chemin(face(YA, YB), h.a.ombre, true));
+  // le fil du bois, sur le dessus
+  const L = (H, a, b) => h.path('M' + Array.from({ length: 9 }, (_, i) => { const x = a + (b - a) * i / 8; return R.T([x, YD + (YA - YD) * H + 0.25 * Math.sin(x * 0.5)]).join(' '); }).join(' L'), h.a.fin);
+  out.push(L(0.34, x0 + 2.5, x1 - 7), L(0.67, x0 + 7, x1 - 2.5));
+  out.push(h.chemin([R.T([onde(x0, YD), YD]), R.T([onde(x1, YD), YD])], h.a.arete));
+  out.push(h.chemin([R.T([onde(x0, YA), YA]), R.T([onde(x1, YA), YA])], h.a.detail));
+  out.push(h.chemin([R.T([onde(x0, YB), YB]), R.T([onde(x1, YB), YB])], h.a.arete));
+  out.push(h.chemin(cote(x0, YD, YB).map(R.T), h.a.detail), h.chemin(cote(x1, YD, YB).map(R.T), h.a.detail));
   return out.join('\n');
 }
 // Ce qui passe dans le bois : les deux bords du ruban en tireté
@@ -401,93 +412,112 @@ function cache(h, R, a, b, w) {
   const u = unit([b[0] - a[0], b[1] - a[1]]), n = [-u[1] * w / 2, u[0] * w / 2];
   return [h.chemin([R.T(plus(a, n)), R.T(plus(b, n))], h.a.cache), h.chemin([R.T(plus(a, n, -1)), R.T(plus(b, n, -1))], h.a.cache)].join('\n');
 }
-// Le dessus du fût d'une paire : les deux trous, le brin entre les deux, le tireté dans le bois
-function dessusPaire(h, R, pr) {
-  const F = h.formes, out = [], rt = 1.45 * R.K;
-  out.push(cache(h, R, pr.F, pr.P, WF), cache(h, R, pr.Q, pr.E, WF));
-  out.push(h.cercle(...R.T(pr.P), rt, h.a.plein), h.cercle(...R.T(pr.Q), rt, h.a.plein));
-  out.push(F.corde([R.P(pr.P), R.P(pr.Q)], { ep: WF * R.K, debut: 'ouvert', fin: 'ouvert' }));
+// Un trou : sur le chant (vu presque de chant, écrasé) ou sur le dessus (presque rond)
+const trou = (h, R, p, chant) => h.ellipse(...R.T(p), (chant ? 1.5 : 1.35) * R.K, (chant ? 0.62 : 1.3) * R.K, h.a.plein);
+// Une paire de trous percés en biais : le brin entre par le chant en F, court dans le bois jusqu'au
+// trou P du dessus, passe sur le dessus jusqu'au trou Q, replonge et ressort par le chant en E.
+function paire(s) {
+  return { s, F: pr(s - 3.5, 0), P: pr(s - 1.8, -7.2, HTF), Q: pr(s + 1.8, -3.4, HTF), E: pr(s + 3.5, 0) };
+}
+// La boucle de lisière entre la sortie E d'une paire et l'entrée F de la suivante, couchée dans le
+// plan du laçage (H : sa profondeur, déjà projetée)
+const arche = (E, F, H) => [E, [E[0] - 0.3, H * 0.45], [E[0] + 0.9, H * 0.88], [(E[0] + F[0]) / 2, H], [F[0] - 0.9, H * 0.88], [F[0] + 0.3, H * 0.45], F];
+const ruban = (R, pts, o = {}) => ({ pts: pts.map(p => R.P([p[0], p[1], p[2] == null ? 0 : p[2]])), ep: WF * R.K, debut: 'ouvert', fin: 'ouvert', ...o });
+// Le dessus d'une paire : le tireté dans le bois, le pont sur le dessus, les deux trous
+function dessusPaire(h, R, pr_) {
+  const out = [cache(h, R, pr_.F, pr_.P, WF), cache(h, R, pr_.Q, pr_.E, WF)];
+  out.push(h.formes.corde([R.P(pr_.P), R.P(pr_.Q)], { ep: WF * R.K, debut: 'ouvert', fin: 'ouvert', trait: 'contour' }));
+  out.push(trou(h, R, pr_.P), trou(h, R, pr_.Q));
   return out.join('\n');
 }
-const ruban = (R, pts, o = {}) => ({ pts: pts.map(R.P), ep: WF * R.K, debut: 'ouvert', fin: 'ouvert', ...o });
 
 // 1. La lisière
-const LIS = (() => {
-  const Yi = 19, H = 8;
-  return { Yi, H, paires: [paire(7, Yi), paire(24.6, Yi)] };
-})();
+const LIS = { H: 7.6, paires: [paire(7), paire(21)] };
 function vueLisiere(h, z) {
-  const R = repS(z), F = h.formes, L = LIS, out = [];
+  const R = repS(z, FEN1), F = h.formes, L = LIS, out = [];
   const [p1, p2] = L.paires;
+  out.push(futObl(h, R, 0.4, 27.6));
+  for (const pq of L.paires) out.push(dessusPaire(h, R, pq));
   out.push(F.cordes([
     ruban(R, arche(p1.E, p2.F, L.H)),
-    ruban(R, [[0.3, L.Yi - L.H + 0.3], [p1.F[0] - 1.6, L.Yi - L.H * 0.95], [p1.F[0] - 0.4, L.Yi - L.H * 0.6], p1.F]),
-    ruban(R, [p2.E, [p2.E[0] + 0.4, L.Yi - L.H * 0.6], [p2.E[0] + 1.6, L.Yi - L.H * 0.95], [LARG - 0.3, L.Yi - L.H + 0.3]]),
-  ]));
-  out.push(futGros(h, R, 0, LARG, L.Yi));
-  for (const pr of L.paires) out.push(dessusPaire(h, R, pr));
+    ruban(R, [[0.9, L.H - 0.2], [p1.F[0] - 1.8, L.H * 0.95], [p1.F[0] - 0.4, L.H * 0.5], p1.F], { debut: 'fixe' }),
+    ruban(R, [p2.E, [p2.E[0] + 0.4, L.H * 0.5], [p2.E[0] + 1.8, L.H * 0.95], [27.1, L.H - 0.2]], { fin: 'fixe' }),
+  ], { trait: 'contour' }));
+  for (const pq of L.paires) out.push(trou(h, R, pq.F, true), trou(h, R, pq.E, true));
   return out.join('\n');
 }
 
-// 2. Le départ, au coin : la traverse à droite, le fût en bas.
-// Repère local du nœud : v vers le coin, u en travers ; on tire le dormant vers -v, vers la pointe.
-// L'œil est une fente au bout du brin : ouverte, ses deux bords s'écartent en anneau. Le bout du
-// brin fait le tour de la boucle du coin, puis le dormant passe par-dessus le premier bord de
-// l'œil et ressort sous le second : on tire, l'œil coulisse et serre la boucle.
+// 2. Le départ, au coin : la traverse à droite, entrée dans le chant du fût.
+// La boucle du coin va du dernier trou du fût au flanc de la traverse. Le bout du brin est fendu
+// en œil. Le bout fait le tour de la boucle (dessus, puis dessous), et le brin revient passer
+// dans son œil : par-dessus la lèvre du haut, par la fente, sous la lèvre du bas. On tire le brin
+// vers la pointe : l'œil coulisse et serre la boucle.
 let DEP = null;
 function depart() {
   if (DEP) return DEP;
-  const Yi = 28.5, XT = 25.5;                          // chant du fût ; face de la traverse
-  const pr = paire(10.2, Yi);                           // dernière paire du fût avant le coin
-  const Ecoin = pr.E, Tcoin = [XT, 6.5];                // la boucle du coin : du fût à la traverse
-  const B0 = [12.6, 14.2];                              // le fond de la boucle, tiré vers la pointe
-  const C = [2 * B0[0] - (Ecoin[0] + Tcoin[0]) / 2, 2 * B0[1] - (Ecoin[1] + Tcoin[1]) / 2];
-  const coin = quad(Ecoin, C, Tcoin, 14);
-  const v = unit([0.6, 0.8]), u = [v[1], -v[0]];
-  const L = (a, b, zz) => [B0[0] + a * u[0] + b * v[0], B0[1] + a * u[1] + b * v[1], zz];
-  // l'œil, en repère local : centre Ce sur le dormant, grand axe e en travers du dormant, bords à ±Wy
-  const uD = -3, Ce = [uD, -8], e = [-1, 0], n = [0, -1];
-  const Le = 4.4, Wy = 1.75, wr = 1.0;                 // longueur de l'œil ; demi-ouverture ; largeur d'un bord
-  const col = [Ce[0] - e[0] * Le / 2, Ce[1] - e[1] * Le / 2], pointe = [Ce[0] + e[0] * Le / 2, Ce[1] + e[1] * Le / 2];
-  const bord = sg => {
-    const q = [];
-    for (let i = 0; i <= 10; i++) {
-      const t = i / 10, b = sg * (0.45 + (Wy - 0.45) * Math.sin(PI * t) ** 0.7);
-      q.push(L(col[0] + (pointe[0] - col[0]) * t + n[0] * b, col[1] + (pointe[1] - col[1]) * t + n[1] * b, 0));
-    }
-    return q;
-  };
-  // le brin : du dormant, loin vers la pointe, par-dessus le premier bord de l'œil, sous le second,
-  // par-dessus la boucle du coin, le tour, dessous, et jusqu'au col de l'œil
-  const dormant = [L(uD, -16, 0), L(uD, -12, 0.3), L(uD, -9.75, 1), L(uD, -8, 0), L(uD, -6.25, -1), L(uD, -4.2, 0), L(uD, -2, 0.8), L(uD, 0.6, 1),
-    L(-2.8, 3.2, 0.3), L(-0.55, 5.6, 0), L(1.7, 3.2, -0.3), L(1.9, 0.4, -1), L(1.9, -2.5, 0), L(1.9, -5.3, 0), L(1.54, -6.65, 0), L(0.55, -7.64, 0), L(col[0], col[1], 0), L(col[0] - 0.7, col[1], 0)];
-  const bout = [L(pointe[0] + 0.4, pointe[1], 0), L(pointe[0] - 0.4, pointe[1], 0), L(pointe[0] - 2.4, pointe[1], 0)];
-  DEP = { Yi, XT, pr, coin, Tcoin, B0, u, v, L, uD, dormant, bout, bords: [bord(1), bord(-1)], wr,
-    virage: L(-0.55, 5.6 + WF / 2), dansOeil: L(uD, Ce[1]) };
+  const XT = 20.5, ZT = 21;                                // flanc de la traverse ; son dessus
+  const pq = paire(8);
+  const Tf = pr(XT, 6.2);                                  // entrée de la boucle dans le flanc de la traverse
+  const coin = [pq.E, [pq.E[0] - 0.5, 4.6], [pq.E[0] + 0.6, 9.4], [14.6, 11.1], [17.6, 10.2], [19.4, 8.2], Tf];
+  const B = [13.7, 10.5];                                  // où le brin prend la boucle
+  const v = unit([-0.42, 0.91]), u = [v[1], -v[0]];       // v : on tire, vers le bas à gauche ; u : en travers, vers la traverse
+  const L = (a, b, zz = 0) => [B[0] + a * u[0] + b * v[0], B[1] + a * u[1] + b * v[1], zz];
+  const aS = 1.9, aB = -1.9, bE = 6.6;                     // le brin ; le bout ; l'axe de l'œil
+  const brin = [L(-1.2, -3.0, 0), L(0.4, -3.4, 0), L(aS, -2.5, -0.4), L(aS, -0.2, -1), L(aS, 2.2, 0), L(aS, bE - 2.6, 0),
+    L(aS, bE, 0), L(aS, bE + 3.2, 0), L(aS + 0.3, 13, 0), L(aS + 1.2, 17, 0)];
+  const bout = [L(-1.2, -3.0, 0), L(-2.6, -2.4, 0.4), L(aB, -0.2, 1), L(aB, 2.0, 0.5), L(aB, 3.6, 0), L(aB + 0.25, 5.3, 0), L(-1.05, bE - 0.15, 0), L(-0.4, bE, 0)];
+  // un seul ruban, du col de l'œil au loin : le bout, le tour de la boucle, le brin
+  const babiche = [...bout.slice().reverse(), ...brin.slice(1)];
+  DEP = { XT, ZT, pq, Tf, coin, B, u, v, L, aS, aB, bE, babiche, gauche: [[0.9, 7.4, 0], [pq.F[0] - 1.8, 7.2, 0], [pq.F[0] - 0.4, 3.8, 0], [...pq.F, 0]],
+    surBoucle: L(aB, -0.2), dansOeil: L(aS, bE) };
   return DEP;
 }
+// L'œil : le bout de la babiche fendu, ouvert en lentille, la fente au milieu. Il continue le bout
+// (qui finit en N, son col) le long de u. Rend le blanc de l'œil (avec la fente en trou) et son trait.
+function oeil(h, R, D) {
+  const { L, bE } = D, a0 = -0.4, a1 = 4.6, wM = 2.15;
+  const larg = a => { const t = (a - a0) / (a1 - a0); return WF / 2 + (wM - WF / 2) * Math.sin(Math.min(1, t * 1.25) * PI / 2); };
+  const haut = [], bas = [];
+  for (let i = 0; i <= 14; i++) { const a = a0 + (a1 - 1.2 - a0) * i / 14; haut.push(L(a, bE - larg(a))); bas.push(L(a, bE + larg(a))); }
+  const bec = [];
+  for (let i = 1; i < 12; i++) { const th = -PI / 2 + PI * i / 12; bec.push(L(a1 - 1.2 + 1.2 * Math.cos(th) * 1.05, bE + wM * Math.sin(th))); }
+  const tour = [...haut, ...bec, ...bas.slice().reverse()].map(R.T);
+  const fente = [];
+  for (let i = 0; i <= 20; i++) { const th = 2 * PI * i / 20; fente.push(R.T(L(D.aS + 1.55 * Math.cos(th), bE + 0.78 * Math.sin(th)))); }
+  const ser = q => q.map((p, i) => `${i ? 'L' : 'M'}${p[0]} ${p[1]}`).join(' ');
+  return {
+    blanc: h.path(`${ser(tour)} Z ${ser(fente)} Z`, h.a.blanc + ' fill-rule="evenodd"'),
+    trait: h.path(ser(tour), h.a.contour),
+    fente: h.path(`${ser(fente)} Z`, h.a.arete),
+    basFente: h.path(ser(fente.slice(0, 11)), h.a.arete),
+  };
+}
 function vueDepart(h, z) {
-  const R = repS(z), F = h.formes, D = depart(), out = [];
-  const Yi = D.Yi, XT = D.XT;
+  const R = repS(z, FEN2), F = h.formes, D = depart(), out = [];
+  // le fût, puis la traverse devant son chant : son dessus seul se voit, cassé en bas
+  out.push(futObl(h, R, 0.4, 31.6));
+  const yT0 = pr(0, 0, D.ZT)[1], yT1 = 23.2;
+  const trav = [[D.XT, yT0], [31.6, yT0], [31.6, yT1], ...Array.from({ length: 9 }, (_, i) => { const x = 31.6 - (31.6 - D.XT) * i / 8; return [x, yT1 + 0.6 * Math.sin(2 * PI * i / 8)]; })];
+  out.push(h.chemin(trav.map(R.T), h.a.blanc, true));
+  out.push(h.chemin([[D.XT, yT1], [D.XT, yT0], [31.6, yT0]].map(R.T), h.a.arete));
+  out.push(h.chemin(trav.slice(3).map(R.T), h.a.detail));
+  for (const x of [23.5, 28]) out.push(h.path('M' + Array.from({ length: 7 }, (_, i) => { const y = yT0 + 3 + (yT1 - yT0 - 7) * i / 6; return R.T([x + 0.25 * Math.sin(y * 0.6), y]).join(' '); }).join(' L'), h.a.fin));
+  out.push(dessusPaire(h, R, D.pq));
+  // la boucle du coin entre dans le flanc de la traverse et remonte dans le bois jusqu'au dessus
+  const Ht = pr(D.XT + 3.2, 3.2, D.ZT);
+  out.push(cache(h, R, D.Tf, Ht, WF), trou(h, R, Ht));
+  // la boucle, le bout qui en fait le tour, le brin
   out.push(F.cordes([
-    ruban(R, D.coin.filter((p, i) => i % 2 === 0 || i === D.coin.length - 1)),
-    ruban(R, [[0.3, Yi - 6.8], [D.pr.F[0] - 1.6, Yi - 7.6], [D.pr.F[0] - 0.4, Yi - 4.8], D.pr.F]),
-    ruban(R, D.bords[0], { ep: D.wr * R.K }),
-    ruban(R, D.bords[1], { ep: D.wr * R.K }),
-    ruban(R, D.dormant, { debut: 'fixe' }),
-    ruban(R, D.bout, { fin: 'coupe' }),
-  ]));
-  // le fût et la traverse, par-dessus les bouts de lisière qui y entrent
-  out.push(futGros(h, R, 0, LARG, Yi));
-  const [a, b] = [R.T([XT, 0]), R.T([LARG, Yi])];
-  out.push(h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1] + 0.5, h.a.blanc));
-  out.push(h.ligne(a[0], a[1], a[0], b[1], h.a.arete));
-  out.push(dessusPaire(h, R, D.pr));
-  // la lisière entre dans la traverse et monte dans le bois jusqu'au trou du dessus
-  out.push(cache(h, R, D.Tcoin, [XT + 3.2, 3.4], WF));
-  out.push(h.cercle(...R.T([XT + 3.5, 2.9]), 1.45 * R.K, h.a.plein));
-  // on tire sur le dormant, vers la pointe
-  out.push(h.fleche(`M${R.T(D.L(D.uD + 2.9, -11.8)).join(' ')} L${R.T(D.L(D.uD + 2.9, -16)).join(' ')}`));
+    ruban(R, D.coin),
+    ruban(R, D.gauche, { debut: 'fixe' }),
+    ruban(R, D.babiche, { fin: 'fixe', fleche: { de: 0.84, a: 0.98, cote: 'droite' } }),
+  ], { trait: 'contour' }));
+  out.push(trou(h, R, D.pq.F, true), trou(h, R, D.pq.E, true));
+  // l'œil, par-dessus le brin ; puis le brin qui passe sur la lèvre du haut et plonge dans la fente
+  const O = oeil(h, R, D);
+  out.push(O.blanc, O.trait, O.fente);
+  out.push(F.corde([R.P(D.L(D.aS, D.bE - 3.4)), R.P(D.L(D.aS, D.bE - 1.2)), R.P(D.L(D.aS, D.bE))], { ep: WF * R.K, debut: 'ouvert', fin: 'ouvert', trait: 'contour' }));
+  out.push(O.basFente);
   return out.join('\n');
 }
 
@@ -496,13 +526,12 @@ function vueDepart(h, z) {
 let BCL = null;
 function boucle() {
   if (BCL) return BCL;
-  const Yi = 28.5;
-  const paires = [paire(5.6, Yi), paire(26.4, Yi)];
+  const paires = [paire(4.6), paire(27.4)];
   const E = paires[0].E, Fn = paires[1].F, xm = (E[0] + Fn[0]) / 2;
-  const B = [xm, Yi - 9];                               // la boucle, tirée en pointe par le brin
-  const lis = [E, [E[0] + 0.3, Yi - 2.5], [xm - 2.6, Yi - 7.4], B, [xm + 2.6, Yi - 7.4], [Fn[0] - 0.3, Yi - 2.5], Fn];
-  const a = 1.75, y1 = B[1] - 2.9, y2 = y1 - 6.4;      // la torsade, de y1 à y2
-  const jambe = sg => {                                 // sg = +1 : jambe qui descend à gauche
+  const B = [xm, 8.6];                                  // la boucle, tirée en pointe par le brin
+  const lis = [E, [E[0] + 0.3, 2.6], [xm - 2.8, 7.2], B, [xm + 2.8, 7.2], [Fn[0] - 0.3, 2.6], Fn];
+  const a = 1.85, y1 = B[1] + 3.0, y2 = y1 + 6.6;      // la torsade, de y1 (près) à y2 (loin)
+  const jambe = sg => {                                 // sg = +1 : la jambe de gauche
     const q = [];
     for (let i = 0; i <= 8; i++) {
       const y = y2 + (y1 - y2) * i / 8, ph = 2 * PI * (y - y2) / (y1 - y2);
@@ -510,22 +539,23 @@ function boucle() {
     }
     return q;
   };
-  // descente, à gauche : de la pointe (en haut à gauche) à la boucle, par-dessus
-  const descente = [[0.4, 0.6, 0], [5, 3.8, 0], [xm - a - 0.5, y2 - 2.6, 0], ...jambe(1), [xm - a, B[1] - 1.3, 0.6], [xm - a - 0.25, B[1] + 0.6, 1], [xm - a, B[1] + 2.7, 0.3], [xm - 0.8, B[1] + 3.9, 0], [xm, B[1] + 3.9, 0]];
-  // remontée, à droite : sous la boucle, puis la torsade, puis vers le haut à droite
-  const remontee = [[xm, B[1] + 3.9, 0], [xm + 0.8, B[1] + 3.9, 0], [xm + a, B[1] + 2.7, -0.3], [xm + a + 0.25, B[1] + 0.6, -1], [xm + a, B[1] - 1.3, -0.6], ...jambe(-1).reverse(), [xm + a + 0.5, y2 - 2.6, 0], [27, 3.8, 0], [31.6, 0.6, 0]];
-  BCL = { Yi, paires, lis, descente, remontee, B, tors: [xm, y2 + (y1 - y2) * 0.25], tors2: [xm, y2 + (y1 - y2) * 0.75] };
+  // l'arrivée, à gauche : du bas à gauche à la boucle, par la torsade, par-dessus la boucle
+  const arrivee = [[0.6, 24.4, 0], [5.2, 21.6, 0], [xm - a - 0.5, y2 + 2.4, 0], ...jambe(1), [xm - a, B[1] + 1.3, 0.6], [xm - a - 0.2, B[1] - 0.6, 1], [xm - a, B[1] - 2.6, 0.3], [xm - 0.8, B[1] - 3.8, 0], [xm, B[1] - 3.8, 0]];
+  // le départ, à droite : sous la boucle, la torsade, puis vers le bas à droite
+  const depart_ = [[xm, B[1] - 3.8, 0], [xm + 0.8, B[1] - 3.8, 0], [xm + a, B[1] - 2.6, -0.3], [xm + a + 0.2, B[1] - 0.6, -1], [xm + a, B[1] + 1.3, -0.6], ...jambe(-1).reverse(), [xm + a + 0.5, y2 + 2.4, 0], [26.8, 21.6, 0], [31.4, 24.4, 0]];
+  BCL = { paires, lis, arrivee, depart: depart_, B, tors: [xm, (y1 + y2) / 2] };
   return BCL;
 }
 function vueBoucle(h, z) {
-  const R = repS(z), F = h.formes, B = boucle(), out = [];
+  const R = repS(z, FEN3), F = h.formes, B = boucle(), out = [];
+  out.push(futObl(h, R, 0.4, 31.6));
+  for (const pq of B.paires) out.push(dessusPaire(h, R, pq));
   out.push(F.cordes([
     ruban(R, B.lis),
-    ruban(R, B.descente, { debut: 'fixe' }),
-    ruban(R, B.remontee, { fin: 'fixe', fleche: { de: 0.9, a: 0.99, cote: 'droite' } }),
-  ]));
-  out.push(futGros(h, R, 0, LARG, B.Yi));
-  for (const pr of B.paires) out.push(dessusPaire(h, R, pr));
+    ruban(R, B.arrivee, { debut: 'fixe' }),
+    ruban(R, B.depart, { fin: 'fixe', fleche: { de: 0.88, a: 0.99, cote: 'droite' } }),
+  ], { trait: 'contour' }));
+  for (const pq of B.paires) out.push(trou(h, R, pq.E, true), trou(h, R, pq.F, true));
   return out.join('\n');
 }
 
@@ -546,8 +576,8 @@ let PAS = null;
 function passe() {
   if (PAS) return PAS;
   const X = [16, 21.5];
-  const ang = -26 * PI / 180, u = [Math.cos(ang), Math.sin(ang)], v = [u[1], -u[0]];   // u : la passe ; v : vers le haut à gauche
-  const Rr = 3.8, p = 14;                               // rayon apparent du tour ; pas du tour
+  const ang = -22 * PI / 180, u = [Math.cos(ang), Math.sin(ang)], v = [u[1], -u[0]];   // u : la passe ; v : vers le haut à gauche
+  const Rr = 4.2, p = 15;                               // rayon apparent du tour ; pas du tour
   const G = (s, t, zz) => [X[0] + s * u[0] + t * v[0], X[1] + s * u[1] + t * v[1], zz];
   const h0 = helice(p, Rr), s0 = h0[0], s1 = h0[h0.length - 1];
   const tour = [G(s0[0] - 1.2, -24, 0), G(s0[0] - 2.2, -Rr - 5.5, 0), ...h0.map(q => G(...q)), G(s1[0] + 2.2, Rr + 5.5, 0), G(s1[0] + 1.2, 24, 0)];
@@ -555,13 +585,13 @@ function passe() {
   return PAS;
 }
 function vuePasse(h, z) {
-  const R = repS(z), F = h.formes, P = passe(), out = [];
-  const dans = pts => pts.map(p => [Math.max(0.3, Math.min(LARG - 0.3, p[0])), Math.max(0.3, Math.min(HAUT - 0.3, p[1])), p[2]]);
-  const vieille = [sortie(P.X, [-P.u[0], -P.u[1]], 0.3, LARG - 0.3, 0.3, HAUT - 0.3), sortie(P.X, P.u, 0.3, LARG - 0.3, 0.3, HAUT - 0.3)];
+  const R = repS(z, FEN4), F = h.formes, P = passe(), out = [];
+  const dans = pts => pts.map(p => [Math.max(0.3, Math.min(31.7, p[0])), Math.max(0.3, Math.min(40.7, p[1])), p[2]]);
+  const vieille = [sortie(P.X, [-P.u[0], -P.u[1]], 0.3, 31.7, 0.3, 40.7), sortie(P.X, P.u, 0.3, 31.7, 0.3, 40.7)];
   out.push(F.cordes([
     ruban(R, vieille.map(p => [...p, 0]), { debut: 'fixe', fin: 'fixe' }),
     ruban(R, dans(P.tour), { debut: 'fixe', fin: 'fixe', fleche: { de: 0.87, a: 0.98, cote: 'gauche' } }),
-  ]));
+  ], { trait: 'contour' }));
   return out.join('\n');
 }
 

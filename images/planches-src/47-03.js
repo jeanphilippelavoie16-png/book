@@ -11,6 +11,8 @@
 // Unités : le canard fait environ 1,45 du bout du bec au bout de la queue ; la ligne d'eau est à
 // y = 0, y vers le bas. La loupe redessine la même scène, grossie autour du menton.
 
+const A_ = require('./_animaux');
+
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = a => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -71,63 +73,22 @@ module.exports = (h) => {
     return h.path(lisse(q, true), h.a.detail);
   };
 
-  // ── Le canard de profil, tourné vers la gauche ─────────────────────────────────────────
-  const CANARD = [
-    ['M', -0.54, 0],
-    ['C', -0.585, -0.08, -0.585, -0.22, -0.53, -0.30],      // poitrail
-    ['C', -0.55, -0.36, -0.58, -0.42, -0.61, -0.47],        // devant du cou
-    ['C', -0.625, -0.495, -0.645, -0.512, -0.675, -0.516],  // gorge, menton
-    ['L', -0.79, -0.507],                                    // dessous du bec
-    ['C', -0.82, -0.506, -0.83, -0.522, -0.815, -0.533],     // bout du bec
-    ['C', -0.77, -0.545, -0.72, -0.555, -0.69, -0.575],      // dessus du bec
-    ['C', -0.67, -0.62, -0.63, -0.66, -0.585, -0.66],        // front, calotte
-    ['C', -0.54, -0.66, -0.508, -0.625, -0.512, -0.565],     // arrière de la tête
-    ['C', -0.515, -0.50, -0.47, -0.40, -0.39, -0.33],        // nuque
-    ['C', -0.31, -0.265, -0.15, -0.27, 0.05, -0.27],         // dos
-    ['C', 0.25, -0.27, 0.40, -0.22, 0.48, -0.17],            // croupion
-    ['L', 0.62, -0.152],                                     // queue, dessus
-    ['L', 0.50, -0.092],                                     // queue, dessous
-    ['C', 0.49, -0.06, 0.48, -0.03, 0.46, 0],                // sous la queue
-    ['C', 0.40, 0.10, 0.15, 0.15, -0.05, 0.15],              // la coque, sous l'eau
-    ['C', -0.30, 0.15, -0.48, 0.10, -0.54, 0],
-    ['Z'],
-  ];
-  const AILE = [['M', -0.37, -0.25], ['C', -0.27, -0.11, 0.02, -0.075, 0.28, -0.095], ['L', 0.53, -0.148]];
-  const PLUMES = [
-    [['M', 0.10, -0.10], ['C', 0.25, -0.13, 0.38, -0.155, 0.50, -0.17]],
-    [['M', 0.20, -0.095], ['C', 0.30, -0.115, 0.42, -0.14, 0.52, -0.158]],
-  ];
-  const FOURCHE = [-0.628, -0.425];                 // l'enfourchure, sous la gorge
-  const VASE = 0.22, BAS = 0.42;                   // le fond sous l'eau ; le bas de la coupe
+  // ── De côté : le canard calqué (_animaux.js, canard), tourné vers la gauche ──────────────
+  // Repère en mm, celui du canard : x vers l'avant de la bête (le bec), y vers le haut, l'origine
+  // sur la ligne d'eau sous le menton. Sur la vue, l'avant est à gauche.
+  const VASE = -110, BAS = -190, FK = [5, 230];   // le fond ; le bas de la coupe ; l'enfourchure
   const geoCote = z => {
-    const s = Math.min((z.l - 16) / 1.52, (z.h - 6) / (BAS + 0.69));
-    const hDes = (BAS + 0.69) * s;
-    return { s, P: tf(s, z.l / 2 + 0.10 * s, (z.h - hDes) / 2 + 0.69 * s) };
+    const s = Math.min((z.l - 16) / 690, (z.h - 6) / 560);
+    const ox = z.l / 2 - 160 * s, oy = z.h / 2 + 86 * s;
+    return { s, ox, oy, P: (x, y) => [ox - s * x, oy - s * y] };
   };
+  // le bâton : la pointe dans la vase, devant le poitrail, penché vers l'oiseau ; la fourche
+  // prend le haut du cou sous la tête, une branche de chaque côté
+  const AXE = [[118, -158], [112, -115], [88, -30], [60, 60], [32, 150], FK, [-25, 250], [-48, 263]];
+  const LOIN = [FK, [-20, 255], [-42, 269]];
 
-  // Le canard et son bâton, dans un repère P d'échelle s (réutilisé grossi dans la loupe).
-  const scene = (P, s, garde = () => true) => {
-    const out = [], r = 0.02 * s, Fk = P(...FOURCHE);
-    // La branche de derrière : elle monte devant la gorge, jusque sous le menton.
-    const loin = [Fk, P(-0.648, -0.468), P(-0.668, -0.512)];
-    out.push(h.path(versD(CANARD, P), blanc(h.a.contour)));
-    out.push(h.chemin(branche(loin, [r * 0.8, r * 0.7, r * 0.6]), h.a.cache, true));
-    out.push(h.path(versD(AILE, P), h.a.arete));
-    PLUMES.forEach(q => out.push(h.path(versD(q, P), h.a.detail)));
-    out.push(h.path(versD([['M', -0.69, -0.575], ['C', -0.695, -0.55, -0.69, -0.53, -0.675, -0.516]], P), h.a.detail));
-    out.push(h.path(versD([['M', -0.69, -0.536], ['C', -0.73, -0.528, -0.78, -0.522, -0.815, -0.522]], P), h.a.detail));
-    if (garde(P(-0.738, -0.552))) out.push(h.ellipse(...P(-0.738, -0.552), 0.009 * s, 0.0035 * s, h.a.plein));
-    if (garde(P(-0.607, -0.605))) out.push(h.cercle(...P(-0.607, -0.605), 0.011 * s, h.a.plein));
-    // Le bâton et la branche de devant, par-dessus le cou ; le bout taillé dans la vase.
-    const axe = [P(-0.695, 0.31), P(-0.68, 0.12), P(-0.653, -0.15), Fk, P(-0.605, -0.462), P(-0.588, -0.503)];
-    out.push(h.chemin(branche(axe, [r, r, r, r * 0.95, r * 0.72, r * 0.6], true), blanc(h.a.arete), true));
-    out.push(coupe(axe[4], axe[5], r * 0.6));
-    return out;
-  };
-  // La loupe : centre dans la vue, point grossi, rayon (en unités de la vue), grossissement.
-  
   const dessinCote = z => {
-    const { s, P } = geoCote(z);
+    const { s, ox, oy, P } = geoCote(z);
     const ySurf = P(0, 0)[1], yVase = P(0, VASE)[1], yBas = P(0, BAS)[1];
     const vase = [];
     for (let i = 0; i <= 40; i++) { const x = z.l * i / 40; vase.push([x, yVase + 2.2 * Math.sin(x / 23) + 1.4 * Math.sin(x / 9 + 1)]); }
@@ -136,41 +97,48 @@ module.exports = (h) => {
     out.push(h.path(`${lisse(vase)} L ${f(z.l)} ${f(yBas)} L 0 ${f(yBas)} Z`, sansBord(h.a.hachure('terre'))));
     out.push(h.path(lisse(vase), h.a.arete));
     out.push(h.ligne(0, ySurf, z.l, ySurf, h.a.arete));
-    out.push(...scene(P, s));
-
+    // le canard, puis la branche de derrière en caché, puis le bâton et la branche de devant
+    out.push(A_.canard(h, { x: ox, y: oy, echelle: s, cote: 'gauche' }).svg);
+    const r = 8 * s;
+    out.push(h.chemin(branche(LOIN.map(q => P(...q)), [r * 0.9, r * 0.75, r * 0.6]), h.a.cache, true));
+    const axe = AXE.map(q => P(...q));
+    out.push(h.chemin(branche(axe, [r, r, r, r, r, r * 0.95, r * 0.75, r * 0.6], true), blanc(h.a.arete), true));
+    out.push(coupe(axe[6], axe[7], r * 0.6));
     return out.join('\n');
   };
 
-
-  // ── De face : la tête posée dans la fourche ────────────────────────────────────────────
+  // ── De face : la tête posée dans la fourche, de près ─────────────────────────────────────
+  // Même repère en mm, x en travers. La tête de face : un oignon, la calotte étroite, les joues
+  // larges, qui se resserre dans le cou ; les yeux sont sur les côtés et ne se voient pas ; le bec
+  // pointe vers nous en descendant : on voit sa face du dessus, une spatule qui part du front et
+  // s'élargit jusqu'à l'onglet, devant la gorge. Le cou est plus étroit que les joues : les deux
+  // branches le serrent, la tête repose dessus par les joues.
+  const geoFace = z => {
+    const s = Math.min((z.l - 40) / 74, (z.h - 20) / 250);
+    return { s, P: (x, y) => [z.l / 2 + s * x, 16 + s * (368 - y)] };
+  };
   const dessinFace = z => {
-    const cx = z.l / 2, s = Math.min((z.l - 24) / 0.82, z.h / 1.1), out = [];
-    const ySurf = z.h * 0.70, yVase = z.h * 0.86;
-    out.push(h.rect(0, ySurf, z.l, yVase - ySurf, sansBord(h.a.hachure('eau', 'fin'))));
-    out.push(h.rect(0, yVase, z.l, z.h - yVase, sansBord(h.a.hachure('terre'))));
-    out.push(h.ligne(0, yVase, z.l, yVase, h.a.arete));
-    out.push(h.ligne(0, ySurf, z.l, ySurf, h.a.arete));
-    const yF = z.h * 0.42, yT = z.h * 0.30, rb = 0.016 * s, cou = 0.045 * s;
-    // le corps, de face, derrière : le poitrail qui sort de l'eau, la coque dessous ; il recule
-    // en gris pour que la tête et la fourche se lisent devant
-    out.push(decoupe(0, 0, z.l, ySurf, [h.ellipse(cx, ySurf, 0.40 * s, 0.17 * s, h.a.loin), h.ellipse(cx, ySurf, 0.40 * s, 0.17 * s, h.a.arete)]));
-    out.push(decoupe(0, ySurf, z.l, z.h, [h.ellipse(cx, ySurf, 0.40 * s, 0.17 * s, h.a.cache)]));
-    // le cou, vertical, entre les branches, qui rentre dans le poitrail
-    const yC = ySurf - 0.155 * s;
-    out.push(h.path(`M ${f(cx - cou)} ${f(yC + 4)} L ${f(cx - cou)} ${f(yT)} L ${f(cx + cou)} ${f(yT)} L ${f(cx + cou)} ${f(yC + 4)}`, blanc(h.a.contour)));
-    // le bâton et ses deux branches, une de chaque côté du cou
-    out.push(h.chemin(branche([[cx, z.h - 4], [cx, yVase], [cx, yF + 0.15 * s]], [rb * 1.2, rb * 1.2, rb * 1.2], true), blanc(h.a.arete), true));
-    [-1, 1].forEach(c => {
-      const ax = [[cx, yF + 0.16 * s], [cx + c * (cou + rb), yF], [cx + c * (cou + rb), yT + 0.012 * s]];
-      out.push(h.chemin(branche(ax, [rb, rb * 0.9, rb * 0.75]), blanc(h.a.arete), true));
-      out.push(coupe(ax[1], ax[2], rb * 0.75));
-    });
-    // la tête, plus large que l'écart des branches, posée dessus ; le bec vers nous
-    out.push(h.ellipse(cx, yT - 0.075 * s, 0.15 * s, 0.10 * s, blanc(h.a.contour)));
-    out.push(h.ellipse(cx, yT - 0.03 * s, 0.06 * s, 0.028 * s, blanc(h.a.arete)));
-    out.push(h.cercle(cx - 0.10 * s, yT - 0.10 * s, 0.012 * s, h.a.plein));
-    out.push(h.cercle(cx + 0.10 * s, yT - 0.10 * s, 0.012 * s, h.a.plein));
-    return out.join('\n');
+    const { s, P } = geoFace(z), out = [];
+    const sym = l => l.concat(l.slice(1, -1).reverse().map(([x, y]) => [-x, y]));
+    // le poitrail, en gris derrière, d'où sort le cou
+    out.push(decoupe(0, 0, z.l, z.h, [h.ellipse(...P(0, 0), 115 * s, 150 * s, h.a.loin), h.ellipse(...P(0, 0), 115 * s, 150 * s, h.a.arete)]));
+    const cou = 17;
+    out.push(h.path(`M ${pt(P(-cou, 148))} L ${pt(P(-cou, 290))} L ${pt(P(cou, 290))} L ${pt(P(cou, 148))}`, blanc(h.a.contour)));
+    // le bâton, devant le poitrail, et ses deux branches qui serrent le cou : un seul contour
+    const rb = 5.5 * s, yF = 222;
+    const bras = [-1, 1].map(c => [P(0, yF - 6), P(c * (cou + 5.5), yF + 20), P(c * (cou + 5.5), 276)]);
+    const Y = A_._outils.unir([branche([P(0, 60), P(0, 150), P(0, yF)], [rb * 1.15, rb * 1.15, rb * 1.1]),
+      ...bras.map(ax => branche(ax, [rb, rb * 0.95, rb * 0.85]))]);
+    Y.forEach(q => out.push(h.chemin(q, blanc(h.a.arete), true)));
+    bras.forEach(ax => out.push(coupe(ax[1], ax[2], rb * 0.85)));
+    // la tête
+    const tete = sym([[0, 351], [12, 348.5], [21, 341], [27, 330], [29.5, 317], [29, 304], [26.5, 293], [22, 284], [18.5, 278], [cou, 272], [0, 268]]);
+    out.push(h.path(lisse(tete.map(q => P(...q)), true), blanc(h.a.contour)));
+    // le bec, vu par-dessus : il part sous le front, large, et s'évase jusqu'au bout arrondi, qui
+    // descend devant la gorge ; les yeux, sur les côtés de la tête, ne se voient pas de face
+    const bec = sym([[0, 313], [11, 313], [13, 305], [15.5, 294], [18, 283], [17.5, 276], [12, 271.5], [0, 270.5]]);
+    out.push(h.path(lisse(bec.map(q => P(...q)), true), blanc(h.a.arete)));
+    return decoupe(0, 0, z.l, z.h, out);
   };
 
   // ── Les mottes ─────────────────────────────────────────────────────────────────────────
@@ -220,18 +188,21 @@ module.exports = (h) => {
         renvois: z => {
           const { P } = geoCote(z);
           return [
-            { n: 1, rond: [z.l - 18, P(0, -0.24)[1]], cible: P(0.30, -0.19), texte: 'le premier canard pris' },
-            { n: 2, rond: [16, P(0, 0.33)[1]], cible: P(-0.694, 0.30), texte: 'bâton planté dans la vase' },
+            { n: 1, rond: [z.l - 18, P(0, 190)[1]], cible: P(-330, 110), texte: 'le premier canard pris' },
+            { n: 2, rond: [16, P(0, -150)[1]], cible: P(115, -135), texte: 'bâton planté dans la vase' },
           ];
         },
       },
       face: {
-        titre: 'La tête, de face',
+        titre: 'La tête, de face, de près',
         dessin: dessinFace,
-        renvois: z => [
-          { n: 3, rond: [14, z.h * 0.08], cible: [z.l / 2 - 0.13 * Math.min((z.l - 24) / 0.82, z.h / 1.1), z.h * 0.24], texte: 'la tête, plus large, posée sur la fourche' },
-          { n: 4, rond: [14, z.h * 0.50], cible: [z.l / 2 - 0.061 * Math.min((z.l - 24) / 0.82, z.h / 1.1), z.h * 0.36], texte: 'une branche de chaque côté du cou' },
-        ],
+        renvois: z => {
+          const { P } = geoFace(z);
+          return [
+            { n: 3, rond: [14, P(0, 368)[1] + 6], cible: P(-24, 341), texte: 'la tête, plus large, posée sur la fourche' },
+            { n: 4, rond: [14, P(0, 200)[1]], cible: P(-27.5, 240), texte: 'une branche de chaque côté du cou' },
+          ];
+        },
       },
       neige: {
         titre: 'Motte de neige',

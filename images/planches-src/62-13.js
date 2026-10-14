@@ -33,6 +33,12 @@
 //
 // Pas de rein ni de gras de rognon (NON ÉTABLI dans ces lignes du tableau), pas de ganglion, pas de
 // main, pas de chiffre.
+//
+// Vue B redessinée le 14 octobre 2026 : la cavité se lisait mal, rien ne disait qu'on regarde dans
+// un tronc ouvert. Comme sur la fig. 275 (le bord coupé de la paroi, « costal arch, transversus
+// abdominalis (cut edge) »), tout le pourtour est maintenant une coupe : la face du dos (longe,
+// paroi) et la paroi le long du rebord du diaphragme, dans une même trame de coupe quadrillée,
+// distincte des trois morceaux nommés. L'anatomie n'a pas bougé.
 'use strict';
 const C = require('./_carcasse-orignal');
 
@@ -55,6 +61,10 @@ module.exports = (h) => {
     `<pattern id="${id}-onglet" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.75" fill="${NOIR}" stroke="none"/><circle cx="3" cy="3" r="0.75" fill="${NOIR}" stroke="none"/></pattern>`,
   ].join('');
   const trameFilet = id => `fill="url(#${id}-filet)" stroke="none"`;
+  // la coupe de la paroi et de la longe : quadrillage espacé à 45°, pour que le pourtour se lise
+  // comme une tranche du tronc, distincte des trois morceaux nommés
+  const motifCoupe = id => `<pattern id="${id}-coupe" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="${NOIR}" stroke-width="0.5"/><line x1="0" y1="0" x2="6" y2="0" stroke="${NOIR}" stroke-width="0.5"/></pattern>`;
+  const trameCoupe = id => `fill="url(#${id}-coupe)" stroke="none"`;
   const trameOnglet = id => `fill="url(#${id}-onglet)" stroke="none"`;
 
   // ═══ Vue A : de profil ══════════════════════════════════════════════════════════════════════
@@ -95,6 +105,41 @@ module.exports = (h) => {
   const DOS_R = [[0, 290], [20, 291], [45, 296], [70, 306], [92, 322], [106, 342], [112, 365], [122, 395], [136, 430], [146, 465], [150, 500]];
   const POURTOUR_R = [...DOS_R.map(S), P(1068, 522, 150), ...ATT_R.slice(6)];
   const POURTOUR = lisse([...POURTOUR_R.slice(0, -1), [0, POURTOUR_R[POURTOUR_R.length - 1][1], 'c'], ...rev(miroir(POURTOUR_R)).slice(1, -1)], true);
+  // la paroi coupée le long du rebord (l'arc costal, comme sur la fig. 275) : une bande de même
+  // épaisseur que la paroi au bas de la face du dos (12), le long du pourtour, à l'intérieur
+  const BANDE = (() => {
+    const yJ = S([150, 500])[1] - 0.5, d = 12;
+    const n = POURTOUR.length;
+    let aire = 0;
+    for (let i = 0; i < n; i++) { const a = POURTOUR[i], b = POURTOUR[(i + 1) % n]; aire += a[0] * b[1] - b[0] * a[1]; }
+    const sg = aire > 0 ? 1 : -1;                      // pour tourner la normale vers le dedans
+    const ext = [], int = [];
+    for (let i = 0; i < n; i++) {
+      const q = POURTOUR[i];
+      if (q[1] < yJ) continue;
+      const a = POURTOUR[(i - 6 + n) % n], b = POURTOUR[(i + 6) % n];   // tangente lissée : pas de croisement à la pointe du sternum
+      const tx = b[0] - a[0], ty = b[1] - a[1], L = Math.hypot(tx, ty);
+      ext.push(q); int.push([q[0] - sg * ty / L * d, q[1] + sg * tx / L * d]);
+    }
+    // le pourtour est fermé : on recolle les deux bouts pour avoir un seul arc, d'un côté à l'autre
+    const coupeA = ext.findIndex((q, i) => i > 0 && Math.hypot(q[0] - ext[i - 1][0], q[1] - ext[i - 1][1]) > 20);
+    const tourne = a => coupeA > 0 ? [...a.slice(coupeA), ...a.slice(0, coupeA)] : a;
+    const E = tourne(ext), I = tourne(int);
+    // à la pointe du sternum, les deux bords intérieurs se croisent : on les arrête à leur croisement
+    const pointe = E.reduce((m, q, i) => q[1] > E[m][1] ? i : m, 0);
+    const croise = (p1, p2, p3, p4) => {
+      const d = (p2[0] - p1[0]) * (p4[1] - p3[1]) - (p2[1] - p1[1]) * (p4[0] - p3[0]);
+      if (Math.abs(d) < 1e-9) return null;
+      const t = ((p3[0] - p1[0]) * (p4[1] - p3[1]) - (p3[1] - p1[1]) * (p4[0] - p3[0])) / d;
+      const u = ((p3[0] - p1[0]) * (p2[1] - p1[1]) - (p3[1] - p1[1]) * (p2[0] - p1[0])) / d;
+      return t >= 0 && t <= 1 && u >= 0 && u <= 1 ? [p1[0] + t * (p2[0] - p1[0]), p1[1] + t * (p2[1] - p1[1])] : null;
+    };
+    for (let i = 0; i < pointe; i++) for (let j = I.length - 2; j >= pointe; j--) {
+      const x = croise(I[i], I[i + 1], I[j], I[j + 1]);
+      if (x) return { ext: E, int: [...I.slice(0, i + 1), x, ...I.slice(j + 1)] };
+    }
+    return { ext: E, int: I };
+  })();
   // le bas de la face coupée (où la coupe rencontre l'intérieur de la paroi)
   const PLI_PAROI_R = [[138, 500], [136, 470], [128, 438], [116, 405], [104, 384], [92, 384]].map(S);
   const FACE_R = [...DOS_R.map(S), ...rev(PLI_PAROI_R), ...[[60, 377], [30, 376], [12, 376]].map(S)];
@@ -210,7 +255,7 @@ module.exports = (h) => {
       + "le filet en trame sous les vertèbres lombaires, des dernières côtes au bassin, avec le bout épais contre l'ilium ; "
       + "la couture en pointillé suit le dessous des vertèbres puis l'ilium, la lame fléchée va des côtes vers la hanche ; "
       + "une autre ligne en pointillé suit l'attache du diaphragme sur les côtes, de la dernière côte à la huitième, puis "
-      + "au sternum. En haut à droite, la cavité vue de l'intérieur, organes retirés, en regardant vers l'avant : en haut le "
+      + "au sternum. En haut à droite, la cavité vue de l'intérieur, organes retirés, en regardant vers l'avant, encadrée par la paroi coupée tout autour : en haut le "
       + "dos coupé, la longe au-dessus des apophyses, le filet en dessous et le petit psoas contre la vertèbre ; les deux "
       + "filets filent le long du plafond jusqu'au bord du diaphragme ; les piliers (onglet), en points, montent le long des "
       + "vertèbres, le droit gros et fendu autour du trou de l'œsophage, le gauche petit ; le rebord charnu (hampe) fait le "
@@ -261,7 +306,7 @@ module.exports = (h) => {
           const b = placeB(z), T = b.pts;
           const dbl = (f, poly) => [f(poly), f(miroir(poly))];
           const out = [];
-          out.push(`<defs>${motifs('b')}<clipPath id="b-diaph"><path d="${dD(T(DIAPH_L), true)}" fill="${BLANC}"/></clipPath></defs>`);
+          out.push(`<defs>${motifs('b')}${motifCoupe('b')}<clipPath id="b-diaph"><path d="${dD(T(DIAPH_L), true)}" fill="${BLANC}"/></clipPath></defs>`);
           // le fond. La charte : le fond de la cavité, derrière le diaphragme, en gris loin
           out.push(`<path d="${dD(T(POURTOUR), true)}" fill="#E6E6E6" stroke="none"/>`);
           // le plafond : corps des lombaires, petits psoas, filets
@@ -286,9 +331,17 @@ module.exports = (h) => {
           });
           { const [cx, cy] = b.T([HIATUS[0], HIATUS[1]]); out.push(h.ellipse(cx, cy, HIATUS[2] * b.k, HIATUS[3] * b.k, plein(BLANC, 0.7))); }
           out.push(`<path d="${dD(T(DIAPH_L), true)}" ${trait(1.4)}/>`);
-          // la face coupée du dos : fond, longe, vertèbre
-          out.push(`<path d="${dD(T(lisse([...FACE_R, ...rev(miroir(FACE_R))], true, 1)), true)}" fill="${BLANC}" stroke="none"/>`);
-          dbl(q => out.push(`<path d="${dD(T(lisse(q, true, 1)), true)}" ${plein(BLANC, 0.7)}/>`), LONGE_R);
+          // la paroi coupée le long du rebord, dans la trame de coupe ; son bord intérieur est le
+          // bord du diaphragme
+          { const bande = [...BANDE.ext, ...rev(BANDE.int)];
+            out.push(`<path d="${dD(T(bande), true)}" fill="${BLANC}" stroke="none"/>`);
+            out.push(`<path d="${dD(T(bande), true)}" ${trameCoupe('b')}/>`);
+            out.push(`<path d="${dD(T(BANDE.int), false)}" ${trait(1.4)}/>`); }
+          // la face coupée du dos : fond dans la trame de coupe, longe, vertèbre
+          { const face = T(lisse([...FACE_R, ...rev(miroir(FACE_R))], true, 1));
+            out.push(`<path d="${dD(face, true)}" fill="${BLANC}" stroke="none"/>`);
+            out.push(`<path d="${dD(face, true)}" ${trameCoupe('b')}/>`); }
+          dbl(q => out.push(`<path d="${dD(T(lisse(q, true, 1)), true)}" ${trait(0.7)}/>`), LONGE_R);
           dbl(q => out.push(`<path d="${dD(T(lisse(q, true, 1)), true)}" ${plein(BLANC, 1.4)}/>`), TRANSV_R);
           dbl(q => out.push(`<path d="${dD(T(q), false)}" ${trait(0.7)}/>`), lisse(PLI_PAROI_R));
           out.push(`<path d="${dD(T(lisse(ARC_VERT, true, 1)), true)}" ${plein(BLANC, 1.4)}/>`);
@@ -317,7 +370,7 @@ module.exports = (h) => {
           return [
             r(6, 'petit psoas — M. psoas minor', bord(-1), b.T([0, -236])[1], [-18, -236]),
             r(7, 'onglet — piliers du diaphragme, crura', bord(1), b.T([0, -140])[1], [30, -118]),
-            r(8, 'hampe — rebord charnu, pars costalis', bord(-1), b.T([0, 60])[1], [-84, 70]),
+            r(8, 'hampe — rebord charnu, pars costalis', bord(-1), b.T([0, 60])[1], [-74, 62]),
             r(9, 'centre tendineux', bord(1), b.T([0, 60])[1], [34, 40]),
           ];
         },
