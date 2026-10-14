@@ -8,6 +8,10 @@
 // motte retournée met le gris par-dessus et enterre le noir.
 // Aucune épaisseur de couche ni profondeur dans le chapitre : aucune cote. Les trois vues gardent les
 // mêmes trames : quadrillé serré = noir, points = gris, rayures = rouille, tirets courts horizontaux en quinconce = jaune.
+// La charte : le trou d'essai, vide, montre sa paroi du fond en gris loin. Le rouge : la bêche qui
+// retourne la motte, dans le bien (le geste) ; la pointe de la lame, cerclée dans les deux vues (le
+// point à vérifier : dans le noir seulement ; sur le raté, là où ça casse). Le raté garde sa flèche
+// noire : ce n'est pas le geste à faire. La fourche basculée garde ses flèches noires.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = (v) => Math.round(v * 10) / 10;
@@ -170,7 +174,7 @@ module.exports = (h) => {
   };
 
   // Le geste de la bêche : la motte soulevée et retournée sur le bêché.
-  const retourne = (c) => h.fleche(`M ${f((c.xa + c.xw) / 2)} ${f(c.ys - 6)} Q ${f(c.xw + 2)} ${f(c.ys - 74)} ${f(c.xw + c.wk * 0.55)} ${f(c.ys - 13)}`);
+  const retourne = (c, rouge = false) => (rouge ? h.geste : h.fleche)(`M ${f((c.xa + c.xw) / 2)} ${f(c.ys - 6)} Q ${f(c.xw + 2)} ${f(c.ys - 74)} ${f(c.xw + c.wk * 0.55)} ${f(c.ys - 13)}`);
 
   return {
     ref: '96-02',
@@ -196,7 +200,8 @@ module.exports = (h) => {
           const yf = g.ys + g.D, r = 9;
           const murs = [[hl, g.ys], [bl, yf - r], ...bez([bl, yf - r], [bl, yf], [bl + r, yf], 4).slice(1),
             [br - r, yf], ...bez([br - r, yf], [br, yf], [br, yf - r], 4).slice(1), [hr, g.ys]];
-          out.push(poly(murs, h.a.blanc));
+          // le trou, vu en coupe : sa paroi du fond, derrière, en gris loin
+          out.push(poly(murs, h.a.loin));
           out.push(ouvert(murs, h.a.arete));
           out.push(ouvert([[x0, g.ys], [hl, g.ys]], h.a.arete), ouvert([[hr, g.ys], [x1, g.ys]], h.a.arete));
           out.push(mousse(x0, hl, g.ys, g.MO, rnd, [hl]), mousse(hr, x1, g.ys, g.MO, rnd, [hr]));
@@ -246,7 +251,9 @@ module.exports = (h) => {
             out.push(h.fleche(`M ${f(p0[0])} ${f(p0[1])} A ${f(R)} ${f(R)} 0 0 ${a1 > 0 ? 1 : 0} ${f(p1[0])} ${f(p1[1])}`));
           });
           // Le geste de la bêche : la motte de noir soulevée et retournée sur le bêché.
-          out.push(retourne(c));
+          out.push(retourne(c, true));
+          // le point à vérifier : la pointe de la lame s'arrête à la fin du noir
+          out.push(h.controle(c.xs, c.ys + c.NB, 10));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -269,6 +276,8 @@ module.exports = (h) => {
           out.push(m.svg);
           out.push(beche(c.xs, c.ys + c.NB + c.NG, c.k));
           out.push(retourne(c));
+          // là où ça casse : la lame descendue jusque dans le gris
+          out.push(h.controle(c.xs, c.ys + c.NB + c.NG, 10));
           return out.join('\n');
         },
         renvois: (z) => {

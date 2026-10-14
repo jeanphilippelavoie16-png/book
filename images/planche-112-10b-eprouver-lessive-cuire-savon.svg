@@ -31,7 +31,7 @@
 <line x1="80.7" y1="117" x2="127.3" y2="117" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M77 83 L78.5 143 L129.5 143 L131 83 L128 83 L126.5 140 L81.5 140 L80 83 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M83 135 L79 132 L51 14 L55 12 L86 134 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 85 123 A 18 5 0 1 0 123 123" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M 85 123 A 18 5 0 1 0 115 122" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M 123 54 C 123 64 139 64 141 57 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 141 56 L 181 39 L 182 42 L 141 58" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 123 63.8 C 125.1 67 125.1 69.4 123 69.4 C 120.9 69.4 120.9 67 123 63.8 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -95,9 +95,9 @@
 <circle cx="423.2" cy="181" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="454.2" cy="223" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="essai"/>
 <text x="454.2" y="227" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
-<line x1="445.2" y1="177.9" x2="412.2" y2="181" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="445.2" y1="177.9" x2="412.2" y2="181" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="412.2" cy="181" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="445.3" y1="175.6" x2="416.2" y2="171" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="445.3" y1="175.6" x2="416.2" y2="171" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="416.2" cy="171" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="454.2" cy="177" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="essai"/>
 <text x="454.2" y="181" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
 <line x1="439.2" y1="123.6" x2="417.2" y2="125" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>

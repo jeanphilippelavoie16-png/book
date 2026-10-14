@@ -142,6 +142,10 @@ module.exports = (h) => {
             `L${xc + 4} ${yS1 - 4} Q${xc + 4} ${yS1} ${xc} ${yS1} Q${xc - 4} ${yS1} ${xc - 4} ${yS1 - 4} Z`, blancArete));
           out.push(h.ligne(xc - 6, yN - 2.5, xc + 6, yN - 2.5, h.a.detail));
           out.push(h.ligne(xc - 6, yN + 1.5, xc + 6, yN + 1.5, h.a.detail));
+          // charte : le geste, tourner le bâton (l'arc passe devant lui) ; le point à vérifier,
+          // le bâton bloqué contre la traverse
+          out.push(h.geste(`M${xc - 15} ${yN + 26} A 15 6 0 0 0 ${xc + 15} ${yN + 26}`));
+          out.push(h.controle(xc, yM, 13));
 
           // Le mouvement : têtes vers l'intérieur, pieds vers l'extérieur.
           const yFh = yN + 16, yFp = yB - 44;

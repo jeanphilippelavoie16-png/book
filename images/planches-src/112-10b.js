@@ -124,7 +124,7 @@ module.exports = (h) => {
           out.push(pot(g.b0, g.b1, g.bH, g.yP, g.yM, 'isolant'));
           // le bâton qui brasse
           out.push(h.chemin(P([[g.b0 + 6, g.yP - 8], [g.b0 + 2, g.yP - 11], [g.b0 - 26, 14], [g.b0 - 22, 12], [g.b0 + 9, g.yP - 9]]), blanc('arete'), true));
-          out.push(h.geste(`M ${f(g.b0 + 8)} ${f(g.yM + 6)} A 18 5 0 1 0 ${f(g.b1 - 8)} ${f(g.yM + 6)}`));   // la charte : brasser, le geste en rouge
+          out.push(h.geste(`M ${f(g.b0 + 8)} ${f(g.yM + 6)} A 18 5 0 1 0 ${f(g.b1 - 16)} ${f(g.yM + 5)}`));   // la charte : brasser (bout écarté du renvoi 4), le geste en rouge
           // les gouttes de lessive, d'une cuillère
           const sx = g.b1 + 6, sy = g.bH - 26;
           out.push(h.path(`M ${sx - 14} ${sy - 3} C ${sx - 14} ${sy + 7} ${sx + 2} ${sy + 7} ${sx + 4} ${sy} Z`, blanc('arete')));
@@ -152,7 +152,7 @@ module.exports = (h) => {
           const sx = g.b1 + 6, sy = g.bH - 26;
           return [
             { n: 3, rond: [g.b1 + 30, g.yP + 34], cible: [g.b1 - 1, g.yP - 8], texte: 'une boîte, au coin du poêle' },
-            { n: 4, rond: [g.b1 + 30, g.yP - 12], cible: [g.b1 - 12, g.yM + 18], texte: 'une cuillerée de gras fondu' },
+            { n: 4, rond: [g.b1 + 30, g.yP - 12], cible: [g.b1 - 8, g.yM + 8], texte: 'une cuillerée de gras fondu' },
             { n: 5, rond: [sx + 18, sy + 20], cible: [sx - 13, sy + 22], texte: 'quelques gouttes de lessive' },
             { n: 6, rond: [22, 30], cible: [g.b0 - 20, 22], texte: 'brassé au bâton' },
             { n: 7, rond: [g.r1x0 + 6, g.rH - 22], cible: [g.r1x0 + g.rw / 2, g.rL + 4], texte: 'en pâte : la lessive travaille' },
