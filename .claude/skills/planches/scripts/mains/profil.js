@@ -155,9 +155,9 @@ function paume() {
 // Un manche tenu à pleine main traverse le poing de part en part, presque dans l'axe de la vue de profil : sa
 // moitié proche vient vers l'œil et couvrirait tout le poing ; sa moitié loin file derrière la main et, sur toute
 // sa longueur, le long de l'avant-bras (on lirait une planchette attachée au bras). Le dessin :
-//   - coupe le manche dans le trou du poing, au plan de l'axe du doigt le plus proche qui l'entoure : la moitié
-//     proche de ce doigt passe devant la face coupée et la cerne, on voit un rond dans le trou du poing, les
-//     doigts autour (au plan de leur face proche, la face coupée sortait mordue par les doigts : agent 5, P3) ;
+//   - coupe le manche au ras de la peau du trou du poing : la face coupée tout entière au plan de la face proche
+//     des doigts qui l'entourent, rien que le pouce ne passe devant elle ; on voit un rond dans le trou du poing,
+//     les doigts autour (coupée plus loin, les doigts la mordaient : agent 5, P3) ;
 //   - ne garde, par défaut, que la tranche coupée (8 mm) : le corps du manche derrière la main ne se dessine pas
 //     (il ressortait en boîte entre le pouce et la paume, ou longeait l'avant-bras : « une planchette attachée
 //     au bras », agent 5, P3) ; objet.loin = n (mm) : le manche va jusqu'à n mm derrière la face loin des doigts
@@ -200,7 +200,10 @@ function objetDeVue(objet, sq, M, outils = {}) {
   }
   if (!isFinite(dAxe)) return null;
   const L = objet.longueur || 1200, s = d => (d - dep(C)) / dA;
-  const sCut = s(dAxe), sBout = dA > 0 ? L / 2 : -L / 2;
+  // la face coupée est perpendiculaire à l'axe : penché, son bord s'enfonce de r·sin(penchant) ; on la pose
+  // tout entière au ras de la face proche des doigts qui l'entourent (aucun doigt ne la mord ; le pouce, s'il
+  // passe devant, la couvre : c'est vrai)
+  const sCut = s(dProche - R * Math.sqrt(Math.max(0, 1 - dA * dA)) - 0.5), sBout = dA > 0 ? L / 2 : -L / 2;
   let sFar = sBout;
   if (typeof objet.loin === 'number') {
     const sL = s(dLoin + objet.loin);
@@ -209,7 +212,7 @@ function objetDeVue(objet, sq, M, outils = {}) {
   if ((sFar - sCut) * Math.sign(sBout) <= 0) return null;
   const s0 = Math.min(sCut, sFar), s1 = Math.max(sCut, sFar);
   const P = t => [0, 1, 2].map(j => C[j] + A[j] * t);
-  void dProche;
+  void dAxe;
   return { objet: Object.assign({}, objet, { centre: P((s0 + s1) / 2), longueur: s1 - s0 }), coupe: { centre: P(sCut), axe: A, r: R } };
 }
 
