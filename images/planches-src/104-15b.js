@@ -252,6 +252,8 @@ module.exports = (h) => ({
       },
     },
   },
-  danger: 'Un cordon de cou-de-pied serré pour tenir une botte trop grande écrase la chaussette et le '
+  // « Danger — » en tête : sans lui, l'encadré coupait sa première ligne trop court et le
+  // vérificateur refusait la boîte, vide à droite
+  danger: 'Danger — un cordon de cou-de-pied serré pour tenir une botte trop grande écrase la chaussette et le '
     + 'pied : moins d’air immobile, moins de sang chaud. Le pied arrête de faire mal avant de geler.',
 });

@@ -5,7 +5,7 @@
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
-<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La mèche</text>
@@ -15,7 +15,7 @@
 <path d="M 34.5 61 Q 44.5 63 50.5 70" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M36.5 79 L36.5 81 L36.5 83 L36.5 85 L36.5 87 L36.5 89 L36.5 91 L36.5 93 L36.5 95 L36.5 97 L36.5 99 L36.5 101 L36.5 103 L36.5 105 L36.5 107 L36.5 109 L36.5 111 L36.5 113 L36.5 115 L36.5 117 L36.5 119 L36.5 121 L36.5 123 L36.5 125 L36.5 127 L36.5 129 L36.5 131 L36.5 133 L36.5 135 L36.5 137 L36.5 139 L36.5 141 L36.5 143 L36.5 145 L36.5 147 L36.5 149 L36.5 151 L36.5 153 L36.5 155 L36.5 157 L36.5 159 L36.5 161 L44.5 161 L44.5 159 L44.5 157 L44.5 155 L44.5 153 L44.5 151 L44.5 149 L44.5 147 L44.5 145 L44.5 143 L44.5 141 L44.5 139 L44.5 137 L44.5 135 L44.5 133 L44.5 131 L44.5 129 L44.5 127 L44.5 125 L44.5 123 L44.5 121 L44.5 119 L44.5 117 L44.5 115 L44.5 113 L44.5 111 L44.5 109 L44.5 107 L44.5 105 L44.5 103 L44.5 101 L44.5 99 L44.5 97 L44.5 95 L44.5 93 L44.5 91 L44.5 89 L44.5 87 L44.5 85 L44.5 83 L44.5 81 L44.5 79 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 36.5 82.5 Q 40.5 88.1 44.5 88.9 M 36.5 89.5 Q 40.5 95.1 44.5 95.9 M 36.5 96.5 Q 40.5 102.1 44.5 102.9 M 36.5 103.5 Q 40.5 109.1 44.5 109.9 M 36.5 110.5 Q 40.5 116.1 44.5 116.9 M 36.5 117.5 Q 40.5 123.1 44.5 123.9 M 36.5 124.5 Q 40.5 130.1 44.5 130.9 M 36.5 131.5 Q 40.5 137.1 44.5 137.9 M 36.5 138.5 Q 40.5 144.1 44.5 144.9 M 36.5 145.5 Q 40.5 151.1 44.5 151.9 M 36.5 152.5 Q 40.5 158.1 44.5 158.9 " fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 27.5 137 A 13 5 0 0 0 53.5 137" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 27.5 137 A 13 5 0 0 0 53.5 137" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="163.1" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">En coupe</text>
 <g transform="translate(163.1 46)" data-vue="coupe">
@@ -31,13 +31,16 @@
 <path d="M 217 105 C 197.032 97.8 206.248 76.2 217 57 C 227.752 76.2 236.968 97.8 217 105 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 217 103 C 208.0144 100.68 212.8528 89.88 217 83.4 C 221.1472 89.88 225.9856 100.68 217 103 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="217.5" cy="98" r="3" fill="#1A1A1A" stroke="none"/>
-<path d="M 150 122 L 184 101" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 150 122 L 184 101" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="437.8" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Allumée</text>
 <g transform="translate(437.8 46)" data-vue="vue">
 <path d="M 3 96 L 3 100 A 92 28 0 0 0 187 100 L 187 96 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="95" cy="96" rx="92" ry="28" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M 15 66 L 15 96 A 80 24 0 0 0 175 96 L 175 66 A 80 24 0 0 0 15 66 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M131 87.4 L133.8 87 L136.5 86.5 L139.3 86 L142 85.4 L144.8 84.8 L147.5 84.1 L150.3 83.4 L153 82.5 L155.8 81.6 L158.5 80.6 L161.3 79.5 L164 78.1 L166.8 76.6 L169.5 74.7 L172.3 72.2 L175 66 L175 96 L172.3 102.2 L169.5 104.7 L166.8 106.6 L164 108.1 L161.3 109.5 L158.5 110.6 L155.8 111.6 L153 112.5 L150.3 113.4 L147.5 114.1 L144.8 114.8 L142 115.4 L139.3 116 L136.5 116.5 L133.8 117 L131 117.4 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M 19 66 A 76 22 0 0 1 171 66 L 170 71 A 75 20 0 0 0 20 71 Z" fill="#E6E6E6" stroke="none"/>
+<path d="M 15 66 L 15 96 A 80 24 0 0 0 175 96 L 175 66 A 80 24 0 0 0 15 66 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 15 78 A 80 24 0 0 0 175 78" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 15 82 A 80 24 0 0 0 175 82" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="95" cy="66" rx="80" ry="24" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>

@@ -371,7 +371,9 @@ module.exports = (h) => {
     for (let i = 0; i < NP_C; i++) {
       const x = x0 + i * PAS_C * s, d = 14 * s;
       // la gerbe de derrière, un peu décalée, puis celle de devant : tous les pieds sur le sol
-      out.push(gerbe2D(s, [x + d, yG], [x + d, yG - Ht * s], 60 + i * 5, 6, '#E6E6E6'));   // la charte : gris loin
+      // (pas de gris loin ici : la gerbe de derrière ne dépasse que d'une bande mince, qui aurait
+      // l'air d'un trait doublé)
+      out.push(gerbe2D(s, [x + d, yG], [x + d, yG - Ht * s], 60 + i * 5, 6));
       out.push(gerbe2D(s, [x - d, yG], [x - d, yG - Ht * s], 62 + i * 5, 6));
     }
     return out.join('\n');
