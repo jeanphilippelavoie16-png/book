@@ -6,9 +6,9 @@
 // face (le côté qui va au sol) ; la coupe A–A au lacet du haut, à plus grande échelle, pour lire
 // les trois épaisseurs et le lacet qui les traverse ; la genouillère nouée sur la jambe debout
 // et en usage, un genou au sol (le corps simple, de profil) ; ce genou à la loupe, deux mains qui
-// serrent le nœud du haut (les mains simples de la bibliothèque, mainSimple : la pince fine, de
-// côté). Rouge : les deux bouts qui se rabattent, le geste du pliage ; à la loupe, les deux mains
-// qui tirent chacune son bout.
+// serrent le nœud du haut : les mains restent hors de la loupe, on ne voit que les deux bouts du lacet
+// tendus, qui en sortent (les pinces de la bibliothèque, à cette échelle, faisaient des pinces de robot).
+// Rouge : les deux bouts qui se rabattent, le geste du pliage ; à la loupe, le tirage de chaque bout.
 //
 // Aucune cote : le chapitre ne donne aucune mesure. La peau est dessinée carrée une fois pliée
 // (une bande trois fois plus longue que large), comme le dit le chapitre.
@@ -171,12 +171,11 @@ module.exports = (h) => {
   const N1 = [-94, -250], N2 = [-120, -180];
   const LAC1 = [[46, -130], [0, -180], [-52, -222], N1];
   const LAC2 = [[-56, -48], [-80, -110], [-104, -155], N2];
-  // les deux mains : le point pincé, la main (droite, gauche) ; elles pincent le bout de lacet entre
-  // les pulpes du pouce et de l'index, les doigts tournés vers le nœud, l'avant-bras qui part à
-  // l'opposé, dans le sens où elles tirent
+  // les deux bouts du nœud du haut, que les deux mains tirent : leur sortie du nœud, un point de passage, et
+  // où ils filent tout droit hors de la loupe
   const MAINS = [
-    { P: [-140, -392], cote: 'droite', tire: -105, sort: [-3, -6], mi: [-118, -322] },
-    { P: [-238, -262], cote: 'gauche', tire: 182, sort: [-8, -2], mi: [-168, -256] },
+    { P: [-140, -392], sort: [-3, -6], mi: [-118, -322] },
+    { P: [-238, -262], sort: [-8, -2], mi: [-168, -256] },
   ];
   const LCENTRE = [-120, -210], LRAYON = 290, LACET = 5;
   // Le genou au sol est la jambe « loin » de la posture 'genou' du personnage : genou (−58, −58),
@@ -246,22 +245,20 @@ module.exports = (h) => {
     o.push(corde([[N2[0] - 4, N2[1] + 3], [N2[0] - 14, N2[1] + 20], [N2[0] - 16, N2[1] + 40]], 'coupe'));
     o.push(corde([[N2[0] + 2, N2[1] + 5], [N2[0] - 2, N2[1] + 22], [N2[0] - 1, N2[1] + 36]], 'coupe'));
     o.push(h.ellipse(...V(...N2), 9 * e, 7.5 * e, bl(h.a.detail)));
-    // le nœud du haut : ses deux bouts montent aux mains qui le serrent
-    for (const M of MAINS) o.push(corde([add(N1, M.sort), M.mi, M.P], 'ouvert'));
+    // le nœud du haut : ses deux bouts tendus, qui sortent de la loupe là où les deux mains les tirent (les mains
+    // restent hors du cercle ; le renvoi dit « serré à deux mains »), une flèche rouge le long de chacun
+    for (const M of MAINS) {
+      const d = [M.P[0] - M.mi[0], M.P[1] - M.mi[1]], L = Math.hypot(d[0], d[1]), u = [d[0] / L, d[1] / L];
+      o.push(corde([add(N1, M.sort), M.mi, M.P, add(M.P, mul(u, 220))], 'ouvert'));
+    }
     o.push(h.ellipse(...V(...N1), 9 * e, 7.5 * e, bl(h.a.detail)));
     for (const M of MAINS) {
-      const [px, py] = V(...M.P);
-      // la pince fine, vue du côté du pouce : le bout du lacet entre les deux pulpes (la prise en P),
-      // la main tournée pour que l'avant-bras parte dans le sens où elle tire (M.tire, degrés à l'écran)
-      const o0 = { pose: 'pince-fine', vue: 'pouce', cote: M.cote, diametre: LACET };
-      const m0 = F.mainSimple({ ...o0, x: 0, y: 0, angle: 0, echelle: 1, avantbras: { longueur: 100 } });
-      const d0 = Math.atan2(m0.coude[1] - m0.poignet[1], m0.coude[0] - m0.poignet[0]) / Math.PI * 180;
-      o.push(F.mainSimple({ ...o0, angle: M.tire - d0, x: px, y: py, echelle: e,
-        avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).toString());
+      const d = [M.P[0] - M.mi[0], M.P[1] - M.mi[1]], L = Math.hypot(d[0], d[1]), u = [d[0] / L, d[1] / L];
+      let n = [u[1], -u[0]];
+      if (n[0] + n[1] * 0.2 > 0) n = mul(n, -1);                 // du côté loin de la cuisse (à gauche, en haut)
+      const a0 = add(M.P, mul(n, 24)), a1 = add(a0, mul(u, 56));
+      o.push(h.geste(`M${V(...a0).map(f1).join(' ')} L${V(...a1).map(f1).join(' ')}`));
     }
-    // les flèches : chaque main tire son bout, loin du nœud
-    o.push(h.geste(`M${V(-262, -418).map(f1).join(" ")} L${V(-274, -466).map(f1).join(" ")}`));
-    o.push(h.geste(`M${V(-300, -322).map(f1).join(' ')} L${V(-356, -322).map(f1).join(' ')}`));
     o.push('</g>');
     o.push(h.cercle(C[0], C[1], R, h.a.detail));
     return o.join('\n');
@@ -278,7 +275,7 @@ module.exports = (h) => {
   return {
     ref: '24-16',
     titre: 'La genouillère de peau nouée',
-    desc: 'Une bande de peau d’orignal pliée en trois en un carré, fendue près des bords, tenue par deux lacets noués derrière la jambe, l’un au-dessus du pli du genou, l’autre dessous. À plat avec ses deux plis ; pliée, fendue et lacée, vue du côté qui va au sol ; en coupe au lacet du haut, les trois épaisseurs traversées par le lacet ; un genou au sol, la peau entre le genou et le sol ; et ce genou à la loupe, deux mains qui serrent le nœud du haut derrière la cuisse, le nœud du bas déjà fait au creux du genou.',
+    desc: 'Une bande de peau d’orignal pliée en trois en un carré, fendue près des bords, tenue par deux lacets noués derrière la jambe, l’un au-dessus du pli du genou, l’autre dessous. À plat avec ses deux plis ; pliée, fendue et lacée, vue du côté qui va au sol ; en coupe au lacet du haut, les trois épaisseurs traversées par le lacet ; un genou au sol, la peau entre le genou et le sol ; et ce genou à la loupe : les deux bouts du nœud du haut, derrière la cuisse, tirés chacun de son côté par les deux mains, hors du cercle ; le nœud du bas déjà fait au creux du genou.',
     format: 'pleine',
     disposition: [['plat', 'plie'], ['coupe'], ['place', 'loupe']],
     hauteurs: [1.1, 0.72, 2.4],
