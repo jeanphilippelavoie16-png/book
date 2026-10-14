@@ -91,11 +91,12 @@ module.exports = (h) => ({
           out.push(h.path(ferme(k === 'pecto' ? PECTO : NAG[k]), blancTrait(h, 'arete')));
           const R = RAYONS[k];
           if (!R) continue;
-          R.bord.forEach((b, i) => {
+          // les rayons d'une nageoire : un seul tracé (ce sont des rayons, pas une hachure)
+          out.push(h.path(R.bord.map((b, i) => {
             const t = R.bord.length > 1 ? i / (R.bord.length - 1) : 0.5;
             const a = [R.base[0][0] + (R.base[1][0] - R.base[0][0]) * t, R.base[0][1] + (R.base[1][1] - R.base[0][1]) * t];
-            out.push(h.ligne(...P(...a), ...P(...b), h.a.fin));
-          });
+            return `M ${P(...a).map(f).join(' ')} L ${P(...b).map(f).join(' ')}`;
+          }).join(' '), h.a.fin));
         }
 
         // le corps : une seule courbe, du pédoncule par le ventre, le museau arrondi, puis le dos

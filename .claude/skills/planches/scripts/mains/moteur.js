@@ -1567,6 +1567,21 @@ function dessiner(o, prep = null) {
       G.region = unionCL(G.ids.map(i => pieces[i].region)); G.boite = boiteCL(G.region);
     }
   }
+  // de même, une pièce cachée derrière l'objet qui n'en dépasse que d'un ergot (moins de 3 mm de large, ou moins de
+  // 20 mm²), là où rien d'autre de la main ne la prolonge : ce bout ne se dessine pas, il bosselait le bord de
+  // l'objet (agent 5, M12 : le bout de l'index au haut du manche de prise-pouce-dos, de profil)
+  if (ob && ob.region.length) {
+    pieces.forEach((P, i) => {
+      if (!P.surObjet || (devantObjet.has(i) && !P.pasRepeinte) || P.groupe === 'base') return;
+      const autres = pieces.filter((Q, j) => j !== i).map(Q => Q.region);
+      const vis = moins(P.region, unionCL([ob.region, ...autres]));
+      const jette = [];
+      for (const cp of composantes(vis)) if (Math.abs(aireCL(cp)) < 20 || !ouvre(cp, 1.5).length) jette.push(...cp);
+      if (!jette.length) return;
+      P.region = moins(P.region, decale(jette, 0.2)); P.boite = boiteCL(P.region);
+      const G = groupes.get(P.groupe); G.region = unionCL(G.ids.map(k => pieces[k].region)); G.boite = boiteCL(G.region);
+    });
+  }
   T_('objet+teintes');
   // ── l'ordre de peinture : tri topologique sur « devant » ──
   const n = pieces.length;
