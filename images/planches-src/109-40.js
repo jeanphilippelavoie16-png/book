@@ -17,10 +17,10 @@
 // donc de l'avant, au bâton. Le levier, lui, est perpendiculaire à la lisse du pignon qu'il
 // soulève : il est dans le plan du dessin, et l'homme de profil avec lui.
 module.exports = (h) => {
-  const PENCHE = 45;               // le tronc penché sur la perche
   const A = h.a;
-  // Le personnage penché sur le levier : le pictogramme de formes.js, les deux mains fermées
-  // sur la perche.
+  // 13 oct. : l'homme penché sur le levier est le corps simple (pose « levier »), ses bras calculés
+  // par poserBras. La charte : la face de droite des cales à l'ombre ; le rouge sur le vérin
+  // d'aplomb (le point à contrôler) et sur la poussée du levier.
   const F = h.formes;
   const BL = '#FFFFFF';
   const FOND = `fill="${BL}" stroke="none"`;
@@ -30,6 +30,48 @@ module.exports = (h) => {
   const poly = (pts, ferme = true) => 'M ' + pts.map(pt).join(' L ') + (ferme ? ' Z' : '');
   const KC = 0.5 * Math.cos(Math.PI / 6), KS = 0.5 * Math.sin(Math.PI / 6);
   const add = (a, b, k = 1) => [a[0] + b[0] * k, a[1] + b[1] * k];
+  // ─── les corps simples ─────────────────────────────────────────────────────────────────
+  // Les bras d'un corps simple, calculés pour que chaque poing tombe sur sa cible (unités de vue),
+  // l'axe de la prise donné en degrés écran (null : la prise vue par le bout, le poignet droit).
+  // Le corps regarde vers +x ; pour un corps tourné vers la
+  // gauche, poserBras le calcule en miroir autour de o.x et rend les mêmes angles.
+  const RAD = Math.PI / 180;
+  const poserBras = (o, cibles, axes, coudes = {}) => {
+    const g = o.cote === 'gauche', X0 = o.x;
+    const oo = Object.assign({}, o, { cote: 'droite' });
+    const c = F.corps(oo), ang = Object.assign({}, o.angles || {});
+    const angDe = v => Math.atan2(v[0], v[1]) / RAD, dirDe = a => [Math.sin(a * RAD), Math.cos(a * RAD)];
+    for (const k of ['P', 'L']) {
+      let C = cibles[k]; if (!C) continue;
+      let ax = axes[k];
+      if (g) { C = [2 * X0 - C[0], C[1]]; if (ax != null) ax = 180 - ax; }
+      const S = c.articulations['epaule' + k], E_ = c.articulations['coude' + k], Wr = c.articulations['poignet' + k], Mn = c['main' + k];
+      const lb = Math.hypot(E_[0] - S[0], E_[1] - S[1]), la = Math.hypot(Wr[0] - E_[0], Wr[1] - E_[1]);
+      const hv = [Mn.x - Wr[0], Mn.y - Wr[1]], lm = Math.hypot(...hv);
+      const off = angDe(hv) - angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+      const resoudre = main => {
+        const h2 = dirDe(main + off).map(v => v * lm), W_ = [C[0] - h2[0], C[1] - h2[1]];
+        const d = [W_[0] - S[0], W_[1] - S[1]], D = Math.min(Math.hypot(...d), lb + la - 0.01);
+        const a0 = angDe(d), B = Math.acos(Math.max(-1, Math.min(1, (lb * lb + D * D - la * la) / (2 * lb * D)))) / RAD;
+        const bras = a0 + (coudes[k] === 'avant' ? 1 : -1) * B;
+        const e = [S[0] + lb * Math.sin(bras * RAD), S[1] + lb * Math.cos(bras * RAD)];
+        const ab = angDe([W_[0] - e[0], W_[1] - e[1]]);
+        const pli = Math.abs(((main - ab) % 360 + 540) % 360 - 180);
+        return { pli, bras, ab, main };
+      };
+      let best = null;
+      if (ax == null) {                 // la prise vue par le bout : le poignet droit, la main dans l'axe de l'avant-bras
+        let main = angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+        for (let i = 0; i < 5; i++) { best = resoudre(main); main = best.ab; }
+        best = resoudre(main);
+      } else for (const main of [180 - ax, -ax, 360 - ax]) { const r = resoudre(main); if (!best || r.pli < best.pli) best = r; }
+      ang['bras' + k] = best.bras; ang['avantbras' + k] = best.ab; ang['main' + k] = best.main;
+    }
+    return ang;
+  };
+  // le poing d'un corps simple, sous la forme qu'attend poignee() : sa place et l'axe de la prise
+  const poingDe = (c, k) => { const m = c['main' + k]; return { trou: { x: m.x, y: m.y, axe: [Math.cos(m.angle * RAD), Math.sin(m.angle * RAD)] } }; };
+  const versDeg = (a, b) => Math.atan2(b[1] - a[1], b[0] - a[0]) / RAD;
 
   // ─── le repère oblique ─────────────────────────────────────────────────────────────────
   const unite = p => [p[0] + p[2] * KC, -(p[1] + p[2] * KS)];
@@ -78,7 +120,9 @@ module.exports = (h) => {
     const [x0, x1, y0, y1, d0, d1] = b;
     const q = (x, y, d) => R([x, y, d]);
     const sil = [q(x0, y0, d0), q(x1, y0, d0), q(x1, y0, d1), q(x1, y1, d1), q(x0, y1, d1), q(x0, y1, d0)];
-    const out = [h.path(poly(sil), FOND)];
+    const out = [h.path(poly(sil), FOND),
+      // la face de droite, à l'ombre (la lumière vient d'en haut à gauche)
+      h.path(poly([q(x1, y0, d0), q(x1, y0, d1), q(x1, y1, d1), q(x1, y1, d0)]), A.ombre)];
     const avant = { o: [x0, y0, d0], U: [1, 0, 0], V: [0, 1, 0], la: x1 - x0, lb: y1 - y0 };
     const dessus = { o: [x0, y1, d0], U: [1, 0, 0], V: [0, 0, 1], la: x1 - x0, lb: d1 - d0 };
     const droite = { o: [x1, y0, d0], U: [0, 0, 1], V: [0, 1, 0], la: d1 - d0, lb: y1 - y0 };
@@ -208,6 +252,9 @@ module.exports = (h) => {
     out.push(cylindre(R, xj, dj, 42, 335, 360));
     out.push(cylindre(R, xj, dj, 28, 360, yb - 22));
     out.push(cylindre(R, xj, dj, 35, yb - 22, yb));
+    // le point à contrôler : le vérin d'aplomb
+    const cv = R([xj, 260, dj]);
+    out.push(h.controle(cv[0], cv[1], 132 * s));
     // le bâtiment par-dessus
     const Bt = batiment(R, yb, xg, prof, hmur);
     out.push(Bt.svg, baton);
@@ -342,30 +389,24 @@ module.exports = (h) => {
     const pf = at(1180);
     const n = [-u[1], u[0]];
     const fh = R([pf[0] + n[0] * 330, pf[1] + n[1] * 330, dL]), fbb = R([pf[0] + n[0] * 90, pf[1] + n[1] * 90, dL]);
-    out.push(h.fleche(`M${pt(fh)} L${pt(fbb)}`));
+    out.push(h.geste(`M${pt(fh)} L${pt(fbb)}`));
     // le bâtiment
     const Bt = batiment(R, yb, xg, prof, hmur);
     out.push(Bt.svg, baton);
     // l'homme, penché sur le bout du levier
     const pied = R([xp, 0, dL]);
     const g1 = R([m1[0], m1[1], dL]), g2 = R([m2[0], m2[1], dL]);
-    // chaque main tourne pour que l'avant-bras file droit vers l'épaule : le bras tendu pèse
-    const essai = F.personnage({ x: pied[0], y: pied[1], pose: 'penche', echelle: s, cote: 'gauche', penche: PENCHE, regard: 10 });
-    const m0 = F.main({ x: 0, y: 0, pose: 'prise', vue: 'dos', cote: 'gauche', echelle: s, diametre: 2 * rL * s * 1.05, angle: 0 });
-    const a0 = Math.atan2(m0.bras[1] - m0.poignet[1], m0.bras[0] - m0.poignet[0]);
-    const L1b = 300 * s, L2b = 255 * s + Math.hypot(m0.poignet[0], m0.poignet[1]);
-    const prise = (p, ep) => {
-      // le coude, par les deux longueurs du bras ; il part vers l'arrière (à droite) : on pèse
-      const dx = ep[0] - p[0], dy = ep[1] - p[1], D = Math.min(Math.hypot(dx, dy), (L1b + L2b) * 0.999);
-      const base = Math.atan2(dy, dx), c = (L2b * L2b + D * D - L1b * L1b) / (2 * L2b * D);
-      const b = Math.acos(Math.max(-1, Math.min(1, c)));
-      const cand = [base + b, base - b].map(a => [p[0] + L2b * Math.cos(a), p[1] + L2b * Math.sin(a), a]);
-      const E = cand[0][0] > cand[1][0] ? cand[0] : cand[1];
-      return { x: p[0], y: p[1], pose: 'prise', vue: 'dos', diametre: 2 * rL * s * 1.05, angle: (E[2] - a0) * 180 / Math.PI };
-    };
-    const homme = F.personnage({ x: pied[0], y: pied[1], pose: 'penche', echelle: s, cote: 'gauche', penche: PENCHE, regard: 10,
-      prises: { loin: prise(g1, essai.epaules.loin), proche: prise(g2, essai.epaules.proche) } });
-    out.push(homme);
+    // le corps simple (pose « levier »), tourné vers la gauche ; ses bras calculés pour que les
+    // deux poings se ferment sur la perche, la main proche au bout. La perche passe devant le poing
+    // loin et dans le poing proche : on la repeint, découpée autour des mains, entre les deux bras.
+    const angL = Math.atan2(L1[1] - L0[1], L1[0] - L0[0]) * 180 / Math.PI;
+    const oL = { x: pied[0], y: pied[1], pose: 'levier', echelle: s, cote: 'gauche' };
+    oL.angles = poserBras(oL, { P: g2, L: g1 }, { P: angL, L: angL });
+    const cm = [(g1[0] + g2[0]) / 2, (g1[1] + g2[1]) / 2], rc = Math.hypot(g2[0] - g1[0], g2[1] - g1[1]) / 2 + 26;
+    const perche = `<clipPath id="perche-109-40"><circle cx="${f(cm[0])}" cy="${f(cm[1])}" r="${f(rc)}"/></clipPath>`
+      + `<g clip-path="url(#perche-109-40)">${barre(L0, L1, 2 * rL * s, 'biseau', 'franc', blanc('arete'))}</g>`;
+    const homme = F.corps(Object.assign(oL, { objetP: perche }));
+    out.push(String(homme));
     const g = { s, R, C, P, PA, blocB, yb, b0, b1, at, dL, piv, homme, svg: out.join('\n'), L0, L1 };
     memo[cle] = g;
     return g;

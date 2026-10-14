@@ -3,6 +3,9 @@
 // billot tambour, deux trous à angle droit près d'un bout, corde amarrée au milieu en une
 // seule couche, chevilles en couronne dans le bout et planche pivotante, barre poussée vers
 // le bas, corps hors du cercle. Cotes : 1,5 m (barre depuis l'axe) et 150 mm (rayon).
+// 13 oct. : l'homme est le corps simple (pose « vindas »), ses bras calculés par poserBras. La
+// charte : le dessous du billot à l'ombre ; le rouge sur la barre poussée vers le bas et sur le
+// cercle qu'elle balaie (la zone dont le corps reste dehors).
 //
 // Sens, vu du bout des barres : la corde part par-dessus le tambour vers la droite (la
 // charge). La charge tire en horaire ; on enroule en antihoraire en poussant vers le bas la
@@ -16,6 +19,48 @@ module.exports = (h) => {
   const D = pts => 'M ' + pts.map(p => `${f(p[0])} ${f(p[1])}`).join(' L ') + ' Z';
   const add = (a, b, k = 1) => [a[0] + b[0] * k, a[1] + b[1] * k];
   const axe = `${h.a.fin} stroke-dasharray="12 3 2 3"`;
+  // ─── les corps simples ─────────────────────────────────────────────────────────────────
+  // Les bras d'un corps simple, calculés pour que chaque poing tombe sur sa cible (unités de vue),
+  // l'axe de la prise donné en degrés écran (null : la prise vue par le bout, le poignet droit).
+  // Le corps regarde vers +x ; pour un corps tourné vers la
+  // gauche, poserBras le calcule en miroir autour de o.x et rend les mêmes angles.
+  const RAD = Math.PI / 180;
+  const poserBras = (o, cibles, axes, coudes = {}) => {
+    const g = o.cote === 'gauche', X0 = o.x;
+    const oo = Object.assign({}, o, { cote: 'droite' });
+    const c = h.formes.corps(oo), ang = Object.assign({}, o.angles || {});
+    const angDe = v => Math.atan2(v[0], v[1]) / RAD, dirDe = a => [Math.sin(a * RAD), Math.cos(a * RAD)];
+    for (const k of ['P', 'L']) {
+      let C = cibles[k]; if (!C) continue;
+      let ax = axes[k];
+      if (g) { C = [2 * X0 - C[0], C[1]]; if (ax != null) ax = 180 - ax; }
+      const S = c.articulations['epaule' + k], E_ = c.articulations['coude' + k], Wr = c.articulations['poignet' + k], Mn = c['main' + k];
+      const lb = Math.hypot(E_[0] - S[0], E_[1] - S[1]), la = Math.hypot(Wr[0] - E_[0], Wr[1] - E_[1]);
+      const hv = [Mn.x - Wr[0], Mn.y - Wr[1]], lm = Math.hypot(...hv);
+      const off = angDe(hv) - angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+      const resoudre = main => {
+        const h2 = dirDe(main + off).map(v => v * lm), W_ = [C[0] - h2[0], C[1] - h2[1]];
+        const d = [W_[0] - S[0], W_[1] - S[1]], D = Math.min(Math.hypot(...d), lb + la - 0.01);
+        const a0 = angDe(d), B = Math.acos(Math.max(-1, Math.min(1, (lb * lb + D * D - la * la) / (2 * lb * D)))) / RAD;
+        const bras = a0 + (coudes[k] === 'avant' ? 1 : -1) * B;
+        const e = [S[0] + lb * Math.sin(bras * RAD), S[1] + lb * Math.cos(bras * RAD)];
+        const ab = angDe([W_[0] - e[0], W_[1] - e[1]]);
+        const pli = Math.abs(((main - ab) % 360 + 540) % 360 - 180);
+        return { pli, bras, ab, main };
+      };
+      let best = null;
+      if (ax == null) {                 // la prise vue par le bout : le poignet droit, la main dans l'axe de l'avant-bras
+        let main = angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+        for (let i = 0; i < 5; i++) { best = resoudre(main); main = best.ab; }
+        best = resoudre(main);
+      } else for (const main of [180 - ax, -ax, 360 - ax]) { const r = resoudre(main); if (!best || r.pli < best.pli) best = r; }
+      ang['bras' + k] = best.bras; ang['avantbras' + k] = best.ab; ang['main' + k] = best.main;
+    }
+    return ang;
+  };
+  // le poing d'un corps simple, sous la forme qu'attend poignee() : sa place et l'axe de la prise
+  const poingDe = (c, k) => { const m = c['main' + k]; return { trou: { x: m.x, y: m.y, axe: [Math.cos(m.angle * RAD), Math.sin(m.angle * RAD)] } }; };
+  const versDeg = (a, b) => Math.atan2(b[1] - a[1], b[0] - a[0]) / RAD;
 
   // Membre arrondi aux deux bouts (le bonhomme).
   const capsule = (a, b, w) => {
@@ -65,6 +110,8 @@ module.exports = (h) => {
     out.push(h.ligne(0, q.gy, z.l, q.gy, h.a.arete));
     // le billot tambour
     out.push(h.rect(x0, ya - Re, xe - x0, 2 * Re, blanc('contour')));
+    // le dessous du billot, à l'ombre, puis le contour repassé
+    out.push(h.rect(x0, ya + 0.35 * Re, xe - x0, 0.65 * Re, h.a.ombre), h.rect(x0, ya - Re, xe - x0, 2 * Re, h.a.contour));
     for (const [a, b, y] of [[104, 134, -9], [112, 138, 7], [166, 200, -6], [172, 196, 10], [304, 372, -8], [318, 366, 6], [398, 416, -5], [454, 466, 8]])
       out.push(h.ligne(a, ya + y, b, ya + y, h.a.fin));
     out.push(h.ligne(x0 - 22, ya, xe - 3, ya, axe));
@@ -115,7 +162,7 @@ module.exports = (h) => {
     const gy = z.h - 18, Rs = 110, cy = gy - 118, cx = 188, r = 11, al = 25;
     const b0 = bras(al, 0), H = [cx + b0[0] * Rs, cy + b0[1] * Rs];   // les mains, sur le bout de la barre, à hauteur de hanche
     // l'homme : 1,5 m de barre = Rs, d'où l'échelle ; debout hors du cercle, les bras tendus sur la barre
-    const ech = Rs / 1500, px = H[0] - 29, pen = 4;
+    const ech = Rs / 1500, px = H[0] - 44, pen = 4;
     return { gy, Rs, cy, cx, r, al, H, b0, ech, px, pen };
   };
   // Le cliquet à l'échelle de la vue 3 : bout de planche T, sens u, pivot à 88.
@@ -124,7 +171,8 @@ module.exports = (h) => {
     const q = M(z), { cx, cy, r, Rs, gy } = q, out = [];
     out.push(h.rect(0, gy, z.l, z.h - gy - 1, h.a.hachure('terre', 'aucun')));
     out.push(h.ligne(0, gy, z.l, gy, h.a.arete));
-    out.push(h.cercle(cx, cy, Rs, h.a.cache));
+    // le cercle que balaie la barre : la zone dangereuse
+    out.push(h.cercle(cx, cy, Rs, h.a.zone));
     // la corde part par-dessus, vers la charge ; elle s'enroule au milieu, plus loin que le poteau
     out.push(h.rect(cx, cy - r - 4, z.l - 1 - cx, 3.8, blanc('detail')));
     // poteau fourchu, entre la corde et les barres : les fourchons montent plus haut que l'axe
@@ -151,12 +199,14 @@ module.exports = (h) => {
     }
     // on pousse vers le bas
     const P = a => `${f(cx + 88 * Math.cos(rad(a)))} ${f(cy + 88 * Math.sin(rad(a)))}`;
-    out.push(h.fleche(`M ${P(157)} A 88 88 0 0 0 ${P(124)}`));
-    // l'homme, hors du cercle : le pictogramme (règle 8), les deux mains serrées sur le bout de la barre
-    const { H, b0 } = q, ax = [-b0[0], -b0[1]], angB = Math.atan2(ax[0], -ax[1]) * 180 / Math.PI;
-    const mainB = (d, da) => ({ x: H[0] + ax[0] * d, y: H[1] + ax[1] * d, pose: 'prise', vue: 'dos', diametre: 6.5, echelle: 0.095, angle: angB + da });
-    out.push(h.formes.personnage({ x: q.px, y: gy, pose: 'debout', penche: q.pen, regard: 6, echelle: q.ech,
-      prises: { proche: mainB(7, -10), loin: mainB(16, -24) } }));
+    out.push(h.geste(`M ${P(157)} A 88 88 0 0 0 ${P(124)}`));
+    // l'homme, hors du cercle : le corps simple (pose « vindas »), les bras recalculés pour que les
+    // deux poings serrent le bout de la barre ; la barre passe devant le poing loin, dans le proche
+    const { H, b0 } = q, ax = [-b0[0], -b0[1]], angB = Math.atan2(b0[1], b0[0]) * 180 / Math.PI;
+    const oV = { x: q.px, y: gy, pose: 'vindas', echelle: q.ech };
+    oV.angles = poserBras(oV, { P: add(H, ax, 7), L: add(H, ax, 16) }, { P: angB, L: angB });
+    const barre = piece([cx + bA[0][0] * Rs, cy + bA[0][1] * Rs], [cx + bA[1][0] * Rs, cy + bA[1][1] * Rs], 6, blanc('arete'), false, false);
+    out.push(String(h.formes.corps(Object.assign(oV, { objetP: barre }))));
     return out.join('\n');
   };
   const renvoisManoeuvre = z => {
@@ -164,7 +214,7 @@ module.exports = (h) => {
     return [
       { n: 6, rond: [cx - 62, cy - 24], cible: [f(cx + b0[0] * 72), f(cy + b0[1] * 72 - 3)], texte: 'barre : pousser vers le bas' },
       { n: 7, rond: [cx - 120, cy - 92], cible: [f(cx + q.Rs * Math.cos(ang)), f(cy + q.Rs * Math.sin(ang))], texte: 'cercle balayé par la barre' },
-      { n: 8, rond: [cx - 166, cy - 12], cible: [f(q.px - 4), q.gy - 88], texte: 'le corps hors du cercle' },
+      { n: 8, rond: [cx - 166, cy - 12], cible: [f(q.px + 4), q.gy - 88], texte: 'le corps hors du cercle' },
       { n: 9, rond: [cx + 116, cy - 62], cible: [cx + 125, cy - q.r - 4.5], texte: 'corde vers la charge' },
     ];
   };

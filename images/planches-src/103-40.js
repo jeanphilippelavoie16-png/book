@@ -200,6 +200,9 @@ module.exports = (h) => {
 
           // la bille écorcée
           out.push(h.chemin([bille(-6, BR), bille(bL, BR), bille(bL, -BR), bille(-6, -BR)].map(V), blanc(A.arete), true));
+          // le dessous de la bille, à l'ombre, puis le contour repassé
+          out.push(h.chemin([bille(-6, -BR * 0.3), bille(bL, -BR * 0.3), bille(bL, -BR), bille(-6, -BR)].map(V), A.ombre, true),
+            h.chemin([bille(-6, BR), bille(bL, BR), bille(bL, -BR), bille(-6, -BR)].map(V), A.arete, true));
           [[-0.35, 1250, 2250], [-0.6, 700, 1500], [0.05, 1650, 2200]].forEach(([k, a, b]) =>
             out.push(h.chemin([bille(a, BR * k), bille(b, BR * k)].map(V), A.fin)));
           out.push(h.chemin(fourche(-1), blanc(A.arete), true));  // la branche de devant
@@ -246,7 +249,7 @@ module.exports = (h) => {
           const cb = V(bille(1850, -20)), ventre = V([BA[0] - 8, BA[1] - 10]), ch = V([XCH, 170]);
           return [
             { n: 1, rond: [z.l - 16, gy - 86], cible: cb, texte: 'bille écorcée, le bout haut dans une fourche' },
-            { n: 2, rond: V([BA[0] + 150, 560]), cible: ventre, texte: 'le ventre sur le bout bloque la peau' },
+            { n: 2, rond: V([BA[0] + 165, 560]), cible: ventre, texte: 'le ventre sur le bout bloque la peau' },
             { n: 3, rond: [ch[0] + 6, gy - 118], cible: ch, texte: 'chaudière d’eau pleine avant d’ouvrir le sac' },
           ];
         },

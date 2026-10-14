@@ -206,9 +206,12 @@ const OBST = {
       grad(p) { const q = S3(p, c), r = ax(q); return U3([q[0] / (r[0] * r[0]), q[1] / (r[1] * r[1]), q[2] / (r[2] * r[2])]); } };
   },
   union(obs, type = 'union') {
+    // une borne basse par pièce (la distance au centre moins le plus grand demi-axe) évite les calculs inutiles
+    const bornes = obs.map(o => o.type === 'bosse' ? { c: o.c, r: Math.max(...o.h) } : null);
+    const loin = (i, p, m) => { const b = bornes[i]; return b && L3(S3(p, b.c)) - b.r > m; };
     return { type, obs,
-      sdf: p => { let m = Infinity; for (const o of obs) { const v = o.sdf(p); if (v < m) m = v; } return m; },
-      grad: p => { let m = Infinity, g = [0, 0, 1]; for (const o of obs) { const v = o.sdf(p); if (v < m) { m = v; g = o.grad(p); } } return g; } };
+      sdf: p => { let m = Infinity; for (let i = 0; i < obs.length; i++) { if (loin(i, p, m)) continue; const v = obs[i].sdf(p); if (v < m) m = v; } return m; },
+      grad: p => { let m = Infinity, g = [0, 0, 1]; for (let i = 0; i < obs.length; i++) { if (loin(i, p, m)) continue; const v = obs[i].sdf(p); if (v < m) { m = v; g = obs[i].grad(p); } } return g; } };
   },
 };
 // la paume du moteur : ses bosses (carpe, hypothénar, thénar), les têtes et les fûts des métacarpiens
@@ -264,7 +267,10 @@ const obstSegments = segs => segs.map(s => {
 
 // ─── la fermeture jusqu'au contact ──────────────────────────────────────────────────────────────────────
 //   segs(q) → les 3 segments ; cles : les articulations dans l'ordre (le segment i est porté par cles[i])
-function fermer({ segs, q0, cles, limites, obst, pas = 2, tol = 0.05, actives }) {
+//   lies : { ipd: { de: 'ipp', k: 0.67, tol: 15 } } — l'IPD suit l'IPP (proportions.json : « l'IPD ne plie pas
+//          seule ») : pendant que l'IPP plie, l'IPD est à k × IPP et sa phalange compte ; puis l'IPD ne bouge
+//          qu'à ± tol de k × IPP
+function fermer({ segs, q0, cles, limites, obst, pas = 2, tol = 0.05, actives, lies = {} }) {
   const q = Object.assign({}, q0);
   const contacts = [];
   const touche = (seg, i) => {
@@ -279,21 +285,36 @@ function fermer({ segs, q0, cles, limites, obst, pas = 2, tol = 0.05, actives })
   };
   cles.forEach((k, i) => {
     if (actives && !actives.includes(k)) return;
-    const lim = limites[k][1];
-    const segDe = (th, long) => { const ss = segs(Object.assign({}, q, { [k]: th })); return long ? prolonge(ss, i) : ss[i]; };
-    if (touche(segDe(q[k], false), i)) {                // un départ en contact : on ouvre d'abord
-      for (let th = q[k] - pas; th >= limites[k][0] - 1e-9; th -= pas) if (!touche(segDe(th, false), i)) { q[k] = th; break; }
+    // les bornes : celles de l'articulation, resserrées si elle suit une autre
+    let bas = limites[k][0], lim = limites[k][1];
+    if (lies[k]) { const L = lies[k], c = L.k * q[L.de]; bas = Math.max(bas, c - L.tol); lim = Math.min(lim, c + L.tol); if (q[k] < bas) q[k] = bas; if (q[k] > lim) q[k] = lim; }
+    // une articulation qui en entraîne une autre (l'IPP et l'IPD)
+    const suiveur = Object.keys(lies).find(j => lies[j].de === k && cles.includes(j));
+    const iS = suiveur ? cles.indexOf(suiveur) : -1;
+    const avec = th => {
+      const qq = Object.assign({}, q, { [k]: th });
+      if (suiveur) qq[suiveur] = borne(lies[suiveur].k * th, limites[suiveur][0], limites[suiveur][1]);
+      return qq;
+    };
+    const segDe = (th, long) => { const ss = segs(avec(th)); return long ? prolonge(ss, i) : ss[i]; };
+    const toucheTout = (th, long) => {
+      const c = touche(segDe(th, long), i);
+      if (c || iS < 0) return c;
+      return touche(segs(avec(th))[iS], iS);
+    };
+    if (toucheTout(q[k], false)) {                      // un départ en contact : on ouvre d'abord
+      for (let th = q[k] - pas; th >= bas - 1e-9; th -= pas) if (!toucheTout(th, false)) { q[k] = th; break; }
     }
     const balaie = long => {
       let th = q[k];
-      const c0 = touche(segDe(th, long), i);
+      const c0 = toucheTout(th, long);
       if (c0) return { th, c: c0 };
       while (th < lim) {
-        const t1 = Math.min(lim, th + pas), c = touche(segDe(t1, long), i);
+        const t1 = Math.min(lim, th + pas), c = toucheTout(t1, long);
         if (c) {
           let lo = th, hi = t1;
-          for (let b = 0; b < 12; b++) { const m = (lo + hi) / 2; if (touche(segDe(m, long), i)) hi = m; else lo = m; }
-          return { th: lo, c: touche(segDe(hi, long), i) };
+          for (let b = 0; b < 12; b++) { const m = (lo + hi) / 2; if (toucheTout(m, long)) hi = m; else lo = m; }
+          return { th: lo, c: toucheTout(hi, long) };
         }
         th = t1;
       }
@@ -306,16 +327,18 @@ function fermer({ segs, q0, cles, limites, obst, pas = 2, tol = 0.05, actives })
     }
     if (r.c) contacts.push({ segment: i, obstacle: r.c.ob.type, point: r.c.e.p });
     q[k] = r.th;
+    if (suiveur) q[suiveur] = borne(lies[suiveur].k * r.th, limites[suiveur][0], limites[suiveur][1]);
   });
   return { q, contacts };
 }
-const LIM = { mcp: [-25, 92], ipp: [-5, 108], ipd: [-15, 85] };
+const LIM = { mcp: [-30, 90], ipp: [-5, 108], ipd: [-10, 80] };      // proportions.json, articulations
 const LIM_POUCE = { mcp: [-20, 70], ip: [-25, 85] };
 function fermerDoigt(S, d, obstacles, o = {}) {
   const q0 = Object.assign({ ecart: 0, mcp: 0, ipp: 0, ipd: 0 }, o.depart || {});
   return fermer({
     segs: q => segments(S, d, chaineDoigt(S, d, q)),
     q0, cles: ['mcp', 'ipp', 'ipd'], limites: Object.assign({}, LIM, o.limites || {}), actives: o.actives,
+    lies: o.libre ? {} : { ipd: { de: 'ipp', k: 0.67, tol: 15 } },
     obst: i => (i === 0 ? obstacles : [...obstacles, S.paume]),
   });
 }
@@ -323,7 +346,9 @@ function fermerDoigt(S, d, obstacles, o = {}) {
 function fermerPouce(S, obstacles, base, o = {}) {
   const q0 = Object.assign({ mcp: -12, ip: -15 }, base);
   const segs = q => segments(S, 'pouce', chainePouce(S, q)).slice(1);   // p1, p2 (meta : la paume)
-  return fermer({ segs, q0, cles: ['mcp', 'ip'], limites: Object.assign({}, LIM_POUCE, o.limites || {}), obst: () => obstacles });
+  // la paume ne compte que pour la dernière phalange : la base de la première est dans le thénar
+  const sansPaume = obstacles.filter(ob => ob !== S.paume);
+  return fermer({ segs, q0, cles: ['mcp', 'ip'], limites: Object.assign({}, LIM_POUCE, o.limites || {}), obst: i => (i === 0 ? sansPaume : obstacles) });
 }
 
 // ─── outils de prise ────────────────────────────────────────────────────────────────────────────────────
@@ -373,12 +398,17 @@ function pouceEnroule(S, cyl, segsD, o = {}) {
     const ch = chainePouce(S, r.q);
     const w = -sensDoigts * tour(ch.P[1], ch.P[3]);
     const bout = r.contacts.some(c => c.segment === 1);
-    const g = ecart(segments(S, 'pouce', ch)[2], cyl).g;
+    const ss = segments(S, 'pouce', ch);
+    const g = ecart(ss[2], cyl).g;
+    // rien ne doit entrer dans l'objet ni dans les doigts
+    let pen = Math.max(0, -ecart(ss[1], cyl).g) + Math.max(0, -g);
+    for (const ob of obst.slice(1, -1)) pen += Math.max(0, -ecart(ss[1], ob).g - 1) + Math.max(0, -ecart(ss[2], ob).g - 1);
+    if (pen > 1.5) return { score: -1e6 - pen };
     const score = w + (bout ? 30 : 0) - 1.5 * Math.max(0, g - 2) - 2 * Math.max(0, r.q.ip - 70) - 1.5 * Math.max(0, -r.q.mcp - 5) - 0.05 * Math.abs(rot - 0.3 * opp);
     return { score, q: r.q, w, bout };
   };
   let best = { score: -Infinity };
-  for (let opp = 10; opp <= 100; opp += 15) for (let cmc = -20; cmc <= 40; cmc += 15) for (const rot of [0, 35, 70, 105, 140]) {
+  for (let opp = 10; opp <= 100; opp += 18) for (let cmc = -20; cmc <= 40; cmc += 20) for (const rot of [0, 40, 80, 120, 160]) {
     const r = note(opp, cmc, rot);
     if (r.score > best.score) best = r;
   }
@@ -388,6 +418,38 @@ function pouceEnroule(S, cyl, segsD, o = {}) {
   const fin = note(r.x[0], r.x[1], r.x[2]);
   return fin.score >= best.score ? fin.q : best.q;
 }
+// le pouce qui referme une prise : sa pulpe sur la face extérieure de la phalange du milieu de l'index (le
+// marteau : le pouce passe par-dessus le manche et vient s'appuyer sur l'index) ; si l'index est trop loin
+// (gros objet), sa pulpe sur l'objet, du côté loin de la paume, le plus loin qu'il atteint
+function pouceAutour(S, cyl, segsD, o = {}) {
+  const obst = [cyl, ...obstSegments(segsD.filter(s => ['index', 'majeur'].includes(s.doigt)))];
+  const p2 = segsD.find(s => s.id === 'index.p2');
+  const vers = (t, k) => {
+    const P = I3(p2.a, p2.b, t);
+    const w = S3(P, cyl.C), ax = M3(cyl.u, D3(w, cyl.u)), out = U3(S3(w, ax));          // loin de l'axe
+    const side = U3(M3(cyl.u, -1));                                                    // vers le pouce
+    const n = U3(A3(M3(out, 1 - k), M3(side, k)));
+    return { G: A3(P, M3(n, rayonVers(p2, t, n) + 0.3)), n: M3(n, -1) };
+  };
+  let best = null;
+  for (const [t, k] of [[0.55, 0.35], [0.4, 0.45], [0.7, 0.3]]) {
+    const v = vers(t, k);
+    const r = pouceVers(S, v.G, v.n, obst, { pref: { mcp: 30, ip: 25 } });
+    if (!best || r.erreur < best.erreur) best = r;
+  }
+  if (best.erreur < 6) return best;
+  // trop loin : la pulpe sur l'objet, côté loin de la paume, du côté du pouce
+  const yb = -38, tC = (yb - cyl.C[1]) / (cyl.u[1] || 1), Cy = A3(cyl.C, M3(cyl.u, tC));
+  let meilleur = null;
+  for (const a of [20, 45, 70, 95]) {
+    const n = U3(rot3(orth([0, 0, 1], cyl.u), cyl.u, -a * Math.sign(cyl.u[1] || 1)));
+    const G = A3(Cy, M3(n, cyl.R + 9.5));
+    const r = pouceVers(S, G, M3(n, -1), obst, { pref: { mcp: 25, ip: 20 } });
+    const sc = r.erreur - a * 0.08;
+    if (!meilleur || sc < meilleur.sc) meilleur = Object.assign(r, { sc });
+  }
+  return meilleur;
+}
 // le pouce dont la pulpe vient en G, tournée vers nG (la normale de la pulpe pointe vers la surface touchée)
 function pouceVers(S, G, nG, obstacles, o = {}) {
   const t = o.t || 0.7, pref = o.pref || { mcp: 20, ip: 15 };
@@ -396,7 +458,7 @@ function pouceVers(S, G, nG, obstacles, o = {}) {
     const err = L3(S3(pp.p, G)), face = 1 - D3(pp.n, nG);
     let pen = 0;
     const ss = segments(S, 'pouce', pp.ch);
-    for (const ob of obstacles) for (let i = 1; i < 3; i++) { const g = ecart(ss[i], ob).g; if (g < -0.3) pen += -g; }
+    for (const ob of obstacles) for (let i = (ob.type === 'cylindre' ? 0 : 1); i < 3; i++) { const g = ecart(ss[i], ob).g; if (g < -0.3) pen += -g; }
     return err * err + 150 * face * face + 40 * pen + 0.004 * ((x[3] - pref.mcp) ** 2 + (x[4] - pref.ip) ** 2) + 0.004 * (x[2] - 0.3 * x[0]) ** 2;
   };
   let best = null;
@@ -425,22 +487,44 @@ const peau = S => {                                   // la peau de la paume sou
   for (let k = 0; k < 60; k++) { if (p.sdf([62, 0, z]) > 0) break; z += 0.5; }
   return z;
 };
+// la peau de la paume en (x, y) : la hauteur z où l'on sort de la paume côté paume
+function peauEn(S, x, y) {
+  let z = -5;
+  while (z < 45 && S.paume.sdf([x, y, z]) <= 0) z += 0.5;
+  return z;
+}
 const PRISES = {
-  // entourer un cylindre de diamètre d (voir l'en-tête)
+  // entourer un cylindre de diamètre d (voir l'en-tête). L'axe est posé contre la paume (decollement : plus
+  // loin, la main en C) ; sa place le long de la paume est CHERCHÉE : celle où le plus de phalanges touchent.
   entourer(S, o) {
     const d = o.diametre || 32, R = d / 2, dec = o.decollement || 0;
     const be = (o.inclinaison !== undefined ? o.inclinaison : 15) * RAD;
     const u = U3([-Math.sin(be), Math.cos(be), o.pente || 0]);
-    // l'axe au creux de la paume, contre elle (decollement : plus loin, la main en C)
     const xm = S.an.doigts.majeur.mcp[0];
-    const H = [o.position !== undefined ? o.position : xm - 16 - 0.1 * R + 0.5 * dec, 0, peau(S) + R + dec];
-    const cyl = OBST.cylindre(H, u, R);
-    const doigts = {};
-    for (const n of DOIGTS) doigts[n] = fermerDoigt(S, n, [cyl], { depart: { ecart: (o.ecarts || {})[n] || 0 } }).q;
+    const essai = x => {
+      const H = [x, 0, Math.max(peauEn(S, x, 0), peauEn(S, x - 0.27 * 20, 20), peauEn(S, x + 0.27 * 20, -20)) + R + dec];
+      const cyl = OBST.cylindre(H, u, R);
+      const doigts = {};
+      let touche = 0, bouts = 0;
+      for (const n of DOIGTS) {
+        const r = fermerDoigt(S, n, [cyl], { depart: { ecart: (o.ecarts || {})[n] || 0 } });
+        doigts[n] = r.q;
+        const ss = segments(S, n, chaineDoigt(S, n, r.q));
+        for (const sg of ss) if (ecart(sg, cyl).g < 0.8) touche++;
+        // le bout qui part dans le vide, loin de l'objet et de la paume : mauvais signe
+        bouts += Math.min(ecart(ss[2], cyl).g, ecart(ss[2], S.paume).g) > 6 ? 1 : 0;
+      }
+      return { H, cyl, doigts, score: touche - 1.5 * bouts - 0.02 * Math.abs(x - (xm - 14 - 0.15 * R)) };
+    };
+    let best = null;
+    if (o.position !== undefined) best = essai(o.position);
+    else for (let x = xm - 36; x <= xm + 4; x += 4) { const r = essai(x); if (!best || r.score > best.score) best = r; }
+    const { H, cyl, doigts } = best;
     const segsD = segsDoigts(S, doigts);
     if (o.pouce === 'long') doigts.pouce = pouceLong(S, cyl, segsD);
     else if (o.pouce === 'libre') doigts.pouce = { opposition: 15, cmc: -5, rotation: 4, mcp: 10, ip: 10 };
-    else doigts.pouce = pouceEnroule(S, cyl, segsD);
+    else if (o.pouce === 'tour') doigts.pouce = pouceEnroule(S, cyl, segsD);
+    else doigts.pouce = pouceAutour(S, cyl, segsD, o).q;
     const objet = { type: d <= 4 ? 'fil' : 'cylindre', diametre: d, centre: H, axe: u, longueur: o.longueur || 1200 };
     return { doigts, objet };
   },
@@ -606,5 +690,5 @@ module.exports = {
   // la géométrie, pour les essais et le moteur
   A3, S3, M3, D3, X3, L3, U3, I3, rot3, orth, RAD, DOIGTS,
   preparer, chaineDoigt, chainePouce, segments, rayonVers, OBST, paumeObstacle, ecart, ecartMin, obstSegments,
-  fermer, fermerDoigt, fermerPouce, pulpe, cherche, pouceEnroule, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
+  fermer, fermerDoigt, fermerPouce, peauEn, pulpe, cherche, pouceEnroule, pouceAutour, pouceVers, pouceSurPhalanges, pouceLong, PRISES, peau,
 };

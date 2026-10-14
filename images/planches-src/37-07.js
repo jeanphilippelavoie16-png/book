@@ -49,16 +49,22 @@ module.exports = (h) => {
   const corps = (cle, o) => memo[cle] || (memo[cle] = F.corps(Object.assign({ echelle: E, trait: 'fort', pieds: 'nu' }, o)));
 
   // ── 1. L'arrière de la cuisse : assis en long sur le banc, la jambe proche allongée dessus ──
-  // La jambe de la pose est à l'horizontale, au-dessus du dessous des fesses : penchée de 2,5° vers
-  // le bas, le mollet et le talon se posent sur le banc ; les avant-bras suivent jusqu'à la cheville.
-  const JAMBE = { cuisseP: 92.5, jambeP: 92.5, avantbrasP: 77, avantbrasL: 82 };
+  // La jambe de la pose est à l'horizontale, au-dessus du dessous des fesses : penchée de 4° vers
+  // le bas, le mollet et le talon se posent sur le banc ; les bras, recalés (Nelder-Mead sur
+  // corps(), lot 3), mettent les poings sur le bas du tibia. Le dessus du banc : le dessous des
+  // fesses, lu sur le corps sans la jambe loin ni les bras (le .siege du moteur tient compte de la
+  // cuisse loin, qui descend : il tombe 27 mm trop bas).
+  const JAMBE = { cuisseP: 86, jambeP: 86, brasP: 18.1, avantbrasP: 84.3, brasL: 13.2, avantbrasL: 84.5 };
   const geoIschios = z => {
     const y0 = z.h - 8;
     const c0 = corps('i0-' + z.l, { x: 0, y: y0, pose: 'ischios', angles: JAMBE });
     // centré : des fesses (le siège) au bout du pied
     const x = (z.l - (c0.boite.x1 - c0.siege[0])) / 2 - c0.siege[0] + 10;
     const c = corps('i-' + z.l, { x, y: y0, pose: 'ischios', angles: JAMBE });
-    return { y0, c };
+    const H = c.articulations.hancheP;
+    const seul = corps('is-' + z.l, { x: H[0], y: H[1], appui: 'aucun', pose: 'ischios', angles: JAMBE, masquer: ['jambeL', 'brasP', 'brasL'] });
+    const banc = Math.max(...coupesX(seul, H[0]));
+    return { y0, c, banc };
   };
   // ── 2. L'avant de la cuisse : debout, la main proche à plat au mur ──
   const geoQuad = z => {
@@ -90,11 +96,11 @@ module.exports = (h) => {
       ischios: {
         titre: 'L’arrière de la cuisse',
         dessin: z => {
-          const { y0, c } = geoIschios(z), J = c.articulations, out = [];
+          const { y0, c, banc } = geoIschios(z), J = c.articulations, out = [];
           out.push(h.ligne(6, y0, z.l - 6, y0, A.arete));
           out.push(String(c));
           // le banc, par-dessus : son flanc cache la jambe loin qui passe derrière lui
-          const top = c.siege[1], ep = 42 * E, g = c.siege[0] - 300 * E, d = Math.min(z.l - 8, c.boite.x1 + 40 * E);
+          const top = banc, ep = 42 * E, g = c.siege[0] - 300 * E, d = Math.min(z.l - 8, c.boite.x1 + 40 * E);
           out.push(h.rect(g, top, d - g, ep, BLANC));
           for (const t of [0.36, 0.68]) out.push(h.ligne(g + 40 * E, top + ep * t, d - 60 * E, top + ep * t, A.fin));
           for (const xp of [g + 50 * E, d - 120 * E]) out.push(h.rect(xp, top + ep, 70 * E, y0 - top - ep, BLANC));
@@ -105,14 +111,14 @@ module.exports = (h) => {
         },
         renvois: z => {
           const { c } = geoIschios(z), J = c.articulations;
-          // le dessus de la jambe allongée, entre le genou et la cheville
-          const xt = J.genouP[0] + 0.35 * (J.chevilleP[0] - J.genouP[0]), ya = J.genouP[1] + 0.35 * (J.chevilleP[1] - J.genouP[1]);
-          const tibia = [xt, Math.min(...coupesX(c, xt).filter(y => y > ya - 80 * E && y < ya + 5))];
+          // le dessous du mollet, posé sur le banc (le dessus est sous les bras et le tronc)
+          const xt = J.genouP[0] + 0.3 * (J.chevilleP[0] - J.genouP[0]), ya = J.genouP[1] + 0.3 * (J.chevilleP[1] - J.genouP[1]);
+          const tibia = [xt, Math.max(...coupesX(c, xt).filter(y => y > ya && y < ya + 80 * E))];
           // le milieu du dos : du milieu du tronc, vers l'arrière jusqu'au contour
           const m = fois(plus(J.bassin, J.cou), 0.5), u = uni([J.cou[0] - J.bassin[0], J.cou[1] - J.bassin[1]]), n = [u[1], -u[0]];
-          const dos = plus(m, fois(n, -112 * E));
+          const dos = plus(m, fois(n, 108 * E));
           return [
-            { n: 1, rond: borne(z, [tibia[0] - 30, tibia[1] - 70]), cible: tibia, texte: 'une jambe allongée sur le banc' },
+            { n: 1, rond: borne(z, [tibia[0] + 40, tibia[1] + 40]), cible: tibia, texte: 'une jambe allongée sur le banc' },
             { n: 2, rond: borne(z, [J.hancheP[0] - 50, J.hancheP[1] - 16]), cible: J.hancheP, texte: 'penché à partir des hanches' },
             { n: 3, rond: borne(z, [dos[0] - 52, dos[1] - 26]), cible: dos, texte: 'le dos reste droit' },
           ];

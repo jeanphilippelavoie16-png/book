@@ -17,6 +17,7 @@
 //           radial, ulnaire, dorsal, palmaire] }, repère de la main droite, mm d'homme (le moteur met à l'âge).
 //           Si le moteur n'exporte plus FORMES.paume, paume vaut undefined et il garde la sienne.
 //   bosses()  les ajouts seuls (talon, coussinets), pour qui veut les poser sur sa propre paume.
+//   objetDeVue(objet, sq, M, outils)  l'objet tenu coupé au ras de la main, de profil (voir plus bas).
 //   loin    { vue: [pièces] } : ce qui est gris de profil quelle que soit la pose (à fusionner avec pose.loin) :
 //           vu côté auriculaire, le pouce est de l'autre côté de la paume ; ce qui en dépasse est le côté loin,
 //           comme le bras loin des corps.
@@ -47,7 +48,8 @@
 // thénar du côté de sa pulpe (vers la paume) : la grosse masse à la base du pouce, qui se fond dans le talon.
 //
 // Mains plus petites (femme, enfants) : le moteur met ces tables à l'échelle (proportions.json, agent 4).
-// Feuille de contrôle : scratchpad mains-lib/agent2/feuille.js.
+// Feuilles de contrôle : scratchpad mains-lib/agent2/feuille-finale.js (toutes les poses, de profil, en grand et
+// à la taille d'une planche), coude.js (l'avant-bras entier), ages.js, coupe.js (l'objet coupé de profil).
 
 'use strict';
 
@@ -132,5 +134,41 @@ function paume() {
   return cache;
 }
 
-module.exports = { profil, loin: { auriculaire: ['pouce'] }, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, COUSSINET } };
+// ─── l'objet tenu, de profil ─────────────────────────────────────────────────────────────────────────────
+// Un manche tenu à pleine main traverse le poing de part en part, presque dans l'axe de la vue de profil : sa
+// moitié proche vient vers l'œil et couvrirait tout le poing. Le dessin le coupe au ras de la face proche des
+// doigts qui l'entourent : on voit la coupe dans le trou du poing, les doigts autour d'elle ; la moitié loin
+// file derrière la paume et ne se montre que là où elle dépasse.
+//   objetDeVue(objet, sq, M, { demiAxes, F }) → null (l'objet est dans le plan de la vue : rien à couper) ou
+//     { objet: le cylindre raccourci (même axe, centre et longueur de la partie gardée),
+//       coupe: { centre: [x, y, z] (repère de la main), axe, r } (la face coupée, à dessiner hachurée) }
+//   M : la matrice de la vue (3 × 3, la 3e ligne est la profondeur, l'œil du côté des petites).
+const DOIGTS = ['index', 'majeur', 'annulaire', 'auriculaire'];
+function objetDeVue(objet, sq, M, outils = {}) {
+  if (!objet || objet.type === 'plan' || objet.type === 'sphere' || !objet.centre || !objet.axe || !sq || !sq.segments) return null;
+  const dep = p => M[2][0] * p[0] + M[2][1] * p[1] + M[2][2] * p[2];
+  const A = objet.axe, dA = dep(A);
+  if (Math.abs(dA) < 0.35) return null;
+  const kW = (sq.age && sq.age.kW) || 1;
+  let dMin = Infinity;
+  for (const d of DOIGTS) for (const k of ['p1', 'p2', 'p3']) {
+    const id = `${d}.${k}`, S = sq.segments[id];
+    if (!S) continue;
+    const w = outils.demiAxes ? outils.demiAxes(outils.F, id, 0.5, kW) : [10, 10, 9, 10];
+    // la demi-épaisseur vers l'œil : le côté de la section qui regarde vers les profondeurs petites
+    // (demiAxes : [radial (+r), ulnaire (−r), dorsal (+n), palmaire (−n)])
+    const er = dep(S.r), en = dep(S.n);
+    const h = Math.hypot(er * (er > 0 ? w[1] : w[0]), en * (en > 0 ? w[3] : w[2]));
+    for (const t of [0, 0.5, 1]) dMin = Math.min(dMin, dep([0, 1, 2].map(j => S.de[j] + (S.a[j] - S.de[j]) * t)) - h);
+  }
+  if (!isFinite(dMin)) return null;
+  const L = objet.longueur || 1200;
+  const sCut = (dMin + 0.5 - dep(objet.centre)) / dA, sFar = dA > 0 ? L / 2 : -L / 2;
+  if ((sFar - sCut) * Math.sign(sFar) <= 0) return null;
+  const s0 = Math.min(sCut, sFar), s1 = Math.max(sCut, sFar);
+  const P = s => [0, 1, 2].map(j => objet.centre[j] + A[j] * s);
+  return { objet: Object.assign({}, objet, { centre: P((s0 + s1) / 2), longueur: s1 - s0 }), coupe: { centre: P(sCut), axe: A, r: (objet.diametre || 32) / 2 } };
+}
+
+module.exports = { profil, objetDeVue, loin: { auriculaire: ['pouce'] }, bosses: () => bosses((() => { try { return require('./moteur'); } catch (e) { return null; } })()), tables: { INDEX, K, POUCE, AVANTBRAS, DOS_PAUME, FACE_PAUME, TALON, COUSSINET } };
 Object.defineProperty(module.exports, 'paume', { enumerable: true, get: paume });

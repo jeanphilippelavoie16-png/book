@@ -79,9 +79,12 @@
 //   t de 0 (articulation proximale) à 1 (distale), mm d'homme adulte. Les clés s'interpolent en cubique
 //   monotone. Le bout du doigt (p3, pouce.p2) se ferme au-delà de t = 1 par un arrondi de la demi-largeur.
 //   La paume n'est pas un segment : c'est l'enveloppe convexe de bosses (FORMES.paume, même convention de
-//   demi-axes, dans le repère de la main : [le long de x, radial, ulnaire, dorsal, palmaire]).
+//   demi-axes, dans le repère de la main : [le long de x, radial, ulnaire, dorsal, palmaire]), des têtes des
+//   métacarpiens (FORMES.tete[doigt], centrées au MCP) et de leurs fûts (FORMES.fut, ou fut[doigt], à 35 et 65 %
+//   du métacarpien).
 //
-// profil.js (agent 2) exporte { profil: { id: [[t, dD, dP], …], … }, paume?: [bosses…], avantbras?: … } :
+// profil.js (agent 2) exporte { profil: { id: [[t, dD, dP], …], … }, paume?: [bosses…], tete?: { doigt: h },
+// fut?: h | { doigt: h } } :
 // le moteur prend ses tables à la place des provisoires d'ici dès qu'il existe. Il peut aussi exporter
 // pieces(sq, vue, outils) → des bosses 3D de plus (coussinets, talon de la main), même format que la paume.
 //
@@ -354,43 +357,69 @@ function interp(cles) {
 }
 
 // ─── l'anatomie : la main de l'homme adulte (mm) ────────────────────────────────────────────────────────
-// Repères du dessin, à la mesure d'une main d'homme de 190 du pli du poignet au bout du majeur (largeur aux
-// métacarpiens ≈ 86, poignet ≈ 60). proportions.json (agent 4) les met à l'échelle de chaque âge.
+// La main de l'homme ramenée à 190 du pli du poignet au bout du majeur, largeur 88,5 aux métacarpiens :
+// proportions.json, bloc dessin_homme (agent 4 : Greiner 1991 recoupé ANSUR II), lu au chargement ; les
+// valeurs d'ici en sont la copie, pour un moteur qui tourne sans le fichier. z (l'arche des métacarpiens) et les
+// bases des métacarpiens (cmc) sont du dessin.
 // L : longueurs des phalanges d'articulation à articulation ; la dernière va jusqu'au centre de l'arrondi du
-// bout (le bout réel est à une demi-largeur plus loin).
+// bout (la longueur sourcée, pulpe comprise, moins le rayon du bout).
 const ANATOMIE = {
-  longueur: 190, largeur: 86,
+  longueur: 190, largeur: 88.5,
   doigts: {
-    index:       { mcp: [88, -24, -1], cmc: [12, -15, 1], L: [43, 25, 16] },
-    majeur:      { mcp: [89, -5, -3], cmc: [12, -4, 0], L: [47, 29, 17.5] },
-    annulaire:   { mcp: [85, 13, -1], cmc: [12, 7, 1], L: [44, 28, 16.5] },
-    auriculaire: { mcp: [77, 29, 3], cmc: [12, 17, 3], L: [35, 20, 15] },
+    index:       { mcp: [75.1, -34.5, -1], cmc: [12, -18, 1], L: [46.9, 22.2, 26.8], rBout: 8.7 },
+    majeur:      { mcp: [81.3, -11.5, -3], cmc: [12, -6, 0], L: [52.3, 26.4, 26.8], rBout: 8.5 },
+    annulaire:   { mcp: [74.4, 11.5, -1], cmc: [12, 6, 1], L: [50.9, 23.9, 27.4], rBout: 7.9 },
+    auriculaire: { mcp: [62.5, 34.5, 3], cmc: [12, 17, 3], L: [39.7, 17.1, 24.9], rBout: 7.0 },
   },
   // le pouce au repos (opposition 0, cmc 0) : le métacarpien part à 28° de l'axe, côté radial, plongé de 14°
   // vers la paume ; l'ongle regarde côté radial et dorsal
-  pouce: { cmc: [16, -21, 9], L: [46, 32, 18.5], angle: 28, plongee: 14, ongle: [0, -0.75, -0.66] },
-  avantbras: { longueur: 255 },
+  pouce: { cmc: [22.8, -21.2, 9], L: [44.1, 31.4, 26.6], rBout: 10, angle: 28, plongee: 14, ongle: [0, -0.75, -0.66] },
+  avantbras: { longueur: 255.5 },
 };
+(function lireDessin() {
+  try {
+    const pj = JSON.parse(fs.readFileSync(path.join(__dirname, 'proportions.json'), 'utf8'));
+    const d = pj && pj.dessin_homme;
+    if (!d || !d.doigts) return;
+    if (d.largeur) ANATOMIE.largeur = d.largeur;
+    for (const k of Object.keys(ANATOMIE.doigts)) {
+      const s = d.doigts[k], A = ANATOMIE.doigts[k];
+      if (!s || !s.mcp) continue;
+      A.mcp = [s.mcp[0], s.mcp[1], A.mcp[2]];
+      A.L = [s.p1, s.p2, s.p3];
+    }
+    if (d.pouce) {
+      const P = ANATOMIE.pouce;
+      if (d.pouce.cmc) P.cmc = [d.pouce.cmc[0], d.pouce.cmc[1], P.cmc[2]];
+      P.L = [d.pouce.metacarpe || P.L[0], d.pouce.p1 || P.L[1], d.pouce.p2 || P.L[2]];
+    }
+    if (d.avantbras && d.avantbras.longueur) ANATOMIE.avantbras.longueur = d.avantbras.longueur;
+  } catch (e) { /* le fichier manque ou s'écrit : les valeurs d'ici */ }
+})();
+// la dernière phalange va au centre de l'arrondi
+for (const A of Object.values(ANATOMIE.doigts).concat([ANATOMIE.pouce])) A.L = [A.L[0], A.L[1], A.L[2] - A.rBout];
 
 // Les formes des segments (voir l'en-tête). Les doigts un peu plus pleins qu'au naturel : une notice arrondit.
 const FORMES = {
   dos: {
-    'index.p1': [[0, 10.8, 10.8], [1, 9.9, 9.9]],
-    'index.p2': [[0, 9.9, 9.9], [1, 8.9, 8.9]],
-    'index.p3': [[0, 8.9, 8.9], [0.5, 8.5, 8.5], [1, 7.6, 7.6]],
-    'majeur.p1': [[0, 11.0, 11.0], [1, 10.2, 10.2]],
-    'majeur.p2': [[0, 10.2, 10.2], [1, 9.2, 9.2]],
-    'majeur.p3': [[0, 9.2, 9.2], [0.5, 8.8, 8.8], [1, 7.8, 7.8]],
-    'annulaire.p1': [[0, 10.5, 10.5], [1, 9.7, 9.7]],
-    'annulaire.p2': [[0, 9.7, 9.7], [1, 8.7, 8.7]],
-    'annulaire.p3': [[0, 8.7, 8.7], [0.5, 8.3, 8.3], [1, 7.4, 7.4]],
-    'auriculaire.p1': [[0, 9.5, 9.5], [1, 8.7, 8.7]],
-    'auriculaire.p2': [[0, 8.7, 8.7], [1, 7.8, 7.8]],
-    'auriculaire.p3': [[0, 7.8, 7.8], [0.5, 7.4, 7.4], [1, 6.6, 6.6]],
+    // largeurs : racine, IPP, IPD de proportions.json (ages.homme × 0,979) ; le bout, un peu moins que l'IPD
+    'index.p1': [[0, 11.6, 11.6], [0.5, 11.1, 11.1], [1, 10.9, 10.9]],
+    'index.p2': [[0, 10.9, 10.9], [1, 9.45, 9.45]],
+    'index.p3': [[0, 9.45, 9.45], [0.55, 9.3, 9.3], [1, 8.7, 8.7]],
+    'majeur.p1': [[0, 11.8, 11.8], [0.5, 11.0, 11.0], [1, 10.8, 10.8]],
+    'majeur.p2': [[0, 10.8, 10.8], [1, 9.15, 9.15]],
+    'majeur.p3': [[0, 9.15, 9.15], [0.55, 9.0, 9.0], [1, 8.5, 8.5]],
+    'annulaire.p1': [[0, 11.0, 11.0], [0.5, 10.4, 10.4], [1, 10.1, 10.1]],
+    'annulaire.p2': [[0, 10.1, 10.1], [1, 8.55, 8.55]],
+    'annulaire.p3': [[0, 8.55, 8.55], [0.55, 8.4, 8.4], [1, 7.9, 7.9]],
+    'auriculaire.p1': [[0, 9.8, 9.8], [0.5, 9.2, 9.2], [1, 9.0, 9.0]],
+    'auriculaire.p2': [[0, 9.0, 9.0], [1, 7.65, 7.65]],
+    'auriculaire.p3': [[0, 7.65, 7.65], [0.55, 7.5, 7.5], [1, 7.0, 7.0]],
     'pouce.meta': [[0, 13, 14], [0.35, 15, 15.5], [0.7, 13.5, 13.5], [1, 11.6, 11.6]],
-    'pouce.p1': [[0, 11.4, 11.4], [1, 10.9, 10.9]],
-    'pouce.p2': [[0, 10.9, 10.9], [0.5, 10.6, 10.6], [1, 9.6, 9.6]],
-    'avantbras': [[0, 28.5, 28.5], [0.12, 30.2, 30], [0.3, 34.5, 34], [0.55, 39.5, 38], [0.75, 41, 39.5], [1, 38.5, 37]],
+    'pouce.p1': [[0, 12, 12], [1, 11.3, 11.3]],
+    'pouce.p2': [[0, 11.3, 11.3], [0.5, 11.0, 11.0], [1, 10, 10]],
+    // le poignet : 64 de large (proportions.json) ; l'avant-bras s'élargit vers le coude
+    'avantbras': [[0, 32, 32], [0.12, 33.3, 33.1], [0.3, 37, 36.4], [0.55, 41.5, 40], [0.75, 43, 41.5], [1, 40, 38.5]],
   },
   // provisoire, en attendant profil.js (agent 2)
   profil: {
@@ -409,19 +438,19 @@ const FORMES = {
     'pouce.meta': [[0, 10.5, 16], [0.4, 11, 18], [0.75, 10, 13.5], [1, 9.8, 11]],
     'pouce.p1': [[0, 9.6, 10.6], [1, 8.9, 9.9]],
     'pouce.p2': [[0, 8.9, 9.9], [0.5, 8.5, 9.6], [1, 7.2, 8.6]],
-    'avantbras': [[0, 18, 20], [0.12, 20, 22.5], [0.3, 24, 27], [0.65, 32, 33], [1, 31, 31]],
+    'avantbras': [[0, 20.5, 22], [0.12, 22, 24], [0.3, 25, 28], [0.65, 32, 33], [1, 31, 31]],
   },
   // la paume : des bosses dont l'enveloppe convexe fait la paume, dans le repère de la main
   // { c: centre, h: [le long de x, radial (−y), ulnaire (+y), dorsal (−z), palmaire (+z)] }
   paume: [
-    { nom: 'carpe', c: [3, 1, 1], h: [7, 28, 28.5, 15, 15.5] },
-    { nom: 'carpe2', c: [16, 1, 2], h: [10, 28, 28.5, 15, 16] },
-    { nom: 'hypothenar', c: [42, 25, 5], h: [26, 10, 12.5, 10.5, 14] },
-    { nom: 'thenar', c: [30, -17, 9], h: [18, 8, 8, 8, 12] },
+    { nom: 'carpe', c: [3, 0, 1], h: [7, 32, 32.5, 17, 18] },
+    { nom: 'carpe2', c: [16, 0, 2], h: [10, 33, 33.5, 16, 17] },
+    { nom: 'hypothenar', c: [36, 29, 5], h: [22, 10, 12, 10.5, 14] },
+    { nom: 'thenar', c: [33, -23, 10], h: [16, 8, 8, 8, 12] },
   ],
   // les têtes des métacarpiens (au MCP) et leurs fûts : h comme la paume
-  tete: { index: [9, 12, 10, 11.5, 14], majeur: [9, 10.5, 10.5, 12, 14], annulaire: [9, 10.5, 10.5, 11.5, 14], auriculaire: [9, 10, 11.5, 11, 13.5] },
-  fut: [12, 9.5, 9.5, 12, 14],
+  tete: { index: [9, 12.5, 11.5, 11.5, 14], majeur: [9, 11.8, 11.8, 12, 14], annulaire: [9, 11.5, 11.5, 11.5, 14], auriculaire: [9, 11, 11.5, 11, 13.5] },
+  fut: [12, 11, 11, 12, 14],
 };
 
 // ─── les poses intégrées (en attendant mains/poses.json) ──────────────────────────────────────────────────
@@ -491,7 +520,8 @@ function echellesAge(age) {
 function formes() {
   const P = chargerJS('profil');
   const prof = Object.assign({}, FORMES.profil, (P && (P.profil || (P.FORMES && P.FORMES.profil))) || {});
-  return { dos: FORMES.dos, profil: prof, paume: (P && P.paume) || FORMES.paume, ext: P };
+  const tete = Object.assign({}, FORMES.tete, (P && P.tete) || {});
+  return { dos: FORMES.dos, profil: prof, paume: (P && P.paume) || FORMES.paume, tete, fut: (P && P.fut) || FORMES.fut, ext: P };
 }
 const CACHE_INTERP = new Map();
 function table(F, id) {
@@ -635,7 +665,7 @@ function mettreAEchelle(an, kL, kW) {
   if (kL === 1 && kW === 1) return an;
   const sc = p => [p[0] * kL, p[1] * kW, p[2] * kW];
   const doigts = {};
-  for (const d of DOIGTS) { const A = an.doigts[d]; doigts[d] = { mcp: sc(A.mcp), cmc: sc(A.cmc), L: A.L.map(l => l * kL) }; }
+  for (const d of DOIGTS) { const A = an.doigts[d]; doigts[d] = { ...A, mcp: sc(A.mcp), cmc: sc(A.cmc), L: A.L.map(l => l * kL) }; }
   return { ...an, doigts, pouce: { ...an.pouce, cmc: sc(an.pouce.cmc), L: an.pouce.L.map(l => l * kL) }, avantbras: { longueur: an.avantbras.longueur * kL } };
 }
 
@@ -924,9 +954,9 @@ function construire(o) {
     for (const b0 of F.paume) { const b = scB(b0); const r = bosse(b.c, b.h, M); pts.push(...r.pts); sph.push(r.sphere); }
     for (const d of DOIGTS) {
       const S = sq.segments[d + '.meta'];
-      const h = FORMES.tete[d].map((v, i) => v * (i ? kW : kk.kL));
+      const h = F.tete[d].map((v, i) => v * (i ? kW : kk.kL));
       const r = bosse(S.a, h, M); pts.push(...r.pts); sph.push(r.sphere);
-      for (const t of [0.35, 0.65]) { const rr = bosse(i3(S.de, S.a, t), FORMES.fut.map((v, i) => v * (i ? kW : kk.kL)), M); pts.push(...rr.pts); sph.push(rr.sphere); }
+      for (const t of [0.35, 0.65]) { const rr = bosse(i3(S.de, S.a, t), (Array.isArray(F.fut) ? F.fut : (F.fut[d] || FORMES.fut)).map((v, i) => v * (i ? kW : kk.kL)), M); pts.push(...rr.pts); sph.push(rr.sphere); }
     }
     const polys = [enveloppe(pts)];
     // le métacarpien du pouce
@@ -1036,7 +1066,8 @@ function relations(pieces, vue) {
   return rel;
 }
 // devant(i, j) : la pièce i passe-t-elle devant la pièce j ?
-const PRIORITE = { dos: ['majeur', 'annulaire', 'index', 'auriculaire', 'pouce'], paume: ['pouce', 'index', 'auriculaire', 'annulaire', 'majeur'] };
+const PRIORITE = { dos: ['majeur', 'annulaire', 'index', 'auriculaire', 'pouce'], paume: ['pouce', 'index', 'auriculaire', 'annulaire', 'majeur'],
+  pouce: ['pouce', 'index', 'majeur', 'annulaire', 'auriculaire'], auriculaire: ['auriculaire', 'annulaire', 'majeur', 'index', 'pouce'] };
 
 // ─── la construction du dessin (repère de la vue, mm) ─────────────────────────────────────────────────────
 function dessiner(o) {
@@ -1081,23 +1112,69 @@ function dessiner(o) {
       if (dev) devantObjet.add(i);
     });
   }
-  // ── les teintes : un doigt derrière l'objet (qu'il chevauche), ou caché aux deux tiers par un autre doigt ──
-  pieces.forEach((P, i) => {
-    P.gris = !!o.loin;
-    if (P.groupe === 'base') return;
-    if (P.surObjet && !devantObjet.has(i) && P.partObjet > 0.35) P.gris = true;
-    const loinImp = pose.loin && pose.loin[vue];
-    if (loinImp && (loinImp.includes(P.id) || loinImp.includes(P.groupe))) P.gris = true;
-  });
-  // cachée par d'autres doigts (non fondus) aux deux tiers
-  pieces.forEach((P, i) => {
-    if (P.groupe === 'base' || P.gris) return;
-    const devants = rel.filter(R => !R.fondu && ((R.A === i && !R.iDevant) || (R.B === i && R.iDevant))).map(R => pieces[R.A === i ? R.B : R.A].region);
-    if (!devants.length) return;
-    const cache = inter(P.region, unionCL(devants));
-    if (Math.abs(aireCL(cache)) > 0.66 * Math.abs(aireCL(P.region))) P.gris = true;
-  });
+  // ── les doigts entiers (groupes) : leur contour, leurs sphères, l'ordre entre eux ──
+  const groupes = new Map();
+  pieces.forEach((P, i) => { if (!groupes.has(P.groupe)) groupes.set(P.groupe, { nom: P.groupe, ids: [], spheres: [] }); const G = groupes.get(P.groupe); G.ids.push(i); G.spheres.push(...P.spheres); });
+  for (const G of groupes.values()) {
+    G.region = unionCL(G.ids.map(i => pieces[i].region)); G.boite = boiteCL(G.region); G.aire = Math.abs(aireCL(G.region));
+    G.base = G.nom === 'base';
+  }
+  // l'ordre entre deux doigts : la moyenne, pondérée par les recouvrements, de l'écart de profondeur
+  const ordreG = new Map();
+  {
+    const acc = new Map();
+    for (const R of rel) {
+      const a = pieces[R.A].groupe, b = pieces[R.B].groupe;
+      if (a === b || a === 'base' || b === 'base') continue;
+      const w = Math.max(0.5, Math.abs(aireCL(R.I))), k = a < b ? a + ',' + b : b + ',' + a, sg = a < b ? 1 : -1;
+      const v = acc.get(k) || { s: 0, w: 0 }; v.s += sg * w * R.avant; v.w += w; acc.set(k, v);
+    }
+    for (const [k, v] of acc) {
+      const [a, b] = k.split(','); let m = v.s / v.w, aDevant = m < 0;
+      if (Math.abs(m) < 0.6) aDevant = prio.indexOf(a) <= prio.indexOf(b);
+      ordreG.set(a + ',' + b, aDevant); ordreG.set(b + ',' + a, !aDevant);
+    }
+  }
+  // la profondeur du bord d'un groupe en p : la sphère la plus proche de l'œil dont le cercle passe par p
+  const rim = (G, p) => {
+    let best = Infinity, near = Infinity, dmin = Infinity;
+    for (const q of G.spheres) {
+      const d = Math.hypot(p[0] - q.x, p[1] - q.y), e = Math.abs(d - q.r);
+      if (e < Math.max(1.2, 0.18 * q.r) && q.z < best) best = q.z;
+      if (e < dmin) { dmin = e; near = q.z; }
+    }
+    return isFinite(best) ? best : near;
+  };
+  const devantG = (G, p) => { let z = Infinity; for (const i of G.ids) { const P = pieces[i]; if (p[0] < P.boite.x0 - 1 || p[0] > P.boite.x1 + 1 || p[1] < P.boite.y0 - 1 || p[1] > P.boite.y1 + 1) continue; z = Math.min(z, profondeur(P, p).devant); } return z; };
 
+  // ── les teintes : un doigt entier derrière l'objet, ou caché pour moitié par ce qui passe devant lui ──
+  pieces.forEach(P => { P.gris = !!o.loin; });
+  const loinImp = [].concat((pose.loin && pose.loin[vue]) || [], (C.F.ext && C.F.ext.loin && C.F.ext.loin[vue]) || []);
+  for (const G of groupes.values()) {
+    if (G.base) continue;
+    let gris = loinImp.includes(G.nom) || G.ids.some(i => loinImp.includes(pieces[i].id));
+    // derrière l'objet
+    if (!gris && ob && ob.region.length) {
+      let derr = 0; for (const i of G.ids) { const P = pieces[i]; if (P.surObjet && !devantObjet.has(i)) derr += P.partObjet * Math.abs(aireCL(P.region)); }
+      if (derr > 0.3 * G.aire) gris = true;
+    }
+    // caché par les autres doigts devant lui, ou par la paume quand elle passe nettement devant
+    if (!gris) {
+      const caches = [];
+      for (const H of groupes.values()) {
+        if (H === G || !seCroisent(G.boite, H.boite)) continue;
+        if (!H.base) { if (ordreG.get(H.nom + ',' + G.nom)) caches.push(H.region); continue; }
+        for (const j of H.ids) {
+          const I = inter(G.region, pieces[j].region); if (!I.length) continue;
+          const ech = echantillons(I, 6); if (!ech.length) continue;
+          let dv = 0; for (const p of ech) dv += devantG(G, p) - profondeur(pieces[j], p).devant;
+          if (dv / ech.length > SEUIL * 2) caches.push(I);
+        }
+      }
+      if (caches.length && Math.abs(aireCL(inter(G.region, unionCL(caches)))) > 0.55 * G.aire) gris = true;
+    }
+    if (gris) for (const i of G.ids) pieces[i].gris = true;
+  }
   T_('objet+teintes');
   // ── l'ordre de peinture : tri topologique sur « devant » ──
   const n = pieces.length;
@@ -1121,73 +1198,71 @@ function dessiner(o) {
   let U = lisserCL(ferme(unionCL([tout, poignetRond]), 1.2), 0.7, 5);
   if (coupe && coupe.region) U = moins(U, coupe.region);
   T_('U');
-  // ── les traits intérieurs : le bord d'une pièce qui passe devant une autre ──
-  const traits = pieces.map(() => []);                   // par pièce : des polylignes (mm)
+  // ── les traits intérieurs : le bord d'un doigt (ou de la paume) qui passe devant autre chose ──
+  // Un doigt devant un autre doigt : le contour du doigt de devant, là où il touche ou recouvre l'autre (une
+  // seule ligne entre deux doigts serrés). Un doigt et la paume : seulement là où l'un passe nettement devant
+  // l'autre (le doigt replié sur la paume) ; à la racine, ils se fondent. Deux phalanges d'un même doigt : rien.
+  const traits = pieces.map(() => []);                   // rangés par pièce : la première du groupe
+  for (const G of groupes.values()) { G.retrait = decale(G.region, -E); G.gonfle = decale(G.region, 0.6); G.bord = contourDe(G.region); }
   for (const P of pieces) P.retrait = decale(P.region, -E);
-  // chaque doigt d'une pièce : son contour sans les coupes entre phalanges
-  const groupes = new Map();
-  for (const P of pieces) groupes.set(P.groupe, (groupes.get(P.groupe) || []).concat([P.region]));
-  for (const [g, l] of groupes) groupes.set(g, unionCL(l));
   const Uin = decale(U, -E);
-  const dansBoite = (P, p) => p[0] >= P.boite.x0 && p[0] <= P.boite.x1 && p[1] >= P.boite.y0 && p[1] <= P.boite.y1;
-  const relDe = new Map(); for (const R of rel) { relDe.set(R.A + ',' + R.B, R); relDe.set(R.B + ',' + R.A, R); }
-  for (let i = 0; i < n; i++) {
-    const A = pieces[i];
+  const dansBoite = (B, p) => p[0] >= B.x0 && p[0] <= B.x1 && p[1] >= B.y0 && p[1] <= B.y1;
+  const parPoints = (ls, garder) => {
+    const out = [];
+    for (const l of densifier(ls, 1.2)) {
+      let run = [];
+      for (const p of l) { if (garder(p)) run.push(p); else { if (run.length > 1) out.push(run); run = []; } }
+      if (run.length > 1) out.push(run);
+    }
+    return out;
+  };
+  const listeG = [...groupes.values()];
+  for (const A of listeG) {
+    // les bords candidats : le contour de A dans ce qu'il recouvre
+    const bordsA = A.base ? null : A.bord;
     let ls = [];
-    for (let j = 0; j < n; j++) {
-      if (i === j) continue;
-      const R = relDe.get(i + ',' + j); if (!R) continue;
-      const B = pieces[j];
-      if (!R.fondu) {
-        // deux doigts : le bord de celui de devant, là où il touche ou recouvre l'autre (à 0,6 près)
-        if (ordre.get(i + ',' + j)) {
-          const G = groupes.get(A.groupe);
-          ls.push(...lignesDans(bordsDans(G, B.gonfle || (B.gonfle = decale(B.region, 0.6))), A.gonfle3 || (A.gonfle3 = decale(A.region, 0.3))));
-        }
+    for (const B of listeG) {
+      if (B === A || !seCroisent(A.boite, B.boite, 1)) continue;
+      if (!A.base && !B.base) {
+        if (ordreG.get(A.nom + ',' + B.nom)) ls.push(...lignesDans(bordsA, B.gonfle));
         continue;
       }
-      if (R.joint) continue;                       // deux phalanges voisines : l'articulation est lisse, sans trait
-      const cand = bordsDans(A.region, B.retrait);
-      if (!cand.length) continue;
-      // fondues : seulement là où A passe nettement devant B
-      for (const l of densifier(cand, 1.2)) {
-        let run = [];
-        for (const p of l) {
-          const ok = profondeur(B, p).devant - profondeurAxe(A, p) > SEUIL;
-          if (ok) run.push(p); else { if (run.length > 1) ls.push(run); run = []; }
+      if (A.base && B.base) continue;
+      if (!A.base) {
+        // un doigt sur la paume ou l'avant-bras
+        for (const j of B.ids) {
+          const Bp = pieces[j];
+          ls.push(...parPoints(lignesDans(bordsA, Bp.retrait), p => profondeur(Bp, p).devant - rim(A, p) > SEUIL));
         }
-        if (run.length > 1) ls.push(run);
+      } else {
+        // la paume (ou l'avant-bras) devant un doigt
+        for (const i of A.ids) {
+          const Ap = pieces[i];
+          ls.push(...parPoints(bordsDans(Ap.region, B.retrait), p => devantG(B, p) - profondeurAxe(Ap, p) > SEUIL));
+        }
       }
     }
-    // caché par une pièce devant elle
-    const caches = [];
-    for (let j = 0; j < n; j++) {
-      if (i === j) continue;
-      const R = relDe.get(i + ',' + j); if (!R) continue;
-      if (!R.fondu && ordre.get(j + ',' + i)) caches.push(...pieces[j].region);
+    if (!ls.length) continue;
+    ls = recoller(ls);
+    // caché : par un doigt devant A (l'ordre des doigts), par la paume quand elle passe devant le bord de A
+    const devantA = [];
+    for (const H of listeG) {
+      if (H === A || H.base || A.base || !seCroisent(A.boite, H.boite)) continue;
+      if (ordreG.get(H.nom + ',' + A.nom)) devantA.push(...H.region);
     }
-    if (caches.length) ls = lignesHors(ls, unionCL([caches]));
-    // fondues devant : point par point
-    const fondDev = [];
-    for (let j = 0; j < n; j++) { const R = relDe.get(i + ',' + j); if (R && R.fondu && !R.joint && i !== j) fondDev.push(j); }
-    if (fondDev.length) {
-      const out = [];
-      for (const l of densifier(ls, 1.2)) {
-        let run = [];
-        for (const p of l) {
-          const za = profondeurAxe(A, p);
-          // une phalange voisine du même doigt ne cache que si son os passe devant (le doigt replié sur lui-même)
-          const cache = fondDev.some(j => dansBoite(pieces[j], p) &&
-            (pieces[j].groupe === A.groupe ? profondeurAxe(pieces[j], p) < za - 2 * SEUIL : profondeur(pieces[j], p).devant < za - SEUIL) && dedans(pieces[j].region, p));
-          if (!cache) run.push(p); else { if (run.length > 1) out.push(run); run = []; }
-        }
-        if (run.length > 1) out.push(run);
+    if (devantA.length) ls = lignesHors(ls, unionCL([devantA]));
+    const autres = listeG.filter(H => H !== A && (H.base || A.base) && seCroisent(A.boite, H.boite));
+    if (autres.length) ls = parPoints(ls, p => {
+      const za = A.base ? null : rim(A, p);
+      for (const H of autres) {
+        if (!dansBoite(H.boite, p)) continue;
+        if (H.base) { for (const j of H.ids) { const Hp = pieces[j]; if (dansBoite(Hp.boite, p) && profondeur(Hp, p).devant < (za === null ? Infinity : za) - SEUIL && dedans(Hp.region, p)) return false; } }
+        else if (A.base) { const zA = Math.min(...A.ids.map(i => profondeurAxe(pieces[i], p))); if (devantG(H, p) < zA - SEUIL && dedans(H.region, p)) return false; }
       }
-      ls = out;
-    }
-    // ni sur la silhouette, ni hors de la main
+      return true;
+    });
     ls = lignesDans(ls, Uin);
-    traits[i] = recoller(ls).filter(l => longueur(l) > 2.5);
+    traits[A.ids[0]] = recoller(ls).filter(l => longueur(l) > 2.5);
   }
   // une ligne courte qui ne part pas du contour est une saleté
   const rive = decale(U, -(E + 1.6));
@@ -1206,7 +1281,7 @@ function dessiner(o) {
       const ext = decale(ob.region, 1.6);
       patch.fond = inter(ext, decale(regDev, 0.15));
       patch.bord = lignesDans(contourDe(Ud), ext);
-      const tDev = dev.flatMap(i => lignesDans(traits[i], decale(regDev, -0.2)));
+      const tDev = lignesDans(traits.flat(), decale(regDev, -0.2));
       patch.traits = lignesDans(tDev, ext);
     }
   }

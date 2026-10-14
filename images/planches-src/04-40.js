@@ -38,6 +38,55 @@ module.exports = (h) => {
     return pts;
   };
 
+  // ─── L'enveloppe d'un corps simple (sac de couchage, couverture roulée) : la pose sert de gabarit,
+  // le contour visible est celui de l'enveloppe. C'est le contour du corps rendu, uni, dilaté de
+  // « marge » mm et lissé par Clipper (celui des corps simples) ; le visage reste à découvert dans
+  // l'ouverture du capuchon ; « cloisons » : des coutures du duvet en travers, en part de la longueur ;
+  // « garder » [x0, y0, x1, y1] : ne garder que ce rectangle (une couverture : du cou aux pieds, sur le lit).
+  const CL = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/corps/clipper.js'));
+  const sac = (c, { marge = 55, lisse = 150, trait = 1.4, visage = true, cloisons = [], garder = null, avec = [], motif = null } = {}) => {
+    const SC = 100, k = c.echelle, polys = [], r1 = v => Math.round(v * 10) / 10;
+    for (const m of String(c.svg).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/g))
+      for (const sub of m[1].split('Z')) {
+        const n = sub.match(/-?[\d.]+/g); if (!n || n.length < 6) continue;
+        const P = []; for (let i = 0; i + 1 < n.length; i += 2) P.push({ X: Math.round(+n[i] * SC), Y: Math.round(+n[i + 1] * SC) });
+        polys.push(P);
+      }
+    const op = (t, a, b, ouvert = false) => {
+      const x = new CL.Clipper(); x.AddPaths(a, CL.PolyType.ptSubject, !ouvert); if (b) x.AddPaths(b, CL.PolyType.ptClip, true);
+      if (ouvert) { const tr = new CL.PolyTree(); x.Execute(t, tr, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return CL.Clipper.OpenPathsFromPolyTree(tr); }
+      const r = new CL.Paths(); x.Execute(t, r, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return r;
+    };
+    const off = (p, d) => { const o = new CL.ClipperOffset(2, 0.05 * SC); o.AddPaths(p, CL.JoinType.jtRound, CL.EndType.etClosedPolygon); const r = new CL.Paths(); o.Execute(r, d * SC); return r; };
+    // « avec » : des rectangles [x0, y0, x1, y1] unis au corps (le lit sous une couverture, qu'elle y retombe)
+    for (const [a, b, cc, d] of avec) polys.push([[a, b], [cc, b], [cc, d], [a, d]].map(([x, y]) => ({ X: Math.round(x * SC), Y: Math.round(y * SC) })));
+    let env = off(off(op(CL.ClipType.ctUnion, polys), (marge + lisse) * k), -lisse * k);
+    if (garder) {
+      const [a, b, cc, d] = garder.map(v => Math.round(v * SC)), R = 30 * k;
+      env = off(off(op(CL.ClipType.ctIntersection, env, [[{ X: a, Y: b }, { X: cc, Y: b }, { X: cc, Y: d }, { X: a, Y: d }]]), -R), R);
+    }
+    if (visage) {
+      const t = c.tete, hx = t.haut[0] - t.x, hy = t.haut[1] - t.y, L = Math.hypot(hx, hy) || 1, mi = c.miroir ? -1 : 1;
+      const fx = -hy / L * mi, fy = hx / L * mi, r = 100 * k, D = [];
+      for (let i = 0; i < 48; i++) { const a = i / 48 * 2 * Math.PI; D.push({ X: Math.round((t.x + fx * 0.6 * r + 0.78 * r * Math.cos(a)) * SC), Y: Math.round((t.y + fy * 0.6 * r + 0.78 * r * Math.sin(a)) * SC) }); }
+      env = op(CL.ClipType.ctDifference, env, [D]);
+    }
+    const dP = P => 'M' + P.map(q => `${r1(q.X / SC)} ${r1(q.Y / SC)}`).join(' L');
+    const dEnv = env.map(P => dP(P) + ' Z').join(' ');
+    const out = [`<path d="${dEnv}" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="${trait}" stroke-linejoin="round"/>`];
+    if (motif) out.push(`<path d="${dEnv}" ${motif}/>`);
+    if (cloisons.length) {
+      const b = c.boite, x0 = b.x0 - marge * k, x1 = b.x1 + marge * k, dedans = off(env, -2.2);
+      const lignes = cloisons.map(t => { const x = Math.round((x0 + (x1 - x0) * t) * SC); return [{ X: x, Y: Math.round((b.y0 - 400 * k) * SC) }, { X: x, Y: Math.round((b.y1 + 400 * k) * SC) }]; });
+      const cl = op(CL.ClipType.ctIntersection, lignes, dedans, true);
+      if (cl.length) out.push(`<path d="${cl.map(dP).join(' ')}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linecap="round"/>`);
+    }
+    // le dessus de l'enveloppe à l'abscisse x (le plus petit y de ses bords qui croisent x)
+    const haut = x => { let y = Infinity; for (const P of env) for (let i = 0; i < P.length; i++) { const a = P[i], b = P[(i + 1) % P.length], xa = a.X / SC, xb = b.X / SC;
+      if ((xa - x) * (xb - x) <= 0 && xa !== xb) y = Math.min(y, (a.Y + (b.Y - a.Y) * (x - xa) / (xb - xa)) / SC); } return y; };
+    return Object.assign(new String(out.join('\n')), { haut });
+  };
+
   // Repère d'un personnage : millimètres depuis le point au sol, vers la vue.
   const repere = (x0, y0, e) => ([mx, my]) => [x0 + mx * e, y0 + my * e];
   // Le bras proche d'un personnage, repeint seul par-dessus ce qu'on a mis devant le corps
@@ -160,53 +209,53 @@ module.exports = (h) => {
     };
   };
 
-  // ── Le costume de sortie, porté ─────────────────────────────────────────────────────
+  // ── Le costume de sortie, porté : de profil (13 oct. : plus de corps de face) ──────────
+  // Le corps simple debout, tourné vers la droite. Le poncho et son capuchon sont l'enveloppe du
+  // corps sans les bras (la pose sert de gabarit), du sommet jusqu'aux genoux, le visage à découvert ;
+  // le bras proche sort de la fente, devant le poncho, le ruban au poignet ; les bottes de caoutchouc
+  // et le ruban au haut de la tige ; les lunettes de ski sur les yeux.
   const costume = z => {
     const o = [];
-    const e = (z.h - 30) / 1790, x0 = z.l * 0.44, y0 = z.h - 12;
+    const e = (z.h - 30) / 1790, x0 = z.l * 0.4, y0 = z.h - 12;
     const T = repere(x0, y0, e);
-    // le bras proche sort de la fente et pend, le poing fermé
-    const opts = { x: x0, y: y0, pose: 'debout', echelle: e,
-      prises: { proche: { x: x0 + 60 * e, y: y0 - 790 * e, pose: 'prise', vue: 'dos', diametre: 12 * e, echelle: 1.3 * e } } };
-    const pers = F.personnage(opts);
-    o.push(h.ligne(x0 - 330 * e, y0, x0 + 330 * e, y0, A.arete));
-    o.push(pers);
-    // bottes et ruban aux chevilles : la jambe du fond d'abord
-    o.push(botte(T, -50), ruban(T([-52, -332]), [0, 1], 38 * e, 132 * e));
-    o.push(botte(T, 50), ruban(T([48, -332]), [0, 1], 38 * e, 132 * e));
-    // le poncho et son capuchon, d'une pièce
-    const tc = [pers.tete.x, pers.tete.y], r = pers.tete.r;
-    const H = (f, g) => [tc[0] + f * r, tc[1] + g * r];
-    const corps = [[168, -1360], [180, -1100], [188, -820], [196, -600], [100, -588], [0, -598], [-100, -586], [-184, -598],
-      [-176, -860], [-166, -1100], [-150, -1330]].map(T);
-    const capuchon = [H(-1.2, 1.2), H(-1.34, 0.2), H(-1.08, -0.86), H(-0.2, -1.36), H(0.7, -1.2), H(1.12, -0.6), H(1.14, 0.3), H(0.86, 1.06), H(0.5, 1.4)];
-    o.push(h.path(lisse([...capuchon, ...corps], true), W(A.arete)));
-    // le visage dans l'ouverture du capuchon
-    o.push(h.ellipse(tc[0] + 0.26 * r, tc[1] + 0.06 * r, 0.76 * r, 0.9 * r, W(A.detail)));
+    const base = { x: x0, y: y0, pose: 'debout', echelle: e, mains: { P: 'prise', L: 'ouverte' }, prise: { P: 12 },
+      angles: { brasP: 8, avantbrasP: 14, mainP: 14 } };
+    const sansBras = F.corps(Object.assign({}, base, { masquer: ['brasP', 'brasL'] }));
+    const yGenou = sansBras.articulations.genouP[1] + 40 * e;
+    const poncho = sac(sansBras, { marge: 45, lisse: 220, garder: [0, 0, z.l, yGenou] });
+    const pers = F.corps(Object.assign({}, base, { objetP: String(poncho) }));
+    o.push(h.ligne(x0 - 330 * e, y0, x0 + 400 * e, y0, A.arete));
+    o.push(String(pers));
     // les plis du plastique
-    o.push(h.path(lisse([[120, -1380], [134, -1050], [150, -615]].map(T)), A.fin));
-    o.push(h.path(lisse([[-80, -1400], [-100, -1040], [-118, -605]].map(T)), A.fin));
-    o.push(h.path(lisse([[-130, -1180], [-146, -900], [-160, -615]].map(T)), A.fin));
-    o.push(h.path(lisse([H(0.3, -1.2), H(-0.5, -0.9), H(-0.9, 0.1)]), A.fin));
-    // la fente du bras
-    const ep = pers.epaules.proche;
-    o.push(h.path(lisse([[ep[0] - 56 * e, ep[1] + 70 * e], [ep[0] - 44 * e, ep[1] - 30 * e], [ep[0] + 4 * e, ep[1] - 62 * e], [ep[0] + 52 * e, ep[1] - 30 * e], [ep[0] + 60 * e, ep[1] + 70 * e]]), A.detail));
-    // le bras qui sort de la fente, le ruban au poignet
-    o.push(brasProche(F.personnage(opts)));
-    const m = pers.mains.proche, pw = m.poignet, pb = m.bras;
-    const L = Math.hypot(pw[0] - pb[0], pw[1] - pb[1]), u = [(pw[0] - pb[0]) / L, (pw[1] - pb[1]) / L];
-    o.push(ruban([pw[0] - u[0] * 22 * e, pw[1] - u[1] * 22 * e], u, 40 * e, 80 * e));
-    // les lunettes, la sangle sous le capuchon
-    o.push(lunettes([tc[0] + 0.26 * r, tc[1]], r * 0.8, -0.05, 0, false));
-    const P = T;
+    o.push(h.path(lisse([[-60, -1330], [-74, -1000], [-90, -640]].map(T)), A.fin));
+    o.push(h.path(lisse([[150, -1260], [168, -980], [176, -640]].map(T)), A.fin));
+    // la botte de caoutchouc (le pied loin est derrière le proche) et le ruban au haut de la tige
+    const ch = pers.pieds.P.cheville, TB = repere(ch[0], y0, e);
+    // la botte du pied loin, en gris loin, un peu en retrait derrière la proche
+    o.push(botte(TB, -14).replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"'));
+    o.push(botte(TB, 0), ruban(TB([0, -332]), [0, 1], 38 * e, 140 * e));
+    // le ruban au poignet, serré sur la manche
+    const pw = pers.poignetP, pc = pers.articulations.coudeP;
+    const L = Math.hypot(pw[0] - pc[0], pw[1] - pc[1]), u = [(pw[0] - pc[0]) / L, (pw[1] - pc[1]) / L];
+    const cR = [pw[0] - u[0] * 22 * e, pw[1] - u[1] * 22 * e];
+    o.push(ruban(cR, u, 40 * e, 82 * e));
+    // les lunettes, sur les yeux, la sangle sous le capuchon
+    const tc = [pers.tete.x, pers.tete.y], r = 100 * e;
+    o.push(lunettes([tc[0] - 0.05 * r, tc[1] + 0.05 * r], r, 0.05, 0, false));
+    // le bord avant du poncho à la hauteur y (le plus grand x de son contour)
+    const avant = y => { let x = -Infinity; for (const m of String(poncho).matchAll(/<path d="([^"]+)" fill="#FFFFFF"/g)) for (const sub of m[1].split('Z')) {
+      const n = (sub.match(/-?[\d.]+/g) || []).map(Number), q = []; for (let i = 0; i + 1 < n.length; i += 2) q.push([n[i], n[i + 1]]);
+      for (let i = 0; i < q.length; i++) { const [xa, ya] = q[i], [xb, yb] = q[(i + 1) % q.length]; if ((ya - y) * (yb - y) <= 0 && ya !== yb) x = Math.max(x, xa + (xb - xa) * (y - ya) / (yb - ya)); } }
+      return x; };
+    const y8 = T([0, -1200])[1];
     return {
       svg: o.join('\n'),
       r: [
-        { n: 7, rond: P([330, -1680]), cible: [tc[0] + 1.25 * r, tc[1] - 0.1 * r], texte: 'lunettes de ski' },
-        { n: 8, rond: P([330, -1200]), cible: P([178, -1200]), texte: 'poncho à capuchon taillé dans un sac à ordures' },
-        { n: 9, rond: P([-250, -900]), cible: [pw[0] - u[0] * 22 * e - 18 * e, pw[1] - u[1] * 22 * e], texte: 'poignets rubanés serré' },
-        { n: 10, rond: P([-250, -420]), cible: P([-110, -335]), texte: 'chevilles rubanées serré' },
-        { n: 11, rond: P([330, -250]), cible: P([140, -110]), texte: 'bottes de caoutchouc' },
+        { n: 7, rond: T([420, -1660]), cible: [tc[0] + 1.18 * r, tc[1]], texte: 'lunettes de ski' },
+        { n: 8, rond: T([420, -1200]), cible: [avant(y8) + 1, y8], texte: 'poncho à capuchon taillé dans un sac à ordures' },
+        { n: 9, rond: T([-300, -900]), cible: [cR[0] - 22 * e, cR[1]], texte: 'poignets rubanés serré' },
+        { n: 10, rond: T([-300, -420]), cible: TB([-72, -332]), texte: 'chevilles rubanées serré' },
+        { n: 11, rond: T([420, -250]), cible: TB([150, -100]), texte: 'bottes de caoutchouc' },
       ],
     };
   };
@@ -226,25 +275,29 @@ module.exports = (h) => {
       return h.path(lisse(pts), A.arete);
     };
     o.push(bache(16, 1), bache(z.l - 16, -1));
-    // le personnage droit, tête relevée, bottes aux pieds, lunettes au front ; les deux mains
-    // pincent le costume aux épaules et le tiennent à bout de bras, loin du corps
-    const pinP = T([650, -1250]), pinL = T([700, -1290]);
-    const ec = 1.3 * e, dP = 30 * ec;
-    // le col du costume ramassé dans le poing, une touffe qui dépasse au-dessus, le reste qui pend
-    const neck = [[pinP[0] - dP * 0.4, pinP[1] - 32 * ec], [pinP[0] - dP * 0.7, pinP[1] - 60 * ec], [pinP[0] - dP * 0.1, pinP[1] - 50 * ec], [pinP[0] + dP * 0.3, pinP[1] - 72 * ec],
-      [pinP[0] + dP * 0.7, pinP[1] - 44 * ec], [pinP[0] + dP * 0.45, pinP[1] - 30 * ec]];
-    const cost = [...neck, [pinP[0] + dP * 0.5, pinP[1] + 30 * ec], ...[[780, -1080], [830, -760], [820, -300]].map(T),
-      ...[[510, -300], [540, -720], [610, -1090]].map(T), [pinP[0] - dP * 0.5, pinP[1] + 30 * ec]];
-    const costSvg = [h.path(lisse(cost, true), W(A.arete)),
-      ...[[-0.3, T([560, -360])], [0, T([650, -360])], [0.3, T([750, -380])], [-0.1, T([600, -760])]]
-        .map(([f, b]) => { const a = [pinP[0] + f * dP, pinP[1] + 34 * ec]; return h.path(lisse([a, [(a[0] + b[0]) / 2 + 3, (a[1] + b[1]) / 2], b]), A.fin); })].join('\n');
-    const pers = F.personnage({ x: x0, y: yF, pose: 'debout', echelle: e, penche: 4, regard: -20,
-      prises: { loin: { x: pinL[0], y: pinL[1], pose: 'pince', vue: 'profil', echelle: ec },
-        proche: { x: pinP[0], y: pinP[1], pose: 'prise', vue: 'dos', diametre: dP, echelle: ec, objet: costSvg } } });
-    const hx = pinP[0], hy = pinP[1];
-    o.push(pers);
-    o.push(botte(T, -50), botte(T, 50));
-    o.push(lunettes([pers.tete.x, pers.tete.y], pers.tete.r, -0.5, -20, true));
+    // le corps simple debout, tête relevée, bottes aux pieds, lunettes au front ; le bras proche tendu,
+    // le col du costume ramassé dans le poing, la main loin qui pince l'autre épaule du costume : le
+    // costume tenu à bout de bras, loin du visage, descendu dans le sac du bac
+    const ec = e, dP = 30 * ec;
+    const costumeDe = pinP => {
+      const dx = pinP[0] - T([650, -1250])[0];
+      const neck = [[pinP[0] - dP * 0.4, pinP[1] - 32 * ec], [pinP[0] - dP * 0.7, pinP[1] - 60 * ec], [pinP[0] - dP * 0.1, pinP[1] - 50 * ec], [pinP[0] + dP * 0.3, pinP[1] - 72 * ec],
+        [pinP[0] + dP * 0.7, pinP[1] - 44 * ec], [pinP[0] + dP * 0.45, pinP[1] - 30 * ec]];
+      const Tx = q => { const [x, y] = T(q); return [x + dx, y]; };
+      const cost = [...neck, [pinP[0] + dP * 0.5, pinP[1] + 30 * ec], ...[[780, -1080], [830, -760], [820, -300]].map(Tx),
+        ...[[510, -300], [540, -720], [610, -1090]].map(Tx), [pinP[0] - dP * 0.5, pinP[1] + 30 * ec]];
+      return [h.path(lisse(cost, true), W(A.arete)),
+        ...[[-0.3, Tx([560, -360])], [0, Tx([650, -360])], [0.3, Tx([750, -380])], [-0.1, Tx([600, -760])]]
+          .map(([f, b]) => { const a = [pinP[0] + f * dP, pinP[1] + 34 * ec]; return h.path(lisse([a, [(a[0] + b[0]) / 2 + 3, (a[1] + b[1]) / 2], b]), A.fin); })].join('\n');
+    };
+    const pers = F.corps({ x: x0, y: yF, pose: 'debout-bras-tendus', echelle: e, mains: { P: 'prise', L: 'pince' }, prise: { P: 30 },
+      angles: { tronc: -4, cou: -6, tete: -16, brasP: 66, avantbrasP: 78, mainP: 82, brasL: 70, avantbrasL: 80, mainL: 84 },
+      objetP: g => costumeDe([g.mainP.x, g.mainP.y]) });
+    const hx = pers.mainP.x, hy = pers.mainP.y;
+    o.push(String(pers));
+    const ch = pers.pieds.P.cheville, TB = repere(ch[0], yF, e);
+    o.push(botte(TB, -14).replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"'), botte(TB, 0));
+    o.push(lunettes([pers.tete.x - 6 * e, pers.tete.y], 100 * e, -0.55, -16, true));
     const bacG = 420, bacD = 980, bacH = 350;
     // le bac, et le sac rabattu sur son bord
     const bac = [[bacG + 20, 0], [bacD - 20, 0], [bacD, -bacH], [bacG, -bacH]].map(T);
@@ -252,13 +305,13 @@ module.exports = (h) => {
     o.push(h.path(lisse([[bacG - 14, -bacH - 8], [bacD + 14, -bacH - 8], [bacD + 12, -bacH + 50], [bacD - 60, -bacH + 76], [bacD - 180, -bacH + 58],
       [bacD - 300, -bacH + 80], [bacG + 120, -bacH + 60], [bacG - 12, -bacH + 72]].map(T), true), W(A.detail)));
     for (const x of [bacG + 60, bacG + 210, bacD - 120]) o.push(h.ligne(...T([x, -bacH - 6]), ...T([x + 10, -bacH + 58]), A.fin));
-    // lentement, vers le bas
-    const fx = T([880, 0])[0];
-    o.push(h.fleche(`M${f1(fx)} ${f1(hy + 4)} L${f1(fx)} ${f1(T([0, -bacH - 40])[1])}`, A.arete));
+    // le geste : lentement, vers le bas
+    const fx = hx + 230 * e;
+    o.push(h.geste(`M${f1(fx)} ${f1(hy + 4)} L${f1(fx)} ${f1(T([0, -bacH - 40])[1])}`));
     return {
       svg: o.join('\n'),
       r: [
-        { n: 12, rond: [fx + 6, hy - 26], cible: T([640, -700]), texte: 'lentement, sans secouer, loin du visage' },
+        { n: 12, rond: [fx + 6, hy - 26], cible: [hx + 0, T([0, -700])[1]], texte: 'lentement, sans secouer, loin du visage' },
       ],
     };
   };
