@@ -245,6 +245,7 @@ module.exports = (h) => {
               }
             }
             o.push(trait(P, ferme, h.a.arete));
+            o.push(trait(P, a.levres, h.a.detail));   // le bord coupé, vu de chant, devant le disque gris
             o.push(h.cercle(...P(...a.c), 1.6, h.a.plein));
           }
           // conduite qui arrive, jet dans l'auget juste passé le sommet

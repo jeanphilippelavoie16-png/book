@@ -44,6 +44,8 @@ module.exports = (h) => {
         titre: 'En coupe',
         dessin: z => {
           const s = [];
+          // charte : le dedans du poulailler, vu en coupe, en gris loin (le mur du fond)
+          s.push(poly([[148, Y(262)], [452, Y(262)], [452, yR(452)], [148, yR(148)]], h.a.loin));
           // sol
           s.push(h.rect(40, Y(330), 520, 14, h.a.hachure('terre', 'aucun')));
           s.push(h.ligne(40, Y(330), 560, Y(330), h.a.arete));
@@ -76,6 +78,8 @@ module.exports = (h) => {
           // fond, rebord, toit en pente. Assez haut pour qu'une poule y entre et s'y couche.
           s.push(h.rect(198, Y(229), 7, 59, h.a.blanc));
           s.push(h.rect(198, Y(229), 7, 59, h.a.hachure('bois')));
+          for (const [x, y, l, ht] of [[148, 212, 57, 10], [148, 222, 64, 7], [205, 203, 7, 19]]) s.push(h.rect(x, Y(y), l, ht, h.a.blanc));
+          s.push(poly([[148, Y(150)], [224, Y(163.6)], [224, Y(170.6)], [148, Y(157)]], h.a.blanc));
           s.push(h.rect(148, Y(212), 57, 10, h.a.hachure('paille', 'detail')));
           s.push(h.ellipse(172, Y(208.5), 5, 3.8, blanc(h.a.arete)));
           s.push(h.rect(148, Y(222), 64, 7, h.a.hachure('bois')));
@@ -84,10 +88,13 @@ module.exports = (h) => {
           // perchoir vu en bout, sur son pied planté au plancher, et la poule
           s.push(h.rect(389, Y(204), 6, 84, h.a.blanc));
           s.push(h.rect(389, Y(204), 6, 84, h.a.detail));
+          s.push(h.rect(385, Y(198), 14, 6, h.a.blanc));
           s.push(h.rect(385, Y(198), 14, 6, h.a.hachure('bois')));
           s.push(poule(392, Y(198), 0.65));
           // l'air humide monte et sort par la trappe
           s.push(h.fleche(`M 296,${Y(256)} C 300,${Y(170)} 390,${Y(118)} 440,${Y(101)} L 516,${Y(100)}`, h.a.cache));
+          // charte : le point à vérifier, la trappe au-dessus des têtes perchées
+          s.push(h.controle(461, Y(100), 17));
           return s.join('\n');
         },
         renvois: z => [

@@ -82,10 +82,11 @@ module.exports = (h) => {
   };
 
   // Une tige ronde (l'étrier) : fond blanc, deux flancs à 1,4, bouts ouverts.
-  const tige = (pts, e) => {
+  // loin = true : la branche de derrière, peinte au gris loin de la charte.
+  const tige = (pts, e, loin = false) => {
     const R = reperes(pts), G = decale(R, e / 2), D = decale(R, -e / 2);
     const fond = 'M ' + G.map(pt).join(' L ') + ' L ' + D.slice().reverse().map(pt).join(' L ') + ' Z';
-    return [h.path(fond, h.a.blanc), h.path('M ' + G.map(pt).join(' L '), h.a.arete), h.path('M ' + D.map(pt).join(' L '), h.a.arete)].join('\n');
+    return [h.path(fond, loin ? h.a.loin : h.a.blanc), h.path('M ' + G.map(pt).join(' L '), h.a.arete), h.path('M ' + D.map(pt).join(' L '), h.a.arete)].join('\n');
   };
 
   // Œil de câble autour d'un appui : cercles de centres (0,0) et (ll,0), rayon Rc de la ligne
@@ -153,7 +154,7 @@ module.exports = (h) => {
     const out = [];
     const clips = [q.k1, q.k2, q.k3];
     // tiges arrière : derrière le câble
-    for (const k of clips) out.push(tige([[k + q.ox, yH], [k + q.ox, -q.d / 2], ...coude(k, q, 180, 90)].map(T), q.rd));
+    for (const k of clips) out.push(tige([[k + q.ox, yH], [k + q.ox, -q.d / 2], ...coude(k, q, 180, 90)].map(T), q.rd, true));
     out.push(corde(cheminOeil(g, q.vif, q.mort).map(T), q.d, true, false));
     out.push(cosse(g, 5, T));
     // tiges avant : devant le câble
@@ -238,6 +239,8 @@ module.exports = (h) => {
     }
     out.push(sectionCable(cx, q.yd, D));
     out.push(sectionCable(cx, q.yl, D));
+    // la charte : le point à contrôler, l'étrier qui chevauche le brin mort
+    out.push(h.controle(cx, q.yd, D / 2 + 7 * q.s));
     return out.join('\n');
   };
   const renvoisCoupe = z => {

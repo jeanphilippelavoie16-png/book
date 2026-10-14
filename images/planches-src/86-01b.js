@@ -10,6 +10,10 @@
 // Rapports dessinés : 0,10/0,04 × 0,315/0,06 × 0,13/0,04 ≈ 43, l'ordre des 40 fois du chapitre.
 // Le délestage est pris avant la diode et le fusible : la batterie ne peut pas le nourrir, et
 // la roue ne se retrouve jamais à vide quand le fusible saute.
+//
+// La charte : pas de gris, la planche n'a pas de volume qui en demande (élévation de pièces minces,
+// plan, schéma). Le rouge : un seul point à contrôler, la prise du délestage sur les deux fils,
+// côté roue, avant la diode et le fusible. Les flèches de rotation restent noires.
 
 const XA = -2.08, XW = 2.76;                 // étendue en x, élévation et plan
 const HM = [-0.36, 0.58], HD = [1.0, 1.86];  // étendues verticales
@@ -211,6 +215,8 @@ module.exports = (h) => {
           // prises du délestage, avant la diode et le fusible
           o.push(h.ligne(...P(46, 94), ...P(46, 69), h.a.arete), pt(46, 94));
           o.push(h.ligne(...P(52, 84), ...P(52, 74), h.a.arete), pt(52, 84));
+          // le point à contrôler : le délestage pris côté roue, avant la diode et le fusible
+          o.push(h.controle(...P(49, 89), 10 * P.s));
           // diode (bague côté batterie), fusible, batterie
           o.push(boite(P, 148, 90, 166, 98, BLa), boite(P, 161, 90, 164, 98, h.a.plein));
           o.push(h.ligne(...P(166, 94), ...P(190, 94), h.a.arete));

@@ -242,6 +242,7 @@ module.exports = (h) => {
   const vueRate = z => {
     const { P, s } = cadre1(z);
     const out = [];
+    let nOm = 0; void nOm;
     // la toile posée à même le plant : elle suit le dessus des feuilles et retombe au sol
     const xg = -XR + 115, xd = XR - 115;
     const coque = coqueHaute([...pts1, [xg, 0], [xd, 0]]);
@@ -294,7 +295,13 @@ module.exports = (h) => {
       const bas = ell(0, RB, 0, 180);               // le devant du fond
       const o = [];
       const contour = [...g, ...haut.slice(1, -1), ...d, ...bas.slice(1, -1)];
-      o.push(h.chemin(contour, blanc(h.a.arete), true));
+      // La charte : la bouteille est l'objet de la vue (contour 2,4) ; son flanc droit est à l'ombre
+      const id = `om-9706-${cx.toFixed(0)}-${cy.toFixed(0)}`;
+      o.push(h.chemin(contour, h.a.blanc, true));
+      o.push(`<clipPath id="${id}">${h.chemin(contour, 'fill="none"', true)}</clipPath>`);
+      const [bx0, by0] = Q(cx + RB * 0.42, cy, ZB + 20), [bx1, by1] = Q(cx + RB + 4, cy, -RB);
+      o.push(`<g clip-path="url(#${id})">${h.rect(bx0, by0, bx1 - bx0, by1 - by0, h.a.ombre)}</g>`);
+      o.push(h.chemin(contour, h.a.contour, true));
       o.push(h.chemin(ell(ZB, RBO, 0, 180), h.a.detail));                // le dessus du bouchon
       o.push(h.chemin(ell(ZN, RBO, 0, 180), h.a.detail));                // le bas du bouchon
       o.push(h.chemin(ell(272, RN + 3, 0, 180), h.a.fin));               // la bague du col
@@ -327,7 +334,8 @@ module.exports = (h) => {
     };
     for (const a of [45, 90, 135]) {
       const cx = RA * Math.cos(a * RAD);
-      out.push(h.chemin(profil(cx), blanc(h.a.detail), true));
+      // La charte : ces bouteilles sont derrière le plan de coupe, elles reculent en gris loin
+      out.push(h.chemin(profil(cx), h.a.loin, true), h.chemin(profil(cx), h.a.detail, true));
       out.push(h.ligne(...P(cx - RBO, ZN), ...P(cx + RBO, ZN), h.a.fin));
     }
     const plant = tomate(0, H2, { fruits: false, noeuds: 5, graine: 7 });
@@ -341,7 +349,7 @@ module.exports = (h) => {
       const eau = [...g.filter(p => p[1] <= NIV), [cx - RN, NIV], [cx + RN, NIV], ...d.filter(p => p[1] <= NIV)];
       out.push(h.chemin(eau.map(p => P(...p)), h.a.hachure('eau', 'aucun'), true));
       out.push(h.ligne(...P(cx - RN, NIV), ...P(cx + RN, NIV), h.a.detail));
-      out.push(h.chemin([...g, ...d].map(p => P(...p)), h.a.arete, true));
+      out.push(h.chemin([...g, ...d].map(p => P(...p)), h.a.contour, true));   // la charte : l'objet coupé pèse
       // le bouchon, en coupe
       out.push(h.chemin([P(cx - RBO, ZN - 14), P(cx - RBO, ZB), P(cx + RBO, ZB), P(cx + RBO, ZN - 14)], h.a.arete));
       out.push(h.rect(...P(cx - RBO, ZB), 2 * RBO * s, 3.2 * s + 1, h.a.plein));
@@ -401,7 +409,7 @@ module.exports = (h) => {
       }
     });
     // le geste
-    out.push(h.fleche(`M ${P(70, 300).join(' ')} Q ${P(-40, 370).join(' ')} ${P(-135, 280).join(' ')}`, h.a.arete));
+    out.push(h.geste(`M ${P(70, 300).join(' ')} Q ${P(-40, 370).join(' ')} ${P(-135, 280).join(' ')}`));   // la charte : le geste
     return { svg: out.join('\n'), P, s, A };
   };
 
@@ -456,7 +464,7 @@ module.exports = (h) => {
       },
       rate: {
         titre: 'Raté : la toile sur les feuilles',
-        dessin: z => une('rate', vueRate)(z).svg,
+        dessin: z => une('rate', vueRate)(z).svg + '\n' + vues.rate.controle(z),
         renvois: z => {
           const v = une('rate', vueRate)(z), P = v.P;
           // la foliole gelée la plus haute
@@ -468,6 +476,16 @@ module.exports = (h) => {
           return [
             { n: 5, rond: P(XR - 28, best[1] + 20), cible: P(...best), texte: 'feuilles gelées là où elle appuie' },
           ];
+        },
+        // La charte : sur le raté, le cercle rouge marque l'endroit où ça casse
+        controle: z => {
+          const v = une('rate', vueRate)(z), P = v.P;
+          let best = null;
+          for (const f of plant1.feuilles) for (const o of f.fols) if (v.gele(o.poly)) {
+            const c = o.poly.reduce((a, p) => [a[0] + p[0] / o.poly.length, a[1] + p[1] / o.poly.length], [0, 0]);
+            if (!best || c[0] > best[0]) best = c;
+          }
+          return h.controle(...P(...best), 14);
         },
       },
       anneau: {

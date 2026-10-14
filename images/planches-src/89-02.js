@@ -7,7 +7,7 @@
 // vérifier) ; les contours à recopier sont déjà au trait fort, le reste au trait fin.
 
 const r1 = v => Math.round(v * 10) / 10;
-const Y0 = 36;                                   // haut du nez, en px dans la vue
+const Y0 = 58;                                   // haut du nez, en px dans la vue (le titre centré est dans la vue, en haut)
 const LONG = 107, LARGE = 30;                    // la queue de castor, d'après le chapitre
 const Kde = () => 4.6;                         // px par cm, le même pour les trois vues
 
@@ -146,11 +146,12 @@ module.exports = (h) => {
     vues: {
       // ── Patte d'ours de dépannage ──────────────────────────────────────────────────
       patte: {
-        titre: ' ',             // titre réel centré sur le dessin, plus bas
+        // pas de titre de vue : le titre est centré sur le dessin, dans la vue (une coordonnée
+        // négative pour le loger dans la bande du titre faisait refuser la planche)
         dessin: z => {
           const { K, pt, pts } = vue(z, cxPatte(z));
           const e = PO.ep / 2;
-          const out = [h.texte(cxPatte(z), -8, 'Patte d’ours de dépannage', { corps: 13, italique: true })];
+          const out = [h.texte(cxPatte(z), 14, 'Patte d’ours de dépannage', { corps: 13, italique: true })];
           // laçage : passes croisées en diagonale, seulement derrière la traverse, trou des orteils ouvert
           const yT = PO_T + LT / 2;
           const trou = (x, y) => y < yT + 5 && Math.hypot(x, y - yT) < 5;
@@ -190,8 +191,8 @@ module.exports = (h) => {
           const { pt } = vue(z, cxPatte(z));
           const yb = r1(Y0 + Kde(z) * 2 * PO.b);
           return [
-            { n: 1, rond: [22, 16], cible: pt([-5, 9]), texte: 'devant laissé ouvert' },
-            { n: 2, rond: [r1(z.l - 14), 16], cible: pt([9, PO_T]), texte: 'une seule traverse, devant les orteils' },
+            { n: 1, rond: [22, 38], cible: pt([-5, 9]), texte: 'devant laissé ouvert' },
+            { n: 2, rond: [r1(z.l - 14), 38], cible: pt([9, PO_T]), texte: 'une seule traverse, devant les orteils' },
             { n: 3, rond: [20, r1(yb + 40)], cible: pt([-2.5, PO_T + 5.4]), texte: 'trou des orteils, laissé ouvert' },
             { n: 4, rond: [r1(z.l / 2), r1(yb + 40)], cible: pt([0, 2 * PO.b + 0.7]), texte: 'bouts de la perche chevauchés, ligaturés' },
             { n: 5, rond: [r1(z.l - 16), r1(yb + 40)], cible: pt([8, 42]), texte: 'passes croisées, n’importe quelle corde' },
@@ -200,10 +201,9 @@ module.exports = (h) => {
       },
       // ── Queue de castor ────────────────────────────────────────────────────────────
       castor: {
-        titre: ' ',
         dessin: z => {
           const { K, pt, pts } = vue(z, cxCastor(z));
-          const out = [h.texte(cxCastor(z), -8, 'Queue de castor', { corps: 13, italique: true })];
+          const out = [h.texte(cxCastor(z), 14, 'Queue de castor', { corps: 13, italique: true })];
           const G = { ext: miroir(CASTOR.ext), int: miroir(CASTOR.int) };
           // traverses
           for (const yt of [T1, T2]) {
@@ -238,7 +238,7 @@ module.exports = (h) => {
         renvois: z => {
           const { pt } = vue(z, cxCastor(z));
           return [
-            { n: 6, rond: [r1(z.l - 10), 31], cible: pt([0, 0]), texte: 'milieu du bâton au nez' },
+            { n: 6, rond: [r1(z.l - 10), 53], cible: pt([0, 0]), texte: 'milieu du bâton au nez' },
             { n: 7, rond: [r1(z.l - 11), r1(pt([0, T1 + 13])[1])], cible: pt([10, T1]), texte: 'deux traverses, placées à l’équilibre' },
             { n: 8, rond: [r1(z.l - 11), r1(pt([0, 60])[1])], cible: pt([xInt(CASTOR.int, 60) + 0.6, 60]), texte: 'bâton : tour du gabarit plus 5 cm' },
             { n: 9, rond: [r1(z.l - 11), r1(pt([0, 100])[1])], cible: pt([0.5, 103]), texte: 'les deux bouts superposés, ligaturés' },
@@ -247,11 +247,10 @@ module.exports = (h) => {
       },
       // ── Raquette de planche ────────────────────────────────────────────────────────
       planche: {
-        titre: ' ',
         dessin: z => {
           const { K, pt, pts } = vue(z, cxPlanche(z));
           const C = contourPlanche();
-          const out = [h.texte(cxPlanche(z), -8, 'Raquette de planche', { corps: 13, italique: true }), h.chemin(pts(C), h.a.blanc, true)];
+          const out = [h.texte(cxPlanche(z), 14, 'Raquette de planche', { corps: 13, italique: true }), h.chemin(pts(C), h.a.blanc, true)];
           // fil du bois, en long
           const fente = (x, y, m = 0) => Math.abs(Math.abs(x) - FENTE.x) < FENTE.l / 2 + m && y > FENTE.y1 - m && y < FENTE.y2 + m;
           for (const x0 of [-11.5, -7.2, -2.6, 2.1, 6.4, 10.8]) {
