@@ -91,7 +91,7 @@ module.exports = (h) => {
       out.push(`<clipPath id="jambe-2408"><rect x="0" y="0" width="${f(z.l)}" height="${f(sol + 1)}"/></clipPath>`,
         `<g clip-path="url(#jambe-2408)">`, String(jambe), '</g>');
       // la rotule sous la peau, un trait fin
-      out.push(h.chemin(lisse([-30, -12, 8, 30].map(u => [u, TOP(u) - 6 - 3 * Math.cos(u / 30)])).map(([u, hh]) => P(u, hh)), h.a.detail));
+      out.push(h.chemin(lisse([[-22, TOP(-22) - 12], [-9, TOP(-9) - 7], [9, TOP(9) - 7], [22, TOP(22) - 12]]).map(([u, hh]) => P(u, hh)), h.a.detail));
       // la perche du dehors (celle du dedans est cachée derrière la jambe), son écorce
       const perche = [P(X0, PC(X0) + R), P(X1, PC(X1) + R), P(X1, PC(X1) - R), P(X0, PC(X0) - R)];
       out.push(h.chemin(perche, h.a.blanc, true));
@@ -170,12 +170,17 @@ module.exports = (h) => {
   const TIBIA = [[1, 110], [12, 103], [24, 93], [30, 86], [25, 78], [12, 74], [-4, 75], [-16, 80], [-22, 88], [-15, 99], [-6, 106]];
   const PERONE = [[-38, 71], [-30, 64], [-32, 54], [-41, 52], [-46, 61]];
 
-  const coupe = (x, jambe0, os0, avecLien, dh = 0) => {
+  // l'échelle des coupes, et leur sol : le dessin centré dans sa vue
+  // (le dessin d'une coupe fait 232 mm de large ; B, avec son nœud, est décalée vers le dehors)
+  const geoCoupe = (z, uc = 0) => {
+    const s = Math.min((z.l - 12) / 232, (z.h - 34) / 142), cx = z.l / 2 - uc * s, sol = Math.min(z.h - 18, (z.h + 125 * s) / 2 - 10);
+    return { s, cx, sol, P: (u, hh) => [cx + u * s, sol - hh * s] };
+  };
+  const coupe = (x, jambe0, os0, avecLien, dh = 0, uc = 0) => {
   const jambe = jambe0.map(([u, hh]) => [u, hh + dh]), os = os0.map(o => o.map(([u, hh]) => [u, hh + dh]));
   return {
     dessin: z => {
-      const s = Math.min((z.l - 20) / 250, (z.h - 34) / 142), cx = z.l / 2, sol = z.h - 18;
-      const P = (u, hh) => [cx + u * s, sol - hh * s];
+      const { s, cx, sol, P } = geoCoupe(z, uc);
       const out = [];
       const pc = PC0(x) + dh, cl = -(EL(x) + R), cm = EM(x) + R;
       out.push(h.rect(0, sol, z.l, 10, h.a.hachure('terre', 'aucun')), h.ligne(0, sol, z.l, sol, h.a.arete));
@@ -242,13 +247,12 @@ module.exports = (h) => {
     titre: 'Coupe A, au genou',
     // le rembourrage entre la perche du dehors et l'os du genou
     renvois: z => {
-      const s = Math.min((z.l - 20) / 250, (z.h - 34) / 142), cx = z.l / 2, sol = z.h - 18;
-      const P = (u, hh) => [cx + u * s, sol - hh * s];
+      const { P } = geoCoupe(z);
       const cl = -(EL(0) + R), pc = PC0(0) - 17;
       return [{ n: 5, rond: P(cl - 10, pc + R + EP + 34), cible: P(cl - 0.62 * (R + EP / 2), pc + 0.78 * (R + EP / 2)), texte: 'rembourrage là où la perche touche l’os' }];
     },
   });
-  const coupeB = Object.assign(coupe(LIENS[1], MOLLET, [TIBIA, PERONE], true), { titre: 'Coupe B, au lien sous le genou' });
+  const coupeB = Object.assign(coupe(LIENS[1], MOLLET, [TIBIA, PERONE], true, 0, -10.5), { titre: 'Coupe B, au lien sous le genou' });
 
   return {
     ref: '24-08',
@@ -256,7 +260,7 @@ module.exports = (h) => {
     desc: 'Jambe d’un blessé couché sur le dos, vue de côté, du dehors : la cuisse coupée par le bord de la vue, le pied nu. Deux perches droites, une de chaque côté, vont de la mi-cuisse à au-dessus de la cheville ; droites, elles portent sur la cuisse et sur le mollet et passent à un doigt de l’os au genou et au bas de la jambe : là, elles sont rembourrées d’un linge roulé autour, qui s’écrase contre l’os. Trois liens font le tour des deux perches et de la jambe, noués sur la perche du dehors : un sur la cuisse, un sous le genou, un au-dessus de la cheville ; aucun sur la rotule. Les orteils restent à découvert. Coupe au genou : l’os à un doigt de la peau sur les côtés, le rembourrage entre lui et chaque perche, la rotule libre. Coupe au lien sous le genou : le lien fait le tour des deux perches et passe sous la jambe.',
     format: 'pleine',
     disposition: [['cote'], ['coupeA', 'coupeB']],
-    hauteurs: [1.25, 1],
+    hauteurs: [1, 1],
     vues: { cote, coupeA, coupeB },
   };
 };

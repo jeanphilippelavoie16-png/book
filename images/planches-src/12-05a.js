@@ -1,6 +1,8 @@
 // Planche 12-05a — la maison de blocs : tailler et monter (ch. 12, section I-3, points 1 à 6).
 // Trois vues, dans l'ordre du chantier :
 //   tailler  — le bloc scié à la profondeur de la lame dans la paroi de la fosse, le fond tranché ;
+//              l'égoïne debout dans le trait du bout, en haut de sa course (poignée fermée, lame
+//              qui s'effile, dents à l'entrée dans la neige), le reste de la lame en tireté ;
 //   spirale  — le premier rang en cercle autour de la fosse, le premier bloc en biseau (rampe), le
 //              bloc suivant, plus long, posé sur la pente, et le deuxième rang qui continue, joints
 //              croisés, chaque rang penché un peu plus ;
@@ -9,11 +11,16 @@
 // 25 cm d'épaisseur, environ 60 cm de haut une fois debout). La voûte est une chaînette ; ses
 // proportions ne sont pas cotées, le chapitre n'en donne pas. Même géométrie que 12-05b.
 //
+// L'égoïne a été redessinée le 14 octobre 2026 : l'ancienne (une boîte à fenêtre sur un col évasé)
+// ne se reconnaissait pas. La vue est un peu plus large (la spirale, limitée en hauteur, n'y perd
+// rien) et coupée plus court à droite, pour que la scie se lise à l'impression.
+//
 // La charte : la paroi de la fosse, derrière le bloc qu'on taille, en gris loin ; dans la
 // spirale, les faces intérieures des blocs (vues par-dessus le rang) en gris loin et les faces
 // extérieures du côté droit à l'ombre, la silhouette de l'anneau au trait fort. Le rouge : le
-// sens de la pose de la spirale ; le joint du deuxième rang qui tombe au milieu d'un bloc du
-// premier, cerclé ; la clé qu'on descend de dehors (une flèche ; la deuxième, symétrique, ôtée).
+// va-et-vient de l'égoïne ; le sens de la pose de la spirale ; le joint du deuxième rang qui tombe
+// au milieu d'un bloc du premier, cerclé ; la clé qu'on descend de dehors (une flèche ; la
+// deuxième, symétrique, ôtée).
 
 module.exports = (h) => {
   // ─── La voûte : chaînette, en cm. Surface moyenne du mur, demi-largeur a au pied, hauteur hm.
@@ -53,7 +60,7 @@ module.exports = (h) => {
 
   // ─── Vue 1 : tailler les blocs. Perspective cavalière : X épaisseur, Y fuyant vers le haut à gauche.
   const tG = z => {
-    const c = 0.433, s2 = 0.25, X0 = -84, X1 = 100, Y0 = -48, Y1 = 98;
+    const c = 0.433, s2 = 0.25, X0 = -84, X1 = 90, Y0 = -48, Y1 = 98;
     const k = Math.min((z.l - 8) / (X1 - X0), (z.h - 70) / (Y1 - Y0));
     const ox = (z.l - k * (X1 - X0)) / 2 - k * X0, oy = (z.h - k * (Y1 - Y0)) / 2 - k * Y0;
     const P = (X, Y, Z) => [ox + k * (X - Y * c), oy - k * (Z + Y * s2)];
@@ -63,8 +70,10 @@ module.exports = (h) => {
   // L'égoïne, dans le plan du trait du bout (Y = L), vue à plat. Repère de la scie : u le long de
   // la lame, du talon (0) vers la pointe ; v en travers, des dents (0) vers le dos. La lame fait
   // 64 de long, 12 de large au talon et 5 à la pointe ; la poignée fermée est du côté u < 0.
-  // Debout, pointe en bas : X = XD + v, Z = ZT - u. Le talon est à ZT au-dessus de la neige.
-  const XD = 2, ZT = 15, LAME = 64;
+  // Elle est en haut de sa course, penchée de 14° : la poignée vers la fosse, où se tient le
+  // constructeur, la pointe en bas vers le mur, les dents devant ; UN de lame (le long des dents)
+  // hors de la neige, le reste dans le trait, en tireté. XS : les dents à l'entrée dans la neige.
+  const LAME = 64, PENTE = 14 * Math.PI / 180, UN = 26, XS = 11.3;
   const larg = u => 12 - 7 * u / LAME;
   const bez = (p0, p1, p2, p3, n = 10) => Array.from({ length: n }, (_, i) => {
     const t = i / n, s = 1 - t;
@@ -76,37 +85,40 @@ module.exports = (h) => {
     pts.push(p);
     return pts;
   };
+  // la poignée fermée, en crosse de pistolet : la corne en haut, la prise qui file vers l'arrière
+  const POIGNEE = courbeBez([3, 12], [
+    [[0.5, 13], [-3, 14.5], [-6, 15.8]],
+    [[-7.5, 16.4], [-9.2, 17.2], [-10, 16.6]],
+    [[-10.6, 16], [-9.6, 14.6], [-8.4, 13.6]],
+    [[-10, 10.5], [-12.8, 4.5], [-14.8, 0.6]],
+    [[-15.6, -1], [-16.8, -2.4], [-16, -3.2]],
+    [[-13, -3.4], [-8, -1.6], [-3, -0.4]],
+    [[-1, 0], [1.5, 0], [3, 0]],
+    [[4.2, 3], [4.2, 9], [3, 12]],
+  ]);
+  // le trou de la main, une fente arrondie parallèle à la prise
+  const TROU = (() => {
+    const A = [-4.6, 10.2], B = [-9.0, 2.6], r = 1.8;
+    const ax = B[0] - A[0], ay = B[1] - A[1], al = Math.hypot(ax, ay), a0 = Math.atan2(ax / al, -ay / al);
+    const demi = (c, s) => Array.from({ length: 13 }, (_, i) => { const a = s + Math.PI * i / 12; return [c[0] + r * Math.cos(a), c[1] + r * Math.sin(a)]; });
+    return demi(B, a0 + Math.PI).concat(demi(A, a0));
+  })();
   const egoine = (P, L) => {
-    const S = ([u, v]) => P(XD + v, L, ZT - u);
-    // la poignée fermée, en crosse de pistolet : la corne en haut, la prise qui file vers l'arrière
-    const poignee = courbeBez([2, 12], [
-      [[0, 13.5], [-2, 15.5], [-4.5, 17]],
-      [[-6, 18], [-7.6, 18.8], [-8.6, 18]],
-      [[-9.6, 17.2], [-10, 15.6], [-10.5, 14]],
-      [[-12, 9.5], [-14, 4.5], [-16, 0.5]],
-      [[-17.2, -1.5], [-17, -3.6], [-15, -4]],
-      [[-12, -4.4], [-9, -2.6], [-6, -1.3]],
-      [[-3, -0.3], [0, 0], [2, 0]],
-      [[3.4, 3], [3.4, 9], [2, 12]],
-    ]).map(S);
-    // le trou de la main, parallèle à la prise
-    const A = [-7.2, 13], B = [-11.3, 3], rr = 1.9;
-    const ax = B[0] - A[0], ay = B[1] - A[1], al = Math.hypot(ax, ay), nx = -ay / al, ny = ax / al;
-    const ang0 = Math.atan2(ny, nx);
-    const demi = (c, a0) => Array.from({ length: 13 }, (_, i) => { const a = a0 + Math.PI * i / 12; return [c[0] + rr * Math.cos(a), c[1] + rr * Math.sin(a)]; });
-    const trou = demi(B, ang0).concat(demi(A, ang0 + Math.PI)).map(S);
-    // la lame hors de la neige : le dos, puis les dents de la neige jusqu'à la poignée
-    const uN = ZT;                                     // u où la lame entre dans la neige
-    const dos = pas(1, uN, 6).map(u => [u, larg(u)]);
+    const sn = Math.sin(PENTE), cs = Math.cos(PENTE);
+    const S = ([u, v]) => P(XS + (u - UN) * sn - v * cs, L, -(u - UN) * cs - v * sn);
+    const zOf = ([u, v]) => -(u - UN) * cs - v * sn;
+    // le contour de la lame, du talon côté dos jusqu'à la pointe, puis le long des dents
+    const tour = pas(1, LAME, 60).map(u => [u, larg(u)]).concat([[LAME, 0]], pas(LAME, 1, 60).map(u => [u, 0]));
+    const hors = tour.filter(p => zOf(p) >= 0), dedans = tour.filter(p => zOf(p) <= 0);
+    // les dents, de l'entrée dans la neige jusqu'à la poignée
     const dents = [];
-    for (let u = uN; u > 2.6; u -= 2.4) { dents.push([u, 0]); if (u - 1.2 > 2.6) dents.push([u - 1.2, -1.1]); }
-    dents.push([2.2, 0]);
-    const lame = dos.concat(dents).map(S);
-    // la lame dans la neige, cachée, jusqu'à la pointe
-    const cachee = [[uN, larg(uN)], [LAME, larg(LAME)], [LAME, 0], [uN, 0]].map(S);
-    // le va-et-vient de la scie, à côté du dos
-    const va = [[-2, 22], [uN - 2, 22]].map(S).map(p => p.map(c => +c.toFixed(1)));
-    return { poignee, trou, lame, dents: dents.map(S), cachee, va };
+    for (let u = UN; u > 3.4; u -= 2.4) { dents.push([u, 0]); if (u - 1.2 > 3.4) dents.push([u - 1.2, -1.1]); }
+    dents.push([3, 0]);
+    const dos = hors.filter(p => p[1] > 0);
+    const lame = dos.concat(dents);
+    // le va-et-vient, à côté des dents
+    const va = [[1, -6], [UN - 3, -6]].map(S).map(p => p.map(c => +c.toFixed(1)));
+    return { poignee: POIGNEE.map(S), trou: TROU.map(S), lame: lame.map(S), dos: dos.map(S), dents: dents.map(S), cachee: dedans.map(S), va, S };
   };
 
   // ─── Vue 2 : le premier rang et le départ de la spirale, vus de trois quarts.
@@ -162,11 +174,11 @@ module.exports = (h) => {
   return {
     ref: '12-05a',
     titre: 'La maison de blocs : tailler et monter',
-    desc: 'Maison de neige en blocs (iglou), trois vues du chantier. Tailler : dans la paroi de la fosse, le bloc scié à la profondeur de la lame, 20 à 25 cm d’épaisseur, environ 60 cm de haut, le fond tranché net avant de le soulever ; la fosse d’où sortent les blocs devient le plancher. Le premier rang posé en cercle autour de la fosse, chaque bloc penché vers l’intérieur ; le premier bloc taillé en biseau comme une rampe ; le bloc suivant, plus long, posé sur la pente, et le rang qui continue en spirale, joints croisés, chaque bloc appuyé sur les deux du dessous. La clé : le dernier trou au sommet fermé d’un bloc taillé à sa forme, plus large en haut qu’en bas, descendu de dehors ; les joints colmatés de neige écrasée.',
+    desc: 'Maison de neige en blocs (iglou), trois vues du chantier. Tailler : dans la paroi de la fosse, le bloc scié à l’égoïne, en va-et-vient, à la profondeur de la lame, 20 à 25 cm d’épaisseur, environ 60 cm de haut, le fond tranché net avant de le soulever ; la fosse d’où sortent les blocs devient le plancher. Le premier rang posé en cercle autour de la fosse, chaque bloc penché vers l’intérieur ; le premier bloc taillé en biseau comme une rampe ; le bloc suivant, plus long, posé sur la pente, et le rang qui continue en spirale, joints croisés, chaque bloc appuyé sur les deux du dessous. La clé : le dernier trou au sommet fermé d’un bloc taillé à sa forme, plus large en haut qu’en bas, descendu de dehors ; les joints colmatés de neige écrasée.',
     format: 'pleine',
     disposition: [['tailler', 'spirale'], ['cle']],
     hauteurs: [1.08, 1],
-    largeurs: [[1, 1.55], [1]],
+    largeurs: [[1, 1.24], [1]],
     vues: {
       tailler: {
         titre: 'Tailler les blocs',
@@ -194,7 +206,8 @@ module.exports = (h) => {
           // lame qui s'effile vers la pointe, les dents à l'entrée dans la neige, le reste en tireté
           const eg = egoine(P, L);
           out.push(h.chemin(eg.cachee, h.a.cache));
-          out.push(h.chemin(eg.lame, blanc(h.a.arete), true));
+          out.push(h.chemin(eg.lame, h.a.blanc, true));
+          out.push(h.chemin(eg.dos, h.a.arete));
           out.push(h.chemin(eg.dents, h.a.arete));
           out.push(h.chemin([P(22, L, 0), P(0, L, 0)], h.a.arete));
           out.push(h.chemin(eg.poignee, blanc(h.a.arete), true));
@@ -209,7 +222,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const { P, L } = tG(z);
-          const lame = P(9.5, L, -30), fond = P(0, 28, -60), fosse = P(-26, 72, -60);
+          const lame = egoine(P, L).S([50, 4]), fond = P(0, 28, -60), fosse = P(-26, 72, -60);
           return [
             { n: 1, rond: [lame[0] - 40, lame[1] - 12], cible: lame, texte: 'scier à la profondeur de la lame' },
             { n: 2, rond: [fond[0] - 22, fond[1] + 58], cible: fond, texte: 'trancher le fond net, puis soulever' },

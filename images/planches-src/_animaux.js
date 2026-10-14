@@ -54,6 +54,55 @@ function bez(P, n = 24) {
   return out;
 }
 const cl = pts => [M.versCL(pts)];
+
+// Une spline de Catmull-Rom par des points clés, comme un dessinateur trace son contour par-dessus
+// les masses. Un point marqué d'un troisième élément 'c' est un angle : la courbe s'y casse.
+function trace(pts, ferme = true, pas = 1.5) {
+  const morceaux = []; let cur = [];
+  pts.forEach((p, i) => { cur.push(p); if (p[2] === 'c' && i > 0 && i < pts.length - 1) { morceaux.push(cur); cur = [p]; } });
+  morceaux.push(cur);
+  const seg = (P, boucle) => {
+    const n = P.length; if (n < 3) return P.map(p => [p[0], p[1]]);
+    const g = i => boucle ? P[(i + n) % n] : P[Math.max(0, Math.min(n - 1, i))];
+    const out = [];
+    for (let i = 0; i < (boucle ? n : n - 1); i++) {
+      const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
+      const k = Math.max(2, Math.ceil(Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) / pas));
+      for (let j = 0; j < k; j++) {
+        const t = j / k, t2 = t * t, t3 = t2 * t;
+        out.push([0, 1].map(c => 0.5 * (2 * p1[c] + (-p0[c] + p2[c]) * t + (2 * p0[c] - 5 * p1[c] + 4 * p2[c] - p3[c]) * t2 + (-p0[c] + 3 * p1[c] - 3 * p2[c] + p3[c]) * t3)));
+      }
+    }
+    if (!boucle) out.push([P[n - 1][0], P[n - 1][1]]);
+    return out;
+  };
+  if (morceaux.length === 1) return seg(pts, ferme);
+  if (ferme) { const d = morceaux.pop(); morceaux[0] = d.concat(morceaux[0].slice(1)); }
+  const out = [];
+  morceaux.forEach((m, k) => { const q = seg(m, false); out.push(...(k ? q.slice(1) : q)); });
+  return out;
+}
+
+// Lisse un contour fermé : rééchantillonné à pas constant, puis moyenné par une gaussienne (en mm).
+// Les bosses de l'union (le cou sur le dos, la patte sur la poitrine) s'en vont, la forme reste.
+function lisserBoucle(P, pas = 1.5, sigma = 3) {
+  const n0 = P.length; if (n0 < 4) return P;
+  const L = []; let tot = 0;
+  for (let i = 0; i < n0; i++) { const a = P[i], b = P[(i + 1) % n0]; const d = Math.hypot(b[0] - a[0], b[1] - a[1]); L.push(d); tot += d; }
+  const n = Math.max(12, Math.round(tot / pas)), q = [];
+  let i = 0, acc = 0;
+  for (let k = 0; k < n; k++) {
+    const cible = k * tot / n;
+    while (acc + L[i] < cible && i < n0 - 1) { acc += L[i]; i++; }
+    const t = L[i] ? (cible - acc) / L[i] : 0, a = P[i], b = P[(i + 1) % n0];
+    q.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]);
+  }
+  const r = Math.ceil(3 * sigma / (tot / n)), w = [];
+  for (let k = -r; k <= r; k++) w.push(Math.exp(-0.5 * Math.pow(k * (tot / n) / sigma, 2)));
+  const sw = w.reduce((a, b) => a + b, 0);
+  return q.map((_, k) => { let x = 0, y = 0; for (let j = -r; j <= r; j++) { const p = q[(k + j + n) % n], c = w[j + r]; x += p[0] * c; y += p[1] * c; } return [x / sw, y / sw]; });
+}
+const lisser = (paths, sigma = 3) => paths.map(P => M.versCL(lisserBoucle(M.deCL(P), 1.5, sigma)));
 const U = (...l) => M.unionCL(l);
 
 // ─── rendu commun ─────────────────────────────────────────────────────────────────────────
@@ -80,53 +129,45 @@ function lievre(h, o = {}) {
   const ep = o.trait || 1.5, epI = 0.7;
   const Tm = p => [X + m * s * p[0], Y - s * p[1]];
 
-  // Les masses (mm, y vers le haut, origine au sol sous le cou ; la bête regarde vers +x).
-  const tete = { c: [62, 118], rx: 50, ry: 33, a: -20 };
-  const masses = {
-    cuisse: ellipse([-190, 92], 78, 84, 12),
-    dos: ellipse([-120, 118], 92, 62, -8),
-    poitrine: ellipse([-35, 92], 58, 58, 0),
-    cou: capsule([-20, 112], [30, 122], 36, 30),
-    tete: ellipse(tete.c, tete.rx, tete.ry, tete.a),
-    museau: disque([98, 100], 20),
-    queue: disque([-262, 112], 16),
-    talon: capsule([-205, 42], [-238, 14], 20, 14),
-    pied: capsule([-238, 11], [-95, 9], 11, 9),
-    patteP: capsule([-28, 56], [-12, 12], 13, 10),
-    mainP: capsule([-14, 9], [12, 8], 9, 8),
-    oreille: null,
+  // Le contour, tracé par points clés sur les masses (mm, y vers le haut, origine au sol sous le
+  // cou ; la bête regarde vers +x). Les masses qui l'ont réglé : la tête, une ellipse de 92 × 62
+  // inclinée nez en bas ; le corps, un œuf de 300 de long, haut de 175 sur la cuisse ; la cuisse,
+  // un disque de 125 ; le pied de derrière, 190 du talon aux doigts, à plat sous la cuisse.
+  const CORPS = [
+    [112, 104], [105, 124], [84, 143], [56, 154], [28, 156], [4, 150],                  // museau, front, crâne, nuque
+    [-28, 152], [-70, 162], [-115, 172], [-160, 174], [-198, 164], [-225, 144],          // le dos, la croupe
+    [-236, 126], [-243, 118], [-245, 108], [-242, 98],                                    // la queue, une petite touffe
+    [-244, 76], [-240, 46], [-232, 20], [-222, 4, 'c'],                                  // l'arrière de la cuisse, le talon
+    [-170, 0], [-100, 0], [-52, 0, 'c'], [-40, 5], [-44, 13], [-64, 17], [-92, 21], [-112, 26, 'c'],   // la semelle, les doigts, le dessus du pied
+    [-102, 33], [-84, 38], [-62, 41], [-47, 38],                                          // le ventre, jusqu'au coude
+    [-38, 27], [-33, 12], [-35, 1, 'c'], [-10, 0], [8, 3], [6, 10], [-10, 14],           // la patte de devant et sa main
+    [-13, 32], [-8, 50], [4, 64], [22, 74], [46, 80], [70, 84], [92, 88], [105, 95],     // le poitrail, la gorge, le menton
+  ];
+  const corpsCL = cl(trace(CORPS));
+  // l'oreille : posée sur l'arrière du crâne, couchée vers l'arrière, plus courte que la tête
+  const OREILLE = [[52, 150], [50, 170], [40, 196], [24, 220], [8, 234], [0, 231], [-1, 220], [6, 196], [14, 172], [20, 150]];
+  const OREILLE_L = [[62, 150], [62, 172], [56, 200], [44, 226], [32, 238], [24, 235], [24, 224], [28, 198], [32, 172], [32, 150]];
+  const PATTE_L = [[6, 50], [12, 30], [16, 12], [17, 5], [32, 2], [34, 0, 'c'], [8, 0, 'c'], [4, 10], [-2, 30], [-6, 50]];
+  const oreilleP = cl(trace(OREILLE));
+  const proche = lisser(M.ferme(U(corpsCL, oreilleP), 4), 1.2);
+  const loin = lisser(M.moins(U(cl(trace(OREILLE_L)), cl(trace(PATTE_L))), M.decale(proche, -0.5)), 0.8);
+
+  // Les traits intérieurs (0,7) : le devant de la cuisse, le creux de l'oreille.
+  const cuisseL = trace([[-166, 164], [-122, 140], [-104, 100], [-110, 62], [-124, 34]], false);
+  const axeO = trace([[28, 166], [20, 190], [10, 212]], false);
+  // le bout noir de l'oreille : ce qui est au-delà d'une ligne en travers, du côté de la pointe
+  const coupe = (a, b, pointe) => {
+    const d = [b[0] - a[0], b[1] - a[1]]; let n = [-d[1], d[0]];
+    if (n[0] * (pointe[0] - a[0]) + n[1] * (pointe[1] - a[1]) < 0) n = [-n[0], -n[1]];
+    return cl([a, b, [b[0] + n[0] * 3, b[1] + n[1] * 3], [a[0] + n[0] * 3, a[1] + n[1] * 3]]);
   };
-  // L'oreille : une ellipse longue, posée sur l'arrière du crâne, couchée vers l'arrière.
-  const oreille = (base, ang, L, l) => ellipse([base[0] + Math.cos(ang * RAD) * L / 2, base[1] + Math.sin(ang * RAD) * L / 2], L / 2, l / 2, ang);
-  const baseO = [40, 140];
-  masses.oreille = oreille(baseO, 118, 92, 30);
-  const oreilleL = oreille([50, 142], 104, 88, 28);
-  const patteL = U(capsule([-5, 56], [16, 12], 12, 9), capsule([14, 9], [38, 8], 8, 7));
+  const boutP = M.inter(M.inter(proche, oreilleP), coupe([34, 218], [-12, 208], [4, 234]));
+  const boutL = M.inter(loin, coupe([54, 226], [14, 216], [28, 238]));
 
-  // La silhouette proche : l'union, les creux arrondis (sous le menton, entre la cuisse et le dos).
-  const corps = M.ferme(M.unionCL(['cuisse', 'dos', 'poitrine', 'cou', 'tete', 'museau', 'queue', 'talon', 'pied', 'patteP', 'mainP'].map(k => Array.isArray(masses[k][0]) ? cl(masses[k]) : masses[k])), 14);
-  const proche = M.ferme(U(corps, cl(masses.oreille)), 6);
-  const loin = M.moins(U(cl(oreilleL), patteL), proche);
-
-  // Les traits intérieurs : là où une masse passe devant une autre.
-  const dedans = M.decale(proche, -3);
-  const cuisseL = M.bordsDans(cl(ellipse([-190, 92], 78, 84, 12)), M.moins(dedans, M.decale(cl(masses.pied), 6)));
-  const patteBord = M.bordsDans(U(masses.patteP), M.moins(dedans, M.decale(U(masses.mainP), 1)));
-  // le creux de l'oreille, un trait le long de son axe
-  const axeO = bez([[baseO[0] + 6, baseO[1] + 10], [baseO[0] - 4, baseO[1] + 34], [baseO[0] - 14, baseO[1] + 58], [baseO[0] - 26, baseO[1] + 74]]);
-  // le bout noir de l'oreille : ce qui dépasse d'une ligne tirée en travers, près de la pointe
-  const bout = (base, ang, L) => {
-    const d = [Math.cos(ang * RAD), Math.sin(ang * RAD)], n = [-d[1], d[0]], c = [base[0] + d[0] * L * 0.8, base[1] + d[1] * L * 0.8];
-    return [[c[0] + n[0] * 40, c[1] + n[1] * 40], [c[0] + n[0] * 40 + d[0] * 60, c[1] + n[1] * 40 + d[1] * 60], [c[0] - n[0] * 40 + d[0] * 60, c[1] - n[1] * 40 + d[1] * 60], [c[0] - n[0] * 40, c[1] - n[1] * 40]];
-  };
-  const boutP = M.inter(cl(masses.oreille), cl(bout(baseO, 118, 92)));
-  const boutL = M.inter(M.moins(cl(oreilleL), proche), cl(bout([50, 142], 104, 88)));
-
-  // L'œil : grand, en amande, haut sur le côté de la tête ; la narine et la fente de la lèvre.
-  const oeilC = [70, 128];
-  const oeil = ellipse(oeilC, 9, 6.5, -12, 36);
-  const narine = bez([[104, 112], [107, 110], [110, 108], [113, 106]], 6);
-  const levre = bez([[112, 100], [108, 96], [104, 93], [99, 92]], 8);
+  // L'œil : grand, en amande, haut sur le côté de la tête ; la narine.
+  const oeilC = [72, 128];
+  const oeil = ellipse(oeilC, 9.5, 7, -10, 36);
+  const narine = trace([[103, 113], [106, 110], [109, 106]], false);
 
   const R = rendu({ echelle: s }, Tm);
   const out = [`<g data-animal="lievre">`];
@@ -136,18 +177,18 @@ function lievre(h, o = {}) {
   out.push(R.plein(proche, BLANC));
   out.push(R.plein(boutP, NOIR));
   out.push(R.bord(proche, ep));
-  out.push(R.ligne(cuisseL, epI), R.ligne(patteBord, epI), R.ligne([axeO], epI), R.ligne([narine, levre], epI));
+  out.push(R.ligne([cuisseL, axeO, narine], epI));
   out.push(R.plein(cl(oeil), NOIR));
   out.push('</g>');
   const svg = out.filter(Boolean).join('\n');
 
   const geo = {
-    cou: Tm([5, 118]), menton: Tm([60, 84]), museau: Tm([118, 102]), oeil: Tm(oeilC), sol: Y,
-    nuque: Tm([10, 150]), gorge: Tm([5, 86]), echelle: s, miroir: m < 0,
+    cou: Tm([6, 112]), menton: Tm([70, 84]), museau: Tm([112, 104]), oeil: Tm(oeilC), sol: Y,
+    nuque: Tm([0, 147]), gorge: Tm([8, 72]), echelle: s, miroir: m < 0,
   };
   const pts = M.deCL(proche[0] || []).map(Tm);
   if (pts.length) geo.boite = { x0: Math.min(...pts.map(p => p[0])), x1: Math.max(...pts.map(p => p[0])), y0: Math.min(...pts.map(p => p[1])), y1: Math.max(...pts.map(p => p[1])) };
   return Object.assign({ svg, toString() { return svg; } }, geo);
 }
 
-module.exports = { lievre, _outils: { ellipse, disque, capsule, bez, rendu } };
+module.exports = { lievre, _outils: { ellipse, disque, capsule, bez, trace, lisser, rendu } };
