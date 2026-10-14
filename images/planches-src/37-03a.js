@@ -157,7 +157,7 @@ module.exports = (h) => {
     out.push(h.path(lisse(fl), A.arete), h.path(lisse(fl.map(p => [p[0] + 2.4, p[1]])), A.detail));
     out.push(h.cercle(C[0], C[1], 4.4, A.blanc), h.cercle(C[0], C[1], 4.4, A.hachure('bois', 'arete')));
     // il se pousse de l'intérieur
-    out.push(h.geste(`M${f([C[0] + 16, G - 30])} Q${f([C[0] + 2, G - 38])} ${f([C[0] - 14, G - 30])}`));
+    out.push(h.geste(`M${f([C[0] + 17, G - 19])} Q${f([C[0] + 2, G - 28])} ${f([C[0] - 15, G - 20])}`));
     // le sapinage, de la bille à la paroi, et le rond de sol nu au milieu
     out.push(sapinCote(cx + xB + rB + 3, cx + R - 2, G, 1));
     out.push(sapinCote(cx - xB - rB - 3, C[0] + 6, G, -1));

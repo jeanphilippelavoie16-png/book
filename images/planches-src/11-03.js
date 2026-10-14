@@ -1,5 +1,10 @@
 // Planche 11-03 — le chalet paré aux braises (chapitre 11, « Faire de l'eau sous pression sans
 // pompe » et « Fermer le bâtiment aux braises avec ce qui traîne »).
+//
+// La charte : la porte, derrière la galerie, en gris loin (les barreaux passent devant) ; dans
+// le bord du toit en coupe, le creux sous le chevron, là où l'évent laisse entrer l'air et la
+// braise, en gris loin. Pas de rouge : aucune flèche n'est un geste (l'eau, l'air, le
+// rayonnement restent noirs) et le chapitre ne donne pas de point à contrôler.
 module.exports = (h) => {
   const wf = at => at.replace('fill="none"', 'fill="#ffffff"');
   const n1 = v => Math.round(v * 10) / 10;
@@ -69,7 +74,7 @@ module.exports = (h) => {
     o.push(h.rect(60, 136, 6, 144, wf(h.a.arete)), h.rect(414, 136, 6, 144, wf(h.a.arete)));
     o.push(h.rect(60, 280, 360, 12, wf(h.a.arete)));
     // porte, derrière la galerie
-    o.push(h.rect(168, 148, 44, 110, wf(h.a.arete)));
+    o.push(h.rect(168, 148, 44, 110, h.a.loin), h.rect(168, 148, 44, 110, h.a.arete));
     o.push(h.rect(175, 156, 30, 40, h.a.detail), h.rect(175, 204, 30, 46, h.a.detail));
     o.push(h.cercle(205, 206, 1.8, h.a.plein));
     // vitre : chambranle, appui, tôle ondulée vissée dans le chambranle
@@ -127,6 +132,8 @@ module.exports = (h) => {
   const yt = x => 69 + 0.45 * x;
   const bord = z => {
     const o = [];
+    // le creux sous le chevron, entre le soffite et le toit : vu par la coupe
+    o.push(h.chemin([[44, 105.8], [150, 153.5], [44, 153.5]], h.a.loin, true));
     o.push(h.rect(14, 112, 4, 84, wf(h.a.arete)));
     o.push(h.rect(18, 112, 22, 84, h.a.hachure('isolant')));
     o.push(h.rect(18, 104, 22, 8, h.a.hachure('bois')));

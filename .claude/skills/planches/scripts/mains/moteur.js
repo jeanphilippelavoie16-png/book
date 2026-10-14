@@ -1125,10 +1125,11 @@ function construire(o, prep = null) {
     const ab = o.avantbras || {};
     const S = sq.segments.avantbras, LA = S.L;
     const d0 = m3(S.u, -1);                                   // du poignet vers le coude, selon la pose
+    const Mi = [[M[0][0], M[1][0], M[2][0]], [M[0][1], M[1][1], M[2][1]], [M[0][2], M[1][2], M[2][2]]];
+    const bras = ab.bras || null;
     let d1 = d0;
     if (ab.versLocal) {
       const v2 = uni(ab.versLocal);
-      const Mi = [[M[0][0], M[1][0], M[2][0]], [M[0][1], M[1][1], M[2][1]], [M[0][2], M[1][2], M[2][2]]];
       d1 = u3(matVec(Mi, [v2[0], v2[1], 0]));
       // le poignet ne plie pas au-delà de ce qu'il peut (proportions.json, articulations) : la déviation dans le
       // plan de la paume jusqu'à 40°, la flexion ou l'extension jusqu'à 75° ; au-delà, l'avant-bras s'arrête à la
@@ -1144,10 +1145,9 @@ function construire(o, prep = null) {
       }
     }
     // la longueur dessinée : courte par défaut (un gros plan coupe l'avant-bras), 'entier' jusqu'au coude, ou
-    // celle qui sort de la boîte de la vue ('bord', calculée par mainSimple)
-    let Ldes = typeof ab.longueur === 'number' ? ab.longueur : (ab.longueur === 'entier' ? LA : (ab.longueur === 'bord' && ab.versDist ? ab.versDist : AVANTBRAS_COURT * kL0));
+    // celle qui sort de la boîte de la vue ('bord', calculée par mainSimple) ; avec le bras, entier
+    let Ldes = bras ? LA : (typeof ab.longueur === 'number' ? ab.longueur : (ab.longueur === 'entier' ? LA : (ab.longueur === 'bord' && ab.versDist ? ab.versDist : AVANTBRAS_COURT * kL0)));
     Ldes = Math.max(10, Math.min(Ldes, LA));
-    const entier = Ldes >= LA - 0.5;
     const Fab = { dos: { 'avantbras': F.dos.avantbras }, profil: { 'avantbras': F.profil.avantbras } };
     // l'axe : échantillonné tous les 2 mm ; la direction glisse de d0 à d1 sur Lb
     const Lb = Math.min(LA, 45 * kL0), ang01 = Math.acos(Math.max(-1, Math.min(1, d3(d0, d1)))) / RAD;
@@ -1157,6 +1157,20 @@ function construire(o, prep = null) {
     for (let s_ = 2; s_ <= LA + 1e-6; s_ += 2) { const pr = axe[axe.length - 1], dm = dirA(s_ - 1); axe.push({ s: s_, c: a3(pr.c, m3(dm, 2)), d: dirA(s_) }); }
     const surAxe = s_ => { const k = Math.max(0, Math.min(axe.length - 2, Math.floor(s_ / 2))), A = axe[k], B = axe[k + 1], t = (s_ - A.s) / 2; return { c: i3(A.c, B.c, t), d: u3(i3(A.d, B.d, t)) }; };
     const cadreEn = s_ => { const q = surAxe(s_), n = orth(transporte(S.n, d0, q.d), q.d), uD = m3(q.d, -1); return { c: q.c, d: q.d, fr: { r: x3(n, uD), n } }; };
+    // la fin : une droite de la vue où le membre s'arrête, quelle que soit sa longueur (deux mains l'une sur
+    // l'autre coupées au même trait : agent 5, M11). Le côté gardé est celui de la main.
+    const finL = ab.finLocal && ab.finLocal.length === 2 ? ab.finLocal : null;
+    let nFin = null, cGarde = 1, parFin = false;
+    if (finL && lon(sub(finL[1], finL[0])) > 1e-6) {
+      const u = uni(sub(finL[1], finL[0])); nFin = [-u[1], u[0]];
+      cGarde = Math.sign(dot(sub(p2(sq.points['majeur.mcp']), finL[0]), nFin)) || 1;
+    }
+    const auDela = q => nFin !== null && dot(sub(q, finL[0]), nFin) * cGarde < 0;
+    if (nFin && !bras) {
+      const A = axe.find(A => auDela(p2(A.c)));
+      if (A && A.s < LA - 1) { Ldes = Math.max(10, Math.min(LA, A.s + 20 * kL0)); parFin = true; }
+    }
+    const entier = !bras && !parFin && Ldes >= LA - 0.5;
     const secs = [], sph = [];
     const nS = Math.max(3, Math.ceil(Ldes / 6));
     for (let k = 0; k <= nS; k++) {
@@ -1174,16 +1188,81 @@ function construire(o, prep = null) {
     }
     const polysAB = [];
     for (let k = 0; k < secs.length - 1; k++) polysAB.push(enveloppe(secs[k].concat(secs[k + 1])));
-    piece('avantbras', 'base', polysAB, sph, -1);
     const qF = cadreEn(Ldes);
-    sq.points.coude = entier ? cadreEn(LA).c : a3(qF.c, m3(qF.d, LA - Ldes));
-    // la coupe : les deux coins de la dernière section, vue
-    const wF = demiAxes(Fab, 'avantbras', Ldes / LA, kW);
-    const sec = section(qF.c, qF.fr, wF).map(p2);
-    const ax2 = uni(sub(p2(a3(qF.c, qF.d)), p2(qF.c))), nrm = [-ax2[1], ax2[0]];
+    sq.points.coude = entier || bras ? cadreEn(LA).c : a3(qF.c, m3(qF.d, LA - Ldes));
+    // la dernière section du membre dessiné : celle de l'avant-bras, ou celle du bras
+    let bout = { c: qF.c, fr: qF.fr, w: demiAxes(Fab, 'avantbras', Ldes / LA, kW), d: qF.d };
+    let plisCoude = null;
+    // le bras (agent 5, M10) : il repart du coude dans la même union, vers bras.vers (ou plié de bras.pli à
+    // l'écran) ; le coude tourne en éventail autour de son centre (l'extérieur du pli arrondi, l'intérieur net) ;
+    // replié de plus de 100°, l'avant-bras appuyé sur le biceps y laisse un trait (le pli du coude, comme
+    // corps/moteur.js). Le bout du bras est une coupe, comme celle de l'avant-bras.
+    if (bras) {
+      const qE = cadreEn(LA), cE = qE.c, dA3 = qE.d, wA = demiAxes(Fab, 'avantbras', 1, kW);
+      const e2 = p2(cE), LB = LA * BRAS_SUR_AVANTBRAS;
+      const pA = p2(dA3), dA2 = lon(pA) > 1e-6 ? uni(pA) : [1, 0];
+      let dB2 = dA2;
+      if (bras.versLocal) { const v = sub(bras.versLocal, e2); if (lon(v) > 1) dB2 = uni(v); }
+      else if (typeof bras.pli === 'number') dB2 = tourne(dA2, bras.pli);
+      let dB3 = u3(matVec(Mi, [dB2[0], dB2[1], 0]));
+      let flex = Math.acos(Math.max(-1, Math.min(1, d3(dA3, dB3)))) / RAD;
+      if (flex > PLI_COUDE_MAX + 0.01) {
+        const k = l3(x3(dA3, dB3)) > 1e-6 ? u3(x3(dA3, dB3)) : u3(x3(dA3, qE.fr.n));
+        const cle = `coude:${Math.round(flex)}`;
+        if (!DEJA_DIT.has(cle)) { DEJA_DIT.add(cle); console.warn(`mainSimple : le bras demandé replie le coude de ${Math.round(flex)}° (${PLI_COUDE_MAX}° au plus) : il s'arrête à la butée`); }
+        dB3 = u3(rot3(dA3, k, PLI_COUDE_MAX)); flex = PLI_COUDE_MAX;
+      }
+      const pB = p2(dB3), kB = Math.max(0.2, lon(pB));      // 2D par mm de bras
+      const dBv = lon(pB) > 1e-6 ? uni(pB) : dB2;
+      // sa longueur : en mm, 'entier' (jusqu'à l'épaule), 'bord' (sortir de la boîte de la vue, + 15 mm), ou la moitié
+      let LBd = typeof bras.longueur === 'number' ? bras.longueur : (bras.longueur === 'entier' ? LB : 0.5 * LB);
+      if (bras.bordLocal && bras.longueur !== 'entier' && typeof bras.longueur !== 'number') {
+        const t = sortieRayon(e2, dBv, bras.bordLocal);
+        if (t !== null) LBd = t / kB + 15 * kL0;
+      }
+      if (nFin) {
+        for (let s_ = 0; s_ <= 1.6 * LB; s_ += 2) if (auDela(add(e2, mul(dBv, s_ * kB)))) { LBd = s_ + 20 * kL0; parFin = true; break; }
+      }
+      LBd = Math.max(10, Math.min(LBd, 1.6 * LB));
+      const nE = qE.fr.n, frEn = d => { const n = orth(transporte(nE, dA3, d), d); return { r: x3(n, m3(d, -1)), n }; };
+      const Fbr = { dos: { bras: FORMES.dos.bras }, profil: { bras: FORMES.profil.bras } };
+      const wB0 = demiAxes(Fbr, 'bras', 0, kW);
+      const polysBR = [];
+      // l'éventail du coude : la section tourne autour du centre de l'articulation, de l'avant-bras au bras
+      if (flex > 0.5) {
+        const kE = u3(x3(dA3, dB3)), K = Math.max(2, Math.ceil(flex / 8)), ev = [];
+        for (let j = 0; j <= K; j++) {
+          const t = j / K, d = u3(rot3(dA3, kE, flex * t));
+          ev.push(section(cE, frEn(d), wA.map((v, i) => v + (wB0[i] - v) * t)).map(p2));
+        }
+        for (let j = 0; j < K; j++) polysBR.push(enveloppe(ev[j].concat(ev[j + 1])));
+      }
+      const frB = frEn(dB3), secB = [];
+      const nB = Math.max(3, Math.ceil(LBd / 6));
+      for (let k = 0; k <= nB; k++) {
+        const s_ = LBd * k / nB, c = a3(cE, m3(dB3, s_)), w = demiAxes(Fbr, 'bras', Math.min(1, s_ / LB), kW);
+        secB.push(section(c, frB, w).map(p2));
+        const pc = matVec(M, c); sph.push({ x: pc[0], y: pc[1], z: pc[2], r: (w[0] + w[1] + w[2] + w[3]) / 4 });
+      }
+      for (let k = 0; k < secB.length - 1; k++) polysBR.push(enveloppe(secB[k].concat(secB[k + 1])));
+      if (flex > 100) plisCoude = { fa: polysAB.slice(), br: polysBR.slice(Math.max(0, polysBR.length - nB)), centre: e2, r: 1.1 * (wA[0] + wA[1]) / 2 };
+      polysAB.push(...polysBR);
+      sq.points.epaule = a3(cE, m3(dB3, LB));
+      bout = { c: a3(cE, m3(dB3, LBd)), fr: frB, w: demiAxes(Fbr, 'bras', Math.min(1, LBd / LB), kW), d: dB3 };
+    }
+    piece('avantbras', 'base', polysAB, sph, -1);
+    if (plisCoude) pieces[pieces.length - 1].plisCoude = plisCoude;
+    // la coupe : les deux coins de la dernière section, vue (sur la droite de fin, si elle coupe)
+    const sec = section(bout.c, bout.fr, bout.w).map(p2);
+    const ax2 = uni(sub(p2(a3(bout.c, bout.d)), p2(bout.c))), nrm = [-ax2[1], ax2[0]];
     let iMin = 0, iMax = 0;
     sec.forEach((p, i) => { if (dot(p, nrm) < dot(sec[iMin], nrm)) iMin = i; if (dot(p, nrm) > dot(sec[iMax], nrm)) iMax = i; });
-    coupe = { a: sec[iMin], b: sec[iMax], c: p2(qF.c), ax: ax2, region: null, plein: entier };
+    let cA = sec[iMin], cB = sec[iMax];
+    if (parFin && Math.abs(dot(ax2, nFin)) > 0.1) {
+      const surFin = p => add(p, mul(ax2, dot(sub(finL[0], p), nFin) / dot(ax2, nFin)));
+      cA = surFin(cA); cB = surFin(cB);
+    }
+    coupe = { a: cA, b: cB, c: p2(bout.c), ax: ax2, region: null, plein: entier, fin: parFin ? { A: finL[0], n: nFin, garde: cGarde } : null };
     // la manchette du gant : une bande plus large autour du poignet, son bord côté main en trait intérieur
     if (g0 && g0.manchette !== false) {
       const Lm = (g0.manchette || 45) * kL0, s0 = 4, s1 = Math.min(Ldes, s0 + Lm), mp = [], sm = [];

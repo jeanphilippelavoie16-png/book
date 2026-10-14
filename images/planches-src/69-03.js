@@ -1,4 +1,6 @@
 // Planche 69-03 — tenir la pièce sous la saumure, deux montages en coupe.
+// La charte : la pièce au contour fort ; au-dessus de la saumure, la paroi d'en face en gris loin,
+// qui dit qu'on regarde dans la chaudière. Pas de rouge : aucun geste, aucun point à vérifier.
 module.exports = (h) => {
   const surBlanc = t => t.replace('fill="none"', 'fill="#FFFFFF"');
 
@@ -59,6 +61,12 @@ module.exports = (h) => {
     return out;
   };
 
+  // au-dessus du liquide, on voit l'intérieur de la paroi d'en face : en gris loin
+  const fond = (g, ys) => {
+    const { cx, inner, rt } = g;
+    return h.chemin([[cx - inner(rt), rt], [cx + inner(rt), rt], [cx + inner(ys), ys], [cx - inner(ys), ys]], h.a.loin, true);
+  };
+
   const saumure = (g, ys) => {
     const { cx, inner, yb } = g;
     return h.chemin([[cx - inner(ys), ys], [cx + inner(ys), ys], [cx + inner(yb), yb], [cx - inner(yb), yb]], h.a.hachure('eau', 'aucun'), true);
@@ -99,6 +107,7 @@ module.exports = (h) => {
           const ys = ydt - sh * 0.45;          // niveau de la saumure
           const pierre = `M ${cx - sw} ${ydt} C ${cx - sw - 5} ${ydt - sh * 0.7} ${cx - sw * 0.4} ${ydt - sh - 2} ${cx + sw * 0.1} ${ydt - sh} C ${cx + sw * 0.7} ${ydt - sh + 2} ${cx + sw + 5} ${ydt - sh * 0.5} ${cx + sw} ${ydt} Z`;
           return [
+            fond(g, ys),
             saumure(g, ys),
             ...piece(g),
             h.rect(cx - inner(ydt) + 1, ydt, 2 * inner(ydt) - 2, ep, surBlanc(h.a.arete)),
@@ -152,6 +161,7 @@ module.exports = (h) => {
           const contour = [...gauche, ...dos, ...droite, ...coinD, ...dessous.slice().reverse().slice(1), ...coinG];
           const ky = ytop - 18;
           return [
+            fond(g, ys),
             saumure(g, ys),
             ...piece(g),
             h.chemin(contour, surBlanc(h.a.arete), true),

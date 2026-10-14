@@ -139,7 +139,8 @@ module.exports = (h) => {
     // la tige, bouts arrondis, un reflet
     const A = M([-X_BOUT, V - R]), B = M([X_BOUT, V + R]), r = R * S;
     out.push(h.path(`M${f(A[0] + r)} ${f(A[1])} L${f(B[0] - r)} ${f(A[1])} A${f(r)} ${f(r)} 0 0 1 ${f(B[0] - r)} ${f(B[1])} L${f(A[0] + r)} ${f(B[1])} A${f(r)} ${f(r)} 0 0 1 ${f(A[0] + r)} ${f(A[1])} Z`, BT(2.4)));
-    out.push(h.path(`M${f(A[0] + r)} ${f(A[1] + 0.3 * r)} L${f(B[0] - r)} ${f(A[1] + 0.3 * r)}`, h.a.fin));
+    // le reflet, seulement quand la tige est assez grosse pour qu'il ne double pas le contour
+    if (r > 8) out.push(h.path(`M${f(A[0] + r)} ${f(A[1] + 0.5 * r)} L${f(B[0] - r)} ${f(A[1] + 0.5 * r)}`, h.a.fin));
     return out.join('\n');
   };
 

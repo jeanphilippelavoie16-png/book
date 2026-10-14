@@ -141,20 +141,31 @@ module.exports = (h) => {
           out.push(h.fleche(`M 36 ${byd - 40} L 36 ${byd - 95}`));
 
           // Le bâtonnet, cassé à gauche : il continue au-dessus de la piste.
-          out.push(h.chemin([[bout, byd - e], [14, byd - e], [8, byd - 6], [16, byd], [8, byd + 6], [14, byd + e], [bout, byd + e]], blanc(h.a.contour), true));
+          const baton = [[bout, byd - e], [14, byd - e], [8, byd - 6], [16, byd], [8, byd + 6], [14, byd + e], [bout, byd + e]];
+          out.push(h.chemin(baton, h.a.blanc, true));
+          // le dessous du bâtonnet, à l'ombre
+          out.push(h.chemin([[10, byd + 4.5], [bout, byd + 4.5], [bout, byd + e], [14, byd + e], [8, byd + 6]], h.a.ombre, true));
+          out.push(h.chemin(baton, h.a.contour, true));
           out.push(h.ligne(26, byd - 3, bout - 8, byd - 3, h.a.detail));
           out.push(h.ligne(20, byd + 6, bout - 30, byd + 6, h.a.detail));
           // La ligature de la corde.
           out.push(h.path([0, 1, 2].map((i) => `M ${52 + i * 7} ${byd - e - 2} L ${57 + i * 7} ${byd + e + 2}`).join(' '), h.a.arete));
 
           // Le piquet et son crochet : épaulement à plat, pan incliné dessous.
-          out.push(h.chemin([[x0, 26], [x0 + 5, 20], [x1 - 5, 20], [x1, 26], [x1, bas], [172, bas - 5], [160, bas + 4], [147, bas - 4], [x0, bas + 1],
-            [x0, byd - e + D], [xs, byd - e], [x0, byd - e]], blanc(h.a.contour), true));
+          const piquet = [[x0, 26], [x0 + 5, 20], [x1 - 5, 20], [x1, 26], [x1, bas], [172, bas - 5], [160, bas + 4], [147, bas - 4], [x0, bas + 1],
+            [x0, byd - e + D], [xs, byd - e], [x0, byd - e]];
+          out.push(h.chemin(piquet, h.a.blanc, true));
+          // la face de droite du piquet, à l'ombre
+          out.push(h.chemin([[171, 20], [x1 - 5, 20], [x1, 26], [x1, bas], [172, bas - 5]], h.a.ombre, true));
+          out.push(h.chemin(piquet, h.a.contour, true));
           // Fil du bois.
           const sous = (x) => byd - e + (xs - x) / (xs - x0) * D;
           [[148, 30, byd - e - 6], [148, sous(148) + 6, bas - 10], [160, 30, byd - e - 6], [160, sous(160) + 6, bas - 10], [174, 30, bas - 10]].forEach(([x, y1, y2]) => {
             out.push(h.path(`M ${x} ${y1} C ${x - 2} ${(2 * y1 + y2) / 3} ${x + 2} ${(y1 + 2 * y2) / 3} ${x} ${y2}`, h.a.detail));
           });
+
+          // le point qui décide, et qui gèle : le bâtonnet sous l'épaulement, son bout sur le pan
+          out.push(h.controle((xs + bout) / 2, byd, 19));
 
           return out.join('\n');
         },
